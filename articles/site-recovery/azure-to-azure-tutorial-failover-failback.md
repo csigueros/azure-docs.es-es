@@ -4,12 +4,12 @@ description: Tutorial para aprender tanto a conmutar por error como a reproteger
 ms.topic: tutorial
 ms.date: 11/05/2020
 ms.custom: mvc
-ms.openlocfilehash: 99263c83d25542073d63c1cba394a147bd5b2170
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 692b6645b2446fa55233506a0479b95b0743b029
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93392867"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223165"
 ---
 # <a name="tutorial-fail-over-azure-vms-to-a-secondary-region"></a>Tutorial: Conmutación por error de máquinas virtuales de Azure a una región secundaria
 
@@ -84,9 +84,6 @@ Antes de comenzar este tutorial, debe haber:
 8. Supervise el progreso de la confirmación en las notificaciones.
 
     ![Notificación de progreso de confirmación](./media/azure-to-azure-tutorial-failover-failback/notification-commit-start.png) ![Notificación de confirmación realizada correctamente](./media/azure-to-azure-tutorial-failover-failback/notification-commit-finish.png)    
-
-9. Site Recovery no limpia la máquina virtual de origen después de la conmutación por error, así que deberá hacerlo manualmente.
-
 
 ## <a name="reprotect-the-vm"></a>Reprotección de la máquina virtual
 

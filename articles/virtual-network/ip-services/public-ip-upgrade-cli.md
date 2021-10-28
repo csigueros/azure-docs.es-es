@@ -8,12 +8,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 05/20/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 6e6f348cd8836363e8f3b0023669897fc2123650
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: ad9310dfe05f9639f1448d60d545d2f29c89ca98
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129367879"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233987"
 ---
 # <a name="upgrade-a-public-ip-address-using-the-azure-cli"></a>Actualización de una dirección IP pública mediante la CLI de Azure
 
@@ -24,7 +24,7 @@ En este artículo, aprenderá a actualizar en Azure Portal la dirección IP pú
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-* La dirección IP pública de una SKU básica **estática** en la suscripción. Para más información, consulte el artículo [Creación de una dirección IP pública - Azure Portal](../../virtual-network/create-public-ip-portal.md#create-a-basic-sku-public-ip-address).
+* La dirección IP pública de una SKU básica **estática** en la suscripción. Para más información, consulte el artículo [Creación de una dirección IP pública - Azure Portal](./create-public-ip-portal.md#create-a-basic-sku-public-ip-address).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -68,5 +68,4 @@ En este artículo, ha actualizado una dirección IP pública de SKU básica a un
 Para más información sobre direcciones IP públicas en Azure, consulte:
 
 - [Direcciones IP públicas en Azure](public-ip-addresses.md)
-- [Creación de una dirección IP pública: Azure Portal](../../virtual-network/create-public-ip-portal.md)
-
+- [Creación de una dirección IP pública: Azure Portal](./create-public-ip-portal.md)

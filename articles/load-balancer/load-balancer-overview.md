@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/25/2021
 ms.author: allensu
-ms.openlocfilehash: 3d3c1d9937382080ea5a735e3f67e9767919366f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 800d52ca0cbc574add0640c8acf41713ed401071
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124740772"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215247"
 ---
 # <a name="what-is-azure-load-balancer"></a>¿Qué es Azure Load Balancer?
 
@@ -63,7 +63,7 @@ Entre los escenarios principales que puede llevar a cabo con Azure Standard Load
 
 - Empleo del **[desvío de puertos](./tutorial-load-balancer-port-forwarding-portal.md)** para acceder a las máquinas virtuales de una red virtual mediante la dirección IP pública y el puerto.
 
-- Habilitación de la compatibilidad con el **[equilibrio de carga](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)** de **[IPv6](../virtual-network/ipv6-overview.md)** .
+- Habilitación de la compatibilidad con el **[equilibrio de carga](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)** de **[IPv6](../virtual-network/ip-services/ipv6-overview.md)** .
 
 - Standard Load Balancer proporciona métricas multidimensionales mediante [Azure Monitor](../azure-monitor/overview.md).  Estas métricas se pueden filtrar, agrupar y desglosar para una dimensión determinada.  Proporcionan una perspectiva actual e histórica del rendimiento y el mantenimiento del servicio. [Información para Azure Load Balancer](./load-balancer-insights.md) ofrece un panel preconfigurado con visualizaciones útiles para estas métricas.  También se admite Resource Health. Consulte **[Diagnósticos de Standard Load Balancer](load-balancer-standard-diagnostics.md)** para más información.
 

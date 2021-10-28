@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: yvettep
-ms.openlocfilehash: 3e2fcfb91a0cb514a26608a29cb8cb09722b7f32
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: bc1bef31da6082e33e14ba3e9bd5b3c8b480c130
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "117029022"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130253105"
 ---
 # <a name="controlling-ingress-traffic-in-azure-australia"></a>Control del tráfico de entrada en Azure Australia
 
@@ -205,7 +205,7 @@ Las interfaces de red son los puntos de entrada de todo el tráfico a una máqui
 |Resource | Vínculo|
 |---|---|
 |Creación, cambio o eliminación de una interfaz de red | [https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface](../virtual-network/virtual-network-network-interface.md)|
-|Direccionamiento IP de la interfaz de red | [https://docs.microsoft.com/azure/virtual-network/private-ip-addresses](../virtual-network/private-ip-addresses.md)|
+|Direccionamiento IP de la interfaz de red | [https://docs.microsoft.com/azure/virtual-network/private-ip-addresses](../virtual-network/ip-services/private-ip-addresses.md)|
 |
 
 ### <a name="subnet"></a>Subred
@@ -244,8 +244,8 @@ Las direcciones IP públicas se usan para proporcionar una ruta de comunicación
 
 |Resource | Vínculo|
 |---|---|
-|Introducción a las direcciones IP públicas | [https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses](../virtual-network/public-ip-addresses.md#public-ip-addresses)|
-|Creación, modificación o eliminación de una dirección IP pública | [https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address](../virtual-network/virtual-network-public-ip-address.md)|
+|Introducción a las direcciones IP públicas | [https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses](../virtual-network/ip-services/public-ip-addresses.md#public-ip-addresses)|
+|Creación, modificación o eliminación de una dirección IP pública | [https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address](../virtual-network/ip-services/virtual-network-public-ip-address.md)|
 |
 
 ### <a name="expressroute-gateway"></a>Puerta de enlace de ExpressRoute
@@ -280,7 +280,7 @@ Para usar PaaS como parte integrada de la arquitectura del sistema o de la aplic
 |Resource | Vínculo|
 |---|---|
 |Integración de red virtual para los servicios de Azure | [https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services](../virtual-network/virtual-network-for-azure-services.md)|
-|Guía paso a paso para integrar la aplicación con una instancia de Azure Virtual Network | [https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet](../app-service/web-sites-integrate-with-vnet.md)|
+|Guía paso a paso para integrar la aplicación con una instancia de Azure Virtual Network | [https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet](../app-service/overview-vnet-integration.md)|
 |
 
 ## <a name="paas-ingress"></a>Entrada de PaaS

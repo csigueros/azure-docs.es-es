@@ -5,12 +5,12 @@ metadata:
   ms.topic: article
   ms.service: backup
   ms.date: 09/27/2021
-  ms.openlocfilehash: 2b1a7e39c1cf4a7e6c5b1da6f748c7e143608104
-  ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+  ms.openlocfilehash: fd2fee68735686a15720c87bc4fb1f3ce9f410b5
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/27/2021
-  ms.locfileid: "129080701"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130244245"
 title: 'Preguntas frecuentes: copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure'
 summary: Este artículo responde preguntas comunes sobre la copia de seguridad de bases de datos de SAP HANA con el servicio Azure Backup.
 sections:
@@ -35,7 +35,7 @@ sections:
       Actualmente, los trabajos de copia de seguridad correctos no generan alertas. Solo se generan alertas para los trabajos de copia de seguridad con errores. [Obtenga información](backup-azure-monitoring-built-in-monitor.md) sobre cómo usar Azure Portal para ver alertas de copias de seguridad.
   - question: >
       ¿Cómo puedo comprobar si la copia de seguridad (programada o a petición) se ha ejecutado correctamente?
-    answer: "Puede comprobar el estado de las copias de seguridad (programadas o a petición) desde cualquiera de las siguientes ubicaciones:\n\n1. **Trabajos de copia de seguridad**: Azure Backup muestra todos los trabajos desencadenados manualmente en la sección \"Trabajos de copia de seguridad\" de Azure Portal.  <br><br>   Los trabajos que ve en Azure Portal incluyen operaciones de detección y registro de bases de datos, y operaciones de copia de seguridad y restauración. Los trabajos programados, incluidas las copias de seguridad de registros, no se muestran en esta sección. Las copias de seguridad desencadenadas manualmente desde los clientes nativos de SAP HANA (Studio/Cockpit/DBA Cockpit) tampoco se muestran aquí.\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/manually-triggered-jobs.png\" alt-text=\"Captura de pantalla que muestra los trabajos desencadenados manualmente en la sección &quot;Trabajos de copia de seguridad&quot; de Azure Portal.\":::\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/jobs-and-operations-list.png\" alt-text=\"Captura de pantalla que muestra trabajos con operaciones de detección y registro de bases de datos y de copia de seguridad y restauración.\":::\n \n1. **Alertas de copia de seguridad**: las alertas le ayudan a supervisar las copias de seguridad de las bases de datos de SAP HANA. De esta forma, puede centrarse en los eventos necesarios, lo que elimina el esfuerzo de comprobar con frecuencia la gran cantidad de eventos que genera una copia de seguridad. Para obtener más información, consulte [Visualización de alertas de copia de seguridad](/azure/backup/sap-hana-db-manage#view-backup-alerts).\n\n1. **Informes de copia de seguridad**: los informes son otra manera de ver el estado de los trabajos de copia de seguridad. Los informes serán como los que se muestran a continuación:\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/backup-reports.png\" alt-text=\"Captura de pantalla que muestra un tipo de informe en Azure Portal.\":::\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/backup-reports-mabs.png\" alt-text=\"Captura de pantalla que muestra el otro tipo de informe en Azure Portal.\":::\n\n   Obtenga más información sobre la [configuración de informes de Azure Backup](/azure/backup/configure-reports).\n\n1. **Clientes nativos de SAP HANA**: si es un cliente SAP HANA, también puede usar HANA Studio, uno de los clientes de HANA más comunes. En este cliente, vaya a la **Consola de copias de seguridad** -> **Catálogo de copias de seguridad** para comprobar el **Estado de copia de seguridad**.\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/sap-hana-native-client-reports.png\" alt-text=\"Captura de pantalla que muestra informes en los clientes nativos de SAP HANA.\":::\n"
+    answer: "Puede comprobar el estado de las copias de seguridad (programadas o a petición) desde cualquiera de las siguientes ubicaciones:\n\n1. **Trabajos de copia de seguridad**: Azure Backup muestra todos los trabajos desencadenados manualmente en la sección \"Trabajos de copia de seguridad\" de Azure Portal.  <br><br>   Los trabajos que ve en Azure Portal incluyen operaciones de detección y registro de bases de datos, y operaciones de copia de seguridad y restauración. Los trabajos programados, incluidas las copias de seguridad de registros, no se muestran en esta sección. Las copias de seguridad desencadenadas manualmente desde los clientes nativos de SAP HANA (Studio/Cockpit/DBA Cockpit) tampoco se muestran aquí.\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/manually-triggered-jobs.png\" alt-text=\"Captura de pantalla que muestra los trabajos desencadenados manualmente en la sección &quot;Trabajos de copia de seguridad&quot; de Azure Portal.\":::\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/jobs-and-operations-list.png\" alt-text=\"Captura de pantalla que muestra trabajos con operaciones de detección y registro de bases de datos y de copia de seguridad y restauración.\":::\n \n1. **Alertas de copia de seguridad**: las alertas le ayudan a supervisar las copias de seguridad de las bases de datos de SAP HANA. De esta forma, puede centrarse en los eventos necesarios, lo que elimina el esfuerzo de comprobar con frecuencia la gran cantidad de eventos que genera una copia de seguridad. Para obtener más información, consulte [Visualización de alertas de copia de seguridad](./sap-hana-db-manage.md#view-backup-alerts).\n\n1. **Informes de copia de seguridad**: los informes son otra manera de ver el estado de los trabajos de copia de seguridad. Los informes serán como los que se muestran a continuación:\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/backup-reports.png\" alt-text=\"Captura de pantalla que muestra un tipo de informe en Azure Portal.\":::\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/backup-reports-mabs.png\" alt-text=\"Captura de pantalla que muestra el otro tipo de informe en Azure Portal.\":::\n\n   Obtenga más información sobre la [configuración de informes de Azure Backup](./configure-reports.md).\n\n1. **Clientes nativos de SAP HANA**: si es un cliente SAP HANA, también puede usar HANA Studio, uno de los clientes de HANA más comunes. En este cliente, vaya a la **Consola de copias de seguridad** -> **Catálogo de copias de seguridad** para comprobar el **Estado de copia de seguridad**.\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/sap-hana-native-client-reports.png\" alt-text=\"Captura de pantalla que muestra informes en los clientes nativos de SAP HANA.\":::\n"
   - question: >
       ¿Se pueden ver los trabajos de copia de seguridad programados en el menú de Trabajos de copia de seguridad?
     answer: >
@@ -172,16 +172,16 @@ sections:
   - question: >
       ¿Cuál es el rendimiento de copia de seguridad y restauración que Azure Backup proporciona y cómo puedo configurar el sistema HANA para usar este rendimiento máximo?
     answer: >
-      Consulte el [rendimiento de las copias de seguridad y restauraciones](/azure/backup/tutorial-backup-sap-hana-db#understanding-backup-and-restore-throughput-performance) que ofrece Azure Backup para las cargas de trabajo de HANA. <br><br> Para configurar el sistema HANA a fin de aprovechar el rendimiento mejorado, use los siguientes recursos:
+      Consulte el [rendimiento de las copias de seguridad y restauraciones](./tutorial-backup-sap-hana-db.md#understanding-backup-and-restore-throughput-performance) que ofrece Azure Backup para las cargas de trabajo de HANA. <br><br> Para configurar el sistema HANA a fin de aprovechar el rendimiento mejorado, use los siguientes recursos:
 
-       - [Selección de un tipo de disco para máquinas virtuales IaaS de Azure: discos administrados](/azure/virtual-machines/disks-types#premium-ssd)
-       - [Niveles de rendimiento de discos administrados de Azure](/azure/virtual-machines/disks-change-performance)
-       - [Serie M](/azure/virtual-machines/m-series)
-       - [Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines)
+       - [Selección de un tipo de disco para máquinas virtuales IaaS de Azure: discos administrados](../virtual-machines/disks-types.md)
+       - [Niveles de rendimiento de discos administrados de Azure](../virtual-machines/disks-change-performance.md)
+       - [Serie M](../virtual-machines/m-series.md)
+       - [Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA](../virtual-machines/workloads/sap/hana-vm-operations-storage.md#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines)
 
       >[!Note]
 
-      >También puede limitar el rendimiento de la copia de seguridad. [Más información](/azure/backup/tutorial-backup-sap-hana-db#limiting-backup-throughput-performance).
+      >También puede limitar el rendimiento de la copia de seguridad. [Más información](./tutorial-backup-sap-hana-db.md#limiting-backup-throughput-performance).
 - name: Restauración
   questions:
   - question: >

@@ -1,17 +1,17 @@
 ---
 title: Asociado de Azure Network Function Manager
 description: Obtenga información sobre los asociados que ofrecen sus funciones de red para su uso con este servicio.
-author: cherylmc
+author: prmitt
 ms.service: network-function-manager
 ms.topic: article
 ms.date: 06/30/2021
-ms.author: cherylmc
-ms.openlocfilehash: fc10a6acd6f3218a37ff327f1126cec616b8fa5b
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.author: prmitt
+ms.openlocfilehash: 5186d16d36503ad5f057424b6251ee8be109b958
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114290748"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130258494"
 ---
 # <a name="network-function-manager-partners-preview"></a>Asociados de Network Function Manager (versión preliminar)
 

@@ -3,12 +3,12 @@ title: Administración de fórmulas de Azure DevTest Labs para crear máquinas v
 description: En este artículo se explica cómo crear una fórmula a partir de una base (una imagen personalizada, una imagen de Marketplace u otra fórmula) o una máquina virtual existente.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 632e05a566e1891afff3440563a2fabde0b669d3
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6aea6af48344e6dfbdb811281e4ca0e8203968d3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128678542"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226553"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Administración de fórmulas de Azure DevTest Labs
 
@@ -122,7 +122,7 @@ Para eliminar una fórmula, siga estos pasos:
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="related-blog-posts"></a>Entradas blogs relacionadas
-* [Custom images or formulas? (¿Imágenes personalizadas o fórmulas?)](/azure/devtest-labs/devtest-lab-faq#what-is-the-difference-between-a-custom-image-and-a-formula)
+* [Custom images or formulas? (¿Imágenes personalizadas o fórmulas?)](./devtest-lab-faq.yml)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Cuando haya creado una fórmula para usarla al crear una máquina virtual, el siguiente paso consiste en [agregar una máquina virtual al laboratorio](devtest-lab-add-vm.md).

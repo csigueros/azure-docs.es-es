@@ -4,12 +4,12 @@ description: Información general de los almacenes de Backup.
 ms.topic: conceptual
 ms.date: 09/08/2021
 ms.custom: references_regions
-ms.openlocfilehash: 8d617dd2d2b1fa61a797d14c709ce285dc28b9bf
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: afe103e7fb6c2cb59634029c5ae9a75acadf0afc
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124799538"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130235893"
 ---
 # <a name="backup-vaults-overview"></a>Información general de los almacenes de Backup
 
@@ -188,7 +188,7 @@ Espere hasta que se complete la operación de traslado para realizar otras opera
 
 1. En la lista desplegable **Suscripción**, seleccione una suscripción existente.
 
-   Para trasladar almacenes entre suscripciones, la suscripción de destino debe existir en el mismo inquilino que la suscripción de origen. Para trasladar un almacén a otro inquilino, consulte [Transferencia de una suscripción a otro directorio](/azure/role-based-access-control/transfer-subscription).
+   Para trasladar almacenes entre suscripciones, la suscripción de destino debe existir en el mismo inquilino que la suscripción de origen. Para trasladar un almacén a otro inquilino, consulte [Transferencia de una suscripción a otro directorio](../role-based-access-control/transfer-subscription.md).
 
 1. En la lista desplegable del **Grupo de recursos**, seleccione un grupo de recursos existente, o bien seleccione **Crear nuevo** para crear un nuevo grupo de recursos.
 

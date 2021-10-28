@@ -5,24 +5,24 @@ author: seligj95
 ms.author: msangapu
 ms.topic: article
 ms.date: 8/26/2021
-ms.openlocfilehash: ff9136889a475e8e98406476ea503982025d298d
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 764a44a79ce6f892f0715dde6d657755a3048acf
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129061961"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130257202"
 ---
 # <a name="create-app-service-app-using-bicep"></a>Creación de una aplicación de App Service mediante Azure Bicep
 
-Empiece a usar [Azure App Service](overview.md) mediante la implementación de una aplicación en la nube con un archivo de [Bicep](/azure/azure-resource-manager/bicep/) y la [CLI de Azure](/cli/azure/get-started-with-azure-cli) en Cloud Shell. Dado que usa un nivel de App Service gratuito, completar este inicio rápido no supone ningún costo.
+Empiece a usar [Azure App Service](overview.md) mediante la implementación de una aplicación en la nube con un archivo de [Bicep](../azure-resource-manager/bicep/index.yml) y la [CLI de Azure](/cli/azure/get-started-with-azure-cli) en Cloud Shell. Dado que usa un nivel de App Service gratuito, completar este inicio rápido no supone ningún costo.
 
-Bicep es un lenguaje específico del dominio (DSL) que usa sintaxis declarativa para implementar recursos de Azure. Brinda sintaxis concisa, seguridad de tipos confiable y compatibilidad con la reutilización de código. Puede usar Bicep en lugar de JSON para desarrollar las plantillas de Azure Resource Manager ([plantillas de ARM](/azure/azure-resource-manager/templates/overview)). La sintaxis JSON para crear una plantilla de ARM puede ser detallada y exigir expresiones complicadas. La sintaxis de Bicep reduce esa complejidad y mejora la experiencia de desarrollo. Bicep es una abstracción transparente del código JSON de plantillas de ARM, y no pierde ninguna de las funcionalidades de las plantillas JSON. Durante la implementación, la CLI de Bicep transpila un archivo de Bicep en un JSON de plantilla de ARM.
+Bicep es un lenguaje específico del dominio (DSL) que usa sintaxis declarativa para implementar recursos de Azure. Brinda sintaxis concisa, seguridad de tipos confiable y compatibilidad con la reutilización de código. Puede usar Bicep en lugar de JSON para desarrollar las plantillas de Azure Resource Manager ([plantillas de ARM](../azure-resource-manager/templates/overview.md)). La sintaxis JSON para crear una plantilla de ARM puede ser detallada y exigir expresiones complicadas. La sintaxis de Bicep reduce esa complejidad y mejora la experiencia de desarrollo. Bicep es una abstracción transparente del código JSON de plantillas de ARM, y no pierde ninguna de las funcionalidades de las plantillas JSON. Durante la implementación, la CLI de Bicep transpila un archivo de Bicep en un JSON de plantilla de ARM.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Para crear recursos de forma eficaz con Bicep, deberá configurar un [entorno de desarrollo](/azure/azure-resource-manager/bicep/install) de Bicep. La extensión de Bicep para [Visual Studio Code](https://code.visualstudio.com/) proporciona compatibilidad con el lenguaje y la finalización automática de recursos. La extensión le ayuda a crear y validar archivos de Bicep y es recomendable para los desarrolladores que crearán recursos mediante Bicep después de completar este inicio rápido.
+Para crear recursos de forma eficaz con Bicep, deberá configurar un [entorno de desarrollo](../azure-resource-manager/bicep/install.md) de Bicep. La extensión de Bicep para [Visual Studio Code](https://code.visualstudio.com/) proporciona compatibilidad con el lenguaje y la finalización automática de recursos. La extensión le ayuda a crear y validar archivos de Bicep y es recomendable para los desarrolladores que crearán recursos mediante Bicep después de completar este inicio rápido.
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
@@ -91,7 +91,7 @@ Esta plantilla contiene varios parámetros que están predefinidos para su comod
 
 Copie y pegue la plantilla en el editor o IDE que prefiera y guarde el archivo en el directorio de trabajo local.
 
-Aquí se usa la CLI de Azure para implementar la plantilla. También puede usar Azure Portal, Azure PowerShell y la API REST. Para obtener información sobre otros métodos de implementación, consulte [Comandos de implementación de Bicep](/azure/azure-resource-manager/bicep/deploy-cli).
+Aquí se usa la CLI de Azure para implementar la plantilla. También puede usar Azure Portal, Azure PowerShell y la API REST. Para obtener información sobre otros métodos de implementación, consulte [Comandos de implementación de Bicep](../azure-resource-manager/bicep/deploy-cli.md).
 
 El siguiente código crea un grupo de recursos, un plan de App Service y una aplicación web. Se han establecido un grupo de recursos, un plan de App Service y una ubicación predeterminados. Reemplace `<app-name>` por un nombre de aplicación único global (los caracteres válidos son `a-z`, `0-9` y `-`).
 
@@ -126,6 +126,6 @@ Cuando ya no necesite, [elimine el grupo de recursos](../azure-resource-manager/
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Documentación de Bicep](/azure/azure-resource-manager/bicep/)
+> [Documentación de Bicep](../azure-resource-manager/bicep/index.yml)
 > [!div class="nextstepaction"]
-> [Ejemplos de Bicep para Azure App Service](/azure/app-service/samples-bicep)
+> [Ejemplos de Bicep para Azure App Service](./samples-bicep.md)

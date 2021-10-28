@@ -9,16 +9,16 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/01/2021
-ms.openlocfilehash: 58532e07b80e0084666e6847d5bd62313a51ee76
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 7005028eb61c53788e7283b9a0af5878b3e3961b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129207780"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130214802"
 ---
 # <a name="private-network-access-with-azure-private-link-preview"></a>Acceso a redes privadas con Azure Private Link (versión preliminar) 
 
-[Azure Private Link](/azure/private-link/private-link-overview)  es un servicio que le permite acceder a recursos de Azure (como  [Azure Event Hubs](/azure/event-hubs/event-hubs-about),  [Azure Storage](/azure/storage/common/storage-introduction) y  [Azure Cosmos DB](/azure/cosmos-db/introduction)) y a los servicios de asociados y clientes hospedados por Azure mediante un punto de conexión privado en la instancia de  [Azure Virtual Network (VNet)](/azure/virtual-network/virtual-networks-overview). 
+[Azure Private Link](../private-link/private-link-overview.md)  es un servicio que le permite acceder a recursos de Azure (como  [Azure Event Hubs](../event-hubs/event-hubs-about.md),  [Azure Storage](../storage/common/storage-introduction.md) y  [Azure Cosmos DB](../cosmos-db/introduction.md)) y a los servicios de asociados y clientes hospedados por Azure mediante un punto de conexión privado en la instancia de  [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md). 
 
 Del mismo modo, puede usar puntos de conexión privados para la instancia de Time Series Insights a fin de permitir que los clientes ubicados en la red virtual accedan de forma segura a ella mediante Private Link. 
 
@@ -36,4 +36,4 @@ Una vez que se ha habilitado un punto de conexión privado y se ha restringido e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información, consulte [Configuración de puntos de conexión privados para un entorno de TSI](./how-to-private-links.md). 
+* Para más información, consulte [Configuración de puntos de conexión privados para un entorno de TSI](./how-to-private-links.md).

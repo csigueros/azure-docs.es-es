@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: article
 ms.date: 09/14/2020
 ms.author: victorh
-ms.openlocfilehash: 36c43448abba82ef084a16e13e70700ddf12bdc2
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: a7aebbe0b454c1db49e001bb4caaab96c2903090
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130042020"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251649"
 ---
 # <a name="what-are-the-azure-firewall-manager-architecture-options"></a>Opciones de arquitectura de Azure Firewall Manager
 
@@ -38,7 +38,7 @@ En la tabla siguiente se comparan estas dos opciones de arquitectura, lo que pue
 |**Conectividad de rama automatizada mediante SDWAN**      |No compatible|Compatible|
 |**Centros por región**     |Varias redes virtuales por región|Varios centros virtuales por región|
 |**Azure Firewall: varias direcciones IP públicas**      |Proporcionado por el cliente|Generado automáticamente|
-|**Availability Zones de Azure Firewall**     |Compatible|No disponible todavía|
+|**Availability Zones de Azure Firewall**     |Compatible|Compatible|
 |**Seguridad avanzada de Internet con seguridad de terceros como asociados de servicio**     |Conectividad VPN administrada y establecida por el cliente con el servicio asociado que se prefiera|Automatizado a través de la experiencia de administración de asociados y el flujo de proveedor de asociados de seguridad|
 |**Administración de rutas centralizada para enrutar el tráfico al centro**     |Ruta definida por el usuario administrada por el cliente|Se admite con BGP|
 |**Compatibilidad con varios proveedores de seguridad**|Compatible con la tunelización forzada configurada manualmente a firewalls de terceros|Compatibilidad automatizada con dos proveedores de seguridad: Azure Firewall para el filtrado de tráfico privado y un proveedor de terceros para el filtrado de Internet|

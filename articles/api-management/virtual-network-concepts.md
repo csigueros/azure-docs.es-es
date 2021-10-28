@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/19/2021
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 9d021eb435eb74612f7716fb6d790e6878b9d9d5
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 364487d697aee69215e9ca9f080e4aa6a1a83468
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123544393"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130253371"
 ---
 # <a name="use-a-virtual-network-with-azure-api-management"></a>Uso de una red virtual con Azure API Management
 
@@ -55,7 +55,7 @@ Los siguientes son los requisitos de recursos de la red virtual de API Managemen
 ### <a name="stv2"></a>[stv2](#tab/stv2)
 
 * Se requiere una red virtual de Azure Resource Manager.
-* Debe proporcionar una [dirección IPv4 pública](../virtual-network/public-ip-addresses.md#standard) de SKU estándar además de especificar una red virtual y una subred.
+* Debe proporcionar una [dirección IPv4 pública](../virtual-network/ip-services/public-ip-addresses.md#standard) de SKU estándar además de especificar una red virtual y una subred.
 * La subred usada para conectarse a la instancia de API Management puede contener otros tipos de recursos de Azure.
 * El servicio API Management, la red virtual y la subred, y el recurso de dirección IP pública deben estar en la misma región y suscripción.
 * En el caso de las implementaciones de API Management en varias regiones, configure los recursos de la red virtual por separado para cada ubicación.

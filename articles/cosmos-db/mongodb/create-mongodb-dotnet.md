@@ -9,18 +9,19 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 8/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2aadb79f306165543c7b8e7c6935b9ff066681e4
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: b528804385b9b47f6c586b49f2a33a4c688753b2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123307775"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130250205"
 ---
 # <a name="quickstart-build-a-net-web-api-using-azure-cosmos-dbs-api-for-mongodb"></a>Inicio rápido: Creación de una API web de .NET mediante la API de Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
+> * [Python](create-mongodb-python.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.js](create-mongodb-nodejs.md)
 > * [Xamarin](create-mongodb-xamarin.md)
@@ -223,8 +224,8 @@ Escriba los parámetros necesarios y seleccione "Execute" (Ejecutar).
 
 En este inicio rápido, ha aprendido a crear una API para cuentas de MongoDB, una base de datos y una colección con código, y a ejecutar una aplicación de API web. Ahora, puede importar datos adicionales en la base de datos. 
 
-¿Intenta planear la capacidad para una migración a Azure Cosmos DB? Puede usar información sobre el clúster de bases de datos existente para planear la capacidad.
-* Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, consulte sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
+¿Intenta planear la capacidad para una migración a Azure Cosmos DB? Para ello, puede usar información sobre el clúster de bases de datos existente.
+* Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
 * Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-capacity-planner.md).
 
 > [!div class="nextstepaction"]

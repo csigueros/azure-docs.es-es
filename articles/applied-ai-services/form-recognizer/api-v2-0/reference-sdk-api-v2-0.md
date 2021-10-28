@@ -12,18 +12,18 @@ ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 ms.custom: devx-track-js, devx-track-csharp
 keywords: forms processing, automated data processing
-ms.openlocfilehash: 32dcfb1ba1e413e666e6a3d27ef9f03dbce81978
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: cba7378dcc504e675e449dda4243149419e2726a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128641809"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265876"
 ---
 # <a name="reference-azure-form-recognizer-client-library-v300-and-rest-api-v20"></a>Referencia: versión 3.0.0 de la biblioteca cliente de Azure Form Recognizer y versión 2.0 de API REST
 
 >[!IMPORTANT]
 >
-> * Esta guía se basa en el SDK de Azure Form Recognizer v3.0.0 y la API REST v2.0. Puede encontrar documentación y ejemplos de código de la versión más reciente en el artículo sobre **[inicios rápidos](../quickstarts/client-library.md)** .
+> * Esta guía se basa en el SDK de Azure Form Recognizer v3.0.0 y la API REST v2.0. Puede encontrar documentación y ejemplos de código de la versión más reciente en el artículo sobre **[inicios rápidos](../quickstarts/try-sdk-rest-api.md)** .
 >
 >* Por simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas. En producción, use métodos seguros para almacenar y acceder a sus credenciales. Para más información, consulte el artículo sobre la [seguridad](../../../cognitive-services/cognitive-services-security.md) de Cognitive Services.
 

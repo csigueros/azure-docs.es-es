@@ -10,12 +10,12 @@ ms.author: justinha
 author: calui
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: 0e925e520b5136750dc7ef9151d7e5741176525c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7cee43e911c2713b13f7e8e729a00b4c2379ce22
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128595624"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251098"
 ---
 # <a name="sign-in-to-azure-ad-with-email-as-an-alternate-login-id-preview"></a>Inicio de sesión en Azure AD mediante el correo electrónico como Id. de inicio de sesión alternativo (versión preliminar)
 
@@ -64,7 +64,6 @@ En el estado de versión preliminar actual, se aplican las siguientes limitacion
     * [Dispositivos híbridos unidos a Azure AD](../devices/concept-azure-ad-join-hybrid.md)
     * [Dispositivos unidos a Azure AD](../devices/concept-azure-ad-join.md)
     * [Dispositivos registrados en Azure AD](../devices/concept-azure-ad-register.md)
-    * [SSO de conexión directa](../hybrid/how-to-connect-sso.md)
     * [Aplicaciones que usan credenciales de contraseña del propietario del recurso (ROPC)](../develop/v2-oauth-ropc.md)
     * Aplicaciones que usan autenticación heredada, como POP3 y SMTP
     * Skype Empresarial

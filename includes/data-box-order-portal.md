@@ -3,15 +3,15 @@ author: v-dalc
 ms.service: databox
 ms.subservice: databox
 ms.topic: include
-ms.date: 09/08/2021
+ms.date: 10/21/2021
 ms.author: alkohli
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: 6f784c075d24fe26b7ec1ea9d5921dfb460e5298
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d5b7294a54db4e89e80ad577a87fda74c66b3695
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124743347"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130287367"
 ---
 Para solicitar un dispositivo, realice los pasos siguientes en Azure Portal:
 
@@ -76,7 +76,7 @@ Para solicitar un dispositivo, realice los pasos siguientes en Azure Portal:
 
     ![Captura de pantalla de la pestaña Destino de datos de un pedido de Data Box con el destino Discos administrados. La pestaña Destino de datos, Discos administrados y el botón Siguiente: Seguridad están resaltados.](media/data-box-order-portal/data-box-import-07.png)
 
-    La cuenta de almacenamiento especificada para los discos administrados se usa como una cuenta de almacenamiento provisional. El servicio Data Box carga los discos duros virtuales como blob en páginas en la cuenta de almacenamiento provisional y, a continuación, los convierte en discos administrados y los mueve a los grupos de recursos. Para más información, vea [Comprobación de la carga de datos en Azure](../articles/databox/data-box-deploy-picked-up.md#verify-data-upload-to-azure-8).
+    La cuenta de almacenamiento especificada para los discos administrados se usa como una cuenta de almacenamiento provisional. El servicio Data Box carga los discos duros virtuales como blob en páginas en la cuenta de almacenamiento provisional y, a continuación, los convierte en discos administrados y los mueve a los grupos de recursos. Para más información, vea [Comprobación de la carga de datos en Azure](../articles/databox/data-box-deploy-picked-up.md#verify-data-upload-to-azure).
 
    > [!NOTE]
    > Si un blob en páginas no se convierte correctamente en un disco administrado, permanece en la cuenta de almacenamiento y se le cobra por el almacenamiento.

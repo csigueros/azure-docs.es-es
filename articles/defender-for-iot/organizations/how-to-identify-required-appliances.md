@@ -3,12 +3,12 @@ title: Identificación de los dispositivos necesarios
 description: Obtenga información sobre las aplicaciones virtuales y dispositivos de hardware para los sensores certificador de Defender para IoT y la consola de administración local.
 ms.date: 06/21/2021
 ms.topic: how-to
-ms.openlocfilehash: c124ccd69257b9a0b7a57c53b6fa6b0817d95fb6
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: 22a79bc1f78536df1dd1c248b75eb3b4db8b443d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129754356"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238555"
 ---
 # <a name="identify-required-appliances"></a>Identificación de los dispositivos necesarios
 
@@ -40,7 +40,7 @@ En esta sección se proporciona información general sobre los modelos de sensor
 | Modelo | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 | HPE EL300 |
 | Puertos de supervisión | Hasta 15 RJ45 u 8 OPT | Hasta 8 RJ45 o 6 OPT | Hasta 4 RJ45 | Hasta 5 RJ45 |
 | Ancho de banda máximo [1](#anchortext) | 3 Gb/s | 1 Gb/s | 200 Mb/s | 100 Mb/s |
-| Número máximo de dispositivos protegidos | 10 000 | 10 000 | 1,000 | 800 |
+| Número máximo de dispositivos protegidos | 12,000 | 10 000 | 1,000 | 800 |
 
 Consulte [Especificaciones del dispositivo](#appliance-specifications) para más detalles del proveedor.
 
@@ -59,7 +59,7 @@ En esta sección se proporciona información sobre los sensores virtuales que es
 | Tipo de implementación | Corporativos | Enterprise | SMB |
 |--|--|--|--|
 | Ancho de banda máximo | 2,5 GB/s | 800 MB/s | 160 MB/s |
-| Número máximo de dispositivos protegidos | 10 000 | 10 000 | 800 |
+| Número máximo de dispositivos protegidos | 12,000 | 10 000 | 800 |
 
 ## <a name="on-premises-management-console-appliance"></a>Dispositivo de consola de administración local
 
@@ -97,7 +97,7 @@ En esta sección se describen las especificaciones de hardware de los siguientes
 | Conjunto de chips | Intel C621 |
 | Memoria | 32 GB = 2 unidades de 16 GB 2666MT/s DDR4 ECC UDIMM |
 | Storage | 6 discos duros hot-plug SAS de 1,2 TB 12G Enterprise 10 k SFF (2,5 pulgadas) - RAID 5 |
-| Controladora de red | Incorporada: 2 puertos Broadcom BCM5720 de 1 Gb<br>LOM incorporado: tarjeta de puerto iDRAC de 1 Gb Broadcom BCM5720<br><br>Externa: 1 adaptador de servidor Intel Ethernet i350 QP de 1 Gb, perfil bajo |
+| Controladora de red | Incorporada: 2 puertos de 1 GB <br>Incorporada: tarjeta de puerto iLO de 1 GB <br>Externa: 1 adaptador HPE Ethernet de 1 GB 366FLR de 4 puertos |
 | Administración | HPE iLO Advanced |
 | Acceso del dispositivo | Dos puertos USB 3.0 en la parte posterior<br>Un puerto USB 2.0 en la parte frontal<br>Un puerto USB 3.0 interno |
 | Power | 2 kits de fuente de alimentación hot-plug HPE Platinum con bajo contenido en halógenos y ranura flexible de 500 W |

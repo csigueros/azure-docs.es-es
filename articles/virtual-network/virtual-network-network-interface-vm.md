@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 847f8dbd2d8f4064f12333348a4f03e5c5fcc611
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: fcdc5c86c1b5cf39fb4140afc1db661db8ead11d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107774276"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224861"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Incorporación de interfaces de red a máquinas virtuales o su eliminación de ellas
 
 Obtenga información sobre cómo agregar una interfaz de red existente al crear una máquina virtual (VM) de Azure. Aprenda también a agregar o quitar interfaces de red de una VM existente en estado detenido (desasignado). Una interfaz de red permite que una VM de Azure se comunique con Internet, Azure y recursos locales. Una VM puede tener una o varias interfaces de red. 
 
-Si tiene que agregar, cambiar o quitar direcciones IP para una interfaz de red, consulte [Administración de direcciones IP de interfaz de red](virtual-network-network-interface-addresses.md). Para crear, cambiar o eliminar interfaces de red, consulte [Administración de interfaces de red](virtual-network-network-interface.md).
+Si tiene que agregar, cambiar o quitar direcciones IP para una interfaz de red, consulte [Administración de direcciones IP de interfaz de red](./ip-services/virtual-network-network-interface-addresses.md). Para crear, cambiar o eliminar interfaces de red, consulte [Administración de interfaces de red](virtual-network-network-interface.md).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -96,7 +96,7 @@ Puede ver las interfaces de red asociadas actualmente a una máquina virtual par
 
 3. En la barra de menús de la VM, seleccione **Redes**.
 
-Para información sobre la configuración de la interfaz de red y cómo modificarla, consulte [Administración de interfaces de red](virtual-network-network-interface.md). Para saber cómo agregar, cambiar o quitar direcciones IP asignadas a una interfaz de red, consulte [Administración de direcciones IP de interfaz de red](virtual-network-network-interface-addresses.md).
+Para información sobre la configuración de la interfaz de red y cómo modificarla, consulte [Administración de interfaces de red](virtual-network-network-interface.md). Para saber cómo agregar, cambiar o quitar direcciones IP asignadas a una interfaz de red, consulte [Administración de direcciones IP de interfaz de red](./ip-services/virtual-network-network-interface-addresses.md).
 
 ### <a name="commands"></a>Comandos:
 
@@ -147,7 +147,7 @@ Para información sobre la configuración de la interfaz de red y cómo modifica
 
 - Puede conectar interfaces de red de la misma VM a diferentes subredes de una red virtual. Sin embargo, todas las interfaces de red deben estar conectadas a la misma red virtual.
 
-- Puede agregar cualquier dirección IP para cualquier configuración de IP de cualquier interfaz de red principal o secundaria a un grupo de servidores back-end de Azure Load Balancer. En el pasado, solo la dirección IP principal de la interfaz de red principal podía agregarse a un grupo de servidores back-end. Para más información sobre las direcciones IP y las configuraciones, consulte [incorporación, cambio o eliminación de direcciones IP](virtual-network-network-interface-addresses.md).
+- Puede agregar cualquier dirección IP para cualquier configuración de IP de cualquier interfaz de red principal o secundaria a un grupo de servidores back-end de Azure Load Balancer. En el pasado, solo la dirección IP principal de la interfaz de red principal podía agregarse a un grupo de servidores back-end. Para más información sobre las direcciones IP y las configuraciones, consulte [incorporación, cambio o eliminación de direcciones IP](./ip-services/virtual-network-network-interface-addresses.md).
 
 - Al eliminar una VM, no se eliminan las interfaces de red que tiene asociadas. Cuando se elimina una máquina virtual, las interfaces de red se desasocian de ella. Puede agregar esas interfaces de red a diferentes VM o eliminarlas.
 
@@ -162,5 +162,5 @@ Para crear una VM con varias interfaces de red o direcciones IP, consulte:
 |Tarea|Herramienta|
 |---|---|
 |Creación de una máquina virtual con varias NIC|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-|Creación de una máquina virtual con una sola interfaz de red y varias direcciones IPv4|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
+|Creación de una máquina virtual con una sola interfaz de red y varias direcciones IPv4|[CLI](./ip-services/virtual-network-multiple-ip-addresses-cli.md), [PowerShell](./ip-services/virtual-network-multiple-ip-addresses-powershell.md)|
 |Creación de una máquina virtual con una sola interfaz de red y una dirección IPv6 privada (detrás de Azure Load Balancer)|[CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Plantilla de Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|

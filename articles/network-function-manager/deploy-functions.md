@@ -2,17 +2,17 @@
 title: 'Tutorial: Implementación de funciones de red en Azure Stack Edge'
 titleSuffix: Azure Network Function Manager
 description: En este tutorial, aprenderá a implementar una función de red como aplicación administrada.
-author: cherylmc
+author: prmitt
 ms.service: network-function-manager
 ms.topic: tutorial
 ms.date: 06/16/2021
-ms.author: cherylmc
-ms.openlocfilehash: af82a3b51da76e181c2e5856458d553051b0c409
-ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
+ms.author: prmitt
+ms.openlocfilehash: 0e45f8db150505b323f45cd79eed40215b3a44f8
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113129009"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223336"
 ---
 # <a name="tutorial-deploy-network-functions-on-azure-stack-edge-preview"></a>Tutorial: Implementación de funciones de red en Azure Stack Edge (versión preliminar)
 

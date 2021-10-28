@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2021
-ms.openlocfilehash: ceb57d364cca4b05d170ad6e42e8894f9a1ce86e
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 4e6ef102a4cf0a4528125e336e21ecf709bb37bc
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129710249"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130240022"
 ---
 # <a name="monitor-virtual-machines-with-azure-monitor-configure-monitoring"></a>Supervisión de máquinas virtuales con Azure Monitor: configuración de la supervisión
 Este artículo forma parte del escenario [Supervisión de máquinas virtuales y sus cargas de trabajo en Azure Monitor](monitor-virtual-machine.md). Se describe cómo configurar la supervisión de las máquinas virtuales híbridas y de Azure en Azure Monitor.
@@ -112,7 +112,7 @@ Tenga cuidado de no enviar datos a los registros porque serían redundantes con 
 
 Puede instalar un agente de Azure Monitor en las máquinas individuales mediante los mismos métodos que para las máquinas virtuales de Azure y los servidores habilitados para Azure Arc. Estos métodos incluyen la incorporación de máquinas individuales con Azure Portal o plantillas de Resource Manager, o la habilitación de máquinas a gran escala mediante Azure Policy. En el caso de las máquinas híbridas que no puedan usar servidores habilitados para Azure Arc, instale el agente manualmente.
 
-Para crear una DCR e implementar el agente de Azure Monitor en uno o varios agentes mediante Azure Portal, consulte [Configuración de la recopilación de datos para el agente de Azure Monitor (versión preliminar)](../agents/data-collection-rule-azure-monitor-agent.md). Se describen otros métodos de instalación en [Instalación del agente de Azure Monitor (versión preliminar)](../agents/azure-monitor-agent-install.md). Para crear una directiva que implemente automáticamente el agente y la DCR en las máquinas nuevas a medida que se crean, consulte [Implementación de Azure Monitor a gran escala mediante Azure Policy](../deploy-scale.md#azure-monitor-agent).
+Para crear una DCR e implementar el agente de Azure Monitor en uno o varios agentes mediante Azure Portal, consulte [Configuración de la recopilación de datos para el agente de Azure Monitor (versión preliminar)](../agents/data-collection-rule-azure-monitor-agent.md). Se describen otros métodos de instalación en [Instalación del agente de Azure Monitor (versión preliminar)](../agents/azure-monitor-agent-install.md). Para crear una directiva que implemente automáticamente el agente y la DCR en las máquinas nuevas a medida que se crean, consulte [Implementación de Azure Monitor a gran escala mediante Azure Policy](../best-practices.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

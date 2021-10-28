@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: 9c9c6bb5281f506e278ca05266afe9631baae36f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d11eca42ee264626ee994bdf10db8882418fdfa4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745948"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265676"
 ---
 # <a name="metrics-advisor-whats-new-in-the-docs"></a>Metrics Advisor: novedades en la documentación
 
@@ -52,4 +52,4 @@ Si desea obtener información sobre las actualizaciones más recientes de los SD
 
 ### <a name="updated-articles"></a>Artículos actualizados
 
-* [Actualización de cómo crea Metric Advisor un árbol de incidentes para métricas multidimensionales](/azure/applied-ai-services/metrics-advisor/faq#how-does-metric-advisor-build-a-diagnostic-tree-for-multi-dimensional-metrics)
+* [Actualización de cómo crea Metric Advisor un árbol de incidentes para métricas multidimensionales](./faq.yml)

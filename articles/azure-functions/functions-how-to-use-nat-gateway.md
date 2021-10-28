@@ -4,12 +4,12 @@ description: Tutorial paso a paso que explica cómo configurar NAT para una func
 ms.topic: tutorial
 ms.author: kyburns
 ms.date: 2/26/2021
-ms.openlocfilehash: 9b91ccd725fbd6ae1e3a974ecb70b4c01201adb4
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 0223ebe7401745fc9dfff9b3935b5f2252cfa39d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113432273"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265424"
 ---
 # <a name="tutorial-control-azure-functions-outbound-ip-with-an-azure-virtual-network-nat-gateway"></a>Tutorial: Control de la IP de salida de Azure Functions mediante un servicio NAT Gateway de Azure Virtual Network
 
@@ -30,7 +30,7 @@ El siguiente diagrama muestra la arquitectura de la solución que se ha creado:
 
 ![Interfaz de usuario para la integración de NAT Gateway](./media/functions-how-to-use-nat-gateway/topology.png)
 
-La ejecución de Functions en el plan Premium tiene las mismas capacidades de hospedaje que las aplicaciones web en Azure App Service, que incluye la característica de integración de red virtual. Para obtener más información sobre la integración de red virtual, incluida la solución de problemas y la configuración avanzada, vea [Integración de su aplicación con una red virtual de Azure](../app-service/web-sites-integrate-with-vnet.md).
+La ejecución de Functions en el plan Premium tiene las mismas capacidades de hospedaje que las aplicaciones web en Azure App Service, que incluye la característica de integración de red virtual. Para obtener más información sobre la integración de red virtual, incluida la solución de problemas y la configuración avanzada, vea [Integración de su aplicación con una red virtual de Azure](../app-service/overview-vnet-integration.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -48,7 +48,7 @@ Si ya ha completado el tutorial sobre la [integración de Azure Functions con Az
 
     | Configuración | Value |
     | ------- | ----- |
-    | Suscripción | Seleccione su suscripción.|
+    | Subscription | Seleccione su suscripción.|
     | Resource group | Seleccione **Crear nuevo**, escriba *myResourceGroup* y, después, seleccione **Aceptar**. |
     | Nombre | Escriba *myResourceGroup-vnet*. |
     | Location | Seleccione **Este de EE. UU**.|

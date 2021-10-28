@@ -1,19 +1,19 @@
 ---
-title: Archivo de inclusión
+title: archivo de inclusión
 description: archivo de inclusión
 author: linda33wj
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: include
-ms.date: 06/22/2018
+ms.date: 10/22/2021
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: b7827c126a14a46de98da874e3c9441e1eb5a103
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d93d96b5a2edef4a4ff13a615ed8187bada99ae7
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128554115"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223886"
 ---
 | Category | Almacén de datos | 
 | :-------- | :----------- | 

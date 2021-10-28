@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6befd620da91b569d5bd72a4d0165e81c93583ac
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 3f426af6719b821373a565c58e27919e7f6082f7
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129235656"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130247917"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Qué es SQL Server en Azure Virtual Machines (Windows)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -133,7 +133,7 @@ Para obtener detalles, consulte:
 - [Creación de una máquina virtual de SQL Server](sql-vm-create-portal-quickstart.md)
 
 ## <a name="sql-server-vm-image-refresh-policy"></a><a id="lifecycle"></a> Directiva de actualización de imagen de máquina virtual de SQL Server
-Azure solo mantiene una imagen de máquina virtual para cada combinación admitida de sistema operativo, versión y edición. Esto significa que a lo largo del tiempo se actualizan las imágenes y las más antiguas se eliminan. Para más información, consulte la sección **Imágenes** de las [preguntas más frecuentes sobre máquinas virtuales de SQL Server](/azure/azure-sql/virtual-machines/windows/frequently-asked-questions-faq#images).
+Azure solo mantiene una imagen de máquina virtual para cada combinación admitida de sistema operativo, versión y edición. Esto significa que a lo largo del tiempo se actualizan las imágenes y las más antiguas se eliminan. Para más información, consulte la sección **Imágenes** de las [preguntas más frecuentes sobre máquinas virtuales de SQL Server](./frequently-asked-questions-faq.yml).
 
 ## <a name="customer-experience-improvement-program-ceip"></a>Programa para la mejora de la experiencia del usuario (CEIP)
 De manera predeterminada, el Programa para la mejora de la experiencia del cliente (CEIP) está habilitado. Esto permitirá enviar periódicamente informes a Microsoft para ayudar a mejorar SQL Server. No hay ninguna tarea de administración requerida relacionada con el CEIP, a menos que desee deshabilitarlo después del aprovisionamiento. Puede personalizar o deshabilitar el CEIP mediante la conexión a la máquina virtual a través del escritorio remoto. A continuación, ejecute la utilidad **Informes de uso y errores de SQL Server** . Siga las instrucciones para deshabilitar los informes. Para más información acerca de la recopilación de datos, vea la [declaración de privacidad de SQL Server](/sql/sql-server/sql-server-privacy).
@@ -147,7 +147,7 @@ De manera predeterminada, el Programa para la mejora de la experiencia del clien
 
 ### <a name="networking"></a>Redes
 * [Información general sobre Virtual Network](../../../virtual-network/virtual-networks-overview.md)
-* [Direcciones IP en Azure](../../../virtual-network/public-ip-addresses.md)
+* [Direcciones IP en Azure](../../../virtual-network/ip-services/public-ip-addresses.md)
 * [Crear un nombre de dominio completo en el Portal de Azure](../../../virtual-machines/create-fqdn.md)
 
 ### <a name="sql"></a>SQL

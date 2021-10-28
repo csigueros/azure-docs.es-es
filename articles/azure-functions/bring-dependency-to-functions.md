@@ -4,12 +4,12 @@ description: Aprenda a trasladar archivos o bibliotecas de terceros.
 ms.date: 4/6/2020
 ms.topic: article
 zone_pivot_groups: bring-third-party-dependency-programming-functions
-ms.openlocfilehash: 3cd1139e8c733650acc879bf1d0d5d9efb2f6fb4
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: be01f07a9906da58d080060185104aef29f78b77
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109716440"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265312"
 ---
 # <a name="bring-dependencies-or-third-party-library-to-azure-functions"></a>Traslado de dependencias o bibliotecas de terceros a Azure Functions
 
@@ -205,7 +205,7 @@ az webapp config storage-account add \
 
 ### <a name="uploading-the-dependencies-to-azure-files"></a>Carga de las dependencias en Azure Files
 
-Una opción para cargar la dependencia en Azure Files es mediante Azure Portal. Consulte esta [guía](../storage/files/storage-how-to-use-files-portal.md#upload-a-file) para obtener instrucciones para cargar dependencias mediante el portal. Otras opciones para cargar las dependencias en Azure Files son mediante la [CLI de Azure](../storage/files/storage-how-to-use-files-cli.md#upload-a-file) y [PowerShell](../storage/files/storage-how-to-use-files-powershell.md#upload-a-file).
+Una opción para cargar la dependencia en Azure Files es mediante Azure Portal. Consulte esta [guía](../storage/files/storage-how-to-use-files-portal.md#upload-a-file) para obtener instrucciones para cargar dependencias mediante el portal. Otras opciones para cargar las dependencias en Azure Files son mediante la [CLI de Azure](../storage/files/storage-how-to-use-files-portal.md#upload-a-file) y [PowerShell](../storage/files/storage-how-to-use-files-portal.md#upload-a-file).
 
 
 ### <a name="accessing-the-dependencies-in-your-code"></a>Acceso a las dependencias del código

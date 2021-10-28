@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/27/2021
 ms.author: b-juche
-ms.openlocfilehash: 1254a9884063fce100152f370a434c55ec2ae207
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 1555a1c42f6365202787750f149b345ccd0cd55c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129094924"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224150"
 ---
 # <a name="disable-backup-functionality-for-a-volume"></a>Deshabilitación de la funcionalidad de copia de seguridad de un volumen 
 
@@ -51,5 +51,5 @@ Si se elimina un volumen, pero la directiva de copia de seguridad no se ha desha
 * [Restauración de una copia de seguridad en un volumen nuevo](backup-restore-new-volume.md)
 * [Eliminación de copias de seguridad de un volumen](backup-delete.md)
 * [Métricas de copia de seguridad de los volúmenes](azure-netapp-files-metrics.md#volume-backup-metrics)
-* [Preguntas frecuentes sobre la copia de seguridad de archivos de Azure NetApp Files](azure-netapp-files-faqs.md#azure-netapp-files-backup-faqs)
+* [Preguntas frecuentes sobre la copia de seguridad de archivos de Azure NetApp Files](faq-backup.md)
 

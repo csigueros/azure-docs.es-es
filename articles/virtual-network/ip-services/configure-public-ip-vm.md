@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 06/28/2021
 ms.custom: template-how-to
-ms.openlocfilehash: a21b734ee1825a86c9276a2e603d04d723bd8d46
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: d7c1f9faeb196f73fd6b336421591cfd895407fe
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129367840"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249008"
 ---
 # <a name="manage-a-public-ip-address-with-an-azure-virtual-machine"></a>Administración de una dirección IP pública con una máquina virtual de Azure
 
@@ -29,9 +29,9 @@ En este artículo, aprenderá a crear una máquina virtual de Azure mediante una
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Dos IP públicas de SKU estándar en la suscripción. La dirección IP no puede estar asociada a ningún recurso. Para más información sobre cómo crear una IP pública de SKU estándar, consulte [Creación de una dirección IP pública: Azure Portal](../../virtual-network/create-public-ip-portal.md).
+- Dos IP públicas de SKU estándar en la suscripción. La dirección IP no puede estar asociada a ningún recurso. Para más información sobre cómo crear una IP pública de SKU estándar, consulte [Creación de una dirección IP pública: Azure Portal](./create-public-ip-portal.md).
     - Para seguir los ejemplos de este artículo, asigne a las nuevas direcciones IP públicas los nombres **myStandardPublicIP-1** y **myStandardPublicIP-2**.
-- Una dirección IP pública de SKU estándar con la preferencia de enrutamiento de **Internet** en la suscripción. Para más información sobre cómo crear una IP pública con la preferencia de enrutamiento de **Internet**, consulte [Configuración de la preferencia de enrutamiento para una dirección IP pública mediante Azure Portal](../../virtual-network/routing-preference-portal.md).
+- Una dirección IP pública de SKU estándar con la preferencia de enrutamiento de **Internet** en la suscripción. Para más información sobre cómo crear una IP pública con la preferencia de enrutamiento de **Internet**, consulte [Configuración de la preferencia de enrutamiento para una dirección IP pública mediante Azure Portal](./routing-preference-portal.md).
     - Para seguir el ejemplo de este artículo, asigne a la nueva dirección IP pública el nombre **myStandardPublicIP-3**.
 ## <a name="create-virtual-machine-existing-public-ip"></a>Creación de una máquina virtual con una IP pública existente
 
@@ -71,7 +71,7 @@ En esta sección, creará una máquina virtual. Seleccionará la dirección IP q
 
 7. En la pestaña **Redes**, escriba o seleccione la siguiente información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | **Interfaz de red** |   |
     | Virtual network | Deje el valor predeterminado de **(new) myResourceGroupVM-vnet**. |
@@ -120,9 +120,9 @@ En esta sección, cambiará la dirección IP pública asociada a la configuraci�
 
 En esta sección, agregará una configuración de IP pública a la máquina virtual. 
 
-Para más información sobre cómo agregar varias direcciones IP, consulte [Asignación de varias direcciones IP a máquinas virtuales mediante Azure Portal](../../virtual-network/virtual-network-multiple-ip-addresses-portal.md). 
+Para más información sobre cómo agregar varias direcciones IP, consulte [Asignación de varias direcciones IP a máquinas virtuales mediante Azure Portal](./virtual-network-multiple-ip-addresses-portal.md). 
 
-Para más información sobre el uso de ambos tipos de preferencias de enrutamiento, consulte [Configuración de ambas opciones de preferencia de enrutamiento para una máquina virtual](../../virtual-network/routing-preference-mixed-network-adapter-portal.md).
+Para más información sobre el uso de ambos tipos de preferencias de enrutamiento, consulte [Configuración de ambas opciones de preferencia de enrutamiento para una máquina virtual](./routing-preference-mixed-network-adapter-portal.md).
 
 1. En el cuadro de búsqueda que aparece en la parte superior del portal, escriba **Máquina virtual**.
 
@@ -178,4 +178,4 @@ En esta sección, quitará la dirección IP pública de la interfaz de red. Desp
 
 En este artículo, ha aprendido a crear una máquina virtual y a usar una dirección IP pública existente. Ha cambiado la IP pública de la configuración IP predeterminada. Por último, ha agregado una configuración de IP pública al firewall con la preferencia de enrutamiento de Internet.
 
-- Para más información sobre las IP públicas en Azure, consulte [Direcciones IP públicas](../../virtual-network/public-ip-addresses.md).
+- Para más información sobre las IP públicas en Azure, consulte [Direcciones IP públicas](./public-ip-addresses.md).

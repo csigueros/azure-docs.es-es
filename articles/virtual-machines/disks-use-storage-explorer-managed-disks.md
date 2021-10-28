@@ -7,12 +7,12 @@ ms.date: 09/07/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: 84b2ea53ebb0b6102edf5bc501e0e1b9b6f21726
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3206eb5b7092a43561cd114082ac567a63bff61b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124782054"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130237935"
 ---
 # <a name="use-azure-storage-explorer-to-manage-azure-managed-disks"></a>Uso del Explorador de Azure Storage para administrar discos administrados de Azure
 
@@ -146,5 +146,5 @@ Con Explorador de Storage, puede copiar un disco superpuesto dentro o entre regi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Creación de una máquina virtual a partir de un disco duro virtual mediante Azure Portal](/azure/virtual-machines/windows/create-vm-specialized-portal)
-- [Conexión de un disco de datos administrado a una máquina virtual de Windows mediante Azure Portal](/azure/virtual-machines/windows/attach-managed-disk-portal)
+- [Creación de una máquina virtual a partir de un disco duro virtual mediante Azure Portal](./windows/create-vm-specialized-portal.md)
+- [Conexión de un disco de datos administrado a una máquina virtual de Windows mediante Azure Portal](./windows/attach-managed-disk-portal.md)

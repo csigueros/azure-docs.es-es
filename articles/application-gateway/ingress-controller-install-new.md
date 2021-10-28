@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 95a8f3090fd1599cbf30f783df1c501fa797cdff
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 9148bbf83a8fadc6c71fd995fd4a444e7c6d7db4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112287954"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130253141"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>Cómo instalar un controlador de entrada de Application Gateway (AGIC) con una nueva instancia de Application Gateway
 
@@ -74,7 +74,7 @@ En este paso se agregarán los siguientes componentes a la suscripción:
 - [Azure Kubernetes Service](../aks/intro-kubernetes.md)
 - [Application Gateway](./overview.md) v2
 - [Red virtual](../virtual-network/virtual-networks-overview.md) con 2 [subredes](../virtual-network/virtual-networks-overview.md)
-- [Dirección IP pública](../virtual-network/virtual-network-public-ip-address.md)
+- [Dirección IP pública](../virtual-network/ip-services/virtual-network-public-ip-address.md)
 - [Identidad administrada](../active-directory/managed-identities-azure-resources/overview.md), que [AAD Pod Identity](https://github.com/Azure/aad-pod-identity/blob/master/README.md) usará
 
 1. Descargue la plantilla de Azure Resource Manager y modifíquela según sea necesario.
@@ -250,7 +250,7 @@ Para instalar AAD Pod Identity en el clúster:
     ```
 
    Valores:
-     - `verbosityLevel`: establece el nivel de detalle de la infraestructura de registro de AGIC. Consulte [Niveles de registro](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.yml#logging-levels) para los valores posibles.
+     - `verbosityLevel`: establece el nivel de detalle de la infraestructura de registro de AGIC. Consulte [Niveles de registro](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels) para los valores posibles.
      - `appgw.subscriptionId`: El identificador de suscripción de Azure en el que reside la instancia de Application Gateway. Ejemplo: `a123b234-a3b4-557d-b2df-a0bc12de1234`
      - `appgw.resourceGroup`: El nombre del grupo de recursos de Azure donde se creó la instancia de Application Gateway. Ejemplo: `app-gw-resource-group`
      - `appgw.name`: nombre de la instancia de Application Gateway. Ejemplo: `applicationgatewayd0f0`

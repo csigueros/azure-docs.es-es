@@ -9,12 +9,12 @@ ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: bed5c6b1b1cf21de0105e0eeb2096d359177c115
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.openlocfilehash: 952e0b325fe37345db42d1dcd8d6c521f8235366
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109815007"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225405"
 ---
 # <a name="manage-scala-and-java-packages-for-apache-spark-in-azure-synapse-analytics"></a>Administración de paquetes de Scala y Java para Apache Spark en Azure Synapse Analytics
 
@@ -82,7 +82,7 @@ Para actualizar o agregar bibliotecas a un grupo de Spark:
 >
 > Si esta opción no está seleccionada, tendrá que esperar a que la sesión de Spark actual finalice o detenerla manualmente. Una vez finalizada la sesión, deberá dejar que el grupo se reinicie.
 
-#### <a name="track-installation-progress-preview"></a>Seguimiento del progreso de la instalación (versión preliminar)
+#### <a name="track-installation-progress"></a>Seguimiento del progreso de la instalación 
 Cada vez que se actualiza un grupo con un nuevo conjunto de bibliotecas, se inicia un trabajo de Spark reservado para el sistema. Este trabajo de Spark ayuda a supervisar el estado de la instalación de las bibliotecas. Si se produce un error en la instalación debido a conflictos de la biblioteca u otros problemas, el grupo de Spark volverá a su estado anterior o predeterminado. 
 
 Además, los usuarios pueden inspeccionar los registros de instalación para identificar conflictos de dependencia o ver qué bibliotecas se instalaron durante la actualización del grupo.

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.custom: automl
 ms.date: 10/06/2021
-ms.openlocfilehash: 944bab251d8e98da94a8d2e9d13418478e2dd46c
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 312eea28371de6726bca5d1a89e305024e552dad
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130007091"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130254372"
 ---
 # <a name="set-up-automl-to-train-computer-vision-models-with-python-preview"></a>Configuración de AutoML para entrenar modelos de Computer Vision con Python (versión preliminar)
 
@@ -63,7 +63,7 @@ automl_image_config = AutoMLImageConfig(task=ImageTask.IMAGE_OBJECT_DETECTION)
 
 ## <a name="training-and-validation-data"></a>Datos de entrenamiento y validación
 
-Para generar modelos para Computer Vision, debe traer datos de imagen etiquetados como entrada para el entrenamiento del modelo en forma de [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) de Azure Machine Learning. Puede usar un objeto `TabularDataset` que haya [exportado desde un proyecto de etiquetado de datos](how-to-create-labeling-projects.md#export-the-labels) o crear un nuevo `TabularDataset` con los datos de entrenamiento etiquetados. 
+Para generar modelos para Computer Vision, debe traer datos de imagen etiquetados como entrada para el entrenamiento del modelo en forma de [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) de Azure Machine Learning. Puede usar un objeto `TabularDataset` que haya [exportado desde un proyecto de etiquetado de datos](./how-to-create-image-labeling-projects.md#export-the-labels) o crear un nuevo `TabularDataset` con los datos de entrenamiento etiquetados. 
 
 Si los datos de entrenamiento están en un formato diferente (por ejemplo, Pascal VOC o COCO), puede aplicar los scripts auxiliares incluidos con los cuadernos de ejemplo para convertir los datos a JSONL. Obtenga más información sobre la [preparación de datos para tareas de Computer Vision con ML automatizado](how-to-prepare-datasets-for-automl-images.md). 
 
@@ -513,4 +513,4 @@ Revise los ejemplos de código y los casos de uso detallados en el repositorio d
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Tutorial: Entrenamiento de un modelo de detección de objetos (versión preliminar) con AutoML y Python](tutorial-auto-train-image-models.md)
-* [Solución de problemas de experimentos de aprendizaje automático automatizado](how-to-troubleshoot-auto-ml.md). 
+* [Solución de problemas de experimentos de aprendizaje automático automatizado](how-to-troubleshoot-auto-ml.md).

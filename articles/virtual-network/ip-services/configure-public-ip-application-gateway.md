@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 06/28/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 8139d6c6309bf971ed9a955f5ef02f0c674b152b
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: c700ca1bdd1e596d3c393f1a857adba81116b576
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129367669"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130248989"
 ---
 # <a name="manage-a-public-ip-address-with-an-azure-application-gateway"></a>Administración de una IP pública con una instancia de Azure Application Gateway
 
@@ -27,7 +27,7 @@ En este artículo, aprenderá a crear una instancia de Application Gateway con u
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Dos IP públicas de SKU estándar en la suscripción. Las direcciones IP no pueden estar asociadas con ningún recurso. Para más información sobre cómo crear una IP pública de SKU estándar, consulte [Creación de una dirección IP pública: Azure Portal](../../virtual-network/create-public-ip-portal.md).
+- Dos IP públicas de SKU estándar en la suscripción. Las direcciones IP no pueden estar asociadas con ningún recurso. Para más información sobre cómo crear una IP pública de SKU estándar, consulte [Creación de una dirección IP pública: Azure Portal](./create-public-ip-portal.md).
     - Para fines de los ejemplos de este artículo, asigne los nombres **myStandardPublicIP-1** y **myStandardPublicIP-2** a las IP públicas nuevas.
 
 ## <a name="create-application-gateway-existing-public-ip"></a>Creación de una IP pública existente de Application Gateway
@@ -74,7 +74,7 @@ En esta sección, creará un recurso de Application Gateway. Seleccionará la di
 
 12. Seleccione **+ Agregar una regla de enrutamiento**. Escriba o seleccione la siguiente información.
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | Nombre de la regla | Escriba **myRoutingRule**. |
     | **Agente de escucha** |    |
@@ -118,4 +118,4 @@ Application Gateway no permite cambiar la IP pública después de la creación.
 En este artículo, aprendió a crear una instancia de Application Gateway y a utilizar una IP pública existente. 
 
 - Para más información sobre Azure Virtual Network NAT, consulte [¿Qué es Azure Virtual Network NAT?](../nat-gateway/nat-overview.md)
-- Para más información sobre las IP públicas en Azure, consulte [Direcciones IP públicas](../../virtual-network/public-ip-addresses.md).
+- Para más información sobre las IP públicas en Azure, consulte [Direcciones IP públicas](./public-ip-addresses.md).

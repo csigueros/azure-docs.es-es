@@ -11,12 +11,12 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 3f0e2baa7ac30e0e75167dc603de73fdd1df8d73
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: b495476a93d3cef76c866b3927aa4bfacdb98477
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123215372"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238761"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-windows-device"></a>Inicio rápido: Implementación del primer módulo de IoT Edge en un dispositivo Windows
 
@@ -61,7 +61,7 @@ Asegúrese de que el dispositivo de IoT Edge cumpla con los requisitos siguiente
   * Espacio libre en disco mínimo: 10 GB
 
 >[!NOTE]
->En este inicio rápido se utiliza PowerShell para crear una implementación de IoT Edge para Linux en Windows. También puede usar Windows Admin Center. Si quiere usar Windows Admin Center para crear la implementación, siga la guía paso a paso sobre [instalación y aprovisionamiento de Azure IoT Edge para Linux en un dispositivo Windows](how-to-install-iot-edge-on-windows.md?tabs=windowsadmincenter).
+>En este inicio rápido se utiliza PowerShell para crear una implementación de IoT Edge para Linux en Windows. También puede usar Windows Admin Center. Si quiere usar Windows Admin Center para crear la implementación, siga la guía paso a paso sobre [instalación y aprovisionamiento de Azure IoT Edge para Linux en un dispositivo Windows](how-to-provision-single-device-linux-on-windows-symmetric.md?tabs=windowsadmincenter).
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
@@ -151,7 +151,7 @@ Ejecute los siguientes comandos de PowerShell en el dispositivo de destino donde
 
 1. Escriba "O" o "R" para activar o desactivar la opción **Datos de diagnóstico opcionales** en función de sus preferencias. A continuación se muestra una implementación correcta.
 
-   ![Una implementación correcta indicará "implementación correcta" al final de los mensajes.](./media/how-to-install-iot-edge-on-windows/successful-powershell-deployment-2.png)
+   ![Una implementación correcta indicará "implementación correcta" al final de los mensajes.](./media/quickstart/successful-powershell-deployment.png)
 
 1. Aprovisione el dispositivo con la cadena de conexión del dispositivo que ha recuperado en la sección anterior. Reemplace el texto de marcador de posición por un valor propio.
 

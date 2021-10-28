@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 10/04/2021
 ms.author: b-juche
-ms.openlocfilehash: 546f3ad04a371277903f9b11f6d62bba50794051
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 738e3d6cb3b27180cd8337e09a72fbe3a0639edf
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129536255"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130240060"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creación de un volumen de SMB para Azure NetApp Files
 
@@ -29,7 +29,7 @@ En este artículo se muestra cómo crear un volumen SMB3. Para los volúmenes NF
 
 ## <a name="before-you-begin"></a>Antes de empezar 
 
-* Debe haber configurado un grupo de capacidad. Vea [Creación de un grupo de capacidad](azure-netapp-files-set-up-capacity-pool.md).     
+* Debe haber configurado un grupo de capacidad. Consulte [Creación de un grupo de capacidad](azure-netapp-files-set-up-capacity-pool.md).     
 * Debe haber una subred delegada en Azure NetApp Files. Consulte [Delegación de una subred en Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 
 ## <a name="configure-active-directory-connections"></a>Configuración de conexiones de Active Directory 
@@ -82,7 +82,7 @@ Debe crear una conexión de Active Directory antes de crear un volumen SMB. Si n
         ![Creación de una subred](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
     * **Características de red**  
-        En las regiones admitidas, puede especificar si quiere usar características de red **Básicas** o **Estándar** para el volumen. Vea [Configuración de las características de red de un volumen](configure-network-features.md) e [Instrucciones para el planeamiento de red de Azure NetApp Files](azure-netapp-files-network-topologies.md) para obtener detalles.
+        En las regiones admitidas, puede especificar si quiere usar funciones de red **Básicas** o **Estándar** para el volumen. Consulte [Configurar características de red para un volumen](configure-network-features.md) y [Directrices para el planeamiento de la red de Azure NetApp Files](azure-netapp-files-network-topologies.md) para obtener más detalles.
 
     * Si desea aplicar una directiva de instantáneas existente al volumen, haga clic en **Mostrar la sección avanzada** para expandirla, especifique si quiere ocultar la ruta de acceso de la instantánea y seleccione una directiva de instantáneas en el menú desplegable. 
 
@@ -171,6 +171,6 @@ Puede establecer permisos para un archivo o carpeta con la pestaña **Seguridad*
 * [Configuración de ADDS LDAP sobre TLS para Azure NetApp Files](configure-ldap-over-tls.md) 
 * [Habilitación de la disponibilidad continua en volúmenes de SMB existentes](enable-continuous-availability-existing-SMB.md)
 * [Cifrado de SMB](azure-netapp-files-smb-performance.md#smb-encryption)
-* [Solución de problemas de SMB o de volúmenes de dos protocolos](troubleshoot-dual-protocol-volumes.md)
+* [Solución de errores de volúmenes de Azure NetApp Files](troubleshoot-volumes.md)
 * [Obtenga información sobre la integración de redes virtuales para los servicios de Azure](../virtual-network/virtual-network-for-azure-services.md)
 * [Install a new Active Directory forest using Azure CLI](/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm) (Instalación de un nuevo bosque de Active Directory en la CLI de Azure)

@@ -8,12 +8,12 @@ ms.date: 07/01/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 9a76298b829df96ca6fcf7c483eeec98e1f5b36d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0d0fefe0994b0d3d162b8a7d9f802c70ae7b0b3f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128673224"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225443"
 ---
 # <a name="nfs-file-shares-in-azure-files-preview"></a>Recursos compartidos de archivos NFS en Azure Files (versión preliminar)
 Azure Files ofrece dos protocolos estándar del sector para el montaje de recursos compartidos de archivos de Azure: el protocolo [Bloque de mensajes del servidor (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) y el protocolo [Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (versión preliminar). Azure Files le permite seleccionar el protocolo del sistema de archivos más adecuado para su carga de trabajo. Los recursos compartidos de archivos de Azure no admiten el acceso a un recurso compartido de archivos de Azure individual con los protocolos SMB y NFS, aunque se pueden crear recursos compartidos de archivos SMB y NFS dentro de la misma cuenta de almacenamiento. En general, Azure Files ofrece recursos compartidos de archivos de nivel empresarial que se pueden escalar verticalmente para satisfacer sus necesidades de almacenamiento y a los que pueden acceder simultáneamente miles de clientes.
@@ -100,7 +100,6 @@ La versión preliminar de NFS se ha validado para funcionar bien con cargas de t
 
 Las siguientes cargas de trabajo tienen problemas conocidos. Consulte [Solución de problemas de recursos compartidos de archivos NFS de Azure](storage-troubleshooting-files-nfs.md) para ver una lista de problemas conocidos:
 - Oracle Database experimentará incompatibilidad con su característica dNFS.
-- La capa de aplicación de SAP experimentará un comportamiento incoherente debido a [un problema activo conocido con ls -l](storage-troubleshooting-files-nfs.md#ls-la-throws-io-error).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

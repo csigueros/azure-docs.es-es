@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a solucionar los errores detectados a
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 06/02/2021
-ms.openlocfilehash: d3afc24f11400a5d2e7e099690ba9312e9b25ae7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 33525dbe53a385418cce78b135d6c11b5dc78dce
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128599874"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130244566"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solución de errores de copia de seguridad en las máquinas virtuales de Azure
 
@@ -423,4 +423,4 @@ DHCP debe estar habilitado dentro del invitado para que la copia de seguridad de
 Obtenga más información sobre cómo configurar una dirección IP estática con PowerShell:
 
 * [Incorporación de una dirección IP interna estática a una máquina virtual existente](/powershell/module/az.network/set-aznetworkinterfaceipconfig#description)
-* [Cambio del método de asignación para una dirección IP privada asignada a una interfaz de red](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
+* [Cambio del método de asignación para una dirección IP privada asignada a una interfaz de red](../virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md)

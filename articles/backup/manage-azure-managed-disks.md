@@ -3,12 +3,12 @@ title: Administración de Azure Managed Disks
 description: Obtenga información sobre la administración de Azure Managed Disks desde Azure Portal.
 ms.topic: conceptual
 ms.date: 09/23/2021
-ms.openlocfilehash: 4b40a71a71ce543c66bf347ec745fea6ae384779
-ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.openlocfilehash: 38f131d9656f604ee4d53b5d1de0f16ffa56b9ba
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128708920"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215998"
 ---
 # <a name="manage-azure-managed-disks"></a>Administración de Azure Managed Disks
 
@@ -96,7 +96,7 @@ Siga estos pasos:
 Si decide detener todos los trabajos de copia de seguridad programados y eliminar todas las copias de seguridad existentes, use **Eliminar instancia de copia de seguridad**.
 
 >[!Note]
->La eliminación de una instancia de copia de seguridad produce un error si el grupo de recursos de instantáneas se elimina manualmente o se revoca el permiso a la identidad administrada del almacén de copias de seguridad. En estos casos de error, cree temporalmente el grupo de recursos de instantáneas (con el mismo nombre) y proporcione a la identidad administrada del almacén de copias de seguridad los permisos de rol necesarios como se documenta [aquí](/azure/backup/backup-managed-disks-ps#assign-permissions). En la pestaña **Información esencial** de la pantalla **Instancia de copia de seguridad** se puede encontrar el nombre del grupo de recursos de instantáneas. 
+>La eliminación de una instancia de copia de seguridad produce un error si el grupo de recursos de instantáneas se elimina manualmente o se revoca el permiso a la identidad administrada del almacén de copias de seguridad. En estos casos de error, cree temporalmente el grupo de recursos de instantáneas (con el mismo nombre) y proporcione a la identidad administrada del almacén de copias de seguridad los permisos de rol necesarios como se documenta [aquí](./backup-managed-disks-ps.md#assign-permissions). En la pestaña **Información esencial** de la pantalla **Instancia de copia de seguridad** se puede encontrar el nombre del grupo de recursos de instantáneas. 
 
 Para eliminar una instancia de copia de seguridad de disco, siga estos pasos:
 

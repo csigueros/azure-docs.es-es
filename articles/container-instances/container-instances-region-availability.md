@@ -4,12 +4,12 @@ description: Disponibilidad de recursos de proceso y memoria para el servicio Az
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: d48f9a13b24caab86b6d2cdfba039583f1b75c70
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 556d018a020aca7e6df11ff635719145af5bb8de
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129998549"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252048"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidad de recursos para Azure Container Instances en las regiones de Azure
 
@@ -77,7 +77,7 @@ Los recursos máximos siguientes están disponibles para un grupo de contenedore
 
 ## <a name="windows-container-groups"></a>Grupos de contenedor de Windows
 
-Las siguientes regiones y recursos máximos están disponibles para los grupos de contenedores con contenedores de Windows Server [admitidos y en versión preliminar](/azure/container-instances/container-instances-faq#what-windows-base-os-images-are-supported).
+Las siguientes regiones y recursos máximos están disponibles para los grupos de contenedores con contenedores de Windows Server [admitidos y en versión preliminar](./container-instances-faq.yml).
 
 > [!IMPORTANT]
 > En este momento, las implementaciones con grupos de contenedores de Windows no se admiten en una implementación de Azure Virtual Network.

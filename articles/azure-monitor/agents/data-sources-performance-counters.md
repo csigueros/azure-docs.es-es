@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/26/2021
-ms.openlocfilehash: f4bddc1666d1165d6a1e4c749fdbc96ede37747a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 380eed0d2d1c42613fbc8087bd30775555593a91
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036798"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130236213"
 ---
 # <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Recopilación de orígenes de datos de rendimiento de Windows y Linux con el agente de Log Analytics
 Los contadores de rendimiento de Windows y Linux ofrecen información acerca del rendimiento de los componentes de hardware, los sistemas operativos y las aplicaciones.  Azure Monitor puede recopilar contadores de rendimiento de los agentes de Log Analytics a intervalos frecuentes para el análisis casi en tiempo real (NRT), además de agregar datos de rendimiento para el análisis a más largo plazo y la creación de informes.
@@ -224,4 +224,4 @@ La tabla siguiente proporciona distintos ejemplos de consultas de registros que 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Recopilación de contadores de rendimiento desde aplicaciones de Linux](data-sources-linux-applications.md), lo que incluye MySQL y Apache HTTP Server.
 * Obtenga información acerca de las [consultas de registros](../logs/log-query-overview.md) para analizar los datos recopilados de soluciones y orígenes de datos.  
-* Exporte los datos recopilados a [Power BI](../visualize/powerbi.md) para poder realizar más análisis y tener más formas de visualizarlos.
+* Exporte los datos recopilados a [Power BI](../logs/log-powerbi.md) para poder realizar más análisis y tener más formas de visualizarlos.

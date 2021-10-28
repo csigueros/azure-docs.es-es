@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: quickstart
 ms.date: 10/18/2021
 zone_pivot_groups: iot-develop-toolset
-ms.openlocfilehash: 2b2b0cdb4c81a8ca501c58fce9ddb4771a5bbaba
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 2d5d8aafb9eaae7617ee7ecc98cc8896339f23e6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130167664"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130218154"
 ---
 # <a name="quickstart-connect-a-microchip-atsame54-xpro-evaluation-kit-to-iot-central"></a>Inicio rápido: Conexión de un kit de evaluación ATSAME54-XPro de Microchip a IoT Central
 
@@ -39,7 +39,7 @@ Deberá completar las siguientes tareas:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Un equipo con Microsoft Windows 10
+* Un equipo con Windows 10
 * [Git](https://git-scm.com/downloads) para clonar el repositorio
 * Hardware
 
@@ -239,7 +239,7 @@ Mantenga abierto Termite para supervisar la salida del dispositivo en los pasos 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Un equipo con Microsoft Windows 10
+* Un equipo con Windows 10
 
 * Hardware
 
@@ -371,7 +371,7 @@ Mantenga abierto Termite para supervisar la salida del dispositivo en los pasos 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Un equipo con Microsoft Windows 10
+* Un equipo con Windows 10
 
 * Hardware
 

@@ -8,12 +8,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 05/20/2021
 ms.custom: template-how-to
-ms.openlocfilehash: f436cd2d113909a65b62891f9fbfb5965d06a981
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: a40806f6328c513fe6a835ca3a81b46ad962b86d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129367874"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224956"
 ---
 # <a name="upgrade-a-public-ip-address-using-the-azure-portal"></a>Actualización de una dirección IP pública mediante Azure Portal
 
@@ -24,7 +24,7 @@ En este artículo, aprenderá a actualizar en Azure Portal la dirección IP pú
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-* La dirección IP pública de una SKU básica estática en la suscripción. Para más información, consulte el artículo sobre la [creación de una dirección IP pública desde Azure Portal](../../virtual-network/create-public-ip-portal.md#create-a-basic-sku-public-ip-address).
+* La dirección IP pública de una SKU básica estática en la suscripción. Para más información, consulte el artículo sobre la [creación de una dirección IP pública desde Azure Portal](./create-public-ip-portal.md#create-a-basic-sku-public-ip-address).
 
 ## <a name="upgrade-public-ip-address"></a>Actualización de una dirección IP pública
 
@@ -73,5 +73,4 @@ En este artículo, actualizará una dirección IP pública de SKU básica a una 
 Para más información sobre direcciones IP públicas, consulte:
 
 - [Direcciones IP públicas en Azure](public-ip-addresses.md)
-- [Creación de una dirección IP pública: Azure Portal](../../virtual-network/create-public-ip-portal.md)
-
+- [Creación de una dirección IP pública: Azure Portal](./create-public-ip-portal.md)

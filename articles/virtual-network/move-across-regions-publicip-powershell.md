@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: allensu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 16ba023f4fef0b2fae4b84b1bff746332500cbc6
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: f6be8adf08000fdd23568481b592cde36f9bb248
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110672567"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130257753"
 ---
 # <a name="move-azure-public-ip-configuration-to-another-region-using-azure-powershell"></a>Migración de la configuración de dirección IP pública de Azure a otra región mediante Azure PowerShell
 
@@ -134,7 +134,7 @@ En los pasos siguientes se muestra cómo preparar la dirección IP pública para
                     },
          ```
 
-         Para más información sobre las diferencias entre las IP públicas de la SKU básica y estándar, consulte [Creación, modificación o eliminación de una dirección IP pública](./virtual-network-public-ip-address.md).
+         Para más información sobre las diferencias entre las IP públicas de la SKU básica y estándar, consulte [Creación, modificación o eliminación de una dirección IP pública](./ip-services/virtual-network-public-ip-address.md).
 
     * **Método de asignación de IP pública** y **tiempo de espera de inactividad**: puede cambiar estas dos opciones en la plantilla si cambia la propiedad **publicIPAllocationMethod** de **Dynamic** a **Static** o bien de **Static** a **Dynamic**. El tiempo de espera de inactividad se puede cambiar modificando la propiedad **idleTimeoutInMinutes** con la cantidad deseada.  El valor predeterminado es **4**:
 
@@ -161,7 +161,7 @@ En los pasos siguientes se muestra cómo preparar la dirección IP pública para
                 }            
          ```
 
-        Para más información sobre los métodos de asignación y los valores de tiempo de espera de inactividad, consulte [Creación, modificación o eliminación de una dirección IP pública](./virtual-network-public-ip-address.md).
+        Para más información sobre los métodos de asignación y los valores de tiempo de espera de inactividad, consulte [Creación, modificación o eliminación de una dirección IP pública](./ip-services/virtual-network-public-ip-address.md).
 
 
 9. Guarde el archivo **\<resource-group-name>.json**.

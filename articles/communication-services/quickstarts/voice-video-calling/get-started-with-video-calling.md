@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 zone_pivot_groups: acs-plat-web-ios-android-windows
-ms.openlocfilehash: 3eba4506761903294c537049477ed61a97d31ee1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: cee4d545381061016af432c9c2fb0e28096f2eaf
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128676967"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130244262"
 ---
 # <a name="quickstart-add-11-video-calling-to-your-app"></a>Inicio rápido: Adición de llamadas de vídeo 1:1 a la aplicación
 
@@ -43,5 +43,5 @@ Si quiere limpiar y quitar una suscripción a Communication Services, puede elim
 Para más información, consulte los siguientes artículos.
 
 - Consulte [Introducción al ejemplo de llamada web](../../samples/web-calling-sample.md).
-- Más información sobre las [Funcionalidades del SDK de llamadas](./calling-client-samples.md?pivots=platform-web)
+- Más información sobre las [Funcionalidades del SDK de llamadas](./getting-started-with-calling.md?pivots=platform-web)
 - Más información sobre [cómo funciona la llamada](../../concepts/voice-video-calling/about-call-types.md)

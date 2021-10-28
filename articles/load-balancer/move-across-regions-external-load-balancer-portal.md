@@ -6,12 +6,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: da37816b68e9984fdf801e3e84d50a57bf290e96
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: b9eabb4f49a533c97177dc0598e425ab63b20ec5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129273559"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130258722"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Traslado de un equilibrador de carga externo a otra región mediante Azure Portal
 
@@ -110,7 +110,7 @@ En los procedimientos siguientes se muestra cómo preparar el equilibrador de ca
             },
         ```
 
-        Para obtener información sobre las diferencias entre las IP públicas de la SKU básica y estándar, consulte [Creación, modificación o eliminación de una dirección IP pública](../virtual-network/virtual-network-public-ip-address.md).
+        Para obtener información sobre las diferencias entre las IP públicas de la SKU básica y estándar, consulte [Creación, modificación o eliminación de una dirección IP pública](../virtual-network/ip-services/virtual-network-public-ip-address.md).
 
     * **Método de asignación de IP pública** y **Tiempo de espera de inactividad**. Puede cambiar el método de asignación de IP pública cambiando la propiedad **publicIPAllocationMethod** de **Dynamic** a **Static** o de **Static** a **Dynamic**. Puede cambiar el tiempo de espera de inactividad cambiando la propiedad **idleTimeoutInMinutes** al valor deseado. El valor predeterminado es **4**.
 
@@ -136,7 +136,7 @@ En los procedimientos siguientes se muestra cómo preparar el equilibrador de ca
 
         ```
 
-        Para obtener información sobre los métodos de asignación y los valores de tiempo de espera de inactividad, consulte [Creación, modificación o eliminación de una dirección IP pública](../virtual-network/virtual-network-public-ip-address.md).
+        Para obtener información sobre los métodos de asignación y los valores de tiempo de espera de inactividad, consulte [Creación, modificación o eliminación de una dirección IP pública](../virtual-network/ip-services/virtual-network-public-ip-address.md).
 
  
 13. Seleccione **Guardar** en el editor en línea.

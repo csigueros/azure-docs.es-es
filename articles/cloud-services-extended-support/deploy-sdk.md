@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 873d9f8695927ab28014ec9510d78bd59a8fad8f
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 774b118c1aa74c7de561e7b54843183ac4fc0afb
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123310278"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130229884"
 ---
 # <a name="deploy-cloud-services-extended-support-by-using-the-azure-sdk"></a>Implementación de Cloud Services (soporte extendido) con Azure SDK
 
@@ -154,7 +154,7 @@ Consulte los [requisitos previos de implementación](deploy-prerequisite.md) de 
     m_NrpClient.VirtualNetworks.CreateOrUpdate(resourceGroupName, “ContosoVNet”, vnet);
     ```
 
-7. Cree una dirección IP pública y establezca la propiedad de la etiqueta DNS de esa dirección IP pública. Cloud Services (soporte extendido) solo admite direcciones IP públicas de la SKU [básica](../virtual-network/public-ip-addresses.md#basic). Las direcciones IP públicas de la SKU estándar no funcionan con Cloud Services.
+7. Cree una dirección IP pública y establezca la propiedad de la etiqueta DNS de esa dirección IP pública. Cloud Services (soporte extendido) solo admite direcciones IP públicas de la SKU [básica](../virtual-network/ip-services/public-ip-addresses.md#basic). Las direcciones IP públicas de la SKU estándar no funcionan con Cloud Services.
 Si usa una dirección IP estática, debe hacer referencia a ella como IP reservada del archivo de configuración de servicio (.cscfg).
 
     ```csharp

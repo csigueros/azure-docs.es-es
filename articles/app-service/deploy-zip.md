@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/13/2021
 ms.reviewer: sisirap
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: a73d03d97e2b5d5d743b1db3980c8e587a0f454b
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: be58de78ba82c3c5e99475b00649e2a7ebfdf5e4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123225459"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216946"
 ---
 # <a name="deploy-files-to-app-service"></a>Implementación de archivos en App Service
 
@@ -93,7 +93,7 @@ Cargue el paquete ZIP que creó en [Creación de un paquete ZIP de proyecto](#cr
 
 Cuando la implementación está en curso, un icono en la esquina superior derecha muestra el progreso como un porcentaje. La página también muestra mensajes detallados para la operación debajo del área del explorador. Cuando se haya completado, el último mensaje de implementación debe indicar `Deployment successful`.
 
-El punto de conexión anterior no funciona en este momento con App Services de Linux. Considere la posibilidad de usar en su lugar FTP o la [API de implementación de ZIP](/azure/app-service/faq-app-service-linux#continuous-integration-and-deployment).
+El punto de conexión anterior no funciona en este momento con App Services de Linux. Considere la posibilidad de usar en su lugar FTP o la [API de implementación de ZIP](./faq-app-service-linux.yml).
 
 -----
 

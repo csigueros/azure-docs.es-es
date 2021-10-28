@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/02/2021
 ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4
-ms.openlocfilehash: 927b672aa4bd17efcfa491b0ec0092db9a2118c0
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 625a49930b68f2f5d76110a3548ad6e422ebf451
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429801"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251554"
 ---
 # <a name="data-wrangling-with-apache-spark-pools-preview"></a>Limpieza y transformación de datos con grupos de Apache Spark (versión preliminar) 
 
@@ -96,7 +96,7 @@ env.register(workspace=ws)
 Para comenzar la preparación de datos con el grupo de Apache Spark y su entorno personalizado, especifique el nombre del grupo de Apache Spark y qué entorno utilizar durante la sesión de Apache Spark. Además, puede proporcionar el identificador de la suscripción, el grupo de recursos del área de trabajo de aprendizaje automático y el nombre del área de trabajo de aprendizaje automático.
 
 >[!IMPORTANT]
-> Asegúrese de que la opción [Permitir paquetes de nivel de sesión](../synapse-analytics/spark/apache-spark-manage-python-packages.md#session-scoped-packages-preview) esté habilitada en el área de trabajo de Synapse vinculada.
+> Asegúrese de que la opción [Permitir paquetes de nivel de sesión](../synapse-analytics/spark/apache-spark-manage-python-packages.md#session-scoped-packages) esté habilitada en el área de trabajo de Synapse vinculada.
 >
 >![Habilitación de paquetes de nivel de sesión](media/how-to-data-prep-synapse-spark-pool/enable-session-level-package.png)
 

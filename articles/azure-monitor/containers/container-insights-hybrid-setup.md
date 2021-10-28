@@ -3,12 +3,12 @@ title: Configuración de los clústeres híbridos de Kubernetes con Container In
 description: En este artículo se describe cómo puede configurar Container Insights con el fin de supervisar clústeres de Kubernetes hospedados en Azure Stack u otro entorno.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 90a4c14397df8e70fc8f3d88bc339f826bb1ccc9
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f9fe3e20ec7486d9c6f18d1494ec3bedbdc17e86
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107767030"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130231558"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-container-insights"></a>Configuración de clústeres híbridos de Kubernetes con Container Insights
 
@@ -38,7 +38,7 @@ Antes de empezar, asegúrese de que dispone de lo siguiente:
 
 - Un [área de trabajo de Log Analytics.](../logs/design-logs-deployment.md)
 
-    Container Insights admite un área de trabajo de Log Analytics en las regiones enumeradas en los [productos por región](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor) de Azure. Para crear el área de trabajo, puede configurarla mediante [Azure Resource Manager](../logs/resource-manager-workspace.md), [PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) o en el [Azure Portal](../logs/quick-create-workspace.md).
+    Container Insights admite un área de trabajo de Log Analytics en las regiones enumeradas en los [productos por región](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor) de Azure. Para crear el área de trabajo, puede configurarla mediante [Azure Resource Manager](../logs/resource-manager-workspace.md), [PowerShell](../logs/powershell-workspace-configuration.md?toc=%2fpowershell%2fmodule%2ftoc.json) o en el [Azure Portal](../logs/quick-create-workspace.md).
 
     >[!NOTE]
     >No se admite la supervisión de varios clústeres con el mismo nombre de clúster en el mismo área de trabajo de Log Analytics. Los nombres de clúster deben ser únicos.

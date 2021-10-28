@@ -7,12 +7,12 @@ ms.topic: how-to
 author: aarathin
 ms.author: aarathin
 ms.date: 05/21/2021
-ms.openlocfilehash: ec24d4df5a792166812693ad90f21396771ecdd6
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 1f9ad2fd05e11d981dd374919e2cc43d1b8d1f97
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111537887"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232316"
 ---
 # <a name="pre-certification-checklist-for-iot-edge-modules"></a>Lista de comprobación de certificación previa para los módulos IoT Edge
 
@@ -55,7 +55,7 @@ El equipo de certificación usa el siguiente hardware para validar las imágenes
 #### <a name="steps"></a>Pasos
 
 1. Asegúrese de que se puede acceder a los dispositivos o VM creados a través de PuTTY.
-1. Descargue el [entorno de ejecución de Azure IoT Edge](../iot-edge/how-to-install-iot-edge.md) en el dispositivo.
+1. Descargue el [entorno de ejecución de Azure IoT Edge](../iot-edge/how-to-provision-single-device-linux-symmetric.md) en el dispositivo.
 1. Actualice la cadena de conexión que copió en el paso 5 al archivo config.yaml.
 1. Reinicie el módulo Edge con `sudo systemctl restart iotedge`.
 1. Compruebe si el módulo está implementado en el dispositivo con `sudo iotedge list`; debe estar en estado de ejecución.

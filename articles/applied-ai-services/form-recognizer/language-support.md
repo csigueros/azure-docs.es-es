@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 10/07/2021
 ms.author: lajanuar
-ms.openlocfilehash: 5c9df61e7f4430a623f354294863b2a1bc06b7c8
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: b9cd899516188dbac4671addd11d9c6cd05fc843
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130164263"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216663"
 ---
 # <a name="language-support-for-form-recognizer"></a>Compatibilidad de idiomas con Form Recognizer
 
@@ -32,7 +32,7 @@ En las listas siguientes se incluyen los idiomas de disponibilidad general actua
 >
 > Los modelos universales basados en aprendizaje profundo de Form Recognizer extraen todo el texto multilingüe de los documentos, incluidas las líneas de texto con idiomas combinados, y no requieren especificar un código de idioma. No proporcione el código de idioma como parámetro a menos que esté seguro del idioma y desee forzar al servicio a aplicar solo el modelo correspondiente. De lo contrario, el servicio puede devolver texto incompleto e incorrecto.
 
-Para usar los lenguajes de la versión preliminar en los modelos de diseño y personalizados, consulte la [guía de migración de la API REST v3.0](/v3-migration-guide.md#changes-to-the-rest-api-endpoints) para comprender las diferencias de la API v2.1 de disponibilidad general y explorar los [inicios rápidos del SDK de versión preliminar v3.0](quickstarts/try-v3-python-sdk.md) y el [inicio rápido de la API REST de versión preliminar](quickstarts/try-v3-rest-api.md).
+Para usar los lenguajes de la versión preliminar en los modelos de diseño y personalizados, consulte la [guía de migración de la API REST v3.0](/rest/api/media/#changes-to-the-rest-api-endpoints) para comprender las diferencias de la API v2.1 de disponibilidad general y explorar los [inicios rápidos del SDK de versión preliminar v3.0](quickstarts/try-v3-python-sdk.md) y el [inicio rápido de la API REST de versión preliminar](quickstarts/try-v3-rest-api.md).
 
 ### <a name="handwritten-languages"></a>Idiomas manuscritos
 En la tabla siguiente se enumeran los idiomas manuscritos admitidos por las características de modelos de diseño y personalizados de Form Recognizer.
@@ -118,7 +118,7 @@ En la tabla siguiente se enumeran los idiomas de impresión admitidos por las ca
 |Koriakia |`kpy`| Vista previa |
 |Kosreano |`kos`| Vista previa |
 |Cumuco (cirílico) |`kum`| Vista previa |
-|Kurdo (latino)| `kur` | |
+|Kurdo (latino)| `ku` | |
 |Kirguís (cirílico) |`ky`| Vista previa |
 |Lakota |`lkt`| Vista previa |
 |Latín|`la`| Vista previa |
@@ -152,13 +152,13 @@ En la tabla siguiente se enumeran los idiomas de impresión admitidos por las ca
 |Serbio (latino) | `sr-latn` | Vista previa |
 |Sami skolt|`sms`| Vista previa |
 |Eslovaco | `sk` | Vista previa |
-|Esloveno  | `slv` | |
+|Esloveno  | `sl` | |
 |Sami meridional|`sma`| Vista previa |
 |Español | `es` | |
 |Swahili (Latín)  | `sw` | |
 |Sueco | `sv` | |
 |Tayiko (cirílico)|`tg`| Vista previa |
-|Tártaro (Latín)  | `tat` | |
+|Tártaro (Latín)  | `tt` | |
 |Tetum    | `tet` |  |
 |Tongano|`to`|(versión preliminar) |
 |Turco | `tr` | |

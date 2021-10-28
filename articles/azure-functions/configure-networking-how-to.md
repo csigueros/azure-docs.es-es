@@ -4,12 +4,12 @@ description: En este artículo se muestra cómo realizar ciertas tareas de redes
 ms.topic: conceptual
 ms.date: 3/13/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 0a431abe5d32bdc59bb163f32e4c5f636c870335
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 6465a1c5e9b39bcef29fb28ebf2e19c7203da648
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130063057"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130257050"
 ---
 # <a name="how-to-configure-azure-functions-with-a-virtual-network"></a>Configuración de Azure Functions con una red virtual
 
@@ -49,7 +49,6 @@ Para configurar una función con una cuenta de almacenamiento restringida a una 
     | `WEBSITE_CONTENTSHARE` | Recurso compartido de archivos | El nombre del recurso compartido de archivos creado en la cuenta de almacenamiento protegida donde residen los archivos de implementación del proyecto. |
     | `WEBSITE_CONTENTOVERVNET` | 1 | Nueva configuración |
     | `WEBSITE_VNET_ROUTE_ALL` | 1 | Fuerza todo el tráfico saliente a través de la red virtual. Obligatorio cuando la cuenta de almacenamiento usa conexiones de punto de conexión privado. |
-    | `WEBSITE_DNS_SERVER` | `168.63.129.16` | El servidor DNS que usa la aplicación. Obligatorio cuando la cuenta de almacenamiento usa conexiones de punto de conexión privado. |
 
 1. Seleccione **Guardar** para guardar la configuración de la aplicación. Si cambia la configuración de la aplicación, esta se reiniciará.  
 

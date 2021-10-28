@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.date: 09/23/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: bed6b3e8d40beab403b8295b9c17fc8b6f6eefbe
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 70ab13f1ca1eee2d5c01d3aa1af6255bc06aeb3d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129659267"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233665"
 ---
 # <a name="generate-sas-tokens-for-storage-containers"></a>Generación de tokens de SAS para contenedores de almacenamiento
 
@@ -47,8 +47,8 @@ Para empezar, necesitará lo siguiente:
 * Un recurso de [Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) o de [varios servicios de Cognitive Services](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
 * Una [cuenta de Azure Blob Storage](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) de **rendimiento estándar**. Creará contenedores para almacenar y organizar los datos de los blobs en la cuenta de almacenamiento. Si no sabe cómo crear una cuenta de almacenamiento de Azure con un contenedor, siga estos inicios rápidos:
 
-  * [Crear una cuenta de almacenamiento](/azure/storage/common/storage-account-create). Al crear la cuenta de almacenamiento, seleccione el rendimiento **Estándar** en el campo **Detalles de instancia** > **Rendimiento**.
-  * [Cree un contenedor](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container). Al crear un contenedor, establezca **Nivel de acceso público** en **Contenedor** (acceso de lectura anónimo para contenedores y blobs) en la ventana **Nuevo contenedor**.
+  * [Crear una cuenta de almacenamiento](../../storage/common/storage-account-create.md). Al crear la cuenta de almacenamiento, seleccione el rendimiento **Estándar** en el campo **Detalles de instancia** > **Rendimiento**.
+  * [Cree un contenedor](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). Al crear un contenedor, establezca **Nivel de acceso público** en **Contenedor** (acceso de lectura anónimo para contenedores y blobs) en la ventana **Nuevo contenedor**.
 
 ## <a name="upload-your-documents"></a>Carga de los documentos
 
@@ -67,7 +67,7 @@ Para empezar, necesitará lo siguiente:
     :::image type="content" source="media/sas-tokens/upload-blob-window.png" alt-text="Captura de pantalla que muestra el botón Cargar blob en Azure Portal.":::
 
 > [!NOTE]
-> De manera predeterminada, la API REST usa documentos de formulario que se encuentran en la raíz del contenedor. También puede usar datos organizados en subcarpetas si lo especifica en la llamada API. Para obtener más información, vea [Organización de los datos en subcarpetas](/azure/applied-ai-services/form-recognizer/build-training-data-set#organize-your-data-in-subfolders-optional).
+> De manera predeterminada, la API REST usa documentos de formulario que se encuentran en la raíz del contenedor. También puede usar datos organizados en subcarpetas si lo especifica en la llamada API. Para obtener más información, vea [Organización de los datos en subcarpetas](./build-training-data-set.md#organize-your-data-in-subfolders-optional).
 
 ## <a name="create-a-shared-access-signature-with-the-azure-portal"></a>Creación de una firma de acceso compartido con Azure Portal
 
@@ -94,8 +94,8 @@ Para empezar, necesitará lo siguiente:
     >
     >     :::image type="content" source="media/sas-tokens/need-permissions.png" alt-text="Captura de pantalla que muestra la advertencia de falta de permisos.":::
     >
-     > * El [control de acceso basado en rol de Azure](/azure/role-based-access-control/overview) (RBAC de Azure) es el sistema de autorización empleado para administrar el acceso a los recursos de Azure. Azure RBAC le ayuda a administrar el acceso y los permisos de los recursos de Azure.
-    > * [Asignación de un rol de Azure para acceder a datos de blobs](/azure/role-based-access-control/role-assignments-portal?tabs=current) muestra cómo asignar un rol con permisos de lectura, escritura y eliminación para el contenedor de Azure Storage. Por ejemplo, vea [Colaborador de datos de blob de Storage](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor).
+     > * El [control de acceso basado en rol de Azure](../../role-based-access-control/overview.md) (RBAC de Azure) es el sistema de autorización empleado para administrar el acceso a los recursos de Azure. Azure RBAC le ayuda a administrar el acceso y los permisos de los recursos de Azure.
+    > * [Asignación de un rol de Azure para acceder a datos de blobs](../../role-based-access-control/role-assignments-portal.md?tabs=current) muestra cómo asignar un rol con permisos de lectura, escritura y eliminación para el contenedor de Azure Storage. Por ejemplo, vea [Colaborador de datos de blob de Storage](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor).
 
 1. Especifique la fecha y hora de **inicio** y **expiración** de la clave firmada. El valor del tiempo de expiración es de siete días como máximo a partir del inicio de la firma de acceso compartido.
 
@@ -122,7 +122,7 @@ Para empezar, necesitará lo siguiente:
 
 1. Los permisos admitidos para una firma SAS de delegación de usuarios en un contenedor incluyen Agregar (a), Crear (c), Eliminar (d), Enumerar (e), Leer (r) y Escribir (w). Asegúrese de que **r**, **w**, **d** y **l** se incluyen como parte de los parámetros de permisos.
 
-1. Cuando se crea una firma SAS de delegación de usuarios con la CLI de Azure, el intervalo máximo durante el cual la clave de delegación de usuarios es válida es de siete días a partir de la fecha de inicio. Especifique un tiempo de expiración para la firma de acceso compartido que no supere los siete días a partir del momento de inicio. Para obtener más información, vea [Creación de una SAS de delegación de usuarios para un contenedor o blob con la CLI de Azure](/azure/storage/blobs/storage-blob-user-delegation-sas-create-cli#use-azure-ad-credentials-to-secure-a-sas).
+1. Cuando se crea una firma SAS de delegación de usuarios con la CLI de Azure, el intervalo máximo durante el cual la clave de delegación de usuarios es válida es de siete días a partir de la fecha de inicio. Especifique un tiempo de expiración para la firma de acceso compartido que no supere los siete días a partir del momento de inicio. Para obtener más información, vea [Creación de una SAS de delegación de usuarios para un contenedor o blob con la CLI de Azure](../../storage/blobs/storage-blob-user-delegation-sas-create-cli.md#use-azure-ad-credentials-to-secure-a-sas).
 
 ### <a name="example"></a>Ejemplo
 

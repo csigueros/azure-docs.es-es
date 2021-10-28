@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/09/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: a25c35971d341c9ea6bce716931a76d682027e79
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 59bd93cf5c17675e99a14484d8a13821e287047a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121732828"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234574"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Inicio rápido: Uso de Azure Portal para crear un equilibrador de carga público para equilibrar la carga de máquinas virtuales
 
@@ -47,7 +47,7 @@ En esta sección, creará una red virtual y una subred.
     | **Configuración**          | **Valor**                                                           |
     |------------------|-----------------------------------------------------------------|
     | **Detalles del proyecto**  |                                                                 |
-    | Suscripción     | Selección de su suscripción a Azure                                  |
+    | Subscription     | Selección de su suscripción a Azure                                  |
     | Grupo de recursos   | Seleccione **Crear nuevo**. </br> En **Nombre**, escriba **CreatePubLBQS-rg**. </br> Seleccione **Aceptar**. |
     | **Detalles de instancia** |                                                                 |
     | Nombre             | Escriba **myVNet**.                                    |
@@ -57,7 +57,7 @@ En esta sección, creará una red virtual y una subred.
 
 5. En la pestaña **Direcciones IP**, especifique esta información:
 
-    | Parámetro            | Value                      |
+    | Configuración            | Value                      |
     |--------------------|----------------------------|
     | Espacio de direcciones IPv4 | Escriba **10.1.0.0/16**. |
 
@@ -97,10 +97,10 @@ En esta sección, creará una puerta de enlace NAT para el acceso a Internet sal
 
 3. En **Crear puerta de enlace de traducción de direcciones de red (NAT)** , escriba o seleccione la información siguiente:
 
-    | Parámetro | Value |
+    | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** |   |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione **CreatePubLBQS-rg**. |
     | **Detalles de instancia** |    |
     | Nombre de NAT Gateway | Escriba **myNATgateway**. |
@@ -144,7 +144,7 @@ Durante la creación del equilibrador de carga, configurará:
     | Configuración                 | Value                                              |
     | ---                     | ---                                                |
     | **Detalles del proyecto** |   |
-    | Suscripción               | Seleccione su suscripción.    |    
+    | Subscription               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **CreatePubLBQS-rg**. |
     | **Detalles de instancia** |   |
     | Nombre                   | Escriba **myLoadBalancer**.                                   |
@@ -157,7 +157,7 @@ Durante la creación del equilibrador de carga, configurará:
 
 4. Seleccione **Siguiente: Configuración de IP de front-end** en la parte inferior de la página.
 
-5. En **Configuración de IP de front-end**, seleccione **+Agregar una IP de front-end**.
+5. En **Configuración de IP de front-end**, seleccione **+ Agregar una IP de front-end**.
 
 6. Escriba **LoadBalancerFrontEnd** en **Nombre**.
 
@@ -169,7 +169,7 @@ Durante la creación del equilibrador de carga, configurará:
 8. Seleccione **Dirección IP** para **Tipo de IP**.
 
     > [!NOTE]
-    > Para más información sobre prefijos de IP, consulte [Prefijo de dirección IP pública de Azure](../virtual-network/public-ip-address-prefix.md).
+    > Para más información sobre prefijos de IP, consulte [Prefijo de dirección IP pública de Azure](../virtual-network/ip-services/public-ip-address-prefix.md).
 
 9. Seleccione **Crear nueva** en **Dirección IP pública**.
 
@@ -206,7 +206,7 @@ Durante la creación del equilibrador de carga, configurará:
 
 24. En **Agregar regla de equilibrio de carga**, escriba o seleccione la siguiente información:
 
-    | Parámetro | Value |
+    | Configuración | Value |
     | ------- | ----- |
     | Nombre | Escriba **myHTTPRule**. |
     | Versión de la dirección IP | Seleccione **IPv4** o **IPv6** en función de sus requisitos. |
@@ -229,7 +229,7 @@ Durante la creación del equilibrador de carga, configurará:
 27. Seleccione **Crear**.
 
     > [!NOTE]
-    > En este ejemplo, hemos creado una puerta de enlace NAT para proporcionar acceso saliente a Internet. La pestaña de reglas de salida de la configuración se omite, ya que no es necesaria con la puerta de enlace NAT. Para más información sobre la puerta de enlace NAT de Azure, consulte [¿Qué es Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md).
+    > En este ejemplo, hemos creado una puerta de enlace NAT para proporcionar acceso saliente a Internet. La pestaña de reglas de salida de la configuración se omite, ya que no es necesaria con la puerta de enlace NAT. Para más información sobre la puerta de enlace NAT de Azure, consulte [¿Qué es Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
     > Para más información sobre las conexiones salientes en Azure, consulte [Traducción de direcciones de red de origen (SNAT) para conexiones salientes](../load-balancer/load-balancer-outbound-connections.md).
 
 ## <a name="create-virtual-machines"></a>Creación de máquinas virtuales
@@ -244,10 +244,10 @@ Estas máquinas virtuales se agregan al grupo de back-end del equilibrador de ca
    
 3. En **Crear una máquina virtual**, escriba o seleccione los valores en la pestaña **Básico**:
 
-    | Parámetro | Value                                          |
+    | Configuración | Value                                          |
     |-----------------------|----------------------------------|
     | **Detalles del proyecto** |  |
-    | Suscripción | Selección de su suscripción a Azure |
+    | Subscription | Selección de su suscripción a Azure |
     | Grupo de recursos | Seleccione **CreatePubLBQS-rg** |
     | **Detalles de instancia** |  |
     | Nombre de la máquina virtual | Escriba **myVM1**. |
@@ -268,7 +268,7 @@ Estas máquinas virtuales se agregan al grupo de back-end del equilibrador de ca
   
 5. En la pestaña Redes, seleccione o escriba:
 
-    | Parámetro | Value |
+    | Configuración | Value |
     |-|-|
     | **Interfaz de red** |  |
     | Virtual network | **myVNet** |
@@ -315,7 +315,7 @@ En esta sección, creará una red virtual y una subred.
     | **Configuración**          | **Valor**                                                           |
     |------------------|-----------------------------------------------------------------|
     | **Detalles del proyecto**  |                                                                 |
-    | Suscripción     | Selección de su suscripción a Azure                                  |
+    | Subscription     | Selección de su suscripción a Azure                                  |
     | Grupo de recursos   | Seleccione **Crear nuevo**. </br> En **Nombre**, escriba **CreatePubLBQS-rg**. </br> Seleccione **Aceptar**. |
     | **Detalles de instancia** |                                                                 |
     | Nombre             | Escriba **myVNet**.                                    |
@@ -325,7 +325,7 @@ En esta sección, creará una red virtual y una subred.
 
 5. En la pestaña **Direcciones IP**, especifique esta información:
 
-    | Parámetro            | Value                      |
+    | Configuración            | Value                      |
     |--------------------|----------------------------|
     | Espacio de direcciones IPv4 | Escriba **10.1.0.0/16**. |
 
@@ -367,10 +367,10 @@ Las tres máquinas virtuales se agregarán a un conjunto de disponibilidad llama
    
 3. En **Crear una máquina virtual**, escriba o seleccione los valores en la pestaña **Básico**:
 
-    | Parámetro | Value                                          |
+    | Configuración | Value                                          |
     |-----------------------|----------------------------------|
     | **Detalles del proyecto** |  |
-    | Suscripción | Selección de su suscripción a Azure |
+    | Subscription | Selección de su suscripción a Azure |
     | Grupo de recursos | Seleccione **CreatePubLBQS-rg** |
     | **Detalles de instancia** |  |
     | Nombre de la máquina virtual | Escriba **myVM1**. |
@@ -391,7 +391,7 @@ Las tres máquinas virtuales se agregarán a un conjunto de disponibilidad llama
   
 5. En la pestaña Redes, seleccione o escriba:
 
-    | Parámetro | Value |
+    | Configuración | Value |
     |-|-|
     | **Interfaz de red** |  |
     | Virtual network | Seleccione **myVNet**. |
@@ -444,7 +444,7 @@ Durante la creación del equilibrador de carga, configurará:
     | Configuración                 | Value                                              |
     | ---                     | ---                                                |
     | **Detalles del proyecto** |   |
-    | Suscripción               | Seleccione su suscripción.    |    
+    | Subscription               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **CreatePubLBQS-rg**. |
     | **Detalles de instancia** |   |
     | Nombre                   | Escriba **myLoadBalancer**.                                   |
@@ -456,7 +456,7 @@ Durante la creación del equilibrador de carga, configurará:
  
 4. Seleccione **Siguiente: Configuración de IP de front-end** en la parte inferior de la página.
 
-5. En **Configuración de IP de front-end**, seleccione **+Agregar una IP de front-end**.
+5. En **Configuración de IP de front-end**, seleccione **+ Agregar una IP de front-end**.
 
 6. Escriba **LoadBalancerFrontEnd** en **Nombre**.
 
@@ -498,7 +498,7 @@ Durante la creación del equilibrador de carga, configurará:
 
 25. En **Agregar regla de equilibrio de carga**, escriba o seleccione la siguiente información:
 
-    | Parámetro | Value |
+    | Configuración | Value |
     | ------- | ----- |
     | Nombre | Escriba **myHTTPRule**. |
     | Versión de la dirección IP | Seleccione **IPv4** o **IPv6** en función de sus requisitos. |

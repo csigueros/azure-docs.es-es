@@ -9,12 +9,12 @@ ms.subservice: nat
 ms.topic: tutorial
 ms.date: 03/19/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 5ef476f5de715d1f80823bf6d61316c1af406737
-ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
+ms.openlocfilehash: ffc5b04928842b940a369ef00807bf0a2e1b0230
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122202064"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249027"
 ---
 # <a name="tutorial-integrate-a-nat-gateway-with-a-public-load-balancer-using-the-azure-portal"></a>Tutorial: Integración de una puerta de enlace NAT con un equilibrador de carga público mediante Azure Portal
 
@@ -49,7 +49,7 @@ En esta sección, creará una red virtual y una subred.
     | **Configuración**          | **Valor**                                                           |
     |------------------|-----------------------------------------------------------------|
     | **Detalles del proyecto**  |                                                                 |
-    | Suscripción     | Selección de su suscripción a Azure                                  |
+    | Subscription     | Selección de su suscripción a Azure                                  |
     | Grupo de recursos   | Seleccione **Crear nuevo**. </br> En **Nombre**, escriba **TutorPubLBNAT-rg**. </br> Seleccione **Aceptar**. |
     | **Detalles de instancia** |                                                                 |
     | Nombre             | Escriba **myVNet**.                                    |
@@ -59,7 +59,7 @@ En esta sección, creará una red virtual y una subred.
 
 5. En la pestaña **Direcciones IP**, especifique esta información:
 
-    | Parámetro            | Value                      |
+    | Configuración            | Value                      |
     |--------------------|----------------------------|
     | Espacio de direcciones IPv4 | Escriba **10.1.0.0/16**. |
 
@@ -108,7 +108,7 @@ Durante la creación del equilibrador de carga, configurará:
     | Configuración                 | Value                                              |
     | ---                     | ---                                                |
     | **Detalles del proyecto** |   |
-    | Suscripción               | Seleccione su suscripción.    |    
+    | Subscription               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **TutorPubLBNAT-rg**. |
     | **Detalles de instancia** |   |
     | Nombre                   | Escriba **myLoadBalancer**.                                   |
@@ -132,7 +132,7 @@ Durante la creación del equilibrador de carga, configurará:
 8. Seleccione **Dirección IP** para **Tipo de IP**.
 
     > [!NOTE]
-    > Para más información sobre prefijos de IP, consulte [Prefijo de dirección IP pública de Azure](../../virtual-network/public-ip-address-prefix.md).
+    > Para más información sobre prefijos de IP, consulte [Prefijo de dirección IP pública de Azure](../ip-services/public-ip-address-prefix.md).
 
 9. Seleccione **Crear nueva** en **Dirección IP pública**.
 
@@ -169,7 +169,7 @@ Durante la creación del equilibrador de carga, configurará:
 
 24. En **Agregar regla de equilibrio de carga**, escriba o seleccione la siguiente información:
 
-    | Parámetro | Value |
+    | Configuración | Value |
     | ------- | ----- |
     | Nombre | Escriba **myHTTPRule**. |
     | Versión de la dirección IP | Seleccione **IPv4** o **IPv6** en función de sus requisitos. |
@@ -201,10 +201,10 @@ Estas máquinas virtuales se agregan al grupo de back-end del equilibrador de ca
    
 2. En **Crear una máquina virtual**, escriba o seleccione los valores en la pestaña **Básico**:
 
-    | Parámetro | Value                                          |
+    | Configuración | Value                                          |
     |-----------------------|----------------------------------|
     | **Detalles del proyecto** |  |
-    | Suscripción | Selección de su suscripción a Azure |
+    | Subscription | Selección de su suscripción a Azure |
     | Grupo de recursos | Seleccione **TutorPubLBNAT-rg**. |
     | **Detalles de instancia** |  |
     | Nombre de la máquina virtual | Escriba **myVM1**. |
@@ -225,7 +225,7 @@ Estas máquinas virtuales se agregan al grupo de back-end del equilibrador de ca
   
 4. En la pestaña Redes, seleccione o escriba:
 
-    | Parámetro | Value |
+    | Configuración | Value |
     |-|-|
     | **Interfaz de red** |  |
     | Virtual network | **myVNet** |
@@ -265,7 +265,7 @@ En esta sección, creará una puerta de enlace NAT y la asignará a la subred de
     | **Configuración**          | **Valor**                                                           |
     |------------------|-----------------------------------------------------------------|
     | **Detalles del proyecto**  |                                                                 |
-    | Suscripción     | Seleccione su suscripción a Azure.                                  |
+    | Subscription     | Seleccione su suscripción a Azure.                                  |
     | Grupo de recursos   | Seleccione **TutorPubLBNAT-rg**. |
     | **Detalles de instancia** |                                                                 |
     | Nombre             | Escriba **myNATGateway**.                                    |

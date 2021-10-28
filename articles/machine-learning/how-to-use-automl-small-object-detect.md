@@ -7,12 +7,12 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.date: 10/13/2021
-ms.openlocfilehash: 2fb5dfc77a15e1f9fcd5b90a058e2cc03f81b910
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 7800399be259dddf2782c47696ce014442d8bf55
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130007150"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234460"
 ---
 # <a name="train-a-small-object-detection-model-with-automl-preview"></a>Entrenamiento de un modelo de detección de objetos pequeños con AutoML (versión preliminar)
 
@@ -34,8 +34,6 @@ En la colocación en mosaico, cada imagen se divide en una cuadrícula de mosaic
 * Un área de trabajo de Azure Machine Learning. Para crear el área de trabajo, consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
 * En este artículo se supone que tiene algún conocimiento sobre cómo configurar un [experimento de aprendizaje automático automatizado para tareas de Computer Vision](how-to-auto-train-image-models.md). 
-
-[!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
 
 ## <a name="supported-models"></a>Modelos admitidos
 

@@ -17,12 +17,12 @@ ms.date: 01/21/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e5a095c87e46839c7c120bdd6d8db1595164e57
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 19ce15222d71986667d359fc68ff1f61b1c931b1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107532528"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130253625"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Introducción a la API de generación informes de Azure Active Directory
 
@@ -49,7 +49,7 @@ Para obtener instrucciones detalladas, consulte [Requisitos previos para acceder
 
 El punto de conexión de Microsoft Graph API para registros de auditoría es `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits` y el punto de conexión de Microsoft Graph API para inicios de sesión es `https://graph.microsoft.com/v1.0/auditLogs/signIns`. Para más información, consulte la [referencia de API de auditoría](/graph/api/resources/directoryaudit) y la [referencia de API de inicio de sesión](/graph/api/resources/signIn).
 
-Puede utilizar la [API de detecciones de riesgos Identity Protection](/graph/api/resources/identityriskevent?view=graph-rest-beta&preserve-view=true) para acceder mediante programación a las detecciones de seguridad con Microsoft Graph. Para obtener más información, consulte [Introducción a Azure Active Directory Identity Protection y Microsoft Graph](../identity-protection/howto-identity-protection-graph-api.md). 
+Puede utilizar la [API de detecciones de riesgos Identity Protection](/graph/api/resources/identityprotection-root) para acceder mediante programación a las detecciones de seguridad con Microsoft Graph. Para obtener más información, consulte [Introducción a Azure Active Directory Identity Protection y Microsoft Graph](../identity-protection/howto-identity-protection-graph-api.md). 
   
 También puede usar la [API de registros de aprovisionamiento](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta&preserve-view=true) para acceder mediante programación a los eventos de aprovisionamiento del inquilino. 
 

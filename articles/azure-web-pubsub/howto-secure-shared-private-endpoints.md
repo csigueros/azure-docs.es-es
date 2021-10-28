@@ -7,16 +7,16 @@ ms.service: azure-web-pubsub
 ms.topic: article
 ms.date: 07/13/2021
 ms.author: dayshen
-ms.openlocfilehash: 2f48b2b0f21c389df30cc11d79a919cdf94317a7
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+ms.openlocfilehash: 00a9cf5c0eac035378248b03e316c6f211bfb52b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114342432"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130239084"
 ---
 # <a name="secure-azure-web-pubsub-outbound-traffic-through-shared-private-endpoints"></a>Protección del tráfico de salida de Azure Web PubSub mediante puntos de conexión privados compartidos
 
-Si usa el [controlador de eventos](https://azure.github.io/azure-webpubsub/concepts/service-internals#event_handler) en el servicio Azure Web PubSub, es posible que tenga tráfico de salida hacia el flujo ascendente. Los elementos del flujo ascendente, como una aplicación web de Azure y Azure Functions, se pueden configurar para que acepten las conexiones de una lista de redes virtuales y rechacen las conexiones externas cuyo origen sea una red pública. Puede crear una [conexión de punto de conexión privado](../private-link/private-endpoint-overview.md) de salida para acceder a estos puntos de conexión.
+Si usa el [controlador de eventos](concept-service-internals.md#event_handler) en el servicio Azure Web PubSub, es posible que tenga tráfico de salida hacia el flujo ascendente. Los elementos del flujo ascendente, como una aplicación web de Azure y Azure Functions, se pueden configurar para que acepten las conexiones de una lista de redes virtuales y rechacen las conexiones externas cuyo origen sea una red pública. Puede crear una [conexión de punto de conexión privado](../private-link/private-endpoint-overview.md) de salida para acceder a estos puntos de conexión.
 
    :::image type="content" alt-text="Información general del punto de conexión privado compartido." source="media\howto-secure-shared-private-endpoints\shared-private-endpoint-overview.png" border="false" :::
 
@@ -46,7 +46,7 @@ El resto de los ejemplos muestran cómo se puede configurar el servicio _contoso
 Puede realizar la siguiente llamada API con la [CLI de Azure](/cli/azure/) para crear un recurso de vínculo privado compartido:
 
 ```dotnetcli
-az rest --method put --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/webPubSub/contoso-webpubsub/sharedPrivateLinkResources/func-pe?api-version=2021-06-01-preview --body @create-pe.json
+az rest --method put --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/webPubSub/contoso-webpubsub/sharedPrivateLinkResources/func-pe?api-version=2021-06-01-preview --body @create-pe.json --debug
 ```
 
 El contenido del archivo *create-pe.json*, que representa el cuerpo de la solicitud a la API, es el siguiente:

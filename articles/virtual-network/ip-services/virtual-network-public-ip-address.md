@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/20/2021
 ms.author: allensu
-ms.openlocfilehash: 116a36875c63e515725c90edc3d6fe2a86c9374c
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 92f472afdb642633a093ebdf765b0d8ba968bd8a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129367882"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130228344"
 ---
 # <a name="create-change-or-delete-an-azure-public-ip-address"></a>Creación, modificación o eliminación de una dirección IP pública de Azure
 
@@ -31,10 +31,10 @@ Obtenga información sobre una dirección IP pública y cómo crearla, modificar
 
 Para obtener instrucciones sobre cómo crear direcciones IP públicas mediante las plantillas del portal, PowerShell, la CLI o Resource Manager, consulte las siguientes páginas:
 
- * [Creación de direcciones IP públicas: portal](../../virtual-network/create-public-ip-portal.md?tabs=option-create-public-ip-standard-zones)
- * [Creación de direcciones IP públicas: PowerShell](../../virtual-network/create-public-ip-powershell.md?tabs=option-create-public-ip-standard-zones)
- * [Creación de direcciones IP públicas: CLI de Azure](../../virtual-network/create-public-ip-cli.md?tabs=option-create-public-ip-standard-zones)
- * [Creación de direcciones IP públicas: plantilla](../../virtual-network/create-public-ip-template.md)
+ * [Creación de direcciones IP públicas: portal](./create-public-ip-portal.md?tabs=option-create-public-ip-standard-zones)
+ * [Creación de direcciones IP públicas: PowerShell](./create-public-ip-powershell.md?tabs=option-create-public-ip-standard-zones)
+ * [Creación de direcciones IP públicas: CLI de Azure](./create-public-ip-cli.md?tabs=option-create-public-ip-standard-zones)
+ * [Creación de direcciones IP públicas: plantilla](./create-public-ip-template.md)
 
 >[!NOTE]
 >Si bien el portal proporciona la opción de crear dos recursos de direcciones IP públicas (una IPv4 y una IPv6), los comandos de PowerShell y la CLI crean un recurso con una dirección para una versión de dirección IP o la otra. Si desea dos recursos de direcciones IP públicas, uno para cada versión de dirección IP, debe ejecutar dos veces el comando y especificar distintos nombres y versiones de dirección IP para los recursos de direcciones IP públicas.
@@ -61,7 +61,7 @@ Para obtener más detalles sobre los atributos específicos de una dirección IP
 ## <a name="view-modify-settings-for-or-delete-a-public-ip-address"></a>Visualización, cambio de la configuración o eliminación de una dirección IP pública
 
    - **Ver o enumerar**: revise la configuración de una dirección IP pública, incluida la SKU, la dirección y cualquier asociación. Las asociaciones pueden ser servidores front-end del equilibrador de carga, máquinas virtuales y otros recursos de Azure.
-   - **Modificar**: modifique la configuración mediante la información en [Creación de una dirección IP pública](#create-a-public-ip-address). Configuración como el tiempo de espera de inactividad, la etiqueta de nombre DNS o el método de asignación. Para obtener el proceso completo de actualización de una SKU de IP pública de Básica a Estándar, consulte [Actualización de direcciones IP públicas de Azure](../../virtual-network/public-ip-upgrade-portal.md).
+   - **Modificar**: modifique la configuración mediante la información en [Creación de una dirección IP pública](#create-a-public-ip-address). Configuración como el tiempo de espera de inactividad, la etiqueta de nombre DNS o el método de asignación. Para obtener el proceso completo de actualización de una SKU de IP pública de Básica a Estándar, consulte [Actualización de direcciones IP públicas de Azure](./public-ip-upgrade-portal.md).
    
    >[!WARNING]
    >Quite la dirección de cualquier configuración de IP aplicable (consulte la sección **Eliminar**) para cambiar la asignación de una dirección IP pública de estática a dinámica. Al cambiar el método de asignación de estático a dinámico, perderá la dirección IP que se asignó al recurso de dirección IP pública. Aunque los servidores DNS públicos de Azure mantienen una asignación entre las direcciones estáticas o dinámicas y cualquier etiqueta de nombre DNS (si se han definido), las direcciones IP dinámicas pueden cambiar cuando se inicia la máquina virtual desde el estado detenido (desasignado). Para evitar que la dirección cambie, asigne una dirección IP estática.
@@ -76,7 +76,7 @@ Para obtener más detalles sobre los atributos específicos de una dirección IP
 
 |Resource|Azure portal|Azure PowerShell|Azure CLI|
 |---|---|---|---|
-|[Máquina virtual](../../virtual-network/remove-public-ip-address-vm.md)|Seleccione **Desasociar** para desasociar la dirección IP de la configuración de NIC y, a continuación, seleccione **Eliminar**.|[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) para desasociar la dirección IP de la configuración de NIC; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) para eliminarla.|[az network public-ip update con el parámetro "--remove"](/cli/azure/network/public-ip#az_network_public_ip_update) para quitar la dirección IP de la configuración de NIC. Use [az network public-ip delete](/cli/azure/network/public-ip#az_network_public_ip_delete) para eliminar la dirección IP pública. |
+|[Máquina virtual](./remove-public-ip-address-vm.md)|Seleccione **Desasociar** para desasociar la dirección IP de la configuración de NIC y, a continuación, seleccione **Eliminar**.|[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) para desasociar la dirección IP de la configuración de NIC; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) para eliminarla.|[az network public-ip update con el parámetro "--remove"](/cli/azure/network/public-ip#az_network_public_ip_update) para quitar la dirección IP de la configuración de NIC. Use [az network public-ip delete](/cli/azure/network/public-ip#az_network_public_ip_delete) para eliminar la dirección IP pública. |
 |Front-end del equilibrador de carga | Vaya a una dirección IP pública no utilizada y seleccione **Asociar**. Elija el equilibrador de carga con la configuración de IP de front-end pertinente para reemplazar la dirección IP. La dirección IP antigua se puede eliminar con el mismo método que una máquina virtual.  | Use [Set-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/set-azloadbalancerfrontendipconfig) para asociar una nueva configuración de IP de front-end con un equilibrador de carga público. Use[Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) para eliminar una dirección IP pública. También puede usar [Remove-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/remove-azloadbalancerfrontendipconfig) para quitar una configuración de IP de front-end si hay más de una. | Use [az network lb frontend-ip update](/cli/azure/network/lb/frontend-ip#az_network_lb_frontend_ip_update) para asociar una nueva configuración de IP de front-end a un equilibrador de carga público. Use [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) para eliminar una dirección IP pública. También puede usar [az network lb frontend-ip delete](/cli/azure/network/lb/frontend-ip#az_network_lb_frontend_ip_delete) para quitar una configuración de IP de front-end si hay más de una. |
 |Firewall|N/D| [Desasignar](../../firewall/firewall-faq.yml#how-can-i-stop-and-start-azure-firewall) para desasignar el firewall y quitar todas las configuraciones de IP | Use [az network firewall ip-config delete](/cli/azure/network/firewall/ip-config#az_network_firewall_ip_config_delete) para quitar la dirección IP. Use PowerShell para desasignarla primero. |
 
@@ -92,7 +92,7 @@ Para más información, consulte [Redes para conjuntos de escalado de máquinas 
 
 Aprenda a asignar una dirección IP pública a los siguientes recursos:
 
-- Una máquina virtual [Windows](../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) en el momento de la creación. Agregue una dirección IP a una [máquina virtual existente](../../virtual-network/virtual-network-network-interface-addresses.md#add-ip-addresses).
+- Una máquina virtual [Windows](../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) en el momento de la creación. Agregue una dirección IP a una [máquina virtual existente](./virtual-network-network-interface-addresses.md#add-ip-addresses).
 - [Equilibrador de carga público](../../load-balancer/quickstart-load-balancer-standard-public-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Application Gateway](../../application-gateway/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Conexión de sitio a sitio con VPN Gateway](../../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

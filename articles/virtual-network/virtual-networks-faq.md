@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 3ac75e3cf3ae08d9b7d49077cf54d05fdbabdbad
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 2a916c83cc3249b304648d090f739e66bb6b7dd3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130039056"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130245595"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) acerca de Azure Virtual Network
 
@@ -113,10 +113,10 @@ Sí. Puede agregar, quitar, expandir o contraer una subred si no hay máquinas v
 Sí. Puede agregar, quitar y modificar los bloques CIDR usados por una red virtual.
 
 ### <a name="if-i-am-running-my-services-in-a-vnet-can-i-connect-to-the-internet"></a>¿Puedo conectarme a Internet si ejecuto mis servicios en una red virtual?
-Sí. Todos los servicios implementados dentro de una red virtual pueden establecer una conexión a Internet saliente. Para más información sobre las conexiones a Internet salientes en Azure, consulte [Conexiones salientes en Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Si quiere establecer una conexión entrante a un recurso implementado mediante Resource Manager, el recurso debe tener asignada una dirección IP pública. Para más información sobre las direcciones IP públicas, consulte [Direcciones IP publicas](virtual-network-public-ip-address.md). Cada servicio en la nube de Azure implementado en Azure tiene asignada una dirección IP virtual direccionable de forma pública. Para permitir que estos servicios acepten conexiones de Internet, se definen puntos de conexión de entrada para roles y puntos de conexión de PaaS en las máquinas virtuales.
+Sí. Todos los servicios implementados dentro de una red virtual pueden establecer una conexión a Internet saliente. Para más información sobre las conexiones a Internet salientes en Azure, consulte [Conexiones salientes en Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Si quiere establecer una conexión entrante a un recurso implementado mediante Resource Manager, el recurso debe tener asignada una dirección IP pública. Para más información sobre las direcciones IP públicas, consulte [Direcciones IP publicas](./ip-services/virtual-network-public-ip-address.md). Cada servicio en la nube de Azure implementado en Azure tiene asignada una dirección IP virtual direccionable de forma pública. Para permitir que estos servicios acepten conexiones de Internet, se definen puntos de conexión de entrada para roles y puntos de conexión de PaaS en las máquinas virtuales.
 
 ### <a name="do-vnets-support-ipv6"></a>¿Las redes virtuales admiten IPv6?
-Sí, las redes virtuales pueden ser solo IPv4 o de pila dual (IPv4 + IPv6).  Para obtener más información, consulte [Información general de IPv6 para Azure Virtual Networks](./ipv6-overview.md).
+Sí, las redes virtuales pueden ser solo IPv4 o de pila dual (IPv4 + IPv6).  Para obtener más información, consulte [Información general de IPv6 para Azure Virtual Networks](./ip-services/ipv6-overview.md).
 
 ### <a name="can-a-vnet-span-regions"></a>¿Puede una red virtual abarcar varias regiones?
 No. Una red virtual está limitada a una única región. Una red virtual, sin embargo, abarca zonas de disponibilidad. Para más información sobre las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Puede conectar redes virtuales de diferentes regiones con el emparejamiento de redes virtuales. Para más información, consulte [Emparejamiento de redes virtuales](virtual-network-peering-overview.md).
@@ -171,7 +171,7 @@ No. Las direcciones IP privadas no se pueden reservar. Si hay una dirección IP 
 Depende. Si se ha implementado la máquina virtual mediante Resource Manager, no, con independencia de si la dirección IP se asignó con el método de asignación estático o dinámico. Si la máquina virtual se implementó mediante el modelo de implementación clásica, se pueden cambiar las direcciones IP dinámicas cuando se inicia una máquina virtual después de haber estado en estado detenido (desasignado). La dirección se libera de una máquina virtual implementada con cualquiera de los modelos de implementación cuando se elimina la máquina.
 
 ### <a name="can-i-manually-assign-ip-addresses-to-nics-within-the-vm-operating-system"></a>¿Se pueden asignar manualmente direcciones IP a las NIC del sistema operativo de la máquina virtual?
-Sí, pero no se recomienda a menos que es necesario, por ejemplo, al asignar varias direcciones IP a una máquina virtual. Para más información, consulte [Adición de varias direcciones IP a una máquina virtual](virtual-network-multiple-ip-addresses-portal.md#os-config). Si la dirección IP asignada a una NIC de Azure asociada a una máquina virtual cambia, y la dirección IP en el sistema operativo de la máquina virtual es diferente, se pierde la conectividad a la máquina virtual.
+Sí, pero no se recomienda a menos que es necesario, por ejemplo, al asignar varias direcciones IP a una máquina virtual. Para más información, consulte [Adición de varias direcciones IP a una máquina virtual](./ip-services/virtual-network-multiple-ip-addresses-portal.md#os-config). Si la dirección IP asignada a una NIC de Azure asociada a una máquina virtual cambia, y la dirección IP en el sistema operativo de la máquina virtual es diferente, se pierde la conectividad a la máquina virtual.
 
 ### <a name="if-i-stop-a-cloud-service-deployment-slot-or-shutdown-a-vm-from-within-the-operating-system-what-happens-to-my-ip-addresses"></a>¿Qué les sucede a mis direcciones IP si se detiene una ranura de implementación de un servicio en la nube o se apaga una máquina virtual desde el sistema operativo?
 Nada. Las direcciones IP (VIP pública, pública y privada) siguen estando asignadas a la ranura de implementación de un servicio en la nube o a la máquina virtual.
@@ -195,7 +195,7 @@ Sí. Puede implementar Web Apps dentro de una red virtual mediante un ASE (App S
 
 * [Características de redes de App Service](../app-service/networking-features.md)
 * [Creación de Web Apps en un entorno de App Service Environment](../app-service/environment/using.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-* [Integración de una aplicación con Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+* [Integración de una aplicación con Azure Virtual Network](../app-service/overview-vnet-integration.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [Restricciones de acceso de Azure App Service](../app-service/app-service-ip-restrictions.md)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>¿Puedo implementar Cloud Services con los roles web y de trabajo (PaaS) en una red virtual?
@@ -426,8 +426,4 @@ No hay límite en el número total de puntos de conexión de servicio de la red 
 |Azure Data Lake Store V1|  100|
  
 >[!NOTE]
-> Los límites están sujetos a cambios a discreción del servicio de Azure. Consulte la documentación de servicio correspondiente para obtener detalles acerca de los servicios. 
-
-
-
-
+> Los límites están sujetos a cambios a discreción del servicio de Azure. Consulte la documentación de servicio correspondiente para obtener detalles acerca de los servicios.

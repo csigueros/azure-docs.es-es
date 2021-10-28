@@ -1,5 +1,5 @@
 ---
-title: Archivo de inclusión
+title: archivo de inclusión
 description: archivo de inclusión
 services: azure-communication-services
 author: ddematheu2
@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: dademath
-ms.openlocfilehash: cc6264e00cb627815f4008f147266357c625b72a
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 0c93d09618eca9b5f43b0b52c80607875b5c73cb
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "114201010"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130287595"
 ---
 El **ejemplo de elementos principales de llamada de grupo para Android** de Azure Communication Services muestra cómo usar el SDK de llamadas de Communication Services para Android para crear una experiencia de llamada de grupo que incluya voz y vídeo. En este inicio rápido de ejemplo, aprenderá a configurar y ejecutar el ejemplo. Se proporciona información general del ejemplo con fines de contextualización.
 
@@ -131,7 +131,7 @@ Si quiere limpiar y quitar una suscripción a Communication Services, puede elim
 
 Para más información, consulte los siguientes artículos.
 
-- Familiarícese con el [uso del SDK de llamadas](../../quickstarts/voice-video-calling/calling-client-samples.md).
+- Familiarícese con el [uso del SDK de llamadas](../../quickstarts/voice-video-calling/getting-started-with-calling.md).
 - Más información sobre [cómo funciona la llamada](../../concepts/voice-video-calling/about-call-types.md)
 
 ### <a name="additional-reading"></a>Lecturas adicionales

@@ -7,12 +7,12 @@ ms.date: 09/27/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: 773b4dbe5bcabc459b832f450610c395a981650a
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: 869f2e4153a0ffe900ad34776f0e8493eae92bb7
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129155177"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130214859"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks"></a>Objetivos de escalabilidad y rendimiento para discos de máquinas virtuales
 
@@ -24,7 +24,7 @@ Para más detalles, consulte los [tamaños de las máquinas virtuales](sizes.md)
 
 ## <a name="managed-virtual-machine-disks"></a>Discos de máquinas virtuales administrados
 
-Los tamaños marcados con un asterisco están actualmente en versión preliminar. Consulte nuestras [preguntas más frecuentes](/azure/virtual-machines/faq-for-disks#new-disk-sizes-managed-and-unmanaged) para obtener información sobre en qué regiones están disponibles.
+Los tamaños marcados con un asterisco están actualmente en versión preliminar. Consulte nuestras [preguntas más frecuentes](./faq-for-disks.yml) para obtener información sobre en qué regiones están disponibles.
 
 [!INCLUDE [azure-storage-limits-vm-disks-managed](../../includes/azure-storage-limits-vm-disks-managed.md)]
 

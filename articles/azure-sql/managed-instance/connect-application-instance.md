@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: mathoma, bonova, vanto
 ms.date: 08/20/2021
-ms.openlocfilehash: 3acd77d986d22af08ac7042da751a6aa8c7fc24b
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: a1cb62bce41ce0003628ce4223fe06e6587317f5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122607584"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130250507"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Conexión de la aplicación a Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -84,9 +84,9 @@ Una vez configurada la infraestructura básica, deberá modificar alguna configu
 
 ## <a name="connect-azure-app-service"></a>Conexión de Azure App Service 
 
-También puede conectar una aplicación hospedada por Azure App Service. Para acceder a ella desde Azure App Service a través de una red virtual, primero debe establecer una conexión entre la aplicación y la red virtual de SQL Managed Instance. Consulte [Integración de aplicaciones con una red virtual de Azure](../../app-service/web-sites-integrate-with-vnet.md). Para obtener acceso de datos a la instancia administrada desde fuera de una red virtual, consulte [Configuración de un punto de conexión público en Azure SQL Managed Instance](./public-endpoint-configure.md). 
+También puede conectar una aplicación hospedada por Azure App Service. Para acceder a ella desde Azure App Service a través de una red virtual, primero debe establecer una conexión entre la aplicación y la red virtual de SQL Managed Instance. Consulte [Integración de aplicaciones con una red virtual de Azure](../../app-service/overview-vnet-integration.md). Para obtener acceso de datos a la instancia administrada desde fuera de una red virtual, consulte [Configuración de un punto de conexión público en Azure SQL Managed Instance](./public-endpoint-configure.md). 
 
-Para solucionar problemas con el acceso de Azure App Service a través de una red virtual, consulte [Solución de problemas con redes virtuales y aplicaciones](../../app-service/web-sites-integrate-with-vnet.md#troubleshooting). Si no se puede establecer una conexión, intente [sincronizar la configuración de red](azure-app-sync-network-configuration.md).
+Para solucionar problemas con el acceso de Azure App Service a través de una red virtual, consulte [Solución de problemas con redes virtuales y aplicaciones](../../app-service/overview-vnet-integration.md#troubleshooting). Si no se puede establecer una conexión, intente [sincronizar la configuración de red](azure-app-sync-network-configuration.md).
 
 Un caso especial de conexión de Azure App Service a Instancia administrada de SQL es cuando se integra Azure App Service en una red emparejada a una red virtual de Instancia administrada de SQL. Ese caso requiere la siguiente configuración:
 
@@ -143,7 +143,7 @@ Para solucionar problemas de conectividad, consulte la siguiente información:
 
 - Si usa el emparejamiento de red virtual, asegúrese de que ha seguido las instrucciones para configurar [Permitir tránsito de puerta de enlace y Usar puertas de enlace remotas](#connect-from-on-premises).
 
-- Si usa el emparejamiento de red virtual para conectar una aplicación hospedada por Azure App Service, y la red virtual de Instancia administrada de SQL tiene un intervalo de direcciones IP públicas, asegúrese de que la configuración de la aplicación hospedada permita que el tráfico saliente se enrute a redes con direcciones IP públicas. Siga las instrucciones que se indican en [Integración con red virtual regional](../../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration).
+- Si usa el emparejamiento de red virtual para conectar una aplicación hospedada por Azure App Service, y la red virtual de Instancia administrada de SQL tiene un intervalo de direcciones IP públicas, asegúrese de que la configuración de la aplicación hospedada permita que el tráfico saliente se enrute a redes con direcciones IP públicas. Siga las instrucciones que se indican en [Integración con red virtual regional](../../app-service/overview-vnet-integration.md#regional-vnet-integration).
 
 ## <a name="required-versions-of-drivers-and-tools"></a>Versiones necesarias de los controladores y las herramientas
 

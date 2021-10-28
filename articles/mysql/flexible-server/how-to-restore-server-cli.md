@@ -6,19 +6,19 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 04/01/2021
-ms.openlocfilehash: ac6a6964c738cfb970b7bd65a6d7e3b12f796b2a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 5239812bdd916b19571059aa2641eb738ef5ba09
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128653728"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249464"
 ---
 # <a name="point-in-time-restore-of-a-azure-database-for-mysql---flexible-server-with-azure-cli"></a>Recuperación a un momento dado de una instancia de Azure Database for MySQL: servidor flexible con la CLI de Azure
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
-> Actualmente, la opción de implementación Servidor flexible de Azure Database for MySQL se encuentra en versión preliminar pública.
+> Azure Database for MySQL: servidor flexible está actualmente en versión preliminar pública.
 
 En este artículo se proporciona un procedimiento detallado para llevar a cabo recuperaciones a un momento dado en servidores flexibles mediante copias de seguridad.
 
@@ -65,10 +65,10 @@ az mysql flexible-server restore --restore-time
 **Ejemplo:** Restauración de un servidor a partir de esta instantánea de copia de seguridad ```2021-03-03T13:10:00Z```.
 
 ```azurecli
-az mysql server restore \
+az mysql flexible-server restore \
 --name mydemoserver-restored \
 --resource-group myresourcegroup \
---restore-point-in-time "2021-03-03T13:10:00Z" \
+--restore-time "2021-03-03T13:10:00Z" \
 --source-server mydemoserver
 ```
 El tiempo que lleve la restauración dependerá del tamaño de los datos almacenados en el servidor.

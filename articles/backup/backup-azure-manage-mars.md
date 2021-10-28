@@ -4,12 +4,12 @@ description: Aprenda a administrar y supervisar las copias de seguridad del agen
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/05/2021
-ms.openlocfilehash: 525bdff82c224b02b941354983276747b483ae56
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: db7bd057cc2f781b1a55b62f28170fe462b11f39
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129535155"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233570"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Administración de copias de seguridad del agente de Microsoft Azure Recovery Services (MARS) con el servicio Azure Backup
 
@@ -170,7 +170,7 @@ Una frase de contraseña se usa para cifrar y descifrar los datos durante la cop
 
 ## <a name="validate-passphrase"></a>Validación de la frase de contraseña
 
-A partir de la versión del agente MARS 2.0.9190.0 y versiones posteriores, debe validar la frase de contraseña para asegurarse de que cumple los [requisitos actualizados](/azure/backup/backup-azure-file-folder-backup-faq#what-characters-are-allowed-for-the-passphrase-).
+A partir de la versión del agente MARS 2.0.9190.0 y versiones posteriores, debe validar la frase de contraseña para asegurarse de que cumple los [requisitos actualizados](./backup-azure-file-folder-backup-faq.yml#what-characters-are-allowed-for-the-passphrase-).
 
 Para validar la frase de contraseña, siga estos pasos:
 

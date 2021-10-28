@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 10/07/2021
 ms.author: vikurpad
 recommendations: false
-ms.openlocfilehash: 8d20fd0211fb2601ffd0f88e37e78d682d550711
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 11010ebe6a4afa8698491dacfb495625a8445779
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129728919"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130240421"
 ---
 # <a name="form-recognizer-v30-migration--preview"></a>Migración de Form Recognizer v3.0 | Versión preliminar
 
@@ -26,10 +26,10 @@ ms.locfileid: "129728919"
 Form Recognizer v3.0 (versión preliminar) presenta varias características y funcionalidades nuevas:
 
 * [API REST de Form Recognizer](quickstarts/try-v3-rest-api.md) se ha rediseñado para que sea más fácil de usar.
-* El modelo de [**documento general (v3.0)** ](concept-general-document.md) es una nueva API que extrae texto, tablas, estructura, pares clave-valor y entidades con nombre de formularios y documentos.
-* El modelo de [**recibo (v3.0)** ](concept-receipt.md) admite el procesamiento de recibos de hotel de una sola página.
-* El modelo de [**documento de identificación (v3.0)** ](concept-id-document.md) admite aprobaciones, restricciones y la extracción de clasificación de vehículos de permisos de conducir de EE. UU.
-* La [**API del modelo personalizado (v3.0)** ](concept-custom.md) admite la detección de firmas de formularios personalizados.
+* El modelo de [**documento general (v3.0)**](concept-general-document.md) es una nueva API que extrae texto, tablas, estructura, pares clave-valor y entidades con nombre de formularios y documentos.
+* El modelo de [**recibo (v3.0)**](concept-receipt.md) admite el procesamiento de recibos de hotel de una sola página.
+* El modelo de [**documento de identificación (v3.0)**](concept-id-document.md) admite aprobaciones, restricciones y la extracción de clasificación de vehículos de permisos de conducir de EE. UU.
+* La [**API del modelo personalizado (v3.0)**](concept-custom.md) admite la detección de firmas de formularios personalizados.
 
 En este artículo, aprenderá las diferencias entre Form Recognizer v2.1 y v3.0 y cómo pasar a la versión más reciente de la API.
 
@@ -360,4 +360,4 @@ En esta guía de migración, ha aprendido a actualizar la aplicación Form Recog
 
 * [Revisión de la nueva API REST](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)
 * [¿Qué es Form Recognizer?](overview.md)
-* [Inicio rápido: Uso de la biblioteca cliente de Form Recognizer](quickstarts/client-library.md)
+* [Inicio rápido: Uso de la biblioteca cliente de Form Recognizer](./quickstarts/try-sdk-rest-api.md)

@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.date: 07/01/2021
 ms.custom: automl
-ms.openlocfilehash: 7f6f3a4b24753cf20284f69b2a1e2a06e6cb3522
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: c08eae9654e01fda15889ac6fe65f99de2d73bb6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129998413"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130261812"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>¿Qué es el aprendizaje automático automatizado (AutoML)?
 
@@ -135,7 +135,7 @@ ML automatizado para imágenes (versión preliminar) agrega compatibilidad con t
 
 Con esta funcionalidad, puede: 
  
-* Integrar sin problemas con la funcionalidad de [etiquetado de datos de Azure Machine Learning](how-to-create-labeling-projects.md).
+* Integrar sin problemas con la funcionalidad de [etiquetado de datos de Azure Machine Learning](./how-to-create-image-labeling-projects.md).
 * Usar datos etiquetados para generar modelos de imagen.
 * Optimizar el rendimiento del modelo especificando el algoritmo de modelo y ajustando los hiperparámetros. 
 * Descargar o implementar el modelo resultante como un servicio web en Azure Machine Learning. 
@@ -285,7 +285,7 @@ Hay más características disponibles cuando se usa el proceso remoto, tal como 
 
 Con Azure Machine Learning, puede usar Machine Learning para generar un modelo de Python y convertirlo al formato ONNX. Una vez que los modelos están en el formato ONNX, se pueden ejecutar en varias plataformas y dispositivos. Más información sobre la [aceleración de los modelos de Machine Learning con ONNX](concept-onnx.md).
 
-Consulte cómo convertir al formato ONNX [en este ejemplo de Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb). Aprenda cuáles [son los algoritmos que se admiten en ONNX](how-to-configure-auto-train.md#select-your-experiment-type).
+Consulte cómo convertir al formato ONNX [en este ejemplo de Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb). Aprenda cuáles [son los algoritmos que se admiten en ONNX](how-to-configure-auto-train.md#supported-models).
 
 El entorno de ejecución de ONNX también es compatible con C#, por lo que puede usar el modelo creado automáticamente en sus aplicaciones de C# sin necesidad de volver a codificar o experimentar alguna de las latencias de red que presentan los puntos de conexión REST. Obtenga más detalles sobre el [uso de un modelo AutoML de ONNX en una aplicación .NET con ML.NET](./how-to-use-automl-onnx-model-dotnet.md) y la [creación de inferencias en modelos de ONNX con la API de C# del entorno de ejecución de ONNX](https://onnxruntime.ai/docs/api/csharp-api.html). 
 

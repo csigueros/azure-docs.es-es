@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/04/2021
-ms.openlocfilehash: 7dcba5490d3f341e68b07aa798e9ca0ffa1666e7
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: ca9b995ee02f9775d6e3fc86d8bd3b53dd6d30d1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112122101"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130259494"
 ---
 # <a name="quickstart-connect-an-nxp-mimxrt1050-evkb-evaluation-kit-to-iot-central"></a>Inicio rápido: Conexión de un kit de evaluación NXP MIMXRT1050-EVKB a IoT Central
 
@@ -31,7 +31,7 @@ Deberá completar las siguientes tareas:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Un equipo con Microsoft Windows 10
+* Un equipo con Windows 10
 * [Git](https://git-scm.com/downloads) para clonar el repositorio
 * Hardware
 
@@ -137,7 +137,7 @@ Puede usar la aplicación **Termite** para supervisar la comunicación y confirm
     * **Baud rate** (Velocidad en baudios): 115.200
     * **Puerto**: Puerto al que está conectado NXP EVK. Si hay varias opciones de puerto en la lista desplegable, busque ahí el puerto correcto que debe usar. Abra el **Administrador de dispositivos** de Windows y, en **Puertos**, identifique qué puerto debe usar.
 
-    :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1050-evkb/termite-settings.png" alt-text="Captura de pantalla de la configuración del puerto en serie en la aplicación Termite":::
+    :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1050-evkb/termite-settings.png" alt-text="Captura de pantalla de la configuración del puerto serie en la aplicación Termite":::
 
 1. Seleccione Aceptar.
 1. Presione el botón **Reset** (Restablecer) en el dispositivo. El botón está rotulado en el dispositivo y se encuentra cerca del conector micro USB.
@@ -242,7 +242,7 @@ Para quitar la aplicación de ejemplo entera de Azure IoT Central y todos sus di
 
 En este artículo de inicio rápido, ha compilado una imagen personalizada que contiene código de ejemplo de Azure RTOS y, después, ha guardado la imagen en el dispositivo NXP EVK. También ha usado el portal de IoT Central para crear recursos de Azure, conectar NXP EVK de manera segura a Azure, ver la telemetría y enviar mensajes.
 
-Como siguiente paso, explore los siguientes artículos para más información sobre el uso de los SDK de dispositivos IoT para conectar dispositivos a Azure IoT. 
+Como siguiente paso, explore los artículos a continuación para más información sobre el uso de los SDK de dispositivos IoT para conectar dispositivos a Azure IoT. 
 
 > [!div class="nextstepaction"]
 > [Conexión de un dispositivo simulado a IoT Central](quickstart-send-telemetry-central.md)

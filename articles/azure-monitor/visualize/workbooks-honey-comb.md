@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/18/2020
-ms.openlocfilehash: 51941e9b8ef7165e3d5756d8c4fa9ed3520bc460
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: ba24669f04966d9ee3cfa5af4cd677e83ad3ea7a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130132367"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256617"
 ---
 # <a name="honey-comb-visualizations"></a>Visualizaciones de panales
 
@@ -93,4 +93,4 @@ Los autores de panales pueden especificar el contenido que va a las distintas pa
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga información sobre cómo crear un [representador de la barra compuesta en los libros](workbooks-composite-bar.md).
-- Obtenga información sobre cómo [importar datos de registro de Azure Monitor en Power BI](./powerbi.md).
+- Obtenga información sobre cómo [importar datos de registro de Azure Monitor en Power BI](../logs/log-powerbi.md).

@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: yvettep
-ms.openlocfilehash: 58fccb77131aac8311029cb06372201f2dd4b3bb
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: ded9ebca49183a8fd772fae440370cfd20677eee
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129359559"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265509"
 ---
 # <a name="controlling-egress-traffic-in-azure-australia"></a>Control del tráfico de salida en Azure Australia
 
@@ -177,7 +177,7 @@ Las interfaces de red son el origen de todo el tráfico de salida procedente de 
 |Resource|Vínculo|
 |---|---|
 |*Creación, cambio o eliminación de una interfaz de red* | [https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface](../virtual-network/virtual-network-network-interface.md) |
-|*Direccionamiento IP de la interfaz de red*               | [https://docs.microsoft.com/azure/virtual-network/private-ip-addresses](../virtual-network/private-ip-addresses.md)
+|*Direccionamiento IP de la interfaz de red*               | [https://docs.microsoft.com/azure/virtual-network/private-ip-addresses](../virtual-network/ip-services/private-ip-addresses.md)
 |
 
 ### <a name="vnet-integrated-paas"></a>PaaS integrada de VNet
@@ -191,7 +191,7 @@ Al implementar PaaS en una red virtual donde se han implementado controles de en
 | Resource  | Vínculo  |
 | --- | --- |
 | *Integración de red virtual para los servicios de Azure* | [https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services](../virtual-network/virtual-network-for-azure-services.md) |
-| *Guía paso a paso para integrar la aplicación con una instancia de Azure Virtual Network* | [https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet](../app-service/web-sites-integrate-with-vnet.md)
+| *Guía paso a paso para integrar la aplicación con una instancia de Azure Virtual Network* | [https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet](../app-service/overview-vnet-integration.md)
 |
 
 ### <a name="public-ip"></a>Dirección IP pública
@@ -200,8 +200,8 @@ Las direcciones IP públicas se usan para la comunicación fuera de una red virt
 
 |Resource|Vínculo|
 |---|---|
-|*Introducción a las direcciones IP públicas*  | [https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses](../virtual-network/public-ip-addresses.md#public-ip-addresses) |
-|*Creación, modificación o eliminación de una dirección IP pública* | [https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address](../virtual-network/virtual-network-public-ip-address.md)
+|*Introducción a las direcciones IP públicas*  | [https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses](../virtual-network/ip-services/public-ip-addresses.md#public-ip-addresses) |
+|*Creación, modificación o eliminación de una dirección IP pública* | [https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address](../virtual-network/ip-services/virtual-network-public-ip-address.md)
 |
 
 ## <a name="effective-routes"></a>Rutas eficaces

@@ -4,19 +4,19 @@ ms.service: machine-learning
 ms.topic: include
 ms.date: 09/14/2021
 ms.author: larryfr
-ms.openlocfilehash: 757179959035c6bfce77b1feaaf5bfeff5aab001
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 71810ecc6526364e37fe9a578d1e88d334db0d20
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128621606"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238346"
 ---
 > [!IMPORTANT]
 > La instancia de Cosmos DB se crea en un grupo de recursos administrados por Microsoft en __su suscripción__. Los siguientes servicios también se crean en este grupo de recursos y se usan en la configuración de claves administradas por el cliente:
 > * Cuenta de Azure Storage
 > * Azure Search
 >
-> Puesto que estos servicios se crean en la suscripción de Azure, se le cobrará por estas instancias de servicio. Si su suscripción no tiene suficiente cuota para el servicio Azure Cosmos DB, se producirá un error. Para obtener más información sobre las cuotas, consulte [Cuotas de servicio de Azure Cosmos DB](/azure/cosmos-db/concepts-limits).
+> Puesto que estos servicios se crean en la suscripción de Azure, se le cobrará por estas instancias de servicio. Si su suscripción no tiene suficiente cuota para el servicio Azure Cosmos DB, se producirá un error. Para obtener más información sobre las cuotas, consulte [Cuotas de servicio de Azure Cosmos DB](../articles/cosmos-db/concepts-limits.md).
 >
 > El grupo de recursos administrado se denomina con el formato `<AML Workspace Resource Group Name><GUID>`. Si el área de trabajo de Azure Machine Learning usa un punto de conexión privado, también se crea una red virtual en este grupo de recursos. Esta red virtual se usa para proteger la comunicación entre los servicios de este grupo de recursos y el área de trabajo de Azure Machine Learning.
 > 

@@ -6,18 +6,18 @@ author: bwren
 ms.author: bwren
 ms.date: 09/21/2021
 ms.custom: references_regions
-ms.openlocfilehash: 8eb9a6ad285bea2a5ac6e69ebb5ebef48b135899
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 50ab3c65abd6fe57941f18f58ff277de6822389c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129713137"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216492"
 ---
 # <a name="azure-monitor-agent-overview"></a>Información general del agente de Azure Monitor
 El agente de Azure Monitor (AMA) recopila datos de supervisión del sistema operativo invitado de máquinas virtuales de Azure y los entrega a Azure Monitor. En este artículo se proporciona información general sobre el agente de Azure Monitor, incluido cómo instalarlo y cómo configurar la recopilación de datos.
 
 ## <a name="relationship-to-other-agents"></a>Relación con otros agentes
-El agente de Azure Monitor reemplaza los siguientes agentes antiguos que Azure Monitor utiliza actualmente para recopilar datos de invitado de máquinas virtuales ([consulte las lagunas conocidas](/azure/azure-monitor/faq#is-the-new-azure-monitor-agent-at-parity-with-existing-agents)):
+El agente de Azure Monitor reemplaza los siguientes agentes antiguos que Azure Monitor utiliza actualmente para recopilar datos de invitado de máquinas virtuales ([consulte las lagunas conocidas](../faq.yml)):
 
 - [Agente de Log Analytics:](./log-analytics-agent.md) envía datos a un área de trabajo de Log Analytics y admite VM Insights y soluciones de supervisión.
 - [Extensión de Diagnostics:](./diagnostics-extension-overview.md) envía datos a las métricas de Azure Monitor (solo en Windows), a Azure Event Hubs y a Azure Storage.
@@ -54,7 +54,7 @@ El agente de Azure Monitor reemplaza los [agentes antiguos de Azure Monitor](age
 - **Requisitos de entorno:** el agente de Azure Monitor admite actualmente [estos sistemas operativos](./agents-overview.md#supported-operating-systems). Lo más probable es que en este nuevo agente se proporcione compatibilidad con las versiones futuras del sistema operativo, con el entorno y requisitos de red. 
  
   Evalúe si el agente de Azure Monitor admite su entorno. Si no es así, tendrá que seguir usando el agente actual. Si el agente de Azure Monitor admite su entorno actual, considere la posibilidad de realizar la transición a este.
-- **Requisitos de características actuales y nuevas:** el agente de Azure Monitor presenta varias funcionalidades nuevas, como el filtrado, el control ("scoping") y el hospedaje múltiple. Sin embargo, todavía no es equiparable a los agentes actuales en lo que respecta a otra funcionalidad, como la recopilación personalizada de registros y la integración con todas las soluciones. [(Consulte las soluciones en la versión preliminar).](/azure/azure-monitor/faq#which-log-analytics-solutions-are-supported-on-the-new-azure-monitor-agent) 
+- **Requisitos de características actuales y nuevas:** el agente de Azure Monitor presenta varias funcionalidades nuevas, como el filtrado, el control ("scoping") y el hospedaje múltiple. Sin embargo, todavía no es equiparable a los agentes actuales en lo que respecta a otra funcionalidad, como la recopilación personalizada de registros y la integración con todas las soluciones. [(Consulte las soluciones en la versión preliminar).](../faq.yml) 
  
   La mayoría de las nuevas funcionalidades de Azure Monitor solo estarán disponibles con su agente. Con el tiempo, habrá más funcionalidad disponible solo en el nuevo agente. Considere si el agente de Azure Monitor tiene las características que necesita y si hay algunas de las que pueda prescindir temporalmente para obtener otras importantes en el nuevo agente. 
   
@@ -103,7 +103,7 @@ Por ejemplo, VM Insights usa el agente de Log Analytics para enviar datos de re
 
 Por lo tanto, asegúrese de que no recopila los mismos datos de ambos agentes. Si está seguro, compruebe que vayan a destinos independientes.
 
-## <a name="costs"></a>Costos
+## <a name="costs"></a>Costes
 El agente de Azure Monitor no cuesta nada, pero puede incurrir en cargos por los datos ingeridos. Para obtener información sobre la recopilación y retención de datos de Log Analytics y conocer las métricas de clientes, consulte [Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## <a name="data-sources-and-destinations"></a>Orígenes y destinos de los datos

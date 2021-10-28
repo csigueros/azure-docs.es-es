@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: e8bc2d0ed29cbac171e1d03bc9a6806b1ef64f1f
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: b69ed57ec67b7f08ef7beec8df73f1da20c06a0b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112465320"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130254888"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Tutorial: Configuración de una puerta de enlace de red virtual para ExpressRoute con PowerShell
 > [!div class="op_single_selector"]
@@ -52,11 +52,6 @@ Los pasos de esta tarea usan una red virtual que se basa en los valores de la si
 | Nombre de configuración de IP de puerta de enlace | *gwipconf* |
 | Tipo | *ExpressRoute* |
 | Nombre de IP pública de puerta de enlace  | *gwpip* |
-
-> [!IMPORTANT]
-> La compatibilidad de IPv6 con el emparejamiento privado se encuentra actualmente en **versión preliminar pública**. Si quiere conectar la red virtual a un circuito ExpressRoute con emparejamiento privado basado en IPv6, asegúrese de que la red virtual es de doble pila y sigue las instrucciones que se describen [aquí](../virtual-network/ipv6-overview.md).
-> 
-> 
 
 ## <a name="add-a-gateway"></a>Adición de una puerta de enlace
 

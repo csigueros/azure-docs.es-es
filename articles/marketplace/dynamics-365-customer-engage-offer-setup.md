@@ -7,14 +7,14 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 09/27/2021
-ms.openlocfilehash: 72505a4e3c9003032c29b55e8cfa2152617bc928
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 764875272975e6a7698b6dafc452e597c8195000
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129080114"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225706"
 ---
-# <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Creación de una oferta de Dynamics 365 for Customer Engagement y PowerApps
+# <a name="create-a-dynamics-365-for-customer-engagement--power-apps-offer"></a>Creación de una oferta de Dynamics 365 for Customer Engagement y PowerApps
 
 En este artículo se explica cómo crear una oferta de Dynamics 365 for Customer Engagement & Power Apps. Todas las ofertas de Dynamics 365 deben pasar por nuestro proceso de certificación. La experiencia de evaluación permite a los usuarios implementar la solución en un entorno de Dynamics 365 en vivo.
 
@@ -28,10 +28,10 @@ Revise el artículo [Planeamiento de una oferta de Dynamics 365](marketplace-dy
 
 [!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 
-#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
+#### <a name="workspaces-view"></a>[Vista "Áreas de trabajo"](#tab/workspaces-view)
 
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
-1. En la página principal, seleccione el elemento **Ofertas de Marketplace**.
+1. En la página principal, seleccione el icono **Ofertas de Marketplace**.
 
     [ ![Muestra el elemento Ofertas de Marketplace en la página principal del Centro de partners.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 

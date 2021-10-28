@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 08/06/2021
 ms.author: alkohli
-ms.openlocfilehash: b223d428daf1a7080478f4f80b6a997fb97cd7a0
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: d87c0221bc5d6bfc8aa4eb308417234bca9f7b14
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322677"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249958"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Tutorial: Preparación de la implementación de Azure Stack Edge Pro con GPU 
 
@@ -71,7 +71,7 @@ Antes de comenzar, asegúrese de que:
 - Tiene acceso de propietario o colaborador en el nivel de grupo de recursos para los recursos de Azure Stack Edge Pro, IoT Hub y Azure Storage.
 
     - Para crear cualquier recurso de Azure Stack Edge, debe tener permisos de colaborador (o superiores) con ámbito en el nivel del grupo de recursos. 
-    - También deberá asegurarse de que los proveedores de recursos `Microsoft.DataBoxEdge` y `MicrosoftKeyVault` estén registrados. Para crear cualquier recurso de IoT Hub, es necesario registrar el proveedor `Microsoft.Devices`. 
+    - También deberá asegurarse de que los proveedores de recursos `Microsoft.DataBoxEdge` y `Microsoft.KeyVault` estén registrados. Para crear cualquier recurso de IoT Hub, es necesario registrar el proveedor `Microsoft.Devices`. 
         - Para registrar un proveedor de recursos, en Azure Portal, vaya a **Inicio > Suscripciones > Su suscripción > Proveedores de recursos**. 
         - Busque el proveedor de recursos específico, por ejemplo, `Microsoft.DataBoxEdge`, y regístrelo. 
     - Para crear un recurso de una cuenta de Storage también se necesita acceso de colaborador, o superior, con ámbito en el nivel de grupo de recursos. De forma predeterminada Azure Storage es un proveedor de recursos registrado.
@@ -162,7 +162,7 @@ Siga estos pasos en Azure Portal para crear un recurso de Azure Stack Edge media
     |Nombre   | Nombre descriptivo que identifique el recurso.<br>El nombre tiene entre 2 y 50 caracteres, que incluyen letras, números y guiones.<br> El nombre comienza y termina con una letra o un número.        |
     |Region     |Para una lista de todas las regiones en las que está disponible el recurso de Azure Stack Edge, consulte [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Si usa Azure Government, todas las regiones de gobierno están disponibles como se muestra en las [regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Elija la ubicación más cercana a la región geográfica donde quiera implementar el dispositivo.|
 
-    ![Captura de pantalla de la pestaña Información básica del Asistente para crear un recurso y solicitar un dispositivo para Azure Stack Edge. La pestaña Aspectos básicos y el botón Siguiente: Dirección de envío están resaltados.](media/azure-stack-edge-gpu-deploy-prep/create-resource-5.png)
+    ![Captura de pantalla de la pestaña Aspectos básicos del Asistente para crear un recurso y solicitar un dispositivo para Azure Stack Edge. La pestaña Aspectos básicos y el botón Siguiente: Dirección de envío están resaltados.](media/azure-stack-edge-gpu-deploy-prep/create-resource-5.png)
 
 10. Seleccione **Siguiente: Dirección de envío**.
 

@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: ''
 ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: af829349ba5fe4b6ad2bf9e443eb780e926da565
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a5f17382c651d0eb07978ae84531d9511e6737cd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751284"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216283"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Tutorial: Protección de una base de datos en Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -62,7 +62,7 @@ Para realizar todos los pasos del tutorial, inicie sesión en [Azure Portal](htt
 
 En Azure, las bases de datos SQL Database están protegidas mediante firewalls. De forma predeterminada, se rechazan todas las conexiones al servidor y a la base de datos. Para más información, consulte [Creación de reglas de firewall de nivel de servidor y de base de datos](firewall-configure.md).
 
-Establezca **Permitir el acceso a servicios de Azure** en **OFF** (DESACTIVADO) para configurar la opción más segura. A continuación, cree una [dirección IP reservada (implementación clásica)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) para el recurso que tenga que conectar, como una máquina virtual de Azure o un servicio en la nube, y permita solo a esa dirección IP el acceso mediante el firewall. Si usa el modelo de implementación de [Resource Manager](../../virtual-network/public-ip-addresses.md), es necesaria una dirección IP pública dedicada para cada recurso.
+Establezca **Permitir el acceso a servicios de Azure** en **OFF** (DESACTIVADO) para configurar la opción más segura. A continuación, cree una [dirección IP reservada (implementación clásica)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) para el recurso que tenga que conectar, como una máquina virtual de Azure o un servicio en la nube, y permita solo a esa dirección IP el acceso mediante el firewall. Si usa el modelo de implementación de [Resource Manager](../../virtual-network/ip-services/public-ip-addresses.md), es necesaria una dirección IP pública dedicada para cada recurso.
 
 > [!NOTE]
 > SQL Database se comunica a través del puerto 1433. Si intenta conectarse desde dentro de una red corporativa, es posible que el firewall de la red no permita el tráfico de salida a través del puerto 1433. En ese caso, no puede conectarse al servidor, salvo que el administrador abra el puerto 1433.

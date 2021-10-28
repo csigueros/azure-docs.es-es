@@ -3,12 +3,12 @@ title: 'Implementación en IoT Edge para Linux en Windows: Azure'
 description: En este artículo se proporcionan instrucciones sobre cómo realizar la implementación en un dispositivo de IoT Edge para Linux en Windows.
 ms.topic: how-to
 ms.date: 08/25/2021
-ms.openlocfilehash: 18a08d903fc256790799d8c66d400226f8ac48ef
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 01631b219149282d645de9d5b1126bc8b79cbcfc
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122968684"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130236026"
 ---
 # <a name="deploy-to-an-iot-edge-for-linux-on-windows-eflow-device"></a>Implementación en un dispositivo de IoT Edge para Linux en Windows (EFLOW)
 
@@ -19,7 +19,7 @@ En este artículo, aprenderá a implementar Azure Video Analyzer en un dispositi
 * Una cuenta de Azure que tenga una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), en caso de que aún no lo haya hecho.
 
 * [Visual Studio Code](https://code.visualstudio.com/) en la máquina de desarrollo. Asegúrese de tener la [extensión Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* Lea [¿Qué es EFLOW?](../../iot-edge/iot-edge-for-linux-on-windows.md)
+* Lea [¿Qué es EFLOW?](../../iot-edge/how-to-provision-single-device-linux-on-windows-symmetric.md)
 
 ## <a name="deployment-steps"></a>Pasos de implementación
 

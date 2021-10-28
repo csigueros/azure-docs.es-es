@@ -4,12 +4,12 @@ ms.service: machine-learning
 ms.topic: include
 ms.date: 08/26/2021
 ms.author: larryfr
-ms.openlocfilehash: 6ccdeea7b283ab4e4674e2a7959ead4553c43f2f
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 5d9575afdad08bed279f2f9ea3f9a455d54338a5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130077931"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130241881"
 ---
 Cuando use una __instancia de proceso__ (con una IP pública) o un __clúster de proceso__ de Azure Machine Learning, permita el tráfico entrante de los servicios de administración de Azure Batch y Azure Machine Learning. La instancia de proceso sin dirección IP pública (versión preliminar) no requiere esta comunicación entrante. Se crea dinámicamente un grupo de seguridad de red que permite este tráfico, pero es posible que tenga que crear rutas definidas por el usuario (UDR) si tiene un firewall. Al crear una ruta definida por el usuario para este tráfico, puede usar **direcciones IP** o **etiquetas de servicio** para enrutar el tráfico.
 
@@ -49,4 +49,4 @@ az network route-table route create -g MyResourceGroup --route-table-name MyRout
 
 ---
 
-Para obtener información sobre cómo configurar UDR, consulte [Enrutamiento del tráfico de red con una tabla de enrutamiento](/azure/virtual-network/tutorial-create-route-table-portal).
+Para obtener información sobre cómo configurar UDR, consulte [Enrutamiento del tráfico de red con una tabla de enrutamiento](../articles/virtual-network/tutorial-create-route-table-portal.md).

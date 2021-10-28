@@ -8,12 +8,12 @@ ms.date: 09/06/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: 69ee8dd0f7acf0959ccbfb47ebde01e6d17cfe21
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b9e56df2b4643fabdbdcf0d00baa6fe63c0d9e95
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128699437"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130263237"
 ---
 # <a name="migrate-your-block-data-to-azure-with-cirrus-migrate-cloud"></a>Migración de los datos de un bloque a Azure con Cirrus Migrate Cloud
 
@@ -42,7 +42,7 @@ Cirrus Migrate Cloud consta de varios componentes:
 
 ## <a name="implementation-guide"></a>Guía de implementación
 
-El usuario debe seguir los procedimientos recomendados de Azure para implementar una nueva máquina virtual. Si no está familiarizado con el proceso, obtenga más información en la [guía de inicio rápido](/azure/virtual-machines/windows/quick-create-portal).
+El usuario debe seguir los procedimientos recomendados de Azure para implementar una nueva máquina virtual. Si no está familiarizado con el proceso, obtenga más información en la [guía de inicio rápido](../../../../virtual-machines/windows/quick-create-portal.md).
 
 Antes de iniciar la migración, asegúrese de se han cumplido estos requisitos previos:
 
@@ -159,8 +159,8 @@ En [Azure Portal](https://portal.azure.com), busque soporte técnico en la barra
 En el portal de CMC, seleccione la pestaña **Help Center** (Centro de ayuda) para ponerse en contacto con el soporte técnico de Cirrus Data Solutions o vaya al [sitio web de CDSI](https://support.cirrusdata.cloud/en/) y cubra una solicitud de soporte técnico.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Más información sobre [máquinas virtuales de Azure](/azure/virtual-machines/windows/overview)
-- Más información sobre [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview)
-- Más información sobre la [migración de almacenamiento](/azure/storage/common/storage-migration-overview)
+- Más información sobre [máquinas virtuales de Azure](../../../../virtual-machines/windows/overview.md)
+- Más información sobre [Azure Managed Disks](../../../../virtual-machines/managed-disks-overview.md)
+- Más información sobre la [migración de almacenamiento](../../../common/storage-migration-overview.md)
 - [Sitio web de Cirrus Data](https://www.cirrusdata.com/)
 - Guías detalladas de [cMotion](https://support.cirrusdata.cloud/en/category/howtos-1un623w/)

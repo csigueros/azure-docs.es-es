@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: da47d07b804dfee46299ef75e81261171880ea76
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 725b483d4da7ce55b3ae9e866aa60a09226be7e9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129232078"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233292"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Cuaderno de estrategias para abordar requisitos de seguridad comunes con Azure SQL Database y Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -576,7 +576,7 @@ En SQL Managed Instance:
 
 - En el caso de una aplicación web simple, la conexión a través de un punto de conexión público requiere que la opción **Allow Azure Services** (Permitir servicios de Azure) esté establecida en ON.
 
-- [Integre su aplicación con una instancia de Azure Virtual Network](../../app-service/web-sites-integrate-with-vnet.md) para la conectividad de la ruta de acceso a datos privada con una instancia administrada. De manera opcional, también puede implementar una aplicación web con instancias de [App Service Environment (ASE)](../../app-service/environment/intro.md).
+- [Integre su aplicación con una instancia de Azure Virtual Network](../../app-service/overview-vnet-integration.md) para la conectividad de la ruta de acceso a datos privada con una instancia administrada. De manera opcional, también puede implementar una aplicación web con instancias de [App Service Environment (ASE)](../../app-service/environment/intro.md).
 
 - En el caso de la aplicación web con ASE o la aplicación web integrada de red virtual con conexión a una base de datos en SQL Database, puede usar los [puntos de conexión de servicio de red virtual y las reglas de firewall de red virtual](vnet-service-endpoint-rule-overview.md) para limitar el acceso desde una red virtual y una subred específicas. A continuación, establezca **Allow Azure Services** (Permitir servicios de Azure) en OFF. También puede conectar ASE a una instancia administrada en Instancia administrada de SQL a través de una ruta de acceso a datos privada.  
 

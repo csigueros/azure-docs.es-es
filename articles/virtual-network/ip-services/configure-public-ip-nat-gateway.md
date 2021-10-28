@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 06/28/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 2fd41f3459469474c100657747c4873ee99dc057
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: b87947aa265e5a92abf033fffd28ab3424785bb5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129367859"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130217399"
 ---
 # <a name="manage-a-public-ip-address-with-a-nat-gateway"></a>Administración de una IP pública con una puerta de enlace NAT
 
@@ -31,9 +31,9 @@ Por último, cambiará la configuración de IP de una IP pública a un prefijo I
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Dos IP públicas de SKU estándar en la suscripción. Las direcciones IP no pueden estar asociadas con ningún recurso. Para más información sobre cómo crear una IP pública de SKU estándar, consulte [Creación de una dirección IP pública: Azure Portal](../../virtual-network/create-public-ip-portal.md).
+- Dos IP públicas de SKU estándar en la suscripción. Las direcciones IP no pueden estar asociadas con ningún recurso. Para más información sobre cómo crear una IP pública de SKU estándar, consulte [Creación de una dirección IP pública: Azure Portal](./create-public-ip-portal.md).
     - Para fines de los ejemplos de este artículo, asigne los nombres **myStandardPublicIP-1** y **myStandardPublicIP-2** a las IP públicas nuevas.
-- Un prefijo de dirección IP pública en la suscripción. Para más información sobre cómo crear un prefijo de dirección IP pública, consulte la sección sobre [cómo crear un prefijo de dirección IP pública con Azure Portal](../../virtual-network/create-public-ip-prefix-portal.md).
+- Un prefijo de dirección IP pública en la suscripción. Para más información sobre cómo crear un prefijo de dirección IP pública, consulte la sección sobre [cómo crear un prefijo de dirección IP pública con Azure Portal](./create-public-ip-prefix-portal.md).
     - Para fines del ejemplo de este artículo, asigne el nombre **myPublicIPPrefixNAT** al prefijo de dirección IP pública nuevo.
 
 ## <a name="create-nat-gateway-existing-public-ip"></a>Creación de la IP pública existente de una puerta de enlace NAT
@@ -149,4 +149,4 @@ En esta sección, cambiará la configuración de la dirección IP de salida para
 En este artículo, aprendió a crear una puerta de enlace NAT de carga y a usar una IP pública existente. Reemplazó la dirección IP en la configuración IP de salida de una puerta de enlace. Por último, cambió una configuración IP de salida para usar un prefijo de dirección IP pública.
 
 - Para más información sobre Azure Virtual Network NAT, consulte [¿Qué es Azure Virtual Network NAT?](../nat-gateway/nat-overview.md)
-- Para más información sobre las IP públicas en Azure, consulte [Direcciones IP públicas](../../virtual-network/public-ip-addresses.md).
+- Para más información sobre las IP públicas en Azure, consulte [Direcciones IP públicas](./public-ip-addresses.md).

@@ -8,12 +8,12 @@ ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 09/16/2021
-ms.openlocfilehash: b2dadea22326f8b4bf2af6a55d90e392feea8c7a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0a63e0f346fedac9b7178f25a19177a9908bc6a4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128624773"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223014"
 ---
 # <a name="create-a-snapshot-of-a-virtual-hard-disk"></a>Creación de una instantánea de un disco duro virtual
 
@@ -32,8 +32,8 @@ Para crear una instantánea mediante Azure Portal, siga estos pasos.
 1. En [Azure Portal](https://portal.azure.com), haga clic en **Crear un recurso**.
 1. Busque y seleccione **Snapshot**.
 1. En la ventana **Instantánea**, seleccione **Crear**. Aparece la ventana **Crear instantánea**.
-1. En **Grupo de recursos**, seleccione un [grupo de recursos](/azure/azure-resource-manager/management/overview#resource-groups) existente o escriba el nombre de uno nuevo.
-1. Escriba un **nombre** y, a continuación, seleccione una **región** y un **tipo de instantánea** para la nueva instantánea. Si desea almacenar la instantánea en un almacenamiento resistente a zonas, debe seleccionar una región que admita [zonas de disponibilidad](/azure/availability-zones/az-overview). Para obtener una lista de las regiones compatibles, consulte [Regiones de Azure con Availability Zones](/azure/availability-zones/az-region#azure-regions-with-availability-zones).
+1. En **Grupo de recursos**, seleccione un [grupo de recursos](../azure-resource-manager/management/overview.md#resource-groups) existente o escriba el nombre de uno nuevo.
+1. Escriba un **nombre** y, a continuación, seleccione una **región** y un **tipo de instantánea** para la nueva instantánea. Si desea almacenar la instantánea en un almacenamiento resistente a zonas, debe seleccionar una región que admita [zonas de disponibilidad](../availability-zones/az-overview.md). Para obtener una lista de las regiones compatibles, consulte [Regiones de Azure con Availability Zones](../availability-zones/az-region.md#azure-regions-with-availability-zones).
 1. En **Suscripción de origen**, seleccione la suscripción que contiene el disco administrado del que se va a realizar una copia de seguridad.
 1. Como **disco de origen**, seleccione el disco administrado para la instantánea.
 1. En **Tipo de almacenamiento**, seleccione **HDD estándar**, a menos que necesite almacenamiento con redundancia de zona o almacenamiento de alto rendimiento para la instantánea.
@@ -74,7 +74,7 @@ En primer lugar, usará el cmdlet [New-AzSnapshotConfig](/powershell/module/az.c
        -CreateOption copy
    ```
 
-   Si desea almacenar la instantánea en un almacenamiento resistente a zonas, debe crearla en una región que admita [zonas de disponibilidad](/azure/availability-zones/az-overview e incluir el parámetro `-SkuName Standard_ZRS`. Para obtener una lista de regiones que admiten zonas de disponibilidad, consulte [Regiones de Azure con Availability Zones](/azure/availability-zones/az-region#azure-regions-with-availability-zones).
+   Si desea almacenar la instantánea en un almacenamiento resistente a zonas, debe crearla en una región que admita [zonas de disponibilidad](/azure/availability-zones/az-overview e incluir el parámetro `-SkuName Standard_ZRS`. Para obtener una lista de regiones que admiten zonas de disponibilidad, consulte [Regiones de Azure con Availability Zones](../availability-zones/az-region.md#azure-regions-with-availability-zones).
 
 1. Tome la instantánea.
 
@@ -117,7 +117,7 @@ Siga estos pasos para tomar una instantánea con el comando `az snapshot create`
         --name osDisk-backup
     ```
 
-    Si desea almacenar la instantánea en un almacenamiento resistente a zonas, debe crearla en una región que admita [zonas de disponibilidad ](/azure/availability-zones/az-overview) e incluir el parámetro opcional `--sku Standard_ZRS`. Puede encontrar una lista de [zonas de disponibilidad](/azure/availability-zones/az-region#azure-regions-with-availability-zones) aquí.
+    Si desea almacenar la instantánea en un almacenamiento resistente a zonas, debe crearla en una región que admita [zonas de disponibilidad ](../availability-zones/az-overview.md) e incluir el parámetro opcional `--sku Standard_ZRS`. Puede encontrar una lista de [zonas de disponibilidad](../availability-zones/az-region.md#azure-regions-with-availability-zones) aquí.
     
 1. Use [az snapshot list](/cli/azure/snapshot#az_snapshot_list) para comprobar que la instantánea existe.
     

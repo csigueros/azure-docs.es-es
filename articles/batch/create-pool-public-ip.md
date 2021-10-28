@@ -3,12 +3,12 @@ title: Creación de un grupo con direcciones IP públicas
 description: Obtenga información sobre cómo crear un grupo de Batch que use sus propias direcciones IP públicas.
 ms.topic: how-to
 ms.date: 10/08/2020
-ms.openlocfilehash: 82a37f96a91bdad37c1a7828ef0cf71b3581ca82
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: fc652a7f4719d5cc23e84caaef63ec9d1c5f7ff1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107768402"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130255705"
 ---
 # <a name="create-an-azure-batch-pool-with-specified-public-ip-addresses"></a>Creación de un grupo de Azure Batch con direcciones IP públicas especificadas
 
@@ -24,7 +24,7 @@ Para información sobre cómo crear grupos sin direcciones IP públicas, consult
 
 - **Una red virtual de Azure**. Debe usar una [red virtual](batch-virtual-network.md) de la misma suscripción de Azure en la que va a crear el grupo y sus direcciones IP. Solo se pueden usar redes virtuales basadas en Azure Resource Manager. Asegúrese de que la red virtual cumple todos los [requisitos generales](batch-virtual-network.md#vnet-requirements).
 
-- **Al menos una dirección IP pública de Azure**. Para crear una o varias direcciones IP públicas, puede usar [Azure Portal](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address), la [interfaz de la línea de comandos (CLI) de Azure](/cli/azure/network/public-ip#az_network_public_ip_create) o [Azure PowerShell](/powershell/module/az.network/new-azpublicipaddress). Asegúrese de seguir los requisitos que se indican a continuación.
+- **Al menos una dirección IP pública de Azure**. Para crear una o varias direcciones IP públicas, puede usar [Azure Portal](../virtual-network/ip-services/virtual-network-public-ip-address.md#create-a-public-ip-address), la [interfaz de la línea de comandos (CLI) de Azure](/cli/azure/network/public-ip#az_network_public_ip_create) o [Azure PowerShell](/powershell/module/az.network/new-azpublicipaddress). Asegúrese de seguir los requisitos que se indican a continuación.
 
 > [!NOTE]
 > Batch asigna automáticamente los recursos de red adicionales del grupo de recursos que contiene las direcciones IP públicas. Por cada 100 nodos dedicados, Batch generalmente asigna un grupo de seguridad de red (NSG) y un equilibrador de carga. Estos recursos están limitados por las cuotas de recursos de la suscripción. Para los grupos grandes puede que deba [solicitar un aumento de cuota](batch-quota-limit.md#increase-a-quota) para uno o varios de estos recursos.
@@ -97,6 +97,6 @@ Cuerpo de la solicitud
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Conozca el [flujo de trabajo y los recursos principales del servicio Batch](batch-service-workflow-features.md), como grupos, nodos, trabajos y tareas.
+- Más información sobre el [flujo de trabajo y los recursos principales del servicio Batch](batch-service-workflow-features.md), como grupos, nodos, trabajos y tareas.
 - Obtenga información sobre la [creación un grupo en una subred de una red virtual de Azure](batch-virtual-network.md).
 - Obtenga información sobre la [creación de un grupo de Azure Batch sin direcciones IP públicas](./batch-pool-no-public-ip-address.md).

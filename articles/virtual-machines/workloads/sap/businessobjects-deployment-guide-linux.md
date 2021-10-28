@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 0d7d68f9452f5f551361a48580e223b0dd614a09
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e3cc7420a976812d462b3f5c5e60878ba67641ff
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124818128"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249160"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guía de implementación de la plataforma de inteligencia empresarial SAP BusinessObjects para Linux en Azure
 
@@ -702,7 +702,7 @@ Use [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) para
 
 El almacén de archivos es un directorio de discos donde se almacenan los archivos reales, como los informes y los documentos de BI. Es importante que todos los archivos del almacén de archivos estén sincronizados con la región de recuperación ante desastres. En función del tipo de servicio de recurso compartido de archivos que use para la plataforma SAP BOBI que se ejecuta en Linux, es necesario adoptar la estrategia adecuada de recuperación ante desastres para sincronizar el contenido.
 
-- **Azure NetApp Files** proporciona volúmenes NFS y SMB, por lo que puede usar cualquier herramienta de copia basada en archivos para replicar datos entre regiones de Azure. Para más información sobre cómo copiar un volumen en otra región, consulte [Preguntas más frecuentes acerca de Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-faqs.md#how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region).
+- **Azure NetApp Files** proporciona volúmenes NFS y SMB, por lo que puede usar cualquier herramienta de copia basada en archivos para replicar datos entre regiones de Azure. Para más información sobre cómo copiar un volumen en otra región, consulte [Preguntas más frecuentes acerca de Azure NetApp Files](../../../azure-netapp-files/faq-data-migration-protection.md#how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region).
 
   Puede usar la replicación entre regiones de Azure NetApp Files, actualmente en [versión preliminar](https://azure.microsoft.com/blog/azure-netapp-files-cross-region-replication-and-new-enhancements-in-preview/). Así que solo los bloques modificados se envían a través de la red en un formato comprimido y eficaz. Esto reduce la cantidad de datos necesarios para replicar entre regiones, lo que ahorra costes de transferencia de datos. También acorta el tiempo de replicación, por lo que puede lograr un RPO menor. Para obtener más información, consulte [Requisitos y consideraciones del uso de la replicación entre regiones](../../../azure-netapp-files/cross-region-replication-requirements-considerations.md).
 

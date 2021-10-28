@@ -6,19 +6,19 @@ ms.author: hickeys
 ms.date: 10/08/2021
 ms.service: app-service
 ms.topic: reference
-ms.openlocfilehash: 3af5ba0580b0cb662c9ab87c73afac965a8c066f
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 8a818ea51e1d4a3f2df03ae1c4bafcf16da35b13
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129730549"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130261013"
 ---
 # <a name="data-encryption-in-azure-fluid-relay"></a>Cifrado de datos en Azure Fluid Relay
 
 > [!NOTE]
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 
-Microsoft Azure Fluid Relay Server aprovecha la funcionalidad de cifrado en reposo de [Azure Kubernetes](/azure/aks/enable-host-encryption), [Microsoft Azure Cosmos DB]/azure/cosmos-db/database-encryption-at-rest) y [Azure Blob Storage](/azure/storage/common/storage-service-encryption). La comunicación servicio a servicio entre AFRS y estos recursos está cifrada con TLS y se incluye con el límite de Azure Virtual Network, protegido contra interferencias externas mediante reglas de seguridad de red.
+Microsoft Azure Fluid Relay Server aprovecha la funcionalidad de cifrado en reposo de [Azure Kubernetes](../../aks/enable-host-encryption.md), [Microsoft Azure Cosmos DB]/azure/cosmos-db/database-encryption-at-rest) y [Azure Blob Storage](../../storage/common/storage-service-encryption.md). La comunicación servicio a servicio entre AFRS y estos recursos está cifrada con TLS y se incluye con el límite de Azure Virtual Network, protegido contra interferencias externas mediante reglas de seguridad de red.
 
 En el diagrama siguiente se muestra de forma general cómo se implementa Azure Fluid Relay Server y cómo gestiona el almacenamiento de los datos.
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: d2e0dcb7d973a4e4b2b6f4438aab5f08187ae44b
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 076574173f0bfd4daff4845ab354e730ec0844d9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953113"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233270"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Registros de Azure Monitor para proveedores de servicios
 
@@ -76,7 +76,7 @@ Hay dos opciones para implementar registros en una ubicación central:
 
 1. Área de trabajo central: el proveedor de servicios puede crear un área de trabajo en su inquilino y usar un script que use [Query API](https://dev.loganalytics.io/) con [Data Collection API](../logs/data-collector-api.md) para traer los datos de las diversas áreas de trabajo a esta ubicación central. Otra opción diferente del script es usar [Azure Logic Apps](../../logic-apps/logic-apps-overview.md).
 
-2. Power BI como ubicación central: Power BI puede funcionar como ubicación central cuando las diversas áreas de trabajo exportan datos a él mediante la integración entre el área de trabajo de Log Analytics y [Power BI](../visualize/powerbi.md).
+2. Power BI como ubicación central: Power BI puede funcionar como ubicación central cuando las diversas áreas de trabajo exportan datos a él mediante la integración entre el área de trabajo de Log Analytics y [Power BI](./log-powerbi.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -86,6 +86,6 @@ Hay dos opciones para implementar registros en una ubicación central:
 
 * Use [alertas](../alerts/alerts-overview.md) para integrarse con sistemas existentes.
 
-* Genere informes de resumen con [Power BI](../visualize/powerbi.md).
+* Genere informes de resumen con [Power BI](./log-powerbi.md).
 
 * Incorpore clientes a la [administración de recursos delegados de Azure](../../lighthouse/concepts/architecture.md).
