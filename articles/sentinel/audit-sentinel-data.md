@@ -15,14 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: bagol
-ms.openlocfilehash: 4378065a8d1a91f9051c04dbb71a90e2a4ab862c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 27e4d3cd795d612ee9ef75160dc7a466a1dfdaab
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124777400"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075436"
 ---
 # <a name="audit-azure-sentinel-queries-and-activities"></a>Auditoría de consultas y actividades de Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 En este artículo se describe cómo puede ver los datos de auditoría para las consultas ejecutadas y las actividades realizadas en el área de trabajo de Azure Sentinel, como los requisitos de cumplimiento internos y externos en el área de trabajo de las operaciones de seguridad (SOC).
 

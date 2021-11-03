@@ -6,20 +6,21 @@ documentationcenter: ''
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 08/20/2021
+ms.date: 10/21/2021
 ms.author: danlep
-ms.openlocfilehash: 57bb68352f04b356ec7a60f9e354993404c46abd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: ee6eb475dc94407a774f4b22bd3afd676cbe83da
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128658956"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131065596"
 ---
 # <a name="api-management-policies-to-validate-requests-and-responses"></a>Directivas de API Management para validar solicitudes y respuestas
 
 En este artículo se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](./api-management-policies.md).
 
-Use las directivas de validación para validar las solicitudes y respuestas de API en un esquema de OpenAPI y protegerse frente a las vulnerabilidades, como la inyección de encabezados o cargas. Si bien no reemplazan a Web Application Firewall, las directivas de validación proporcionan flexibilidad para responder a una clase de amenazas adicionales que los productos de seguridad, que dependen de reglas estáticas y predefinidas, no cubren.
+Use las directivas de validación para validar las solicitudes y respuestas de API en un esquema de OpenAPI y protegerse frente a las vulnerabilidades, como la inyección de encabezados o cargas. Si bien no reemplazan a Web Application Firewall, las directivas de validación proporcionan flexibilidad para responder a otra clase de amenazas que los productos de seguridad, que dependen de reglas estáticas y predefinidas, no cubren.
 
 ## <a name="validation-policies"></a>Directivas de validación
 
@@ -39,9 +40,9 @@ Acciones disponibles:
 
 | Acción         | Descripción          |                                                                                                                         
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| ignore | Omitir validación. |
-| prevent | Bloquear el procesamiento de la solicitud o la respuesta, registrar el [error de validación](#validation-errors) detallado y devolver un error. El procesamiento se interrumpe cuando se detecta el primer conjunto de errores. 
-| detectar | Registrar los [errores de validación](#validation-errors), sin interrumpir el procesamiento de la solicitud o respuesta. |
+| `ignore` | Omitir validación. |
+| `prevent` | Bloquear el procesamiento de la solicitud o la respuesta, registrar el [error de validación](#validation-errors) detallado y devolver un error. El procesamiento se interrumpe cuando se detecta el primer conjunto de errores. 
+| `detect` | Registrar los [errores de validación](#validation-errors), sin interrumpir el procesamiento de la solicitud o respuesta. |
 
 ## <a name="logs"></a>Registros
 
@@ -87,20 +88,20 @@ En el ejemplo siguiente, la carga de JSON en solicitudes y respuestas se valida 
 
 | Nombre         | Descripción                                                                                                                                   | Obligatorio |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| validate-content | Elemento raíz.                                                                                                                               | Sí      |
-| contenido | Agregar uno o varios de estos elementos para validar el tipo de contenido en la solicitud o la respuesta y realizar la acción especificada.  | No |
+| `validate-content` | Elemento raíz.                                                                                                                               | Sí      |
+| `content` | Agregar uno o varios de estos elementos para validar el tipo de contenido en la solicitud o la respuesta y realizar la acción especificada.  | No |
 
 ### <a name="attributes"></a>Atributos
 
 | Nombre                       | Descripción                                                                                                                                                            | Obligatorio | Valor predeterminado |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| unspecified-content-type-action | [Acción](#actions) que se realiza para las solicitudes o respuestas con un tipo de contenido que no se especifica en el esquema de la API. |  Sí     | N/D   |
-| max-size | Longitud máxima del cuerpo de la solicitud o respuesta en bytes, comprobada con el encabezado `Content-Length`. Si el cuerpo de la solicitud o de la respuesta está comprimido, este valor es la longitud descomprimida. Valor máximo permitido: 102 400 bytes (100 KB). (Póngase en contacto con el [soporte técnico](https://azure.microsoft.com/support/options/) si tiene que aumentar este límite). | Sí       | N/D   |
-| size-exceeded-action | [Acción](#actions) que se realiza para las solicitudes o respuestas cuyo cuerpo supera el tamaño especificado en `max-size`. |  Sí     | N/D   |
-| errors-variable-name | Nombre de la variable de `context.Variables` en la que se registrarán los errores de validación.  |   No    | N/D   |
-| type | Tipo de contenido para el que se va a ejecutar la validación del cuerpo, comprobado con el encabezado `Content-Type`. El valor no distingue mayúsculas y minúsculas. Si está vacío, se aplica a todos los tipos de contenido especificados en el esquema de la API. |   No    |  N/D  |
-| validate-as | Motor de validación que se va a usar para la validación del cuerpo de una solicitud o respuesta con un tipo de contenido coincidente. Actualmente, el único valor admitido es "json".   |  Sí     |  N/D  |
-| action | [Acción](#actions) que se realiza para las solicitudes o respuestas cuyo cuerpo no coincide con el tipo de contenido especificado.  |  Sí      | N/D   |
+| `unspecified-content-type-action` | [Acción](#actions) que se realiza para las solicitudes o respuestas con un tipo de contenido que no se especifica en el esquema de la API. |  Sí     | N/D   |
+| `max-size` | Longitud máxima del cuerpo de la solicitud o respuesta en bytes, comprobada con el encabezado `Content-Length`. Si el cuerpo de la solicitud o de la respuesta está comprimido, este valor es la longitud descomprimida. Valor máximo permitido: 102 400 bytes (100 KB). (Póngase en contacto con el [soporte técnico](https://azure.microsoft.com/support/options/) si tiene que aumentar este límite). | Sí       | N/D   |
+| `size-exceeded-action` | [Acción](#actions) que se realiza para las solicitudes o respuestas cuyo cuerpo supera el tamaño especificado en `max-size`. |  Sí     | N/D   |
+| `errors-variable-name` | Nombre de la variable de `context.Variables` en la que se registrarán los errores de validación.  |   No    | N/D   |
+| `type` | Tipo de contenido para el que se va a ejecutar la validación del cuerpo, comprobado con el encabezado `Content-Type`. El valor no distingue mayúsculas y minúsculas. Si está vacío, se aplica a todos los tipos de contenido especificados en el esquema de la API. |   No    |  N/D  |
+| `validate-as` | Motor de validación que se va a usar para la validación del cuerpo de una solicitud o respuesta con un tipo de contenido coincidente. Actualmente, el único valor admitido es "json".   |  Sí     |  N/D  |
+| `action` | [Acción](#actions) que se realiza para las solicitudes o respuestas cuyo cuerpo no coincide con el tipo de contenido especificado.  |  Sí      | N/D   |
 
 ### <a name="usage"></a>Uso
 
@@ -153,21 +154,21 @@ En este ejemplo, todos los parámetros de consulta y ruta de acceso se validan e
 
 | Nombre         | Descripción                                                                                                                                   | Obligatorio |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| validate-parameters | Elemento raíz. Especifica las acciones de validación predeterminadas para todos los parámetros de las solicitudes.                                                                                                                              | Sí      |
-| headers | Agregue este elemento para invalidar las acciones de validación predeterminadas para los parámetros de encabezado en las solicitudes.   | No |
-| Query | Agregue este elemento para invalidar las acciones de validación predeterminadas para los parámetros de consulta en las solicitudes.  | No |
-| path | Agregue este elemento para invalidar las acciones de validación predeterminadas para los parámetros de ruta de URL en las solicitudes.  | No |
-| parámetro | Agregue uno o más elementos para los parámetros con nombre para invalidar la configuración de nivel superior de las acciones de validación. | No |
+| `validate-parameters` | Elemento raíz. Especifica las acciones de validación predeterminadas para todos los parámetros de las solicitudes.                                                                                                                              | Sí      |
+| `headers` | Agregue este elemento para invalidar las acciones de validación predeterminadas para los parámetros de encabezado en las solicitudes.   | No |
+| `query` | Agregue este elemento para invalidar las acciones de validación predeterminadas para los parámetros de consulta en las solicitudes.  | No |
+| `path` | Agregue este elemento para invalidar las acciones de validación predeterminadas para los parámetros de ruta de URL en las solicitudes.  | No |
+| `parameter` | Agregue uno o más elementos para los parámetros con nombre para invalidar la configuración de nivel superior de las acciones de validación. | No |
 
 ### <a name="attributes"></a>Atributos
 
 | Nombre                       | Descripción                                                                                                                                                            | Obligatorio | Valor predeterminado |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| specified-parameter-action | [Acción](#actions) que se va a realizar para los parámetros de solicitud especificados en el esquema de la API. <br/><br/> Cuando se proporciona en un elemento `headers`,`query` o `path`, el valor invalida el valor de `specified-parameter-action` del elemento `validate-parameters`.  |  Sí     | N/D   |
-| unspecified-parameter-action | [Acción](#actions) que se va a realizar para los parámetros de solicitud que no se han especificado en el esquema de la API. <br/><br/>Cuando se proporciona en un elemento `headers` o `query`, el valor invalida el valor de `unspecified-parameter-action` del elemento `validate-parameters`. |  Sí     | N/D   |
-| errors-variable-name | Nombre de la variable de `context.Variables` en la que se registrarán los errores de validación.  |   No    | N/D   |
-| name | Nombre del parámetro para el que se va a invalidar la acción de validación. El valor no distingue mayúsculas y minúsculas.  | Sí | N/D |
-| action | [Acción](#actions) que se va a realizar para el parámetro con el nombre coincidente. Si el parámetro se especifica en el esquema de la API, este valor invalida la configuración de `specified-parameter-action` de nivel superior. Si el parámetro no se especifica en el esquema de la API, este valor invalida la configuración de `unspecified-parameter-action` de nivel superior.| Sí | N/D | 
+| `specified-parameter-action` | [Acción](#actions) que se va a realizar para los parámetros de solicitud especificados en el esquema de la API. <br/><br/> Cuando se proporciona en un elemento `headers`,`query` o `path`, el valor invalida el valor de `specified-parameter-action` del elemento `validate-parameters`.  |  Sí     | N/D   |
+| `unspecified-parameter-action` | [Acción](#actions) que se va a realizar para los parámetros de solicitud que no se han especificado en el esquema de la API. <br/><br/>Cuando se proporciona en un elemento `headers` o `query`, el valor invalida el valor de `unspecified-parameter-action` del elemento `validate-parameters`. |  Sí     | N/D   |
+| `errors-variable-name` | Nombre de la variable de `context.Variables` en la que se registrarán los errores de validación.  |   No    | N/D   |
+| `name` | Nombre del parámetro para el que se va a invalidar la acción de validación. El valor no distingue mayúsculas y minúsculas.  | Sí | N/D |
+| `action` | [Acción](#actions) que se va a realizar para el parámetro con el nombre coincidente. Si el parámetro se especifica en el esquema de la API, este valor invalida la configuración de `specified-parameter-action` de nivel superior. Si el parámetro no se especifica en el esquema de la API, este valor invalida la configuración de `unspecified-parameter-action` de nivel superior.| Sí | N/D | 
 
 ### <a name="usage"></a>Uso
 
@@ -201,18 +202,18 @@ La directiva `validate-headers` valida los encabezados de respuesta con el esque
 
 | Nombre         | Descripción                                                                                                                                   | Obligatorio |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| validate-headers | Elemento raíz. Especifica las acciones de validación predeterminadas para todos los encabezados de las respuestas.                                                                                                                              | Sí      |
-| header | Agregue uno o más elementos para los encabezados con nombre para invalidar las acciones de validación predeterminadas para los encabezados en las respuestas. | No |
+| `validate-headers` | Elemento raíz. Especifica las acciones de validación predeterminadas para todos los encabezados de las respuestas.                                                                                                                              | Sí      |
+| `header` | Agregue uno o más elementos para los encabezados con nombre para invalidar las acciones de validación predeterminadas para los encabezados en las respuestas. | No |
 
 ### <a name="attributes"></a>Atributos
 
 | Nombre                       | Descripción                                                                                                                                                            | Obligatorio | Valor predeterminado |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| specified-header-action | [Acción](#actions) que se va a realizar para los encabezados de respuesta especificados en el esquema de la API.  |  Sí     | N/D   |
-| unspecified-header-action | [Acción](#actions) que se va a realizar para los encabezados de respuesta que no están especificados en el esquema de la API.  |  Sí     | N/D   |
-| errors-variable-name | Nombre de la variable de `context.Variables` en la que se registrarán los errores de validación.  |   No    | N/D   |
-| name | Nombre del encabezado para el que se va a invalidar la acción de validación. El valor no distingue mayúsculas y minúsculas. | Sí | N/D |
-| action | [Acción](#actions) que se va a realizar para el encabezado con el nombre coincidente. Si el encabezado se especifica en el esquema de la API, este valor invalida el valor de `specified-header-action` en el elemento `validate-headers`. De lo contrario, invalida el valor de `unspecified-header-action` en el elemento validate-headers. | Sí | N/D | 
+| `specified-header-action` | [Acción](#actions) que se va a realizar para los encabezados de respuesta especificados en el esquema de la API.  |  Sí     | N/D   |
+| `unspecified-header-action` | [Acción](#actions) que se va a realizar para los encabezados de respuesta que no están especificados en el esquema de la API.  |  Sí     | N/D   |
+| `errors-variable-name` | Nombre de la variable de `context.Variables` en la que se registrarán los errores de validación.  |   No    | N/D   |
+| `name` | Nombre del encabezado para el que se va a invalidar la acción de validación. El valor no distingue mayúsculas y minúsculas. | Sí | N/D |
+| `action` | [Acción](#actions) que se va a realizar para el encabezado con el nombre coincidente. Si el encabezado se especifica en el esquema de la API, este valor invalida el valor de `specified-header-action` en el elemento `validate-headers`. De lo contrario, invalida el valor de `unspecified-header-action` en el elemento validate-headers. | Sí | N/D | 
 
 ### <a name="usage"></a>Uso
 
@@ -244,17 +245,17 @@ La directiva `validate-status-code` valida los códigos de estado HTTP en las re
 
 | Nombre         | Descripción                                                                                                                                   | Obligatorio |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| validate-status-code | Elemento raíz.                                                                                                | Sí      |
-| status-code | Agregue uno o varios elementos para códigos de estado HTTP para invalidar la acción de validación predeterminada para los códigos de estado en las respuestas. | No |
+| `validate-status-code` | Elemento raíz.                                                                                                | Sí      |
+| `status-code` | Agregue uno o varios elementos para códigos de estado HTTP para invalidar la acción de validación predeterminada para los códigos de estado en las respuestas. | No |
 
 ### <a name="attributes"></a>Atributos
 
 | Nombre                       | Descripción                                                                                                                                                            | Obligatorio | Valor predeterminado |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| unspecified-status-code-action | [Acción](#actions) que se realiza para los códigos de estado HTTP en las respuestas que no se especifican en el esquema de la API.  |  Sí     | N/D   |
-| errors-variable-name | Nombre de la variable de `context.Variables` en la que se registrarán los errores de validación.  |   No    | N/D   |
-| código | Código de estado HTTP para el que se va a invalidar la acción de validación. | Sí | N/D |
-| action | [Acción](#actions) que se va a realizar para el código de estado coincidente, que no se especifica en el esquema de la API. Si el código de estado se especifica en el esquema de la API, esta invalidación no surte efecto. | Sí | N/D | 
+| `unspecified-status-code-action` | [Acción](#actions) que se realiza para los códigos de estado HTTP en las respuestas que no se especifican en el esquema de la API.  |  Sí     | N/D   |
+| `errors-variable-name` | Nombre de la variable de `context.Variables` en la que se registrarán los errores de validación.  |   No    | N/D   |
+| `code` | Código de estado HTTP para el que se va a invalidar la acción de validación. | Sí | N/D |
+| `action` | [Acción](#actions) que se va a realizar para el código de estado coincidente, que no se especifica en el esquema de la API. Si el código de estado se especifica en el esquema de la API, esta invalidación no surte efecto. | Sí | N/D | 
 
 ### <a name="usage"></a>Uso
 
