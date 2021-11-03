@@ -6,12 +6,12 @@ ms.date: 03/14/2019
 ms.custom: devx-track-java
 author: mattmccleary
 ms.author: mmcc
-ms.openlocfilehash: ffde71da6ef18bad480fa2aa7b2b2ffeefdd0c7a
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 8a7db0cca739c18f201c19e19049ca2a7e169b01
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130133925"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067742"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Solución de problemas y preguntas frecuentes sobre el SDK de Application Insights para Java
 
@@ -81,7 +81,7 @@ En el código:
 
 Actualice ApplicationInsights.xml (en la carpeta de recursos del proyecto). Agregue lo siguiente bajo el nodo raíz:
 
-```XML
+```xml
 
     <DisableTelemetry>true</DisableTelemetry>
 ```
@@ -106,7 +106,7 @@ Para más información sobre lo que sucede en la API, agregue `<SDKLogger/>` baj
 
 También puede indicar al registrador que lo envíe a un archivo:
 
-```XML
+```xml
   <SDKLogger type="FILE"><!-- or "CONSOLE" to print to stderr -->
     <Level>TRACE</Level>
     <UniquePrefix>AI</UniquePrefix>

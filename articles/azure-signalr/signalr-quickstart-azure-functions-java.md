@@ -7,15 +7,13 @@ ms.date: 06/09/2021
 ms.topic: quickstart
 ms.service: signalr
 ms.devlang: java
-ms.custom:
-- devx-track-java
-- mode-api
-ms.openlocfilehash: c5f363ce78724ed569ec3ab24cd6c1fa640954e2
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.custom: devx-track-java, mode-api
+ms.openlocfilehash: 5cea13b3f6410df1d5a63efe4acdd080b21f2f5c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122444436"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069585"
 ---
 # <a name="quickstart-use-java-to-create-an-app-showing-github-star-count-with-azure-functions-and-signalr-service"></a>Inicio rápido: Uso de Java para crear una aplicación en la que se muestre el número de estrellas de GitHub con Azure Functions y SignalR Service
 
@@ -65,7 +63,7 @@ Inicie sesión en Azure Portal en <https://portal.azure.com/> con su cuenta de A
 
     Maven le pide que especifique los valores necesarios para terminar de generar el proyecto. Puede especificar los valores siguientes.
 
-    | Prompt | Value | Descripción |
+    | Prompt | Valor | Descripción |
     | ------ | ----- | ----------- |
     | **groupId** | `com.signalr` | Un valor que identifica de forma única su proyecto entre todos los demás y que sigue las [reglas de nomenclatura de paquetes](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) de Java. |
     | **artifactId** | `java` | Un valor que es el nombre del archivo jar, sin un número de versión. |

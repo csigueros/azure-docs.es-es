@@ -8,12 +8,12 @@ author: emerb19
 ms.author: emerb
 ms.date: 10/07/2021
 robots: noindex
-ms.openlocfilehash: 28f14cf4414266e6395ec60432c6d2e106a1a69a
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: bb663f42be1e7d1c798420ef483cf52c34c84aff
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129716077"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131048299"
 ---
 # <a name="isv-to-cloud-reseller-private-offers"></a>Ofertas privadas de ISV a revendedor en la nube
 
@@ -33,7 +33,7 @@ Como asociado de CSP, puede descubrir todos los márgenes disponibles mediante l
 :::image type="content" source="media/isv-csp-cloud/csp-private-offer-experience.png" alt-text="Muestra la progresión de la experiencia de ofertas privadas de CSP.":::
 
 > [!NOTE]
-> Si solo publica la oferta en Microsoft AppSource (por lo que no está disponible mediante Azure Marketplace) y opta por que sea vendida por los asociados del programa Proveedor de soluciones en la nube (CSP), puede haber un retraso con la presentación de la oferta para que los asociados de CSP puedan comprar en su portal. Póngase en contacto con el [equipo de soporte técnico](/azure/marketplace/support) si cree que la oferta no está disponible para que el asociado de CSP realice transacciones.
+> Si solo publica la oferta en Microsoft AppSource (por lo que no está disponible mediante Azure Marketplace) y opta por que sea vendida por los asociados del programa Proveedor de soluciones en la nube (CSP), puede haber un retraso con la presentación de la oferta para que los asociados de CSP puedan comprar en su portal. Póngase en contacto con el [equipo de soporte técnico](./support.md) si cree que la oferta no está disponible para que el asociado de CSP realice transacciones.
 
 ## <a name="prerequisites-to-create-a-private-offer-for-cloud-resellers"></a>Requisitos previos para crear una oferta privada para revendedores en la nube
 
@@ -188,4 +188,4 @@ El importe del pago y la tarifa de agencia que cobra Microsoft se basan en el pr
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Preguntas más frecuentes](/azure/marketplace/isv-csp-faq) sobre la configuración de ofertas privadas de ISV a revendedor en la nube
+- [Preguntas más frecuentes](./isv-csp-faq.yml) sobre la configuración de ofertas privadas de ISV a revendedor en la nube

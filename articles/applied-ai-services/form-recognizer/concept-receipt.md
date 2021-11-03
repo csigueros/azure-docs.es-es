@@ -7,15 +7,16 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/05/2021
+ms.date: 11/02/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: 48ebbb4975e57db34fe080db2a61328cef65ca80
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 111dcc2ab07c83e164e054395b0804f46c07d748
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129716340"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131027079"
 ---
 <!-- markdownlint-disable MD033 -->
 
@@ -23,40 +24,62 @@ ms.locfileid: "129716340"
 
 El modelo de recibo combina funcionalidades de reconocimiento óptico de caracteres (OCR) eficaces con modelos de aprendizaje profundo para analizar y extraer información clave de recibos de ventas. Los recibos pueden tener varios formatos y calidad, incluidos los recibos impresos y manuscritos. La API extrae información clave, como el nombre del comerciante, el número de teléfono del comerciante, la fecha de transacción, los impuestos y el total de la transacción, y devuelve una representación de datos JSON estructurada.
 
-##### <a name="sample-receipt-processed-with-form-recognizer-sample-labeling-tool"></a>Recibo de ejemplo procesado con la [herramienta de etiquetado de ejemplo de Form Recognizer](https://fott-2-1.azurewebsites.net/):
+***Recibo de ejemplo procesado con [la herramienta de etiquetado de ejemplo de Form Recognizer](https://fott-2-1.azurewebsites.net/)***:
 
-:::image type="content" source="./media/overview-receipt.jpg" alt-text="recibo de ejemplo" lightbox="./media/overview-receipt.jpg":::
+:::image type="content" source="media/studio/overview-receipt.png" alt-text="recibo de ejemplo" lightbox="media/overview-receipt.jpg":::
 
-## <a name="try-form-recognizer-studio-preview"></a>Probar Form Recognizer Studio (versión preliminar)
+## <a name="development-options"></a>Opciones de desarrollo
 
-* Form Recognizer Studio está disponible con la API de versión preliminar (v3.0).
+Los siguientes recursos son compatibles con Form Recognizer v2.1:
 
-* Extraiga la hora y la fecha de las transacciones, la información del comerciante, los totales de importe y mucho más con nuestra característica Recibo de Form Recognizer Studio:
+| Característica | Recursos |
+|----------|-------------------------|
+|**Modelo de recibo**| <ul><li>[**Herramienta de etiquetado Form Recognizer**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**API DE REST**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-receipts)</li><li>[**SDK de biblioteca cliente**](quickstarts/try-sdk-rest-api.md)</li><li>[**Contenedor de Docker de Form Recognizer**](containers/form-recognizer-container-install-run.md?tabs=receipt#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 
-> [!div class="nextstepaction"]
-> [Prueba de Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)
+Los siguientes recursos son compatibles con Form Recognizer v3.0:
 
-## <a name="try-it-sample-labeling-tool"></a>Probarlo: herramienta de etiquetado de ejemplo
+| Característica | Recursos | Id. de modelo |
+|----------|-------------|-----------|
+|**Modelo de recibo**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**API DE REST**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**SDK DE C#**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**SDK de Python**](quickstarts/try-v3-python-sdk.md)</li></ul>|**Recibo precompilado**|
 
-Para ver cómo se extraen los datos de recibo, pruebe nuestra herramienta de etiquetado de ejemplo. Necesitará lo siguiente:
+### <a name="try-form-recognizer"></a>Probar Form Recognizer
+
+Vea cómo se extraen de los recibos los datos, incluida la hora y la fecha de las transacciones, la información del comerciante y los totales de importe, mediante Form Recognizer Studio o nuestra herramienta de etiquetado de ejemplo. Necesitará lo siguiente:
 
 * Una suscripción a Azure: puede [crear una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/)
 
-* Una [instancia de Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) en Azure Portal. Puede usar el plan de tarifa gratuito (`F0`) para probar el servicio. Después de implementar el recurso, haga clic en **Ir al recurso** para obtener la clave de API y el punto de conexión.
+* Una [instancia de Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) en Azure Portal. Puede usar el plan de tarifa gratuito (`F0`) para probar el servicio. Después de implementar el recurso, seleccione **Ir al recurso** para obtener la clave de API y el punto de conexión.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Captura de pantalla: claves y ubicación del punto de conexión en Azure Portal.":::
 
-* Un documento de recibo. Puede usar nuestro [documento de recibo de ejemplo](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-receipt.png).
+#### <a name="form-recognizer-studio-preview"></a>Form Recognizer Studio (versión preliminar)
 
-> [!div class="nextstepaction"]
-  > [Probarlo](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
+> [!NOTE]
+> Form Recognizer Studio está disponible con la API de versión preliminar (v3.0).
 
-En la interfaz de usuario de Form Recognizer:
+1. En la página principal de Form Recognizer Studio, seleccione **Recibos**
 
-  1. Seleccione **Use prebuilt model to get data** (Usar un modelo precompilado para obtener datos).
-  1. Seleccione **Recibo** en el menú desplegable **Tipo de formulario**:
+1. Puede analizar el recibo de ejemplo o seleccionar el botón **+ Agregar** para cargar un ejemplo propio.
 
-  :::image type="content" source="media/try-receipt.png" alt-text="Captura de pantalla: menú de selección de modelos precompilados desplegable de la herramienta de etiquetado de ejemplo.":::
+1. Seleccione el botón **Analizar**:
+
+    :::image type="content" source="media/studio/receipt-analyze.png" alt-text="Captura de pantalla: menú Analizar recibo.":::
+
+    > [!div class="nextstepaction"]
+    > [Prueba de Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)
+
+#### <a name="sample-labeling-tool"></a>Herramienta de etiquetado de muestras
+
+Necesitará un documento de recibo. Puede usar nuestro [documento de recibo de ejemplo](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-receipt.png).
+
+1. En la página principal de la herramienta de etiquetado de ejemplo, seleccione **Use prebuilt model to get data** (Usar modelo precompilado para obtener datos).
+
+1. Seleccione **Recibo** en el menú desplegable **Tipo de formulario**:
+
+      :::image type="content" source="media/try-receipt.png" alt-text="Captura de pantalla: menú desplegable de selección del modelo precompilado de la herramienta de etiquetado de ejemplo.":::
+
+      > [!div class="nextstepaction"]
+      > [Pruebe la herramienta de etiquetado de ejemplo](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
 
 ## <a name="input-requirements"></a>Requisitos de entrada
 
@@ -81,62 +104,62 @@ En la interfaz de usuario de Form Recognizer:
 |--------|:----------------------|:---------|
 |Recibo| <ul><li>Inglés (Estados Unidos): en-US</li><li> Inglés (Australia): en-AU</li><li>Inglés (Canadá): en-CA</li><li>Inglés (Reino Unido): en-GB</li><li>Inglés (India): en-IN</li></ul>  | Detección automática |
 
-## <a name="key-value-pair-extraction"></a>Extracción de pares clave-valor
+## <a name="field-extraction"></a>Extracción de campos
 
 |Nombre| Tipo | Descripción | Salida estandarizada |
 |:-----|:----|:----|:----|
-| ReceiptType | string | Tipo de recibo de venta |  Detallados |
-| MerchantName | string | Nombre del comerciante que emite el recibo |  |
+| ReceiptType | String | Tipo de recibo de venta |  Detallados |
+| MerchantName | String | Nombre del comerciante que emite el recibo |  |
 | MerchantPhoneNumber | phoneNumber | Número de teléfono mostrado del comerciante | +1 xxx xxx xxxx |
-| MerchantAddress | string | Dirección mostrada del comerciante |   |
-| Fecha de transacción | date | Fecha de emisión del recibo | aaaa-mm-dd |
-| TransactionTime | time | Hora de emisión del recibo | hh-mm-ss (24 horas)  |
-| Total | número (USD)| Número total de transacciones de recibos | Float de dos decimales|
-| Subtotal | número (USD) | Subtotal del recibo, a menudo antes de aplicar impuestos | Float de dos decimales|
-| Impuesto | número (USD) | Impuesto sobre el recibo (impuesto sobre ventas o equivalente) | Float de dos decimales |
-| Sugerencia | número (USD) | Propina incluida por el comprador | Float de dos decimales|
-| Elementos | matriz de objetos | Líneas del artículo extraídas, con el nombre, la cantidad, el precio por unidad y el precio total extraídos | |
-| Nombre | string | Nombre del elemento | |
-| Cantidad | number | Cantidad de cada artículo | integer |
-| Precio | number | Precio individual de cada unidad del artículo| Float de dos decimales |
-| Precio total | number | Precio total del artículo | Float de dos decimales |
+| MerchantAddress | String | Dirección mostrada del comerciante |   |
+| Fecha de transacción | Fecha | Fecha de emisión del recibo | aaaa-mm-dd |
+| TransactionTime | Time | Hora de emisión del recibo | hh-mm-ss (24 horas)  |
+| Total | Número (USD)| Número total de transacciones de recibos | Float de dos decimales|
+| Subtotal | Número (USD) | Subtotal del recibo, a menudo antes de aplicar impuestos | Float de dos decimales|
+| Impuesto | Número (USD) | Impuesto sobre el recibo (impuesto sobre ventas o equivalente) | Float de dos decimales |
+| Sugerencia | Número (USD) | Propina incluida por el comprador | Float de dos decimales|
+| Elementos | Matriz de objetos | Líneas del artículo extraídas, con el nombre, la cantidad, el precio por unidad y el precio total extraídos | |
+| Nombre | String | Nombre del elemento | |
+| Cantidad | Number | Cantidad de cada artículo | Entero |
+| Precio | Número | Precio individual de cada unidad del artículo| Float de dos decimales |
+| Precio total | Número | Precio total del artículo | Float de dos decimales |
 
 ## <a name="form-recognizer-preview-v30"></a>Versión preliminar de Form Recognizer v3.0
 
- La versión preliminar de Form Recognizer presenta varias características y funcionalidades nuevas:
+ La versión preliminar de Form Recognizer presenta varias características y funcionalidades nuevas. El modelo de **Recibo** admite el procesamiento de recibos de hotel de una sola página.
 
-* El modelo de **Recibo** admite el procesamiento de recibos de hotel de una sola página.
+### <a name="hotel-receipt-field-extraction"></a>Extracción de campos de recibos de hotel
 
-    ### <a name="hotel-receipt-key-value-pair-extraction"></a>Extracción de pares clave-valor de recibo de hotel
+|Nombre| Tipo | Descripción | Salida estandarizada |
+|:-----|:----|:----|:----|
+| ArrivalDate | Fecha | Fecha de llegada | aaaa-mm-dd |
+| Moneda | Moneda | Unidad de moneda de importes de recibo. Por ejemplo, USD, EUR o MIXTA si se encuentran varios valores ||
+| DepartureDate | Fecha | Fecha de salida | aaaa-mm-dd |
+| Elementos | Array | | |
+| Items.*.Category | String | Categoría de elemento, por ejemplo, Habitación, Impuestos, etc. |  |
+| Items.*.Date | Fecha | Fecha del artículo | aaaa-mm-dd |
+| Items.*.Description | String | Descripción del artículo | |
+| Items.*.TotalPrice |  Número | Precio total del artículo | Entero |
+| Configuración regional | String | Configuración regional del recibo, por ejemplo, en-US. | Código ISO de idioma-país   |
+| MerchantAddress | String | Dirección mostrada del comerciante | |
+| MerchantAliases | Array| | |
+| MerchantAliases.* | String | Nombre alternativo del comerciante |  |
+| MerchantName | String | Nombre del comerciante que emite el recibo | |
+| MerchantPhoneNumber | phoneNumber | Número de teléfono mostrado del comerciante | +1 xxx xxx xxxx|
+| ReceiptType | String | Tipo de recibo, por ejemplo, Hotel, Detallado | |
+| Total | Número | Número total de transacciones de recibos | Float de dos decimales |
 
-    |Nombre| Tipo | Descripción | Salida estandarizada |
-    |:-----|:----|:----|:----|
-    | ArrivalDate | date | Fecha de llegada | aaaa-mm-dd |
-    | Moneda | currency | Unidad de moneda de importes de recibo. Por ejemplo, USD, EUR o MIXTA si se encuentran varios valores ||
-    | DepartureDate | date | Fecha de salida | aaaa-mm-dd |
-    | Elementos | array | | |
-    | Items.*.Category | string | Categoría del artículo, por ejemplo, Habitación, Impuestos, etc. |  |
-    | Items.*.Date | date | Fecha del artículo | aaaa-mm-dd |
-    | Items.*.Description | string | Descripción del artículo | |
-    | Items.*.TotalPrice |  number | Precio total del artículo | integer |
-    | Locale | string | Configuración regional del recibo, por ejemplo, en-US. | Código ISO de idioma-país   |
-    | MerchantAddress | string | Dirección mostrada del comerciante | |
-    | MerchantAliases | array| | |
-    | MerchantAliases.* | string | Nombre alternativo del comerciante |  |
-    | MerchantName | string | Nombre del comerciante que emite el recibo | |
-    | MerchantPhoneNumber | phoneNumber | Número de teléfono mostrado del comerciante | +1 xxx xxx xxxx|
-    | ReceiptType | string | Tipo de recibo, por ejemplo, Hotel, Detallado | |
-    | Total | number | Número total de transacciones de recibos | Float de dos decimales |
+### <a name="hotel-receipt-supported-languages-and-locales"></a>Idiomas y configuraciones regionales compatibles con el recibo de hotel
 
-    ### <a name="hotel-receipt-supported-languages-and-locales"></a>Idiomas y configuraciones regionales compatibles con el recibo de hotel
+| Modelo | Idioma: código de configuración local | Valor predeterminado |
+|--------|:----------------------|:---------|
+|Recibo (hotel) | <ul><li>Inglés (Estados Unidos): en-US</li></ul>| Inglés (Estados Unidos): en-US|
 
-    | Modelo | Idioma: código de configuración local | Valor predeterminado |
-    |--------|:----------------------|:---------|
-    |Recibo (hotel) | <ul><li>Inglés (Estados Unidos): en-US</li></ul>| Inglés (Estados Unidos): en-US|
+### <a name="migration-guide-and-rest-api-v30"></a>Guía de migración y API REST v3.0
 
 * Siga nuestra [**guía de migración de Form Recognizer v3.0**](v3-migration-guide.md) para obtener información sobre cómo usar la versión preliminar en las aplicaciones y flujos de trabajo.
 
-* Explore nuestra [**API de REST (versión preliminar)** ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) para obtener más información sobre la versión preliminar y las nuevas funcionalidades.
+* Explore nuestra [**API de REST (versión preliminar)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) para obtener más información sobre la versión preliminar y las nuevas funcionalidades.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -6,12 +6,12 @@ ms.author: terrylan
 ms.service: security
 ms.topic: reference
 ms.date: 09/13/2021
-ms.openlocfilehash: 2c75831e31717b59b20b9a6e731189be0db9aa59
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 76d38f7f5aa2c62010e3c3c6680ff016d3dc518d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130225517"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075569"
 ---
 # <a name="cloud-feature-availability-for-us-government-customers"></a>Disponibilidad de las características en la nube para clientes de la Administración Pública de Estados Unidos
 
@@ -142,7 +142,7 @@ En las siguientes tablas se muestra la disponibilidad de características de Azu
 | - [Conector de datos de la plataforma de inteligencia sobre amenazas](../../sentinel/understand-threat-intelligence.md)  | Vista previa pública | No disponible |
 | - [Hoja de investigación de la inteligencia sobre amenazas](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-threat-intelligence-menu-item-in-public-preview/ba-p/1646597)  | GA | GA |
 | - [Detonación de direcciones URL](https://techcommunity.microsoft.com/t5/azure-sentinel/using-the-new-built-in-url-detonation-in-azure-sentinel/ba-p/996229) | Vista previa pública | No disponible |
-| - [Libro de inteligencia sobre amenazas](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)  | GA | No disponible |
+| - [Libro de inteligencia sobre amenazas](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)  | GA | GA |
 |**Compatibilidad con la detección** | | |
 | - [Detección de acceso anómalo al recurso compartido de archivos de Windows](../../sentinel/fusion.md)  | Vista previa pública | No disponible |
 | - [Detección de inicios de sesión anómalos mediante RDP](../../sentinel/connect-windows-security-events.md#configure-the-security-events--windows-security-events-connector-for-anomalous-rdp-login-detection)<br>Detección de ML integrada | Vista previa pública | No disponible |
@@ -227,8 +227,6 @@ En las siguientes tablas se muestra la disponibilidad de características de Azu
 | - [Symantec ProxySG](../../sentinel/data-connectors-reference.md#symantec-proxysg-preview)                                | Vista previa pública | Vista previa pública |
 | - [Symantec VIP](../../sentinel/data-connectors-reference.md#symantec-vip-preview)                                     | Vista previa pública | Vista previa pública |
 | - [Syslog](../../sentinel/connect-syslog.md)                                           | GA             | GA             |
-| - [Plataformas de inteligencia sobre amenazas](../../sentinel/connect-threat-intelligence-tip.md)                   | Vista previa pública | No disponible      |
-| - [Inteligencia sobre amenazas de TAXII](../../sentinel/connect-threat-intelligence-tip.md)                       | GA | GA      |
 | - [Thycotic Secret Server](../../sentinel/data-connectors-reference.md#thycotic-secret-server-preview)                          | Vista previa pública | Vista previa pública |
 | - [Deep Security de Trend Micro](../../sentinel/data-connectors-reference.md#trend-micro-deep-security)                       | GA             | GA             |
 | - [TippingPoint de Trend Micro](../../sentinel/data-connectors-reference.md#trend-micro-tippingpoint-preview)                         | Vista previa pública | Vista previa pública |

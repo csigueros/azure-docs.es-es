@@ -4,12 +4,12 @@ description: Aprenda a crear e implementar una aplicación Java de Reliable Acto
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.custom: devx-track-java
-ms.openlocfilehash: 7d87b72437f86d7dc1ca4e3cf9f3d67609691c70
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d51bc288eac658f7b0fe2ef019fc77eaa83837c7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97655958"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131013752"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Creación de su primera aplicación Java de Reliable Actors de Service Fabric en Linux
 > [!div class="op_single_selector"]
@@ -18,7 +18,7 @@ ms.locfileid: "97655958"
 >
 >
 
-Este inicio rápido le ayuda a crear su primera aplicación Java de Azure Service Fabric en un entorno de desarrollo de Linux en tan solo unos minutos.  Cuando haya terminado, tendrá una sencilla aplicación Java con un único servicio en el clúster de desarrollo local.  
+Este inicio rápido le ayuda a crear su primera aplicación Java de Azure Service Fabric en un entorno de desarrollo de Linux en tan solo unos minutos.  Cuando haya terminado, tendrá una sencilla aplicación Java con un único servicio en el clúster de desarrollo local.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 Antes de comenzar, instale el SDK de Service Fabric, la CLI de Service Fabric y Yeoman; asimismo, configure el entorno de desarrollo de Java y un clúster de desarrollo en su [entorno de desarrollo de Linux](service-fabric-get-started-linux.md). Si usa Mac OS X, puede [configurar un entorno de desarrollo en Mac mediante Docker](service-fabric-get-started-mac.md).
@@ -215,12 +215,12 @@ Luego, expanda el nodo **Applications** y observe que ahora hay una entrada para
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Inicio del cliente de prueba y ejecución de una conmutación por error
 Los actores no hacen nada por sí solos, necesitan que otro servicio o cliente les envíe mensajes. La plantilla de actor incluye un sencillo script de prueba que puede usar para interactuar con el servicio de actor.
 
-> [!Note]
+> [!NOTE]
 > El cliente de prueba usa la clase ActorProxy para comunicarse con los actores, que se deben ejecutar dentro del mismo clúster que el servicio de actor o compartir el mismo espacio de direcciones IP.  Puede ejecutar el cliente de prueba en el mismo equipo que el clúster de desarrollo local.  Sin embargo, para comunicarse con los actores en un clúster remoto, debe implementar una puerta de enlace en el clúster que administre la comunicación externa con los actores.
 
 1. Ejecute el script con la utilidad de inspección para ver la salida del servicio de actor.  El script de prueba llamad al método `setCountAsync()` en el servicio de actor para aumentar el contador, llama al método `getCountAsync()` en el servicio de actor para obtener el nuevo valor de contador y muestra ese valor en la consola.
 
-   En el caso de MAC OS X, debe copiar la carpeta HelloWorldTestClient en alguna ubicación dentro del contenedor; para ello, ejecute los siguientes comandos adicionales.    
+   En el caso de MAC OS X, debe copiar la carpeta HelloWorldTestClient en alguna ubicación dentro del contenedor; para ello, ejecute los siguientes comandos adicionales.
 
     ```bash
      docker cp HelloWorldTestClient [first-four-digits-of-container-ID]:/home
@@ -249,13 +249,13 @@ Use el script de desinstalación proporcionado en la plantilla para eliminar la 
 En Service Fabric Explorer, verá que la aplicación y el tipo de aplicación ya no aparecen en el nodo **Aplicaciones**.
 
 ## <a name="service-fabric-java-libraries-on-maven"></a>Bibliotecas de Java de Service Fabric en Maven
-Las bibliotecas de Java de Service Fabric han sido hospedadas en Maven. Puede agregar las dependencias en el archivo ``pom.xml`` o ``build.gradle`` de sus proyectos para usar las bibliotecas de Java de Service Fabric desde **mavenCentral**. 
+Las bibliotecas de Java de Service Fabric han sido hospedadas en Maven. Puede agregar las dependencias en el archivo ``pom.xml`` o ``build.gradle`` de sus proyectos para usar las bibliotecas de Java de Service Fabric desde **mavenCentral**.
 
 ### <a name="actors"></a>Actores
 
 Compatibilidad con Reliable Actor de Service Fabric para la aplicación.
 
-  ```XML
+  ```xml
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-actors</artifactId>
@@ -276,7 +276,7 @@ Compatibilidad con Reliable Actor de Service Fabric para la aplicación.
 
 Compatibilidad con Reliable Services de Service Fabric para la aplicación.
 
-  ```XML
+  ```xml
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-services</artifactId>
@@ -298,7 +298,7 @@ Compatibilidad con Reliable Services de Service Fabric para la aplicación.
 
 Compatibilidad de la capa de transporte para aplicaciones Java de Service Fabric. No es necesario agregar explícitamente esta dependencia a sus aplicaciones Reliable Actor o de servicio, a menos que programe la capa de transporte.
 
-  ```XML
+  ```xml
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-transport</artifactId>
@@ -319,7 +319,7 @@ Compatibilidad de la capa de transporte para aplicaciones Java de Service Fabric
 
 Compatibilidad en el nivel de sistema para Service Fabric, que se comunica con el entorno de tiempo de ejecución nativo de Service Fabric. No es necesario agregar explícitamente esta dependencia a sus aplicaciones Reliable Actor o de servicio. Se recuperan automáticamente desde Maven, cuando se incluyen las dependencias anteriores.
 
-  ```XML
+  ```xml
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf</artifactId>

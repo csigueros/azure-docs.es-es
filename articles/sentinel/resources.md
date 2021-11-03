@@ -10,14 +10,17 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: yelevin
-ms.openlocfilehash: 47ccfea5b666e3c600454fec5d2e8dc801b78bc2
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: f8f4dc553bcb9750199d38c640c70012b73bf4bf
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129358091"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131055110"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Recursos útiles al trabajar con Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 En este artículo se enumeran los recursos que sirven para obtener más información sobre cómo trabajar con Azure Sentinel.
 

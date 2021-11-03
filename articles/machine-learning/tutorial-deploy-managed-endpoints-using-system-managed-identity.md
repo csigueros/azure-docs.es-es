@@ -10,12 +10,12 @@ author: rsethur
 ms.date: 08/05/2021
 ms.topic: tutorial
 ms.custom: tutorial, devplatv2
-ms.openlocfilehash: 7c55e5a5a73a3b9076c1077f36c1f951eeee11cc
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 18e8c09f1d1a734d2e68e656658c3017a115f9a9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429991"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079346"
 ---
 # <a name="tutorial-access-resources-with-managed-online-endpoints-and-identity-preview"></a>Tutorial: Acceso a recursos con puntos de conexión en línea administrados e identidades (versión preliminar)
 
@@ -120,7 +120,7 @@ Compruebe el estado del punto de conexión con lo siguiente.
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="check_endpoint_Status" :::
 
-Si experimenta algún problema, consulte [Solución de problemas de implementación y puntuación de puntos de conexión en línea administrados (versión preliminar)](how-to-troubleshoot-managed-online-endpoints.md).
+Si experimenta algún problema, consulte [Solución de problemas de implementación y puntuación de puntos de conexión en línea administrados (versión preliminar)](./how-to-troubleshoot-online-endpoints.md).
 
 ## <a name="give-storage-permission-to-system-assigned-managed-identity"></a>Concesión de permiso de almacenamiento a la identidad administrada asignada por el sistema
 

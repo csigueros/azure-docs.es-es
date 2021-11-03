@@ -6,12 +6,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 10/05/2021
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: 818ab11d64468a945d85f5b15f6b39dc1664a424
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 8569826c548e768e593e024af38b8b937ee02ca2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129536234"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058737"
 ---
 # <a name="tutorial-deploy-an-aspnet-app-to-azure-with-azure-sql-database"></a>Tutorial: Implementación de una aplicación ASP.NET en Azure con Azure SQL Database
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial:
 
@@ -433,7 +433,7 @@ En este tutorial, ha aprendido a:
 Continúe con el siguiente tutorial para aprender a mejorar fácilmente la seguridad de la conexión con Azure SQL Database.
 
 > [!div class="nextstepaction"]
-> [Acceso seguro a SQL Database mediante identidades administradas para recursos de Azure](app-service-web-tutorial-connect-msi.md)
+> [Acceso seguro a SQL Database mediante identidades administradas para recursos de Azure](tutorial-connect-msi-sql-database.md)
 
 Más recursos:
 

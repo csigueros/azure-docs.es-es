@@ -2,13 +2,13 @@
 title: Clústeres administrados de Service Fabric
 description: Los clústeres administrados de Service Fabric son una evolución del modelo de recursos de clúster de Azure Service Fabric que agiliza la implementación y la administración de clústeres.
 ms.topic: overview
-ms.date: 5/10/2021
-ms.openlocfilehash: 12f5c7bd16e8738aaadfb8ca9aeed491bab5b8e0
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.date: 10/22/2021
+ms.openlocfilehash: 2b0b0b79899acaf0b4be3b05f52fceadf8acf54d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866925"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131055053"
 ---
 # <a name="service-fabric-managed-clusters"></a>Clústeres administrados de Service Fabric
 
@@ -61,7 +61,7 @@ Los clústeres administrados de Service Fabric están disponibles en las SKU de 
 
 | Característica | Básico | Estándar |
 | ------- | ----- | -------- |
-| Recurso de red (SKU para [Load Balancer](../load-balancer/skus.md), [IP pública](../virtual-network/public-ip-addresses.md)) | Básico | Estándar |
+| Recurso de red (SKU para [Load Balancer](../load-balancer/skus.md), [IP pública](../virtual-network/ip-services/public-ip-addresses.md)) | Básico | Estándar |
 | Número mínimo de nodos (instancia de máquina virtual) | 3 | 5 |
 | Número máximo de nodos por tipo de nodo | 100 | 1000 |
 | Número máximo de tipos de nodos | 1 | 20 |
@@ -74,7 +74,7 @@ Las funcionalidades de los clústeres administrados seguirán expandiéndose. Ac
 
 * [Implementación de aplicación con plantillas de Resource Manager](how-to-managed-cluster-app-deployment-template.md)
 * [Secretos de aplicación](how-to-managed-cluster-application-secrets.md)
-* [Actualizaciones automáticas de las imágenes del sistema operativo](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades)
+* [Actualizaciones automáticas de las imágenes del sistema operativo](how-to-managed-cluster-modify-node-type.md#enable-automatic-os-image-upgrades)
 * [Expansión de zonas de disponibilidad](how-to-managed-cluster-availability-zones.md)
 * [Cifrado de disco](how-to-enable-managed-cluster-disk-encryption.md) y selección de [tipo de disco administrado](how-to-managed-cluster-managed-disk.md)
 * Compatibilidad con identidades administradas para [tipos de nodos](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md) de clúster administrados y [autenticación de aplicaciones](how-to-managed-cluster-application-managed-identity.md)

@@ -1,19 +1,19 @@
 ---
-author: erhopf
+author: nitinme
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: include
 ms.date: 03/04/2021
-ms.author: erhopf
-ms.openlocfilehash: c2cadc349c24bb59e6ab97a89a8f5182a9b96632
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.author: nitinme
+ms.openlocfilehash: e080a0b7cc05b776e3085715e20d21bfb2545dd7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780203"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131253604"
 ---
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services)
 * Un recurso del Lector inmersivo configurado para la autenticación de Azure Active Directory. Siga [estas instrucciones](../../how-to-create-immersive-reader.md) para realizar la configuración.  Necesitará algunos de los valores que se crean aquí cuando configure las propiedades del entorno. Guarde la salida de la sesión en un archivo de texto para futuras referencias.

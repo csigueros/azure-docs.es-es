@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2020
 ms.author: yelevin
-ms.openlocfilehash: cf2a9380b404876ef9c963d54d9069ebd66fef56
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 3e5c431c8795f464e3ab83e0f6dff47028fdb5a4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725147"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131019787"
 ---
 # <a name="manage-multiple-tenants-in-azure-sentinel-as-an-mssp"></a>Administración de varios inquilinos en Azure Sentinel como un MSSP
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Si es un proveedor de servicios de seguridad administrados (MSSP) y usa [Azure Lighthouse](../lighthouse/overview.md) para ofrecer a los clientes servicios del Centro de operaciones de seguridad (SOC), puede administrar directamente los recursos de Azure Sentinel de sus clientes desde su inquilino de Azure, sin necesidad de conectarse al inquilino del cliente. 
 
@@ -55,4 +58,3 @@ Si es un proveedor de servicios de seguridad administrados (MSSP) y usa [Azure L
 En este documento, ha aprendido a administrar varios inquilinos de Azure Sentinel sin problemas. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
 - Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).
-

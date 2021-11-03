@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 07/05/2021
-ms.openlocfilehash: 738c60663f80fd036f50c7bd354ca0e3b1d9284e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3b15a1f75c985516337b89df96f519caf429b8b9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124757827"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131016632"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Carga de datos incremental de Azure SQL Database a Azure Blob Storage mediante Azure Portal
 
@@ -78,24 +78,25 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
     );
 
     INSERT INTO data_source_table
-    (PersonID, Name, LastModifytime)
+        (PersonID, Name, LastModifytime)
     VALUES
-    (1, 'aaaa','9/1/2017 12:56:00 AM'),
-    (2, 'bbbb','9/2/2017 5:23:00 AM'),
-    (3, 'cccc','9/3/2017 2:36:00 AM'),
-    (4, 'dddd','9/4/2017 3:21:00 AM'),
-    (5, 'eeee','9/5/2017 8:06:00 AM');
+        (1, 'aaaa','9/1/2017 12:56:00 AM'),
+        (2, 'bbbb','9/2/2017 5:23:00 AM'),
+        (3, 'cccc','9/3/2017 2:36:00 AM'),
+        (4, 'dddd','9/4/2017 3:21:00 AM'),
+        (5, 'eeee','9/5/2017 8:06:00 AM');
     ```
+
     En este tutorial, utilizará LastModifytime como columna de marca de agua. Los datos del almacén de origen de datos se muestran en la tabla siguiente:
 
     ```
     PersonID | Name | LastModifytime
     -------- | ---- | --------------
-    1 | aaaa | 2017-09-01 00:56:00.000
-    2 | bbbb | 2017-09-02 05:23:00.000
-    3 | cccc | 2017-09-03 02:36:00.000
-    4 | dddd | 2017-09-04 03:21:00.000
-    5 | eeee | 2017-09-05 08:06:00.000
+    1        | aaaa | 2017-09-01 00:56:00.000
+    2        | bbbb | 2017-09-02 05:23:00.000
+    3        | cccc | 2017-09-03 02:36:00.000
+    4        | dddd | 2017-09-04 03:21:00.000
+    5        | eeee | 2017-09-05 08:06:00.000
     ```
 
 ### <a name="create-another-table-in-your-sql-database-to-store-the-high-watermark-value"></a>Creación de otra tabla en la base de datos SQL para almacenar el valor de límite máximo
@@ -314,9 +315,11 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
 
     Este es el resultado:
 
+    ```output
     | TableName | WatermarkValue |
     | --------- | -------------- |
     | data_source_table | 2017-09-05    8:06:00.000 |
+    ```
 
 ## <a name="add-more-data-to-source"></a>Incorporación de más datos al origen
 
@@ -371,15 +374,17 @@ PersonID | Name | LastModifytime
     ```sql
     Select * from watermarktable
     ```
-    salida de ejemplo:
 
+    Salida del ejemplo:
+
+    ```output
     | TableName | WatermarkValue |
-    | --------- | --------------- |
+    | --------- | -------------- |
     | data_source_table | 2017-09-07 09:01:00.000 |
-
-
+    ```
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 En este tutorial, realizó los pasos siguientes:
 
 > [!div class="checklist"]

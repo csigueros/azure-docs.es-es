@@ -9,12 +9,12 @@ ms.subservice: v1
 ms.topic: conceptual
 robots: noindex
 ms.date: 10/22/2021
-ms.openlocfilehash: 2010081ca22751e5e3e1a7f36084dff53b1c0aef
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 3b28e8d4042377e7834fe619e15feabb916b2591
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130255188"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059630"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory: registro de cambios de la API de .NET
 > [!NOTE]
@@ -145,7 +145,9 @@ Las siguientes clases se han cambiado de nombre. Los nuevos nombres eran los nom
 | SqlServerDataset |[SqlServerTableDataset](/dotnet/api/microsoft.azure.management.datafactories.models.sqlservertabledataset) |
 
 ## <a name="version-400"></a>Versión 4.0.0
+
 ### <a name="breaking-changes"></a>Últimos cambios
+
 * Las siguientes clases o interfaces se han cambiado de nombre.
 
 | Nombre anterior | Nombre nuevo |
@@ -162,7 +164,7 @@ Las siguientes clases se han cambiado de nombre. Los nuevos nombres eran los nom
 
 * Los métodos **List** devuelven ahora resultados paginados. Si la respuesta contiene una propiedad **NextLink** que no está vacía, la aplicación cliente debe seguir capturando la página siguiente hasta que se devuelvan todas las páginas.  Este es un ejemplo:
 
-    ```csharp
+  ```csharp
     PipelineListResponse response = client.Pipelines.List("ResourceGroupName", "DataFactoryName");
     var pipelines = new List<Pipeline>(response.Pipelines);
 
@@ -174,7 +176,8 @@ Las siguientes clases se han cambiado de nombre. Los nuevos nombres eran los nom
 
         nextLink = nextResponse.NextLink;
     }
-    ```
+  ```
+
 * **List** devuelve solamente el resumen de una canalización, en lugar de todos los detalles. Por ejemplo, en un resumen de canalización, las actividades solo contienen el nombre y el tipo.
 
 ### <a name="feature-additions"></a>Incorporación de características

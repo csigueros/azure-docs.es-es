@@ -76,8 +76,6 @@
           href: template-tutorial-deploy-vm-extensions.md
         - name: Implementación de extensiones de SQL
           href: template-tutorial-deploy-sql-extensions-bacpac.md
-        - name: Solución de problemas de las implementaciones de plantillas
-          href: template-tutorial-troubleshoot.md
     - name: Ruta de acceso de Microsoft acerca de las plantillas
       href: /learn/paths/deploy-manage-resource-manager-templates/
 - name: 'Ejemplos: Servicios de Azure'
@@ -381,7 +379,7 @@
           items:
             - name: Resource group
               href: deploy-to-resource-group.md
-            - name: Subscription
+            - name: Suscripción
               href: deploy-to-subscription.md
             - name: Grupo de administración
               href: deploy-to-management-group.md
@@ -447,40 +445,6 @@
           href: update-visual-studio-deployment-script.md
         - name: IntelliJ IDEA
           href: create-templates-use-intellij.md
-    - name: Solución de problemas de implementaciones
-      items:
-        - name: Solución de errores de implementación
-          href: common-deployment-errors.md
-        - name: AccountNameInvalid
-          href: error-storage-account-name.md
-        - name: DeploymentQuotaExceeded
-          href: deployment-quota-exceeded.md
-        - name: InvalidTemplate
-          href: error-invalid-template.md
-        - name: JobSizeExceeded
-          href: error-job-size-exceeded.md
-        - name: Problemas de implementación de Linux
-          href: /troubleshoot/azure/virtual-machines/troubleshoot-deploy-vm-linux
-        - name: NoRegisteredProviderFound
-          href: error-register-resource-provider.md
-        - name: NotFound
-          href: error-not-found.md
-        - name: ParentResourceNotFound
-          href: error-parent-resource.md
-        - name: Problemas de aprovisionamiento y asignación de Linux
-          href: /troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux
-        - name: Problemas de aprovisionamiento y asignación de Windows
-          href: /troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows
-        - name: RequestDisallowedByPolicy
-          href: error-policy-requestdisallowedbypolicy.md
-        - name: ReservedResourceName
-          href: error-reserved-resource-name.md
-        - name: ResourceQuotaExceeded
-          href: error-resource-quota.md
-        - name: SkuNotAvailable
-          href: error-sku-not-available.md
-        - name: Problemas de implementación de Windows
-          href: /troubleshoot/azure/virtual-machines/troubleshoot-deploy-vm-windows
 - name: Referencia
   items:
     - name: Referencia de plantilla

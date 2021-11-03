@@ -3,12 +3,12 @@ title: Categorías admitidas en los registros de recursos de Azure Monitor
 description: Comprenda los servicios admitidos y los esquemas de eventos para los registros de recursos de Azure Monitor.
 ms.topic: reference
 ms.date: 10/05/2021
-ms.openlocfilehash: bf7d5371a170f28e79828619aef9fc16e15a303a
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 11233e33d7dc5dffbdfc65acec9eac9223a96f2b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130006382"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130231539"
 ---
 # <a name="supported-categories-for-azure-monitor-resource-logs"></a>Categorías admitidas en los registros de recursos de Azure Monitor
 
@@ -19,7 +19,7 @@ Los [registros de recursos de Azure Monitor](../essentials/platform-logs-overvie
 
 Los registros de recurso se conocían anteriormente como registros de diagnóstico. El nombre se cambió en octubre de 2019, dado que los tipos de registros recopilados por Azure Monitor evolucionaron para incluir algo más que tan solo el recurso de Azure.
 
-Una combinación del tipo de recurso (disponible en la propiedad `resourceId`) y la categoría permite identificar un esquema de forma única. Hay un esquema común para todos los registros de recursos con campos específicos de servicio que se hayan agregado para distintas categorías de registros. Para obtener más información, consulte [Esquema específico de servicio y común para los registros de recursos de Azure](/azure/azure-monitor/essentials/resource-logs-schema).
+Una combinación del tipo de recurso (disponible en la propiedad `resourceId`) y la categoría permite identificar un esquema de forma única. Hay un esquema común para todos los registros de recursos con campos específicos de servicio que se hayan agregado para distintas categorías de registros. Para obtener más información, consulte [Esquema específico de servicio y común para los registros de recursos de Azure](./resource-logs-schema.md).
 
 ## <a name="costs"></a>Costes
 
@@ -62,14 +62,14 @@ Si todavía falta algo, puede escribir un comentario de GitHub en la parte infer
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
-|ApplicationAuditLogs|Registros de auditoría de aplicación|Sí|
-|FarmManagementLogs|Registros de administración de granja|Sí|
+|ApplicationAuditLogs|Registros de auditoría de aplicación|Yes|
+|FarmManagementLogs|Registros de administración de granja|Yes|
 |FarmOperationLogs|Registros de operaciones de granja|Sí|
 |InsightLogs|Registros de información|Sí|
 |JobProcessedLogs|Registros procesados de trabajos|Sí|
 |ModelInferenceLogs|Registros de inferencias de modelos|Sí|
-|ProviderAuthLogs|Registros de autenticación de proveedor|Sí|
-|SatelliteLogs|Registros de satélite|Sí|
+|ProviderAuthLogs|Registros de autenticación de proveedor|Yes|
+|SatelliteLogs|Registros de satélite|Yes|
 |WeatherLogs|Registros meteorológicos|Sí|
 
 
@@ -86,7 +86,7 @@ Si todavía falta algo, puede escribir un comentario de GitHub en la parte infer
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
 |GatewayLogs|Registros relacionados con la puerta de enlace de ApiManagement|No|
-|WebSocketConnectionLogs|Registros relacionados con las conexiones de Websocket|Sí|
+|WebSocketConnectionLogs|Registros relacionados con las conexiones de Websocket|Yes|
 
 
 ## <a name="microsoftappconfigurationconfigurationstores"></a>Microsoft.AppConfiguration/configurationStores
@@ -103,7 +103,7 @@ Si todavía falta algo, puede escribir un comentario de GitHub en la parte infer
 |---|---|---|
 |ApplicationConsole|Consola de aplicación|No|
 |BuildLogs|Registros de compilación|Sí|
-|IngressLogs|Registros de entrada|Sí|
+|IngressLogs|Registros de entrada|Yes|
 |SystemLogs|Registros del sistema|No|
 
 
@@ -121,7 +121,7 @@ Si todavía falta algo, puede escribir un comentario de GitHub en la parte infer
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
-|AuditEvent|AuditEvent|Sí|
+|AuditEvent|AuditEvent|Yes|
 |DscNodeStatus|DscNodeStatus|No|
 |JobLogs|JobLogs|No|
 |JobStreams|JobStreams|No|
@@ -186,7 +186,7 @@ Si todavía falta algo, puede escribir un comentario de GitHub en la parte infer
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
-|ConnectedClientList|Lista de clientes conectados|Sí|
+|ConnectedClientList|Lista de clientes conectados|Yes|
 
 
 ## <a name="microsoftcdncdnwebapplicationfirewallpolicies"></a>Microsoft.Cdn/cdnwebapplicationfirewallpolicies
@@ -442,7 +442,7 @@ Si todavía falta algo, puede escribir un comentario de GitHub en la parte infer
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
-|Escalado automático|Registros de escalado automático|Sí|
+|Escalado automático|Registros de escalado automático|Yes|
 
 
 ## <a name="microsoftdesktopvirtualizationworkspaces"></a>Microsoft.DesktopVirtualization/workspaces
@@ -593,7 +593,7 @@ Si todavía falta algo, puede escribir un comentario de GitHub en la parte infer
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
 |AuditLogs|Registros de auditoría|No|
-|DiagnosticLogs|Registros de diagnóstico|Sí|
+|DiagnosticLogs|Registros de diagnóstico|Yes|
 
 
 ## <a name="microsofthealthcareapisworkspacesdicomservices"></a>Microsoft.HealthcareApis/workspaces/dicomservices
@@ -841,7 +841,7 @@ Si todavía falta algo, puede escribir un comentario de GitHub en la parte infer
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
-|ExpressRouteCircuitIpfix|Registros de flujo IPFIX del circuito de ExpressRoute|Sí|
+|ExpressRouteCircuitIpfix|Registros de flujo IPFIX del circuito de ExpressRoute|Yes|
 
 
 ## <a name="microsoftnotificationhubsnamespaces"></a>Microsoft.NotificationHubs/namespaces
@@ -885,7 +885,7 @@ Si todavía falta algo, puede escribir un comentario de GitHub en la parte infer
 |---|---|---|
 |DataSensitivityLogEvent|DataSensitivity|Sí|
 |ScanStatusLogEvent|ScanStatus|No|
-|Seguridad|PurviewAccountAuditEvents|Sí|
+|Seguridad|PurviewAccountAuditEvents|Yes|
 
 
 ## <a name="microsoftrecoveryservicesvaults"></a>Microsoft.RecoveryServices/Vaults
@@ -927,8 +927,8 @@ Si todavía falta algo, puede escribir un comentario de GitHub en la parte infer
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
-|Análisis|Análisis|Sí|
-|DataConnectors|Recopilación de datos: conectores|Sí|
+|Análisis|Análisis|Yes|
+|DataConnectors|Recopilación de datos: conectores|Yes|
 
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
@@ -949,8 +949,8 @@ Si todavía falta algo, puede escribir un comentario de GitHub en la parte infer
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
-|ConnectivityLogs|Registros de conectividad para el servicio Azure Web PubSub|Sí|
-|HttpRequestLogs|Registros de solicitudes HTTP para el servicio Azure Web PubSub|Sí|
+|ConnectivityLogs|Registros de conectividad para el servicio Azure Web PubSub|Yes|
+|HttpRequestLogs|Registros de solicitudes HTTP para el servicio Azure Web PubSub|Yes|
 |MessagingLogs|Registros de mensajería para el servicio Azure Web PubSub|Sí|
 
 

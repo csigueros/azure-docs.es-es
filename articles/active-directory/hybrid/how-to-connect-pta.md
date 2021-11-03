@@ -16,12 +16,12 @@ ms.date: 10/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 519ed24e313f718efd92ba63f3d03f6dc9e4a13d
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 0253debd0b667838dc0cb4cd7aec41a29cf9ce81
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113110590"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059025"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Inicio de sesión del usuario con la autenticación de paso a través de Azure Active Directory
 
@@ -79,4 +79,4 @@ Puede combinar la autenticación de paso a través con la característica de [in
 - [Solución de problemas](tshoot-connect-pass-through-authentication.md): información para resolver problemas habituales de esta característica.
 - [Análisis a fondo de la seguridad](how-to-connect-pta-security-deep-dive.md): información técnica detallada adicional sobre la característica.
 - [SSO de conexión directa de Azure AD](how-to-connect-sso.md): más información sobre esta característica complementaria.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): para la tramitación de solicitudes de nuevas características.
+- [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789): para la tramitación de solicitudes de nuevas características.

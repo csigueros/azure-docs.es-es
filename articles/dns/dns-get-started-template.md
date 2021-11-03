@@ -8,13 +8,13 @@ ms.author: duau
 ms.date: 6/2/2021
 ms.topic: quickstart
 ms.service: dns
-ms.custom: devx-track-azurepowershell - subject-armqs - mode-arm
-ms.openlocfilehash: 4b025f9073497a718f5ab47144794e84b57b1b5b
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
+ms.openlocfilehash: dba996bcd4d2416a41ac6a7f1ad94804c0ecb839
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111568542"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131033102"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>Creación de un registro y una zona DNS de Azure mediante una plantilla de Resource Manager
 
@@ -26,7 +26,7 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazure-dns-new-zone%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

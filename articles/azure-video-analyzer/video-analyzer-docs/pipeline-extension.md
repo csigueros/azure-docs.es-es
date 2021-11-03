@@ -3,13 +3,14 @@ title: 'Extensión de canalización: Azure Video Analyzer'
 description: Azure Video Analyzer permite extender las funcionalidades de procesamiento de canalizaciones mediante un nodo de extensión de canalización. En este artículo se describe el nodo de extensión de canalización.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 55cb6a265e74eb4209742f8fb0a8b6f34cb08254
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.date: 10/21/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 70c5ab2f2bc3a82889501496d23eb8a681c7ec68
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114604693"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131020600"
 ---
 # <a name="pipeline-extension"></a>Extensión de canalización
 
@@ -19,9 +20,11 @@ Video Analyzer admite estos procesadores de extensión de canalización:
 
 * [Procesador de extensiones HTTP](pipeline.md#http-extension-processor) 
 * [Procesador de extensiones de gRPC](pipeline.md#grpc-extension-processor)
-* [Procesador de extensiones de Cognitive Services](pipeline.md#cognitive-services-extension-processor) 
-    
-El nodo de extensión de canalización espera que el complemento de extensión de análisis devuelva los resultados en formato JSON. Idealmente, los resultados deben seguir el [modelo de objetos del esquema de metadatos de inferencia](inference-metadata-schema.md).
+* [Procesador de extensiones de Cognitive Services](pipeline.md#cognitive-services-extension-processor)
+
+El nodo de extensión de canalización espera que el complemento de extensión de análisis devuelva los resultados en formato JSON. Idealmente, los resultados deben seguir el [modelo de objetos del esquema de metadatos de inferencia ](inference-metadata-schema.md).
+
+[!INCLUDE [available-features](./includes/available-features.md)]
 
 ## <a name="http-extension-processor"></a>Procesador de extensiones HTTP
 
@@ -49,12 +52,12 @@ El procesador de extensiones de gRPC se puede usar para enviar propiedades junto
 
 ## <a name="cognitive-services-extension-processor"></a>Procesador de extensiones de Cognitive Services
 
-El procesador de extensiones de Cognitive Services es un procesador de extensiones personalizado que permite que Video Analyzer funcione correctamente con las funcionalidades de [análisis espacial de Computer Vision]../../cognitive-services/computer-vision/) mediante el [protocolo estructurado](grpc-extension-protocol.md) de alto rendimiento basado en gRPC. 
+El procesador de extensiones de Cognitive Services (inteligencia artificial integrada y compatible de Microsoft) es un procesador de extensiones personalizado que permite que Video Analyzer funcione correctamente con las funcionalidades de [análisis espacial de Computer Vision](../../cognitive-services/computer-vision/overview.md) mediante el [protocolo estructurado](grpc-extension-protocol.md) de alto rendimiento basado en gRPC. 
 
 Use el nodo de procesador de extensiones de Cognitive Services cuando:
 
 * Quiera una mejor interoperabilidad con las [operaciones de análisis espacial](../../cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview.md) existentes.
-* Quiera usar todas las ventajas del protocolo gRPC, la precisión y el rendimiento de la inteligencia artificial integrada y compatible de Microsoft.
+* Quiera usar todas las ventajas del protocolo gRPC, la precisión y el rendimiento de la **inteligencia artificial integrada y compatible de Microsoft**.
 * Analice varias fuentes de cámara con baja latencia y alto rendimiento.
 
 ## <a name="use-your-inferencing-model"></a>Uso del modelo de inferencia
@@ -70,8 +73,6 @@ En el diagrama siguiente se muestra el flujo de datos general:
 
 Puede comenzar con uno de los inicios rápidos que ilustran Video Analyzer con el servicio de extensión precompilado a velocidades de fotogramas bajas con el [procesador de extensiones HTTP](pipeline.md#http-extension-processor) o a velocidades de fotogramas altas con el [procesador de extensiones de gRPC](pipeline.md#grpc-extension-processor).
 
-
 ## <a name="next-steps"></a>Pasos siguientes 
 
-Concepto: [Grabación de vídeo basada en eventos](event-based-video-recording-concept.md)
-
+Concepto: [grabación de vídeo](video-recording.md)

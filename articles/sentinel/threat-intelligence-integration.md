@@ -13,14 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2021
 ms.author: yelevin
-ms.openlocfilehash: ba9d853b6c4bcbe43b81463870a06821dc34d665
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 8fa4f4262e5591154de641070f910984221c9cdd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129277620"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131019578"
 ---
 # <a name="threat-intelligence-integration-in-azure-sentinel"></a>Integración de inteligencia sobre amenazas en Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Azure Sentinel proporciona varias maneras diferentes de [usar fuentes de inteligencia sobre amenazas](work-with-threat-indicators.md) para mejorar la capacidad de los analistas de seguridad de detectar y priorizar las amenazas conocidas. 
 

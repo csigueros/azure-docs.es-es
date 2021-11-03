@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.custom: devx-track-csharp
 ms.reviewer: olegan
-ms.openlocfilehash: e1ea1a1e02b4b09e64054e9369caee4202a0b1b5
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 4e788d84e7f030b4b3067203434061ad017d1468
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129235694"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045546"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configuración del SDK de Application Insights con ApplicationInsights.config o .xml
 El SDK de Application Insights para .NET consta de varios paquetes de NuGet. El [paquete principal](https://www.nuget.org/packages/Microsoft.ApplicationInsights) proporciona la API para enviar telemetría a Application Insights. Los [paquetes adicionales](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) proporcionan *módulos* e *inicializadores* de telemetría para hacer un seguimiento automático de la aplicación y su contexto. Si ajusta el archivo de configuración, puede habilitar o deshabilitar los módulos e inicializadores de telemetría, y establecer los parámetros para algunos de ellos.
@@ -78,13 +78,13 @@ Informa del [tiempo de respuesta y del código del resultado](../../azure-monito
 `EventSourceTelemetryModule` permite configurar eventos EventSource para enviarse a Application Insights como seguimientos. Para obtener información sobre el seguimiento de eventos EventSource, vea [Uso de eventos EventSource](./asp-net-trace-logs.md#use-eventsource-events).
 
 * `Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule`
-* [Microsoft.ApplicationInsights.EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener) 
+* [Microsoft.ApplicationInsights.EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener)
 
 ### <a name="etw-event-tracking"></a>Seguimiento de eventos ETW
 `EtwCollectorTelemetryModule` permite configurar eventos de proveedores ETW para enviarse a Application Insights como seguimientos. Para obtener información sobre el seguimiento de eventos ETW de seguimiento, vea [Uso de eventos ETW](../../azure-monitor/app/asp-net-trace-logs.md#use-etw-events).
 
 * `Microsoft.ApplicationInsights.EtwCollector.EtwCollectorTelemetryModule`
-* [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 
+* [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector)
 
 ### <a name="microsoftapplicationinsights"></a>Microsoft.ApplicationInsights
 El paquete Microsoft.ApplicationInsights proporciona la [API principal](/dotnet/api/microsoft.applicationinsights) del SDK. Los otros módulos de telemetría usan esto y también puede [usarlo usted mismo para definir su propia telemetría](./api-custom-events-metrics.md).
@@ -96,7 +96,7 @@ El paquete Microsoft.ApplicationInsights proporciona la [API principal](/dotnet/
 El [canal de telemetría](telemetry-channels.md) administra el almacenamiento en búfer y la transmisión de telemetría al servicio Application Insights.
 
 * `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` es el canal predeterminado para aplicaciones web. Almacena en búfer los datos en memoria y emplea mecanismos de reintento y almacenamiento de disco local para proporcionar una entrega de telemetría de más confianza.
-* `Microsoft.ApplicationInsights.InMemoryChannel` es un canal de telemetría ligero que se utiliza si no se ha configurado ningún otro canal. 
+* `Microsoft.ApplicationInsights.InMemoryChannel` es un canal de telemetría ligero que se utiliza si no se ha configurado ningún otro canal.
 
 ## <a name="telemetry-initializers-aspnet"></a>Inicializadores de telemetría (ASP.NET)
 Los inicializadores de telemetría establecen propiedades de contexto que se envían junto con todos los elementos de telemetría.
@@ -155,7 +155,7 @@ El parámetro proporciona el destino que el algoritmo intenta alcanzar. Cada ins
 #### <a name="fixed-rate-sampling-telemetry-processor-from-200-beta1"></a>Procesador de telemetría de muestreo de tasa fija (desde 2.0.0-beta1)
 También hay un [procesador de telemetría de muestreo](./api-filtering-sampling.md) estándar (desde 2.0.1):
 
-```XML
+```xml
 
     <TelemetryProcessors>
      <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
@@ -184,7 +184,7 @@ using Microsoft.ApplicationInsights;
         TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
         configuration.InstrumentationKey = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
         var telemetryClient = new TelemetryClient(configuration);
-   
+
 ```
 
 Si solo desea enviar un conjunto específico de eventos a un recurso diferente, puede establecer la clave para un TelemetryClient específico:
@@ -199,8 +199,6 @@ Si solo desea enviar un conjunto específico de eventos a un recurso diferente, 
 ```
 
 Para obtener una nueva clave, [cree un nuevo recurso en el portal de Application Insights][new].
-
-
 
 ## <a name="applicationid-provider"></a>Proveedor ApplicationId
 
@@ -218,7 +216,6 @@ public interface IApplicationIdProvider
     bool TryGetApplicationId(string instrumentationKey, out string applicationId);
 }
 ```
-
 
 Se proporcionan dos implementaciones en el SDK [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights): `ApplicationInsightsApplicationIdProvider` y `DictionaryApplicationIdProvider`.
 
@@ -281,9 +278,6 @@ TelemetryConfiguration.Active.ApplicationIdProvider = new DictionaryApplicationI
     }
 };
 ```
-
-
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Más información acerca de la API][api].

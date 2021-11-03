@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 54a750fc8418d48afcffdc8260322ca27382372b
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 00eeda0b831f58ed0a739521cff95133f2a24bd1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124786567"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131017984"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configuración de una aplicación móvil que llama a las API web
 
@@ -245,10 +245,9 @@ Para registrar el esquema de dirección URL de la aplicación, siga estos pasos:
 
    Aquí, `BundleId` identifica su dispositivo de manera exclusiva. Por ejemplo, si `BundleId` es `yourcompany.xforms`, el esquema de dirección URL es `msauth.com.yourcompany.xforms`.
 
-  
       Este esquema de dirección URL se convertirá en parte del URI de redirección que se usa para identificar de forma única la aplicación cuando recibe la respuesta del agente.
 
-   ```XML
+   ```xml
     <key>CFBundleURLTypes</key>
        <array>
          <dict>
@@ -270,7 +269,7 @@ MSAL usa `–canOpenURL:` para comprobar si el agente está instalado en el disp
 
 Agregue `msauthv2` a la sección `LSApplicationQueriesSchemes` del archivo `Info.plist`, como en el ejemplo de código siguiente:
 
-```XML
+```xml
 <key>LSApplicationQueriesSchemes</key>
     <array>
       <string>msauthv2</string>
@@ -326,7 +325,7 @@ Para registrar un esquema para la aplicación:
 
     Este esquema de dirección URL se convertirá en parte del URI de redirección que se usa para identificar de forma única la aplicación cuando recibe la respuesta del agente. Asegúrese de que el URI de redirección con el formato `msauth.(BundleId)://auth` está registrado para la aplicación en [Azure Portal](https://portal.azure.com).
 
-   ```XML
+   ```xml
    <key>CFBundleURLTypes</key>
    <array>
        <dict>
@@ -347,7 +346,7 @@ Agregue `LSApplicationQueriesSchemes` para permitir llamadas a la aplicación Mi
 
 Este es un ejemplo sobre cómo agregar `LSApplicationQueriesSchemes`:
 
-```XML
+```xml
 <key>LSApplicationQueriesSchemes</key>
 <array>
   <string>msauthv2</string>

@@ -4,16 +4,16 @@ description: Conozca las instantáneas incrementales para discos administrados y
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/10/2021
+ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8f00a0f69bf00c42ef120250cbc4a770fb1b7a09
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.custom: devx-track-azurepowershell, ignite-fall-2021
+ms.openlocfilehash: ba03ec11522ea5a4e4a011d1e62fa09b25aec749
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122689421"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131022311"
 ---
 # <a name="create-an-incremental-snapshot-for-managed-disks"></a>Creación de una instantánea incremental para discos administrados
 
@@ -148,6 +148,48 @@ También puede usar plantillas de Azure Resource Manager para crear una instant�
 }
 ```
 ---
+
+## <a name="cross-region-snapshot-copy-preview"></a>Copia de instantáneas entre regiones (versión preliminar)
+
+Puede usar la opción CopyStart (versión preliminar) para iniciar una copia de instantáneas incrementales desde una región a cualquier región que elija. Azure controla el proceso de copia de las instantáneas incrementales y garantiza que solo los cambios diferenciales realizados desde la última instantánea se copien en la región de destino, lo que reduce la superficie de datos. Los clientes pueden comprobar el progreso de la copia para saber cuándo una instantánea de destino está lista para restaurar discos en la región de destino. Puede usar este proceso para copiar instantáneas en otra suscripción para la retención a largo plazo. También puede usarlo para copiar instantáneas en la misma región, y así asegurarse de que las instantáneas están totalmente protegidas en el [almacenamiento con redundancia de zona](disks-redundancy.md#zone-redundant-storage-for-managed-disks) y garantizar que las instantáneas están disponibles en caso de error zonal.
+
+:::image type="content" source="media/disks-incremental-snapshots/cross-region-snapshot.png" alt-text="Diagrama de copia entre regiones orquestada de instantáneas incrementales de Azure mediante la opción Clonar." lightbox="media/disks-incremental-snapshots/cross-region-snapshot.png":::
+
+### <a name="pre-requisites"></a>Requisitos previos
+
+Debe habilitar la característica en su suscripción para usar la característica en vista previa. Utilice el siguiente comando para registrar la característica:
+
+```azurecli
+az feature register --namespace Microsoft.Compute --name CreateOptionClone
+```
+
+El registro puede tardar unos minutos en completarse; puede usar el siguiente comando para comprobar su estado:
+
+```azurecli
+az feature show --namespace Microsoft.Compute --name CreateOptionClone
+```
+
+### <a name="restrictions"></a>Restricciones
+
+- Actualmente, la copia de instantáneas entre regiones solo está disponible en el Este de EE. UU. 2 y el Centro-oeste de EE. UU.
+- Debe usar la versión 2020-12-01 o una posterior de la API de Rest de Azure Compute.
+
+### <a name="get-started"></a>Primeros pasos
+
+```azurecli
+subscriptionId=<yourSubscriptionID>
+resourceGroupName=<yourResourceGroupName>
+name=<targetSnapshotName>
+sourceSnapshotResourceId=<sourceSnapshotResourceId>
+targetRegion=<validRegion>
+
+az login
+az account set --subscription $subscriptionId
+az group deployment create -g $resourceGroupName \
+--template-uri https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/CrossRegionCopyOfSnapshots/CopyStartIncrementalSnapshots.json \
+--parameters "name=$name" "sourceSnapshotResourceId=$sourceSnapshotResourceId" "targetRegion=$targetRegion"
+az resource show -n $name -g $resourceGroupName --namespace Microsoft.Compute --resource-type snapshots --api-version 2020-12-01 --query [properties.completionPercent] -o tsv
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

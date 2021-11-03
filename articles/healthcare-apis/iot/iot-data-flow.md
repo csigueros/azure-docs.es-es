@@ -8,19 +8,19 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 10/12/2021
 ms.author: jasteppe
-ms.openlocfilehash: 41ad8d284636e431b74c43006bb544f737ce1f47
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 51c5303c86c83c93e6ec38064a6b7eea74cc7bc6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130005510"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068484"
 ---
 # <a name="iot-connector-data-flow"></a>Flujo de datos del conector de IoT
 
 > [!IMPORTANT]
 > Azure Healthcare APIs se encuentra actualmente en VERSIÓN PRELIMINAR. Los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado con disponibilidad general.
 
-En este artículo se proporciona información general sobre el conector de IoT. Aprenderá sobre las distintas fases de procesamiento de datos en el conector de IoT [](https://www.hl7.org/fhir/observation.html) que transforman los datos del dispositivo en recursos de observación basados en Recursos Rápidos de Interoperabilidad en Salud (FHIR&#174;).
+En este artículo se proporciona información general sobre el flujo de datos del conector de IoT. Aprenderá sobre las distintas fases de procesamiento de datos en el conector de IoT que [](https://www.hl7.org/fhir/observation.html) transforman los datos del dispositivo en recursos de observación basados en Recursos Rápidos de Interoperabilidad en Salud (FHIR&#174;).
 
 A continuación se muestran distintas fases por las que pasan los datos una vez recibidos por el conector de IoT.
 
@@ -36,7 +36,11 @@ Normalizar es la siguiente fase en la que los datos del dispositivo se recuperan
 El proceso de normalización no solo simplifica el procesamiento de datos en fases posteriores, sino que también proporciona la capacidad de proyectar un mensaje de entrada en varios mensajes normalizados. Por ejemplo, un dispositivo puede enviar varias constantes vitales con la temperatura del cuerpo, la frecuencia cardíaca, la presión arterial y la frecuencia respiratoria en un solo mensaje. Este mensaje de entrada creará cuatro recursos FHIR independientes. Cada recurso representaría una constante vital diferente, con el mensaje de entrada proyectado en cuatro mensajes normalizados diferentes.
 
 ## <a name="group"></a>Grupo
-La agrupación es la siguiente fase, en la que los mensajes normalizados disponibles en la fase anterior se agrupan mediante el uso de tres parámetros diferentes: identidad de dispositivo, tipo de medida y período de tiempo.
+Group es la siguiente fase en la que los mensajes normalizados disponibles en la fase anterior se agrupan mediante tres parámetros diferentes:
+
+* Identidad del dispositivo
+* Tipo de medida 
+* Período de tiempo
 
 La agrupación de la identidad del dispositivo y el tipo de medida habilita el uso del tipo de medida [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData). Este tipo proporciona una manera concisa de representar una serie de medidas basadas en el tiempo desde un dispositivo en FHIR. Y el período de tiempo controla la latencia en la que los recursos de observación generados por el conector de IoT se escriben en el servicio FHIR.
 
@@ -61,9 +65,9 @@ Una vez que se genera el recurso de Observation FHIR en la fase de transformaci�
 Aprenda a crear asignaciones de destino de dispositivos y FHIR.
 
 > [!div class="nextstepaction"]
-> [Asignación de dispositivos](how-to-use-device-mapping-iot.md)
+> [Asignaciones de dispositivos](how-to-use-device-mapping-iot.md)
 
 > [!div class="nextstepaction"]
-> [Asignación de destino de FHIR](how-to-use-fhir-mapping-iot.md)
+> [Asignaciones de destino de FHIR](how-to-use-fhir-mapping-iot.md)
 
-(FHIR&#174;) es una marca registrada [de HL7](https://hl7.org/fhir/) y se usa con el permiso HL7.
+(FHIR&#174;) es una marca comercial registrada [de HL7](https://hl7.org/fhir/) y se usa con el permiso HL7.

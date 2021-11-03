@@ -5,17 +5,19 @@ author: batamig
 ms.author: bagold
 ms.service: azure-sentinel
 ms.topic: reference
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.date: 07/21/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: a1511581e3cc80d5f2f71bb82dc1bcb0ba639acb
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
+ms.openlocfilehash: 15f057dbbc402ba42f5cdf15342827f14eb3895d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681519"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131064247"
 ---
 # <a name="azure-sentinel-sap-solution-logs-reference-public-preview"></a>Referencia sobre de los registros de la solución Azure Sentinel para SAP (versión preliminar pública)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 En este artículo se describen los registros de SAP disponibles en el conector de datos de Azure Sentinel para SAP, entre los que se incluyen los nombres de tabla de Azure Sentinel, los fines del registro y los esquemas de registro detallados. Las descripciones de los campos de los esquemas se basan en las descripciones de los campos de la [documentación de SAP](https://help.sap.com/) pertinente.
 

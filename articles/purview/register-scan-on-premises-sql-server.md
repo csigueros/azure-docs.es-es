@@ -1,77 +1,78 @@
 ---
-title: Registro y examen de un servidor de SQL Server local
-description: En este tutorial se describe cómo examinar un servidor de SQL Server local mediante un entorno de ejecución de integración autohospedado en Azure Purview.
+title: Conexión y administración de instancias de servidores SQL locales
+description: En esta guía se describe cómo conectar instancias de servidores SQL locales en Azure Purview, y cómo usar las características de Purview para examinar y administrar el origen de servidores SQL locales.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/27/2021
-ms.openlocfilehash: 1921349be07d129e9889da3af6c72a7b25a58ff5
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.date: 11/02/2021
+ms.custom: template-how-to, ignite-fall-2021
+ms.openlocfilehash: d517f3a54963f08a4607e7f95cb5cffbea2486d9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130074444"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131010999"
 ---
-# <a name="register-and-scan-an-on-premises-sql-server"></a>Registro y examen de un servidor de SQL Server local
+# <a name="connect-to-and-manage-an-on-premises-sql-server-instance-in-azure-purview"></a>Conexión y administración de una instancia de servidor SQL local en Azure Purview
 
-En este artículo se describe cómo registrar un origen de datos de SQL Server en Purview y cómo configurar un examen en él.
+En este artículo se describe cómo registrar instancias de servidores SQL locales, y cómo autenticarse e interactuar con una instancia de servidor SQL local en Azure Purview. Para obtener más información sobre Azure Purview, consulte el [artículo de introducción](overview.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
-El origen de datos local de SQL Server admite la funcionalidad siguiente:
+|**Extracción de metadatos**|  **Examen completo**  |**Examen incremental**|**Examen con ámbito**|**Clasificación**|**Directiva de acceso**|**Lineage**|
+|---|---|---|---|---|---|---|
+| [Sí](#register) | [Sí](#scan) | [Sí](#scan) | [Sí](#scan) | [Sí](#scan) | No| [Linaje de Data Factory](how-to-link-azure-data-factory.md) |
 
-- **Exámenes completos e incrementales** para capturar metadatos y su clasificación en una red local o un servidor de SQL Server que esté instalado en una VM de Azure.
+## <a name="prerequisites"></a>Prerrequisitos
 
-- **Linaje** entre los recursos de datos de las actividades de copia y flujo de datos de ADF.
+* Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-El origen de datos local de SQL Server admite:
+* Un [recurso de Purview](create-catalog-portal.md) activo.
 
-- todas las versiones desde SQL Server 2019 hasta SQL Server 2000
+* Tendrá que ser administrador de orígenes de datos y lector de datos para poder registrar un origen y administrarlo en Purview Studio. Para obtener más información, consulte la [página Permisos de Azure Purview](catalog-permissions.md).
 
-- Método de autenticación: Autenticación SQL
+* Configure la versión más reciente del [entorno de ejecución de integración autohospedado](https://www.microsoft.com/download/details.aspx?id=39717). Para obtener más información, consulte la [guía de creación y configuración de un entorno de ejecución de integración autohospedado](../data-factory/create-self-hosted-integration-runtime.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="register"></a>Register
 
-- Antes de registrar los orígenes de datos, cree una cuenta de Azure Purview. Para más información sobre cómo crear una cuenta de Purview, consulte [Inicio rápido: creación de una cuenta de Azure Purview](create-catalog-portal.md).
+En esta sección se describe cómo registrar una instancia de servidor SQL local en Azure Purview mediante [Purview Studio](https://web.purview.azure.com/).
 
-- Configure un [entorno de ejecución de integración autohospedado](manage-integration-runtimes.md) para examinar el origen de datos.
-
-## <a name="setting-up-authentication-for-a-scan"></a>Configuración de la autenticación para un examen
+### <a name="authentication-for-registration"></a>Autenticación para registro
 
 Solo hay una manera de configurar la autenticación para la instancia local de SQL Server:
 
 - Autenticación de SQL
 
-### <a name="sql-authentication"></a>Autenticación SQL
+#### <a name="sql-authentication-to-register"></a>Autenticación de SQL para registrarse
 
 La cuenta de SQL debe tener acceso a la base de datos **maestra**. El motivo es que `sys.databases` está en la base de datos maestra. El examen de Purview debe enumerar `sys.databases` para buscar todas las instancias de SQL en el servidor.
 
-#### <a name="creating-a-new-login-and-user"></a>Creación de un inicio de sesión y un usuario nuevos
+##### <a name="creating-a-new-login-and-user"></a>Creación de un inicio de sesión y un usuario nuevos
 
 Si quiere crear un nuevo inicio de sesión y un usuario para poder examinar el servidor de SQL Server, siga estos pasos:
 
 > [!Note]
-   > Todos los pasos siguientes se pueden ejecutar con el código proporcionado [aquí](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql).
+> Todos los pasos siguientes se pueden ejecutar con el código proporcionado [aquí](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql).
 
 1. Vaya a SQL Server Management Studio (SSMS), conéctese al servidor, vaya a Seguridad, haga clic con el botón derecho en Inicio de sesión y cree un nuevo inicio de sesión. Asegúrese de seleccionar la autenticación de SQL.
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/create-new-login-user.png" alt-text="Creación de un nuevo inicio de sesión y un usuario.":::
 
-2. Seleccione Roles de servidor en el panel de navegación izquierdo y asegúrese de que está asignado el rol público.
+1. Seleccione Roles de servidor en el panel de navegación izquierdo y asegúrese de que está asignado el rol público.
 
-3. Seleccione sucesivamente Asignación de usuarios en el panel de navegación izquierdo, luego, todas las bases de datos del mapa y, seguidamente, el rol de base de datos **db_datareader**.
+1. Seleccione sucesivamente Asignación de usuarios en el panel de navegación izquierdo, luego, todas las bases de datos del mapa y, seguidamente, el rol de base de datos **db_datareader**.
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/user-mapping.png" alt-text="asignación de usuarios.":::
 
-4. Seleccione Aceptar para guardar.
+1. Seleccione Aceptar para guardar.
 
-5. Vuelva al usuario que creó; para ello, selecciónelo y manténgalo presionado (o haga clic con el botón derecho) y seleccione **Propiedades**. Escriba una contraseña nueva y confírmela. Seleccione "Especificar la contraseña anterior" y escríbala. **Es necesario cambiar la contraseña en cuanto cree un nuevo inicio de sesión.**
+1. Vuelva al usuario que creó; para ello, selecciónelo y manténgalo presionado (o haga clic con el botón derecho) y seleccione **Propiedades**. Escriba una contraseña nueva y confírmela. Seleccione "Especificar la contraseña anterior" y escríbala. **Es necesario cambiar la contraseña en cuanto cree un nuevo inicio de sesión.**
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/change-password.png" alt-text="cambiar contraseña.":::
 
-#### <a name="storing-your-sql-login-password-in-a-key-vault-and-creating-a-credential-in-purview"></a>Almacenaje de la contraseña de inicio de sesión de SQL en un almacén de claves y creación una credencial en Purview
+##### <a name="storing-your-sql-login-password-in-a-key-vault-and-creating-a-credential-in-purview"></a>Almacenaje de la contraseña de inicio de sesión de SQL en un almacén de claves y creación una credencial en Purview
 
 1. Vaya al almacén de claves en Azure Portal1. Seleccione **Configuración > Secretos**.
 1. Seleccione **+ Generate/Import** (+ Generar/Importar) y escriba el **nombre** y el **valor** como la *contraseña* del inicio de sesión de SQL Server.
@@ -79,7 +80,7 @@ Si quiere crear un nuevo inicio de sesión y un usuario para poder examinar el s
 1. Si el almacén de claves no está conectado todavía a Purview, necesitará [crear una conexión del almacén de claves](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
 1. Por último, [cree una nueva credencial](manage-credentials.md#create-a-new-credential) mediante el **nombre de usuario** y la **contraseña** para configurar el examen.
 
-## <a name="register-a-sql-server-data-source"></a>Registro de un origen de datos de SQL Server
+### <a name="steps-to-register"></a>Pasos para registrarse
 
 1. Vaya a la cuenta de Purview.
 
@@ -93,11 +94,15 @@ Si quiere crear un nuevo inicio de sesión y un usuario para poder examinar el s
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/set-up-sql-data-source.png" alt-text="Configure el origen de datos de SQL.":::
 
-1. Proporcione un nombre descriptivo, que será un nombre corto que puede usar para identificar el servidor y el punto de conexión del servidor. 
- 
+1. Proporcione un nombre descriptivo, que será un nombre corto que puede usar para identificar el servidor y el punto de conexión del servidor.
+
 1. A continuación, seleccione **Finalizar** para registrar el origen de datos.
 
-## <a name="creating-and-running-a-scan"></a>Creación y ejecución de un examen
+## <a name="scan"></a>Examinar
+
+Siga los pasos que se indican a continuación para examinar las instancias de servidores SQL locales para identificar automáticamente los recursos y clasificar los datos. Para obtener más información sobre el examen en general, consulte la [introducción a los exámenes y la ingesta](concept-scans-and-ingestion.md).
+
+### <a name="create-and-run-scan"></a>Creación y ejecución de un examen
 
 Para crear y ejecutar un nuevo examen, siga estos pasos:
 
@@ -129,5 +134,8 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Examen del catálogo de datos de Azure Purview](how-to-browse-catalog.md)
-- [Búsqueda en el catálogo de datos de Azure Purview](how-to-search-catalog.md)
+Ahora que ha registrado el origen, siga las guías a continuación para obtener más información sobre Purview y sus datos.
+
+- [Información sobre datos en Azure Purview](concept-insights.md)
+- [Linaje en Azure Purview](catalog-lineage-user-guide.md)
+- [Búsqueda en Data Catalog](how-to-search-catalog.md)

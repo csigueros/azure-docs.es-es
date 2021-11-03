@@ -5,14 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 10/12/2021
 ms.author: cherylmc
-ms.openlocfilehash: 0f73cc08b2e6e44508a6535ba0d6c420e998a011
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: d1cf4c18c4722c327d9d74569e7709d11068dc7c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113732033"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131087081"
 ---
 # <a name="about-bastion-configuration-settings"></a>Información sobre la configuración de Bastion
 
@@ -22,8 +23,8 @@ En las secciones de este artículo se habla de los recursos y la configuración 
 
 Una SKU también se conoce como nivel. Azure Bastion admite dos tipos de SKU: básica y estándar. La SKU se configura en Azure Portal durante el flujo de trabajo al configurar Bastion. Puede [pasar de la SKU básica a la estándar](#upgradesku).
 
-* La **SKU básica** proporciona funcionalidad base, lo que permite a Azure Bastion administrar la conectividad RDP/SSH con Virtual Machines (VM) sin exponer direcciones IP públicas en las máquinas virtuales de la aplicación de destino. 
-* La **SKU estándar** se encuentra en **versión preliminar**. La SKU estándar habilita características premium que permiten a Azure Bastion administrar la conectividad remota a mayor escala. 
+* La **SKU básica** proporciona funcionalidad base, lo que permite a Azure Bastion administrar la conectividad RDP/SSH con Virtual Machines (VM) sin exponer direcciones IP públicas en las máquinas virtuales de la aplicación de destino.
+* La SKU estándar habilita características premium que permiten a Azure Bastion administrar la conectividad remota a mayor escala.
 
 En la tabla siguiente se muestran las características y las SKU correspondientes. 
 
@@ -31,17 +32,17 @@ En la tabla siguiente se muestran las características y las SKU correspondiente
 
 ### <a name="configuration-methods"></a>Métodos de configuración
 
-Durante la versión preliminar, debe usar el Azure Portal si desea especificar la SKU estándar. Si usa la CLI de Azure o Azure PowerShell para configurar Bastion, no se puede especificar la SKU y por defecto aparece la SKU básica.
+Actualmente, debe usar Azure Portal si desea especificar la SKU estándar. Si usa la CLI de Azure o Azure PowerShell para configurar Bastion, no se puede especificar la SKU y por defecto aparece la SKU básica.
 
 | Método | Valor | Vínculos |
 | --- | --- | --- |
-| Azure portal | Nivel: Básico o <br>Standard (vista previa) | [Inicio rápido: Configuración de Bastion a partir de las opciones de máquina virtual](quickstart-host-portal.md)<br>[Tutorial: Configuración de Bastion](tutorial-create-host-portal.md) |
+| Azure portal | Nivel: Básico o <br>Estándar | [Inicio rápido: Configuración de Bastion a partir de las opciones de máquina virtual](quickstart-host-portal.md)<br>[Tutorial: Configuración de Bastion](tutorial-create-host-portal.md) |
 | Azure PowerShell | Solo básico: sin configuración |[Configuración de Bastion: PowerShell](bastion-create-host-powershell.md) |
 | Azure CLI |  Solo básico: sin configuración | [Configuración de Bastion - CLI](create-host-cli.md) |
 
 ### <a name="upgrade-a-sku"></a><a name="upgradesku"></a>Actualización de un SKU
 
-Azure Bastion admite la actualización de una SKU básica a estándar. La SKU estándar se encuentra en versión preliminar. 
+Azure Bastion admite la actualización de una SKU básica a estándar.
 
 > [!NOTE]
 > No se admite cambiar una SKU estándar por una SKU básica. Para cambiar a una versión anterior, debe eliminar Azure Bastion y volver a crearlo.
@@ -53,9 +54,9 @@ Puede configurar este valor con el método siguiente:
 
 | Método | Valor | Vínculos |
 | --- | --- | --- |
-| Azure portal |Nivel  | [Actualización de una SKU: versión preliminar](upgrade-sku.md)|
+| Azure portal |Nivel  | [Actualización de un SKU](upgrade-sku.md)|
 
-## <a name="instances-and-host-scaling-preview"></a><a name="instance"></a>Escalado de instancias y host (versión preliminar)
+## <a name="instances-and-host-scaling"></a><a name="instance"></a>Escalado de instancias y hosts
 
 Una instancia es una máquina virtual de Azure optimizada que se crea al configurar Azure Bastion. Azure la administra completamente y ejecuta todos los procesos necesarios para Azure Bastion. Una instancia también se conoce como unidad de escalado. Se conecta a las máquinas virtuales cliente a través de una instancia de Azure Bastion. Al configurar las Azure Bastion con la SKU básica, se crean dos instancias. Si usa la SKU estándar, puede especificar el número de instancias. Esto se denomina **escalado de host**. 
 
@@ -69,7 +70,7 @@ Puede configurar este valor con el método siguiente:
 
 | Método | Valor | Vínculos |
 | --- | --- | --- |
-| Azure portal |Recuento de instancias  | [Configuración del escalado de host: versión preliminar](configure-host-scaling.md)|
+| Azure portal |Recuento de instancias  | [Configuración del escalado de host](configure-host-scaling.md)|
 
 
 ## <a name="azure-bastion-subnet"></a><a name="subnet"></a>Subred de Azure Bastion

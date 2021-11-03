@@ -1,17 +1,17 @@
 ---
 title: Solución alternativa de la configuración del firewall de almacenamiento
 description: Una configuración del firewall de red de la cuenta de almacenamiento puede producir un error al crear un destino de Azure Blob Storage en Azure HPC Cache. En este artículo se ofrece una solución alternativa para esta limitación hasta que se aplique una corrección de software.
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2021
-ms.author: v-erkel
-ms.openlocfilehash: 45a7169330b11e98a8618b08205217212414ca5d
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.author: femila
+ms.openlocfilehash: 11b5a28f35250a5d600cf849a3bd7b1a5bbe262e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258935"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068443"
 ---
 # <a name="work-around-blob-storage-account-firewall-settings"></a>Solución alternativa para la configuración del firewall de la cuenta de Blob Storage
 

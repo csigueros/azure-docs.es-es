@@ -9,12 +9,12 @@ author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
 ms.date: 09/09/2021
-ms.openlocfilehash: d2dacc3379d1587352c7593c3766294613229fad
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 30e40c20aa8e11add35b270baf867a5fd5e46058
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124798358"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131016579"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory-or-synapse-analytics"></a>Transformación de datos mediante la actividad de procedimiento almacenado de SQL Server en Azure Data Factory o Synapse Analytics
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -93,5 +93,4 @@ Vea los siguientes artículos, en los que se explica cómo transformar datos de 
 * [Actividad de streaming de Hadoop](transform-data-using-hadoop-streaming.md)
 * [Actividad de Spark](transform-data-using-spark.md)
 * [Actividad personalizada de .NET](transform-data-using-dotnet-custom-activity.md)
-* [Actividad de ejecución por lotes de ML Studio (clásico)](transform-data-using-machine-learning.md)
 * [Actividad de procedimiento almacenado](transform-data-using-stored-procedure.md)

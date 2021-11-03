@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/15/2021
 ms.author: yelevin
-ms.openlocfilehash: 12a99c816ad3bf2b855c9ea48b7d7f27619d0e50
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 7442db85d7b6105278024c9fc23bca9eba20ab19
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124837880"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131064400"
 ---
 # <a name="azure-sentinel-network-normalization-schema-legacy-version---public-preview"></a>Esquema de normalización de redes de Azure Sentinel (versión heredada - versión preliminar pública)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 El esquema de normalización de redes se usa para describir los eventos de red notificados y se emplea en Azure Sentinel para permitir el análisis independiente del origen.
 
@@ -370,4 +372,3 @@ Para más información, consulte:
 - [Referencia del esquema de normalización de DNS de Azure Sentinel](dns-normalization-schema.md)
 - [Referencia del esquema de normalización de eventos de proceso de Azure Sentinel](process-events-normalization-schema.md)
 - [Referencia del esquema de normalización de eventos de registro de Azure Sentinel (versión preliminar pública)](registry-event-normalization-schema.md)
-

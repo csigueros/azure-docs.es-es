@@ -7,16 +7,16 @@ ms.subservice: conditional-access
 ms.topic: overview
 ms.date: 09/15/2021
 ms.custom: project-no-code
-ms.author: mimart
-author: msmimart
-manager: celested
+ms.author: kengaderdus
+author: kengaderdus
+manager: CelesteDG
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 54229ff68cf9e4ac749fb1396282d9c881f52806
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e4f1bf6bdb46bd87fb24fe5564a1d53204477a5d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128572678"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008016"
 ---
 # <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Adición del acceso condicional a los flujos de usuario en Azure AD B2C
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
@@ -26,7 +26,7 @@ Se puede agregar el acceso condicional a los flujos de usuario y directivas pers
 Azure AD B2C evalúa todos los eventos de inicio de sesión y garantiza que se cumplan todos los requisitos de las directivas antes de conceder acceso al usuario. Durante esta fase de **evaluación**, el servicio de acceso condicional evalúa las señales recopiladas por las detecciones de riesgo de Identity Protection durante los eventos de inicio de sesión. El resultado de este proceso de evaluación es un conjunto de notificaciones que indica si se debe conceder o bloquear el inicio de sesión. La directiva de Azure AD B2C utiliza estas notificaciones para actuar dentro del flujo de usuario. Un ejemplo es bloquear el acceso o desafiar al usuario con una corrección específica como la autenticación multifactor (MFA). "Bloquear acceso" reemplaza el resto de configuraciones.
 ::: zone pivot="b2c-custom-policy"
 En el ejemplo siguiente se muestra un perfil técnico de acceso condicional que se usa para evaluar la amenaza de inicio de sesión.
-```XML
+```xml
 <TechnicalProfile Id="ConditionalAccessEvaluation">
   <DisplayName>Conditional Access Provider</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ConditionalAccessProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -45,7 +45,7 @@ La corrección también puede producirse a través de otros canales. Por ejemplo
 > Para corregir el riesgo dentro del recorrido correctamente, asegúrese de que se llama al perfil técnico de *corrección* después de ejecutar el perfil técnico de *evaluación*. Si la *evaluación* se invoca sin *corrección*, el estado de riesgo estará *En riesgo*.
 Cuando la recomendación del perfil técnico de *evaluación* devuelve `Block`, no se requiere la llamada al perfil técnico de *evaluación*. El estado de riesgo se establece en *En riesgo*.
 En el ejemplo siguiente se muestra un perfil técnico de acceso condicional que se usa para corregir la amenaza identificada:
-```XML
+```xml
 <TechnicalProfile Id="ConditionalAccessRemediation">
   <DisplayName>Conditional Access Remediation</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ConditionalAccessProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
@@ -351,7 +351,7 @@ Para habilitar el acceso condicional para un flujo de usuario, asegúrese de que
 1. Cargue los archivos de directivas.
 ### <a name="configure-claim-other-than-phone-number-to-be-used-for-mfa"></a>Configuración de otra notificación que no sea el número de teléfono que se usará como MFA
 En la directiva de acceso condicional anterior, el `DoesClaimExist`método de transformación de notificación comprueba si una notificación contiene un valor, por ejemplo, si la notificación `strongAuthenticationPhoneNumber` contiene un número de teléfono. La transformación de notificaciones no se limita a la notificación `strongAuthenticationPhoneNumber`. En función del escenario, puede usar cualquier otra notificación. En el siguiente fragmento XML, la notificación `strongAuthenticationEmailAddress` se comprueba en su lugar. La notificación que elija debe tener un valor válido; de lo contrario, la notificación `IsMfaRegistered` se establecerá en `False`. Cuando se establece en `False`, la evaluación de la directiva de acceso condicional devuelve un tipo de concesión `Block`, lo que impide que el usuario complete el flujo de usuario.
-```XML
+```xml
  <ClaimsTransformation Id="IsMfaRegisteredCT" TransformationMethod="DoesClaimExist">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="strongAuthenticationEmailAddress" TransformationClaimType="inputClaim" />

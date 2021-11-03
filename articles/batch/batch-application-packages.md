@@ -3,16 +3,13 @@ title: Implementación de paquetes de aplicación en nodos de proceso
 description: Utilice la característica paquetes de aplicación de Azure Batch para administrar fácilmente varias aplicaciones y versiones para la instalación en nodos de proceso de Batch.
 ms.topic: how-to
 ms.date: 04/13/2021
-ms.custom:
-- H1Hack27Feb2017
-- devx-track-csharp
-- contperf-fy21q1
-ms.openlocfilehash: 9c4b40f0e99475fc0b19ec94a14f67af131e5f59
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.custom: H1Hack27Feb2017, devx-track-csharp, contperf-fy21q1
+ms.openlocfilehash: 6ffa06f284c3406ebe62c1f62fc0c9c487cede3d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389390"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131086932"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementación de aplicaciones en nodos de proceso con paquetes de aplicaciones de Batch
 

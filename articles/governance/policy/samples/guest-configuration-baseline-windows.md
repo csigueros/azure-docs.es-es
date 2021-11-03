@@ -4,12 +4,12 @@ description: Detalles de la base de referencia de Windows en Azure implementada 
 ms.date: 08/24/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: c69a15fc97a605e1166a1721cb9e2fef9ce21ab7
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: b523a239c591d94f733a4d6339964dfb24eec8b1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122779174"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131016252"
 ---
 # <a name="windows-security-baseline"></a>Línea de base de seguridad de Windows
 
@@ -201,7 +201,7 @@ Para más información, consulte [Configuración de invitado de Azure Policy](..
 |Nombre<br /><sub>(ID)</sub> |Detalles |Valor esperado<br /><sub>(tipo)</sub> |severity |
 |---|---|---|---|
 |Auditar actividad PNP<br /><sub>(AZ-WIN-00182)</sub> |**Descripción**: esta configuración de directiva permite realizar la auditoría cuando Plug and Play detecta un dispositivo externo. El estado recomendado para este valor de configuración es: `Success`. **Nota:** Se requiere un sistema operativo Windows 10, Server 2016 o superior para acceder a este valor y establecerlo en la directiva de grupo.<br />**Ruta de acceso de la clave**: {0CCE9248-69AE-11D9-BED3-505054503030}<br />**SO**: WS2016<br />**Tipo de servidor**: controlador de dominio, miembro de dominio, miembro de grupo de trabajo |\>\= Correcto<br /><sub>(auditoría)</sub> |Crítico |
-|Auditar creación de procesos<br /><sub>(CCE-36059-4)</sub> |**Descripción**: esta subcategoría informa de la creación de un proceso y el nombre del programa o el usuario que lo creó. Los eventos de esta subcategoría incluyen: - 4688: se creó un nuevo proceso. - 4696: se asignó un token primario al proceso. Consulte el artículo de Microsoft Knowledge Base 947226: [Descripción de los eventos de seguridad en Windows Vista y Windows Server 2008](https://support.microsoft.com/en-us/kb/947226) para obtener la información más reciente acerca de esta configuración. El estado recomendado para este valor de configuración es: `Success`.<br />**Ruta de acceso de la clave**: {0CCE922B-69AE-11D9-BED3-505054503030}<br />**SO**: WS2008, WS2008R2, WS2012, WS2012R2, WS2016<br />**Tipo de servidor**: controlador de dominio, miembro de dominio, miembro de grupo de trabajo |\>\= Correcto<br /><sub>(auditoría)</sub> |Crítico |
+|Auditar creación de procesos<br /><sub>(CCE-36059-4)</sub> |**Descripción**: esta subcategoría informa de la creación de un proceso y el nombre del programa o el usuario que lo creó. Los eventos de esta subcategoría incluyen: - 4688: se creó un nuevo proceso. - 4696: se asignó un token primario al proceso. El estado recomendado para este valor de configuración es: `Success`.<br />**Ruta de acceso de la clave**: {0CCE922B-69AE-11D9-BED3-505054503030}<br />**SO**: WS2008, WS2008R2, WS2012, WS2012R2, WS2016<br />**Tipo de servidor**: controlador de dominio, miembro de dominio, miembro de grupo de trabajo |\>\= Correcto<br /><sub>(auditoría)</sub> |Crítico |
 
 ## <a name="system-audit-policies---logon-logoff"></a>Directivas de auditoría del sistema: Iniciar sesión/Cerrar sesión
 
@@ -338,7 +338,7 @@ Para más información, consulte [Configuración de invitado de Azure Policy](..
 
 ## <a name="windows-firewall-properties"></a>Propiedades de Firewall de Windows
 
-|Nombre<br /><sub>(ID)</sub> |Detalles |Valor esperado<br /><sub>(tipo)</sub> |severity |
+|Nombre<br /><sub>(ID)</sub> |Detalles |Valor esperado<br /><sub>(tipo)</sub> |Gravedad |
 |---|---|---|---|
 |Firewall de Windows: Dominio: Permitir respuesta de unidifusión<br /><sub>(AZ-WIN-00088)</sub> |**Descripción**: <p><span>Esta opción es útil para controlar si este equipo recibirá respuestas de unidifusión a los mensajes de multidifusión o difusión salientes.</span></p><p><span>Se recomienda establecer esta opción en "Sí" para los perfiles privado y de dominio, lo que establecerá el valor del registro en 0.</span></p><br />**Ruta de acceso de la clave**: Software\Policies\Microsoft\WindowsFirewall\DomainProfile\DisableUnicastResponsesToMulticastBroadcast<br />**SO**: WS2008, WS2008R2, WS2012, WS2012R2, WS2016<br />**Tipo de servidor**: controlador de dominio, miembro de dominio |\= 0<br /><sub>(registro)</sub> |Advertencia |
 |Firewall de Windows: Dominio: Estado del Firewall<br /><sub>(CCE-36062-8)</sub> |**Descripción**: seleccione Activo (recomendado) para que Firewall de Windows con seguridad avanzada use la configuración de este perfil para filtrar el tráfico de red. Si selecciona Inactivo, Firewall de Windows con seguridad avanzada no usará ninguna regla de firewall ni de seguridad de conexión en este perfil.<br />**Ruta de acceso de la clave**: SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile\EnableFirewall<br />**SO**: WS2008, WS2008R2, WS2012, WS2012R2, WS2016<br />**Tipo de servidor**: controlador de dominio, miembro de dominio, miembro de grupo de trabajo |\= 1<br /><sub>(registro)</sub> |Crítico |

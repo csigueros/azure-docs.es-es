@@ -9,12 +9,12 @@ ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 09/09/2021
-ms.openlocfilehash: b1767a38cb7661ab074ad579d22f0512e5994eac
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 710a00da839db0005a1cb7ca316a100872a1b894
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124806015"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080106"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory-or-synapse-analytics"></a>Transformación de datos mediante la actividad de Hadoop Streaming en Azure Data Factory o Synapse Analytics
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -94,5 +94,4 @@ Vea los siguientes artículos, en los que se explica cómo transformar datos de 
 * [Actividad de MapReduce](transform-data-using-hadoop-map-reduce.md)
 * [Actividad de Spark](transform-data-using-spark.md)
 * [Actividad personalizada de .NET](transform-data-using-dotnet-custom-activity.md)
-* [Actividad de ejecución por lotes de ML Studio (clásico)](transform-data-using-machine-learning.md)
 * [Actividad de procedimiento almacenado](transform-data-using-stored-procedure.md)

@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 09/22/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security
-ms.openlocfilehash: 61e5bda5722d343aae2fc6be80312f13a21c415a
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 12c405c31c1918e917c2db7dca85a74128724b26
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129658200"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057749"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Protección de un área de trabajo de Azure Machine Learning con redes virtuales
 
@@ -119,7 +119,7 @@ Azure Machine Learning admite cuentas de almacenamiento configuradas para usar u
     > Al configurar una cuenta de almacenamiento que **no** sea el almacenamiento predeterminado, seleccione el tipo **Subrecurso de destino** correspondiente a la cuenta de almacenamiento que quiere agregar.
 
 1. Después de crear los puntos de conexión privados para los subrecursos, seleccione la pestaña __Firewalls y redes virtuales__ en __Redes__ en la cuenta de almacenamiento.
-1. Seleccione __Redes seleccionadas__ y, a continuación, en __Instancias de recursos__, seleccione `Microsoft.MachineLearningServices/Workspace` como __Tipo de recurso__. Seleccione el área de trabajo mediante __Nombre de instancia__. Para más información, consulte [Acceso de confianza basado en la identidad administrada asignada por el sistema](/azure/storage/common/storage-network-security#trusted-access-based-on-system-assigned-managed-identity).
+1. Seleccione __Redes seleccionadas__ y, a continuación, en __Instancias de recursos__, seleccione `Microsoft.MachineLearningServices/Workspace` como __Tipo de recurso__. Seleccione el área de trabajo mediante __Nombre de instancia__. Para más información, consulte [Acceso de confianza basado en la identidad administrada asignada por el sistema](../storage/common/storage-network-security.md#trusted-access-based-on-system-assigned-managed-identity).
 
     > [!TIP]
     > O bien, seleccione __Allow Azure services on the trusted services list to access this storage account__ (Permitir que los servicios de Azure de la lista de servicios de confianza accedan a esta cuenta de almacenamiento) para permitir un mayor acceso de los servicios de confianza. Para más información, vea [Configuración de Firewalls y redes virtuales de Azure Storage](../storage/common/storage-network-security.md#trusted-microsoft-services).
@@ -142,7 +142,7 @@ Azure Machine Learning admite cuentas de almacenamiento configuradas para usar u
     > [!IMPORTANT]
     > La cuenta de almacenamiento debe estar en la misma red virtual y subred que las instancias de proceso o clústeres usados para entrenamiento o inferencia.
 
-1. En la sección __Resource instances__ (Instancias de recursos), seleccione `Microsoft.MachineLearningServices/Workspace` como __Tipo de recurso__ y seleccione el área de trabajo mediante __Nombre de instancia__. Para más información, consulte [Acceso de confianza basado en la identidad administrada asignada por el sistema](/azure/storage/common/storage-network-security#trusted-access-based-on-system-assigned-managed-identity).
+1. En la sección __Resource instances__ (Instancias de recursos), seleccione `Microsoft.MachineLearningServices/Workspace` como __Tipo de recurso__ y seleccione el área de trabajo mediante __Nombre de instancia__. Para más información, consulte [Acceso de confianza basado en la identidad administrada asignada por el sistema](../storage/common/storage-network-security.md#trusted-access-based-on-system-assigned-managed-identity).
 
     > [!TIP]
     > O bien, seleccione __Allow Azure services on the trusted services list to access this storage account__ (Permitir que los servicios de Azure de la lista de servicios de confianza accedan a esta cuenta de almacenamiento) para permitir un mayor acceso de los servicios de confianza. Para más información, vea [Configuración de Firewalls y redes virtuales de Azure Storage](../storage/common/storage-network-security.md#trusted-microsoft-services).
@@ -170,7 +170,7 @@ Azure Key Vault se puede configurar para usar un punto de conexión privado o un
 
 # <a name="private-endpoint"></a>[Punto de conexión privado](#tab/pe)
 
-Para información sobre cómo usar un punto de conexión privado con Azure Key Vault, consulte [Integración de Key Vault con Azure Private Link](/azure/key-vault/general/private-link-service#establish-a-private-link-connection-to-key-vault-using-the-azure-portal).
+Para información sobre cómo usar un punto de conexión privado con Azure Key Vault, consulte [Integración de Key Vault con Azure Private Link](../key-vault/general/private-link-service.md#establish-a-private-link-connection-to-key-vault-using-the-azure-portal).
 
 
 # <a name="service-endpoint"></a>[Punto de conexión de servicio](#tab/se)
@@ -186,7 +186,7 @@ Para información sobre cómo usar un punto de conexión privado con Azure Key V
 
     :::image type="content" source="./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png" alt-text="Sección sobre firewalls y redes virtuales del panel de Key Vault":::
 
-Para más información, vea [Configuración de redes de Azure Key Vault](/azure/key-vault/general/how-to-azure-key-vault-network-security).
+Para más información, vea [Configuración de redes de Azure Key Vault](../key-vault/general/how-to-azure-key-vault-network-security.md).
 
 ---
 

@@ -5,12 +5,13 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
-ms.openlocfilehash: ea0a02366f2c2d2c3fd656d9a6dbce111d632422
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: bdbc77bdb1b0b16085c6df8fb302c5483c36a01f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112121196"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080695"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrar una base de conocimiento mediante la exportación e importación
 
@@ -23,19 +24,9 @@ Es posible que quiera crear una copia de la base de conocimiento por varios moti
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
-
 > * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
 > * Un [recurso de QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) creado en Azure Portal. Recuerde el identificador de Azure Active Directory, la suscripción y el nombre de recurso de QnA que seleccionó al crear el recurso.
 > * Configurar un [servicio QnA Maker](../How-To/set-up-qnamaker-service-azure.md) nuevo
-
-# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
-
-> * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
-> * Un [recurso de Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) con la característica de respuesta a preguntas personalizada habilitada en Azure Portal. Recuerde el identificador de Azure Active Directory, la suscripción y el nombre del recurso de Text Analytics que seleccionó al crear el recurso.
-> * Configure [Respuesta a preguntas personalizada](../How-To/set-up-qnamaker-service-azure.md)
-
----
 
 ## <a name="export-a-knowledge-base"></a>Exportación de una base de conocimiento
 1. Inicie sesión en el [portal de QnA Maker](https://qnamaker.ai).

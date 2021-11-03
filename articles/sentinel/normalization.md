@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2021
 ms.author: bagol
-ms.openlocfilehash: e90171faf59daf70bde2150036fdf0a757e53979
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 9bb09b6a9b65e0e10b2d7d2d1b02e29dde3e85fc
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128621402"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131009232"
 ---
 # <a name="normalization-and-the-azure-sentinel-information-model-asim-public-preview"></a>Normalización y modelo de información de Azure Sentinel (ASIM) (versión preliminar pública)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Azure Sentinel ingiere datos de muchos orígenes. Para trabajar con varios tipos de datos y tablas juntos, es necesario que los comprenda todos, y que escriba y use conjuntos únicos para reglas de análisis, libros y consultas de búsqueda para cada tipo o esquema.
 
@@ -69,7 +71,7 @@ El modelo de información de Azure Sentinel incluye los siguientes componentes:
 
 |Componente  |Descripción  |
 |---------|---------|
-|**Esquemas normalizados**     |   Abarcan los conjuntos estándar de tipos de eventos previsibles que puede usar al crear funcionalidades unificadas. <br><br>Cada esquema define los campos que representan un evento, una convención normalizada de nomenclatura de columnas y un formato estándar para los valores de campo. <br><br> ASIM define actualmente los siguientes esquemas:<br> - [Sesión de red](normalization-schema.md)<br> - [Actividad de DNS](dns-normalization-schema.md)<br> - [Evento de proceso](process-events-normalization-schema.md)<br> - [Evento de autenticación](authentication-normalization-schema.md)<br> - [Evento del Registro](registry-event-normalization-schema.md)<br> - [Actividad de archivo](file-event-normalization-schema.md)  <br><br>Para más información, consulte [Esquemas del modelo de información de Azure Sentinel](normalization-about-schemas.md).  |
+|**Esquemas normalizados**     |   Abarcan los conjuntos estándar de tipos de eventos previsibles que puede usar al crear funcionalidades unificadas. <br><br>Cada esquema define los campos que representan un evento, una convención normalizada de nomenclatura de columnas y un formato estándar para los valores de campo. <br><br> ASIM define actualmente los siguientes esquemas:<br> - [Sesión de red](./network-normalization-schema.md)<br> - [Actividad de DNS](dns-normalization-schema.md)<br> - [Evento de proceso](process-events-normalization-schema.md)<br> - [Evento de autenticación](authentication-normalization-schema.md)<br> - [Evento del Registro](registry-event-normalization-schema.md)<br> - [Actividad de archivo](file-event-normalization-schema.md)  <br><br>Para más información, consulte [Esquemas del modelo de información de Azure Sentinel](normalization-about-schemas.md).  |
 |**Analizadores**     |  Asigne los datos existentes a los esquemas normalizados usando [funciones KQL](/azure/data-explorer/kusto/query/functions/user-defined-functions). <br><br>Implemente los analizadores de normalización desarrollados por Microsoft desde la [carpeta "Parsers" del GitHub de Azure Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers). Los analizadores normalizados se encuentran en subcarpetas que empiezan por **ASim**.  <br><br>Para más información, consulte [Analizadores del modelo de información de Azure Sentinel](normalization-about-parsers.md).     |
 |**Contenido de cada esquema normalizado**     |    Incluye reglas de análisis, libros, consultas de búsqueda, etc. El contenido de cada esquema normalizado funciona en datos normalizados de cualquier tipo sin necesidad de crear contenido específico del origen. <br><br>Para más información, consulte [Contenido del modelo de información de Azure Sentinel](normalization-content.md).   |
 | | |

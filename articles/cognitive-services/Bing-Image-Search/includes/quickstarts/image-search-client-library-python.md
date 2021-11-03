@@ -8,18 +8,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: aahi
-ms.openlocfilehash: 338e4f0c1c47a7786e21ad98bb3e56a1505f9bb2
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: c9dd8bdfb9af1d20433a083b48ee1b7e14658438
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105105093"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131253674"
 ---
 Use este inicio rápido para buscar su primera imagen mediante la biblioteca cliente de Bing Image Search, un contenedor de la API y que contiene las mismas características. Esta sencilla aplicación de Python envía una consulta de búsqueda de imagen, analiza la respuesta de JSON y muestra la dirección URL de la primera imagen devuelta.
 
 El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image-search-quickstart.py) con anotaciones y control de errores adicionales.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * [Python 2.7 o 3.6 y superiores](https://www.python.org/)
 
@@ -52,14 +52,16 @@ El código fuente de este ejemplo está disponible en [GitHub](https://github.co
     ```python
     client = ImageSearchClient(endpoint=subscription_endpoint, credentials=CognitiveServicesCredentials(subscription_key))
     ```
+
 1. Envíe una consulta de búsqueda a Bing Image Search API:
+
     ```python
     image_results = client.images.search(query=search_term)
     ```
-   ## <a name="process-and-view-the-results"></a>Procese y visualice los resultados
+
+## <a name="process-and-view-the-results"></a>Procese y visualice los resultados
 
 Analice los resultados de la imagen devueltos en la respuesta.
-
 
 Si la respuesta contiene resultados de la búsqueda, almacene el primer resultado e imprima sus detalles, como la dirección URL de una miniatura, la dirección URL original, además del número total de imágenes devueltas.  
 

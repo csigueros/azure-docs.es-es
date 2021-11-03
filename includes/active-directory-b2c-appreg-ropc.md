@@ -1,16 +1,16 @@
 ---
-author: msmimart
+author: kengaderdus
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 10/08/2021
-ms.author: mimart
-ms.openlocfilehash: b3bf18bcc0c20407f9c0d4722b95266dde31d731
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.author: kengaderdus
+ms.openlocfilehash: 69695f17ca9be03d473c7b6220e557094413cc64
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129708616"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131008240"
 ---
 Para registrar una aplicación en su inquilino de Azure AD B2C, puede usar la nueva experiencia unificada **Registros de aplicaciones**, o bien la experiencia anterior **Aplicaciones (heredado)** . [Más información acerca de la nueva experiencia](../articles/active-directory-b2c/app-registrations-training-guide.md).
 

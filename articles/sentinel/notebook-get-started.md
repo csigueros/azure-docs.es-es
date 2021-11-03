@@ -7,14 +7,16 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: how-to
 ms.date: 08/23/2021
-ms.openlocfilehash: e5dc225d96021761fcdf12d5adf0f1fa371ebdb2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b6ba98d1e0640070ac8d36943e6f546e10018f4e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128594603"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131036967"
 ---
 # <a name="tutorial-get-started-with-jupyter-notebooks-and-msticpy-in-azure-sentinel"></a>Tutorial: Introducción a los cuadernos de Jupyter y MSTICPy en Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 En este tutorial se describe cómo ejecutar el cuaderno **Getting Started Guide For Azure Sentinel ML Notebooks** (Guía de introducción para cuadernos de ML de Azure Sentinel), que establece configuraciones básicas para ejecutar cuadernos de Jupyter en Azure Sentinel y consultas de datos sencillas.
 
@@ -264,7 +266,7 @@ Esta advertencia no afecta a la funcionalidad del cuaderno.
 
 ### <a name="authenticate-to-your-azure-sentinel-workspace-from-your-notebook"></a>Autenticación en el área de trabajo de Azure Sentinel desde el cuaderno
 
-Autentíquese en el área de trabajo de Azure Sentinel mediante la [autorización de dispositivos](/azure/active-directory/develop/v2-oauth2-device-code) con las credenciales de Azure.
+Autentíquese en el área de trabajo de Azure Sentinel mediante la [autorización de dispositivos](../active-directory/develop/v2-oauth2-device-code.md) con las credenciales de Azure.
 
 La autorización de dispositivos agrega otro factor a la autenticación mediante la generación de un código de dispositivo de un solo uso que se proporciona como parte del proceso de autenticación.
 
@@ -421,7 +423,6 @@ La mayoría de las consultas necesitan parámetros de hora. Las cadenas de fecha
 Cada proveedor de consultas tiene parámetros predeterminados de hora de inicio y finalización para las consultas. Estos parámetros de hora se usan de forma predeterminada, siempre que se necesiten. Puede cambiar el intervalo de tiempo predeterminado si abre el control `query_time`. Los cambios permanecen en vigor hasta que vuelva a cambiarlos.
 
 Continúe a la celda siguiente, con el código siguiente y ejecútelo:
-
 
 ```python
 # Open the query time control for your query provider
@@ -703,4 +704,3 @@ En la tabla siguiente se enumeran más referencias para obtener información sob
 |**MSTICPy**     |      - [Configuración del paquete MSTICPy](https://msticpy.readthedocs.io/en/latest/getting_started/msticpyconfig.html)<br> - [Editor de configuraciones de MSTICPy](https://msticpy.readthedocs.io/en/latest/getting_started/SettingsEditor.html)<br>    - [Configuración del entorno de Notebook](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/ConfiguringNotebookEnvironment.ipynb).<br>    - [Cuaderno MPSettingsEditor](https://github.com/microsoft/msticpy/blob/master/docs/notebooks/MPSettingsEditor.ipynb). <br><br>**Nota**: El repositorio Azure-Sentinel-Notebooks de GitHub también contiene un archivo *msticpyconfig.yaml* de plantilla con secciones comentadas, lo que puede ayudarle a comprender la configuración.      |
 |**Azure Sentinel y cuadernos de Jupyter**     |      - [Cuadernos de Jupyter: introducción](https://realpython.com/jupyter-notebook-introduction/)<br>    - [Documentación de MSTICPy](https://msticpy.readthedocs.io/)<br>    - [Documentación de cuadernos de Azure Sentinel](notebooks.md)<br>    - [The Infosec Jupyterbook](https://infosecjupyterbook.com/introduction.html)<br>    - [Tutorial del Cuaderno del Explorador de host de Linux](https://techcommunity.microsoft.com/t5/azure-sentinel/explorer-notebook-series-the-linux-host-explorer/ba-p/1138273)<br>    - [Por qué usar Jupyter para investigaciones de seguridad](https://techcommunity.microsoft.com/t5/azure-sentinel/why-use-jupyter-for-security-investigations/ba-p/475729)<br>    - [Investigaciones de seguridad con Azure Sentinel y Notebooks](https://techcommunity.microsoft.com/t5/azure-sentinel/security-investigation-with-azure-sentinel-and-jupyter-notebooks/ba-p/432921)<br>    - [Documentación de Pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/index.html)<br>    - [Documentación de Bokeh](https://docs.bokeh.org/en/latest/)       |
 |     |         |
-

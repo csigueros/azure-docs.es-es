@@ -6,12 +6,12 @@ ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 03/11/2021
-ms.openlocfilehash: 787a0e4990988f35ca8e2c98eab1d9c77bea9c1b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 476b77cd2f319e5c082235ade3468ddb2fd34d44
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128576360"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069451"
 ---
 # <a name="tutorial-create-a-serverless-real-time-chat-app-with-azure-functions-and-azure-web-pubsub-service"></a>Tutorial: Creación de una aplicación de chat en tiempo real sin servidor con Azure Functions y el servicio Azure Web PubSub
 
@@ -73,21 +73,25 @@ En este tutorial, aprenderá a:
 
 1. Instale explícitamente el paquete de extensión de la función `Microsoft.Azure.WebJobs.Extensions.WebPubSub`.
 
-   a. Quite la sección `extensionBundle` de `host.json` para habilitar la instalación de un paquete de extensión específico en el paso siguiente. O simplemente cree un archivo host.json tan simple como el siguiente.
-    ```json
-    {
+   1. Quite la sección `extensionBundle` de `host.json` para habilitar la instalación de un paquete de extensión específico en el paso siguiente. O simplemente cree un archivo host.json tan simple como el siguiente.
+
+      ```json
+      {
         "version": "2.0"
-    }
-    ```
-   b. Ejecute el comando para instalar un paquete de extensión de función específico.
-    ```bash
-    func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0-beta.3
-    ```
+      }
+      ```
+
+   1. Ejecute el comando para instalar un paquete de extensión de función específico.
+
+      ```bash
+      func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0-beta.3
+      ```
 
 1. Cree una función `index` para leer y hospedar una página web estática para los clientes.
     ```bash
     func new -n index -t HttpTrigger
     ```
+
    # <a name="javascript"></a>[JavaScript](#tab/javascript)
    - Actualice `index/function.json` y copie los siguientes códigos de JSON.
         ```json

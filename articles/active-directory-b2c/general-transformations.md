@@ -3,20 +3,20 @@ title: Ejemplos de transformación de notificaciones generales para directivas p
 titleSuffix: Azure AD B2C
 description: Ejemplos de transformación de notificaciones generales para el esquema de Identity Experience Framework (IEF) de Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/03/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 52831a1907d5ca8d13b0477c909d0d0358873973
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7024079269481792b45b121cee97223580aabe28
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85202227"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131007284"
 ---
 # <a name="general-claims-transformations"></a>Transformaciones de notificaciones generales
 

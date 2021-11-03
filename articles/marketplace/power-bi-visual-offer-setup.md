@@ -8,12 +8,12 @@ ms.service: powerbi
 ms.subservice: powerbi-custom-visuals
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: eca02cf776eb1f6fa690ecefd865dadbc3d9be78
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 916013d7bde10e63985324d736a755183200bf3e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129080076"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079365"
 ---
 # <a name="create-a-power-bi-visual-offer"></a>Creación de una oferta de objeto visual de Power BI
 
@@ -33,7 +33,7 @@ Revise [Planificación de una oferta de objeto visual de Power BI](marketplace-
 
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
 
-1. En la página principal, seleccione el elemento **Ofertas de Marketplace**.
+1. En la página principal, seleccione el icono **Ofertas de Marketplace**.
 
     [ ![Muestra el elemento Ofertas de Marketplace en la página principal del Centro de partners.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
@@ -73,7 +73,7 @@ Seleccione **Crear** para generar la oferta y continuar. En el Centro de partner
 
 En **Additional purchases** (Compras adicionales), seleccione si la oferta requiere o no compras de un servicio o compras adicionales en la aplicación.
 
-En **Power BI certification** (Certificación de Power BI) (opcional), lea detenidamente la descripción y, si desea solicitar una certificación de Power BI, active la casilla. Los objetos visuales de Power BI [certificados](https://aka.ms/PBIvisualcertification) cumplen determinados requisitos de código especificados que el equipo de Microsoft Power BI ha probado y aprobado. Se recomienda enviar y publicar el objeto visual de Power BI *antes* de solicitar la certificación, ya que el proceso de certificación tarda más tiempo, de modo que podría retrasar la publicación de la oferta.
+En **Power BI certification** (Certificación de Power BI) (opcional), lea detenidamente la descripción y, si desea solicitar una certificación de Power BI, active la casilla. Los objetos visuales de Power BI [certificados](/power-bi/developer/visuals/power-bi-custom-visuals-certified) cumplen determinados requisitos de código especificados que el equipo de Microsoft Power BI ha probado y aprobado. Se recomienda enviar y publicar el objeto visual de Power BI *antes* de solicitar la certificación, ya que el proceso de certificación tarda más tiempo, de modo que podría retrasar la publicación de la oferta.
 
 ## <a name="customer-leads"></a>Clientes potenciales
 

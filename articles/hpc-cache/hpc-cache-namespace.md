@@ -1,17 +1,17 @@
 ---
 title: Uso del espacio de nombres agregado de Azure HPC Cache
 description: Planeación del espacio de nombres virtual para Azure HPC Cache
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
-ms.author: v-erkel
-ms.openlocfilehash: 500cc23f2091c38006f7e58e150fb246f2a9ca64
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.author: femila
+ms.openlocfilehash: de93648ab6304f42b2650eb6bba80e7224d2d57f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113586912"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131087768"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Planeamiento del espacio de nombres agregado
 

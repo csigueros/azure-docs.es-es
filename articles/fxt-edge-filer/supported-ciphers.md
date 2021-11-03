@@ -1,17 +1,17 @@
 ---
 title: Cifrados admitidos para Azure FXT Edge Filer
 description: Lista de estándares de cifrado usados por los clústeres de FXT Edge Filer.
-author: ekpgh
-ms.author: v-erkel
+author: femila
+ms.author: femila
 ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 05/20/2021
-ms.openlocfilehash: 8d1a49bc8e5c9883a094b9a0e3d624cf127ac568
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 0c05e821ab19c4a617a8a6e13bd7f1c37331a661
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111415356"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131033007"
 ---
 # <a name="supported-encryption-standards-for-azure-fxt-edge-filer"></a>Estándares de cifrado admitidos para Azure FXT Edge Filer
 
@@ -25,10 +25,10 @@ Cualquier sistema administrativo o de infraestructura que se conecte a la caché
 
 ## <a name="tls-standard"></a>Estándar TLS
 
-* TLS1.2 debe estar habilitado.
+* TLS 1.2 debe estar habilitado.
 * SSL V2 y V3 deben estar deshabilitados.
 
-TLS1.0 y TLS1.1 se pueden usar si es absolutamente necesario para la compatibilidad con versiones anteriores con almacenes de objetos privados, pero es mejor actualizar el almacenamiento privado a estándares de seguridad modernos. Póngase en contacto con el servicio al cliente y el soporte técnico de Microsoft para obtener más información.
+TLS1.0 y TLS1.1 se pueden usar si es absolutamente necesario para la compatibilidad con versiones anteriores con almacenes de objetos privados, pero es mejor actualizar el almacenamiento privado a estándares de seguridad modernos. Póngase en contacto con el servicio al cliente y el soporte técnico de Microsoft para más información.
 
 ## <a name="permitted-cipher-suites"></a>Conjuntos de cifrado permitidos
 
@@ -43,13 +43,13 @@ Azure FXT Edge Filer permite negociar los siguientes conjuntos de cifrado TLS:
 * ECDHE-RSA-AES128-SHA256
 * ECDHE-RSA-AES256-SHA384
 
-La interfaz HTTPS administrativa del clúster (que se usa para la GUI web del Panel de control y las conexiones RPC administrativas) solo admite los conjuntos de cifrado anteriores y TLS1.2. No se admiten otros protocolos ni conjuntos de cifrado al conectarse a la interfaz administrativa.
+La interfaz HTTPS administrativa del clúster (que se usa para la GUI web del Panel de control y las conexiones RPC administrativas) solo admite los conjuntos de cifrado anteriores y TLS 1.2. No se admiten otros protocolos ni conjuntos de cifrado al conectarse a la interfaz administrativa.
 
 ## <a name="ssh-server-access"></a>Acceso al servidor SSH
 
 Estos estándares se aplican al servidor SSH que está insertado en estos productos.
 
-El servidor SSH no permite el inicio de sesión remoto como el superusuario "root". Si se requiere acceso remoto a SSH según las instrucciones del servicio de atención al cliente y soporte técnico de Microsoft, inicie sesión como usuario "admin" de SSH, que tiene un shell restringido.
+El servidor SSH no permite el inicio de sesión remoto con el superusuario "root". Si se requiere acceso remoto a SSH según las instrucciones del servicio de atención al cliente y soporte técnico de Microsoft, inicie sesión como usuario "admin" de SSH, que tiene un shell restringido.
 
 Los siguientes conjuntos de cifrado SSH están disponibles en el servidor SSH del clúster. Asegúrese de que cualquier cliente que use SSH para conectarse al clúster tenga software actualizado que cumpla estos estándares.
 

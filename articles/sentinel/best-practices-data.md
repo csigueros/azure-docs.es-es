@@ -8,14 +8,17 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/21/2021
-ms.openlocfilehash: 7c29ae41acd800a3e8893ec50ef25cb77c89fe04
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 0ba9d4d1452b0a3248e7df817561ec080c95ca93
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124810164"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131047618"
 ---
 #  <a name="data-collection-best-practices"></a>Procedimientos recomendados para la recopilación de datos
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 En esta sección se revisan los procedimientos recomendados para recopilar datos mediante conectores de datos de Azure Sentinel. Para obtener más información, consulte [Conexión de orígenes de datos](connect-data-sources.md), la [referencia de conectores de datos de Azure Sentinel](data-connectors-reference.md) y el [catálogo de soluciones de Azure Sentinel](sentinel-solutions-catalog.md).
 

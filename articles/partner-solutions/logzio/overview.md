@@ -4,14 +4,14 @@ description: Obtenga información sobre la integración de Azure mediante Logz.i
 author: tfitzmac
 ms.topic: conceptual
 ms.service: partner-services
-ms.date: 07/28/2021
+ms.date: 10/25/2021
 ms.author: tomfitz
-ms.openlocfilehash: e7562da90fe9a003fd3dddc0013308fff582cae1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4bbf2d1ffddc2658a10b4c90d34b1c0485e613cb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780571"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056383"
 ---
 # <a name="what-is-logzio-integration-with-azure"></a>¿Qué es la integración de Logz.io en Azure?
 

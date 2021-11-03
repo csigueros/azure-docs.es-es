@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 03/26/2021
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bafefd37647ee9d1f880c076348e4d20bead41c8
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: a799d161aef0047524d37e02b64b13debdacf5a4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111754266"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131020813"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-powershell"></a>Inicio rápido: Creación de un punto de conexión privado mediante Azure PowerShell
 
@@ -203,11 +203,10 @@ En esta sección, utilizará la máquina virtual creada en el paso anterior para
     
     Server:  cdns01.comcast.net
     Address:  2001:558:feed::1
+        cdns01.comcast.net can't find myattestationprovider.eus.attest.azure.net: Non-existent domain
 
-    cdns01.comcast.net can't find myattestationprovider.eus.attest.azure.net: Non-existent domain
-    
     #>
-    
+
     ## Access the attestation provider from the VM created in the same virtual network as the private endpoint.   ##
     nslookup myattestationprovider.eus.attest.azure.net
     

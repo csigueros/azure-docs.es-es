@@ -3,19 +3,19 @@ title: Compatibilidad con idiomas
 titleSuffix: Azure Cognitive Services
 description: Azure Cognitive Services permite crear aplicaciones que ven, oyen, hablan y entienden a los usuarios. Entre estos servicios, se admiten más de 30 idiomas, lo que permite que los usuarios se comuniquen con la aplicación de forma natural.
 services: cognitive-services
-author: erhopf
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.author: erhopf
+ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: fd30e8f7489d320a307e2797f7488da828f32827
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: a44eb178b3e664af73d4e15474bae64aa92f704f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123472261"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131020224"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Compatibilidad con idiomas naturales para Azure Cognitive Services
 

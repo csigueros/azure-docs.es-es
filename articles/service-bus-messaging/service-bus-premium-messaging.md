@@ -3,12 +3,13 @@ title: Niveles premium y estándar de Azure Service Bus
 description: En este artículo se describen los niveles estándar y premium de Azure Service Bus. Compara estos niveles y proporciona diferencias técnicas.
 ms.topic: conceptual
 ms.date: 10/06/2021
-ms.openlocfilehash: e3899dec34a8c39de0bede60e7cc520989a3239f
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 67439ad4c3d51dc354007b11008179d210aeaca6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129620261"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046819"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Niveles de mensajería Premium y Estándar de Service Bus
 
@@ -24,7 +25,7 @@ En la tabla siguiente, se resaltan algunas de las principales diferencias.
 | Rendimiento predecible |Latencia variable |
 | Precio fijo |Precios según la variante de pago por uso |
 | Posibilidad de escalar y de reducir verticalmente la carga de trabajo |N/D |
-| Tamaño de mensaje de hasta 1 MB. Actualmente existe [compatibilidad con cargas de mensajes de hasta 100 MB](#large-messages-support-preview) en versión preliminar. |Tamaño de mensaje de hasta 256 KB |
+| Tamaño de mensaje de hasta 1 MB. |Tamaño de mensaje de hasta 256 KB |
 
 La **mensajería Premium de Service Bus** proporciona aislamiento de recursos en el nivel de CPU y memoria para que cada carga de trabajo de cliente se ejecute de forma aislada. Este contenedor de recursos se llama *unidad de mensajería*. A cada espacio de nombres premium se le asigna al menos una unidad de mensajería. Puede comprar 1, 2, 4, 8 o 16 unidades de mensajería para cada espacio de nombres Premium de Service Bus. Una sola carga de trabajo o entidad puede abarcar varias unidades de mensajería y el número de unidades de mensajería puede cambiarse a voluntad. El resultado es un rendimiento predecible y repetible para su solución basada en Service Bus.
 
@@ -93,7 +94,7 @@ La introducción a la mensajería premium es muy sencilla y el proceso es simila
 
 También puede crear un [espacios de nombres premium con plantillas de Azure Resource Manager](https://azure.microsoft.com/resources/templates/servicebus-pn-ar/).
 
-## <a name="large-messages-support-preview"></a>Compatibilidad con mensajes grandes (versión preliminar)
+## <a name="large-messages-support"></a>Compatibilidad con mensajes grandes
 Los espacios de nombres de nivel Prémium de Azure Service Bus admiten la capacidad de enviar cargas de mensajes grandes, de hasta 100 MB. Esta característica está destinada principalmente a cargas de trabajo heredadas que han usado cargas de mensajes mayores en otros agentes de mensajería empresarial y buscan migrar sin problemas a Azure Service Bus.
 
 Estas son algunas consideraciones que deben tenerse en cuenta al enviar mensajes grandes en Azure Service Bus:
@@ -123,5 +124,3 @@ Para más información sobre Mensajería de Service Bus, consulte los vínculos 
 - [Actualización automática de unidades de mensajería](automate-update-messaging-units.md).
 - [Introducción a la mensajería Premium de Azure Service Bus (entrada de blog)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [Introducción a la mensajería Premium de Azure Service Bus (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
-
-

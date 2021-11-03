@@ -1,17 +1,17 @@
 ---
 title: Uso de grupos extendidos en Azure HPC Cache
 description: Cómo configurar servicios de directorio para el acceso de cliente a destinos de almacenamiento en Azure HPC Cache
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/15/2021
-ms.author: v-erkel
-ms.openlocfilehash: 9db7576cb2278cc2ef0d8b93ef04bb633962cd0e
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.author: femila
+ms.openlocfilehash: 21bf14ad46ec1625e4c8eb5efed1002da7ed159e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107255756"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131019920"
 ---
 # <a name="configure-directory-services"></a>Configuración de servicios de directorio
 

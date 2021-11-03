@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: devx-track-js
-ms.openlocfilehash: 8cd1cd820583a177ec65c9b63066119399e4bba0
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 512eff61d6195ad0ff21a4d22bc4a9e633f7d109
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123435157"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131006722"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Uso del módulo de servicios de Azure Maps
 
@@ -26,19 +26,19 @@ El SDK web de Azure Maps proporciona un *módulo de servicios*. Este módulo es 
 1. Cargue el módulo de servicios de Azure Maps. Puede realizar ese procedimiento de alguna de estas dos formas:
     - Utilizar la versión de Azure Content Delivery Network hospedada globalmente del módulo de servicios de Azure Maps. Agregue una referencia de script al elemento `<head>` del archivo:
 
-        ```html
-        <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
-        ```
+    ```html
+    <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
+    ```
 
     - Si lo desea, también puede cargar localmente el módulo de servicios del SDK web de Azure Maps utilizando el paquete npm [azure-maps-rest](https://www.npmjs.com/package/azure-maps-rest) y hospedarlo después con la aplicación. Este paquete también incluye las definiciones de TypeScript. Use este comando:
-    
-        > **npm install azure-maps-rest**
-    
-        A continuación, agregue una referencia de script al elemento `<head>` del archivo:
 
-         ```html
-        <script src="node_modules/azure-maps-rest/dist/atlas-service.min.js"></script>
-         ```
+      `npm install azure-maps-rest`
+
+      A continuación, agregue una referencia de script al elemento `<head>` del archivo:
+
+      ```html
+      <script src="node_modules/azure-maps-rest/dist/atlas-service.min.js"></script>
+      ```
 
 1. Cree una canalización de autenticación. Para poder inicializar un punto de conexión de cliente con la dirección URL del servicio, primero debe crearse la canalización. Use su propia clave de cuenta de Azure Maps o las credenciales de Azure Active Directory (Azure AD) para autenticar el cliente de servicio de búsqueda de Azure Maps. En este ejemplo, se creará el cliente de dirección URL de servicio de búsqueda. 
 

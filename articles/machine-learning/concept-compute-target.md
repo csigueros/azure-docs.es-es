@@ -8,13 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/27/2021
-ms.openlocfilehash: b91dac0889da88b81d4306dff6eda4c45bcb6080
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.date: 10/21/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 96f0f011382fb631416665cad58ca7d7324fcb24
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129713404"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131076628"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>¿Qué son los destinos de proceso en Azure Machine Learning?
 
@@ -99,7 +100,7 @@ Consulte la tabla siguiente para más información sobre las series admitidas y 
 | [HBv2](../virtual-machines/hbv2-series.md) | Requiere aprobación. |  Informática de alto rendimiento | Clústeres de proceso e instancia |
 | [HBv3](../virtual-machines/hbv3-series.md) | Requiere aprobación. |  Informática de alto rendimiento | Clústeres de proceso e instancia |
 | [HC](../virtual-machines/hc-series.md) | Requiere aprobación. |  Informática de alto rendimiento | Clústeres de proceso e instancia |
-| [LSv2](../virtual-machines/lsv2-series.md) | Ninguno. |  Almacenamiento oprimido | Clústeres de proceso e instancia |
+| [LSv2](../virtual-machines/lsv2-series.md) | Ninguno. |  Almacenamiento optimizado | Clústeres de proceso e instancia |
 | [M](../virtual-machines/m-series.md) | Requiere aprobación. | Memoria optimizada | Clústeres de proceso e instancia |
 | [NC](../virtual-machines/nc-series.md) | Ninguno. |  GPU | Clústeres de proceso e instancia |
 | [NC Promo](../virtual-machines/nc-series.md) | Ninguno. | GPU | Clústeres de proceso e instancia |

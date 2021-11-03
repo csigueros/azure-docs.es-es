@@ -3,20 +3,20 @@ title: Ejemplos de transformación de notificaciones de cadena para directivas p
 titleSuffix: Azure AD B2C
 description: Ejemplos de transformación de notificaciones de cadena para el esquema de Identity Experience Framework (IEF) de Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 07/20/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: f581d7f4400e4cff734e3094d5957fec6148488f
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 2327cb0bd2760492858c8a2a3105c5a5ee55368b
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129536328"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131032285"
 ---
 # <a name="string-claims-transformations"></a>Transformaciones de notificaciones de cadena
 

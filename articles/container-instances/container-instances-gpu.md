@@ -3,12 +3,12 @@ title: Implementación de una instancia de contenedor habilitada para GPU
 description: Aprenda a implementar instancias de contenedor de Azure para ejecutar aplicaciones de contenedor de uso intensivo de proceso utilizando recursos de GPU.
 ms.topic: article
 ms.date: 07/22/2020
-ms.openlocfilehash: fd9441f0ba92f4753271df4daba88ed690c9ee30
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 8950858ff822a28272c17d18de8869d3e03d673d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123108384"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057882"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Implementación de instancias de contenedor que usan recursos de GPU
 
@@ -77,7 +77,7 @@ Una forma de agregar los recursos de GPU es implementar un grupo de contenedores
  > [!NOTE]
   > En el ejemplo siguiente se usa una imagen de contenedor público. Para mejorar la confiabilidad, importe y administre la imagen en un registro de contenedor privado de Azure y actualice el archivo YAML para usar la imagen base administrada de forma privada. [Más información sobre cómo trabajar con imágenes públicas](../container-registry/buffer-gate-public-content.md).
 
-```YAML
+```yaml
 additional_properties: {}
 apiVersion: '2019-12-01'
 name: gpucontainergroup

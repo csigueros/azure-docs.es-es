@@ -4,25 +4,20 @@ description: Obtenga información sobre los comandos comunes para automatizar la
 author: TheovanKraay
 ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
-ms.date: 09/17/2021
+ms.date: 11/02/2021
 ms.author: thvankra
-ms.custom: devx-track-azurecli, seo-azure-cli
+ms.custom: devx-track-azurecli, seo-azure-cli, ignite-fall-2021
 keywords: CLI de Azure Resource Manager
-ms.openlocfilehash: 72cada375a6c88f5a3401acb77f0a982d231d0a4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6f299601c013363965697b026a0f563fba4a7ae6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128663732"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131020129"
 ---
-# <a name="manage-azure-managed-instance-for-apache-cassandra-resources-using-azure-cli-preview"></a>Administración de recursos de Azure Managed Instance for Apache Cassandra mediante la CLI de Azure (versión preliminar)
+# <a name="manage-azure-managed-instance-for-apache-cassandra-resources-using-azure-cli"></a>Administración de recursos de Azure Managed Instance for Apache Cassandra mediante la CLI de Azure
 
 En este artículo se describen los comandos comunes para automatizar la administración de Azure Managed Instance para clústeres de Apache Cassandra mediante la CLI de Azure.
-
-> [!IMPORTANT]
-> Azure Managed Instance for Apache Cassandra se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 

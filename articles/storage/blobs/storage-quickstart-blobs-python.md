@@ -7,15 +7,13 @@ ms.date: 01/28/2021
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: blobs
-ms.custom:
-- devx-track-python
-- mode-api
-ms.openlocfilehash: fdb5e14d57e2e8f9fa4bcf0cba5d54dba253e935
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: devx-track-python, mode-api
+ms.openlocfilehash: 4753c10ab472a9369ea937bef766c703fe328950
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128587563"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008738"
 ---
 # <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>Inicio rápido: Administración de blobs con el SDK de Python v12
 
@@ -28,7 +26,7 @@ Más recursos:
 - [Paquete (índice de paquetes de Python)](https://pypi.org/project/azure-storage-blob/)
 - [Muestras](../common/storage-samples-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Una cuenta de Azure Storage. [Crear una cuenta de almacenamiento](../common/storage-account-create.md).

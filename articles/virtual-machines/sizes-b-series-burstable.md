@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: risverma
-ms.openlocfilehash: b6a7efc543af12cbcac575a0b6fedfe9caba7833
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 10cbec1c0d304ccb1e1fb1dee9ef1daa197ae1e5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130073570"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131074448"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tamaños de las máquinas virtuales ampliables serie B
 
@@ -30,7 +30,7 @@ La serie B incluye los siguientes tamaños de máquina virtual:
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): Compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible \*\*<br>
-[Discos de sistema operativo efímero](ephemeral-os-disks.md): No compatible <br>
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible <br>
 
 *Las máquinas virtuales de la serie B son ampliables y, por tanto, los números de ACU variarán en función de las cargas de trabajo y del uso principal.<br>
 **Las redes aceleradas solo son compatibles con *Standard_B12ms*, *Standard_B16ms* y *Standard_B20ms*.

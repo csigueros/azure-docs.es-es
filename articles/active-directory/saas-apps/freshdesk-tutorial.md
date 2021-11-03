@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 53ab7bcc6944d3f7650018238bd326037c5fff41
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: da17ca007d47624c9d0bf5b233451b7a131696cd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124746941"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046344"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Tutorial: Integración de Azure Active Directory con Freshdesk
 
@@ -26,7 +26,7 @@ En este tutorial, obtendrá información sobre cómo integrar FreshDesk con Azur
 * Permitir que los usuarios inicien sesión automáticamente en FreshDesk con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
  
@@ -73,12 +73,12 @@ Para configurar y probar el inicio de sesión único de Azure AD con FreshDesk,
 
 1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<tenant-name>.freshdesk.com` u otro valor que Freshdesk haya sugerido.
+    1. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<tenant-name>.freshdesk.com` u otro valor que Freshdesk haya sugerido.
 
-    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<tenant-name>.freshdesk.com` u otro valor que Freshdesk haya sugerido.
+    1. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<tenant-name>.freshdesk.com` u otro valor que Freshdesk haya sugerido.
      
-    c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<tenant-name>.freshdesk.com/login/saml`
-    
+    1. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<tenant-name>.freshdesk.com/login/saml`
+
     > [!NOTE]
     > Estos valores no son reales. Actualícelos con la dirección URL de respuesta, el identificador y la dirección URL de inicio de sesión reales. Para obtener estos valores, póngase en contacto con el [equipo de soporte técnico de FreshDesk](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg). También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
@@ -127,21 +127,21 @@ En esta sección, va a permitir que B.Simon acceda a FreshDesk mediante el inici
 
     ![Inicio de sesión único](./media/freshdesk-tutorial/configure-1.png "Inicio de sesión único")
   
-    a. En **Single Sign On** (Inicio de sesión único), seleccione **On** (Activado).
+    1. En **Single Sign On** (Inicio de sesión único), seleccione **On** (Activado).
 
-    b. En **Login Method** (Método de inicio de sesión), seleccione **SAML SSO** (SSO de SAML).
+    1. En **Login Method** (Método de inicio de sesión), seleccione **SAML SSO** (SSO de SAML).
 
-    c. En el cuadro de texto **Entity ID provided by the IdP** (Identificador de entidad proporcionado por el IdP), pegue el valor de **Entity ID** (Id. de entidad) que ha copiado de Azure Portal.
+    1. En el cuadro de texto **Entity ID provided by the IdP** (Identificador de entidad proporcionado por el IdP), pegue el valor de **Entity ID** (Id. de entidad) que ha copiado de Azure Portal.
 
-    d. En el cuadro de texto **SAML SSO URL** (Dirección URL de inicio de sesión único de SAML), pegue el valor de **URL de inicio de sesión** que copió en Azure Portal.
+    1. En el cuadro de texto **SAML SSO URL** (Dirección URL de inicio de sesión único de SAML), pegue el valor de **URL de inicio de sesión** que copió en Azure Portal.
 
-    e. En **Signing Options** (Opciones de firma), seleccione **Only Signed Assertions** (Solo aserciones firmadas) en la lista desplegable.
+    1. En **Signing Options** (Opciones de firma), seleccione **Only Signed Assertions** (Solo aserciones firmadas) en la lista desplegable.
 
-    f. En el cuadro de texto **Sign Out URL** (URL de cierre de sesión), pegue el valor de **Logout URL** (Dirección URL de cierre de sesión) que ha copiado de Azure Portal.
+    1. En el cuadro de texto **Sign Out URL** (URL de cierre de sesión), pegue el valor de **Logout URL** (Dirección URL de cierre de sesión) que ha copiado de Azure Portal.
 
-    g. En el cuadro de texto **Security Certificate** (Certificado de seguridad), pegue el valor de **Certificate (Base64)** (Certificado [Base64]), que ha obtenido anteriormente.
+    1. En el cuadro de texto **Security Certificate** (Certificado de seguridad), pegue el valor de **Certificate (Base64)** (Certificado [Base64]), que ha obtenido anteriormente.
   
-    h. Haga clic en **Save**(Guardar).
+    1. Haga clic en **Save**(Guardar).
 
 ## <a name="create-freshdesk-test-user"></a>Creación de un usuario de prueba de FreshDesk
 

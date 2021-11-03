@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 91ed308ecbeeb839dfddb78c0151e2c8aafd0d3b
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: e90438e0987f26aa57264825cd2b2bae24f1c12e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123122556"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131253624"
 ---
 En este artículo de inicio rápido aprenderá a iniciar una llamada de vídeo 1:1 con el SDK de llamada de Azure Communication Services para Windows.
 
@@ -35,7 +35,7 @@ Vaya a `Package.appxmanifest` y haga clic en `Capabilities`.
 Compruebe `Internet (Client & Server)` para obtener acceso entrante y saliente a Internet. Compruebe `Microphone` para acceder a la fuente de audio del micrófono. Compruebe `WebCam` para acceder a la cámara del dispositivo. 
 
 Agregue el código siguiente a `Package.appxmanifest`, para lo que debe clic con el botón derecho y elegir View Code (Ver código). 
-```XML
+```xml
 <Extensions>
 <Extension Category="windows.activatableClass.inProcessServer">
 <InProcessServer>

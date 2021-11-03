@@ -12,22 +12,19 @@ ms.technology: devops-cicd
 ms.topic: quickstart
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.custom:
-- mvc
-- devx-track-python
-- mode-api
-ms.openlocfilehash: d236eadd4c1c3bbda5a781d00de43e4ed3dc88b9
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.custom: mvc, devx-track-python, mode-api
+ms.openlocfilehash: d2c739c78b4cbbc39cc41653972238f42f509708
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107533274"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131016480"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-starter"></a>Creación de una canalización de CI/CD para Python con Azure DevOps Starter
 
 En este inicio rápido se usa la experiencia simplificada de Azure DevOps Starter para configurar una canalización de integración continua (CI) y entrega continua (CD) para una aplicación de Python en Azure Pipelines. Azure DevOps Starter se puede usar para configurar todo lo necesario para desarrollar, implementar y supervisar una aplicación. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
 - Una cuenta de [Azure DevOps](https://azure.microsoft.com/services/devops/) y una organización.

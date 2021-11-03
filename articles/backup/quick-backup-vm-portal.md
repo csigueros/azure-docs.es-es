@@ -4,15 +4,13 @@ description: En esta guía de inicio rápido, aprenda a crear un almacén de Rec
 ms.date: 05/12/2020
 ms.topic: quickstart
 ms.devlang: azurecli
-ms.custom:
-- mvc
-- mode-portal
-ms.openlocfilehash: 9779f84e6ddf1958ee234a96267171869a33e4e0
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.custom: mvc, mode-portal
+ms.openlocfilehash: 8013e3868bc47cfc506b02dfe9f91693b80164c1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107535048"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131020477"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Copia de seguridad de una máquina virtual en Azure
 

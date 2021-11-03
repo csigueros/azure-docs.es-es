@@ -3,20 +3,20 @@ title: Referencia de los controles de visualización
 titleSuffix: Azure AD B2C
 description: Referencia para los controles de visualización de Azure AD B2C. Use controles de visualización para personalizar los recorridos de usuario definidos en las directivas personalizadas.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 07/20/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 4b6ea85cfaf32ab9ba2c04c40befbe1fbf8ce915
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 498946016a057d39bbd2bd62af9829a56f77fa01
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114445477"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131007360"
 ---
 # <a name="display-controls"></a>Controles de visualización
 

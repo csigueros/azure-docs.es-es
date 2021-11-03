@@ -3,20 +3,19 @@ title: 'Inicio rápido: Creación de un plano técnico con PowerShell'
 description: En este inicio rápido se usa Azure Blueprints para crear, definir e implementar artefactos mediante PowerShell.
 ms.date: 08/17/2021
 ms.topic: quickstart
-ms.custom:
-- mode-api
-ms.openlocfilehash: 5d7ec20ef744358fc393da42cd356bb30cf5579d
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.custom: mode-api
+ms.openlocfilehash: 2891c46929dde7509950f86b35840e36d175fee9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323036"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131081265"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Inicio rápido: Definición y asignación de un plano técnico de Azure Blueprint con PowerShell
 
 Aprender a crear y asignar planos técnicos permite definir patrones comunes para desarrollar configuraciones reutilizables y de implementación rápida basadas en plantillas de Azure Resource Manager, directivas, seguridad, etc. En este tutorial, aprenderá a usar planos técnicos de Azure Blueprint para realizar algunas de las tareas más comunes relacionadas con la creación, asignación y administración de directivas en toda la organización, como, por ejemplo:
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar.
 - Si aún no se ha instalado, siga las instrucciones en [Adición del módulo Az.Blueprint](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) para instalar y validar el módulo **Az.Blueprint** desde la Galería de PowerShell.

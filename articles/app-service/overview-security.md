@@ -5,12 +5,12 @@ keywords: azure app service, aplicación web, aplicación móvil, api app, aplic
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: d661781d7eea0b5627dcab13648422003c82e0a4
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: c4c69ba78460f8a629848717da6bb76a782d1aa2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130220470"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045565"
 ---
 # <a name="security-in-azure-app-service"></a>Seguridad en Azure App Service
 
@@ -55,7 +55,7 @@ La funcionalidad de autorización y autenticación de App Service admite varios 
 
 Al autenticarse con un servicio back-end, App Service proporciona dos mecanismos diferentes dependiendo de sus necesidades:
 
-- **Identidad de servicio**: inicie sesión en el recurso remoto con la identidad de la propia aplicación. App Service permite crear fácilmente una [identidad administrada](overview-managed-identity.md), que puede usar para autenticarse en otros servicios, como [Azure SQL Database](/azure/sql-database/) o [Azure Key Vault](../key-vault/index.yml). Para ver un tutorial completo sobre este tema, consulte [Tutorial: protección de la conexión con Azure SQL Database desde App Service mediante una identidad administrada](app-service-web-tutorial-connect-msi.md).
+- **Identidad de servicio**: inicie sesión en el recurso remoto con la identidad de la propia aplicación. App Service permite crear fácilmente una [identidad administrada](overview-managed-identity.md), que puede usar para autenticarse en otros servicios, como [Azure SQL Database](/azure/sql-database/) o [Azure Key Vault](../key-vault/index.yml). Para ver un tutorial completo sobre este tema, consulte [Tutorial: protección de la conexión con Azure SQL Database desde App Service mediante una identidad administrada](tutorial-connect-msi-sql-database.md).
 - **En nombre de otra persona (OBO)** : cree un acceso delegado a los recursos remotos en nombre del usuario. Con Azure Active Directory como proveedor de autenticación, la aplicación de App Service puede realizar un inicio de sesión delegada a un servicio remoto, como [Microsoft Graph API](../active-directory/develop/microsoft-graph-intro.md) o una aplicación de API remota en App Service. Para ver un tutorial completo sobre este tema, consulte [Autenticación y autorización de usuarios de un extremo a otro en Azure App Service](tutorial-auth-aad.md).
 
 ## <a name="connectivity-to-remote-resources"></a>Conectividad a los recursos remotos

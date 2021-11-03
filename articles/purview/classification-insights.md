@@ -6,12 +6,13 @@ ms.author: bagol
 ms.service: purview
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: c5f0f409f009d66afd0cb6103e2018c527c0b0a2
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 80929cb469d4d60c649786c955e8f92906794185
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130246068"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131011094"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Conclusiones de la clasificación sobre los datos de Azure Purview
 
@@ -20,7 +21,7 @@ En esta guía paso a paso se describe cómo obtener acceso a los informes de inf
 > [!IMPORTANT]
 > Azure Purview Insights se encuentra actualmente en versión preliminar. Los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
-Los orígenes de datos compatibles incluyen: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure Cosmos DB (SQL API), Azure Synapse Analytics (anteriormente, SQL DW), Azure SQL Database, Azure SQL Managed Instance, SQL Server, cubos de Amazon S3
+Los orígenes de datos compatibles incluyen: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure Cosmos DB (SQL API), Azure Synapse Analytics (anteriormente, SQL DW), Azure SQL Database, Azure SQL Managed Instance, SQL Server, cubos de Amazon S3 y bases de datos de Amazon RDS (versión preliminar pública).
 
 En esta guía paso a paso, aprenderá a:
 

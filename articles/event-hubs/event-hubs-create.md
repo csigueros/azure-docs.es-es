@@ -2,13 +2,14 @@
 title: 'Guía de inicio rápido de Azure: Creación de un centro de eventos mediante Azure Portal'
 description: En este inicio rápido aprenderá a crear un centro de eventos de Azure mediante Azure Portal.
 ms.topic: quickstart
-ms.date: 05/25/2021
-ms.openlocfilehash: 6a483981f1461c738f087c6f9401006319fd0135
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.date: 10/20/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: b08ea54d7f408f35c9a584d9608848638dead827
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110617146"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131081341"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Inicio rápido: Creación de un centro de eventos mediante Azure Portal
 Azure Event Hubs es una plataforma de streaming de macrodatos y servicio de ingesta de eventos capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. Para más información sobre Event Hubs, consulte [Introducción a Event Hubs](event-hubs-about.md) y [Características de Event Hubs](event-hubs-features.md).

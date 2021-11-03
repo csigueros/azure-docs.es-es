@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/26/2021
 ms.author: pafarley
-ms.openlocfilehash: abef7e44ad2e15bda230d28e8dae74a3fd949f88
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 993cc1105c476f3581fd996be5c1aa6aa7c0c590
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129706320"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056708"
 ---
 # <a name="what-is-conversation-transcription-preview"></a>¿Qué es la transcripción de conversaciones (versión preliminar)?
 
@@ -54,7 +55,7 @@ Así es a grandes rasgos cómo funciona la transcripción de conversaciones.
 
 ## <a name="expected-inputs"></a>Entradas esperadas
 
-- **Secuencia de audio de varios canales**: para especificaciones y detalles de diseño, consulte [Micrófono del SDK de dispositivos de voz de Microsoft](./speech-devices-sdk-microphone.md). Para más información o comprar un kit de desarrollo, consulte cómo [obtener Microsoft Speech Devices SDK](./get-speech-devices-sdk.md).
+- **Secuencia de audio de varios canales**: para especificaciones y detalles de diseño, consulte [Micrófono del SDK de dispositivos de voz de Microsoft](./speech-sdk-microphone.md). Para más información o comprar un kit de desarrollo, consulte cómo [obtener Microsoft Speech Devices SDK](./get-speech-devices-sdk.md).
 - **Muestras de voz de usuarios**: la transcripción de conversaciones necesita perfiles de usuario antes de la conversación para la identificación del hablante. Deberá recopilar grabaciones de audio de cada usuario y, luego, enviarlas al [servicio de generación de firmas](https://aka.ms/cts/signaturegenservice) para validar el audio y generar los perfiles de usuario.
 
 > [!NOTE]

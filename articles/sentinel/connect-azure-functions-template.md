@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/07/2021
 ms.author: yelevin
-ms.openlocfilehash: b6e38d6ce5944d09a089404ae1fe2ca81a951c18
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 7d921c1b1d44f8378a51fa6a419378cd199cd57d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124781312"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037305"
 ---
 # <a name="use-azure-functions-to-connect-azure-sentinel-to-your-data-source"></a>Uso de Azure Functions para conectar Azure Sentinel a un origen de datos
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Utilice [Azure Functions](../azure-functions/functions-overview.md), junto con varios lenguajes de programación, como [PowerShell](../azure-functions/functions-reference-powershell.md) o Python, para crear un conector sin servidor para los puntos de conexión de la API REST de los orígenes de datos compatibles. Las aplicaciones de funciones de Azure Functions le permiten conectar Azure Sentinel a la API REST de su origen de datos para recopilar los registros.
 

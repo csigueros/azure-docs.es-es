@@ -9,24 +9,25 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 07/02/2021
 ms.author: lajanuar
-ms.openlocfilehash: e0555050b6457cc25a3d66d902d7de9232247ae3
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 5c5a260a1f5c1ab6cd6232dbd0ea9c1035a110cf
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122326603"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131027025"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Implementación de la herramienta de etiquetado de ejemplo
 
-La herramienta de etiquetado de ejemplo de Form Recognizer es una aplicación que proporciona una interfaz de usuario simple (IU), que se puede usar para etiquetar manualmente los formularios (documentos) de cara al aprendizaje supervisado. En este artículo, se proporcionan vínculos e instrucciones que le enseñarán a:
+La herramienta de etiquetado de ejemplo de Form Recognizer es una aplicación que proporciona una interfaz de usuario simple, que se puede usar para etiquetar manualmente los formularios (documentos) de cara al aprendizaje supervisado. En este artículo, se proporcionan vínculos e instrucciones que le enseñarán a:
 
-* [Ejecutar la herramienta de etiquetado de ejemplo localmente](#run-the-sample-labeling-tool-locally)
+* [Ejecutar la herramienta de etiquetado de ejemplo de manera local](#run-the-sample-labeling-tool-locally)
 * [Implementar la herramienta de etiquetado de ejemplo en una instancia de Azure Container Instances (ACI)](#deploy-with-azure-container-instances-aci)
 * [Usar y contribuir a OCR Form Labeling Tool de código abierto](#open-source-on-github)
 
 ## <a name="run-the-sample-labeling-tool-locally"></a>Ejecución de la herramienta de etiquetado de ejemplo de manera local
 
-La manera más rápida de empezar a etiquetar los datos es ejecutar la herramienta de etiquetado de ejemplo de manera local. En el siguiente inicio rápido, usará la API REST de Form Recognizer con la herramienta de etiquetado de ejemplo para entrenar un modelo personalizado con datos etiquetados manualmente.
+La manera más rápida de empezar a etiquetar los datos consiste en ejecutar la herramienta de etiquetado de ejemplo de manera local. En el siguiente inicio rápido, usará la API REST de Form Recognizer con la herramienta de etiquetado de ejemplo para entrenar un modelo personalizado con datos etiquetados manualmente.
 
 * [Introducción a Azure Form Recognizer](label-tool.md).
 

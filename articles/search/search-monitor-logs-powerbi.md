@@ -1,17 +1,17 @@
 ---
 title: Visualización de registros y métricas con Power BI
 description: Visualice registros y métricas de Azure Cognitive Search con Power BI.
-author: MarkHeff
-ms.author: maheff
+author: nitinme
+ms.author: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/07/2021
-ms.openlocfilehash: fbbeb861e50abfd393b416ddc46ff147fffb7b8e
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: ec98b50a2dec1458806b4f1c86144434ad73e4cf
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581639"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056174"
 ---
 # <a name="visualize-azure-cognitive-search-logs-and-metrics-with-power-bi"></a>Visualización de registros y métricas de Azure Cognitive Search con Power BI
 

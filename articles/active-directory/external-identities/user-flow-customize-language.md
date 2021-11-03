@@ -11,12 +11,12 @@ ms.date: 03/02/2021
 ms.author: mimart
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a199c207e8ea35f1471df9bfd0c4134551b9995f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bf645226de725d19af859118c43c336e5f542804
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101653497"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067108"
 ---
 # <a name="language-customization-in-azure-active-directory"></a>Personalización de idioma de Azure Active Directory
 
@@ -131,7 +131,7 @@ Microsoft se compromete a proporcionar las traducciones más actualizadas para q
 
 ### <a name="support-for-right-to-left-languages"></a>Compatibilidad con idiomas que se leen de derecha a izquierda
 
-Microsoft no proporciona actualmente compatibilidad con idiomas que se leen de derecha a izquierda. Para ello, puede usar configuraciones regionales personalizadas y CSS para cambiar la manera en la que se muestran las cadenas. Si necesita esta característica, vote por ella en [Comentarios de Azure](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
+Microsoft no proporciona actualmente compatibilidad con idiomas que se leen de derecha a izquierda. Para ello, puede usar configuraciones regionales personalizadas y CSS para cambiar la manera en la que se muestran las cadenas. Si necesita esta característica, vote por ella en [Comentarios de Azure](https://feedback.azure.com/d365community/idea/10a7e89c-c325-ec11-b6e6-000d3a4f0789).
 
 ### <a name="social-identity-provider-translations"></a>Traducciones de proveedores de identidades sociales
 

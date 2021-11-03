@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/14/2021
 ms.author: mbullwin
 ms.custom: cog-serv-seo-aug-2020
 keywords: local, Docker, contenedor, streaming, algoritmos
-ms.openlocfilehash: 9a2481705ef1bed5a4b6d20bdfcbe68022c5f9e2
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 3b0e4bf43e8661259caf50ae129fa6f218db222f
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129057386"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131071446"
 ---
 # <a name="install-and-run-docker-containers-for-the-anomaly-detector-api"></a>Instalación y ejecución de contenedores de Docker para la API Anomaly Detector 
 
@@ -155,7 +155,7 @@ Utilice el host, http://localhost:5000, con las API de contenedor.
 
 <!--  ## Validate container is running -->
 
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [Container API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="stop-the-container"></a>Detención del contenedor
 
@@ -166,6 +166,9 @@ Utilice el host, http://localhost:5000, con las API de contenedor.
 Si ejecuta el contenedor con un [montaje](anomaly-detector-container-configuration.md#mount-settings) de salida y el registro habilitados, el contenedor genera archivos de registro que resultan útiles para solucionar problemas que se producen al iniciar o ejecutar el contenedor.
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
+
+[!INCLUDE [Diagnostic container](../containers/includes/diagnostics-container.md)]
+
 
 ## <a name="billing"></a>Facturación
 

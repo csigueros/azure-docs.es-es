@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/22/2021
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 67a66e618206b182983ada474b1f0d3788526e1e
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: cd797c58edb1d6918c8681f9cadffecdba8ef827
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130223908"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131011472"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copia de datos hacia Azure Blob Storage o desde él con Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -272,14 +272,16 @@ Vamos a ver cómo copiar rápidamente datos a y desde una instancia de Azure Blo
 4. Verá cinco ventanas de actividad en la lista **ACTIVITY WINDOWS** (VENTANAS DE ACTIVIDAD). Las horas de **WindowStart** deben abarcar todos los días desde las horas de inicio hasta las horas de finalización de la canalización.
 5. Haga clic en el botón **Actualizar** de la lista **ACTIVITY WINDOWS** (VENTANAS DE ACTIVIDAD) unas cuantas veces hasta que vea el estado de todas las ventanas de actividad establecido en Listo.
 6. Ahora, compruebe que los archivos de salida se generan en la carpeta de salida del contenedor adfblobconnector. Verá la siguiente estructura de carpetas en la carpeta de salida:
-    ```
+
+    ```output
     2017/04/21
     2017/04/22
     2017/04/23
     2017/04/24
     2017/04/25
     ```
-   Para más información sobre la supervisión y administración de factorías de datos, consulte el artículo [Supervisión y administración de canalizaciones de Data Factory](data-factory-monitor-manage-app.md).
+
+    Para más información sobre la supervisión y administración de factorías de datos, consulte el artículo [Supervisión y administración de canalizaciones de Data Factory](data-factory-monitor-manage-app.md).
 
 ### <a name="data-factory-entities"></a>Entidades de Factoría de datos
 Ahora, vuelva a la pestaña con la página principal de Data Factory. Observe que ahora hay en su factoría de datos dos servicios vinculados, dos conjuntos de datos y una canalización.

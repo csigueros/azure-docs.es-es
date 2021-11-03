@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c7073cc46b0320016222621ffb0c3b1d3fe53be
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 09159db68050c10331ac2f4fcea5388cc3eb82d3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124748328"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057085"
 ---
 # <a name="list-azure-ad-role-assignments"></a>Enumeración de asignaciones de roles de Azure AD
 
@@ -118,6 +118,6 @@ HTTP/1.1 200 OK
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* No dude en compartir con nosotros en el [foro de roles administrativos de Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
+* No dude en compartir con nosotros en el [foro de roles administrativos de Azure AD](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
 * Para más información acerca de los permisos de roles, consulte [Roles integrados en Azure AD](permissions-reference.md).
 * Para conocer los permisos predeterminados de usuario, vea una [comparación de los permisos predeterminados de usuario miembro e invitado](../fundamentals/users-default-permissions.md).

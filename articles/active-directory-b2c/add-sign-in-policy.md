@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 94845919e1b0bc171b7df831593b04daffb2213b
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 5177d06ce6507f23dfbc31b9825ce38d85422bb6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130064529"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008187"
 ---
 # <a name="set-up-a-sign-in-flow-in-azure-active-directory-b2c"></a>Configuración de un flujo de inicio de sesión en Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ ms.locfileid: "130064529"
 
 ## <a name="sign-in-flow-overview"></a>Introducción al flujo de inicio de sesión
 
-La directiva de inicio de sesión contiene las siguientes directrices: 
+La directiva de inicio de sesión contiene las siguientes directrices:
 
 * Los usuarios pueden iniciar sesión con una cuenta local de Azure AD B2C
 * Registrarse o iniciar sesión con una cuenta de redes sociales
@@ -78,7 +78,7 @@ Para agregar la directiva de inicio de sesión:
 
 ## <a name="remove-the-sign-up-link"></a>Eliminación del vínculo de registro
 
-El perfil técnico **SelfAsserted-LocalAccountSignin-Email** es [autoafirmado](self-asserted-technical-profile.md), y se invoca durante el flujo de registro o de inicio de sesión. Para quitar el vínculo de registro, establezca los metadatos de `setting.showSignupLink` en `false`. Invalide los perfiles técnicos de SelfAsserted-LocalAccountSignin-Email en el archivo de extensión. 
+El perfil técnico **SelfAsserted-LocalAccountSignin-Email** es [autoafirmado](self-asserted-technical-profile.md), y se invoca durante el flujo de registro o de inicio de sesión. Para quitar el vínculo de registro, establezca los metadatos de `setting.showSignupLink` en `false`. Invalide los perfiles técnicos de SelfAsserted-LocalAccountSignin-Email en el archivo de extensión.
 
 1. Abra el archivo de extensiones de la directiva. Por ejemplo, _`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`**_.
 1. Busque el elemento `ClaimsProviders`. Si el elemento no existe, agréguelo.
@@ -103,7 +103,7 @@ El perfil técnico **SelfAsserted-LocalAccountSignin-Email** es [autoafirmado](s
 
 1. Dentro del elemento `<BuildingBlocks>`, agregue el siguiente valor de [ContentDefinition](contentdefinitions.md) para hacer referencia a la versión 1.2.0 o un URI de datos más reciente:
 
-    ```XML
+    ```xml
     <!-- 
     <BuildingBlocks> 
       <ContentDefinitions>-->

@@ -7,12 +7,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/12/2021
-ms.openlocfilehash: e5b907b89491721d2529f2caa303fc9e77d47169
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: e2531bcb010b83f795cc7f77b68848c86c4c470a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862580"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131010676"
 ---
 # <a name="text-split-cognitive-skill"></a>Aptitud cognitiva División de texto
 
@@ -84,7 +84,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
         {
             "recordId": "1",
             "data": {
-                "text": "This is a the loan application for Joe Romero, a Microsoft employee who was born in Chile and who then moved to Australia…",
+                "text": "This is the loan application for Joe Romero, a Microsoft employee who was born in Chile and who then moved to Australia...",
                 "languageCode": "en"
             }
         },

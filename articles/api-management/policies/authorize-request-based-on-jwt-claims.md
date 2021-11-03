@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: danlep
-ms.openlocfilehash: 1df5f4b874ff3e5e05ab6b72a786364916ae0f53
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 72f9659bd93cea4cc0adcc638897ba2109fcc046
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128618825"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131065653"
 ---
 # <a name="authorize-access-based-on-jwt-claims"></a>Autorización de acceso con notificaciones JWT
 
-Este artículo incluye un ejemplo de directiva de Azure API Management que muestra cómo autorizar el acceso a los métodos HTTP específicos en una API con notificaciones JWT. Para establecer o modificar un código de la directiva, siga los pasos descritos en [Establecimiento o modificación de directivas](../set-edit-policies.md). Para ver otros ejemplos, consulte los [ejemplos de directiva](../policy-reference.md).
+Este artículo incluye un ejemplo de directiva de Azure API Management que muestra cómo autorizar el acceso a los métodos HTTP específicos en una API con notificaciones JWT. Para establecer o modificar un código de la directiva, siga los pasos descritos en [Establecimiento o modificación de directivas](../set-edit-policies.md). Para ver otros ejemplos, consulte los [ejemplos de directiva](index.md).
 
 ## <a name="policy"></a>Directiva
 

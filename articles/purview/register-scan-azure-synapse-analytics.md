@@ -1,54 +1,63 @@
 ---
-title: Examen de grupos de SQL dedicados
-description: En esta guía paso a paso se describe de forma detallada cómo examinar los grupos de SQL dedicados en Azure Purview.
+title: Conexión y administración de grupos de SQL dedicados (anteriormente SQL DW)
+description: En esta guía se describe cómo conectarse a grupos de SQL dedicados (anteriormente SQL DW) en Azure Purview, y cómo usar las características de Purview para examinar y administrar el origen de grupos de SQL dedicados.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 05/08/2021
-ms.openlocfilehash: 507ea92f6aa50d4d1441874e8dc62bbb06621aec
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.date: 11/02/2021
+ms.custom: template-how-to, ignite-fall-2021
+ms.openlocfilehash: 7d01566c2c9f20b86d3cf135fc126bd5d5982e98
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130047406"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056326"
 ---
-# <a name="register-and-scan-dedicated-sql-pools-formerly-sql-dw"></a>Registro y examen de grupos de SQL dedicados (antes SQL DW)
+# <a name="connect-to-and-manage-dedicated-sql-pools-in-azure-purview"></a>Conexión y administración de grupos de SQL dedicados en Azure Purview
+
+En este artículo se describe cómo registrar grupos de SQL dedicados (anteriormente SQL DW) y cómo autenticarse e interactuar con grupos de SQL dedicados en Azure Purview. Para obtener más información sobre Azure Purview, consulte el [artículo de introducción](overview.md).
 
 > [!NOTE]
 > Si quiere registrar y examinar una base de datos SQL dedicada dentro de un área de trabajo de Synapse, debe seguir las instrucciones [que se indican aquí](register-scan-synapse-workspace.md).
 
-En este artículo se describe cómo registrar y examinar una instancia de un grupo de SQL dedicado (antes SQL DW) en Purview.
-
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
-Los grupos de SQL dedicados (anteriormente SQL DW) admiten exámenes completos e incrementales para capturar los metadatos y el esquema. Los exámenes también clasifican los datos automáticamente en función de las reglas de clasificación personalizadas y del sistema.
+|**Extracción de metadatos**|  **Examen completo**  |**Examen incremental**|**Examen con ámbito**|**Clasificación**|**Directiva de acceso**|**Lineage**|
+|---|---|---|---|---|---|---|
+| [Sí](#register) | [Sí](#scan)| [Sí](#scan)| [Sí](#scan)| [Sí](#scan)| No | No|
 
 ### <a name="known-limitations"></a>Restricciones conocidas
 
-> * Azure Purview no admite más de 300 columnas en la pestaña Esquema y mostrará el mensaje "Additional-Columns-Truncated" (Columnas adicionales truncadas). 
+* Azure Purview no admite más de 300 columnas en la pestaña Esquema y mostrará el mensaje "Additional-Columns-Truncated" (Columnas adicionales truncadas).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-- Antes de registrar los orígenes de datos, cree una cuenta de Azure Purview. Para más información sobre cómo crear una cuenta de Purview, consulte [Inicio rápido: creación de una cuenta de Azure Purview](create-catalog-portal.md).
-- Tenga en cuenta que debe ser administrador de los orígenes de datos de Azure Purview.
-- Acceso de red entre la cuenta de Purview y el grupo de SQL dedicado en Azure Synapse Analytics.
- 
-## <a name="setting-up-authentication-for-a-scan"></a>Configuración de la autenticación para un examen
+* Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+* Un [recurso de Purview](create-catalog-portal.md) activo.
+
+* Tendrá que ser administrador de orígenes de datos y lector de datos para poder registrar un origen y administrarlo en Purview Studio. Para obtener más información, consulte la [página Permisos de Azure Purview](catalog-permissions.md).
+
+## <a name="register"></a>Register
+
+En esta sección se describe cómo registrar grupos de SQL dedicados en Azure Purview mediante [Purview Studio](https://web.purview.azure.com/).
+
+### <a name="authentication-for-registration"></a>Autenticación para registro
 
 Hay tres maneras de configurar la autenticación:
 
-- Identidad administrada
-- Autenticación de SQL
-- Entidad de servicio
+- [Identidad administrada](#managed-identity-to-register) (recomendado)
+- [Entidad de seguridad de servicio](#service-principal-to-register)
+- [Autenticación de SQL](#sql-authentication-to-register)
 
     > [!Note]
     > Solo pueden crear inicios de sesión el inicio de sesión de entidad de seguridad a nivel de servidor (creado por el proceso de aprovisionamiento) o los miembros del rol de base de datos `loginmanager` en la base de datos maestra. Unos 15 minutos después de conceder el permiso, la cuenta de Purview debería tener los permisos adecuados para poder examinar los recursos.
 
-### <a name="managed-identity-recommended"></a>Identidad administrada (recomendada) 
-   
-La cuenta de Purview tiene su propia identidad administrada, que es básicamente el nombre que le di a la cuenta de Purview cuando la creó. Debe crear un usuario de Azure AD en el grupo de SQL dedicado con el nombre exacto de la identidad administrada de Purview. Para ello, siga los requisitos previos y el tutorial [Creación de usuarios de Azure AD con aplicaciones de Azure AD](../azure-sql/database/authentication-aad-service-principal-tutorial.md).
+#### <a name="managed-identity-to-register"></a>Identidad administrada para registrarse
+
+La cuenta de Purview tiene su propia identidad administrada, que es básicamente el nombre que le asignó a la cuenta de Purview cuando la creó. Cree un usuario de Azure AD en el grupo de SQL dedicado con el nombre exacto de la identidad administrada de Purview. Para ello, siga los requisitos previos y el tutorial [Creación de usuarios de Azure AD con aplicaciones de Azure AD](../azure-sql/database/authentication-aad-service-principal-tutorial.md).
 
 Ejemplo de la sintaxis de SQL para crear el usuario y conceder el permiso:
 
@@ -62,20 +71,19 @@ GO
 
 La autenticación debe tener permiso para obtener los metadatos de la base de datos, los esquemas y las tablas. También debe ser capaz de consultar las tablas para realizar el muestreo para la clasificación. Es recomendable asignar el permiso `db_datareader` a la identidad.
 
-### <a name="service-principal"></a>Entidad de servicio
+#### <a name="service-principal-to-register"></a>Entidad de servicio para registrarse
 
-Para usar la autenticación de entidad de servicio para realizar exámenes, puede usar una existente o crear una nuevo. 
+Para usar la autenticación de entidad de servicio para realizar exámenes, puede usar una existente o crear una nuevo.
 
-> [!Note]
-> Si tiene que crear una entidad de servicio, siga estos pasos:
-> 1. Acceda a [Azure Portal](https://portal.azure.com).
-> 1. Seleccione **Azure Active Directory** en el menú de la izquierda.
-> 1. Seleccione **App registrations** (Registros de aplicaciones).
-> 1. Seleccione **+ Nuevo registro de aplicaciones**.
-> 1. Escriba un nombre para la **aplicación** (el nombre de la entidad de servicio).
-> 1. Seleccione **Solo las cuentas de este directorio organizativo**.
-> 1. En el URI de redirección, seleccione **Web** y escriba cualquier dirección URL; no tiene que ser real ni del trabajo.
-> 1. Después, seleccione **Register** (Registrar).
+Si tiene que crear una entidad de servicio, siga estos pasos:
+ 1. Acceda a [Azure Portal](https://portal.azure.com).
+ 1. Seleccione **Azure Active Directory** en el menú de la izquierda.
+ 1. 1. Seleccione **App registrations** (Registros de aplicaciones).
+ 1. Seleccione **+ Nuevo registro de aplicaciones**.
+ 1. Escriba un nombre para la **aplicación** (el nombre de la entidad de servicio).
+ 1. Seleccione **Solo las cuentas de este directorio organizativo**.
+ 1. En el URI de redirección, seleccione **Web** y escriba cualquier dirección URL; no tiene que ser real ni del trabajo.
+ 1. Después, seleccione **Register** (Registrar).
 
 Es necesario obtener el id. de aplicación y el secreto de la entidad de servicio:
 
@@ -86,9 +94,9 @@ Es necesario obtener el id. de aplicación y el secreto de la entidad de servici
 1. Seleccione **+ Generar/Importar** y escriba el **nombre** que quiera y el **valor** como **Secreto de cliente** de la entidad de servicio.
 1. Seleccione **Crear** para completar la acción.
 1. Si el almacén de claves no está conectado todavía a Purview, necesitará [crear una conexión del almacén de claves](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
-1. Por último, [cree una credencial](manage-credentials.md#create-a-new-credential) mediante la entidad de servicio para configurar el examen. 
+1. Por último, [cree una credencial](manage-credentials.md#create-a-new-credential) mediante la entidad de servicio para configurar el examen.
 
-#### <a name="granting-the-service-principal-access"></a>Concesión de acceso a la entidad de servicio
+##### <a name="granting-the-service-principal-access"></a>Concesión de acceso a la entidad de servicio
 
 Asimismo, debe crear un usuario de Azure AD en el grupo dedicado siguiendo los requisitos previos y el tutorial [Creación de usuarios de Azure AD mediante las aplicaciones de Azure AD](../azure-sql/database/authentication-aad-service-principal-tutorial.md). Ejemplo de la sintaxis de SQL para crear el usuario y conceder el permiso:
 
@@ -103,7 +111,7 @@ GO
 > [!Note]
 > Purview necesitará el valor de **Id. de la aplicación (cliente)** y el **secreto de cliente** para el examen.
 
-### <a name="sql-authentication"></a>Autenticación SQL
+#### <a name="sql-authentication-to-register"></a>Autenticación de SQL para registrarse
 
 Puede seguir las instrucciones de [CREAR INICIO DE SESIÓN](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples-1) para crear un inicio de sesión del grupo de SQL dedicado (anteriormente SQL DW) si aún no tiene uno.
 
@@ -115,9 +123,9 @@ Cuando el método de autenticación seleccionado sea **Autenticación de SQL**, 
 1. Seleccione **+ Generate/Import** (+ Generar/Importar) y escriba el **nombre** y el **valor** como la *contraseña* del inicio de sesión de SQL.
 1. Seleccione **Crear** para completar la acción.
 1. Si el almacén de claves no está conectado todavía a Purview, necesitará [crear una conexión del almacén de claves](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
-1. Por último, [cree una nueva credencial](manage-credentials.md#create-a-new-credential) mediante la clave para configurar el examen.
+1. Por último, [cree una credencial](manage-credentials.md#create-a-new-credential) mediante la clave para configurar el examen.
 
-## <a name="register-a-sql-dedicated-pool-formerly-sql-dw"></a>Registro de un grupo de SQL dedicado (antes SQL DW)
+### <a name="steps-to-register"></a>Pasos para registrarse
 
 Para registrar un nuevo grupo SQL dedicado en Purview, haga lo siguiente:
 
@@ -135,7 +143,11 @@ En la pantalla **Registrar orígenes**, haga lo siguiente:
 4. Seleccione una colección o cree una nueva (opcional).
 5. Seleccione **Registrar** para registrar el origen de datos.
 
-## <a name="creating-and-running-a-scan"></a>Creación y ejecución de un examen
+## <a name="scan"></a>Examinar
+
+Siga los pasos a continuación para examinar grupos de SQL dedicados para identificar automáticamente los recursos y clasificar los datos. Para obtener más información sobre el examen en general, consulte la [introducción a los exámenes y la ingesta](concept-scans-and-ingestion.md).
+
+### <a name="create-and-run-scan"></a>Creación y ejecución de un examen
 
 Para crear y ejecutar un nuevo examen, siga estos pasos:
 
@@ -167,5 +179,8 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Examen del catálogo de datos de Azure Purview](how-to-browse-catalog.md)
-- [Búsqueda en el catálogo de datos de Azure Purview](how-to-search-catalog.md)
+Ahora que ha registrado el origen, siga las guías a continuación para obtener más información sobre Purview y sus datos.
+
+- [Información sobre datos en Azure Purview](concept-insights.md)
+- [Linaje en Azure Purview](catalog-lineage-user-guide.md)
+- [Búsqueda en Data Catalog](how-to-search-catalog.md)

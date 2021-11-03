@@ -10,12 +10,12 @@ ms.author: justinha
 author: mjsantani
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c83c4c60028c77033227411d68aeb576a9b43a46
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: cd27eb5e55b679d8cfd1589857cc88d7f27917d1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114707876"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054369"
 ---
 # <a name="how-to-nudge-users-to-set-up-microsoft-authenticator-preview---microsoft-authenticator-app"></a>Cómo sugerir a los usuarios que configuren Microsoft Authenticator (versión preliminar): aplicación Microsoft Authenticator
 
@@ -92,7 +92,7 @@ En la tabla siguiente se enumeran las propiedades **authenticationMethodsRegistr
 
 | Nombre | Valores posibles | Descripción |
 |------|-----------------|-------------|
-| state |   "enabled"<br>"disabled"<br>"predeterminado" | Permite habilitar o deshabilitar la característica.<br>El valor predeterminado se usa cuando no se ha establecido explícitamente la configuración y usará el valor predeterminado de Azure AD para esta configuración. Actualmente se asigna en disabled.<br>Cambie los estados a enabled o disabled según sea necesario.  |
+| state | "enabled"<br>"disabled"<br>"predeterminado" | Permite habilitar o deshabilitar la característica.<br>El valor predeterminado se usa cuando no se ha establecido explícitamente la configuración y usará el valor predeterminado de Azure AD para esta configuración. Actualmente se asigna en disabled.<br>Cambie los estados a enabled o disabled según sea necesario.  |
 | snoozeDurationInDays | Intervalo: de 0 a 14 | Define el número de días después de los cuales el usuario volverá a ver la sugerencia.<br>Si el valor es 0, se sugiere al usuario durante cada intento de MFA.<br>Valor predeterminado: 1 día |
 | includeTargets | N/D | Permite incluir distintos usuarios y grupos a los que quiere que se dirija la característica. |
 | excludeTargets | N/D | Permite excluir distintos usuarios y grupos que quiere omitir de la característica. Si un usuario está en un grupo excluido y un grupo incluido, el usuario se excluirá de la característica.|
@@ -156,7 +156,7 @@ Estos son algunos JSON de ejemplo que puede usar para empezar.
                     "targetType": "group",
                     "targetedAuthenticationMethod": "microsoftAuthenticator"
                 },
-        {
+                {
                     "id": "*********PLEASE ENTER GUID***********",
                     "targetType": "user",
                     "targetedAuthenticationMethod": "microsoftAuthenticator"
@@ -181,7 +181,7 @@ Estos son algunos JSON de ejemplo que puede usar para empezar.
                       "id": "*********PLEASE ENTER GUID***********",
                       "targetType": "group"
                   },
-        {
+                {
                       "id": "*********PLEASE ENTER GUID***********",
                       "targetType": "user"
                   }
@@ -192,7 +192,7 @@ Estos son algunos JSON de ejemplo que puede usar para empezar.
                       "targetType": "group",
                       "targetedAuthenticationMethod": "microsoftAuthenticator"
                   },
-        {
+                  {
                       "id": "*********PLEASE ENTER GUID***********",
                       "targetType": "user",
                       "targetedAuthenticationMethod": "microsoftAuthenticator"
