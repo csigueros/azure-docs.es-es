@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: yelevin
-ms.openlocfilehash: b1e514d208f7d5d0a2e290c95aa5508166a3e2f7
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 86be5f6a7a777b40d85531100a4ef2d5d0dc99c5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123251474"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131009479"
 ---
 # <a name="connect-aws-cloudtrail-to-azure-sentinel"></a>Conexión de AWS CloudTrail a Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Utilice el conector de AWS para transmitir los eventos de administración de AWS CloudTrail a Azure Sentinel. Este proceso de conexión delega el acceso de Azure Sentinel en los registros de recursos de AWS, lo que crea una relación de confianza entre AWS CloudTrail y Azure Sentinel. Para ello, en AWS se crea un rol que concede a Azure Sentinel el permiso necesario para acceder a los registros de AWS.
 

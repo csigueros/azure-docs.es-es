@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e6e7e1724247c0e6d2b9db2fdf6980e8ef553c7
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 2835fcc2d39a47923c7d808f4d54d011cbf80f10
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107788194"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063259"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>Configuración de identidades administradas de recursos de Azure en un conjunto de escalado de máquinas virtuales mediante la CLI de Azure
 
@@ -144,9 +144,10 @@ En esta sección se explica el proceso de creación de un conjunto de escalado d
 
 1. Cree una identidad administrada asignada por el usuario mediante [az identity create](/cli/azure/identity#az_identity_create).  El parámetro `-g` especifica el grupo de recursos en el que se crea la identidad administrada asignada por el usuario, mientras que el parámetro `-n` especifica su nombre. Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<USER ASSIGNED IDENTITY NAME>` por sus propios valores:
 
-    ```azurecli-interactive
-    az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
-    ```
+   ```azurecli-interactive
+   az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
+   ```
+
    La respuesta contiene detalles de la identidad administrada asignada por el usuario que se ha creado, de forma similar a lo siguiente.
 
    ```json

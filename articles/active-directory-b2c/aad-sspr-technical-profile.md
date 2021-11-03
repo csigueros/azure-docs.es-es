@@ -3,20 +3,20 @@ title: Perfiles técnicos de SSPR de Azure AD en directivas personalizadas
 titleSuffix: Azure AD B2C
 description: Referencia de directivas personalizadas para perfiles técnicos de SSPR de Azure AD en Azure AD B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 06/23/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 3e6fcf956639d827a8654c5ee80e7cab8cadf930
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8c1bac41a0c70a2d9dff2a8ce1ac5544ad687fe5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85383604"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008377"
 ---
 # <a name="define-an-azure-ad-sspr-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definición de un perfil técnico de SSPR de Azure AD en una directiva personalizada de Azure AD B2C
 
@@ -27,7 +27,7 @@ Azure Active Directory B2C (Azure AD B2C) proporciona compatibilidad para compr
 Este perfil técnico:
 
 - No proporciona una interfaz para interactuar con el usuario. En su lugar, se llama a la interfaz de usuario desde un perfil técnico [autoafirmado](self-asserted-technical-profile.md) o desde un [control de pantalla](display-controls.md) como [perfil técnico de validación](validation-technical-profile.md).
-- Usa el servicio de SSPR de Azure AD para generar y enviar un código a una dirección de correo electrónico y, a continuación, verifica el código.  
+- Usa el servicio de SSPR de Azure AD para generar y enviar un código a una dirección de correo electrónico y, a continuación, verifica el código.
 - Valida una dirección de correo electrónico mediante un código de verificación.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
@@ -42,7 +42,7 @@ Web.TPEngine.Providers.AadSsprProtocolProvider, Web.TPEngine, Version=1.0.0.0, C
 
 En el ejemplo siguiente se muestra un perfil técnico de SSPR de Azure AD:
 
-```XML
+```xml
 <TechnicalProfile Id="AadSspr-SendCode">
   <DisplayName>Send Code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AadSsprProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -60,7 +60,6 @@ El elemento **InputClaims** contiene una lista de notificaciones para enviar a S
 | ClaimReferenceId | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | emailAddress | Sí | Identificador del usuario que posee la dirección de correo electrónico. La propiedad `PartnerClaimType` de la notificación de entrada se debe establecer en `emailAddress`. |
-
 
 El elemento **InputClaimsTransformations** puede contener una colección de elementos **InputClaimsTransformation** que se usan para modificar las notificaciones de entrada o generar otras nuevas antes del envío al servicio SSPR de Azure AD.
 
@@ -85,12 +84,11 @@ Los metadatos siguientes se pueden usar para configurar los mensajes de error qu
 | UserMessageIfInternalError | No | Mensaje de error del usuario si el servidor ha detectado un error interno. |
 | UserMessageIfThrottled| No | Mensaje de error del usuario si se ha limitado una solicitud.|
 
-
 ### <a name="example-send-an-email"></a>Ejemplo: envío de un correo electrónico
 
 En el ejemplo siguiente se muestra un perfil técnico de SSPR de Azure AD que se usa para enviar un código mediante correo electrónico.
 
-```XML
+```xml
 <TechnicalProfile Id="AadSspr-SendCode">
   <DisplayName>Send Code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AadSsprProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -146,7 +144,7 @@ Los metadatos siguientes se pueden usar para configurar los mensajes de error qu
 
 En el ejemplo siguiente se muestra un perfil técnico de SSPR de Azure AD que se usa para verificar el código.
 
-```XML
+```xml
 <TechnicalProfile Id="AadSspr-VerifyCode">
   <DisplayName>Verify Code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AadSsprProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />

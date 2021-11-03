@@ -3,20 +3,20 @@ title: Definición de un perfil técnico de OpenID Connect en una directiva pers
 titleSuffix: Azure AD B2C
 description: Defina un perfil técnico de OpenID Connect en una directiva personalizada de Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/04/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: fea42cb89dce717431c188deeb2ce83f9413f560
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 18fda03aac48a0eb637fc506916d46ee2812dcab
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107283888"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131028127"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de OpenID Connect en una directiva personalizada de Azure Active Directory B2C
 

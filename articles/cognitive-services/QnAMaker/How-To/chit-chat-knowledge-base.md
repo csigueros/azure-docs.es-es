@@ -7,18 +7,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.custom: seodec18
-ms.openlocfilehash: 1892d304e4e90d3957a722473c6b2ec40018d3ce
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 08/25/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 9e03531f7db88d082b6ffa36d39173d2f5481d00
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379308"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069318"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Adición de una charla a la base de conocimiento
 
 La incorporación de charlas al bot lo hace más atractivo y conversacional. La característica de charla de QnA Maker permite agregar fácilmente un conjunto previamente rellenado de las principales charlas a la base de conocimiento (KB). Esto puede ser un punto de partida para la personalidad del bot y permite ahorrar el tiempo y el costo que supone escribirlas desde cero.
+
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 Este conjunto de datos tiene aproximadamente 100 escenarios de charla en la voz de varias personas, como profesional, amigable e ingenioso. Elija el rol que más se parezca a la voz del bot. Dada una consulta de usuario, QnA Maker intenta hacerla coincidir con la QnA de charla conocida más parecida.
 
@@ -60,15 +62,7 @@ Durante la creación de la base de conocimiento, después de agregar las direcci
 ## <a name="add-chit-chat-to-an-existing-kb"></a>Adición de charlas a una base de conocimiento existente
 Seleccione la base de conocimiento y vaya hasta la página **Settings** (Configuración). Hay un vínculo a todos los conjuntos de datos de charla en el formato **.tsv** correspondiente. Descargue la personalidad que quiera y, después, cárguela como un origen de archivo. Asegúrese de no modificar el formato o los metadatos al descargar y cargar el archivo.
 
-# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
-
 ![Adición de charlas a una base de conocimiento existente](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset.png)
-
-# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
-
-![Adición de charlas a una knowledge base existente, versión preliminar](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset-v2.png)
-
----
 
 ## <a name="edit-your-chit-chat-questions-and-answers"></a>Edición de las preguntas y respuestas de la charla
 Cuando edite la base de conocimiento, verá un nuevo origen para la charla, según la personalidad que haya seleccionado. Ahora puede agregar preguntas modificadas o editar las respuestas, como con cualquier otro origen.

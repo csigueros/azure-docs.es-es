@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo desarrollar y probar Azure Functio
 ms.custom: vs-azure, devx-track-csharp
 ms.topic: conceptual
 ms.date: 12/10/2020
-ms.openlocfilehash: 2cd702286b2f35fcbc725af5ee231e1ab4b78284
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: a8be86708f2f3a8394b1e6e17d70a9d9038dc6e2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862402"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131039285"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desarrollo de Azure Functions con Visual Studio  
 
@@ -184,6 +184,7 @@ Al igual que sucede con los desencadenadores, los enlaces de entrada y salida se
         }
     }
     ```
+
    La conexión con el almacenamiento en la cola se obtiene del valor `AzureWebJobsStorage`. Para más información, consulte el artículo de referencia del enlace concreto. 
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]

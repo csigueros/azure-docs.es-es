@@ -5,19 +5,19 @@ description: Más información sobre la duración de las operaciones de administ
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: deployment-configuration
-ms.custom: ''
+ms.custom: ignite-fall-2021
 ms.devlang: ''
 ms.topic: overview
 author: urosmil
 ms.author: urmilano
 ms.reviewer: mathoma
 ms.date: 08/20/2021
-ms.openlocfilehash: 2131f5549c026afdfde1d0ec14a27608a2ffaae8
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: f48197e7f59718f0843708a9ef0013c26bf48757
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123215221"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131062252"
 ---
 # <a name="overview-of-azure-sql-managed-instance-management-operations"></a>Introducción a las operaciones de administración de Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -64,7 +64,7 @@ En las tablas siguientes se resumen las operaciones y duraciones generales norma
 |Operación  |Segmento de larga duración  |Duración estimada  |
 |---------|---------|---------|
 |Primera instancia en una subred vacía|Creación de un clúster virtual|El 90 % de las operaciones finaliza en 4 horas.|
-|Primera instancia de otra generación de hardware en una subred no vacía (por ejemplo, primera instancia Gen 5 en una subred con instancias Gen 4)|Creación de un clúster virtual<sup>1</sup>|El 90 % de las operaciones finaliza en 4 horas.|
+|Primera instancia de otra generación de hardware en una subred no vacía (por ejemplo, primera instancia Gen5 en una subred con instancias Gen4)|Creación de un clúster virtual<sup>1</sup>|El 90 % de las operaciones finaliza en 4 horas.|
 |Creación de instancia subsiguiente dentro de la subred no vacía (segunda instancia, tercera instancia, etc.)|Cambio de tamaño de un clúster virtual|El 90 % de las operaciones finaliza en 2,5 horas.|
 | | | 
 

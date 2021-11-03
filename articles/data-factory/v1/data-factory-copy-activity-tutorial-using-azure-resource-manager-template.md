@@ -5,16 +5,16 @@ author: linda33wj
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: tutorial
-ms.date: 01/22/2018
+ms.date: 10/22/2021
 ms.author: jingwang
 ms.custom: devx-track-azurepowershell
 robots: noindex
-ms.openlocfilehash: 259a2e2e263f022b4cb91824aba9921f14cc1069
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7fc2c038ea9f0c873979b3863e498611b6642e42
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128614833"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067575"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutorial: Uso de plantillas de Azure Resource Manager para crear una canalización de Data Factory para copiar datos 
 > [!div class="op_single_selector"]
@@ -313,24 +313,28 @@ Cree un archivo JSON denominado **ADFCopyTutorialARM Parameters.json** que conti
 
 ## <a name="create-data-factory"></a>Creación de Data Factory
 1. Inicie **Azure PowerShell** y ejecute el siguiente comando:
+
    * Ejecute el siguiente comando y escriba el nombre de usuario y la contraseña que utiliza para iniciar sesión en el Portal de Azure.
    
-    ```PowerShell
-    Connect-AzAccount       
-    ```  
+     ```powershell
+     Connect-AzAccount
+     ```
+
    * Ejecute el siguiente comando para ver todas las suscripciones para esta cuenta.
    
-    ```PowerShell
-    Get-AzSubscription
-    ```   
+     ```powershell
+     Get-AzSubscription
+     ```
+
    * Ejecute el comando siguiente para seleccionar la suscripción con la que desea trabajar.
     
-    ```PowerShell
-    Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
-    ```    
+     ```powershell
+     Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
+     ```
+
 2. Ejecute el siguiente comando para implementar las entidades de Data Factory mediante la plantilla de Resource Manager que creó en el paso 1.
 
-    ```PowerShell   
+    ```powershell
     New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFCopyTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFCopyTutorialARM-Parameters.json
     ```
 
@@ -582,17 +586,19 @@ Va a definir una canalización que copia los datos del conjunto de datos de blob
 ```
 
 ## <a name="reuse-the-template"></a>Reutilización de la plantilla
-En el tutorial, ha creado una plantilla para definir las entidades de Data Factory y una plantilla para pasar valores de parámetros. La canalización copia los datos desde una cuenta de Azure Storage hasta la base de datos de Azure SQL especificada a través de parámetros. Para usar la misma plantilla para implementar las entidades de Data Factory en distintos entornos, cree un archivo de parámetros para cada entorno y utilícelo al implementarla en ese entorno.     
+En el tutorial, ha creado una plantilla para definir las entidades de Data Factory y una plantilla para pasar valores de parámetros. La canalización copia los datos desde una cuenta de Azure Storage hasta la base de datos de Azure SQL especificada a través de parámetros. Para usar la misma plantilla para implementar las entidades de Data Factory en distintos entornos, cree un archivo de parámetros para cada entorno y utilícelo al implementarla en ese entorno.
 
-Ejemplo:  
+Ejemplo:
 
-```PowerShell
+```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Dev.json
 ```
-```PowerShell
+
+```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Test.json
 ```
-```PowerShell
+
+```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Production.json
 ```
 

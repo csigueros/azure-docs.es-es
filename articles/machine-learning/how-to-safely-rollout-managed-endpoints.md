@@ -11,12 +11,12 @@ author: rsethur
 ms.date: 08/05/2021
 ms.topic: how-to
 ms.custom: how-to, devplatv2
-ms.openlocfilehash: 3be025d57553bd56088cdc15a75cae25d5b9e15c
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: b8dfb926a1c878893142998bea0091d9d8162e0f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129427350"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131032665"
 ---
 # <a name="safe-rollout-for-online-endpoints-preview"></a>Implementación segura para puntos de conexión en línea (versión preliminar)
 
@@ -155,5 +155,5 @@ Si no va a usar la implementación, debe eliminarla con:
 - [Administración y aumento de las cuotas de los recursos con Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)
 - [Visualización de los costos de un punto de conexión en línea administrado de Azure Machine Learning (versión preliminar)](how-to-view-online-endpoints-costs.md)
 - [Lista de SKU de puntos de conexión en línea administrados (versión preliminar)](reference-managed-online-endpoints-vm-sku-list.md)
-- [Solución de problemas de implementación y puntuación de puntos de conexión en línea administrados (versión preliminar)](how-to-troubleshoot-managed-online-endpoints.md)
+- [Solución de problemas de implementación y puntuación de puntos de conexión en línea administrados (versión preliminar)](./how-to-troubleshoot-online-endpoints.md)
 - [Referencia de YAML sobre puntos de conexión en línea administrados (versión preliminar)](reference-yaml-endpoint-managed-online.md)

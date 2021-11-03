@@ -3,19 +3,19 @@ title: Reglas de evaluación para la migración de SQL Server a Azure SQL Dat
 description: Reglas de evaluación para identificar los problemas con la instancia de origen de SQL Server que deben solucionarse antes de migrar a Azure SQL Database.
 ms.service: sql-database
 ms.subservice: migration-guide
-ms.custom: ''
+ms.custom: ignite-fall-2021
 ms.devlang: ''
 ms.topic: how-to
 author: rajeshsetlem
 ms.author: rsetlem
 ms.reviewer: mathoma, cawrites
 ms.date: 12/15/2020
-ms.openlocfilehash: 17b3cd2c0257989a220be6b35e93d88db7225188
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 88c90896cd8c480f828116c479a4dc5d0a3ee99f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129457475"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069508"
 ---
 # <a name="assessment-rules-for-sql-server-to-azure-sql-database-migration"></a>Reglas de evaluación para la migración de SQL Server a Azure SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -217,7 +217,7 @@ La transacción distribuida iniciada por Transact SQL BEGIN DISTRIBUTED TRANSACT
 **Recomendación**   
 Revise la sección de objetos afectados en Azure Migrate para ver todos los objetos que usan BEGIN DISTRUBUTED TRANSACTION. Considere la posibilidad de migrar las bases de datos de participantes a Azure SQL Managed Instance donde se admiten las transacciones distribuidas entre varias instancias (actualmente en versión preliminar). También puede migrar a SQL Server en la máquina virtual de Azure.
 
-Más información: [Transacciones entre varios servidores de Azure SQL Managed Instance ](../../database/elastic-transactions-overview.md#transactions-across-multiple-servers-for-azure-sql-managed-instance)
+Más información: [Transacciones entre varios servidores de Azure SQL Managed Instance ](../../database/elastic-transactions-overview.md#transactions-for-sql-managed-instance)
 
 
 ## <a name="openrowset-bulk"></a>OPENROWSET (masivo)<a id="OpenRowsetWithNonBlobDataSourceBulk"></a>

@@ -1,17 +1,17 @@
 ---
 title: Uso de claves administradas por el cliente para cifrar datos en Azure HPC Cache
 description: Cómo usar Azure Key Vault con Azure HPC Cache para controlar el acceso con claves de cifrado en lugar de usar las claves de cifrado administradas por Microsoft predeterminadas
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/15/2021
-ms.author: v-erkel
-ms.openlocfilehash: 1fb18deaa4a9cbb43aa75fb21ab8d58fd8976791
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.author: femila
+ms.openlocfilehash: 87f80d77f1b2768291532c216ff99b892ba8f12a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114293479"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131019958"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Uso de claves de cifrado administradas por el cliente para Azure HPC Cache
 
@@ -122,7 +122,7 @@ El usuario que crea la memoria caché debe tener privilegios iguales a los del [
 
 Estos parámetros son opcionales:
 
-* Active la casilla **Always use current key version** (Usar siempre la versión actual de la clave) si quiere usar la [rotación automática de claves](../virtual-machines/disk-encryption.md#automatic-key-rotation-of-customer-managed-keys-preview).
+* Active la casilla **Always use current key version** (Usar siempre la versión actual de la clave) si quiere usar la [rotación automática de claves](../virtual-machines/disk-encryption.md#automatic-key-rotation-of-customer-managed-keys).
 
 * Si quiere usar una identidad administrada específica para esta caché, seleccione **Asignada por el usuario** en la sección **Identidades administradas** y seleccione la identidad que quiere usar. Consulte la [documentación sobre las identidades administradas](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) para obtener ayuda.
 

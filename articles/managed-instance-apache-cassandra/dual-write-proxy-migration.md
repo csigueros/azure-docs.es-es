@@ -5,20 +5,16 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: tutorial
-ms.date: 08/17/2021
-ms.openlocfilehash: d6fa48fb35d836fc7f08c98e7b1807068c000d84
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 061fd0f1244221aabb6fa37a84924be653fafbaa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124797034"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131032463"
 ---
 # <a name="live-migration-to-azure-managed-instance-for-apache-cassandra-by-using-a-dual-write-proxy"></a>Migración en vivo a Azure Managed Instance for Apache Cassandra mediante un proxy de doble escritura
-
-> [!IMPORTANT]
-> Azure Managed Instance for Apache Cassandra se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Siempre que sea posible, se recomienda usar la funcionalidad nativa de Apache Cassandra para migrar datos de un clúster a Azure Managed Instance for Apache Cassandra mediante la configuración de un [clúster híbrido](configure-hybrid-cluster.md). Esta funcionalidad utiliza el protocolo gossip de Apache Cassandra para replicar datos de un centro de datos de origen en un nuevo centro de datos de instancia administrada de forma fluida. Sin embargo, puede haber algunos escenarios en los que la versión de la base de datos de origen no sea compatible, o donde una configuración de clúster híbrido no sea factible. 
 

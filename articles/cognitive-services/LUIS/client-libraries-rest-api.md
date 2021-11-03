@@ -2,23 +2,26 @@
 title: 'Inicio rápido: API REST y bibliotecas cliente del SDK de Language Understanding (LUIS)'
 description: Cree y consulte una aplicación de LUIS con la API REST y las bibliotecas cliente del SDK de LUIS.
 ms.topic: quickstart
-ms.date: 03/29/2021
+ms.date: 10/20/2021
 ms.service: cognitive-services
 ms.author: aahi
 manager: nitinme
 ms.subservice: language-understanding
 author: aahill
 keywords: Azure, artificial intelligence, ai, natural language processing, nlp, LUIS, azure luis, natural language understanding, ai chatbot, chatbot maker,  understanding natural language
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, ignite-fall-2021
 zone_pivot_groups: programming-languages-set-luis
-ms.openlocfilehash: ca45266ce4b8ca784c3d54aafb80a66efaf2a1da
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: c98bbd885bb2646ff32c856aecc219cae326d01c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278922"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131043877"
 ---
 # <a name="quickstart-language-understanding-luis-client-libraries-and-rest-api"></a>Inicio rápido: API REST y bibliotecas cliente de Language Understanding (LUIS)
+
+> [!NOTE]
+> Hay disponible una versión más reciente de las funcionalidades de Language Understanding como parte de Azure Cognitive Service for Language. Para más información, consulte [Documentación de Azure Cognitive Service for Language](../language-service/index.yml). Para información sobre las funcionalidades de reconocimiento del lenguaje del servicio de lenguaje, consulte [Reconocimiento de lenguaje conversacional](../language-service/conversational-language-understanding/overview.md), [Reconocimiento de entidades con nombre personalizado](../language-service/custom-named-entity-recognition/overview.md) y [Clasificación personalizada](../language-service/custom-classification/overview.md).
 
 Con este inicio rápido, creará una aplicación de inteligencia artificial de Azure LUIS, y realizará consultas en ella, con las bibliotecas cliente del SDK de LUIS mediante C#, Python o JavaScript. También puede usar cURL para enviar solicitudes mediante la API REST.
 

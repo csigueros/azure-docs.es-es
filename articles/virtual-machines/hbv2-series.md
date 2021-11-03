@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/08/2021
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 2c8ada67192e63e1e387f4c41a944c28d93c9850
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: a1ea91e4687c0ef4460398baee402de1a84d143a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130074311"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008567"
 ---
 # <a name="hbv2-series"></a>Serie HBv2
 
@@ -30,7 +30,7 @@ Las máquinas virtuales de la serie HBv2 incluyen la característica MeliBox HDR
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): compatible ([obtenga más información](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-hbv2-and-ndv2/ba-p/2067965) sobre el rendimiento y los posibles problemas) <br>
-[Discos de sistema operativo efímero](ephemeral-os-disks.md): admitidos ([en versión preliminar](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible<br>
 <br>
 
 | Size | vCPU | Procesador | Memoria (GiB) | Ancho de banda de memoria, en GB/s | Frecuencia de CPU base (GHz) | Frecuencia de todos los núcleos (GHz, pico) | Frecuencia de cada núcleo (GHz, pico) | Rendimiento de RDMA (GB/s) | Compatibilidad con MPI | Almacenamiento temporal (GiB) | Discos de datos máx. | vNIC Ethernet máx. |

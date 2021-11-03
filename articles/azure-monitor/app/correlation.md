@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: d5511d2a04bcb40b267ccef15799b870ea96842a
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 88472c8f0915d721da3b7fe5af4a4cfc86729a8f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130134077"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045584"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlación de Telemetría en Application Insights
 
@@ -87,7 +87,7 @@ El seguimiento distribuido basado en W3C Trace-Context está habilitado de forma
 
 #### <a name="java-30-agent"></a>Agente de Java 3.0
 
-  El agente de Java 3.0 es compatible con W3C listo para usar y no se necesita ninguna configuración adicional. 
+  El agente de Java 3.0 es compatible con W3C listo para usar y no se necesita ninguna configuración adicional.
 
 #### <a name="java-sdk"></a>SDK de Java
 - **Configuración de entrada**
@@ -143,7 +143,7 @@ Agregue la siguiente configuración:
   ```
       distributedTracingMode: 2 // DistributedTracingModes.W3C
   ```
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Para ver todas las configuraciones necesarias para habilitar la correlación, consulte la documentación [Correlación de JavaScript](./javascript.md#enable-correlation).
 
 ## <a name="telemetry-correlation-in-opencensus-python"></a>Correlación de los datos de telemetría en OpenCensus Python
@@ -254,7 +254,6 @@ with tracer.span(name='hello'):
    function_1(tracer)
 logger.warning('After the span')
 
-
 # module2.py
 
 import logging
@@ -292,10 +291,10 @@ El SDK de .NET de Application Insights usa `DiagnosticSource` y `Activity` para 
 El [agente de Java](./java-in-process-agent.md) admite la correlación automática de telemetría. Rellena automáticamente el valor de `operation_id` en todos los elementos de telemetría (como seguimientos, excepciones y eventos personalizados) que se emiten en el ámbito de una solicitud. También propaga los encabezados de correlación (descritos anteriormente) de las llamadas de un servicio de a otro mediante HTTP si el [agente del SDK de Java](java-2x-agent.md) está configurado.
 
 > [!NOTE]
-> El agente de Java de Application Insights recopila automáticamente las solicitudes y dependencias de JMS, Kafka, Netty/Webflux, etc. En el caso del SDK de Java, la característica de correlación solamente admite las llamadas realizadas mediante Apache HttpClient. No se admite la propagación automática de contextos entre tecnologías de mensajería (como Kafka, RabbitMQ y Azure Service Bus) en el SDK. 
+> El agente de Java de Application Insights recopila automáticamente las solicitudes y dependencias de JMS, Kafka, Netty/Webflux, etc. En el caso del SDK de Java, la característica de correlación solamente admite las llamadas realizadas mediante Apache HttpClient. No se admite la propagación automática de contextos entre tecnologías de mensajería (como Kafka, RabbitMQ y Azure Service Bus) en el SDK.
 
 > [!NOTE]
-> Para recopilar la telemetría personalizada, debe instrumentar la aplicación con el SDK de Java 2.6. 
+> Para recopilar la telemetría personalizada, debe instrumentar la aplicación con el SDK de Java 2.6.
 
 ### <a name="role-names"></a>Nombres de roles
 
@@ -314,7 +313,7 @@ Es posible que quiera personalizar el modo en que los nombres de los componentes
 
 - Con el SDK 2.5.0 de Java de Application Insights y versiones posteriores, puede especificar el `cloud_RoleName` si agrega `<RoleName>` al archivo ApplicationInsights.xml:
 
-  ```XML
+  ```xml
   <?xml version="1.0" encoding="utf-8"?>
   <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
      <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>

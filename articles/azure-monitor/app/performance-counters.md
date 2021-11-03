@@ -4,12 +4,12 @@ description: Supervise los contadores de rendimiento de .NET, tanto del sistema 
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 423e17ef2b44286c28b464836075284929d8644c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 2b0ddb84430ccccf5da7f44909f1f2ce0459aaa9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102031368"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131044311"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de rendimiento de sistema en Application Insights
 
@@ -55,7 +55,7 @@ Si el contador de rendimiento que quiere no está incluido en la lista de métri
    * Si agrega Application Insights a la aplicación durante el desarrollo, edite ApplicationInsights.config en el proyecto y vuelva a implementarlo en los servidores.
 3. Edite la directiva del recopilador de rendimiento:
 
-    ```XML
+    ```xml
 
         <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
           <Counters>
@@ -78,7 +78,6 @@ Si especifica una instancia, se recopilará como una dimensión "CounterInstance
 
 ### <a name="collecting-performance-counters-in-code-for-aspnet-web-applications-or-netnet-core-console-applications"></a>Recopilación de contadores de rendimiento en el código para aplicaciones web de ASP.NET o aplicaciones de consola de .NET/.NET Core
 Para recopilar contadores de rendimiento del sistema y enviarlos a Application Insights, puede adaptar el siguiente fragmento:
-
 
 ```csharp
     var perfCollectorModule = new PerformanceCollectorModule();
@@ -120,17 +119,17 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 ## <a name="performance-counters-in-analytics"></a>Contadores de rendimiento en Analytics
 Puede buscar y mostrar informes de contador de rendimiento en [Analytics](../logs/log-query-overview.md).
 
-El esquema **performanceCounters** expone `category`, el nombre de `counter` y el nombre de `instance` de cada contador de rendimiento.  En la telemetría de cada aplicación, solo se ven los contadores de dicha aplicación. Por ejemplo, para ver qué contadores están disponibles: 
+El esquema **performanceCounters** expone `category`, el nombre de `counter` y el nombre de `instance` de cada contador de rendimiento.  En la telemetría de cada aplicación, solo se ven los contadores de dicha aplicación. Por ejemplo, para ver qué contadores están disponibles:
 
 ![Contadores de rendimiento en Application Insights Analytics](./media/performance-counters/analytics-performance-counters.png)
 
 (Aquí "Instance" hace referencia a la instancia de contador de rendimiento, no al rol ni a la instancia de máquina de servidor. El nombre de la instancia del contador de rendimiento normalmente segmenta contadores, como el tiempo de procesador por el nombre del proceso o la aplicación).
 
-Para obtener un gráfico de la memoria disponible en un período reciente: 
+Para obtener un gráfico de la memoria disponible en un período reciente:
 
 ![Gráfico de tiempo de la memoria in Application Insights Analytics](./media/performance-counters/analytics-available-memory.png)
 
-Al igual que otros datos de telemetría, **performanceCounters** también tiene una columna `cloud_RoleInstance` que indica la identidad de la instancia del servidor host en el que se ejecuta la aplicación. Por ejemplo, para comparar el rendimiento de una aplicación en distintas máquinas: 
+Al igual que otros datos de telemetría, **performanceCounters** también tiene una columna `cloud_RoleInstance` que indica la identidad de la instancia del servidor host en el que se ejecuta la aplicación. Por ejemplo, para comparar el rendimiento de una aplicación en distintas máquinas:
 
 ![Rendimiento segmentado por instancia de rol en Application Insights Analytics](./media/performance-counters/analytics-metrics-role-instance.png)
 
@@ -140,7 +139,7 @@ Al igual que otros datos de telemetría, **performanceCounters** también tiene 
 
 * *tasa de excepciones* es un contador de rendimiento del sistema. El CLR cuenta todas las excepciones controladas y no controladas que se producen, y divide el total de un intervalo de muestreo entre la duración del intervalo. El SDK de Application Insights recopila este resultado y lo envía al portal.
 
-* *Excepciones* es un recuento de los informes de TrackException recibidos a través del portal en el intervalo de muestreo del gráfico. Solo incluye las excepciones controladas para las que ha escrito llamadas a TrackException en el código y no incluye todas las [excepciones no controladas](./asp-net-exceptions.md). 
+* *Excepciones* es un recuento de los informes de TrackException recibidos a través del portal en el intervalo de muestreo del gráfico. Solo incluye las excepciones controladas para las que ha escrito llamadas a TrackException en el código y no incluye todas las [excepciones no controladas](./asp-net-exceptions.md).
 
 ## <a name="performance-counters-for-applications-running-in-azure-web-apps"></a>Contadores de rendimiento para aplicaciones que se ejecutan en Azure Web Apps
 
@@ -162,4 +161,3 @@ Al igual que otras métricas, puede [establecer una alerta](../alerts/alerts-log
 
 * [Seguimiento de dependencias](./asp-net-dependencies.md)
 * [Seguimiento de excepciones](./asp-net-exceptions.md)
-

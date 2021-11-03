@@ -1,17 +1,17 @@
 ---
 title: Lista de puertos para Azure FXT Edge Filer
 description: Lista de los puertos TCP/UDP que los entornos de clúster de FXT usan
-author: ekpgh
-ms.author: v-erkel
+author: femila
+ms.author: femila
 ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 05/26/2021
-ms.openlocfilehash: 28de9732f6a22f730059c08b5be939c23e52ebaa
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 3f95f58d123463cf527d1176c5e6c0d49ea8f48e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111415211"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131005316"
 ---
 # <a name="required-network-ports"></a>Puertos de red necesarios
 

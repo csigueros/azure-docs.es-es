@@ -7,14 +7,17 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: how-to
 ms.date: 09/12/2021
-ms.openlocfilehash: b3a33bc1f72af20a28bffbd96df73b95d31e3cca
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 354db7af1198335247d97c31b44b3c40b59ed75d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128594598"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060713"
 ---
 # <a name="advanced-configurations-for-jupyter-notebooks-and-msticpy-in-azure-sentinel"></a>Configuraciones avanzadas para cuadernos de Jupyter y MSTICPy en Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 En este artículo se describen las configuraciones avanzadas para trabajar con cuadernos de Jupyter y MSTICPy en Azure Sentinel.
 
@@ -180,7 +183,7 @@ Use varios archivos de configuración, con varias variables de entorno, si quier
 
     Pero si también tiene secretos almacenados en el archivo, se recomienda almacenar el archivo de configuración en la unidad local de proceso. El almacenamiento interno del proceso solo es accesible para el creador del proceso, mientras que el almacenamiento compartido es accesible para todo el que tenga acceso al área de trabajo de Azure Machine Learning.
 
-    Para obtener más información, vea [¿Qué es una instancia de proceso de Azure Machine Learning?](/azure/machine-learning/concept-compute-instance).
+    Para obtener más información, vea [¿Qué es una instancia de proceso de Azure Machine Learning?](../machine-learning/concept-compute-instance.md).
 
 1. Si es necesario, copie el archivo **msticpyconfig.yaml** en la ubicación seleccionada.
 
@@ -235,7 +238,6 @@ En este procedimiento se describe cómo actualizar el archivo **.bashrc** para e
 
     - Si ha movido el archivo **msticpyconfig.yaml**, ejecute `export MSTICPYCONFIG=~/msticpyconfig.yaml`.
     - Si no ha movido el archivo **msticpyconfig.yaml**, ejecute `export MSTICPYCONFIG=~/cloudfiles/code/Users/<YOURNAME>/msticpyconfig.yaml`.
-
 
 # <a name="azure-ml-options"></a>[Opciones de Azure Machine Learning](#tab/azure-ml)
 
@@ -311,4 +313,3 @@ Para más información, consulte:
 |**MSTICPy**     |      - [Configuración del paquete MSTICPy](https://msticpy.readthedocs.io/en/latest/getting_started/msticpyconfig.html)<br> - [Editor de configuraciones de MSTICPy](https://msticpy.readthedocs.io/en/latest/getting_started/SettingsEditor.html)<br>    - [Configuración del entorno de Notebook](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/ConfiguringNotebookEnvironment.ipynb).<br>    - [Cuaderno MPSettingsEditor](https://github.com/microsoft/msticpy/blob/master/docs/notebooks/MPSettingsEditor.ipynb). <br><br>**Nota**: El repositorio Azure-Sentinel-Notebooks de GitHub también contiene un archivo *msticpyconfig.yaml* de plantilla con secciones comentadas, lo que puede ayudarle a comprender la configuración.      |
 |**Azure Sentinel y cuadernos de Jupyter**     |      - [Cuadernos de Jupyter: introducción](https://realpython.com/jupyter-notebook-introduction/)<br>    - [Documentación de MSTICPy](https://msticpy.readthedocs.io/)<br>    - [Documentación de cuadernos de Azure Sentinel](notebooks.md)<br>    - [The Infosec Jupyterbook](https://infosecjupyterbook.com/introduction.html)<br>    - [Tutorial del Cuaderno del Explorador de host de Linux](https://techcommunity.microsoft.com/t5/azure-sentinel/explorer-notebook-series-the-linux-host-explorer/ba-p/1138273)<br>    - [Por qué usar Jupyter para investigaciones de seguridad](https://techcommunity.microsoft.com/t5/azure-sentinel/why-use-jupyter-for-security-investigations/ba-p/475729)<br>    - [Investigaciones de seguridad con Azure Sentinel y Notebooks](https://techcommunity.microsoft.com/t5/azure-sentinel/security-investigation-with-azure-sentinel-and-jupyter-notebooks/ba-p/432921)<br>    - [Documentación de Pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/index.html)<br>    - [Documentación de Bokeh](https://docs.bokeh.org/en/latest/)       |
 |     |         |
-

@@ -6,15 +6,14 @@ ms.author: owend
 ms.date: 10/12/2021
 ms.topic: quickstart
 ms.service: azure-analysis-services
-tags:
-- azure-resource-manager
-ms.custom: devx-track-azurepowershell - subject-armqs - references_regions - mode-arm
-ms.openlocfilehash: b8010df6b4e6284a1050d479e9ab312fb8e7bb97
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+tags: azure-resource-manager
+ms.custom: devx-track-azurepowershell, subject-armqs, references_regions, mode-arm
+ms.openlocfilehash: 3725c71f1334d3fd87df3e2fb50846c7ef2984dc
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129998834"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060030"
 ---
 # <a name="quickstart-create-a-server---arm-template"></a>Inicio rápido: Creación de un servidor: plantilla de ARM
 
@@ -26,7 +25,7 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.analysisservices%2Fanalysis-services-create%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * **Suscripción de Azure**: visite [Evaluación gratuita de Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) para crear una cuenta.
 * **Azure Active Directory**: la suscripción debe estar asociada a un inquilino de Azure Active Directory. Además, debe estar conectado en Azure con una cuenta en ese Azure Active Directory. Para más información, consulte [Permisos de usuario y autenticación](analysis-services-manage-users.md).

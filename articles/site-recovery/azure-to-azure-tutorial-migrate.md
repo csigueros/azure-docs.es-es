@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sharrai
 ms.custom: MVC
-ms.openlocfilehash: 076adbfd4cecf7dae9ffc490e911fcb7ffce48e6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53554e49c9e237f44d73238ca0e78385f66ca875
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93394839"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131019388"
 ---
 # <a name="move-vms-to-another-azure-region"></a>Traslado de máquinas virtuales a otra región de Azure
 
@@ -84,7 +84,7 @@ En este tutorial, aprenderá a:
     Para crear los recursos de red más utilizados que considere apropiados, en función de la configuración de la máquina virtual de origen, consulte la siguiente documentación:
     - [Grupos de seguridad de red](../virtual-network/manage-network-security-group.md)
     - [Equilibradores de carga](../load-balancer/index.yml)
-    -  [Dirección IP pública](../virtual-network/virtual-network-public-ip-address.md)
+    -  [Dirección IP pública](../virtual-network/ip-services/virtual-network-public-ip-address.md)
     - Para cualquier otro componente de red, consulte la [documentación de red](../index.yml?pivot=products&panel=network).
 
 

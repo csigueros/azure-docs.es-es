@@ -3,15 +3,13 @@ title: 'Inicio rápido: Creación de un grupo de administración con Python'
 description: En este inicio rápido se usa Python para crear un grupo de administración para organizar los recursos en una jerarquía.
 ms.date: 08/17/2021
 ms.topic: quickstart
-ms.custom:
-- devx-track-python
-- mode-api
-ms.openlocfilehash: ec4b66033093d6fa56e2bb5bce0f9d0fedf0a7e5
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.custom: devx-track-python, mode-api
+ms.openlocfilehash: 571e59e058b5cade33be8e883f5f1b1bab4169f1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122324941"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131028260"
 ---
 # <a name="quickstart-create-a-management-group-with-python"></a>Inicio rápido: Creación de un grupo de administración con Python
 
@@ -19,7 +17,7 @@ Los grupos de administración son contenedores que ayudan a administran el acces
 
 El primer grupo de administración creado en el directorio puede tardar hasta 15 minutos en completarse. Hay procesos que se ejecutan la primera vez para configurar el servicio de grupos de administración dentro de Azure para su directorio. Recibirá una notificación cuando finalice el proceso. Para obtener más información, vea [Instalación inicial de los grupos de administración](./overview.md#initial-setup-of-management-groups).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 

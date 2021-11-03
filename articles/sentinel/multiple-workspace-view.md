@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/20/2020
 ms.author: yelevin
-ms.openlocfilehash: 59550287dfa749e22334f9f238efa5be70b70252
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: c2063356b62a3b91bf3bf04453ea05f28788cab5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121779985"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131009384"
 ---
 # <a name="work-with-incidents-in-many-workspaces-at-once"></a>Procesamiento de incidentes en varias áreas de trabajo a la vez 
 
- Para aprovechar al máximo las funcionalidades de Azure Sentinel, Microsoft recomienda usar un entorno con una sola área de trabajo. Sin embargo, hay algunos casos de uso que requieren tener varias áreas de trabajo y, a veces, por ejemplo, para un [proveedor de servicios de seguridad administrados (MSSP)](./multiple-tenants-service-providers.md) y sus clientes, estas deben estar en varios inquilinos. La opción **Vista de varias áreas de trabajo** permite ver y trabajar con incidentes de seguridad en varias áreas de trabajo al mismo tiempo, incluso entre los inquilinos, lo que permite mantener la visibilidad y el control completos de la capacidad de respuesta de seguridad de la organización.
+ [!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+Para aprovechar al máximo las funcionalidades de Azure Sentinel, Microsoft recomienda usar un entorno con una sola área de trabajo. Sin embargo, hay algunos casos de uso que requieren tener varias áreas de trabajo y, a veces, por ejemplo, para un [proveedor de servicios de seguridad administrados (MSSP)](./multiple-tenants-service-providers.md) y sus clientes, estas deben estar en varios inquilinos. La opción **Vista de varias áreas de trabajo** permite ver y trabajar con incidentes de seguridad en varias áreas de trabajo al mismo tiempo, incluso entre los inquilinos, lo que permite mantener la visibilidad y el control completos de la capacidad de respuesta de seguridad de la organización.
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -58,4 +61,3 @@ En **Vista de varias áreas de trabajo**, de momento solo hay disponible la pant
 En este documento, aprendió a consultar los incidentes en varias áreas de trabajo de Azure Sentinel simultáneamente, así como a trabajar con ellos. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
 - Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).
-

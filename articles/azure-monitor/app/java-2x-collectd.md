@@ -6,12 +6,12 @@ ms.date: 03/14/2019
 ms.custom: devx-track-java
 author: mattmccleary
 ms.author: mmcc
-ms.openlocfilehash: 7931c71b58b052b97fdb00e16197d5001b47589f
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 1e57507165f9fbe48c95feeb2b00b28703120c8e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130134001"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131078985"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights-deprecated"></a>collectd: Métricas de rendimiento de Linux en Application Insights [en desuso]
 
@@ -43,7 +43,7 @@ En los equipos de servidor Linux:
    * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
    * Agregue este fragmento de código con la clave de instrumentación del recurso:
 
-```XML
+```xml
 
      LoadPlugin "com.microsoft.applicationinsights.collectd.ApplicationInsightsWriter"
      <Plugin ApplicationInsightsWriter>
@@ -53,7 +53,7 @@ En los equipos de servidor Linux:
 
 A continuación se muestra un archivo de configuración de ejemplo:
 
-```XML
+```xml
 
     ...
     # collectd plugins

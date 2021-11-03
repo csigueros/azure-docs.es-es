@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: f9c400b55b0da47495db4f1ff4ceb86aa39fe2cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: afb17cf0cc999680d2cd60a0be8e4a227aa146bf
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90885842"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131009194"
 ---
 # <a name="remove-azure-sentinel-from-your-workspace"></a>Eliminación de Azure Sentinel del área de trabajo
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Si ya no quiere usar Azure Sentinel, en este artículo se explica cómo eliminarlo del área de trabajo.
 

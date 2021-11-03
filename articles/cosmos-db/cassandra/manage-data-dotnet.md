@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/01/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 78ec9d84e6982a925e4eb5b1baa60881f89369b8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 003e3b9978b15e7af2280175575051028cb13035
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121786551"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057844"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Inicio rápido: Creación de una aplicación de Cassandra con .NET SDK y Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
@@ -92,30 +92,30 @@ Este paso es opcional. Si le interesa aprender cómo el código crea los recurso
 
 * Cree una nueva tabla.
 
-   ```csharp
+  ```csharp
   session.Execute("CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)");
-   ```
+  ```
 
 * Inserte las entidades de usuario mediante el uso del objeto IMapper con una sesión nueva que se conecta al espacio de claves del perfil.
 
-    ```csharp
-    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
-    ```
+  ```csharp
+  mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
+  ```
     
 * Realice una consulta para obtener la información de todos los usuarios.
 
-    ```csharp
-   foreach (User user in mapper.Fetch<User>("Select * from user"))
-   {
-      Console.WriteLine(user);
-   }
-    ```
-    
+  ```csharp
+  foreach (User user in mapper.Fetch<User>("Select * from user"))
+  {
+     Console.WriteLine(user);
+  }
+  ```
+
 * Realice una consulta para obtener la información de un único usuario.
 
-    ```csharp
-    mapper.FirstOrDefault<User>("Select * from user where user_id = ?", 3);
-    ```
+  ```csharp
+  mapper.FirstOrDefault<User>("Select * from user where user_id = ?", 3);
+  ```
 
 ## <a name="update-your-connection-string"></a>Actualización de la cadena de conexión
 

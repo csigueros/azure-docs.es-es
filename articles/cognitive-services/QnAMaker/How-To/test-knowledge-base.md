@@ -4,21 +4,20 @@ description: La prueba de la base de conocimiento de QnA Maker es una parte impo
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/09/2020
-ms.openlocfilehash: 7c27ce8087020a43076ee3c4c8a99454a554554c
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: afdb286cf03fdc0f49a9428e0e2a0588df46cc14
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110377489"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131017029"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>Prueba de una base de conocimiento en QnA Maker
 
 La prueba de la base de conocimiento de QnA Maker es una parte importante de un proceso iterativo para mejorar la precisión de las respuestas devueltas. Puede probar la base de conocimiento mediante una interfaz de chat mejorada que también permite realizar ediciones.
 
 ## <a name="interactively-test-in-qna-maker-portal"></a>Prueba interactiva en QnA Maker Portal
-
-# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
 
 1. Acceda a la base de conocimiento; para ello, seleccione su nombre en la página **Mis bases de conocimiento**.
 1. Para acceder al panel deslizante Prueba, seleccione **Prueba** en el panel superior de la aplicación.
@@ -65,58 +64,6 @@ Seleccione **Guardar y entrenar** para persistir esta respuesta. Se ha agregado 
 
 > [!NOTE]
 > Todas las modificaciones realizadas en la base de conocimiento solo se guardan si presiona el botón **Guardar y entrenar**.
-
-# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
-
-1. Acceda a la base de conocimiento; para ello, seleccione su nombre en la página **Mis bases de conocimiento**.
-1. Para acceder al panel deslizante Prueba, seleccione **Prueba** en el panel superior de la aplicación. 
-1. En la parte superior verá una casilla, **Display short answer** (Mostrar respuesta corta), que está seleccionada de forma predeterminada. Esta opción se usa para habilitar la detección del intervalo de respuestas basado en MRC en el panel de pruebas. 
-1. Escriba una consulta en el cuadro de texto y presione ENTRAR. 
-1. En todas las consultas, si hay alguna respuesta precisa o respuesta corta en el pasaje de la respuesta, junto con el pasaje de la respuesta con mayor grado de coincidencia, que se encuentra en la knowledge base, también tendrá una respuesta corta a la consulta.
-    ![Panel de prueba administrado habilitado](../media/qnamaker-how-to-test-knowledge-bases/test-pane-with-managed-detail.png)
-1. Si anula la selección de **Display short answer** (Mostrar respuesta corta), solo se devolverá como respuesta el pasaje de la respuesta con mayor grado de coincidencia.
-
-### <a name="clear-test-panel"></a>Borrar el panel de prueba
-
-Para borrar las consultas de prueba especificadas y sus resultados de la consola de pruebas, seleccione **Empezar de nuevo** en la esquina superior izquierda del panel Probar.
-
-### <a name="close-test-panel"></a>Cerrar el panel Prueba
-
-Para cerrar el panel Prueba, vuelva a seleccionar el botón **Prueba**. Mientras el panel Prueba está abierto, no puede editar el contenido de la base de conocimiento.
-
-### <a name="inspect-score"></a>Inspeccionar puntuación
-
-Puede inspeccionar los detalles del resultado de las pruebas en el panel Inspeccionar.
-
-1.  Con el panel deslizante Prueba abierto, seleccione **Inspeccionar** para obtener más detalles sobre dicha respuesta.
-
-    ![Versión preliminar de la inspección de respuestas](../media/qnamaker-how-to-test-knowledge-bases/inspect-with-managed.png)
-
-2.  Aparece el panel Inspección. El panel incluye la intención de mayor puntuación, así como cualquier entidad identificada. El panel muestra el resultado de la expresión seleccionada.
-3. El panel muestra la puntuación de confianza del pasaje de la respuesta, junto con la puntuación del intervalo de respuestas detectado.
-4. El panel también muestra el origen de la knowledge base del fragmento de respuesta.
-
-### <a name="correct-the-top-scoring-answer"></a>Corrección de la respuesta con mayor puntuación
-
-Si la respuesta con mayor puntuación es incorrecta, seleccione la respuesta correcta en la lista y haga clic en **Guardar y entrenar**.
-
-![Versión preliminar de la corrección de la respuesta con mayor puntuación](../media/qnamaker-how-to-test-knowledge-bases/choose-answer-managed.png)
-
-### <a name="add-alternate-questions"></a>Agregar preguntas alternativas
-
-Puede agregar formas alternativas de una pregunta a una respuesta determinada. Escriba las respuestas alternativas en el cuadro de texto y seleccione ENTRAR para agregarlas. Seleccione **Guardar y entrenar** para almacenar las actualizaciones.
-
-![Versión preliminar de la adición de preguntas alternativas](../media/qnamaker-how-to-test-knowledge-bases/add-alternate-question-with-managed.png)
-
-### <a name="add-a-new-answer"></a>Adición de una nueva respuesta
-
-Puede agregar una respuesta nueva si cualquiera de las respuestas existentes coincidentes son incorrectas o la respuesta no existe en la base de conocimiento (ninguna coincidencia adecuada encontrada en la base de conocimiento).
-
-En la parte inferior de la lista de las respuestas, use el cuadro de texto para escribir una nueva respuesta y presione Entrar para agregarla.
-
-Seleccione **Guardar y entrenar** para persistir esta respuesta. Se ha agregado un par pregunta-respuesta nuevo a la base de conocimiento.
-
----
 
 ### <a name="test-the-published-knowledge-base"></a>Prueba de la base de conocimiento publicada
 

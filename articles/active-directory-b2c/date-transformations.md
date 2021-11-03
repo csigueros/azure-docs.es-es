@@ -2,21 +2,21 @@
 title: Ejemplos de transformación de notificaciones de fecha para directivas personalizadas
 description: Ejemplos de transformación de notificaciones de fecha para el esquema de Identity Experience Framework (IEF) de Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/16/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: ccf8c5fceea71c3781ae420c1c36c629ebb97a7b
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 1f812a0afad78fc81d7844ebf1ec3b9a472f8862
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110783825"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131007398"
 ---
 # <a name="date-claims-transformations"></a>Transformaciones de notificaciones de fecha
 

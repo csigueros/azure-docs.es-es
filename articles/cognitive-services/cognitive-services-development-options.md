@@ -3,17 +3,17 @@ title: Opciones de desarrollo de Azure Cognitive Services
 description: Obtenga información acerca de cómo usar Azure Cognitive Services con diferentes opciones de desarrollo e implementación, como bibliotecas cliente, API REST, Logic Apps, Power Automate, Azure Functions, Azure App Service, Azure Databricks y muchas más.
 services: cognitive-services
 manager: nitinme
-author: erhopf
-ms.author: erhopf
+author: PatrickFarley
+ms.author: pafarley
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 6f3cd38985b6bbf1f0095ef124d2690cce00181f
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: c06cdae9bd7e2b0d3830cd57327253206970b3c6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123473737"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131077940"
 ---
 # <a name="cognitive-services-development-options"></a>Opciones de desarrollo de Cognitive Services
 

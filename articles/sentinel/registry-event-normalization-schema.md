@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 07/01/2021
 ms.author: bagol
-ms.openlocfilehash: d10d1e9408db7ab29a7fe01e5bf906e9023124c7
-ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: dd1a6b99c65d92b1a6a96a25790a8b780d73565f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129407235"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131055205"
 ---
 # <a name="azure-sentinel-registry-event-normalization-schema-reference-public-preview"></a>Referencia del esquema de normalización de eventos del Registro de Azure Sentinel (versión preliminar pública)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 El esquema de eventos del Registro se usa para describir las actividades de creación, modificación o eliminación de entidades del Registro de Windows.
 
@@ -173,7 +175,7 @@ Los distintos orígenes representan tipos de valor del Registro mediante represe
 Para más información, consulte:
 
 - [Normalización en Azure Sentinel](normalization.md)
-- [Referencia del esquema de normalización de la autenticación de Azure Sentinel (Versión preliminar pública)](authentication-normalization-schema.md)
+- [Referencia del esquema de normalización de la autenticación de Azure Sentinel (versión preliminar pública)](authentication-normalization-schema.md)
 - [Referencia del esquema de normalización de DNS de Azure Sentinel](dns-normalization-schema.md)
 - [Referencia del esquema de normalización de eventos de archivo de Azure Sentinel (versión preliminar pública)](file-event-normalization-schema.md)
-- [Referencia del esquema de normalización de red de Azure Sentinel](normalization-schema.md)
+- [Referencia del esquema de normalización de red de Azure Sentinel](./network-normalization-schema.md)

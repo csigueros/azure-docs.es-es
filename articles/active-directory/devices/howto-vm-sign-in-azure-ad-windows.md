@@ -12,12 +12,12 @@ manager: karenhoran
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0842de3ef0d3bc154193413987ae2a57d87ead38
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6ec984ebaa6b12019b1f1942d2849f7e9efaf288
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128631540"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049793"
 ---
 # <a name="login-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Inicio de sesión en una máquina virtual Windows en Azure mediante la autenticación de Azure Active Directory
 
@@ -405,7 +405,7 @@ Si no ha implementado Windows Hello para empresas ni se plantea hacerlo por aho
 > [!NOTE]
 > La autenticación con el PIN de Windows Hello para empresas con RDP es compatible con varias versiones de Windows 10. También se ha agregado compatibilidad con la autenticación biométrica con RDP en la versión 1809 de Windows 10. El uso de la autenticación de Windows Hello para empresas durante RDP solo está disponible para las implementaciones que usan el modelo de confianza de certificados y actualmente no están disponibles para el modelo de confianza de claves.
  
-Comparta sus comentarios sobre esta característica o notifique cualquier problema mediante el [foro de comentarios de Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
+Comparta sus comentarios sobre esta característica o notifique cualquier problema mediante el [foro de comentarios de Azure AD](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

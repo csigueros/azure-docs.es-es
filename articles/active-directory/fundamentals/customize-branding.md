@@ -13,18 +13,18 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11da4de1ec4629971f6c0b3836ed38440942ace1
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 34cd3cbfd92f3448bd8b494b579a641bfb580ecd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129231337"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131052453"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Incorporación de la personalización de marca en la página de inicio de sesión de Azure Active Directory de la organización
 Use el logotipo de la organización y combinaciones de colores personalizadas para proporcionar un aspecto coherente en las páginas de inicio de sesión de Azure Active Directory (Azure AD). Las páginas de inicio de sesión aparecen cuando los usuarios inician sesión en las aplicaciones web de su organización, como Microsoft 365, que usan Azure AD como proveedor de identidades.
 
 >[!NOTE]
->Para agregar personalización de marca, es necesario disponer de licencias de Azure Active Directory Premium 1, Premium 2 u Office 365 (para aplicaciones de Office 365). Para obtener más información acerca de las ediciones y licencias, consulte [Suscripción a Azure AD Premium](active-directory-get-started-premium.md).<br><br>Las ediciones Azure AD Premium están disponibles para los clientes de China que utilizan la instancia de Azure Active Directory en todo el mundo. Las ediciones Azure AD Premium no se admiten actualmente en el servicio de Azure administrado por 21Vianet en China. Para más información, póngase en contacto con nosotros en el [foro de Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
+>Para agregar personalización de marca, es necesario disponer de licencias de Azure Active Directory Premium 1, Premium 2 u Office 365 (para aplicaciones de Office 365). Para obtener más información acerca de las ediciones y licencias, consulte [Suscripción a Azure AD Premium](active-directory-get-started-premium.md).<br><br>Las ediciones Azure AD Premium están disponibles para los clientes de China que utilizan la instancia de Azure Active Directory en todo el mundo. Las ediciones Azure AD Premium no se admiten actualmente en el servicio de Azure administrado por 21Vianet en China. Para más información, póngase en contacto con nosotros en el [foro de Azure Active Directory](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Personalización de la página de inicio de sesión de Azure AD
 Puede personalizar las páginas de inicio de sesión de Azure AD. Estas páginas aparecen cuando los usuarios inician sesión en aplicaciones específicas del inquilino de la organización, como `https://outlook.com/contoso.com`, o al pasar una variable de dominio, como `https://passwordreset.microsoftonline.com/?whr=contoso.com`.

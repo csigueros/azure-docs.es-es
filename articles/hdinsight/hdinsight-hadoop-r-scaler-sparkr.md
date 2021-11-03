@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: dc58b73a317bdab85b63c947f07d2755b96f2fcd
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 4e2a3cd3dbd8e79d2d672b5b0433926639c5a2fd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112280441"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131070629"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combinación de ScaleR y SparkR en HDInsight
 
@@ -20,8 +20,6 @@ ms.locfileid: "112280441"
 Este documento muestra cómo predecir retrasos en la llegada de vuelos con un modelo de regresión logística **ScaleR**. En el ejemplo se usan datos meteorológicos y de retraso de vuelos, combinados mediante **SparkR**.
 
 Aunque ambos paquetes se procesan en el motor de ejecución de Spark de Apache Hadoop, se les impide compartir datos en memoria, ya que cada uno de ellos requiere sus correspondientes sesiones de Spark. Hasta que este problema se solucione en una próxima versión de ML Server, la solución alternativa consiste en mantener sesiones de Spark no superpuestas e intercambiar datos mediante archivos intermedios. Las siguientes instrucciones muestran que estos requisitos son fáciles de lograr.
-
-Este ejemplo se presentó originalmente en una charla en Strata 2016 de Mario Inchiosa y Roni Burd. Esta charla puede encontrarse en [Building a Scalable Data Science Platform with R](https://channel9.msdn.com/blogs/Cloud-and-Enterprise-Premium/Building-A-Scalable-Data-Science-Platform-with-R-and-Hadoop) (Creación de una plataforma de ciencia de datos escalable con R).
 
 El código se escribió originalmente para ML Server que se ejecuta en Spark en un clúster de HDInsight en Azure. Pero el concepto de mezclar el uso de SparkR y ScaleR en un script también es válido en el contexto de entornos locales.
 

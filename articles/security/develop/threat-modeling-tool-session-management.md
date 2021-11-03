@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
-ms.openlocfilehash: a1f4d4a3bb78da82753d651e1a73cf244096d5df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0e89d80d26cd9a967bd4651828104c4b00a0d367
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94518108"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131047637"
 ---
 # <a name="security-frame-session-management"></a>Marco de seguridad: Administración de sesiones
 | Producto o servicio | Artículo |
@@ -205,7 +205,7 @@ La configuración se aplica incluso si se usa HTTP para tener acceso a la aplica
 
 ### <a name="example"></a>Ejemplo
 Todas las aplicaciones basadas en HTTP que usen cookies deben especificar HttpOnly en la definición de la cookie; para ello, se debe implementar la siguiente configuración en el archivo Web.config:
-```XML
+```xml
 <system.web>
 .
 .
@@ -226,7 +226,7 @@ Todas las aplicaciones basadas en HTTP que usen cookies deben especificar HttpOn
 
 ### <a name="example"></a>Ejemplo 
 En el ejemplo de código siguiente, se establece el atributo requireSSL en el archivo Web.config.
-```XML
+```xml
 <authentication mode="Forms">
   <forms loginUrl="member_login.aspx" cookieless="UseCookies" requireSSL="true"/>
 </authentication>
@@ -243,7 +243,7 @@ En el ejemplo de código siguiente, se establece el atributo requireSSL en el ar
 
 ### <a name="example"></a>Ejemplo
 En el siguiente ejemplo se muestra la configuración correcta:
-```XML
+```xml
 <federatedAuthentication>
 <cookieHandler mode="Custom"
                        hideFromScript="true"
@@ -382,7 +382,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Pasos** | El tiempo de espera de la sesión representa el evento que se produce cuando un usuario no realiza ninguna acción en un sitio web durante un intervalo (definido por el servidor web). El evento, en el lado servidor, cambia el estado de la sesión del usuario a "invalid" (por ejemplo, "ya no se usa") e indica al servidor web que lo destruirá (y eliminará todos los datos que contiene). En el ejemplo de código siguiente, se establece el atributo de sesión de tiempo de espera en 15 minutos en el archivo Web.config.|
 
 ### <a name="example"></a>Ejemplo
-```XML 
+```xml
 <configuration>
   <system.web>
     <sessionState mode="InProc" cookieless="true" timeout="15" />
@@ -402,7 +402,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Pasos** | Establezca el tiempo de espera de la cookie para el vale de autenticación de formularios en 15 minutos.|
 
 ### <a name="example"></a>Ejemplo
-```XML
+```xml
 <forms  name=".ASPXAUTH" loginUrl="login.aspx"  defaultUrl="default.aspx" protection="All" timeout="15" path="/" requireSSL="true" slidingExpiration="true"/>
 </forms>
 ```
@@ -417,7 +417,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Pasos** | Cuando la aplicación web es Usuario de confianza y ADFS es el STS, la duración de las cookies de autenticación (tokens de FedAuth) se puede establecer mediante la siguiente configuración en web.config:|
 
 ### <a name="example"></a>Ejemplo
-```XML
+```xml
   <system.identityModel.services>
     <federationConfiguration>
       <!-- Set requireSsl=true; domain=application domain name used by FedAuth cookies (Ex: .gdinfra.com); -->

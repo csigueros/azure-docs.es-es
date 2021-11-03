@@ -14,15 +14,14 @@ ms.service: network-watcher
 ms.workload: infrastructure
 ms.tgt_pltfrm: network-watcher
 ms.devlang: na
-tags:
-- azure-resource-manager
-ms.custom: devx-track-azurepowershell - mvc - devx-track-azurepowershell - mode-api
-ms.openlocfilehash: 2a2324080b45a6e7a53930ceea0d3f179a8f1b9b
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+tags: azure-resource-manager
+ms.custom: devx-track-azurepowershell, mvc, mode-api
+ms.openlocfilehash: 46255bc9edf05140b68caf1a4cee08f5d5755855
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110671727"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131020186"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-powershell"></a>Inicio rápido: Diagnóstico de problemas de filtrado del tráfico de red de una máquina virtual: Azure PowerShell
 

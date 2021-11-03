@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 3eb0ab8ac6ca4c0ceddd9e3ebf84b8c2ddd5a9f4
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.openlocfilehash: 2479e5b269d6cc6a4d0aaadd6b3616da17670c2d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113301319"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131070040"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registro en Azure Monitor
 
@@ -20,9 +20,6 @@ Las alertas de registro son uno de los tipos de alerta que se admiten en [Alerta
 
 > [!NOTE]
 > Los datos de registro de un [área de trabajo de Log Analytics](../logs/log-analytics-tutorial.md) se pueden enviar al almacén de métricas de Azure Monitor. Las alertas de métricas tienen [diferentes comportamientos](alerts-metric-overview.md), lo que puede ser más conveniente en función de los datos con los que esté trabajando. Para saber más sobre cómo se pueden enrutar los registros a las métricas, vea [Alerta de métricas para los registros](alerts-metric-logs.md).
-
-> [!NOTE]
-> Actualmente no hay cargos adicionales por la versión `2020-05-01-preview` de la API y las alertas de registro orientadas a los recursos.  Los precios de las características en versión preliminar se anunciarán en el futuro y se avisará antes del inicio de la facturación. Si decide seguir usando la nueva versión de la API y las alertas de registro orientadas a los recursos después del período de aviso, se le facturará según la tarifa aplicable.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -153,7 +150,7 @@ Por ejemplo, supongamos que desea supervisar los errores de varias máquinas vir
 Esta regla supervisa si alguna máquina virtual presentó eventos de error en los últimos 15 minutos. Cada máquina virtual se supervisa por separado y desencadena acciones de forma individual.
 
 > [!NOTE]
-> La división por dimensiones de alerta solo está disponible en la versión scheduledQueryRules API actual. Si usa la versión [Alert API de Log Analytics heredada](./api-alerts.md), tendrá que cambiar a la nueva. [Más información sobre cómo cambiar](./alerts-log-api-switch.md). Las alertas orientadas a recursos a gran escala solo se admiten en la versión `2020-05-01-preview` y versiones posteriores de la API.
+> La división por dimensiones de alerta solo está disponible en la versión scheduledQueryRules API actual. Si usa la versión [Alert API de Log Analytics heredada](./api-alerts.md), tendrá que cambiar a la nueva. [Más información sobre cómo cambiar](./alerts-log-api-switch.md). Las alertas orientadas a recursos a gran escala solo se admiten en la versión `2020-08-01` y versiones posteriores de la API.
 
 ## <a name="alert-logic-definition"></a>Definición de la lógica de alerta
 

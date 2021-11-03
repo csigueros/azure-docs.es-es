@@ -9,12 +9,12 @@ ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 09/09/2021
-ms.openlocfilehash: fae713e7998a2a5e9686b38bba1ae40b40a2bf32
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3cf224f3b24d318818e53a8c6342edc9f56063e9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124806307"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131077826"
 ---
 # <a name="process-data-by-running-u-sql-scripts-on-azure-data-lake-analytics-with-azure-data-factory-and-synapse-analytics"></a>Procesamiento de datos mediante la ejecución de scripts U-SQL en Azure Data Lake Analytics con Azure Data Factory y Synapse Analytics
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -195,5 +195,4 @@ Vea los siguientes artículos, en los que se explica cómo transformar datos de 
 * [Actividad de streaming de Hadoop](transform-data-using-hadoop-streaming.md)
 * [Actividad de Spark](transform-data-using-spark.md)
 * [Actividad personalizada de .NET](transform-data-using-dotnet-custom-activity.md)
-* [Actividad de ejecución por lotes de ML Studio (clásico)](transform-data-using-machine-learning.md)
 * [Actividad de procedimiento almacenado](transform-data-using-stored-procedure.md)

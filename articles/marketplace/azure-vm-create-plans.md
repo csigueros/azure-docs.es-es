@@ -7,12 +7,12 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/13/2021
-ms.openlocfilehash: fd4d93b09328ad0b8de982a065567ffbadd87be3
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 0a7ca14a797ef2680527cd6992ff9a7a1d6ea115
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130004395"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084907"
 ---
 # <a name="create-plans-for-a-virtual-machine-offer"></a>Creación de planes para una oferta de máquina virtual
 
@@ -167,7 +167,7 @@ Entre las razones habituales para reutilizar las opciones de configuración téc
 2. Para reutilizar la misma configuración técnica de un plan público para un plan privado con un precio diferente. 
 3. La solución se comporta de forma diferente en función del plan que el usuario decida implementar. Por ejemplo, el software es el mismo, pero las características varían según el plan.
 
-Aproveche [Azure Instance Metadata Service](/azure/virtual-machines/windows/instance-metadata-service) (IMDS) para identificar en qué plan se implementa la solución para validar la licencia o habilitar las características adecuadas.
+Aproveche [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md) (IMDS) para identificar en qué plan se implementa la solución para validar la licencia o habilitar las características adecuadas.
 
 Si más adelante decide publicar cambios diferentes entre los planes, puede separarlos. Desasocie el plan que está reutilizando la configuración técnica mediante la anulación de la selección de esta opción con el plan. Una vez desasociado, el plan llevará las mismas opciones de configuración técnica en lugar de la última configuración y los planes podrán diferir en la configuración. Un plan que se ha publicado de forma independiente en el pasado no puede reutilizar una configuración técnica más adelante. 
 

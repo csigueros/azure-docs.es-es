@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/18/2021
-ms.openlocfilehash: 2caff70e56f80d4f46859cec58275263375ee4de
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 0150a5ad522d4002d5c6f6ebbceaa7e80a6cd403
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130181582"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131026153"
 ---
 # <a name="azure-monitor-best-practices"></a>Procedimientos recomendados de Azure Monitor
 En este escenario se proporcionan instrucciones recomendadas para configurar las características de Azure Monitor a fin de supervisar el rendimiento y la disponibilidad de sus aplicaciones y recursos tanto híbridos como de nube. 
@@ -21,7 +21,7 @@ Habilitar Azure Monitor para supervisar todos los recursos de Azure es una combi
 
 
 > [!IMPORTANT]
-> Si no está familiarizado con Azure Monitor o se centra solamente en la supervisión de un único recurso de Azure, debe comenzar con el tutorial [Supervisión de recursos de Azure con Azure Monitor](/essentials/monitor-azure-resource.md). En el tutorial se proporcionan los conceptos generales de Azure Monitor e instrucciones para supervisar un único recurso de Azure. Este escenario ofrece recomendaciones para preparar el entorno de forma que puedan aprovecharse todas las características de Azure Monitor para supervisar el conjunto completo de aplicaciones y recursos a escala de forma conjunta.
+> Si no está familiarizado con Azure Monitor o se centra solamente en la supervisión de un único recurso de Azure, debe comenzar con el tutorial [Supervisión de recursos de Azure con Azure Monitor](essentials/monitor-azure-resource.md). En el tutorial se proporcionan los conceptos generales de Azure Monitor e instrucciones para supervisar un único recurso de Azure. Este escenario ofrece recomendaciones para preparar el entorno de forma que puedan aprovecharse todas las características de Azure Monitor para supervisar el conjunto completo de aplicaciones y recursos a escala de forma conjunta.
 
 ## <a name="scope-of-the-scenario"></a>Ámbito del escenario
 El objetivo de este escenario es guiarle a través de los pasos básicos de una implementación completa de Azure Monitor para asegurarse de que aprovecha sus características por completo y maximiza la observabilidad de sus aplicaciones y recursos híbridos y de nube. Se centra en los requisitos de configuración y en las opciones de implementación, en lugar de en los detalles de configuración en sí. Se ofrecen vínculos a otro contenido que proporciona los detalles para realizar la configuración necesaria en sí.
@@ -35,8 +35,6 @@ En este artículo se presenta el escenario. Si quiere ir directamente a un área
 | [Configuración de la recopilación de datos](best-practices-data-collection.md) | Tareas necesarias para recopilar los datos de supervisión de las aplicaciones y recursos híbridos y de Azure. |
 | [Análisis y visualizaciones](best-practices-analysis.md) | Características estándar y visualizaciones adicionales que puede crear para analizar los datos de supervisión recopilados. |
 | [Alertas y respuestas automatizadas](best-practices-alerts.md) | Configure las notificaciones y los procesos que se desencadenan de forma automática al crear una alerta. |
-
-
 
 
 ## <a name="next-steps"></a>Pasos siguientes

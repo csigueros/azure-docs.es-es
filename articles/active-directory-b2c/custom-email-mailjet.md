@@ -3,21 +3,21 @@ title: Verificación de correo electrónico personalizado con Mailjet
 titleSuffix: Azure AD B2C
 description: Aprenda a realizar una integración con Mailjet para personalizar el correo electrónico de verificación que se envía a los clientes cuando se registran para usar las aplicaciones habilitadas para Azure AD B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/15/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c8b7a30cfa47634aeb2eace9ee1c8d3ad2d388c9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a0a7f91b540e06ba0b973bf5aeb9f790a58410ad
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128564265"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131007436"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Verificación de correo electrónico personalizado con Mailjet
 
@@ -37,15 +37,14 @@ La verificación del correo electrónico personalizado requiere el uso de un pro
 
 ## <a name="create-a-mailjet-account"></a>Creación de una cuenta de Mailjet
 
-Si aún no tiene una, empiece por configurar una cuenta de Mailjet (los clientes de Azure pueden desbloquear 6 000 mensajes de correo electrónico con un límite de 200 correos electrónicos al día). 
+Si aún no tiene una, empiece por configurar una cuenta de Mailjet (los clientes de Azure pueden desbloquear 6 000 mensajes de correo electrónico con un límite de 200 correos electrónicos al día).
 
 1. Siga las instrucciones de configuración para [crear una cuenta de Mailjet](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/).
 1. Para poder enviar correo electrónico, [registre y valide](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/#how-to-configure-mailjet-for-use) la dirección de correo electrónico o el dominio del remitente.
-2. Desplácese hasta la [página de administración de claves de API](https://app.mailjet.com/account/api_keys). Anote la **clave de API** y la **clave secreta** para usarlas en un paso posterior. Cuando se crea la cuenta, se generan las dos claves automáticamente.  
+2. Desplácese hasta la [página de administración de claves de API](https://app.mailjet.com/account/api_keys). Anote la **clave de API** y la **clave secreta** para usarlas en un paso posterior. Cuando se crea la cuenta, se generan las dos claves automáticamente.
 
 > [!IMPORTANT]
 > Mailjet ofrece a los clientes la capacidad de enviar correos electrónicos desde direcciones IP compartidas y [direcciones IP dedicadas](https://documentation.mailjet.com/hc/articles/360043101973-What-is-a-dedicated-IP). Al usar direcciones IP dedicadas, tiene que mejorar su propia reputación de manera adecuada con un calentamiento de la dirección IP. Para obtener más información, consulte [¿Cómo se realiza el calentamiento de la dirección IP?](https://documentation.mailjet.com/hc/articles/1260803352789-How-do-I-warm-up-my-IP-)
-
 
 ## <a name="create-azure-ad-b2c-policy-key"></a>Creación de la clave de directiva de Azure AD B2C
 
@@ -156,7 +155,6 @@ Con la cuenta de Mailjet creada y la clave de API de Mailjet almacenada en una c
                        <td width="24" style="border-bottom:1px solid #e3e3e3;">&nbsp;</td>
                        <td id="PageFooterContainer" width="585" valign="top" colspan="6" style="border-bottom:1px solid #e3e3e3;padding:0px;">
 
-
                        </td>
 
                        <td width="29" style="border-bottom:1px solid #e3e3e3;">&nbsp;</td>
@@ -180,14 +178,13 @@ Con la cuenta de Mailjet creada y la clave de API de Mailjet almacenada en una c
 1. En la parte superior derecha, seleccione **Save & Publish** (Guardar y publicar) y después **Yes, publish changes** (Sí, publicar cambios).
 1. Anote el valor de **Template ID** (Identificador de la plantilla) de la plantilla que creó para usarlo en un paso posterior. Este identificador se especifica al [agregar la transformación de notificaciones](#add-the-claims-transformation).
 
-
 ## <a name="add-azure-ad-b2c-claim-types"></a>Incorporación de tipos de notificaciones de Azure AD B2C
 
 En la directiva, agregue los siguientes tipos de notificaciones al elemento `<ClaimsSchema>` dentro de `<BuildingBlocks>`.
 
 Estos tipos de notificaciones son necesarios para generar y verificar la dirección de correo electrónico mediante un código de contraseña de un solo uso (OTP).
 
-```XML
+```xml
 <!--
 <BuildingBlocks>
   <ClaimsSchema> -->
@@ -222,7 +219,7 @@ Agregue la siguiente transformación de notificaciones al elemento `<ClaimsTrans
 * Actualice el valor de dirección de `Messages.0.From.Email`. Use una dirección de correo electrónico válida para evitar que el correo electrónico de verificación se marque como correo no deseado.
 * Actualice el valor del parámetro de entrada de la línea de asunto `Messages.0.Subject` con una línea de asunto adecuada para su organización.
 
-```XML
+```xml
 <!-- 
 <BuildingBlocks>
   <ClaimsTransformations> -->
@@ -256,7 +253,7 @@ Agregue la siguiente transformación de notificaciones al elemento `<ClaimsTrans
 
 Bajo las transformaciones de notificaciones dentro de `<BuildingBlocks>`, agregue el siguiente elemento [ContentDefinition](contentdefinitions.md) para hacer referencia al URI de datos de la versión 2.1.2:
 
-```XML
+```xml
 <!--
 <BuildingBlocks> -->
   <ContentDefinitions>
@@ -286,7 +283,7 @@ Este control de visualización de ejemplo está configurado para:
 
 En las definiciones de contenido, todavía dentro de `<BuildingBlocks>`, agregue el siguiente elemento [DisplayControl](display-controls.md) de tipo [VerificationControl](display-control-verification.md) a la directiva.
 
-```XML
+```xml
 <!--
 <BuildingBlocks> -->
   <DisplayControls>
@@ -326,7 +323,7 @@ El perfil técnico `GenerateOtp` genera un código para la dirección de correo 
 
 Agregue los siguientes perfiles técnicos al elemento `<ClaimsProviders>`.
 
-```XML
+```xml
 <!--
 <ClaimsProviders> -->
   <ClaimsProvider>
@@ -374,7 +371,7 @@ Este perfil técnico de API REST genera el contenido del correo electrónico (co
 
 Al igual que hizo con los perfiles técnicos de OTP, agregue los siguientes perfiles técnicos al elemento `<ClaimsProviders>`.
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>RestfulProvider</DisplayName>
   <TechnicalProfiles>
@@ -408,7 +405,7 @@ En el paso final, agregue una referencia al elemento DisplayControl que creó. R
 
 Para más información, consulte [Definición de un perfil técnico de RESTful en una directiva personalizada en Azure Active Directory B2C](restful-technical-profile.md) y [Controles de visualización](display-controls.md).
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>
@@ -454,7 +451,7 @@ Para localizar el correo electrónico, debe enviar las cadenas localizadas a Mai
 1. Cambie la transformación de notificaciones `GenerateEmailRequestBody` para que use notificaciones de entrada con el siguiente fragmento de código XML.
 1. Actualice la plantilla de Mailjet para que use los parámetros dinámicos en lugar de todas las cadenas que se localizarán mediante Azure AD B2C.
 
-    ```XML
+    ```xml
     <ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
       <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="subject" TransformationClaimType="email_subject" />
@@ -550,12 +547,12 @@ Para localizar el correo electrónico, debe enviar las cadenas localizadas a Mai
       <InputClaimsTransformation ReferenceId="GetLocalizedStringsForEmail" />
     </InputClaimsTransformations>
     ```
-    
+
 ## <a name="optional-localize-the-ui"></a>[Opcional] Localización de la interfaz de usuario
 
-El elemento Localization permite incluir varios idiomas o configuraciones regionales en la directiva para los recorridos del usuario. La compatibilidad con localización en directivas permite especificar cadenas específicas del idioma para los [elementos de la interfaz de usuario del control de pantalla de comprobación](localization-string-ids.md#verification-display-control-user-interface-elements) y los [mensajes de error de contraseña de un solo uso](localization-string-ids.md#one-time-password-error-messages). Agregue el siguiente elemento LocalizedString a LocalizedResources. 
+El elemento Localization permite incluir varios idiomas o configuraciones regionales en la directiva para los recorridos del usuario. La compatibilidad con localización en directivas permite especificar cadenas específicas del idioma para los [elementos de la interfaz de usuario del control de pantalla de comprobación](localization-string-ids.md#verification-display-control-user-interface-elements) y los [mensajes de error de contraseña de un solo uso](localization-string-ids.md#one-time-password-error-messages). Agregue el siguiente elemento LocalizedString a LocalizedResources.
 
-```XML
+```xml
 <LocalizedResources Id="api.custom-email.en">
   <LocalizedStrings>
     ...

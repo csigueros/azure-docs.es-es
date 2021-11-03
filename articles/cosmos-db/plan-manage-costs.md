@@ -3,16 +3,16 @@ title: Planeamiento y administración de los costos de Azure Cosmos DB
 description: Obtenga información acerca de cómo planear y administrar los costos de Azure Cosmos DB mediante el análisis de costos en Azure Portal.
 author: SnehaGunda
 ms.author: sngun
-ms.custom: subject-cost-optimization
+ms.custom: subject-cost-optimization, ignite-fall-2021
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/26/2021
-ms.openlocfilehash: f954be4b5ce82bf84bc99fcdab253c48fccf9933
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.date: 10/08/2021
+ms.openlocfilehash: 3004cd93eb9222ef1e8163584c03d762bb0c85e1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123226984"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080163"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Planeamiento y administración de los costos de Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -21,7 +21,7 @@ En este artículo se describe cómo puede planear y administrar los costos de Az
 
 Después de comenzar a usar los recursos de Azure Cosmos DB, use las características de Cost Management para establecer presupuestos y supervisar los costos. También puede revisar los costos previstos e identificar las tendencias de gasto para identificar las áreas en las que podría querer actuar. Los costos de Azure Cosmos DB son solo una parte de los costos mensuales de la factura de Azure. Aunque en este artículo se explica cómo planear y administrar los costos de Azure Cosmos DB, se le facturarán todos los servicios y recursos de Azure usados para su suscripción de Azure, incluidos los servicios de terceros.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="provisioned-throughput-or-serverless"></a>Rendimiento aprovisionado o sin servidor
 
@@ -37,7 +37,7 @@ Azure Cosmos DB admite dos tipos de modos de capacidad: rendimiento aprovisiona
 
 ### <a name="capacity-planning"></a>Planificación de capacidad
 
-Planear la capacidad para una migración a Azure Cosmos DB puede ser útil para ayudar a calcular los costos. Si planea una migración desde un clúster de base de datos existente a Azure Cosmos DB, puede usar información sobre dicho clúster para el planeamiento de la capacidad.
+Planear la capacidad para una migración a Azure Cosmos DB puede ser útil para ayudar a calcular los costos. Si planea una migración desde un clúster de base de datos existente a Azure Cosmos DB, puede usar información sobre dicho clúster para el planeamiento de capacidad.
 * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
 
 ![Migración de un conjunto de tres réplicas de una SKU de cuatro núcleos a Azure Cosmos DB](media/convert-vcore-to-request-unit/one-replica-set.png)
@@ -49,6 +49,9 @@ Planear la capacidad para una migración a Azure Cosmos DB puede ser útil par
 Si tiene previsto usar Azure Cosmos DB en el modo de rendimiento aprovisionado, use la [calculadora de capacidad de Azure Cosmos DB](https://cosmos.azure.com/capacitycalculator/) para calcular los costos antes de crear los recursos en una cuenta de Azure Cosmos. La calculadora de capacidad se usa para obtener una estimación del rendimiento necesario y el costo de la carga de trabajo. La calculadora de capacidad solo está disponible actualmente para la API de SQL, Cassandra API y API para MongoDB.
 
 La configuración de las bases de datos y los contenedores de Azure Cosmos con la cantidad adecuada de rendimiento aprovisionado, o [unidades de solicitud (RU/s)](request-units.md), para la carga de trabajo es esencial para optimizar el costo y el rendimiento. Tiene que escribir detalles como el tipo de API, el número de regiones, el tamaño de los elementos, las solicitudes de lectura/escritura por segundo y el total de datos almacenados para obtener una estimación de costos. Para más información acerca de la calculadora de capacidad, consulte el artículo [Estimación](estimate-ru-with-capacity-planner.md).
+
+> [!TIP]
+> Para asegurarse de que nunca supera el rendimiento aprovisionado que ha presupuestado, [limite el rendimiento total aprovisionado de la cuenta](./limit-total-account-throughput.md).
 
 En la captura de pantalla siguiente se muestra el rendimiento y la estimación de costos mediante la calculadora de capacidad:
 
@@ -118,7 +121,7 @@ Al usar el análisis de costos, puede ver los costos de Azure Cosmos DB en grá
 
 Para ver los costos de Azure Cosmos DB en el análisis de costos:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. Abra el ámbito en Azure Portal y seleccione **Análisis de costos** en el menú. Por ejemplo, vaya a **Suscripciones**, seleccione una suscripción de la lista y, a continuación, seleccione **Análisis de costos** en el menú. Seleccione **Ámbito** para cambiar a otro ámbito del análisis de costos.
 
@@ -160,7 +163,7 @@ A continuación se muestran algunos procedimientos recomendados que puede usar p
 
 Consulte los siguientes artículos para obtener información sobre cómo funcionan los precios en Azure Cosmos DB:
 
-* ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Puede usar información sobre el clúster de bases de datos existente para planear la capacidad.
+* ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Para ello, puede usar información sobre el clúster de bases de datos existente.
     * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
     * Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).
 * [Modelo de precios de Azure Cosmos DB](how-pricing-works.md)

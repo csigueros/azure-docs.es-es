@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: fcc18d235be771044e67a6ffda43effb475f1655
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 0f311645f29f5daaaf65474a60031ee8cceff688
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130068900"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063677"
 ---
 # <a name="mv2-series"></a>Serie Mv2
 
@@ -29,7 +29,7 @@ Las máquinas virtuales de la serie Mv2 cuentan con la tecnología Hyper-Threadi
 [Compatibilidad con generación de VM](generation-2.md): Generación 2<br>
 [Acelerador de escritura](./how-to-enable-write-accelerator.md): Compatible<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible<br>
-[Discos de sistema operativo efímero](ephemeral-os-disks.md): No compatible <br>
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible <br>
 <br>
 
 |Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS / MBps | Nº máx. NIC | Ancho de banda de red esperado (Mbps) |

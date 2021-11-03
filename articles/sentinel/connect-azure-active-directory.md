@@ -15,14 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/21/2021
 ms.author: yelevin
-ms.openlocfilehash: 20e9920921afe1eae8babb76212a6de7ea2e1321
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 3d0c19fe728f42940502f2cab3496d999ecbb349
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123251857"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060732"
 ---
 # <a name="connect-azure-active-directory-azure-ad-data-to-azure-sentinel"></a>Conexión de datos de Azure Active Directory (Azure AD) a Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 > Como se indica a continuación, algunos de los tipos de registro disponibles están actualmente en **versión preliminar**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.

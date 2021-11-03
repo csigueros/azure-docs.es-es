@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: f18fa1af869f0335214cff5725bbc7e6dc1293ea
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 93b00212bda4f02b6a31c151856639b1f461cac1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129991667"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131050838"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Aprovisionamiento de aplicaciones en el estado de cuarentena
 
@@ -30,7 +30,7 @@ En cuarentena:
 ## <a name="how-do-i-know-if-my-application-is-in-quarantine"></a>¿Cómo puedo saber si mi aplicación está en cuarentena?
 
 Hay tres maneras de comprobar si una aplicación está en cuarentena:
-  
+
 - En Azure Portal, vaya a **Azure Active Directory** > **Aplicaciones empresariales** > &lt;*nombre de la aplicación*&gt; > **Aprovisionamiento** y compruebe si la barra de progreso tienen algún mensaje de cuarentena.   
 
   ![Barra de estado de aprovisionamiento que muestra el estado de cuarentena](./media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
@@ -88,7 +88,7 @@ Una vez resuelto el problema, reinicie el trabajo de aprovisionamiento. Algunos 
 - Use Azure Portal para reiniciar el trabajo de aprovisionamiento. En la página **Aprovisionamiento** de la aplicación, seleccione **Reiniciar aprovisionamiento**. Esta acción reinicia completamente el servicio de aprovisionamiento, lo que puede tardar cierto tiempo. Se volverá a ejecutar un ciclo inicial completo, que borrará los elementos en custodia, quitará la aplicación de la cuarentena y borrará las marcas de agua. Después, el servicio evaluará de nuevo todos los usuarios del sistema de origen y determinará si están en el ámbito del aprovisionamiento. Esto puede ser útil si la aplicación está en cuarentena actualmente, como se explica en este artículo, o si necesita realizar un cambio en las asignaciones de atributos. Tenga en cuenta que el ciclo inicial tarda más tiempo en completarse que el ciclo incremental típico debido al número de objetos que deben evaluarse. Se puede obtener más información sobre el rendimiento de los ciclos inicial e incremental [aquí](application-provisioning-when-will-provisioning-finish-specific-user.md).
 
 - Use Microsoft Graph para [reiniciar el trabajo de aprovisionamiento](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true). Así tendrá control total sobre lo que reinicie. Puede optar por borrar los elementos en custodia (para reiniciar el contador de custodia que se acumula en el estado de cuarentena), borrar la cuarentena (para quitar la aplicación de la cuarentena) o borrar las marcas de agua. Use la siguiente solicitud:
- 
+
 ```microsoft-graph
         POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart
 ```

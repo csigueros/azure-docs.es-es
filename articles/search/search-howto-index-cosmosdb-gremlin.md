@@ -2,18 +2,18 @@
 title: Indexación de datos de Gremlin API (versión preliminar)
 titleSuffix: Azure Cognitive Search
 description: Configure un indexador de Azure Cosmos DB para automatizar la indexación del contenido de Gremlin API en la búsqueda de texto completo en Azure Cognitive Search.
-author: MarkHeff
-ms.author: maheff
+author: nitinme
+ms.author: nitinme
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/11/2021
-ms.openlocfilehash: 69642aa1b9d977591bee6dbb8464cdf74ca7be1e
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 82d7a385567459f9e3292af8f88594dec96b5a77
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114731016"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131010695"
 ---
 # <a name="index-data-using-azure-cosmos-db-gremlin-api"></a>Indexación de datos mediante Gremlin API de Azure Cosmos DB
 

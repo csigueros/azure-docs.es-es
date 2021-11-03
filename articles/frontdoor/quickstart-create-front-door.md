@@ -12,14 +12,13 @@ ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.custom:
-- mode-portal
-ms.openlocfilehash: 30bcdce70ce15e7f960d8d04b3796a04f59b1ec2
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.custom: mode-portal
+ms.openlocfilehash: 57b99677d182f176b3721c155aab2e794c60574c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123039279"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040535"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Inicio rápido: Cree una instancia de Front Door para una aplicación web global de alta disponibilidad.
 
@@ -47,7 +46,7 @@ Si aún no tiene una aplicación web, use los pasos siguientes para configurar a
 
 1. En la pestaña **Aspectos básicos** de la página **Crear aplicación web**, escriba o seleccione la información siguiente.
 
-    | Configuración                 | Value                                              |
+    | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
     | **Suscripción**               | Seleccione su suscripción. |    
     | **Grupos de recursos**       | Seleccione **Crear nuevo** y escriba *FrontDoorQS_rg1* en el cuadro de texto.|
@@ -80,7 +79,7 @@ Configure Azure Front Door para dirigir el tráfico del usuario en función de l
 
 1. En la pestaña **Conceptos básicos** de la página **Crear una instancia de Front Door**, escriba o seleccione la siguiente información y, a continuación, seleccione **Siguiente: Configuration** (Siguiente: Configuración).
 
-    | Configuración | Value |
+    | Configuración | Valor |
     | --- | --- |
     | **Suscripción** | Seleccione su suscripción. |    
     | **Grupos de recursos** | Seleccione **Crear nuevo** y escriba *FrontDoorQS_rg0* en el cuadro de texto.|

@@ -9,12 +9,12 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 09/09/2021
-ms.openlocfilehash: abd839bdc15430b3b4936fe1d2b65826ae792da8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6db84461df49a335ce8a3c427fe1408b00034dcd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128592553"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058224"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory-or-azure-synapse-analytics"></a>Copia y transformación de datos en Azure Data Lake Storage Gen2 mediante Azure Data Factory o Azure Synapse Analytics
 
@@ -263,7 +263,7 @@ Para usar la autenticación de identidad administrada asignada por el usuario, s
     - **Como origen**: en el Explorador de Storage, conceda al menos permiso de **ejecución** para TODAS las carpetas de nivel superior y el sistema de archivos, junto con el permiso de **lectura** para los archivos que se van a copiar. Como alternativa, en el control de acceso (IAM), conceda al menos el rol **Lector de datos de Storage Blob**.
     - **Como receptor**: en el Explorador de Storage, conceda al menos permiso de **ejecución** para TODAS las carpetas de nivel superior y el sistema de archivos, junto con el permiso de **escritura** para la carpeta del receptor. Como alternativa, en el control de acceso (IAM), conceda al menos el rol **Colaborador de datos de Storage Blob**.
     
-2. Asigne una o varias identidades administradas asignadas por el usuario a la factoría de datos y [cree credenciales](data-factory-service-identity.md#credentials) para cada identidad administrada asignada por el usuario. 
+2. Asigne una o varias identidades administradas asignadas por el usuario a la factoría de datos y [cree credenciales](credentials.md) para cada identidad administrada asignada por el usuario. 
 
 Estas propiedades son compatibles con el servicio vinculado:
 

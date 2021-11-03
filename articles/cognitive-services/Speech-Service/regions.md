@@ -8,25 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 10/13/2021
 ms.author: panosper
-ms.custom: seodec18,references_regions
-ms.openlocfilehash: 002f8ce7311d59a101f676908453fb1493b6dd39
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.custom: references_regions, ignite-fall-2021
+ms.openlocfilehash: 5ae6618731a6b8d0561a58a1997dbee9584e3551
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114710406"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131031126"
 ---
 # <a name="speech-service-supported-regions"></a>Regiones admitidas del servicio de voz
 
 El servicio Voz permite que la aplicación convierta audio en texto, lleve a cabo la traducción de voz y convertir texto a voz. Este servicio está disponible en varias regiones con puntos de conexión únicos para SDK de Voz y API REST.
 
-El portal de Voz para realizar configuraciones personalizadas a su experiencia de voz para todas las regiones está disponible aquí: https://speech.microsoft.com
+El portal de Voz, donde puede realizar configuraciones personalizadas a la experiencia de voz para todas las regiones, está disponible en [speech.microsoft.com](https://speech.microsoft.com).
 
 Tenga en cuenta los siguientes puntos al considerar las regiones:
 
-* Si la aplicación usa un [SDK de voz](speech-sdk.md), proporcione el identificador de región, por ejemplo, `westus`, al crear una configuración de voz.
+* Si la aplicación usa un [SDK de voz](speech-sdk.md), proporcione el identificador de región, por ejemplo, `westus`, al crear una configuración de voz. Asegúrese de que la región coincida con la región de la suscripción.
 * Si la aplicación usa una de las [API de REST](./overview.md#reference-docs) del servicio de voz, la región forma parte del URI del punto de conexión que se emplea al realizar solicitudes.
 * Las claves creadas para una región son válidas únicamente en esa región. Si intenta usarlas con otras regiones se producen errores de autenticación.
 
@@ -35,17 +35,13 @@ Tenga en cuenta los siguientes puntos al considerar las regiones:
 
 ## <a name="speech-sdk"></a>SDK de voz
 
-En las regiones de [SDK de Voz](speech-sdk.md), las regiones se especifican como una cadena (por ejemplo, como un parámetro `SpeechConfig.FromSubscription` en el SDK de Voz para C#).
+En el [SDK de Voz](speech-sdk.md), la región se especifica como un parámetro (por ejemplo, como un parámetro de `SpeechConfig.FromSubscription` en el SDK de Voz para C#).
 
 ### <a name="speech-to-text-text-to-speech-and-translation"></a>Voz a texto, texto a voz y traducción
-
-El portal de personalización de voz está disponible aquí: https://speech.microsoft.com
 
 El servicio de voz está disponible en estas regiones para el **reconocimiento de voz**, la **conversión de texto a voz** y la **traducción**:
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
-
-Si usa el [SDK de Voz](speech-sdk.md), las regiones se especifican mediante el **identificador de región** (por ejemplo, como un parámetro de `SpeechConfig.FromSubscription`). Asegúrese de que la región coincida con la región de la suscripción.
 
 Si tiene previsto entrenar un modelo personalizado con datos de audio, use una de las [regiones con hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para agilizar el entrenamiento. Puede usar la [API de REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) para copiar el modelo totalmente entrenado en otra región más adelante.
 
@@ -90,11 +86,27 @@ El [SDK de voz](speech-sdk.md) admite las funcionalidades del **asistente para v
 
 ### <a name="speaker-recognition"></a>Speaker Recognition
 
-Speaker Recognition actualmente solo está disponible en la región `westus`.
+Las regiones disponibles para **Speaker Recognition** son las siguientes:
+
+| Geography | Region           | Identificador de región |
+| ------------- | ---------------- | -------------------- |
+| América     | Centro de EE. UU.   | `centralus` |
+| América     | Este de EE. UU.   | `eastus`  |
+| América     | Este de EE. UU. 2  | `eastus2`  |
+| América     | Centro-Oeste de EE. UU.  | `westcentralus`  |
+| América     | Oeste de EE. UU.  | `westus`  |
+| América     | Oeste de EE. UU. 2  | `westus2`  |
+| Asia Pacífico  | Este de Asia   | `eastasia` |
+| Asia Pacífico  | Sudeste de Asia   | `southeastasia` |
+| Asia Pacífico  | Centro de la India   | `centralindia` |
+| Australia     | Este de Australia   | `australiaeast` |
+| Europa     | Norte de Europa   | `northeurope` |
+| Europa     | Oeste de Europa   | `westeurope` |
+| Europa     | Sur de Reino Unido 2   | `uksouth` |
 
 ## <a name="rest-apis"></a>API de REST
 
-El servicio Voz también expone puntos de conexión REST para las solicitudes de voz a texto y texto a voz.
+El servicio Voz también expone puntos de conexión REST para las solicitudes de conversión de voz en texto, de conversión de voz en texto y reconocimiento del hablante.
 
 ### <a name="speech-to-text"></a>Voz a texto
 
@@ -118,3 +130,7 @@ Reemplace `<REGION_IDENTIFIER>` por el identificador que coincida con la región
 Para obtener documentación de referencia sobre la opción de texto a voz, consulte las [API de REST de texto a voz](rest-text-to-speech.md).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
+
+### <a name="speaker-recognition"></a>Speaker Recognition
+
+Para obtener documentación de referencia sobre el reconocimiento del hablante, vea [API REST de Speaker Recognition](/rest/api/speakerrecognition/). Las regiones disponibles son las mismas que las del SDK de Speaker Recognition.

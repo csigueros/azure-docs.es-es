@@ -3,19 +3,19 @@ title: Reglas de evaluación para la migración de SQL Server a Azure SQL Manage
 description: Reglas de evaluación para identificar los problemas con la instancia de origen de SQL Server que deben solucionarse antes de migrar a Azure SQL Managed Instance.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
-ms.custom: ''
+ms.custom: ignite-fall-2021
 ms.devlang: ''
 ms.topic: how-to
 author: rajeshsetlem
 ms.author: rsetlem
 ms.reviewer: mathoma, cawrites
 ms.date: 12/15/2020
-ms.openlocfilehash: 0d3ef1e9a7a4d30e4a716992caf4ec3f2f04cc1c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 92fee6cde8c7a98806db6084c413202eb2f153f7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128625589"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069489"
 ---
 # <a name="assessment-rules-for-sql-server-to--azure-sql-managed-instance-migration"></a>Reglas de evaluación para la migración de SQL Server a Azure SQL Managed Instance
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -216,7 +216,7 @@ La transacción distribuida iniciada por Transact SQL BEGIN DISTRIBUTED TRANSACT
 **Recomendación**   
 Revise la sección de objetos afectados en Azure Migrate para ver todos los objetos que usan BEGIN DISTRUBUTED TRANSACTION. Considere la posibilidad de migrar las bases de datos de participantes a Azure SQL Managed Instance donde se admiten las transacciones distribuidas entre varias instancias (actualmente en versión preliminar). También puede migrar a SQL Server en la máquina virtual de Azure.
 
-Más información: [Transacciones entre varios servidores de Azure SQL Managed Instance ](../../database/elastic-transactions-overview.md#transactions-across-multiple-servers-for-azure-sql-managed-instance)
+Más información: [Transacciones entre varios servidores de Azure SQL Managed Instance ](../../database/elastic-transactions-overview.md#transactions-for-sql-managed-instance)
 
 ## <a name="homogenous-ms-dtc"></a>MS DTC homogéneo<a id="MIHomogeneousMSDTCTransactSQL"></a>
 
@@ -230,7 +230,7 @@ La transacción distribuida iniciada por Transact SQL BEGIN DISTRIBUTED TRANSACT
 **Recomendación**   
 Revise la sección de objetos afectados en Azure Migrate para ver todos los objetos que usan BEGIN DISTRUBUTED TRANSACTION. Considere la posibilidad de migrar las bases de datos de participantes a Azure SQL Managed Instance donde se admiten las transacciones distribuidas entre varias instancias (actualmente en versión preliminar). También puede migrar a SQL Server en la máquina virtual de Azure. 
 
-Más información: [Transacciones entre varios servidores de Azure SQL Managed Instance](../../database/elastic-transactions-overview.md#transactions-across-multiple-servers-for-azure-sql-managed-instance)
+Más información: [Transacciones entre varios servidores de Azure SQL Managed Instance](../../database/elastic-transactions-overview.md#transactions-for-sql-managed-instance)
 
 
 ## <a name="linked-server-non-sql-provider"></a>Servidor vinculado (proveedor que no es de SQL)<a id="LinkedServerWithNonSQLProvider"></a>

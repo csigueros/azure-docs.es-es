@@ -3,20 +3,19 @@ title: 'Inicio rápido: Creación de un plano técnico en Azure Portal'
 description: En este inicio rápido, se usa Azure Blueprints para crear, definir e implementar artefactos mediante Azure Portal.
 ms.date: 08/17/2021
 ms.topic: quickstart
-ms.custom:
-- mode-portal
-ms.openlocfilehash: 0cda427929c51b9b794f02ac2c0686d1b06d30d1
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.custom: mode-portal
+ms.openlocfilehash: c1ca05e328a95ea733da1e2da02c4d8814d4533e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323185"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131081284"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Definición y asignación de un plano técnico en el portal:
 
 Cuando aprenda a crear y asignar planos técnicos podrá definir patrones comunes para desarrollar configuraciones reutilizables y de implementación rápida basadas en plantillas de Azure Resource Manager, directivas, seguridad, etc. En este tutorial, aprenderá a usar planos técnicos de Azure Blueprints para realizar algunas de las tareas más comunes relacionadas con la creación, publicación y asignación de planos técnicos en toda la organización. Estas tareas incluyen:
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar.
 

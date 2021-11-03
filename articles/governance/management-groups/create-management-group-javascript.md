@@ -3,15 +3,13 @@ title: 'Inicio rápido: Creación de un grupo de administración con JavaScript'
 description: En este inicio rápido, se usa JavaScript para crear un grupo de administración para organizar los recursos en una jerarquía de recursos.
 ms.date: 08/17/2021
 ms.topic: quickstart
-ms.custom:
-- devx-track-js
-- mode-api
-ms.openlocfilehash: 6e4f0c0c3dff16e3493e9c2171039f7305c97bb7
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.custom: devx-track-js, mode-api
+ms.openlocfilehash: a05eb48e4513ef1eca7f92a50351cbc371e8dc2b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322778"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131081227"
 ---
 # <a name="quickstart-create-a-management-group-with-javascript"></a>Inicio rápido: Creación de un grupo de administración con JavaScript
 
@@ -19,7 +17,7 @@ Los grupos de administración son contenedores que ayudan a administran el acces
 
 El primer grupo de administración creado en el directorio puede tardar hasta 15 minutos en completarse. Hay procesos que se ejecutan la primera vez para configurar el servicio de grupos de administración dentro de Azure para su directorio. Recibirá una notificación cuando finalice el proceso. Para obtener más información, vea [Instalación inicial de los grupos de administración](./overview.md#initial-setup-of-management-groups).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 

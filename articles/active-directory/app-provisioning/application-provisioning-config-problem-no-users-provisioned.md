@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 98904c5e32e6a1c145dd696b5ac20c7db8e2840f
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 0f15e96f19b87f892422df12f7bda7ccf6d0914b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129991933"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060257"
 ---
 # <a name="no-users-are-being-provisioned"></a>No se está aprovisionando ningún usuario 
 >[!NOTE]
@@ -27,8 +27,7 @@ Una vez que se ha configurado el aprovisionamiento automático de una aplicació
 -   Qué usuarios y grupos se han **asignado** a la aplicación. Tenga en cuenta que no se admite el aprovisionamiento de grupos anidados. Para más información sobre la asignación, consulte [Asignación de un usuario o un grupo a una aplicación empresarial en Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md).
 -   Si las **asignaciones de atributos** están habilitadas o no, y configuradas para sincronizar atributos válidos de Azure AD a la aplicación. Para más información sobre las asignaciones de atributos, consulte [Personalización de asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory de usuarios](customize-application-attributes.md).
 -   Si hay o no presente un **filtro de ámbito** que filtre usuarios en función de valores de atributo concretos. Para más información sobre los filtros de ámbito, consulte [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-  
-  
+
 Si observa que no se están aprovisionando usuarios, consulte [Registros de aprovisionamiento (versión preliminar)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) en Azure AD. Busque las entradas del registro para un usuario específico.
 
 Para acceder a los registros de aprovisionamiento en Azure Portal, seleccione **Azure Active Directory** &gt; **Aplicaciones empresariales** &gt; **Registros de aprovisionamiento (versión preliminar)** en la sección **Actividad**. Puede buscar los datos de aprovisionamiento por el nombre del usuario o el identificador en el sistema de origen o en el sistema de destino. Para más información, consulte [Registros de aprovisionamiento (versión preliminar)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 

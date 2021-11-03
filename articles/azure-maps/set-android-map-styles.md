@@ -1,20 +1,20 @@
 ---
 title: Establecimiento de un estilo de mapa en los mapas de Android | Microsoft Azure Maps
 description: Obtenga información sobre dos maneras de establecer el estilo de un mapa. Vea cómo usar el SDK para Android de Azure Maps en el archivo de diseño o en la clase de actividad para ajustar el estilo.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 84e87593a67bfda512619c5637ffc13c07fa8111
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 1d16131c51527ead525bf17143892d15229658d2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113091283"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131072434"
 ---
 # <a name="set-map-style-android-sdk"></a>Establecimiento del estilo de mapa (Android SDK)
 
@@ -24,7 +24,7 @@ En este artículo se muestran dos maneras de establecer estilos de mapa mediante
 
 Asegúrese de completar los pasos descritos en el documento [Inicio rápido: Creación de una aplicación de Android](quick-android-map.md).
 
->[!important]
+>[!IMPORTANT]
 >El procedimiento descrito en esta sección requiere una cuenta de Azure Maps en el plan de tarifa Gen 1 o Gen 2. Para más información sobre los planes de tarifa, consulte [Elección del plan de tarifa adecuado de Azure Maps](choose-pricing-tier.md).
 
 
@@ -32,7 +32,7 @@ Asegúrese de completar los pasos descritos en el documento [Inicio rápido: Cre
 
 Puede establecer un estilo de mapa en el archivo de diseño de la clase de actividad al agregar el control de mapa. En el código siguiente se establece la ubicación central, el nivel de zoom y el estilo de mapa.
 
-```XML
+```xml
 <com.azure.android.maps.control.MapControl
     android:id="@+id/mapcontrol"
     android:layout_width="match_parent"

@@ -7,12 +7,12 @@ ms.date: 05/18/2021
 ms.topic: how-to
 ms.service: azure-maps
 ms.custom: mvc
-ms.openlocfilehash: c7c9bcfa405abe21b335156862b0ee6d19e0a9ac
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 6562af274455297e12084353926478f1954c2407
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123438451"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131031411"
 ---
 # <a name="request-elevation-data-using-the-azure-maps-elevation-service"></a>Solicitud de datos de elevación mediante el servicio Elevation de Azure Maps
 
@@ -122,7 +122,7 @@ Para crear la solicitud:
 
 8. En el campo **Cuerpo**, proporcione la información siguiente de los puntos de coordenadas:
 
-     ```json
+    ```json
     [
         {
             "lon": -73.998672,
@@ -258,7 +258,7 @@ Para crear la solicitud:
 
 11. En el campo **Cuerpo**, proporcione la información siguiente de los puntos de coordenadas.
 
-     ```json
+    ```json
     [
         {
             "lon": 86.9797222,

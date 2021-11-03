@@ -6,15 +6,13 @@ ms.author: spelluru
 ms.date: 11/09/2020
 ms.topic: quickstart
 ms.devlang: nodejs
-ms.custom:
-- devx-track-js
-- mode-api
-ms.openlocfilehash: 13664e2a465ae891666e9c296514dc18a14ed191
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.custom: devx-track-js, mode-api
+ms.openlocfilehash: 80401e1d5051ed324be329f17fca02cc802ce4a7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950204"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131004062"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-javascript"></a>Envíe mensajes a un tema de Azure Service Bus y reciba mensajes de las suscripciones a ese tema (JavaScript)
 En este tutorial aprenderá a usar el paquete [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) de un programa de JavaScript para enviar mensajes a un tema de Service Bus y recibirlos de una suscripción de Service Bus a ese tema.

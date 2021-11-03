@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 2d05eab0bb43fcfeb727556b002405e830fc4ae7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: bcc11f74a5d6d6816286fc21bda983f338f5c22d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128624375"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059136"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-blink"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Blink
 
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar Blink con Azure Active Directory (Azure
 * Permitir que los usuarios inicien sesión automáticamente en Blink con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -59,7 +59,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Blink mediante u
 Para configurar y probar el inicio de sesión único de Azure AD con Blink, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Blink](#configure-blink-sso)**, para configurar los valores de Inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Blink](#create-blink-test-user)**, para tener un homólogo de B.Simon en Blink que esté vinculado a su representación en Azure AD.
@@ -77,16 +77,16 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
-    
+    1. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
+
     | URL de inicio de sesión|
     |------------|
     | `https://app.joinblink.com` |
     | `https://<SUBDOMAIN>.joinblink.com` |
-    |
-    
 
-    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://api.joinblink.com/saml/o-<TENANTID>`
+    2. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón:
+
+    `https://api.joinblink.com/saml/o-<TENANTID>`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Blink](https://help.joinblink.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -104,17 +104,17 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     |   email       | user.mail |
     | | |
 
-    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+    1. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
-    b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
+    1. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
 
-    c. Deje **Espacio de nombres** en blanco.
+    1. Deje **Espacio de nombres** en blanco.
 
-    d. Seleccione **Atributo** como origen.
+    1. Seleccione **Atributo** como origen.
 
-    e. En la lista **Atributo de origen**, escriba el valor de atributo que se muestra para esa fila.
+    1. En la lista **Atributo de origen**, escriba el valor de atributo que se muestra para esa fila.
 
-    f. Haga clic en **Save**(Guardar).
+    1. Haga clic en **Save**(Guardar).
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 

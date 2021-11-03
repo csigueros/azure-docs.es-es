@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 10/22/2021
 ms.author: jingwang
-ms.openlocfilehash: b4d3ef9979fc53ebd4e1dce6c56ee4974399cd90
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 7f6b574bd24d7bd284d985aeb9a129d2143819e1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130218568"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131016518"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Invocación de un paquete de SSIS mediante una actividad de procedimiento almacenado de Azure Data Factory
 En este artículo se describe cómo invocar un paquete de SSIS desde una canalización de Azure Data Factory mediante una actividad de procedimiento almacenado. 
@@ -40,18 +40,21 @@ Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo i
 El siguiente procedimiento detalla los pasos para crear una factoría de datos. Debe crear una canalización con una actividad de procedimiento almacenado en esta factoría de datos. La actividad de procedimiento almacenado ejecuta un procedimiento almacenado en la base de datos SSISDB para ejecutar el paquete de SSIS.
 
 1. Defina una variable para el nombre del grupo de recursos que usa en los comandos de PowerShell más adelante. Copie el texto del comando siguiente en PowerShell, especifique el nombre del [grupo de recursos de Azure](../../azure-resource-manager/management/overview.md) entre comillas dobles y ejecute el comando. Por ejemplo: `"adfrg"`. 
-   
-     ```powershell
+
+    ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";
     ```
 
     Si el grupo de recursos ya existe, puede que no desee sobrescribirlo. Asigne otro valor a la variable `$ResourceGroupName` y vuelva a ejecutar el comando
+
 2. Para crear el grupo de recursos de Azure, ejecute el comando siguiente: 
 
     ```powershell
     $ResGrp = New-AzResourceGroup $resourceGroupName -location 'eastus'
     ``` 
-    Si el grupo de recursos ya existe, puede que no desee sobrescribirlo. Asigne otro valor a la variable `$ResourceGroupName` y ejecute el comando de nuevo. 
+
+    Si el grupo de recursos ya existe, puede que no desee sobrescribirlo. Asigne otro valor a la variable `$ResourceGroupName` y ejecute el comando de nuevo.
+
 3. Defina una variable para el nombre de la factoría de datos. 
 
     > [!IMPORTANT]
@@ -63,7 +66,7 @@ El siguiente procedimiento detalla los pasos para crear una factoría de datos. 
 
 5. Para crear la factoría de datos, ejecute el siguiente cmdlet **New-AzDataFactory** con las propiedades ResourceGroupName y Location de la variable $ResGrp: 
     
-    ```powershell       
+    ```powershell
     $df = New-AzDataFactory -ResourceGroupName $ResourceGroupName -Name $dataFactoryName -Location "East US"
     ```
 

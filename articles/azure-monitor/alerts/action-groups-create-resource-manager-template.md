@@ -4,14 +4,14 @@ description: Aprenda a crear un grupo de acciones mediante una plantilla de Azur
 author: dkamstra
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 02/19/2021
+ms.date: 10/18/2021
 ms.author: dukek
-ms.openlocfilehash: fe28498f677c2025cea9da329a3b029cda04a199
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 1680ff8d209fc2680b19d3d3afe8c2b6aded9678
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949378"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131044236"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Creación de un grupo de acciones con una plantilla de Resource Manager
 En este artículo se muestra cómo utilizar una [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) para configurar grupos de acciones. Mediante el uso de plantillas, puede configurar automáticamente grupos de acciones que se pueden reutilizar en determinados tipos de alertas. Estos grupos de acciones garantizan que se notifique a todas las entidades correctas cuando se desencadene una alerta.
@@ -49,7 +49,7 @@ En la primera plantilla se describe cómo crear una plantilla de Resource Manage
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2019-03-01",
+      "apiVersion": "2021-09-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {
@@ -89,6 +89,15 @@ En la primera plantilla se describe cómo crear una plantilla de Resource Manage
           {
             "name": "contosoHook2",
             "serviceUri": "http://requestb.in/1bq62iu2",
+            "useCommonAlertSchema": true
+          }
+        ],
+        "eventHubReceivers": [
+          {
+            "name": "contosoeventhub1",
+            "subscriptionId": "replace with subscription id GUID",
+            "eventHubNameSpace": "contosoeventHubNameSpace",
+            "eventHubName": "contosoeventHub",
             "useCommonAlertSchema": true
           }
         ]
@@ -137,7 +146,7 @@ En la primera plantilla se describe cómo crear una plantilla de Resource Manage
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2019-03-01",
+      "apiVersion": "2021-09-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {

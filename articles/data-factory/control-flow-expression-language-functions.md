@@ -2,20 +2,20 @@
 title: Expresiones y funciones
 titleSuffix: Azure Data Factory & Azure Synapse
 description: En este artículo se proporciona información sobre las expresiones y funciones que puede usar para crear entidades de canalización de Azure Data Factory y Azure Synapse Analytics.
-author: minhe-msft
-ms.author: hemin
+author: jasonwhowell
+ms.author: jasonh
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: 9b378b4cfb9bb35f1fb2a555afed195ac6b84dc3
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f9b056f680ad575d59b1aa6cf43ca7804bfe646a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128678694"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068845"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory-and-azure-synapse-analytics"></a>Expresiones y funciones en Azure Data Factory y Azure Synapse Analytics
 

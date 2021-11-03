@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2913665d2cc834bd3b88f23ce81b46ca7a7dfbbe
-ms.sourcegitcommit: 5c136a01bddfccb2cc9f7e7e7741e2cf2651ddbe
+ms.openlocfilehash: e5ec368b0bc53cb70dd948669d855670ee603b12
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111352756"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057407"
 ---
 # <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Asignación de roles de administrador personalizados mediante Microsoft Graph API en Azure Active Directory 
 
@@ -28,9 +28,9 @@ Puede automatizar la asignación de roles a las cuentas de usuario con Microsoft
 
 - Una licencia de Azure AD Premium P1 o P2
 - Administrador global o administrador de roles con privilegios
-- Consentimiento del administrador al usar Probador de Graph para Microsoft Graph API
+- Consentimiento del administrador al usar el Probador de Graph de Microsoft Graph API
 
-Para obtener más información, consulte [Requisitos previos para usar PowerShell o Probador de Graph](prerequisites.md).
+Para más información, consulte [Requisitos previos para usar PowerShell o Probador de Graph](prerequisites.md).
 
 ## <a name="post-operations-on-roleassignment"></a>Operaciones POST en RoleAssignment
 
@@ -308,6 +308,7 @@ Impedimos que los usuarios eliminen su propio rol de administrador global para e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* No dude en hacernos llegar sus comentarios en el [foro de roles administrativos de Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
+* No dude en hacernos llegar sus comentarios en el [foro de roles administrativos de Azure AD](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
 * Para más información acerca de los permisos de roles, consulte [Roles integrados en Azure AD](permissions-reference.md).
 * Para conocer los permisos predeterminados de usuario, consulte [Comparación de los permisos predeterminados de usuario miembro e invitado](../fundamentals/users-default-permissions.md).
+

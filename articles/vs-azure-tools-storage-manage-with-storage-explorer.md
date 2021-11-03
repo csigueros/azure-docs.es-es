@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
-ms.openlocfilehash: 969e2d2424b9f9af1dcd921a1cebfa9407e313eb
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f08d1c38965121564c21dee7053ae0c152b82814
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114438427"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131021987"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introducción al Explorador de Storage
 
@@ -124,7 +124,7 @@ El Explorador de Storage le permite conectarse a recursos individuales, como un 
 | Recursos compartidos de archivos      | No       | No                   | Sí (URL)                      | No                 |
 | Colas           | Sí      | No                   | Sí (URL)                      | No                 |
 | Tablas           | No       | No                   | Sí (URL)                      | No                 |
- 
+
 El Explorador de Storage también puede conectarse a un [emulador de almacenamiento local](#local-storage-emulator) mediante los puertos configurados del emulador.
 
 Para conectarse a un recurso individual, seleccione el botón **Conectar** en la barra de herramientas de la izquierda. A continuación, siga las instrucciones del tipo de recurso al que desea conectarse.
@@ -146,7 +146,7 @@ El Explorador de Storage puede usar su cuenta de Azure para conectarse a los sig
 * Contenedores de Azure Data Lake Storage Gen2
 * Directorios de Azure Data Lake Storage Gen2
 * Colas
- 
+
 Azure AD es la opción preferida si tiene acceso de capa de datos al recurso, pero no tiene acceso de capa de administración.
 
 1. Inicie sesión en al menos una cuenta de Azure siguiendo los [pasos descritos anteriormente](#sign-in-to-azure).

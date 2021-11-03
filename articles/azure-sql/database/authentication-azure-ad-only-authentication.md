@@ -8,20 +8,18 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 08/31/2021
-ms.openlocfilehash: 95a3d04ce8af0e83072e214e2b3fac72c78b28c0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/21/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 74b02577e6bb59481182afda881216ebff0544cf
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128669595"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131044045"
 ---
 # <a name="azure-ad-only-authentication-with-azure-sql"></a>Autenticación solo de Azure AD con Azure SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
-
-> [!NOTE]
-> La característica **Autenticación solo de Azure AD** que se describe en este artículo se encuentra en **versión preliminar pública**. 
 
 La autenticación solo de Azure AD es una característica de [Azure SQL](../azure-sql-iaas-vs-paas-what-is-overview.md) que permite que el servicio solo admita la autenticación de Azure AD y se admite para [Azure SQL Database](sql-database-paas-overview.md) y [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). La autenticación de SQL se deshabilita al habilitar la autenticación solo de Azure AD en el entorno de Azure SQL, incluidas las conexiones de administradores, inicios de sesión y usuarios de SQL Server. Solo los usuarios que usan la [autenticación de Azure AD](authentication-aad-overview.md) están autorizados para conectarse al servidor o la base de datos.
 
@@ -29,12 +27,9 @@ La autenticación solo de Azure AD se puede habilitar o deshabilitar mediante A
 
 Para más información sobre la autenticación de Azure SQL, consulte [Autenticación y autorización](logins-create-manage.md#authentication-and-authorization).
 
-> [!IMPORTANT]
-> Actualmente, no puede administrar la autenticación solo de Azure AD en Azure Portal para Azure SQL Managed Instance. Para ver un tutorial sobre los distintos métodos para habilitar la autenticación solo de Azure AD, consulte [Tutorial: Habilitar la autenticación solo de Azure Active Directory con Azure SQL](authentication-azure-ad-only-authentication-tutorial.md).
-
 ## <a name="feature-description"></a>Descripción de la característica
 
-Al habilitar la autenticación solo de Azure AD, se deshabilita la [autenticación de SQL](logins-create-manage.md#authentication-and-authorization) en el nivel de servidor y se impide cualquier autenticación basada en cualquier credencial de autenticación de SQL. Los usuarios con autenticación de SQL no podrán conectarse al [servidor lógico](logical-servers.md) de Azure SQL Database, incluidas todas sus bases de datos. Aunque se deshabilita la autenticación de SQL, se pueden crear nuevos inicios de sesión y usuarios de autenticación de SQL mediante cuentas de Azure AD con los permisos adecuados. Las cuentas con autenticación de SQL recién creadas no podrán conectarse al servidor. Al habilitar la autenticación de solo Azure AD no se quitan las cuentas de usuario y los inicios de sesión con autenticación de SQL existentes. La característica solo impide que estas cuentas se conecten al servidor y a cualquier base de datos creada para este servidor.
+Al habilitar la autenticación solo de Azure AD, se deshabilita la [autenticación de SQL](logins-create-manage.md#authentication-and-authorization) en el nivel de servidor o instancia administrada y se impide cualquier autenticación basada en cualquier credencial de autenticación de SQL. Los usuarios con autenticación de SQL no podrán conectarse al [servidor lógico](logical-servers.md) de Azure SQL Database o de la instancia administrada, incluidas todas sus bases de datos. Aunque se deshabilita la autenticación de SQL, se pueden crear nuevos inicios de sesión y usuarios de autenticación de SQL mediante cuentas de Azure AD con los permisos adecuados. Las cuentas con autenticación de SQL recién creadas no podrán conectarse al servidor. Al habilitar la autenticación de solo Azure AD no se quitan las cuentas de usuario y los inicios de sesión con autenticación de SQL existentes. La característica solo impide que estas cuentas se conecten al servidor y a cualquier base de datos creada para este servidor.
 
 También puede forzar la creación de servidores con la autenticación solo de Azure AD habilitada mediante Azure Policy. Para más información, consulte [Azure Policy para la autenticación solo de Azure AD](authentication-azure-ad-only-authentication-policy.md).
 
@@ -400,10 +395,28 @@ SELECT SERVERPROPERTY('IsExternalAuthenticationOnly')
 - Los usuarios de Azure AD con los permisos adecuados pueden suplantar a los usuarios de SQL existentes.
     - La suplantación sigue funcionando entre los usuarios con autenticación de SQL, incluso cuando la característica de autenticación solo de Azure AD está habilitada.
 
-## <a name="known-issues"></a>Problemas conocidos
+### <a name="limitations-for-azure-ad-only-authentication-in-sql-database"></a>Limitaciones de la autenticación solo de Azure AD en SQL Database
 
-- Cuando la autenticación solo de Azure AD está habilitada, no se puede restablecer la contraseña del administrador del servidor. Actualmente, la operación de restablecer la contraseña se realiza correctamente en el portal, pero se produce un error en el motor de SQL. El error se indica en el registro de actividad del servidor. Para restablecer la contraseña del administrador del servidor, se debe deshabilitar la característica de autenticación solo de Azure AD.
+Cuando la autenticación solo de Azure AD está habilitada para SQL Database, no se admiten las siguientes características:
 
+- [Roles del servidor de Azure SQL Database](security-server-roles.md)
+- [Trabajos elásticos](job-automation-overview.md)
+- [SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md)
+- [Captura de datos modificados (CDC)](/sql/relational-databases/track-changes/about-change-data-capture-sql-server)
+- [Replicación transaccional](/azure/azure-sql/managed-instance/replication-transactional-overview): dado que se requiere la autenticación de SQL para la conectividad entre los participantes de la replicación, cuando se habilita la autenticación solo de Azure AD, la replicación transaccional no se admite para SQL Database en escenarios en los que la replicación transaccional se usa para insertar los cambios realizados en Azure SQL Managed Instance, SQL Server local o una instancia de SQL Server de una máquina virtual de Azure en una base de datos de Azure SQL Database
+- [SQL Insights](/azure/azure-monitor/insights/sql-insights-overview)
+- Instrucción EXEC AS para las cuentas de miembros de un grupo de Azure AD
+
+### <a name="limitations-for-azure-ad-only-authentication-in-managed-instance"></a>Limitaciones de la autenticación solo de Azure AD en Instancia administrada
+
+Cuando la autenticación solo de Azure AD está habilitada para Instancia administrada, no se admiten las siguientes características:
+
+- [Replicación transaccional](/azure/azure-sql/managed-instance/replication-transactional-overview) 
+- Los [trabajos del Agente SQL en Instancia administrada](../managed-instance/job-automation-managed-instance.md) admiten la autenticación solo de Azure AD. Sin embargo, el usuario de Azure AD que sea miembro de un grupo de Azure AD que tenga acceso a la instancia administrada no puede ser propietario de los trabajos del Agente SQL.
+- [SQL Insights](/azure/azure-monitor/insights/sql-insights-overview)
+- Instrucción EXEC AS para las cuentas de miembros de un grupo de Azure AD
+
+Para obtener más información sobre las limitaciones, consulte [Diferencias de T-SQL entre SQL Server y Azure SQL Managed Instance](../managed-instance/transact-sql-tsql-differences-sql-server.md#logins-and-users).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

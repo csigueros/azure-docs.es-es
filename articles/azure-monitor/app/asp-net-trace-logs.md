@@ -4,12 +4,12 @@ description: Busque registros generados por Seguimiento, NLog o Log4Net.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/08/2019
-ms.openlocfilehash: 8b956c0e63f96dbfbcf3204c260952ccf2f2c22a
-ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
+ms.openlocfilehash: 2836dfabbc2370ed6200030564e2b559cb656f8b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112552881"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079194"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Exploración de los registros de seguimiento de .NET, .NET Core y Python en Application Insights
 
@@ -22,7 +22,7 @@ Envíe registros de seguimiento de diagnóstico para la aplicación ASP.NET/ASP.
 ## <a name="install-logging-on-your-app"></a>Instalación del registro en la aplicación
 Instale el marco de registro elegido en el proyecto, lo que debería producir una entrada en app.config o web.config.
 
-```XML
+```xml
  <configuration>
   <system.diagnostics>
     <trace>
@@ -116,7 +116,7 @@ Para cada instancia de DiagnosticSource que quiera seguir, agregue una entrada c
 ## <a name="use-etw-events"></a>Uso de eventos ETW
 Puede configurar eventos de Seguimiento de eventos para Windows (ETW) para enviarse a Application Insights como seguimientos. Primero, instale el paquete de NuGet `Microsoft.ApplicationInsights.EtwCollector`. Después, edite la sección "TelemetryModules" del archivo [ApplicationInsights.config](./configuration-with-applicationinsights-config.md).
 
-> [!NOTE] 
+> [!NOTE]
 > Solo se pueden recopilar eventos ETW si el proceso que hospeda el SDK se ejecuta bajo una identidad que sea miembro de Usuarios del registro de rendimiento o Administradores.
 
 ```xml
@@ -188,7 +188,7 @@ Por ejemplo, puede:
 * Guardar la configuración de una página como favorita.
 
 > [!NOTE]
->Si usa el SDK de Application Insights para ASP.NET versión 2.0.0-beta3 o posterior y la aplicación envía una gran cantidad de datos, la característica de *muestreo adaptativo* puede operar y enviar solamente una parte de los datos de telemetría. [Aprenda más sobre el muestreo.](./sampling.md)
+> Si usa el SDK de Application Insights para ASP.NET versión 2.0.0-beta3 o posterior y la aplicación envía una gran cantidad de datos, la característica de *muestreo adaptativo* puede operar y enviar solamente una parte de los datos de telemetría. [Aprenda más sobre el muestreo.](./sampling.md)
 >
 
 ## <a name="troubleshooting"></a>Solución de problemas
@@ -233,4 +233,3 @@ Si usa el SDK de Application Insights para ASP.NET versión 2.0.0-beta3 o poste
 [portal]: https://portal.azure.com/
 [qna]: ../faq.yml
 [start]: ./app-insights-overview.md
-

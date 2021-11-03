@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.custom: devx-track-csharp
 ms.reviewer: sdash
-ms.openlocfilehash: db8c84334bfce52d34b9fadf73bb2b070fa93a70
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01fc0be9a2ce8db89bbbcc032bbf90652d5627b8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100007115"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079403"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa de aplicación: Evaluación de prioridades de las aplicaciones distribuidas
 
@@ -18,7 +18,7 @@ El mapa de aplicación le ayuda a detectar los cuellos de botella en el rendimie
 
 ## <a name="what-is-a-component"></a>¿Qué es un componente?
 
-Los componentes son partes que se pueden implementar independientemente de su aplicación de microservicios o distribuida. Los equipos de operaciones y los desarrolladores pueden ver el código o acceder a la telemetría que generan estos componentes de la aplicación. 
+Los componentes son partes que se pueden implementar independientemente de su aplicación de microservicios o distribuida. Los equipos de operaciones y los desarrolladores pueden ver el código o acceder a la telemetría que generan estos componentes de la aplicación.
 
 * Los componentes son diferentes de las dependencias externas "observadas", como SQL, EventHub, etc. a las que su equipo u organización no pueden acceder (código o telemetría).
 * Los componentes se ejecutan en cualquier número de instancias de rol, servidor o contenedor.
@@ -26,9 +26,9 @@ Los componentes son partes que se pueden implementar independientemente de su ap
 
 ## <a name="composite-application-map"></a>Mapa de aplicación compuesta
 
-Puede ver la topología de aplicación completa a lo largo de varios niveles de componentes de aplicación relacionados. Los componentes podrían ser diferentes recursos de Application Insights o distintos roles de un único recurso. Para encontrar componentes, el mapa de aplicación sigue las llamadas de dependencia HTTP entre los servidores con el SDK de Application Insights instalado. 
+Puede ver la topología de aplicación completa a lo largo de varios niveles de componentes de aplicación relacionados. Los componentes podrían ser diferentes recursos de Application Insights o distintos roles de un único recurso. Para encontrar componentes, el mapa de aplicación sigue las llamadas de dependencia HTTP entre los servidores con el SDK de Application Insights instalado.
 
-Esta experiencia comienza con la detección progresiva de los componentes. La primera vez que carga el mapa de aplicación, se desencadena un conjunto de consultas para detectar los componentes relacionados con este componente. Un botón en la esquina superior izquierda se actualiza con el número de componentes de la aplicación a medida que se detectan. 
+Esta experiencia comienza con la detección progresiva de los componentes. La primera vez que carga el mapa de aplicación, se desencadena un conjunto de consultas para detectar los componentes relacionados con este componente. Un botón en la esquina superior izquierda se actualiza con el número de componentes de la aplicación a medida que se detectan.
 
 Al hacer clic en "Update map components" (Actualizar componentes del mapa), el mapa se actualiza con todos los componentes detectados hasta ese momento. Según la complejidad de la aplicación, esta operación puede tardar un minuto en cargarse.
 
@@ -142,7 +142,7 @@ Un método alternativo para las aplicaciones web de ASP.NET consiste en crear un
 ```
 
 > [!NOTE]
-> La adición del inicializador mediante `ApplicationInsights.config` o `TelemetryConfiguration.Active` no es válida para las aplicaciones de ASP.NET Core. 
+> La adición del inicializador mediante `ApplicationInsights.config` o `TelemetryConfiguration.Active` no es válida para las aplicaciones de ASP.NET Core.
 
 **Aplicaciones de ASP.NET Core: cargue el inicializador en el elemento TelemetryConfiguration.**
 
@@ -177,7 +177,7 @@ También puede establecer el nombre de rol en la nube mediante la variable de en
 
 Si utiliza el SDK, a partir del SDK de Java 2.5.0 para Application Insights, puede especificar el nombre del rol en la nube si agrega `<RoleName>` al archivo `ApplicationInsights.xml`, por ejemplo,
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
    <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
@@ -231,7 +231,7 @@ En el caso de Python, se puede usar [Procesadores de telemetría de Python para 
 ```python
 def callback_function(envelope):
    envelope.tags['ai.cloud.role'] = 'new_role_name'
-   
+
 # AzureLogHandler
 handler.add_telemetry_processor(callback_function)
 
@@ -246,7 +246,7 @@ Para comprender el **nombre de rol en la nube**, puede ser útil consultar un ma
 
 ![Captura de pantalla de mapa de aplicación](media/app-map/cloud-rolename.png)
 
-En el mapa de aplicación de arriba, cada uno de los nombres de los cuadros verdes son valores de nombre de rol en la nube para distintos aspectos de esta aplicación distribuida. Por lo que, para esta aplicación, sus roles constan de: `Authentication`, `acmefrontend`, `Inventory Management` y `Payment Processing Worker Role`. 
+En el mapa de aplicación de arriba, cada uno de los nombres de los cuadros verdes son valores de nombre de rol en la nube para distintos aspectos de esta aplicación distribuida. Por lo que, para esta aplicación, sus roles constan de: `Authentication`, `acmefrontend`, `Inventory Management` y `Payment Processing Worker Role`.
 
 En el caso de esta aplicación, cada uno de esos nombres de rol en la nube también representa un único recurso de Application Insights diferente con sus propias claves de instrumentación. Puesto que el propietario de esta aplicación tiene acceso a cada uno de estos cuatro recursos de Application Insights, el mapa de aplicación es capaz de unir un mapa de las relaciones subyacentes.
 
@@ -256,7 +256,7 @@ Para las [definiciones oficiales](https://github.com/Microsoft/ApplicationInsigh
    [Description("Name of the role the application is a part of. Maps directly to the role name in azure.")]
     [MaxStringLength("256")]
     705: string      CloudRole = "ai.cloud.role";
-    
+
     [Description("Name of the instance where the application is running. Computer name for on-premises, instance name for Azure.")]
     [MaxStringLength("256")]
     715: string      CloudRoleInstance = "ai.cloud.roleInstance";

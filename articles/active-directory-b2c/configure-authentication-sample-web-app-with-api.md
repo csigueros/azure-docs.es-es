@@ -2,21 +2,21 @@
 title: Configuración de la autenticación en una aplicación web de ejemplo que llama a una API web mediante Azure Active Directory B2C
 description: En este artículo se describe cómo usar Azure Active Directory B2C para el inicio de sesión y registro de usuarios en una aplicación web ASP.NET que llama a una API web.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 07/05/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: fec8af9d4153736738cf658e7e77bb1e9506fedd
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: f2f0f00bfc3b5f551d60817e3ea52924c78d98d8
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122868579"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131007809"
 ---
 # <a name="configure-authentication-in-a-sample-web-app-that-calls-a-web-api-by-using-azure-ad-b2c"></a>Configuración de la autenticación en una aplicación web de ejemplo que llama a una API web mediante Azure AD B2C
 
@@ -32,8 +32,8 @@ OpenID Connect (OIDC) es un protocolo de autenticación basado OAuth 2.0 que s
 El flujo de inicio de sesión consta de los siguientes pasos:
 
 1. El usuario va a la aplicación web y selecciona **Iniciar sesión**.
-1. La aplicación inicia la solicitud de autenticación y redirige al usuario a Azure AD B2C.
-1. El usuario [se registra o inicia sesión](add-sign-up-and-sign-in-policy.md) y [restablece la contraseña](add-password-reset-policy.md). También puede iniciar sesión con una [cuenta de red social](add-identity-provider.md).
+1. La aplicación inicia la solicitud de autenticación y redirige a los usuarios a Azure AD B2C.
+1. Los usuarios [se registran o inician sesión](add-sign-up-and-sign-in-policy.md) y [restablecen la contraseña](add-password-reset-policy.md). También pueden iniciar sesión con una [cuenta de red social](add-identity-provider.md).
 1. Una vez que el usuario inicia sesión, Azure AD B2C devuelve un código de autorización a la aplicación.
 1. Luego, la aplicación hace lo siguiente:
  
@@ -102,7 +102,7 @@ Haga lo siguiente para crear el registro de la aplicación web:
 1. Seleccione **Registros de aplicaciones** y luego **Nuevo registro**.
 1. En **Nombre**, escriba un nombre para la aplicación (por ejemplo, *webapp1*).
 1. En **Tipos de cuenta compatibles**, seleccione **Cuentas en cualquier proveedor de identidades o directorio de la organización (para autenticar usuarios con flujos de usuario)** . 
-1. En **URI de redirección**, seleccione **Web** y luego, en el cuadro Dirección URL, escriba `https://localhost:5000/signin-oidc`.
+1. En **URI de redirección**, seleccione **Web** y luego, en el cuadro Dirección URL, escriba `https://localhost:5000/signin-oidc`.
 1. En **Permisos**, active la casilla **Conceder consentimiento de administrador para openid y permisos de acceso sin conexión**.
 1. Seleccione **Registrar**.
 1. Una vez completado el registro de la aplicación, seleccione **Información general.**
@@ -184,8 +184,8 @@ En la carpeta raíz del proyecto, abra el archivo `appsettings.json`. Este archi
 
 | Sección | Key | Valor |
 | --- | --- | --- |
-| AzureAdB2C | Instancia | Primera parte del [nombre de inquilino](tenant-management.md#get-your-tenant-name) de Azure AD B2C (por ejemplo, `https://contoso.b2clogin.com`).|
-|AzureAdB2C|Domain| [Nombre de inquilino](tenant-management.md#get-your-tenant-name) completo de Azure AD B2C (por ejemplo, `contoso.onmicrosoft.com`).|
+| AzureAdB2C | Instancia | Primera parte del [nombre de inquilino](tenant-management.md#get-your-tenant-name) de Azure AD B2C (por ejemplo, `https://contoso.b2clogin.com`).|
+|AzureAdB2C|Domain| [Nombre de inquilino](tenant-management.md#get-your-tenant-name) completo de Azure AD B2C (por ejemplo, `contoso.onmicrosoft.com`).|
 |AzureAdB2C|ClientId| Identificador de la aplicación web del [paso 2.3](#step-23-register-the-web-app).|
 |AzureAdB2C | ClientSecret | Secreto de la aplicación web del [paso 2.4](#step-24-create-a-web-app-client-secret). | 
 |AzureAdB2C|SignUpSignInPolicyId|Los flujos de usuario o la directiva personalizada que creó en el [paso 1](#step-1-configure-your-user-flow).|

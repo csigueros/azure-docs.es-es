@@ -11,16 +11,16 @@ ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
 ms.custom: references_regions
-ms.openlocfilehash: 0a80fe8bc2cf2cfa86b5b8b1a9c78684d718e68f
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 0ff5515dce384a43cf54c8fb4d7e4c8fe71e251e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130038372"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054901"
 ---
 # <a name="network-routing-preference-for-azure-storage"></a>Preferencia de enrutamiento de red para Azure Storage
 
-Puede configurar la [preferencia de enrutamiento](../../virtual-network/routing-preference-overview.md) de red de la cuenta de Azure Storage para especificar cómo se enruta el tráfico de red a la cuenta desde los clientes a través de Internet. De forma predeterminada, el tráfico procedente de Internet se enruta al punto de conexión público de la cuenta de almacenamiento a través de la [red global de Microsoft](../../networking/microsoft-global-network.md). Azure Storage proporciona opciones adicionales para configurar la forma de enrutar el tráfico a la cuenta de almacenamiento.
+Puede configurar la [preferencia de enrutamiento](../../virtual-network/ip-services/routing-preference-overview.md) de red de la cuenta de Azure Storage para especificar cómo se enruta el tráfico de red a la cuenta desde los clientes a través de Internet. De forma predeterminada, el tráfico procedente de Internet se enruta al punto de conexión público de la cuenta de almacenamiento a través de la [red global de Microsoft](../../networking/microsoft-global-network.md). Azure Storage proporciona opciones adicionales para configurar la forma de enrutar el tráfico a la cuenta de almacenamiento.
 
 La configuración de las preferencias de enrutamiento le ofrece la flexibilidad de optimizar el tráfico en función del rendimiento de la red Premium o del costo. Cuando configure una preferencia de enrutamiento, debe especificar cómo se dirigirá el tráfico al punto de conexión público de la cuenta de almacenamiento de forma predeterminada. También puede publicar puntos de conexión específicos de la ruta para la cuenta de almacenamiento.
 
@@ -37,7 +37,7 @@ En el diagrama siguiente se muestra cómo fluye el tráfico entre el cliente y l
 
 ![Información general de las opciones de enrutamiento para Azure Storage](media/network-routing-preference/routing-options-diagram.png)
 
-Para obtener más información sobre la preferencia de enrutamiento en Azure, consulte [¿Qué es la preferencia de enrutamiento?](../../virtual-network/routing-preference-overview.md).
+Para obtener más información sobre la preferencia de enrutamiento en Azure, consulte [¿Qué es la preferencia de enrutamiento?](../../virtual-network/ip-services/routing-preference-overview.md).
 
 ## <a name="routing-configuration"></a>Configuración de enrutamiento
 
@@ -108,11 +108,11 @@ Los siguientes problemas conocidos afectan a la preferencia de enrutamiento para
 
 ## <a name="pricing-and-billing"></a>Precios y facturación
 
-Para obtener información sobre los precios y los detalles de facturación, consulte la sección **Precios** de [¿Qué es la preferencia de enrutamiento?](../../virtual-network/routing-preference-overview.md#pricing).
+Para obtener información sobre los precios y los detalles de facturación, consulte la sección **Precios** de [¿Qué es la preferencia de enrutamiento?](../../virtual-network/ip-services/routing-preference-overview.md#pricing).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [¿Qué es la preferencia de enrutamiento?](../../virtual-network/routing-preference-overview.md)
+- [¿Qué es la preferencia de enrutamiento?](../../virtual-network/ip-services/routing-preference-overview.md)
 - [Configuración de las preferencias de enrutamiento de red](configure-network-routing-preference.md)
 - [Configuración de redes virtuales y firewalls de Azure Storage](storage-network-security.md)
 - [Recomendaciones de seguridad para Blob Storage](../blobs/security-recommendations.md)

@@ -6,14 +6,17 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: how-to
 ms.date: 05/11/2021
-ms.openlocfilehash: 1b13d49707402143c59078aa3e73cd93db1b10de
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: d14d4942f659be48b49615e6fe9addb2ffa34905
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121748076"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046895"
 ---
 # <a name="handle-false-positives-in-azure-sentinel"></a>Control de falsos positivos en Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Las [reglas de análisis de Azure Sentinel](detect-threats-built-in.md) le notifican cuando se produce algo sospechoso en la red. Ninguna regla de análisis es perfecta y necesariamente obtendrá algunos falsos positivos que se deben controlar. En este artículo se describe cómo controlar los falsos positivos, ya sea mediante automatización o mediante la modificación de las reglas de análisis programadas.
 

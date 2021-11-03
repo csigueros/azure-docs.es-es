@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/03/2020
-ms.openlocfilehash: e7a20b617808457ad9512f5dc835e4de33f880f3
-ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
+ms.openlocfilehash: 8df379fe175db6a70d44ab23acf808379d8720bb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110585225"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131044292"
 ---
 # <a name="install-log-analytics-agent-on-windows-computers"></a>Instalación del agente de Log Analytics en equipos Windows
 En este artículo se proporcionan detalles sobre cómo instalar el agente de Log Analytics en equipos Windows mediante los siguientes métodos:
@@ -107,13 +107,13 @@ En la tabla siguiente se resaltan los parámetros específicos que admite la con
 1. Para extraer los archivos de instalación del agente, desde un símbolo del sistema con privilegios elevados ejecute `MMASetup-<platform>.exe /c` y se le solicitará la ruta en la que extraer los archivos.  Como alternativa, puede especificar la ruta de acceso pasando los argumentos `MMASetup-<platform>.exe /c /t:<Full Path>`.  
 2. Para instalar el agente de forma silenciosa y configurarlo para que informe a un área de trabajo en la nube comercial de Azure, vaya a la carpeta en la que extrajo los archivos de instalación y escriba: 
    
-     ```dos
+    ```shell
     setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1
     ```
 
    o bien, para configurar el agente para que informe a la nube de la administración pública de EE. UU., escriba: 
 
-     ```dos
+    ```shell
     setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1
     ```
     >[!NOTE]

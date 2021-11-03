@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 0bcbe35fc6d9f104325bec8a3404ad57a6376cf2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a0e795d6e6c2fa189682931f60b792e4588d1278
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94518131"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131047693"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Marco de seguridad: información confidencial | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -83,7 +83,7 @@ ms.locfileid: "94518131"
 | **Pasos** | Los exploradores pueden almacenar información para la memoria caché y el historial. Estos archivos almacenados en caché se guardan en una carpeta, como la carpeta Archivos temporales de Internet en el caso de Internet Explorer. Si se vuelve a hacer referencia a estas páginas, el explorador las muestra desde su memoria caché. Si se muestra información confidencial al usuario (por ejemplo, su dirección, datos de la tarjeta de crédito, número del seguro social o nombre de usuario), podría quedar almacenada en la memoria caché del explorador y, por tanto, ser recuperable mediante un examen de la memoria caché del explorador o simplemente al presionar el botón "Atrás" del explorador. Establezca el valor del encabezado de respuesta cache-control en "no-store" para todas las páginas. |
 
 ### <a name="example"></a>Ejemplo
-```XML
+```xml
 <configuration>
   <system.webServer>
    <httpProtocol>

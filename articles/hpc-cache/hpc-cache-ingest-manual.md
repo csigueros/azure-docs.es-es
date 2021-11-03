@@ -1,17 +1,17 @@
 ---
 title: 'Ingesta de datos de Azure HPC Cache: copia manual'
 description: Uso de comandos cp para trasladar datos a un destino de almacenamiento de Azure Blob Storage en Azure HPC Cache
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 10/30/2019
-ms.author: v-erkel
-ms.openlocfilehash: f96a0fa264124f9d050e667b003d98579da63b77
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.author: femila
+ms.openlocfilehash: d3d93a767839d552791466d77be5ecbb9c50adf1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87092344"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131078530"
 ---
 # <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Ingesta de datos de Azure HPC Cache: método de copia manual
 

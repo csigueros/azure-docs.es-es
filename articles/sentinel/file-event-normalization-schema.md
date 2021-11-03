@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/22/2021
 ms.author: bagol
-ms.openlocfilehash: d5928cf93aed6e1a887be07f2befd27df9a8e276
-ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: ba1dd4cd4b3552466db55723432f5e9c79593070
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129407843"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131055198"
 ---
 # <a name="azure-sentinel-file-event-normalization-schema-reference-public-preview"></a>Referencia del esquema de normalización de eventos de archivos de Azure Sentinel (Versión preliminar pública)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 El esquema de normalización de eventos de archivos se usa para describir la actividad de los archivos, como la creación, modificación o eliminación de archivos o documentos. Los sistemas operativos, los sistemas de almacenamiento de archivos como Azure Files y los sistemas de administración de documentos como Microsoft SharePoint notifican estos eventos.
 
@@ -202,8 +204,8 @@ La ruta de acceso se debe normalizar para que coincida con uno de los siguientes
 Para más información, consulte:
 
 - [Normalización en Azure Sentinel](normalization.md)
-- [Referencia del esquema de normalización de la autenticación de Azure Sentinel (Versión preliminar pública)](authentication-normalization-schema.md)
+- [Referencia del esquema de normalización de la autenticación de Azure Sentinel (versión preliminar pública)](authentication-normalization-schema.md)
 - [Referencia del esquema de normalización de DNS de Azure Sentinel](dns-normalization-schema.md)
-- [Referencia del esquema de normalización de datos de Azure Sentinel](normalization-schema.md)
+- [Referencia del esquema de normalización de datos de Azure Sentinel](./network-normalization-schema.md)
 - [Referencia del esquema de normalización de eventos de proceso de Azure Sentinel (Versión preliminar pública)](process-events-normalization-schema.md)
 - [Referencia del esquema de normalización de eventos de registro de Azure Sentinel (Versión preliminar pública)](registry-event-normalization-schema.md)

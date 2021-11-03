@@ -2,17 +2,17 @@
 title: Indexación de datos de SharePoint Online (versión preliminar)
 titleSuffix: Azure Cognitive Search
 description: Configure un indexador de SharePoint Online para automatizar la indexación del contenido de la biblioteca de documentos en Azure Cognitive Search.
-author: MarkHeff
-ms.author: maheff
+author: nitinme
+ms.author: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: e73e8226bd90b1600b0f3538e34c9f4f937ce189
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 1494d0e5b6a3879d926b7d7a96979ca148806ec1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129807370"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131076023"
 ---
 # <a name="index-data-from-sharepoint-online"></a>Indexación de datos de SharePoint Online
 

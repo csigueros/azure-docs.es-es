@@ -5,17 +5,19 @@ author: batamig
 ms.author: bagold
 ms.service: azure-sentinel
 ms.topic: reference
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.date: 06/09/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: 63ca9c2a76b5daaf576992f715a7ec112ac98b25
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
+ms.openlocfilehash: f333ea27279098d43065a9ffd613f994940ff340
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681529"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131019711"
 ---
 # <a name="azure-sentinel-sap-solution-detailed-sap-requirements-public-preview"></a>Requisitos detallados de SAP para la solución Azure Sentinel para SAP (versión preliminar pública)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 El [procedimiento predeterminado para implementar la solución Azure Sentinel para SAP](sap-deploy-solution.md) incluye las solicitudes de cambios de SAP y las notas de SAP necesarias, y proporciona un rol integrado con todos los permisos necesarios.
 

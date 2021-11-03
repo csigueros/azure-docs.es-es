@@ -6,15 +6,16 @@ author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 05/07/2020
+ms.date: 11/02/2021
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 392d457ead16d0bcfc057282886669a01e24ff3e
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: c87f8d7b2beaa0ad77e5fa9740910bcdd1a019e5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129730382"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131018875"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Uso de OPENROWSET con un grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -82,7 +83,8 @@ OPENROWSET
 OPENROWSET  
 ( { BULK 'unstructured_data_path' , [DATA_SOURCE = <data source name>, ] 
     FORMAT = 'CSV'
-    [ <bulk_options> ] }  
+    [ <bulk_options> ]
+    [ , <reject_options> ] }  
 )  
 WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })  
 [AS] table_alias(column_alias,...n)
@@ -99,6 +101,13 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })
 [ , DATAFILETYPE = { 'char' | 'widechar' } ]
 [ , CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' } ]
 [ , ROWSET_OPTIONS = '{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}' ]
+
+<reject_options> ::=  
+{  
+    | MAXERRORS = reject_value,  
+    | ERRORFILE_DATA_SOURCE = <data source name>,
+    | ERRORFILE_LOCATION = '/REJECT_Directory'
+}  
 ```
 
 ## <a name="arguments"></a>Argumentos
@@ -256,6 +265,40 @@ Especifica la página de códigos de los datos incluidos en el archivo de datos.
 ROWSET_OPTIONS = '{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}'
 
 Esta opción deshabilitará la comprobación de modificación de archivos durante la ejecución de la consulta y leerá los archivos que se actualizan mientras se ejecuta la consulta. Esta opción es útil cuando tiene que leer archivos de solo anexión que se anexan mientras se ejecuta la consulta. En los archivos anexables, el contenido existente no se actualiza y solo se agregan nuevas filas. Por lo tanto, se reduce la probabilidad de resultados incorrectos en comparación con los archivos actualizables. Esta opción podría permitirle leer los archivos anexados con frecuencia sin necesidad de administrar los errores. Consulte más información en la sección [Consulta de archivos anexables](query-single-csv-file.md#querying-appendable-files).
+
+Opciones de Reject 
+
+> [!NOTE]
+> La característica de filas rechazadas está en versión preliminar pública.
+> Tenga en cuenta que la característica de filas rechazadas funciona para archivos de texto delimitados y PARSER_VERSION 1.0.
+
+
+Puede especificar los parámetros de rechazo que determinan la forma en que el servicio manejará los registros *desfasados* que recupera de la fuente de datos externa. Un registro de datos se considera "desfasado" si los tipos de datos reales no coinciden con las definiciones de columna de la tabla externa.
+
+Si no se especifican ni se cambian los valores de rechazo, el servicio utiliza los valores predeterminados. El servicio usará las opciones de rechazo para determinar el número de filas que se pueden rechazar antes de que se produce un error en la consulta real. La consulta devolverá resultados (parciales) hasta que se supere el umbral de rechazo. Después, se produce un error con el mensaje de error correspondiente.
+
+
+MAXERRORS = *reject_value* 
+
+Especifica el número de filas que se pueden rechazar antes de que se produzca un error en la consulta. MAXERRORS debe ser un número entero entre 0 y 2 147 483 647.
+
+ERRORFILE_DATA_SOURCE = *origen de datos*
+
+Especifica el origen de datos donde se deben escribir las filas rechazadas y el archivo de error correspondiente.
+
+ERRORFILE_LOCATION = *Ubicación del directorio*
+
+Especifica el directorio dentro de DATA_SOURCE, o ERROR_FILE_DATASOURCE si se especifica, en el que deben escribirse las filas rechazadas y el archivo de errores correspondientes. Si la ruta de acceso especificada no existe, el servicio creará una en su nombre. Se crea un directorio secundario con el nombre “_rejectedrows”. El carácter “_ ” garantiza que se escape el directorio para otro procesamiento de datos, a menos que se mencione explícitamente en el parámetro de ubicación. En este directorio hay una carpeta que se crea según la hora de envío de la carga con el formato AñoMesDía_HoraMinutoSegundo_Id.Instrucción (Ej. 20180330-173205-559EE7D2-196D-400A-806D-3BF5D007F891). Puede usar el identificador de instrucción para correlacionar la carpeta con la consulta que la generó. En esta carpeta, se escriben dos archivos: el archivo error.json y el archivo de datos. 
+
+El archivo error.json contiene una matriz json con los errores encontrados relacionados con las filas rechazadas. Cada elemento que representa un error contiene los siguientes atributos:
+
+| Atributo | Descripción                                                  |
+| --------- | ------------------------------------------------------------ |
+| Error     | Motivo por el que se rechaza la fila.                                  |
+| Row       | Número ordinal de la fila rechazada en el archivo.                         |
+| Columna    | Número ordinal de la columna rechazada.                              |
+| Valor     | Valor de la columna rechazada. Si el valor tiene más de cien caracteres, solo se mostrarán los cien primeros. |
+| Archivo      | Ruta de acceso al archivo al que pertenece la fila.                            |
 
 ## <a name="fast-delimited-text-parsing"></a>Análisis de texto delimitado rápido
 
@@ -426,6 +469,24 @@ WITH (
     [population] bigint 'strict $.population' -- this one works as column name casing is valid
     --,[population2] bigint 'strict $.POPULATION' -- this one fails because of wrong casing and strict path mode
 )
+AS [r]
+```
+
+### <a name="specify-multiple-filesfolders-in-bulk-path"></a>Especificar varios archivos o carpetas en la ruta de acceso BULK
+
+En el ejemplo siguiente se muestra cómo puede usar varias rutas de acceso de archivo o carpeta en el parámetro BULK:
+
+```sql
+SELECT 
+    TOP 10 *
+FROM  
+    OPENROWSET(
+        BULK (
+            'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=2000/*.parquet',
+            'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=2010/*.parquet',
+        ),
+        FORMAT='PARQUET'
+    )
 AS [r]
 ```
 

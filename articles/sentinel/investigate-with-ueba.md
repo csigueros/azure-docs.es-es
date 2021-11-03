@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2021
 ms.author: bagol
-ms.openlocfilehash: 6e29b444f7a9e1afbea3ffc7f9d53c0279c6af8c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 3dbeae805c28b9cfbfe7871b49f021a1d3ad19c2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725157"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131023165"
 ---
 # <a name="tutorial-investigate-incidents-with-ueba-data"></a>Tutorial: Investigación de incidentes con datos de UEBA
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 En este artículo se describen métodos comunes y procedimientos de ejemplo para usar el [análisis de comportamiento de entidades de usuario (UEBA)](identify-threats-with-entity-behavior-analytics.md) en los flujos de trabajo de investigación normales.
 

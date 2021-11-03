@@ -6,13 +6,13 @@ manager: gwallace
 ms.date: 03/21/2019
 ms.topic: quickstart
 ms.service: container-instances
-ms.custom: devx-track-azurepowershell - mvc - mode-api
-ms.openlocfilehash: 875913550ff41cf5988b7910e165376bfa446bfb
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.custom: devx-track-azurepowershell, mvc, mode-api
+ms.openlocfilehash: c882944691818bf15a5d15b325d39d6f2b4ed5d3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110689420"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045318"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>Inicio rápido: Implementación de una instancia de contenedor en Azure mediante Azure PowerShell
 
@@ -36,7 +36,7 @@ Las instancias de contenedores de Azure, al igual que otros recursos de Azure, s
 
 Primero, cree un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus* con el siguiente comando [New-AzResourceGroup][New-AzResourceGroup]:
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
@@ -48,13 +48,13 @@ Puede exponer los contenedores en Internet mediante la especificación para que 
 
 Ejecute un comando similar al siguiente para iniciar una instancia de contenedor. Establezca un valor `-DnsNameLabel` que sea único dentro de la región de Azure en la que cree la instancia. Si recibe un mensaje de error "DNS name label not available" (La etiqueta de nombre DNS no está disponible), pruebe otra etiqueta de nombre DNS diferente.
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image mcr.microsoft.com/windows/servercore/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
 ```
 
 Al cabo de unos segundos, debe recibir una respuesta de Azure. El estado `ProvisioningState` del contenedor es inicialmente **En creación**, pero debería cambiar a **Correcto** en un minuto o dos. Compruebe el estado de la implementación mediante el cmdlet [Get-AzContainerGroup][Get-AzContainerGroup]:
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 Get-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 
@@ -92,7 +92,7 @@ Una vez que el estado `ProvisioningState` del contenedor es **Correcto**, vaya a
 
 Cuando haya terminado con el contenedor, elimínelo con el cmdlet [Remove-AzContainerGroup][Remove-AzContainerGroup]:
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 Remove-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 

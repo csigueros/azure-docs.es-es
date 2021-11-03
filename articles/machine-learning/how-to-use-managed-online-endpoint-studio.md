@@ -11,12 +11,12 @@ ms.author: ssambare
 author: shivanissambare
 ms.reviewer: peterlu
 ms.date: 05/25/2021
-ms.openlocfilehash: 764532fd06a26810dcee7c9d348aaf04abc037a4
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: d195ce6019f200b3cd3b264aacf09a8cbdb30c5f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129428870"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057597"
 ---
 # <a name="create-and-use-managed-online-endpoints-preview-in-the-studio"></a>Creación y uso de puntos de conexión en línea administrados (versión preliminar) en Estudio
 
@@ -169,6 +169,6 @@ En este artículo, ha aprendido a usar los puntos de conexión en línea adminis
 - [Implementación de puntos de conexión en línea administrados con la CLI de Azure](how-to-deploy-managed-online-endpoints.md)
 - [Implementación de modelos con REST (versión preliminar)](how-to-deploy-with-rest.md)
 - [Supervisión de los puntos de conexión en línea administrados](how-to-monitor-online-endpoints.md)
-- [Solución de problemas de implementación y puntuación de puntos de conexión en línea administrados (versión preliminar)](how-to-troubleshoot-managed-online-endpoints.md)
+- [Solución de problemas de implementación y puntuación de puntos de conexión en línea administrados (versión preliminar)](./how-to-troubleshoot-online-endpoints.md)
 - [Visualización de los costos de un punto de conexión en línea administrado de Azure Machine Learning (versión preliminar)](how-to-view-online-endpoints-costs.md)
 - [Administración y aumento de las cuotas de los recursos con Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)

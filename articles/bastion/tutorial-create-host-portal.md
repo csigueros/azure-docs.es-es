@@ -5,14 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 09/07/2021
+ms.date: 10/12/2021
 ms.author: cherylmc
-ms.openlocfilehash: 0bac9ef5d9a636fb4772352c93de537d21483139
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 3765b1abb6996e364ed3f7004e56f323fe256450
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130179318"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131017048"
 ---
 # <a name="tutorial-configure-bastion-and-connect-to-a-windows-vm"></a>Tutorial: Configuración de Bastion y conexión a una máquina virtual Windows
 
@@ -96,7 +97,7 @@ Esta sección le ayuda a crear el objeto de bastión en la red virtual. Esto es 
 
 * **Región**: la región pública de Azure en la que se creará el recurso. Elija la región en la que reside la red virtual.
 
-* **Nivel**: el nivel también se conoce como **SKU**. Para este tutorial, seleccione la SKU **Estándar** en la lista desplegable. La selección de la SKU Estándar permite configurar el recuento de instancias para el escalado de host. La SKU Básica no admite el escalado de host. Para obtener más información, vea [Opciones de configuración: SKU](configuration-settings.md#skus). La SKU Estándar se encuentra en versión preliminar.
+* **Nivel**: el nivel también se conoce como **SKU**. Para este tutorial, seleccione la SKU **Estándar** en la lista desplegable. La selección de la SKU Estándar permite configurar el recuento de instancias para el escalado de host. La SKU Básica no admite el escalado de host. Para obtener más información, vea [Opciones de configuración: SKU](configuration-settings.md#skus).
 
 * **Recuento de instancias**: es la configuración para el **escalado de host** y se configura en incrementos de unidades de escalado. Use el control deslizante para configurar el recuento de instancias. Si ha especificado la SKU de nivel Básico, no puede configurar esta opción. Para obtener más información, vea [Opciones de configuración: escalado de host](configuration-settings.md#instance). En este tutorial, puede seleccionar el recuento de instancias que prefiera, teniendo en cuenta las consideraciones de [precios](https://azure.microsoft.com/pricing/details/azure-bastion) de las unidades de escalado.
 

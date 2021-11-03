@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.openlocfilehash: b147e0b2a096107b848ac3e33ce544d5559ab56c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0c3c4f4dbf7de3924b15d7c5394ae0e7d36b4e64
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638501"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131077807"
 ---
 # <a name="tutorial-migrateupgrade-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>Tutorial: Migración/actualización de una instancia de Azure DB para PostgreSQL: servidor único en línea que usa DMS a través de Azure Portal
 
@@ -49,7 +49,7 @@ Para completar este tutorial, necesita:
 * Consulte [Estado de los escenarios de migración que admite Azure Database Migration Service](./resource-scenario-status.md) para conocer las combinaciones de versión y migración aceptadas. 
 * Una instancia de [Azure Database for PostgreSQL](../postgresql/index.yml), versión 10 y posterior, con la base de datos **DVD Rental**. 
 
-    Tenga en cuenta también que la versión de Azure Database for PostgreSQL de destino debe ser igual o posterior a la versión local de PostgreSQL. Por ejemplo, PostgreSQL 10 puede migrarse a Azure Database for PostgreSQL 10 u 11, pero no a Azure Database for PostgreSQL 9.6. En este momento no se admiten las migraciones a PostgreSQL 13 y versiones posteriores. 
+    Tenga en cuenta también que la versión de Azure Database for PostgreSQL de destino debe ser igual o posterior a la versión local de PostgreSQL. Por ejemplo, PostgreSQL 10 puede migrarse a Azure Database for PostgreSQL 10 u 11, pero no a Azure Database for PostgreSQL 9.6. 
 
 * [Cree un servidor de Azure Database for PostgreSQL](../postgresql/quickstart-create-server-database-portal.md) o [cree un servidor de Azure Database for PostgreSQL: Hiperescala (Citus)](../postgresql/quickstart-create-hyperscale-portal.md) como servidor de bases de datos de destino al que migrar los datos.
 * Cree una instancia de Microsoft Azure Virtual Network para Azure Database Migration Service mediante el modelo de implementación de Azure Resource Manager. Para más información sobre la creación de una red virtual, consulte la documentación de [Virtual Network](../virtual-network/index.yml)y, especialmente, los artículos de inicio rápido con detalles paso a paso.

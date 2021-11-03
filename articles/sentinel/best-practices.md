@@ -8,14 +8,17 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/21/2021
-ms.openlocfilehash: 8454a75936c84f012d05c8917cfffeec4a08dcdc
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: b53b634315487d7940cf4d202c29005498bcdfb9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129278431"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060789"
 ---
 # <a name="best-practices-for-azure-sentinel"></a>Procedimientos recomendados para Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Esta colección de procedimientos recomendados proporciona instrucciones para implementar, administrar y usar Azure Sentinel, e incluye vínculos a otros artículos para obtener más información.
 

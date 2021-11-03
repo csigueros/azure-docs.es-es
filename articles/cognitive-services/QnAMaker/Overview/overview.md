@@ -4,17 +4,19 @@ description: QnA Maker es un servicio NLP API basado en la nube que crea con fac
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 01/22/2021
-ms.custom: cog-serv-seo-aug-2020
+ms.date: 11/02/2021
 keywords: qna maker, low code chat bots, multi-turn conversations
-ms.openlocfilehash: b3e780393b911697d17ca1873201720c0bc628be
-ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: f8d23bc199ad38830b1d80ba7ddbb0fc5174109b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112322609"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131016877"
 ---
 # <a name="what-is-qna-maker"></a>¿Qué es QnA Maker?
+
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 QnA Maker es un servicio de Procesamiento de lenguaje natural (NLP) basado en la nube que le permite crear una capa de conversación natural con los datos. Se utiliza para encontrar la respuesta más apropiada para una entrada de la base de conocimiento personalizada (KB) de información.
 

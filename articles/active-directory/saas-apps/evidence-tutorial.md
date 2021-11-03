@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 9afdbef418f9397cb4f13d4eb51220e6fc5573ab
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3bc6d92d0992c44cd0cb9bb0f874b9ea1952a211
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124779091"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059003"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-evidencecom"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Evidence.com
 
@@ -26,7 +26,7 @@ En este tutorial, obtendrá información sobre cómo integrar Evidence.com con A
 * Permitir a los usuarios iniciar sesión automáticamente en Evidence.com con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -57,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Evidence.com con
 Para configurar y probar el inicio de sesión único de Azure AD con Evidence.com, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Evidence.com](#configure-evidencecom-sso)** , para configurar el inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Evidence.com](#create-evidencecom-test-user)** , para tener un homólogo de B.Simon en Evidence.com que esté vinculado a la representación de ella en Azure AD.
@@ -75,12 +75,12 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la página **Configurar inicio de sesión único con SAML** realice los siguientes pasos:
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<yourtenant>.evidence.com`
+    1. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<yourtenant>.evidence.com`
 
-    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<yourtenant>.evidence.com`
+    1. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<yourtenant>.evidence.com`
 
-    c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<your tenant>.evidence.com/?class=UIX&proc=Login`.
-    
+    1. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<your tenant>.evidence.com/?class=UIX&proc=Login`.
+
     > [!NOTE]
     > Estos valores no son reales. Actualícelos con la dirección URL de respuesta, el identificador y la dirección URL de inicio de sesión reales. Póngase en contacto con el [equipo de soporte técnico al cliente de Evidence.com](https://communities.taser.com/support/SupportContactUs?typ=LE) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
