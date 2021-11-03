@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-js
-ms.openlocfilehash: 5a50a51d68154654d204149a5e76e5aa94e57683
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 1118fb9d41ace11adb55adedc4b3700c3c34e50a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122697746"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131003454"
 ---
 # <a name="deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Implementación de una aplicación en máquinas virtuales Linux de Azure con Azure DevOps Services y Azure Pipelines
 
@@ -147,7 +147,7 @@ Necesitará una canalización de compilación de integración continua (CI) que 
 
 Seleccione la plantilla **starter** y copie el fragmento de código de YAML siguiente que compila el proyecto de Java y ejecuta las pruebas con Apache Maven:
 
-```YAML
+```yaml
 jobs:
 - job: Build
   displayName: Build Maven Project
@@ -172,7 +172,7 @@ Para más información, siga los pasos mencionados en [Compilación de la aplica
 
 Seleccione la plantilla **starter** y copie el siguiente fragmento de código de YAML que compila un proyecto de Node.js general con npm.
 
-```YAML
+```yaml
 - stage: Build
   displayName: Build stage
   jobs:  
@@ -213,7 +213,7 @@ Para más información, siga los pasos descritos en [Compilación de la aplicaci
 
 1. Modifique el archivo YAML de la canalización anterior para incluir un [trabajo de implementación](/azure/devops/pipelines/process/deployment-jobs); para ello, haga referencia al entorno y a los recursos de la máquina virtual que ha utilizado anteriormente mediante la sintaxis YAML siguiente:
 
-   ```YAML
+   ```yaml
    jobs:  
    - deployment: VMDeploy
      displayName: web
@@ -230,7 +230,7 @@ Para más información, siga los pasos descritos en [Compilación de la aplicaci
    `runOnce` es la estrategia de implementación más sencilla en la que todos los enlaces del ciclo de vida, es decir, `preDeploy` `deploy`, `routeTraffic` y `postRouteTraffic`, se ejecutan una vez. Luego, se ejecuta `on:` `success` o `on:` `failure`.
 
    A continuación se muestra el fragmento de código YAML de ejemplo para `runOnce`:
-   ```YAML
+   ```yaml
    jobs:
    - deployment: VMDeploy
      displayName: web
@@ -248,7 +248,7 @@ Para más información, siga los pasos descritos en [Compilación de la aplicaci
 
 4. A continuación se muestra un fragmento de código YAML de ejemplo que puede usar para definir una estrategia gradual para las actualizaciones de máquinas virtuales de hasta 5 destinos en cada iteración. `maxParallel` determinará el número de destinos que se pueden implementar en paralelo. La selección tiene en cuenta el número absoluto o el porcentaje de destinos que deben permanecer disponibles en cualquier momento excluyendo los destinos en los que se está realizando la implementación. También se usa para determinar las condiciones de acierto y error durante la implementación.
 
-   ```YAML
+   ```yaml
    jobs: 
    - deployment: VMDeploy
      displayName: web

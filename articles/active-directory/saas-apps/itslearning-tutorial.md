@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2021
 ms.author: jeedes
-ms.openlocfilehash: 888f5d195cde3b226e4a25c5e46ed916e654c0b0
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 4b333a8910277236c4d4f5f7f044f21f6ee03f74
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124809220"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067135"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itslearning"></a>Tutorial: Integración de Azure Active Directory con itslearning
 
@@ -60,7 +60,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con itslearning util
 Para configurar y probar el inicio de sesión único de Azure AD con itslearning, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en itslearning](#configure-itslearning-sso)** : para configurar los valores de inicio de sesión único en el lado de la aplicación.
     1. **[Creación de un usuario de prueba en itslearning](#create-itslearning-test-user)** : para tener un homólogo de Britta Simon en itslearning que esté vinculado a la representación del usuario en Azure AD.
@@ -78,24 +78,21 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    
-    a. En el cuadro de texto **Identificador (id. de entidad)** , escriba la dirección URL: `urn:mace:saml2v2.no:services:com.itslearning`.
+    1. En el cuadro de texto **Identificador (id. de entidad)** , escriba la dirección URL: `urn:mace:saml2v2.no:services:com.itslearning`.
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una de las siguientes direcciones URL:
-    
-    | URL de respuesta |
-    |-------------|
-    | `https://www.itsltest.com/elogin/AssertionConsumerService.aspx` |
-    | `https://www.itslearning.com/elogin/AssertionConsumerService.aspx` |
-    | 
-    
-    c. En el cuadro de texto **Sign on URL** (Dirección URL de inicio de sesión), escriba una de las siguientes direcciones URL:
-    
-    | Dirección URL de inicio de sesión |
-    |-------------|
-    | `https://www.itslearning.com/index.aspx` |
-    | `https://us1.itslearning.com/index.aspx` |
-    |
+    1. En el cuadro de texto **URL de respuesta**, escriba una de las siguientes direcciones URL:
+
+       | URL de respuesta |
+       |-------------|
+       | `https://www.itsltest.com/elogin/AssertionConsumerService.aspx` |
+       | `https://www.itslearning.com/elogin/AssertionConsumerService.aspx` |
+
+    1. En el cuadro de texto **Sign on URL** (Dirección URL de inicio de sesión), escriba una de las siguientes direcciones URL:
+
+       | Dirección URL de inicio de sesión |
+       |-------------|
+       | `https://www.itslearning.com/index.aspx` |
+       | `https://us1.itslearning.com/index.aspx` |
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 

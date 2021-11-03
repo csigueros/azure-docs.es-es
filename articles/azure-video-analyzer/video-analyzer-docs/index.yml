@@ -11,76 +11,116 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 06/01/2021
-  ms.openlocfilehash: 2f3aee33c4fb240b786073140d32ed352f9b2229
-  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+  ms.openlocfilehash: a7d339bf7fe92a177c301227d417c1accb11a3c9
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/13/2021
-  ms.locfileid: "121745665"
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131039019"
 landingContent:
-- title: Introducción a Video Analyzer
+- title: Introducción a Azure Video Analyzer
   linkLists:
   - linkListType: overview
     links:
     - text: Acerca de Azure Video Analyzer (versión preliminar)
       url: overview.md
-    - text: Acerca de Azure Video Analyzer for Media
-      url: ../video-analyzer-for-media-docs/video-indexer-overview.md
+    - text: Terminología
+      url: terminology.md
   - linkListType: quickstart
     links:
-    - text: Introducción al uso de una plantilla de Resource Manager
-      url: get-started-detect-motion-emit-events.md
     - text: Introducción al uso del portal
       url: get-started-detect-motion-emit-events-portal.md
-- title: Grabación de vídeo basada en eventos
+    - text: Introducción al uso de una plantilla de Resource Manager
+      url: get-started-detect-motion-emit-events.md
+  - linkListType: concept
+    links:
+    - text: Análisis de vídeo en directo
+      url: analyze-live-video-without-recording.md
+- title: Creación e implementación de canalizaciones y topologías
   linkLists:
   - linkListType: concept
     links:
-    - text: Grabación de vídeo continua
+    - text: Canalizaciones de vídeo
+      url: pipeline.md
+  - linkListType: tutorial
+    links:
+    - text: Detección de líneas virtuales de cruce de objetos
+      url: edge/use-line-crossing.md
+    - text: Detección de objetos mediante DL Streamer de Open VINO
+      url: edge/use-intel-openvino-tutorial.md
+- title: Creación de aplicaciones de vídeo inteligentes en el perímetro
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Grabación de vídeo basada en eventos
       url: event-based-video-recording-concept.md
   - linkListType: quickstart
     links:
+    - text: Análisis de vídeo en directo con su propio modelo (HTTP)
+      url: edge/analyze-live-video-use-your-model-http.md
     - text: Detección de movimiento y grabación de vídeo en dispositivos perimetrales
-      url: detect-motion-record-video-edge-devices.md
-    - text: Detección de movimiento y grabación de vídeo en la nube
-      url: detect-motion-record-video-clips-cloud.md
+      url: edge/detect-motion-record-video-edge-devices.md
   - linkListType: tutorial
     links:
     - text: Grabación y reproducción de vídeo basada en eventos
-      url: record-event-based-live-video.md
-- title: Análisis de vídeos en directo sin grabación
+      url: edge/record-event-based-live-video.md
+- title: Creación de aplicaciones de vídeo en el servicio
   linkLists:
   - linkListType: concept
     links:
-    - text: Análisis de vídeos en directo sin grabación
-      url: analyze-live-video-without-recording.md
+    - text: Habilitación de la grabación de vídeo con cámara en la nube
+      url: cloud/connect-cameras-to-cloud.md
   - linkListType: quickstart
     links:
-    - text: Detección de movimiento y emisión de eventos
-      url: detect-motion-emit-events-quickstart.md
-    - text: Seguimiento de objetos en vídeos en directo
-      url: track-objects-live-video.md
+    - text: Canalización de compilación en el servicio
+      url: cloud/get-started-livepipelines-portal.md
   - linkListType: tutorial
     links:
-    - text: Análisis de vídeo en directo con OVMS mediante la extensión HTTP
-      url: use-intel-openvino-tutorial.md
-    - text: Análisis de vídeo en directo con OV DL Streamer mediante la extensión gRPC
-      url: use-intel-grpc-video-analytics-serving-tutorial.md
-    - text: Análisis de vídeo en directo con análisis espacial
-      url: computer-vision-for-spatial-analysis.md
-    - text: Análisis de vídeo en directo con Custom Vision
-      url: analyze-live-video-custom-vision.md
-- title: Referencias
+    - text: Exportación de un clip de vídeo con el portal
+      url: cloud/export-portion-of-video-as-mp4.md
+- title: Interacción con la comunidad
   linkLists:
-  - linkListType: reference
+  - linkListType: get-started
     links:
-    - text: Preguntas más frecuentes
-      url: faq-edge.yml
+    - text: Comunidad de GitHub
+      url: https://github.com/Azure/video-analyzer
+    - text: Blogs de la comunidad tecnológica
+      url: https://techcommunity.microsoft.com/t5/azure-video-analyzer/bg-p/AzureVideoAnalyzerBlog
+- title: Supervisión y solución de problemas de canalizaciones y topologías
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Supervisión y registro de canalizaciones de vídeo perimetrales
+      url: edge/monitor-log-edge.md
+    - text: Supervisión y registro de canalizaciones de vídeo en el servicio
+      url: cloud/monitor-log-cloud.md
+    - text: Solución de problemas de canalizaciones de vídeo perimetrales
+      url: edge/troubleshoot.md
+    - text: Solución de problemas de canalizaciones de vídeo en el servicio
+      url: cloud/troubleshoot.md
+- title: Detección de API
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Repositorio de C#
+      url: https://go.microsoft.com/fwlink/?linkid=2163551
+    - text: Repositorio de Python
+      url: https://go.microsoft.com/fwlink/?linkid=2163454
+    - text: API DE REST
+      url: https://docs.microsoft.com/rest/api/videoanalyzer/
     - text: SDK
       url: sdk.md
-    - text: Extensión de canalización
-      url: pipeline-extension.md
-    - text: Métodos directos
-      url: direct-methods.md
-    - text: Cuotas y limitaciones
-      url: quotas-limitations.md
+    - text: VS Code de métodos directos
+      url: edge/direct-methods.md
+- title: Recursos
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Notas de la versión
+      url: release-notes.md
+    - text: Precios
+      url: https://azure.microsoft.com/pricing/details/video-analyzer/
+    - text: Preguntas frecuentes sobre el módulo perimetral
+      url: edge/faq.yml
+    - text: Preguntas frecuentes sobre el servicio
+      url: cloud/faq.yml

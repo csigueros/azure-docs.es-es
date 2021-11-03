@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 02/18/2021
-ms.openlocfilehash: 692ec1db6e897774e3fe662e59d24339de55e723
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f09d05d5b3dab08aab0aa55a5b25e3bebbc1e8f7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124805911"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067591"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-using-powershell"></a>Copia masiva de varias tablas mediante Azure Data Factory con PowerShell
 
@@ -488,25 +488,25 @@ Esta canalización lleva a cabo dos pasos:
 
         if ($run) {
             if ($run.Status -ne 'InProgress') {
-                Write-Host "Pipeline run finished. The status is: " $run.Status -foregroundcolor "Yellow"
-                Write-Host "Pipeline run details:" -foregroundcolor "Yellow"
+                Write-Host "Pipeline run finished. The status is: " $run.Status -ForegroundColor "Yellow"
+                Write-Host "Pipeline run details:" -ForegroundColor "Yellow"
                 $run
                 break
             }
-            Write-Host  "Pipeline is running...status: InProgress" -foregroundcolor "Yellow"
+            Write-Host  "Pipeline is running...status: InProgress" -ForegroundColor "Yellow"
         }
 
         Start-Sleep -Seconds 15
     }
 
     $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
-    Write-Host "Activity run details:" -foregroundcolor "Yellow"
+    Write-Host "Activity run details:" -ForegroundColor "Yellow"
     $result
     ```
 
     Este es el resultado de la ejecución de ejemplo:
 
-    ```console
+    ```output
     Pipeline run details:
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -553,7 +553,7 @@ Esta canalización lleva a cabo dos pasos:
 3. Puede obtener el identificador de ejecución de la canalización "**IterateAndCopySQLTables**" y comprobar el resultado de la ejecución de actividad detallado como se muestra a continuación.
 
     ```powershell
-    Write-Host "Pipeline 'IterateAndCopySQLTables' run result:" -foregroundcolor "Yellow"
+    Write-Host "Pipeline 'IterateAndCopySQLTables' run result:" -ForegroundColor "Yellow"
     ($result | Where-Object {$_.ActivityName -eq "TriggerCopy"}).Output.ToString()
     ```
 
@@ -573,6 +573,7 @@ Esta canalización lleva a cabo dos pasos:
 3. Conéctese a la instancia receptora de Azure Synapse Analytics y confirme que los datos se han copiado correctamente desde Azure SQL Database.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 En este tutorial, realizó los pasos siguientes: 
 
 > [!div class="checklist"]
@@ -584,5 +585,6 @@ En este tutorial, realizó los pasos siguientes:
 > * Supervisión de las ejecuciones de canalización y actividad.
 
 Vaya al tutorial siguiente para obtener información sobre cómo copiar datos de forma incremental de un origen a un destino:
+
 > [!div class="nextstepaction"]
->[Copia de datos de forma incremental](tutorial-incremental-copy-powershell.md)
+> [Copia de datos de forma incremental](tutorial-incremental-copy-powershell.md)

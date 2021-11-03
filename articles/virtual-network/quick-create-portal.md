@@ -10,16 +10,14 @@ ms.service: virtual-network
 ms.workload: infrastructure
 ms.tgt_pltfrm: virtual-network
 ms.devlang: na
-tags:
-- azure-resource-manager
-ms.custom:
-- mode-portal
-ms.openlocfilehash: 43c45b43084656a45d2509ee2c7a4376cdc7c052
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+tags: azure-resource-manager
+ms.custom: mode-portal
+ms.openlocfilehash: 1ba52ed17f5eddafe4489ddf9d4277ac301c3e15
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107531188"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131074258"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Inicio rápido: Creación de una red virtual mediante el Portal de Azure
 
@@ -86,7 +84,7 @@ Cree dos máquinas virtuales en la red virtual:
    
 2. En **Crear una máquina virtual**, escriba o seleccione los valores en la pestaña **Básico**:
 
-    | Configuración | Value                                          |
+    | Configuración | Valor                                          |
     |-----------------------|----------------------------------|
     | **Detalles del proyecto** |  |
     | Suscripción | Selección de su suscripción a Azure |
@@ -110,7 +108,7 @@ Cree dos máquinas virtuales en la red virtual:
   
 4. En la pestaña Redes, seleccione o escriba:
 
-    | Configuración | Value |
+    | Configuración | Valor |
     |-|-|
     | **Interfaz de red** |  |
     | Virtual network | Seleccione **myVNet**. |
@@ -129,7 +127,7 @@ Cree dos máquinas virtuales en la red virtual:
    
 2. En **Crear una máquina virtual**, escriba o seleccione los valores en la pestaña **Básico**:
 
-    | Configuración | Value                                          |
+    | Configuración | Valor                                          |
     |-----------------------|----------------------------------|
     | **Detalles del proyecto** |  |
     | Suscripción | Selección de su suscripción a Azure |
@@ -153,7 +151,7 @@ Cree dos máquinas virtuales en la red virtual:
   
 4. En la pestaña Redes, seleccione o escriba:
 
-    | Configuración | Value |
+    | Configuración | Valor |
     |-|-|
     | **Interfaz de red** |  |
     | Virtual network | Seleccione **myVNet**. |

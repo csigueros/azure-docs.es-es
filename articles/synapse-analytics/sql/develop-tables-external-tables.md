@@ -9,12 +9,13 @@ ms.subservice: sql
 ms.date: 07/23/2021
 ms.author: maburd
 ms.reviewer: wiassaf
-ms.openlocfilehash: a229bd769afa30b93cae9ca0f2073ad8a0621cdd
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 14341d2c623ab465e054c83b7b47a100a52f8ece
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130001397"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054635"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Uso de tablas externas con Synapse SQL
 
@@ -290,7 +291,7 @@ El comando CREATE EXTERNAL TABLE crea una tabla externa para Synapse SQL para ac
 
 ### <a name="syntax-for-create-external-table"></a>Sintaxis de CREATE EXTERNAL TABLE
 
-```sql
+```syntaxsql
 CREATE EXTERNAL TABLE { database_name.schema_name.table_name | schema_name.table_name | table_name }
     ( <column_definition> [ ,...n ] )  
     WITH (
@@ -298,12 +299,21 @@ CREATE EXTERNAL TABLE { database_name.schema_name.table_name | schema_name.table
         DATA_SOURCE = external_data_source_name,  
         FILE_FORMAT = external_file_format_name
         [, TABLE_OPTIONS = N'{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}' ]
-    )  
-[;]  
+        [, <reject_options> [ ,...n ] ] 
+    )
+[;] 
 
 <column_definition> ::=
 column_name <data_type>
     [ COLLATE collation_name ]
+
+<reject_options> ::=  
+{  
+    | REJECT_TYPE = value,  
+    | REJECT_VALUE = reject_value,  
+    | REJECT_SAMPLE_VALUE = reject_sample_value,
+    | REJECTED_ROW_LOCATION = '/REJECT_Directory'
+}   
 ```
 
 ### <a name="arguments-create-external-table"></a>Argumento de CREATE EXTERNAL TABLE
@@ -317,11 +327,10 @@ Nombre de entre una y tres partes de la tabla que se va a crear. Si se trata de 
 CREATE EXTERNAL TABLE admite la capacidad de configurar el nombre de columna, el tipo de datos y la intercalación. No se puede usar DEFAULT CONSTRAINT en tablas externas.
 
 >[!IMPORTANT]
->Las definiciones de columna, incluidos los tipos de datos y el número de columnas, deben coincidir con los datos de los archivos externos. Si hay algún error de coincidencia, se rechazarán las filas de archivo al consultar los datos reales.
+>Las definiciones de columna, incluidos los tipos de datos y el número de columnas, deben coincidir con los datos de los archivos externos. Si hay algún error de coincidencia, se rechazarán las filas de archivo al consultar los datos reales. Consulte las opciones de rechazo para controlar el comportamiento de las filas rechazadas.
 
 Al leer archivos con formato Parquet, solo puede especificar las columnas que desea leer y omitir el resto.
 
-#### <a name="location"></a>LOCATION
 
 LOCATION = '*folder_or_filepath*'
 
@@ -330,14 +339,61 @@ Especifica la carpeta o la ruta de acceso del archivo y el nombre de archivo de 
 ![Datos recursivos para tablas externas](./media/develop-tables-external-tables/folder-traversal.png)
 
 A diferencia de las tablas externas de Hadoop, las tablas externas nativas no devuelven subcarpetas a menos que especifique /** al final de la ruta de acceso. En este ejemplo, si LOCATION='/webdata/', una consulta del grupo de SQL sin servidor, devolverá filas de mydata.txt. No devolverá mydata2. txt y mydata3. txt porque se encuentran en una subcarpeta. Las tablas de Hadoop devolverán todos los archivos de cualquier subcarpeta.
- 
+
 Tanto Hadoop como las tablas externas nativas omitirán los archivos con nombres que comiencen por un subrayado (_) o un punto (.).
 
-#### <a name="data_source"></a>DATA_SOURCE
 
-DATA_SOURCE = *external_data_source_name*: especifica el nombre del origen de datos externo que contiene la ubicación de los datos externos. Para crear un origen de datos externo, use[CREATE EXTERNAL DATA SOURCE](#create-external-data-source).
+DATA_SOURCE = *external_data_source_name*
 
-FILE_FORMAT = *external_file_format_name*: especifica el nombre del objeto de formato de archivo externo que almacena el tipo de archivo y el método de compresión de los datos externos. Para crear un formato de archivo externo, use [CREATE EXTERNAL FILE FORMAT](#create-external-file-format).
+Especifica el nombre del origen de datos externo que contiene la ubicación donde se almacenan los datos externos. Para crear un origen de datos externo, use[CREATE EXTERNAL DATA SOURCE](#create-external-data-source).
+
+
+FILE_FORMAT = *external_file_format_name*
+
+Especifica el nombre del objeto de formato de archivo externo que almacena el tipo de archivo y el método de compresión para los datos externos. Para crear un formato de archivo externo, use [CREATE EXTERNAL FILE FORMAT](#create-external-file-format).
+
+Opciones de Reject 
+
+> [!NOTE]
+> La característica de filas rechazadas está en versión preliminar pública.
+> Tenga en cuenta que la característica de filas rechazadas funciona para archivos de texto delimitados y PARSER_VERSION 1.0.
+
+Puede especificar los parámetros de rechazo que determinan la forma en que el servicio manejará los registros *desfasados* que recupera de la fuente de datos externa. Un registro de datos se considera "desfasado" si los tipos de datos reales no coinciden con las definiciones de columna de la tabla externa.
+
+Si no se especifican ni se cambian las opciones de rechazo, el servicio utiliza los valores predeterminados. Esta información sobre los parámetros de Reject se almacena como metadatos adicionales al crear una tabla externa con la instrucción CREATE EXTERNAL TABLE. Cuando una futura instrucción SELECT o SELECT INTO SELECT selecciona datos de la tabla externa, el servicio usa las opciones de rechazo para determinar el número de filas que se pueden rechazar antes de que se produzca un error en la consulta real. La consulta devolverá resultados (parciales) hasta que se supere el umbral de rechazo. Después, se produce un error con el mensaje de error correspondiente.
+
+
+REJECT_TYPE = **value** 
+
+Este es el único valor que se admite en este momento. Aclara que la opción REJECT_VALUE se especifica como un valor literal.
+
+value 
+
+REJECT_VALUE es un valor literal. Si el número de filas rechazadas supera el valor *reject_value*, se produce un error en la consulta.
+
+Por ejemplo, si REJECT_VALUE = 5 y REJECT_TYPE = value, se producirá un error en la consulta SELECT después de que se hayan rechazado cinco filas.
+
+
+REJECT_VALUE = *reject_value* 
+
+Especifica el número de filas que se pueden rechazar antes de que se produzca un error en la consulta.
+
+Para REJECT_TYPE = value, *reject_value* debe ser un entero comprendido entre 0 y 2.147.483.647.
+
+
+REJECTED_ROW_LOCATION = *Ubicación del directorio*
+
+Especifica el directorio del origen de datos externo en el que se deben escribir las filas rechazadas y el archivo de errores correspondiente. Si la ruta de acceso especificada no existe, el servicio creará una en su nombre. Se crea un directorio secundario con el nombre “_rejectedrows”. El carácter “_ ” garantiza que se escape el directorio para otro procesamiento de datos, a menos que se mencione explícitamente en el parámetro de ubicación. En este directorio hay una carpeta que se crea según la hora de envío de la carga con el formato AñoMesDía_HoraMinutoSegundo_Id.Instrucción (Ej. 20180330-173205-559EE7D2-196D-400A-806D-3BF5D007F891). Puede usar el identificador de instrucción para correlacionar la carpeta con la consulta que la generó. En esta carpeta, se escriben dos archivos: el archivo error.json y el archivo de datos. 
+
+El archivo error.json contiene una matriz json con los errores encontrados relacionados con las filas rechazadas. Cada elemento que representa un error contiene los siguientes atributos:
+
+| Atributo | Descripción                                                  |
+| --------- | ------------------------------------------------------------ |
+| Error     | Motivo por el que se rechaza la fila.                                  |
+| Row       | Número ordinal de la fila rechazada en el archivo.                         |
+| Columna    | Número ordinal de la columna rechazada.                              |
+| Valor     | Valor de la columna rechazada. Si el valor tiene más de cien caracteres, solo se mostrarán los cien primeros. |
+| Archivo      | Ruta de acceso del archivo al que pertenece la fila.                            |
 
 #### <a name="table_options"></a>OPCIONES DE TABLA
 

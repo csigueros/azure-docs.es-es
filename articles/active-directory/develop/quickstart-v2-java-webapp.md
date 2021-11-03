@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: marsma
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 196500eb70a559339bd237670434ad8f562eda8c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8b965d54eab6f979b67382c91e09b23732278732
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128551177"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040216"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web de Java
 
@@ -29,7 +29,7 @@ En este inicio rápido descargará y ejecutará un código de ejemplo que muestr
 
 Para ejecutar esta muestra, necesita:
 
-- [Kit de desarrollo de Java (JDK)](https://openjdk.java.net/) 8 o superior. 
+- [Kit de desarrollo de Java (JDK)](https://openjdk.java.net/) 8 o superior.
 - [Maven](https://maven.apache.org/).
 
 > [!div renderon="docs"]
@@ -138,7 +138,6 @@ Para ejecutar esta muestra, necesita:
 >      ```
 >   1. Coloque el archivo del almacén de claves generado en la carpeta *resources*.
 
-
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-run-the-code-sample"></a>Paso 3: Ejecución del ejemplo de código
 > [!div renderon="docs"]
@@ -146,7 +145,7 @@ Para ejecutar esta muestra, necesita:
 
 Para ejecutar el proyecto, realice uno de estos pasos:
 
-- Ejecútelo directamente desde el IDE, para lo que debe usar el servidor de Spring Boot insertado. 
+- Ejecútelo directamente desde el IDE, para lo que debe usar el servidor de Spring Boot insertado.
 - Empaquételo en un archivo WAR mediante [Maven](https://maven.apache.org/plugins/maven-war-plugin/usage.html) y, a continuación, impleméntelo en una solución de contenedor de J2EE como [Apache Tomcat](http://tomcat.apache.org/).
 
 ##### <a name="running-the-project-from-an-ide"></a>Ejecución del proyecto desde un entorno de desarrollo integrado
@@ -210,7 +209,6 @@ Si desea implementar el ejemplo web en Tomcat, realice un par de cambios en el c
 
 4. Una vez implementado el archivo, vaya a https://localhost:8443/msal4jsample mediante un explorador.
 
-
 > [!IMPORTANT]
 > Esta aplicación de inicio rápido usa un secreto de cliente para identificarse como un cliente confidencial. Dado que el secreto de cliente se agrega como texto sin formato a los archivos del proyecto, por motivos de seguridad se recomienda utilizar un certificado, en lugar de un secreto de cliente, antes de usar la aplicación en un entorno de producción. Para más información sobre cómo usar un certificado, consulte [Credenciales de certificado para la autenticación de la aplicación](./active-directory-certificate-credentials.md).
 
@@ -227,7 +225,7 @@ Agregue MSAL4J a la aplicación con Maven o Gradle para administrar las dependen
 
 En pom.xml:
 
-```XML
+```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>msal4j</artifactId>

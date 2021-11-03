@@ -6,22 +6,21 @@ ms.author: hophan
 ms.date: 09/27/2021
 ms.topic: quickstart
 ms.service: purview
-ms.custom:
-- mode-api
-ms.openlocfilehash: 0e3cb8399e42dc651a48ada6018c58cb4f48e5d8
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.custom: mode-api
+ms.openlocfilehash: b4bcd427508f3ecf66b0cca4bdade023c3f87d61
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129217360"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037822"
 ---
 # <a name="quickstart-create-an-azure-purview-account-using-azure-powershellazure-cli"></a>Inicio rápido: Creación de una cuenta de Azure Purview mediante Azure PowerShell o la CLI de Azure
 
 En este inicio rápido se creará una cuenta de Azure Purview mediante Azure PowerShell o la CLI de Azure. La [referencia de PowerShell para Purview](/powershell/module/az.purview/) está disponible, pero este artículo le llevará por todos los pasos necesarios para crear una cuenta con PowerShell.
 
-Azure Purview es un servicio de gobernanza de datos que le ayuda a administrar y controlar el panorama de sus datos. Al conectarse a los datos de sus orígenes locales, multinube y de software como servicio (SaaS), Purview crea un mapa actualizado de la información. Identifica y clasifica datos confidenciales y proporciona linaje de un extremo a otro. Los consumidores de datos pueden descubrir datos en la organización y los administradores de datos pueden auditar, proteger y garantizar el uso correcto de los datos.
+Azure Purview es un servicio de gobernanza de datos que le ayuda a administrar y controlar el panorama de sus datos. Al conectarse a los datos de sus orígenes locales, multinube y de software como servicio (SaaS), Purview crea un mapa actualizado de la información. Identifica y clasifica los datos confidenciales y proporciona un linaje completo. Los consumidores de datos pueden descubrir datos en la organización y los administradores de datos pueden auditar, proteger y garantizar el uso correcto de los datos.
 
-Para obtener más información sobre Purview, [consulte nuestra página de información general](overview.md). Para más información sobre la implementación de Purview en la organización, [consulte nuestros procedimientos recomendados sobre implementación](deployment-best-practices.md).
+Para más información sobre Purview, [consulte nuestra página de información general](overview.md). Para más información sobre la implementación de Purview en la organización, [consulte nuestros procedimientos recomendados sobre implementación](deployment-best-practices.md).
 
 [!INCLUDE [purview-quickstart-prerequisites](includes/purview-quickstart-prerequisites.md)]
 

@@ -9,12 +9,13 @@ ms.subservice: sql
 ms.date: 9/23/2021
 ms.author: stefanazaric
 ms.reviewer: jrasnick, wiassaf
-ms.openlocfilehash: e0380c4d1b4fe9c82d6e9b82922b1a509f7dcdf4
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: c5057290f21a87a2a8c599de7d3fdd2c8b76ebb6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129545610"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046553"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>Autoayuda para grupos de SQL sin servidor
 
@@ -400,6 +401,10 @@ FROM
     AS [result]
 ```
 
+### <a name="incorrect-syntax-near-not"></a>Sintaxis incorrecta cerca de 'NOT'
+
+Este error indica que hay algunas tablas externas con las columnas que contienen la restricción `NOT NULL` en la definición de columna. Actualice la tabla para quitar `NOT NULL` de la definición de columna.
+
 ## <a name="configuration"></a>Configuración
 
 ### <a name="query-fails-with-please-create-a-master-key-in-the-database-or-open-the-master-key-in-the-session-before-performing-this-operation"></a>La consulta produce un error que le dice que cree una clave maestra en la base de datos o que abra la clave maestra en la sesión antes de realizar esta operación.
@@ -492,6 +497,10 @@ Azure Synapse SQL devolverá `NULL` en lugar de los valores que ve en el almacé
 
 El valor especificado en la cláusula `WITH` no coincide con los tipos de Cosmos DB subyacentes en el almacenamiento analítico y no se puede convertir implícitamente. Use el tipo `VARCHAR` en el esquema.
 
+### <a name="resolving-cosmosdb-path-has-failed"></a>Error al resolver la ruta de acceso de CosmosDB
+
+Si recibe el error: `Resolving CosmosDB path has failed with error 'This request is not authorized to perform this operation.'`, compruebe si usa puntos de conexión privados en Cosmos DB. Para permitir que SQL sin servidor acceda a un almacén analítico con un punto de conexión privado, debe configurar puntos de conexión privados para el almacén analítico de [Azure Cosmos DB](../../cosmos-db/analytical-store-private-endpoints.md#using-synapse-serverless-sql-pools).
+
 ### <a name="cosmosdb-performance-issues"></a>Incidencias de rendimiento de CosmosDB
 
 Si experimenta algunos problemas de rendimiento inesperados, asegúrese de aplicar los procedimientos recomendados, como:
@@ -502,7 +511,7 @@ Si experimenta algunos problemas de rendimiento inesperados, asegúrese de aplic
 
 ## <a name="delta-lake"></a>Delta Lake
 
-La compatibilidad con Delta Lake se encuentra actualmente en versión preliminar pública en los grupos de SQL sin servidor. Hay algunos problemas conocidos que podría experimentar durante la versión preliminar.
+Hay algunas limitaciones y problemas conocidos que puede ver en La compatibilidad con Delta Lake en grupos de SQL sin servidor.
 - Asegúrese de que hace referencia a la carpeta raíz de Delta Lake en la función [OPENROWSET](./develop-openrowset.md) o en la ubicación de la tabla externa.
   - La carpeta raíz debe tener una subcarpeta denominada `_delta_log`. Se producirá un error en la consulta si no hay ninguna carpeta `_delta_log`. Si no ve esa carpeta, significa que hace referencia a archivos Parquet sin formato que se deben [convertir a Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#convert-parquet-to-delta) mediante grupos de Apache Spark.
   - No especifique caracteres comodín para describir el esquema de partición. La consulta de Delta Lake identificará automáticamente las particiones de Delta Lake. 
@@ -732,7 +741,7 @@ Hay algunas restricciones generales del sistema que pueden afectar a la carga de
 | Número máximo de objetos de base de datos por base de datos | La suma del número de todos los objetos de una base de datos no puede superar 2 147 483 647 (consulte las [limitaciones del motor de base de datos de SQL Server](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects)). |
 | Longitud máxima del identificador (en caracteres) | 128 (consulte las [limitaciones del motor de base de datos de SQL Server](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects))|
 | Duración máxima de la consulta | 30 min |
-| Tamaño máximo del conjunto de resultados | 80 GB (compartidos entre todas las consultas simultáneas que se ejecutan actualmente) |
+| Tamaño máximo del conjunto de resultados | hasta 200 GB (compartidos entre consultas simultáneas) |
 | Simultaneidad máxima | No está limitada y depende de la complejidad de las consultas y la cantidad de datos analizados. Un grupo de SQL sin servidor puede controlar simultáneamente 1000 sesiones activas que ejecuten consultas ligeras, pero las cifras se reducen si las consultas son más complejas o examinan una mayor cantidad de datos. |
 
 ## <a name="next-steps"></a>Pasos siguientes

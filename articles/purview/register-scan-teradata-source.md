@@ -1,56 +1,66 @@
 ---
-title: Registro de un origen de Teradata y configuración de los exámenes
-description: En este artículo se describe cómo registrar un origen de Teradata en Azure Purview y cómo configurar un examen.
+title: Conectar y administrar Teradata
+description: Esta guía describe cómo conectarse a Teradata en Azure Purview y utilizar las funciones de Purview para explorar y administrar el origen de Teradata.
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
 ms.subservice: purview-data-map
-ms.topic: overview
-ms.date: 09/27/2021
-ms.openlocfilehash: 5ba69e4b20edc74dfd9de43f19b2ba582b196353
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.topic: how-to
+ms.date: 11/02/2021
+ms.custom: template-how-to, ignite-fall-2021
+ms.openlocfilehash: 9e049c6e277846661b33e54756ca5ef9f8707fdd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129211319"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131010905"
 ---
-# <a name="register-and-scan-teradata-source"></a>Registro y examen de un origen de Teradata
+# <a name="connect-to-and-manage-teradata-in-azure-purview"></a>Conectar y administrar Teradata en Azure Purview
 
-En este artículo se describe cómo registrar un origen de Teradata en Purview y cómo configurar un examen.
+Este artículo describe cómo registrar Teradata y cómo autenticar e interactuar con Teradata en Azure Purview. Para obtener más información sobre Azure Purview, lea el [artículo de introducción](overview.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
-El origen de Teradata admite **Examen completo** para extraer metadatos de una base de datos de Teradata y captura el **linaje** entre los recursos de datos.
+|**Extracción de metadatos**|  **Examen completo**  |**Examen incremental**|**Examen con ámbito**|**Clasificación**|**Directiva de acceso**|**Lineage**|
+|---|---|---|---|---|---|---|
+| [Sí](#register)| [Sí](#scan)| No | No | No | No| [Sí](how-to-lineage-teradata.md)|
 
-## <a name="prerequisites"></a>Requisitos previos
+> [!Important]
+> Las versiones de la base de datos de Teradata compatibles son 12.x a 16.x.
 
-1.  Configure la versión más reciente del [entorno de ejecución de integración autohospedado](https://www.microsoft.com/download/details.aspx?id=39717).
-    Para obtener más información, vea [Creación y configuración de un entorno de ejecución de integración autohospedado](../data-factory/create-self-hosted-integration-runtime.md).
+## <a name="prerequisites"></a>Prerrequisitos
 
-2.  Asegúrese de que [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) está instalado en la máquina virtual donde también lo está el entorno de ejecución de integración autohospedado.
+* Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-3.  Asegúrese de que \"Visual C++ Redistributable 2012 Update 4\" está instalado en la máquina del entorno de ejecución de integración autohospedado. Si aún no lo está, descárguelo desde [aquí](https://www.microsoft.com/download/details.aspx?id=30679).
+* Un [recurso de Purview](create-catalog-portal.md) activo.
 
-4.  Tiene que descargar manualmente el controlador JDBC de Teradata en la máquina virtual donde se ejecuta el entorno de ejecución de integración autohospedado.
-    El archivo JAR ejecutable se puede descargar desde el sitio web de [Teradata](https://downloads.teradata.com/).
+* Tendrá que ser administrador de orígenes de datos y lector de datos para poder registrar un origen y administrarlo en Purview Studio. Para obtener más información, consulte la [página Permisos de Azure Purview](catalog-permissions.md).
+
+* Configure la versión más reciente del [entorno de ejecución de integración autohospedado](https://www.microsoft.com/download/details.aspx?id=39717). Para obtener más información, consulte la [guía de creación y configuración de un entorno de ejecución de integración autohospedado](../data-factory/create-self-hosted-integration-runtime.md).
+
+* Asegúrese de que [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) esté instalado en la máquina virtual donde también lo esté el entorno de ejecución de integración autohospedado.
+
+* Asegúrese de que Visual C++ Redistributable para Visual Studio 2012 Update 4 esté instalado en la máquina del entorno de ejecución de integración autohospedado. Si no tiene instalada esta actualización, [puede descargarla aquí](https://www.microsoft.com/download/details.aspx?id=30679).
+
+* Tiene que descargar manualmente el controlador JDBC de Teradata en la máquina virtual donde se ejecuta el entorno de ejecución de integración autohospedado. El archivo JAR ejecutable se puede descargar desde el sitio web de [Teradata](https://downloads.teradata.com/).
 
     > [!Note]
     > Todas las cuentas de la máquina virtual deben poder acceder al controlador. No lo instale en una cuenta de usuario.
 
-5.  Las versiones de la base de datos de Teradata compatibles son 12.x a 16.x. Asegúrese de tener acceso de lectura al origen de Teradata que se está examinando.
+## <a name="register"></a>Register
 
-## <a name="setting-up-authentication-for-a-scan"></a>Configuración de la autenticación para un examen
+En esta sección se describe cómo registrar Teradata en Azure Purview mediante [Purview Studio](https://web.purview.azure.com/).
 
-La única autenticación admitida en un origen de Teradata es la **autenticación básica**.
+### <a name="authentication-for-registration"></a>Autenticación de registro
 
-## <a name="register-a-teradata-source"></a>Registro de un origen de Teradata
+La única autenticación admitida en un origen de Teradata es la **autenticación básica**. Asegúrese de tener acceso de lectura al origen de Teradata que se está examinando.
 
-Para registrar un nuevo origen de Teradata en el catálogo de datos, siga estos pasos:
+### <a name="steps-to-register"></a>Pasos para registrarse
 
 1.  Vaya a la cuenta de Purview.
-2.  Seleccione **Data Map** (Mapa de datos) en el panel de navegación izquierdo.
-3.  Seleccione **Registrar**.
-4.  En Register sources (Registrar orígenes), seleccione **Teradata**. Seleccione **Continuar**
+1.  Seleccione **Data Map** (Mapa de datos) en el panel de navegación izquierdo.
+1.  Seleccione **Registrar**.
+1.  En Register sources (Registrar orígenes), seleccione **Teradata**. Seleccione **Continuar**
 
     :::image type="content" source="media/register-scan-teradata-source/register-sources.png" alt-text="Registro de opciones de Teradata" border="true":::
 
@@ -58,86 +68,72 @@ En la pantalla **Registrar orígenes** [Registrar orígenes (Teradata)], haga lo
 
 1.  Escriba un **nombre** con el que se mostrará el origen de datos en el catálogo.
 
-2.  Escriba el nombre del **host** para conectarse a un origen de Teradata. También puede ser una dirección IP o una cadena de conexión completa al servidor.
+1.  Escriba el nombre del **host** para conectarse a un origen de Teradata. También puede ser una dirección IP o una cadena de conexión completa al servidor.
 
-3.  Seleccione una colección o cree una nueva (opcional).
+1.  Seleccione una colección o cree una nueva (opcional).
 
-4.  Seleccione Finish (Finalizar) para registrar el origen de datos.
+1.  Seleccione Finish (Finalizar) para registrar el origen de datos.
 
     :::image type="content" source="media/register-scan-teradata-source/register-sources-2.png" alt-text="register Teradata" border="true":::
 
-## <a name="creating-and-running-a-scan"></a>Creación y ejecución de un examen
+## <a name="scan"></a>Examinar
 
-Para crear y ejecutar un nuevo examen, siga estos pasos:
+Siga los pasos que tiene a continuación para examinar Teradata e identificar automáticamente los recursos y clasificar los datos. Para obtener más información sobre el examen en general, consulte la [introducción a los exámenes y la ingesta](concept-scans-and-ingestion.md).
 
-1.  En el centro de administración, seleccione **Entornos de ejecución de integración**. Asegúrese de que está configurado un entorno de ejecución de integración autohospedado. Si no lo está, use los pasos que se indican [aquí](./manage-integration-runtimes.md) para configurar un entorno de ejecución de integración autohospedado.
+### <a name="create-and-run-scan"></a>Creación y ejecución de un examen
 
-2.  Seleccione la pestaña **Mapa de datos** en el panel izquierdo de [Purview Studio](https://web.purview.azure.com/resource/).
+1. En el centro de administración, seleccione **Entornos de ejecución de integración**. Asegúrese de que está configurado un entorno de ejecución de integración autohospedado. Si no lo está, use los pasos que se indican [aquí](./manage-integration-runtimes.md) para configurar un entorno de ejecución de integración autohospedado
 
-3.  Seleccione el origen de Teradata registrado.
+1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de [Purview Studio](https://web.purview.azure.com/resource/).
 
-4.  Seleccione **New scan** (Nuevo examen).
+1. Seleccione el origen de Teradata registrado.
 
-5.  Especifique los detalles siguientes:
+1. Seleccione **New scan** (Nuevo examen).
 
-    a.  **Name** (Nombre): el nombre del examen.
+1. Especifique los detalles siguientes:
 
-    b.  **Connect via integration runtime** (Conectar mediante el entorno de ejecución de integración): seleccione el entorno de ejecución de integración autohospedado configurado.
+    1. **Name** (Nombre): el nombre del examen.
 
-    c.  **Credential** (Credencial): seleccione la credencial para conectarse al origen de datos. Asegúrese de que:
+    1. **Connect via integration runtime** (Conectar mediante el entorno de ejecución de integración): seleccione el entorno de ejecución de integración autohospedado configurado.
 
-    -   Selecciona la autenticación básica al crear una credencial.
-    -   Proporciona un nombre de usuario para conectarse al servidor de bases de datos en el campo de entrada de nombre de usuario.
-    -   Almacena la contraseña del servidor de bases de datos en la clave secreta.
+    1. **Credential** (Credencial): seleccione la credencial para conectarse al origen de datos. Asegúrese de que:
+        * Selecciona la autenticación básica al crear una credencial.
+        * Proporciona un nombre de usuario para conectarse al servidor de bases de datos en el campo de entrada de nombre de usuario.
+        * Almacena la contraseña del servidor de bases de datos en la clave secreta.
 
         Para obtener más información sobre credenciales, vea el vínculo que se indica [aquí](./manage-credentials.md).
 
-6.  **Schema** (Esquema): indique el subconjunto de esquemas que se va a importar expresado como una lista separada por puntos y coma. Por ejemplo, schema1; schema2. Si esa lista está vacía, se importan todos los esquemas del usuario. De forma predeterminada, se ignoran todos los esquemas del sistema (por ejemplo, SysAdmin) y los objetos. Si la lista está vacía, se importan todos los esquemas disponibles.
+1. **Schema** (Esquema): indique el subconjunto de esquemas que se va a importar expresado como una lista separada por puntos y coma. Por ejemplo, esquema1; esquema2. Si esa lista está vacía, se importan todos los esquemas del usuario. De forma predeterminada, se ignoran todos los esquemas del sistema (por ejemplo, SysAdmin) y los objetos. Si la lista está vacía, se importan todos los esquemas disponibles.
 
-    Los patrones de nombres de esquemas aceptables que usan la sintaxis de expresiones SQL LIKE incluyen el uso de %, por ejemplo, A%; %B; %C%; D
-    - empieza por A o    
-    - termina en B o    
-    - contiene C o    
-    - igual a D
+    Los patrones de nombres de esquema aceptables que usan la sintaxis de expresiones SQL LIKE incluyen el uso de %. Por ejemplo, A%; %B; %C%; D
+     * empieza por A o
+     * termina en B o
+     * contiene C o
+     * igual a D
 
     No se permite usar NOT ni caracteres especiales.
 
-7.  **Driver location** (Ubicación del controlador): especifique la ruta de acceso a la ubicación del controlador JDBC en la máquina virtual donde se ejecuta el entorno de ejecución de integración autohospedado. Debe ser la ruta de acceso a la ubicación válida de la carpeta JAR.
+1. **Driver location** (Ubicación del controlador): especifique la ruta de acceso a la ubicación del controlador JDBC en la máquina virtual donde se ejecuta el entorno de ejecución de integración autohospedado. Debe ser la ruta de acceso a la ubicación válida de la carpeta JAR.
 
-8.  **Maximum memory available** (Memoria máxima disponible): memoria máxima (en GB) disponible en la máquina virtual del cliente que van a usar los procesos de examen. Depende del tamaño del origen de Teradata que se va a examinar.
+1. **Maximum memory available** (Memoria máxima disponible): memoria máxima (en GB) disponible en la máquina virtual del cliente que van a usar los procesos de examen. Depende del tamaño del origen de Teradata que se va a examinar.
 
-    > [!Note] 
+    > [!Note]
     > Como regla general, especifique 2 GB de memoria por cada 1000 tablas
 
     :::image type="content" source="media/register-scan-teradata-source/setup-scan.png" alt-text="examen de configuración" border="true":::
 
-6.  Seleccione **Continuar**.
+1. Seleccione **Continuar**.
 
-7.  Elija el **desencadenador del examen**. Puede configurar una programación o ejecutar el examen una vez.
+1. Elija el **desencadenador del examen**. Puede configurar una programación o ejecutar el examen una vez.
 
-8.  Revise el examen y seleccione **Save and run** (Guardar y ejecutar).
+1. Revise el examen y seleccione **Save and run** (Guardar y ejecutar).
 
-## <a name="viewing-your-scans-and-scan-runs"></a>Visualización de los exámenes y las ejecuciones de exámenes
-
-1. Vaya al centro de administración. Seleccione **Data sources** (Orígenes de datos) en la sección **Sources and scanning** (Orígenes y examen).
-
-2. Seleccione el origen de datos que desee. Verá una lista de los exámenes existentes en ese origen de datos.
-
-3. Seleccione el examen cuyos resultados le interesa ver.
-
-4. En esta página se muestran todas las ejecuciones de exámenes anteriores junto con las métricas y el estado de cada ejecución del examen. También mostrará si el análisis se ha programado o es manual, a cuántos recursos se han aplicado clasificaciones, cuántos recursos totales se han detectado, la hora de inicio y finalización del examen y la duración total del examen.
-
-## <a name="manage-your-scans"></a>Administración de exámenes
-
-Para administrar o eliminar un examen, haga lo siguiente:
-
-1. Vaya al centro de administración. Seleccione **Data sources** (Orígenes de datos) en la sección **Sources and scanning** (Orígenes y examen) y, a continuación, seleccione el origen de datos deseado.
-
-2. Seleccione el examen que desea administrar. Seleccione **Edit** (Editar) para editar el examen.
-
-3. Seleccione **Delete** (Eliminar) para eliminar el examen.
+[!INCLUDE [create and manage scans](includes/view-and-manage-scans.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Examen del catálogo de datos de Azure Purview](how-to-browse-catalog.md)
-- [Búsqueda en el catálogo de datos de Azure Purview](how-to-search-catalog.md)
+Ahora que ha registrado el origen, siga las guías a continuación para obtener más información sobre Purview y sus datos.
+
+- [Información sobre datos en Azure Purview](concept-insights.md)
+- [Linaje en Azure Purview](catalog-lineage-user-guide.md)
+- [Búsqueda en Data Catalog](how-to-search-catalog.md)

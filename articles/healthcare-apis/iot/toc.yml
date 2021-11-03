@@ -14,16 +14,19 @@ items:
         items:
           - name: Uso del portal
             href: deploy-iot-connector-in-azure.md
+  - name: Conceptos
+    expanded: true
+    items:
+      - name: Flujo de datos de IoT
+        href: iot-data-flow.md
   - name: Guías paso a paso
     expanded: true
     items:
       - name: Recepción de datos del dispositivo mediante Azure IoT Hub
         href: device-data-through-iot-hub.md
-      - name: Flujo de datos de IoT
-        href: iot-data-flow.md
-      - name: Uso de la asignación de dispositivos
+      - name: Uso de asignaciones de dispositivos
         href: how-to-use-device-mapping-iot.md
-      - name: Uso de la asignación de destino de FHIR
+      - name: Uso de asignaciones de destino de FHIR
         href: how-to-use-fhir-mapping-iot.md
       - name: Exportación de métricas del conector de IoT a través de la configuración de diagnóstico
         href: iot-metrics-diagnostics-export.md
