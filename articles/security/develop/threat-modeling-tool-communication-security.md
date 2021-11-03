@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 501294688446bdb944d93a0939cde0a5e4fea0df
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: ef90e8e75e22f55ca4c86fb12b361fd1f7a2af16
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123254155"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075588"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Marco de seguridad: seguridad en las comunicaciones | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -120,7 +120,7 @@ ms.locfileid: "123254155"
 
 ### <a name="example"></a>Ejemplo
 El ejemplo siguiente contiene una regla básica de URL Rewrite que impone el uso de HTTPS a todo el tráfico entrante.
-```XML
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
   <system.webServer>
@@ -228,7 +228,7 @@ namespace CertificatePinningExample
 {
     class CertificatePinningExample
     {
-        /* Note: In this example, we're hardcoding a the certificate's public key and algorithm for 
+        /* Note: In this example, we're hardcoding the certificate's public key and algorithm for 
            demonstration purposes. In a real-world application, this should be stored in a secure
            configuration area that can be updated as needed. */
 

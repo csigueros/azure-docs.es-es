@@ -3,20 +3,20 @@ title: Transformaciones de notificaciones de número de teléfono en directivas 
 titleSuffix: Azure AD B2C
 description: Referencia de directivas personalizadas para las transformaciones de notificaciones de número de teléfono en Azure AD B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/26/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: e175a81efc1ab0950c1fda314efb206ff97a2b7f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e22bb4ebc3a115bdde874b88675547ef2db1cd23
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85385389"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131044482"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Definición de transformaciones de notificaciones de número de teléfono en Azure AD B2C
 

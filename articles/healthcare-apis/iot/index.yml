@@ -2,7 +2,7 @@
 title: Conector de IoT
 summary: Página de documentación del conector de IoT para las API de Azure Healthcare (versión preliminar).
 metadata:
-  title: Conector ioT de las API de Azure Healthcare
+  title: Conector de IoT de las API de Azure Healthcare
   description: Sección de documentación de transformación de datos para las API de Azure Healthcare
   services: healthcare-apis
   ms.service: healthcare-apis
@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 10/12/2021
-  ms.openlocfilehash: 322abc6caf874aa7155b9385e376d066e2c82e11
-  ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+  ms.date: 10/26/2021
+  ms.openlocfilehash: e69309e5288ecb717d26e71ca4a0f6a7cfcf56ba
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
   ms.translationtype: MT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/14/2021
-  ms.locfileid: "130003749"
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131068502"
 landingContent:
 - title: Implementación del conector de IoT
   linkLists:
@@ -31,11 +31,11 @@ landingContent:
     links:
     - text: Flujo de datos del conector de IoT
       url: iot-data-flow.md
-    - text: Asignación de dispositivos
+    - text: Asignaciones de dispositivos
       url: how-to-use-device-mapping-iot.md
-    - text: Asignación de destino de FHIR
+    - text: Asignaciones de destino de FHIR
       url: how-to-use-fhir-mapping-iot.md
-    - text: Herramienta Data Mapper del conector de IoMT
+    - text: Herramienta Data Mapper del conector ioMT
       url: https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper
 - title: Azure IoT Hub
   linkLists:

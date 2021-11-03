@@ -8,12 +8,12 @@ manager: bsiva
 ms.topic: how-to
 ms.date: 4/25/2021
 ms.author: rahugup
-ms.openlocfilehash: 26c068450b93272986a1a3c82af0530adfa30ebb
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: a432f62c3eb01843d20858bc37a5f30fdb437572
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113766458"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131081113"
 ---
 # <a name="migrate-availability-group-to-sql-server-on-azure-vm"></a>Migración de grupos de disponibilidad a SQL Server en máquinas virtuales de Azure
 
@@ -148,7 +148,7 @@ Para instalar el servicio Mobility, siga estos pasos:
 
 1. Conéctese a la máquina y extraiga el contenido del archivo del instalador en una carpeta local (por ejemplo, c:\temp). Ejecútelo en un símbolo del sistema de administrador: 
 
-    ```
+    ```cmd
     ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
     MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
     cd C:\Temp\Extracted
@@ -156,13 +156,13 @@ Para instalar el servicio Mobility, siga estos pasos:
 
 2. Ejecute el instalador de Mobility Service:
 
-    ```
-   UnifiedAgent.exe /Role "MS" /Platform "VmWare" /Silent
+    ```cmd
+    UnifiedAgent.exe /Role "MS" /Platform "VmWare" /Silent
     ```
 
 3. Registre el agente en el dispositivo de replicación:
 
-    ```
+    ```cmd
     cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
     UnifiedAgentConfigurator.exe  /CSEndPoint <replication appliance IP address> /PassphraseFilePath <Passphrase File Path>
     ```

@@ -4,31 +4,33 @@ description: En este artículo se explica cómo ver, crear, administrar, visuali
 services: sentinel
 cloud: na
 documentationcenter: na
-author: yelevin
+author: batamig
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/27/2021
-ms.author: yelevin
-ms.openlocfilehash: 05aa211d5a96b712862fbb8c81e10ba313ef3b74
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.date: 10/17/2021
+ms.author: bagol
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: cfa9d14d13270a038586d5c0949a510ccd5ad44b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129278797"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131019536"
 ---
 # <a name="work-with-threat-indicators-in-azure-sentinel"></a>Trabajo con los indicadores de amenazas en Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Puede integrar la inteligencia sobre amenazas (TI) en Azure Sentinel a través de las actividades siguientes:
 
 - **Importe inteligencia sobre amenazas** en Azure Sentinel habilitando **conectores de datos** en varias [plataformas](connect-threat-intelligence-tip.md) de TI y [fuentes](connect-threat-intelligence-taxii.md).
 
-- **Vea y administre** la inteligencia sobre amenazas importada en **Registros** y en la nueva hoja **Inteligencia sobre amenazas** de Azure Sentinel.
+- **Vea y administre** la inteligencia sobre amenazas importada en **Registros** y en la página **Inteligencia sobre amenazas** de Azure Sentinel.
 
 - **Detecte las amenazas** y genere alertas e incidentes de seguridad utilizando las plantillas de reglas incorporadas de **Análisis** basadas en la inteligencia de amenazas importada.
 
@@ -38,11 +40,15 @@ Puede integrar la inteligencia sobre amenazas (TI) en Azure Sentinel a través d
 
 ### <a name="find-and-view-your-indicators-in-logs"></a>Búsqueda y visualización de indicadores en Registros
 
-Puede ver los indicadores de amenazas importados correctamente, independientemente de la fuente de origen o el conector usado, en la tabla **ThreatIntelligenceIndicator** (bajo el grupo **Azure Sentinel)** en **Registros**, que es donde se almacenan todos los datos de eventos de Azure Sentinel. Esta tabla es la base de las consultas de inteligencia sobre amenazas realizadas por otras características de Azure Sentinel como Análisis y Libros.
+En este procedimiento se describe cómo ver los indicadores de amenazas importados en el área **Registros** de Azure Sentinel, junto con otros datos de eventos de Azure Sentinel, independientemente de la fuente de origen o el conector usado.
+
+Los indicadores de amenazas importados se enumeran en la tabla **Azure Sentinel > ThreatIntelligenceIndicator**, que es la base para que las consultas de inteligencia sobre amenazas se ejecuten en otra parte de Azure Sentinel, como en análisis o libros.
+
+**Para ver los indicadores de inteligencia sobre amenazas en registros:**
 
 1. Abra [Azure Portal](https://portal.azure.com/) y vaya al servicio **Azure Sentinel**.
 
-1. Elija el **área de trabajo** al que ha importado indicadores de amenazas mediante el conector de datos de inteligencia sobre amenazas.
+1. Seleccione el área de trabajo al que ha importado indicadores de amenazas mediante el conector de datos de inteligencia sobre amenazas.
 
 1. Seleccione **Registros** en la sección **General** del menú de Azure Sentinel.
 
@@ -54,9 +60,31 @@ Los resultados deben tener un aspecto similar al indicador de amenazas de ejempl
 
 :::image type="content" source="media/work-with-threat-indicators/threat-intel-sample-query.png" alt-text="Datos de consulta de ejemplo":::
 
-### <a name="find-and-view-your-indicators-in-the-threat-intelligence-blade"></a>Búsqueda y visualización de indicadores en la hoja de inteligencia sobre amenazas
+### <a name="find-and-view-your-indicators-in-the-threat-intelligence-page"></a>Búsqueda y visualización de indicadores en la página Inteligencia sobre amenazas
 
-También puede ver y administrar los indicadores en la nueva hoja **Inteligencia sobre amenazas**, accesible desde el menú principal de Azure Sentinel. Puede ordenar, filtrar y buscar los indicadores de amenazas importados sin siquiera escribir una consulta de Log Analytics. Esta característica también permite crear indicadores de amenazas directamente dentro de la interfaz de Azure Sentinel, así como realizar dos de las tareas administrativas de inteligencia sobre amenazas más comunes: el etiquetado de indicadores y la creación de nuevos indicadores relacionados con investigaciones de seguridad.
+En este procedimiento se describe cómo ver y administrar los indicadores en la nueva página **Inteligencia sobre amenazas**, accesible desde el menú principal de Azure Sentinel. Use la página **Inteligencia sobre amenazas** para ordenar, filtrar y buscar los indicadores de amenazas importados sin escribir una consulta de Log Analytics.
+
+**Para ver los indicadores de inteligencia sobre amenazas en la página Inteligencia sobre amenazas**:
+
+1. Abra [Azure Portal](https://portal.azure.com/) y vaya al servicio **Azure Sentinel**.
+
+1. Seleccione el área de trabajo a la que importó los indicadores de amenazas mediante los conectores o cuadernos de reproducción o para la que ha creado datos de inteligencia sobre amenazas.
+
+1. En la sección **Administración de amenazas** de la izquierda, seleccione la página **Inteligencia sobre amenazas**.
+
+1. En la cuadrícula, seleccione el indicador para el que quiere ver más detalles. Los detalles del indicador aparecen a la derecha, con información como niveles de confianza, etiquetas, tipos de amenazas, etc.
+
+    Microsoft enriquece cada indicador con datos adicionales de GeoLocation y WhoIs, que proporcionan más contexto para las investigaciones en las que se encuentra el indicador seleccionado.
+
+    Por ejemplo:
+
+    :::image type="content" source="media/whats-new/geolocation-whois-ti.png" alt-text="Captura de pantalla de la página Inteligencia sobre amenazas con un indicador que muestra los datos de GeoLocation y WhoIs." lightbox="media/whats-new/geolocation-whois-ti.png":::
+
+La página **Inteligencia sobre amenazas** también permite crear indicadores de amenazas directamente dentro de la interfaz de Azure Sentinel, y realizar dos de las tareas administrativas de inteligencia sobre amenazas más comunes: el etiquetado de indicadores y la creación de nuevos indicadores relacionados con investigaciones de seguridad.
+
+> [!IMPORTANT]
+> El enriquecimiento de GeoLocation y WhoIs está actualmente en versión preliminar. En la página [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) se incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en versión beta, versión preliminar o que todavía no se han publicado para su disponibilidad general.
+>
 
 #### <a name="create-a-new-indicator"></a>Creación de un nuevo indicador
 
@@ -88,7 +116,7 @@ Aunque siempre puede crear nuevas reglas de análisis desde cero, Azure Sentinel
 
 ### <a name="configure-a-rule-to-generate-security-alerts"></a>Configuración de una regla para generar alertas de seguridad
 
-A continuación se puede ver un ejemplo de cómo habilitar y configurar una regla para generar alertas de seguridad mediante los indicadores de amenazas que ha importado en Azure Sentinel. En este ejemplo, se ysa la plantilla de regla llamada **TI map IP entity to AzureActivity**. Esta regla coincidirá con cualquier indicador de amenazas de tipo de dirección IP con todos sus eventos de actividad de Azure. Cuando se encuentre una coincidencia, se generará una **alerta**, así como un **incidente** correspondiente para que lo investigue el equipo de operaciones de seguridad. Esta regla de análisis funcionará correctamente solo si ha habilitado uno de los conectores de datos de **inteligencia sobre amenazas** o ambos (para importar indicadores de amenazas), y el conector de datos **Actividad de Azure** (para importar los eventos de nivel de suscripción de Azure).
+A continuación se puede ver un ejemplo de cómo habilitar y configurar una regla para generar alertas de seguridad mediante los indicadores de amenazas que ha importado en Azure Sentinel. En este ejemplo, se ysa la plantilla de regla llamada **TI map IP entity to AzureActivity**. Esta regla coincidirá con cualquier indicador de amenazas de tipo de dirección IP con todos sus eventos de actividad de Azure. Cuando se encuentre una coincidencia, se generará una **alerta**, y un **incidente** correspondiente para que lo investigue el equipo de operaciones de seguridad. Esta regla de análisis funcionará correctamente solo si ha habilitado uno de los conectores de datos de **inteligencia sobre amenazas** o ambos (para importar indicadores de amenazas), y el conector de datos **Actividad de Azure** (para importar los eventos de nivel de suscripción de Azure).
 
 1. Desde [Azure Portal](https://portal.azure.com/), vaya al servicio **Azure Sentinel**.
 
@@ -102,7 +130,7 @@ A continuación se puede ver un ejemplo de cómo habilitar y configurar una regl
 
     :::image type="content" source="media/work-with-threat-indicators/threat-intel-required-data-sources.png" alt-text="Orígenes de datos necesarios":::
 
-1. Seleccione esta regla y el botón **Crear regla**. Se abrirá un asistente para configurar la regla. Complete la configuración aquí y seleccione el botón **Siguiente: Establecer la lógica de la regla >** .
+1. Seleccione la regla **TI map IP entity to AzureActivity** y luego seleccione **Crear regla** para abrir un asistente de configuración de reglas. Configure los valores en el asistente y, después, seleccione **Siguiente: Establecer la lógica de la regla >** .
 
     :::image type="content" source="media/work-with-threat-indicators/threat-intel-create-analytics-rule.png" alt-text="Creación de una regla de análisis":::
 
@@ -122,7 +150,7 @@ A continuación se puede ver un ejemplo de cómo habilitar y configurar una regl
 
     - Genere una alerta de seguridad si los resultados de la consulta son mayores que cero, es decir, si se encuentra alguna coincidencia.
 
-    Puede dejar la configuración predeterminada o cambiar cualquiera de ellas para satisfacer sus requisitos, y puede definir la configuración de generación de incidentes en la pestaña **Configuración del incidente**. Para más información, consulte [Creación de reglas de análisis personalizadas para detectar amenazas](detect-threats-custom.md). Cuando haya terminado, seleccione la pestaña **Respuesta automática**.
+    Puede dejar la configuración predeterminada o cambiarla para satisfacer sus requisitos, y puede definir la configuración de generación de incidentes en la pestaña **Configuración del incidente**. Para más información, consulte [Creación de reglas de análisis personalizadas para detectar amenazas](detect-threats-custom.md). Cuando haya terminado, seleccione la pestaña **Respuesta automática**.
 
 1. Configure cualquier automatización que desee desencadenar al generarse una alerta de seguridad a partir de esta regla de análisis. La automatización en Azure Sentinel se realiza mediante combinaciones de **reglas de automatización** y **cuadernos de estrategias**, con la tecnología de Azure Logic Apps. Para obtener más información, consulte el [Tutorial: Uso de cuadernos de estrategias con reglas de automatización en Azure Sentinel](./tutorial-respond-threats-playbook.md). Cuando haya terminado, seleccione el botón **Siguiente: Revisar >** para continuar.
 
@@ -221,7 +249,7 @@ Aquí puede saber cómo buscar el libro de inteligencia sobre amenazas proporcio
 
 Los libros proporcionan paneles interactivos eficaces que proporcionan información sobre todos los aspectos de Azure Sentinel. Hay muchas cosas que puede hacer con los libros y, aunque las plantillas proporcionadas son un buen punto de partida, es probable que quiera profundizar en estas plantillas y personalizarlas, o bien crear nuevos paneles que combinen muchos orígenes de datos diferentes para que pueda visualizar los datos de maneras únicas. Dado que los libros de Azure Sentinel se basan en los libros de Azure Monitor, ya hay una amplia documentación disponible y muchas más plantillas. Un buen punto de partida es este artículo sobre cómo [crear informes interactivos con los libros de Azure Monitor](../azure-monitor/visualize/workbooks-overview.md). 
 
-También hay una completa comunidad de [libros de Azure Monitor en GitHub](https://github.com/microsoft/Application-Insights-Workbooks) donde puede descargar plantillas adicionales y aportar sus propias plantillas.
+También hay una completa comunidad de [libros de Azure Monitor en GitHub](https://github.com/microsoft/Application-Insights-Workbooks) donde puede descargar más plantillas y aportar las suyas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

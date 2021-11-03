@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2021
 ms.author: yelevin
-ms.openlocfilehash: 045178a30088ccfd8b76d70d210e29c5a9253ac1
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 093db947b30444b4d7c3614126c83977fd45e3de
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114294378"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131083961"
 ---
 # <a name="use-triggers-and-actions-in-azure-sentinel-playbooks"></a>Uso de desencadenadores y acciones en cuadernos de estrategias de Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 En este documento se explican los tipos de desencadenadores y acciones del [conector de Azure Sentinel de Logic Apps](/connectors/azuresentinel/), que los cuadernos de estrategias pueden usar para interactuar con Azure Sentinel y la información en las tablas del área de trabajo. Además, se muestra cómo obtener tipos específicos de información de Azure Sentinel que es probable que necesite.
 

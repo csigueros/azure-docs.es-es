@@ -2,17 +2,17 @@
 title: Configuración de una conexión a una cuenta de Cosmos DB mediante una identidad administrada
 titleSuffix: Azure Cognitive Search
 description: Aprenda a configurar una conexión de indexador a una cuenta de Cosmos DB mediante una identidad administrada.
-author: markheff
-ms.author: maheff
+author: nitinme
+ms.author: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/02/2021
-ms.openlocfilehash: 38709d7799d09e38fdebc8eebd7484504ce4ebd2
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 0815f9c039a77c3589cb5bab0265288202f4b3d3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122178950"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131010638"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity"></a>Configuración de una conexión de indexador a una base de datos de Cosmos DB mediante una identidad administrada
 
@@ -50,12 +50,12 @@ Si todavía no tiene creada una identidad administrada asignada por el usuario, 
 
 A continuación, asigne la identidad administrada asignada por el usuario al servicio de búsqueda. Esta operación se puede realizar mediante la [API de administración 2021-04-01-preview](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
 
-La propiedad de identidad toma un tipo y una o más identidades asignadas por el usuario completas:
+La propiedad de identidad toma un tipo y una o más identidades asignadas por el usuario completamente calificadas:
 
 * **type** es el tipo de identidad. Los valores válidos son "SystemAssigned", "UserAssigned" o "SystemAssigned, UserAssigned" si desea usar ambos. Un valor de "None" borrará del servicio de búsqueda las identidades asignadas previamente.
 * **userAssignedIdentities** incluye los detalles de la identidad administrada asignada por el usuario.
     * Formato de la identidad administrada asignada por el usuario: 
-        * /subscriptions/**subscription ID**/resourcegroups/**nombre del grupo de recursos**/providers/Microsoft.ManagedIdentity/userAssignedIdentities/**nombre de la identidad administrada**
+        * /subscriptions/**ID de suscripción**/resourcegroups/**nombre del grupo de recursos**/providers/Microsoft.ManagedIdentity/userAssignedIdentities/**nombre de la identidad administrada**
 
 Ejemplo de cómo asignar una identidad administrada asignada por el usuario a un servicio de búsqueda:
 

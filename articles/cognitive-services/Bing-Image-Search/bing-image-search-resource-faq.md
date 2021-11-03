@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 4e62aa434efade2cb1fa3d82265eb44d523dd869
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 560a93439618c320990484e89da0adc9d04206e7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108773366"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131082418"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Preguntas más frecuentes (P+F) sobre Bing Image Search API
 
@@ -69,7 +69,7 @@ Este enfoque también protege la clave de API de una exposición pública, ya qu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-¿Es su pregunta acerca de una característica o funcionalidad que falta? Considere la posibilidad de solicitarla o votarla mediante la [herramienta de comentarios](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749).
+¿Es su pregunta acerca de una característica o funcionalidad que falta? Considere la posibilidad de solicitarla o votarla mediante la [herramienta de comentarios](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858).
 
 ## <a name="see-also"></a>Consulte también
 

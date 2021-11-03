@@ -5,17 +5,19 @@ author: batamig
 ms.author: bagold
 ms.service: azure-sentinel
 ms.topic: reference
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.date: 08/04/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: e263c742ae31a665eb428ad2cbeca72f73562b8a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f531b18dfe94027948f1411372ff72e68b01c933
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780153"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054977"
 ---
 # <a name="azure-sentinel-built-in-watchlist-template-schemas-public-preview"></a>Esquemas de plantillas de listas de reproducción integradas en Azure Sentinel (versión preliminar pública)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 En este artículo se especifican los esquemas que se usan en cada plantilla de lista de reproducción integrada proporcionada por Azure Sentinel. Para más información, consulte [Creación de una lista de reproducción mediante una plantilla (versión preliminar pública)](watchlists.md#create-a-new-watchlist-using-a-template-public-preview).
 

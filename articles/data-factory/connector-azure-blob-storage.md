@@ -9,12 +9,12 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 09/09/2021
-ms.openlocfilehash: 9de59b4510642ab70540c4217ef074347a34ac89
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f0d8822800ffba5da90f1ffdd68e0d0331963d44
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124764191"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045242"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Copia y transformación de datos en Azure Blob Storage mediante Azure Data Factory o Azure Synapse Analytics
 
@@ -347,7 +347,7 @@ Para obtener información general sobre la autenticación de Azure Storage, vea 
     - **Como origen**, en **Control de acceso (IAM)** , conceda al menos el rol **Lector de datos de Storage Blob**.
     - **Como receptor**, en el **Control de acceso (IAM)** , conceda al menos el rol **Colaborador de datos de blobs de almacenamiento**.
      
-2. Asigne una o varias identidades administradas asignadas por el usuario a la factoría de datos y [cree credenciales](data-factory-service-identity.md#credentials) para cada identidad administrada asignada por el usuario. 
+2. Asigne una o varias identidades administradas asignadas por el usuario a la factoría de datos y [cree credenciales](credentials.md) para cada identidad administrada asignada por el usuario. 
 
 
 Estas propiedades son compatibles con un servicio vinculado de Azure Blob Storage:

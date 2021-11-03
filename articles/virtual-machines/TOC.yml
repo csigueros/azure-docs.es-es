@@ -163,6 +163,8 @@
               href: sizes-b-series-burstable.md
             - name: Serie DCsv2
               href: dcv2-series.md
+            - name: Serie DCsv3 y DCdsv3
+              href: dcv3-series.md
             - name: Series Dv2 y DSv2
               href: dv2-dsv2-series.md
             - name: Series Dv3 y DSv3

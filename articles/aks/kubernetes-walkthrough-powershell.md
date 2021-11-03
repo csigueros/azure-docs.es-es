@@ -5,12 +5,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 03/15/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e8121a3031de8fd7fdb8dc3db0ef1f4be1902e3c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f9556d1169180bd55ac5ff646ee920f630ad96d0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728139"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058699"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-powershell"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service mediante PowerShell
 
@@ -65,8 +65,9 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 
 ## <a name="create-aks-cluster"></a>Creación de un clúster de AKS
 
-1. Use la utilidad de línea de comandos `ssh-keygen` para generar un par de claves SSH.
-    * Para más información, consulte [Pasos rápidos: Creación y uso de un par de claves pública-privada SSH para máquinas virtuales Linux en Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
+1. Use la utilidad de línea de comandos `ssh-keygen` para generar un par de claves SSH. Para obtener información, consulte:
+    * [Pasos rápidos: Creación y uso de un par de claves pública-privada SSH para máquinas virtuales Linux en Azure](../virtual-machines/linux/mac-create-ssh-keys.md)
+    * [Uso de claves SSH con Windows en Azure](../virtual-machines/linux/ssh-from-windows.md)
 
 1. Use el cmdlet [New-AzAksCluster][new-azakscluster] para crear un clúster de AKS. Azure Monitor para contenedores está habilitado de forma predeterminada.
 

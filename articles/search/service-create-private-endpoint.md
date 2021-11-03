@@ -2,18 +2,18 @@
 title: Creación de un punto de conexión privado para una conexión segura
 titleSuffix: Azure Cognitive Search
 description: Configure un punto de conexión privado en una red virtual para establecer una conexión segura con un servicio Azure Cognitive Search.
+author: nitinme
+ms.author: nitinme
 manager: nitinme
-author: markheff
-ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/16/2021
-ms.openlocfilehash: 8cad0611efe46a934560a89b9fda4d7fa57e4deb
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 71a618daeeb2400e32a53b555e9499a5edd69b5f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082278"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131061093"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Creación de un punto de conexión privado para una conexión segura a Azure Cognitive Search
 
@@ -28,7 +28,7 @@ Puede crear un punto de conexión privado en Azure Portal, como se describe en e
 
 ## <a name="why-use-a-private-endpoint-for-secure-access"></a>¿Por qué usar un punto de conexión privado para obtener un acceso seguro?
 
-Los [puntos de conexión privados](../private-link/private-endpoint-overview.md) para Azure Cognitive Search permiten a un cliente de una red virtual obtener acceso de forma segura a los datos de un índice de búsqueda a través de un [vínculo privado](../private-link/private-link-overview.md). El punto de conexión privado usa una dirección IP del [espacio de direcciones de la red virtual](../virtual-network/private-ip-addresses.md) para el servicio de búsqueda. El tráfico de red entre el cliente y el servicio de búsqueda atraviesa la red virtual y un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet. Para obtener una lista de otros servicios de PaaS que admiten Private Link, compruebe la [sección de disponibilidad](../private-link/private-link-overview.md#availability) en la documentación del producto.
+Los [puntos de conexión privados](../private-link/private-endpoint-overview.md) para Azure Cognitive Search permiten a un cliente de una red virtual obtener acceso de forma segura a los datos de un índice de búsqueda a través de un [vínculo privado](../private-link/private-link-overview.md). El punto de conexión privado usa una dirección IP del [espacio de direcciones de la red virtual](../virtual-network/ip-services/private-ip-addresses.md) para el servicio de búsqueda. El tráfico de red entre el cliente y el servicio de búsqueda atraviesa la red virtual y un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet. Para obtener una lista de otros servicios de PaaS que admiten Private Link, compruebe la [sección de disponibilidad](../private-link/private-link-overview.md#availability) en la documentación del producto.
 
 Los puntos de conexión privados para su servicio de búsqueda le permiten:
 
@@ -46,7 +46,7 @@ En esta sección, va a crear una red virtual y una subred para hospedar la máqu
 
     | Configuración | Valor |
     | ------- | ----- |
-    | Subscription | Seleccione su suscripción.|
+    | Suscripción | Seleccione su suscripción.|
     | Resource group | Seleccione **Crear nuevo**, escriba *myResourceGroup* y, después, seleccione **Aceptar**. |
     | Nombre | Escriba *MyVirtualNetwork*. |
     | Region | Seleccione la región que quiera. |
@@ -65,7 +65,7 @@ En esta sección, creará un nuevo servicio Azure Cognitive Search con un punto 
     | Configuración | Value |
     | ------- | ----- |
     | **DETALLES DEL PROYECTO** | |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.|
     | **DETALLES DE INSTANCIA** |  |
     | URL | Escriba un nombre único. |
@@ -85,7 +85,7 @@ En esta sección, creará un nuevo servicio Azure Cognitive Search con un punto 
 
     | Configuración | Valor |
     | ------- | ----- |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.|
     | Location | Seleccione **Oeste de EE. UU.**|
     | Nombre | Escriba *myPrivateEndpoint*.  |
@@ -119,7 +119,7 @@ En esta sección, creará un nuevo servicio Azure Cognitive Search con un punto 
     | Configuración | Value |
     | ------- | ----- |
     | **DETALLES DEL PROYECTO** | |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.  |
     | **DETALLES DE INSTANCIA** |  |
     | Nombre de la máquina virtual | Escriba *myVm*. |

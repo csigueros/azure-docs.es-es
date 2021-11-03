@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2019
 ms.author: terrylan
-ms.openlocfilehash: 849743dd756eff27ec0670cc39d2419c60538183
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b1d4b2b35dedf041129ff13399735ef59f42dcd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94701021"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075512"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Procedimientos recomendados para proteger aplicaciones web y móviles PaaS con Azure App Service
 
@@ -39,7 +39,7 @@ La restricción del acceso es fundamental para las organizaciones que deseen apl
 No importa la calidad de la seguridad si pierde las claves de suscripción. Azure Key Vault ayuda a proteger claves criptográficas y secretos usados por servicios y aplicaciones en la nube. Con Key Vault, puede cifrar claves y secretos (por ejemplo claves de autenticación, claves de cuenta de almacenamiento, claves de cifrado de datos, archivos .PFX y contraseñas) a través del uso de claves que están protegidas por módulos de seguridad de hardware (HSM). Para tener mayor seguridad, puede importar o generar las claves en HSM. También puede utilizar Key Vault para administrar los certificados TLS con renovación automática. Vea [¿Qué es Azure Key Vault?](../../key-vault/general/overview.md) para más información.
 
 ## <a name="restrict-incoming-source-ip-addresses"></a>Restricción de las direcciones IP de origen entrante
-[App Service Environments](../../app-service/environment/intro.md) tiene una característica de integración de la red virtual con la que es más fácil restringir las direcciones IP de origen entrantes mediante grupos de seguridad de red (NSG). Si no conoce Azure Virtual Network, se trata de una funcionalidad que permite colocar muchos de los recursos de Azure en una red no enrutable sin conexión a Internet cuyo acceso controla. Consulte [Integración de su aplicación con una instancia de Azure Virtual Network](../../app-service/web-sites-integrate-with-vnet.md) para más información.
+[App Service Environments](../../app-service/environment/intro.md) tiene una característica de integración de la red virtual con la que es más fácil restringir las direcciones IP de origen entrantes mediante grupos de seguridad de red (NSG). Si no conoce Azure Virtual Network, se trata de una funcionalidad que permite colocar muchos de los recursos de Azure en una red no enrutable sin conexión a Internet cuyo acceso controla. Consulte [Integración de su aplicación con una instancia de Azure Virtual Network](../../app-service/overview-vnet-integration.md) para más información.
 
 En Windows, App Service también permite restringir las direcciones IP dinámicamente mediante el archivo web.config. Para más información, consulte [Seguridad de direcciones IP dinámicas](/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 

@@ -1,17 +1,17 @@
 ---
 title: Equilibrio de carga de las conexiones de cliente a Azure HPC Cache
 description: Configuración de un servidor DNS para el equilibrio de carga round robin para Azure HPC Cache
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/20/2021
-ms.author: v-erkel
-ms.openlocfilehash: 2a8c35db125b80223cbb4f07e8c01ca45428a3a8
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.author: femila
+ms.openlocfilehash: d1346a6060fe1093d7dec37f6fbefb43bee800ab
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130004946"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131019977"
 ---
 # <a name="load-balance-hpc-cache-client-traffic"></a>Equilibrio de carga del tráfico de cliente de HPC Cache
 

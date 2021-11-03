@@ -3,20 +3,20 @@ title: Ejemplos de transformación de notificaciones StringCollection para direc
 titleSuffix: Azure AD B2C
 description: Ejemplos de transformación de notificaciones StringCollection para el esquema de Identity Experience Framework (IEF) de Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/04/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: c9104fb4598eb62ed96d0b21734053fa118b5237
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 26c4eb195275fe7bf48a188df3f15d0f2cb61db8
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120289"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131046420"
 ---
 # <a name="stringcollection-claims-transformations"></a>Transformaciones de notificaciones StringCollection
 

@@ -12,12 +12,12 @@ metadata:
   author: normesta
   ms.author: normesta
   ms.date: 08/20/2019
-  ms.openlocfilehash: 4da41103cc040a0d7dd1f4e7731990aa2779ce82
-  ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+  ms.openlocfilehash: 70d9e9872c84af3a61613f17572b8f216e144fae
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/12/2021
-  ms.locfileid: "129855923"
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131083353"
 landingContent:
 - title: Acerca de Blob Storage
   linkLists:
@@ -68,7 +68,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: Procesamiento de macrodatos
-      url: data-lake-storage-data-scenarios.md
+      url: ./data-lake-storage-best-practices.md
     - text: Acceso multiprotocolo
       url: data-lake-storage-multi-protocol-access.md
     - text: Procedimientos recomendados

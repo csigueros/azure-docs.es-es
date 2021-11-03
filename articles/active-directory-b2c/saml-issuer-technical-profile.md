@@ -3,20 +3,20 @@ title: Definición de un perfil técnico para un emisor de SAML en una directiva
 titleSuffix: Azure AD B2C
 description: Defina un perfil técnico para un emisor de tokens de Lenguaje de marcado de aserción de seguridad (SAML) en una directiva personalizada de Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 10/12/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 54869c14cf7c5a7e43f34102f5c95e37689dfee8
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 03e67143c0eb0e4a6d57d928d65becc519271f4b
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102095347"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131044406"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico para un emisor de tokens de SAML en una directiva personalizada de Azure Active Directory B2C
 

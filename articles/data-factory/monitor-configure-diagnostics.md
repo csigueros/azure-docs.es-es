@@ -1,19 +1,19 @@
 ---
 title: Configuración de las opciones de diagnóstico y el área de trabajo
 description: Aprenda a configurar opciones de diagnóstico y un área de trabajo de Log Analytics para supervisar Azure Data Factory.
-author: minhe-msft
-ms.author: hemin
+author: jasonwhowell
+ms.author: jasonh
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 09/02/2021
-ms.openlocfilehash: 7c982c0cb94ed5cf4a473265b1b414edbe0295a0
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: 124df7c29c1a8447420b6241f2d635f2ff46c304
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129400541"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131078681"
 ---
 # <a name="configure-diagnostic-settings-and-a-workspace"></a>Configuración de las opciones de diagnóstico y el área de trabajo
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/20/2021
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 10fc0f015d67d6b0ab8b728156e161c91d1ffc8c
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 49ca54ef90e4fb9c2f6263d10a36f511e64946a8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130035835"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131044501"
 ---
 # <a name="integrating-twilio-verify-app-with-azure-active-directory-b2c"></a>Integración de la aplicación Twilio Verify con Azure Active Directory B2C
 
@@ -65,22 +65,24 @@ Los componentes siguientes forman la solución Twilio:
 1. Abra la solución B2C-WebAPI-DotNet y reemplace los valores siguientes por sus propios valores específicos del inquilino en el archivo web.config:
 
     ```xml
-   <add key="ida:Tenant" value="yourtenant.onmicrosoft.com" />
-   <add key="ida:TenantId" value="d6f33888-0000-4c1f-9b50-1590f171fc70" />
-   <add key="ida:ClientId" value="6bd98cc8-0000-446a-a05e-b5716ef2651b" />
-   <add key="ida:ClientSecret" value="secret" />
-   <add key="ida:AadInstance" value="https://yourtenant.b2clogin.com/tfp/{0}/{1}" />
-   <add key="ida:RedirectUri" value="https://your hosted psd2 demo app url/" />
-   ```
+    <add key="ida:Tenant" value="yourtenant.onmicrosoft.com" />
+    <add key="ida:TenantId" value="d6f33888-0000-4c1f-9b50-1590f171fc70" />
+    <add key="ida:ClientId" value="6bd98cc8-0000-446a-a05e-b5716ef2651b" />
+    <add key="ida:ClientSecret" value="secret" />
+    <add key="ida:AadInstance" value="https://yourtenant.b2clogin.com/tfp/{0}/{1}" />
+    <add key="ida:RedirectUri" value="https://your hosted psd2 demo app url/" />
+    ```
 
 1. La [aplicación web](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Twilio-VerifyAPI/source-code/PSD2%20Demo%20App) también hospeda el generador de sugerencias de token de identificador y el punto de conexión de metadatos.
+
    - Cree el certificado de firma tal y como se describe en esta [descripción de ejemplo](https://github.com/azure-ad-b2c/samples/tree/master/policies/invite#creating-a-signing-certificate).
+
    - Actualice las líneas siguientes en función del certificado del archivo web.config:
    
-   ```xml
-   <add key="ida:SigningCertThumbprint" value="4F39D6014818082CBB763E5BA5F230E545212E89" />
-   <add key="ida:SigningCertAlgorithm" value="RS256" />
-   ```
+     ```xml
+     <add key="ida:SigningCertThumbprint" value="4F39D6014818082CBB763E5BA5F230E545212E89" />
+     <add key="ida:SigningCertAlgorithm" value="RS256" />
+     ```
 
 1. Cargue la aplicación de demostración en el proveedor de hospedaje que prefiera. La guía de Azure App Service se proporciona en [esta descripción del ejemplo](https://github.com/azure-ad-b2c/samples/tree/master/policies/invite#hosting-the-application-in-azure-app-service), incluidas las instrucciones para cargar el certificado.
 
