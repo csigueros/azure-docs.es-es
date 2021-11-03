@@ -4,15 +4,15 @@ description: Aprenda a crear y administrar una oferta de SaaS en Microsoft AppSo
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 10/08/2021
+ms.date: 10/25/2021
 author: saasguide
 ms.author: souchak
-ms.openlocfilehash: c420a2fd947e32acb0cce9a6ce4a73ddd1d2a3bd
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 2defbfba47f40780be507636e300a4d0859f4864
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129729147"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131048335"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>API de cumplimiento de SaaS versión 2 en el marketplace comercial
 
@@ -39,14 +39,16 @@ Para que tenga lugar la creación de una cuenta:
 
 Un ejemplo de este tipo de llamada es `https://contoso.com/signup?token=<blob>`, donde la dirección URL de la página de aterrizaje de esta oferta de SaaS en el Centro de partners está configurada como `https://contoso.com/signup`. Este token proporciona al editor un identificador que distingue de forma única la compra de SaaS y el cliente.
 
->[!NOTE]
->El editor no recibirá ninguna notificación de la compra de SaaS hasta que el cliente inicie el proceso de configuración desde el lado de Microsoft.
+[!INCLUDE [pound-sign-note](../includes/pound-sign-note.md)]
 
 La dirección URL de la página de aterrizaje debe estar en funcionamiento de forma ininterrumpida y poder recibir nuevas llamadas de Microsoft en todo momento. Si la página de aterrizaje deja de estar disponible, los clientes no podrán registrarse en el servicio de SaaS y empezar a usarlo.
 
 A continuación, el editor debe devolver el *token* a Microsoft mediante una llamada a la [API Resolve de SaaS](#resolve-a-purchased-subscription) y la introducción del token como valor del parámetro de encabezado `x-ms-marketplace-token header`. Como resultado de la llamada a la API Resolve, se intercambia el token para los detalles de la compra de SaaS, como el identificador único de la compra y el identificador de la oferta y del plan adquiridos.
 
 En la página de aterrizaje, el cliente debe haber iniciado sesión en la cuenta de SaaS nueva o existente mediante el inicio de sesión único (SSO) de Azure Active Directory (Azure AD).
+
+>[!NOTE]
+>El editor no recibirá ninguna notificación de la compra de SaaS hasta que el cliente inicie el proceso de configuración desde el lado de Microsoft.
 
 El editor debe implementar el inicio de sesión único para proporcionar la experiencia de usuario que Microsoft necesita para este flujo. Asegúrese de usar la aplicación de Azure AD multiinquilino y de permitir tanto cuentas profesionales y educativas como cuentas personales de Microsoft al configurar el SSO. Este requisito solo se aplica a la página de aterrizaje y a los usuarios a los que se redirige al servicio de SaaS cuando ya han iniciado sesión con las credenciales de Microsoft. El SSO no es necesario para todos los inicios de sesión en el servicio de SaaS.
 

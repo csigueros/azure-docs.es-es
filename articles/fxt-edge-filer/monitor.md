@@ -1,17 +1,17 @@
 ---
 title: Supervisión de Azure FXT Edge Filer
 description: Cómo supervisar el estado del hardware de la caché de almacenamiento híbrida de Azure FXT Edge Filer
-author: ekpgh
+author: femila
 ms.service: fxt-edge-filer
 ms.topic: how-to
 ms.date: 06/20/2019
-ms.author: v-erkel
-ms.openlocfilehash: 7b127f9e7b9acb846eb39032f0a6c570be013ceb
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.author: femila
+ms.openlocfilehash: c5475d39870f1f3003c2df78b92fd7b524ebf998
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111415417"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024322"
 ---
 # <a name="monitor-azure-fxt-edge-filer-hardware-status"></a>Supervisión del estado del hardware de Azure FXT Edge Filer
 

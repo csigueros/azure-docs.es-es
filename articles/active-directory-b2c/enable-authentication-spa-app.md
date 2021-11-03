@@ -11,12 +11,12 @@ ms.date: 06/25/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 535cecf04857810d002843159d7ef3ce968e169b
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: a42d8f356286e2936ca9d6bdd15151bbf9ef1064
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130041051"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131007341"
 ---
 # <a name="enable-authentication-in-your-own-single-page-application-by-using-azure-ad-b2c"></a>Habilitación de la autenticación en su propia aplicación de página única mediante Azure AD B2C
 
@@ -106,12 +106,12 @@ Los recursos a los que hace referencia el archivo *index.html* se detallan en la
 |---|---|
 |Biblioteca de MSAL.js| [Ruta de acceso CDN](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/cdn-usage.md) de la biblioteca de JavaScript de autenticación de MSAL.js.|
 |[Hoja de estilos de arranque](https://getbootstrap.com/) | Un marco de front-end gratuito para un desarrollo web más rápido y sencillo. El marco incluye plantillas de diseño basadas en HTML y CSS. |
-|[policies.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/policies.js): | Contiene las directivas personalizadas de Azure AD B2C y los flujos de usuario. |
-|[authConfig.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/authConfig.js): | Contiene parámetros de configuración de autenticación.|
-|[authRedirect.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/authRedirect.js) | Contiene la lógica de autenticación. |
-|[apiConfig.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/apiConfig.js) | Contiene ámbitos de API web y la ubicación del punto de conexión de API. |
-|[api.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/api.js) | Define el método que se usará para llamar a la API y controlar su respuesta.|
-|[ui.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/ui.js) | Controla los elementos de la interfaz de usuario. |
+|[`policies.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/policies.js) | Contiene las directivas personalizadas de Azure AD B2C y los flujos de usuario. |
+|[`authConfig.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/authConfig.js) | Contiene parámetros de configuración de autenticación.|
+|[`authRedirect.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/authRedirect.js) | Contiene la lógica de autenticación. |
+|[`apiConfig.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/apiConfig.js) | Contiene ámbitos de API web y la ubicación del punto de conexión de API. |
+|[`api.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/api.js) | Define el método que se usará para llamar a la API y controlar su respuesta.|
+|[`ui.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/ui.js) | Controla los elementos de la interfaz de usuario. |
 | | |
 
 Para representar el archivo de índice de la aplicación de página única, en la carpeta *myApp*, cree un archivo llamado *index.html* que contenga el siguiente fragmento de código HTML.

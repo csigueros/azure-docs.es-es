@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2021
 ms.author: yelevin
-ms.openlocfilehash: 6c3e4de61d59841f2856af2194ec22a63b407b5c
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 8ac52d1c861ec41600ae882a4e12becb56619595
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123185442"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075493"
 ---
 # <a name="authenticate-playbooks-to-azure-sentinel"></a>Autenticación de cuadernos de estrategias en Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 De la manera en que funciona Logic Apps, tiene que conectarse por separado y autenticarse de forma independiente en cada recurso de cada tipo con el que interactúa, incluido el propio Azure Sentinel. Logic Apps usa [conectores especializados](/connectors/connector-reference/) con este fin, teniendo cada tipo de recurso su propio conector. En este documento se explican los tipos de conexión y autenticación en el [conector de Logic Apps de Azure Sentinel](/connectors/azuresentinel/), que los cuadernos de estrategias pueden usar para interactuar con Azure Sentinel para tener acceso a la información en las tablas del área de trabajo.
 

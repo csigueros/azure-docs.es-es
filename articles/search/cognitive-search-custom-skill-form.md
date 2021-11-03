@@ -8,12 +8,12 @@ ms.author: pafarley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: b5074e3d07a1df199e189dfb906190c82bde6905
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 466e01a874e75221beeb12624199911136b9d5e1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124796597"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131048147"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>Ejemplo: Creación de una aptitud personalizada de Form Recognizer
 
@@ -30,7 +30,7 @@ En este ejemplo de un conjunto de aptitudes de Azure Cognitive Search, aprender�
 
 ## <a name="train-your-model"></a>Entrenamiento de un modelo
 
-Deberá entrenar un modelo de Form Recognizer con los formularios de entrada antes de usar esta aptitud. Siga los [inicios rápidos de cURL](../applied-ai-services/form-recognizer/quickstarts/client-library.md?pivots=programming-language-rest-api) para aprender a entrenar un modelo. Puede usar los formularios de ejemplo proporcionados en ese inicio rápido o puede usar sus propios datos. Una vez entrenado el modelo, copie su valor de identificador en una ubicación segura.
+Deberá entrenar un modelo de Form Recognizer con los formularios de entrada antes de usar esta aptitud. Siga los [inicios rápidos de cURL](../applied-ai-services/form-recognizer/quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api) para aprender a entrenar un modelo. Puede usar los formularios de ejemplo proporcionados en ese inicio rápido o puede usar sus propios datos. Una vez entrenado el modelo, copie su valor de identificador en una ubicación segura.
 
 ## <a name="set-up-the-custom-skill"></a>Configuración de la aptitud personalizada
 

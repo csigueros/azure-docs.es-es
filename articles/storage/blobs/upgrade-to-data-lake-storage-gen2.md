@@ -6,12 +6,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 10/12/2021
 ms.author: normesta
-ms.openlocfilehash: 5dfdddb3458d552c0c3336c9d7609cfe2fdc6de3
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 70f191a33eeb4d09ea8e4f14b17cd6ceadcec76e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130003503"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131003587"
 ---
 # <a name="upgrading-azure-blob-storage-with-azure-data-lake-storage-gen2-capabilities"></a>Actualización de Azure Blob Storage con funcionalidades de Azure Data Lake Storage Gen2
 
@@ -106,7 +106,7 @@ Después de realizar la actualización, cambiará la forma en que estos elemento
 
 Aunque la mayoría de las características de Blob Storage seguirá funcionando después de habilitar estas funcionalidades, algunas de ellas permanecen en versión preliminar o aún no se admiten. 
 
-Consulte [Características de Blob Storage disponibles en Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) para comprender la compatibilidad actual con las características de Blob Storage con Data Lake Storage Gen2. 
+Consulte [Características de Blob Storage disponibles en Azure Data Lake Storage Gen2](./storage-feature-support-in-storage-accounts.md) para comprender la compatibilidad actual con las características de Blob Storage con Data Lake Storage Gen2. 
 
 ### <a name="diagnostic-logs"></a>Registros de diagnóstico
 

@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/01/2021
+ms.date: 10/11/2021
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: entorno local, Docker, contenedor
-ms.openlocfilehash: da62c081a79211eb6eb56229eab856c89841746c
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: a930b5234f13d7e53bc50b6dc3f7b3d959df2e0e
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129533691"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131024603"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instalación y ejecución de contenedores de Docker para las API del servicio de voz 
 
@@ -666,7 +666,7 @@ Si tiene pensado ejecutar varios contenedores con puertos expuestos, asegúrese 
 
 Puede tener este contenedor y un contenedor de Azure Cognitive Services diferente en ejecución simultáneamente en el HOST. También puede tener varios contenedores del mismo contenedor de Cognitive Services en ejecución.
 
-[!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [Validate container is running - Container API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="stop-the-container"></a>Detención del contenedor
 
@@ -677,6 +677,9 @@ Puede tener este contenedor y un contenedor de Azure Cognitive Services diferent
 Puede encontrar algunos problemas al iniciar o ejecutar el contenedor. Use un [montaje](speech-container-configuration.md#mount-settings) de salida y habilite el registro. Si lo hace, permitirá que el contenedor genere archivos de registro que son útiles para solucionar problemas.
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
+
+[!INCLUDE [Diagnostic container](../containers/includes/diagnostics-container.md)]
+
 
 ## <a name="billing"></a>Facturación
 

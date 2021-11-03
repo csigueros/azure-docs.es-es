@@ -7,12 +7,13 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 08/18/2021
-ms.openlocfilehash: 42162519e9e8f3835498d8955adbd7c254775dd9
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: af12878750c6976a3ce3b459d9cf1ff6b262c112
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129211722"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024038"
 ---
 # <a name="scans-and-ingestion-in-azure-purview"></a>Exámenes e ingesta en Azure Purview
 
@@ -38,7 +39,7 @@ Siempre que sea posible, una identidad administrada es el método de autenticaci
 
 Al examinar un origen, tiene la opción de examinar todo el origen de datos o elegir examinar solo entidades específicas (carpetas o tablas). Las opciones disponibles dependen del origen que examine y se pueden definir para exámenes programados y puntuales.
 
-Por ejemplo, al [crear y ejecutar un examen para una instancia de Azure SQL Database](register-scan-azure-sql-database.md#creating-and-running-a-scan), puede elegir qué tablas examinar o seleccionar toda la base de datos.
+Por ejemplo, al [crear y ejecutar un examen para una instancia de Azure SQL Database](register-scan-azure-sql-database.md#creating-the-scan), puede elegir qué tablas examinar o seleccionar toda la base de datos.
 
 ### <a name="scan-rule-set"></a>Conjunto de reglas de examen
 
@@ -74,5 +75,5 @@ Los metadatos o las clasificaciones técnicos identificados en el proceso de exa
 Para más información, o para obtener instrucciones específicas para examinar orígenes, siga los vínculos siguientes.
 
 * Para comprender los conjuntos de recursos, consulte nuestro [artículo sobre conjuntos de recursos](concept-resource-sets.md).
-* [Registro y examen de una instancia de Azure SQL Database](register-scan-azure-sql-database.md#creating-and-running-a-scan)
+* [Registro y examen de una instancia de Azure SQL Database](register-scan-azure-sql-database.md#creating-the-scan)
 * [Linaje en Azure Purview](catalog-lineage-user-guide.md)

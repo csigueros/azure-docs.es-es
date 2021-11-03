@@ -10,19 +10,21 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: how-to
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2020
 ms.author: yelevin
-ms.openlocfilehash: 1b8507f29d157cd715d6423c773b01a561a5e181
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 89f18c1a7ab517dde3552e1449d0971f29774f91
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737563"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037024"
 ---
 # <a name="monitor-the-health-of-your-data-connectors-with-this-azure-sentinel-workbook"></a>Supervisión del estado de los conectores de datos con este libro de Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 El **libro de supervisión de estado de conectores de datos** permite realizar un seguimiento del estado, la conectividad y el rendimiento de los conectores de datos desde Azure Sentinel. El libro proporciona supervisiones adicionales, detecta anomalías y proporciona información sobre el estado de ingesta de datos del área de trabajo. Puede usar la lógica del libro para supervisar el estado general de los datos ingeridos y crear vistas personalizadas y alertas basadas en reglas.
 

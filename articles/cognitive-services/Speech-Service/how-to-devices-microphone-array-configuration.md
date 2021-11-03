@@ -10,18 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: wellsi
-ms.openlocfilehash: cf0580c96f5bf78f0444b2bb39088f2a417fd658
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 6fe1739006f3f5b9943076c917cc2e3ef5dc2efa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95025068"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024569"
 ---
 # <a name="how-to-configure-a-microphone-array"></a>Configuración de una matriz de micrófonos
 
-En este artículo aprenderá a configurar una [matriz de micrófonos](./speech-devices-sdk-microphone.md). Incluye la configuración del ángulo de trabajo y cómo seleccionar qué micrófono se usa para el SDK de dispositivos de voz.
+En este artículo aprenderá a configurar una [matriz de micrófonos](./speech-sdk-microphone.md). Incluye la configuración del ángulo de trabajo y cómo seleccionar qué micrófono se usa para el SDK de dispositivos de voz.
 
-El SDK de dispositivos de voz funciona mejor con una matriz de micrófonos diseñada según [nuestras pautas](./speech-devices-sdk-microphone.md). La configuración de la matriz de micrófonos la puede proporcionar el sistema operativo o uno de los métodos siguientes.
+El SDK de dispositivos de voz funciona mejor con una matriz de micrófonos diseñada según [nuestras pautas](./speech-sdk-microphone.md). La configuración de la matriz de micrófonos la puede proporcionar el sistema operativo o uno de los métodos siguientes.
 
 El SDK de dispositivos de voz inicialmente admitía matrices de micrófonos realizando la selección a partir de un conjunto fijo de configuraciones.
 

@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 10/05/2021
 ms.author: robb
-ms.openlocfilehash: e0843f9e25b3059bbdd0102e4a830f151b0e87b0
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 06d7fb0569572bc688f81154a4e149032cf996ed
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129996919"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252889"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 
@@ -125,7 +125,7 @@ La actualización más reciente agrega una nueva columna y reordena las métrica
 |---|---|---|---|---|---|---|
 |BackendDuration|Sí|Duration of Backend Requests (Duración de las solicitudes de back-end)|MilliSeconds|Average|Duración de las solicitudes de back-end en milisegundos|Ubicación, Nombre de host|
 |Capacity|Sí|Capacity|Percent|Average|Métrica de uso para el servicio ApiManagement. Nota: En el caso de skus que no Premium, la agregación "Max" mostrará el valor como 0.|Location|
-|ConnectionAttempts|Sí|WebSocket Connection Attempts (Preview) [Intentos de conexión de WebSocket (versión preliminar)]|Count|Total|Recuento de intentos de conexión de WebSocket basados en el origen y el destino seleccionados.|Ubicación, origen, destino, estado|
+|ConnectionAttempts|Yes|WebSocket Connection Attempts (Preview) [Intentos de conexión de WebSocket (versión preliminar)]|Count|Total|Recuento de intentos de conexión de WebSocket basados en el origen y el destino seleccionados.|Ubicación, origen, destino, estado|
 |Duration|Sí|Duración total de las solicitudes de puerta de enlace|MilliSeconds|Average|Duración total de las solicitudes de puerta de enlace en milisegundos|Ubicación, Nombre de host|
 |EventHubDroppedEvents|Sí|Eventos EventHub quitados|Count|Total|Número de eventos omitidos por haber alcanzado el límite del tamaño de la cola|Location|
 |EventHubRejectedEvents|Sí|Eventos EventHub rechazados|Count|Total|Número de eventos EventHub rechazados (configuración incorrecta o no autorizados)|Location|
@@ -142,7 +142,7 @@ La actualización más reciente agrega una nueva columna y reordena las métrica
 |SuccessfulRequests|Sí|Successful Gateway Requests (Deprecated) [Solicitudes de puerta de enlace correctas (en desuso)]|Count|Total|Número de solicitudes de puerta de enlace correctas: use la métrica de solicitud de varias dimensiones con la dimensión GatewayResponseCodeCategory en su lugar.|Ubicación, Nombre de host|
 |TotalRequests|Sí|Total Gateway Requests (Deprecated) [Solicitudes de puerta de enlace en total (en desuso)]|Count|Total|Número de solicitudes de puerta de enlace: use la métrica de solicitud de varias dimensiones con la dimensión GatewayResponseCodeCategory en su lugar.|Ubicación, Nombre de host|
 |UnauthorizedRequests|Sí|Unauthorized Gateway Requests (Deprecated) [Solicitudes de puerta de enlace no autorizadas (en desuso)]|Count|Total|Número de solicitudes de puerta de enlace no autorizadas: use la métrica de solicitud de varias dimensiones con la dimensión GatewayResponseCodeCategory en su lugar.|Ubicación, Nombre de host|
-|WebSocketMessages|Sí|WebSocket Messages (Preview) [Mensajes de WebSocket (versión preliminar)]|Count|Total|Recuento de mensajes de WebSocket basados en el origen y el destino seleccionados.|Ubicación, origen, destino|
+|WebSocketMessages|Yes|WebSocket Messages (Preview) [Mensajes de WebSocket (versión preliminar)]|Count|Total|Recuento de mensajes de WebSocket basados en el origen y el destino seleccionados.|Ubicación, origen, destino|
 
 
 ## <a name="microsoftappconfigurationconfigurationstores"></a>Microsoft.AppConfiguration/configurationStores
@@ -174,9 +174,9 @@ La actualización más reciente agrega una nueva columna y reordena las métrica
 |gen-2-gc-count|Sí|gen-2-gc-count|Count|Average|Número de GC de la generación 2|Deployment, AppName, Pod|
 |gen-2-size|Sí|gen-2-size|Bytes|Average|Tamaño del montón de gen. 2|Deployment, AppName, Pod|
 |IngressBytesReceived|Sí|Bytes recibidos|Bytes|Average|Recuento de bytes de los clientes recibidos por Azure Spring Cloud.|Nombre de host, HttpStatus|
-|IngressBytesReceivedRate|Sí|Throughput In (bytes/s) [Rendimiento de entrada (bytes/s)]|BytesPerSecond|Average|Bytes de los clientes recibidos por segundo por Azure Spring Cloud.|Nombre de host, HttpStatus|
+|IngressBytesReceivedRate|Yes|Throughput In (bytes/s) [Rendimiento de entrada (bytes/s)]|BytesPerSecond|Average|Bytes de los clientes recibidos por segundo por Azure Spring Cloud.|Nombre de host, HttpStatus|
 |IngressBytesSent|Sí|Bytes enviados|Bytes|Average|Recuento de bytes enviados por Azure Spring Cloud a los clientes.|Nombre de host, HttpStatus|
-|IngressBytesSentRate|Sí|Throughput Out (bytes/s) [Rendimiento de salida (bytes/s)]|BytesPerSecond|Average|Bytes enviados por segundo por Azure Spring Cloud a los clientes.|Nombre de host, HttpStatus|
+|IngressBytesSentRate|Yes|Throughput Out (bytes/s) [Rendimiento de salida (bytes/s)]|BytesPerSecond|Average|Bytes enviados por segundo por Azure Spring Cloud a los clientes.|Nombre de host, HttpStatus|
 |IngressFailedRequests|Sí|Solicitudes con error|Count|Average|Recuento de solicitudes con error de los clientes realizado por Azure Spring Cloud.|Nombre de host, HttpStatus|
 |IngressRequests|Sí|Requests|Count|Average|Recuento de solicitudes de los clientes realizado por Azure Spring Cloud.|Nombre de host, HttpStatus|
 |IngressResponseStatus|Sí|Estado de respuesta|Count|Average|Estado de la respuesta HTTP devuelta por Azure Spring Cloud. La distribución del código de estado de respuesta se puede categorizar aún más para mostrar las respuestas en las categorías 2xx, 3xx, 4xx y 5xx.|Nombre de host, HttpStatus|
@@ -808,44 +808,44 @@ La actualización más reciente agrega una nueva columna y reordena las métrica
 
 |Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|---|
-|AudioSecondsTranscribed|Sí|Audio Seconds Transcribed (Segundos de audio transcritos)|Count|Total|Número de segundos transcritos.|ApiName, FeatureName, UsageChannel, Region|
-|AudioSecondsTranslated|Sí|Audio Seconds Translated (Segundos de audio traducidos)|Count|Total|Número de segundos traducidos.|ApiName, FeatureName, UsageChannel, Region|
+|AudioSecondsTranscribed|Yes|Audio Seconds Transcribed (Segundos de audio transcritos)|Count|Total|Número de segundos transcritos.|ApiName, FeatureName, UsageChannel, Region|
+|AudioSecondsTranslated|Yes|Audio Seconds Translated (Segundos de audio traducidos)|Count|Total|Número de segundos traducidos.|ApiName, FeatureName, UsageChannel, Region|
 |BlockedCalls|Sí|Llamadas bloqueadas|Count|Total|Número de llamadas que han superado la tasa o el límite de cuota.|ApiName, OperationName, Region|
 |CharactersTrained|Sí|Caracteres entrenados (en desuso)|Count|Total|Número total de caracteres entrenados.|ApiName, OperationName, Region|
 |CharactersTranslated|Sí|Caracteres traducidos (en desuso)|Count|Total|Número total de caracteres de la solicitud entrante de texto.|ApiName, OperationName, Region|
 |ClientErrors|Sí|Errores de cliente|Count|Total|Número de llamadas con error interno del lado cliente (código de respuesta HTTP 4xx).|ApiName, OperationName, Region|
-|ComputerVisionTransactions|Sí|Computer Vision Transactions (Transacciones de Computer Vision)|Count|Total|Número de transacciones de Computer Vision.|ApiName, FeatureName, UsageChannel, Region|
-|CustomVisionTrainingTime|Sí|Custom Vision Training Time (Tiempo de entrenamiento de Custom Vision)|Segundos|Total|Tiempo de entrenamiento de Custom Vision.|ApiName, FeatureName, UsageChannel, Region|
-|CustomVisionTransactions|Sí|Custom Vision Transactions (Transacciones de Custom Vision)|Count|Total|Número de transacciones de predicción de Custom Vision.|ApiName, FeatureName, UsageChannel, Region|
+|ComputerVisionTransactions|Yes|Computer Vision Transactions (Transacciones de Computer Vision)|Count|Total|Número de transacciones de Computer Vision.|ApiName, FeatureName, UsageChannel, Region|
+|CustomVisionTrainingTime|Yes|Custom Vision Training Time (Tiempo de entrenamiento de Custom Vision)|Segundos|Total|Tiempo de entrenamiento de Custom Vision.|ApiName, FeatureName, UsageChannel, Region|
+|CustomVisionTransactions|Yes|Custom Vision Transactions (Transacciones de Custom Vision)|Count|Total|Número de transacciones de predicción de Custom Vision.|ApiName, FeatureName, UsageChannel, Region|
 |DataIn|Sí|Entrada de datos|Bytes|Total|Tamaño de los datos de entrada en bytes.|ApiName, OperationName, Region|
 |DataOut|Sí|Salida de datos|Bytes|Total|Tamaño de los datos de salida en bytes.|ApiName, OperationName, Region|
-|DocumentCharactersTranslated|Sí|Document Characters Translated (Caracteres de documento traducidos)|Count|Total|Número de caracteres en la solicitud de traducción de documentos.|ApiName, FeatureName, UsageChannel, Region|
-|DocumentCustomCharactersTranslated|Sí|Document Custom Characters Translated (Caracteres personalizados de documento traducidos)|Count|Total|Número de caracteres en la solicitud de traducción de documentos personalizada.|ApiName, FeatureName, UsageChannel, Region|
-|FaceImagesTrained|Sí|Face Images Trained (Imágenes de caras entrenadas)|Count|Total|Número de imágenes entrenadas. 1000 imágenes entrenadas por transacción.|ApiName, FeatureName, UsageChannel, Region|
-|FacesStored|Sí|Faces Stored (Caras almacenadas)|Count|Total|Número de caras almacenadas, prorrateadas diariamente. El número de caras almacenadas se notifica a diario.|ApiName, FeatureName, UsageChannel, Region|
-|FaceTransactions|Sí|Face Transactions (Transacciones de Face)|Count|Total|Número de llamadas API realizadas al servicio Face.|ApiName, FeatureName, UsageChannel, Region|
-|ImagesStored|Sí|Images Stored (Imágenes almacenadas)|Count|Total|Número de imágenes de Custom Vision almacenadas.|ApiName, FeatureName, UsageChannel, Region|
+|DocumentCharactersTranslated|Yes|Document Characters Translated (Caracteres de documento traducidos)|Count|Total|Número de caracteres en la solicitud de traducción de documentos.|ApiName, FeatureName, UsageChannel, Region|
+|DocumentCustomCharactersTranslated|Yes|Document Custom Characters Translated (Caracteres personalizados de documento traducidos)|Count|Total|Número de caracteres en la solicitud de traducción de documentos personalizada.|ApiName, FeatureName, UsageChannel, Region|
+|FaceImagesTrained|Yes|Face Images Trained (Imágenes de caras entrenadas)|Count|Total|Número de imágenes entrenadas. 1000 imágenes entrenadas por transacción.|ApiName, FeatureName, UsageChannel, Region|
+|FacesStored|Yes|Faces Stored (Caras almacenadas)|Count|Total|Número de caras almacenadas, prorrateadas diariamente. El número de caras almacenadas se notifica a diario.|ApiName, FeatureName, UsageChannel, Region|
+|FaceTransactions|Yes|Face Transactions (Transacciones de Face)|Count|Total|Número de llamadas API realizadas al servicio Face.|ApiName, FeatureName, UsageChannel, Region|
+|ImagesStored|Yes|Images Stored (Imágenes almacenadas)|Count|Total|Número de imágenes de Custom Vision almacenadas.|ApiName, FeatureName, UsageChannel, Region|
 |Latencia|Sí|Latencia|MilliSeconds|Average|Latencia en milisegundos.|ApiName, OperationName, Region|
 |LearnedEvents|Sí|Eventos aprendidos|Count|Total|Número de eventos aprendidos.|IsMatchBaseline, modo, RunId|
-|LUISSpeechRequests|Sí|LUIS Speech Requests (Solicitudes de voz de LUIS)|Count|Total|Número de solicitudes de conversión de voz en intención de LUIS.|ApiName, FeatureName, UsageChannel, Region|
-|LUISTextRequests|Sí|LUIS Text Requests (Solicitudes de texto de LUIS)|Count|Total|Número de solicitudes de texto de LUIS.|ApiName, FeatureName, UsageChannel, Region|
+|LUISSpeechRequests|Yes|LUIS Speech Requests (Solicitudes de voz de LUIS)|Count|Total|Número de solicitudes de conversión de voz en intención de LUIS.|ApiName, FeatureName, UsageChannel, Region|
+|LUISTextRequests|Yes|LUIS Text Requests (Solicitudes de texto de LUIS)|Count|Total|Número de solicitudes de texto de LUIS.|ApiName, FeatureName, UsageChannel, Region|
 |MatchedRewards|Sí|Recompensas coincidentes|Count|Total|Número de recompensas coincidentes.|Mode, RunId|
-|NumberofSpeakerProfiles|Sí|Number of Speaker Profiles (Número de perfiles de hablante)|Count|Total|Número de perfiles de hablante inscritos. Se prorratea cada hora.|ApiName, FeatureName, UsageChannel, Region|
+|NumberofSpeakerProfiles|Yes|Number of Speaker Profiles (Número de perfiles de hablante)|Count|Total|Número de perfiles de hablante inscritos. Se prorratea cada hora.|ApiName, FeatureName, UsageChannel, Region|
 |ObservedRewards|Sí|Recompensas observadas|Count|Total|Número de recompensas observadas.|Mode, RunId|
 |ProcessedCharacters|Sí|Caracteres procesados|Count|Total|Número de caracteres procesados por Immersive Reader.|ApiName, FeatureName, UsageChannel, Region|
-|ProcessedHealthTextRecords|Sí|Processed Health Text Records (Registros de texto del estado procesados)|Count|Total|Número de registros de texto del estado procesados.|ApiName, FeatureName, UsageChannel, Region|
+|ProcessedHealthTextRecords|Yes|Processed Health Text Records (Registros de texto del estado procesados)|Count|Total|Número de registros de texto del estado procesados.|ApiName, FeatureName, UsageChannel, Region|
 |ProcessedImages|Sí|Imágenes procesadas|Count|Total|Número de imágenes procesadas.|ApiName, FeatureName, UsageChannel, Region|
-|ProcessedPages|Sí|Processed Pages (Páginas procesadas)|Count|Total|Número de páginas procesadas.|ApiName, FeatureName, UsageChannel, Region|
+|ProcessedPages|Yes|Processed Pages (Páginas procesadas)|Count|Total|Número de páginas procesadas.|ApiName, FeatureName, UsageChannel, Region|
 |ProcessedTextRecords|Sí|Registros de texto procesados|Count|Total|Número de registros de texto.|ApiName, FeatureName, UsageChannel, Region|
 |ServerErrors|Sí|Errores del servidor|Count|Total|Número de llamadas con error interno del servicio (código de respuesta HTTP 5xx).|ApiName, OperationName, Region|
-|SpeakerRecognitionTransactions|Sí|Speaker Recognition Transactions (Transacciones de Speaker Recognition)|Count|Total|Número de transacciones de reconocimiento del hablante.|ApiName, FeatureName, UsageChannel, Region|
-|SpeechModelHostingHours|Sí|Speech Model Hosting Hours (Horas de hospedaje del modelo de voz)|Count|Total|Número de horas de hospedaje del modelo de voz.|ApiName, FeatureName, UsageChannel, Region|
+|SpeakerRecognitionTransactions|Yes|Speaker Recognition Transactions (Transacciones de Speaker Recognition)|Count|Total|Número de transacciones de reconocimiento del hablante.|ApiName, FeatureName, UsageChannel, Region|
+|SpeechModelHostingHours|Yes|Speech Model Hosting Hours (Horas de hospedaje del modelo de voz)|Count|Total|Número de horas de hospedaje del modelo de voz.|ApiName, FeatureName, UsageChannel, Region|
 |SpeechSessionDuration|Sí|Duración de la sesión de voz (en desuso)|Segundos|Total|Duración total de la sesión de voz en segundos.|ApiName, OperationName, Region|
 |SuccessfulCalls|Sí|Llamadas correctas|Count|Total|Número de llamadas correctas.|ApiName, OperationName, Region|
 |SynthesizedCharacters|Sí|Caracteres sintetizados|Count|Total|Número de caracteres.|ApiName, FeatureName, UsageChannel, Region|
-|TextCharactersTranslated|Sí|Text Characters Translated (Caracteres de texto traducidos)|Count|Total|Número de caracteres en la solicitud entrante de traducción de texto.|ApiName, FeatureName, UsageChannel, Region|
-|TextCustomCharactersTranslated|Sí|Text Custom Characters Translated (Caracteres de texto personalizados traducidos)|Count|Total|Número de caracteres en la solicitud entrante personalizada de traducción de texto.|ApiName, FeatureName, UsageChannel, Region|
-|TextTrainedCharacters|Sí|Text Trained Characters (Caracteres de texto entrenados)|Count|Total|Número de caracteres entrenados mediante la traducción de texto.|ApiName, FeatureName, UsageChannel, Region|
+|TextCharactersTranslated|Yes|Text Characters Translated (Caracteres de texto traducidos)|Count|Total|Número de caracteres en la solicitud entrante de traducción de texto.|ApiName, FeatureName, UsageChannel, Region|
+|TextCustomCharactersTranslated|Yes|Text Custom Characters Translated (Caracteres de texto personalizados traducidos)|Count|Total|Número de caracteres en la solicitud entrante personalizada de traducción de texto.|ApiName, FeatureName, UsageChannel, Region|
+|TextTrainedCharacters|Yes|Text Trained Characters (Caracteres de texto entrenados)|Count|Total|Número de caracteres entrenados mediante la traducción de texto.|ApiName, FeatureName, UsageChannel, Region|
 |TotalCalls|Sí|Total de llamadas|Count|Total|Número total de llamadas.|ApiName, OperationName, Region|
 |TotalErrors|Sí|Total de errores|Count|Total|Número total de llamadas con respuesta de error (código de respuesta HTTP 4xx o 5xx).|ApiName, OperationName, Region|
 |TotalTokenCalls|Sí|Llamadas de token totales|Count|Total|Número total de llamadas de token.|ApiName, OperationName, Region|
@@ -955,7 +955,7 @@ La actualización más reciente agrega una nueva columna y reordena las métrica
 |Porcentaje de consumo de IOPS en caché de la máquina virtual|Sí|Porcentaje de consumo de IOPS en caché de la máquina virtual|Percent|Average|Porcentaje de IOPS de disco en caché consumido por la máquina virtual|Sin dimensiones|
 |Porcentaje de consumo de ancho de banda que no está almacenado en caché de máquinas virtuales|Sí|Porcentaje de consumo de ancho de banda que no está almacenado en caché de máquinas virtuales|Percent|Average|Porcentaje de ancho de banda de disco no almacenado en caché consumido por la máquina virtual|Sin dimensiones|
 |Porcentaje de consumo de IOPS que no están almacenados en el caché de la máquina virtual|Sí|Porcentaje de consumo de IOPS que no están almacenados en el caché de la máquina virtual|Percent|Average|Porcentaje de IOPS de disco no almacenado en caché consumido por la máquina virtual|Sin dimensiones|
-|VmAvailabilityMetric|Sí|VM Availability Metric (Preview) [Métrica de disponibilidad de VM (versión preliminar)]|Count|Average|Medida de la disponibilidad de las máquinas virtuales a lo largo del tiempo. Nota: Esta métrica está en versión preliminar solo para un pequeño conjunto de clientes en estos momentos, ya que priorizamos la mejora de la calidad y la coherencia de los datos. A medida que ampliemos nuestro estándar de datos, implementaremos esta característica a nivel general de forma escalonada.|Sin dimensiones|
+|VmAvailabilityMetric|Yes|VM Availability Metric (Preview) [Métrica de disponibilidad de VM (versión preliminar)]|Count|Average|Medida de la disponibilidad de las máquinas virtuales a lo largo del tiempo. Nota: Esta métrica está en versión preliminar solo para un pequeño conjunto de clientes en estos momentos, ya que priorizamos la mejora de la calidad y la coherencia de los datos. A medida que ampliemos nuestro estándar de datos, implementaremos esta característica a nivel general de forma escalonada.|Sin dimensiones|
 
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualmachineScaleSets
@@ -1012,7 +1012,7 @@ La actualización más reciente agrega una nueva columna y reordena las métrica
 |Porcentaje de consumo de IOPS en caché de la máquina virtual|Sí|Porcentaje de consumo de IOPS en caché de la máquina virtual|Percent|Average|Porcentaje de IOPS de disco en caché consumido por la máquina virtual|VMName|
 |Porcentaje de consumo de ancho de banda que no está almacenado en caché de máquinas virtuales|Sí|Porcentaje de consumo de ancho de banda que no está almacenado en caché de máquinas virtuales|Percent|Average|Porcentaje de ancho de banda de disco no almacenado en caché consumido por la máquina virtual|VMName|
 |Porcentaje de consumo de IOPS que no están almacenados en el caché de la máquina virtual|Sí|Porcentaje de consumo de IOPS que no están almacenados en el caché de la máquina virtual|Percent|Average|Porcentaje de IOPS de disco no almacenado en caché consumido por la máquina virtual|VMName|
-|VmAvailabilityMetric|Sí|VM Availability Metric (Preview) [Métrica de disponibilidad de VM (versión preliminar)]|Count|Average|Medida de la disponibilidad de las máquinas virtuales a lo largo del tiempo. Nota: Esta métrica está en versión preliminar solo para un pequeño conjunto de clientes en estos momentos, ya que priorizamos la mejora de la calidad y la coherencia de los datos. A medida que ampliemos nuestro estándar de datos, implementaremos esta característica a nivel general de forma escalonada.|VMName|
+|VmAvailabilityMetric|Yes|VM Availability Metric (Preview) [Métrica de disponibilidad de VM (versión preliminar)]|Count|Average|Medida de la disponibilidad de las máquinas virtuales a lo largo del tiempo. Nota: Esta métrica está en versión preliminar solo para un pequeño conjunto de clientes en estos momentos, ya que priorizamos la mejora de la calidad y la coherencia de los datos. A medida que ampliemos nuestro estándar de datos, implementaremos esta característica a nivel general de forma escalonada.|VMName|
 
 
 ## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
@@ -1584,7 +1584,7 @@ La actualización más reciente agrega una nueva columna y reordena las métrica
 |---|---|---|---|---|---|---|
 |AddRegion|Sí|Región agregada|Count|Count|Región agregada|Region|
 |AutoscaleMaxThroughput|No|Rendimiento máximo del autoescalado|Count|Máxima|Rendimiento máximo del autoescalado|DatabaseName, CollectionName|
-|AvailableStorage|No|(En desuso) Almacenamiento disponible|Bytes|Total|"Almacenamiento disponible" se quitará de Azure Monitor a finales de septiembre de 2023. El tamaño de almacenamiento de la colección de Cosmos DB ahora es ilimitado. La única restricción es que el tamaño de almacenamiento de cada clave de partición lógica sea de 20 GB. Puede habilitar PartitionKeyStatistics en el registro de diagnóstico para conocer el consumo de almacenamiento de las claves de partición principales. Para obtener más información sobre la cuota de almacenamiento de Cosmos DB, consulte esta documentación: [https://docs.microsoft.com/azure/cosmos-db/concepts-limits](/azure/cosmos-db/concepts-limits). Después de que se aplique el desuso, las reglas de alerta restantes aún definidas en la métrica en desuso se deshabilitarán automáticamente después de la fecha de desuso.|CollectionName, DatabaseName, Region|
+|AvailableStorage|No|(En desuso) Almacenamiento disponible|Bytes|Total|"Almacenamiento disponible" se quitará de Azure Monitor a finales de septiembre de 2023. El tamaño de almacenamiento de la colección de Cosmos DB ahora es ilimitado. La única restricción es que el tamaño de almacenamiento de cada clave de partición lógica sea de 20 GB. Puede habilitar PartitionKeyStatistics en el registro de diagnóstico para conocer el consumo de almacenamiento de las claves de partición principales. Para obtener más información sobre la cuota de almacenamiento de Cosmos DB, consulte esta documentación: [https://docs.microsoft.com/azure/cosmos-db/concepts-limits](../../cosmos-db/concepts-limits.md). Después de que se aplique el desuso, las reglas de alerta restantes aún definidas en la métrica en desuso se deshabilitarán automáticamente después de la fecha de desuso.|CollectionName, DatabaseName, Region|
 |CassandraConnectionClosures|No|Cierres de conexión de Cassandra|Count|Total|Número de conexiones de Cassandra que se han cerrado, notificadas en una granularidad de 1 minuto|APIType, Region, ClosureReason|
 |CassandraConnectorAvgReplicationLatency|No|Cassandra Connector Average ReplicationLatency|MilliSeconds|Average|Promedio de latencia de replicación del conector de Cassandra|Sin dimensiones|
 |CassandraConnectorReplicationHealthStatus|No|Estado de mantenimiento de replicación del conector de Cassandra|Count|Count|Estado de mantenimiento de replicación del conector de Cassandra|NotStarted, ReplicationInProgress, Error|
@@ -2915,8 +2915,8 @@ La actualización más reciente agrega una nueva columna y reordena las métrica
 
 |Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|---|
-|BackupHealthEvent|Sí|Backup Health Events (preview) [Eventos de estado de copia de seguridad (versión preliminar)]|Count|Count|Recuento de eventos de estado relacionados con el estado del trabajo de copia de seguridad.|dataSourceURL, backupInstanceUrl, dataSourceType, healthStatus, backupInstanceName|
-|RestoreHealthEvent|Sí|Restore Health Events (preview) [Eventos de estado de restauración (versión preliminar)]|Count|Count|Recuento de eventos de estado relacionados con el estado del trabajo de restauración.|dataSourceURL, backupInstanceUrl, dataSourceType, healthStatus, backupInstanceName|
+|BackupHealthEvent|Yes|Backup Health Events (preview) [Eventos de estado de copia de seguridad (versión preliminar)]|Count|Count|Recuento de eventos de estado relacionados con el estado del trabajo de copia de seguridad.|dataSourceURL, backupInstanceUrl, dataSourceType, healthStatus, backupInstanceName|
+|RestoreHealthEvent|Yes|Restore Health Events (preview) [Eventos de estado de restauración (versión preliminar)]|Count|Count|Recuento de eventos de estado relacionados con el estado del trabajo de restauración.|dataSourceURL, backupInstanceUrl, dataSourceType, healthStatus, backupInstanceName|
 
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
@@ -3036,7 +3036,7 @@ La actualización más reciente agrega una nueva columna y reordena las métrica
 |cpu_used|Sí|CPU utilizada|Count|Average|CPU utilizada. Se aplica a las bases de datos basadas en núcleo virtual.|Sin dimensiones|
 |deadlock|Sí|Interbloqueos|Count|Total|Interbloqueos. No es aplicable a los almacenes de datos.|Sin dimensiones|
 |delta_num_of_bytes_read|Sí|Lecturas de datos remotos|Bytes|Total|Lecturas de datos remotos en bytes.|Sin dimensiones|
-|delta_num_of_bytes_total|Sí|Total remote bytes read and written (Total de bytes remotos leídos y escritos)|Bytes|Total|Total de bytes remotos leídos y escritos por proceso.|Sin dimensiones|
+|delta_num_of_bytes_total|Yes|Total remote bytes read and written (Total de bytes remotos leídos y escritos)|Bytes|Total|Total de bytes remotos leídos y escritos por proceso.|Sin dimensiones|
 |delta_num_of_bytes_written|Sí|Escrituras remotas de registros.|Bytes|Total|Escrituras de registros remotos en bytes.|Sin dimensiones|
 |diff_backup_size_bytes|Sí|Tamaño de almacenamiento de copia de seguridad diferencial|Bytes|Máxima|Tamaño de almacenamiento de copia de seguridad diferencial acumulativo. Se aplica a las bases de datos basadas en núcleo virtual. No aplicable a bases de datos de hiperescala.|Sin dimensiones|
 |dtu_consumption_percent|Sí|Porcentaje de DTU|Percent|Average|Porcentaje de DTU. Se aplica a las bases de datos basadas en DTU.|Sin dimensiones|
@@ -3596,16 +3596,16 @@ La actualización más reciente agrega una nueva columna y reordena las métrica
 
 |Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|---|
-|BytesPerSecond|Sí|Bytes por segundo|BytesPerSecond|Average|Velocidad de rendimiento en bytes por segundo que usa un migrador.|Sin dimensiones|
-|DirectoriesCreatedCount|Sí|Directories Created Count (Recuento de directorios creados)|Count|Total|Proporciona una vista acumulada de cuántos directorios se han creado como parte de una migración.|Sin dimensiones|
-|FileMigrationCount|Sí|Files Migration Count (Recuento de archivos migrados)|Count|Total|Proporciona un total acumulado de cuántos archivos se han migrado.|Sin dimensiones|
-|InitialScanDataMigratedInBytes|Sí|Initial Scan Data Migrated in Bytes (Datos de examen inicial migrados en bytes)|Bytes|Total|Proporciona la vista del total de bytes que se han transferido en un migrador nuevo como resultado del examen inicial del sistema de archivos local. Los datos que se agregan a la migración después de la migración de examen inicial no se incluyen en esta métrica.|Sin dimensiones|
-|LiveDataMigratedInBytes|Sí|Live Data Migrated in Bytes (Datos dinámicos migrados en bytes)|Count|Total|Proporciona un total acumulado de datos dinámicos que han cambiado debido a la actividad del cliente desde que se inició la migración.|Sin dimensiones|
-|MigratorCPULoad|Sí|Migrator CPU Load (Carga de CPU del migrador)|Percent|Average|Consumo de CPU del proceso del migrador.|Sin dimensiones|
-|NumberOfExcludedPaths|Sí|Number of Excluded Paths (Número de rutas de acceso excluidas)|Count|Total|Proporciona un recuento acumulado de las rutas de acceso que se han excluido de la migración debido a las reglas de exclusión.|Sin dimensiones|
-|NumberOfFailedPaths|Sí|Number of Failed Paths (Número de rutas de acceso con error)|Count|Total|Recuento de las rutas de acceso que no se han podido migrar.|Sin dimensiones|
-|SystemCPULoad|Sí|System CPU Load (Carga de CPU del sistema)|Percent|Average|Consumo total de CPU.|Sin dimensiones|
-|TotalMigratedDataInBytes|Sí|Total Migrated Data in Bytes (Total de datos migrados en bytes)|Bytes|Total|Proporciona una vista de los bytes migrados correctamente de un migrador determinado.|Sin dimensiones|
+|BytesPerSecond|Yes|Bytes por segundo|BytesPerSecond|Average|Velocidad de rendimiento en bytes por segundo que usa un migrador.|Sin dimensiones|
+|DirectoriesCreatedCount|Yes|Directories Created Count (Recuento de directorios creados)|Count|Total|Proporciona una vista acumulada de cuántos directorios se han creado como parte de una migración.|Sin dimensiones|
+|FileMigrationCount|Yes|Files Migration Count (Recuento de archivos migrados)|Count|Total|Proporciona un total acumulado de cuántos archivos se han migrado.|Sin dimensiones|
+|InitialScanDataMigratedInBytes|Yes|Initial Scan Data Migrated in Bytes (Datos de examen inicial migrados en bytes)|Bytes|Total|Proporciona la vista del total de bytes que se han transferido en un migrador nuevo como resultado del examen inicial del sistema de archivos local. Los datos que se agregan a la migración después de la migración de examen inicial no se incluyen en esta métrica.|Sin dimensiones|
+|LiveDataMigratedInBytes|Yes|Live Data Migrated in Bytes (Datos dinámicos migrados en bytes)|Count|Total|Proporciona un total acumulado de datos dinámicos que han cambiado debido a la actividad del cliente desde que se inició la migración.|Sin dimensiones|
+|MigratorCPULoad|Yes|Migrator CPU Load (Carga de CPU del migrador)|Percent|Average|Consumo de CPU del proceso del migrador.|Sin dimensiones|
+|NumberOfExcludedPaths|Yes|Number of Excluded Paths (Número de rutas de acceso excluidas)|Count|Total|Proporciona un recuento acumulado de las rutas de acceso que se han excluido de la migración debido a las reglas de exclusión.|Sin dimensiones|
+|NumberOfFailedPaths|Yes|Number of Failed Paths (Número de rutas de acceso con error)|Count|Total|Recuento de las rutas de acceso que no se han podido migrar.|Sin dimensiones|
+|SystemCPULoad|Yes|System CPU Load (Carga de CPU del sistema)|Percent|Average|Consumo total de CPU.|Sin dimensiones|
+|TotalMigratedDataInBytes|Yes|Total Migrated Data in Bytes (Total de datos migrados en bytes)|Bytes|Total|Proporciona una vista de los bytes migrados correctamente de un migrador determinado.|Sin dimensiones|
 |TotalTransactions|Sí|Transacciones totales|Count|Total|Proporciona un total acumulado de las transacciones de datos por las que se podría facturar al usuario.|Sin dimensiones|
 
 ## <a name="next-steps"></a>Pasos siguientes

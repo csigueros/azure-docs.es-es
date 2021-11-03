@@ -14,21 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2021
 ms.author: yelevin
-ms.openlocfilehash: 0a2fd5f134cd97348fb23a88e6b40dcfbf46a275
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: d1290d5d89c4e48c8e2e875bae5e64959f6f2c36
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121779838"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037233"
 ---
 # <a name="create-custom-analytics-rules-to-detect-threats"></a>Creación de reglas de análisis personalizadas para detectar amenazas
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Después de [conectar los orígenes de datos](quickstart-onboard.md) a Azure Sentinel, cree reglas de análisis personalizadas que le ayuden a detectar las amenazas y los comportamientos anómalos de su entorno.
 
 Las reglas de análisis buscan eventos o conjuntos de eventos específicos en el entorno, le avisan cuando se alcanzan determinados umbrales de eventos o condiciones, generan incidentes para que el SOC evalúe e investigue, y responden a las amenazas con procesos de seguimiento y corrección automatizados.
 
 > [!TIP]
-> Cuando cree reglas personalizadas, use las reglas existentes como plantillas o referencias. El uso de reglas existentes como base de referencia sirve de ayuda, ya que crea la mayor parte de la lógica antes de que realice los cambios necesarios.
+> Cuando cree reglas personalizadas, use las reglas existentes como plantillas o referencias. El uso de reglas existentes como base de referencia ayuda al crear la mayor parte de la lógica antes de realizar los cambios necesarios.
 > 
 
 > [!div class="checklist"]
@@ -77,7 +80,7 @@ En la pestaña **Establecer la lógica de la regla**, puede escribir una consult
     ```
 
     > [!NOTE]
-    > **Procedimientos recomendados de consulta de reglas:** 
+    > **Procedimientos recomendados de consulta de reglas**: 
     > - La longitud de la consulta debe ser de entre 1 y 10 000 caracteres y no puede contener "`search *`" ni "`union *`". Puede usar [funciones definidas por el usuario](/azure/data-explorer/kusto/query/functions/user-defined-functions) para superar la limitación de longitud de consulta.
     >
     > - **No se admite** el uso de funciones ADX para crear consultas de Azure Data Explorer en la ventana de consulta de Log Analytics.
@@ -215,7 +218,7 @@ En la sección **Alert grouping** (Agrupación de alertas), si desea que se gene
 
 ## <a name="set-automated-responses-and-create-the-rule"></a>Establecimiento de respuestas automatizadas y creación de la regla
 
-1. En la pestaña **Automated response** (Respuestas automática), puede establecer la automatización en función de la alerta o alertas generadas por esta regla de análisis, o en función del incidente creado por las alertas.
+1. En la pestaña **Automated response** (Respuesta automática), puede establecer la automatización en función de la alerta o alertas generadas por esta regla de análisis, o en función del incidente creado por las alertas.
     - Para la automatización basada en alertas, seleccione en la lista desplegable de **Alert automation** (Automatización de alertas) los cuadernos de estrategias que quiera ejecutar automáticamente cuando se genere una alerta.
     - Para la automatización basada en incidentes, seleccione o cree una regla de automatización en **Incident automation (preview)** (Automatización de incidentes [versión preliminar]). Puede llamar a los cuadernos de estrategias (los que se basan en el **desencadenador de incidentes**) desde estas reglas de automatización, así como automatizar la evaluación de prioridades, la asignación y el cierre.
     - Para obtener más información e instrucciones sobre cómo crear cuadernos de estrategias y reglas de automatización, consulte [Automatizar las respuestas frente a amenazas](tutorial-respond-threats-playbook.md#automate-threat-responses).
@@ -290,9 +293,9 @@ Los administradores de SOC deben asegurarse de comprobar la lista de reglas peri
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Al usar reglas de análisis para detectar amenazas de Azure Sentinel, asegúrese de habilitar todas las reglas asociadas a los orígenes de datos conectados con el fin de garantizar la cobertura de seguridad completa para su entorno. La manera más eficaz de habilitar las reglas de análisis es hacerlo directamente en la página del conector de datos, que incluye las reglas relacionadas. Para obtener más información, consulte [Conexión con orígenes de datos](connect-data-sources.md).
+Al usar reglas de análisis para detectar amenazas de Azure Sentinel, asegúrese de habilitar todas las reglas asociadas a los orígenes de datos conectados con el fin de garantizar la cobertura de seguridad completa para su entorno. La manera más eficaz de habilitar las reglas de análisis es hacerlo directamente en la página del conector de datos, que enumera las reglas relacionadas. Para obtener más información, consulte [Conexión con orígenes de datos](connect-data-sources.md).
 
-También puede insertar reglas en Azure Sentinel a través de [API](/rest/api/securityinsights/) y [PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0), aunque para ello es necesario un trabajo adicional. Al usar la API o PowerShell, debe exportar las reglas a JSON antes de habilitarlas. La API o PowerShell pueden ser útiles al habilitar reglas en varias instancias de Azure Sentinel con una configuración idéntica en cada instancia.
+También puede insertar reglas en Azure Sentinel a través de [API](/rest/api/securityinsights/) y [PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0), aunque para ello es necesario un trabajo adicional. Al usar la API o PowerShell, debe exportar las reglas a JSON antes de habilitar las reglas. La API o PowerShell pueden ser útiles al habilitar reglas en varias instancias de Azure Sentinel con una configuración idéntica en cada instancia.
 
 Para más información, consulte:
 

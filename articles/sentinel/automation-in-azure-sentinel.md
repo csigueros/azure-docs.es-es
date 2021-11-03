@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2021
 ms.author: yelevin
-ms.openlocfilehash: 54d7c997ce17c927a692e84f6094e3a08f707af7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 8d846682062effff84aed263b312e3e3c2c3f72d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608832"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037308"
 ---
 # <a name="security-orchestration-automation-and-response-soar-in-azure-sentinel"></a>Orquestación de seguridad, automatización y respuesta (SOAR) en Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 En este artículo se describen las capacidades de orquestación de seguridad, automatización y respuesta (SOAR) de Azure Sentinel y se muestra cómo el uso de reglas de automatización y cuadernos de estrategias en respuesta a las amenazas de seguridad aumenta la eficacia de su centro de operaciones de seguridad (SOC) y le ahorra tiempo y recursos.
 

@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 02/08/2021
 ms.author: raynew
-ms.openlocfilehash: 7044414d47f685062331bc4aceb1b538d6f9a062
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 54c2594e823e2e78f7a3fd62afba1d0d023ff347
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112461606"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131048128"
 ---
 # <a name="modify-destination-settings"></a>Modificación de la configuración de destino
 
@@ -42,7 +42,7 @@ Las opciones de configuración que se pueden modificar se resumen en la tabla.
 **Conjunto de cifrado de disco** | Conjunto de cifrado de disco asociado si la VM usa una clave administrada por el cliente para el cifrado del lado servidor.
 **Grupos de recursos** | Grupo de recursos en el que se colocará la VM de destino.
 **Recursos de redes** | Opciones para interfaces de red, redes virtuales (VNets/) y grupos de seguridad de red/interfaces de red:<br/><br/> - Crear un nuevo recurso con el mismo nombre en la región de destino.<br/><br/> - Crear un nuevo recurso con un nombre diferente en la región de destino.<br/><br/> - Usar un recurso de red existente en la región de destino.<br/><br/> Si crea un nuevo recurso de destino, con la excepción de los valores que modifique, se le asignará la misma configuración que la del recurso de origen.
-**Nombre, SKU y zona de la dirección IP pública** | Especifica la [SKU](../virtual-network/public-ip-addresses.md#sku) y la [zona](../virtual-network/public-ip-addresses.md#standard) de las direcciones IP públicas estándar.<br/><br/> Si desea que tenga redundancia de zona, especifíquela como **Con redundancia de zona**.
+**Nombre, SKU y zona de la dirección IP pública** | Especifica la [SKU](../virtual-network/ip-services/public-ip-addresses.md#sku) y la [zona](../virtual-network/ip-services/public-ip-addresses.md#standard) de las direcciones IP públicas estándar.<br/><br/> Si desea que tenga redundancia de zona, especifíquela como **Con redundancia de zona**.
 **Nombre, SKU y zona del equilibrador de carga** | Especifica el nombre, la SKU (nivel Básico o Estándar) y la zona del equilibrador de carga.<br/><br/> Se recomienda usar la SKU Estándar.<br/><br/> Si quiere que tenga redundancia de zona, especifique **Con redundancia de zona**.
 **Dependencias de recursos** | Opciones para cada dependencia:<br/><br/>- El recurso usa recursos dependientes del origen que se moverán a la región de destino.<br/><br/> - El recurso usa distintos recursos dependientes ubicados en la región de destino. En este caso, puede elegir entre cualquier recurso similar de la región de destino.
 

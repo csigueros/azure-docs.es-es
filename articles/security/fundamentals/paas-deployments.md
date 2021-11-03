@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2021
 ms.author: terrylan
-ms.openlocfilehash: d28d55c8dff16df987f6535b0f1452b840b35c43
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 96223db4d9087395f6771a4922694592a9e51b5e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105960510"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037347"
 ---
 # <a name="securing-paas-deployments"></a>Protección de implementaciones de PaaS
 
@@ -122,7 +122,7 @@ Estas son algunos procedimientos recomendados para usar App Service.
 **Detalles**: Azure Key Vault ayuda a proteger las claves criptográficas y los secretos que usan los servicios y aplicaciones en la nube. Con Key Vault, puede cifrar claves y secretos (por ejemplo claves de autenticación, claves de cuenta de almacenamiento, claves de cifrado de datos, archivos .PFX y contraseñas) a través del uso de claves que están protegidas por módulos de seguridad de hardware (HSM). Para tener mayor seguridad, puede importar o generar las claves en HSM. Vea [Azure Key Vault](../../key-vault/general/overview.md) para más información. También puede utilizar Key Vault para administrar los certificados TLS con renovación automática.
 
 **Procedimiento recomendado**: Restricción de las direcciones IP de origen entrantes.   
-**Detalles**: [App Service Environment](../../app-service/environment/intro.md) tiene una característica de integración de la red virtual que ayuda a restringir las direcciones IP de origen entrantes mediante grupos de seguridad de red. Las redes virtuales permiten colocar recursos de Azure en una red que se pueda enrutar distinta de Internet y a la que se controla el acceso. Vea [Integración de su aplicación con una instancia de Azure Virtual Network](../../app-service/web-sites-integrate-with-vnet.md) para más información.
+**Detalles**: [App Service Environment](../../app-service/environment/intro.md) tiene una característica de integración de la red virtual que ayuda a restringir las direcciones IP de origen entrantes mediante grupos de seguridad de red. Las redes virtuales permiten colocar recursos de Azure en una red que se pueda enrutar distinta de Internet y a la que se controla el acceso. Vea [Integración de su aplicación con una instancia de Azure Virtual Network](../../app-service/overview-vnet-integration.md) para más información.
 
 **Procedimiento recomendado**: supervise el estado de seguridad de los entornos de App Service.   
 **Detalles**: use Azure Security Center para supervisar los entornos de App Service. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea [recomendaciones](../../security-center/asset-inventory.md) que lo guiarán por el proceso de configuración de los controles necesarios.

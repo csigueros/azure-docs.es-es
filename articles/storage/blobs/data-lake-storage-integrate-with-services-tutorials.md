@@ -7,12 +7,12 @@ ms.author: normesta
 ms.date: 10/06/2021
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 1c1849117b2e27198d7fb0c76590cb1cf14f0891
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: e25a4210e41505d6b8af2c5c530bdb806609f3db
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129619357"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131013543"
 ---
 # <a name="tutorials-that-use-azure-services-with-azure-data-lake-storage-gen2"></a>Tutoriales que usan los servicios de Azure con Azure Data Lake Storage Gen2
 
@@ -37,7 +37,7 @@ En este artículo se incluyen vínculos a tutoriales que muestran cómo usar var
 | Azure Cognitive Search | [Indexación y búsqueda de documentos de Azure Data Lake Storage Gen2 (versión preliminar)](../../search/search-howto-index-azure-data-lake-storage.md) |
 
 > [!NOTE]
-> En esta tabla no se refleja la lista completa de servicios de Azure que admiten Data Lake Storage Gen2. Para ver una lista de los servicios de Azure admitidos y su nivel de soporte técnico, consulte el documento en que se indica cuáles son los [servicios de Azure que admiten Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md). Para ver cómo se organizan los servicios en categorías como la ingesta, descarga, proceso y visualización, consulte [Ingesta, proceso y análisis](data-lake-storage-data-scenarios.md#ingest-process-and-analyze).
+> En esta tabla no se refleja la lista completa de servicios de Azure que admiten Data Lake Storage Gen2. Para ver una lista de los servicios de Azure admitidos y su nivel de soporte técnico, consulte el documento en que se indica cuáles son los [servicios de Azure que admiten Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md). Para ver cómo se organizan los servicios en categorías como la ingesta, descarga, proceso y visualización, consulte [Ingesta, proceso y análisis](./data-lake-storage-best-practices.md#ingest-process-and-analyze).
 
 ## <a name="see-also"></a>Consulte también
 

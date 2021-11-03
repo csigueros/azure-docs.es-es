@@ -9,12 +9,12 @@ author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
 ms.date: 09/09/2021
-ms.openlocfilehash: 7b4cc518b078565735b987ca4a13fc582e16a493
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 42e2b188f0fbc1c16b33f2cc44b7fe637dd6a8f9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124806156"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131005715"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory-or-synapse-analytics"></a>Transformación de datos mediante la actividad Hadoop MapReduce en Azure Data Factory o Synapse Analytics
 
@@ -122,5 +122,4 @@ Vea los siguientes artículos, en los que se explica cómo transformar datos de 
 * [Actividad de streaming de Hadoop](transform-data-using-hadoop-streaming.md)
 * [Actividad de Spark](transform-data-using-spark.md)
 * [Actividad personalizada de .NET](transform-data-using-dotnet-custom-activity.md)
-* [Actividad de ejecución por lotes de ML Studio (clásico)](transform-data-using-machine-learning.md)
 * [Actividad de procedimiento almacenado](transform-data-using-stored-procedure.md)

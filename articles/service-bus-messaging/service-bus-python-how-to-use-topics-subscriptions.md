@@ -7,15 +7,13 @@ ms.author: spelluru
 ms.date: 11/18/2020
 ms.topic: quickstart
 ms.devlang: python
-ms.custom:
-- devx-track-python
-- mode-api
-ms.openlocfilehash: 920aadf1cc800a8ea9d7c764cf0bcfa7cf9287f3
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.custom: devx-track-python, mode-api
+ms.openlocfilehash: a7f65a23a1be03111dc8f8d02c02fad3ce716a39
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129614030"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131036948"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-python"></a>Envío de mensajes a un tema de Azure Service Bus y recepción de mensajes de las suscripciones a ese tema (Python)
 En este artículo se muestra cómo usar Python para enviar mensajes a un tema de Service Bus y recibirlos de una suscripción a ese tema. 

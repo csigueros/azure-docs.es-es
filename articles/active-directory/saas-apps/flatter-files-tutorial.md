@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 34372fe7d623041c46d33b97e58740612adeb87a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 26ce0b43047596426c2a3a708dd336d9ca33b0c5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124834792"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046477"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Tutorial: integración de Azure Active Directory con Flatter Files
 
@@ -124,12 +124,12 @@ Para configurar el inicio de sesión único de Azure AD con Flatter Files, reali
     ![Captura de pantalla que muestra "PANEL" seleccionado en la aplicación "Flatter Files".](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
 
 3. Haga clic en **Settings** (Configuración) y, después, siga estos pasos siguientes en la pestaña **Company** (Compañía): 
-   
+
     ![Captura de pantalla que muestra la pestaña Compañía con la opción "Usar S A M L 2.0 para autenticación" activada y el botón "Configurar S A M L" seleccionado.](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
+
+    1. Seleccione **Usar SAML 2.0 para autenticación**.
     
-    a. Seleccione **Usar SAML 2.0 para autenticación**.
-    
-    b. Haga clic en **Configurar SAML**.
+    1. Haga clic en **Configurar SAML**.
 
 4. En el cuadro de diálogo **Configuración de SAML** , realice los siguientes pasos: 
    

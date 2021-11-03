@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 ms.custom: devx-track-js
-ms.openlocfilehash: b46a0145f1b73520c2416bbc0c20fb3b805c17fb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d88cdf68ddf1abfc8beb3d3357943d5c08c94af9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121746633"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131006760"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Uso del control de mapa de Azure Maps
 
@@ -88,7 +88,7 @@ Puede insertar un mapa en una página web mediante la biblioteca de JavaScript d
 
     Si utiliza una clave de suscripción para la autenticación, copie y pegue el siguiente elemento de script en el elemento `<head>` y debajo del primer elemento `<script>`. Reemplace `<Your Azure Maps Key>` por la clave de suscripción principal de Azure Maps.
 
-     ```HTML
+    ```html
     <script type="text/javascript">
         function InitMap()
         {
@@ -199,9 +199,9 @@ Puede insertar un mapa en una página web mediante la biblioteca de JavaScript d
 
    ![Imagen de mapa que muestra el resultado representado](./media/how-to-use-map-control/map-of-seattle.png)
 
-## <a name="localizing-the-map&quot;></a>Localización del mapa
+## <a name="localizing-the-map"></a>Localización del mapa
 
-Azure Maps proporciona dos formas diferentes de establecer el idioma y la vista regional del mapa representado. La primera opción es agregar esta información al espacio de nombres `atlas` global, lo que provocará que estos valores son los predeterminados en todas las instancias de control de mapa de la aplicación. El código siguiente establece el idioma en francés (&quot;fr-FR") y la vista regional en "auto":
+Azure Maps proporciona dos formas diferentes de establecer el idioma y la vista regional del mapa representado. La primera opción es agregar esta información al espacio de nombres `atlas` global, lo que provocará que estos valores son los predeterminados en todas las instancias de control de mapa de la aplicación. El código siguiente establece el idioma en francés ("fr-FR") y la vista regional en "auto":
 
 ```javascript
 atlas.setLanguage('fr-FR');

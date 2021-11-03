@@ -2,17 +2,17 @@
 title: Configuración de una conexión a una cuenta de almacenamiento mediante una identidad administrada
 titleSuffix: Azure Cognitive Search
 description: Aprenda a configurar una conexión de indexador a una cuenta de Azure Storage mediante una identidad administrada
-author: markheff
-ms.author: maheff
+author: nitinme
+ms.author: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/01/2021
-ms.openlocfilehash: 139fa020459804571129d63819a0e82e3f1737e2
-ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
+ms.openlocfilehash: 20669c08b00e75ed7e1ec87b67f3f12269512e3b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129418658"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056136"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Configuración de una conexión a una cuenta de Azure Storage mediante una identidad administrada
 
@@ -51,7 +51,7 @@ Si todavía no tiene creada una identidad administrada asignada por el usuario, 
 
 1. Seleccione **+ Crear un recurso**.
 
-1. En la barra de búsqueda "Search services and marketplace» (Servicios de búsqueda y Marketplace), busque "Identidad administrada asignada por el usuario" y, después, seleccione **Crear**.
+1. En la barra de búsqueda "Servicios de búsqueda y Marketplace", busque "Identidad administrada asignada por el usuario" y, después, seleccione **Crear**.
 
 1. Asigne un nombre descriptivo a la identidad.
 

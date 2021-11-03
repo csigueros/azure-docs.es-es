@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 115b0c01fd80b3c0542ee9ef1ce152b06c880599
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 228eab10c0c9db81b1cf1327d6746f96faa64d05
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129993480"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057123"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Administración de cuentas de acceso de emergencia en Azure AD
 
@@ -72,7 +72,7 @@ Si usa contraseñas, asegúrese de que las cuentas tengan contraseñas seguras y
 
 Las organizaciones deben supervisar la actividad de registro de auditoría e inicio de sesión de las cuentas de emergencia y desencadenar el envío de notificaciones a otros administradores. Al supervisar la actividad en las cuentas de emergencia, puede comprobar que estas cuentas solo se usen para pruebas o emergencias reales. Puede usar Azure Log Analytics para supervisar los registros de inicio de sesión y desencadenar alertas por SMS y correo electrónico a los administradores cuando las cuentas de emergencia inicien sesión.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 1. [Envíe registros de inicio de sesión de Azure AD](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) a Azure Monitor.
 
@@ -106,7 +106,7 @@ Las organizaciones deben supervisar la actividad de registro de auditoría e ini
         | where UserId == "f66e7317-2ad4-41e9-8238-3acf413f7448"
         ```
         
-         ```kusto
+        ```kusto
         // Search for multiple Object IDs (UserIds)
         SigninLogs
         | project UserId 
