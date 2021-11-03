@@ -5,14 +5,14 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 5/17/2021
+ms.date: 10/25/2021
 ms.author: cavoeg
-ms.openlocfilehash: f974cb0a5099ce23f9b7ecaf719c09239c21eca8
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: 0a6ca1bd251b65b93baf1a262acc0d22102b1ad1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824536"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084853"
 ---
 # <a name="overview-of-search-in-azure-api-for-fhir"></a>Información general de la búsqueda en Azure API for FHIR
 
@@ -136,10 +136,13 @@ Para facilitar la administración de los recursos devueltos, puede usar parámet
 | _revinclude                   | Sí                  | Sí                       |Los elementos incluidos se limitan a 100. _revinclude en PaaS y OSS en Cosmos DB no incluyen compatibilidad con :iterate [(nº 2137)](https://github.com/microsoft/fhir-server/issues/2137).  También hay un código de estado incorrecto para una solicitud incorrecta [nº 1319](https://github.com/microsoft/fhir-server/issues/1319)                            |
 | _summary                      | Sí             | Sí                   |
 | _total                        | Parcial              | Parcial                   | _total=none y _total=accurate                               |
-| _sort                         | Parcial              | Parcial                   | Se admite sort=_lastUpdated. De forma predeterminada, ordena el registro en orden ascendente. Puede usar el prefijo "-" para ordenar en orden descendente. Para Azure API for FHIR y las bases de datos de OSS Cosmos DB creadas después del 20 de abril de 2021, también se admite la ordenación por nombre, apellido y fecha clínica.          |
+| _sort                         | Parcial              | Parcial                   | sort=_lastUpdated se admite en Azure API for FHIR y el servicio FHIR. Para el servicio FHIR y los servidores FHIR de OSS SQL DB, se admite la ordenación por cadenas y campos dateTime. Para Azure API for FHIR bases de datos de Azure API for FHIR y OSS Cosmos creadas después del 20 de abril de 2021, la ordenación se admite en el nombre, el apellido y la fecha de la historia.          |
 | _contained                    | No                   | No                        |
 | _containedType                | No                   | No                        |
 | _score                        | No                   | No                        |
+
+> [!NOTE]
+> De forma `_sort` predeterminada, ordena el registro en orden ascendente. Puede usar el prefijo para `'-'` ordenar en orden descendente. Además, el servicio FHIR y el Azure API for FHIR solo le permiten ordenar en un solo campo a la vez.
 
 De manera predeterminada, Azure API for FHIR se establece en control sensible. Esto significa que el servidor omitirá los parámetros desconocidos o no admitidos. Si quiere usar un control estricto, puede usar el encabezado **Prefer** y establecer `handling=strict`.
 

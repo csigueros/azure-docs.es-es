@@ -3,21 +3,21 @@ title: 'Inicio rápido: Introducción a Translator'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a traducir texto, transliterar texto, detectar idioma, etc. con el servicio Translator. Se proporcionan ejemplos en C#, Java, JavaScript y Python.
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 07/06/2021
-ms.author: erhopf
+ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: translator, translator service, translate text, transliterate text, language detection
-ms.openlocfilehash: 10e879df320d527ab6c853a03e9eb49d1b4d50de
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 4b3aa5c75f18126f14fb3fae6c3a7a9a93b39710
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113355901"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131011833"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Inicio rápido: Introducción a Translator
 

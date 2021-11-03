@@ -12,14 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 38b595e4f9b2582f3baefecabf6285ee36436ad6
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 02ba134062b51ba074ad5d19506eef13e5e3b89c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123260067"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131004271"
 ---
 # <a name="connect-azure-stack-hub-virtual-machines-to-azure-sentinel"></a>Conexión de máquinas virtuales de Azure Stack Hub a Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Con Azure Sentinel, puede supervisar las máquinas virtuales que se ejecutan en Azure y Azure Stack Hub en un solo lugar. Para incorporar sus máquinas de Azure Stack a Azure Sentinel, primero debe agregar la extensión de máquina virtual a las máquinas virtuales de Azure Stack Hub existentes. 
 

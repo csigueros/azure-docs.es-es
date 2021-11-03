@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 03/19/2021
 ms.author: lajanuar
-ms.openlocfilehash: e7c8f676d838ae17e869accd091fc92db7efb65e
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: ae69ae943de5d5e83b08a0d654bd102c4bf95bcf
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122327654"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131026588"
 ---
 # <a name="tutorial-use-an-azure-function-to-process-stored-documents"></a>Tutorial: Uso de una instancia de Azure Functions para procesar documentos almacenados
 
@@ -34,7 +34,7 @@ En este tutorial, aprenderá a:
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services)
-* <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Creación de un recurso de Form Recognizer"  target="_blank">cree un recurso de Form Recognizer <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión de Form Recognizer. Una vez que se implemente, haga clic en **Ir al recurso**.
+* <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Creación de un recurso de Form Recognizer"  target="_blank">cree un recurso de Form Recognizer <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión de Form Recognizer. Tras su implementación, seleccione **Ir al recurso**.
   * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a la API Form Recognizer. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
   * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
 * Un documento PDF local que analizará. Puede descargar y usar este [documento de ejemplo](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample-layout.pdf).

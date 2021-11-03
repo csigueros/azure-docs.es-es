@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 9e82c980bb92832c3abd092ed799cf55b6f47438
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 9a4fa43318a7e56e93cfe3a439eadcec2e476002
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124835698"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049356"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-egnyte"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Egnyte
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Egnyte con Azure Active Directory (Azu
 * Permitir que los usuarios inicien sesión automáticamente en Egnyte con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -60,7 +60,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Form.com y utili
 Para configurar y probar el inicio de sesión único de Azure AD con Form.com, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Egnyte](#configure-egnyte-sso)**, para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Egnyte](#create-egnyte-test-user)**, para tener un homólogo de B.Simon en Egnyte que esté vinculado a la representación del usuario en Azure AD.
@@ -137,21 +137,21 @@ En esta sección, va a permitir que B.Simon acceda a Egnyte mediante el inicio d
 
     ![Single Sign On Authentication (Autenticación de inicio de sesión único)](./media/egnyte-tutorial/authentication.png "Autenticación de inicio de sesión único")   
     
-    a. En **Autenticación de inicio de sesión único**, seleccione **SAML 2.0**.
-   
-    b. En **Proveedor de identidades**, seleccione **AzureAD**.
-   
-    c. Pegue la **URL de inicio de sesión** que copió de Azure Portal en el cuadro de texto **URL de inicio de sesión del proveedor de identidades**.
-   
-    d. Pegue el **Identificador de Azure AD** que copió de Azure Portal en el cuadro de texto **Identity Provider Entity ID** (Id. de entidad del proveedor de identidades).
-      
-    e. Abra el certificado codificado en base 64 descargado de Azure Portal en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado de proveedor de identidades**.
-   
-    f. En **Asignación de usuario predeterminada**, seleccione **Dirección de correo electrónico**.
-   
-    g. En **Usar valor de emisor específico de dominio**, seleccione **deshabilitado**.
-   
-    h. Haga clic en **Save**(Guardar).
+    1. En **Autenticación de inicio de sesión único**, seleccione **SAML 2.0**.
+
+    1. En **Proveedor de identidades**, seleccione **AzureAD**.
+
+    1. Pegue la **URL de inicio de sesión** que copió de Azure Portal en el cuadro de texto **URL de inicio de sesión del proveedor de identidades**.
+
+    1. Pegue el **Identificador de Azure AD** que copió de Azure Portal en el cuadro de texto **Identity Provider Entity ID** (Id. de entidad del proveedor de identidades).
+
+    1. Abra el certificado codificado en base 64 descargado de Azure Portal en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado de proveedor de identidades**.
+
+    1. En **Asignación de usuario predeterminada**, seleccione **Dirección de correo electrónico**.
+
+    1. En **Usar valor de emisor específico de dominio**, seleccione **deshabilitado**.
+
+    1. Haga clic en **Save**(Guardar).
 
 ### <a name="create-egnyte-test-user"></a>Creación de usuario de prueba de Egnyte
 

@@ -5,20 +5,16 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: overview
-ms.date: 03/02/2021
-ms.openlocfilehash: d99c62e7d88510c351f87d85b4f8c5c271767cb3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 5d704e9fc46918624014da84ccdae46dc25817ea
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101747838"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084887"
 ---
-# <a name="what-is-azure-managed-instance-for-apache-cassandra-preview"></a>¿Qué es Azure Managed Instance for Apache Cassandra? (versión preliminar)
-
-> [!IMPORTANT]
-> Azure Managed Instance for Apache Cassandra se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="what-is-azure-managed-instance-for-apache-cassandra"></a>¿Qué es Azure Managed Instance for Apache Cassandra?
 
 El servicio Azure Managed Instance for Apache Cassandra proporciona operaciones automatizadas de implementación y escalado para centros de datos administrados de código abierto de Apache Cassandra. Este servicio le ayuda a acelerar los escenarios híbridos y a reducir el mantenimiento continuo. Dispondrá de funcionalidades de integración profunda y movimiento de datos con la [API de Cassandra de Azure Cosmos DB](../cosmos-db/cassandra-introduction.md) en su versión general.
 

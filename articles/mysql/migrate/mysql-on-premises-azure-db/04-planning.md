@@ -9,12 +9,12 @@ ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
 ms.date: 06/21/2021
-ms.openlocfilehash: 86dca0c57b473ca759c7dd2a685707c09dd11f05
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e1ef403583082f1fff631392d7a4467fe253a516
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121748195"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024190"
 ---
 # <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-planning"></a>Migración de datos de un entorno local de MySQL a Azure Database for MySQL: planeamiento
 
@@ -66,7 +66,7 @@ La ubicación de la herramienta de migración determina los requisitos de conect
 
 Los siguientes son otros aspectos sobre las redes que deben tenerse en cuenta:
 
-- Al servicio DMS ubicado en una red virtual se le asigna una [IP pública dinámica](/azure/dms/faq#setup). Cuando crea el servicio, puede colocarlo en una red virtual que tenga conectividad a través de [ExpressRoute](../../../expressroute/expressroute-introduction.md) o de una conexión [VPN de sitio a sitio](../../../vpn-gateway/tutorial-site-to-site-portal.md).
+- Al servicio DMS ubicado en una red virtual se le asigna una [IP pública dinámica](../../../dms/faq.yml). Cuando crea el servicio, puede colocarlo en una red virtual que tenga conectividad a través de [ExpressRoute](../../../expressroute/expressroute-introduction.md) o de una conexión [VPN de sitio a sitio](../../../vpn-gateway/tutorial-site-to-site-portal.md).
 
 - Cuando use una máquina virtual de Azure para ejecutar las herramientas de migración, asígnele una dirección IP pública y permita que se conecte únicamente a la instancia local de MySQL.
 

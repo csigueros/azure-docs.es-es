@@ -8,14 +8,17 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: reference
 ms.date: 07/26/2021
-ms.openlocfilehash: f31aa44237e0312d08a43155db867192d83a57ef
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: ee4aec218ba3969b54531f6f025b84b4909f6b85
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114722012"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131064551"
 ---
 # <a name="cef-and-commonsecuritylog-field-mapping"></a>Asignación de campos de CEF y CommonSecurityLog
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 En las tablas siguientes se asignan nombres de campo de Common Event Format (CEF) a los nombres que usan en el CommonSecurityLog de Azure Sentinel y pueden resultar útiles cuando se trabaja con un origen de datos de CEF en Azure Sentinel.
 

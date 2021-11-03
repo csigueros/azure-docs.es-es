@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: f4179a79df5bb952ca4a374602cb4dea8bf4dbbd
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 0f5eb88a3694e492f01dcf8646753a522f7c478c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130178265"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131064646"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Marco de seguridad: Administración de configuración | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -150,7 +150,7 @@ Código de web.config para los sitios que solo deben enmarcar las páginas del m
 
 ### <a name="example"></a>Ejemplo
 Si se puede acceder a web.config, CORS puede agregarse mediante el siguiente nodo: 
-```XML
+```xml
 <system.webServer>
     <httpProtocol>
       <customHeaders>
@@ -181,11 +181,11 @@ Tenga en cuenta que es fundamental garantizar que la lista de orígenes del atri
 
 ### <a name="example"></a>Ejemplo
 Sin embargo, se puede deshabilitar en el nivel de página: 
-```XML
+```xml
 <%@ Page validateRequest="false" %> 
 ```
 o en el nivel de aplicación 
-```XML
+```xml
 <configuration>
    <system.web>
       <pages validateRequest="false" />
@@ -218,7 +218,7 @@ Tenga en cuenta que esta característica de validación de solicitud no es compa
 
 ### <a name="example"></a>Ejemplo
 Agregue el encabezado en el archivo web.config si la aplicación está hospedada en Internet Information Services (IIS) 7 o posteriores. 
-```XML
+```xml
 <system.webServer>
 <httpProtocol>
 <customHeaders>

@@ -4,21 +4,20 @@ description: Los usuarios pueden restringir el acceso público a los recursos de
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/13/2021
-ms.openlocfilehash: eb00a9fa81b6fadd999c6c824ff7be06f76c8f4a
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 87726db1f0747c3f9383168321bc3054c685c8a9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123221758"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131038728"
 ---
 # <a name="recommended-settings-for-network-isolation"></a>Configuración recomendada para el aislamiento de red
 
 Siga los pasos siguientes para restringir el acceso público a los recursos de QnA Maker. Proteja un recurso de Cognitive Services del acceso público mediante la [configuración de la red virtual](../../cognitive-services-virtual-networks.md?tabs=portal).
 
 ## <a name="restrict-access-to-app-service-qna-runtime"></a>Restricción del acceso a App Service (entorno de ejecución de QnA)
-
-# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
 
 Puede usar ServiceTag `CognitiveServicesMangement` para restringir el acceso entrante a reglas de entrada de grupos de seguridad de red (App Service Environment) de App Service o ASE. Consulte más información sobre etiquetas de servicio en el  [artículo Etiquetas de servicio de red virtual](../../../virtual-network/service-tags-overview.md). 
 
@@ -68,22 +67,13 @@ App Service Environment (ASE) se puede usar para hospedar la instancia de App Se
 
 ### <a name="related-questions"></a>Preguntas relacionadas
 
-#### <a name="can-qna-maker-be-deployed-to-an-internal-ase"></a>¿Puede implementarse QnA Maker en un ASE interno? 
+#### <a name="can-qna-maker-be-deployed-to-an-internal-ase"></a>¿Puede implementarse QnA Maker en un ASE interno?
 
 La razón principal para usar un ASE externo es que el back-end del servicio QnAMaker (creación de API) puede llegar a App Service a través de Internet. Sin embargo, todavía puede protegerlo agregando restricciones de acceso de entrada para permitir solo conexiones desde direcciones asociadas a la etiqueta de servicio `CognitiveServicesManagement`.
 
 Si todavía quiere usar un ASE interno, debe exponer esa aplicación de QnA Maker específica en el ASE en un dominio público a través del certificado TLS/SSL DNS de App Gateway. Para obtener más información, consulte este [artículo sobre la implementación Enterprise de App Services](/azure/architecture/reference-architectures/enterprise-integration/ase-standard-deployment).
 
-    
-# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
-
-App Service no se implementa con la característica de respuesta a preguntas personalizada.
-
----
-
 ## <a name="restrict-access-to-cognitive-search-resource"></a>Restricción del acceso a los recursos de Cognitive Search
-
-# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
 
 La instancia de Cognitive Search se puede aislar a través de un punto de conexión privado después de haber creado los recursos de QnA Maker. Siga estos pasos para bloquear el acceso:
 
@@ -117,9 +107,6 @@ La instancia de Cognitive Search se puede aislar a través de un punto de conexi
      > [!div class="mx-imgBorder"]
      > [ ![Captura de pantalla de la interfaz de usuario de Integración con red virtual]( ../media/network-isolation/integration.png) ](  ../media/network-isolation/integration.png#lightbox)
 
-
-# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
-
 [Cree puntos de conexión privados](../reference-private-endpoint.md) al recurso de Azure Search.
 
 Siga los pasos siguientes para restringir el acceso público a los recursos de QnA Maker. Proteja un recurso de Cognitive Services del acceso público mediante la [configuración de la red virtual](../../cognitive-services-virtual-networks.md?tabs=portal).
@@ -131,6 +118,3 @@ Tras restringir el acceso al recurso de Cognitive Services basado en la red virt
 
      > [!div class="mx-imgBorder"]
      > [ ![Captura de pantalla de la interfaz de usuario de configuración de redes virtuales y firewall]( ../media/network-isolation/firewall.png) ](  ../media/network-isolation/firewall.png#lightbox)
-
----
-

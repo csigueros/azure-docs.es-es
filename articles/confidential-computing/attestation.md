@@ -1,40 +1,47 @@
 ---
-title: Atestación de enclaves en Azure
-description: Obtenga información sobre cómo usar la atestación para comprobar que el entorno de confianza de computación confidencial es seguro
+title: Atestación para enclaves de SGX
+description: Compruebe que el enclave de SGX de computación confidencial está protegido con atestación.
 services: virtual-machines
 author: JBCook
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
-ms.date: 9/22/2020
+ms.date: 11/01/2020
 ms.author: JenCook
-ms.openlocfilehash: a7b0ca65329016b0a73f612115d8caba43dfbe2a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 9672a40ac7008b60195b07b6a077ed5bac0eb1b4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102551358"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131011453"
 ---
-# <a name="attesting-sgx-enclaves"></a>Atestación de enclaves de SGX
+# <a name="attestation-for-sgx-enclaves"></a>Atestación para enclaves de SGX
 
-La computación confidencial en Azure ofrece máquinas virtuales basadas en Intel SGX que pueden aislar una parte del código o los datos. Al trabajar con estos [enclaves](confidential-computing-enclaves.md), se recomienda lograr la comprobación y la validación de que el entorno de confianza es seguro. Esta comprobación es el proceso de atestación. 
+La computación confidencial en Azure ofrece máquinas virtuales basadas en Intel SGX que pueden aislar una parte del código o los datos. Al trabajar con estos [enclaves](confidential-computing-enclaves.md), puede comprobar y validar que el entorno de confianza es seguro. Esta comprobación es el proceso de atestación. 
 
 ## <a name="overview"></a>Información general 
 
-La atestación permite que un usuario de confianza tenga mayor seguridad de que el software (1) se ejecuta en un enclave y (2) que el enclave está actualizado y es seguro. Por ejemplo, un enclave pide al hardware subyacente que genere una credencial que incluye la prueba de que el enclave existe en la plataforma. Luego, se puede dar al informe un segundo enclave que comprueba que el informe se generó en la misma plataforma.
+La atestación permite a un usuario de confianza tener una mayor confianza de que su software está:
 
-![Código de atestación en el enclave](media/attestation/attestation.png)
+1. Ejecutándose en un enclave
+1. Actualizado
+1. Seguridad
 
+Por ejemplo, un enclave puede pedir al hardware subyacente que genere una credencial. Esta credencial incluye la prueba de que el enclave existe en la plataforma. Un segundo enclave puede recibir y comprobar que la misma plataforma generó el informe.
 
+![Diagrama del proceso de atestación, que muestra el intercambio seguro del cliente con el enclave que contiene los datos y el código de la aplicación.](media/attestation/attestation.png)
 
-La atestación debe implementarse mediante un servicio de atestación seguro que sea compatible con el software del sistema y el silicio. Algunos ejemplos de servicios que puede usar son
+Implemente la atestación con un servicio de atestación seguro que sea compatible con el software del sistema y el silicio. Por ejemplo:
 
-- [Microsoft Azure Attestation (versión preliminar)](../attestation/overview.md) o
+- [Microsoft Azure Attestation](../attestation/overview.md) 
 - [Servicios de atestación y aprovisionamiento de Intel](https://software.intel.com/sgx/attestation-services),
 
 
-ambos compatibles con la infraestructura de Intel SGX de computación confidencial de Azure. 
+Ambos servicios son compatibles con máquinas virtuales de la serie Intel SGX DCsv2 de computación confidencial de Azure. Las máquinas virtuales de las series DCsv3 y DCdsv3 no son compatibles con el servicio de atestación de Intel. 
 
-## <a name="next-steps"></a>Pasos siguientes
-Pruebe los [ejemplos de Microsoft Azure Attestation para aplicaciones compatibles con enclaves](/samples/azure-samples/microsoft-azure-attestation/sample-code-for-intel-sgx-attestation-using-microsoft-azure-attestation/).
+## <a name="next-step"></a>Paso siguiente
+
+> [!div class="nextstepaction"]
+> [Muestras de Microsoft Azure Attestation para aplicaciones compatibles con enclaves](/samples/azure-samples/microsoft-azure-attestation/sample-code-for-intel-sgx-attestation-using-microsoft-azure-attestation/)

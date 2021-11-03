@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: oshezaf
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2021
 ms.author: ofshezaf
-ms.openlocfilehash: b3dc1575258c495a2be63eced6aa141c60bb6631
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 12f26ca7567387cd6a9edfcde0ef1229e9635f69
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128659445"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131064475"
 ---
 # <a name="azure-sentinel-information-model-asim-parsers-public-preview"></a>Analizadores del modelo de información de Azure Sentinel (ASIM) (versión preliminar pública)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 En Azure Sentinel, el análisis y la [normalización](normalization.md) tienen lugar en el tiempo de consulta. Los analizadores se crean como [funciones definidas por el usuario de KQL](/azure/data-explorer/kusto/query/functions/user-defined-functions) que transforman los datos de tablas existentes, como **CommonSecurityLog**, tablas de registros personalizados o Syslog, al esquema normalizado. Una vez que el analizador se guarda como una función de área de trabajo, se puede usar como cualquier tabla de Azure Sentinel.
 

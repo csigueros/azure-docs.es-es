@@ -7,12 +7,12 @@ ms.date: 5/19/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: 7f3fbec3fd393bb354f7ea5df1614cf1c53bfbe2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: db5bebce41e8fd13cf0796e02fc0bfe91d63a6c9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733433"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060023"
 ---
 # <a name="tutorial-use-creator-to-create-indoor-maps"></a>Tutorial: Uso de Creator para crear planos interiores
 
@@ -91,9 +91,9 @@ Para comprobar el estado del paquete de dibujo y recuperar su identificador úni
 
 1. En la aplicación Postman, seleccione **New** (Nuevo).
 
-2. En la ventana **Create New** (Crear nuevo), seleccione **HTTP Request** (Solicitud HTTP).
+2. En la ventana **Crear nuevo**, seleccione **Solicitud HTTP**.
 
-3. En **Nombre de solicitud**, escriba un nombre para la solicitud, como *Estado de carga de datos GET*.
+3. En **Request name** (Nombre de solicitud), escriba un nombre para la solicitud, como *GET Data Upload Status*.
 
 4. Seleccione el método HTTP **GET**.
 
@@ -119,7 +119,7 @@ Para recuperar los metadatos de contenido:
 
 1. En la aplicación Postman, seleccione **New** (Nuevo).
 
-2. En la ventana **Create New** (Crear nuevo), seleccione **HTTP Request** (Solicitud HTTP).
+2. En la ventana **Crear nuevo**, seleccione **Solicitud HTTP**.
 
 3. En **Nombre de solicitud**, escriba un nombre para la solicitud, como *GET Data Upload Metadata*.
 
@@ -128,7 +128,7 @@ Para recuperar los metadatos de contenido:
 5. Escriba la `resource Location URL` que copió en [Check Drawing package upload status](#check-the-drawing-package-upload-status) (Comprobación del estado de carga del paquete de dibujo). La solicitud debe ser como la siguiente dirección URL (reemplace `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal):
 
     ```http
-   https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 6. Seleccione **Enviar**.
@@ -413,7 +413,7 @@ Para consultar la colección de unidades en el conjunto de datos:
 
 7. Una vez que se devuelva la respuesta, copie la característica `id` de una de las características `unit`. En el ejemplo siguiente, el `id` de la característica es "UNIT26". En este tutorial, usaremos "UNIT26" como característica `id` en la sección siguiente.
 
-     ```json
+    ```json
     {
         "type": "FeatureCollection",
         "features": [

@@ -6,13 +6,13 @@ ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/15/2021
-ms.custom: template-how-to
-ms.openlocfilehash: ed9a6bcc77e94b569e10a439b044ce78a90faff2
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.custom: template-how-to, ignite-fall-2021
+ms.openlocfilehash: 82be52611d12b69e146fdaa477614a3dbc25242d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123226828"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131006570"
 ---
 # <a name="configure-your-azure-percept-voice-assistant-application"></a>Configuración de la aplicación de asistente para voz de Azure Percept
 
@@ -104,4 +104,3 @@ Para obtener el **identificador de la aplicación**, la **clave** y la **región
 ## <a name="next-steps"></a>Pasos siguientes
 
 Después de actualizar la configuración del asistente para voz, vuelva a la demostración de Azure Percept Studio para interactuar con la aplicación.
-

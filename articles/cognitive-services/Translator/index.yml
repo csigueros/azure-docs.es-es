@@ -6,20 +6,20 @@ metadata:
   titleSuffix: Azure Cognitive Services
   description: Traductor es un servicio de traducción automática basado en la nube que se puede utilizar para traducir texto con una simple llamada a la API REST. El servicio usa la tecnología de traducción automática neuronal más moderna, al tiempo que también ofrece la tecnología de traducción automática estadística. Traductor personalizado es una extensión de Traductor que permite crear sistemas de traducción neuronal. El sistema de traducción personalizado se puede usar para traducir texto con Traductor o con Microsoft Speech Services.
   services: cognitive-services
-  author: erhopf
+  author: laujan
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: translator-text
   ms.topic: landing-page
   ms.date: 10/14/2019
-  ms.author: erhopf
+  ms.author: lajanuar
   ms.custom: contperf-fy21q2
-  ms.openlocfilehash: 98e67bace94a4680b3f19fe64d77882ec87551ce
-  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+  ms.openlocfilehash: feea685e567c9a5d4867b3d4a47a200cc7a02117
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/13/2021
-  ms.locfileid: "121750027"
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131073441"
 landingContent:
 - title: Traductor
   linkLists:

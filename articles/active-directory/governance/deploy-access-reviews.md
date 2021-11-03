@@ -16,12 +16,12 @@ ms.date: 04/16/2021
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 141322495fe31283b90f34bbf77a7d1ebb86d00d
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: f754d527a1b469ae420ca1af53e2c3b73692a5ef
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129730477"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051845"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planeamiento de una implementación de revisiones de acceso de Azure Active Directory
 
@@ -191,7 +191,7 @@ El rol administrativo que se necesita para crear, administrar o leer una revisi�
 
 | Tipo de recurso| Crear y administrar revisiones de acceso (creadores)| Resultados de la revisión de acceso de lectura |
 | - | - | -|
-| Grupo o aplicación| Administrador global <p>Administrador de usuarios<p>Administrador de Identity Governance<p>Administrador de roles con privilegios (solo se revisa para grupos asignables de roles de Azure AD)<p>Propietario del grupo ([si lo habilita un administrador)]( create-access-review.md#allow--group-owners-to-create-and-manage-access-reviews-preview)| Administrador global<p>Lector global<p>Administrador de usuarios<p>Administrador de Identity Governance<p>Administrador de roles con privilegios<p>Lector de seguridad<p>Propietario del grupo ([si lo habilita un administrador)]( create-access-review.md#allow--group-owners-to-create-and-manage-access-reviews-preview) |
+| Grupo o aplicación| Administrador global <p>Administrador de usuarios<p>Administrador de Identity Governance<p>Administrador de roles con privilegios (solo se revisa para grupos asignables de roles de Azure AD)<p>Propietario del grupo ([si lo habilita un administrador)]( create-access-review.md#allow-group-owners-to-create-and-manage-access-reviews-of-their-groups-preview)| Administrador global<p>Lector global<p>Administrador de usuarios<p>Administrador de Identity Governance<p>Administrador de roles con privilegios<p>Lector de seguridad<p>Propietario del grupo ([si lo habilita un administrador)]( create-access-review.md#allow-group-owners-to-create-and-manage-access-reviews-of-their-groups-preview) |
 |Roles de Azure AD| Administrador global <p>Administrador de roles con privilegios|  Administrador global<p>Lector global<p>Administrador de usuarios<p>Administrador de roles con privilegios<p> <p>Lector de seguridad |
 | Roles de recursos de Azure| Administrador global<p>Propietario del recurso| Administrador global<p>Lector global<p>Administrador de usuarios<p>Administrador de roles con privilegios<p> <p>Lector de seguridad  |
 | Paquete de acceso| Administrador global<p>Administrador de usuarios<p>Administrador de Identity Governance| Administrador global<p>Lector global<p>Administrador de usuarios<p>Administrador de Identity Governance<p> <p>Lector de seguridad  |

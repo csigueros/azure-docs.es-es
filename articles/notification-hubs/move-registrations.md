@@ -7,12 +7,12 @@ ms.service: notification-hubs
 ms.topic: how-to
 ms.date: 09/07/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 0de15ab1f16ab5bc234ad6430eae5f65e608753e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ae1f52ea007746ab162f13edf77f34fe8c8157c1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128594636"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131004993"
 ---
 # <a name="move-resources-between-azure-regions"></a>Traslado de recursos entre regiones de Azure
 
@@ -54,7 +54,7 @@ Después de completar la exportación del registro del espacio de nombres anteri
 
 Los siguientes artículos son ejemplos de otros servicios que tienen un artículo sobre el traslado de región.
 
-- [Traslado de grupos de seguridad de red a otra región](/azure/virtual-network/move-across-regions-nsg-portal)
-- [Traslado de direcciones IP públicas a otra región](/azure/virtual-network/move-across-regions-publicip-portal)
-- [Traslado de una cuenta de almacenamiento a otra región](/azure/storage/common/storage-account-move?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)
-- [Traslado de recursos entre regiones (desde un grupo de recursos)](/azure/resource-mover/move-region-within-resource-group#:~:text=1%20In%20the%20Azure%20portal%2C%20open%20the%20relevant,you%20want%20to%20move.%20...%20More%20items...%20)
+- [Traslado de grupos de seguridad de red a otra región](../virtual-network/move-across-regions-nsg-portal.md)
+- [Traslado de direcciones IP públicas a otra región](../virtual-network/move-across-regions-publicip-portal.md)
+- [Traslado de una cuenta de almacenamiento a otra región](../storage/common/storage-account-move.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Traslado de recursos entre regiones (desde un grupo de recursos)](../resource-mover/move-region-within-resource-group.md)

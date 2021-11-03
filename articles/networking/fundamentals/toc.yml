@@ -40,13 +40,13 @@
         - name: Latencia de red de Azure
           href: ../azure-network-latency.md?toc=/azure/networking/fundamentals/toc.json
         - name: Preferencias de enrutamiento de Internet en Azure
-          href: ../../virtual-network/routing-preference-overview.md?toc=/azure/networking/fundamentals/toc.json
+          href: ../../virtual-network/ip-services/routing-preference-overview.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
     - name: Conectividad de red en la nube
       items:
         - name: Virtual network
           href: ../../virtual-network/virtual-networks-overview.md?toc=/azure/networking/fundamentals/toc.json
         - name: Dirección IP pública
-          href: ../../virtual-network/public-ip-addresses.md?toc=/azure/networking/fundamentals/toc.json
+          href: ../../virtual-network/ip-services/public-ip-addresses.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
         - name: DNS
           href: ../../dns/dns-overview.md?toc=/azure/networking/fundamentals/toc.json
         - name: Enrutamiento del tráfico de red
@@ -101,9 +101,9 @@
         - name: Creación de una red virtual
           href: ../../virtual-network/quick-create-portal.md?toc=/azure/networking/fundamentals/toc.json
         - name: Crear una dirección IP pública
-          href: ../../virtual-network/create-public-ip-portal.md?toc=/azure/networking/fundamentals/toc.json
+          href: ../../virtual-network/ip-services/create-public-ip-portal.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
         - name: Optimización de costos de enrutamiento
-          href: ../../virtual-network/routing-preference-portal.md?toc=/azure/networking/fundamentals/toc.json
+          href: ../../virtual-network/ip-services/routing-preference-portal.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
         - name: Creación de una puerta de enlace NAT para una conectividad saliente
           href: ../../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
         - name: Creación de una zona y un registro de Azure DNS

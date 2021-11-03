@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 10/15/2021
-ms.openlocfilehash: 53e2cc3c62cc04ef05ccfe22b4876616916b0284
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 8ddefc9ee135b897dc866826208f50f7f9ad21ed
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130074969"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084395"
 ---
 # <a name="private-access-preview-in-azure-database-for-postgresql---hyperscale-citus"></a>Acceso privado (versión preliminar) de Hiperescala (Citus) en Azure Database for PostgreSQL
 
@@ -43,7 +43,7 @@ Al habilitar el acceso privado para Hiperescala (Citus), se crea un punto de con
 
 ## <a name="private-link"></a>Private Link
 
-Puede usar [puntos de conexión privados](/azure/private-link/private-endpoint-overview) en los grupos de servidores Hiperescala (Citus) para permitir que los hosts de una red virtual (VNet) accedan de forma segura a los datos mediante un [vínculo privado](/azure/private-link/private-link-overview).
+Puede usar [puntos de conexión privados](../private-link/private-endpoint-overview.md) en los grupos de servidores Hiperescala (Citus) para permitir que los hosts de una red virtual (VNet) accedan de forma segura a los datos mediante un [vínculo privado](../private-link/private-link-overview.md).
 
 El punto de conexión privado del grupo de servidores usa una dirección IP del espacio de direcciones de la red virtual. El tráfico entre los hosts de la red virtual y los nodos de Hiperescala (Citus) pasa por un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet.
 
@@ -53,24 +53,24 @@ Puede seleccionar el acceso privado durante la creación del grupo de servidores
 
 ### <a name="using-a-private-dns-zone"></a>Uso de una zona DNS privada
 
-Se aprovisiona automáticamente una nueva zona DNS privada para cada punto de conexión privado, a menos que seleccione una de las zonas DNS privadas creadas previamente por Hiperescala (Citus). Para más información, vea la [información general sobre las zonas DNS privadas](/azure/dns/private-dns-overview).
+Se aprovisiona automáticamente una nueva zona DNS privada para cada punto de conexión privado, a menos que seleccione una de las zonas DNS privadas creadas previamente por Hiperescala (Citus). Para más información, vea la [información general sobre las zonas DNS privadas](../dns/private-dns-overview.md).
 
 El servicio Hiperescala (Citus) crea registros DNS, como `c.privatelink.mygroup01.postgres.database.azure.com`, en la zona DNS privada seleccionada para cada nodo con un punto de conexión privado. Cuando se conecta a un nodo de Hiperescala (Citus) desde una máquina virtual de Azure mediante un punto de conexión privado, Azure DNS resuelve el FQDN del nodo en una dirección IP privada.
 
-La configuración de la zona DNS privada y el emparejamiento de red virtual son independientes entre sí. Si desea conectarse a un nodo del grupo de servidores desde un cliente aprovisionado en otra red virtual (de la misma región o de otra región), debe vincular la zona DNS privada con la red virtual. Para más información, vea [Vincular la red virtual](/azure/dns/private-dns-getstarted-portal#link-the-virtual-network).
+La configuración de la zona DNS privada y el emparejamiento de red virtual son independientes entre sí. Si desea conectarse a un nodo del grupo de servidores desde un cliente aprovisionado en otra red virtual (de la misma región o de otra región), debe vincular la zona DNS privada con la red virtual. Para más información, vea [Vincular la red virtual](../dns/private-dns-getstarted-portal.md#link-the-virtual-network).
 
 > [!NOTE]
 >
 > El servicio también siempre crea registros CNAME públicos, como `c.mygroup01.postgres.database.azure.com`, para cada nodo. Sin embargo, los equipos seleccionados de la red pública de Internet solo pueden conectarse al nombre de host público si el administrador de la base de datos habilita el [acceso público](concepts-hyperscale-firewall-rules.md) al grupo de servidores.
 
-Si usa un servidor DNS personalizado, debe usar un reenviador DNS para resolver el FQDN de los nodos de Hiperescala (Citus). La dirección IP del reenviador debe ser 168.63.129.16. El servidor DNS personalizado debe estar dentro de la red virtual o bien debe poder accederse a él a través de la configuración del servidor DNS de la red virtual. Para más información, vea [Resolución de nombres con su propio servidor DNS](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server).
+Si usa un servidor DNS personalizado, debe usar un reenviador DNS para resolver el FQDN de los nodos de Hiperescala (Citus). La dirección IP del reenviador debe ser 168.63.129.16. El servidor DNS personalizado debe estar dentro de la red virtual o bien debe poder accederse a él a través de la configuración del servidor DNS de la red virtual. Para más información, vea [Resolución de nombres con su propio servidor DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 ### <a name="recommendations"></a>Recomendaciones
 
 Al habilitar el acceso privado para el grupo de servidores Hiperescala (Citus), tenga en cuenta lo siguiente:
 
 * **Tamaño de subred**: al seleccionar el tamaño de subred para el grupo de servidores Hiperescala (Citus), tenga en cuenta las necesidades actuales, como las direcciones IP para el coordinador y todos los nodos de ese grupo de servidores, y las necesidades futuras, como el crecimiento de ese grupo de servidores. Asegúrese de tener suficientes direcciones IP privadas para las necesidades actuales y futuras. Tenga en cuenta que Azure reserva cinco direcciones IP en cada subred.
-  Consulte más detalles en [esta sección de preguntas más frecuentes](/azure/virtual-network/virtual-networks-faq#configuration).
+  Consulte más detalles en [esta sección de preguntas más frecuentes](../virtual-network/virtual-networks-faq.md#configuration).
 * **Zona DNS privada**: el servicio Hiperescala (Citus) mantendrá los registros DNS con direcciones IP privadas. Asegúrese de no eliminar la zona DNS privada que se usa para los grupos de servidores Hiperescala (Citus).
 
 ## <a name="limits-and-limitations"></a>Límites y limitaciones
@@ -81,6 +81,6 @@ Consulte la página de [límites y limitaciones](concepts-hyperscale-limits.md) 
 
 * Obtenga información sobre cómo [habilitar y administrar el acceso privado](howto-hyperscale-private-access.md) (versión preliminar).
 * Siga un [tutorial](tutorial-hyperscale-private-access.md) para ver el acceso privado (versión preliminar) en acción.
-* Obtenga información sobre los [puntos de conexión privados](/azure/private-link/private-endpoint-overview).
-* Obtenga información sobre las [redes virtuales](/azure/virtual-network/concepts-and-best-practices).
-* Obtenga información sobre las [zonas DNS privadas](/azure/dns/private-dns-overview).
+* Obtenga información sobre los [puntos de conexión privados](../private-link/private-endpoint-overview.md).
+* Más información sobre las [redes virtuales](../virtual-network/concepts-and-best-practices.md)
+* Obtenga información sobre las [zonas DNS privadas](../dns/private-dns-overview.md).

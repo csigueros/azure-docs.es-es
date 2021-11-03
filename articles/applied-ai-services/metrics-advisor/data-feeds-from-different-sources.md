@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 05/26/2021
 ms.author: mbullwin
-ms.openlocfilehash: 9d5d111e86623b3de63bc9aa5d77f5a14c37fabd
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 005886c0399a89fe2e58aa669a8f7c0d33821cd3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130216777"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131026645"
 ---
 # <a name="how-to-connect-different-data-sources"></a>Conexión con distintos orígenes de datos
 
@@ -199,13 +199,13 @@ En las secciones siguientes se especifican los parámetros necesarios para todos
      
 * **Consulta**: para obtener y formular datos en datos de series temporales multidimensionales, vea [Lenguaje de consulta Kusto](/azure/data-explorer/kusto/query). Puede usar las variables `@IntervalStart` y `@IntervalEnd` en la consulta. Deben tener el formato siguiente: `yyyy-MM-ddTHH:mm:ssZ`.
 
-    Consulta de ejemplo:
+  Consulta de ejemplo:
     
-    ``` Kusto
-   [TableName] | where [TimestampColumn] >= datetime(@IntervalStart) and [TimestampColumn] < datetime(@IntervalEnd);    
-   ```
+  ```kusto
+  [TableName] | where [TimestampColumn] >= datetime(@IntervalStart) and [TimestampColumn] < datetime(@IntervalEnd);    
+  ```
 
-    Para obtener más información, consulte el [tutorial sobre cómo escribir una consulta válida](tutorials/write-a-valid-query.md).
+  Para obtener más información, consulte el [tutorial sobre cómo escribir una consulta válida](tutorials/write-a-valid-query.md).
 
 ## <a name="span-idadlazure-data-lake-storage-gen2span"></a><span id="adl">Azure Data Lake Storage Gen2</span>
 

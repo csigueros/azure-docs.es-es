@@ -4,12 +4,12 @@ description: Aprenda a configurar la recuperación ante desastres para servidore
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2021
-ms.openlocfilehash: 93a7d3274dbe682a6a08763302804c250545ec47
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 33b8df96dc4ad8272b158f73e4243b5b1cb1e706
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128591261"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075113"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar la recuperación ante desastres para servidores físicos locales en Azure
 
@@ -48,7 +48,7 @@ Antes de empezar, tenga en cuenta lo siguiente:
 Obtenga una [cuenta de Microsoft Azure](https://azure.microsoft.com/).
 
 - Puede comenzar con una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
-- Obtenga información sobre los [precios de Site Recovery](/azure/site-recovery/site-recovery-faq#pricing) y conozca los [detalles de los precios](https://azure.microsoft.com/pricing/details/site-recovery/).
+- Obtenga información sobre los [precios de Site Recovery](./site-recovery-faq.yml) y conozca los [detalles de los precios](https://azure.microsoft.com/pricing/details/site-recovery/).
 - Averigüe qué [regiones se admiten](https://azure.microsoft.com/pricing/details/site-recovery/) en Site Recovery.
 
 ### <a name="verify-azure-account-permissions"></a>Comprobar los permisos de cuenta de Azure
@@ -82,7 +82,7 @@ Tiene que instalar el Servicio de movilidad en cada servidor que quiera replicar
 
 - Puede usar una cuenta local o de dominio.
 - En el caso de máquinas virtuales de Windows, si no usa una cuenta de dominio, deshabilite el control de acceso de usuarios remotos en el equipo local. Para hacerlo, en el Registro, en **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, agregue la entrada DWORD **LocalAccountTokenFilterPolicy** con un valor de 1.
-- Para agregar la entrada del Registro para deshabilitar el valor desde una CLI, escriba: `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.`.
+- Para agregar la entrada del Registro para deshabilitar el valor desde una CLI, escriba: `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.`
 - Para Linux, la cuenta debe ser una raíz en el servidor Linux de origen.
 
 

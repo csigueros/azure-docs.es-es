@@ -7,15 +7,13 @@ ms.date: 12/13/2019
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.custom:
-- devx-track-js
-- mode-api
-ms.openlocfilehash: a3adb61c27610b07f17aae44c607e36c640cd07d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: devx-track-js, mode-api
+ms.openlocfilehash: 18c7b5a9f5ee4b1a423689852c6aad7ceef775b9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128570937"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063810"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para JavaScript
 
@@ -38,7 +36,7 @@ Recursos adicionales:
 - [Paquete (npm)](https://www.npmjs.com/package/@azure/storage-queue)
 - [Muestras](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 - Una cuenta de Azure Storage: [cree una cuenta de almacenamiento](../common/storage-account-create.md)

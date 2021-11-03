@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e610c6dd2763a029ddc0f18fe5526d77e5ff685a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 353c80be29a5bf62ed98d82374fda61a4e7b7021
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733654"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051579"
 ---
 # <a name="simulating-risk-detections-in-identity-protection"></a>Simulación de detecciones de riesgo en Identity Protection
 
@@ -93,7 +93,7 @@ En esta sección se proporcionan los pasos necesarios para probar las directivas
 Para probar una directiva de seguridad de riesgo del usuario, realice los pasos siguientes:
 
 1. Acceda a [Azure Portal](https://portal.azure.com).
-1. Vaya a **Azure Active Directory** > **Seguridad** > **Información general**.
+1. Vaya a **Azure Active Directory** > **Seguridad** > **Identity Protection** > **Información general**.
 1. Seleccione **Configurar directiva de riesgo de usuario**.
    1. En **Asignaciones**
       1. **Usuarios**: elija **Todos los usuarios** o **Seleccionar individuos y grupos** si limita el lanzamiento.
@@ -113,7 +113,7 @@ Para probar una directiva de seguridad de riesgo del usuario, realice los pasos 
 Para probar la directiva de riesgo de inicio de sesión, realice los pasos siguientes:
 
 1. Acceda a [Azure Portal](https://portal.azure.com).
-1. Vaya a **Azure Active Directory** > **Seguridad** > **Información general**.
+1. Vaya a **Azure Active Directory** > **Seguridad** > **Identity Protection** > **Información general**.
 1. Seleccione **Configurar directiva de riesgo de inicio de sesión**.
    1. En **Asignaciones**
       1. **Usuarios**: elija **Todos los usuarios** o **Seleccionar individuos y grupos** si limita el lanzamiento.

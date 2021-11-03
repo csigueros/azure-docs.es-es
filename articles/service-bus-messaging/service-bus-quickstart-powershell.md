@@ -6,15 +6,13 @@ ms.author: spelluru
 ms.date: 09/28/2021
 ms.topic: quickstart
 ms.devlang: dotnet
-ms.custom:
-- devx-track-azurepowershell
-- mode-api
-ms.openlocfilehash: f98bf871abf50e3164f0ea9ca281887e29abfba9
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.custom: devx-track-azurepowershell, mode-api
+ms.openlocfilehash: a0237c478530268e9e0e66c02fd8548169a77487
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129211760"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131083524"
 ---
 # <a name="use-azure-powershell-to-create-a-service-bus-namespace-and-a-queue"></a>Uso de Azure PowerShell para crear un espacio de nombres de Service Bus y una cola
 En este inicio rápido se muestra cómo crear un espacio de nombres de Service Bus y una cola mediante Azure PowerShell. También se muestra cómo obtener credenciales de autorización que una aplicación cliente puede usar para enviar mensajes a la cola, o recibirlos de ella. 

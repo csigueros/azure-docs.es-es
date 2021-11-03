@@ -11,12 +11,12 @@ author: scoriani
 ms.author: scoriani
 ms.reviewer: mathoma
 ms.date: 01/25/2019
-ms.openlocfilehash: 18a78ef71143968327b290548b3307a8bbcfdfd2
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: acb8a03f4cbd719f348ae5a65974b1c326b10604
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112021598"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131006285"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migración de bases de datos existentes al escalado horizontal
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -168,7 +168,7 @@ Para más información sobre los patrones comunes de la arquitectura de datos de
 
 ## <a name="questions-and-feature-requests"></a>Preguntas y solicitudes de características
 
-Si tiene alguna pregunta, utilice la [Página de preguntas y respuestas de Microsoft sobre SQL Database](/answers/topics/azure-sql-database.html). Para efectuar solicitudes de características, agréguelas en el [foro de comentarios sobre SQL Database](https://feedback.azure.com/forums/217321-sql-database/).
+Si tiene alguna pregunta, utilice la [Página de preguntas y respuestas de Microsoft sobre SQL Database](/answers/topics/azure-sql-database.html). Para efectuar solicitudes de características, agréguelas en el [foro de comentarios sobre SQL Database](https://feedback.azure.com/d365community/forum/04fe6ee0-3b25-ec11-b6e6-000d3a4f0da0).
 
 <!--Image references-->
 [1]: ./media/elastic-convert-to-use-elastic-tools/listmapping.png

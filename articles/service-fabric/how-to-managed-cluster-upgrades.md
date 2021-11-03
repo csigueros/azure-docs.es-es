@@ -3,12 +3,12 @@ title: Actualización de clústeres administrados de Azure Service Fabric
 description: Más información sobre las opciones para actualizar el clúster administrado de Azure Service Fabric
 ms.topic: how-to
 ms.date: 08/23/2021
-ms.openlocfilehash: 3374a67d2b404234feafd4bc621fd5fef745b3f4
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: e03a4cba43fba0fe8e7b1ececc5872b20961f9a8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129546704"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075075"
 ---
 # <a name="manage-service-fabric-managed-cluster-upgrades"></a>Administración de actualizaciones del clúster administrado de Service Fabric
 
@@ -96,7 +96,7 @@ GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.Serv
 
 "value": [
   {
-    "id": "subscriptions/eec8e14e-b47d-40d9-8bd9-23ff5c381b40/providers/Microsoft.ServiceFabric/locations/eastus2/environments/Windows/managedClusterVersions/7.2.477.9590",
+    "id": "subscriptions/########-####-####-####-############/providers/Microsoft.ServiceFabric/locations/eastus2/environments/Windows/managedClusterVersions/7.2.477.9590",
     "name": "7.2.477.9590",
     "type": "Microsoft.ServiceFabric/locations/environments/managedClusterVersions",
     "properties": {

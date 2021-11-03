@@ -15,14 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2021
 ms.author: yelevin
-ms.openlocfilehash: 133d5e01de4f5fe511677fc5226eb0aede258eab
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: a95327518729b854fde1ca6fa22f5b78e65554f0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123252291"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131023431"
 ---
 # <a name="connect-to-windows-servers-to-collect-security-events"></a>Conexión a servidores Windows para recopilar eventos de seguridad
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -35,7 +38,7 @@ El conector eventos de seguridad de Windows admite las siguientes versiones:
 |Versión del conector  |Descripción  |
 |---------|---------|
 |**Eventos de seguridad**     |Versión heredada, basada en el agente de Log Analytics y a veces conocida como Microsoft Monitoring Agent (MMA) o el agente OMS. <br><br>Limitado a 10 000 eventos por segundo. Para garantizar un rendimiento óptimo, asegúrese de mantener en 8500 eventos por segundo o menos.       |
-|**Eventos de seguridad de Windows**     |Versión más reciente, actualmente en versión preliminar, basada en el agente de Azure Monitor (AMA).   <br><br>Admite características adicionales, como el filtrado de registros previos a la ingesta y las reglas de recopilación de datos individuales para determinados grupos de máquinas.      |
+|**Eventos de seguridad de Windows**     |Versión más reciente **(ahora en disponibilidad general)** basada en el agente de Azure Monitor (AMA).   <br><br>Admite características adicionales, como el filtrado de registros previos a la ingesta y las reglas de recopilación de datos individuales para determinados grupos de máquinas.      |
 |     |         |
 
 
@@ -43,13 +46,12 @@ El conector eventos de seguridad de Windows admite las siguientes versiones:
 > MMA para Linux no admite el hospedaje múltiple, que envía registros a varias áreas de trabajo. Si necesita varios hospedajes, se recomienda usar el conector de **eventos de seguridad de Windows**.
 
 > [!TIP]
-> Si necesita varios agentes, puede que desee usar una escala de máquina virtual configurada para ejecutar varios agentes para la ingesta de registros, o bien usar varias máquinas. El conector de eventos de seguridad y el de eventos de seguridad de Windows se pueden usar con un equilibrador de carga para asegurarse de que las máquinas no estén sobrecargadas y para evitar la duplicación de datos.
+> Si necesita varios agentes, puede que desee usar una escala de máquina virtual configurada para ejecutar varios agentes para la ingesta de registros, o bien usar varias máquinas. Tanto el Agente Legacy como las versiones AMA del conector de eventos de seguridad de Windows se pueden usar con un equilibrador de carga para asegurarse de que las máquinas no estén sobrecargadas y para evitar la duplicación de datos.
 >
 
 En este artículo se presenta información sobre ambas versiones del conector. Seleccione las pestañas siguientes para ver la información pertinente para el conector seleccionado.
 
-
-# <a name="log-analytics-agent-legacy"></a>[Agente de Log Analytics (heredado)](#tab/LAA)
+# <a name="security-events-via-legacy-agent"></a>[Eventos de seguridad a través del agente antiguo](#tab/LAA)
 
 Puede seleccionar los eventos que se transmitirán de entre los siguientes conjuntos: <a name="event-sets"></a>
 
@@ -68,11 +70,11 @@ Puede seleccionar los eventos que se transmitirán de entre los siguientes conju
 >
 > - [Deshabilite la recopilación de eventos de seguridad](../security-center/security-center-enable-data-collection.md) en Azure Security Center y, a continuación, agregue el conector de eventos de seguridad en Azure Sentinel. Al igual que con la primera opción, podrá consultar y analizar eventos en Azure Sentinel y Azure Defender (o ASC), pero ahora podrá supervisar el estado de conectividad del conector o cambiar su configuración únicamente en Azure Sentinel.
 
-# <a name="azure-monitor-agent-new"></a>[Agente de Azure Monitor (nuevo)](#tab/AMA)
+# <a name="windows-security-events-via-azure-monitor-agent-ama"></a>[Eventos de seguridad de Windows a través del agente de Azure Monitor (AMA)](#tab/AMA)
 
-> [!IMPORTANT]
+> [!NOTE]
 >
-> - Actualmente, el conector de datos de eventos de seguridad de Windows basado en el agente de Azure Monitor (AMA) se encuentra en **Versión preliminar**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+> - El conector de datos de eventos de seguridad de Windows basado en el agente de Azure Monitor (AMA) ya está en disponibilidad general.
 
 El [agente de Azure Monitor](../azure-monitor/agents/azure-monitor-agent-overview.md) usa **reglas de recopilación de datos (DCR)** para definir los datos que se recopilan de cada agente. Las reglas de recopilación de datos permiten administrar la configuración de la recopilación a gran escala y, al mismo tiempo, habilitan configuraciones únicas con ámbito para subconjuntos de máquinas. Son independientes del área de trabajo e independientes de la máquina virtual, lo que significa que se pueden definir una vez y reutilizarlas en distintas máquinas y entornos. Consulte [Configuración de la recopilación de datos para el agente de Azure Monitor](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md).
 
@@ -83,7 +85,7 @@ En este documento se muestra cómo crear reglas de recopilación de datos.
 > [!NOTE]
 > - **Coexistencia con otros agentes**
 > 
->   El agente de Azure Monitor puede coexistir con los agentes existentes para que pueda seguir usando el conector heredado durante la evaluación o la migración. Esto es especialmente importante mientras el nuevo conector está en versión preliminar, debido a la compatibilidad limitada con las soluciones existentes. Sin embargo, debe tener cuidado al recopilar datos duplicados, ya que esto podría sesgar los resultados de las consultas y generar cargos adicionales por la ingesta y retención de datos.
+>   El agente de Azure Monitor puede coexistir con los agentes existentes para que pueda seguir usando el conector heredado durante la evaluación o la migración. Sin embargo, debe tener cuidado al recopilar datos duplicados, ya que esto podría sesgar los resultados de las consultas y generar cargos adicionales por la ingesta y retención de datos.
 > 
 > - **Recopilación de eventos de seguridad de máquinas que no son de Azure**
 > 
@@ -99,11 +101,11 @@ En este documento se muestra cómo crear reglas de recopilación de datos.
 
 ## <a name="set-up-the-windows-security-events-connector"></a>Configuración del conector de eventos de seguridad de Windows
 
-Para recopilar los eventos de seguridad de Windows en Azure Sentinel, haga lo siguiente:
+Para recopilar sus eventos de seguridad de Windows en Azure Sentinel, siga las instrucciones de la pestaña correspondiente, según la versión del conector que desee implementar:
 
-# <a name="log-analytics-agent-legacy"></a>[Agente de Log Analytics (heredado)](#tab/LAA)
+# <a name="security-events-via-legacy-agent"></a>[Eventos de seguridad a través del agente antiguo](#tab/LAA)
 
-1. En el menú de navegación de Azure Sentinel, seleccione **Data connectors** (Conectores de datos). En la lista de conectores, seleccione **Eventos de seguridad** y, a continuación, **Open connector page** (Abrir página del conector) en el panel de detalles. A continuación, siga las instrucciones en pantalla debajo de la pestaña **Instrucciones**, tal como se describe en el resto de esta sección.
+1. En el menú de navegación de Azure Sentinel, seleccione **Conectores de datos**. En la lista de conectores, seleccione **Eventos de seguridad a través de un agente antiguo** y, a continuación, **Abrir página del conector** en el panel de detalles. A continuación, siga las instrucciones en pantalla debajo de la pestaña **Instrucciones**, tal como se describe en el resto de esta sección.
 
 1. Compruebe que tiene los permisos adecuados, tal como se describe en la sección **Requisitos previos** de la página del conector.
 
@@ -134,9 +136,9 @@ Para recopilar los eventos de seguridad de Windows en Azure Sentinel, haga lo si
 
 1. Para usar el esquema correspondiente en Log Analytics para encontrar los eventos de seguridad de Windows, escriba `SecurityEvent` en la ventana de consulta.
 
-# <a name="azure-monitor-agent-new"></a>[Agente de Azure Monitor (nuevo)](#tab/AMA)
+# <a name="windows-security-events-via-azure-monitor-agent-ama"></a>[Eventos de seguridad de Windows a través del agente de Azure Monitor (AMA)](#tab/AMA)
 
-1. En el menú de navegación de Azure Sentinel, seleccione **Conectores de datos**. En la lista de conectores, seleccione **Eventos de seguridad de Windows (versión preliminar)** (Windows Security Events [Preview]) y, a continuación, en el botón **Open connector page** (Abrir página del conector) en la parte inferior derecha. A continuación, siga las instrucciones en pantalla debajo de la pestaña **Instrucciones**, tal como se describe en el resto de esta sección.
+1. En el menú de navegación de Azure Sentinel, seleccione **Conectores de datos**. En la lista de conectores, seleccione **Eventos de seguridad de Windows a través de AMA** y, a continuación, en el botón **Abrir página del conector** en la parte inferior derecha. A continuación, siga las instrucciones en pantalla debajo de la pestaña **Instrucciones**, tal como se describe en el resto de esta sección.
 
 1. Compruebe que tiene los permisos adecuados, tal como se describe en la sección **Requisitos previos** de la página del conector.
 
@@ -172,8 +174,8 @@ Verá todas las reglas de recopilación de datos (incluidas las creadas a travé
 > Get-WinEvent -LogName 'Application' -FilterXPath $XPath
 > ```
 > - Si se devuelven eventos, la consulta es válida.
-> - Si recibe el mensaje No se encontraron eventos que coincidan con los criterios de selección especificados. , la consulta puede ser válida, pero no hay eventos coincidentes en el equipo local.
-> - Si recibe el mensaje La consulta especificada no es válida, la sintaxis de la consulta no es válida.
+> - Si recibe el mensaje “*No se encontraron eventos que coincidan con los criterios de selección especificados*”, la consulta puede ser válida, pero no hay eventos coincidentes en el equipo local.
+> - Si recibe el mensaje “*La consulta especificada no es válida*”, la sintaxis de la consulta no es válida.
 
 ### <a name="create-data-collection-rules-using-the-api"></a>Creación de reglas de recopilación de datos mediante la API
 
@@ -250,7 +252,7 @@ Azure Sentinel puede aplicar aprendizaje automático (ML) a los datos de eventos
 
 **Instrucciones de configuración**
 
-1. Debe recopilar los datos de inicio de sesión de RDP (identificador de evento 4624) mediante los conector de datos de **eventos de seguridad** o de **eventos de seguridad de Windows**. Asegúrese de que ha seleccionado un [conjunto de eventos](#event-id-reference) que no sea "Ninguno" o que ha creado una regla de recopilación de datos que incluye este identificador de evento para la transmisión a Azure Sentinel.
+1. Debe recopilar los datos de inicio de sesión de RDP (identificador de evento 4624) mediante los conectores de datos de **eventos de seguridad a través de un agente antiguo** o de **eventos de seguridad de Windows a través de AMA**. Asegúrese de que ha seleccionado un [conjunto de eventos](#event-id-reference) que no sea "Ninguno" o que ha creado una regla de recopilación de datos que incluye este identificador de evento para la transmisión a Azure Sentinel.
 
 1. En el portal de Azure Sentinel, seleccione **Analytics** (Análisis) y, después, seleccione la pestaña **Rule templates** (Plantillas de reglas). Seleccione la regla **(Preview) Anomalous RDP Login Detection** [(Versión preliminar) Detección de inicio de sesión RDP anómalo] y mueva el regulador **Status** (Estado) a **Enabled** (Habilitado).
 
@@ -271,4 +273,3 @@ En la lista siguiente se muestra un desglose completo de los identificadores de 
 En este documento, ha aprendido a conectar eventos de seguridad de Windows a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
 - Empiece a detectar amenazas con Azure Sentinel mediante las reglas [integradas](detect-threats-built-in.md) o [personalizadas](detect-threats-custom.md).
-

@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 08/03/2021
-ms.openlocfilehash: 3b8fbcb310b4f972598ac7d0693eb87fac48a256
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: e714fe12ceff3bd80cc9cf4f0df106a55a064d9f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130074007"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084363"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-the-azure-cli"></a>Administración del servicio de Azure Cognitive Search con la CLI de Azure
 > [!div class="op_single_selector"]
@@ -181,7 +181,7 @@ az search service create \
 
 ## <a name="create-a-service-with-a-private-endpoint"></a>Creación de un servicio con un punto de conexión privado
 
-Los [puntos de conexión privados](../private-link/private-endpoint-overview.md) para Azure Cognitive Search permiten a un cliente de una red virtual obtener acceso de forma segura a los datos de un índice de búsqueda a través de un [vínculo privado](../private-link/private-link-overview.md). El punto de conexión privado usa una dirección IP del [espacio de direcciones de la red virtual](../virtual-network/private-ip-addresses.md) para el servicio de búsqueda. El tráfico de red entre el cliente y el servicio de búsqueda atraviesa la red virtual y un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet. Para obtener más información, consulte la documentación sobre la [creación de un punto de conexión privado para Azure Cognitive Search](service-create-private-endpoint.md).
+Los [puntos de conexión privados](../private-link/private-endpoint-overview.md) para Azure Cognitive Search permiten a un cliente de una red virtual obtener acceso de forma segura a los datos de un índice de búsqueda a través de un [vínculo privado](../private-link/private-link-overview.md). El punto de conexión privado usa una dirección IP del [espacio de direcciones de la red virtual](../virtual-network/ip-services/private-ip-addresses.md) para el servicio de búsqueda. El tráfico de red entre el cliente y el servicio de búsqueda atraviesa la red virtual y un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet. Para obtener más información, consulte la documentación sobre la [creación de un punto de conexión privado para Azure Cognitive Search](service-create-private-endpoint.md).
 
 En el ejemplo siguiente se muestra cómo crear un servicio de búsqueda con un punto de conexión privado.
 

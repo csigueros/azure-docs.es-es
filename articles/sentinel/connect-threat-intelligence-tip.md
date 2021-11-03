@@ -13,14 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2021
 ms.author: yelevin
-ms.openlocfilehash: e1f6a508e72277fcc596a5217b0c5a061758e131
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: dae86dee7843f6e763d343ffab025161762cc8cd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123253571"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131004385"
 ---
 # <a name="connect-your-threat-intelligence-platform-to-azure-sentinel"></a>Conexión de la plataforma de inteligencia sobre amenazas a Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -40,7 +43,7 @@ Obtenga más información sobre la [inteligencia sobre amenazas](understand-thre
 
 - Debe tener permisos de lectura y escritura en el área de trabajo de Azure Sentinel para almacenar los indicadores de amenazas.
 
-## <a name="instructions"></a>Instrucciones
+## <a name="instructions"></a>Instructions
 
 Siga estos pasos para importar indicadores de amenazas a Azure Sentinel desde su TIP integrada o solución de inteligencia sobre amenazas personalizada:
 1.  Obtenga un id. de la aplicación y un secreto de cliente en Azure Active Directory

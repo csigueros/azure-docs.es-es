@@ -45,7 +45,7 @@
       href: howto-create-users.md
     - name: Configuración de parámetros del servidor
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-cli.md
@@ -57,7 +57,7 @@
   items:
     - name: Diseño de una base de datos
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: tutorial-design-database-using-portal.md
         - name: Azure CLI
           href: tutorial-design-database-cli.md
@@ -85,7 +85,7 @@
           href: howto-create-manage-server-portal.md
     - name: Almacenamiento de crecimiento automático
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-auto-grow-storage-portal.md
         - name: Azure CLI
           href: howto-auto-grow-storage-cli.md
@@ -93,7 +93,7 @@
           href: howto-auto-grow-storage-powershell.md
     - name: Reinicio del servidor
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-restart-server-portal.md
         - name: Azure CLI
           href: howto-restart-server-cli.md
@@ -175,7 +175,7 @@
       href: concepts-backup.md
     - name: Restauración de un servidor
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-restore-server-portal.md
         - name: Azure CLI
           href: howto-restore-server-cli.md
@@ -200,8 +200,6 @@
       href: concepts-query-store.md
     - name: Información de rendimiento de consultas
       href: concepts-query-performance-insight.md
-    - name: Recomendaciones de rendimiento
-      href: concepts-performance-recommendations.md
     - name: Recomendaciones de Azure Advisor
       href: concepts-azure-advisor-recommendations.md
 - name: Replicación

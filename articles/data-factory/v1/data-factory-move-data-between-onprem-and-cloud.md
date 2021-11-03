@@ -8,12 +8,12 @@ ms.subservice: v1
 ms.topic: conceptual
 ms.date: 10/22/2021
 robots: noindex
-ms.openlocfilehash: 90fd10d9ccde297989f6c372562bc088240783a7
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: ac9b0d0105ed28847fbf0db4d7ba8cc420fa2328
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130264263"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059649"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Movimiento de datos entre orígenes locales y la nube con Data Management Gateway
 > [!NOTE]
@@ -187,7 +187,7 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
 ### <a name="prepare-on-premises-sql-server-for-the-tutorial"></a>Preparación de la instancia local de SQL Server para el tutorial
 1. En la base de datos que ha especificado para el servicio vinculado de SQL Server (**SqlServerLinkedService**), use el siguiente script de SQL para crear la tabla **emp** en la base de datos.
 
-    ```SQL   
+    ```sql
     CREATE TABLE dbo.emp
     (
         ID int IDENTITY(1,1) NOT NULL,
@@ -197,9 +197,10 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
     )
     GO
     ```
+
 2. Inserte algún ejemplo en la tabla:
 
-    ```SQL
+    ```sql
     INSERT INTO emp VALUES ('John', 'Doe')
     INSERT INTO emp VALUES ('Jane', 'Doe')
     ```
@@ -207,10 +208,11 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
 ### <a name="create-input-dataset"></a>Creación de un conjunto de datos de entrada
 
 1. En **Data Factory Editor**, haga clic en **... Más**, haga clic en **Nuevo conjunto de datos** en la barra de comandos y seleccione **Tabla de SQL Server**.
+
 2. Reemplace el script JSON del panel derecho por el texto siguiente:
 
-    ```JSON   
-    {        
+    ```json
+    {
         "name": "EmpOnPremSQLTable",
         "properties": {
             "type": "SqlServerTable",
@@ -231,8 +233,9 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
                 }
             }
         }
-    }     
-    ```       
+    }
+    ```
+
    Tenga en cuenta los siguientes puntos:
 
    * **type** está establecido en **SqlServerTable**.
@@ -241,14 +244,15 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
    * Para un conjunto de datos de entrada no generado por otra canalización en Azure Data Factory, tiene que establecer la propiedad **external** en **true**. Indica que los datos de entrada se han producido fuera del servicio Azure Data Factory. Opcionalmente, puede especificar las directivas de datos externos mediante el elemento **externalData** en la sección **Policy**.    
 
    Para más información acerca de las propiedades de JSON, consulte [Movimiento de datos hacia y desde SQL Server](data-factory-sqlserver-connector.md).
-3. Haga clic en **Implementar** en la barra de comandos para implementar el conjunto de datos.  
+
+3. Haga clic en **Implementar** en la barra de comandos para implementar el conjunto de datos.
 
 ### <a name="create-output-dataset"></a>Creación del conjunto de datos de salida
 
 1. En el **Editor de Data Factory**, haga clic en **Nuevo conjunto de datos** en la barra de comandos y seleccione **Azure Blob Storage**.
 2. Reemplace el script JSON del panel derecho por el texto siguiente:
 
-    ```JSON   
+    ```json
     {
         "name": "OutputBlobTable",
         "properties": {
@@ -266,8 +270,9 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
                 "interval": 1
             }
         }
-     }
-    ```   
+    }
+    ```
+
    Tenga en cuenta los siguientes puntos:
 
    * **type** está establecido en **AzureBlob**.
@@ -344,11 +349,10 @@ En este paso, va a crear una **canalización** con una **actividad de copia** qu
          "isPaused": false
        }
      }
-    ```   
+    ```
+
    > [!IMPORTANT]
    > Reemplace el valor de la propiedad **start** por el día actual y el valor **end** por el próximo día.
-   >
-   >
 
    Tenga en cuenta los siguientes puntos:
 

@@ -9,12 +9,13 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 03/24/2021
 ms.author: JenCook
-ms.openlocfilehash: 72c3f523ebc3cfef43709153c09c416d32e0b1b8
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 2f74c34f9c0b2e854a23753b755a9d83f93d6bf0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114469606"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024480"
 ---
 # <a name="run-an-application-by-using-fortanix-confidential-computing-manager"></a>Ejecución de una aplicación mediante Fortanix Confidential Computing Manager
 
@@ -125,7 +126,7 @@ Al crear una instancia de Node Agent de Fortanix, se implementará una máquina 
 1. En esta página, escribirá la información para implementar una máquina virtual. La VM es una máquina virtual habilitada para Intel SGX de la serie DCsv2 de Azure con el software Node Agent de Fortanix instalado. Node Agent permitirá que la imagen convertida se ejecute con mayor seguridad en los nodos de Intel SGX en Azure. Seleccione la suscripción y el grupo de recursos en los que quiere implementar la máquina virtual y los recursos asociados.
 
    > [!NOTE]
-   > Las restricciones se aplican al implementar máquinas virtuales de la serie DCsv2 en Azure. Es posible que tenga que solicitar la cuota para núcleos adicionales. Para más información, consulte [Soluciones de computación confidencial en máquinas virtuales de Azure](./virtual-machine-solutions.md).
+   > Las restricciones se aplican al implementar máquinas virtuales de la serie DCsv2 en Azure. Es posible que tenga que solicitar la cuota para núcleos adicionales. Para más información, consulte [Soluciones de computación confidencial en máquinas virtuales de Azure](./virtual-machine-solutions-sgx.md).
 
 1. Seleccione una región disponible.
 1. En el cuadro **Nombre de nodo**, escriba un nombre para la máquina virtual.
@@ -175,7 +176,7 @@ Para eliminar la cuenta de Fortanix Confidential Computing Manager que ha creado
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha usado las herramientas de Fortanix para convertir la imagen de una aplicación para que se ejecute en una máquina virtual de computación confidencial. Para obtener más información sobre las máquinas virtuales de computación confidencial en Azure, consulte [Soluciones en máquinas virtuales](virtual-machine-solutions.md).
+En este tutorial, ha usado las herramientas de Fortanix para convertir la imagen de una aplicación para que se ejecute en una máquina virtual de computación confidencial. Para obtener más información sobre las máquinas virtuales de computación confidencial en Azure, consulte [Soluciones en máquinas virtuales](virtual-machine-solutions-sgx.md).
 
 Para obtener más información sobre las ofertas de computación confidencial de Azure, consulte [Introducción a la computación confidencial de Azure](overview.md).
 

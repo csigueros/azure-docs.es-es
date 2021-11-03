@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.subservice: v1
 ms.topic: tutorial
 ms.date: 10/22/2021
-ms.openlocfilehash: 09ac4bda1841dd951fd7554f3c57b39ecee98d4a
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 8c26992ab292f0c75a5ad61000bad0de8eb8a8b7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130260120"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040782"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Tutorial: Compilación de la primera factoría de datos de Azure mediante Azure PowerShell
 > [!div class="op_single_selector"]
@@ -48,30 +48,40 @@ La canalización de este tutorial tiene una actividad: **actividad de HDInsight 
 En este paso, utilice Azure PowerShell para crear una Azure Data Factory llamada **FirstDataFactoryPSH**. Una factoría de datos puede tener una o más canalizaciones. Una canalización puede tener una o más actividades. Por ejemplo, una actividad de copia para copiar datos desde un origen hasta un almacén de datos de destino o una actividad de Hive de HDInsight para ejecutar un script de Hive que transforme los datos de entrada. Comencemos con la creación de la factoría de datos en este paso.
 
 1. Inicie Azure PowerShell y ejecute el comando siguiente. Mantenga Azure PowerShell abierto hasta el final de este tutorial. Si lo cierra y vuelve a abrirlo, deberá ejecutar los comandos de nuevo.
+
    * Ejecute el siguiente comando y escriba el nombre de usuario y la contraseña que utiliza para iniciar sesión en el Portal de Azure.
-     ```PowerShell
+
+     ```powershell
      Connect-AzAccount
-     ```    
+     ```
+
    * Ejecute el siguiente comando para ver todas las suscripciones para esta cuenta.
-     ```PowerShell
+
+     ```powershell
      Get-AzSubscription  
      ```
+
    * Ejecute el comando siguiente para seleccionar la suscripción con la que desea trabajar. Esta suscripción debe ser la misma que la que usó en el Portal de Azure.
-     ```PowerShell
+
+     ```powershell
      Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
-     ```     
+     ```
+
 2. Cree un grupo de recursos de Azure con el nombre: **ADFTutorialResourceGroup** mediante la ejecución del siguiente comando:
     
-    ```PowerShell
+    ```powershell
     New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
+
     En algunos de los pasos de este tutorial se supone que se usa el grupo de recursos denominado ADFTutorialResourceGroup. Si usa un otro grupo de recursos, deberá usarlo en lugar de ADFTutorialResourceGroup en este tutorial.
+
 3. Ejecute el cmdlet **New-AzDataFactory** que crea una factoría de datos denominada **FirstDataFactoryPSH**.
 
-    ```PowerShell
+    ```powershell
     New-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH –Location "West US"
     ```
-   Tenga en cuenta los siguientes puntos:
+
+Tenga en cuenta lo siguiente:
 
 * El nombre de Azure Data Factory debe ser único de forma global. Si recibe el error: **El nombre de la factoría de datos "FirstDataFactoryPSH" no está disponible**, cambie el nombre (por ejemplo, suNombreFirstDataFactoryPSH). Use este nombre en lugar de ADFTutorialFactoryPSH mientras lleva a cabo los pasos de este tutorial. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.
 * Para crear instancias de Data Factory, debe ser administrador o colaborador de la suscripción de Azure.
@@ -80,14 +90,16 @@ En este paso, utilice Azure PowerShell para crear una Azure Data Factory llamada
 
   * En Azure PowerShell, ejecute el siguiente comando para registrar el proveedor de Data Factory:
 
-    ```PowerShell
+    ```powershell
     Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
-      Puede ejecutar el comando siguiente para confirmar que se ha registrado el proveedor de Data Factory:
 
-    ```PowerShell
+    Puede ejecutar el comando siguiente para confirmar que se ha registrado el proveedor de Data Factory:
+
+    ```powershell
     Get-AzResourceProvider
     ```
+
   * Inicie sesión mediante la suscripción de Azure en el [Portal de Azure](https://portal.azure.com) y vaya a una hoja de Data Factory (o) cree una factoría de datos en el Portal de Azure. Esta acción registra automáticamente el proveedor.
 
 Antes de crear una canalización, debe crear algunas entidades de factoría de datos primero. En primer lugar, cree servicios vinculados para vincular los almacenes de datos y procesos con su almacén de datos, luego defina los conjuntos de datos de entrada y salida para representar los datos de entrada/salida en los almacenes de datos vinculados y, finalmente, cree la canalización con una actividad que utilice estos conjuntos de datos.
@@ -116,19 +128,21 @@ En este paso, vinculará su cuenta de Azure Storage con su factoría de datos. T
 2. En Azure PowerShell, cambie a la carpeta ADFGetStarted.
 3. Puede usar el cmdlet **New-AzDataFactoryLinkedService** que crea un servicio vinculado. Tanto cmdlet como otros cmdlets de Data Factory que usa en este tutorial requieren que se pasen los valores de los parámetros *ResourceGroupName* y *DataFactoryName*. Como alternativa, puede usar **Get-AzDataFactory** para obtener un objeto **DataFactory** y pasarlo sin necesidad de escribir *ResourceGroupName* y *DataFactoryName* cada vez que ejecuta un cmdlet. Ejecute el comando siguiente para asignar el resultado del cmdlet **Get-AzDataFactory** a una variable **$df**.
 
-    ```PowerShell
-    $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH
+    ```powershell
+    $df = Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH
     ```
 4. Ahora, ejecute el cmdlet **New-AzDataFactoryLinkedService** que crea el servicio vinculado **StorageLinkedService**.
 
-    ```PowerShell
+    ```powershell
     New-AzDataFactoryLinkedService $df -File .\StorageLinkedService.json
     ```
+
     Si no hubiera ejecutado el cmdlet **Get-AzDataFactory** y asignado la salida a la variable **$df**, tendría que especificar valores para los parámetros *ResourceGroupName* y *DataFactoryName* de la siguiente forma.
 
-    ```PowerShell
+    ```powershell
     New-AzDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName FirstDataFactoryPSH -File .\StorageLinkedService.json
     ```
+
     Si cierra Azure PowerShell en mitad del tutorial, tendrá que ejecutar el cmdlet **Get-AzDataFactory** la próxima vez que inicie Azure PowerShell para completar el tutorial.
 
 ### <a name="create-azure-hdinsight-linked-service"></a>Creación de un servicio vinculado de HDInsight de Azure
@@ -169,8 +183,8 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 
      Para más información, consulte la sección [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) .
 2. Ejecute el cmdlet **New-AzDataFactoryLinkedService** que crea el servicio vinculado llamado HDInsightOnDemandLinkedService.
-    
-    ```PowerShell
+
+    ```powershell
     New-AzDataFactoryLinkedService $df -File .\HDInsightOnDemandLinkedService.json
     ```
 
@@ -218,7 +232,7 @@ En este paso, creará conjuntos de datos que representan los datos de entrada y 
    | external |Esta propiedad se establece en true si el servicio Factoría de datos no ha generado los datos de entrada. |
 2. Ejecute el comando siguiente en Azure PowerShell para crear el conjunto de datos de Data Factory:
 
-    ```PowerShell
+    ```powershell
     New-AzDataFactoryDataset $df -File .\InputTable.json
     ```
 
@@ -247,10 +261,12 @@ Ahora, se crea el conjunto de datos de salida que representa los datos de salida
       }
     }
     ```
+
     Este código JSON define un conjunto de datos denominado **AzureBlobOutput**, que representa los datos de salida de una actividad en la canalización. Además, especifica que los resultados se almacenan en el contenedor de blobs **adfgetstarted** y en la carpeta **partitioneddata**. La sección **availability** especifica que el conjunto de datos de salida se genera mensualmente.
+
 2. Ejecute el comando siguiente en Azure PowerShell para crear el conjunto de datos de Data Factory:
 
-    ```PowerShell
+    ```powershell
     New-AzDataFactoryDataset $df -File .\OutputTable.json
     ```
 
@@ -323,9 +339,10 @@ En este paso, creará la primera canalización con una actividad **HDInsightHive
 
 2. Confirme que el archivo **input.log** aparece en la carpeta **adfgetstarted/inputdata** en Azure Blob Storage y ejecute el siguiente comando para implementar la canalización. Como las fechas de **inicio** y **finalización** están establecidas en el pasado e **isPaused** está establecido en false, la canalización (la actividad de la canalización) se ejecuta nada más realizar la implementación.
 
-    ```PowerShell
+    ```powershell
     New-AzDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json
     ```
+
 3. Enhorabuena, ya creó correctamente su primera canalización con Azure PowerShell.
 
 ## <a name="monitor-pipeline"></a>Supervisión de la canalización
@@ -333,17 +350,19 @@ En este paso, se usa Azure PowerShell para supervisar lo que ocurre en una Data 
 
 1. Ejecute **Get-AzDataFactory** y asigne el resultado a la variable **$df**.
 
-    ```PowerShell
-    $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH
+    ```powershell
+    $df = Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH
     ```
+
 2. Ejecute **Get-AzDataFactorySlice** para obtener la información sobre todos los segmentos de **EmpSQLTable**, que es la tabla de salida de la canalización.
 
-    ```PowerShell
+    ```powershell
     Get-AzDataFactorySlice $df -DatasetName AzureBlobOutput -StartDateTime 2017-07-01
     ```
+
     Observe que la StartDateTime que especifique aquí es la misma hora de inicio especificada en el JSON de la canalización. Este es la salida de ejemplo:
 
-    ```PowerShell
+    ```output
     ResourceGroupName : ADFTutorialResourceGroup
     DataFactoryName   : FirstDataFactoryPSH
     DatasetName       : AzureBlobOutput
@@ -355,15 +374,16 @@ En este paso, se usa Azure PowerShell para supervisar lo que ocurre en una Data 
     LatencyStatus     :
     LongRetryCount    : 0
     ```
+
 3. Ejecute **Get-AzDataFactoryRun** para más información de las ejecuciones de actividad para un segmento específico.
 
-    ```PowerShell
+    ```powershell
     Get-AzDataFactoryRun $df -DatasetName AzureBlobOutput -StartDateTime 2017-07-01
     ```
 
     Este es la salida de ejemplo: 
 
-    ```PowerShell
+    ```output
     Id                  : 0f6334f2-d56c-4d48-b427-d4f0fb4ef883_635268096000000000_635292288000000000_AzureBlobOutput
     ResourceGroupName   : ADFTutorialResourceGroup
     DataFactoryName     : FirstDataFactoryPSH
@@ -382,6 +402,7 @@ En este paso, se usa Azure PowerShell para supervisar lo que ocurre en una Data 
     PipelineName        : MyFirstPipeline
     Type                : Script
     ```
+
     Puede seguir ejecutando este cmdlet hasta que vea que el segmento se encuentra en el estado **Listo** o **Con error**. Cuando el segmento tenga el estado Listo, busque los datos de salida en la carpeta **partitioneddata** del contenedor **adfgetstarted** del almacenamiento de blobs.  La creación de un clúster de HDInsight a petición normalmente requiere algo de tiempo.
 
     :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-powershell/three-ouptut-files.png" alt-text="datos de salida":::

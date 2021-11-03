@@ -5,12 +5,12 @@ services: service-fabric
 documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 4aed4ab38db9f8d8b95647b6662245c93778afed
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: c527c80b540f38102792f1e2da27c25e55c7fb77
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107520163"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131003986"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Introducción a los clústeres de Service Fabric en Azure
 Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Una máquina física o virtual que forma parte de un clúster se denomina nodo del clúster. Los clústeres pueden escalarse a miles de nodos. Si agrega nuevos nodos al clúster, Service Fabric reequilibra las réplicas e instancias de la partición del servicio en el número aumentado de nodos. El rendimiento general de la aplicación mejora y se reduce la contención para el acceso a la memoria. Si los nodos del clúster no se usan de forma eficaz, puede reducir su número de nodos. Service Fabric vuelve a reequilibrar las réplicas e instancias de la partición en el número reducido de nodos para aprovechar mejor el hardware de cada nodo.
@@ -46,9 +46,9 @@ Puede usarlos para implementar y administrar una colección de máquinas virtual
 Para más información, consulte los [tipos de nodos y conjuntos de escalado de máquinas virtuales de Azure Service Fabric](service-fabric-cluster-nodetypes.md).
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-Las instancias de máquina virtual se unen detrás de una instancia de [Azure Load Balancer](../load-balancer/load-balancer-overview.md), que está asociada a una [dirección IP pública](../virtual-network/public-ip-addresses.md) y una etiqueta DNS.  Cuando aprovisiona un clúster con un *&lt;nombreclúster&gt;* , el nombre DNS, *&lt;nombreclúster&gt;.&lt;ubicación&gt;.cloudapp.azure.com* es la etiqueta DNS asociada con el equilibrador de carga delante del conjunto de escalado.
+Las instancias de máquina virtual se unen detrás de una instancia de [Azure Load Balancer](../load-balancer/load-balancer-overview.md), que está asociada a una [dirección IP pública](../virtual-network/ip-services/public-ip-addresses.md) y una etiqueta DNS.  Cuando aprovisiona un clúster con un *&lt;nombreclúster&gt;* , el nombre DNS, *&lt;nombreclúster&gt;.&lt;ubicación&gt;.cloudapp.azure.com* es la etiqueta DNS asociada con el equilibrador de carga delante del conjunto de escalado.
 
-Las máquinas virtuales en un clúster solo tienen [direcciones IP privadas](../virtual-network/private-ip-addresses.md).  El tráfico de administración y el tráfico del servicio se enrutan a través del equilibrador de carga orientado al público.  El tráfico de red se enruta a estas máquinas a través de las reglas NAT (los clientes se conectan a instancias o nodos específicos) o las reglas de equilibrio de carga (el tráfico se dirige a las máquinas virtuales en round robin).  Un equilibrador de carga tiene una dirección IP pública asociada con un nombre DNS en el formato: *&lt;nombreclúster&gt;.&lt; ubicación&gt;.cloudapp.azure.com*.  Una dirección IP pública es otro recurso de Azure en el grupo de recursos.  Si define varios tipos de nodo en un clúster, se crea un equilibrador de carga para cada conjunto de escalado o tipo de nodo. O bien, puede configurar un solo equilibrador de carga para varios tipos de nodo.  El tipo de nodo principal tiene la etiqueta DNS *&lt;nombreclúster&gt;.&lt;ubicación&gt;.cloudapp.azure.com*, otros tipos de nodos tienen la etiqueta DNS *&lt;nombreclúster&gt;-&lt;tiponodo&gt;.&lt;ubicación&gt;.cloudapp.azure.com*.
+Las máquinas virtuales en un clúster solo tienen [direcciones IP privadas](../virtual-network/ip-services/private-ip-addresses.md).  El tráfico de administración y el tráfico del servicio se enrutan a través del equilibrador de carga orientado al público.  El tráfico de red se enruta a estas máquinas a través de las reglas NAT (los clientes se conectan a instancias o nodos específicos) o las reglas de equilibrio de carga (el tráfico se dirige a las máquinas virtuales en round robin).  Un equilibrador de carga tiene una dirección IP pública asociada con un nombre DNS en el formato: *&lt;nombreclúster&gt;.&lt; ubicación&gt;.cloudapp.azure.com*.  Una dirección IP pública es otro recurso de Azure en el grupo de recursos.  Si define varios tipos de nodo en un clúster, se crea un equilibrador de carga para cada conjunto de escalado o tipo de nodo. O bien, puede configurar un solo equilibrador de carga para varios tipos de nodo.  El tipo de nodo principal tiene la etiqueta DNS *&lt;nombreclúster&gt;.&lt;ubicación&gt;.cloudapp.azure.com*, otros tipos de nodos tienen la etiqueta DNS *&lt;nombreclúster&gt;-&lt;tiponodo&gt;.&lt;ubicación&gt;.cloudapp.azure.com*.
 
 ### <a name="storage-accounts"></a>Cuentas de almacenamiento
 Cada tipo de nodo de clúster es compatible con una [cuenta de almacenamiento de Azure](../storage/common/storage-introduction.md) y discos administrados.
@@ -71,7 +71,7 @@ Para más información, lea [Seguridad de cliente a nodo](service-fabric-cluster
 ### <a name="role-based-access-control"></a>Control de acceso basado en rol
 El control de acceso basado en rol de Azure (Azure RBAC) le permite asignar controles de acceso específicos en los recursos de Azure.  Puede asignar diferentes reglas de acceso a las suscripciones, los grupos de recursos y los recursos.  A menos que se reemplacen en un nivel inferior, se heredan las reglas de Azure RBAC a lo largo de la jerarquía de recursos.  Puede asignar reglas de Azure RBAC a cualquier usuario o grupo de usuarios de su entorno de AAD para que los usuarios y grupos designados puedan modificar el clúster.  Para obtener más información, lea la [introducción a RBAC en Azure](../role-based-access-control/overview.md).
 
-Service Fabric también admite el control de acceso para limitar este a determinadas operaciones de clúster para los diferentes grupos de usuarios. Esto ayuda a que el clúster esté más protegido. Se admiten dos tipos de control de acceso para los clientes que se conectan a un clúster: rol de administrador y usuario.  
+Service Fabric también admite el control de acceso para limitar este a determinadas operaciones de clúster para los diferentes grupos de usuarios. Esto ayuda a que el clúster esté más protegido. Se admiten dos tipos de control de acceso para los clientes que se conectan a un clúster: Rol de administrador y rol de usuario.  
 
 Para obtener más información, consulte [Control de acceso basado en rol de Service Fabric](service-fabric-cluster-security.md#service-fabric-role-based-access-control).
 

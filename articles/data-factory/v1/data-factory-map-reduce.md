@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
 ms.date: 10/22/2021
-ms.openlocfilehash: 5794b32e96196ff0612c917e7bfbaebc4b9bc9fc
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 0528e98a3e2d23322d3f67d71057ebf431cc8d9a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130264130"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073175"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Invocar programas MapReduce desde la factoría de datos de Azure
 > [!div class="op_single_selector" title1="Actividades de transformación"]
@@ -51,7 +51,7 @@ En la definición de JSON para la actividad de HDInsight:
 4. Especifique el servicio vinculado que hace referencia al Almacenamiento de blobs de Azure que contiene el archivo JAR para la propiedad **jarLinkedService**.   
 5. Especifique cualquier argumento para el programa MapReduce en la sección **arguments**. En tiempo de ejecución, verá unos argumentos adicionales (por ejemplo, mapreduce.job.tags) desde el marco de trabajo MapReduce. Para diferenciar sus argumentos con los argumentos de MapReduce, considere el uso tanto de opción como valor como argumentos tal como se muestra en el siguiente ejemplo (-s, --input, --output etc., son opciones seguidas inmediatamente por sus valores).
 
-    ```JSON   
+    ```json
     {
         "name": "MahoutMapReduceSamplePipeline",
         "properties": {
@@ -105,7 +105,8 @@ En la definición de JSON para la actividad de HDInsight:
         }
     }
     ```
-   Puede usar la actividad MapReduce de HDInsight para ejecutar cualquier archivo jar de MapReduce en un clúster de HDInsight. En la siguiente definición de JSON de ejemplo de una canalización, la actividad de HDInsight se configura para ejecutar un archivo JAR de Mahout.
+
+    Puede usar la actividad MapReduce de HDInsight para ejecutar cualquier archivo jar de MapReduce en un clúster de HDInsight. En la siguiente definición de JSON de ejemplo de una canalización, la actividad de HDInsight se configura para ejecutar un archivo JAR de Mahout.
 
 ## <a name="sample-on-github"></a>Ejemplo en GitHub
 Puede descargar un ejemplo para usar la actividad MapReduce de HDInsight desde: [Ejemplos de factoría de datos en GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSON/MapReduce_Activity_Sample).  

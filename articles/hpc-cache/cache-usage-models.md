@@ -1,17 +1,17 @@
 ---
 title: Modelos de uso de Azure HPC Cache
 description: Se describen los diferentes modelos de uso de la memoria caché y cómo elegir entre ellos para establecer el almacenamiento en caché de solo lectura o de lectura/escritura, así como controlar otras opciones de almacenamiento en caché
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/12/2021
-ms.author: v-erkel
-ms.openlocfilehash: b623bd074b327d8139082d3060a6cdb120c8acbb
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.author: femila
+ms.openlocfilehash: 84964e8a5f188d03fb9e5bcb98d4466610732c75
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114294909"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131015245"
 ---
 <!-- filename is referenced from GUI in aka.ms/hpc-cache-usagemodel -->
 

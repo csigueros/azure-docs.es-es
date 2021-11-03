@@ -10,13 +10,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ef0f3cf29927e0d15702a9429fcabc54d10a8506
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: H1Hack27Feb2017, ignite-fall-2021
+ms.openlocfilehash: a80eea61e2088dcf10e67a0ce5f3282c34aa395e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128648665"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131013334"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure
 
@@ -69,8 +69,8 @@ ms.locfileid: "128648665"
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
-[azure-ps]:https://docs.microsoft.com/powershell/azure/
-[azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
+[azure-ps]:/powershell/azure/
+[azure-quickstart-templates-github]: https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 [azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
@@ -558,7 +558,7 @@ Se necesita almacenamiento compartido de clúster para una instancia de ASCS/SCS
 2. Ejecute SIOS DataKeeper Cluster Edition en ambos nodos de la máquina virtual.
 3. Configure SIOS DataKeeper Cluster Edition de forma que refleje el contenido del volumen del VHD adicional conectado desde la máquina virtual de origen al volumen conectado del VHD adicional de la máquina virtual de destino. SIOS DataKeeper abstrae los volúmenes locales de origen y de destino, y los presenta a Clústeres de conmutación por error de Windows Server como un disco compartido.
 
-Obtenga más información sobre [SIOS DataKeeper](https://us.sios.com/products/datakeeper-cluster/).
+Obtenga más información sobre [SIOS DataKeeper](https://us.sios.com/products/windows/datakeeper-cluster/).
 
 ![Ilustración 3: Configuración de clústeres de conmutación por error de Windows Server en Azure con SIOS DataKeeper][sap-ha-guide-figure-1002]
 

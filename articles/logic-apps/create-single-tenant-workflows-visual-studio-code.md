@@ -6,12 +6,13 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/13/2021
-ms.openlocfilehash: 960ade1209b6473884e75c660d658abaf6e73af7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 08690347f9a0dae5237ad74bfda9ad3eb6c8ef84
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609961"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131072868"
 ---
 # <a name="create-an-integration-workflow-with-single-tenant-azure-logic-apps-standard-in-visual-studio-code"></a>Creación de un flujo de trabajo de integración con Azure Logic Apps (estándar) de inquilino único en Visual Studio Code
 
@@ -80,7 +81,7 @@ Para obtener más información, consulte la [documentación de Azurite](https://
 
   * [Extensión de C# para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), que habilita la funcionalidad F5 para ejecutar la aplicación lógica.
 
-  * [Azure Functions Core Tools 3.0.3477 o una versión posterior](https://github.com/Azure/azure-functions-core-tools/releases/tag/3.0.3477), mediante la versión de Microsoft Installer (MSI), que es la `func-cli-3.0.3477-x*.msi`.
+  * [La última versión de Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools/releases), mediante la versión de Microsoft Installer (MSI), que es la `func-cli-X.X.XXXX-x*.msi`.
 
     Estas herramientas incluyen una versión del mismo runtime en el que se basa el runtime de Azure Functions, que la extensión Azure Logic Apps (estándar) usa en Visual Studio Code.
 
@@ -542,7 +543,7 @@ Para probar la aplicación lógica, siga estos pasos para iniciar una sesión de
 
       ![Captura de pantalla que muestra Postman con el panel de solicitudes abierto.](./media/create-single-tenant-workflows-visual-studio-code/postman-request-pane.png)
 
-   1. Vuelva a Visual Studio Code. Desde la página de información general del flujo de trabajo, copie el valor de la propiedad **URL de devolución de llamadas**.
+   1. Vuelva a Visual Studio Code. Desde la página de información general del flujo de trabajo, copie el valor de la propiedad **Dirección URL de devolución de llamada**.
 
    1. Vuelva a Postman. En el panel de solicitudes, junto a la lista de métodos, que actualmente muestra **GET** como método de solicitud predeterminado, pegue la URL de devolución de llamada que copió anteriormente en el cuadro de dirección y seleccione **Send** (Enviar).
 
@@ -726,6 +727,8 @@ Para buscar los nombres de dominio completos (FQDN) de estas conexiones, siga es
 Desde Visual Studio Code, puede publicar directamente el proyecto en Azure, que implementa la aplicación lógica con el tipo de recurso **Logic Apps (estándar**). La aplicación lógica se puede publicar como un nuevo recurso, lo que crea automáticamente los recursos necesarios, como una [cuenta de Azure Storage, similar a los requisitos de la aplicación de funciones](../azure-functions/storage-considerations.md). O bien, puede publicar la aplicación lógica en un recurso **Logic Apps (estándar)** implementado anteriormente, que sobrescribe dicha aplicación lógica.
 
 La implementación para el tipo de recurso **Logic Apps (estándar)** requiere un plan de hospedaje y un plan de tarifa, que debe seleccionar durante la implementación. Para más información, revise [Planes de hospedaje y planes de tarifa](logic-apps-pricing.md#standard-pricing).
+
+<a name="publish-new-logic-app"></a>
 
 ### <a name="publish-to-a-new-logic-app-standard-resource"></a>Publicación en un nuevo recurso Logic Apps (estándar)
 
@@ -920,7 +923,7 @@ En Visual Studio Code, puede ver todas las aplicaciones lógicas implementadas 
 
    ![Captura de pantalla que muestra Visual Studio Code con el panel de la extensión "Azure Logic Apps (estándar)" abierto y el flujo de trabajo implementado.](./media/create-single-tenant-workflows-visual-studio-code/find-deployed-workflow-visual-studio-code.png)
 
-1. Para ver todos los flujos de trabajo de la aplicación lógica, expándala y, después, expanda el nodo llamado **Flujos de trabajo**.
+1. Para ver todos los flujos de trabajo en la aplicación lógica, expándala y, después, expanda el nodo **Flujos de trabajo**.
 
 1. Para ver un flujo de trabajo específico, abra el menú contextual del flujo de trabajo y seleccione **Open in Designer** (Abrir en el diseñador), que abre el flujo de trabajo en modo de solo lectura.
 

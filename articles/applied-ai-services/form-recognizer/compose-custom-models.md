@@ -1,5 +1,5 @@
 ---
-title: 'Instrucciones: modelos personalizados y compuestos'
+title: 'Guía: Uso de modelos personalizados y compuestos'
 titleSuffix: Azure Applied AI Services
 description: Aprenda a crear, usar y administrar modelos personalizados y compuestos de Form Recognizer
 author: laujan
@@ -7,17 +7,18 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 10/07/2021
+ms.date: 11/02/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: ef5514b44ad2d35870674a85958c28f5f780c308
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 5389e30e2aca2d93ba0fb27c71a6b934d7bf10e0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130233703"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131027800"
 ---
-# <a name="how-to-use-custom-and-composed-models"></a>Uso de modelos personalizados y compuestos
+# <a name="use-custom-and-composed-models"></a>Uso de modelos personalizados y compuestos
 
 Form Recognizer emplea tecnología avanzada de aprendizaje automático para detectar y extraer información de imágenes de documento y devolver los datos extraídos en una salida JSON estructurada. Con Form Recognizer, puede entrenar modelos personalizados independientes o combinar modelos personalizados para crear modelos compuestos.
 
@@ -25,15 +26,19 @@ Form Recognizer emplea tecnología avanzada de aprendizaje automático para dete
 
 * **Modelos compuestos**. El modelo compuesto se crea tomando una colección de modelos personalizados y asignándolos a un único modelo que abarca sus tipos de formulario. Cuando se envía un documento a un modelo compuesto, el servicio realiza un paso de clasificación para decidir qué modelo personalizado representa con exactitud el formulario presentado para el análisis.
 
-En este artículo, examinaremos el proceso de creación de modelos personalizados y compuestos de Form Recognizer mediante nuestra [herramienta de etiquetado de ejemplo de Form Recognizer](label-tool.md), las [API REST](./quickstarts/try-sdk-rest-api.md?branch=main&pivots=programming-language-rest-api#train-a-custom-model) o los [SDK de la biblioteca cliente](./quickstarts/try-sdk-rest-api.md?branch=main&pivots=programming-language-csharp#train-a-custom-model).
+***Ventana de configuración del modelo en Form Recognizer Studio***
 
-## <a name="try-it-sample-labeling-tool"></a>Pruébelo: herramienta de etiquetado de ejemplo
+:::image type="content" source="media/studio/composed-model.png" alt-text="Captura de pantalla: ventana de configuración del modelo en Form Recognizer Studio.":::
+
+En este artículo, aprenderá cómo crear modelos personalizados y compuestos de Form Recognizer mediante nuestra [herramienta de etiquetado de ejemplo de Form Recognizer](label-tool.md), las [API de REST](quickstarts/client-library.md?branch=main&pivots=programming-language-rest-api#train-a-custom-model) o los [SDK de la biblioteca cliente](quickstarts/client-library.md?branch=main&pivots=programming-language-csharp#train-a-custom-model).
+
+## <a name="sample-labeling-tool"></a>Herramienta de etiquetado de muestras
 
 Para ver cómo se extraen datos de formularios personalizados, pruebe nuestra herramienta de etiquetado de ejemplo. Necesitará lo siguiente:
 
 * Una suscripción a Azure: puede [crear una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/)
 
-* Una [instancia de Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) en Azure Portal. Puede usar el plan de tarifa gratuito (`F0`) para probar el servicio. Después de implementar el recurso, haga clic en **Ir al recurso** para obtener la clave de API y el punto de conexión.
+* Una [instancia de Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) en Azure Portal. Puede usar el plan de tarifa gratuito (`F0`) para probar el servicio. Después de implementar el recurso, seleccione **Ir al recurso** para obtener la clave de API y el punto de conexión.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Captura de pantalla: claves y ubicación del punto de conexión en Azure Portal.":::
 
@@ -105,9 +110,9 @@ Con la herramienta de etiquetado de ejemplo de Form Recognizer, la API REST o lo
 
 Una vez que el proceso de entrenamiento se haya completado correctamente, se le asignará un identificador de modelo al modelo personalizado. Puede recuperar un identificador de modelo de la manera siguiente:
 
-### <a name="form-recognizer-sample-labeling-tool"></a>[**Herramienta de etiquetado de ejemplo de Form Recognizer**](#tab/fott)
+### <a name="form-recognizer-sample-labeling-tool"></a>[**Herramienta de etiquetado de muestras de Form Recognizer**](#tab/fott)
 
-Al entrenar modelos mediante la [**herramienta de etiquetado de ejemplo de Form Recognizer**](https://fott-2-1.azurewebsites.net/), el identificador de modelo se encuentra en la ventana Train Result (Resultado de entrenamiento):
+Al entrenar modelos mediante la [**herramienta de etiquetado de muestras de Form Recognizer**](https://fott-2-1.azurewebsites.net/), el identificador de modelo se encuentra en la ventana Resultado de entrenamiento:
 
 :::image type="content" source="media/fott-training-results.png" alt-text="Captura de pantalla: ventana de resultados del entrenamiento.":::
 
@@ -135,9 +140,9 @@ La [**API REST**](./quickstarts/try-sdk-rest-api.md?pivots=programming-language-
 
 Después de haber recopilado los modelos personalizados correspondientes a un único tipo de formulario, puede componerlos en un solo modelo.
 
-### <a name="form-recognizer-sample-labeling-tool"></a>[**Herramienta de etiquetado de ejemplo de Form Recognizer**](#tab/fott)
+### <a name="form-recognizer-sample-labeling-tool"></a>[**Herramienta de etiquetado de muestras de Form Recognizer**](#tab/fott)
 
-La **herramienta de etiquetado de ejemplo** le permite empezar a entrenar modelos rápidamente y a componerlos con un único identificador de modelo.
+La **herramienta de etiquetado de muestras** le permite empezar a entrenar modelos rápidamente y a componerlos con un único identificador de modelo.
 
 Una vez completado el entrenamiento, componga los modelos de la siguiente manera:
 
@@ -175,7 +180,7 @@ Use el código del lenguaje de programación que prefiera para crear un modelo c
 
  La operación **Analizar** del formulario personalizado requiere que proporcione el parámetro `modelID` en la llamada a Form Recognizer. Puede proporcionar un único identificador de modelo personalizado o un identificador de modelo compuesto para el parámetro `modelID`.
 
-### <a name="form-recognizer-sample-labeling-tool"></a>[**Herramienta de etiquetado de ejemplo de Form Recognizer**](#tab/fott)
+### <a name="form-recognizer-sample-labeling-tool"></a>[**Herramienta de etiquetado de muestras de Form Recognizer**](#tab/fott)
 
 1. En el menú del panel izquierdo de la herramienta, seleccione el **icono Analizar** (bombilla).
 

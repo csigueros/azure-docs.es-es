@@ -8,16 +8,16 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: na
-ms.custom: references_regions
+ms.custom: references_regions, ignite-fall-2021
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 90f6470171db4be4e0d883196495ddaba16772fb
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: c744f43fee7a49406b29768b6a0519da578eca01
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129362771"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131015321"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -314,7 +314,7 @@ Publicamos una [introducción](./architecture-high-availability-encoding-concept
 
 ### <a name="live-video-analytics-on-iot-edge-preview-release"></a>Live Video Analytics on IoT Edge (versión preliminar)
 
-Ya se publicó la versión preliminar de Live Video Analytics on IoT Edge. Para más información, consulte las [notas de la versión](../live-video-analytics-edge/release-notes.md).
+Ya se publicó la versión preliminar de Live Video Analytics on IoT Edge. 
 
 Live Video Analytics on IoT Edge es una expansión de la familia de Media Services. Le permite analizar vídeos en directo con los modelos de inteligencia artificial que prefiera en sus propios dispositivos perimetrales y, opcionalmente, capturar y grabar ese vídeo. Ahora puede crear aplicaciones con análisis de vídeo en tiempo real en el perímetro sin preocuparse por la complejidad de crear y operar una canalización de vídeo en directo.
 

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 10/27/2020
-ms.openlocfilehash: 60f4d1d8e86eed6a3dab390ebf8e46296f4644d2
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: ec57245e1f3c0381bb362183122904b86af70473
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130040196"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131015226"
 ---
 # <a name="configure-consulting-service-offer-properties"></a>Configuración de propiedades de ofertas de servicios de consultoría
 
@@ -23,7 +23,7 @@ En la pestaña **Propiedades** de la oferta en el Centro de partners, definirá 
 
 ## <a name="select-the-primary-product"></a>Selección del producto principal
 
-En la lista desplegable **Producto principal**, seleccione el producto de Microsoft en el que se centrará la oferta de servicios de consultoría. El producto que seleccione determinará si la oferta se va a publicar en Microsoft AppSource o Azure Marketplace. La representación precisa de la oferta facilita a los clientes la búsqueda de la oferta. Tenga en cuenta que debe cumplir los [requisitos de elegibilidad](https://aka.ms/AAacrbv) de los productos que seleccione. 
+En la lista desplegable **Producto principal**, seleccione el producto de Microsoft en el que se centrará la oferta de servicios de consultoría. El producto que seleccione determinará si la oferta se va a publicar en Microsoft AppSource o Azure Marketplace. La representación precisa de la oferta facilita a los clientes la búsqueda de la oferta. Tenga en cuenta que debe cumplir los [requisitos de elegibilidad](./plan-consulting-service-offer.md#eligibility-requirements) de los productos que seleccione. 
 
 - Si selecciona Azure, la oferta se mostrará en Azure Marketplace. Seleccione hasta tres **áreas de soluciones** que representen mejor la oferta.
 - Si selecciona Microsoft 365, elija también hasta tres **áreas de soluciones** que representen mejor la oferta. La oferta se mostrará en Microsoft AppSource.

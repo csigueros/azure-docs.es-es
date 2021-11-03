@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b23b4a60795dc01667df3c6a9efa8e9cde4aeda9
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 1f9f734d1adbb930d1fa9342dfbaaf465d8d502d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111409908"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049504"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>¿En qué consisten las licencias basadas en grupos de Azure Active Directory?
 
@@ -59,7 +59,7 @@ A continuación se indican las características principales de las licencias bas
 
 ## <a name="your-feedback-is-welcome"></a>Agradecemos sus comentarios.
 
-Si tiene comentarios o solicitudes de características, compártalos con nosotros a través del [foro de administradores de Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=162510).
+Si tiene comentarios o solicitudes de características, compártalos con nosotros a través del [foro de administradores de Azure AD](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

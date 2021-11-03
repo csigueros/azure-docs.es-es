@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 787656f654be9af742d1975aecf11b0df118aa90
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 515a17bb1502510b812f82111bd365895921da55
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124747421"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063202"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-eplatform"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ePlatform
 
@@ -28,7 +28,7 @@ En este tutorial aprenderá a integrar ePlatform con Azure Active Directory (A
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -62,7 +62,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con ePlatform median
 Para configurar y probar el inicio de sesión único de Azure AD con ePlatform, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de ePlatform](#configure-eplatform-sso)**, para configurar los valores del inicio de sesión único en la aplicación.
     * **[Creación de un usuario de prueba de ePlatform](#create-eplatform-test-user)**, para tener un homólogo de B.Simon en ePlatform que esté vinculado a la representación del usuario en Azure AD.

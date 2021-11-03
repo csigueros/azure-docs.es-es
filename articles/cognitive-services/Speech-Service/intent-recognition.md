@@ -3,20 +3,18 @@ title: 'Introducción a Reconocimiento de la intención: servicio Voz'
 titleSuffix: Azure Cognitive Services
 description: Reconocimiento de la intención le permite reconocer los objetivos de usuario que ha definido previamente. En este artículo encontrará información general sobre las ventajas y funcionalidades del servicio de reconocimiento de intenciones.
 services: cognitive-services
-author: v-demjoh
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.author: v-demjoh
 keywords: reconocimiento de la intención
-ms.openlocfilehash: c4a81c5f666b9cb42b642390ba79ca2a1bf7232b
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: bf84d9309974f645c2fb5011b82d2fb8159adca1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114710081"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024531"
 ---
 # <a name="what-is-intent-recognition"></a>¿Qué es el reconocimiento de intenciones?
 

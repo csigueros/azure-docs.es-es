@@ -9,13 +9,13 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sashan, moslake
 ms.date: 09/10/2021
-ms.custom: references_regions
-ms.openlocfilehash: a92dd67011d7ef7d5ad162983de51b98839c4a84
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: references_regions, ignite-fall-2021
+ms.openlocfilehash: fb168fad05acf84fd9b64f34c929176933a1fd2f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128621987"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131026039"
 ---
 # <a name="vcore-purchase-model-overview---azure-sql-database"></a>Información general sobre el modelo de compra de núcleo virtual: Azure SQL Database 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -164,7 +164,7 @@ Siga los pasos para cambiar la configuración y seleccione la generación de har
 
 #### <a name="gen4gen5"></a><a id="gen4gen5-1"></a> Gen4/Gen5
 
-El hardware de Gen4 está [en proceso de eliminación gradual](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/) y ya no está disponible para las nuevas implementaciones. Todas las nuevas bases de datos deben implementarse en hardware de Gen5.
+El hardware de Gen4 está [en proceso de eliminación gradual](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/) y ya no está disponible para las nuevas implementaciones. Todas las bases de datos nuevas deben implementarse en generaciones de hardware posteriores.
 
 Gen5 está disponible en todas las regiones públicas de todo el mundo.
 

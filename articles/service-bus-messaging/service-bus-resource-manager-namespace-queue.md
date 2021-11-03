@@ -7,15 +7,13 @@ ms.author: spelluru
 ms.date: 09/27/2021
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.custom:
-- subject-armqs
-- mode-arm
-ms.openlocfilehash: 302326726a1b154deae88e434a80bf7aecf9922a
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.custom: subject-armqs, mode-arm
+ms.openlocfilehash: 1ed866c1b6dfb74b755a738a67996273980ad5f3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129155332"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131014018"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-and-a-queue-using-an-arm-template"></a>Inicio rápido: Creación de una cola y un espacio de nombres de Service Bus con una plantilla de ARM
 
@@ -27,7 +25,7 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.servicebus%2Fservicebus-create-queue%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 

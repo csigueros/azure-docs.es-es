@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 09/08/2021
 ms.author: duau
-ms.openlocfilehash: a6714867b5b863f608e3282c5e6f3bb0d2425969
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 7dfded652c14ec6805b7fa48004cf5dfe8d72b5f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129091490"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131061112"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-the-azure-portal"></a>Inicio rápido: Creación y configuración de una instancia de Route Server mediante Azure Portal
 
@@ -65,7 +65,7 @@ Desde un explorador, navegue al [Portal de Azure](https://portal.azure.com) e in
 
 La sección le ayudará a configurar el emparejamiento de BGP con la NVA.
 
-1. Vaya a [Route Server](https://aka.ms/routeserver) en Azure Portal y seleccione el servidor de rutas que desea configurar.
+1. Vaya a [Route Server](./overview.md) en Azure Portal y seleccione el servidor de rutas que desea configurar.
 
     :::image type="content" source="./media/quickstart-configure-route-server-portal/select-route-server.png" alt-text="Captura de pantalla de la lista de servidores de rutas."::: 
 
@@ -95,7 +95,7 @@ Necesitará el ASN y las direcciones IP de emparejamiento de Azure Route Server 
 
 Si tiene una puerta de enlace de ExpressRoute y una instancia de VPN Gateway y quiere que intercambien rutas con el servidor de rutas, puede habilitar el intercambio de rutas.
 
-1. Vaya a [Route Server](https://aka.ms/routeserver) en Azure Portal y seleccione el servidor de rutas que desea configurar.
+1. Vaya a [Route Server](./overview.md) en Azure Portal y seleccione el servidor de rutas que desea configurar.
 
 1. Seleccione **Configuration** (Configuración) en *Settings* (Configuración) en el panel de navegación izquierdo.
 

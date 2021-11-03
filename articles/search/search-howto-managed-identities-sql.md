@@ -2,17 +2,17 @@
 title: Configuración de una conexión a Azure SQL Database mediante una identidad administrada
 titleSuffix: Azure Cognitive Search
 description: Aprenda a configurar una conexión de indexador a Azure SQL Database mediante una identidad administrada.
-author: markheff
-ms.author: maheff
+author: nitinme
+ms.author: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/02/2021
-ms.openlocfilehash: c0bff947d0f5b58a956d05959dd49bbea1f942ab
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 1b8386cac5c17f775f6719bdf8ab67243731179b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122183988"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037689"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity"></a>Configuración de una conexión de indexador a Azure SQL Database mediante una identidad administrada
 
@@ -45,7 +45,7 @@ Si todavía no tiene creada una identidad administrada asignada por el usuario, 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 1. Seleccione **+ Crear un recurso**.
-1. En la barra de búsqueda "Search services and marketplace» (Servicios de búsqueda y Marketplace), busque "Identidad administrada asignada por el usuario" y, después, seleccione **Crear**.
+1. En la barra de búsqueda "Servicios de búsqueda y Marketplace", busque "Identidad administrada asignada por el usuario" y, después, seleccione **Crear**.
 1. Asigne un nombre descriptivo a la identidad.
 
 A continuación, asigne la identidad administrada asignada por el usuario al servicio de búsqueda. Esta operación se puede realizar mediante la [API de administración 2021-04-01-preview](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).

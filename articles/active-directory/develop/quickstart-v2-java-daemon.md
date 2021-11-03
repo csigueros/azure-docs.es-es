@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/22/2021
 ms.author: marsma
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 519ef3c4e53eb55bd00957d1d825c96375e241ae
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 71c376b93433a06d6b9ffee0c1e574c967e0629f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128604848"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040197"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-java-console-app-using-apps-identity"></a>Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de consola de Java mediante la identidad de la aplicación
 
@@ -26,7 +26,7 @@ En este inicio rápido descargará y ejecutará un código de ejemplo que muestr
 > [!div renderon="docs"]
 > ![Muestra cómo funciona la aplicación de muestra generada en este inicio rápido](media/quickstart-v2-java-daemon/java-console-daemon.svg).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para ejecutar esta muestra, necesita:
 
@@ -87,7 +87,6 @@ Para ejecutar esta muestra, necesita:
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
 
-
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-the-java-project"></a>Paso 3: Configuración del proyecto de Java
 >
@@ -135,9 +134,9 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 ```
 
 > [!div renderon="docs"]
->> Donde:
->> * `Enter_the_Tenant_Id_Here`: sustituya este valor por el **identificador de inquilino** o el **nombre de inquilino** (por ejemplo, contoso.microsoft.com).
->> * `Enter_the_Application_Id_Here`: es el **identificador de aplicación (cliente)** de la aplicación que registró.
+> > Donde:
+> > * `Enter_the_Tenant_Id_Here`: sustituya este valor por el **identificador de inquilino** o el **nombre de inquilino** (por ejemplo, contoso.microsoft.com).
+> > * `Enter_the_Application_Id_Here`: es el **identificador de aplicación (cliente)** de la aplicación que registró.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-4-run-the-application"></a>Paso 4: Ejecución de la aplicación
@@ -161,7 +160,6 @@ $ java -jar msal-client-credential-secret-1.0.0.jar
 
 Después de la ejecución, la aplicación debe mostrar la lista de usuarios del inquilino configurado.
 
-
 > [!IMPORTANT]
 > Esta aplicación de inicio rápido usa un secreto de cliente para identificarse como cliente confidencial. Como el secreto de cliente se agrega como texto sin formato a los archivos del proyecto, por motivos de seguridad, se recomienda que use un certificado en lugar de un secreto de cliente antes de considerar el uso de la aplicación en producción. Para más información sobre cómo usar un certificado, consulte [estas instrucciones](https://github.com/Azure-Samples/ms-identity-java-daemon/tree/master/msal-client-credential-certificate) en el mismo repositorio de GitHub que este ejemplo, pero en la segunda carpeta, **msal-client-credential-certificate**.
 
@@ -175,7 +173,7 @@ Agregue MSAL4J a la aplicación con Maven o Gradle para administrar las dependen
 
 En pom.xml:
 
-```XML
+```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>msal4j</artifactId>

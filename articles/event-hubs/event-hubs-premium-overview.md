@@ -1,26 +1,24 @@
 ---
-title: Introducción a Event Hubs Premium (versión preliminar)
+title: Introducción a Event Hubs Premium
 description: En este artículo se proporciona información general sobre Azure Event Hubs Premium, que ofrece implementaciones multiinquilino de Event Hubs para necesidades de streaming de alto nivel.
 ms.topic: article
-ms.date: 5/25/2021
-ms.openlocfilehash: d60469937324226b8d928fb257d83966c52dce7e
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.date: 10/20/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 8822b44f5f2a6d5cbc367da9a8ac5d397f87e9f7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112415030"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073023"
 ---
-# <a name="overview-of-event-hubs-premium-preview"></a>Introducción a Event Hubs Premium (versión preliminar)
+# <a name="overview-of-event-hubs-premium"></a>Introducción a Event Hubs Premium
 
 El nivel Event Hubs Premium está diseñado para escenarios de streaming de alto nivel que requieren un rendimiento elástico y superior con latencia previsible. El rendimiento se logra al proporcionar recursos reservados de proceso, memoria y almacenamiento, lo que minimiza las interferencias entre inquilinos en un entorno PaaS multiinquilino administrado. 
 
-Event Hubs Premium (versión preliminar) incorpora un nuevo motor de registro de código nativo de dos niveles que proporciona latencias de envío y paso a través mucho más bajas y previsibles que la generación anterior, sin ninguna renuncia de durabilidad. Event Hubs Premium replica cada evento en tres réplicas distribuidas entre zonas de disponibilidad de Azure si están disponibles, y todas las réplicas se vacían de manera sincrónica en el almacenamiento rápido subyacente antes de que se comunique que la operación de envío está completada. Los eventos que no se leen inmediatamente o que deben volver a leerse más adelante se pueden conservar hasta 90 días de forma transparente en una capa de almacenamiento con redundancia de zona de disponibilidad. Los eventos de los niveles de almacenamiento rápido y de retención se cifran; en Event Hubs Premium el usuario puede proporcionar las claves de cifrado. 
+Event Hubs Premium incorpora un nuevo motor de registro de código nativo de dos niveles que proporciona latencias de envío y paso a través mucho más bajas y previsibles que la generación anterior, sin ninguna renuncia de durabilidad. Event Hubs Premium replica cada evento en tres réplicas distribuidas entre zonas de disponibilidad de Azure si están disponibles, y todas las réplicas se vacían de manera sincrónica en el almacenamiento rápido subyacente antes de que se comunique que la operación de envío está completada. Los eventos que no se leen inmediatamente o que deben volver a leerse más adelante se pueden conservar hasta 90 días de forma transparente en una capa de almacenamiento con redundancia de zona de disponibilidad. Los eventos de los niveles de almacenamiento rápido y de retención se cifran; en Event Hubs Premium el usuario puede proporcionar las claves de cifrado. 
 
 Además de estas características relacionadas con el almacenamiento y todas las capacidades y compatibilidad con protocolos de la oferta estándar de Event Hubs, el modelo de aislamiento de Event Hubs Premium habilita nuevas características como el escalado vertical de particiones dinámicas y capacidades futuras aún por agregar. También se obtienen asignaciones de cuota mucho más generosas. Event Hubs Capture está incluido sin costo adicional.
 
-> [!IMPORTANT]
-> Event Hubs Premium se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
- 
 La oferta Premium se factura por [unidades de procesamiento (PU)](event-hubs-scalability.md#processing-units), que corresponden a un recurso compartido de recursos aislados (CPU, memoria y almacenamiento) de la infraestructura subyacente. 
 
 En comparación con la oferta dedicada, dado que Event Hubs Premium proporciona aislamiento dentro de un entorno multiinquilino muy grande que puede desplazar recursos rápidamente, se puede escalar de una forma mucho más elástica y rápida, y las PU se pueden ajustar de manera dinámica. Por lo tanto, Event Hubs Premium normalmente va a ser una opción más rentable para los requisitos de rendimiento de gama media (<120 MB/s), especialmente con cargas variables a lo largo del día o la semana, en comparación con Event Hubs dedicado. 
@@ -71,5 +69,4 @@ El nivel Premium ofrece todas las características del plan estándar, pero con 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Puede empezar a usar Event Hubs Premium (versión preliminar) mediante [Azure Portal](https://portal.azure.com/#create/Microsoft.EventHub). Vea [Precios de Event Hubs Premium](https://azure.microsoft.com/pricing/details/event-hubs/) para obtener más detalles sobre los precios, y [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.yml) para encontrar respuestas a algunas preguntas frecuentes sobre Event Hubs. 
-
+Puede empezar a usar Event Hubs Premium mediante [Azure Portal](https://portal.azure.com/#create/Microsoft.EventHub). Vea [Precios de Event Hubs Premium](https://azure.microsoft.com/pricing/details/event-hubs/) para obtener más detalles sobre los precios, y [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.yml) para encontrar respuestas a algunas preguntas frecuentes sobre Event Hubs. 

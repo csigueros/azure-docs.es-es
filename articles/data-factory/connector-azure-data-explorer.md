@@ -9,12 +9,12 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 10/14/2021
-ms.openlocfilehash: a764b6e0046b399d1984f13404aae6ba1eb4d72f
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 8aafbbd0cc7063fdccf3ae44e9442fa86cfe5f94
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130063894"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131005772"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory-or-synapse-analytics"></a>Copia de datos en Azure Data Explorer o desde ahí mediante Azure Data Factory o Synapse Analytics
 
@@ -185,7 +185,7 @@ Para usar la autenticación de identidad administrada asignada por el usuario, s
     - **Como origen**, conceder al menos el rol **Visor de base de datos** a la base de datos.
     - **Como receptor**, conceder al menos el rol **Agente de ingesta de base de datos** a la base de datos.
      
-2. Asigne una o varias identidades administradas asignadas por el usuario a la factoría de datos o al área de trabajo de Synapse y [cree credenciales](data-factory-service-identity.md#credentials) para cada una de estas entidades.
+2. Asigne una o varias identidades administradas asignadas por el usuario a la factoría de datos o al área de trabajo de Synapse y [cree credenciales](credentials.md) para cada una de estas entidades.
 
 Las siguientes propiedades son compatibles con el servicio vinculado de Azure Data Explorer:
 

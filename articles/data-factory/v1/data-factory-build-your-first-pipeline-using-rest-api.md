@@ -9,12 +9,12 @@ ms.subservice: v1
 ms.topic: tutorial
 ms.date: 10/22/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6fc40e48a9deb0c5e2f34e9e8283d867c4c33be7
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 16d1356403daf7e148a6259c127b766b52f157ca
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130260101"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040744"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Tutorial: Compilación de la primera instancia de Azure Data Factory con la API de REST de Data Factory
 > [!div class="op_single_selector"]
@@ -326,10 +326,12 @@ Tenga en cuenta los siguientes puntos:
     Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
-      Puede ejecutar el comando siguiente para confirmar que se ha registrado el proveedor de Data Factory:
+    Puede ejecutar el comando siguiente para confirmar que se ha registrado el proveedor de Data Factory:
+
     ```powershell
     Get-AzResourceProvider
     ```
+
   * Inicie sesión mediante la suscripción de Azure en el [Portal de Azure](https://portal.azure.com) y vaya a una hoja de Data Factory (o) cree una factoría de datos en el Portal de Azure. Esta acción registra automáticamente el proveedor.
 
 Antes de crear una canalización, debe crear algunas entidades de factoría de datos primero. En primer lugar debe crear servicios vinculados para vincular los almacenes de datos y procesos con su almacén de datos, y, después, definir los conjuntos de datos de entrada y salida para representar los datos en los almacenes de datos vinculados.
@@ -343,13 +345,15 @@ En este paso, vinculará su cuenta de Azure Storage con su factoría de datos. C
 1. Asigne el comando a la variable denominada **cmd**.
 
     ```powershell
-    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azurestoragelinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
+    $cmd = { .\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azurestoragelinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01 };
     ```
+
 2. Ejecute el comando con **Invoke-Command**.
 
     ```powershell
     $results = Invoke-Command -scriptblock $cmd;
     ```
+
 3. Vea los resultados. Si el servicio vinculado se ha creado correctamente, verá su JSON en los **resultados**; de lo contrario, verá un mensaje de error.
 
     ```powershell
@@ -364,11 +368,13 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
     ```powershell
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@hdinsightondemandlinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/hdinsightondemandlinkedservice?api-version=2015-10-01};
     ```
+
 2. Ejecute el comando con **Invoke-Command**.
 
     ```powershell
     $results = Invoke-Command -scriptblock $cmd;
     ```
+
 3. Vea los resultados. Si el servicio vinculado se ha creado correctamente, verá su JSON en los **resultados**; de lo contrario, verá un mensaje de error.
 
     ```powershell

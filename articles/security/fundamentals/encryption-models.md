@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 8e39864e2246e175bb9f699f01b78646782d84eb
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: ffbdb8349f9da359cd050b8fd7f058d1877966b0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315352"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131004291"
 ---
 # <a name="data-encryption-models"></a>Modelos de cifrado de datos
 
@@ -148,7 +148,6 @@ Los servicios de Azure que admiten cada modelo de cifrado:
 | Azure Cognitive Search           | Sí                | Sí                | -                  |
 | Azure Cognitive Services         | Sí                | Sí                | -                  |
 | Azure Machine Learning           | Sí                | Sí                | -                  |
-| Azure Machine Learning Studio (clásico) | Sí         | Versión preliminar, RSA de 2048 bits | -               |
 | Content Moderator                | Sí                | Sí                | -                  |
 | Caras                             | Sí                | Sí                | -                  |
 | Language Understanding           | Sí                | Sí                | -                  |

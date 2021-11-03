@@ -11,14 +11,13 @@ ms.service: traffic-manager
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.custom:
-- mode-portal
-ms.openlocfilehash: 13b5925310c615461424f78d90ba9849c9bf58c5
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.custom: mode-portal
+ms.openlocfilehash: be0061fb42a391506adf7c944e60836e14d6cb8b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107727985"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131003473"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Inicio rápido: Creación de un perfil de Traffic Manager mediante Azure Portal
 
@@ -40,7 +39,7 @@ Esta guía de inicio rápido requiere que haya implementado dos instancias de un
 
 1. En **Crear una aplicación web**, escriba o seleccione los valores siguientes en la pestaña **Aspectos básicos**:
 
-    | Parámetro                 | Value |
+    | Parámetro                 | Valor |
     | ---                     | --- |
     | Suscripción            | Seleccione su suscripción. |    
     | Resource group          | Seleccione **Crear** y escriba *myResourceGroupTM1* en el cuadro de texto.|
@@ -67,7 +66,7 @@ Cree un perfil de Traffic Manager que dirija el tráfico de los usuarios según 
 1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso**. A continuación, busque **Perfil de Traffic Manager** y seleccione **Crear**.
 1. En **Crear perfil de Traffic Manager**, escriba o seleccione estos valores:
 
-    | Parámetro | Value |
+    | Parámetro | Valor |
     | --------| ----- |
     | Nombre | Escriba un nombre único para el perfil de Traffic Manager.|
     | Método de enrutamiento | Seleccione **Prioridad**.|
@@ -89,7 +88,7 @@ Agregue el sitio web en la región *Este de EE. UU.* como punto de conexión pri
 
 1. Escriba o seleccione estas opciones:
 
-    | Parámetro | Value |
+    | Parámetro | Valor |
     | ------- | ------|
     | Tipo | Seleccione **Punto de conexión de Azure**. |
     | Nombre | Escriba *myPrimaryEndpoint*. |
@@ -102,7 +101,7 @@ Agregue el sitio web en la región *Este de EE. UU.* como punto de conexión pri
 1. Seleccione **Aceptar**.
 1. Para crear un punto de conexión de conmutación por error para la segunda región de Azure, repita los pasos 3 y 4 con esta configuración:
 
-    | Parámetro | Value |
+    | Parámetro | Valor |
     | ------- | ------|
     | Tipo | Seleccione **Punto de conexión de Azure**. |
     | Nombre | Escriba *myFailoverEndpoint*. |

@@ -4,21 +4,23 @@ description: Puede usar Azure Video Analyzer para la grabación continua de víd
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 08/06/2021
-ms.openlocfilehash: 38fcd60352fe151637e0e7f8fa4dfe9159b12915
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: fb6014649e6fe71a2d2de5e4d7adb72ba9b66a37
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128620718"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131012172"
 ---
 # <a name="embed-player-widget-in-power-bi"></a>Inserción del widget de reproductor en Power BI
+
 
 Azure Video Analyzer le permite [grabar](detect-motion-record-video-clips-cloud.md) vídeo y los metadatos de inferencia asociados en el recurso de nube de Video Analyzer. Video Analyzer incluye un [widget de reproductor](player-widget.md), un widget fácil de insertar que permite a las aplicaciones cliente reproducir vídeo y metadatos de inferencia.
 
 Los paneles son una manera esclarecedora de supervisar el negocio y ver todas las métricas más importantes de un vistazo. Los paneles de Power BI son una herramienta eficaz para combinar vídeo con varios orígenes de datos, incluida la telemetría de IoT Hub. En este tutorial, aprenderá a agregar uno o varios widgets de reproductor a un panel mediante el servicio web de [Microsoft Power BI](https://powerbi.microsoft.com/).
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/power-bi/embed-block-diagram.png" alt-text="Diagrama de bloques para insertar el widget del reproductor de Azure Video Analyzer en Microsoft Power BI.":::
+> :::image type="content" source="./media/power-bi/embed-block-diagram.svg" alt-text="Diagrama de bloques para insertar el widget del reproductor de Azure Video Analyzer en Microsoft Power BI.":::
 
 ## <a name="suggested-pre-reading"></a>Sugerencias antes de la lectura
 

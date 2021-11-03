@@ -12,12 +12,12 @@ ms.date: 06/05/2020
 ms.author: celested
 ms.reviewer: asteen, jlu, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e27ac47426e8c3d8ff7b4b02fcdbfcf06d3a3453
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: e89eb124b9cfb4100ddfca0d949331508fce398f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129231299"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131052396"
 ---
 # <a name="configure-the-stay-signed-in-prompt-for-azure-ad-accounts"></a>Configuración del mensaje "¿Quiere mantener la sesión iniciada?" para las cuentas de Azure AD
 
@@ -28,7 +28,7 @@ En el siguiente diagrama se muestra el flujo de inicio de sesión del usuario pa
 :::image type="content" source="./media/keep-me-signed-in/kmsi-workflow.png" alt-text="Diagrama que muestra el flujo de inicio de sesión del usuario para un inquilino administrado y otro federado":::
 
 > [!NOTE]
-> La configuración de la opción para mantener la sesión iniciada requiere el uso de las ediciones Azure Active Directory (Azure AD) Premium 1, Premium 2 o Basic, o bien una licencia de Microsoft 365. Para obtener más información acerca de las ediciones y licencias, consulte [Suscripción a Azure AD Premium](active-directory-get-started-premium.md).<br><br>Las ediciones Azure AD Premium y Basic están disponibles para los clientes de China que utilizan la instancia mundial de Azure AD. Las ediciones Azure AD Premium y Basic no se admiten actualmente en el servicio de Azure administrado por 21Vianet en China. Para más información, póngase en contacto con nosotros en el [foro de Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory/).
+> La configuración de la opción para mantener la sesión iniciada requiere el uso de las ediciones Azure Active Directory (Azure AD) Premium 1, Premium 2 o Basic, o bien una licencia de Microsoft 365. Para obtener más información acerca de las ediciones y licencias, consulte [Suscripción a Azure AD Premium](active-directory-get-started-premium.md).<br><br>Las ediciones Azure AD Premium y Basic están disponibles para los clientes de China que utilizan la instancia mundial de Azure AD. Las ediciones Azure AD Premium y Basic no se admiten actualmente en el servicio de Azure administrado por 21Vianet en China. Para más información, póngase en contacto con nosotros en el [foro de Azure AD](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
 
 ## <a name="configure-kmsi"></a>Configuración de KMSI
 

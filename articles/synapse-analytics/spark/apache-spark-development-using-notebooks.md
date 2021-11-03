@@ -10,12 +10,12 @@ ms.date: 05/08/2021
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 3b1754060a84914fca9b9c7d22ee85e32717d002
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: de703ea3f85025657b4c71089f158b7d1db2189d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130178771"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131013620"
 ---
 # <a name="create-develop-and-maintain-synapse-notebooks-in-azure-synapse-analytics"></a>Creación, desarrollo y mantenimiento de cuadernos de Synapse en Azure Synapse Analytics
 
@@ -30,22 +30,7 @@ Con un cuaderno de Synapse, puede hacer lo siguiente:
 
 En este artículo se describe cómo usar cuadernos en Synapse Studio.
 
-## <a name="preview-of-the-new-notebook-experience"></a>Versión preliminar de la nueva experiencia de cuaderno
-El equipo de Synapse proporciona el nuevo componente de cuaderno en Synapse Studio para ofrecer una experiencia de cuaderno coherente a los clientes de Microsoft y maximizar la capacidad de detección, la productividad, el uso compartido y la colaboración entre usuarios. La versión preliminar de la nueva experiencia de cuaderno ya está lista. En la barra de herramientas del cuaderno, pulse el botón **Características de versión preliminar** para activar la experiencia. En la tabla siguiente se captura la comparación de características entre el cuaderno existente (denominado "cuaderno clásico") y la nueva versión preliminar.  
 
-|Característica|Cuaderno clásico|Versión preliminar del cuaderno|
-|--|--|--|
-|%run| No compatible | &#9745;|
-|%history| No compatible |&#9745;|
-|%load| No compatible |&#9745;|
-|%%html| No compatible |&#9745;|
-|Arrastrar y colocar para desplazar una celda| No compatible |&#9745;|
-|Esquema (tabla de contenido)| No compatible |&#9745;|
-|Explorador de variables| No compatible |&#9745;|
-|Comentarios de celdas de código| No compatible | &#9745;|
-
-> [!NOTE]
-> El explorador de variables solo admite Python.
 ## <a name="create-a-notebook"></a>Creación de un cuaderno
 
 Hay dos formas de crear un cuaderno. Puede crear un nuevo cuaderno o importar uno existente en un área de trabajo de Synapse desde el **Explorador de objetos**. Los cuadernos de Synapse reconocen los archivos IPYNB estándar de Jupyter Notebook.
@@ -75,21 +60,6 @@ Proporcionamos operaciones enriquecidas para desarrollar cuadernos:
 <h3 id="add-a-cell">Adición de una celda</h3>
 
 Hay varias maneras de agregar una nueva celda a un cuaderno.
-
-# <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
-
-1. Expanda el botón superior izquierdo **+ Celda** y seleccione **Agregar celda de código** o **Agregar celda de texto**.
-
-    ![Captura de pantalla de add-cell-with-cell-button](./media/apache-spark-development-using-notebooks/synapse-add-cell-1.png)
-
-2. Mantenga el puntero sobre el espacio entre dos celdas y seleccione **Agregar código** o **Agregar texto**.
-
-    ![Captura de pantalla de add-cell-between-space](./media/apache-spark-development-using-notebooks/synapse-add-cell-2.png)
-
-3. Utilice las [teclas de método abreviado en el modo de comando](#shortcut-keys-under-command-mode). Presione **A** para insertar una celda sobre la celda actual. Presione **B** para insertar una celda debajo de la celda actual.
-
-
-# <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
 
 1. Mantenga el puntero sobre el espacio entre dos celdas y seleccione **Código** o **Markdown**.
     ![Captura de pantalla de add-azure-notebook-cell-with-cell-button](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-add-cell-1.png)
@@ -181,14 +151,6 @@ Los fragmentos de código aparecen en [teclas de método abreviado de IntelliSen
 
 <h3 id="format-text-cell-with-toolbar-buttons">Formato de celdas de texto con botones de la barra de herramientas</h3>
 
-# <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
-
-Puede usar los botones de formato en la barra de herramientas de celdas de texto para completar acciones comunes de marcado. Incluye texto en negrita, cursiva, inserción de fragmentos de código, inserción de listas sin ordenar, inserción de listas ordenadas e inserción de imágenes desde direcciones URL.
-
-  ![Captura de pantalla de la barra de herramientas de celdas de texto de Synapse](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
-
-# <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
-
 Puede usar los botones de formato en la barra de herramientas de celdas de texto para completar acciones comunes de marcado. Incluye texto en negrita, cursiva, párrafos o encabezados mediante un desplegable, inserción de código, inserción de listas sin ordenar, inserción de listas ordenadas, inserción de hipervínculos e inserción de imágenes desde direcciones URL.
 
   ![Captura de pantalla de la barra de herramientas de celdas de texto de Synapse](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar-preview.png)
@@ -196,14 +158,6 @@ Puede usar los botones de formato en la barra de herramientas de celdas de texto
 ---
 
 <h3 id="undo-redo-cell-operation">Deshacer/rehacer operación de celda</h3>
-
-# <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
-
-Seleccione el botón **Deshacer** / **Rehacer** o presione **Ctrl+Z** / **Ctrl+Y** para revocar las operaciones de celda más recientes. Ahora puede deshacer/rehacer hasta las 20 operaciones de celda históricas más recientes. 
-
-   ![Captura de pantalla de las celdas de deshacer de Synapse](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
-
-# <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
 
 Seleccione el botón **Deshacer** / **Rehacer** o presione **Z** / **Ctrl+Z** para revocar las operaciones de celda más recientes. Ahora puede deshacer/rehacer hasta las 10 operaciones de celda históricas más recientes.
 
@@ -224,14 +178,6 @@ Operaciones de deshacer celda admitidas:
 
 <h3 id="Code-cell-commenting">Comentarios de celdas de código</h3>
 
-# <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
-
-No compatible.
-
-# <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
-
-Por ahora, se admiten comentarios sobre la celda de código en el cuaderno de versión preliminar.
-
 1. Seleccione el botón **Comentarios** de la barra de herramientas del cuaderno para abrir el panel de **Comentarios**.
 
    ![Captura de pantalla del botón de comentario de Synapse](./media/apache-spark-development-using-notebooks/synapse-comments-button.png)
@@ -246,18 +192,7 @@ Por ahora, se admiten comentarios sobre la celda de código en el cuaderno de ve
 
 ---
 
-
 <h3 id="move-a-cell">Movimiento de una celda</h3>
-
-# <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
-
-Seleccione los puntos suspensivos (…) para acceder al menú de otras acciones de celda del extremo derecho. A continuación, seleccione **Move cell up** (Subir celda) o **Move cell down** (Bajar celda) para desplazar la celda actual. 
-
-También puede utilizar las [teclas de método abreviado en el modo de comando](#shortcut-keys-under-command-mode). Presione **CTRL+Alt+↑** para subir la celda actual. Presione **CTRL+Alt+↓** para bajar la celda actual.
-
-   ![Captura de pantalla de move-a-cell](./media/apache-spark-development-using-notebooks/synapse-move-cells.png)
-
-# <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
 
 Haga clic en la parte izquierda de una celda y arrástrela hasta la posición deseada. 
     ![GIF animado de movimiento de celdas de Synapse](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-drag-drop-cell.gif)
@@ -265,16 +200,6 @@ Haga clic en la parte izquierda de una celda y arrástrela hasta la posición de
 ---
 
 <h3 id="delete-a-cell">Eliminación de una celda</h3>
-
-# <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
-
-Para eliminar una celda, seleccione los puntos suspensivos (…) para acceder al menú de otras acciones de celda del extremo derecho y, luego, elija **Eliminar celda**. 
-
-También puede utilizar las [teclas de método abreviado en el modo de comando](#shortcut-keys-under-command-mode). Presione **D,D** para eliminar la celda actual.
-  
-   ![Captura de pantalla de delete-a-cell](./media/apache-spark-development-using-notebooks/synapse-delete-cell.png)
-
-# <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
 
 Para eliminar una celda, seleccione el botón Eliminar en la parte derecha de la celda. 
 
@@ -286,14 +211,6 @@ También puede utilizar las [teclas de método abreviado en el modo de comando](
 
 <h3 id="collapse-a-cell-input">Contracción de una entrada de celda</h3>
 
-# <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
-
-Seleccione el botón de flecha situado en la parte inferior de la celda actual para contraerla. Para expandirla, seleccione el botón de flecha mientras la celda está contraída.
-
-   ![GIF animado de collapse-cell-input](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-input.gif)
-
-# <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
-
 Seleccione los puntos suspensivos de **Más comandos** (...) en la barra de herramientas de la celda y en **Hide input** (Ocultar entrada) para contraer la entrada de la celda actual. Para expandirla, seleccione **Show input** (Mostrar entrada) mientras la celda está contraída.
 
    ![GIF animado de azure-notebook-collapse-cell-input](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-collapse-cell-input.gif)
@@ -301,14 +218,6 @@ Seleccione los puntos suspensivos de **Más comandos** (...) en la barra de herr
 ---
 
 <h3 id="collapse-a-cell-output">Contracción de una salida de celda</h3>
-
-# <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
-
-Seleccione el botón **Contraer salida** situado en la parte superior izquierda de la salida de la celda actual para contraerla. Para expandirla, haga clic en **Mostrar salida de la celda** mientras la salida de la celda está contraída.
-
-   ![GIF animado de collapse-cell-output](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-output.gif)
-
-# <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
 
 Seleccione los puntos suspensivos de **Más comandos** (...) en la barra de herramientas de la celda y en **Hide output** (Ocultar salida) para contraer la salida de la celda actual. Para expandirla, seleccione **Show output** (Mostrar salida) mientras la salida de la celda está oculta.
 
@@ -318,12 +227,6 @@ Seleccione los puntos suspensivos de **Más comandos** (...) en la barra de herr
 ---
 
 <h3 id="notebook-outline">Esquema del cuaderno</h3>
-
-# <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
-
-No compatible.
-
-# <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
 
 En Esquema (tabla de contenido) se presenta el primer encabezado de cualquier celda de Markdown en una ventana de la barra lateral para permitir la navegación rápida. La barra lateral Esquemas es redimensionable y contraíble para ajustarse a la pantalla de la mejor manera posible. Puede seleccionar el botón **Esquema** de la barra de comandos del cuaderno para abrir u ocultar la barra lateral.
 
@@ -356,14 +259,6 @@ Seleccione el botón **Ejecutar todo** para ejecutar todas las celdas del cuader
 
 ### <a name="run-all-cells-above-or-below"></a>Ejecución de todas las celdas encima o debajo
 
-# <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
-
-Para acceder al menú de otras acciones de celda del extremo derecho, seleccione los puntos suspensivos ( **…** ) y, luego, elija **Run cells above** (Ejecutar las celdas encima) para ejecutar todas las celdas situadas encima de la actual en secuencia. Seleccione **Run cells below** (Ejecutar las celdas debajo) para ejecutar todas las celdas situadas debajo de la actual en secuencia.
-
-   ![Captura de pantalla de run-cells-above-or-below](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
-
-# <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
-
 Expanda la lista desplegable en el botón **Ejecutar todo** y, a continuación, seleccione **Run cells above** (Ejecutar las celdas encima) para ejecutar todas las celdas situadas encima de la actual en secuencia. Seleccione **Run cells below** (Ejecutar las celdas debajo) para ejecutar todas las celdas situadas debajo de la actual en secuencia.
 
    ![Captura de pantalla de azure-notebook-run-cells-above-or-below](./media/apache-spark-development-using-notebooks/synapse-aznb-run-cells-above-or-below.png)
@@ -372,26 +267,12 @@ Expanda la lista desplegable en el botón **Ejecutar todo** y, a continuación, 
 
 ### <a name="cancel-all-running-cells"></a>Cancelación de todas las celdas en ejecución
 
-# <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
-Seleccione el botón **Cancelar todo** para cancelar las celdas en ejecución o las celdas que esperan en la cola. 
-   ![Captura de pantalla de cancel-all-cells](./media/apache-spark-development-using-notebooks/synapse-cancel-all.png) 
-
-# <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
-
 Seleccione el botón **Cancelar todo** para cancelar las celdas en ejecución o las celdas que esperan en la cola. 
    ![Captura de pantalla de azure-notebook-cancel-all-cells](./media/apache-spark-development-using-notebooks/synapse-aznb-cancel-all.png) 
 
 ---
 
-
-
 ### <a name="notebook-reference"></a>Referencia del cuaderno
-
-# <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
-
-No compatible.
-
-# <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
 
 Puede usar el comando magic ```%run <notebook path>``` para hacer referencia a otro cuaderno en el contexto del cuaderno actual. Todas las variables definidas en el cuaderno de referencia están disponibles en el cuaderno actual. El comando magic ```%run``` admite llamadas anidadas pero no admite llamadas recursivas. Recibirá una excepción si la profundidad de la instrucción es superior a **cinco**.  
 
@@ -410,18 +291,14 @@ La referencia del cuaderno funciona tanto en modo interactivo como en la canaliz
 
 ### <a name="variable-explorer"></a>Explorador de variables
 
-# <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
-
-No compatible.
-
-# <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
-
 El cuaderno de Synapse ahora incluye un explorador de variables integrado para que pueda ver la lista de nombres, tipos, longitudes y valores de las variables en la sesión de Spark actual para las celdas de PySpark (Python). Se mostrarán automáticamente más variables a medida que se definan en las celdas de código. Al hacer clic en cada encabezado de columna se ordenarán las variables de la tabla.
 
 Puede seleccionar el botón **Variables** de la barra de comandos del cuaderno para abrir u ocultar el explorador de variables.
 
 ![Captura de pantalla de azure-notebook-variable-explorer](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-variable-explorer.png)
 
+> [!NOTE]
+> El explorador de variables solo admite Python.
 
 ---
 
@@ -527,13 +404,6 @@ Puede tener acceso directamente a los datos de la cuenta de almacenamiento princ
 
 ## <a name="ipython-widgets"></a>Widgets de IPython
 
-
-# <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
-
-No compatible.
-
-# <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
-
 Los widgets son objetos de Python con eventos que tienen una representación en el explorador, a menudo como un control deslizante, un cuadro de texto, etc. Los widgets de IPython solo funcionan en el entorno de Python; aún no se admiten en otros lenguajes (por ejemplo, Scala, SQL, C#). 
 
 ### <a name="to-use-ipython-widget"></a>Para usar el widget de IPython
@@ -619,23 +489,26 @@ En las propiedades del cuaderno, puede configurar si incluir la salida de la cel
 
    ![Captura de pantalla de notebook properties](./media/apache-spark-development-using-notebooks/synapse-notebook-properties.png)
 
+<!--
+## Export a notebook
+You can Export your notebook to other standard formats. Synapse notebook supports to be exported into: 
+
++ Standard Notebook file(.ipynb) that is usually used for Jupyter notebooks. 
++ HTML file(.html) that can be opened from browser directly.  
++ Python file(.py).  
++ Latex file(.tex).  
+
+   ![Screenshot of notebook-export](./media/apache-spark-development-using-notebooks/synapse-notebook-export.png)
+
+-->
+
 ## <a name="magic-commands"></a>Comandos magic
 Puede usar los comandos magic de Jupyter que ya conoce en los cuadernos de Synapse. Revise la lista siguiente para ver los comandos magic disponibles actualmente. Indíquenos [sus casos de uso en GitHub](https://github.com/MicrosoftDocs/azure-docs/issues/new) para que podamos seguir generando más comandos magic para satisfacer sus necesidades.
 
 > [!NOTE]
 > Solo se admiten los comandos magic siguientes en una canalización de Synapse: %%pyspark, %%spark, %%csharp, %%sql. 
 >
->
 
-# <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
-
-Comandos magic de línea disponibles: [%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
-
-Comandos magic de celda disponibles: [%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages),[%%configure](#spark-session-config-magic-command)
-
-
-
-# <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
 
 Comandos magic de línea disponibles: [%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%history](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history), [%run](#notebook-reference), [%load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
 
@@ -652,14 +525,6 @@ Seleccione el botón **Agregar a la canalización** en la esquina superior derec
 ![Captura de pantalla de Adición de un cuaderno a la canalización](./media/apache-spark-development-using-notebooks/add-to-pipeline.png)
 
 ### <a name="designate-a-parameters-cell"></a>Designación de una celda de parámetros
-
-# <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
-
-Para parametrizar el cuaderno, seleccione los puntos suspensivos (…) para acceder al menú de otras acciones de celda del extremo derecho. A continuación, seleccione **Toggle parameter cell** (Alternar celda de parámetros) para designar la celda como la celda de parámetros.
-
-![Captura de pantalla de toggle-parameter](./media/apache-spark-development-using-notebooks/toggle-parameter-cell.png)
-
-# <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
 
 Para parametrizar el cuaderno, seleccione los puntos suspensivos (...) para obtener acceso a **más comandos** en la barra de herramientas de la celda. A continuación, seleccione **Toggle parameter cell** (Alternar celda de parámetros) para designar la celda como la celda de parámetros.
 
@@ -693,27 +558,6 @@ De forma similar a los cuadernos de Jupyter Notebook, los cuadernos de Synapse t
    ![Captura de pantalla de edit-mode](./media/apache-spark-development-using-notebooks/synapse-edit-mode-2.png)
 
 ### <a name="shortcut-keys-under-command-mode"></a>Teclas de método abreviado en el modo de comando
-
-# <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
-
-Con los siguientes métodos abreviados de teclado, puede desplazarse y ejecutar código más fácilmente en los cuadernos de Synapse.
-
-| Acción |Métodos abreviados de teclado de los cuadernos de Synapse  |
-|--|--|
-|Ejecutar la celda actual y seleccionar la que está a continuación | Mayús+Entrar |
-|Ejecutar la celda actual e insertar una a continuación | Alt+Entrar |
-|Seleccionar la celda anterior| Arriba |
-|Seleccionar la celda siguiente| Bajar |
-|Insertar una celda encima| A |
-|Insertar una celda debajo| B |
-|Extender las celdas seleccionadas encima| Mayús+Arriba |
-|Extender las celdas seleccionadas debajo| Mayús+Abajo|
-|Subir celda| CTRL+Alt+↑ |
-|Bajar celda| CTRL+Alt+↓ |
-|Eliminar celdas seleccionadas| D, D |
-|Cambiar al modo de edición| Escriba |
-
-# <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
 
 | Acción |Métodos abreviados de teclado de los cuadernos de Synapse  |
 |--|--|

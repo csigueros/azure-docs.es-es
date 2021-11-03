@@ -10,12 +10,12 @@ author: rsethur
 ms.author: seramasu
 ms.date: 08/03/2021
 ms.reviewer: laobri
-ms.openlocfilehash: ebb4db34c802c1cd82e0065579cc97ffeb3fe642
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: de4a9c78501fd74fa65a453b593701891e04d345
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780186"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024265"
 ---
 # <a name="cli-v2-managed-online-endpoint-yaml-schema"></a>Esquema de YAML de punto de conexión en línea administrado de la CLI (v2)
 
@@ -84,4 +84,4 @@ El esquema JSON de origen se puede encontrar en https://azuremlschemas.azureedge
 
 - [Instalación y uso de la CLI (v2)](how-to-configure-cli.md)
 - Aprenda a [implementar un modelo con un punto de conexión en línea administrado](how-to-deploy-managed-online-endpoints.md).
-- [Solución de problemas de implementación y puntuación de puntos de conexión en línea administrados (versión preliminar)](how-to-troubleshoot-managed-online-endpoints.md)
+- [Solución de problemas de implementación y puntuación de puntos de conexión en línea administrados (versión preliminar)](./how-to-troubleshoot-online-endpoints.md)

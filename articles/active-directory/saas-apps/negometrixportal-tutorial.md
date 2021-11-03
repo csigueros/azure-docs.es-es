@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/10/2021
 ms.author: jeedes
-ms.openlocfilehash: 7c4caff72983418631402adc4da8194a7b507e2e
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 3fdc55289c33482db7384eed51ae3a2e75f7ad99
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130001929"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051560"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-negometrixportal-single-sign-on-sso"></a>Tutorial: Integración del inicio de sesión único de Azure AD con NegometrixPortal Single Sign On (SSO)
 
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar NegometrixPortal Single Sign On (SSO) con
 * Permitir que los usuarios inicien sesión automáticamente en NegometrixPortal Single Sign On (SSO) con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -60,7 +60,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con NegometrixPortal
 Para configurar y probar el inicio de sesión único de Azure AD con NegometrixPortal Single Sign On (SSO), es preciso seguir estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en NegometrixPortal Single Sign On (SSO)](#configure-negometrixportal-single-sign-on-sso-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba en NegometrixPortal Single Sign On (SSO)](#create-negometrixportal-single-sign-on-sso-test-user)** : para tener un homólogo de B.Simon en NegometrixPortal Single Sign On (SSO) vinculado a la representación del usuario en Azure AD.

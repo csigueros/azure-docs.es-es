@@ -4,12 +4,12 @@ description: Procedimiento para migrar un clúster y aplicaciones de Azure Servi
 ms.topic: conceptual
 ms.date: 07/20/2021
 ms.author: micraft
-ms.openlocfilehash: ddda30f949ac4abfe7f19890ce9f7c6f8fedadbe
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3cbd2e21508296b6174a2322559973fb98728e2b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780848"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131083486"
 ---
 # <a name="move-an-azure-service-fabric-cluster-to-a-new-region"></a>Traslado de un clúster de Azure Service Fabric a una región nueva
 
@@ -38,7 +38,7 @@ Antes de participar en cualquier migración regional, se recomienda establecer u
    -  Para todos los servicios:  
       * <p>Asegúrese de que las fases de comunicación entre los clientes y los servicios se configuran de forma similar al clúster de origen. Por ejemplo, esta validación puede incluir la garantía de que los intermediarios como Event Hubs, los equilibradores de carga de red, las puertas de enlace de aplicaciones o API Management están configurados con las reglas necesarias para permitir que el tráfico fluya al clúster.</p>  
 
-3. Redirija el tráfico de la región antigua a la nueva. Se recomienda usar [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) para la migración, ya que ofrece una amplia variedad de [métodos de enrutamiento](../traffic-manager/traffic-manager-routing-methods.md). La forma exacta de actualizar las reglas de enrutamiento de tráfico dependerá de si quiere mantener la región existente o descartarla, y también de cómo fluya el tráfico dentro de la aplicación. Es posible que tenga que investigar si las direcciones IP privadas o públicas, o los nombres DNS se pueden trasladar entre distintos recursos de Azure en regiones diferentes. Service Fabric no es consciente de esta parte del sistema, por lo que debe investigar y, si es necesario, implicar a los equipos de Azure en el flujo de tráfico, en especial si es más complejo o si la carga de trabajo es crítica para la latencia. Documentos como [Configuración de dominio personalizado](../api-management/configure-custom-domain.md), [Direcciones IP públicas](../virtual-network/public-ip-addresses.md) y [Zonas y registros DNS](../dns/dns-zones-records.md) pueden ser útiles, y son ejemplos de la información que necesitará en función de los flujos de tráfico y los protocolos. Estos son dos escenarios de ejemplo en los que se muestra cómo se podría abordar la actualización del enrutamiento del tráfico:  
+3. Redirija el tráfico de la región antigua a la nueva. Se recomienda usar [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) para la migración, ya que ofrece una amplia variedad de [métodos de enrutamiento](../traffic-manager/traffic-manager-routing-methods.md). La forma exacta de actualizar las reglas de enrutamiento de tráfico dependerá de si quiere mantener la región existente o descartarla, y también de cómo fluya el tráfico dentro de la aplicación. Es posible que tenga que investigar si las direcciones IP privadas o públicas, o los nombres DNS se pueden trasladar entre distintos recursos de Azure en regiones diferentes. Service Fabric no es consciente de esta parte del sistema, por lo que debe investigar y, si es necesario, implicar a los equipos de Azure en el flujo de tráfico, en especial si es más complejo o si la carga de trabajo es crítica para la latencia. Documentos como [Configuración de dominio personalizado](../api-management/configure-custom-domain.md), [Direcciones IP públicas](../virtual-network/ip-services/public-ip-addresses.md) y [Zonas y registros DNS](../dns/dns-zones-records.md) pueden ser útiles, y son ejemplos de la información que necesitará en función de los flujos de tráfico y los protocolos. Estos son dos escenarios de ejemplo en los que se muestra cómo se podría abordar la actualización del enrutamiento del tráfico:  
    * Si no tiene previsto mantener la región de origen existente y tiene un DNS o CNAME asociado a la dirección IP pública de una instancia de Network Load Balancer que entrega llamadas al clúster de origen original. Actualice el DNS o CNAME para asociarlo a una nueva dirección IP pública del nuevo equilibrador de carga de red en la nueva región. Al completar esa transferencia, los clientes que usan el clúster existente pasarán a utilizar el nuevo. 
   
    * Si tiene previsto mantener la región de origen existente y tiene un DNS o CNAME asociado a la dirección IP pública de una instancia de Network Load Balancer que entregaba llamadas al clúster de origen original. Configure una instancia de Azure Traffic Manager y, después, asocie el nombre DNS a esa instancia. Después, se puede configurar Azure Traffic Manager para enrutar a los equilibradores de carga de red individuales dentro de cada región. 

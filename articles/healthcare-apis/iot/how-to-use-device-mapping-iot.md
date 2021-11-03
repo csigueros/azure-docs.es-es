@@ -5,14 +5,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 10/26/2021
 ms.author: jasteppe
-ms.openlocfilehash: a0cc7037ca95fe4262b6c10dc9cb260a971f7c31
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: ef22404d96599768ad55c3c3687e3df9fb4bbf35
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130005546"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040478"
 ---
 # <a name="how-to-use-device-mapping"></a>Uso de la asignación de dispositivos
 
@@ -27,6 +27,9 @@ Los dos tipos de asignaciones se componen en un documento JSON en función de su
 
 > [!NOTE]
 > Las asignaciones se almacenan en un almacenamiento de blobs subyacente y se cargan desde la ejecución de blobs por proceso. Al actualizarse, se aplican inmediatamente. 
+
+> [!TIP]
+> Consulte la herramienta [Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) del conector ioMT para editar, probar y solucionar problemas de asignaciones de dispositivos y destinos de FHIR del conector de IoT. Exporte asignaciones para cargar en el conector de IoT Azure Portal use con la versión [de código abierto](https://github.com/microsoft/iomt-fhir) del conector de IoT.
 
 ## <a name="device-mapping"></a>Asignación de dispositivos
 
@@ -451,6 +454,6 @@ IotCentralJsonPathContentTemplate no requiere DeviceIdExpression ni TimestampExp
 ## <a name="next-steps"></a>Pasos siguientes
 
 >[!div class="nextstepaction"]
->[Uso de la asignación de destino de FHIR](how-to-use-fhir-mapping-iot.md)
+>[Uso de asignaciones de destino de FHIR](how-to-use-fhir-mapping-iot.md)
 
-(FHIR&#174;) es una marca comercial registrada de [HL7](https://hl7.org/fhir/) y se usa con el permiso hl7.
+(FHIR&#174;) es una marca comercial registrada de [HL7](https://hl7.org/fhir/) y se usa con el permiso de HL7.

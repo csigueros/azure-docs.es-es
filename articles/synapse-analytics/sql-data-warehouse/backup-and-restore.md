@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: d17f370739acf5280850beb1eb14ad8cdc0268a6
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 28a26537090dc2913ee83027c66ddc3c3416d03e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129424943"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063696"
 ---
 # <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Copia de seguridad y restauración en el grupo de SQL dedicado de Azure Synapse
 
@@ -48,7 +48,7 @@ order by run_id desc
 Esta característica permite desencadenar instantáneas manualmente para crear puntos de restauración del almacenamiento de datos antes y después de realizar grandes modificaciones. Esta funcionalidad garantiza que los puntos de restauración sean lógicamente coherentes, lo que proporciona una protección de datos adicional en caso de interrupciones de la carga de trabajo o de errores del usuario para un tiempo de recuperación rápido. Los puntos de restauración definidos por el usuario están disponibles durante siete días y se eliminan automáticamente. No se puede cambiar el período de retención de los puntos de restauración definidos por el usuario. Se garantizan **42 puntos de restauración definidos por el usuario** en un momento dado, por lo que deben [eliminarse](/powershell/module/azurerm.sql/remove-azurermsqldatabaserestorepoint) antes de crear otro punto de restauración. Puede desencadenar instantáneas para crear puntos de restauración definidos por el usuario mediante [PowerShell](/powershell/module/az.sql/new-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsont#examples) o Azure Portal.
 
 > [!NOTE]
-> Si necesita más de siete días de puntos de restauración, vote por esta funcionalidad [aquí](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). También puede crear un punto de restauración definido por el usuario y restaurar desde el punto de restauración recién creado en un nuevo almacenamiento de datos. Cuando haya realizado la restauración, tendrá el grupo de SQL dedicado en línea y podrá pausarlo indefinidamente para reducir los costos de proceso. La base de datos en pausa genera gastos de almacenamiento según la tarifa de almacenamiento de Azure Synapse. Si necesita una copia activa del almacenamiento de datos restaurado, puede reanudarlo, lo que sólo le llevará unos minutos.
+> Si necesita más de siete días de puntos de restauración, vote por esta funcionalidad [aquí](https://feedback.azure.com/d365community/idea/4c446fd9-0b25-ec11-b6e6-000d3a4f07b8). También puede crear un punto de restauración definido por el usuario y restaurar desde el punto de restauración recién creado en un nuevo almacenamiento de datos. Cuando haya realizado la restauración, tendrá el grupo de SQL dedicado en línea y podrá pausarlo indefinidamente para reducir los costos de proceso. La base de datos en pausa genera gastos de almacenamiento según la tarifa de almacenamiento de Azure Synapse. Si necesita una copia activa del almacenamiento de datos restaurado, puede reanudarlo, lo que sólo le llevará unos minutos.
 
 ### <a name="restore-point-retention"></a>Retención de punto de recuperación
 
@@ -74,7 +74,7 @@ Se crea una copia de seguridad de replicación geográfica una vez al día en un
 Si no necesita copias de seguridad geográficas para su grupo de SQL dedicado, puede deshabilitarlas y ahorrar costos de almacenamiento de recuperación ante desastres. Para ello, consulte [Guía de procedimientos: Deshabilitación de copias de seguridad geográficas para un grupo de SQL dedicado (anteriormente SQL DW)](disable-geo-backup.md). Tenga en cuenta que si deshabilita las copias de seguridad geográficas, no podrá recuperar el grupo de SQL dedicado en la región de Azure emparejada si el centro de datos principal de Azure no está disponible. 
 
 > [!NOTE]
-> Si necesita un objetivo de punto de recuperación más reducido para copias de seguridad de replicación geográfica, vote por esta funcionalidad [aquí](https://feedback.azure.com/forums/307516-sql-data-warehouse). También puede crear un punto de restauración definido por el usuario y restaurar a partir del punto de restauración recién creado en un nuevo almacenamiento de datos. Cuando haya realizado la restauración, tendrá el almacenamiento de datos en línea y podrá pausarlo indefinidamente para ahorrar los costos del proceso. La base de datos en pausa genera gastos de almacenamiento según la tarifa de Azure Premium Storage. Otro patrón común para un punto de recuperación más corto es ingerir datos en instancias principales y secundarias de un almacenamiento de datos en paralelo. En este escenario, los datos se ingieren desde un origen (o varios orígenes) y se conservan en dos instancias independientes del almacenamiento de datos (principal y secundaria). Para ahorrar en costos del proceso, puede pausar la instancia secundaria del almacenamiento. Si necesita una copia activa del almacenamiento de datos, puede reanudarlo, lo que solo le llevaría unos minutos.
+> Si necesita un objetivo de punto de recuperación más reducido para copias de seguridad de replicación geográfica, vote por esta funcionalidad [aquí](https://feedback.azure.com/d365community/idea/dc4975e5-0b25-ec11-b6e6-000d3a4f07b8). También puede crear un punto de restauración definido por el usuario y restaurar a partir del punto de restauración recién creado en un nuevo almacenamiento de datos. Cuando haya realizado la restauración, tendrá el almacenamiento de datos en línea y podrá pausarlo indefinidamente para ahorrar los costos del proceso. La base de datos en pausa genera gastos de almacenamiento según la tarifa de Azure Premium Storage. Otro patrón común para un punto de recuperación más corto es ingerir datos en instancias principales y secundarias de un almacenamiento de datos en paralelo. En este escenario, los datos se ingieren desde un origen (o varios orígenes) y se conservan en dos instancias independientes del almacenamiento de datos (principal y secundaria). Para ahorrar en costos del proceso, puede pausar la instancia secundaria del almacenamiento. Si necesita una copia activa del almacenamiento de datos, puede reanudarlo, lo que solo le llevaría unos minutos.
 
 ## <a name="data-residency"></a>Residencia de datos 
 
@@ -104,7 +104,7 @@ Para restaurar un almacenamiento de datos eliminado o en pausa, puede [crear una
 
 ## <a name="cross-subscription-restore"></a>Restauración entre suscripciones
 
-Si necesita restaurar directamente entre suscripciones, vote por esta funcionalidad [aquí](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Realice la restauración en otro servidor y ["mueva"](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) el servidor entre suscripciones para realizar una restauración entre suscripciones.
+Si necesita restaurar directamente entre suscripciones, vote por esta funcionalidad [aquí](https://feedback.azure.com/d365community/idea/dea9ea22-0a25-ec11-b6e6-000d3a4f07b8). Realice la restauración en otro servidor y ["mueva"](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) el servidor entre suscripciones para realizar una restauración entre suscripciones.
 
 ## <a name="geo-redundant-restore"></a>Restauración con redundancia geográfica
 

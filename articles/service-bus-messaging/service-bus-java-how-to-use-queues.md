@@ -4,18 +4,13 @@ description: En este tutorial aprenderá a usar Java para enviar mensajes a una 
 ms.date: 02/13/2021
 ms.topic: quickstart
 ms.devlang: Java
-ms.custom:
-- seo-java-july2019
-- seo-java-august2019
-- seo-java-september2019
-- devx-track-java
-- mode-api
-ms.openlocfilehash: e3998e812bb921ff8bea5e83199bc4e142ed2e83
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
+ms.openlocfilehash: f9bbe3a36c64e9e726081e3ca9d15dd382f0fe9a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107533418"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131013961"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-java"></a>Envío de mensajes a las colas de Azure Service Bus (Java) y recepción desde ellas
 En este inicio rápido creará aplicaciones de Java para enviar mensajes a una cola de Azure Service Bus y recibir mensajes desde allí. 

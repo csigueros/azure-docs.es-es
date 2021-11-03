@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 07/17/2021
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 598f1df9808bfe4e367719615ebae332c617a984
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 9fef5f438cc28c5e0fe3ae86d1d85b67af45a8ba
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124767838"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131005810"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data-v3-driver"></a>Compilación de una aplicación Java para administrar los datos de Cassandra API de Azure Cosmos DB (controlador v3)
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "124767838"
 
 En este inicio rápido se crea una cuenta de Cassandra API de Azure Cosmos DB y se utiliza una aplicación Java de Cassandra clonada desde GitHub para crear un contenedor y una base de datos de Cassandra mediante los [ controladores de Apache Cassandra v3.x](https://github.com/datastax/java-driver/tree/3.x) para Java. Azure Cosmos DB es un servicio de base de datos multimodelo que permite crear y consultar rápidamente bases de datos de documentos, tablas, claves-valores y grafos con funcionalidades de distribución global y escala horizontal.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). O bien, [pruebe gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sin una suscripción de Azure.
 - [Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Apunte su variable de entorno `JAVA_HOME` a la carpeta donde está instalado el JDK.
@@ -75,27 +75,27 @@ Este paso es opcional. Si le interesa aprender cómo el código crea los recurso
 
 * Se establecen las opciones de host, puerto, nombre de usuario, contraseña y TLS/SSL de Cassandra. La información de la cadena de conexión procede de la página de cadena de conexión de Azure Portal.
 
-   ```java
-   cluster = Cluster.builder().addContactPoint(cassandraHost).withPort(cassandraPort).withCredentials(cassandraUsername, cassandraPassword).withSSL(sslOptions).build();
-   ```
+  ```java
+  cluster = Cluster.builder().addContactPoint(cassandraHost).withPort(cassandraPort).withCredentials(cassandraUsername, cassandraPassword).withSSL(sslOptions).build();
+  ```
 
 * El elemento `cluster` se conecta a la API de Cassandra de Azure Cosmos DB y devuelve una sesión a la que se accede.
 
-    ```java
-    return cluster.connect();
-    ```
+  ```java
+  return cluster.connect();
+  ```
 
 Los fragmentos de código siguientes son del archivo *src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java*.
 
 * Cree un nuevo espacio de claves.
 
-    ```java
-    public void createKeyspace() {
-        final String query = "CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '3' } ";
-        session.execute(query);
-        LOGGER.info("Created keyspace 'uprofile'");
-    }
-    ```
+  ```java
+  public void createKeyspace() {
+      final String query = "CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '3' } ";
+      session.execute(query);
+      LOGGER.info("Created keyspace 'uprofile'");
+  }
+  ```
 
 * Cree una nueva tabla.
 
@@ -109,41 +109,41 @@ Los fragmentos de código siguientes son del archivo *src/main/java/com/azure/co
 
 * Inserte las entidades de usuario mediante un objeto de instrucción preparado.
 
-    ```java
-    public PreparedStatement prepareInsertStatement() {
-        final String insertStatement = "INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (?,?,?)";
-        return session.prepare(insertStatement);
-    }
+  ```java
+  public PreparedStatement prepareInsertStatement() {
+      final String insertStatement = "INSERT INTO  uprofile.user (user_id, user_name, user_bcity) VALUES (?,?,?)";
+      return session.prepare(insertStatement);
+  }
 
-    public void insertUser(PreparedStatement statement, int id, String name, String city) {
-        BoundStatement boundStatement = new BoundStatement(statement);
-        session.execute(boundStatement.bind(id, name, city));
-    }
-    ```
+  public void insertUser(PreparedStatement statement, int id, String name, String city) {
+      BoundStatement boundStatement = new BoundStatement(statement);
+      session.execute(boundStatement.bind(id, name, city));
+  }
+  ```
 
 * Realice una consulta para obtener la información de todos los usuarios.
 
-    ```java
-   public void selectAllUsers() {
-        final String query = "SELECT * FROM uprofile.user";
-        List<Row> rows = session.execute(query).all();
+  ```java
+  public void selectAllUsers() {
+      final String query = "SELECT * FROM uprofile.user";
+      List<Row> rows = session.execute(query).all();
 
-        for (Row row : rows) {
-            LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
-        }
-    }
-    ```
+      for (Row row : rows) {
+          LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
+      }
+  }
+  ```
 
 * Realice una consulta para obtener la información de un único usuario.
 
-    ```java
-    public void selectUser(int id) {
-        final String query = "SELECT * FROM uprofile.user where user_id = 3";
-        Row row = session.execute(query).one();
+  ```java
+  public void selectUser(int id) {
+      final String query = "SELECT * FROM uprofile.user where user_id = 3";
+      Row row = session.execute(query).one();
 
-        LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
-    }
-    ```
+      LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
+  }
+  ```
 
 ## <a name="update-your-connection-string"></a>Actualización de la cadena de conexión
 

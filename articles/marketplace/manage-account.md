@@ -7,12 +7,12 @@ ms.topic: article
 author: varsha-sarah
 ms.author: vavargh
 ms.date: 09/27/2021
-ms.openlocfilehash: 115556f2118d34fa4fd2baf3ac84d97a1b9f5962
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 40ea8110ddf9a8f81395dea86beb656dba736cf7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130071670"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024341"
 ---
 # <a name="manage-a-commercial-marketplace-account-in-partner-center"></a>Administración de una cuenta de Marketplace comercial en el Centro de partners
 
@@ -234,7 +234,7 @@ La dirección de facturación se rellena previamente a partir de la entidad lega
 
 ## <a name="multi-user-account-management"></a>Administración de cuentas multiusuario
 
-El Centro de partners usa [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) para la administración y el acceso a la cuenta multiusuario. La instancia de Azure AD de la organización se asocia automáticamente con la cuenta del Centro de partners como parte del proceso de inscripción.
+El Centro de partners usa [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) para la administración y el acceso a la cuenta multiusuario. La instancia de Azure AD de la organización se asocia automáticamente con la cuenta del Centro de partners como parte del proceso de inscripción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

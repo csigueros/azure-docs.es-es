@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: baecf0d282c333e86f4b9848f84b453ffac6930f
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: d87aac528491a7360ae857be7f959eb66b44845d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130068919"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131003378"
 ---
 # <a name="ncv2-series"></a>Serie NCv2
 
@@ -29,7 +29,7 @@ La configuración NC24rs v2 proporciona una interfaz de red de baja latencia y a
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): No compatible<br>
-[Discos de sistema operativo efímero](ephemeral-os-disks.md): admitidos ([en versión preliminar](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible<br>
 Interconexión de Nvidia NVLink: No compatible
 
 > [!IMPORTANT]

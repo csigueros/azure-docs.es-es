@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: be01f71a3ee796d0eebd6b1c96523a0b98a771a4
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 5dcbe4e7c1c72f444dfe6b3c9e4dae5c3f538ed5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130069826"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131003416"
 ---
 # <a name="nd-series"></a>Serie ND
 
@@ -27,7 +27,7 @@ Las máquinas virtuales de serie ND son una novedad incorporada a la familia GPU
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): No compatible<br>
-[Discos de sistema operativo efímero](ephemeral-os-disks.md): admitidos ([en versión preliminar](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible<br>
 Interconexión de NVIDIA NVLink: No compatible<br>
 
 > [!IMPORTANT]

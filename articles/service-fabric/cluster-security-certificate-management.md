@@ -4,12 +4,12 @@ description: Obtenga información sobre la administración de certificados en un
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev, devx-track-azurepowershell
-ms.openlocfilehash: 580831c402c8d07eead9f3b90215faa106640bfc
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 768fe83a0ce4bc0507f21b72e1c917e60c7ec971
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128601983"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075132"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Administración de certificados en clústeres de Service Fabric
 
@@ -90,10 +90,10 @@ En este momento, existe un certificado en el almacén, listo para su consumo. Ah
 ### <a name="certificate-provisioning"></a>Aprovisionamiento del certificado
 Mencionamos un "agente de aprovisionamiento", que es una entidad que recupera el certificado, incluida su clave privada, del almacén y lo instala en cada uno de los hosts del clúster. (Recuerde que Service Fabric no aprovisiona los certificados). En nuestro contexto, el clúster se hospedará en una colección de VM de Azure o en conjuntos de escalado de máquinas virtuales. En Azure, el aprovisionamiento de un certificado desde un almacén hacia una VM/VMSS se puede lograr con los siguientes mecanismos: suponiendo que, como se indica anteriormente, el propietario del almacén ha concedido previamente los permisos "get" al agente de aprovisionamiento en el almacén: 
   - Ad hoc: un operador recupera el certificado del almacén (como PFX/PKCS12 o PEM) y lo instala en cada nodo.
-  - Como "secreto" del conjunto de escalado de máquinas virtuales durante la implementación: el servicio Compute recupera, usando la identidad de su primera entidad en nombre del operador, el certificado de un almacén habilitado para la implementación de plantillas y lo instala en cada nodo del conjunto de escalado de máquinas virtuales ([de este modo](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#certificates)); tenga en cuenta que esto permite el aprovisionamiento solo de secretos con versión.
+  - Como "secreto" del conjunto de escalado de máquinas virtuales durante la implementación: el servicio Compute recupera, usando la identidad de su primera entidad en nombre del operador, el certificado de un almacén habilitado para la implementación de plantillas y lo instala en cada nodo del conjunto de escalado de máquinas virtuales ([de este modo](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml)); tenga en cuenta que esto permite el aprovisionamiento solo de secretos con versión.
   - Mediante la [extensión de VM de Key Vault](../virtual-machines/extensions/key-vault-windows.md); esto permite el aprovisionamiento de certificados con declaraciones sin versión, con una actualización periódica de los certificados observados. En este caso, se espera que la VM/VMSS tenga una [identidad administrada](../virtual-machines/security-policy.md#managed-identities-for-azure-resources), una identidad a la que se le ha concedido acceso a los almacenes que contienen los certificados observados.
 
-No se recomienda el mecanismo ad hoc por varios motivos, desde la seguridad hasta la disponibilidad, por lo que no se tratará más en adelante; para obtener más información, consulte [certificados en conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#certificates).
+No se recomienda el mecanismo ad hoc por varios motivos, desde la seguridad hasta la disponibilidad, por lo que no se tratará más en adelante; para obtener más información, consulte [certificados en conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml).
 
 El aprovisionamiento basado en VMSS/Compute presenta las ventajas de seguridad y disponibilidad, pero también presenta restricciones. Por su diseño, exige la declaración de certificados como secretos con versión, lo que hace que sea adecuado solo para los clústeres protegidos con certificados declarados por huella digital. Por el contrario, el aprovisionamiento basado en la extensión de VM de Key Vault siempre instalará la versión más reciente de cada certificado observado, lo que hace que sea adecuado solo para los clústeres protegidos con certificados declarados por nombre común del firmante. Para enfatizar, no use un mecanismo de aprovisionamiento de actualización automática (como la extensión KVVM) para los certificados declarados por instancia (es decir, por huella digital), el riesgo de perder disponibilidad es considerable.
 

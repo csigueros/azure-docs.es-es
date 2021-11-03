@@ -9,22 +9,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/08/2021
-ms.custom: project-no-code
+ms.custom: project-no-code, ignite-fall-2021
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 306aef9867025ef4c40495871ed9bffbd287d3e3
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 19a13d9c2941d9a98cce4415b9266d67a9bb8e53
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130036386"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131028108"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Administración de Azure AD B2C con Microsoft Graph
 
 Microsoft Graph permite administrar recursos en el directorio de Azure AD B2C. Se admiten las siguientes operaciones de Microsoft Graph API para la administración de recursos de Azure AD B2C, incluidos usuarios, proveedores de identidades, flujos de usuarios, directivas personalizadas y claves de directivas. Cada vínculo de las secciones siguientes se dirige a la página correspondiente dentro de la referencia de Microsoft Graph API para esa operación. 
 
 > [!NOTE]
-> También puede crear mediante programación un directorio de Azure AD B2C, junto con el recurso de Azure correspondiente vinculado a una suscripción de Azure. Esta funcionalidad no se expone a través de Microsoft Graph API, sino a través de la API REST de Azure. Para obtener más información, consulte [Inquilinos B2C: Creación](/rest/api/activedirectory/b2ctenants/create).
+> También puede crear mediante programación un directorio de Azure AD B2C, junto con el recurso de Azure correspondiente vinculado a una suscripción de Azure. Esta funcionalidad no se expone a través de Microsoft Graph API, sino a través de la API REST de Azure. Para obtener más información, consulte [Inquilinos B2C: Creación](/rest/api/activedirectory/b2c-tenants/create).
 
 Vea este vídeo para obtener información sobre la migración de usuario de Azure AD B2C mediante Microsoft Graph API.
 
@@ -253,4 +253,4 @@ El documento [Realizar llamadas API con los SDK de Microsoft Graph](/graph/sdks/
 <!-- LINK -->
 
 [graph-objectIdentity]: /graph/api/resources/objectidentity
-[graph-user]: (https://docs.microsoft.com/graph/api/resources/user)
+[graph-user]: /graph/api/resources/user

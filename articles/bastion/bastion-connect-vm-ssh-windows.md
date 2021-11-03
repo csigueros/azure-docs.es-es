@@ -8,21 +8,22 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 09/20/2021
 ms.author: cherylmc
-ms.openlocfilehash: 4e08aed1b1b91f55a12f5920dfff898cd0109bae
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 433b86cb879fbe0541b9da3a6ae2edcb99e98b7b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129278602"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131071560"
 ---
-# <a name="create-an-ssh-connection-to-a-windows-vm-using-azure-bastion-preview"></a>Creación de una conexión SSH a una máquina virtual Windows mediante Azure Bastion (versión preliminar)
+# <a name="create-an-ssh-connection-to-a-windows-vm-using-azure-bastion"></a>Creación de una conexión SSH a una máquina virtual Windows mediante Azure Bastion
 
-En este artículo se muestra cómo crear de forma segura y sin problemas una conexión SSH a las máquinas virtuales Windows ubicadas en una red virtual de Azure directamente desde Azure Portal. Cuando se usa Azure Bastion, las máquinas virtuales no necesitan un cliente, un agente o software adicional. También puede conectarse a una máquina virtual Windows mediante RDP. Si desea información, consulte [Creación de una conexión RDP a una máquina virtual Windows](bastion-connect-vm-rdp-windows.md).
+En este artículo se muestra cómo crear de forma segura y sin problemas una conexión RDP a las máquinas virtuales Windows ubicadas en una red virtual de Azure directamente desde Azure Portal. Cuando se usa Azure Bastion, las máquinas virtuales no necesitan un cliente, un agente o software adicional. También puede conectarse a una máquina virtual Windows mediante RDP. Si desea información, consulte [Creación de una conexión RDP a una máquina virtual Windows](bastion-connect-vm-rdp-windows.md).
 
 Azure Bastion proporciona conectividad segura a todas las máquinas virtuales de la red virtual en la que se aprovisiona. El uso de Azure Bastion protege las máquinas virtuales frente a la exposición de los puertos de RDP/SSH al mundo exterior, al tiempo que ofrece acceso seguro mediante RDP/SSH. Para obtener más información, vea [¿Qué es Azure Bastion?](bastion-overview.md)
 
 > [!NOTE]
-> Si desea crear una conexión SSH a una máquina virtual Windows, se debe configurar Azure Bastion mediante la SKU estándar. La SKU estándar se encuentra actualmente en versión preliminar.
+> Si desea crear una conexión SSH a una máquina virtual Windows, se debe configurar Azure Bastion mediante la SKU estándar.
 >
 
 Al conectarse a una máquina virtual Windows mediante SSH, puede usar el nombre de usuario y la contraseña, y las claves SSH para la autenticación. Puede conectarse a la máquina virtual con claves SSH mediante una de estas opciones:

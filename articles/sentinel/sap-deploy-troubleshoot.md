@@ -5,17 +5,19 @@ author: batamig
 ms.author: bagold
 ms.service: azure-sentinel
 ms.topic: troubleshooting
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.date: 08/09/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: 45bef2c4e6cbbe9ae2c6b1f316987eb613a4509a
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: d514ceee8f81943efd6024abcde510e910b6cc5f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130258475"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131013942"
 ---
 # <a name="troubleshooting-your-azure-sentinel-sap-solution-deployment"></a>Solución de problemas de implementación de la solución SAP de Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 ## <a name="useful-docker-commands"></a>Comandos útiles de Docker
 

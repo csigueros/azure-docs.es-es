@@ -4,12 +4,13 @@ description: Puede usar Azure Video Analyzer para la grabación continua de víd
 ms.service: azure-video-analyzer
 ms.topic: tutorial
 ms.date: 09/08/2021
-ms.openlocfilehash: 925050ccc3650db3afa4a4e4181a7d245c53f9e1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 9359d51e1767793e1d838777cb76a3af04f30c6d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128605204"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073704"
 ---
 # <a name="tutorial-real-time-visualization-of-ai-inference-events-with-power-bi"></a>Tutorial: Visualización en tiempo real de eventos de inferencia de IA con Power BI
 
@@ -18,7 +19,7 @@ Azure Video Analyzer proporciona la funcionalidad de capturar, grabar y analizar
 Los paneles son una manera esclarecedora de supervisar la empresa y visualizar todas las métricas más importantes de un vistazo. Puede visualizar eventos de inferencia de inteligencia artificial generados por Video Analyzer con [Microsoft Power BI](https://powerbi.microsoft.com/) mediante [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/#overview) para obtener información y compartir paneles rápidamente con los compañeros de la organización.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/power-bi/tutorial-block-diagram.png" alt-text="Diagrama de bloques para conectar Azure Video Analyzer a Microsoft Power BI mediante Azure Stream Analytics.":::
+> :::image type="content" source="./media/power-bi/tutorial-block-diagram.svg" alt-text="Diagrama de bloques para conectar Azure Video Analyzer a Microsoft Power BI mediante Azure Stream Analytics.":::
 
 En este tutorial, aprenderá lo siguiente:
 
@@ -30,14 +31,14 @@ En este tutorial, aprenderá lo siguiente:
 
 - [Supervisión y registro](monitor-log-edge.md) en Video Analyzer
 - Lectura de [mensajes del dispositivo a la nube desde puntos de conexión integrados de IoT Hub](../../iot-hub/iot-hub-devguide-messages-read-builtin.md)
-- Introducción a los [paneles de Power BI](https://docs.microsoft.com/power-bi/create-reports/service-dashboards)
+- Introducción a los [paneles de Power BI](/power-bi/create-reports/service-dashboards)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), en caso de que aún no lo haya hecho.
 - Este tutorial se basa en el uso del [ejemplo de cruce de una línea](use-line-crossing.md) para detectar cuándo los objetos cruzan una línea virtual en una fuente de vídeo en directo. Puede optar por crear la visualización para otras canalizaciones: **se requiere una canalización con un receptor de mensajes de IoT Hub**. Asegúrese de crear la canalización en directo, pero actívela solo después de crear un trabajo de Stream Analytics.
 
-  > [!NOTE]
+  > [!TIP]
   >
   > - El [ejemplo de cruce de una línea](use-line-crossing.md) usa una grabación de vídeo de 5 minutos. Para obtener mejores resultados en la visualización, use la grabación de 60 minutos de vehículos en una autovía disponible en [Otros conjuntos de datos](https://github.com/Azure/video-analyzer/tree/main/media#other-dataset).
   > - Consulte la sección de configuración e implementación de [Preguntas más frecuentes](faq-edge.yml) sobre cómo agregar archivos de vídeo de ejemplo al simulador RTSP. Una vez agregado, edite el valor de `rtspUrl` para que apunte al nuevo archivo de vídeo.
@@ -146,7 +147,7 @@ En el trabajo de Stream Analytics, seleccione Información general y, a continua
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/power-bi/start-asa.png" alt-text="Captura de pantalla para iniciar y ejecutar un trabajo de Stream Analytics.":::
 
-> [!NOTE]
+> [!TIP]
 > IoT Hub permite la retención de datos en el servicio Event Hubs integrado para 1 día y durante un máximo de 7 días. Puede establecer el tiempo de retención durante la creación del servicio IoT Hub. El tiempo de retención de datos en IoT Hub depende del nivel y el tipo de unidad elegidos. Haga clic [aquí](../../iot-hub/iot-hub-devguide-messages-read-builtin.md) para más información. Para una retención de datos más larga, use [Azure Storage como salida](../../stream-analytics/blob-storage-azure-data-lake-gen2-output.md) y, a continuación, conecte Power BI a los archivos de la cuenta de almacenamiento.
 
 ## <a name="run-a-sample-pipeline"></a>Ejecución de una canalización de ejemplo
@@ -161,7 +162,7 @@ En Power BI, puede visualizar los datos de streaming de dos maneras:
 2. Un icono de panel con un conjunto de datos de streaming personalizado
 
    > [!NOTE]
-   > En este artículo, usaremos el primer método para crear informes y, a continuación, anclarlos al panel. Este método conserva los datos del objeto visual durante más tiempo y los agrega automáticamente en función de los datos entrantes. Para más información sobre el segundo método, consulte [Configurar el conjunto de datos de transmisión en tiempo real en Power BI](https://docs.microsoft.com/power-bi/connect-data/service-real-time-streaming#set-up-your-real-time-streaming-dataset-in-power-bi).
+   > En este artículo, usaremos el primer método para crear informes y, a continuación, anclarlos al panel. Este método conserva los datos del objeto visual durante más tiempo y los agrega automáticamente en función de los datos entrantes. Para más información sobre el segundo método, consulte [Configurar el conjunto de datos de transmisión en tiempo real en Power BI](/power-bi/connect-data/service-real-time-streaming#set-up-your-real-time-streaming-dataset-in-power-bi).
 
 ### <a name="create-and-publish-a-power-bi-report"></a>Creación y publicación de un informe de Power BI
 
@@ -199,7 +200,7 @@ Opcionalmente, también puede [insertar un widget de reproductor](embed-player-i
 > :::image type="content" source="./media/power-bi/pinned-dashboard.png" alt-text="Panel de Power BI con un informe anclado y un widget de reproductor agregado en un icono.":::
 
 > [!NOTE]
-> La reproducción de vídeo y la creación de informes no estarán sincronizadas debido al método utilizado para generar informes. Para obtener una experiencia más cercana al tiempo real, consulte [Configurar el conjunto de datos de transmisión en tiempo real en Power BI](https://docs.microsoft.com/power-bi/connect-data/service-real-time-streaming#set-up-your-real-time-streaming-dataset-in-power-bi).
+> La reproducción de vídeo y la creación de informes no estarán sincronizadas debido al método utilizado para generar informes. Para obtener una experiencia más cercana al tiempo real, consulte [Configurar el conjunto de datos de transmisión en tiempo real en Power BI](/power-bi/connect-data/service-real-time-streaming#set-up-your-real-time-streaming-dataset-in-power-bi).
 
 ## <a name="interpret-the-dashboard"></a>Interpretación del panel
 

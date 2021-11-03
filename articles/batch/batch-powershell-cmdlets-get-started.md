@@ -4,12 +4,12 @@ description: Una rápida introducción a los cmdlets de Azure PowerShell que pue
 ms.topic: how-to
 ms.date: 01/21/2021
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 2b51a2a7852df82625fb342bbbbc4a3a1cbf72a3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b08fcf7a0e3a4580141d1b79aba43a04f808894a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98685517"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051370"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Administración de recursos de Batch con cmdlets de PowerShell
 
@@ -58,7 +58,7 @@ New-AzBatchAccount –AccountName <account_name> –Location "Central US" –Res
 
 **Get-AzBatchAccountKeys** muestra las claves de acceso asociadas a una cuenta de Azure Batch. Por ejemplo, ejecute lo siguiente para obtener las claves principales y secundarias de la cuenta que creó.
 
- ```powershell
+```powershell
 $Account = Get-AzBatchAccountKeys –AccountName <account_name>
 
 $Account.PrimaryAccountKey

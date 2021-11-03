@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 9fa0e633c92300e0932200725aa1fa82de46f359
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+ms.openlocfilehash: e8c89f4542b29a69346f43f95a7d2f5de78148f9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114221481"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131012499"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de registro mediante Azure Monitor
 
@@ -71,7 +71,7 @@ A continuación se indican los pasos para empezar a escribir consultas para las 
     > Como [bin()](/azure/kusto/query/binfunction) puede generar intervalos de tiempo distintos, el servicio de alerta convertirá automáticamente la función [bin()](/azure/kusto/query/binfunction) en la función [bin_at()](/azure/kusto/query/binatfunction) con el valor adecuado en tiempo de ejecución para garantizar resultados con un punto fijo.
 
     > [!NOTE]
-    > La división por dimensiones de alerta solo está disponible en la versión scheduledQueryRules API actual. Si usa la versión [Alert API de Log Analytics heredada](./api-alerts.md), tendrá que cambiar a la nueva. [Más información sobre cómo cambiar](./alerts-log-api-switch.md). Las alertas orientadas a recursos a gran escala solo se admiten en la versión `2020-05-01-preview` y versiones posteriores de la API.
+    > La división por dimensiones de alerta solo está disponible en la versión scheduledQueryRules API actual. Si usa la versión [Alert API de Log Analytics heredada](./api-alerts.md), tendrá que cambiar a la nueva. [Más información sobre cómo cambiar](./alerts-log-api-switch.md). Las alertas orientadas a recursos a gran escala solo se admiten en la versión `2020-08-01` y versiones posteriores de la API.
 
     ![agregar una opción](media/alerts-log/aggregate-on.png)
 
@@ -143,9 +143,6 @@ A continuación se indican los pasos para empezar a escribir consultas para las 
 
 ### <a name="log-alert-for-all-other-resource-types"></a>Alerta de registro para los demás tipos de recursos
 
-> [!NOTE]
-> Actualmente no hay cargos adicionales por la versión `2020-05-01-preview` de la API y las alertas de registro orientadas a los recursos.  Los precios de las características en versión preliminar se anunciarán en el futuro y se avisará antes del inicio de la facturación. Si decide seguir usando la nueva versión de la API y las alertas de registro orientadas a los recursos después del período de aviso, se le facturará según la tarifa aplicable.
-
 1. Comience en la pestaña **Condición**:
 
     1. Compruebe que los valores de [**Medida**](./alerts-unified-log.md#measure), [**Tipo de agregación**](./alerts-unified-log.md#aggregation-type) y [**Granularidad de agregación**](./alerts-unified-log.md#aggregation-granularity) son correctos. 
@@ -210,7 +207,7 @@ A continuación se indican los pasos para empezar a escribir consultas para las 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> Actualmente no se admite PowerShell en la versión `2020-05-01-preview` de la API.
+> Actualmente no se admite PowerShell en la versión `2020-08-01` de la API.
 
 Los cmdlets de PowerShell que se enumeran a continuación están disponibles para administrar reglas con la [API Reglas de consulta programadas](/rest/api/monitor/scheduledqueryrules/).
 
@@ -280,7 +277,7 @@ New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceG
 ## <a name="managing-log-alerts-using-cli"></a>Administración de alertas de registro con la CLI
 
 > [!NOTE]
-> La compatibilidad con la CLI de Azure solo está disponible para la versión `2020-05-01-preview` y versiones posteriores de scheduledQueryRules API. La versión anterior de la API puede usar la CLI de Azure Resource Manager con plantillas, como se describe a continuación. Si usa la versión [Alert API de Log Analytics](./api-alerts.md) heredada, deberá cambiar a usar la CLI. [Más información sobre cómo cambiar](./alerts-log-api-switch.md).
+> La compatibilidad con la CLI de Azure solo está disponible para la versión `2020-08-01` y versiones posteriores de scheduledQueryRules API. La versión anterior de la API puede usar la CLI de Azure Resource Manager con plantillas, como se describe a continuación. Si usa la versión [Alert API de Log Analytics](./api-alerts.md) heredada, deberá cambiar a usar la CLI. [Más información sobre cómo cambiar](./alerts-log-api-switch.md).
 
 En las secciones anteriores se describía cómo crear, ver y administrar las reglas de alertas de registro mediante Azure Portal. En esta sección se describe cómo hacer lo mismo con la multiplataforma [CLI de Azure](/cli/azure/get-started-with-azure-cli). La forma más rápida de comenzar a utilizar la CLI de Azure es a través de [Azure Cloud Shell](../../cloud-shell/overview.md). En este artículo, usaremos Cloud Shell.
 

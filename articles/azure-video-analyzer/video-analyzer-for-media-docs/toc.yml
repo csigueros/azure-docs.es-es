@@ -15,6 +15,8 @@
       href: invite-users.md
 - name: Tutoriales
   items:
+    - name: Creación de una cuenta de ARM (versión preliminar)
+      href: create-video-analyzer-for-media-account.md
     - name: Creación de una nueva cuenta
       href: connect-to-azure.md
     - name: Uso de Video Analyzer for Media API
@@ -55,6 +57,8 @@
           href: customize-person-model-overview.md
 - name: Guías de procedimientos
   items:
+    - name: Conexión de una cuenta existente a ARM (versión preliminar)
+      href: connect-classic-account-to-arm.md
     - name: Administración de una cuenta conectada a Azure
       href: manage-account-connected-to-azure.md
     - name: Carga e indexación de vídeos
@@ -104,6 +108,8 @@
   items:
     - name: Video Analyzer for Media API
       href: 'https://api-portal.videoindexer.ai/'
+    - name: API REST de ARM de Video Analyzer for Media
+      href: 'https://aka.ms/avam-arm-api'
 - name: Recursos
   items:
     - name: Azure Roadmap

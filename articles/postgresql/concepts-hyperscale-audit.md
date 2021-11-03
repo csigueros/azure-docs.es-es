@@ -7,19 +7,19 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 08/03/2021
-ms.openlocfilehash: 330f102dffb392540879d8d583e02a68fbe436c7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 349af1634f71f74dee85f99f69341b96cdb11b9e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745165"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084414"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---hyperscale-citus"></a>Registro de auditoría en Azure Database for PostgreSQL: Hiperescala (Citus)
 
 > [!IMPORTANT]
 > La extensión pgAudit de Hiperescala (Citus) está actualmente en versión preliminar. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 >
-> Puede ver la lista completa de características nuevas en [Características en versión preliminar de Hiperescala (Citus)](hyperscale-preview-features.md).
+> Puede ver la lista completa de características nuevas en [Características en versión preliminar de Hiperescala (Citus)](./hyperscale-product-updates.md).
 
 El registro de auditoría de actividades de base de datos en Azure Database for PostgreSQL: Hiperescala (Citus) está disponible a través de la extensión de auditoría de PostgreSQL: [pgAudit](https://www.pgaudit.org/). pgAudit proporciona un registro de auditoría de objeto y sesión detallado.
 
