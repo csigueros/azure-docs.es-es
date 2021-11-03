@@ -11,12 +11,12 @@ ms.author: seramasu
 ms.date: 08/05/2021
 ms.reviewer: laobri
 ms.custom: devplatv2
-ms.openlocfilehash: f4f6cb9941bfa9bd1a2711a25222fcbfe036951e
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 9cb3718a0e4ac8ef322fafd16236dfab0fa6f6fc
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130232392"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131087597"
 ---
 # <a name="deploy-models-with-rest-preview"></a>Implementación de modelos con REST (versión preliminar)
 
@@ -157,7 +157,7 @@ Si no va a usar la implementación, debe eliminarla con el siguiente comando (se
 
 * Aprenda a implementar el modelo [mediante la CLI de Azure](how-to-deploy-managed-online-endpoints.md).
 * Aprenda a implementar el modelo [mediante Studio](how-to-use-managed-online-endpoint-studio.md).
-* Aprenda sobre la [Solución de problemas de implementación y puntuación de puntos de conexión en línea administrados (versión preliminar)](how-to-troubleshoot-managed-online-endpoints.md).
+* Aprenda sobre la [Solución de problemas de implementación y puntuación de puntos de conexión en línea administrados (versión preliminar)](./how-to-troubleshoot-online-endpoints.md).
 * Aprenda sobre el [Acceso a recursos de Azure con un punto de conexión en línea administrado e identidad administrada por el sistema (versión preliminar)](tutorial-deploy-managed-endpoints-using-system-managed-identity.md).
 * Aprenda a [supervisar los puntos de conexión en línea](how-to-monitor-online-endpoints.md).
 * Aprenda sobre la [Implementación segura para puntos de conexión en línea (versión preliminar)](how-to-safely-rollout-managed-endpoints.md).

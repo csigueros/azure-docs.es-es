@@ -2,18 +2,18 @@
 title: Blobs cambiados y eliminados
 titleSuffix: Azure Cognitive Search
 description: Después de la generación inicial del índice de búsqueda que importa desde Azure Blob Storage, la indexación posterior puede elegir solo los blobs que se cambien o eliminen. En este artículo se explican los detalles.
+author: nitinme
+ms.author: nitinme
 manager: nitinme
-author: MarkHeff
-ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: d06a63c91c25f97e9d1a10b6b72a33b2fc7d859d
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 48a421f2e95e06a61ac4bee734046c043906035e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111558969"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131023450"
 ---
 # <a name="change-and-deletion-detection-in-blob-indexing-azure-cognitive-search"></a>Detección de cambios y eliminaciones en la indexación de blobs (Azure Cognitive Search)
 

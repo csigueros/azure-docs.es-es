@@ -9,12 +9,12 @@ ms.subservice: v1
 ms.topic: conceptual
 ms.date: 10/22/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 631330195ec9f38f3a059b0515d4f6255cd23677
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: a9dd37d74a12f262584f1cf41955b1444134a7ec
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130262192"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131065311"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Procesamiento de conjuntos de datos a gran escala mediante Data Factory y Batch
 > [!NOTE]
@@ -414,20 +414,19 @@ En esta sección se proporcionan más detalles sobre el código del método Exec
     {
     // Get the list of input blobs from the input storage client object.
     BlobResultSegment blobList = inputClient.ListBlobsSegmented(folderPath,
-
-                         true,
-                                   BlobListingDetails.Metadata,
-                                   null,
-                                   continuationToken,
-                                   null,
-                                   null);
+                                    true,
+                                    BlobListingDetails.Metadata,
+                                    null,
+                                    continuationToken,
+                                    null,
+                                    null);
     // Return a string derived from parsing each blob.
 
      output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
 
     } while (continuationToken != null);
-
     ```
+
    Para más información, vea la documentación del método [ListBlobsSegmented](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented).
 
 1. Lógicamente, el código para trabajar en el conjunto de blobs lógicamente está dentro del bucle do-while. En el método **Execute**, el bucle do-while pasa la lista de blobs a un método denominado **Calculate**. El método devuelve una variable de cadena denominada **output** que es el resultado de haber procesado una iteración en todos los blobs del segmento.
@@ -448,7 +447,8 @@ En esta sección se proporcionan más detalles sobre el código del método Exec
     ```csharp
     folderPath = GetFolderPath(outputDataset);
     ```
-   El método GetFolderPath convierte el objeto DataSet en una clase AzureBlobDataSet, que tiene una propiedad denominada FolderPath.
+
+    El método GetFolderPath convierte el objeto DataSet en una clase AzureBlobDataSet, que tiene una propiedad denominada FolderPath.
 
     ```csharp
     AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
@@ -735,8 +735,6 @@ En este paso, creará una canalización con la actividad personalizada que creó
 
 > [!IMPORTANT]
 > Si no ha cargado **file.txt** a las carpetas de entrada en el contenedor de blobs, hágalo antes de crear la canalización. La propiedad **isPaused** está establecida en false en el código JSON de la canalización, por lo que esta se ejecutará de inmediato, porque la fecha de inicio (**start**) ya ha pasado.
->
->
 
 1. En Data Factory Editor, haga clic en **Nueva canalización** en la barra de comandos. Si no ve el comando, seleccione el símbolo de puntos suspensivos para que se muestre.
 
@@ -785,6 +783,7 @@ En este paso, creará una canalización con la actividad personalizada que creó
       }
     }
     ```
+
    Tenga en cuenta los siguientes puntos:
 
    * Solo hay una actividad en la canalización y es del tipo **DotNetActivity**.
@@ -830,9 +829,10 @@ En este paso, probará la canalización colocando archivos en las carpetas de en
 
    Se enumeran cinco archivos de salida, uno para cada segmento de entrada. Cada archivo de salida tiene un contenido similar a la siguiente salida:
 
-    ```
+    ```output
     2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
     ```
+
    En el siguiente diagrama, se ilustra cómo los segmentos de Data Factory se asignan a tareas de Batch. En este ejemplo, un segmento tiene solo una ejecución.
 
    :::image type="content" source="./media/data-factory-data-processing-using-batch/image16.png" alt-text="Diagrama de asignación de segmentos":::

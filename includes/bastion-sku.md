@@ -1,17 +1,17 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 08/27/2021
+ms.date: 10/20/2021
 ms.service: bastion
 ms.topic: include
-ms.openlocfilehash: 880f91a9078a5f4bacd8d403d9b023ccaa4a9e33
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 71d47e8552af42af7e0802a4517811573005463b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128910367"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131087082"
 ---
-| Característica | SKU Básico | SKU estándar (versión preliminar) |
+| Característica | SKU Básico | SKU Estándar |
 |---|---|---|
 | Conexión a máquinas virtuales de destino en redes virtuales emparejadas | Disponible | Disponible |
 | Acceso a claves privadas de VM Linux en Azure Key Vault (AKV) | Disponible | Disponible |

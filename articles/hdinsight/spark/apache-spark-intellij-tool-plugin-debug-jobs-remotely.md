@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/28/2017
-ms.openlocfilehash: eacaaaaaf1e4fc761a7aee30604ad96b93823e13
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.openlocfilehash: 5045f79e99f3aade7da213fd11bbe9969ec16252
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113288867"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131072890"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Uso del Kit de herramientas de Azure para IntelliJ para depurar de forma remota aplicaciones de Apache Spark en HDInsight mediante VPN
 
@@ -299,11 +299,6 @@ Se recomienda crear también un clúster de Apache Spark en Azure HDInsight que 
 ## <a name="next-steps"></a><a name="seealso"></a>Pasos siguientes
 
 * [Información general: Apache Spark en Azure HDInsight](apache-spark-overview.md)
-
-### <a name="demo"></a>Demostración
-
-* Creación de proyecto de Scala (vídeo): [Crear aplicaciones Apache Spark en Scala](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
-* Depuración remota (vídeo): [Uso de Azure Toolkit for IntelliJ para depurar de forma remota aplicaciones de Apache Spark para un clúster de HDInsight](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
 
 ### <a name="scenarios"></a>Escenarios
 
