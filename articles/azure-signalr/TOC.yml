@@ -58,18 +58,6 @@
       items:
         - name: Cierre correcto de un servidor de aplicaciones.
           href: server-graceful-shutdown.md
-    - name: Seguridad
-      items:
-        - name: Authorization
-          items:
-            - name: Autorización del acceso con Azure Active Directory
-              href: authorize-access-azure-active-directory.md
-        - name: Authentication
-          items:
-            - name: Autenticación desde una aplicación
-              href: authenticate-application.md
-            - name: Autenticación con una identidad administrada
-              href: authenticate-managed-identity.md
     - name: Alta disponibilidad
       items:
         - name: Resistencia y recuperación ante desastres
@@ -80,6 +68,10 @@
       href: signalr-concept-performance.md
     - name: Authentication
       href: signalr-concept-authenticate-oauth.md
+    - name: "Autorización con Azure\_AD"
+      items:
+        - name: "Introducción a Azure\_AD para Azure SignalR Service."
+          href: signalr-concept-authorize-azure-active-directory.md
     - name: Control de eventos
       href: signalr-concept-event-grid-integration.md
     - name: Seguridad
@@ -110,6 +102,10 @@
           href: howto-shared-private-endpoints.md
         - name: Uso de identidad administrada
           href: howto-use-managed-identity.md
+        - name: Autorización desde Aplicación de Azure
+          href: signalr-howto-authorize-application.md
+        - name: Autorización mediante una identidad administrada
+          href: signalr-howto-authorize-managed-identity.md
     - name: Integrate
       items:
         - name: Enlaces de Azure Functions

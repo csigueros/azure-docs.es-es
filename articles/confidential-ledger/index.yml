@@ -10,12 +10,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/15/2021
-  ms.openlocfilehash: 9ba47997232d3eb8b6b99d5608c382ba6b8f7039
-  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+  ms.openlocfilehash: 22cb71eef4bcf46461ac0ed3802dec010dc370c9
+  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/25/2021
-  ms.locfileid: "110383481"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131476383"
 landingContent:
 - title: Acerca de Azure Confidential Ledger
   linkLists:
@@ -49,7 +49,7 @@ landingContent:
       url: create-client-certificate.md
     - text: Registro de una entidad de servicio de Ledger
       url: register-ledger-service-principal.md
-    - text: Registro del proveedor de recursos de Confidential Ledger
+    - text: Registro del proveedor de recursos de Azure Confidential Ledger
       url: register-ledger-resource-provider.md
 - title: Referencias
   linkLists:

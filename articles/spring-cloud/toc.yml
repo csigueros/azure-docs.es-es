@@ -98,8 +98,10 @@
       items:
         - name: 'Inicio, detención y eliminación de una aplicación'
           href: how-to-start-stop-delete.md
-        - name: Uso de almacenamiento persistente
-          href: how-to-persistent-storage.md
+        - name: Uso del almacenamiento persistente integrado
+          href: how-to-built-in-persistent-storage.md
+        - name: Uso del almacenamiento persistente personalizado
+          href: how-to-custom-persistent-storage.md
         - name: Identificación de direcciones IP públicas de salida
           href: how-to-outbound-public-ip.md
     - name: Escala
@@ -176,8 +178,6 @@
           href: how-to-github-actions.md
         - name: Autenticación con Key Vault en Acciones de GitHub
           href: github-actions-key-vault.md
-        - name: Aprovisionamiento de una instancia de Azure Spring Cloud con Terraform
-          href: how-to-provision-azure-spring-cloud-instance-terraform.md
     - name: Solucionar problemas
       items:
         - name: Diagnóstico automático y solución de problemas

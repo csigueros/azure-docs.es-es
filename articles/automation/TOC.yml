@@ -3,7 +3,7 @@
 - name: Información general
   items:
     - name: ¿Qué es Automation?
-      href: automation-intro.md
+      href: overview.md
     - name: Preguntas más frecuentes
       href: automation-faq.md
     - name: Novedades
@@ -249,7 +249,7 @@
               items:
                 - name: Eliminación de Change Tracking e Inventario
                   href: change-tracking/remove-feature.md
-                - name: Eliminación de máquinas virtuales de Change Tracking e Inventario
+                - name: Quitar las máquinas
                   href: change-tracking/remove-vms-from-change-tracking.md
             - name: Solución de problemas
               items:
@@ -321,7 +321,7 @@
           items:
             - name: Eliminación de Update Management
               href: update-management/remove-feature.md
-            - name: Eliminación de una máquina virtual desde Update Management
+            - name: Quitar las máquinas
               href: update-management/remove-vms.md
         - name: Solución de problemas
           items:

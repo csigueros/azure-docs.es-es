@@ -53,6 +53,9 @@
         - name: Implementación como plantilla vinculada
           displayName: template specs
           href: template-specs-deploy-linked-template.md
+        - name: Creación del formulario del portal
+          href: template-specs-create-portal-forms.md
+          displayName: 'UI,form,blade'
     - name: Plantillas avanzadas
       items:
         - name: Uso de referencia de plantilla
@@ -379,7 +382,7 @@
           items:
             - name: Resource group
               href: deploy-to-resource-group.md
-            - name: Suscripción
+            - name: Subscription
               href: deploy-to-subscription.md
             - name: Grupo de administración
               href: deploy-to-management-group.md

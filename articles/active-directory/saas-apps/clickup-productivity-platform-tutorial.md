@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/30/2021
 ms.author: jeedes
-ms.openlocfilehash: 25e0b4d072f797ad7263c71645b30cbe1fa75131
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: bf21fbec454dc16e00c67bb9885e5694ad73ed57
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124817555"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059064"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>Tutorial: Integración de Azure Active Directory con la plataforma de productividad ClickUp
 
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar la plataforma de productividad ClickUp co
 * Permitir que los usuarios inicien sesión automáticamente en ClickUp Productivity Platform con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -57,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con ClickUp Producti
 Para configurar y probar el inicio de sesión único de Azure AD con ClickUp Productivity Platform, realice los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en ClickUp Productivity Platform](#configure-clickup-productivity-platform-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación del usuario de prueba de ClickUp](#create-clickup-productivity-platform-test-user)** : para tener un homólogo de B.Simon en ClickUp Productivity Platform vinculado a la representación del usuario en Azure AD.
@@ -130,7 +130,7 @@ En esta sección, habilitará a B.Simon para que use el inicio de sesión único
 
     a. Haga clic en **Copy** (Copiar) para copiar el identificador de entidad y pegarlo en el cuadro de texto **Identificador (id. de entidad)** de la sección **Configuración básica de SAML** en Azure Portal.
 
-    b. En el cuadro de texto **Azure Federation Metadata URL** (Dirección URL de los metadatos de federación de Azure), pegue el valor de la URL de los metadatos de federación de la aplicación que copió de Azure Portal y haga clic en **Save** (Guardar).
+    b. En el cuadro de texto **Azure Federation Metadata URL** (Dirección URL de los metadatos de federación de Azure), pegue el valor de la URL de los metadatos de federación de la aplicación que copió de Azure Portal y haga clic en **Guardar**.
 
 5. Para completar la instalación, haga clic en **Authenticate With Microsoft to complete setup** (Autenticar con Microsoft para completar la instalación) y autentíquese con la cuenta Microsoft.
 

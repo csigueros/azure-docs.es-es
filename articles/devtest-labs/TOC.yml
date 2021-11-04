@@ -9,6 +9,8 @@
     - name: 'Creación de un laboratorio: plantilla de Resource Manager'
       displayName: Resource Manager
       href: create-lab-windows-vm-template.md
+    - name: 'Creación de un laboratorio: API REST'
+      href: quickstarts/create-lab-rest.md
 - name: Tutoriales
   items:
     - name: Configuración de un laboratorio

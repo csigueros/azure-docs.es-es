@@ -1,0 +1,61 @@
+### YamlMime:Hub
+title: Documentación de la oferta de Desarrollo/pruebas de Azure
+summary: "Aprenda a aprovechar las ventajas de la suscripción de Visual\_Studio para hacer desarrollos y pruebas en Azure sin cargo adicional. Tutoriales, procedimientos y mucho más."
+metadata:
+  title: Documentación de la oferta de Desarrollo/pruebas de Azure
+  description: "Aprenda a aprovechar las ventajas de la suscripción de Visual\_Studio para hacer desarrollos y pruebas en Azure sin cargo adicional. Tutoriales, procedimientos y mucho más."
+  ms.topic: hub-page
+  ms.collection: collection
+  ms.prod: visual-studio-windows
+  ms.author: jmartens
+  author: j-martens
+  ms.date: 10/06/2021
+  ms.custom: devtestoffer
+  adobe-target: true
+highlightedContent:
+  items:
+    - title: ¿Qué es la oferta de Desarrollo/pruebas de Azure?
+      itemType: overview
+      url: overview-what-is-devtest-offer-visual-studio.md
+    - title: Empezar a usar créditos de Azure
+      itemType: quickstart
+      url: quickstart-individual-credit.md
+    - title: Creación de suscripciones para empresas y organizaciones
+      itemType: quickstart
+      url: concepts-gitops-azure-devtest.md
+conceptualContent:
+  items:
+    - title: Oferta de Desarrollo/pruebas de Azure para usuarios
+      links:
+        - url: ../../devtest/offer/quickstart-individual-credit.md
+          itemType: how-to-guide
+          text: Introducción al uso de créditos de Azure
+        - url: ../../devtest/offer/how-to-add-users-directory.md
+          itemType: how-to-guide
+          text: Adición de usuarios al directorio
+        - url: ../../devtest/offer/how-to-remove-credit-limits.md
+          itemType: how-to-guide
+          text: Eliminación de los límites de crédito
+        - url: ../../devtest/offer/how-to-sign-into-azure-with-github.md
+          itemType: how-to-guide
+          text: Inicio de sesión en Azure con credenciales de GitHub
+        - url: ../../devtest/offer/how-to-change-directory-tenants-visual-studio-azure.md
+          itemType: how-to-guide
+          text: Cambio de inquilinos de directorio con la suscripción a VSS de Azure
+    - title: Oferta de Desarrollo/pruebas de Azure para empresas
+      links:
+        - url: ../../devtest/offer/quickstart-create-enterprise-devtest-subscriptions.md
+          itemType: how-to-guide
+          text: Creación de suscripciones para empresas y organizaciones
+        - url: ../../devtest/offer/concepts-gitops-azure-devtest.md
+          itemType: how-to-guide
+          text: Uso de GitOps con Desarrollo/pruebas de Azure
+        - url: ../../devtest/offer/how-to-manage-monitor-devtest.md
+          itemType: how-to-guide
+          text: Administración de las suscripciones de Desarrollo/pruebas de Azure
+        - url: ../../devtest/offer/how-to-manage-reliability-performance.md
+          itemType: how-to-guide
+          text: Creación de confiabilidad en las aplicaciones
+        - url: ../../devtest/offer/concepts-security-governance-devtest.md
+          itemType: how-to-guide
+          text: Administración de la seguridad y la gobernanza

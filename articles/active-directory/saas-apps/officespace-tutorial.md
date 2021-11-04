@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/14/2021
 ms.author: jeedes
-ms.openlocfilehash: 236de12c84e185969eb25c7488bb184f50e84098
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: eb6e00b3cf57b9a41660a964e176aaac40efa1e8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124808580"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131032159"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-officespace-software"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con OfficeSpace Software
 
@@ -26,7 +26,7 @@ En este tutorial, obtendrá información sobre cómo integrar OfficeSpace Softwa
 * Permitir que los usuarios inicien sesión automáticamente en OfficeSpace Software con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -59,7 +59,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con OfficeSpace Soft
 Para configurar y probar el inicio de sesión único de Azure AD con OfficeSpace Software, realice los pasos siguientes:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de OfficeSpace Software](#configure-officespace-software-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de OfficeSpace Software](#create-officespace-software-test-user)** , para tener un homólogo de B.Simon en OfficeSpace Software que esté vinculado a la representación de ella en Azure AD.
@@ -162,7 +162,7 @@ En esta sección, va a conceder a B.Simon acceso a OfficeSpace Software utilizan
 En esta sección, se crea un usuario llamado a B.Simon en OfficeSpace Software. OfficeSpace Software admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario ya no existe en OfficeSpace Software, se crea uno después de la autenticación.
 
 > [!NOTE]
-> Si necesita crear manualmente un usuario, es preciso que se ponga contacto con el [equipo de soporte técnico de OfficeSpace Software](mailto:support@officespacesoftware.com).
+> Si necesita crear manualmente un usuario, es preciso que se ponga contacto con el [equipo de soporte técnico de OfficeSpace Software](mailto:support@officespacesoftware.com).
 
 ## <a name="test-sso"></a>Prueba de SSO 
 

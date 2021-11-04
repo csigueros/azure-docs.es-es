@@ -18,7 +18,7 @@
       href: customize-application-attributes.md
     - name: Tutoriales de aprovisionamiento específicos de aplicaciones
       href: /azure/active-directory/saas-apps
-    - name: Conector SQL genérico del host del conector ECMA de Azure AD
+    - name: Aprovisionamiento para aplicaciones basadas en SQL
       href: tutorial-ecma-sql-connector.md
 - name: Conceptos
   expanded: true
@@ -35,6 +35,10 @@
       href: on-premises-application-provisioning-architecture.md
     - name: Descripción del generador de expresiones
       href: expression-builder.md
+    - name: Descripción de la integración de SuccessFactors
+      href: sap-successfactors-integration-reference.md
+    - name: Descripción de la integración de Workday
+      href: workday-integration-reference.md
 - name: Guías paso a paso
   expanded: true
   items:
@@ -74,13 +78,13 @@
           href: application-provisioning-config-problem-no-users-provisioned.md
         - name: Falta atributo de origen
           href: user-provisioning-sync-attributes-for-mapping.md
-        - name: Solución de problemas del host del conector ECMA
+        - name: Solución de problemas de aprovisionamiento local
           href: on-premises-ecma-troubleshoot.md
         - name: Registros de aprovisionamiento
           href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: Aprovisionamiento de aplicaciones locales
       items:
-        - name: Configuración genérica del conector SQL
+        - name: Aprovisionamiento para aplicaciones basadas en SQL
           href: on-premises-sql-connector-configure.md
         - name: Configuración genérica del conector LDAP
           href: on-premises-ldap-connector-configure.md
@@ -88,6 +92,18 @@
           href: on-premises-scim-provisioning.md
         - name: Migración del conector desde la sincronización de MIM
           href: on-premises-migrate-microsoft-identity-manager.md
+    - name: "Solución de problemas de aprovisionamiento de RR.\_HH"
+      items:
+        - name: Problemas de recuperación de atributos
+          href: hr-attribute-retrieval-issues.md
+        - name: Problemas de creación de usuarios
+          href: hr-user-creation-issues.md
+        - name: Problemas de actualización de usuarios
+          href: hr-user-update-issues.md
+        - name: Problemas de actualización de administradores
+          href: hr-manager-update-issues.md
+        - name: "Problemas de escritura diferida de RR.\_HH."
+          href: hr-writeback-issues.md
 - name: Referencia
   items:
     - name: "Compatibilidad del protocolo SCIM\_2.0"
@@ -98,12 +114,8 @@
       href: functions-for-customizing-application-data.md
     - name: "Aprovisionamiento de RR.\_HH. en la nube"
       items:
-        - name: Integración de SuccessFactors
-          href: sap-successfactors-integration-reference.md
         - name: Referencia de atributos de SuccessFactors
           href: sap-successfactors-attribute-reference.md
-        - name: Integración de Workday
-          href: workday-integration-reference.md
         - name: Referencia de atributos de Workday
           href: workday-attribute-reference.md
         - name: Historial de versiones del agente de aprovisionamiento

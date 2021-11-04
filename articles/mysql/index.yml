@@ -1,19 +1,19 @@
 ### YamlMime:Landing
 title: Documentación de Azure Database for MySQL
-summary: Azure Database for MySQL es un servicio de base de datos relacional con tecnología de MySQL Community Edition. Para hospedar una base de datos MySQL en Azure se pueden usar un servidor único o un servidor flexible (versión preliminar). Es una base de datos como servicio totalmente administrada que puede manejar cargas de trabajo críticas con un rendimiento predecible y escalabilidad dinámica.
+summary: Azure Database for MySQL es un servicio de base de datos relacional con tecnología de MySQL Community Edition. Para hospedar una base de datos MySQL en Azure se pueden usar un servidor único o un servidor flexible. Es una base de datos como servicio totalmente administrada que puede manejar cargas de trabajo críticas con un rendimiento predecible y escalabilidad dinámica.
 metadata:
-  description: Azure Database for MySQL es un servicio de base de datos relacional en la nube de Microsoft creado para los desarrolladores y que tiene la tecnología de MySQL Community Edition. Para implementar cualquier base de datos MySQL en Azure puede elegir un servidor único o un servidor flexible (versión preliminar).
+  description: Azure Database for MySQL es un servicio de base de datos relacional en la nube de Microsoft creado para los desarrolladores y que tiene la tecnología de MySQL Community Edition. Para implementar cualquier base de datos MySQL en Azure puede elegir un servidor único o un servidor flexible.
   author: savjani
   ms.author: pariks
   ms.date: 09/10/2021
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 08db77b71a6dfe8a3618b1ad875afeeeedb4575a
-  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+  ms.openlocfilehash: 7dc67d91f41915c4f570639bb04fb9fb9cc1c579
+  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/22/2021
-  ms.locfileid: "130241770"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131442186"
 landingContent:
 - title: Acerca de Azure Database for MySQL
   linkLists:
@@ -37,6 +37,8 @@ landingContent:
     links:
     - text: ¿Qué es un servidor único?
       url: single-server-overview.md
+    - text: Novedades del servidor único
+      url: single-server-whats-new.md
     - text: Visualización de toda la documentación de un servidor único
       url: single-server/index.yml
   - linkListType: whats-new
@@ -57,7 +59,7 @@ landingContent:
       url: quickstart-create-mysql-server-database-using-azure-portal.md
     - text: Creación de un servidor mediante la CLI de Azure
       url: quickstart-create-mysql-server-database-using-azure-cli.md
-- title: Servidor flexible (versión preliminar)
+- title: Servidor flexible
   linkLists:
   - linkListType: overview
     links:
@@ -131,7 +133,7 @@ landingContent:
     links:
     - text: Administración de un servidor único mediante Azure Portal
       url: howto-create-manage-server-portal.md
-    - text: Administración de Flexible Server (versión preliminar) mediante Azure Portal
+    - text: Administración de Flexible Server mediante Azure Portal
       url: flexible-server/how-to-manage-server-portal.md
     - text: Migración mediante volcado y restauración
       url: concepts-migrate-dump-restore.md
