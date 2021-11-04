@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 10/26/2021
 ms.author: jasteppe
-ms.openlocfilehash: dec9cd45fd4f581a4a041dba090c53fd4ecd8233
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 856355f2f511a9fecdce586e3b7ef4b176366f68
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131068539"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131468826"
 ---
 # <a name="how-to-use-the-fhir-destination-mappings"></a>Uso de las asignaciones de destino de FHIR
 
@@ -22,7 +22,7 @@ ms.locfileid: "131068539"
 En este artículo se describe cómo configurar el conector de IoT mediante la asignación Recursos Rápidos de Interoperabilidad en Salud destino de Recursos Rápidos de Interoperabilidad en Salud (FHIR&#174;).
 
 > [!TIP]
-> Consulte la herramienta [Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) del conector ioMT para editar, probar y solucionar problemas de las asignaciones de destino de dispositivos y FHIR del conector ioT. Exporte las asignaciones para cargar en el conector de IoT Azure Portal use con la versión [de código abierto](https://github.com/microsoft/iomt-fhir) del conector de IoT.
+> Consulte la herramienta [Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) del conector IoMT para editar, probar y solucionar problemas de las asignaciones de destino de dispositivos y FHIR del conector ioT. Exporte las asignaciones para cargar en el conector de IoT Azure Portal use con la versión [de código abierto](https://github.com/microsoft/iomt-fhir) del conector de IoT.
 
 ## <a name="fhir-destination-mappings"></a>Asignaciones de destino de FHIR
 
@@ -267,6 +267,6 @@ Representa el tipo de datos [CodeableConcept](http://hl7.org/fhir/datatypes.html
 ## <a name="next-steps"></a>Pasos siguientes
 
 >[!div class="nextstepaction"]
->[Uso de asignaciones de dispositivos](how-to-use-device-mapping-iot.md)
+>[Uso de la asignación de dispositivos](how-to-use-device-mapping-iot.md)
 
 (FHIR&#174;) es una marca registrada [de HL7](https://hl7.org/fhir/) y se usa con el permiso HL7.
