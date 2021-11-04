@@ -8,12 +8,12 @@ metadata:
   ms.topic: article
   ms.date: 01/11/2021
   ms.author: rohink
-  ms.openlocfilehash: c596fadd972503311859f2561365cd4e56dff98f
-  ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+  ms.openlocfilehash: bf8a2639887336349bbedd380a8e94a4ed4b3247
+  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/06/2021
-  ms.locfileid: "111907522"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131442775"
 title: Preguntas más frecuentes sobre DNS de Azure
 summary: ''
 sections:
@@ -79,28 +79,28 @@ sections:
       No. Azure DNS no admite actualmente la opción de comprar nombres de dominio. Para comprar dominios, debe usar un registrador de nombres de dominio de terceros. El registrador suele cobrar una tarifa anual reducida. Los dominios se pueden hospedar en Azure DNS para la administración de registros de DNS. Para más información, vea [Delegación de un dominio en DNS de Azure](dns-domain-delegation.md).
 
 
-      Se hace seguimiento de la característica para comprar nombres de dominio en el trabajo pendiente de Azure. Use el sitio de comentarios para [registrar su compatibilidad con esta característica](https://feedback.azure.com/forums/217313-networking/suggestions/4996615-azure-should-be-its-own-domain-registrar).
+      Se hace seguimiento de la característica para comprar nombres de dominio en el trabajo pendiente de Azure. Use el sitio de comentarios para [registrar su compatibilidad con esta característica](https://feedback.azure.com/d365community/idea/9e9f97ea-8526-ec11-b6e6-000d3a4f0789).
   - question: >
       ¿DNS de Azure admite DNSSEC?
     answer: >
       No. Azure DNS no admite actualmente las extensiones de seguridad del Sistema de nombres de dominio (DNSSEC).
 
 
-      Se hace seguimiento de la característica DNSSEC en el trabajo pendiente de Azure DNS. Use el sitio de comentarios para [registrar su compatibilidad con esta característica](https://feedback.azure.com/forums/217313-networking/suggestions/13284393-azure-dns-needs-dnssec-support).
+      Se hace seguimiento de la característica DNSSEC en el trabajo pendiente de Azure DNS. Use el sitio de comentarios para [registrar su compatibilidad con esta característica](https://feedback.azure.com/d365community/idea/d403899e-8526-ec11-b6e6-000d3a4f0789).
   - question: >
       ¿DNS de Azure admite las transferencias de zona (AXFR/IXFR)?
     answer: >
       No. Azure DNS no admite actualmente las transferencias de zona. Las zonas DNS se pueden [importar a Azure DNS mediante la CLI de Azure](dns-import-export.md). Los registros DNS se administran a través del [Portal de administración de Azure DNS](dns-operations-recordsets-portal.md), la [API REST](/powershell/module/az.dns), el [SDK](dns-sdk.md), los [cmdlets de PowerShell](dns-operations-recordsets.md) o la [herramienta CLI](dns-operations-recordsets-cli.md).
 
 
-      Se hace seguimiento de la característica de transferencia de zona en el trabajo pendiente de Azure DNS. Use el sitio de comentarios para [registrar su compatibilidad con esta característica](https://feedback.azure.com/forums/217313-networking/suggestions/12925503-extend-azure-dns-to-support-zone-transfers-so-it-c).
+      Se hace seguimiento de la característica de transferencia de zona en el trabajo pendiente de Azure DNS. Use el sitio de comentarios para [registrar su compatibilidad con esta característica](https://feedback.azure.com/d365community/idea/7992f535-8726-ec11-b6e6-000d3a4f0789).
   - question: >
       ¿DNS de Azure admite los redireccionamientos de dirección URL?
     answer: >
       No. Los servicios de redireccionamiento de dirección URL no son un servicio DNS. Funcionan en el nivel HTTP en lugar del nivel DNS. Algunos proveedores DNS incluyen un servicio de redireccionamiento de dirección URL como parte de su oferta general. Este servicio actualmente no es compatible con Azure DNS.
 
 
-      Se hace seguimiento de la característica de redireccionamiento de dirección URL en el trabajo pendiente de Azure DNS. Use el sitio de comentarios para [registrar su compatibilidad con esta característica](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape).
+      Se hace seguimiento de la característica de redireccionamiento de dirección URL en el trabajo pendiente de Azure DNS. Use el sitio de comentarios para [registrar su compatibilidad con esta característica](https://feedback.azure.com/d365community/idea/d8c8ab1c-8926-ec11-b6e6-000d3a4f0789).
   - question: >
       ¿Azure DNS admite el conjunto de codificación ASCII extendido (8 bits) para conjuntos de registros TXT?
     answer: "Sí. Azure DNS admite el conjunto de codificación ASCII extendido para conjuntos de registros TXT, pero se debe usar la versión más reciente de las API REST de Azure, los SDK, PowerShell y la CLI. Las versiones anteriores al 1 de octubre de 2017 o al SDK 2.1 no admiten el conjunto de ASCII extendido. \n\nPor ejemplo, podría proporcionar una cadena como el valor de un registro TXT con el carácter ASCII extendido \\128. Un ejemplo es \"abcd\\128efgh.\" Azure DNS usa el valor de bytes de este carácter, que es 128, en la representación interna. En el momento de la resolución DNS; este valor de bytes se devolverá en la respuesta. Debe tener en cuenta también que \"abc\" y \"\\097\\098\\099\" son intercambiables en lo que respecta a la resolución. \n\nSeguimos las reglas de secuencias de escape de caracteres maestros de archivos de zona [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) para los registros TXT. Por ejemplo, según la RFC, `\\` actúa ahora como secuencia de escape. Si especifica `A\\B` como valor del registro TXT, se representa y resuelve simplemente como `AB`. Si realmente desea que el registro TXT sea `A\\B` en la resolución, tendrá que volver a utilizar una secuencia de escape con `\\`. Por ejemplo, especifique `A\\\\B`.\n\nEsta compatibilidad no está disponible actualmente para los registros TXT creados en Azure Portal.\n"

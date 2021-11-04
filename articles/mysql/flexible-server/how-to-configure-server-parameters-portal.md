@@ -6,21 +6,19 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: 2d02a4e0e63bd0861c0a414f3d56e9c62e19dc8a
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 107d210cb046f87e9afcb112b1dd482f7dc0221a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122652361"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131429629"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Configuración de parámetros de servidor en Azure Database for MySQL: servidor flexible mediante Azure Portal
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-> [!IMPORTANT]
-> Actualmente, Azure Database for MySQL: servidor flexible se encuentra en versión preliminar pública.
 
-Puede administrar la configuración de Azure Database for MySQL: servidor flexible con los parámetros de servidor. Los parámetros de servidor se configuran con los valores predeterminados y recomendados al crear el servidor.  
+Puede administrar la configuración de Azure Database for MySQL: servidor flexible con los parámetros de servidor. Los parámetros de servidor se configuran con los valores predeterminados y recomendados al crear el servidor.
 
 En este artículo se describe cómo ver y configurar estos parámetros mediante Azure Portal. La hoja de parámetros de servidor de Azure Portal muestra el parámetro de servidor modificable y no modificable. Los parámetros de servidor no modificables están atenuados.
 
@@ -43,7 +41,7 @@ En este artículo se describe cómo ver y configurar estos parámetros mediante 
 
 ## <a name="setting-non-modifiable-server-parameters"></a>Establecimiento de parámetros de servidor no modificables
 
-Si el parámetro de servidor que quiere actualizar no aparece en Azure Portal, también puede establecer el parámetro en el nivel de conexión mediante `init_connect`. De este modo se establecen los parámetros del servidor para cada cliente con conexión al servidor. 
+Si el parámetro de servidor que quiere actualizar no aparece en Azure Portal, también puede establecer el parámetro en el nivel de conexión mediante `init_connect`. De este modo se establecen los parámetros del servidor para cada cliente con conexión al servidor.
 
 1. En la sección **CONFIGURACIÓN**, haga clic en **Parámetros del servidor** para abrir la página Parámetros del servidor de Azure Database for MySQL.
 2. Busque `init_connect`.

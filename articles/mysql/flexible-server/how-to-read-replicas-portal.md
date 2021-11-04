@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/17/2021
-ms.openlocfilehash: 711b35ec11d42ae16a4b4db08d17e85b5217d41f
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 26e93c85a6968a994a7f4e3a14df1e0910442def
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129387529"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131429513"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-flexible-server-using-the-azure-portal"></a>Creación y administración de réplicas de lectura en el servidor flexible de Azure Database for MySQL mediante Azure Portal
 
@@ -24,9 +24,8 @@ En este artículo, obtendrá información sobre cómo crear y administrar las r�
 
 > [!Note]
 >
-> * La réplica no se admite en el servidor con alta disponibilidad habilitada. 
-> 
-> * La característica de réplica de lectura solo está disponible para los servidores flexibles de Azure Database for MySQL en los planes de tarifa De uso general u Optimizada para memoria. Asegúrese de que el servidor de origen esté en uno de estos planes de tarifa.
+> * La réplica no se admite en el servidor con alta disponibilidad habilitada.
+>
 > * Si GTID está habilitado en un servidor principal (`gtid_mode` = ON), las réplicas recién creadas también tendrán GTID habilitado y usarán la replicación basada en GTID. Para más información, consulte [Identificador de transacción global (GTID)](concepts-read-replicas.md#global-transaction-identifier-gtid).
 
 ## <a name="prerequisites"></a>Prerrequisitos
@@ -70,7 +69,7 @@ Una vez creado el servidor de réplica, puede verlo en la hoja **Replicación**.
 
 Para detener la replicación entre un servidor de origen y un servidor de réplicas desde Azure Portal, siga estos pasos:
 
-1. En Azure Portal, seleccione el servidor flexible de Azure Database for MySQL de origen. 
+1. En Azure Portal, seleccione el servidor flexible de Azure Database for MySQL de origen.
 
 2. Seleccione **Replicación** en el menú, en **CONFIGURACIÓN**.
 
@@ -102,7 +101,7 @@ Para eliminar un servidor de réplica de lectura en Azure Portal, siga estos pas
 
    :::image type="content" source="./media/how-to-read-replica-portal/delete-replica.png" alt-text="Azure Database for MySQL: Eliminar réplica":::
 
-5. Escriba el nombre de la réplica y haga clic en **Eliminar** para confirmar la eliminación.  
+5. Escriba el nombre de la réplica y haga clic en **Eliminar** para confirmar la eliminación.
 
    :::image type="content" source="./media/how-to-read-replica-portal/delete-replica-confirm.png" alt-text="Azure Database for MySQL: Confirmar la eliminación de la réplica":::
 
@@ -119,7 +118,7 @@ Para eliminar un servidor de origen en Azure Portal, siga estos pasos:
 
    [:::image type="content" source="./media/how-to-read-replica-portal/delete-master-overview.png" alt-text="Azure Database for MySQL: eliminación del origen":::](./media/how-to-read-replica-portal/delete-master-overview.png#lightbox)
 
-3. Escriba el nombre del servidor de origen y haga clic en **Eliminar** para confirmar la eliminación.  
+3. Escriba el nombre del servidor de origen y haga clic en **Eliminar** para confirmar la eliminación.
 
    :::image type="content" source="./media/how-to-read-replica-portal/delete-master-confirm.png" alt-text="Azure Database for MySQL: confirmación de la eliminación del origen":::
 

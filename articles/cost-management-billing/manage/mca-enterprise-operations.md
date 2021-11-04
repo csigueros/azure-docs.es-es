@@ -1,19 +1,20 @@
 ---
 title: 'Tareas de EA de un Contrato de cliente de Microsoft: Azure'
 description: Obtenga información sobre cómo completar tareas del Contrato Enterprise en la nueva cuenta de facturación.
-author: amberbhargava
+author: bandersmsft
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 66115b572f4a69b40c07f08dc1c849ce6ffb96c1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a2963bb89551737cb17558fefad9d505f9dbe715
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128659217"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131464896"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Finalización de tareas del Contrato Enterprise en la cuenta de facturación para un contrato de cliente de Microsoft
 

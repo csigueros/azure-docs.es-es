@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/14/2020
+ms.date: 10/26/2021
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 434c255f0b9634e0d17bad1627ddd92af9498bfe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d34d8a361e22f25e82daf0576e65e35af192bdcd
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99582441"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131462772"
 ---
 # <a name="scenario-protected-web-api"></a>Escenario: API web protegida
 
@@ -29,7 +29,7 @@ Para usar la API web, habilite usuarios autenticados con cuentas profesionales y
 
 Esta es la información específica que necesita saber para proteger las API web:
 
-- El registro de la aplicación debe exponer al menos un *ámbito* o un *rol de aplicación*.
+- El registro de la aplicación debe exponer al menos un _ámbito_ o un _rol de aplicación_.
   - Los ámbitos se exponen mediante API web a las que se llama en nombre de un usuario.
   - Los roles de aplicación se exponen mediante API web a las que llaman aplicaciones de demonio (que llaman a la API web en nombre propio).
 - Si crea un registro de aplicación de API web, elija la [versión del token de acceso](reference-app-manifest.md#accesstokenacceptedversion-attribute) aceptada por la API web para `2`. En el caso de API web heredadas, la versión del token aceptada puede ser `null`, pero este valor restringe el público que inicia sesión a solo las organizaciones y no se admiten cuentas Microsoft (MSA) personales.

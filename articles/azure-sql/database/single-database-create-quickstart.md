@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: ''
 ms.date: 01/27/2021
-ms.openlocfilehash: 8f9fa57a160871ba88b080ac7599e1781202fb84
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: b8f609e8e6a12647b929938c97ea974885dc72d2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123306253"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423705"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Inicio rápido: Creación de una base de datos única de Azure SQL Database
 
@@ -145,7 +145,7 @@ az sql server firewall-rule create \
 
 ## <a name="create-a-single-database-with-azure-cli"></a>Creación de una base de datos única con la CLI de Azure
 
-Cree una base de datos en el servidor con el comando[az sql db create](/cli/azure/sql/db). En el siguiente código se crea
+Cree una base de datos en el servidor con el comando[az sql db create](/cli/azure/sql/db).
 
 
 ```azurecli-interactive
@@ -167,6 +167,27 @@ az sql db create \
 Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. 
 
 Para abrir Cloud Shell, seleccione **Pruébelo** en la esquina superior derecha de un bloque de código. También puede ir a [https://shell.azure.com](https://shell.azure.com) para iniciar Cloud Shell en una pestaña independiente del explorador. Seleccione **Copiar** para copiar los bloques de código, péguelos en Cloud Shell y, luego, presione **Entrar** para ejecutarlos.
+
+## <a name="set-parameter-values"></a>Establecer Valores de parámetros
+
+Los siguientes valores se usan en los comandos siguientes para crear la base de datos y los recursos necesarios. Los nombres de servidor deben ser únicos globalmente en todo Azure, por lo que la función $RANDOM se usa para crear el nombre del servidor. Reemplace los valores 0.0.0.0 del intervalo de direcciones IP para que coincidan con su entorno específico.
+
+```azurecli-interactive
+# Set the resource group name and location for your server
+resourceGroupName=myResourceGroup
+location=eastus
+
+# Set an admin login and password for your database
+adminlogin=azureuser
+password=Azure1234567!
+
+# Set a server name that is unique to Azure DNS (<server_name>.database.windows.net)
+serverName=server-$RANDOM
+
+# Set the ip address range that can access your database
+startip=0.0.0.0
+endip=0.0.0.0
+```
 
 ## <a name="create-a-database-and-resources"></a>Creación de una base de datos y recursos
 

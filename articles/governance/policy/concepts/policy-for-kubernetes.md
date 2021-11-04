@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo Azure Policy usa Rego y Open Polic
 ms.date: 09/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 55a8f2f1cbb67c80c82e367a870cd61d76178518
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 75f93320e3cb051ec05008146fec08ada4b3a3cb
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128556334"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131460970"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Descripción de Azure Policy para clústeres de Kubernetes (versión preliminar)
 
@@ -150,7 +150,7 @@ kubectl get pods -n kube-system
 kubectl get pods -n gatekeeper-system
 ```
 
-Por último, para comprobar que el complemento más reciente está instalado, ejecute este comando de la CLI de Azure y reemplace `<rg>` por el nombre del grupo de recursos y `<cluster-name>` por el nombre del clúster de AKS: `az aks show --query addonProfiles.azurepolicy -g <rg> -n <cluster-name>`. La resultado tiene que ser similar a la siguiente salida:
+Por último, para comprobar que el complemento más reciente está instalado, ejecute este comando de la CLI de Azure y reemplace `<rg>` por el nombre del grupo de recursos y `<cluster-name>` por el nombre del clúster de AKS: `az aks show --query addonProfiles.azurePolicy -g <rg> -n <cluster-name>`. La resultado tiene que ser similar a la siguiente salida:
 
 ```output
 {

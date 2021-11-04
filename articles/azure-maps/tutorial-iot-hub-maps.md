@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Implementación del análisis espacial de IoT | Microsoft Azure Maps'
 description: Tutorial sobre cómo integrar IoT Hub con las API del servicio Microsoft Azure Maps.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 06/21/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 ms.custom: mvc
-ms.openlocfilehash: 6fd1592e1f0b7d5da44fac15e20b03b8f237ad0a
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 7ab98fa40ddc2321f9640d2e7451fc5c55064580
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129997352"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131455366"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>Tutorial: Implementación del análisis espacial de IoT mediante Azure Maps
 
@@ -22,6 +22,7 @@ En un escenario de IoT, son típicos el seguimiento y la captura de los eventos 
 En este tutorial, aprenderá lo siguiente:
 
 > [!div class="checklist"]
+>
 > * Crear una cuenta de Azure Storage para registrar los datos de seguimiento de automóviles.
 > * Cargar una geovalla en el servicio Azure Maps Data mediante Data Upload API.
 > * Crear un centro en Azure IoT Hub y registrar un dispositivo.
@@ -120,10 +121,10 @@ Siga estos pasos para cargar la geovalla mediante Upload API de Azure Maps:
 
 1. Abra la aplicación Postman, vuelva a seleccionar **Nuevo**. En la ventana **Create new** (Crear nuevo), seleccione **HTTP Request** (Solicitud HTTP) y escriba un nombre para la solicitud.
 
-2. Seleccione el método HTTP **POST** en la pestaña del generador y escriba la siguiente dirección URL para cargar la geovalla en Data Upload API. Asegúrese de reemplazar `{subscription-key}` por la clave de suscripción principal.
+2. Seleccione el método HTTP **POST** en la pestaña del generador y escriba la siguiente dirección URL para cargar la geovalla en Data Upload API. Asegúrese de reemplazar `{Your-Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal.
 
     ```HTTP
-    https://us.atlas.microsoft.com/mapData?subscription-key={subscription-key}&api-version=2.0&dataFormat=geojson
+    https://us.atlas.microsoft.com/mapData?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=2.0&dataFormat=geojson
     ```
 
     En la ruta de acceso URL, el valor `geojson` del parámetro `dataFormat` representa el formato de los datos que se están cargando.
@@ -133,13 +134,13 @@ Siga estos pasos para cargar la geovalla mediante Upload API de Azure Maps:
 4. Seleccione **Send** (Enviar) y espere a que se procese la solicitud. Una vez finalizada la solicitud, vaya a la pestaña **Headers** (Encabezados) de la respuesta. Copie el valor de la clave de **Operation-Location**, que es `status URL`.
 
     ```http
-    https://us.atlas.microsoft.com/mapData/operations/<operationId>?api-version=2.0
+    https://us.atlas.microsoft.com/mapData/operations/{operationId}?api-version=2.0
     ```
 
 5. Para comprobar el estado de la llamada de API, cree una solicitud HTTP **GET** en el elemento `status URL`. Tendrá que anexar la clave de suscripción principal a la dirección URL para realizar la autenticación. La solicitud **GET** debe ser como la siguiente dirección URL:
 
    ```HTTP
-   https://us.atlas.microsoft.com/mapData/<operationId>/status?api-version=2.0&subscription-key={subscription-key}
+   https://us.atlas.microsoft.com/mapData/{operationId}/status?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
    ```
 
 6. Cuando la solicitud se complete correctamente, seleccione la pestaña **Encabezados** en la ventana de respuesta. Copie el valor de la clave **Resource-Location**, que es `resource location URL`.  `resource location URL` contiene el identificador único (`udid`) de los datos cargados. Copie la `udid` para su uso posterior en este tutorial.
@@ -149,9 +150,6 @@ Siga estos pasos para cargar la geovalla mediante Upload API de Azure Maps:
 ## <a name="create-an-iot-hub"></a>Creación de un centro de IoT
 
 IoT Hub permite una comunicación bidireccional confiable y segura entre una aplicación de IoT y los dispositivos que administra. Este tutorial tiene como finalidad obtener información del dispositivo en el vehículo para determinar la ubicación del vehículo de alquiler. En esta sección, va a crear un centro de IoT en el grupo de recursos *ContosoRental*. Este centro será responsable de publicar los eventos de telemetría de su dispositivo.
-
-> [!NOTE]
-> La característica para publicar eventos de telemetría del dispositivo en Event Grid se encuentra actualmente en versión preliminar. Está característica está disponible en todas las regiones, salvo en las siguientes: Este de EE. UU., Oeste de EE. UU., Oeste de Europa, Azure Government, Azure China 21Vianet y Azure Alemania.
 
 Para crear un centro de IoT en el grupo de recursos *ContosoRental*, siga los pasos descritos en [Creación de un centro de IoT](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp#create-an-iot-hub).
 

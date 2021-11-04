@@ -5,14 +5,14 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
-ms.date: 06/17/2021
+ms.date: 10/23/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 77e9d66af8a03f9d1a55a59d9a355499a3019f29
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 7188cb16d6718fddb049a518b56b32c84ea66ec1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129233908"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131422755"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-flexible-server-using-the-azure-cli"></a>Creación y administración de réplicas de lectura en el servidor flexible de Azure Database for MySQL mediante la CLI de Azure
 
@@ -25,8 +25,7 @@ En este artículo, obtendrá información sobre cómo crear y administrar las r�
 
 > [!Note]
 >
-> * La réplica no se admite en el servidor con alta disponibilidad habilitada. 
->* La característica de réplica de lectura solo está disponible para los servidores flexibles de Azure Database for MySQL en los planes de tarifa De uso general u Optimizada para memoria. Asegúrese de que el servidor de origen esté en uno de estos planes de tarifa.
+> * La réplica no se admite en el servidor con alta disponibilidad habilitada.
 >
 > * Si GTID está habilitado en un servidor principal (`gtid_mode` = ON), las réplicas recién creadas también tendrán GTID habilitado y usarán la replicación basada en GTID. Para más información, consulte [Identificador de transacción global (GTID)](concepts-read-replicas.md#global-transaction-identifier-gtid).
 
@@ -34,7 +33,7 @@ En este artículo, obtendrá información sobre cómo crear y administrar las r�
 
 Puede crear y administrar réplicas de lectura mediante la CLI de Azure.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 - [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli)
 - Un [servidor flexible de Azure Database for MySQL](quickstart-create-server-cli.md) que se usará como servidor de origen.
@@ -48,7 +47,7 @@ Un servidor de réplica de lectura se puede crear mediante el comando siguiente:
 
 ```azurecli-interactive
 az mysql flexible-server replica create --replica-name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup
-``` 
+```
 
 > [!NOTE]
 > Las réplicas de lectura se crean con la misma configuración de servidor que el origen. Una vez creado, se puede cambiar la configuración del servidor de réplica. El servidor de réplica siempre se crea en el mismo grupo de recursos, en la misma ubicación y en la misma suscripción que el servidor de origen. Si desea crear un servidor réplica en otro grupo de recursos o en una suscripción diferente, puede [mover el servidor réplica](../../azure-resource-manager/management/move-resource-group-and-subscription.md) después de la creación. Se recomienda mantener la configuración del servidor de réplica con valores iguales o mayores que el de origen para asegurarse de que la réplica funciona al mismo nivel que el servidor de origen.
@@ -56,7 +55,7 @@ az mysql flexible-server replica create --replica-name mydemoreplicaserver --sou
 
 ### <a name="list-replicas-for-a-source-server"></a>Enumeración de las réplicas de un servidor de origen
 
-Para ver todas las réplicas de un determinado servidor de origen, ejecute el siguiente comando: 
+Para ver todas las réplicas de un determinado servidor de origen, ejecute el siguiente comando:
 
 ```azurecli-interactive
 az mysql flexible-server replica list --server-name mydemoserver --resource-group myresourcegroup

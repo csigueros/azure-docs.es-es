@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30e8d0234014e710506e0a6897edd218b93b442b
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 4f9e12d8d112bd9c3d9ea44b29803bc475baa9e4
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130178944"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500267"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opciones de autenticación sin contraseña de Azure Active Directory
 
@@ -107,26 +107,6 @@ El proceso siguiente se utiliza cuando un usuario inicia sesión con una clave d
 7. La solicitud del token de actualización principal (PRT) con el valor nonce firmado se envía a Azure AD.
 8. Azure AD comprueba el valor nonce firmado con la clave pública FIDO2.
 9. Azure AD devuelve el PRT para permitir el acceso a los recursos locales.
-
-Aunque hay muchas claves certificadas como FIDO2 por FIDO Alliance, Microsoft necesita que el proveedor implemente algunas extensiones opcionales de la especificación Client-to-Authenticator Protocol (CTAP) FIDO2 para garantizar la máxima seguridad y la mejor experiencia.
-
-Una clave de seguridad DEBE implementar las siguientes extensiones y características del protocolo FIDO2 CTAP para ser compatible con Microsoft. El proveedor autenticador debe implementar FIDO_2_0 y FIDO_2_1 versión de la especificación. Para obtener más información, vea [Client to Authenticator Protocol](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html).
-
-| # | Confianza de característica o extensión | ¿Por qué se requiere esta característica o extensión? |
-| --- | --- | --- |
-| 1 | Clave residente/detectable | Esta característica permite que la clave de seguridad sea portátil, donde la credencial se almacena en la clave de seguridad y es reconocible, lo que hace posibles flujos sin nombre de usuario. |
-| 2 | PIN de cliente | Esta característica permite proteger las credenciales con un segundo factor y se aplica a las claves de seguridad que no tienen una interfaz de usuario.<br>Se DEBEN implementar tanto el [protocolo PIN 1](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html#pinProto1) como el [protocolo PIN 2](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html#pinProto2). |
-| 3 | hmac-secret | Esta extensión garantiza que pueda iniciar sesión en el dispositivo cuando está sin conexión o en modo avión. |
-| 4 | Varias cuentas por RP | Esta característica garantiza que pueda usar la misma clave de seguridad en varios servicios, como Microsoft Account y Azure Active Directory. |
-| 5 | Administración de credenciales    | Esta característica permite a los usuarios administrar sus credenciales en claves de seguridad en plataformas y se aplica a las claves de seguridad que no tienen esta funcionalidad integrada.<br>El autenticador DEBE implementar los comandos [authenticatorCredentialManagement](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html#authenticatorCredentialManagement) y [credentialMgmtPreview](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html#prototypeAuthenticatorCredentialManagement) para esta característica.  |
-| 6 | Inscripción biométrica           | Esta característica permite a los usuarios inscribir su biometría en sus autenticadores, y se aplica a las claves de seguridad que no tienen esta funcionalidad integrada.<br> El autenticador DEBE implementar los comandos [authenicatorBioEnrollment](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html#authenticatorBioEnrollment) y [userVerificationMgmtPreview](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html#prototypeAuthenticatorBioEnrollment) para esta característica. |
-| 7 | pinUvAuthToken           | Esta característica permite que la plataforma tenga tokens de autenticación mediante la coincidencia de PIN o BIO, lo que ayuda a mejorar la experiencia del usuario cuando hay varias credenciales en el autenticador.  |
-| 8 | forcePinChange           | Esta característica permite a las empresas pedir a los usuarios que cambien su PIN en implementaciones remotas.  |
-| 9 | setMinPINLength          | Esta característica permite a las empresas tener una longitud mínima de PIN personalizada para sus usuarios. El autenticador DEBE implementar la extensión minPinLength y tener al menos el valor 1 en maxRPIDsForSetMinPINLength.  |
-| 10 | alwaysUV                | Esta característica permite a las empresas o usuarios exigir siempre la verificación del usuario para usar esta clave de seguridad. Authenticator DEBE implementar el subcomando toggleAlwaysUv. El proveedor debe decidir el valor predeterminado de alwaysUV. En este momento, debido a la naturaleza de la adopción de varios proveedores de recursos y las versiones del sistema operativo, el valor recomendado para los autenticadores basados en biometría es true y para los autenticadores no basados en biometría es false.  |
-| 11 | credBlob                | Esta extensión permite a los sitios web almacenar una pequeña información junto con la clave de seguridad. El valor de maxCredBlobLength DEBE ser al menos 32 bytes.  |
-| 12 | largeBlob               | Esta extensión permite a los sitios web almacenar información mayor, como certificados, en la clave de seguridad. El valor de maxSerializedLargeBlobArray DEBE ser al menos de 1024 bytes.  |
-
 
 ### <a name="fido2-security-key-providers"></a>Proveedores de claves de seguridad FIDO2
 

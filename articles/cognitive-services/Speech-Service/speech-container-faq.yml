@@ -4,20 +4,20 @@ metadata:
   titleSuffix: Azure Cognitive Services
   description: Instale y ejecute contenedores de voz. La conversión de voz en texto transcribe los flujos de audio en texto en tiempo real que sus aplicaciones, herramientas o dispositivos pueden usar o mostrar. Texto a voz convierte el texto de entrada en voz sintetizada similar a la humana.
   services: cognitive-services
-  author: PatrickFarley
+  author: eric-urban
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: speech-service
   ms.topic: conceptual
   ms.date: 03/11/2021
-  ms.author: pafarley
+  ms.author: eur
   ms.custom: devx-track-csharp
-  ms.openlocfilehash: e2dbd29686dad5416a6bd148d2bcccc37fca5107
-  ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+  ms.openlocfilehash: 5b896e3f4bbd6cf00d4ee9b7eb2723cc75d07a5b
+  ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/07/2021
-  ms.locfileid: "123537848"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131508180"
 title: Preguntas frecuentes sobre los contenedores del servicio de voz
 summary: Cuando use el servicio de voz con contenedores, consulte primero estas preguntas frecuentes antes de escalar el problema al soporte técnico. En este artículo se recopilan preguntas de distinto grado, desde las generales a las más técnicas. Para expandir una respuesta, haga clic en la pregunta.
 sections:

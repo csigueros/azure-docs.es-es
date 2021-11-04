@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 05/25/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0ac3a2dccecf50b53917d878535ce62e124f8f8e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 68283077d63b7a796b51da45ef005584c6c792a1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479554"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131477276"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Introducción a la característica Start/Stop VMs during off-hours
 
@@ -38,7 +38,7 @@ Las siguientes son limitaciones de la característica actual:
 - Administra máquinas virtuales de cualquier región, pero solo se puede utilizar en la misma suscripción que la cuenta de Azure Automation.
 - Está disponible en Azure y Azure Government para cualquier región que admita un área de trabajo de Log Analytics, una cuenta de Azure Automation y alertas. Las regiones de Azure Government no admiten la funcionalidad de correo electrónico en este momento.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Los runbooks de la característica Start/Stop VMs during off hours funcionan con una [cuenta de ejecución de Azure](./automation-security-overview.md#run-as-accounts). La cuenta de ejecución es el método de autenticación preferido, ya que emplea la autenticación mediante certificado, en lugar de una contraseña que puede expirar o cambiar con frecuencia.
 
@@ -81,17 +81,16 @@ Para permitir la característica Start/Stop VMs during off-hours en las máquina
 
 Puede habilitar la característica Start/Stop VMs during off-hours en las máquinas virtuales mediante una cuenta de Automation y un área de trabajo de Log Analytics nuevas. En este caso, necesita los permisos definidos en la sección anterior y los que se definen en esta. También necesita los siguientes roles:
 
-- Coadministrador en la suscripción. Este rol es necesario para crear la cuenta de ejecución clásica si va a administrar máquinas virtuales clásicas. Las [cuentas de ejecución clásicas](automation-create-standalone-account.md#create-a-classic-run-as-account) ya no se crean de forma predeterminada.
 - Pertenencia al rol de desarrollador de aplicaciones de [Azure AD](../active-directory/roles/permissions-reference.md). Para obtener más información sobre cómo configurar las cuentas de ejecución, consulte [Permisos para configurar cuentas de ejecución](automation-security-overview.md#permissions).
 - Colaborador de la suscripción o los siguientes permisos.
 
 | Permiso |Ámbito|
 | --- | --- |
-| Microsoft.Authorization/Operations/read | Suscripción|
-| Microsoft.Authorization/permissions/read |Suscripción|
-| Microsoft.Authorization/roleAssignments/read | Suscripción |
-| Microsoft.Authorization/roleAssignments/write | Suscripción |
-| Microsoft.Authorization/roleAssignments/delete | Suscripción |
+| Microsoft.Authorization/Operations/read | Subscription|
+| Microsoft.Authorization/permissions/read |Subscription|
+| Microsoft.Authorization/roleAssignments/read | Subscription |
+| Microsoft.Authorization/roleAssignments/write | Subscription |
+| Microsoft.Authorization/roleAssignments/delete | Subscription |
 | Microsoft.Automation/automationAccounts/connections/read | Grupo de recursos |
 | Microsoft.Automation/automationAccounts/certificates/read | Grupo de recursos |
 | Microsoft.Automation/automationAccounts/write | Grupo de recursos |
@@ -140,7 +139,7 @@ En la tabla siguiente se enumeran las variables creadas en su cuenta de Automati
 |External_AutoStop_Threshold | El umbral de la regla de alerta de Azure especificada en la variable `External_AutoStop_MetricName`. Los valores de porcentaje oscilan entre 1 y 100.|
 |External_AutoStop_TimeAggregationOperator | El operador de agregación de tiempo aplicado al tamaño de la ventana seleccionada para evaluar la condición. Los valores aceptables son `Average`, `Minimum`, `Maximum`, `Total` y `Last`.|
 |External_AutoStop_TimeWindow | El tamaño de la ventana en la que Azure analiza la métrica seleccionada para desencadenar una alerta. Este parámetro acepta la entrada en formato timespan. Los valores posibles son de 5 minutos a 6 horas.|
-|External_EnableClassicVMs| Valor que especifica si la característica tiene como destino las máquinas virtuales clásicas. El valor predeterminado es True. Establezca esta variable en False para las suscripciones del Proveedor de soluciones en la nube (CSP) de Azure. Las máquinas virtuales clásicas requieren una [cuenta de ejecución clásica](automation-create-standalone-account.md#create-a-classic-run-as-account).|
+|External_EnableClassicVMs| Valor que especifica si la característica tiene como destino las máquinas virtuales clásicas. El valor predeterminado es True. Establezca esta variable en False para las suscripciones del Proveedor de soluciones en la nube (CSP) de Azure.|
 |External_ExcludeVMNames | Lista separada por comas de los nombres de máquina virtual que se van a excluir, limitado a 140. Si agrega más de 140 máquinas virtuales a la lista, las especificadas para exclusión pueden iniciarse o detenerse accidentalmente.|
 |External_Start_ResourceGroupNames | Lista separada por comas de uno o varios grupos de recursos destinados a las acciones de inicio.|
 |External_Stop_ResourceGroupNames | Lista separada por comas de uno o varios grupos de recursos destinados a las acciones de detención.|
@@ -173,8 +172,6 @@ No se deben habilitar todas las programaciones, ya que ello podría crear accion
 ## <a name="use-the-feature-with-classic-vms"></a>Uso de la característica con máquinas virtuales clásicas
 
 Si usa la característica Start/Stop VMs during off-hours con máquinas virtuales clásicas, Automation procesa todas las máquinas virtuales en orden por cada servicio en la nube. Las máquinas virtuales se siguen procesando en paralelo entre diferentes servicios en la nube. 
-
-Para usar la característica con máquinas virtuales clásicas, necesita una cuenta de ejecución clásica, que no se crea de forma predeterminada. Para obtener instrucciones sobre cómo crear una cuenta de ejecución clásica, consulte [Creación de una cuenta de ejecución clásica](automation-create-standalone-account.md#create-a-classic-run-as-account).
 
 Si tiene más de 20 máquinas virtuales por cada servicio en la nube, estas son algunas recomendaciones:
 

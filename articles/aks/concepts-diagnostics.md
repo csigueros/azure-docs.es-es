@@ -6,12 +6,12 @@ author: yunjchoi
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: yunjchoi
-ms.openlocfilehash: ee11221e5484a796b8dbbcb10a323288d3e74756
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 838eb4b7abfc5a2fba3fd16d0259bfad2cc13e08
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107011565"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131455974"
 ---
 # <a name="azure-kubernetes-service-diagnostics-preview-overview"></a>Introducción a los diagnósticos de Azure Kubernetes Service (versión preliminar)
 
@@ -97,4 +97,4 @@ La administración de identidades y seguridad detecta errores de autenticación 
 
 * Lea la sección [Prácticas de evaluación de prioridades](/azure/architecture/operator-guides/aks/aks-triage-practices) de la guía de operaciones del día 2 de AKS.
 
-* Publique sus preguntas o comentarios en [UserVoice](https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks) agregando "[Diag]" en el título.
+* Publique sus preguntas o comentarios en [UserVoice](https://feedback.azure.com/d365community/forum/aabe212a-f724-ec11-b6e6-000d3a4f0da0) agregando "[Diag]" en el título.

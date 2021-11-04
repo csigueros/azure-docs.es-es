@@ -8,12 +8,12 @@ author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
 ms.date: 07/13/2021
-ms.openlocfilehash: eccc66085ae8a3df93315054a1acdea994310d28
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 201b6dfce65317f03bf1e97b97a16db3fd8c4c69
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130065528"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131505790"
 ---
 # <a name="co-sell-with-microsoft-sales-teams-and-partners-overview"></a>Información general sobre la venta conjunta de los equipos de ventas de Microsoft y los asociados
 
@@ -77,7 +77,6 @@ El estado de venta conjunta con incentivos de Business Applications (Estándar y
 
 Las ofertas que logran el estado _Venta conjunta de propiedad intelectual de Azure con incentivos_ obtienen estas ventajas adicionales de Marketplace:
 
-- Los asociados del programa Proveedor de soluciones en la nube (CSP) reciben un incentivo del 10 % para vender su oferta de IaaS o SaaS. Para más información acerca del programa CSP, consulte [Programa Proveedor de soluciones en la nube](cloud-solution-providers.md).
 - Las ventas de su oferta mediante Azure Marketplace contribuirán a los compromisos de consumo de Azure de los clientes. Los clientes cualificados verán la oferta marcada como **Apto para ventajas de Azure** en Azure Portal. Para más información sobre cómo el programa MACC beneficia a los clientes y cómo pueden encontrar soluciones habilitadas para MACC, consulte [Ventaja del compromiso de consumo de Azure](/marketplace/azure-consumption-commitment-benefit). Para información sobre cómo los editores pueden inscribir su oferta de transacción en MACC, consulte [Inscripción al compromiso de consumo de Azure](azure-consumption-commitment-enrollment.md).
 - Las ofertas que alcanzan el estado de _venta conjunta con incentivos de la propiedad intelectual de Azure_ o que están inscritas en el [Programa Connect para ISV de Business Applications](business-applications-isv-program.md) con el estado Listo para la venta conjunta recibirán un distintivo de **soluciones preferidas de Microsoft** en la página de descripción de la oferta de las tiendas en línea [Azure Marketplace](https://azuremarketplace.microsoft.com/) y [AppSource](https://appsource.microsoft.com/).  Una vez que una oferta alcanza el estado correspondiente, el distintivo de solución preferida puede tardar hasta 30 días en mostrarse en la tienda en línea. El distintivo promueve las ofertas por su calidad, rendimiento y capacidad para satisfacer las necesidades de los clientes de un sector vertical de la industria o área de soluciones determinados.
 

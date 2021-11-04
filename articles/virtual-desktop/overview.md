@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 07/14/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 9025b32aa2ea6fd8fefa91d89b608c0e5d26b45e
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: c0e61760b130631c4f688b06f2cebdb163ea3910
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129992912"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131452155"
 ---
 # <a name="what-is-azure-virtual-desktop"></a>¿Qué es Azure Virtual Desktop?
 
@@ -67,7 +67,7 @@ Admitimos los siguientes sistemas operativos, por lo que debe asegurarse de que 
 |---|---|
 |Sesión múltiple de Windows 10 Enterprise o Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F3, Business Premium<br>Windows E3, E5, A3, A5|
 |Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F3, Business Premium<br>Windows E3, E5, A3, A5|
-|Windows Server 2012 R2, 2016, 2019|Licencia de acceso de cliente (CAL) de RDS con Software Assurance|
+|Windows Server 2012 R2, 2016, 2019, 2022|Licencia de acceso de cliente (CAL) de RDS con Software Assurance|
 
 Su infraestructura necesita cumplir los siguientes requisitos para ser compatible con Azure Virtual Desktop:
 
@@ -128,6 +128,7 @@ Azure Virtual Desktop sigue la [directiva de ciclo de vida de Microsoft](/lifecy
 * Sesión múltiple de Windows 10 Enterprise
 * Windows 10 Enterprise
 * Windows 7 Enterprise
+* Windows Server 2022
 * Windows Server 2019
 * Windows Server 2016
 * Windows Server 2012 R2
@@ -143,6 +144,7 @@ Las opciones de automatización y de implementación disponibles dependen del si
 |Sesión múltiple de Windows 10 Enterprise, versión 1909 o superior|Sí|Sí|Sí|Sí|
 |Windows 10 Enterprise, versión 1909 o superior|Sí|Sí|Sí|Sí|
 |Windows 7 Enterprise|Sí|Sí|No|No|
+|Windows Server 2022|Sí|Sí|No|No|
 |Windows Server 2019|Sí|Sí|No|No|
 |Windows Server 2016|Sí|Sí|Sí|Sí|
 |Windows Server 2012 R2|Sí|Sí|No|No|

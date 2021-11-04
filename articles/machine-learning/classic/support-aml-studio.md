@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 author: peterclu
 ms.author: peterlu
 ms.date: 01/18/2019
-ms.openlocfilehash: 5418671373b1b95f1c9ac4f1131016e51b58ba2f
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 0540f61f80b79af6566acf9707af9b858b628a6f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122688804"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131449514"
 ---
 # <a name="get-support-and-training-for-machine-learning-studio-classic"></a>Obtención de soporte técnico y aprendizaje para Estudio de Machine Learning (clásico)
 
@@ -43,4 +43,4 @@ Consulte estos recursos de soporte técnico:
 
 + **Stack Overflow**: visite la comunidad de Azure Machine Learning en [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) etiquetada con "Azure-Machine-Learning".
 
-+ **Comparta sugerencias sobre productos** y solicitudes de características en nuestro [canal de comentarios de Azure Machine Learning](https://feedback.azure.com/forums/257792-machine-learning). Seleccione el botón **Comentarios sobre el producto** al final de cada artículo para compartir sus aportes.
++ **Comparta sugerencias sobre productos** y solicitudes de características en nuestro [canal de comentarios de Azure Machine Learning](https://feedback.azure.com/d365community/forum/b9a0c624-ad25-ec11-b6e6-000d3a4f09d0). Seleccione el botón **Comentarios sobre el producto** al final de cada artículo para compartir sus aportes.

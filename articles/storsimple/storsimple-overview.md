@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/02/2021
+ms.date: 11/02/2021
 ms.author: timlt
-ms.openlocfilehash: 439522011734a31f818494956bd51f079b1f6113
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 37b00e79c77e81b2d94dea23dc46d342b2094e74
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108743262"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441407"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Serie StorSimple 8000: una solución de almacenamiento en la nube híbrida
 
@@ -31,10 +31,6 @@ Bienvenido a Microsoft Azure StorSimple, una solución de almacenamiento integra
 StorSimple usa [niveles de almacenamiento](#automatic-storage-tiering) para administrar los datos almacenados en diversos medios de almacenamiento. El conjunto de trabajo actual se almacena en local en unidades de estado sólido (SSD). Los datos que se usan con menos frecuencia se almacenan en unidades de disco duro (HDD) y los datos de archivado se envían a la nube. Además, StorSimple usa la desduplicación y la compresión para reducir la cantidad de almacenamiento que los datos consumen. Para obtener más información, vaya a [Desduplicación y compresión](#deduplication-and-compression). Para ver definiciones de otros términos y conceptos clave que se usan en la documentación de la serie 8000 de StorSimple, vaya a [Terminología de StorSimple](#storsimple-terminology) al final de este artículo.
 
 Además de la administración de almacenamiento, las características de protección de datos de StorSimple le permiten crear copias de seguridad a petición y programadas, así como almacenarlas localmente o en la nube. Las copias de seguridad se realizan en forma de instantáneas incrementales, lo que significa que se pueden crear y restaurar rápidamente. Las instantáneas en la nube pueden resultar esenciales en escenarios de recuperación ante desastres, ya que reemplazan a los sistemas de almacenamiento secundario (por ejemplo, la copia de seguridad en cinta) y le permiten restaurar los datos a su centro de datos o a sitios alternativos si es necesario.
-
-![icono de vídeo](./media/storsimple-overview/video_icon.png) Vea el vídeo para acceder a una introducción rápida a Microsoft Azure StorSimple.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/StorSimple-Hybrid-Cloud-Storage-Solution/player]
 
 ## <a name="why-use-storsimple"></a>¿Por qué usar StorSimple?
 En la tabla siguiente se describen algunas de las ventajas principales que proporciona Microsoft Azure StorSimple.

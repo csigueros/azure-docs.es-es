@@ -2,17 +2,17 @@
 title: Referencia del motor de reglas de Azure CDN | Microsoft Docs
 description: Documentación de referencia sobre las condiciones y características de coincidencia del motor de reglas de Azure CDN.
 services: cdn
-author: asudbring
+author: duongau
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/26/2020
-ms.author: allensu
-ms.openlocfilehash: 295bc0a20a547bf944f48af6711b18af34571b02
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: duau
+ms.openlocfilehash: 928e3fb96cd1acdbbfe7aceea5f5ab9ceca97909
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91362587"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131461421"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Referencia del motor de reglas de Azure CDN de Verizon Premium
 

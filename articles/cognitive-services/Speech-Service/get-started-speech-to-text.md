@@ -3,22 +3,22 @@ title: 'Inicio rápido de la conversión de voz en texto: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a usar Speech SDK para convertir voz a texto. En este inicio rápido, obtendrá información sobre la construcción de objetos, los formatos de entrada de audio admitidos y las opciones de configuración del reconocimiento de voz.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/15/2020
-ms.author: pafarley
+ms.author: eur
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-twenty-three
 keywords: conversión de voz a texto, software de conversión de voz en texto
-ms.openlocfilehash: 1e88446b4538cb93a9cb1bcbf60ef0d99042814d
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 0c6c20b7176c9ae2a143942506c35ac5833a2558
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123542846"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131502004"
 ---
 # <a name="get-started-with-speech-to-text"></a>Introducción a la conversión de voz a texto
 

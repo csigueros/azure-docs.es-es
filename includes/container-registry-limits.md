@@ -5,17 +5,17 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 08/12/2021
+ms.date: 10/22/2021
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 43baf554bda4c2b3ae9bda9d79b46035e073cead
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 777af1f15441ab4849292e40b3a27863276f3fce
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128582347"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131473361"
 ---
-| Recurso | Básico | Estándar | Premium |
+| Resource | Básico | Estándar | Premium |
 |---|---|---|---|
 | Se incluye almacenamiento<sup>1</sup> (GiB) | 10 | 100 | 500 |
 | Límite de almacenamiento (TiB) | 20| 20 | 20 |
@@ -30,7 +30,7 @@ ms.locfileid: "128582347"
 | Zonas de disponibilidad | N/D | N/D | [Versión preliminar][zones] |
 | Confianza de contenido | N/D | N/D | [Compatible][content-trust] |
 | Vínculo privado con puntos de conexión privados | N/D | N/D | [Compatible][plink] |
-| &bull; Puntos de conexión privados | N/D | N/D | 10 |
+| &bull; Puntos de conexión privados | N/D | N/D | 200 |
 | Reglas de red IP pública | N/D | N/D | 100 |
 | Acceso a red virtual del punto de conexión de servicio | N/D | N/D | [Versión preliminar][vnet] |
 | &bull; Reglas de red virtual | N/D | N/D | 100 |

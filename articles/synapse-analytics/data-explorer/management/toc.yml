@@ -395,6 +395,6 @@ items:
   - name: Errores
     items:
       - name: Códigos de error de ingesta
-        href: /azure/data-explorer/kusto/../error-codes?context=/azure/synapse-analytics/context/context
+        href: /azure/data-explorer/error-codes?context=/azure/synapse-analytics/context/context
       - name: Errores de ingesta
         href: /azure/data-explorer/kusto/management/ingestionfailures?context=/azure/synapse-analytics/context/context

@@ -7,13 +7,13 @@ ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019
-ms.date: 04/30/2021
-ms.openlocfilehash: 626afa6926dea10a633a5c7d5438ec8b8c578b6a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 11/01/2021
+ms.openlocfilehash: 033d2d188f2e5ef9d2a72428e088ea302908e7c9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124798662"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131457931"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Personalización de la instalación en una instancia de Azure-SSIS Integration Runtime
 
@@ -44,7 +44,7 @@ Las siguientes limitaciones solo se aplican a instalaciones personalizadas está
 
 - El controlador ODBC de IBM iSeries Access no se admite en Azure-SSIS IR. Puede que vea errores de instalación durante la instalación personalizada. Si este es el caso, póngase en contacto con el servicio de soporte técnico de IBM para obtener ayuda.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -121,7 +121,7 @@ Para aprovisionar o volver a configurar la instancia de Azure-SSIS IR con instal
 
 #### <a name="running-cmdkey-command"></a>Ejecución del comando cmdkey
 
-Si selecciona el tipo **Run cmdkey command** (Ejecutar comando cmdkey) para la instalación personalizada rápida, puede ejecutar el comando cmdkey de Windows en la instancia de Azure-SSIS IR. Para ello, escriba el nombre del equipo de destino o el nombre de dominio, el nombre de usuario o el nombre de la cuenta, y la contraseña o la clave de cuenta en los cuadros de texto **/Add** (/Agregar), **/User** ((Usuario) y **/Pass** (/Contraseña), respectivamente. De esta forma, podrá conservar las credenciales de acceso de los servidores SQL Server, los recursos compartidos de archivos o Azure Files en Azure-SSIS IR. Por ejemplo, para acceder a Azure Files, puede especificar `YourAzureStorageAccountName.file.core.windows.net`, `azure\YourAzureStorageAccountName` y `YourAzureStorageAccountKey` en **/Add** (/Agregar), **/User** (/Usuario) y **/Pass** (/Contraseña), respectivamente. Esta acción es similar a ejecutar el comando [cmdkey](/windows-server/administration/windows-commands/cmdkey) de Windows en la máquina local. Por ahora solo se admite una instalación rápida personalizada para ejecutar el comando cmdkey. Para ejecutar varios comandos de cmdkey, utilice una configuración personalizada estándar en su lugar.
+Si selecciona el tipo **Run cmdkey command** (Ejecutar comando cmdkey) para la instalación personalizada rápida, puede ejecutar el comando cmdkey de Windows en la instancia de Azure-SSIS IR. Para ello, escriba el nombre del equipo de destino o el nombre de dominio, el nombre de usuario o el nombre de la cuenta, y la contraseña o la clave de cuenta en los cuadros de texto **/Add** (/Agregar), **/User** ((Usuario) y **/Pass** (/Contraseña), respectivamente. De esta forma, podrá conservar las credenciales de acceso de los servidores SQL Server, los recursos compartidos de archivos o Azure Files en Azure-SSIS IR. Por ejemplo, para acceder a Azure Files, puede especificar `YourAzureStorageAccountName.file.core.windows.net`, `azure\YourAzureStorageAccountName` y `YourAzureStorageAccountKey` en **/Add** (/Agregar), **/User** (/Usuario) y **/Pass** (/Contraseña), respectivamente. Esta acción es similar a ejecutar el comando [cmdkey](/windows-server/administration/windows-commands/cmdkey) de Windows en la máquina local. 
 
 #### <a name="adding-environment-variables"></a>Adición de variables de entorno
 

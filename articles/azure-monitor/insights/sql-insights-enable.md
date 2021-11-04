@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: d2872d2293802c435eb4bbd67078e6d1e973a6b9
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: bbef6233a82e85ea849d3b637b5c0b83caddcd04
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130004604"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131447101"
 ---
 # <a name="enable-sql-insights-preview"></a>Habilitación de SQL Insights (versión preliminar)
 En este artículo se describe cómo habilitar [SQL Insights](sql-insights-overview.md) para supervisar las implementaciones de SQL. La supervisión se realiza desde una máquina virtual de Azure que establece una conexión con las implementaciones de SQL y usa vistas de administración dinámica para recopilar datos de supervisión. Puede controlar qué conjuntos de datos se recopilan y la frecuencia de recopilación mediante un perfil de supervisión.
@@ -209,9 +209,9 @@ Las cadenas de conexión varían según el tipo de recurso de SQL:
 Especifique la cadena de conexión de esta forma:
 
 ```
-sqlAzureConnections": [ 
+sqlAzureConnections": [
    "Server=mysqlserver.database.windows.net;Port=1433;Database=mydatabase;User Id=$username;Password=$password;" 
-}
+]
 ```
 
 Obtenga los detalles del elemento de menú **Cadenas de conexión** para la base de datos.
@@ -224,9 +224,9 @@ Para supervisar una réplica secundaria legible, incluya el par clave-valor `App
 Especifique la cadena de conexión de esta forma:
 
 ```
-"sqlManagedInstanceConnections": [ 
-      "Server= mysqlserver.database.windows.net;Port=1433;User Id=$username;Password=$password;" 
-    ] 
+"sqlManagedInstanceConnections": [
+   "Server= mysqlserver.database.windows.net;Port=1433;User Id=$username;Password=$password;" 
+] 
 ```
 Obtenga los detalles del elemento de menú **Cadenas de conexión** para la instancia administrada.
 
@@ -239,7 +239,7 @@ Para supervisar una réplica secundaria legible, incluya el par clave-valor `App
 Especifique la cadena de conexión de esta forma:
 
 ```
-"sqlVmConnections": [ 
+"sqlVmConnections": [
    "Server=MyServerIPAddress;Port=1433;User Id=$username;Password=$password;" 
 ] 
 ```

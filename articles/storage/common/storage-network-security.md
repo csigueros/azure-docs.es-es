@@ -10,12 +10,12 @@ ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 82f860b78a8c0c4114a2250912fb6ec22e040d71
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8ffa380ec55dfcf96368782a3345ce3d13fe5f4f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128606084"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131474844"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 
@@ -385,9 +385,6 @@ Los tipos de operaciones que puede realizar una instancia de recursos en los dat
 
 > [!NOTE]
 > Esta característica está en versión preliminar pública y está disponible en todas las regiones de la nube pública.
-
-> [!NOTE]
-> Actualmente, las reglas de instancia de recurso solo se admiten en Azure Synapse. La compatibilidad con otros servicios de Azure que aparecen en la sección [Acceso de confianza basado en la identidad administrada asignada por el sistema](#trusted-access-system-assigned-managed-identity) de este artículo estará disponible en las próximas semanas.
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 

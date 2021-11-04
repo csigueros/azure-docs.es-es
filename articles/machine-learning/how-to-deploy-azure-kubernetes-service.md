@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/28/2021
-ms.openlocfilehash: fbacf4317defe999563a936b6c263ea2619f1eab
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 9df23f6994f9dfa02afe7f7b8d659f013ddafad7
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129428414"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131433581"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implementación de un modelo en un clúster de Azure Kubernetes Service
 
@@ -305,7 +305,7 @@ Agregue otra versión al punto de conexión y configure el percentil de tráfico
 > [!TIP]
 > La segunda versión, creada por el siguiente fragmento de código, acepta el 10 % del tráfico. La primera versión está configurada para un 20 %, por lo que solo el 30 % del tráfico está configurado para versiones específicas. El 70 % restante se envía a la primera versión del punto de conexión, ya que también es la versión predeterminada.
 
- ```python
+```python
 from azureml.core.webservice import AksEndpoint
 
 # add another model deployment to the same endpoint as above
@@ -324,7 +324,7 @@ Actualice las versiones existentes o elimínelas en un punto de conexión. Puede
 > [!TIP]
 > Después del fragmento de código siguiente, la segunda versión es ahora la predeterminada. Ahora está configurada para el 40 %, mientras que la versión original todavía está configurada para un 20 %. Esto significa que las configuraciones de versión no tienen en cuenta el 40 % del tráfico. El tráfico restante se enrutará a la segunda versión, ya que ahora es la predeterminada. Recibe el 80 % del tráfico.
 
- ```python
+```python
 from azureml.core.webservice import AksEndpoint
 
 # update the version's scoring traffic percentage and if it is a default or control type

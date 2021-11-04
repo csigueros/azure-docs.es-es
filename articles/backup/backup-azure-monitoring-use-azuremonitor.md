@@ -4,12 +4,12 @@ description: Supervise las cargas de trabajo de Azure Backup y cree alertas pers
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 2e1466d3f7f8130cfe8b12ad23f2bf1f9dd61b54
-ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
+ms.openlocfilehash: f1c729a9a724bb397b01a74c2f5853c1b2a74e25
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111565525"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131455024"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Supervisión a escala mediante Azure Monitor
 
@@ -18,7 +18,7 @@ Azure Backup proporciona [funcionalidades de supervisión y alerta integradas](b
 - Si supervisa datos de varios almacenes de Recovery Services entre suscripciones
 - Si el canal de notificación preferido *no* es el correo electrónico
 - Si los usuarios desean alertas en más escenarios
-- Si desea ver la información de un componente local, como System Center Data Protection Manager en Azure, que el portal no muestra en [**Trabajos de copia de seguridad**](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault) o [**Alertas de copia de seguridad**](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault)
+- Si desea ver la información de un componente local, como System Center Data Protection Manager en Azure, que el portal no muestra en [**Trabajos de copia de seguridad**](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-backup-center) o [**Alertas de copia de seguridad**](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault)
 
 ## <a name="using-log-analytics-workspace"></a>Uso del área de trabajo de Log Analytics
 

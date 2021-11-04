@@ -2,19 +2,19 @@
 title: Cómo proteger una aplicación web de página única con inicio de sesión no interactivo en Microsoft Azure Maps
 titleSuffix: Azure Maps
 description: Procedimiento para configurar una aplicación web de página única con el control de acceso basado en rol de Azure (RBAC de Azure) no interactivo y el SDK web de Azure Maps.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 06/21/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 ms.custom: devx-track-js, subject-rbac-steps
-ms.openlocfilehash: 9bf18a9122bbe8406b76cfd822cc2a5a86339a52
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8f3249cec073e7a1fd6fdabd6a7af24ce5a2c2d2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122868495"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131443592"
 ---
 # <a name="how-to-secure-a-single-page-web-application-with-non-interactive-sign-in"></a>Protección de una aplicación web de página única con el inicio de sesión no interactivo
 
@@ -68,11 +68,11 @@ Para crear una aplicación de servicio web segura que sea responsable de la aute
    1. [Creación de una clave de acceso de la función](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#authorization-keys).
    1. [Punto de conexión HTTP seguro](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production) para la función de Azure en producción.
 
-7. Configure el SDK web de Azure Maps de la aplicación web. 
+7. Configure el SDK web de Azure Maps de la aplicación web.
 
     ```javascript
     //URL to custom endpoint to fetch Access token
-    var url = 'https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>';
+    var url = 'https://{App-Name}.azurewebsites.net/api/{Function-Name}?code={API-Key}';
 
     var map = new atlas.Map('myMap', {
                 center: [-122.33, 47.6],

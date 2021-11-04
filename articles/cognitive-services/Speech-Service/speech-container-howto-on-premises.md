@@ -3,19 +3,19 @@ title: Uso de contenedores del servicio de voz con Kubernetes y Helm
 titleSuffix: Azure Cognitive Services
 description: Mediante el empleo de Kubernetes y Helm para definir las imágenes de contenedor de conversión de voz en texto y de texto en voz, se va a crear un paquete de Kubernetes. Este paquete se va a implementar en un clúster de Kubernetes en el entorno local.
 services: cognitive-services
-author: aahill
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/22/2021
-ms.author: aahi
-ms.openlocfilehash: 636ab6e2353c2268c75dfa961987d3e0e79e189c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.author: eur
+ms.openlocfilehash: 80e734581982f0c33cda07fbf28cb3e35c9610c5
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114454188"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500781"
 ---
 # <a name="use-speech-service-containers-with-kubernetes-and-helm"></a>Uso de contenedores del servicio de voz con Kubernetes y Helm
 

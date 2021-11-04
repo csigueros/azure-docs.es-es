@@ -5,14 +5,16 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 05/26/2021
-ms.openlocfilehash: 5b60f65de72de0a039ec806a06f00145867c7648
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 0637b2b02032b87b9c51aa171868b50164ce5c69
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130073361"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131448849"
 ---
 # <a name="nd-a100-v4-series"></a>Serie ND A100 v4
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 La máquina virtual de la serie ND A100 v4 es una nueva incorporación insignia a la familia de GPU de Azure, diseñada para el entrenamiento de aprendizaje profundo de alto nivel y para cargas de trabajo de HPC de escalabilidad vertical y horizontal estrechamente acopladas. 
 
@@ -36,7 +38,7 @@ Estas instancias proporcionan un rendimiento excelente para muchas herramientas 
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 2<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): No compatible<br>
-[Discos de sistema operativo efímero](ephemeral-os-disks.md): admitidos ([en versión preliminar](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible<br>
 InfiniBand: Compatible, GPUDirect RDMA, 8 x 200 Gigabit HDR<br>
 Interconexión de NVIDIA NVLink: Compatible<br>
 <br>

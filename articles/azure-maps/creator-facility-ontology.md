@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 zone_pivot_groups: facility-ontology-schema
-ms.openlocfilehash: c08faefc795fd65c71163bd9f8c24a1f8cd939f8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3ef3d9dd9d992e17c66516de8d13978e6c7c4821
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725612"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450806"
 ---
 # <a name="facility-ontology"></a>Ontología de instalaciones
 
@@ -61,7 +61,7 @@ La clase de característica `unit` define un área física y no superpuesta que 
 
 :::zone pivot="facility-ontology-v1"
 
-| Propiedad           | Tipo                        | Obligatorio | Descripción                                                  |
+| Propiedad           | Tipo                        | Requerido | Descripción                                                  |
 |--------------------|-----------------------------|----------|--------------------------------------------------------------|
 |`originalId`        | string     |true      | Identificador derivado de los datos de cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la característica a otra característica de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
@@ -78,13 +78,13 @@ La clase de característica `unit` define un área física y no superpuesta que 
 |`name` |    string |    false |    Nombre de la característica en el idioma local. La longitud máxima permitida es de 1000 caracteres. |
 |`nameSubtitle` |    string |    false |   Subtítulo que aparece debajo del elemento `name` de la característica. Se puede usar para mostrar el nombre en otro idioma, etc.  La longitud máxima permitida es de 1000 caracteres.|
 |`nameAlt` |    string |    false |   Nombre alternativo que se usa para la característica. La longitud máxima permitida es de 1000 caracteres. |
-|`anchorPoint` |   [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | [Geometría de punto GeoJSON](/rest/api/maps/wfs/get-feature-preview#featuregeojson) que representa la característica como un punto. Se puede usar para colocar la etiqueta de la característica.|
+|`anchorPoint` |   [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | [Geometría de punto GeoJSON](/rest/api/maps/wfs/get-feature#featuregeojson) que representa la característica como un punto. Se puede usar para colocar la etiqueta de la característica.|
 
 :::zone-end
 
 :::zone pivot="facility-ontology-v2"
 
-| Propiedad           | Tipo                        | Obligatorio | Descripción                                                  |
+| Propiedad           | Tipo                        | Requerido | Descripción                                                  |
 |--------------------|-----------------------------|----------|--------------------------------------------------------------|
 |`originalId`        | string     |true      | Identificador derivado de los datos de cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la característica a otra característica de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
@@ -98,7 +98,7 @@ La clase de característica `unit` define un área física y no superpuesta que 
 |`name` |    string |    false |    Nombre de la característica en el idioma local.  La longitud máxima permitida es de 1000 caracteres.|
 |`nameSubtitle` |    string |    false |   Subtítulo que aparece debajo del elemento `name` de la característica. Se puede usar para mostrar el nombre en otro idioma, etc.  La longitud máxima permitida es de 1000 caracteres.|
 |`nameAlt` |    string |    false |   Nombre alternativo que se usa para la característica.  La longitud máxima permitida es de 1000 caracteres.|
-|`anchorPoint` |   [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | [Geometría de punto GeoJSON](/rest/api/maps/wfs/get-feature-preview#featuregeojson) que representa la característica como un punto. Se puede usar para colocar la etiqueta de la característica.|
+|`anchorPoint` |   [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | [Geometría de punto GeoJSON](/rest/api/maps/wfs/get-feature#featuregeojson) que representa la característica como un punto. Se puede usar para colocar la etiqueta de la característica.|
 
 :::zone-end
 
@@ -110,7 +110,7 @@ La clase de característica `structure` define un área física y no superpuesta
 
 **Tipo de geometría**: polígono
 
-| Propiedad  | Tipo | Obligatorio | Descripción |
+| Propiedad  | Tipo | Requerido | Descripción |
 |-----------|------|----------|-------------|
 |`originalId`        | string     |true      | Identificador derivado de los datos de cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la característica a otra característica de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
@@ -119,7 +119,7 @@ La clase de característica `structure` define un área física y no superpuesta
 |`name` |    string |    false |    Nombre de la característica en el idioma local. La longitud máxima permitida es de 1000 caracteres. |
 |`nameSubtitle` |    string |    false |   Subtítulo que aparece debajo del elemento `name` de la característica. Se puede usar para mostrar el nombre en otro idioma, etc. La longitud máxima permitida es de 1000 caracteres. |
 |`nameAlt` |    string |    false |   Nombre alternativo que se usa para la característica.  La longitud máxima permitida es de 1000 caracteres.|
-|`anchorPoint` |   [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | [Geometría de punto GeoJSON](/rest/api/maps/wfs/get-feature-preview#featuregeojson) que representa la característica como un punto. Se puede usar para colocar la etiqueta de la característica.|
+|`anchorPoint` |   [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | [Geometría de punto GeoJSON](/rest/api/maps/wfs/get-feature#featuregeojson) que representa la característica como un punto. Se puede usar para colocar la etiqueta de la característica.|
 
 :::zone-end
 
@@ -129,7 +129,7 @@ La clase de característica `zone` define un área virtual, como una zona Wi-Fi 
 
 **Tipo de geometría**: polígono
 
-| Propiedad  | Tipo | Obligatorio | Descripción |
+| Propiedad  | Tipo | Requerido | Descripción |
 |-----------|------|----------|-------------|
 |`originalId`        | string     |true      | Identificador derivado de los datos de cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la característica a otra característica de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
@@ -139,7 +139,7 @@ La clase de característica `zone` define un área virtual, como una zona Wi-Fi 
 |`name` |    string |    false |    Nombre de la característica en el idioma local.  La longitud máxima permitida es de 1000 caracteres.|
 |`nameSubtitle` |    string |    false |   Subtítulo que aparece debajo del elemento `name` de la característica. Se puede usar para mostrar el nombre en otro idioma, etc.  La longitud máxima permitida es de 1000 caracteres.|
 |`nameAlt` |    string |    false |   Nombre alternativo que se usa para la característica. La longitud máxima permitida es de 1000 caracteres. |
-|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | [Geometría de punto GeoJSON](/rest/api/maps/wfs/get-feature-preview#featuregeojson) que representa la característica como un punto. Se puede usar para colocar la etiqueta de la característica.|
+|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | [Geometría de punto GeoJSON](/rest/api/maps/wfs/get-feature#featuregeojson) que representa la característica como un punto. Se puede usar para colocar la etiqueta de la característica.|
 
 ## <a name="level"></a>Nivel
 
@@ -147,7 +147,7 @@ La característica de clase `level` define un área de un edificio en una elevac
 
 **Tipo de geometría**: MultiPolygon
 
-| Propiedad  | Tipo | Obligatorio | Descripción |
+| Propiedad  | Tipo | Requerido | Descripción |
 |-----------|------|----------|-------------|
 |`originalId`        | string     |true      | Identificador derivado de los datos de cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la característica a otra característica de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
@@ -159,7 +159,7 @@ La característica de clase `level` define un área de un edificio en una elevac
 |`name` |    string |    false |    Nombre de la característica en el idioma local.  La longitud máxima permitida es de 1000 caracteres.|
 |`nameSubtitle` |    string |    false |   Subtítulo que aparece debajo del elemento `name` de la característica. Se puede usar para mostrar el nombre en otro idioma, etc.  La longitud máxima permitida es de 1000 caracteres.|
 |`nameAlt` |    string |    false |   Nombre alternativo que se usa para la característica.  La longitud máxima permitida es de 1000 caracteres.|
-|`anchorPoint` |   [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | [Geometría de punto GeoJSON](/rest/api/maps/wfs/get-feature-preview#featuregeojson) que representa la característica como un punto. Se puede usar para colocar la etiqueta de la característica.|
+|`anchorPoint` |   [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | [Geometría de punto GeoJSON](/rest/api/maps/wfs/get-feature#featuregeojson) que representa la característica como un punto. Se puede usar para colocar la etiqueta de la característica.|
 
 ## <a name="facility"></a>dispositivo
 
@@ -167,7 +167,7 @@ La clase de característica `facility` define el área del sitio, la superficie 
 
 **Tipo de geometría**: MultiPolygon
 
-| Propiedad  | Tipo | Obligatorio | Descripción |
+| Propiedad  | Tipo | Requerido | Descripción |
 |-----------|------|----------|-------------|
 |`originalId`        | string     |true      | Identificador derivado de los datos de cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la característica a otra característica de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
@@ -177,7 +177,7 @@ La clase de característica `facility` define el área del sitio, la superficie 
 |`name` |    string |    false |    Nombre de la característica en el idioma local. La longitud máxima permitida es de 1000 caracteres. |
 |`nameSubtitle` |    string |    false |   Subtítulo que aparece debajo del elemento `name` de la característica. Se puede usar para mostrar el nombre en otro idioma, etc. La longitud máxima permitida es de 1000 caracteres. |
 |`nameAlt` |    string |    false |   Nombre alternativo que se usa para la característica.  La longitud máxima permitida es de 1000 caracteres.|
-|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | [Geometría de punto GeoJSON](/rest/api/maps/wfs/get-feature-preview#featuregeojson) que representa la característica como un punto. Se puede usar para colocar la etiqueta de la característica.|
+|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | [Geometría de punto GeoJSON](/rest/api/maps/wfs/get-feature#featuregeojson) que representa la característica como un punto. Se puede usar para colocar la etiqueta de la característica.|
 |`anchorHeightAboveSeaLevel` |  double | false | Alto del punto de anclaje sobre el nivel del mar, en metros. El nivel del mar se define mediante EGM 2008.|
 |`defaultLevelVerticalExtent` |  double| false | Valor predeterminado para la extensión vertical de niveles, en metros.|
 
@@ -189,7 +189,7 @@ La característica de clase `verticalPenetration` define un área que, cuando se
 
 :::zone pivot="facility-ontology-v1"
 
-| Propiedad  | Tipo | Obligatorio | Descripción |
+| Propiedad  | Tipo | Requerido | Descripción |
 |-----------|------|----------|-------------|
 |`originalId`        | string     |true      | Identificador derivado de los datos de cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la característica a otra característica de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
@@ -202,13 +202,13 @@ La característica de clase `verticalPenetration` define un área que, cuando se
 |`name` |    string |    false |    Nombre de la característica en el idioma local.  La longitud máxima permitida es de 1000 caracteres.|
 |`nameSubtitle` |    string |    false |   Subtítulo que aparece debajo del elemento `name` de la característica. Se puede usar para mostrar el nombre en otro idioma, etc.  La longitud máxima permitida es de 1000 caracteres.|
 |`nameAlt` |    string |    false |   Nombre alternativo que se usa para la característica. La longitud máxima permitida es de 1000 caracteres. |
-|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | [Geometría de punto GeoJSON](/rest/api/maps/wfs/get-feature-preview#featuregeojson) que representa la característica como un punto. Se puede usar para colocar la etiqueta de la característica.|
+|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | [Geometría de punto GeoJSON](/rest/api/maps/wfs/get-feature#featuregeojson) que representa la característica como un punto. Se puede usar para colocar la etiqueta de la característica.|
 
 :::zone-end
 
 :::zone pivot="facility-ontology-v2"
 
-| Propiedad  | Tipo | Obligatorio | Descripción |
+| Propiedad  | Tipo | Requerido | Descripción |
 |-----------|------|----------|-------------|
 |`originalId`        | string     |true      | Identificador derivado de los datos de cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la característica a otra característica de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
@@ -219,7 +219,7 @@ La característica de clase `verticalPenetration` define un área que, cuando se
 |`name` |    string |    false |    Nombre de la característica en el idioma local.  La longitud máxima permitida es de 1000 caracteres.|
 |`nameSubtitle` |    string |    false |   Subtítulo que aparece debajo del elemento `name` de la característica. Se puede usar para mostrar el nombre en otro idioma, etc.  La longitud máxima permitida es de 1000 caracteres.|
 |`nameAlt` |    string |    false |   Nombre alternativo que se usa para la característica. La longitud máxima permitida es de 1000 caracteres. |
-|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | [Geometría de punto GeoJSON](/rest/api/maps/wfs/get-feature-preview#featuregeojson) que representa la característica como un punto. Se puede usar para colocar la etiqueta de la característica.|
+|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | [Geometría de punto GeoJSON](/rest/api/maps/wfs/get-feature#featuregeojson) que representa la característica como un punto. Se puede usar para colocar la etiqueta de la característica.|
 
 :::zone-end
 
@@ -231,7 +231,7 @@ La característica de clase `opening` define un límite que se puede recorrer en
 
 :::zone pivot="facility-ontology-v1"
 
-| Propiedad  | Tipo | Obligatorio | Descripción |
+| Propiedad  | Tipo | Requerido | Descripción |
 |-----------|------|----------|-------------|
 |`originalId`        | string     |true      | Identificador derivado de los datos de cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la característica a otra característica de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
@@ -242,19 +242,19 @@ La característica de clase `opening` define un límite que se puede recorrer en
 | `accessRightToLeft`| enum [ "prohibited", "digitalKey", "physicalKey", "keyPad", "guard", "ticket", "fingerprint", "retina", "voice", "face", "palm", "iris", "signature", "handGeometry", "time", "ticketChecker", "other"] | false | Método de acceso al pasar por la apertura de derecha a izquierda. Los vértices de la geometría de la característica determinan la izquierda y la derecha, que se encuentran en el primer vértice y miran al segundo. Omitir esta propiedad significa que no hay restricciones de acceso.|
 | `accessLeftToRight`| enum [ "prohibited", "digitalKey", "physicalKey", "keyPad", "guard", "ticket", "fingerprint", "retina", "voice", "face", "palm", "iris", "signature", "handGeometry", "time", "ticketChecker", "other"] | false | Método de acceso al pasar por la apertura de izquierda a derecha. Los vértices de la geometría de la característica determinan la izquierda y la derecha, que se encuentran en el primer vértice y miran al segundo. Omitir esta propiedad significa que no hay restricciones de acceso.|
 | `isEmergency` | boolean | false | Si es `true`, la apertura solo se puede usar durante las emergencias. El valor predeterminado es `false`. |
-|`anchorPoint` | [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | [Geometría de punto GeoJSON](/rest/api/maps/wfs/get-feature-preview#featuregeojson) y que representa la característica como un punto. Se puede usar para colocar la etiqueta de la característica.|
+|`anchorPoint` | [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | [Geometría de punto GeoJSON](/rest/api/maps/wfs/get-feature#featuregeojson) y que representa la característica como un punto. Se puede usar para colocar la etiqueta de la característica.|
 
 :::zone-end
 
 :::zone pivot="facility-ontology-v2"
 
-| Propiedad  | Tipo | Obligatorio | Descripción |
+| Propiedad  | Tipo | Requerido | Descripción |
 |-----------|------|----------|-------------|
 |`originalId`        | string     |true      | Identificador derivado de los datos de cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la característica a otra característica de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
 |`categoryId`        |[category.Id](#category)     |true      | Identificador de una característica de categoría.|
 | `levelId`          | [level.Id](#level)        | true     | Identificador de una característica de nivel. |
-|`anchorPoint` | [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | [Geometría de punto GeoJSON](/rest/api/maps/wfs/get-feature-preview#featuregeojson) y que representa la característica como un punto. Se puede usar para colocar la etiqueta de la característica.|
+|`anchorPoint` | [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | [Geometría de punto GeoJSON](/rest/api/maps/wfs/get-feature#featuregeojson) y que representa la característica como un punto. Se puede usar para colocar la etiqueta de la característica.|
 
 :::zone-end
 
@@ -264,7 +264,7 @@ La característica de clase de objeto `directoryInfo` define el nombre, la direc
 
 **Tipo de geometría**: ninguno
 
-| Propiedad  | Tipo | Obligatorio | Descripción |
+| Propiedad  | Tipo | Requerido | Descripción |
 |-----------|------|----------|-------------|
 |`originalId`        | string     |true      | Identificador derivado de los datos de cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la característica a otra característica de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
@@ -286,7 +286,7 @@ La característica de clase de objeto `directoryInfo` define el nombre, la direc
 
 **Tipo de geometría**: MultiPolygon
 
-| Propiedad  | Tipo | Obligatorio | Descripción |
+| Propiedad  | Tipo | Requerido | Descripción |
 |-----------|------|----------|-------------|
 |`originalId`        | string     |true      | Identificador derivado de los datos de cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la característica a otra característica de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
@@ -303,7 +303,7 @@ La característica de clase de objeto `directoryInfo` define el nombre, la direc
 
 **Tipo de geometría**: LinearMultiString
 
-| Propiedad  | Tipo | Obligatorio | Descripción |
+| Propiedad  | Tipo | Requerido | Descripción |
 |-----------|------|----------|-------------|
 |`originalId`        | string     |true      | Identificador derivado de los datos de cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la característica a otra característica de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
@@ -313,8 +313,8 @@ La característica de clase de objeto `directoryInfo` define el nombre, la direc
 |`name` |    string |    false |    Nombre de la característica en el idioma local. La longitud máxima permitida es de 1000 caracteres. |
 |`nameSubtitle` |    string |    false |   Subtítulo que aparece debajo del elemento `name` de la característica. Se puede usar para mostrar el nombre en otro idioma, etc. La longitud máxima permitida es de 1000 caracteres. |
 |`nameAlt` |    string |    false |   Nombre alternativo que se usa para la característica. La longitud máxima permitida es de 1000 caracteres. |
-|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | [Geometría de punto GeoJSON](/rest/api/maps/wfs/get-feature-preview#featuregeojson) que representa la característica como un punto. Se puede usar para colocar la etiqueta de la característica.|
-|`obstructionArea` |   [Polygon](/rest/api/maps/wfs/get-feature-preview#featuregeojson)| false | Geometría simplificada (cuando la geometría de línea es complicada) de la característica que se debe evitar durante el enrutamiento. Requiere que `isObstruction` esté establecido en true.|
+|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | [Geometría de punto GeoJSON](/rest/api/maps/wfs/get-feature#featuregeojson) que representa la característica como un punto. Se puede usar para colocar la etiqueta de la característica.|
+|`obstructionArea` |   [Polygon](/rest/api/maps/wfs/get-feature#featuregeojson)| false | Geometría simplificada (cuando la geometría de línea es complicada) de la característica que se debe evitar durante el enrutamiento. Requiere que `isObstruction` esté establecido en true.|
 
 ## <a name="areaelement"></a>areaElement
 
@@ -322,7 +322,7 @@ La característica de clase de objeto `directoryInfo` define el nombre, la direc
 
 **Tipo de geometría**: MultiPolygon
 
-| Propiedad  | Tipo | Obligatorio | Descripción |
+| Propiedad  | Tipo | Requerido | Descripción |
 |-----------|------|----------|-------------|
 |`originalId`        | string     |true      | Identificador derivado de los datos de cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la característica a otra característica de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
@@ -333,7 +333,7 @@ La característica de clase de objeto `directoryInfo` define el nombre, la direc
 |`name` |    string |    false |    Nombre de la característica en el idioma local. La longitud máxima permitida es de 1000 caracteres. |
 |`nameSubtitle` |    string |    false |   Subtítulo que aparece debajo del elemento `name` de la característica. Se puede usar para mostrar el nombre en otro idioma, etc.  La longitud máxima permitida es de 1000 caracteres.|
 |`nameAlt` |    string |    false |   Nombre alternativo que se usa para la característica.  La longitud máxima permitida es de 1000 caracteres.|
-|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | [Geometría de punto GeoJSON](/rest/api/maps/wfs/get-feature-preview#featuregeojson) que representa la característica como un punto. Se puede usar para colocar la etiqueta de la característica.|
+|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | [Geometría de punto GeoJSON](/rest/api/maps/wfs/get-feature#featuregeojson) que representa la característica como un punto. Se puede usar para colocar la etiqueta de la característica.|
 
 ## <a name="category"></a>category
 
@@ -343,7 +343,7 @@ La característica de clase `category` define los nombres de categoría. Por eje
 
 :::zone pivot="facility-ontology-v1"
 
-| Propiedad  | Tipo | Obligatorio | Descripción |
+| Propiedad  | Tipo | Requerido | Descripción |
 |-----------|------|----------|-------------|
 |`originalId`        | string     |true      | Identificador original de la categoría derivado de los datos del cliente. La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la categoría a otra categoría de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|
@@ -355,7 +355,7 @@ La característica de clase `category` define los nombres de categoría. Por eje
 
 :::zone pivot="facility-ontology-v2"
 
-| Propiedad  | Tipo | Obligatorio | Descripción |
+| Propiedad  | Tipo | Requerido | Descripción |
 |-----------|------|----------|-------------|
 |`originalId`        | string     |true      | Identificador original de la categoría derivado de los datos del cliente.  La longitud máxima permitida es de 1000 caracteres.|
 |`externalId`        | string     |true      | Identificador que utiliza el cliente para asociar la categoría a otra categoría de un conjunto de datos diferente, como en una base de datos interna. La longitud máxima permitida es de 1000 caracteres.|

@@ -3,7 +3,7 @@ title: Optimización del streaming multimedia con Azure CDN
 description: Obtenga información sobre las opciones para optimizar los medios de streaming en Azure Content Delivery Network, como el uso compartido de caché parcial y el tiempo de espera de relleno de caché.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 05/01/2018
-ms.author: allensu
-ms.openlocfilehash: c3ab722f182e32cf2f3aca6bb2f3d5a9598264af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: duau
+ms.openlocfilehash: 3fc078a2a609da9bc3e23e42a7a2eb06debd5c45
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88192614"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458520"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Optimización del streaming multimedia con Azure CDN 
  

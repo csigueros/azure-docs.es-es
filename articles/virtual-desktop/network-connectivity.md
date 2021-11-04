@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 8a979fa56a7a75785220747dc1ee43696e8897d4
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: dd0328314cbe1f93565a421e0ff4f68f410b10dc
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129710524"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131459983"
 ---
 # <a name="understanding-azure-virtual-desktop-network-connectivity"></a>Descripción de la conectividad de red de Azure Virtual Desktop
 
@@ -50,7 +50,7 @@ La secuencia de la conexión cliente se describe a continuación:
 
 ## <a name="connection-security"></a>Seguridad de conexión
 
-TLS 1.2 se usa para todas las conexiones iniciadas desde los clientes y hosts de sesión a los componentes de la infraestructura de Azure Virtual Desktop. Azure Virtual Desktop usa los mismos cifrados TLS 1.2 que [Azure Front Door](../frontdoor/front-door-faq.yml#what-are-the-current-cipher-suites-supported-by-azure-front-door-). Es importante asegurarse de que tanto los equipos cliente como los hosts de sesión pueden utilizar estos cifrados.
+TLS 1.2 se usa para todas las conexiones iniciadas desde los clientes y hosts de sesión a los componentes de la infraestructura de Azure Virtual Desktop. Azure Virtual Desktop usa los mismos cifrados TLS 1.2 que [Azure Front Door](../frontdoor/concept-end-to-end-tls.md#supported-cipher-suites). Es importante asegurarse de que tanto los equipos cliente como los hosts de sesión pueden utilizar estos cifrados.
 Para el transporte de conexión inversa, tanto el cliente como el host de sesión se conectan a la puerta de enlace de Azure Virtual Desktop. Después de establecer la conexión TCP, el cliente o el host de sesión validan el certificado de la puerta de enlace de Azure Virtual Desktop.
 Después de establecer el transporte base, el RDP establece una conexión TLS anidada entre el cliente y el host de sesión mediante los certificados del host de sesión. De forma predeterminada, el certificado usado para el cifrado RDP lo genera automáticamente el sistema operativo durante la implementación. Si lo desea, los clientes pueden implementar certificados administrados centralmente emitidos por la entidad de certificación de empresa. Para más información sobre los certificados de configuración, consulte la [documentación de Windows Server](/troubleshoot/windows-server/remote/remote-desktop-listener-certificate-configurations).
 

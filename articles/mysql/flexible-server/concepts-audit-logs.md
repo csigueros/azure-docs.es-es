@@ -6,19 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 769f178a65ac096446cd98015050ad1a35b3ef09
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 8dc495f16fe205350f5eeeae7a8aee1e933c6a1c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129612453"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131468240"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Seguimiento de la actividad de base de datos con Registros de auditoría en el Servidor flexible de Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> El Servidor flexible de Azure Database for MySQL está actualmente en versión preliminar pública.
 
 El Servidor flexible de Azure Database for MySQL proporciona a los usuarios la capacidad de configurar registros de auditoría. Los registros de auditoría se pueden usar para realizar un seguimiento de la actividad de nivel de base de datos, incluidos los eventos de conexión, administración, DDL y DML. Estos tipos de registros se usan normalmente para fines de cumplimiento.
 
@@ -27,7 +24,7 @@ El Servidor flexible de Azure Database for MySQL proporciona a los usuarios la c
 >[!IMPORTANT]
 > Se recomienda registrar solo los tipos de evento y los usuarios necesarios con fines de auditoría para asegurarse de que el rendimiento del servidor no se ve afectado en gran medida.
 
-Los registros de auditoría están deshabilitados de forma predeterminada. Para habilitarlos, establezca el parámetro del servidor `audit_log_enabled` en *Activado*. Para ello, se puede usar Azure Portal o la CLI de Azure <!-- add link to server parameter-->. 
+Los registros de auditoría están deshabilitados de forma predeterminada. Para habilitarlos, establezca el parámetro del servidor `audit_log_enabled` en *Activado*. Para ello, se puede usar Azure Portal o la CLI de Azure <!-- add link to server parameter-->.
 
 Entre otros parámetros que se pueden ajustar para controlar el comportamiento del registro de auditoría se incluyen los siguientes:
 
@@ -153,8 +150,8 @@ Una vez que los registros de auditoría se canalizan a los registros de Azure Mo
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlAuditLogs' and event_class_s == "general_log"
-    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
-    | order by TimeGenerated asc nulls last 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
+    | order by TimeGenerated asc nulls last
     ```
 
 - Enumeración de los eventos de CONEXIÓN en un servidor determinado
@@ -163,7 +160,7 @@ Una vez que los registros de auditoría se canalizan a los registros de Azure Mo
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlAuditLogs' and event_class_s == "connection_log"
-    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
     | order by TimeGenerated asc nulls last
     ```
 
@@ -173,7 +170,7 @@ Una vez que los registros de auditoría se canalizan a los registros de Azure Mo
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlAuditLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
     | summarize count() by event_class_s, event_subclass_s, user_s, ip_s
     ```
 
@@ -183,9 +180,9 @@ Una vez que los registros de auditoría se canalizan a los registros de Azure Mo
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlAuditLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
     | summarize count() by LogicalServerName_s, bin(TimeGenerated, 5m)
-    | render timechart 
+    | render timechart
     ```
 
 - Enumeración de los eventos auditados en todos los servidores de MySQL con registros de diagnóstico habilitados para los registros de auditoría
@@ -193,9 +190,9 @@ Una vez que los registros de auditoría se canalizan a los registros de Azure Mo
     ```kusto
     AzureDiagnostics
     | where Category == 'MySqlAuditLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
     | order by TimeGenerated asc nulls last
-    ``` 
+    ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información sobre los [registros de consultas lentas](concepts-slow-query-logs.md)

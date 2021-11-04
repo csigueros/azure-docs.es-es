@@ -3,12 +3,12 @@ title: Guía y procedimientos recomendados
 description: Descubra los procedimientos recomendados y las instrucciones para realizar copias de seguridad en la nube de las cargas de trabajo locales y en la nube.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: ecac56034c78cba09133fc12ca4ac8827afb0ea2
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 462b71170bbd0534a15a54f0eacc53ff08e09f69
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124806731"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131439393"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Copia de seguridad en la nube de cargas de trabajo locales y en la nube
 
@@ -225,7 +225,7 @@ Como administrador o usuario de copias de seguridad, debe ser capaz de supervisa
 
 ### <a name="monitoring"></a>Supervisión
 
-* Azure Backup proporciona **supervisión integrada de trabajos** para operaciones como configurar copias de seguridad, hacerlas, restaurarlas, eliminarlas, etc. Esta supervisión tiene como ámbito el almacén y es ideal para controlar un único almacén. [Obtenga más información aquí](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault).
+* Azure Backup proporciona **supervisión integrada de trabajos** para operaciones como configurar copias de seguridad, hacerlas, restaurarlas, eliminarlas, etc. Esta supervisión tiene como ámbito el almacén y es ideal para controlar un único almacén. [Obtenga más información aquí](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-backup-center).
 
 * Si necesita supervisar las actividades operativas a gran escala, dispone del **Explorador de Backup**, que proporciona una vista agregada de todos los recursos de copia de seguridad, lo que permite realizar análisis detallados y solucionar problemas. Se trata de un libro de Azure Monitor integrado que proporciona una única ubicación central para ayudarle a supervisar las actividades operativas en todos los recursos de copia de seguridad en Azure, lo que abarca inquilinos, ubicaciones, suscripciones, grupos de recursos y almacenes. [Obtenga más información aquí](monitor-azure-backup-with-backup-explorer.md).
   * Úselo para identificar los recursos que no están configurados para la copia de seguridad y asegúrese de que nunca se queda sin la protección de datos críticos de su patrimonio en crecimiento.

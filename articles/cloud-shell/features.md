@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: c707a6522d037ba3926b55579e501eadd2764416
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 99cf6011cb7e52f1ed296dc00049763030c382e6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104798279"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423382"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Características y herramientas de Azure Cloud Shell
 
 [!INCLUDE [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
-Azure Cloud Shell se ejecuta en `Ubuntu 16.04 LTS`.
+Azure Cloud Shell se ejecuta en `Common Base Linux Delridge`.
 
 ## <a name="features"></a>Características
 

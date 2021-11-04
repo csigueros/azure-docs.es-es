@@ -11,12 +11,12 @@ ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 07/06/2021
-ms.openlocfilehash: a125ee289f9f3ea87f1015136b07ec2ad76cef32
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 423dae8f84e43900ad84a49423b7d2ff00fb8c76
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130003049"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131429800"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Creación de conjuntos de datos de Azure Machine Learning
 
@@ -245,12 +245,9 @@ labeled_dataset = labeled_dataset.filter(labeled_dataset['label'] == 'dog')
 labeled_dataset = labeled_dataset.filter((labeled_dataset['label']['isCrowd'] == True) & (labeled_dataset.file_metadata['Size'] > 100000))
 ```
 
-### <a name="partition-data-preview"></a>Datos de partición (versión preliminar)
+### <a name="partition-data"></a>Partición de datos
 
 Puede particionar un conjunto de datos incluyendo el parámetro `partitions_format` al crear un objeto TabularDataset o FileDataset. 
-
-> [!IMPORTANT]
-> La creación de particiones de conjunto de datos es una funcionalidad [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) en versión preliminar y puede cambiar en cualquier momento. 
 
 Al particionar un conjunto de datos, la información de partición de cada ruta de acceso de archivo se extrae en columnas según el formato especificado. El formato debe empezar en la posición de la primera clave de partición hasta el final de la ruta de acceso del archivo. 
 

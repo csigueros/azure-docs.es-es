@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 83c3fd114ab7ed3bf04d47ef3be2fc563b6b43d5
-ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
+ms.openlocfilehash: ba93588dc686a57c05371b86d8f9e058f2bd2cf2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110586191"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131460040"
 ---
 # <a name="store-query-results-to-storage-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Almacenamiento de resultados de consultas en Storage mediante un grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -100,12 +100,12 @@ ORDER BY
 ## <a name="remarks"></a>Comentarios
 
 Una vez que se almacenan los resultados, los datos de la tabla externa no se pueden modificar. Este script no se puede repetir porque CETAS no sobrescribirá los datos subyacentes creados en la ejecución anterior. Vote por los siguientes elementos de comentarios si algunos de ellos son necesarios en sus escenarios o proponga unos nuevos en el sitio de comentarios de Azure:
-- [Habilitación de la inserción de nuevos datos en tablas externas](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/32981347-polybase-allow-insert-new-data-to-existing-exteran)
-- [Habilitación de la eliminación de datos de tablas externas](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/15158034-polybase-delete-from-external-tables)
-- [Especificación de particiones en CETAS](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/19520860-polybase-partitioned-by-functionality-when-creati)
-- [Especificación de tamaños y recuentos de archivos](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/42263617-cetas-specify-number-of-parquet-files-file-size)
+- [Habilitación de la inserción de nuevos datos en tablas externas](https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8)
+- [Habilitación de la eliminación de datos de tablas externas](https://feedback.azure.com/d365community/idea/fb5a00c9-0a25-ec11-b6e6-000d3a4f07b8)
+- [Especificación de particiones en CETAS](https://feedback.azure.com/d365community/idea/e28278db-0a25-ec11-b6e6-000d3a4f07b8)
+- [Especificación de tamaños y recuentos de archivos](https://feedback.azure.com/d365community/idea/262048b9-0925-ec11-b6e6-000d3a4f07b8)
 
-Los únicos tipos de salida que se admiten son Parquet y CSV. Puede votar por los otros tipos en el [sitio de comentarios de Azure](https://feedback.azure.com/forums/307516-azure-synapse-analytics/).
+Los únicos tipos de salida que se admiten son Parquet y CSV. Puede votar por los otros tipos en el [sitio de comentarios de Azure](https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

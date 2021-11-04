@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 02/04/2020
+ms.date: 11/03/2021
 ms.author: rortloff
-ms.reviewer: jrasnick
+ms.reviewer: wiassaf
 ms.custom: azure-synapse
-ms.openlocfilehash: 14c3ad30bac7cec4c11822d825323bb9db2ba440
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d0dc05f32ca3f2fec1e19106e93178dcc40e4d0b
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96454529"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501350"
 ---
 # <a name="analyze-your-workload-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Análisis de la carga de trabajo para el grupo de SQL dedicado en Azure Synapse Analytics
 
@@ -103,8 +103,7 @@ SELECT  w.[wait_id]
 FROM    sys.dm_pdw_waits w
 JOIN    sys.dm_pdw_exec_sessions s  ON w.[session_id] = s.[session_id]
 JOIN    sys.dm_pdw_exec_requests r  ON w.[request_id] = r.[request_id]
-WHERE    w.[session_id] <> SESSION_ID()
-;
+WHERE    w.[session_id] <> SESSION_ID();
 ```
 
 La DMV `sys.dm_pdw_resource_waits` muestra la información de espera para una consulta determinada. El tiempo de espera del recurso mide el tiempo de espera para que se proporcionen recursos. El tiempo de espera de la señal es el tiempo que tardan los servidores SQL subyacentes en programar la consulta en la CPU.
@@ -122,8 +121,7 @@ SELECT  [session_id]
 ,       [resource_class]
 ,       [wait_id]                                   AS queue_position
 FROM    sys.dm_pdw_resource_waits
-WHERE    [session_id] <> SESSION_ID()
-;
+WHERE    [session_id] <> SESSION_ID();
 ```
 
 También puede usar la DMW `sys.dm_pdw_resource_waits` para calcular cuántas ranuras de simultaneidad se han concedido.
@@ -133,8 +131,7 @@ SELECT  SUM([concurrency_slots_used]) as total_granted_slots
 FROM    sys.[dm_pdw_resource_waits]
 WHERE   [state]           = 'Granted'
 AND     [resource_class] is not null
-AND     [session_id]     <> session_id()
-;
+AND     [session_id]     <> session_id();
 ```
 
 La DMV `sys.dm_pdw_wait_stats` se puede utilizar para analizar las tendencias históricas de las esperas.
@@ -147,10 +144,9 @@ SELECT   w.[pdw_node_id]
 ,        w.[signal_time]
 ,        w.[completed_count]
 ,        w.[wait_time]
-FROM    sys.dm_pdw_wait_stats w
-;
+FROM    sys.dm_pdw_wait_stats w;
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre cómo administrar los usuarios y la seguridad de la base de datos, consulte [Protección de un grupo de SQL dedicado (anteriormente SQL DW)](sql-data-warehouse-overview-manage-security.md). Para más información sobre cómo las clases de recursos mayores pueden mejorar la calidad de los índices de almacén de columnas agrupado, vea [Regeneración de índices para mejorar la calidad de los segmentos](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Para más información sobre cómo administrar los usuarios y la seguridad de la base de datos, consulte [Protección de un grupo de SQL dedicado (anteriormente SQL DW)](sql-data-warehouse-overview-manage-security.md). Para más información sobre cómo las clases de recursos mayores pueden mejorar la calidad de los índices de almacén de columnas agrupado, consulte [Regeneración de índices para mejorar la calidad de los segmentos](sql-data-warehouse-tables-index.md#rebuild-indexes-to-improve-segment-quality).

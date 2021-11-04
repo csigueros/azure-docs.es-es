@@ -3,19 +3,19 @@ title: Obtener el SDK de dispositivos de voz
 titleSuffix: Azure Cognitive Services
 description: El servicio de voz funciona con una amplia variedad de dispositivos y orígenes de audio. Ahora puede llevar las aplicaciones de voz al siguiente nivel con hardware y software coincidente. En este artículo aprenderá a acceder al SDK de dispositivos de voz para comenzar a desarrollar.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/14/2019
-ms.author: pafarley
-ms.openlocfilehash: fe91a9d288b6fb512693b909098d2e2d5130d9e4
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.author: eur
+ms.openlocfilehash: 76ef359ea125ccd17de1ff0670390eb7e89d4290
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124771942"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131509315"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Obtener el SDK de dispositivos de voz de Cognitive Services
 

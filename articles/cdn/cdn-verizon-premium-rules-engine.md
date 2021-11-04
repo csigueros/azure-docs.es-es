@@ -2,17 +2,17 @@
 title: 'Invalidación del comportamiento HTTP con Azure CDN: motor de reglas de Verizon Premium'
 description: El motor de reglas permite personalizar cómo Azure CDN de Verizon Premium controla las solicitudes HTTP, como el bloqueo de la entrega de determinados tipos de contenido, la definición de una directiva de almacenamiento en caché y la modificación de encabezados HTTP.
 services: cdn
-author: asudbring
+author: duongau
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 05/31/2019
-ms.author: allensu
-ms.openlocfilehash: a49912bc2275e478d657f06587c4ddc830210d3a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: duau
+ms.openlocfilehash: 47c1f944c36b33094bc3a0e60411a11e819e8090
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87040219"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423401"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Invalidación del comportamiento HTTP mediante el motor de reglas de Azure CDN de Verizon Premium
 

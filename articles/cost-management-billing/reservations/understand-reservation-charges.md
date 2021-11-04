@@ -1,19 +1,19 @@
 ---
 title: Descripción del descuento de reserva para Azure SQL Database | Microsoft Docs
 description: Aprenda cómo se aplica un descuento de reserva en las bases de datos de Azure SQL Database en ejecución. El descuento se aplica a dichas bases de datos cada hora.
-author: yashesvi
-ms.reviewer: yashar
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 7d163e1958ee97e8032edc0a42bc160dd234d3c1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c583ec4403763f0969b5c70d80e7d05a9862964e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128628484"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131430484"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-sql-database"></a>Aplicación de un descuento de reserva en Azure SQL Database
 

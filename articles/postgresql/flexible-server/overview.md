@@ -5,14 +5,14 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: overview
-ms.date: 10/04/2021
+ms.date: 10/07/2021
 ms.custom: mvc, references_regions
-ms.openlocfilehash: d1d33a526ef2dfff4709b994c77396a4db1b2a5e
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: b5f82dd6b822a1a8c138ce08dcc0f689594150f9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129457551"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131425375"
 ---
 # <a name="overview---azure-database-for-postgresql---flexible-server"></a>Introducción al servidor flexible de Azure Database for PostgreSQL.
 
@@ -140,7 +140,7 @@ Además, tenga en cuenta los siguientes puntos de contacto según corresponda:
 
 - Para ponerse en contacto con el servicio de soporte técnico de Azure, [presente una incidencia de soporte técnico en Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - Para corregir un problema con la cuenta, envíe una [solicitud de soporte técnico](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) en Azure Portal.
-- Para proporcionar comentarios o solicitar nuevas características, cree una entrada mediante [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
+- Para proporcionar comentarios o solicitar nuevas características, cree una entrada mediante [UserVoice](https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0).
   
 
 ## <a name="next-steps"></a>Pasos siguientes

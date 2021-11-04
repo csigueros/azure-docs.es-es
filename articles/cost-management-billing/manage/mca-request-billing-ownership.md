@@ -1,19 +1,20 @@
 ---
 title: Transferencia de la propiedad de facturación de la suscripción de Azure en un Contrato de cliente de Microsoft
 description: Aprenda a transferir la propiedad de facturación de las suscripciones de Azure.
-author: amberbhargava
+author: bandersmsft
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/26/2021
+ms.date: 10/28/2021
 ms.author: banders
-ms.openlocfilehash: 6654098b7fe2b212ac87d4ae52feaed128579dc5
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: af3b4eabfb47fb64e9e3912c8edcf939d17e04f2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114711346"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131476250"
 ---
 # <a name="transfer-azure-subscription-billing-ownership-for-a-microsoft-customer-agreement"></a>Transferencia de la propiedad de facturación de la suscripción de Azure en un Contrato de cliente de Microsoft
 
@@ -77,11 +78,11 @@ La persona a la que solicite la propiedad de facturación debe tener uno de los 
    |Fecha de solicitud|La fecha en la que se envió la solicitud de transferencia.|
    |Recipient|La dirección de correo electrónico del usuario que envió la solicitud para transferir la propiedad de la facturación|
    |Fecha de expiración|La fecha en que expira la solicitud|
-   |Status|El estado de la solicitud de transferencia|
+   |Estado|El estado de la solicitud de transferencia|
 
     La solicitud de transferencia puede tener uno de los siguientes estados:
 
-   |Status|Definición|
+   |Estado|Definición|
    |---------|---------|
    |En curso|El usuario no ha aceptado la solicitud de transferencia.|
    |Processing|El usuario aprueba la solicitud de transferencia. La facturación de las suscripciones seleccionadas por el usuario está en proceso de transferencia a la sección de factura|

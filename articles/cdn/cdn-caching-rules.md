@@ -3,7 +3,7 @@ title: Control del comportamiento del almacenamiento en caché de Azure CDN con 
 description: Puede usar reglas de almacenamiento en caché de la red CDN para establecer o modificar el comportamiento de expiración de caché predeterminado globalmente y con condiciones, como una y ruta de acceso de dirección URL y extensiones de archivo.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 ms.service: azure-cdn
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 03/19/2019
-ms.author: allensu
-ms.openlocfilehash: a5f4f6a6e72b57638688069111071a6e0a035c49
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.author: duau
+ms.openlocfilehash: 5995dd6f5bf7f8cddf837bebe4d03c6e073f23d3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96018671"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131439412"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Control del comportamiento del almacenamiento en caché de Azure CDN con reglas de caché
 

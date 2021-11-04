@@ -11,12 +11,12 @@ ms.custom: references_regions
 ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/24/2021
-ms.openlocfilehash: e66333fa1174eb9a614f2028641a83a8391e39e0
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 97cf7977d6e867d0c3bbc106f599bc69db4d987b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130047953"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131465238"
 ---
 # <a name="known-issues-with-azure-sql-managed-instance"></a>Problemas conocidos de Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -26,13 +26,13 @@ En este artículo se enumeran los problemas conocidos actualmente de [Azure SQL
  
 ## <a name="known-issues"></a>Problemas conocidos
 
-|Incidencia  |Fecha de detección  |Estado  |Fecha de resolución  |
+|Problema  |Fecha de detección  |Estado  |Fecha de resolución  |
 |---------|---------|---------|---------|
 |[Mensaje de error engañoso en Azure Portal que sugiere la recreación de la entidad de servicio](#misleading-error-message-on-azure-portal-suggesting-recreation-of-the-service-principal)|Septiembre de 2021|||
 |[Cambiar el tipo de conexión no afecta a las conexiones a través del punto de conexión del grupo de conmutación por error](#changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint)|Enero de 2021|Tiene solución alternativa||
 |[Se puede producir un error transitorio en el procedimiento sp_send_dbmail cuando se usa el parámetro @query](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|Enero de 2021|Tiene solución alternativa||
 |[Se pueden ejecutar transacciones distribuidas después de quitar la instancia administrada del grupo de confianza del servidor](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Octubre de 2020|Tiene solución alternativa||
-|[No se pueden ejecutar transacciones distribuidas después de la operación de escalado de la instancia administrada](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Octubre de 2020|Tiene solución alternativa||
+|[No se pueden ejecutar transacciones distribuidas después de la operación de escalado de la instancia administrada](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Octubre de 2020|Resuelto|Mayo de 2021|
 |[No se puede crear una instancia de SQL Managed Instance con el mismo nombre que el servidor lógico eliminado anteriormente](#cannot-create-sql-managed-instance-with-the-same-name-as-logical-server-previously-deleted)|Agosto de 2020|Tiene solución alternativa||
 |[BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql)/[OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql) de Azure SQL y la instrucción `BACKUP`/`RESTORE` de SQL Managed Instance no pueden usar la identidad administrada de Azure AD para autenticarse en Azure Storage|Septiembre de 2020|Tiene solución alternativa||
 |[La entidad de servicio no puede acceder a Azure AD y AKV](#service-principal-cannot-access-azure-ad-and-akv)|Agosto de 2020|Tiene solución alternativa||

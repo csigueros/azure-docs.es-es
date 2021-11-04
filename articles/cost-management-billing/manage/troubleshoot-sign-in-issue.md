@@ -2,20 +2,20 @@
 title: Solución de problemas de inicio de sesión en la suscripción a Azure
 description: Ayuda a resolver problemas que no permiten iniciar sesión en Azure Portal.
 services: cost-management-billing
-author: jasonwhowell
-manager: dcscontentpm
+author: bandersmsft
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 07/16/2021
-ms.author: jasonh
-ms.openlocfilehash: 2ddd5f3fdb974eadba617afcd6f27d047534031b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.author: banders
+ms.openlocfilehash: 7fad89f2ef4898e3fb790860abbb56593e9d06f1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131040896"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423135"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Solución de problemas de inicio de sesión en la suscripción a Azure
 

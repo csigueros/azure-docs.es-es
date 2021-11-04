@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/26/2021
 ms.author: daberry
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b13ac1d3d72a28538a2bdbdc149017848105562c
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 3a815fe51815a967c23de9b0d95a0411e70dbd35
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129619678"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423325"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>Inicio rápido: creación de una aplicación de Table API con el SDK de .NET y Azure Cosmos DB
 
@@ -298,7 +298,7 @@ public TablesService(TableClient tableClient)
 
 La clase [TableClient](/dotnet/api/azure.data.tables.tableclient) contiene un método llamado [Query](/dotnet/api/azure.data.tables.tableclient.query) que permite seleccionar filas de la tabla.  En este ejemplo, dado que no se pasan parámetros al método, se seleccionarán todas las filas de la tabla.
 
-El método también toma un parámetro genérico de tipo [ITableEntity](/dotnet/api/azure.data.tables.itableentity) que especifica cómo se devolverán los datos de la clase del modelo. En este caso, se usa la clase integrada [TableEntity](/dotnet/api/azure.data.tables.itableentity), lo que significa que el método `Query` devolverá una colección `Pageable\<TableEntity\>` como resultado.
+El método también toma un parámetro genérico de tipo [ITableEntity](/dotnet/api/azure.data.tables.itableentity) que especifica cómo se devolverán los datos de la clase del modelo. En este caso, se usa la clase integrada [TableEntity](/dotnet/api/azure.data.tables.itableentity), lo que significa que el método `Query` devolverá una colección `Pageable<TableEntity>` como resultado.
 
 ```csharp
 public IEnumerable<WeatherDataModel> GetAllRows()

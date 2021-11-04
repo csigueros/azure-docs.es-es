@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 45fdf924cec8ec236f1285a915946783ae5c5f56
-ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+ms.openlocfilehash: f0802f46c9760a46bbeb77816bc5a6c1282b863a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113650071"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131445433"
 ---
 # <a name="quickstart-use-github-actions-to-connect-to-azure-mysql"></a>Inicio rápido: Uso de Acciones de GitHub para conectarse a Azure MySQL
 
@@ -25,9 +25,9 @@ Comience a trabajar con [Acciones de GitHub](https://docs.github.com/en/actions)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Necesitará: 
+Necesitará:
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Un repositorio de GitHub con datos de ejemplo (`data.sql`). Si no tiene una cuenta de GitHub, [regístrese para obtener una gratis](https://github.com/join).  
+- Un repositorio de GitHub con datos de ejemplo (`data.sql`). Si no tiene una cuenta de GitHub, [regístrese para obtener una gratis](https://github.com/join).
 - Un servidor de Azure Database for MySQL.
     - [Inicio rápido: Creación de un servidor de Azure Database for MySQL mediante Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md)
 
@@ -46,7 +46,7 @@ El archivo tiene dos secciones:
 
 Puede crear una [entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md) mediante el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac&preserve-view=true) de la [CLI de Azure](/cli/azure/). Puede ejecutar este comando mediante [Azure Cloud Shell](https://shell.azure.com/) en Azure Portal o haciendo clic en el botón **Probar**.
 
-Reemplace los marcadores de posición `server-name` por el nombre del servidor MySQL hospedado en Azure. Reemplace `subscription-id` y `resource-group` por el identificador de suscripción y el grupo de recursos conectado a su servidor MySQL.  
+Reemplace los marcadores de posición `server-name` por el nombre del servidor MySQL hospedado en Azure. Reemplace `subscription-id` y `resource-group` por el identificador de suscripción y el grupo de recursos conectado a su servidor MySQL.
 
 ```azurecli-interactive
    az ad sp create-for-rbac --name {server-name} --role contributor \
@@ -56,7 +56,7 @@ Reemplace los marcadores de posición `server-name` por el nombre del servidor M
 
 La salida es un objeto JSON con las credenciales de asignación de roles que proporcionan acceso a la base de datos, de forma parecida a como se muestra a continuación. Copie este objeto JSON de salida para más adelante.
 
-```output 
+```output
   {
     "clientId": "<GUID>",
     "clientSecret": "<GUID>",
@@ -69,19 +69,18 @@ La salida es un objeto JSON con las credenciales de asignación de roles que pro
 > [!IMPORTANT]
 > Siempre es recomendable conceder acceso mínimo. El ámbito del ejemplo anterior se limita al servidor específico y no a todo el grupo de recursos.
 
-## <a name="copy-the-mysql-connection-string"></a>Copia de la cadena de conexión de MySQL 
+## <a name="copy-the-mysql-connection-string"></a>Copia de la cadena de conexión de MySQL
 
-En Azure Portal, vaya al servidor de Azure Database for MySQL y abra **Configuración** > **Cadenas de conexión**. Copie la cadena de conexión de **ADO.NET**. Reemplace los valores de marcador de posición `your_database` y `your_password`. La cadena de conexión tendrá un aspecto similar al siguiente. 
+En Azure Portal, vaya al servidor de Azure Database for MySQL y abra **Configuración** > **Cadenas de conexión**. Copie la cadena de conexión de **ADO.NET**. Reemplace los valores de marcador de posición `your_database` y `your_password`. La cadena de conexión tendrá un aspecto similar al siguiente.
 
 > [!IMPORTANT]
 > - En el caso de un servidor único, use **Uid=adminusername@servername** . Tenga en cuenta que se necesita **@servername** .
-> - En el caso de un servidor flexible, use **Uid= adminusername** sin @servername. Tenga en cuenta que la opción de implementación Servidor flexible de MySQL está en versión preliminar. 
-
+> - En el caso de un servidor flexible, use **Uid= adminusername** sin @servername.
 
 ```output
    Server=my-mysql-server.mysql.database.azure.com; Port=3306; Database={your_database}; Uid=adminname@my-mysql-server; Pwd={your_password}; SslMode=Preferred;
 ```
-Usará la cadena de conexión como secreto de GitHub. 
+Usará la cadena de conexión como secreto de GitHub.
 
 ## <a name="configure-the-github-secrets"></a>Configuración de los secretos de GitHub
 
@@ -99,18 +98,18 @@ Usará la cadena de conexión como secreto de GitHub.
             creds: ${{ secrets.AZURE_CREDENTIALS }}
    ```
 
-1. Vuelva a seleccionar **Nuevo secreto**. 
+1. Vuelva a seleccionar **Nuevo secreto**.
 
 1. Pegue el valor de la cadena de conexión en el campo de valor del secreto. Asigne al secreto el nombre `AZURE_MYSQL_CONNECTION_STRING`.
 
 
 ## <a name="add-your-workflow"></a>Agregar el flujo de trabajo
 
-1. Vaya a **Acciones** del repositorio de GitHub. 
+1. Vaya a **Acciones** del repositorio de GitHub.
 
-2. Seleccione **Set up your workflow yourself** (Configure el flujo de trabajo usted mismo). 
+2. Seleccione **Set up your workflow yourself** (Configure el flujo de trabajo usted mismo).
 
-2. Elimine todo lo que aparezca después de la sección `on:` del archivo de flujo de trabajo. Por ejemplo, el flujo de trabajo restante puede tener el siguiente aspecto. 
+2. Elimine todo lo que aparezca después de la sección `on:` del archivo de flujo de trabajo. Por ejemplo, el flujo de trabajo restante puede tener el siguiente aspecto.
 
     ```yaml
     name: CI
@@ -122,7 +121,7 @@ Usará la cadena de conexión como secreto de GitHub.
         branches: [ master ]
     ```
 
-1. Cambie el nombre del flujo de trabajo `MySQL for GitHub Actions` y agregue las acciones de restauración e inicio de sesión. Estas acciones comprobarán el código del sitio y se autenticarán con Azure mediante el secreto de GitHub `AZURE_CREDENTIALS` que creó anteriormente. 
+1. Cambie el nombre del flujo de trabajo `MySQL for GitHub Actions` y agregue las acciones de restauración e inicio de sesión. Estas acciones comprobarán el código del sitio y se autenticarán con Azure mediante el secreto de GitHub `AZURE_CREDENTIALS` que creó anteriormente.
 
     ```yaml
     name: MySQL for GitHub Actions
@@ -143,7 +142,7 @@ Usará la cadena de conexión como secreto de GitHub.
                     creds: ${{ secrets.AZURE_CREDENTIALS }}
     ```
 
-1. Use la acción de implementación de Azure MySQL para conectarse a la instancia de MySQL. Reemplace `MYSQL_SERVER_NAME` por el nombre del servidor. Debe tener un archivo de datos de MySQL denominado `data.sql` en el nivel raíz del repositorio. 
+1. Use la acción de implementación de Azure MySQL para conectarse a la instancia de MySQL. Reemplace `MYSQL_SERVER_NAME` por el nombre del servidor. Debe tener un archivo de datos de MySQL denominado `data.sql` en el nivel raíz del repositorio.
 
     ```yaml
     - uses: azure/mysql@v1
@@ -151,7 +150,7 @@ Usará la cadena de conexión como secreto de GitHub.
         server-name: MYSQL_SERVER_NAME
         connection-string: ${{ secrets.AZURE_MYSQL_CONNECTION_STRING }}
         sql-file: './data.sql'
-    ``` 
+    ```
 
 1. Complete el flujo de trabajo agregando una acción al cierre de sesión de Azure. Este es el flujo de trabajo completado. El archivo aparecerá en la carpeta `.github/workflows` del repositorio.
 
@@ -163,39 +162,38 @@ Usará la cadena de conexión como secreto de GitHub.
           branches: [ master ]
       pull_request:
           branches: [ master ]
+     jobs:
+        build:
+            runs-on: windows-latest
+            steps:
+            - uses: actions/checkout@v1
+            - uses: azure/login@v1
+                with:
+                    creds: ${{ secrets.AZURE_CREDENTIALS }}
 
+            - uses: azure/mysql@v1
+                with:
+                    server-name: MYSQL_SERVER_NAME
+                    connection-string: ${{ secrets.AZURE_MYSQL_CONNECTION_STRING }}
+                    sql-file: './data.sql'
 
-    jobs:
-      build:
-        runs-on: windows-latest
-        steps:
-        - uses: actions/checkout@v1
-        - uses: azure/login@v1
-          with:
-            creds: ${{ secrets.AZURE_CREDENTIALS }}
-        - uses: azure/mysql@v1
-          with:
-            server-name: MYSQL_SERVER_NAME
-            connection-string: ${{ secrets.AZURE_MYSQL_CONNECTION_STRING }}
-            sql-file: './data.sql'
-
-        # Azure logout 
-        - name: logout
-          run: |
-               az logout
+            # Azure logout
+            - name: logout
+                run: |
+                    az logout
     ```
 
 ## <a name="review-your-deployment"></a>Revisar la implementación
 
-1. Vaya a la opción de **Acciones** del repositorio de GitHub. 
+1. Vaya a la opción de **Acciones** del repositorio de GitHub.
 
-1. Abra el primer resultado para ver los registros detallados de la ejecución del flujo de trabajo. 
- 
+1. Abra el primer resultado para ver los registros detallados de la ejecución del flujo de trabajo.
+
     :::image type="content" source="media/quickstart-mysql-github-actions/github-actions-run-mysql.png" alt-text="Registro de ejecución de las acciones de GitHub":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando la base de datos y el repositorio de Azure MySQL ya no sean necesarios, limpie los recursos que implementó eliminando el grupo de recursos y el repositorio de GitHub. 
+Cuando la base de datos y el repositorio de Azure MySQL ya no sean necesarios, limpie los recursos que implementó eliminando el grupo de recursos y el repositorio de GitHub.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

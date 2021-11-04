@@ -6,19 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 778c5e99c91cede0e67ee4250abeeb4b73e49965
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 4cc2230856690477597d147a9600b22194823318
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122652807"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131442241"
 ---
 # <a name="monitor-azure-database-for-mysql-flexible-servers-with-built-in-metrics"></a>Supervisión de servidores flexibles de Azure Database for MySQL con métricas integradas
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Azure Database for MySQL: servidor flexible está actualmente en versión preliminar pública.
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 Azure Database for MySQL: servidor flexible proporciona supervisión de servidores mediante Azure Monitor. Las métricas son valores numéricos que describen algún aspecto de los recursos del servidor en un momento dado. La supervisión de los recursos del servidor ayuda a solucionar problemas y a optimizar la carga de trabajo al permitir supervisar lo que más importa. La supervisión de las métricas adecuadas ayuda a mantener el rendimiento, la confiabilidad y la disponibilidad del servidor y las aplicaciones.
 

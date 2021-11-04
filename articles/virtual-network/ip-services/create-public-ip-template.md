@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 10/01/2021
 ms.author: allensu
-ms.openlocfilehash: 017e782b322eb069f43fff399b0d6bc76f981ed1
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: cb90b716351802271a12fc72c1ead9e4fac2968e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130231920"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456430"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-a-resource-manager-template"></a>Inicio rápido: Creación de una dirección IP pública mediante una plantilla de Resource Manager
 
@@ -41,23 +41,23 @@ Para crear una dirección IPv6, modifique el parámetro **`publicIPAddressVersio
 Sección de plantilla que se va a agregar:
 
 ```JSON
-    {
-      "apiVersion": "2020-08-01",
-      "type": "Microsoft.Network/publicIPAddresses",
-      "name": "myStandardPublicIP",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard"
-      },
-      "zones": [
-                "1",
-                "2",
-                "3"
-      ],
-      "properties": {
-        "publicIPAllocationMethod": "Static",
-        "publicIPAddressVersion": "IPv4"
-      }
+{
+  "apiVersion": "2020-08-01",
+  "type": "Microsoft.Network/publicIPAddresses",
+  "name": "myStandardPublicIP",
+  "location": "[resourceGroup().location]",
+  "sku": {
+    "name": "Standard"
+  },
+  "zones": [
+    "1",
+    "2",
+    "3"
+  ],
+  "properties": {
+    "publicIPAllocationMethod": "Static",
+    "publicIPAddressVersion": "IPv4"
+  }
 ```
 > [!IMPORTANT]
 > En el caso de versiones de la API anteriores a 2020-08-01, use el código anterior sin especificar un parámetro de zona para una SKU estándar para crear una dirección IP con redundancia de zona. 
@@ -75,21 +75,21 @@ Para crear una dirección IP pública zonal estándar en la Zona 2, la propieda
 Sección de plantilla que se va a agregar:
 
 ```JSON
-    {
-      "apiVersion": "2020-08-01",
-      "type": "Microsoft.Network/publicIPAddresses",
-      "name": "myStandardPublicIP-zonal",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard"
-      },
-      "zones": [
-                "2"
-      ],
-      "properties": {
-        "publicIPAllocationMethod": "Static",
-        "publicIPAddressVersion": "IPv4"
-      }
+{
+  "apiVersion": "2020-08-01",
+  "type": "Microsoft.Network/publicIPAddresses",
+  "name": "myStandardPublicIP-zonal",
+  "location": "[resourceGroup().location]",
+  "sku": {
+    "name": "Standard"
+  },
+  "zones": [
+    "2"
+  ],
+  "properties": {
+    "publicIPAllocationMethod": "Static",
+    "publicIPAddressVersion": "IPv4"
+  }
 ```
 
 >[!NOTE]
@@ -106,18 +106,18 @@ Para crear una dirección IPv6, modifique el parámetro **publicIPAddressVersion
 Sección de plantilla que se va a agregar:
 
 ```JSON
-    {
-      "apiVersion": "2020-08-01",
-      "type": "Microsoft.Network/publicIPAddresses",
-      "name": "myStandardPublicIP-nozone",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard"
-      },
-      "properties": {
-        "publicIPAllocationMethod": "Static",
-        "publicIPAddressVersion": "IPv4"
-      }
+{
+  "apiVersion": "2020-08-01",
+  "type": "Microsoft.Network/publicIPAddresses",
+  "name": "myStandardPublicIP-nozone",
+  "location": "[resourceGroup().location]",
+  "sku": {
+    "name": "Standard"
+  },
+  "properties": {
+    "publicIPAllocationMethod": "Static",
+    "publicIPAddressVersion": "IPv4"
+  }
 ```
 > [!IMPORTANT]
 > En el caso de versiones de la API anteriores a 2020-08-01, la no especificación de un parámetro de zona para una SKU estándar creará una dirección IP con redundancia de zona. 
@@ -135,18 +135,18 @@ Para crear una dirección IPv6, modifique el parámetro **publicIPAddressVersion
 Sección de plantilla que se va a agregar:
 
 ```JSON
-    {
-      "apiVersion": "2020-08-01",
-      "type": "Microsoft.Network/publicIPAddresses",
-      "name": "myBasicPublicIP",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Basic"
-      },
-      "properties": {
-        "publicIPAllocationMethod": "Static",
-        "publicIPAddressVersion": 'IPv4'
-      }
+{
+  "apiVersion": "2020-08-01",
+  "type": "Microsoft.Network/publicIPAddresses",
+  "name": "myBasicPublicIP",
+  "location": "[resourceGroup().location]",
+  "sku": {
+    "name": "Basic"
+  },
+  "properties": {
+    "publicIPAllocationMethod": "Static",
+    "publicIPAddressVersion": "IPv4"
+  }
 ```
 
 Si es admisible que la dirección IP cambie con el tiempo, se puede seleccionar la asignación de IP **publicIPAllocationMethod** cambiando el valor de AllocationMethod a **Dynamic**. 
@@ -169,30 +169,30 @@ Para obtener más información sobre la preferencia de enrutamiento, vea [¿Qué
 Para usar la preferencia de enrutamiento de Internet para una dirección IPv4 pública con redundancia de zona estándar, la sección de plantilla debe ser similar a la siguiente:
 
 ```JSON
-    {
-      "apiVersion": "2020-08-01",
-      "type": "Microsoft.Network/publicIPAddresses",
-      "name": "myStandardZRPublicIP-RP",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard"
-      },
-      "zones": [
-                "1",
-                "2",
-                "3"
-      ],
-      "properties": {
-        "publicIPAllocationMethod": "Static",
-        "publicIPAddressVersion": "IPv4",
-            "ipTags": [
-          {
-           "ipTagType": "RoutingPreference",
-            "tag": "Internet"
-           }
-         ]
+{
+  "apiVersion": "2020-08-01",
+  "type": "Microsoft.Network/publicIPAddresses",
+  "name": "myStandardZRPublicIP-RP",
+  "location": "[resourceGroup().location]",
+  "sku": {
+    "name": "Standard"
+  },
+  "zones": [
+    "1",
+    "2",
+    "3"
+  ],
+  "properties": {
+    "publicIPAllocationMethod": "Static",
+    "publicIPAddressVersion": "IPv4",
+    "ipTags": [
+      {
+        "ipTagType": "RoutingPreference",
+        "tag": "Internet"
       }
-    }
+    ]
+  }
+}
 ```
 
 ### <a name="tier"></a>Nivel
@@ -204,19 +204,19 @@ Para más información, consulte [Equilibrador de carga entre regiones](../../lo
 Para usar una dirección IPv4 pública global estándar, la sección de plantilla debe tener un aspecto similar al siguiente:
 
 ```JSON
-    {
-      "apiVersion": "2020-08-01",
-      "type": "Microsoft.Network/publicIPAddresses",
-      "name": "myStandardPublicIP-Global",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard",
-            "tier": "Global"
-      },
-      "properties": {
-        "publicIPAllocationMethod": "Static",
-        "publicIPAddressVersion": "IPv4"
-      }
+{
+  "apiVersion": "2020-08-01",
+  "type": "Microsoft.Network/publicIPAddresses",
+  "name": "myStandardPublicIP-Global",
+  "location": "[resourceGroup().location]",
+  "sku": {
+    "name": "Standard",
+    "tier": "Global"
+  },
+  "properties": {
+    "publicIPAllocationMethod": "Static",
+    "publicIPAddressVersion": "IPv4"
+  }
 ```
 
 ## <a name="additional-information"></a>Información adicional 
