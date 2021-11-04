@@ -3,12 +3,12 @@ title: Introducción a Azure Blueprint
 description: Conozca el modo en que el servicio Azure Blueprints permite crear, definir e implementar artefactos en el entorno de Azure.
 ms.date: 06/21/2021
 ms.topic: overview
-ms.openlocfilehash: 445ecce12c9900dbae2eb4d7a3c1278c979d6cd9
-ms.sourcegitcommit: d137460f55a38a0e8f8b9e6594e480d5e5f662ed
+ms.openlocfilehash: be0f512d4aaad922bb91e64ded9c8a5e4a5af88e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112427869"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131081246"
 ---
 # <a name="what-is-azure-blueprints"></a>¿Qué es Azure Blueprint?
 
@@ -30,7 +30,7 @@ El servicio Azure Blueprints está respaldado por la distribución global [Azure
 
 El servicio está diseñado para ayudar con la _configuración del entorno_. A menudo, esta configuración consta de un conjunto de grupos de recursos, directivas, asignaciones de roles e implementaciones de plantillas de Resource Manager. Un plano técnico es un paquete para reunir todos estos tipos de _artefacto_ y permite componer y crear la versión del paquete, incluso mediante una canalización de integración continua y entrega continua (CI/CD). En última instancia, cada uno se asigna a una suscripción en una única operación que se puede auditar y seguir.
 
-Casi todo lo que desee incluir para la implementación en Azure Blueprints se puede conseguir con una plantilla de Resource Manager. Sin embargo, una plantilla de Resource Manager es un documento que no existe de forma nativa en Azure, cada una se almacena localmente o en el control de código fuente. La plantilla se usa para las implementaciones de uno o varios recursos de Azure pero, una vez implementados los recursos, no hay conexión activa ni relación con la plantilla.
+Casi todo lo que desee incluir para la implementación en Azure Blueprints se puede conseguir con una plantilla de Resource Manager. Sin embargo, una plantilla de Resource Manager es un documento que no existe de forma nativa en Azure, cada una se almacena localmente, en el control de código fuente o en [Plantillas (versión preliminar)](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Gallery%2Fmyareas%2Fgalleryitems). La plantilla se usa para las implementaciones de uno o varios recursos de Azure pero, una vez implementados los recursos, no hay conexión activa ni relación con la plantilla.
 
 Con Azure Blueprints, la relación entre la definición del plano técnico (lo _que debe ser_ implementado) y su asignación (lo _que se ha_ implementado) permanece. Esta conexión permite un seguimiento mejorado y la auditoría de las implementaciones. Azure Blueprints también puede actualizar varias suscripciones a la vez que se rigen por el mismo plano técnico.
 

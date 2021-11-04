@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 8/26/2020
 ms.author: alkemper
-ms.openlocfilehash: 96efc0ea6300e482ddeeda8fa177847f02b7e126
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 22de8b7775d6825d99afe8eb4f0dc043f8ec639c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98724261"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131031563"
 ---
 # <a name="quickstart-add-feature-flags-to-an-azure-functions-app"></a>Inicio rápido: Adición de marcas de características a una aplicación de Azure Functions
 
@@ -21,7 +21,7 @@ En este inicio rápido, creará una aplicación de Azure Functions y usará marc
 
 Las bibliotecas de administración de características de .NET amplían la plataforma con compatibilidad con las marcas de características. Estas bibliotecas se compilan a partir del sistema de configuración de .NET. Se integran con App Configuration mediante su proveedor de configuración de .NET.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) con la carga de trabajo de **desarrollo de Azure**.
@@ -81,7 +81,7 @@ En este proyecto se usa la [inserción de dependencias en Azure Functions para .
 
 3. Actualice el método `ConfigureAppConfiguration` y llame a `AddAzureAppConfiguration()` para agregar el proveedor de Azure App Configuration como origen de configuración adicional. 
 
-   El método `UseFeatureFlags()` indica al proveedor que cargue las marcas de características. Todas las marcas de características tienen una expiración de caché predeterminada de 30 segundos antes de que se vuelvan a comprobar los cambios. Para actualizar el intervalo de expiración, se puede establecer la propiedad `FeatureFlagsOptions.CacheExpirationInterval` pasada al método `UseFeatureFlags`. 
+    El método `UseFeatureFlags()` indica al proveedor que cargue las marcas de características. Todas las marcas de características tienen una expiración de caché predeterminada de 30 segundos antes de que se vuelvan a comprobar los cambios. Para actualizar el intervalo de expiración, se puede establecer la propiedad `FeatureFlagsOptions.CacheExpirationInterval` pasada al método `UseFeatureFlags`. 
 
     ```csharp
     public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)
@@ -94,8 +94,9 @@ En este proyecto se usa la [inserción de dependencias en Azure Functions para .
         });
     }
     ```
-   > [!TIP]
-   > Si no quiere que se cargue ninguna configuración que no sea la de las marcas de características en la aplicación, puede llamar a `Select("_")` para cargar solo una clave ficticia "_" no existente. De forma predeterminada, todos los valores de clave de configuración del almacén de App Configuration se cargarán si no se llama a ningún método `Select`.
+
+    > [!TIP]
+    > Si no quiere que se cargue ninguna configuración que no sea la de las marcas de características en la aplicación, puede llamar a `Select("_")` para cargar solo una clave ficticia no existente`"_"`. De forma predeterminada, todos los valores de clave de configuración del almacén de App Configuration se cargarán si no se llama a ningún método `Select`.
 
 4. Actualice el método `Configure` para que los servicios y el administrador de características de Azure App Configuration estén disponibles mediante la inserción de dependencias.
 

@@ -29,18 +29,8 @@
       href: gallery-how-to-use-contribute-publish.md
 - name: Conceptos
   items:
-    - name: Ciencia de datos para principiantes
-      items:
-        - name: 1 -Cinco preguntas
-          href: data-science-for-beginners-the-5-questions-data-science-answers.md
-        - name: 2 -¿Están preparados los datos?
-          href: data-science-for-beginners-is-your-data-ready-for-data-science.md
-        - name: 3 -Formulación de la pregunta correcta
-          href: data-science-for-beginners-ask-a-question-you-can-answer-with-data.md
-        - name: 4 -Predicción de una respuesta
-          href: data-science-for-beginners-predict-an-answer-with-a-simple-model.md
-        - name: 5 -Copia del trabajo de otras personas
-          href: data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md
+    - name: 'Retirado: Ciencia de datos para principiantes'
+      href: retired-data-science-for-beginners-videos.md
     - name: Administración de modelos
       displayName: 'deploy, consume, web service'
       href: deploy-consume-web-service-guide.md

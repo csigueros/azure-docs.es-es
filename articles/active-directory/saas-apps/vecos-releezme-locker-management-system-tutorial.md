@@ -9,24 +9,24 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/08/2021
+ms.date: 10/20/2021
 ms.author: jeedes
-ms.openlocfilehash: caca1503e0ea4c272708bce34ecfd8993b4d6113
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 59c3166bbbd5117e084808aaadfa1b1fafaf2dee
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130007631"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056889"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-vecos-releezme-locker-management-system"></a>Tutorial: Integración del inicio de sesión único de Azure AD con VECOS Releezme Locker management system
 
 En este tutorial, aprenderá a integrar VECOS Releezme Locker management system con Azure Active Directory (Azure AD). Al integrar VECOS Releezme Locker management system con Azure AD, puede hacer lo siguiente:
 
-* Controlar en Azure AD quién tiene acceso a VECOS Releezme Locker management system.
+* Controlar en Azure AD quién tiene acceso a VECOS Releezme Locker management system. El acceso a VECOS Releezme Locker management system solo es necesario para los usuarios que necesitan administrar los casilleros, es decir, encargados de instalaciones, empleados de servicios, etc.
 * Permitir que los usuarios inicien sesión automáticamente en VECOS Releezme Locker management system con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -60,7 +60,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con VECOS Releezme L
 Para configurar y probar el inicio de sesión único de Azure AD con VECOS Releezme Locker management system, haga lo siguiente:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de VECOS Releezme Locker management system](#configure-vecos-releezme-locker-management-system-sso)** : para configurar los valores del inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba en VECOS Releezme Locker management system](#create-vecos-releezme-locker-management-system-test-user)** : para tener un homólogo de B.Simon en VECOS Releezme Locker management system vinculado a la representación del usuario en Azure AD.
@@ -78,16 +78,44 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, siga estos pasos: 
 
-    a. En el cuadro de texto **Identificador (id. de entidad)** , escriba la dirección URL `https://au.releezme.net/`.
+    a. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<baseURL>/`.
 
-    b. En el cuadro de texto **URL de respuesta**, escriba la siguiente dirección URL: `https://au.releezme.net/Saml2/Acs`
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<baseURL>/Saml2/Acs`.
     
-    c. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL:  
-    `https://sso-na.releezme.net`
+    c. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:    
+    `https://<baseURL>/sso`. (También puede agregar el parámetro de consulta `?companycode=` con el valor de código de empresa proporcionado por VECOS).
+
+    > [!NOTE]
+    > Estos valores no son reales. Actualice estos valores con el identificador y las direcciones URL de inicio de sesión y de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de VECOS Releezme Locker management system](mailto:servicedesk@vecos.com) de la región en la que vaya a conectarse. La siguiente dirección URL variará en función de la región:
+
+    | **Región** | **baseURL** |
+    |-------|-------|
+    | Europa| `https://www.releezme.net` |
+    | Norteamérica | `https://na.releezme.net` |
+    | Asia Pacífico | `https://au.releezme.net` |
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 
     ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
+
+## <a name="configure-vecos-releezme-locker-management-system-roles"></a>Configuración de los roles de VECOS Releezme Locker management system
+
+1. En Azure Portal, seleccione **Registros de aplicaciones** y, después, **Todas las aplicaciones**.
+1. En la lista de registros de aplicaciones, seleccione **VECOS Releezme Locker management system**.
+1. En el registro de la aplicación, abra **Roles de aplicación**.
+1. En la página de roles de la aplicación, haga clic en **Crear rol de aplicación** para crear uno.
+1. En el campo **Nombre para mostrar**, indique un nombre para el rol, por ejemplo, `VECOS Company Facility Manager`.
+1. Seleccione **Usuarios o grupos** como valor de **Tipos de miembro permitidos**.
+1. Escriba el nombre del rol de VECOS Releezme Locker management system en el campo **Valor**. Consulte la tabla siguiente.
+1. Haga clic en **Aplicar**.
+
+| Role | Valor de rol | Descripción |
+| -- | --------- | ---------- |
+| Departamento de servicios | CompanyServiceDesk | Departamento de servicios de acceso limitado. Acceso principalmente de solo lectura. |
+| Departamento de servicios+ | CompanyServiceDeskPlus | Versión avanzada del departamento de servicios con más acceso de lectura y escritura. |
+| Responsable de instalaciones | CompanyFacilityManager | Responsable de instalaciones con acceso a la configuración de la empresa. |
+| Responsable de instalaciones+ | CompanyFacilityManagerPlus | Responsable de instalaciones avanzado con acceso adicional dentro de la empresa. |
+| Administrador | CompanyAdmin | Administrador con acceso completo a la empresa. |
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 

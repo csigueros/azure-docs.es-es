@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 68049d5eb2d20c6b88319925892f0dda642f392c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 4cf995376ad9b7b46acc85d0aa03c4079bf8ae3d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124778464"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067047"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wedo"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con WEDO
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar WEDO con Azure Active Directory (Azure
 * Permitir que los usuarios inicien sesión automáticamente en WEDO con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -58,7 +58,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con WEDO mediante un
 Para configurar y probar el inicio de sesión único de Azure AD con WEDO, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de WEDO](#configure-wedo-sso)**, para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba en WEDO](#create-wedo-test-user)**, para tener un homólogo de B.Simon en WEDO que esté vinculado a la representación del usuario en Azure AD.
@@ -152,7 +152,7 @@ En esta sección, va a crear un usuario de prueba llamado Bob Simon en WEDO. La 
 
 1. En la configuración del perfil en WEDO, seleccione **Users** (Usuarios) en la sección **Network settings** (Configuración de red).
 1. Haga clic en **Agregar usuario**.
-1. En el menú emergente Add user (Agregar usuario), rellene la información del usuario:
+1. En el menú emergente Agregar usuario, rellene la información del usuario
 
     a. First name (Nombre): `B`.
 

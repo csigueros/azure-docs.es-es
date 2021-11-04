@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
 ms.date: 10/26/2020
-ms.openlocfilehash: 82e21038b143e0e32a58c3aa24b227ebe850fd06
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e86ae7d2e168946c00690810749051f15587b438
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124775020"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131004879"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Creación de un clúster de la versión 4 de Red Hat OpenShift en Azure
 
@@ -75,6 +75,15 @@ También necesitará suficientes permisos de Azure Active Directory (un usuario 
     ```azurecli-interactive
     az provider register -n Microsoft.Authorization --wait
     ```
+    
+    1. Red Hat Openshift en Azure ya está disponible como versión preliminar pública en Azure Government. Si desea realizar la implementación allí, siga estas instrucciones: 
+
+> [!IMPORTANT]
+> Las características en vista previa de ARO están disponibles como opción de participación y autoservicio. Las características en vista previa se proporcionan "tal cual" y "según disponibilidad", y se excluyen de los contratos de nivel de servicio y la garantía limitada. Las características en vista previa reciben cobertura parcial del soporte al cliente en la medida de lo posible. Por lo tanto, estas características no están diseñadas para usarse en producción.
+
+```azurecli-interactive
+az feature register --namespace Microsoft.RedHatOpenShift --name preview
+```
 
 ### <a name="get-a-red-hat-pull-secret-optional"></a>Obtención de un secreto de extracción de Red Hat (opcional)
 

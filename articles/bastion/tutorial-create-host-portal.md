@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/12/2021
 ms.author: cherylmc
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 3765b1abb6996e364ed3f7004e56f323fe256450
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 7d2e071fd7dc368df867b17a53f9e994ee5c16a6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131017048"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131430978"
 ---
 # <a name="tutorial-configure-bastion-and-connect-to-a-windows-vm"></a>Tutorial: Configuración de Bastion y conexión a una máquina virtual Windows
 
@@ -65,7 +65,7 @@ Puede usar los siguientes valores de ejemplo al crear esta configuración, o pue
 | --- | --- |
 | Nombre | VNet1-bastion |
 | + Nombre de subred | AzureBastionSubnet |
-| Direcciones de AzureBastionSubnet | Una subred dentro del espacio de direcciones de la red virtual con una máscara de subred /27 o superior.<br> Por ejemplo, 10.1.1.0/26.  |
+| Direcciones de AzureBastionSubnet | Una subred dentro del espacio de direcciones de la red virtual con una máscara de subred /26 o superior.<br> Por ejemplo, 10.1.1.0/26.  |
 | Nivel o SKU | Estándar |
 | Recuento de instancias (escalado de host)| 3 o superior |
 | Dirección IP pública |  Crear nuevo |
@@ -119,7 +119,7 @@ En la mayoría de los casos, todavía no tendrá una instancia de AzureBastionSu
 1. Cree una subred con las instrucciones siguientes:
 
    * La subred debe tener el nombre **AzureBastionSubnet**.
-   * La subred debe ser al menos /27 o mayor. Para la SKU Estándar, se recomienda /26 o mayor a fin de dar cabida a futuras instancias de escalado de host adicionales.
+   * La subred debe ser al menos /26 o mayor. Para la SKU Estándar, se recomienda /26 o mayor a fin de dar cabida a futuras instancias de escalado de host adicionales.
 
    :::image type="content" source="./media/tutorial-create-host-portal/bastion-subnet.png" alt-text="Captura de pantalla de la subred AzureBastionSubnet.":::
 

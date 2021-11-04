@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 04/05/2021
 ms.author: mametcal
-ms.openlocfilehash: 1b4dbe38c1b70bb44eb1c280e56954c150a5a23a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 340638bd5fba981525ac3ff148ed4076f093e178
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739902"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131020933"
 ---
 # <a name="tutorial-use-dynamic-configuration-using-push-refresh-in-a-java-spring-app"></a>Tutorial: Uso de la configuración dinámica mediante una actualización de inserción en una aplicación de Java Spring
 
@@ -37,7 +37,7 @@ En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Configurar una suscripción para enviar eventos de cambio de configuración desde App Configuration a un webhook.
-> * Implementar una aplicación de Spring Boot en App Service.
+> * Implementar una aplicación de Spring Boot en App Service
 > * Configurar la aplicación de Java Spring para actualizar su configuración en respuesta a los cambios en App Configuration.
 > * Consuma en la aplicación la configuración más reciente.
 

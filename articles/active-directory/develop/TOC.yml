@@ -156,6 +156,8 @@
       href: authentication-flows-app-scenarios.md
     - name: Aplicaciones y entidades de servicio
       href: app-objects-and-service-principals.md
+    - name: Federación de identidades de carga de trabajo
+      href: workload-identity-federation.md
     - name: Procedimientos recomendados de la plataforma de identidad
       href: identity-platform-integration-checklist.md
     - name: Seguridad de la aplicación
@@ -545,6 +547,10 @@
           href: howto-authenticate-service-principal-powershell.md
         - name: Creación de una entidad de servicio con Azure Portal
           href: howto-create-service-principal-portal.md
+        - name: Configuración de una aplicación para confiar en un repositorio de GitHub
+          href: workload-identity-federation-create-trust-github.md
+        - name: Configuración de una aplicación para confiar en un proveedor de identidades externo
+          href: workload-identity-federation-create-trust.md
     - name: Aceptación de inicios de sesión desde varios inquilinos
       items:
         - name: Modificación de las cuentas compatibles con una aplicación

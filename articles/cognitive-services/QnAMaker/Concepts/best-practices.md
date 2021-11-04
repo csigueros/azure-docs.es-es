@@ -4,13 +4,14 @@ description: Siga estos procedimientos recomendados para mejorar la base de cono
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/09/2020
-ms.openlocfilehash: 6b3f12881bd0cb7114f32cab5b7a67d80a73f4fe
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: c4cea81d3e3e5a60672423d05c836947da95da1d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110372848"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131043782"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Procedimientos recomendados para una base de conocimiento de QnA Maker
 
@@ -64,7 +65,7 @@ La charla es compatible con varias personalidades predefinidas:
 |Cariñoso |[qna_chitchat_caring.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_caring.tsv) |
 |Entusiasta |[qna_chitchat_enthusiastic.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_enthusiastic.tsv) |
 
-El rango de respuestas va de formal a informal e irreverente. Debe seleccionar la personalidad que sea más acorde con el tono que quiera para el bot. Puede ver los [conjuntos de datos](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets), elegir uno que sirva como base para el bot y, a continuación, personalizar las respuestas.
+El rango de respuestas va de formal a informal e irreverente. Seleccione la personalidad más acorde con el tono que quiera para el bot. Puede ver los [conjuntos de datos](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets), elegir uno que sirva como base para el bot y, a continuación, personalizar las respuestas.
 
 ### <a name="edit-bot-specific-questions"></a>Edición de preguntas específicas de bot
 Hay algunas preguntas específicas de bot que forman parte del conjunto de datos de charla y que se han rellenado con respuestas genéricas. Cambie estas respuestas para reflejar mejor los detalles del bot.
@@ -116,17 +117,8 @@ De manera predeterminada, QnA Maker busca a través de preguntas y respuestas. S
 Los [metadatos](../How-To/edit-knowledge-base.md) agregan la posibilidad de que una aplicación cliente pueda saber que no debe tomar todas las respuestas, sino restringir los resultados de una consulta de usuario en función de las etiquetas de metadatos. La respuesta de la base de conocimiento puede diferir según la etiqueta de metadatos, aunque la consulta sea la misma. Por ejemplo, *¿Dónde está ubicado el estacionamiento?* puede tener otra respuesta si la ubicación del restaurante es diferente; es decir, los metadatos son *ubicación: Seattle* frente a *ubicación: Redmond*.
 
 ### <a name="use-synonyms"></a>Usar sinónimos
-# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
+
 Aunque hay cierta compatibilidad con los sinónimos en inglés, use alteraciones de palabras que no distinguen mayúsculas de minúsculas a través de [Alterations API](/rest/api/cognitiveservices/qnamaker/alterations/replace) para agregar sinónimos a las palabras clave que tengan una forma diferente. Los sinónimos se agregan en el nivel del servicio QnA Maker y **todas las bases de conocimiento del servicio los comparten**.
-
-# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
-Aunque hay cierta compatibilidad con los sinónimos en inglés, use alteraciones de palabras que no distinguen mayúsculas de minúsculas a través de [Alterations API](/rest/api/cognitiveservices/qnamaker/alterations/replace) para agregar sinónimos a las palabras clave que tengan una forma diferente. Los sinónimos en la característica de respuesta a preguntas personalizada (versión preliminar) se **agregan por knowledge base**.
-
-|Palabra original|Sinónimos|
-|--|--|
-|comprar|compra<br>banca online<br>banca electrónica|
-
----
 
 ### <a name="use-distinct-words-to-differentiate-questions"></a>Usar diferentes palabras para diferenciar preguntas
 Los algoritmos de clasificación de QnA Maker que buscan la correspondencia entre la consulta de un usuario y una pregunta de la base de conocimiento funcionan mejor si cada pregunta aborda una necesidad distinta. La repetición del mismo conjunto de palabras en diferentes preguntas reduce la probabilidad de que se seleccione la respuesta correcta para una consulta de usuario determinado con esas palabras.
@@ -142,8 +134,6 @@ Puesto que estas dos preguntas y respuestas están expresadas con palabras muy s
 
 ## <a name="collaborate"></a>Colaborar
 QnA Maker permite a los usuarios colaborar en una base de conocimiento. Los usuarios necesitan acceso al grupo de recursos de QnA Maker en Azure para tener acceso a las bases de conocimiento. Algunas organizaciones quizás quieran externalizar la edición y el mantenimiento de la base de conocimiento, sin dejar de proteger el acceso a sus recursos de Azure. Para realizar este modelo de editor-aprobador, se configuran dos [servicios QnA Maker](../How-to/set-up-qnamaker-service-azure.md) idénticos en suscripciones distintas y seleccionar uno para el ciclo de pruebas de edición. Una vez finalizada la prueba, se transfiere el contenido de la base de conocimiento con un proceso de [importación y exportación](../Tutorials/migrate-knowledge-base.md) al servicio QnA Maker del aprobador que, finalmente, publicará la base de conocimiento y actualizará el punto de conexión.
-
-
 
 ## <a name="active-learning"></a>Aprendizaje activo
 

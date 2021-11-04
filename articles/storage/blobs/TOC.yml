@@ -18,7 +18,7 @@ items:
         items:
           - name: Uso de blobs
             items:
-              - name: Azure portal
+              - name: Azure Portal
                 href: storage-quickstart-blobs-portal.md
               - name: Explorador de Storage
                 href: quickstart-storage-explorer.md
@@ -176,7 +176,7 @@ items:
                 href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               - name: Configuración de las preferencias de enrutamiento de red
                 href: ../common/network-routing-preference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Protección de los datos
+          - name: Protección de datos
             items:
               - name: Información general
                 href: data-protection-overview.md
@@ -310,8 +310,6 @@ items:
                 href: ../common/storage-account-recover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               - name: Obtención de las propiedades de configuración de una cuenta
                 href: ../common/storage-account-get-info.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-              - name: Administración del nivel de acceso predeterminado de una cuenta de almacenamiento
-                href: ../common/manage-account-default-access-tier.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Creación y administración de contenedores
             items:
               - name: Creación o eliminación de un contenedor (.NET)
@@ -326,8 +324,6 @@ items:
                 href: storage-blobs-list.md
               - name: Administración de propiedades y metadatos de blobs (.NET)
                 href: storage-blob-properties-metadata.md
-              - name: Administración del nivel de acceso de un blob
-                href: manage-access-tier.md
               - name: Copia de un blob (SDK)
                 href: storage-blob-copy.md
               - name: Uso de etiquetas de índice de blobs
@@ -476,14 +472,18 @@ items:
                 href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Administración de niveles y ciclo de vida de blobs
             items:
-              - name: Configuración de directivas de administración del ciclo de vida
-                href: lifecycle-management-policy-configure.md
-              - name: Administración de datos al nivel de archivo
+              - name: Cambio del nivel de acceso de un blob
+                href: access-tiers-online-manage.md
+              - name: Gestión de archivado de datos
                 items:
+                  - name: Archivado de un blob
+                    href: archive-blob.md
                   - name: Rehidratación de un blob archivado
                     href: archive-rehydrate-to-online-tier.md
                   - name: Control de un evento en la rehidratación de blobs
                     href: archive-rehydrate-handle-event.md
+              - name: Configuración de directivas de administración del ciclo de vida
+                href: lifecycle-management-policy-configure.md
           - name: Administración de la replicación de objetos
             items:
               - name: Configuración de directivas de replicación de objetos
@@ -844,7 +844,7 @@ items:
                 href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Administración del control de acceso
             items:
-              - name: Azure portal
+              - name: Azure Portal
                 href: data-lake-storage-acl-azure-portal.md
               - name: Explorador de Storage
                 href: data-lake-storage-explorer-acl.md
@@ -887,7 +887,7 @@ items:
           - name: .NET
             href: /dotnet/api/azure.storage.files.datalake
           - name: Java
-            href: 'https://docs.microsoft.com/java/api/overview/azure/storage-file-datalake-readme'
+            href: /java/api/overview/azure/storage-file-datalake-readme
           - name: Python
             href: 'https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html'
           - name: JavaScript

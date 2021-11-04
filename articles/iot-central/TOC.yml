@@ -113,6 +113,8 @@
   items:
     - name: Architecture
       href: core/concepts-architecture.md
+    - name: Alta disponibilidad y escalabilidad
+      href: core/concepts-scalability-availability.md
     - name: Guía para desarrolladores de dispositivos
       href: core/overview-iot-central-developer.md
     - name: Guía del generador de soluciones
@@ -187,12 +189,20 @@
       items:
         - name: Autenticación y autorización de llamadas a API REST
           href: core/howto-authorize-rest-api.md
+        - name: Consultar dispositivos
+          href: core/howto-query-with-rest-api.md
         - name: Administración de los usuarios y los roles.
           href: core/howto-manage-users-roles-with-rest-api.md
+        - name: Exportación de datos
+          href: core/howto-manage-data-export-with-rest-api.md
+        - name: Gestión de plantillas de dispositivo
+          href: core/howto-manage-device-templates-with-rest-api.md
         - name: Control de dispositivos
           href: core/howto-control-devices-with-rest-api.md
         - name: Trabajos de administración
           href: core/howto-manage-jobs-with-rest-api.md
+        - name: Administración de aplicaciones
+          href: core/howto-manage-iot-central-with-rest-api.md
     - name: Administración de los dispositivos
       items:
         - name: Administración de dispositivos de forma individual
@@ -223,6 +233,8 @@
       items:
         - name: Conexiones de dispositivos
           href: core/troubleshoot-connection.md
+        - name: Exportaciones de datos
+          href: core/troubleshoot-data-export.md
     - name: Preguntas más frecuentes
       href: core/howto-faq.yml
     - name: Administración de las preferencias personales

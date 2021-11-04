@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2021
 ms.author: jeedes
-ms.openlocfilehash: bce0a36a33598a76e666806f5c2622924e307854
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7e6a85bf02ba4a3fa133fb9b87c40f82c8ce94f8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124809708"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057040"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-certify"></a>Tutorial: integración de Azure Active Directory con Certify
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Certify con Azure Active Directory (Azur
 * Permitir que los usuarios inicien sesión automáticamente en Certify con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -61,7 +61,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Certify mediante
 Para configurar y probar el inicio de sesión único de Azure AD con Certify, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Certify](#configure-certify-sso)** , para configurar los valores de Inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Certify](#create-certify-test-user)** , para tener un homólogo de B.Simon en Certify que esté vinculado a la representación en Azure AD del usuario.

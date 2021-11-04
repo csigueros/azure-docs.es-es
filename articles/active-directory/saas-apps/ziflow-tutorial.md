@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/15/2021
 ms.author: jeedes
-ms.openlocfilehash: eccd83b7c29ec31c40271efc09d5318d35ba6d2a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: fd6979056859c9ed0d38413d9bd6713e8cb4fb62
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124764913"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056895"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>Tutorial: Integración de Azure Active Directory con Ziflow
 
@@ -57,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Ziflow mediante 
 Para configurar y probar el inicio de sesión único de Azure AD con Ziflow, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Ziflow](#configure-ziflow-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Ziflow](#create-ziflow-test-user)** : para tener un homólogo de B.Simon en Ziflow que esté vinculado a la representación del usuario en Azure AD.
@@ -156,7 +156,7 @@ Para aprovisionar una cuenta de usuario, realice estos pasos:
 
     ![Captura de pantalla que muestra la opción Add user (Agregar usuario) seleccionada.](./media/ziflow-tutorial/add-tab.png)
 
-4. En la ventana emergente **Add a user** (Agregar un usuario), realice los siguientes pasos:
+4. En el elemento emergente **Add a user** (Agregar usuario), lleve a cabo los pasos siguientes:
 
     ![Captura de pantalla que muestra el cuadro de diálogo Add a user (Agregar un usuario), donde puede especificar los valores descritos.](./media/ziflow-tutorial/add-user.png)
 

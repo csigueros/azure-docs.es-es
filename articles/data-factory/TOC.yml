@@ -707,6 +707,8 @@ items:
           - name: Cifrado de credenciales para Integration Runtime autohospedado
             href: encrypt-credentials-self-hosted-integration-runtime.md
             displayName: self hosted
+          - name: "Credenciales en Data\_Factory"
+            href: credentials.md
           - name: Identidad administrada de Data Factory
             href: data-factory-service-identity.md
           - name: Cifrado de Data Factory con claves administradas por el cliente
@@ -821,7 +823,11 @@ items:
                 href: join-azure-ssis-integration-runtime-virtual-network.md
               - name: Configuración de redes virtuales
                 href: azure-ssis-integration-runtime-virtual-network-configuration.md
-              - name: Uso de la interfaz de usuario de Azure Data Factory Studio
+              - name: Inserción rápida de la red virtual
+                href: azure-ssis-integration-runtime-express-virtual-network-injection.md
+              - name: Inserción estándar de la red virtual
+                href: azure-ssis-integration-runtime-standard-virtual-network-injection.md
+              - name: "Uso de la interfaz de usuario de Azure\_Data\_Factory"
                 href: join-azure-ssis-integration-runtime-virtual-network-ui.md
               - name: Uso de Azure PowerShell
                 href: join-azure-ssis-integration-runtime-virtual-network-powershell.md

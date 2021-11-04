@@ -3,15 +3,16 @@ title: Creación e implementación de flujos de trabajo con Logic Apps habilitad
 description: Cree e implemente flujos de trabajo de aplicaciones lógicas basadas en un solo inquilino que se ejecutan en cualquier lugar donde se pueda ejecutar Kubernetes.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, ladolan, reylons, archidda, sopai, azla
+ms.reviewer: estfan, reylons, archidda, sopai, azla
 ms.topic: how-to
-ms.date: 06/03/2021
-ms.openlocfilehash: 17c9eb020d62207910008fb032872bd609df553f
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: ca9458581468ea359ae1ca2f7e034c7459f87fea
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129712303"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131082443"
 ---
 # <a name="create-and-deploy-single-tenant-based-logic-app-workflows-with-azure-arc-enabled-logic-apps-preview"></a>Creación e implementación de flujos de trabajo de aplicaciones lógicas basadas en un solo inquilino con Logic Apps habilitado para Azure Arc (versión preliminar)
 
@@ -183,7 +184,7 @@ az logicapp create --name MyLogicAppName
    --storage-account MyStorageAccount --custom-location MyCustomLocation
 ```
 
-Para crear una aplicación lógica habilitada para Azure Arc mediante una imagen de Azure Container Registry privada, ejecute el comando `az logicapp create` con los siguientes parámetros necesarios:
+Para crear una aplicación lógica habilitada para Azure Arc mediante una imagen privada de Azure Container Registry (ACR), ejecute el comando `az logicapp create` con los siguientes parámetros obligatorios:
 
 ```azurecli
 az logicapp create --name MyLogicAppName 
@@ -390,7 +391,7 @@ En la plantilla de Azure Resource Manager (plantilla de ARM), incluya la siguien
 }
 ```
 
-Para obtener más información, revise la documentación [Microsoft.Web/connections/accesspolicies (plantilla de ARM)](/azure/templates/microsoft.web/connections?tabs=json). 
+Para obtener más información, revise la documentación [Microsoft.Web/connections/accesspolicies (plantilla de ARM)](/azure/templates/microsoft.web/connections?tabs=json).
 
 #### <a name="azure-portal"></a>Azure Portal
 
@@ -488,8 +489,25 @@ En el ejemplo siguiente se describe una muestra de la definición de recursos de
 Si prefiere usar herramientas de contenedor y procesos de implementación, puede incluir en contenedores las aplicaciones lógicas e implementarlas en Logic Apps habilitado para Azure Arc. En este escenario, realice las siguientes tareas de alto nivel al configurar la infraestructura:
 
 - Configure un registro de Docker para hospedar las imágenes de contenedor.
+
+- Para crear una aplicación lógica en contenedores, agregue el Dockerfile siguiente a la carpeta raíz del proyecto de aplicación lógica y siga los pasos para compilar y publicar una imagen en el registro de Docker; por ejemplo, revise [Tutorial: Compilación e implementación de imágenes de contenedor en la nube con Azure Container Registry Tasks](../container-registry/container-registry-tutorial-quick-task.md).
+
+  > [!NOTE]
+  > Si usa [SQL como proveedor de almacenamiento](set-up-sql-db-storage-single-tenant-standard-workflows.md), asegúrese de utilizar una imagen de Azure Functions de la versión 3.3.1 o posterior.
+
+  ```text
+  FROM mcr.microsoft.com/azure-functions/node:3.3.1
+  ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
+  AzureFunctionsJobHost__Logging__Console__IsEnabled=true \
+  FUNCTIONS_V2_COMPATIBILITY_MODE=true
+  COPY . /home/site/wwwroot
+  RUN cd /home/site/wwwroot
+  ```
+
 - Notifique al proveedor de recursos que va a crear una aplicación lógica en Kubernetes.
+
 - En la plantilla de implementación, seleccione el registro de Docker y la imagen de contenedor donde planea implementarlo. La instancia de Azure Logic Apps de un solo inquilino usa esta información para obtener la imagen de contenedor del registro de Docker.
+
 - Incluya un plan de App Service con la implementación. Para obtener más información, consulte [Incluir un plan de App Service con una implementación](#include-app-service-plan).
 
 En la [plantilla de Azure Resource Manager (plantilla de ARM)](../azure-resource-manager/templates/overview.md), incluya los valores siguientes:

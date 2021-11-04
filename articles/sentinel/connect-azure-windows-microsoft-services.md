@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/18/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 6f8a4d8c7d049241354a5cdeaf1613edfbe71b19
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: fab632ae17f71829ddfb36ced149253e124c9851
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131047580"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456905"
 ---
 # <a name="connect-azure-sentinel-to-azure-windows-microsoft-and-amazon-services"></a>Conexión de Azure Sentinel a servicios de Azure, Windows, Microsoft y Amazon
 
@@ -136,7 +136,125 @@ Los conectores de este tipo usan Azure Policy para aplicar una configuración de
 
 Puede buscar y consultar los datos de cada tipo de recurso mediante el nombre de tabla que aparece en la sección del conector del recurso en la página [Referencia de conectores de datos](data-connectors-reference.md).
 
-## <a name="log-analytics-agent-based-connections"></a>Conexiones basadas en el agente de Log Analytics
+## <a name="windows-agent-based-connections"></a>Conexiones basadas en agentes de Windows
+
+# <a name="azure-monitor-agent"></a>[Agente de Azure Monitor](#tab/AMA)
+
+> [!IMPORTANT]
+>
+> - Algunos conectores basados en el agente de Azure Monitor (AMA) se encuentran actualmente en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+
+El [agente de Azure Monitor](../azure-monitor/agents/azure-monitor-agent-overview.md) usa **reglas de recopilación de datos (DCR)** para definir los datos que se recopilan de cada agente. Las reglas de recopilación de datos ofrecen dos ventajas distintas:
+
+- **Permiten administrar la configuración de la recopilación a gran escala** y, al mismo tiempo, habilitan configuraciones únicas con ámbito para subconjuntos de máquinas. Son independientes del área de trabajo e independientes de la máquina virtual, lo que significa que se pueden definir una vez y reutilizarlas en distintas máquinas y entornos. Consulte [Configuración de la recopilación de datos para el agente de Azure Monitor](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md).
+
+- **Cree filtros personalizados** para elegir los eventos exactos que quiere ingerir. El agente de Azure Monitor usa estas reglas para filtrar los datos *en el origen* e ingerir solo los eventos que quiera, a la vez que se olvida del resto. Esto puede ahorrar mucho dinero en costos de ingesta de datos.
+
+Consulte a continuación cómo crear reglas de recopilación de datos.
+
+### <a name="prerequisites"></a>Requisitos previos
+
+- Debe tener permisos de lectura y escritura en el área de trabajo de Azure Sentinel.
+
+- Para recopilar eventos de cualquier sistema que no sea una máquina virtual de Azure, el sistema debe tener [**Azure Arc**](../azure-monitor/agents/azure-monitor-agent-install.md) instalado y habilitado *antes* de habilitar el conector basado en agente de Azure Monitor.
+
+   Esto incluye:
+   
+    - Servidores Windows instalados en máquinas físicas
+    - Servidores Windows instalados en máquinas virtuales locales
+    - Servidores Windows instalados en máquinas virtuales en nubes que no son de Azure
+
+### <a name="instructions"></a>Instrucciones
+
+1. En el menú de navegación de Azure Sentinel, seleccione **Conectores de datos**. Seleccione su conector de la lista y, a continuación, seleccione **Abrir la página del conector** en el panel de detalles. A continuación, siga las instrucciones en pantalla debajo de la pestaña **Instrucciones**, tal como se describe en el resto de esta sección.
+
+1. Compruebe que tiene los permisos adecuados, tal como se describe en la sección **Requisitos previos** de la página del conector.
+
+1. En **Configuración,** seleccione **+Agregar regla de recopilación de datos**. El **Asistente para crear reglas de recopilación de datos** se abrirá a la derecha.
+
+1. En **Aspectos básicos,** escriba una **regla de nombre** y especifique una **suscripción** y un **grupo de recursos** donde se creará la regla de recopilación de datos (DCR). *No* tiene que ser el mismo grupo de recursos o suscripción en el que se encuentran las máquinas supervisadas y sus asociaciones, siempre y cuando estén en el mismo inquilino.
+
+1. En la pestaña **Recursos,** seleccione **+Agregar recursos** para agregar máquinas a las que se aplicará la regla de recopilación de datos. Se abrirá el cuadro de diálogo **Seleccionar un ámbito** y verá una lista de suscripciones disponibles. Expanda una suscripción para ver sus grupos de recursos y expanda un grupo de recursos para ver las máquinas disponibles. Verá las máquinas virtuales de Azure y los servidores habilitados para Azure Arc en la lista. Puede marcar las casillas de suscripciones o grupos de recursos para seleccionar todas las máquinas que contienen, o puede seleccionar máquinas individuales. Seleccione **Aplicar** cuando haya elegido todas las máquinas. Al final de este proceso, el agente de Azure Monitor se instalará en las máquinas seleccionadas que aún no lo tengan instalado.
+
+1. En la pestaña **Recopilar**, elija los eventos que le gustaría recopilar: seleccione **Todos los eventos** o **Personalizado** para especificar otros registros o filtrar eventos usando las [consultas de XPath](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries) (consulte la nota que tiene a continuación). Escriba expresiones en el cuadro que se evalúen como criterios XML específicos para los eventos que se recopilan y, a continuación, seleccione **Agregar**. Puede escribir hasta 20 expresiones en un solo cuadro y hasta 100 cuadros en una regla.
+
+    Obtenga más información sobre las [reglas de recopilación de datos](../azure-monitor/agents/data-collection-rule-overview.md#create-a-dcr) en la documentación de Azure Monitor.
+
+    > [!NOTE]
+    > - El conector de eventos de seguridad de Windows ofrece otros dos [**conjuntos de eventos precompilados**](windows-security-event-id-reference.md) que puede recopilar: el **común** y el **mínimo**.
+    >
+    > - El agente de Azure Monitor admite consultas XPath solo para la **[versión 1.0 de XPath](/windows/win32/wes/consuming-events#xpath-10-limitations)** .
+
+1. Cuando haya agregado todas las expresiones de filtro que quiera, seleccione **Siguiente: Revisar y crear**.
+
+1. Cuando vea el mensaje "Validación superada", seleccione **Crear**. 
+
+Verá todas las reglas de recopilación de datos (incluidas las creadas a través de la API) en **Configuración** en la página del conector. Desde allí, puede editar o eliminar las reglas existentes.
+
+> [!TIP]
+> Use el cmdlet de PowerShell **Get-WinEvent** con el parámetro *-FilterXPath* para probar la validez de una consulta XPath. En el script siguiente se muestra un ejemplo:
+> ```powershell
+> $XPath = '*[System[EventID=1035]]'
+> Get-WinEvent -LogName 'Application' -FilterXPath $XPath
+> ```
+> - Si se devuelven eventos, la consulta es válida.
+> - Si recibe el mensaje “No se encontraron eventos que coincidan con los criterios de selección especificados”, la consulta puede ser válida, pero no hay eventos coincidentes en el equipo local.
+> - Si recibe el mensaje “La consulta especificada no es válida”, la sintaxis de la consulta no es válida.
+
+### <a name="create-data-collection-rules-using-the-api"></a>Creación de reglas de recopilación de datos mediante la API
+
+También puede crear reglas de recopilación de datos mediante la API ([consulte el esquema](/rest/api/monitor/data-collection-rules)), lo que le puede facilitar la vida si va a crear muchas reglas (por ejemplo, si es un MSSP). A continuación, se muestra un ejemplo (para los [eventos de seguridad de Windows a través del conector AMA](data-connectors-reference.md#windows-security-events-via-ama)) que puede usar como plantilla para crear una regla:
+
+**Encabezado y dirección URL de solicitud**
+
+```http
+PUT https://management.azure.com/subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Insights/dataCollectionRules/myCollectionRule?api-version=2019-11-01-preview
+```
+
+**Cuerpo de la solicitud**
+
+```json
+{
+    "location": "eastus",
+    "properties": {
+        "dataSources": {
+            "windowsEventLogs": [
+                {
+                    "streams": [
+                        "Microsoft-SecurityEvent"
+                    ],
+                    "xPathQueries": [
+                        "Security!*[System[(EventID=) or (EventID=4688) or (EventID=4663) or (EventID=4624) or (EventID=4657) or (EventID=4100) or (EventID=4104) or (EventID=5140) or (EventID=5145) or (EventID=5156)]]"
+                    ],
+                    "name": "eventLogsDataSource"
+                }
+            ]
+        },
+        "destinations": {
+            "logAnalytics": [
+                {
+                    "workspaceResourceId": "/subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.OperationalInsights/workspaces/centralTeamWorkspace",
+                    "name": "centralWorkspace"
+                }
+            ]
+        },
+        "dataFlows": [
+            {
+                "streams": [
+                    "Microsoft-SecurityEvent"
+                ],
+                "destinations": [
+                    "centralWorkspace"
+                ]
+            }
+        ]
+    }
+}
+```
+Consulte esta [descripción completa de las reglas de recopilación de datos](../azure-monitor/agents/data-collection-rule-overview.md) de la documentación de Azure Monitor.
+
+
+# <a name="log-analytics-agent-legacy"></a>[Agente de Log Analytics (heredado)](#tab/LAA)
 
 ### <a name="prerequisites"></a>Requisitos previos
 
@@ -144,6 +262,8 @@ Puede buscar y consultar los datos de cada tipo de recurso mediante el nombre de
 - Debe tener el rol **Colaborador de Log Analytics** en la solución SecurityInsights (Azure Sentinel) de esas áreas de trabajo, además de cualquier rol de Azure Sentinel.
 
 ### <a name="instructions"></a>Instrucciones
+
+#### <a name="install-the-agent"></a>Instalación del agente
 
 1. En el menú de navegación de Azure Sentinel, seleccione **Conectores de datos**.
 
@@ -154,12 +274,25 @@ Puede buscar y consultar los datos de cada tipo de recurso mediante el nombre de
     | Tipo de máquina  | Instrucciones  |
     | --------- | --------- |
     | **Para una máquina virtual de Azure Windows** | 1. En **Choose where to install the agent** (Elegir dónde instalar el agente), expanda **Install agent on Azure Windows virtual machine** (Instalar el agente en la máquina virtual Windows de Azure). <br><br>2. Seleccione el vínculo **Download & install agent for Azure Windows Virtual machines >** (Descargar e instalar el agente para máquinas virtuales Windows de Azure >). <br><br>3. En el panel **Máquinas virtuales**, seleccione una máquina virtual en la que quiera instalar el agente y, después, seleccione **Conectar**. Repita este paso para cada VM que quiera conectar. |
-    | **Para cualquier otra máquina Windows** | 1. En **Choose where to install the agent** (Elegir dónde instalar el agente), expanda **Install agent on non-Azure Windows Machine** (Instalar el agente en la máquina virtual Windows que no es de Azure). <br><br>2. Seleccione el vínculo **Download & install agent for non-Azure Windows machines >** (Descargar e instalar el agente para máquinas virtuales Windows que no son de Azure >).  <br><br>3. En el panel **Administración de agentes**, en la pestaña **Servidores Windows**, seleccione el vínculo **Download Windows Agent** (Descargar el agente de Windows) para sistemas de 32 o 64 bits, según corresponda.      |
+    | **Para cualquier otra máquina Windows** | 1. En **Choose where to install the agent** (Elegir dónde instalar el agente), expanda **Install agent on non-Azure Windows Machine** (Instalar el agente en la máquina virtual Windows que no es de Azure). <br><br>2. Seleccione el vínculo **Download & install agent for non-Azure Windows machines >** (Descargar e instalar el agente para máquinas virtuales Windows que no son de Azure >).  <br><br>3. En el panel **Administración de agentes**, en la pestaña **Servidores Windows**, seleccione el vínculo **Download Windows Agent** (Descargar el agente de Windows) para sistemas de 32 o 64 bits, según corresponda.  <br><br>4. Con el archivo ejecutable descargado, instale el agente en los sistemas Windows que prefiera y configúrelo mediante **el id. y las claves del área de trabajo** que aparecen bajo los vínculos de descarga en el paso anterior. |
+    | | |
 
-1. Seleccione el botón **Instalar solución** para DNS o Firewall de Windows.
+> [!NOTE]
+>
+> Para permitir que los sistemas Windows que no tengan la conexión a Internet necesaria sigan transmitiendo eventos a Azure Sentinel, descargue e instale la **Puerta de enlace de Log Analytics** en una máquina distinta, mediante el vínculo **Descarga de la Puerta de enlace de Log Analytics** que está en la página **Administración de agentes**, y que así actúe como un proxy.  Tendrá que instalar el agente de Log Analytics en todos los sistemas Windows cuyos eventos quiera recopilar.
+>
+> Para obtener más información sobre este escenario, consulte la [documentación de la **puerta de enlace de Log Analytics**](../azure-monitor/agents/gateway.md).
 
-Puede buscar y consultar los datos de DNS y Firewall de Windows mediante los nombres de tabla **DnsEvents**, **DnsInventory** y **WindowsFirewall**, respectivamente. Puede ver esta y otra información sobre estos dos conectores de servicio en sus secciones de la página [Referencia de conectores de datos](data-connectors-reference.md).
+Para obtener más información sobre las opciones de instalación adicionales y otros detalles, consulte la [documentación del **agente de Log Analytics**](../azure-monitor/agents/agent-windows.md).
 
+
+#### <a name="determine-the-logs-to-send"></a>Determinación de los registros que se envían
+
+Para los conectores de Windows DNS Server y Windows Firewall, seleccione el botón **Instalar solución**. Para el conector de eventos de seguridad heredado, elija el [**conjunto de eventos**](windows-security-event-id-reference.md) que quiere enviar y seleccione **Actualizar**.
+
+Puede buscar y consultar los datos de estos servicios mediante los nombres de tabla de sus respectivas secciones en la página de [referencia de los conectores de datos](data-connectors-reference.md).
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

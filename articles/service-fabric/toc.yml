@@ -402,6 +402,12 @@
       items:
         - name: Configuración de un clúster administrado
           href: how-to-managed-cluster-configuration.md
+        - name: Conexión con el clúster administrado
+          href: how-to-managed-cluster-connect.md
+        - name: Configuración del escalado automático en un clúster administrado
+          href: how-to-managed-cluster-autoscale.md
+        - name: Configuración de tipos de nodo en un clúster administrado
+          href: how-to-managed-cluster-modify-node-type.md
         - name: Adición de una extensión del conjunto de escalado de máquina virtual a un tipo de nodo de clúster administrado
           href: how-to-managed-cluster-vmss-extension.md
         - name: Configuración de los valores de red de un clúster administrado
@@ -498,6 +504,8 @@
                   href: service-fabric-cross-availability-zones.md
                 - name: Implementación de un clúster de Azure Service Fabric con tipos de nodo sin estado
                   href: service-fabric-stateless-node-types.md
+                - name: "Implementación de un clúster de Azure\_Service\_Fabric con discos de datos administrados"
+                  href: service-fabric-managed-disk.md
                 - name: Configuración de la autenticación con Azure Active Directory
                   href: service-fabric-cluster-creation-setup-aad.md
                 - name: Creación de una plantilla de clúster personalizada

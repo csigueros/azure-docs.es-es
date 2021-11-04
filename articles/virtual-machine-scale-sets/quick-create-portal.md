@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 5fd43ebed8d1ebcad3d5f76bda21b978bdb0950e
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: a58462910a3f673a050bdb252d65369ef6fb3b45
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122693240"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131003435"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Inicio rápido: Creación de un conjunto de escalado de máquinas virtuales en Azure Portal
 
@@ -36,7 +36,7 @@ En primer lugar, cree una instancia de Standard Load Balancer mediante el portal
 1. En el cuadro de búsqueda, escriba **equilibrador de carga**. En **Marketplace**, en los resultados de la búsqueda, seleccione **Equilibradores de carga**.
 1. En la pestaña **Conceptos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información:
 
-    | Configuración                 | Value   |
+    | Configuración                 | Valor   |
     | ---| ---|
     | Suscripción  | Seleccione su suscripción.    |    
     | Resource group | Seleccione **Crear nuevo** y escriba *myVMSSResourceGroup* en el cuadro de texto.|
@@ -61,6 +61,7 @@ Puede implementar un conjunto de escalado con una imagen de Windows Server o Lin
 1. En la pestaña **Aspectos básicos**, en **Detalles del proyecto**, asegúrese de que esté seleccionada la suscripción correcta y seleccione *myVMSSResourceGroup* en la lista de grupos de recursos. 
 1. Escriba *myScaleSet* como el nombre del conjunto de escalado.
 1. En **Región**, seleccione una región cercana a su área.
+1. En **Orquestación**, asegúrese de que la opción *Uniforme* esté seleccionada para el **modo de orquestación**. 
 1. Seleccione una imagen de Marketplace para **imagen**. En este ejemplo, hemos elegido *Ubuntu Server 18.04 LTS*.
 1. Escriba el nombre de usuario que quiera y seleccione el tipo de autenticación que desee.
    - La **contraseña** debe tener 12 caracteres como mínimo y reunir, al menos, tres de los cuatro requisitos de complejidad siguientes: contener al menos una minúscula, una mayúscula, un número y un carácter especial. Para más información, consulte la sección acerca de los [requisitos de nombre de usuario y contraseña](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).

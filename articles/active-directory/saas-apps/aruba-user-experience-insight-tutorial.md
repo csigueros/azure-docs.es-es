@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2020
 ms.author: jeedes
-ms.openlocfilehash: eb9ea2c55422fd4212b9c670f430d4699472018a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 83bfd80e3a687466c459aa63a5394000a6ab1265
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124761455"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131039912"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aruba-user-experience-insight"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Aruba User Experience Insight
 
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar Aruba User Experience Insight con Azure A
 * Permitir que los usuarios inicien sesión automáticamente en Aruba User Experience Insight con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -60,7 +60,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Aruba User Exper
 Para configurar y probar el inicio de sesión único de Azure AD con Aruba User Experience Insight, complete los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Aruba User Experience Insight](#configure-aruba-user-experience-insight-sso)** , para configurar los valores del inicio de sesión único en el lado de la aplicación.
     1. **[Creación de un usuario de prueba de Aruba User Experience Insight](#create-aruba-user-experience-insight-test-user)** , para tener un homólogo de B.Simon en Aruba User Experience Insight vinculado a la representación de usuario en Azure AD.

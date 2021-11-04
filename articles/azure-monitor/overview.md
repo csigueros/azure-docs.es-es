@@ -4,13 +4,13 @@ description: Introducción a los servicios y funcionalidades de Microsoft que co
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 11/17/2019
-ms.openlocfilehash: 639386e1a64ff40375fac5baafc10b6a3a1cb84d
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 11/01/2021
+ms.openlocfilehash: 35ffbe3a329aae483b4da841ba4dfe34c1a07f9a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130227062"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131435137"
 ---
 # <a name="azure-monitor-overview"></a>Introducción a Azure Monitor
 
@@ -51,12 +51,11 @@ Azure Monitor utiliza una versión del [lenguaje de consulta de Kusto](/azure/ku
 ![El diagrama muestra los datos de registros que fluyen hacia Log Analytics para su análisis.](media/overview/logs.png)
 
 ## <a name="what-data-does-azure-monitor-collect"></a>¿Qué datos recopila Azure Monitor?
-
 Azure Monitor puede recopilar datos de [diversos orígenes](monitor-reference.md), como la aplicación y cualquier sistema operativo o servicio en los que se base, o incluso la propia plataforma. Azure Monitor recopila datos de cada uno de los siguientes niveles:
 
 - **Datos de supervisión de aplicaciones:** datos sobre el rendimiento y la funcionalidad del código que ha escrito, independientemente de la plataforma.
 - **Datos de supervisión del sistema operativo invitado:** datos sobre el sistema operativo en el que se ejecuta la aplicación. La aplicación se puede ejecutar en Azure, en otra nube o en el entorno local. 
-- **Datos de supervisión de recursos de Azure:** datos acerca del funcionamiento de un recurso de Azure.
+- **Datos de supervisión de recursos de Azure:** datos acerca del funcionamiento de un recurso de Azure. Para obtener una lista completa de los recursos que tienen métricas o registros, consulte [What can you monitor with Azure Monitor?](monitor-reference.md#azure-supported-services) (¿Qué se puede supervisar con Azure Monitor?).
 - **Datos de supervisión de la suscripción de Azure:** datos sobre el funcionamiento y la administración de una suscripción de Azure, así como sobre el estado y el funcionamiento del propio Azure. 
 - **Datos de supervisión del inquilino de Azure:** datos sobre el funcionamiento de los servicios de Azure en el nivel del inquilino, como Azure Active Directory.
 
@@ -67,11 +66,12 @@ En cuanto crea una suscripción a Azure y empieza a agregar recursos, como máqu
 Habilite la supervisión de la aplicación con [Application Insights](app/app-insights-overview.md) para recopilar información detallada, como vistas de página, solicitudes de aplicación y excepciones. Compruebe de forma más exhaustiva la disponibilidad de la aplicación configurando una [prueba de disponibilidad](app/monitor-web-app-availability.md) para simular el tráfico de usuarios.
 
 ### <a name="custom-sources"></a>Orígenes personalizados
-
 Azure Monitor puede recopilar datos de registro de cualquier cliente de REST mediante [Data Collector API](logs/data-collector-api.md). Esto permite crear escenarios de supervisión personalizados y ampliar la supervisión a los recursos que no exponen datos de telemetría en otros orígenes.
 
-## <a name="insights"></a>Información detallada
-Los datos de supervisión solo resultan útiles si aportan una mayor visibilidad sobre el funcionamiento del entorno informático. [Insights](monitor-reference.md#insights-and-core-solutions) proporciona una experiencia de supervisión personalizada para determinados servicios de Azure. Estos requieren una configuración mínima y aumentan la visibilidad del funcionamiento de los recursos críticos.
+## <a name="insights-and-curated-visualizations"></a>Insights y visualizaciones seleccionadas
+Los datos de supervisión solo resultan útiles si aportan una mayor visibilidad sobre el funcionamiento del entorno informático. Algunos proveedores de recursos de Azure tienen una "visualización seleccionada" que proporciona una experiencia de supervisión personalizada para ese servicio o conjunto de servicios concretos. Por lo general, requieren una configuración mínima. Las visualizaciones más grandes y escalables se conocen como "insights" y se marcan con ese nombre en la documentación y en Azure Portal.  
+
+Para obtener más información, consulte [List of insights and curated visualizations using Azure Monitor](monitor-reference.md#insights-and-curated-visualizations) (Lista de insights y visualizaciones seleccionadas mediante Azure Monitor). Algunos de los insights más grandes se describen a continuación.
 
 ### <a name="application-insights"></a>Application Insights
 [Application Insights](app/app-insights-overview.md) supervisa la disponibilidad, el rendimiento y el uso de las aplicaciones web, tanto si están hospedadas en la nube como en un entorno local. Esta solución utiliza la eficaz plataforma de análisis de datos de Azure Monitor para proporcionar información exhaustiva sobre las operaciones de la aplicación y permite diagnosticar errores sin esperar a que un usuario los notifique. Application Insights incorpora puntos de conexión con una serie de herramientas de desarrollo y se integra con Visual Studio para admitir los procesos de DevOps.
@@ -90,9 +90,9 @@ Los datos de supervisión solo resultan útiles si aportan una mayor visibilidad
 ![VM Insights](media/overview/vm-insights.png)
 
 
+
 ## <a name="responding-to-critical-situations"></a>Respuesta a situaciones críticas
 Además de permitirle analizar de forma interactiva los datos de supervisión, una solución de supervisión eficaz debe ser capaz de responder proactivamente a condiciones críticas que se den en los datos que recopila. Esto podría hacerse enviando un mensaje o correo a un administrador responsable de investigar un problema. O también podría hacerse iniciando un proceso automatizado que intente corregir una condición de error.
-
 
 ### <a name="alerts"></a>Alertas
 Las [alertas de Azure Monitor](alerts/alerts-overview.md) informan de forma proactiva de los estados críticos e intentan aplicar acciones correctivas. Las reglas de alertas basadas en métricas proporcionan alertas casi en tiempo real con valores numéricos. Las reglas basadas en los registros permiten una lógica compleja con datos de varios orígenes.

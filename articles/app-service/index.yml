@@ -7,12 +7,12 @@ metadata:
   ms.topic: landing-page
   ms.service: app-service
   ms.date: 08/06/2020
-  ms.openlocfilehash: c77ec3cc1abd0f27efc6720d007118346b3def03
-  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+  ms.openlocfilehash: b4771486e8f64df5005a6cc3a29d5b7c960cde3d
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/22/2021
-  ms.locfileid: "130253352"
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131045793"
 landingContent:
 - title: Acerca de App Service
   linkLists:
@@ -56,8 +56,6 @@ landingContent:
       url: configure-ssl-bindings.md
     - text: Ejecución de una aplicación en entornos de ensayo
       url: deploy-staging-slots.md
-    - text: Acceso seguro al almacenamiento y a Microsoft Graph
-      url: scenario-secure-app-overview.md
   - linkListType: how-to-guide
     links:
     - text: Conexión a un contenedor de Linux mediante SSH
@@ -102,6 +100,24 @@ landingContent:
       url: tutorial-python-postgresql-app.md
     - text: Aplicación Ruby (Rails) con PostgreSQL
       url: tutorial-ruby-postgres-app.md
+- title: Seguridad
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Seguridad en Azure App Service
+      url: overview-security.md
+  - linkListType: tutorial
+    links:
+    - text: Acceso a la base de datos SQL sin secretos con identidades administradas
+      url: tutorial-connect-msi-sql-database.md
+    - text: Acceso sin secretos de almacenamiento y Microsoft Graph con identidades administradas
+      url: scenario-secure-app-overview.md
+    - text: Conexión segura a servicios con los secretos de Key Vault
+      url: tutorial-connect-msi-key-vault.md
+    - text: Aislamiento del tráfico de red para la conectividad de back-end
+      url: tutorial-networking-isolate-vnet.md
+    - text: Autenticación de usuarios
+      url: tutorial-auth-aad.md
 - title: Implementación e integración
   linkLists:
   - linkListType: concept
@@ -110,10 +126,6 @@ landingContent:
       url: app-service-plan-manage.md
   - linkListType: tutorial
     links:
-    - text: Protección del acceso a un recurso con identidades administradas
-      url: app-service-web-tutorial-connect-msi.md
-    - text: Autenticación de usuarios
-      url: tutorial-auth-aad.md
     - text: Hospedaje de API RESTful con CORS
       url: app-service-web-tutorial-rest-api.md
     - text: Incorporación de una CDN a la aplicación

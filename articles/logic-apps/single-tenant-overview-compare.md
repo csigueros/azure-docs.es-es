@@ -6,12 +6,13 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 09/13/2021
-ms.openlocfilehash: 46b5503e6c2c99c2c99f5cd18dc695ecb16275d1
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 8e7c77093ba3ddd2496d2e8ac8a78481d71fd1f6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130166846"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131088167"
 ---
 # <a name="single-tenant-versus-multi-tenant-and-integration-service-environment-for-azure-logic-apps"></a>Comparación de las opciones de un solo inquilino, multiinquilino y entorno del servicio de integración para Azure Logic Apps
 
@@ -252,7 +253,7 @@ Para el recurso **Logic Apps (estándar)** , estas funcionalidades han cambiado,
 
     * La acción integrada [Azure Logic Apps: Elegir un flujo de trabajo de aplicación lógica](logic-apps-http-endpoint.md) es ahora **Operaciones de flujo de trabajo: Invocar un flujo de trabajo en esta aplicación de flujo de trabajo**.
 
-    * Algunos [desencadenadores y acciones de cuentas de integración](../connectors/managed.md#integration-account-connectors) no están disponibles, como las acciones de archivo plano, las acciones AS2 (V2) y las acciones RosettaNet.
+    * Algunos [desencadenadores y acciones de cuentas de integración](../connectors/managed.md#integration-account-connectors) no están disponibles, como las acciones AS2 (V2) y las acciones RosettaNet.
 
     * Actualmente, no se admiten [conectores administrados personalizados](../connectors/apis-list.md#custom-apis-and-connectors). Sin embargo, puede crear *operaciones integradas personalizadas* si usa Visual Studio Code. Para obtener más información, revise [Creación de flujos de trabajo basados en un solo inquilino mediante Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring).
 

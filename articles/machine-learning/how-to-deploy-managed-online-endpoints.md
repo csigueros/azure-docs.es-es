@@ -1,26 +1,26 @@
 ---
-title: Implementación de un modelo de ML con un punto de conexión en línea administrado (versión preliminar)
+title: Implementación de un modelo de ML con un punto de conexión en línea (versión preliminar)
 titleSuffix: Azure Machine Learning
-description: Aprenda a implementar el modelo de aprendizaje automático como un servicio web administrado automáticamente por Azure.
+description: Aprenda a implementar el modelo de Machine Learning como un servicio web para Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
-ms.date: 08/05/2021
+ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: how-to, devplatv2
-ms.openlocfilehash: 882f0d8d140d7394e82aa23bf9a5b72b477940e5
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.custom: how-to, devplatv2, ignite-fall-2021
+ms.openlocfilehash: c086523feb73ee6571776b825420c4375ae48da9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129423621"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131088148"
 ---
-# <a name="deploy-and-score-a-machine-learning-model-by-using-a-managed-online-endpoint-preview"></a>Implementación y puntuación de un modelo de aprendizaje automático con un punto de conexión en línea administrado (versión preliminar)
+# <a name="deploy-and-score-a-machine-learning-model-by-using-an-online-endpoint-preview"></a>Implementación y puntuación de un modelo de Machine Learning con un punto de conexión en línea (versión preliminar)
 
-Aprenda a usar un punto de conexión en línea administrado (versión preliminar) para implementar el modelo, de modo que no tenga que crear ni administrar la infraestructura subyacente. Comenzará por implementar un modelo en la máquina local para depurar los errores y, después, lo implementará y probará en Azure. 
+Aprenda a usar un punto de conexión en línea (versión preliminar) para implementar el modelo, de modo que no tenga que crear ni administrar la infraestructura subyacente. Comenzará por implementar un modelo en la máquina local para depurar los errores y, después, lo implementará y probará en Azure.
 
 También aprenderá a ver los registros y a supervisar el Acuerdo de Nivel de Servicio (SLA). Empezará con un modelo y terminará con un punto de conexión HTTPS/REST escalable que se puede usar para la puntuación en línea o en tiempo real. 
 
@@ -116,11 +116,11 @@ En la tabla siguiente se describen los atributos de `deployments`:
 Para más información sobre el esquema de YAML, consulte la [referencia de YAML del punto de conexión en línea](reference-yaml-endpoint-managed-online.md).
 
 > [!NOTE]
-> Para usar Azure Kubernetes Service (AKS) en lugar de puntos de conexión administrados como destino de proceso:
-> 1. Cree el clúster de AKS y asócielo como destino de proceso al área de Azure Machine Learning mediante [Azure ML Studio](how-to-create-attach-compute-studio.md#whats-a-compute-target).
-> 1. Use el archivo [YAML de punto de conexión](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/aks/simple-flow/1-create-aks-endpoint-with-blue.yml) para utilizar AKS como destino en lugar del archivo YAML del punto de conexión administrado. Tendrá que editar el archivo YAML para cambiar el valor de `target` por el nombre del destino de proceso registrado.
+> Para usar Kubernetes en lugar de puntos de conexión administrados como destino de proceso:
+> 1. Cree el clúster de Kubernetes y asócielo como destino de proceso al área de Azure Machine Learning mediante [Estudio de Azure Machine Learning](how-to-attach-arc-kubernetes.md?&tabs=studio#attach-arc-cluster).
+> 1. Utilice el archivo [YAML de punto de conexión](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/aks/simple-flow/1-create-aks-endpoint-with-blue.yml) para usar Kubernetes como destino en lugar del archivo YAML del punto de conexión administrado. Tendrá que editar el archivo YAML para cambiar el valor de `target` por el nombre del destino de proceso registrado.
 >
-> Todos los comandos que se usan en este artículo (excepto la supervisión opcional del Acuerdo de Nivel de Servicio y la integración de Azure Log Analytics) se pueden usar con puntos de conexión administrados o con puntos de conexión de AKS.
+> Todos los comandos que se usan en este artículo (excepto la supervisión opcional del Acuerdo de Nivel de Servicio y la integración de Azure Log Analytics) se pueden usar con puntos de conexión administrados o con puntos de conexión de Kubernetes.
 
 ### <a name="register-your-model-and-environment-separately"></a>Registro del modelo y el entorno por separado
 
@@ -141,7 +141,7 @@ Actualmente, solo puede especificar un modelo por implementación en el archivo 
 ## <a name="understand-the-scoring-script"></a>Descripción del script de puntuación
 
 > [!TIP]
-> El formato del script de puntuación para los puntos de conexión en línea administrados es el mismo que se usaba en la versión anterior de la CLI y en el SDK de Python.
+> El formato del script de puntuación para los puntos de conexión en línea es el mismo que se usaba en la versión anterior de la CLI y en el SDK de Python.
 
 Como se ha indicado antes, `run()` debe tener una función `code_configuration.scoring_script` y una función `init()`. En este ejemplo se usa el [archivo score.py](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/model-1/onlinescoring/score.py). Se llama a la función `init()` cuando se inicializa o se inicia el contenedor. La inicialización suele producirse poco después de crear o actualizar la implementación. Escriba aquí la lógica para realizar operaciones de inicialización globales, como almacenar en caché el modelo en memoria (como se hace en este ejemplo). Se llama a la función `run()` en cada invocación del punto de conexión y debe realizar la puntuación y predicción reales. En el ejemplo, extraemos los datos de la entrada JSON, llamamos al método `predict()` del modelo scikit-learn y devolvemos el resultado.
 
@@ -212,7 +212,7 @@ Esta implementación puede tardar un máximo de 15 minutos, dependiendo de si e
 > [!TIP]
 > * Si prefiere no bloquear la consola de la CLI, puede agregar la marca `--no-wait` al comando. Sin embargo, se detendrá la presentación interactiva del estado de implementación.
 >
-> * Use [Solución de problemas de implementación y puntuación de puntos de conexión en línea administrados (versión preliminar)](how-to-troubleshoot-managed-online-endpoints.md) para depurar los errores.
+> * Use [Solución de problemas de implementación y puntuación de puntos de conexión en línea administrados (versión preliminar)](./how-to-troubleshoot-online-endpoints.md) para depurar los errores.
 
 ### <a name="check-the-status-of-the-deployment"></a>Comprobación del estado de la implementación
 
@@ -335,4 +335,4 @@ Para más información, consulte estos artículos:
 - [Uso de puntos de conexión por lotes (versión preliminar) para la puntuación por lotes](how-to-use-batch-endpoint.md)
 - [Visualización de los costos de un punto de conexión en línea administrado de Azure Machine Learning (versión preliminar)](how-to-view-online-endpoints-costs.md)
 - [Tutorial: Acceso a recursos de Azure con un punto de conexión en línea administrado e identidad administrada por el sistema (versión preliminar)](tutorial-deploy-managed-endpoints-using-system-managed-identity.md)
-- [Solución de problemas de implementación de puntos de conexión en línea administrados](how-to-troubleshoot-managed-online-endpoints.md)
+- [Solución de problemas de implementación de puntos de conexión en línea administrados](./how-to-troubleshoot-online-endpoints.md)

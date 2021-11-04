@@ -99,6 +99,23 @@ conceptualContent:
       footerLink:
         url: management/index.yml
         text: Ver más
+    - title: Solución de problemas con implementaciones
+      links:
+        - url: troubleshooting/overview.md
+          itemType: overview
+          text: Información general
+        - url: troubleshooting/common-deployment-errors.md
+          itemType: how-to-guide
+          text: Errores de implementación frecuentes
+        - url: troubleshooting/quickstart-troubleshoot-arm-deployment.md
+          itemType: quickstart
+          text: Solución de problemas de la plantilla de ARM
+        - url: troubleshooting/quickstart-troubleshoot-bicep-deployment.md
+          itemType: quickstart
+          text: Solución de problemas del archivo Bicep
+      footerLink:
+        url: troubleshooting/index.yml
+        text: Ver más
     - title: Aplicaciones administradas
       links:
         - url: managed-applications/overview.md

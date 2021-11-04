@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 05/07/2021
+ms.date: 10/26/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: b590468b0e1f036a8b60143ff23e4a54b01802a8
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 16eb16d14890ae581bf71ff3998d22055965c336
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714501"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131082595"
 ---
 ::: zone target="docs"
 
@@ -48,9 +48,13 @@ Antes de comenzar, asegúrese de que ha completado [Tutorial: Copia de datos a A
     - Es aconsejable usar un envoltorio de burbujas bien protegido para empaquetar los discos.
     - Asegúrese de que todo encaja perfectamente para reducir los movimientos dentro de la caja.
 
-Los siguientes pasos vienen determinados por el lugar al que se vaya a devolver el dispositivo. Las instrucciones son diferentes para EE. UU. o Canadá, Unión Europea (UE), Australia o los países o regiones de Asia.
+Los siguientes pasos vienen determinados por el lugar al que se vaya a devolver el dispositivo. En muchos países o regiones, puede usar el [envío administrado por Microsoft](#microsoft-managed-shipping) o el [envío auto administrado](#self-managed-shipping).
 
-### <a name="us-or-canada"></a>[Estados Unidos o Canadá](#tab/in-us-or-canada)
+### <a name="microsoft-managed-shipping"></a>Envío administrado por Microsoft
+
+Si usa el envío administrado por Microsoft, siga las instrucciones correspondientes a la región de origen del envío.
+
+### <a name="us--canada"></a>[Estados Unidos y Canadá](#tab/in-us-canada)
 
 Realice los pasos siguientes si va a devolver el dispositivo en Estados Unidos o Canadá.
 
@@ -66,8 +70,7 @@ Realice los pasos siguientes si va a devolver el dispositivo en Estados Unidos o
     - Si no indica el número de seguimiento, UPS le exigirá que pague una cantidad adicional en la recogida.
     - En lugar de programar la recogida, también puede devolver la instancia de Data Box Disk en el punto de recogida más cercano.
 
-
-### <a name="europe-or-uk"></a>[Europa o Reino Unido](#tab/in-europe-or-uk)
+### <a name="eu--uk"></a>[UE y Reino Unido](#tab/in-europe-uk)
 
 Siga estos pasos si va a devolver el dispositivo en Europa o en Reino Unido.
 
@@ -156,37 +159,6 @@ Si es necesario, puede ponerse en contacto con el soporte técnico de Quantium S
 
 3. Realice la entrega al mensajero.
 
-### <a name="south-africa"></a>[Sudáfrica](#tab/in-sa)
-
-Siga estos pasos si va a devolver el dispositivo en Sudáfrica.
-
-1. Pegue en la caja la etiqueta de envío proporcionada. Esta etiqueta contiene el número de seguimiento. Si falta la etiqueta de envío, puede descargar una nueva desde **Información general > Descargar la etiqueta de envío**.
-
-2. Selle la caja de envío y asegúrese de que la etiqueta de envío de devolución está visible.
-
-3. Solicite un código de devolución de Operations (Operaciones) de Azure Data Box. Se requiere un código de devolución para entregar el paquete al centro de datos. Envíe un correo electrónico a [adbops@microsoft.com](mailto:adbops@microsoft.com). Anote este código en la etiqueta de envío junto a la dirección de devolución para que esté claramente visible.
-
-4. Reserve una recogida con DHL; para ello, elija una de las siguientes opciones:
-   * Vaya a [DHL Express South Africa, **Schedule a Pickup**](https://mydhl.express.dhl/za/en/schedule-pickup.html#/schedule-pickup#label-reference) (Programar recogida) para reservar una recogida en línea.
-   * Envíe un correo electrónico a [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) mediante la siguiente plantilla:
-
-     ```output
-     To: Priority.Support@dhl.com
-     Subject: Pickup request for Microsoft Azure
-     Body: Need pick up for the below shipment
-       *  DHL tracking number: (reference number/waybill number)
-       *  Requested pickup date: yyyy/mm/dd;time:HH MM
-       *  Shipper contact: (company name)
-       *  Contact person: 
-       *  Phone number: 
-       *  Full physical address: 
-       *  Item to be collected: Azure Dt
-     ```
-
-    * También puede dejar el paquete en el punto de servicio de DHL más cercano.
-
-5. Si surge algún problema, envíe un correo electrónico a [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) con los detalles y mencione el número del pedido en el asunto. También puede llamar al +27(0)119213902.
-
 ### <a name="china"></a>[China](#tab/in-china)
 
 Realice los pasos siguientes si va a devolver el dispositivo en China.
@@ -227,7 +199,39 @@ Realice los pasos siguientes si va a devolver el dispositivo en China.
 |Teléfono:      | 400-889-6066 ext. 3603 |
 |Correo electrónico:     | [739951@fedex.com](mailto:739951@fedex.com) |
 
-### <a name="self-managed"></a>[Autoadministrado](#tab/in-selfmanaged)
+
+### <a name="s-africa"></a>[Sudáfrica](#tab/in-sa)
+
+Siga estos pasos si va a devolver el dispositivo en Sudáfrica. 
+
+1. Pegue en la caja la etiqueta de envío proporcionada. Esta etiqueta contiene el número de seguimiento. Si falta la etiqueta de envío, puede descargar una nueva desde **Información general > Descargar la etiqueta de envío**.
+
+2. Selle la caja de envío y asegúrese de que la etiqueta de envío de devolución está visible.
+
+3. Solicite un código de devolución de Operations (Operaciones) de Azure Data Box. Se requiere un código de devolución para entregar el paquete al centro de datos. Envíe un correo electrónico a [adbops@microsoft.com](mailto:adbops@microsoft.com). Anote este código en la etiqueta de envío junto a la dirección de devolución para que esté claramente visible.
+
+4. Reserve una recogida con DHL; para ello, elija una de las siguientes opciones:
+   * Vaya a [DHL Express South Africa, **Schedule a Pickup**](https://mydhl.express.dhl/za/en/schedule-pickup.html#/schedule-pickup#label-reference) (Programar recogida) para reservar una recogida en línea.
+   * Envíe un correo electrónico a [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) mediante la siguiente plantilla:
+
+     ```output
+     To: Priority.Support@dhl.com
+     Subject: Pickup request for Microsoft Azure
+     Body: Need pick up for the below shipment
+       *  DHL tracking number: (reference number/waybill number)
+       *  Requested pickup date: yyyy/mm/dd;time:HH MM
+       *  Shipper contact: (company name)
+       *  Contact person: 
+       *  Phone number: 
+       *  Full physical address: 
+       *  Item to be collected: Azure Dt
+     ```
+
+    * También puede dejar el paquete en el punto de servicio de DHL más cercano.
+
+5. Si surge algún problema, envíe un correo electrónico a [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) con los detalles y mencione el número del pedido en el asunto. También puede llamar al +27(0)119213902.
+
+### <a name="self-managed-shipping"></a>Envío autoadministrado
 
 Si usa Data Box Disk en la Administración Pública de EE. UU., Japón, Singapur, Corea, Reino Unido, Oeste de Europa, Australia, Sudáfrica, India o Brasil, y ha seleccionado la opción de envío autoadministrado al crear el pedido, siga estas instrucciones.
 

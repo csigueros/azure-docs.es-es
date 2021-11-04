@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021
-ms.openlocfilehash: eca68b90756f0da4d34a5ceff6d3194b57297dc4
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 42179895f60e56f33b41097375c583c3b272c038
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131017627"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469623"
 ---
 # <a name="create-projects-in-multiple-languages"></a>Creación de proyectos en varios idiomas
 
@@ -21,7 +21,6 @@ En este tutorial aprenderá a:
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Creación de un proyecto que admita varios idiomas
 > * Creación de un proyecto que admita inglés
 > * Creación de un proyecto que admita alemán
 
@@ -34,11 +33,11 @@ Para poder crear un proyecto en más de un idioma, se debe establecer la configu
 > [!div class="mx-imgBorder"]
 > [ ![Captura de pantalla de la interfaz de usuario para crear un proyecto con la opción Deseo seleccionar el idioma al crear un proyecto en este recurso seleccionada.]( ../media/multiple-languages/multiple-languages.png) ](../media/multiple-languages/multiple-languages.png#lightbox)
 
-1. En [Language Studio](https://aka.ms/languageStudio), abra la página de respuesta a preguntas. Seleccione **Crear proyecto** > **I want to select the language when I create a project in this resource (Deseo seleccionar el idioma al crear un proyecto en este recurso)**  > **Siguiente**.
+1. En la página de inicio de [Language Studio](https://aka.ms/languageStudio), seleccione Abrir respuesta a preguntas personalizadas. Seleccione **Crear proyecto** > **I want to select the language when I create a project in this resource (Deseo seleccionar el idioma al crear un proyecto en este recurso)**  > **Siguiente**.
 
 2. Rellene la página de información básica y seleccione **Siguiente** > **Crear proyecto**.
 
-    |Configuración| Valor|
+    |Configuración| Value|
     |---|----|
     |Nombre | Nombre único para el proyecto.|
     |Descripción | Descripción única para ayudar a identificar el proyecto. |
@@ -69,7 +68,7 @@ Ahora repetimos los pasos anteriores, pero esta vez seleccionamos Inglés y prop
 
 2. Rellene la página de información básica y seleccione **Siguiente** > **Crear proyecto**.
 
-    |Configuración| Valor|
+    |Configuración| Value|
     |---|----|
     |Nombre | Nombre único para el proyecto.|
     |Descripción | Descripción única para ayudar a identificar el proyecto. |

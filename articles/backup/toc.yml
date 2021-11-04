@@ -198,12 +198,34 @@
       items:
         - name: Información general
           href: backup-azure-database-postgresql-overview.md
-        - name: Copia de seguridad
-          href: backup-azure-database-postgresql.md
-        - name: Restauración
-          href: restore-azure-database-postgresql.md
-        - name: Administrar
-          href: manage-azure-database-postgresql.md
+        - name: Desde Azure Portal
+          items:
+            - name: Copia de seguridad
+              href: backup-azure-database-postgresql.md
+            - name: Restauración
+              href: restore-azure-database-postgresql.md
+            - name: Administrar
+              href: manage-azure-database-postgresql.md
+        - name: Con PowerShell
+          items:
+            - name: Copia de seguridad
+              href: backup-postgresql-ps.md
+            - name: Restauración
+              href: restore-postgresql-database-ps.md
+        - name: Con la CLI
+          items:
+            - name: Copia de seguridad
+              href: backup-postgresql-cli.md
+            - name: Restauración
+              href: restore-postgresql-database-cli.md
+        - name: Con API REST
+          items:
+            - name: Directiva
+              href: backup-azure-data-protection-use-rest-api-create-update-postgresql-policy.md
+            - name: Copia de seguridad
+              href: backup-azure-data-protection-use-rest-api-backup-postgresql.md
+            - name: Restauración
+              href: restore-postgresql-database-use-rest-api.md
     - name: Copia de seguridad de Windows mediante el agente de MARS
       items:
         - name: Información general
@@ -436,6 +458,8 @@
           href: monitor-azure-backup-with-backup-explorer.md
         - name: Uso de Azure Portal
           href: backup-azure-monitoring-built-in-monitor.md
+        - name: "Uso de las métricas de Azure\_Monitor"
+          href: metrics-overview.md
         - name: Uso de registros de Azure Monitor
           href: backup-azure-monitoring-use-azuremonitor.md
     - name: Informes
@@ -458,13 +482,15 @@
               href: backup-azure-diagnostics-mode-data-model.md
     - name: Automation
       items:
+        - name: "Uso de automatización de Azure\_Backup"
+          href: automation-backup.md
         - name: Instancia de Azure Policy integrada en Azure Backup
           items:
             - name: Habilitación automática de la copia de seguridad al crear máquinas virtuales mediante Azure Policy
               href: backup-azure-auto-enable-backup.md
             - name: Configuración de los valores de diagnóstico del almacén a gran escala
               href: azure-policy-configure-diagnostics.md
-        - name: PowerShell
+        - name: Uso de PowerShell
           items:
             - name: Máquinas virtuales de Azure
               href: backup-azure-vms-automation.md
@@ -504,6 +530,8 @@
           href: security-overview.md
         - name: Control de acceso basado en roles de Azure
           href: backup-rbac-rs-vault.md
+        - name: "Autorización de varios usuarios mediante Resource\_Guard"
+          href: multi-user-authorization.md
         - name: Eliminación temporal
           items:
             - name: Información general
@@ -533,10 +561,12 @@
           href: ./security-controls-policy.md
         - name: Línea de base de seguridad
           href: /security/benchmark/azure/baselines/backup-security-baseline?toc=/azure/backup/toc.json
-    - name: Nivel de acceso
+    - name: nivel de archivo
       items:
-        - name: nivel de archivo
+        - name: Información general
           href: archive-tier-support.md
+        - name: Uso de nivel de archivo
+          href: use-archive-tier-support.md
     - name: Solución de problemas
       items:
         - name: Azure VM
@@ -565,6 +595,8 @@
           href: backup-azure-sap-hana-database-troubleshoot.md
         - name: Estado del sistema
           href: backup-azure-system-state-troubleshoot.md
+        - name: nivel de archivo
+          href: troubleshoot-archive-tier.md
 - name: Referencia
   items:
     - name: .NET

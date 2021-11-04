@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Búsqueda de ubicaciones cercanas en un mapa | Microsoft Azure Maps'
-description: Tutorial sobre cómo buscar puntos de interés en un mapa. Obtenga información sobre cómo usar el SDK web de Azure Maps para agregar funcionalidades de búsqueda y cuadros emergentes interactivos a un mapa.
+description: Tutorial sobre cómo buscar puntos de interés en un mapa. Obtenga información sobre cómo usar el SDK web de Azure Maps para agregar funcionalidades de búsqueda y elementos emergentes interactivos a un mapa.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 1/15/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 31dd1c06b0f17b469454593131ccdc93b45b2446
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 61ea9691e30fe401946a43d2ffd8488b905c0835
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98624973"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131072397"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Tutorial: Búsqueda de puntos cercanos de interés mediante Azure Maps
 
@@ -145,18 +145,18 @@ En esta sección se muestra cómo usar [Search API](/rest/api/maps/search) de Ma
 
 1. En el controlador de eventos `ready` del mapa, construya la dirección URL del servicio de búsqueda; para ello, agregue el siguiente código JavaScript.
 
-    ```JavaScript
-   // Use SubscriptionKeyCredential with a subscription key
-   var subscriptionKeyCredential = new atlas.service.SubscriptionKeyCredential(atlas.getSubscriptionKey());
+    ```javascript
+    // Use SubscriptionKeyCredential with a subscription key
+    var subscriptionKeyCredential = new atlas.service.SubscriptionKeyCredential(atlas. getSubscriptionKey());
+ 
+    // Use subscriptionKeyCredential to create a pipeline
+    var pipeline = atlas.service.MapsURL.newPipeline(subscriptionKeyCredential);
+ 
+    // Construct the SearchURL object
+    var searchURL = new atlas.service.SearchURL(pipeline); 
+    ```
 
-   // Use subscriptionKeyCredential to create a pipeline
-   var pipeline = atlas.service.MapsURL.newPipeline(subscriptionKeyCredential);
-
-   // Construct the SearchURL object
-   var searchURL = new atlas.service.SearchURL(pipeline); 
-   ```
-
-   `SubscriptionKeyCredential` crea un `SubscriptionKeyCredentialPolicy` para autenticar las solicitudes HTTP en Azure Maps con la clave de suscripción. `atlas.service.MapsURL.newPipeline()` toma la directiva `SubscriptionKeyCredential` y crea una instancia de [canalización](/javascript/api/azure-maps-rest/atlas.service.pipeline). `searchURL` representa una dirección URL para las operaciones [Search](/rest/api/maps/search) de Azure Maps.
+    `SubscriptionKeyCredential` crea un `SubscriptionKeyCredentialPolicy` para autenticar las solicitudes HTTP en Azure Maps con la clave de suscripción. `atlas.service.MapsURL.newPipeline()` toma la directiva `SubscriptionKeyCredential` y crea una instancia de [canalización](/javascript/api/azure-maps-rest/atlas.service.pipeline). `searchURL` representa una dirección URL para las operaciones [Search](/rest/api/maps/search) de Azure Maps.
 
 2. A continuación, agregue el siguiente bloque de script para compilar la consulta de búsqueda. Este fragmento de código usa Fuzzy Search Service, que es una API de búsqueda básica de Search Service. Fuzzy Search Service controla la mayoría de las entradas aproximadas como, por ejemplo, direcciones, lugares y puntos de interés (POI). Este código busca las gasolineras más cercanas en un radio especificado de las coordenadas de latitud y longitud proporcionadas. Después se extrae una colección de características GeoJSON de la respuesta con el método `geojson.getFeatures()` y se agregan al origen de datos, lo cual provoca que los datos se representen automáticamente en el mapa mediante la capa de símbolos. La última parte del script permite establecer la vista de cámaras del mapa mediante el rectángulo delimitador de los resultados con la propiedad [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) de Map.
 
@@ -203,8 +203,8 @@ La asignación que hemos hecho hasta ahora solo examina los datos de latitud o l
 
 1. Agregue las siguientes líneas de código en el controlador de eventos `ready` del mapa después del código para consultar el servicio de búsquedas aproximadas. Este código creará una instancia de un elemento emergente y agregará un evento mouseover a la capa de símbolos.
 
-    ```JavaScript
-   //Create a popup but leave it closed so we can update it and display it later.
+    ```javascript
+    // Create a popup but leave it closed so we can update it and display it later.
     popup = new atlas.Popup();
 
     //Add a mouse over event to the result layer and display a popup when this event fires.
@@ -241,7 +241,7 @@ La asignación que hemos hecho hasta ahora solo examina los datos de latitud o l
     }
     ```
 
-3. Guarde el archivo y actualice el explorador. Ahora el mapa del explorador muestra los cuadros emergentes de información cuando se mantiene el mouse sobre cualquiera de las chinchetas de búsqueda.
+3. Guarde el archivo y actualice el explorador. Ahora el mapa del explorador muestra los elementos de información emergentes cuando se mantiene el mouse sobre cualquiera de los marcadores de búsqueda.
 
     ![Control de mapa y Search Service de Azure](./media/tutorial-search-location/popup-map.png)
 

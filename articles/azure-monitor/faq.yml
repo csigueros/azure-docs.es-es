@@ -8,12 +8,12 @@ metadata:
   author: bwren
   ms.author: bwren
   ms.date: 10/08/2020
-  ms.openlocfilehash: 439248f37075f7cbc91af0e15dcdf6b029e95b92
-  ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+  ms.openlocfilehash: 45e86a925c83f32ab4f704ea7ffc4f83ff3089ae
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/15/2021
-  ms.locfileid: "130066706"
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131059934"
 title: Preguntas más frecuentes sobre Azure Monitor
 summary: >
   En este artículo de preguntas frecuentes de Microsoft, se presenta una lista con las preguntas frecuentes sobre Azure Monitor. Si tiene alguna otra pregunta, vaya al [foro de discusión](/answers/questions/topics/single/24223.html) y publique las preguntas. Si una pregunta es frecuente, se agrega a este artículo para que se pueda encontrar de forma rápida y sencilla.
@@ -74,6 +74,15 @@ sections:
       ¿Cómo puedo acceder a los datos recopilados por Azure Monitor?
     answer: >
       Insights y las soluciones proporcionan una experiencia personalizada para trabajar con los datos almacenados en Azure Monitor. Puede trabajar directamente con los datos de registro mediante una consulta de registro escrita en el lenguaje de consulta Kusto (KQL). En Azure Portal, puede escribir y ejecutar consultas y analizar los datos de forma interactiva mediante Log Analytics. Puede analizar las métricas en Azure Portal con el Explorador de métricas. Consulte [Análisis de los datos de registro en Azure Monitor](logs/log-query-overview.md) e [Introducción al Explorador de métricas de Azure](essentials/metrics-getting-started.md).
+  - question: >
+      ¿Por qué veo registros duplicados en los registros de Azure Monitor?
+    answer: >
+      En ocasiones, puede observar registros duplicados en los registros de Azure Monitor. Normalmente, esto se deberá a una de las dos condiciones siguientes.
+
+
+      - Los componentes de la canalización hacen reintentos para garantizar una entrega confiable en el destino. A veces, esto puede dar lugar a duplicados en un porcentaje muy pequeño de los elementos de telemetría.
+
+      - Si los registros duplicados proceden de una máquina virtual, es posible que tenga instalados tanto el agente de Log Analytics como el agente de Azure Monitor. Si necesita que el agente de Log Analytics esté instalado, configure el área de trabajo de Log Analytics para que deje de recopilar los datos que también recopila la regla utilizada por el agente de Azure Monitor.
 - name: Soluciones e Insights
   questions:
   - question: >

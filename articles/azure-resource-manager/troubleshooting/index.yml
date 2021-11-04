@@ -1,0 +1,107 @@
+### YamlMime:Landing
+title: Documentación de solución de problemas de implementación
+summary: Solución de problemas de implementación de Azure en plantillas de Azure Resource Manager y archivos Bicep.
+metadata:
+  title: Documentación de solución de problemas de implementación
+  description: Obtenga información sobre cómo solucionar problemas de implementación en plantillas de Azure Resource Manager y archivos Bicep.
+  services: azure-resource-manager
+  ms.service: azure-resource-manager
+  ms.subservice: templates, bicep
+  ms.topic: landing-page
+  ms.collection: na
+  author: mumian
+  ms.author: jgao
+  ms.date: 11/01/2021
+  ms.openlocfilehash: 04756d25bf54a560753f890e654fd13df349444a
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131088485"
+landingContent:
+- title: Acerca de las implementaciones
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿En qué consiste la solución de problemas de implementación?
+      url: overview.md
+- title: Introducción
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Solución de problemas de implementación de plantillas de ARM
+      url: quickstart-troubleshoot-arm-deployment.md
+    - text: Solución de problemas de implementación de archivos Bicep
+      url: quickstart-troubleshoot-bicep-deployment.md
+- title: Solución de problemas de implementaciones
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Errores de implementación frecuentes
+      url: common-deployment-errors.md
+    - text: Sintaxis de un archivo de plantilla de ARM
+      url: ../templates/syntax.md
+    - text: Kit de herramientas para pruebas de plantillas de ARM
+      url: ../templates/test-toolkit.md
+    - text: Sintaxis de archivo Bicep
+      url: ../bicep/file.md
+    - text: Linter de Bicep
+      url: ../bicep/linter.md
+    - text: Plantillas de inicio rápido de Azure
+      url: https://azure.microsoft.com/resources/templates/
+- title: Implementación de plantillas
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Implementación de la plantilla de ARM
+      url: ../templates/deployment-tutorial-local-template.md
+    - text: Implementación de archivos Bicep
+      url: ../bicep/deploy-powershell.md
+    - text: Visualización del historial de implementaciones
+      url: ../templates/deployment-history.md
+  - linkListType: how-to-guide
+    links:
+    - text: PowerShell
+      url: ../templates/deploy-powershell.md
+    - text: Azure CLI
+      url: ../templates/deploy-cli.md
+    - text: Portal
+      url: ../templates/deploy-portal.md
+    - text: API DE REST
+      url: ../templates/deploy-rest.md
+    - text: Botón Implementación en Azure
+      url: ../templates/deploy-to-azure-button.md
+    - text: Plantilla de ARM Cloud Shell
+      url: ../templates/deploy-cloud-shell.md
+    - text: Archivo Bicep Cloud Shell
+      url: ../bicep/deploy-cloud-shell.md
+    - text: Implementación de what-if de la plantilla de ARM
+      url: ../templates/deploy-what-if.md
+    - text: Implementación de what-if del archivo Bicep
+      url: ../bicep/deploy-what-if.md
+- title: Exploración de contenido de referencia
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Referencia de plantilla
+      url: /azure/templates/
+    - text: API DE REST
+      url: /rest/api/resources/
+    - text: Azure PowerShell
+      url: /powershell/module/az.resources
+    - text: Azure CLI
+      url: /cli/azure/resource
+    - text: .NET
+      url: /dotnet/api/microsoft.azure.management.resourcemanager
+    - text: Java
+      url: /java/api/com.microsoft.azure.management.resources
+    - text: Python
+      url: /python/api/overview/azure/resources
+- title: Administración de plantillas
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Exportar plantillas
+      url: ../templates/export-template-portal.md
+    - text: CI/CD
+      url: ../templates/add-template-to-azure-pipelines.md
