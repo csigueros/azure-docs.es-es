@@ -4,12 +4,12 @@ ms.service: machine-learning
 ms.topic: include
 ms.date: 01/28/2020
 ms.author: larryfr
-ms.openlocfilehash: a03f71adc99063fee4374b1436b08adf5bab783d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 72ccb933db6b4524ecdd45a9f74f4a1f399171da
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102511101"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131520052"
 ---
 Las entidades del documento `inferenceconfig.json` se asignan a los parámetros de la clase [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig). En la tabla siguiente se describe la asignación entre las entidades del documento JSON y los parámetros del método:
 
@@ -28,7 +28,7 @@ Puede incluir especificaciones completas de un [entorno](/python/api/azureml-cor
         "docker": {
             "arguments": [],
             "baseDockerfile": null,
-            "baseImage": "mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04",
+            "baseImage": "mcr.microsoft.com/azureml/intelmpi2018.3-ubuntu18.04",
             "enabled": false,
             "sharedVolumes": true,
             "shmSize": null

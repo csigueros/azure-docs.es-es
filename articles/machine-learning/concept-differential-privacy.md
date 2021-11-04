@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Obtenga información sobre qué es la privacidad diferencial y cómo puede implementar sistemas privados diferenciales que conserven la privacidad de los datos.
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 01/21/2020
+ms.date: 10/21/2021
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.custom: responsible-ml
-ms.openlocfilehash: 3d28a2f9d18b143013ee89d7d1911b50905bc625
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 3df3f361d6f3591fe9b209ac64a5f8a51c09d2dd
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129424642"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131562720"
 ---
 # <a name="what-is-differential-privacy-in-machine-learning-preview"></a>Qué es la privacidad diferencial en el aprendizaje automático (versión preliminar)
 

@@ -5,15 +5,15 @@ description: Aprenda a resolver algunos errores comunes de implementación de Do
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.date: 11/25/2020
+ms.date: 10/21/2021
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: c71aaeea4282ebf265776e7f974841e7385fa75c
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 13e2413400506d06f4b9c36cc92ec3038ef10e04
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129425190"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131558333"
 ---
 # <a name="troubleshooting-remote-model-deployment"></a>Solución de problemas de una implementación de modelo remota 
 

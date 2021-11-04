@@ -1,12 +1,12 @@
-- name: Documentación de Security Center
+- name: Documentación de Microsoft Defender for Cloud
   href: index.yml
 - name: Información general
   expanded: true
   items:
-    - name: ¿Qué es el Centro de seguridad de Azure?
-      href: security-center-introduction.md
-    - name: ¿Qué es Azure Defender?
-      href: azure-defender.md
+    - name: ¿Qué es Microsoft Defender for Cloud?
+      href: defender-for-cloud-introduction.md
+    - name: ¿Qué son las características de seguridad mejoradas?
+      href: enhanced-security-features-overview.md
     - name: Novedades
       displayName: 'changelog, news, release notes'
       href: release-notes.md
@@ -17,26 +17,24 @@
       items:
         - name: Plataformas compatibles
           displayName: coverage
-          href: security-center-os-coverage.md
+          href: os-coverage.md
         - name: 'Cobertura por sistema operativo, tipo de máquina y nube'
-          href: security-center-services.md
+          href: supported-machines-endpoint-solutions-clouds.md
         - name: Cobertura de características para los recursos de PaaS de Azure
           href: features-paas.md
         - name: Roles y permisos de usuario
           displayName: RBAC
-          href: security-center-permissions.md
-        - name: Security Center gratuito frente a Azure Defender habilitado
-          href: security-center-pricing.md
+          href: permissions.md
 - name: Guías de inicio rápido
   items:
-    - name: 1. Habilitación de Security Center en las suscripciones
-      href: security-center-get-started.md
-    - name: 2. Habilitación de Azure Defender
-      href: enable-azure-defender.md
+    - name: 1. Habilitación de Defender for Cloud en las suscripciones
+      href: get-started.md
+    - name: 2. Habilitación de las protecciones mejoradas
+      href: enable-enhanced-security.md
     - name: 3. Configuración del aprovisionamiento automático
-      href: security-center-enable-data-collection.md
+      href: enable-data-collection.md
     - name: 4. Configuración de notificaciones de correo electrónico
-      href: security-center-provide-security-contact-details.md
+      href: configure-email-notifications.md
     - name: 5. Conexión de máquinas híbridas y de varias nubes
       items:
         - name: Conexión de máquinas que no son de Azure
@@ -63,7 +61,7 @@
     - name: Investigación de alertas de seguridad y respuesta ante las mismas
       href: tutorial-security-incident.md
     - name: Mejora del cumplimiento normativo
-      href: security-center-compliance-dashboard.md
+      href: regulatory-compliance-dashboard.md
     - name: Administrar directivas de seguridad
       href: tutorial-security-policy.md
     - name: Investigación del estado de los recursos
@@ -85,7 +83,7 @@
     - name: Conceptos de la protección de cargas de trabajo en la nube
       items:
         - name: Alertas e incidentes de seguridad
-          href: security-center-alerts-overview.md
+          href: alerts-overview.md
         - name: Referencia a lista de alertas
           href: alerts-reference.md
 - name: Guías paso a paso
@@ -93,21 +91,21 @@
     - name: Uso del panel de información general
       displayName: 'overview, compliance, inventory'
       href: overview-page.md
-    - name: Uso del panel de Azure Defender
-      href: azure-defender-dashboard.md
+    - name: Uso del panel de protecciones de cargas de trabajo
+      href: workload-protections-dashboard.md
     - name: Acceso y seguimiento de la puntuación segura
       href: secure-score-access-and-track.md
     - name: Administración de los recursos con el inventario de recursos
       href: asset-inventory.md
-    - name: Creación de informes interactivos de los datos de Security Center
+    - name: Creación de informes interactivos
       displayName: 'workbooks, Secure Score Over Time, Vulnerability Assessment Findings'
       href: custom-dashboards-azure-workbooks.md
     - name: Uso de recomendaciones de seguridad para mejorar la seguridad
       items:
         - name: Examen de las recomendaciones de seguridad
-          href: security-center-recommendations.md
+          href: review-security-recommendations.md
         - name: Corrección de recomendaciones
-          href: security-center-remediate-recommendations.md
+          href: implement-security-recommendations.md
         - name: Evitar errores de configuración con Aplicar/Denegar
           displayName: recommendations
           href: prevent-misconfigurations.md
@@ -154,16 +152,16 @@
           items:
             - name: Introducción al acceso Just-In-Time a máquinas virtuales
               displayName: 'jit, management'
-              href: just-in-time-explained.md
+              href: just-in-time-access-overview.md
             - name: Administración del acceso Just-In-Time
               displayName: 'jit, management, ports'
-              href: security-center-just-in-time.md
+              href: just-in-time-access-usage.md
         - name: Uso de la licencia integrada en Microsoft Defender para Endpoint
           displayName: 'ATP, mdatp, wdatp, mde, mdfe'
-          href: security-center-wdatp.md
+          href: integration-defender-for-endpoint.md
         - name: Definición de listas de aplicaciones seguras para máquinas
           displayName: 'aac, whitelist, allowlist, reviewgroup, adaptive application controls'
-          href: security-center-adaptive-application.md
+          href: adaptive-application-controls.md
         - name: Examen de las aplicaciones y del software instalados en las máquinas
           displayName: 'inventory, apps, software inventory, mde, tvm'
           href: asset-inventory.md#access-a-software-inventory
@@ -171,28 +169,28 @@
           items:
             - name: Introducción a la supervisión de la integridad de los archivos
               displayName: 'fim, change'
-              href: security-center-file-integrity-monitoring.md
+              href: file-integrity-monitoring-overview.md
             - name: Comparación de líneas base mediante la supervisión de la integridad de los archivos
               displayName: 'fim, change'
-              href: security-center-file-integrity-monitoring-baselines.md
+              href: file-integrity-monitoring-usage.md
         - name: Mejora de la posición de seguridad de red
           displayName: 'anh, adaptive network hardening'
-          href: security-center-adaptive-network-hardening.md
+          href: adaptive-network-hardening.md
         - name: Protección de los hosts de Docker
           displayName: containers
           href: harden-docker-hosts.md
     - name: Protección de bases de datos
       items:
-        - name: Introducción a Azure Defender para SQL
+        - name: Introducción a Defender para SQL
           displayName: database
           href: defender-for-sql-introduction.md
         - name: Habilitación de Defender para servidores SQL Server en máquinas
           href: defender-for-sql-usage.md
           displayName: 'hybrid, arc, Azure Defender'
-        - name: Introducción a Azure Defender para bases de datos relacionales de código abierto
+        - name: Introducción a Defender para bases de datos relacionales de código abierto
           displayName: 'PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB'
           href: defender-for-databases-introduction.md
-        - name: Habilitación de Defender para RDB del sistema operativo y respuesta a alertas
+        - name: Habilitación de Defender para bases de datos relacionales de software de código abierto y respuesta a alertas
           displayName: 'PG, PostgreSQL, MySQL, MariaDB, open-source relational databases, Azure Defender, OS RDBs, OSRDB'
           href: defender-for-databases-usage.md
         - name: Examen de recursos de SQL en busca de vulnerabilidades
@@ -200,11 +198,11 @@
           displayName: 'hybrid, arc, Azure Defender, VA, registry, vulnerabilities'
         - name: Personalización de la directiva de protección de la información de SQL
           displayName: 'sql, database, data discovery'
-          href: security-center-info-protection-policy.md
+          href: sql-information-protection-policy.md
     - name: Protección de entornos con contenedores
       displayName: Azure Defender
       items:
-        - name: Características de seguridad de los contenedores de Security Center
+        - name: Características de seguridad para contenedores de Defender for Cloud
           displayName: 'kubernetes, aks, acr, registries, k8s'
           href: container-security.md
         - name: Introducción a Defender para Kubernetes
@@ -222,7 +220,7 @@
         - name: Deshabilitación de resultados sobre las vulnerabilidades de imágenes concretas
           displayName: 'ACR, registry, images, qualys'
           href: defender-for-container-registries-usage.md#disable-specific-findings-preview
-        - name: Defensa de clústeres de Kubernetes habilitados para Azure Arc
+        - name: Protección de clústeres de Kubernetes habilitados para Azure Arc
           displayName: 'k8s, containers, aks, hybrid, arc, azure arc, multicloud'
           href: defender-for-kubernetes-azure-arc.md
         - name: Protección de las cargas de trabajo de Kubernetes
@@ -232,19 +230,19 @@
       displayName: 'Azure Defender for App Service, defender for app'
       href: defender-for-app-service-introduction.md
     - name: Protección de cuentas de Azure Storage
-      displayName: 'blob, adls, files, Azure Defender for Storage, Defender for Storage'
+      displayName: 'blob, adls, files, Microsoft Defender for Storage, Defender for Storage'
       href: defender-for-storage-introduction.md
     - name: Proteja claves y secretos de Key Vault
       items:
-        - name: Introducción a Azure Defender para Key Vault
+        - name: Introducción a Defender para Key Vault
           displayName: 'KV, akv'
           href: defender-for-key-vault-introduction.md
         - name: Administración de alertas de Azure Defender para Key Vault
           displayName: 'akv, kv'
-          href: defender-for-key-vault-usage.md
+          href: defender-for-key-vault-introduction.md#respond-to-microsoft-defender-for-key-vault-alerts
     - name: Supervisión de las operaciones de administración de recursos
       items:
-        - name: Introducción a Azure Defender para Resource Manager
+        - name: Introducción a Defender para Resource Manager
           displayName: ARM
           href: defender-for-resource-manager-introduction.md
         - name: Administración de alertas de Azure Defender para Resource Manager
@@ -252,39 +250,39 @@
           href: defender-for-resource-manager-usage.md
     - name: Supervisión de consultas de DNS desde los recursos de Azure
       items:
-        - name: Introducción a Azure Defender para DNS
+        - name: Introducción a Defender para DNS
           displayName: 'domain, Defender for DNS'
           href: defender-for-dns-introduction.md
-        - name: Respuesta a las alertas de Azure Defender para DNS
-          href: defender-for-dns-usage.md
+        - name: Respuesta a alertas de Microsoft Defender para DNS
+          href: defender-for-dns-introduction.md#respond-to-microsoft-defender-for-dns-alerts
     - name: Protección de los servidores de Windows Admin Center
       href: windows-admin-center-integration.md
     - name: Integración con soluciones de seguridad y orígenes de datos
-      href: security-center-partner-integration.md
+      href: partner-integration.md
     - name: Protección de recursos de red
-      href: security-center-network-recommendations.md
+      href: protect-network-resources.md
     - name: Aplicación y administración de autenticación multifactor
       displayName: 'identity, access, AAD, active directory, multi-factor, authentication, multifactor, users, passwords'
-      href: security-center-identity-access.md
-    - name: Uso de las protecciones adicionales contra amenazas de Security Center
+      href: multi-factor-authentication-enforcement.md
+    - name: Protecciones adicionales contra amenazas
       href: other-threat-protections.md
     - name: 'Administración de suscripciones, usuarios y permisos'
       items:
         - name: Organización de grupos de administración y suscripciones
-          href: security-center-management-groups.md
+          href: management-groups-roles.md
         - name: Concesión y solicitud de permisos para todos los inquilinos
           displayName: 'global admin, Azure Active Directory (AD), AAD'
           href: tenant-wide-permissions-management.md
-        - name: Habilitar Security Center para un grupo de administración
+        - name: Habilitación de Defender for Cloud para un grupo de administración
           href: onboard-management-group.md
         - name: Configuración de la administración entre inquilinos
-          href: security-center-cross-tenant-management.md
+          href: cross-tenant-management.md
         - name: Automatización de la incorporación mediante PowerShell
-          href: security-center-powershell-onboarding.md
+          href: powershell-onboarding.md
     - name: 'Administración de alertas, incidentes e informes de amenazas'
       items:
         - name: Responder a alertas de seguridad
-          href: security-center-managing-and-responding-alerts.md
+          href: managing-and-responding-alerts.md
         - name: Creación y administración de reglas de eliminación de alertas
           href: alerts-suppression-rules.md
         - name: Exportación de alertas y recomendaciones
@@ -300,12 +298,12 @@
             - name: Esquemas de alertas
               href: alerts-schemas.md
         - name: Administración de incidentes de seguridad
-          href: security-center-incident.md
+          href: incidents.md
         - name: Generación de informes de inteligencia sobre amenazas
-          href: security-center-threat-report.md
+          href: threat-intelligence-reports.md
         - name: Validación de la configuración de la alerta
           displayname: 'eicar, Kubernetes, Linux'
-          href: security-center-alert-validation.md
+          href: alert-validation.md
         - name: Automatización de las respuestas a las alertas
           displayName: workflow
           href: workflow-automation.md
@@ -315,12 +313,12 @@
       displayName: 'changelog, news'
       href: release-notes-archive.md
     - name: Cómo protege Microsoft los datos de los clientes
-      href: security-center-data-security.md
+      href: data-security.md
     - name: Documentación de las API REST
       href: /rest/api/securitycenter/
     - name: Línea de base de seguridad
       href: /security/benchmark/azure/baselines/security-center-security-baseline?toc=/azure/security-center/TOC.json
-    - name: Preguntas frecuentes sobre Azure Security Center
+    - name: Preguntas frecuentes sobre Microsoft Defender for Cloud
       items:
         - name: Preguntas generales
           href: faq-general.yml
@@ -338,7 +336,7 @@
     - name: Blog de Azure Roadmap
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Valoración y recomendaciones sobre la protección de puntos de conexión
-      href: security-center-endpoint-protection.md
+      href: endpoint-protection-recommendations-technical.md
     - name: Azure CLI
       href: /cli/azure/security
     - name: Azure PowerShell
@@ -348,8 +346,8 @@
     - name: Desarrollo de aptitudes con Microsoft Learn
       href: /learn/browse/?term=securityS
     - name: Administración de datos del usuario
-      href: security-center-privacy.md
-    - name: Documentación de Azure Defender para IoT
+      href: privacy.md
+    - name: Documentación de Microsoft Defender para IoT
       href: /azure/asc-for-iot/
     - name: Documentación de Azure Security Center
       href: ../security/index.yml
@@ -357,9 +355,9 @@
       href: 'https://azure.microsoft.com/updates/?category=security-identity'
     - name: Mapa de ruta de preparación
       href: security-center-readiness-roadmap.md
-    - name: Blogs de la comunidad tecnológica de Azure Security Center
+    - name: Blogs de la comunidad tecnológica de Microsoft Defender for Cloud
       href: 'https://techcommunity.microsoft.com/t5/azure-security-center/bg-p/AzureSecurityCenterBlog'
-    - name: Azure Security Center en Stack Overflow
+    - name: Microsoft Defender for Cloud en Stack Overflow
       href: 'https://stackoverflow.com/search?q=azure-security-center'
     - name: Vídeos de ASCinTheField en YouTube
       href: 'https://www.youtube.com/results?search_query=%23ASCInTheField'
@@ -368,4 +366,4 @@
     - name: Disponibilidad regional
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Guía de solución de problemas
-      href: security-center-troubleshooting-guide.md
+      href: troubleshooting-guide.md

@@ -5,15 +5,15 @@ services: app-service
 author: craigshoemaker
 ms.service: app-service
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: bbd18b4647eb12add43fec0223755c41518360ea
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 3de81d40065a37f3d8443594621a2dec99120017
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093596"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131578943"
 ---
 # <a name="secure-an-app-in-azure-container-apps-preview"></a>Seguridad de una aplicación en la versión preliminar de Azure Container Apps
 

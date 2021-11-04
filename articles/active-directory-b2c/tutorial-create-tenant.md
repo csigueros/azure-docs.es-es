@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/25/2021
+ms.date: 10/26/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: ce5da1ae3ae87d3dbfc91b72fbda412ad179cfa9
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 48577b7625b80954d856d02fcee9e0696393bc55
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130233968"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131036264"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial: Creación de un inquilino de Azure Active Directory B2C
 
@@ -47,7 +47,7 @@ En el siguiente tutorial aprenderá a registrar una aplicación.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/). 
 
-1. Seleccione el directorio que contiene la suscripción:
+1. Vaya al directorio que contiene la suscripción:
     1. En la barra de herramientas de Azure Portal, seleccione el icono de filtro **Directorios y suscripciones**. 
     
         ![Icono de filtro Directorios y suscripciones](media/tutorial-create-tenant/directories-subscription-filter-icon.png)
@@ -58,8 +58,8 @@ En el siguiente tutorial aprenderá a registrar una aplicación.
 
 1. Agregue **Microsoft.AzureActiveDirectory** como proveedor de recursos para la suscripción de Azure que utiliza ([más información](../azure-resource-manager/management/resource-providers-and-types.md?WT.mc_id=Portal-Microsoft_Azure_Support#register-resource-provider-1)):
 
-    1. En el menú de Azure Portal o en la **página principal**, seleccione **Suscripciones**.
-    2. Seleccione la suscripción y luego seleccione **Proveedores de recursos** en el menú izquierdo.
+    1. En Azure Portal, busque y seleccione **Suscripciones**.
+    2. Seleccione la suscripción y luego **Proveedores de recursos** en el menú izquierdo. Si no ve el menú izquierdo, seleccione el icono **Mostrar el menú de <nombre de la suscripción>** en la parte superior izquierda de la página para abrirlo.
     3. Asegúrese de que la fila **Microsoft.AzureActiveDirectory** muestre el estado **Registrado**. Si no es así, seleccione la fila y, a continuación, seleccione **Registrar**.
 
 1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**.

@@ -5,14 +5,14 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/01/2020
+ms.date: 10/28/2021
 ms.author: pafarley
-ms.openlocfilehash: 25c18d3e5b612c31a3c8a77a35118968616002dd
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: f20f73c37224abe1333d2577db8a54ef07eeed34
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111896838"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131519954"
 ---
 Consulte la lista de SKU e información sobre precios a continuación. 
 
@@ -46,7 +46,7 @@ Consulte la lista de SKU e información sobre precios a continuación.
 |--------------------|---------------------|
 | LUIS               | `LUIS`              |
 | QnA Maker          | `QnAMaker`          |
-| Text Analytics     | `TextAnalytics`     |
+| Servicio de lenguaje   | `TextAnalytics`     |
 | Traducción del texto   | `TextTranslation`   |
 
 #### <a name="decision"></a>Decisión

@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021
-ms.openlocfilehash: 6e5c6bb17c4b31126b05af32a8b1582c7f025c2c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0ba6e7a0a336a5fbcb560a07a7731c8cdcc66e9e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093060"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131439032"
 ---
 # <a name="improve-quality-of-response-with-synonyms"></a>Mejora de la calidad de las respuestas con sinónimos
 
@@ -80,8 +80,7 @@ Como puede ver, cuando no se agregó `troubleshoot` como sinónimo, se obtuvo un
 
 > [!NOTE]
 > Los sinónimos no distinguen mayúsculas de minúsculas. Es posible que los sinónimos tampoco funcionen según lo previsto si agrega palabras no significativas como sinónimos. La lista de palabras no significativas se puede encontrar aquí: [Lista de palabras no significativas](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md).
-
-Por ejemplo, si agrega la abreviatura de **TI** para tecnología de la información, es posible que el sistema no pueda reconocer "tecnología de la información" porque **TI** es una palabra no significativa y se filtra cuando se procesa la consulta.
+> Por ejemplo, si agrega la abreviatura de **TI** para tecnología de la información, es posible que el sistema no pueda reconocer "tecnología de la información" porque **TI** es una palabra no significativa y se filtra cuando se procesa la consulta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

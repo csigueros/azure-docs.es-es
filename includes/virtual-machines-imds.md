@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 60b4e1ac82574cab16feee9c436d9521eaf58ad4
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: f61c01c05412ea79aa955c599bd4dacd1eea7297
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130173369"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131571375"
 ---
 Azure Instance Metadata Service (IMDS) le proporciona información sobre las instancias de máquina virtual que se ejecutan actualmente. Puede usarlo para administrar y configurar las máquinas virtuales.
 Esta información incluye las SKU, almacenamiento, configuraciones de red y próximos eventos de mantenimiento. Para ver una lista completa de los datos disponibles, consulte el [resumen de categorías de los puntos de conexión](#endpoint-categories).
@@ -1398,7 +1398,7 @@ Si no puede obtener una respuesta de metadatos después de varios intentos, pued
 
 ## <a name="product-feedback"></a>Comentarios sobre el producto
 
-Puede proporcionar comentarios sobre el producto e ideas en nuestro canal de la fuente de usuario en Virtual Machines > Instance Metadata Service [aquí](https://feedback.azure.com/forums/216843-virtual-machines?category_id=394627).
+Puede proporcionar comentarios sobre el producto e ideas en nuestro canal de la fuente de usuario en Virtual Machines > Instance Metadata Service [aquí](https://feedback.azure.com/d365community/forum/ec2f1827-be25-ec11-b6e6-000d3a4f0f1c?c=a60ebac8-c125-ec11-b6e6-000d3a4f0f1c).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

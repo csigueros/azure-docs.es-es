@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/26/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: e62f2a07b4266671bb055e6a672e13f69e2a0bab
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
+ms.openlocfilehash: 084768eec7863e7983fa4c552586deba8fb1b23b
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112982823"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131578037"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Selección de un plan de tarifa de Azure Cognitive Search
 
@@ -64,7 +64,7 @@ La mayoría de las características están disponibles en todos los niveles, inc
 | [Acceso al firewall de IP](service-configure-firewall.md) | No disponibles en el nivel Gratis. |
 | [Punto de conexión privado (integración con Azure Private Link)](service-create-private-endpoint.md) | En el caso de las conexiones entrantes a un servicio de búsqueda, no está disponible en el nivel Gratis. En el caso de las conexiones salientes de indexadores a otros recursos de Azure, no es´ta disponible en el nivel Gratis ni S3 HD. Para los indexadores que usan conjuntos de aptitudes, no está disponible en los niveles Gratis, Básico, S1 o S3 HD.| 
 | [Zonas de disponibilidad](search-performance-optimization.md) | No disponibles en los niveles Gratis o Básico. |
-| [Búsqueda semántica (versión preliminar)] | No disponible en los niveles Gratis o Básico. |
+| [Búsqueda semántica (versión preliminar)](semantic-search-overview.md) | No disponible en los niveles Gratis o Básico. |
 
 Es posible que las características que consumen muchos recursos no funcionen bien a menos que se le proporcione capacidad suficiente. Por ejemplo, el [enriquecimiento con IA](cognitive-search-concept-intro.md) contiene funciones de ejecución prolongada que agotan el tiempo de espera en un servicio Gratis, a menos que el conjunto de datos sea pequeño.
 

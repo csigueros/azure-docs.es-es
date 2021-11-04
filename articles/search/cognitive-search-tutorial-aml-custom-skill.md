@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: a9a3c76cb931a5683cf6fd52a806979c430f3f72
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: bdeb9336aa94198d0448d697ca01304825877bd4
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112580933"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131561373"
 ---
 # <a name="example-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Ejemplo: Creación e implementación de una aptitud personalizada con Azure Machine Learning 
 
@@ -77,8 +77,6 @@ La creación e implementación del clúster de inferencia puede tardar hasta 30 
 ## <a name="update-the-skillset"></a>Actualización del conjunto de aptitudes
 
 La sección 4 del cuaderno tiene cuatro celdas donde se actualizan el conjunto de aptitudes y el indexador. Como alternativa, puede usar el portal para seleccionar y aplicar la nueva aptitud al conjunto de aptitudes y, luego, ejecutar el indexador para actualizar el servicio de búsqueda.
-
-> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Active-Learning-with-Azure-Cognitive-Search/player#time=19m35s:paused/03/player]
 
 En el portal, vaya al conjunto de aptitudes y seleccione el vínculo de definición del conjunto de aptitudes (JSON). El portal mostrará el archivo JSON del conjunto de aptitudes que se creó en las primeras celdas del cuaderno. A la derecha de la pantalla hay un menú desplegable en el que puede seleccionar la plantilla de definición de aptitudes. Seleccione la plantilla de Azure Machine Learning (AML). Proporcione el nombre del área de trabajo de Azure ML y el punto de conexión del modelo implementado en el clúster de inferencia. La plantilla se actualizará con el URI y la clave del punto de conexión.
 

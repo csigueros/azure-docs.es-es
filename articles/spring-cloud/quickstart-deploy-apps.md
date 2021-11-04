@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 67984beeb3cff6dbb68d440f432684971fa930a7
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 3fa8c1cef251e9eef1e8e4256dfd654302714743
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130003087"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008776"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>Inicio rápido: Compilación e implementación de aplicaciones en Azure Spring Cloud
 
@@ -318,7 +318,7 @@ La creación del proyecto tarda aproximadamente de 5 a 10 minutos. Una vez compl
 
 ## <a name="verify-the-services"></a>Comprobación de los servicios
 
-Un comando de implementación correcto devolverá una dirección URL con el formato: `https://<service name>-spring-petclinic-api-gateway.azuremicroservices.io`. Úsela para ir al servicio en ejecución.
+Un comando de implementación correcto devuelve una dirección URL con el formato: `https://<service name>-spring-petclinic-api-gateway.azuremicroservices.io`. Úsela para ir al servicio en ejecución.
 
 ![Acceso a PetClinic](media/build-and-deploy/access-customers-service.png)
 

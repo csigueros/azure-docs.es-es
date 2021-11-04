@@ -2,14 +2,14 @@
 title: Seguimiento de objetos en un vídeo en directo con Azure Video Analyzer
 description: En este inicio rápido se muestra cómo usar el módulo perimetral de Azure Video Analyzer para realizar un seguimiento de los objetos de una fuente de vídeo en directo desde una cámara IP (simulada). Verá cómo aplicar un modelo de Computer Vision para detectar objetos en un subconjunto de los fotogramas de la fuente de vídeo en directo. Luego, puede usar un nodo de seguimiento de objetos para realizar el seguimiento de esos objetos en los demás fotogramas.
 ms.topic: quickstart
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: ceda70a3fa0ced3c64eed041ef65600c1cf37563
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ad6e963e28521f595a64e427230e4fd55e2f3d4b
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093781"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131564430"
 ---
 # <a name="quickstart-track-objects-in-a-live-video"></a>Inicio rápido: Seguimiento de objetos en un vídeo en directo
 

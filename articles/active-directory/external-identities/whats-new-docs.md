@@ -1,7 +1,7 @@
 ---
 title: Novedades en las identidades externas de Azure Active Directory
 description: Documentación nueva y actualizada sobre las identidades externas de Azure Active Directory.
-ms.date: 10/05/2021
+ms.date: 11/04/2021
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -9,16 +9,25 @@ ms.workload: identity
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.openlocfilehash: 3247f9e13e50a9fb7b4792be518af5b85767822a
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: cb90a1525f53c2a36a666ec5b37104eb4f48bae9
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129533637"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131579197"
 ---
 # <a name="azure-active-directory-external-identities-whats-new"></a>Identidades externas de Azure Active Directory: Novedades
 
 Estas son las novedades en la documentación de las identidades externas de Azure Active Directory. En este artículo se enumeran los documentos nuevos que se han agregado y los que han tenido actualizaciones importantes en los últimos tres meses. Para conocer las novedades del servicio de identidades externas, consulte [Novedades de Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="october-2021"></a>Octubre de 2021
+
+### <a name="updated-articles"></a>Artículos actualizados
+
+- [Autenticación con código de acceso de un solo uso por correo electrónico](one-time-passcode.md)
+- [Preguntas más frecuentes acerca de la colaboración B2B de Azure Active Directory](faq.yml)
+- [Restablecimiento del estado de canje para un usuario invitado (versión preliminar)](reset-redemption-status.md)
+- [Incorporación de Google como proveedor de identidades para los usuarios invitados de B2B](google-federation.md)
 
 ## <a name="september-2021"></a>Septiembre de 2021
 

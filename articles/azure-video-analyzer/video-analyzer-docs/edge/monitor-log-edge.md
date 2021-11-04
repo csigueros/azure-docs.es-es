@@ -2,14 +2,14 @@
 title: 'Supervisión y registro: Azure'
 description: En este artículo se proporciona información general sobre la supervisión y el registro de Azure Video Analyzer.
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 51dd5d593d2a4c35fb6c1b6ab17a82702fc31ec9
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 557f463b3cf2cbc46818f83d9cd41ddbfac38fb7
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093384"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131552779"
 ---
 # <a name="monitor-and-log-on-iot-edge"></a>Supervisión y registro en IoT Edge
 

@@ -11,17 +11,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 4d8a093e4008d747aee8bab48ed2db7dcd81fd2a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: ae50e0d9cee09cafe0b6a43cec1122832857b7fd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124826306"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058984"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-highgear"></a>Tutorial: Integración de Azure Active Directory con HighGear
 
-En este tutorial, aprenderá a integrar HighGear con Azure Active Directory (Azure AD).
-La integración de HighGear con Azure AD le proporciona las siguientes ventajas:
+En este tutorial, aprenderá a integrar HighGear con Azure Active Directory (Azure AD). La integración de HighGear con Azure AD le proporciona las siguientes ventajas:
 
 * Puede controlar en Azure AD quién tiene acceso a HighGear.
 * Puede permitir que los usuarios inicien sesión automáticamente en HighGear (inicio de sesión único) con sus cuentas de Azure AD.
@@ -101,29 +100,29 @@ Para configurar el inicio de sesión único de Azure AD con el sistema HighGear,
 
     ![Captura de pantalla que muestra la configuración básica de SAML, donde se puede escribir el identificador y la dirección U R L de respuesta y seleccionar Guardar.](common/idp-intiated.png)
 
-    a. En el cuadro de texto **Identifier** (Identificador), pegue el valor del campo **Service Provider Entity ID** (Id. de entidad de servicio de proveedor) que se encuentra en la página de configuración del inicio de sesión único en el sistema HighGear.
+    1. En el cuadro de texto **Identifier** (Identificador), pegue el valor del campo **Service Provider Entity ID** (Id. de entidad de servicio de proveedor) que se encuentra en la página de configuración del inicio de sesión único en el sistema HighGear.
 
-    ![Campo del identificador de entidad del proveedor de servicio](media/highgear-tutorial/service-provider-entity-id-field.png)
-    
-    > [!NOTE]
-    > Deberá iniciar sesión en el sistema HighGear para acceder a la página de configuración de inicio de sesión único. Cuando haya iniciado sesión, pase el cursor sobre la pestaña Administration (Administración) en HighGear y haga clic en el elemento de menú Single Sign-On Settings (Configuración del inicio de sesión único).
-    
-    ![Elemento de menú Single Sign-On Settings (Configuración del inicio de sesión único)](media/highgear-tutorial/single-sign-on-settings-menu-item.png)
+       ![Campo del identificador de entidad del proveedor de servicio](media/highgear-tutorial/service-provider-entity-id-field.png)
 
-    b. En el cuadro de texto **Reply URL** (Dirección URL de respuesta), pegue el valor de la **dirección URL del servicio de consumidor de aserciones (ACS)** de la página de configuración del inicio de sesión único del sistema HighGear.
+       > [!NOTE]
+       > Deberá iniciar sesión en el sistema HighGear para acceder a la página de configuración de inicio de sesión único. Cuando haya iniciado sesión, pase el cursor sobre la pestaña Administration (Administración) en HighGear y haga clic en el elemento de menú Single Sign-On Settings (Configuración del inicio de sesión único).
 
-    ![Campo de la dirección URL del servicio de consumidor de aserciones (ACS)](media/highgear-tutorial/assertion-consumer-service-url-field.png)
+       ![Elemento de menú Single Sign-On Settings (Configuración del inicio de sesión único)](media/highgear-tutorial/single-sign-on-settings-menu-item.png)
 
-    c. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
+    1. En el cuadro de texto **Reply URL** (Dirección URL de respuesta), pegue el valor de la **dirección URL del servicio de consumidor de aserciones (ACS)** de la página de configuración del inicio de sesión único del sistema HighGear.
 
-     ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/metadata-upload-additional-signon.png)
+       ![Campo de la dirección URL del servicio de consumidor de aserciones (ACS)](media/highgear-tutorial/assertion-consumer-service-url-field.png)
 
-     En el cuadro de texto **Sign-on URL** (URL de inicio de sesión), pegue el valor del campo **Service Provider Entity ID** (Id. de entidad de servicio de proveedor) que se encuentra en la página de configuración del inicio de sesión único en el sistema HighGear. (Este identificador de entidad también es la dirección URL base del sistema HighGear que se va a usar para el inicio de sesión iniciado por SP).
+    1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![Campo del identificador de entidad del proveedor de servicio](media/highgear-tutorial/service-provider-entity-id-field.png)
+       ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/metadata-upload-additional-signon.png)
 
-    > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con el identificador real, la dirección URL de respuesta y la dirección URL de inicio de sesión desde la página **Single Sign-On Settings** (Configuración del inicio de sesión único) del sistema HighGear. Si necesita ayuda, póngase en contacto con el [equipo de soporte técnico de HighGear](mailto:support@highgear.com).
+       En el cuadro de texto **Sign-on URL** (URL de inicio de sesión), pegue el valor del campo **Service Provider Entity ID** (Id. de entidad de servicio de proveedor) que se encuentra en la página de configuración del inicio de sesión único en el sistema HighGear. (Este identificador de entidad también es la dirección URL base del sistema HighGear que se va a usar para el inicio de sesión iniciado por SP).
+
+       ![Campo del identificador de entidad del proveedor de servicio](media/highgear-tutorial/service-provider-entity-id-field.png)
+
+       > [!NOTE]
+       > Estos valores no son reales. Actualice estos valores con el identificador real, la dirección URL de respuesta y la dirección URL de inicio de sesión desde la página **Single Sign-On Settings** (Configuración del inicio de sesión único) del sistema HighGear. Si necesita ayuda, póngase en contacto con el [equipo de soporte técnico de HighGear](mailto:support@highgear.com).
 
 4. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** y guárdelo en su equipo. Lo necesitará en un paso posterior de la configuración del inicio de sesión único.
 
@@ -133,11 +132,11 @@ Para configurar el inicio de sesión único de Azure AD con el sistema HighGear,
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-    a. URL de inicio de sesión. Necesitará este valor en el paso 2 en **Configuración del inicio de sesión único de HighGear** más abajo.
+    1. URL de inicio de sesión. Necesitará este valor en el paso 2 en **Configuración del inicio de sesión único de HighGear** más abajo.
 
-    b. Identificador de Azure AD. Necesitará este valor en el paso 3 en **Configuración del inicio de sesión único de HighGear** más abajo.
+    1. Identificador de Azure AD. Necesitará este valor en el paso 3 en **Configuración del inicio de sesión único de HighGear** más abajo.
 
-    c. URL de cierre de sesión. Necesitará este valor en el paso 4 en **Configuración del inicio de sesión único de HighGear** más abajo.
+    1. URL de cierre de sesión. Necesitará este valor en el paso 4 en **Configuración del inicio de sesión único de HighGear** más abajo.
 
 ### <a name="configure-highgear-single-sign-on"></a>Configuración del inicio de sesión único de HighGear
 
@@ -175,14 +174,13 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+    1. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
-    Por ejemplo: BrittaSimon@contoso.com
+    1. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**, (por ejemplo, BrittaSimon@contoso.com).
 
-    c. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro de contraseña.
+    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro de contraseña.
 
-    d. Haga clic en **Crear**.
+    1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 

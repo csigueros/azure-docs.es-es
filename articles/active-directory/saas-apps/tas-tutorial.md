@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/16/2021
 ms.author: jeedes
-ms.openlocfilehash: 2a7675f4a31971e37af192f84a997c5f2200e78c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 434bf617f675d879545b8b4fadd6a0743cf6b704
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124760733"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131007189"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tas"></a>Tutorial: Integración de Azure Active Directory con TAS
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar TAS con Azure Active Directory (Azure A
 * Permitir que los usuarios inicien sesión automáticamente en TAS con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -57,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con TAS mediante un 
 Para configurar y probar el inicio de sesión único de Azure AD con TAS, lleve a cabo los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en TAS](#configure-tas-sso)** : para configurar el inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba en TAS](#create-tas-test-user)** : para tener un homólogo de B.Simon en TAS que esté vinculado a su representación en Azure AD.
@@ -143,9 +143,9 @@ En esta sección, va a permitir que B.Simon acceda a TAS mediante el inicio de s
     >[!NOTE]
     > Póngase en contacto con el [equipo de soporte técnico de TAS](mailto:support@combtas.com) para obtener la dirección IP.
 
-    f. Copie la dirección URL de **Single Sign On** (Inicio de sesión único) y péguela en el **identificador (Entity ID)** (ID de entidad) y en el cuadro de texto **Sign on URL** (Dirección URL de inicio de sesión) de **Configuración básica de SAML** en Azure Portal. Tenga en cuenta que la dirección URL distingue mayúsculas de minúsculas y debe terminar con una barra diagonal (/).
+    f. Copie la dirección URL de **Inicio de sesión único** y péguela en el cuadro de texto **Identificador (identificador de entidad)** y **URL de inicio de sesión** de **Configuración básica de SAML** en Azure Portal. Tenga en cuenta que la dirección URL distingue mayúsculas de minúsculas y debe terminar con una barra diagonal (/).
 
-    g. Copie el valor de **Reply URL (ACS)** (Dirección URL de respuesta [ACS]) y péguelo en el cuadro de texto **URL de respuesta** de **Basic SAML Configuration** (Configuración básica de SAML) de Azure Portal.
+    g. Copie la dirección URL del **Servicio de aserciones** de la página de configuración y péguela en el cuadro de texto **URL de respuesta** de **Configuración básica de SAML** en Azure Portal.
 
     h. Haga clic en **Insert SSO row** (Insertar fila de SSO).
 

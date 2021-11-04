@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: how-to
 author: wenxwei
 ms.author: wenxwei
-ms.date: 05/25/2021
+ms.date: 10/21/2021
 ms.reviewer: peterlu
 ms.custom: devplatv2
-ms.openlocfilehash: 89fb2c08aa76b88110bb5832f297d08d5891dda4
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f411d33baea7863b9139069f1eefd1282cf7b730
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114448328"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131562093"
 ---
 # <a name="train-models-with-rest-preview"></a>Entrenamiento de modelos con REST (versión preliminar)
 
@@ -92,7 +92,7 @@ El ejemplo de LightGBM debe ejecutarse en un entorno de LightGBM. Cree el entorn
 
 La imagen de Docker se puede configurar con `Docker` y agregar dependencias de Conda con `condaFile`: 
 
-:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_environment":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/train-rest.sh" id="create_environment":::
 
 ### <a name="datastore"></a>Almacén de datos
 
@@ -114,7 +114,7 @@ AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_A
 
 Ahora que tiene el almacén de datos, puede crear un conjunto de datos. En este ejemplo, use el conjunto de datos `iris.csv` común y apunte a él en `path`. 
 
-:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_data":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/train-rest.sh" id="create_data":::
 
 ### <a name="code"></a>Código
 
@@ -128,7 +128,7 @@ az storage blob upload-batch -d $AZUREML_DEFAULT_CONTAINER/src \
 
 Una vez que cargue el código, puede especificarlo con una solicitud PUT y hacer referencia al almacén de datos con `datastoreId`. 
 
-:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_code":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/train-rest.sh" id="create_code":::
 
 ## <a name="submit-a-training-job"></a>Envío de un trabajo de entrenamiento
 
@@ -145,7 +145,7 @@ Ahora que los recursos están colocados, puede ejecutar el trabajo LightGBM, que
 
 Use los siguientes comandos para enviar el trabajo de entrenamiento:
 
-:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_job":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/train-rest.sh" id="create_job":::
 
 ## <a name="submit-a-hyperparameter-sweep-job"></a>Envío de un trabajo de barrido de hiperparámetros
 
@@ -162,7 +162,7 @@ Azure Machine Learning también permite ajustar eficazmente hiperparámetros de 
 
 Para crear un trabajo de barrido con el mismo ejemplo de LightGBM, use los siguientes comandos: 
 
-:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_a_sweep_job":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/train-rest.sh" id="create_a_sweep_job":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

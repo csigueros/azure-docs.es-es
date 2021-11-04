@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/03/2020
 ms.author: thwimmer
-ms.openlocfilehash: 29daa8d65fceec441a197e6240fcf0c40f108f36
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: e2efc7199d363533bcaadfbeaeb68734e328cb02
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323831"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060295"
 ---
 # <a name="tutorial-configure-gtmhub-for-automatic-user-provisioning"></a>Tutorial: Configuración de Gtmhub para el aprovisionamiento automático de usuarios
 
@@ -67,7 +67,7 @@ Para asociar la aplicación de aprovisionamiento a la cuenta de Gtmhub, debe emi
 
 ### <a name="to-compile-the-tenant-url"></a>Para compilar la dirección URL del inquilino:
 
-1. La URL del inquilino debe tener el formato siguiente:
+1. La dirección URL del inquilino debe tener el formato siguiente:
 
     `https://app.gtmhub.com/api/v1/scim/azure/{account_id}`
 

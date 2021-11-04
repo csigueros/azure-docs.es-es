@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: thwimmer
-ms.openlocfilehash: f82c46c6853f33e2137cd54c03b2bfa1df9dca8a
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 2dc6d75a816ab40eb66dad46307c5f24bb2685b7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113760248"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060181"
 ---
 # <a name="tutorial-configure-opentext-directory-services-for-automatic-user-provisioning"></a>Tutorial: Configuración de OpenText Directory Services para el aprovisionamiento automático de usuarios
 
@@ -122,8 +122,8 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
     ![Pestaña de aprovisionamiento automático](common/provisioning-automatic.png)
 
 5. En la sección **Credenciales de administrador**, escriba la URL de inquilino de OpenText Directory Services.
-   * URL de inquilino no específico: {URL de OTDS}/scim/{nombreDePartición}
-   * URL de inquilino específica: {URL de OTDS}/otdstenant/{idDeInquilino}/scim/{nombreDePartición}
+   * URL de inquilino no específica: {OTDS URL}/scim/{partitionName}
+   * URL de inquilino específica: {OTDS URL}/otdstenant/{tenantID}/scim/{partitionName}
 
 6. Escriba el token secreto recuperado del paso 2. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a OpenText Directory Services. Si la conexión no se establece, asegúrese de que la cuenta de OpenText Directory Services tenga permisos de administrador y pruebe de nuevo.
 

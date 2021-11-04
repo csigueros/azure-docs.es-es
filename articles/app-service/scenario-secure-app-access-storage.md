@@ -11,12 +11,12 @@ ms.date: 06/16/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps
-ms.openlocfilehash: b6d04053d4b63552c2329a675c2557e6f1cd8fee
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: be170a07340fdea84b9b4af03bd329fcdf91483d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114290019"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131065558"
 ---
 # <a name="tutorial-access-azure-storage-from-a-web-app"></a>Tutorial: Acceso a Azure Storage desde una aplicación web
 
@@ -301,4 +301,10 @@ En este tutorial ha aprendido a:
 > * Acceder a Storage desde una aplicación web mediante identidades administradas.
 
 > [!div class="nextstepaction"]
+> [Tutorial: Aislamiento de la comunicación de back-end con la integración de red virtual](tutorial-networking-isolate-vnet.md)
+
+> [!div class="nextstepaction"]
 > [Accesos de App Service a Microsoft Graph en nombre del usuario](scenario-secure-app-access-microsoft-graph-as-user.md)
+
+> [!div class="nextstepaction"]
+> [Asignación de un nombre DNS personalizado existente a Azure App Service](app-service-web-tutorial-custom-domain.md)

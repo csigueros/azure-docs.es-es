@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 82152756b5caf5bfbe0301a14185d8ffed1d1afe
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4b61faba9abd2f4c1af5db559dd28fa5a8e7c013
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121727998"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131555255"
 ---
 # <a name="get-logs-to-troubleshoot-azure-arc-enabled-data-services"></a>Obtención de registros para solucionar problemas de los servicios de datos habilitados para Azure Arc
 
@@ -33,13 +33,13 @@ Puede obtener los registros de los servicios de todos los pods o de pods especí
 A continuación, ejecute el comando siguiente para hacer un volcado de los registros:
 
    ```azurecli
-   az arcdata dc debug copy-logs --exclude-dumps --skip-compress
+   az arcdata dc debug copy-logs --exclude-dumps --skip-compress --use-k8s
    ```
 
    Por ejemplo:
 
    ```azurecli
-   #az arcdata dc debug copy-logs --exclude-dumps --skip-compress
+   #az arcdata dc debug copy-logs --exclude-dumps --skip-compress --use-k8s
    ```
 
 El controlador de datos crea los archivos de registro en el directorio de trabajo actual en un subdirectorio denominado `logs`. 
@@ -186,4 +186,3 @@ La siguiente jerarquía de carpetas es un ejemplo. Está organizada por nombre d
             ├───journal
             └───openvpn
 ```
-

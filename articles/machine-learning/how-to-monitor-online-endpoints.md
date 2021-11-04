@@ -5,15 +5,15 @@ description: Supervise los puntos de conexión en línea administrados y cree al
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.date: 05/03/2021
+ms.date: 10/21/2021
 ms.topic: conceptual
 ms.custom: how-to, devplatv2
-ms.openlocfilehash: 44cfdcdd5d40aaac2eb97b9a3268a9b376f71560
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: ecde110225ef42ace6b19e54930ee9f4152acec6
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129425380"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131558637"
 ---
 # <a name="monitor-managed-online-endpoints-preview"></a>Supervisión de puntos de conexión en línea administrados (versión preliminar)
 

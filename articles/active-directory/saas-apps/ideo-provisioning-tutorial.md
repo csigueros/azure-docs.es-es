@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: thwimmer
-ms.openlocfilehash: 87c00971c9205df6e9740a1614480fa7a9faa764
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 41d0e9cb85e79f30c1633d86441e4759abd5f208
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113767000"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060276"
 ---
 # <a name="tutorial-configure-ideo-for-automatic-user-provisioning"></a>Tutorial: Configuración de IDEO para el aprovisionamiento automático de usuarios
 
@@ -41,7 +41,7 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 * [Un inquilino de Azure AD](../develop/quickstart-create-new-tenant.md).
 * Una cuenta de usuario en Azure AD con [permiso](../roles/permissions-reference.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global).
 * [Un inquilino de IDEO](https://www.shape.space/product/pricing)
-* Una cuenta de usuario en IDEO | Shape con permisos de administrador.
+* Una cuenta de usuario en IDEO | Forma con permisos de administrador.
 
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Paso 1. Planeación de la implementación de aprovisionamiento

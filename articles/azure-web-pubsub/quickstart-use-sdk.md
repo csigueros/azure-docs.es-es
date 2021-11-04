@@ -5,13 +5,13 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: quickstart
-ms.date: 08/06/2021
-ms.openlocfilehash: 42bcaa9697733662b3a5b890461b917fc466c492
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.date: 11/01/2021
+ms.openlocfilehash: 39a451b241952d40467e75f5a463baa3b76ab2b9
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122445179"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131576479"
 ---
 # <a name="quickstart-publish-messages-using-the-service-sdk-for-the-azure-web-pubsub-instance"></a>Inicio rápido: Publicación de mensajes mediante el SDK de servicio para la instancia de Azure Web PubSub
 
@@ -53,7 +53,7 @@ Ahora, vamos a usar el SDK de Azure Web PubSub para publicar un mensaje para el 
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-* [Node.js 12.x o una versión posterior](https://nodejs.org)
+* [Node.js 12.x, o cualquier versión superior](https://nodejs.org)
 
 # <a name="python"></a>[Python](#tab/python)
 * [Python](https://www.python.org/)
@@ -74,7 +74,7 @@ Ahora, vamos a usar el SDK de Azure Web PubSub para publicar un mensaje para el 
     mkdir publisher
     cd publisher
     dotnet new console
-    dotnet add package Azure.Messaging.WebPubSub --prerelease
+    dotnet add package Azure.Messaging.WebPubSub --version 1.0.0-beta.3
     ```
 
 2. Actualice el archivo `Program.cs` para usar la clase `WebPubSubServiceClient` y enviar mensajes a los clientes.
@@ -130,23 +130,22 @@ Ahora, vamos a usar el SDK de Azure Web PubSub para publicar un mensaje para el 
     mkdir publisher
     cd publisher
     npm init -y
-    npm install --save @azure/web-pubsub
-
+    npm install --save @azure/web-pubsub@1.0.0-alpha.20211102.4
     ```
+
 2. Ahora vamos a usar el SDK de Azure Web PubSub para publicar un mensaje para el servicio. Cree un archivo `publish.js` con el código siguiente:
 
     ```javascript
     const { WebPubSubServiceClient } = require('@azure/web-pubsub');
 
-    if (process.argv.length !== 5) {
-    console.log('Usage: node publish <connection-string> <hub-name> <message>');
-    return 1;
+    if (process.argv.length !== 3) {
+      console.log('Usage: node publish <message>');
+      return 1;
     }
-
-    let serviceClient = new WebPubSubServiceClient(process.argv[2], process.argv[3]);
-
+    const hub = "pubsub";
+    let serviceClient = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hub);
     // by default it uses `application/json`, specify contentType as `text/plain` if you want plain-text
-    serviceClient.sendToAll(process.argv[4], { contentType: "text/plain" });
+    serviceClient.sendToAll(process.argv[2], { contentType: "text/plain" });
     ```
 
     La llamada `sendToAll()` simplemente envía un mensaje a todos los clientes conectados en un centro.
@@ -154,7 +153,8 @@ Ahora, vamos a usar el SDK de Azure Web PubSub para publicar un mensaje para el 
 3. Ejecute el siguiente comando y reemplace `<connection_string>` por el elemento **ConnectionString** capturado en el [paso anterior](#get-the-connectionstring-for-future-use):
 
     ```bash
-    node publish "<connection_string>" "myHub1" "Hello World"
+    export WebPubSubConnectionString="<connection-string>"
+    node publish "Hello World"
     ```
 
 4. Puede ver que el cliente anterior de la CLI recibió el mensaje.
@@ -178,7 +178,7 @@ Ahora, vamos a usar el SDK de Azure Web PubSub para publicar un mensaje para el 
 
         # Or call .\env\Scripts\activate when you are using CMD
 
-        pip install azure-messaging-webpubsubservice
+        pip install azure-messaging-webpubsubservice==1.0.0b1
 
         ```
 2. Ahora vamos a usar el SDK de Azure Web PubSub para publicar un mensaje para el servicio. Cree un archivo `publish.py` con el código siguiente:
@@ -298,6 +298,6 @@ Ahora, vamos a usar el SDK de Azure Web PubSub para publicar un mensaje para el 
 
 En este inicio rápido, se proporciona una idea básica de cómo conectarse al servicio Web PubSub y cómo publicar mensajes en los clientes conectados.
 
-En las aplicaciones del mundo real, puede usar los SDK en varios lenguajes para compilar su propia aplicación. También proporcionamos extensiones de función para que pueda compilar aplicaciones sin servidor fácilmente.
+En las aplicaciones del mundo real, puede usar SDK en varios lenguajes para crear su propia aplicación. También proporcionamos extensiones de función para que pueda crear aplicaciones sin servidor fácilmente.
 
 [!INCLUDE [next step](includes/include-next-step.md)]

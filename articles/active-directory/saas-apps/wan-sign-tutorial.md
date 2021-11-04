@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con WAN-Sign | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD con WAN-Sign'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y WAN-Sign.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/09/2021
+ms.date: 10/21/2021
 ms.author: jeedes
-ms.openlocfilehash: b7df43c394d3df20f4d423fde6cf680432c80337
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 82438827cc09b4f0fc40f71a514a21884f732c33
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124731489"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067018"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wan-sign"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con WAN-Sign
+# <a name="tutorial-azure-ad-sso-integration-with-wan-sign"></a>Tutorial: Integración del inicio de sesión único de Azure AD con WAN-Sign
 
 En este tutorial, aprenderá a integrar WAN-Sign con Azure Active Directory (Azure AD). Al integrar WAN-Sign con Azure AD, puede hacer lo siguiente:
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar WAN-Sign con Azure Active Directory (Azu
 * Permitir que los usuarios inicien sesión automáticamente en WAN-Sign con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -37,10 +37,9 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
+* WAN-Sign admite el inicio de sesión único iniciado por **SP** e **IDP**.
 
-* WAN-Sign admite el inicio de sesión único iniciado por **IDP**.
-
-## <a name="adding-wan-sign-from-the-gallery"></a>Incorporación de WAN-Sign desde la galería
+## <a name="add-wan-sign-from-the-gallery"></a>Incorporación de WAN-Sign desde la galería
 
 Para configurar la integración de WAN-Sign en Azure AD, será preciso que agregue WAN-Sign desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -51,7 +50,6 @@ Para configurar la integración de WAN-Sign en Azure AD, será preciso que agre
 1. En la sección **Agregar desde la galería**, escriba **WAN-Sign** en el cuadro de búsqueda.
 1. Seleccione **WAN-Sign** en el panel de resultados y, a continuación, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-
 ## <a name="configure-and-test-azure-ad-sso-for-wan-sign"></a>Configuración y prueba del inicio de sesión único de Azure AD para WAN-Sign
 
 Configure y pruebe el inicio de sesión único de Azure AD con WAN-Sign mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario correspondiente de WAN-Sign.
@@ -59,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con WAN-Sign mediant
 Para configurar y probar el inicio de sesión único de Azure AD con WAN-Sign, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en WAN-Sign](#configure-wan-sign-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de WAN-Sign](#create-wan-sign-test-user)** : para tener un homólogo de B.Simon en WAN-Sign que esté vinculado a la representación del usuario en Azure AD.
@@ -75,14 +73,18 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la página **Configurar el inicio de sesión único con SAML**, escriba los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://service10.wanbishi.ne.jp/saml/metadata/azuread/<CUSTOMER_ID>`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://service10.wanbishi.ne.jp/saml/metadata/azuread/<CustomerID>`
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://service10.wanbishi.ne.jp/saml/azuread/<CUSTOMER_ID>`
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://service10.wanbishi.ne.jp/saml/azuread/<CustomerID>`
+
+1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por SP:
+
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://service10.wanbishi.ne.jp/saml/login/azuread/<CustomerID>`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el [equipo de soporte al cliente de WAN-Sign](mailto:wansign-help@wanbishi.ne.jp) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con el identificador y las direcciones URL de inicio de sesión y de respuesta reales. Póngase en contacto con el [equipo de soporte al cliente de WAN-Sign](mailto:wansign-help@wanbishi.ne.jp) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
@@ -126,12 +128,19 @@ En esta sección, creará un usuario llamado Britta Simon en WAN-Sign. Trabaje c
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-* Haga clic en Probar esta aplicación en Azure Portal; se debería iniciar sesión automáticamente en la instancia de WAN-Sign para la que ha configurado el inicio de sesión único.
+#### <a name="sp-initiated"></a>Iniciado por SP:
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de WAN-Sign en Aplicaciones; se debería iniciar sesión automáticamente en la instancia de WAN-Sign para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esto le redirige a la dirección URL de inicio de sesión de WAN-Sign, donde puede iniciar el flujo de inicio de sesión.  
 
+* Vaya directamente a la dirección URL de inicio de sesión de WAN-Sign e inicie el flujo de inicio de sesión desde allí.
+
+#### <a name="idp-initiated"></a>Iniciado por IDP:
+
+* Haga clic en **Probar esta aplicación** en Azure Portal; se debería iniciar sesión automáticamente en la instancia de WAN-Sign en la que ha configurado el inicio de sesión único. 
+
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de WAN-Sign en Aplicaciones, si ha configurado en modo SP, se le redirige a la página de inicio de sesión de la aplicación para iniciar el flujo de inicio de sesión. Si ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de WAN-Sign en la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

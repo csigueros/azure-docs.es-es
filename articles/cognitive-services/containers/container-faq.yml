@@ -1,8 +1,8 @@
 ### YamlMime:FAQ
 metadata:
-  title: Preguntas frecuentes sobre los contenedores de Cognitive Services
+  title: Preguntas frecuentes acerca de los contenedores de Cognitive Services
   titleSuffix: Azure Cognitive Services
-  description: Preguntas frecuentes y respuestas.
+  description: Obtenga respuestas a preguntas frecuentes.
   services: cognitive-services
   author: aahill
   manager: nitinme
@@ -10,106 +10,109 @@ metadata:
   ms.topic: conceptual
   ms.date: 07/21/2021
   ms.author: aahi
-  ms.openlocfilehash: ae166866e7a7c7005bf57f34ffadccc692d8c72f
-  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+  ms.openlocfilehash: 3fe301fcbd933e126a7aa60d777fbfe5c706a469
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/13/2021
-  ms.locfileid: "124806611"
-title: Preguntas frecuentes acerca de los contenedores de Azure Cognitive Services
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131011681"
+title: Preguntas frecuentes sobre contenedores de Azure Cognitive Services
 summary: ''
 sections:
 - name: Preguntas generales
   questions:
   - question: ¿Qué hay disponible?
     answer: >
-      Los contenedores de Azure Cognitive Services permiten a los desarrolladores usar las mismas API inteligentes que están disponibles en Azure, pero con las [ventajas](../cognitive-services-container-support.md#features-and-benefits) que aportan los contenedores. Algunos contenedores están disponibles como versión preliminar validada, lo que puede exigir una aplicación para acceder. Otros contenedores están disponibles públicamente como versión preliminar no validada o están disponibles con carácter general. Puede encontrar una lista completa de contenedores y su disponibilidad en el artículo [Compatibilidad con contenedores en Azure Cognitive Services](../cognitive-services-container-support.md). También puede ver los contenedores en [Docker Hub](https://hub.docker.com/_/microsoft-azure-cognitive-services).
+      Los contenedores de Azure Cognitive Services permiten a los desarrolladores usar las mismas API inteligentes que están disponibles en Azure, pero con las [ventajas](../cognitive-services-container-support.md#features-and-benefits) que aportan los contenedores. Algunos contenedores están disponibles como versión preliminar validada, lo que podría exigir una aplicación para acceder. Otros contenedores están disponibles públicamente como versión preliminar no validada o están disponibles con carácter general. Puede encontrar una lista completa de contenedores y su disponibilidad en el artículo [Compatibilidad con contenedores en Azure Cognitive Services](../cognitive-services-container-support.md). También puede ver los contenedores en [Docker Hub](https://hub.docker.com/_/microsoft-azure-cognitive-services).
   - question: ¿Hay alguna diferencia entre la nube de Cognitive Services y los contenedores?
     answer: >
-      Los contenedores de Cognitive Services son una alternativa a la nube de Cognitive Services. Los contenedores ofrecen las mismas funcionalidades que los servicios en la nube correspondientes. Los clientes pueden implementar los contenedores en un entorno local o en Azure. La tecnología básica de inteligencia artificial, los planes de tarifa, las claves de API y la firma de API son los mismos entre los servicios locales y sus homólogos en la nube. Las siguientes son las [características y ventajas](../cognitive-services-container-support.md#features-and-benefits) de elegir contenedores en lugar de sus equivalentes de servicio en la nube.
+      Los contenedores de Cognitive Services son una alternativa a la nube de Cognitive Services. Los contenedores ofrecen las mismas funcionalidades que los servicios en la nube correspondientes. Los clientes pueden implementar los contenedores en un entorno local o en Azure. La tecnología básica de inteligencia artificial, los planes de tarifa, las claves de API y la firma de API son los mismos entre los servicios locales y sus homólogos en la nube. Hay [características y ventajas](../cognitive-services-container-support.md#features-and-benefits) por elegir contenedores en lugar de sus equivalentes de un servicio en la nube.
   - question: ¿Cómo accedo y uso un contenedor en versión preliminar validada?
     answer: >
-      Anteriormente, los contenedores de versión preliminar validados se hospedaban en el repositorio de `containerpreview.azurecr.io`. A partir del 22 de septiembre de 2020, estos contenedores se hospedan en Microsoft Container Registry y su descarga no requiere el uso del comando docker login. Podrá ejecutar un contenedor en versión preliminar validada si el recurso de Azure se creó con el identificador de la suscripción de Azure aprobada. No podrá ejecutar el contenedor si la suscripción de Azure no se ha aprobado después de completar el [formulario de solicitud](https://aka.ms/csgate).
-  - question: ¿Los contenedores estarán disponibles para todos los servicios de Cognitive Services y cuál es el siguiente conjunto de contenedores que podría estar disponible?
+      Anteriormente, los contenedores de versión preliminar validados se hospedaban en el repositorio de `containerpreview.azurecr.io`. A partir del 22 de septiembre de 2020, estos contenedores se hospedan en Microsoft Container Registry. Para su descarga no requiere el comando `docker login`. Podrá ejecutar un contenedor en versión preliminar validada si el recurso de Azure se creó con el identificador de la suscripción de Azure aprobada. No va a poder ejecutar el contenedor si la suscripción de Azure no se ha aprobado después de completar el [formulario de solicitud](https://aka.ms/csgate).
+  - question: ¿Los contenedores van a estar disponibles para todas las ofertas de Cognitive Services, y cuál es el siguiente conjunto de contenedores que podría estar disponible?
     answer: >
-      Nos gustaría ofrecer más servicios de Cognitive Services como ofertas de contenedores. Póngase en contacto con el administrador de la cuenta de Microsoft local para obtener actualizaciones de nuevas versiones de contenedor y otros anuncios de Cognitive Services.
-  - question: ¿Cuál será el Acuerdo de Nivel de Servicio (SLA) para contenedores de Cognitive Services?
+      Nos gustaría ofrecer más ofertas de Cognitive Services como contenedores. Póngase en contacto con el administrador de la cuenta de Microsoft local para obtener actualizaciones sobre nuevas versiones de contenedores y otros anuncios de Cognitive Services.
+  - question: ¿Cuál va a ser el Acuerdo de Nivel de Servicio (SLA) de los contenedores de Cognitive Services?
     answer: >
-      Los contenedores de Cognitive Services no tienen un Acuerdo de Nivel de Servicio.
+      Los contenedores de Cognitive Services no tienen SLA.
 
 
-      Los clientes controlan las configuraciones de contenedores de Cognitive Services para los recursos, por lo que Microsoft no ofrecerá un Acuerdo de Nivel de Servicio para disponibilidad general (GA). Los clientes pueden implementar contenedores en el entorno local y, de este modo, definen los entornos de host.
+      Los clientes controlan las configuraciones de recursos de los contenedores de Cognitive Services, por lo que Microsoft no va a ofrecer ningún SLA de disponibilidad general (GA). Los clientes pueden implementar contenedores en el entorno local y definir los entornos de host.
 
 
       > [!IMPORTANT]
 
-      > Para más información sobre los Acuerdos de Nivel de Servicio de Cognitive Services, [visite nuestra página de SLA](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).
+      > Para obtener más información sobre los Acuerdos de Nivel de Servicio de Cognitive Services, [visite la página de SLA](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).
   - question: ¿Estos contenedores están disponibles en nubes soberanas?
     answer: >
-      No todo el mundo está familiarizado con el término "nube soberana", por tanto, empecemos por definirlo:
+      No todo el mundo está familiarizado con el término *nube soberana*, así que vamos a definirlo:
 
 
-      > La "nube soberana" consta de las nubes [Azure Government](../../azure-government/documentation-government-welcome.md), [Azure Alemania](../../germany/germany-welcome.md) y [Azure China 21Vianet](/azure/china/overview-operations).
+      > La nube soberana consta de las nubes [Azure Government](../../azure-government/documentation-government-welcome.md), [Azure Alemania](../../germany/germany-welcome.md) y [Azure China 21Vianet](/azure/china/overview-operations).
 
 
-      Desafortunadamente, los contenedores de Cognitive Services *no* se admiten de forma nativa en las nubes soberanas. Los contenedores se pueden ejecutar en estas nubes, pero se extraerán de la nube pública y tendrán que enviar datos de uso al punto de conexión público.
+      Desafortunadamente, los contenedores de Cognitive Services *no* se admiten de forma nativa en las nubes soberanas. Los contenedores se pueden ejecutar en estas nubes, pero se extraen de la nube pública y tienen que enviar datos de uso al punto de conexión público.
 - name: Control de versiones
   questions:
   - question: ¿Cómo se actualizan los contenedores a la versión más reciente?
     answer: >
-      Los clientes pueden elegir cuándo actualizar los contenedores que han implementado. Los contenedores se marcarán con las [etiquetas de Docker](https://docs.docker.com/engine/reference/commandline/tag/) estándar, como `latest` para indicar la versión más reciente. Animamos a los clientes a que extraigan la versión más reciente de los contenedores a medida que se publiquen y comprueben los [webhooks de Azure Container Registry](../../container-registry/container-registry-webhook.md) para más información sobre cómo recibir notificaciones cuando se actualiza una imagen.
+      Los clientes pueden elegir cuándo actualizar los contenedores que han implementado. Los contenedores se marcarán con las [etiquetas de Docker](https://docs.docker.com/engine/reference/commandline/tag/) estándar, como `latest` para indicar la versión más reciente. Se recomienda a los clientes extraer las versiones más recientes de los contenedores cuando se publican. Para obtener detalles sobre cómo recibir notificaciones cuando se actualiza una imagen, vea [Webhooks de Azure Container Registry](../../container-registry/container-registry-webhook.md).
   - question: ¿Qué versiones se admitirán?
     answer: >
       Se admitirá la versión actual y la versión principal más reciente del contenedor. Sin embargo, animamos a los clientes a mantenerse al día para conseguir la tecnología más moderna.
   - question: ¿Cómo se controlan las actualizaciones de versiones?
     answer: >
-      Los cambios de versión principales indican que hay un cambio importante en la firma de la API. Se prevé que esto normalmente coincida con cambios de la versión principal en la oferta de nube de Cognitive Services correspondiente. Los cambios de versión secundaria indican correcciones de errores, actualizaciones de modelos o nuevas características que no suponen un cambio importante en la firma de la API.
+      Los cambios de versión principal indican que hay un cambio importante en la firma de la API. Se prevé que esto normalmente coincida con cambios de versión principal en la oferta de nube de Cognitive Services correspondiente. Los cambios de versión secundaria indican correcciones de errores, actualizaciones de modelos o nuevas características que no suponen un cambio importante en la firma de la API.
 - name: Preguntas técnicas
   questions:
+  - question: ¿Cómo puedo diagnosticar posibles errores en mi entorno de implementación?
+    answer: >
+      [!INCLUDE [Containers next steps](includes/diagnostics-container.md)]
   - question: ¿Cómo debo ejecutar los contenedores de Cognitive Services en dispositivos IoT?
     answer: >
-      Tanto si no dispone de una conexión a Internet confiable o desea ahorrar en el ancho de banda, como si tiene requisitos de latencia baja o está tratando con datos confidenciales que se deban analizar en el sitio, [Azure IoT Edge con los contenedores Cognitive Services](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) le proporciona coherencia con la nube.
+      Si no tiene una conexión de Internet confiable, quiere ahorrar en costos de ancho de banda, tiene requisitos de baja latencia o está tratando con datos confidenciales que deben analizarse en el sitio, [Azure IoT Edge con contenedores de Cognitive Services](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) le proporciona coherencia con la nube.
   - question: ¿Son compatibles estos contenedores con OpenShift?
     answer: >
-      No se prueban los contenedores con OpenShift, pero, por lo general, los contenedores de Cognitive Services se ejecutarán en cualquier plataforma que admita imágenes de Docker. Si usa OpenShift, se recomienda ejecutar los contenedores como `root-user`.
+      Los contenedores no se prueban con OpenShift, pero normalmente los contenedores de Cognitive Services deberían ejecutarse en cualquier plataforma que admita imágenes de Docker. Si usa OpenShift, se recomienda ejecutar los contenedores como `root-user`.
   - question: ¿Cómo proporcionar comentarios sobre el producto y recomendaciones de características?
     answer: >
-      Se anima a los clientes a que [expongan sus preocupaciones](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395737) públicamente y a que voten a otros usuarios que hayan hecho lo mismo siempre que los posibles problemas se solapen. La herramienta de comentarios se puede usar tanto para los comentarios de los productos como para las recomendaciones de características.
+      Se anima a los clientes a que [expongan sus preocupaciones](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858) públicamente y a que voten a otros usuarios que hayan hecho lo mismo siempre que los posibles problemas se solapen. La herramienta de comentarios se puede usar tanto para los comentarios de los productos como para las recomendaciones de características.
   - question: ¿Qué errores y mensajes de estado devuelven los contenedores de Cognitive Services?
     answer: >
-      Consulte la tabla siguiente para ver una lista de errores y mensajes de estado.
+      Estos son los errores y mensajes de estado:
 
 
-      |Status  | Descripción  |
+      |Estado  | Descripción  |
 
       |---------|---------|
 
-      | `Valid` | La clave de API es válida, no se necesita ninguna acción. |
+      | `Valid` | La clave de API es válida. No se requiere ninguna acción. |
 
-      | `Invalid` |   La clave de API no es válida. Debe proporcionar una clave de API válida para ejecutar el contenedor. Busque la clave de API y la región del servicio en la sección **Claves y punto de conexión** para el recurso de Azure Cognitive Services en Azure Portal. |
+      | `Invalid` |   La clave de API no es válida. Debe proporcionar una clave de API válida para ejecutar el contenedor. Busque la clave de API y la región del servicio en Azure Portal, en la sección **Claves y punto de conexión** del recurso de Cognitive Services. |
 
-      | `Mismatch` | Proporcionó una clave de API o un punto de conexión para un tipo de recurso de Cognitive Services distinto. Busque la clave de API y la región del servicio en la sección **Claves y punto de conexión** para el recurso de Azure Cognitive Services. |
+      | `Mismatch` | Ha proporcionado una clave de API o un punto de conexión de otro tipo de recurso de Cognitive Services. Busque la clave de API y la región del servicio en Azure Portal, en la sección **Claves y punto de conexión** del recurso de Cognitive Services. |
 
-      | `CouldNotConnect` | El contenedor no se pudo conectar al punto de conexión de facturación. Revise el valor `Retry-After` y espere que este período finalice antes de realizar solicitudes adicionales. |
+      | `CouldNotConnect` | El contenedor no se pudo conectar al punto de conexión de facturación. Revise el valor `Retry-After` y espere a que este período finalice para realizar más solicitudes. |
 
-      | `OutOfQuota` | La clave de API superó la cuota. Puede actualizar el plan de tarifa o esperar a que haya una cuota adicional disponible. Busque el nivel en la sección **Plan de tarifa** del recurso de Azure Cognitive Services en Azure Portal. |
+      | `OutOfQuota` | La clave de API ha superado la cuota. Puede actualizar el plan de tarifa o esperar a que haya cuota adicional disponible. Busque el plan en Azure Portal, en la sección **Plan de tarifa** del recurso de Cognitive Services. |
 
-      | `BillingEndpointBusy` | Actualmente, el punto de conexión de facturación está ocupado. Revise el valor `Retry-After` y espere que este período finalice antes de realizar solicitudes adicionales. |
+      | `BillingEndpointBusy` | Actualmente, el punto de conexión de facturación está ocupado. Revise el valor `Retry-After` y espere a que este período finalice para realizar más solicitudes. |
 
-      | `ContainerUseUnauthorized` | La clave de API proporcionada no está autorizada para su uso con este contenedor. Lo más probable es que use un contenedor validado, por lo que debe enviar una [solicitud en línea](https://aka.ms/csgate) para asegurarse de que el id. de la suscripción de Azure esté aprobada. |
+      | `ContainerUseUnauthorized` | La clave de API proporcionada no está autorizada para su uso con este contenedor. Lo más probable es que esté usando un contenedor validado, así que asegúrese de que el identificador de la suscripción de Azure se ha aprobado; para ello envíe una [solicitud en línea](https://aka.ms/csgate). |
 
       | `Unknown` | Actualmente, el servidor no puede procesar las solicitudes de facturación. |
-  - question: ¿Con quién debo ponerme en contacto para obtener soporte técnico?
+  - question: ¿Cómo obtengo soporte técnico?
     answer: >
-      Los canales de asistencia al cliente son los mismos que en las API basadas en la nube de Cognitive Services. Todos los contenedores de Cognitive Services incluyen características de registro que nos ayudarán a nosotros y a la comunidad a proporcionar soporte técnico a los clientes. Para obtener soporte técnico adicional, consulte las siguientes opciones.
+      Los canales de soporte técnico al cliente son los mismos que en las API basadas en la nube de Cognitive Services. Todos los contenedores de Cognitive Services incluyen características de registro que nos ayudarán a nosotros y a la comunidad a proporcionar soporte técnico a los clientes. Estas son las opciones para obtener más soporte técnico:
 
-      * Los clientes deben consultar el [plan de soporte técnico de Azure](https://azure.microsoft.com/support/plans/) para ver con quién deben ponerse en contacto si desean obtener soporte técnico.
+      * Busque información de contacto en el [plan de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
 
-      * [Stack Overflow](https://en.wikipedia.org/wiki/Stack_Overflow) es un sitio de preguntas y respuestas para programadores profesionales y aficionados.
+      * Pruebe estas áreas de [Stack Overflow](https://en.wikipedia.org/wiki/Stack_Overflow), un sitio de preguntas y respuestas para programadores profesionales y aficionados:
         * [Azure Cognitive Services](https://stackoverflow.com/questions/tagged/azure-cognitive-services)
         * [Microsoft Cognitive](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
   - question: ¿Cómo funciona la facturación?
-    answer: "Se cobra a los clientes en función del consumo, igual que en la nube de Cognitive Services. Los contenedores deben configurarse para enviar datos de medición a Azure y las transacciones se facturarán según corresponda. Los recursos usados en los servicios hospedados y locales se agregarán a una única cuota con precios según niveles de servicio, teniendo en cuenta ambos usos. Para más información, consulte la página de precios de la oferta correspondiente.\n\n* [Anomaly Detector](../anomaly-Detector/anomaly-detector-container-howto.md#billing)\n* [Computer Vision](../computer-vision/computer-vision-how-to-install-containers.md#billing)\n* [Face](../face/face-how-to-install-containers.md#billing)\n* [Form Recognizer](../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md#billing)\n* [Language Understanding (LUIS)](../luis/luis-container-howto.md#billing)\n* [Speech Service API](../speech-service/speech-container-howto.md#billing)\n* [Text Analytics](../text-analytics/how-tos/text-analytics-how-to-install-containers.md#billing)\n\n> [!IMPORTANT]\n> Los contenedores de Cognitive Services no tienen licencia para ejecutarse sin estar conectados a Azure para realizar mediciones. Los clientes tienen que habilitar los contenedores para comunicar la información de facturación solo con el servicio de medición en todo momento. Los contenedores de Cognitive Services no envían los datos del cliente a Microsoft.\n\nA continuación se muestra un ejemplo de la información que un contenedor comunica para la medición:\n\n\n```json \n\"usageRequestBody\": {\n  \"id\": \"customer_subscriptionID\",\n  \"apiType\": \"textanalytics\",\n  \"containerType\": \"keyphrase\",\n  \"containerVersion\": \"1.1.00864.0001\",\n  \"containerId\": \"dep--keyphrase-\",\n  \"meter\": {\n    \"name\": \"CognitiveServices.TextAnalytics.Container.BatchScoring\",\n    \"quantity\": 10.0\n  }\n  ```\n"
+    answer: "Se cobra a los clientes en función del consumo, igual que en la nube de Cognitive Services. Los contenedores deben configurarse para enviar datos de medición a Azure y las transacciones se facturarán según corresponda. Los recursos usados en los servicios hospedados y locales se agregan a la cuota única con los precios del plan, teniendo en cuenta ambos usos. Para obtener más información, vea las siguientes páginas de precios:\n\n* [Anomaly Detector](../anomaly-Detector/anomaly-detector-container-howto.md#billing)\n* [Computer Vision](../computer-vision/computer-vision-how-to-install-containers.md) \n* [Face](../face/overview.md)\n* [Form Recognizer](../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md#billing)\n* [Language Understanding (LUIS)](../luis/luis-container-howto.md#billing)\n* [Speech Service API](../speech-service/speech-container-howto.md#billing)\n* [Text Analytics](../text-analytics/how-tos/text-analytics-how-to-install-containers.md#billing)\n\n> [!IMPORTANT]\n> Los contenedores de Cognitive Services *no tienen licencia* para ejecutarse sin estar conectados a Azure para realizar mediciones. Los clientes tienen que habilitar los contenedores para comunicar la información de facturación con el servicio de medición en todo momento. Los contenedores de Cognitive Services no envían los datos del cliente a Microsoft.\n\nEste es un ejemplo de la información que un contenedor comunica para la medición:\n\n\n```json \n\"usageRequestBody\": {\n  \"id\": \"customer_subscriptionID\",\n  \"apiType\": \"textanalytics\",\n  \"containerType\": \"keyphrase\",\n  \"containerVersion\": \"1.1.00864.0001\",\n  \"containerId\": \"dep--keyphrase-\",\n  \"meter\": {\n    \"name\": \"CognitiveServices.TextAnalytics.Container.BatchScoring\",\n    \"quantity\": 10.0\n  }\n  ```\n"
   - question: ¿Cuál es la garantía de soporte técnico actual para los contenedores?
     answer: >
       No hay ninguna garantía para las versiones preliminares. La garantía estándar de Microsoft para el software empresarial se aplica cuando los contenedores se anuncian formalmente como de disponibilidad general (GA).
@@ -121,14 +124,14 @@ sections:
       Los contenedores de Cognitive Services *no tienen licencia* para ejecutarse sin estar conectados a Azure para realizar mediciones. Los clientes tienen que habilitar los contenedores para comunicarse con el servicio de medición en todo momento.
   - question: ¿Cuál es el hardware necesario para ejecutar estos contenedores?
     answer: >
-      Los contenedores de Cognitive Services se basan en contenedores x64 que pueden ejecutar cualquier nodo, máquina virtual y dispositivo perimetral compatible con Linux que admita los contenedores de Docker de Linux x64. Todos ellos requieren procesadores de CPU. A continuación puede ver la configuración mínima y la recomendada de cada oferta de contenedor:
+      Los contenedores de Cognitive Services son contenedores basados en x64 que pueden ejecutar cualquier nodo, máquina virtual y dispositivo perimetral compatible con Linux que admita contenedores de Docker de Linux x64. Todos ellos requieren procesadores de CPU. En estas páginas puede ver la configuración mínima y la recomendada de cada oferta de contenedor:
 
 
       * [Anomaly Detector](../anomaly-Detector/anomaly-detector-container-howto.md#container-requirements-and-recommendations)
 
-      * [Computer Vision](../computer-vision/computer-vision-how-to-install-containers.md#container-requirements-and-recommendations)
+      * [Computer Vision](../computer-vision/computer-vision-how-to-install-containers.md)
 
-      * [Face](../face/face-how-to-install-containers.md#container-requirements-and-recommendations)
+      * [Face](../face/overview.md)
 
       * [Form Recognizer](../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md#container-requirements-and-recommendations)
 
@@ -139,14 +142,14 @@ sections:
       * [Text Analytics](../text-analytics/how-tos/text-analytics-how-to-install-containers.md#host-computer-requirements-and-recommendations)
   - question: ¿Se admiten actualmente estos contenedores en Windows?
     answer: >
-      Los contenedores de Cognitive Services son también de Linux; sin embargo, hay cierta compatibilidad con contenedores de Linux en Windows. Para más información acerca de los contenedores de Linux en Windows, consulte la [documentación de Docker](https://blog.docker.com/2017/09/preview-linux-containers-on-windows/).
-  - question: ¿Cómo se comparan los contenedores de Cognitive Services con las ofertas de AWS y Google?
+      Los contenedores de Cognitive Services son contenedores de Linux, aunque hay cierta compatibilidad con contenedores de Linux en Windows. Para obtener más información sobre contenedores de Linux en Windows, vea la [documentación de Docker](https://blog.docker.com/2017/09/preview-linux-containers-on-windows/).
+  - question: ¿Cuál es la diferencia entre los contenedores de Cognitive Services y las ofertas de AWS y Google?
     answer: >
-      Microsoft es el primer proveedor de servicios en la nube que traslada sus modelos de inteligencia artificial con entrenamiento previo a los contenedores con una facturación sencilla por transacción, como si los clientes estuvieran usando un servicio en la nube. Microsoft considera que una nube híbrida ofrece más opciones a los clientes.
+      Microsoft es el primer proveedor de nube que traslada sus modelos de inteligencia artificial con entrenamiento previo a contenedores con una facturación sencilla por transacción, como si los clientes estuvieran usando un servicio en la nube. Microsoft considera que una nube híbrida ofrece más opciones a los clientes.
   - question: ¿Qué certificaciones de cumplimiento tienen los contenedores?
     answer: >
       Los contenedores de Cognitive Services no tienen certificaciones de cumplimiento.
   - question: ¿En qué regiones están disponibles los contenedores de Cognitive Services?
     answer: >
-      Los contenedores se pueden ejecutar en cualquier parte de cualquier región, pero necesitan una clave y recurrir de nuevo a Azure para las mediciones. Todas las regiones admitidas para el servicio en la nube se admiten para la llamada de medición de contenedores.
+      Los contenedores se pueden ejecutar en cualquier ubicación de cualquier región, aunque necesitan una clave y deben llamar de nuevo a Azure para las mediciones. Todas las regiones admitidas del servicio en la nube son compatibles con las llamadas de medición de los contenedores.
 additionalContent: '[!INCLUDE [Containers next steps](includes/containers-next-steps.md)]'

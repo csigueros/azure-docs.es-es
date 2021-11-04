@@ -4,13 +4,13 @@ description: Introducción a los servicios y funcionalidades de Microsoft que co
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 11/01/2021
-ms.openlocfilehash: 35ffbe3a329aae483b4da841ba4dfe34c1a07f9a
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.date: 10/14/2021
+ms.openlocfilehash: a47c26f2b600d7ed2ffd67877ab7202a763a4054
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131435137"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131036321"
 ---
 # <a name="azure-monitor-overview"></a>Introducción a Azure Monitor
 
@@ -55,7 +55,7 @@ Azure Monitor puede recopilar datos de [diversos orígenes](monitor-reference.md
 
 - **Datos de supervisión de aplicaciones:** datos sobre el rendimiento y la funcionalidad del código que ha escrito, independientemente de la plataforma.
 - **Datos de supervisión del sistema operativo invitado:** datos sobre el sistema operativo en el que se ejecuta la aplicación. La aplicación se puede ejecutar en Azure, en otra nube o en el entorno local. 
-- **Datos de supervisión de recursos de Azure:** datos acerca del funcionamiento de un recurso de Azure. Para obtener una lista completa de los recursos que tienen métricas o registros, consulte [What can you monitor with Azure Monitor?](monitor-reference.md#azure-supported-services) (¿Qué se puede supervisar con Azure Monitor?).
+- **Datos de supervisión de recursos de Azure:** datos acerca del funcionamiento de un recurso de Azure. Para obtener una lista completa de los recursos que tienen métricas o registros, consulte [What can you monitor with Azure Monitor?](monitor-reference.md#list-of-azure monitor-supported-services) (¿Qué se puede supervisar con Azure Monitor?).
 - **Datos de supervisión de la suscripción de Azure:** datos sobre el funcionamiento y la administración de una suscripción de Azure, así como sobre el estado y el funcionamiento del propio Azure. 
 - **Datos de supervisión del inquilino de Azure:** datos sobre el funcionamiento de los servicios de Azure en el nivel del inquilino, como Azure Active Directory.
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/05/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 117fe7d8c624c0776c6ec6f61296101a2f844f1b
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: a60ab8498076eb6380657b9cd57a3f8d0db31da2
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113432813"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131576422"
 ---
 # <a name="availability-zone-support-for-app-service-environments"></a>Compatibilidad de zonas de disponibilidad con instancias de App Service Environment
 
@@ -58,29 +58,29 @@ El único cambio necesario en una plantilla de Resource Manager para especificar
 El fragmento de la plantilla de Resource Manager de ejemplo que aparece a continuación muestra la nueva propiedad ***zones*** que especifica que la instancia de ASE de ILB se debe anclar a la zona 2.
 
 ```
-   "resources": [
-      {
-         "type": "Microsoft.Web/hostingEnvironments",
-         "kind": "ASEV2",
-         "name": "yourASENameHere",
-         "apiVersion": "2015-08-01",
-         "location": "your location here",
-         "zones": [
+"resources": [
+    {
+        "type": "Microsoft.Web/hostingEnvironments",
+        "kind": "ASEV2",
+        "name": "yourASENameHere",
+        "apiVersion": "2015-08-01",
+        "location": "your location here",
+        "zones": [
             "2"
-         ],
-         "properties": {
-         "name": "yourASENameHere",
-         "location": "your location here",
-         "ipSslAddressCount": 0,
-         "internalLoadBalancingMode": "3",
-         "dnsSuffix": "contoso-internal.com",
-         "virtualNetwork": {
-             "Id": "/subscriptions/your-subscription-id-here/resourceGroups/your-resource-group-here/providers/Microsoft.Network/virtualNetworks/your-vnet-name-here",
-             "Subnet": "yourSubnetNameHere"
-          }
-         }
-      }
-    ]
+        ],
+        "properties": {
+            "name": "yourASENameHere",
+            "location": "your location here",
+            "ipSslAddressCount": 0,
+            "internalLoadBalancingMode": "3",
+            "dnsSuffix": "contoso-internal.com",
+            "virtualNetwork": {
+                "Id": "/subscriptions/your-subscription-id-here/resourceGroups/your-resource-group-here/providers/Microsoft.Network/virtualNetworks/your-vnet-name-here",
+                "Subnet": "yourSubnetNameHere"
+            }
+        }
+    }
+]
 ```
 
 Para hacer que la zona de aplicaciones sea redundante, debe implementar dos instancias de ASE de ILB de zona. Las dos instancias de ASE de ILB de zona deben estar en zonas de disponibilidad independientes. Luego debe implementar las aplicaciones en cada una de las instancias de ASE de ILB. Una vez creadas las aplicaciones, debe configurar una solución de equilibrio de carga. La solución recomendada es implementar una instancia ascendente de [Application Gateway con redundancia de zona](../../application-gateway/application-gateway-autoscaling-zone-redundant.md) de las instancias de ASE de ILB de zona. 

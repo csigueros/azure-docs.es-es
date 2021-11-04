@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 2bec442ae5d80f2729ffb6b0c5c9768e01df2644
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: db9def4bc5092f94788de018c215cde604aee28f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124738561"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067306"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oneteam"></a>Tutorial: Integración de Azure Active Directory con Oneteam
 
@@ -190,7 +190,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, se crea un usuario llamado Britta Simon en Oneteam. Oneteam admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario ya no existe en Oneteam, se crea uno después de la autenticación.
 
 >[!NOTE]
->Si tiene que crear manualmente un usuario, puede presentar la incidencia de soporte técnico al equipo de soporte técnico de Oneteam.
+>Si tiene que crear un usuario manualmente, puede enviar la incidencia de soporte técnico al equipo de soporte técnico de Oneteam.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 
