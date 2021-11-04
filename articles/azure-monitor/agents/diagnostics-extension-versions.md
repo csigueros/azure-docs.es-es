@@ -5,12 +5,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/29/2020
-ms.openlocfilehash: 57ba1c760fe8919fff95493c5c81da4368894f73
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c730f1d5d440d809932499f04338e68a2375b6d1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101719821"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131044255"
 ---
 # <a name="windows-azure-diagnostics-extension-wad-configuration-schema-versions-and-history"></a>Historial y versiones del esquema de configuración de Windows Azure Diagnostics (WAD) Extension
 En este artículo, puede consultar el historial de versiones del esquema de [Azure Diagnostics Extension para Windows (WAD)](diagnostics-extension-overview.md) que se incluye en el SDK de Microsoft Azure.  
@@ -61,7 +61,7 @@ Definición de Azure Monitor como un receptor nuevo de la configuración de la e
 }
 ```
 
-```XML
+```xml
 <SinksConfig>  
   <Sink name="AzureMonitorSink">
       <AzureMonitor/>
@@ -87,7 +87,7 @@ A continuación, puede configurar los contadores de rendimiento para enrutarlos 
     ]
 },
 ```
-```XML
+```xml
 <PerformanceCounters scheduledTransferPeriod="PT1M", sinks="AzureMonitorSink">  
   <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />  
 </PerformanceCounters>

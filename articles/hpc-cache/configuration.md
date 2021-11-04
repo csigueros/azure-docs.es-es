@@ -1,17 +1,17 @@
 ---
 title: Configuración de Azure HPC Cache
 description: Explica cómo configurar opciones adicionales para la caché, como MTU, NTP personalizado y los valores de DNS, y cómo acceder a las instantáneas rápidas desde destinos de Azure Blob Storage.
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 04/08/2021
-ms.author: v-erkel
-ms.openlocfilehash: 56aae1a4bce6b4226918b5b34309a8f8dd647e78
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.author: femila
+ms.openlocfilehash: ad4dedc023dc6ba5f58e51c816d422acb3ab2c69
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129275798"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131019996"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Configuración de valores adicionales de Azure HPC Cache
 

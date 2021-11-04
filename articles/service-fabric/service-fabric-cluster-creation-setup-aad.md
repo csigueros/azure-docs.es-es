@@ -3,12 +3,13 @@ title: Configuración de Azure Active Directory para la autenticación de client
 description: Obtenga información sobre cómo configurar Azure Active Directory (Azure AD) para autenticar a los clientes de los clústeres de Service Fabric.
 ms.topic: conceptual
 ms.date: 6/28/2019
-ms.openlocfilehash: a1f89e144f9cef12c5bff87befb00a88bad8d7d9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: e960b753e7d1c76992e59cb03133f27f7e305ea1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102215976"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131004081"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Configuración de Azure Active Directory para la autenticación de cliente
 
@@ -136,9 +137,9 @@ FabricClient y FabricGateway realizan una autenticación mutua. Durante la auten
 ## <a name="next-steps"></a>Pasos siguientes
 Después de configurar las aplicaciones de Azure Active Directory y establecer los roles para los usuarios, [configure e implemente un clúster](service-fabric-cluster-creation-via-arm.md).
 
-
 <!-- Links -->
-[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli
+
+[azure-cli]: /cli/azure/get-started-with-azure-cli
 [azure-portal]: https://portal.azure.com/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]:../active-directory/develop/quickstart-create-new-tenant.md

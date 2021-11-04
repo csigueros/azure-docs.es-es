@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2021
 ms.author: yelevin
-ms.openlocfilehash: d9f6ce8b85aae451fbab318b85f50fb0da7919a6
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 17ff2b2910b81c29f88f70e9a3de31433f965668
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123541304"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131064570"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Configuración de claves administradas por el cliente en Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 En este artículo se proporciona información general y pasos para configurar una [clave administrada por el cliente (CMK)](../azure-monitor/logs/customer-managed-keys.md) para Azure Sentinel. Una CMK permite proporcionar a todos los datos almacenados en Azure Sentinel (ya cifrados por Microsoft en todos los recursos de almacenamiento pertinentes) una capa adicional de protección con una clave de cifrado creada por el usuario y propiedad de este almacenada en su instancia de [Azure Key Vault](../key-vault/general/overview.md).
 

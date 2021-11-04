@@ -6,12 +6,13 @@ ms.author: athenadsouza
 ms.service: purview
 ms.topic: conceptual
 ms.date: 10/03/2021
-ms.openlocfilehash: 393414ad1d2c50f2a3bb76ce045614e19b50f928
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: ee7364637e79b2603c6eca31d986dbcc3e153db3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129534054"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084319"
 ---
 # <a name="azure-purview-pricing"></a>Precios de Azure Purview   
 
@@ -123,7 +124,7 @@ Los costos indirectos que afectan a los precios de Azure Purview que se deben te
 - [Costos relacionados con el entorno de ejecución de integración autohospedado](./manage-integration-runtimes.md) 
     - El entorno de ejecución de integración autohospedado requiere infraestructura, lo que genera costos adicionales.
     - Es necesario implementar y registrar el entorno de ejecución de integración autohospedado (SHIR) en la misma red virtual en la que están implementados los puntos de conexión privados de ingesta de Azure Purview.
-    - [Requisitos de memoria adicionales para el examen](./register-scan-sapecc-source.md#creating-and-running-a-scan)
+    - [Requisitos de memoria adicionales para el examen](./register-scan-sapecc-source.md#create-and-run-scan)
         - Determinados orígenes de datos, como SAP, requieren memoria adicional en la máquina del SHIR para el examen.
 
 

@@ -5,16 +5,16 @@ author: dlepow
 ms.topic: how-to
 ms.service: api-management
 ms.author: danlep
-ms.date: 07/12/2021
-ms.custom: ''
-ms.openlocfilehash: 9e81fbe26c8b98a0694789567cef9126d5ca02fc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 11/2/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: b98e958869b30a90d7006020768cdc7d8c1d62c7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121747796"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063069"
 ---
-# <a name="send-events-from-api-management-to-event-grid-preview"></a>Envío de eventos de API Management a Event Grid (versión preliminar)
+# <a name="send-events-from-api-management-to-event-grid"></a>Envío de eventos de API Management a Event Grid
 
 API Management se integra con [Azure Event Grid](../event-grid/overview.md) para poder enviar notificaciones de eventos a otros servicios y desencadenar procesos de descarga. Event Grid es un servicio de enrutamiento de eventos totalmente administrado que usa un modelo de publicación-suscripción. Event Grid tiene compatibilidad integrada para servicios de Azure, como [Azure Functions](../azure-functions/functions-overview.md) y [Azure Logic Apps](../logic-apps/logic-apps-overview.md), y puede proporcionar alertas de eventos a los servicios que no son de Azure mediante webhooks.
 
@@ -63,7 +63,7 @@ Debería ver la aplicación de ejemplo representada sin ningún mensaje de event
 En Event Grid, suscríbase a un *tema* para indicarle a qué eventos desea realizar un seguimiento y adónde enviarlos. Aquí va a crear una suscripción a eventos en la instancia de API Management.
 
 1. Vaya a la instancia de API Management en [Azure Portal](https://portal.azure.com).
-1. Seleccione **Eventos (versión preliminar) > + Suscripción a eventos**. 
+1. Seleccione **Eventos > + Suscripción a eventos**. 
 1. En la pestaña **Básico**:
     * Escriba un **Nombre** descriptivo para la suscripción a eventos.
     * En **Tipos de eventos**, seleccione uno o varios tipos de eventos de API Management para enviar a Event Grid. Para el ejemplo de este artículo, seleccione al menos **Microsoft.APIManagement.ProductCreated**. 

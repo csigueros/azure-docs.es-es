@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 02918b4f33c01aab5a250e3228b6ad7ec5930394
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 7be1aa846ee53edf0c23594d89af59e3c7f7aa32
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108322246"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051522"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Envío de métricas de SO invitado al almacén de métricas de Azure Monitor en Cloud Services clásico 
 
@@ -26,7 +26,7 @@ Almacenarlas en esta ubicación permite tener acceso a las mismas acciones dispo
 
 El proceso descrito en este artículo solo funciona para los contadores de rendimiento en Azure Cloud Services. No funciona para otras métricas personalizadas. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Debe ser [administrador de servicios o administrador](../../cost-management-billing/manage/add-change-subscription-administrator.md) en su suscripción de Azure. 
 
@@ -61,7 +61,7 @@ Asigne los permisos *Supervisión del publicador de métricas* a la aplicación 
 
 Prepare el archivo de configuración de la extensión Diagnostics. Este archivo determina qué registros y contadores de rendimiento debe recopilar la extensión Diagnostics para el servicio en la nube. A continuación encontrará un ejemplo de archivo de configuración de Diagnostics:  
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8"?> 
 <DiagnosticsConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> 
   <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> 
@@ -103,7 +103,7 @@ Prepare el archivo de configuración de la extensión Diagnostics. Este archivo 
 
 En la sección "SinksConfig" del archivo de diagnóstico, defina un nuevo receptor de Azure Monitor: 
 
-```XML
+```xml
   <SinksConfig> 
     <Sink name="AzMonSink"> 
     <AzureMonitor> 
@@ -125,7 +125,7 @@ En la sección del archivo de configuración donde se enumeran los contadores de
 
 Por último, en la configuración privada, agregue la sección *Azure Monitor Account* (Cuenta de Azure Monitor). Escriba el identificador de cliente y el secreto de la entidad de servicio que creó antes. 
 
-```XML
+```xml
 <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> 
   <StorageAccount name="" endpoint="" /> 
     <AzureMonitorAccount> 

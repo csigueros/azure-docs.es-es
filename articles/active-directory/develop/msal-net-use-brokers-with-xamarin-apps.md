@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev, has-adal-ref
-ms.openlocfilehash: c5f64fa958d8f4e4750518ed0ff4eaa691f9cbd8
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 823c01dc3c6f6856bfc8cac2249da6bc1ddc411f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124786909"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054331"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Uso de Microsoft Authenticator o el Portal de empresa de Intune en aplicaciones de Xamarin
 
@@ -133,7 +133,7 @@ En el esquema de dirección URL, `BundleId` identifica de forma única la aplica
 > [!NOTE]
 > Este esquema de dirección URL se convierte en parte del URI de redirección que identifica de forma única la aplicación cuando recibe la respuesta del agente.
 
-```XML
+```xml
  <key>CFBundleURLTypes</key>
     <array>
       <dict>
@@ -155,7 +155,7 @@ MSAL usa `–canOpenURL:` para comprobar si el agente está instalado en el disp
 
 Agregue `msauthv2` a la sección `LSApplicationQueriesSchemes` del archivo *Info.plist*, como en el ejemplo siguiente:
 
-```XML
+```xml
 <key>LSApplicationQueriesSchemes</key>
     <array>
       <string>msauthv2</string>

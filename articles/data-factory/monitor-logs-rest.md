@@ -1,19 +1,19 @@
 ---
 title: Configuración de registros de diagnóstico mediante la API de REST de Azure Monitor
 description: Aprenda a configurar registros de diagnóstico para Azure Data Factory mediante la API de REST de Azure Monitor.
-author: minhe-msft
-ms.author: hemin
+author: jasonwhowell
+ms.author: jasonh
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 09/02/2021
-ms.openlocfilehash: a78d3e68841e4463d4f66f24821b5e42c7650f44
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: 8407ed72f1bc3bbade51d19d27bd26ab15e7b49a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129400446"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131020170"
 ---
 # <a name="set-up-diagnostic-logs-via-the-azure-monitor-rest-api"></a>Configuración de registros de diagnóstico mediante la API de REST de Azure Monitor
 

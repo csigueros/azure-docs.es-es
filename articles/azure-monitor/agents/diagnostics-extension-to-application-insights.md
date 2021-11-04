@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/19/2016
-ms.openlocfilehash: b9e9d6b1b5939804b24fd523bf8b7444ed41178f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8589caaa888e9a9b1156563bd38090c922ebfcc4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708601"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131020870"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Envío de datos de diagnóstico de Cloud Services, Virtual Machines o Service Fabric a Application Insights
 Cloud Services, Virtual Machines, los conjuntos de escalado de máquinas virtuales y Service Fabric usan la extensión Azure Diagnostics para recopilar datos.  Esta extensión envía los datos a las tablas de Azure Storage.  Sin embargo, también puede canalizar todos los datos o un subconjunto de ellos a otras ubicaciones mediante la versión 1.5 o una posterior de la extensión Azure Diagnostics.
@@ -22,7 +22,7 @@ La versión 1.5 de la extensión Azure Diagnostics introdujo los receptores, que
 
 Ejemplo de configuración de un receptor para Application Insights:
 
-```XML
+```xml
 <SinksConfig>
     <Sink name="ApplicationInsights">
       <ApplicationInsights>{Insert InstrumentationKey}</ApplicationInsights>
@@ -85,7 +85,7 @@ Este es un ejemplo completo del archivo de configuración público que
 1. envía todos los errores a Application Insights (se especifica en el nodo **DiagnosticMonitorConfiguration**).
 2. Además, envía los registros de aplicación detallados (se especifica en el nodo **Logs**).
 
-```XML
+```xml
 <WadCfg>
   <DiagnosticMonitorConfiguration overallQuotaInMB="4096"
        sinks="ApplicationInsights.MyTopDiagData"> <!-- All info below sent to this channel -->
@@ -197,7 +197,7 @@ En la configuración anterior, las líneas siguientes tienen estos significados:
 
 ### <a name="send-verbose-application-logs-to-application-insights"></a>Envía los registros de aplicación detallados a Application Insights.
 
-```XML
+```xml
 <Logs scheduledTransferPeriod="PT1M" scheduledTransferLogLevelFilter="Verbose" sinks="ApplicationInsights.MyLogData"/>
 ```
 ```JSON

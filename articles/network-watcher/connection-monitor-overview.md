@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 6f891ea0e05148d893a226ec1d6243b5d5224954
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 6b62da14473797653da17b28b5366e26e7c18357
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130258532"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131082538"
 ---
 # <a name="monitor-network-connectivity-by-using-connection-monitor"></a>Supervisión de la conectividad de red mediante Connection Monitor
 
@@ -76,7 +76,7 @@ Las reglas de un grupo de seguridad de red (NSG) o firewall pueden bloquear la c
 
 ### <a name="agents-for-on-premises-machines"></a>Agentes para máquinas locales
 
-Para que el Monitor de conexión reconozca las máquinas locales como orígenes para la supervisión, instale el agente de Log Analytics en las máquinas. Luego, habilite la [solución Network Performance Monitor](/azure/network-watcher/connection-monitor-overview#enable-the-npm-solution-for-on-premises-machines). Estos agentes están vinculados a áreas de trabajo de Log Analytics, por lo que es necesario configurar el identificador de área de trabajo y la clave principal antes de que los agentes puedan iniciar la supervisión.
+Para que el Monitor de conexión reconozca las máquinas locales como orígenes para la supervisión, instale el agente de Log Analytics en las máquinas. Luego, habilite la [solución Network Performance Monitor](../network-watcher/connection-monitor-overview.md#enable-the-npm-solution-for-on-premises-machines). Estos agentes están vinculados a áreas de trabajo de Log Analytics, por lo que es necesario configurar el identificador de área de trabajo y la clave principal antes de que los agentes puedan iniciar la supervisión.
 
 Para instalar el agente de Log Analytics para máquinas Windows, consulte [Instalación del agente de Log Analytics en Windows](../azure-monitor/agents/agent-windows.md).
 
@@ -166,9 +166,9 @@ Todos los orígenes, destinos y configuraciones de prueba que se agregan a un gr
 
 | Número de prueba | Source | Destination | Configuración de prueba |
 | --- | --- | --- | --- |
-| 1 | Un | D | Config 1 |
+| 1 | A | D | Config 1 |
 | 2 | A | D | Config 2 |
-| 3 | Un | E | Config 1 |
+| 3 | A | E | Config 1 |
 | 4 | A | E | Config 2 |
 | 5 | B | D | Config 1 |
 | 6 | B | D | Config 2 |

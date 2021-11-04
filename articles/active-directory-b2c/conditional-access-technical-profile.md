@@ -3,20 +3,20 @@ title: Perfiles técnicos de acceso condicional en directivas personalizadas
 titleSuffix: Azure AD B2C
 description: Referencia de directivas personalizadas para los perfiles técnicos de acceso condicional en Azure AD B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 06/18/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 902d9251c7393d3f6e693ba37c587398136493e6
-ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
+ms.openlocfilehash: d44ae627279131004bdac2f755eb26b59e375381
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112368955"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131007959"
 ---
 # <a name="define-a-conditional-access-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de acceso condicional en una directiva personalizada de Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ Web.TPEngine.Providers.ConditionalAccessProtocolProvider, Web.TPEngine, Version=
 
 En el ejemplo siguiente se muestra un perfil técnico de acceso condicional:
 
-```XML
+```xml
 <TechnicalProfile Id="ConditionalAccessEvaluation">
   <DisplayName>Conditional Access Provider</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ConditionalAccessProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -64,7 +64,6 @@ El elemento **InputClaims** contiene una lista de notificaciones para enviar al 
 | IsFederated | Sí |boolean | Indica si un usuario inició sesión con una cuenta federada. El valor tiene que ser `false`. |
 | IsMfaRegistered | Sí |boolean | Indica si el usuario ya inscribió un número de teléfono para la autenticación multifactor. |
 
-
 El elemento **InputClaimsTransformations** puede contener una colección de elementos **InputClaimsTransformation** que se usan para modificar las notificaciones de entrada o generar otras nuevas antes de enviarlas al servicio de acceso condicional.
 
 ### <a name="output-claims"></a>Notificaciones de salida
@@ -82,7 +81,7 @@ El elemento **OutputClaimsTransformations** puede contener una colección de ele
 
 En el ejemplo siguiente se muestra un perfil técnico de acceso condicional que se usa para evaluar la amenaza de inicio de sesión.
 
-```XML
+```xml
 <TechnicalProfile Id="ConditionalAccessEvaluation">
   <DisplayName>Conditional Access Provider</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ConditionalAccessProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -122,7 +121,6 @@ El elemento **InputClaims** contiene una lista de notificaciones para enviar al 
 | ClaimReferenceId | Obligatorio | Tipo de datos | Descripción |
 | --------- | -------- | ----------- |----------- |
 | ChallengesSatisfied | Sí | stringCollection| La lista de desafíos satisfechos para corregir la amenaza identificada como resultado del modo de evaluación, la notificación de desafíos.|
-
 
 El elemento **InputClaimsTransformations** puede contener una colección de los elementos **InputClaimsTransformation** que se usan para modificar las notificaciones de entrada o generar otras nuevas antes de llamar al servicio de acceso condicional.
 

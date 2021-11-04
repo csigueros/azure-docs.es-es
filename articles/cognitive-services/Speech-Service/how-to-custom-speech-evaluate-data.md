@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: pafarley
-ms.openlocfilehash: b188ccde91f82a9d03cf83386315d0ee80ac41d0
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 9dd957ccc877e09020a9f50b927ff5c2aafec7cd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123538838"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080600"
 ---
 # <a name="evaluate-and-improve-custom-speech-accuracy"></a>Evaluación y mejora de la precisión de Habla personalizada
 
@@ -96,12 +97,21 @@ Agregue materiales de origen periódicamente para realizar un mantenimiento del 
 
 En las secciones siguientes se describe de qué forma puede reducir el número de errores cada uno de los tipo de datos de entrenamiento adicionales.
 
-### <a name="add-related-text-sentences"></a>Adición de oraciones de texto relacionadas
+### <a name="add-plain-text-data"></a>Incorporación de datos de texto sin formato
 
-Cuando entrene un nuevo modelo personalizado, comience por agregar el texto relacionado para mejorar el reconocimiento de las palabras y frases específicas del dominio. Las oraciones de texto relacionadas pueden reducir principalmente los errores de sustitución debidos al reconocimiento erróneo de palabras comunes y palabras específicas del dominio, ya que las muestra en contexto. Las palabras específicas del dominio pueden ser palabras poco frecuentes o compuestas, pero su pronunciación debe ser fácil de reconocer.
+Cuando entrene un nuevo modelo personalizado, comience por agregar frases de texto sin formato del texto relacionado para mejorar el reconocimiento de las palabras y frases específicas del dominio. Las oraciones de texto relacionadas pueden reducir principalmente los errores de sustitución debidos al reconocimiento erróneo de palabras comunes y palabras específicas del dominio, ya que las muestra en contexto. Las palabras específicas del dominio pueden ser palabras poco frecuentes o compuestas, pero su pronunciación debe ser fácil de reconocer.
 
 > [!NOTE]
 > Evite las oraciones de texto relacionadas que tengan ruido, como caracteres o palabras irreconocibles.
+
+### <a name="add-structured-text-data"></a>Incorporación de datos de texto estructurados
+
+Puede usar datos de texto estructurados en formato Markdown de forma similar a las frases de texto sin formato, pero debería usar datos de texto estructurados si los datos siguen un patrón determinado en expresiones concretas que solo difieren en palabras o frases de una lista. Consulte [Datos de texto estructurados para entrenamiento](how-to-custom-speech-test-and-train.md#structured-text-data-for-training-public-preview) para más información. 
+
+> [!NOTE]
+> El entrenamiento con texto estructurado solo se admite para estas configuraciones regionales: `en-US`, `de-DE`, `en-UK`, `en-IN`, `fr-FR`, `fr-CA`, `es-ES`, `es-MX` y debe usar el modelo base más reciente para estas configuraciones regionales. Consulte la [compatibilidad con idiomas](language-support.md) para obtener una lista de los modelos base que admiten el entrenamiento con datos de texto estructurados.
+> 
+> En el caso de las configuraciones regionales que no admiten el entrenamiento con texto estructurado, el servicio tomará las frases de entrenamiento que no hagan referencia a ninguna clase como parte del entrenamiento con datos de texto sin formato.
 
 ### <a name="add-audio-with-human-labeled-transcripts"></a>Adición de audio con transcripciones etiquetadas por humanos
 
@@ -137,7 +147,7 @@ Es posible que las palabras compuestas o cuyo grado de especialización sea elev
 
 En la tabla siguiente se muestran escenarios de reconocimiento de voz y se enumeran los materiales de origen que se deben tener en cuenta en las tres categorías de contenido de entrenamiento mencionadas anteriormente.
 
-| Escenario | Oraciones de texto relacionadas | Transcripciones de audio con etiqueta humana | Nuevas palabras con su pronunciación |
+| Escenario | Datos de texto sin formato y <br> datos de texto estructurados | Transcripciones de audio con etiqueta humana | Nuevas palabras con su pronunciación |
 |----------|------------------------|------------------------------|------------------------------|
 | Centro de llamadas             | Documentos de marketing, sitios web, reseñas de productos relacionados con la actividad del centro de llamadas. | Llamadas al centro de llamadas transcritas por humanos. | Términos que tienen pronunciación ambigua (vea el ejemplo anterior de Xbox). |
 | Asistente por voz         | Enumerar oraciones que usan todas las combinaciones de comandos y entidades. | Grabar voces que dicen comandos a un dispositivo y transcribirlas en texto. | Nombres (películas, canciones, productos) que tienen pronunciaciones únicas. |

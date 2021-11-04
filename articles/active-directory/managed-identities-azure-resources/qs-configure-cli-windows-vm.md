@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 205661a32d938352ae81073668843c569825cc8e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7bb8060a3a699f7b34abfdc6c70c8bc469304070
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128679617"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063373"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Configurar identidades administradas para recursos de Azure en una VM de Azure mediante la CLI de Azure
 
@@ -95,8 +95,9 @@ az vm update -n myVM -g myResourceGroup --set identity.type="none"
 
 ## <a name="user-assigned-managed-identity"></a>Identidad administrada asignada por el usuario
 
-En esta sección, aprenderá a agregar y quitar una identidad administrada asignada por el usuario de una VM de Azure con la CLI de Azure. Si crea la identidad administrada asignada por el usuario en un RG diferente al de la máquina virtual. Tendrá que usar la dirección URL de la identidad administrada para asignarla a la máquina virtual.
-Por ejemplo, `--identities "/subscriptions/<SUBID>/resourcegroups/<RESROURCEGROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER_ASSIGNED_ID_NAME>"`.
+En esta sección, aprenderá a agregar y quitar una identidad administrada asignada por el usuario de una VM de Azure con la CLI de Azure. Si crea la identidad administrada asignada por el usuario en un RG diferente al de la máquina virtual. Tendrá que usar la dirección URL de la identidad administrada para asignarla a la máquina virtual. Por ejemplo:
+
+`--identities "/subscriptions/<SUBID>/resourcegroups/<RESROURCEGROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER_ASSIGNED_ID_NAME>"`
 
 ### <a name="assign-a-user-assigned-managed-identity-during-the-creation-of-an-azure-vm"></a>Asignación de una identidad administrada asignada por el usuario durante la creación de una VM de Azure
 
@@ -144,34 +145,35 @@ Para asignar una identidad asignada por un usuario a una máquina virtual, la cu
 
 1. Cree una identidad asignada por el usuario mediante el cmdlet [az identity create](/cli/azure/identity#az_identity_create).  El parámetro `-g` especifica el grupo de recursos donde se crea la identidad asignada por el usuario, mientras que el parámetro `-n` especifica su nombre. Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<USER ASSIGNED IDENTITY NAME>` por sus propios valores:
 
-    > [!IMPORTANT]
-    > Actualmente, no se admite la creación de identidades administradas asignadas por el usuario con caracteres especiales (por ejemplo, guion bajo) en el nombre. Use caracteres alfanuméricos. Compruebe si hay actualizaciones.  Para más información, consulte [Preguntas más frecuentes y problemas conocidos](known-issues.md).
+   > [!IMPORTANT]
+   > Actualmente, no se admite la creación de identidades administradas asignadas por el usuario con caracteres especiales (por ejemplo, guion bajo) en el nombre. Use caracteres alfanuméricos. Compruebe si hay actualizaciones.  Para más información, consulte [Preguntas más frecuentes y problemas conocidos](known-issues.md).
 
-    ```azurecli-interactive
-    az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
-    ```
+   ```azurecli-interactive
+   az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
+   ```
+
    La respuesta contiene detalles de la identidad administrada asignada por el usuario que se ha creado, de forma similar a lo siguiente. 
 
    ```json
    {
-        "clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
-        "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>/credentials?tid=5678&oid=9012&aid=73444643-8088-4d70-9532-c3a0fdc190fz",
-        "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>",
-        "location": "westcentralus",
-        "name": "<USER ASSIGNED IDENTITY NAME>",
-        "principalId": "e5fdfdc1-ed84-4d48-8551-fe9fb9dedfll",
-        "resourceGroup": "<RESOURCE GROUP>",
-        "tags": {},
-        "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
-        "type": "Microsoft.ManagedIdentity/userAssignedIdentities"    
+     "clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
+     "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>/credentials?tid=5678&oid=9012&aid=73444643-8088-4d70-9532-c3a0fdc190fz",
+     "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>",
+     "location": "westcentralus",
+     "name": "<USER ASSIGNED IDENTITY NAME>",
+     "principalId": "e5fdfdc1-ed84-4d48-8551-fe9fb9dedfll",
+     "resourceGroup": "<RESOURCE GROUP>",
+     "tags": {},
+     "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
+     "type": "Microsoft.ManagedIdentity/userAssignedIdentities"    
    }
    ```
 
 2. Asignar a su VM la identidad asignada por el usuario mediante [az vm identity assign](/cli/azure/vm). Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<VM NAME>` con sus propios valores. El parámetro `<USER ASSIGNED IDENTITY NAME>` es la propiedad `name` del recurso de la identidad administrada asignar por el usuario, tal como se creó en el paso anterior. Si ha creado la identidad administrada asignada por el usuario en un RG diferente al de la máquina virtual. Tendrá que usar la dirección URL de la identidad administrada.
 
-    ```azurecli-interactive
-    az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY>
-    ```
+   ```azurecli-interactive
+   az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY>
+   ```
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Eliminación de una identidad administrada asignada por el usuario de una VM de Azure
 

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/24/2021
-ms.openlocfilehash: 9d425ce352472755729b34b750a19ce0c3e48c0c
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 01d3832d8c643a6870239534377cd282feef01f1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129362196"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131082481"
 ---
 # <a name="migrate-amazon-rds-for-mysql-to-azure-database-for-mysql-using-data-in-replication"></a>Migración de RDS de Amazon para MySQL a Azure Database for MySQL mediante Replicación de datos de entrada
 
@@ -82,7 +82,7 @@ Por último, a fin de prepararse para la Replicación de datos de entrada:
 
 - Compruebe que el servidor de Azure Database for MySQL de destino se puede conectar al servidor de RDS de Amazon para MySQL de origen mediante el puerto 3306.
 - Asegúrese de que el servidor de RDS de Amazon para MySQL de origen permite el tráfico entrante y saliente en el puerto 3306.
-- Asegúrese de proporcionar [conectividad de sitio a sitio](../vpn-gateway/tutorial-site-to-site-portal.md) al servidor de origen mediante [Azure ExpressRoute](../expressroute/expressroute-introduction.md) o [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). Para más información acerca de cómo crear una red virtual, consulte la [documentación de Azure Virtual Network](/azure/virtual-network/). Consulte también los artículos de inicio rápido con detalles paso a paso.
+- Asegúrese de proporcionar [conectividad de sitio a sitio](../vpn-gateway/tutorial-site-to-site-portal.md) al servidor de origen mediante [Azure ExpressRoute](../expressroute/expressroute-introduction.md) o [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). Para más información acerca de cómo crear una red virtual, consulte la [documentación de Azure Virtual Network](../virtual-network/index.yml). Consulte también los artículos de inicio rápido con detalles paso a paso.
 - Configure los grupos de seguridad de red del servidor de bases de datos de origen para permitir la dirección IP del servidor de Azure Database for MySQL de destino.
 
 > [!IMPORTANT]

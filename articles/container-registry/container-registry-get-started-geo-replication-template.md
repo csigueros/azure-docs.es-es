@@ -7,15 +7,13 @@ ms.author: danlep
 ms.date: 10/06/2020
 ms.topic: quickstart
 ms.service: azure-resource-manager
-ms.custom:
-- subject-armqs
-- mode-arm
-ms.openlocfilehash: ee6aa5080745d7bcc6f77156b964fc2eccdc139b
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.custom: subject-armqs, mode-arm
+ms.openlocfilehash: 6187276a6746d6458cc4480fbd25557de9a6b6b4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112004608"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131043535"
 ---
 # <a name="quickstart-create-a-geo-replicated-container-registry-by-using-an-arm-template"></a>Inicio rápido: Creación de un registro de contenedor con replicación geográfica mediante una plantilla de Resource Manager
 

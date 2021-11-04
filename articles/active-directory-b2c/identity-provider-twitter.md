@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 11cc9a7e58001b515e3332717bc4ccdc4f9832f6
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: dc7e2a22e07f131019e701b54ca24b978454b9ae
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130227799"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131007160"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de Twitter mediante Azure Active Directory B2C
 
@@ -35,7 +35,7 @@ ms.locfileid: "130227799"
 
 ## <a name="create-an-application"></a>Crear una aplicación
 
-Para habilitar el inicio de sesión de los usuarios con una cuenta de Twitter en Azure AD B2C, debe crear una aplicación de Twitter. Si aún no tiene una cuenta de Twitter, puede suscribirse en [https://twitter.com/signup](https://twitter.com/signup). También debe [solicitar una cuenta de desarrollador](https://developer.twitter.com/en/apply/user.html). Para obtener más información, consulte [Solicitud de acceso](https://developer.twitter.com/en/apply-for-access).
+Para habilitar el inicio de sesión de los usuarios con una cuenta de Twitter en Azure AD B2C, debe crear una aplicación de Twitter. Si aún no tiene una cuenta de Twitter, puede suscribirse en [`https://twitter.com/signup`](https://twitter.com/signup). También debe [solicitar una cuenta de desarrollador](https://developer.twitter.com/en/apply/user.html). Para obtener más información, consulte [Solicitud de acceso](https://developer.twitter.com/en/apply-for-access).
 
 1. Inicie sesión en el [portal para desarrolladores de Twitter](https://developer.twitter.com/portal/projects-and-apps) con las credenciales de la cuenta de Twitter.
 1. En **Standalone Apps** (aplicaciones independientes), seleccione **+Create App** (+ crear aplicación).

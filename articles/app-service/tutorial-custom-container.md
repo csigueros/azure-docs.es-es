@@ -7,12 +7,12 @@ ms.author: msangapu
 keywords: azure app service, web app, linux, windows, docker, container
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 1574464f4f6f4c4abe8a3fc45247f28b7b97bd96
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 169e25bd7fe5b77580652d4edf4beabb26abcf18
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123428081"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131031829"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migración de software personalizado a Azure App Service mediante un contenedor personalizado
 
@@ -374,7 +374,7 @@ En esta sección, va a insertar la imagen en Azure Container Registry desde la q
 1. Una vez que el inicio de sesión se realice correctamente, etiquete la imagen local de Docker para el registro:
 
     ```bash
-   docker tag appsvc-tutorial-custom-image <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
+    docker tag appsvc-tutorial-custom-image <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
     ```    
 
 1. Use el comando `docker push` para enviar la imagen al registro:

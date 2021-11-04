@@ -9,15 +9,17 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
-ms.custom: references_regions
-ms.openlocfilehash: 49aef35c5f69bd5ad09c4b1154fbee75ba2aa204
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.custom: references_regions, ignite-fall-2021
+ms.openlocfilehash: 492f94282f1e3d3055d6f7726da68c8d9503856c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123251837"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131009118"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Inicio rápido: Incorporación de Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 En este tutorial de inicio rápido, aprenderá cómo incorporar Azure Sentinel. Para incorporarse a Azure Sentinel, primero debe habilitarlo y, después, conectar sus orígenes de datos.
 
@@ -127,4 +129,3 @@ Para más información, consulte:
     - [Introducción a Azure Sentinel](get-visibility.md)
     - [Creación de reglas de análisis personalizadas para detectar amenazas](detect-threats-custom.md)
     - [Conexión de su solución externa con Common Event Format](connect-common-event-format.md)
-

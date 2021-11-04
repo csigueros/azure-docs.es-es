@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: oshezaf
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/17/2021
 ms.author: ofshezaf
-ms.openlocfilehash: 388f7b0d3ed26c10ad91e17ccbbeabf705b3894c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: bca951ee50a503aa91a0dec680a787a5c2f95ad8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128560704"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131083880"
 ---
 # <a name="azure-sentinel-network-session-normalization-schema-reference-public-preview"></a>Referencia del esquema de normalización de sesiones de red de Azure Sentinel (versión preliminar pública)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 El esquema de normalización de sesiones de red se usa para describir la actividad de una red IP. Aquí se incluyen las conexiones y las sesiones de red. Los sistemas operativos, los enrutadores, los firewalls, los sistemas de prevención de intrusiones y las puertas de enlace de seguridad web, entre otros, notifican estos eventos.
 
@@ -186,10 +188,10 @@ Los campos del evento son comunes a todos los esquemas y describen la propia act
 | <a name="dvcipaddr"></a>**DvcIpAddr** | Recomendado | Dirección IP | Dirección IP del dispositivo intermediario o de informes.<br><br>Ejemplo: `2001:db8::ff00:42:8329` |
 | <a name="dvchostname"></a>**DvcHostname** | Mandatory | String | Nombre de host del dispositivo intermediario o de informes, excepto la información de dominio. Si no hay ningún nombre de dispositivo disponible, almacene la dirección IP correspondiente en este campo.<br><br>Ejemplo: `DESKTOP-1282V4D` |
 | <a name="dvcdomain"></a>**DvcDomain** | Recomendado | String | Dominio del dispositivo intermediario o de informes.<br><br>Ejemplo: `Contoso` |
-| <a name="dvcdomaintype"></a>**DvcDomainType** | Recomendado | Enumerated | El tipo de [DvcDomain](#dvcdomain), si se conoce. Los valores posibles son:<br>- `Windows (contoso\mypc)`<br>- `FQDN (docs.microsoft.com)`<br><br>**Nota**: Este campo es necesario si se usa el campo [DvcDomain](#dvcdomain). |
+| <a name="dvcdomaintype"></a>**DvcDomainType** | Recomendado | Enumerated | Tipo de [DvcDomain](#dvcdomain), si se conoce. Los valores posibles son:<br>- `Windows (contoso\mypc)`<br>- `FQDN (docs.microsoft.com)`<br><br>**Nota**: Este campo es necesario si se usa el campo [DvcDomain](#dvcdomain). |
 | <a name="dvcfqdn"></a>**DvcFQDN** | Opcional | String | Nombre de host del dispositivo intermediario o de informes, incluida la información de dominio cuando esté disponible. <br><br> Ejemplo: `Contoso\DESKTOP-1282V4D`<br><br>**Nota**: Este campo admite tanto el formato FQDN tradicional como el formato de dominio\nombre de host de Windows. El campo [DvcDomainType](#dvcdomaintype) refleja el formato utilizado.  |
 | <a name="dvcid"></a>**DvcId** | Opcional | String | Identificador del dispositivo intermediario o de informes, como se indica en el registro.<br><br>Ejemplo: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
-| **DvcIdType** | Opcionales | Enumerated | El tipo de [DvcId](#dvcid), si se conoce. Los valores posibles son:<br> - `AzureResourceId`<br>- `MDEid`<br><br>Si hay varios identificadores disponibles, use el primero de la lista y almacene los demás con los nombres de campo **DvcAzureResourceId** y **DvcMDEid**, respectivamente.<br><br>**Nota**: Este campo es necesario si se usa el campo [DvcId](#dvcid). |
+| **DvcIdType** | Opcionales | Enumerated | Tipo de [DvcId](#dvcid), si se conoce. Los valores posibles son:<br> - `AzureResourceId`<br>- `MDEid`<br><br>Si hay varios identificadores disponibles, use el primero de la lista y almacene los demás con los nombres de campo **DvcAzureResourceId** y **DvcMDEid**, respectivamente.<br><br>**Nota**: Este campo es necesario si se usa el campo [DvcId](#dvcid). |
 | **AdditionalFields** | Opcionales | Dinámica | Si el origen proporciona información adicional que merece la pena preservar, consérvela con los nombres de campo originales o cree el campo dinámico **AdditionalFields** y agréguele esta información adicional como pares clave-valor. |
 | | | | |
 
@@ -234,10 +236,10 @@ Los campos siguientes son comunes a todos los registros de actividad de sesión 
 | **SrcPortNumber** | Opcional | Entero | Puerto IP desde el que se originó la conexión. Puede que no sea importante en sesiones que contengan varias conexiones.<br><br>Ejemplo: `2335` |
 | **SrcHostname** | Recomendado | String | Nombre de host del dispositivo de origen, excepto la información de dominio. Si no hay ningún nombre de dispositivo disponible, almacene la dirección IP correspondiente en este campo. Este valor es obligatorio si se especifica [SrcIpAddr](#srcipaddr).<br><br>Ejemplo: `DESKTOP-1282V4D` |
 |<a name="srcdomain"></a> **SrcDomain** | Recomendado | String | Dominio del dispositivo de origen.<br><br>Ejemplo: `Contoso` |
-| <a name="srcdomaintype"></a>**SrcDomainType** | Recomendado | Enumerated | El tipo de [SrcDomain](#srcdomain), si se conoce. Los valores posibles son:<br>- `Windows` (por ejemplo, `contoso`)<br>- `FQDN` (por ejemplo, `microsoft.com`)<br><br>Obligatorio si se usa el campo [SrcDomain](#srcdomain). |
+| <a name="srcdomaintype"></a>**SrcDomainType** | Recomendado | Enumerated | Tipo de [SrcDomain](#srcdomain), si se conoce. Los valores posibles son:<br>- `Windows` (por ejemplo, `contoso`)<br>- `FQDN` (por ejemplo, `microsoft.com`)<br><br>Obligatorio si se usa el campo [SrcDomain](#srcdomain). |
 | **SrcFQDN** | Opcional | String | Nombre de host del dispositivo de origen, incluida la información de dominio cuando está disponible. <br><br>**Nota**: Este campo admite tanto el formato de FQDN tradicional como el formato de dominio\nombre de host de Windows. El campo [SrcDomainType](#srcdomaintype) refleja el formato usado. <br><br>Ejemplo: `Contoso\DESKTOP-1282V4D` |
 | <a name="srcdvcid"></a>**SrcDvcId** | Opcional | String | Identificador del dispositivo de origen tal y como se muestra en el registro.<br><br>Por ejemplo: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
-| **SrcDvcIdType** | Opcionales | Enumerated | El tipo de [SrcDvcId](#srcdvcid), si se conoce. Los valores posibles son:<br> - `AzureResourceId`<br>- `MDEid`<br><br>Si hay varios identificadores disponibles, use el primero de la lista y almacene los demás en los campos **SrcDvcAzureResourceId** y **SrcDvcMDEid**, respectivamente.<br><br>**Nota**: Este campo es necesario si se usa el campo [SrcDvcId](#srcdvcid). |
+| **SrcDvcIdType** | Opcionales | Enumerated | Tipo de [SrcDvcId](#srcdvcid), si se conoce. Los valores posibles son:<br> - `AzureResourceId`<br>- `MDEid`<br><br>Si hay varios identificadores disponibles, use el primero de la lista y almacene los demás en los campos **SrcDvcAzureResourceId** y **SrcDvcMDEid**, respectivamente.<br><br>**Nota**: Este campo es necesario si se usa el campo [SrcDvcId](#srcdvcid). |
 | **SrcDeviceType** | Opcionales | Enumerated | Tipo del dispositivo de origen. Los valores posibles son:<br>- `Computer`<br>- `Mobile Device`<br>- `IOT Device`<br>- `Other` |
 | <a name="srcuserid"></a>**SrcUserId** | Opcional | String | Representación única, alfanumérica y legible por una máquina del usuario de origen. El formato y los tipos admitidos son los siguientes:<br>-  **SID** (Windows): `S-1-5-21-1377283216-344919071-3415362939-500`<br>-  **UID** (Linux): `4578`<br>-  **AADID** (Azure Active Directory): `9267d02c-5f76-40a9-a9eb-b686f3ca47aa`<br>-  **OktaId**: `00urjk4znu3BcncfY0h7`<br>-  **AWSId**: `72643944673`<br><br>Almacene el tipo de identificador en el campo [SrcUserIdType](#srcuseridtype). Si hay otros identificadores disponibles, se recomienda normalizar los nombres de campo a SrcUserSid, SrcUserUid, SrcUserAadId, SrcUserOktaId y UserAwsId, respectivamente. Para más información, consulte Entidad User.<br><br>Ejemplo: S-1-12 |
 | <a name="srcuseridtype"></a>**SrcUserIdType** | Opcionales | Enumerated | Tipo del identificador almacenado en el campo [SrcUserId](#srcuserid). Los valores admitidos incluyen `SID`, `UIS`, `AADID`, `OktaId` y `AWSId`. |
@@ -356,4 +358,3 @@ Para más información, consulte:
 - [Referencia del esquema de normalización de DNS de Azure Sentinel](dns-normalization-schema.md)
 - [Referencia del esquema de normalización de eventos de proceso de Azure Sentinel](process-events-normalization-schema.md)
 - [Referencia del esquema de normalización de eventos de registro de Azure Sentinel (versión preliminar pública)](registry-event-normalization-schema.md)
-

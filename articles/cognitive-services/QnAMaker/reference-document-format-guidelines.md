@@ -5,12 +5,13 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 04/06/2020
-ms.openlocfilehash: 53baa580d2f2c68fa32f38bddb07b5d9e362d190
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 875987a881e8e370d99530bfa975a73964d7d80c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110787755"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080664"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>Instrucciones de formato para las direcciones URL y los documentos importados
 
@@ -69,7 +70,7 @@ A continuación se muestra un ejemplo de un documento PDF no estructurado:
  Actualmente, esta funcionalidad solo está disponible por medio de la carga de documentos y solo para los formatos de archivo PDF y DOC.
 
 > [!IMPORTANT]
-> La compatibilidad con archivos o contenido no estructurado solo está disponible en la característica de respuesta a preguntas personalizada (versión preliminar).
+> La compatibilidad con archivos o contenido no estructurado solo está disponible en la característica de respuesta a preguntas.
 
 ### <a name="structured-qna-document"></a>Documento de preguntas y respuestas estructurado
 

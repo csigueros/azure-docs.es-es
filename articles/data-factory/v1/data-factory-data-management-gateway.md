@@ -9,12 +9,12 @@ ms.date: 10/22/2021
 ms.author: abnarain
 ms.custom: devx-track-azurepowershell
 robots: noindex
-ms.openlocfilehash: cb827e3603bb00e1c1aa435847dc58fe03d0a389
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: ae9dd04f2bacdbe6a45b11e3d9c535b01953c90b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130255493"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131065349"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -277,6 +277,7 @@ Verá el estado de la operación de actualización (manual o automática) en la 
 Se puede habilitar o deshabilitar la función de actualización automática realizando los siguientes pasos:
 
 [Para puerta de enlace de nodo único]
+
 1. Inicie Windows PowerShell en el equipo de la puerta de enlace.
 2. Cambie a la carpeta *C:\\\\Archivos de programa\\Microsoft Integration Runtime\\5.0\\PowerShellScript\\* .
 3. Ejecute el siguiente comando para desactivar (deshabilitar) la característica de actualización automática.
@@ -284,20 +285,26 @@ Se puede habilitar o deshabilitar la función de actualización automática real
     ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -off
     ```
+
 4. Para volver a activarla:
 
     ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on
     ```
-   [Para puerta de enlace escalable y altamente disponible de varios nodos](data-factory-data-management-gateway-high-availability-scalability.md)
+[Para puerta de enlace escalable y altamente disponible de varios nodos](data-factory-data-management-gateway-high-availability-scalability.md)
+
 1. Inicie Windows PowerShell en el equipo de la puerta de enlace.
+
 2. Cambie a la carpeta *C:\\\\Archivos de programa\\Microsoft Integration Runtime\\5.0\\PowerShellScript\\* .
+
 3. Ejecute el siguiente comando para desactivar (deshabilitar) la característica de actualización automática.
 
     Se requiere un parámetro AuthKey adicional para la característica de puerta de enlace con alta disponibilidad.
+
     ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -off -AuthKey <your auth key>
     ```
+
 4. Para volver a activarla:
 
     ```powershell
@@ -305,6 +312,7 @@ Se puede habilitar o deshabilitar la función de actualización automática real
     ```
 
 ## <a name="configuration-manager"></a>Administrador de configuración
+
 Una vez instalada la puerta de enlace, puede iniciar el Administrador de configuración de Data Management Gateway de una de las siguientes maneras:
 
 1. En la ventana **Búsqueda**, escriba **Data Management Gateway** para tener acceso a esta utilidad.
@@ -452,7 +460,7 @@ Para cifrar las credenciales en el Editor de Data Factory, realice los siguiente
    4. Haga clic en **Aceptar** para cifrar las credenciales y cerrar el cuadro de diálogo.
 8. Ahora verá una propiedad **encryptedCredential** en **connectionString**.
 
-    ```JSON
+    ```json
     {
         "name": "SqlServerLinkedService",
         "properties": {
@@ -465,7 +473,8 @@ Para cifrar las credenciales en el Editor de Data Factory, realice los siguiente
         }
     }
     ```
-   Si tiene acceso al portal desde un equipo diferente del equipo de la puerta de enlace, debe asegurarse de que la aplicación del Administrador de credenciales puede conectarse al equipo de la puerta de enlace. Si la aplicación no puede ponerse en contacto con la máquina de la puerta de enlace, no podrá establecer las credenciales del origen de datos ni probar la conexión a él.
+
+    Si tiene acceso al portal desde un equipo diferente del equipo de la puerta de enlace, debe asegurarse de que la aplicación del Administrador de credenciales puede conectarse al equipo de la puerta de enlace. Si la aplicación no puede ponerse en contacto con la máquina de la puerta de enlace, no podrá establecer las credenciales del origen de datos ni probar la conexión a él.
 
 Cuando se usa la aplicación **Setting Credentials** (Establecer credenciales), el portal las cifra con el certificado especificado en la pestaña **Certificado** del **Administrador de configuración de Data Management Gateway** de la máquina de la puerta de enlace.
 
@@ -524,10 +533,11 @@ En esta sección se explica cómo crear y registrar una puerta de enlace usando 
     ```
 2. Use el cmdlet **Get-AzDataFactoryGateway** para obtener la lista de puertas de enlace de su factoría de datos. Cuando el **Estado** es **En línea**, significa que la puerta de enlace está lista para usarla.
 
-    ```powershell        
+    ```powershell
     Get-AzDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
     ```
-   Puede quitar una puerta de enlace con el cmdlet **Remove-AzDataFactoryGateway** y actualizar la descripción de una puerta de enlace con los cmdlets **Set-AzDataFactoryGateway**. Para ver la sintaxis y otros detalles de estos cmdlets, consulte la documentación de referencia de los cmdlets de Factoría de datos.  
+
+    Puede quitar una puerta de enlace con el cmdlet **Remove-AzDataFactoryGateway** y actualizar la descripción de una puerta de enlace con los cmdlets **Set-AzDataFactoryGateway**. Para ver la sintaxis y otros detalles de estos cmdlets, consulte la documentación de referencia de los cmdlets de Factoría de datos.  
 
 ### <a name="list-gateways-using-powershell"></a>Enumeración de puertas de enlace con PowerShell
 

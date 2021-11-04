@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/12/2021
 ms.author: esarroyo
-ms.openlocfilehash: 9f863760130b0748405cb30d4257864482b679f0
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: e24ac58841c7ca786cb82e538930e66d081b1e9c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123106245"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045202"
 ---
 # <a name="troubleshoot-issues-with-diagnostics-queries"></a> Solución de problemas con las consultas de diagnóstico
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -77,7 +77,7 @@ En el caso de las tablas específicas del recurso, los datos se escriben en tabl
 
 - ¿Cómo puedo averiguar qué operaciones consumen la mayor parte de las RU por segundo?
 
-    ```Kusto
+   ```kusto
    AzureDiagnostics
    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
    | where TimeGenerated >= ago(2h) 

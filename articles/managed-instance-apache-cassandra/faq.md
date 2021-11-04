@@ -5,22 +5,18 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 03/02/2021
-ms.openlocfilehash: 6953ffb5542e2a0d8acb9e404b2df0f923a08145
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 46c629ead4f86d71974ba26426177ca2d9093609
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744024"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131032437"
 ---
-# <a name="frequently-asked-questions-about-azure-managed-instance-for-apache-cassandra-preview"></a>Preguntas más frecuentes sobre Azure Managed Instance for Apache Cassandra (versión preliminar).
+# <a name="frequently-asked-questions-about-azure-managed-instance-for-apache-cassandra"></a>Preguntas más frecuentes sobre Azure Managed Instance for Apache Cassandra
 
 En este artículo se abordan las preguntas más frecuentes sobre Azure Managed Instance for Apache Cassandra. Aprenderá cuándo usar instancias administradas, sus ventajas, los límites de rendimiento, las regiones admitidas y sus detalles de configuración.
-
-> [!IMPORTANT]
-> Azure Managed Instance for Apache Cassandra se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="general-faq"></a>Preguntas más frecuentes generales
 
@@ -40,7 +36,7 @@ No, no hay ninguna dependencia en cuanto a la arquitectura entre Azure Managed I
 
 #### <a name="can-i-deploy-azure-managed-instance-for-apache-cassandra-in-any-region"></a>¿Puedo implementar Azure Managed Instance for Apache Cassandra en cualquier región?
 
-La instancia administrada estará disponible en un número limitado de regiones durante la versión preliminar.
+Actualmente, la instancia administrada está disponible en un número limitado de regiones.
 
 ### <a name="what-are-the-storage-and-throughput-limits-of-azure-managed-instance-for-apache-cassandra"></a>¿Cuáles son los límites de almacenamiento y rendimiento de Azure Managed Instance for Apache Cassandra?
 

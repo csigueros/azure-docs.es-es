@@ -5,15 +5,16 @@ author: roygara
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.date: 10/15/2018
+ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: c8c8881de696143be60c9ff61c1649eb31fe59b3
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 8f54e1f74c5f4f6a8502285f5e4c36c09892ec71
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122695615"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131082614"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Expansión de discos duros virtuales en una VM Linux con la CLI de Azure
 
@@ -25,11 +26,41 @@ En este artículo se describe cómo expandir discos administrados para una máqu
 > Asegúrese siempre de que el sistema de archivos está en buen estado, que el tipo de tabla de partición de disco admite el nuevo tamaño y no olvide hacer una copia de seguridad de los datos antes de realizar operaciones de cambio de tamaño de disco. Para más información, consulte el [inicio rápido de Azure Backup](../../backup/quick-backup-vm-portal.md). 
 
 ## <a name="expand-an-azure-managed-disk"></a>Expansión de un disco administrado de Azure
+
+### <a name="resize-without-downtime-preview"></a>Cambio de tamaño sin tiempo de inactividad (versión preliminar)
+
+Ahora puede cambiar el tamaño de los discos administrados sin desasignar la máquina virtual.
+
+La versión preliminar del cambio tiene las limitaciones siguientes:
+
+- Actualmente solo está disponible en el Oeste de EE. UU.
+- Solo se admite para discos de datos.
+- Los discos con una capacidad inferior a 4 TiB no se pueden ampliar a 4 TiB o más sin tiempo de inactividad.
+    - Una vez que haya aumentado el tamaño de un disco a 4 TiB o más, se puede ampliar sin tiempo de inactividad.
+- Debe instalar y usar la [versión más reciente de CLI de Azure](/cli/azure/install-azure-cli), el [módulo Azure PowerShell más reciente](/powershell/azure/install-az-ps), Azure Portal si se accede a través de [https://aka.ms/iaasexp/DiskLiveResize](https://aka.ms/iaasexp/DiskLiveResize) o una plantilla de Azure Resource Manager con una versión de API que sea 2021-04-01 o posterior.
+
+Para registrar la característica, utilice el comando siguiente:
+
+```azurecli
+az feature register --namespace Microsoft.Compute --name LiveResize
+```
+
+Puede que el proceso de registro tarde unos minutos en completarse. Para confirmar que se ha registrado, use el comando siguiente:
+
+```azurecli
+az feature show --namespace Microsoft.Compute --name LiveResize
+```
+
+### <a name="get-started"></a>Primeros pasos
+
 Asegúrese de que tiene instalada la versión más reciente de la [CLI de Azure](/cli/azure/install-az-cli2) y de que ha iniciado sesión en una cuenta de Azure con [az login](/cli/azure/reference-index#az_login).
 
 En este artículo se requiere una máquina virtual existente en Azure con al menos un disco de datos adjunto y preparado. Si no dispone de una máquina virtual que pueda usar, consulte la sección sobre la [creación y preparación de máquinas virtuales con discos de datos](tutorial-manage-disks.md#create-and-attach-disks).
 
 En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo, como *myResourceGroup* y *myVM*, con sus propios valores.
+
+> [!IMPORTANT]
+> Si ha habilitado **LiveResize** y el disco cumple los requisitos de [Cambio de tamaño sin tiempo de inactividad (versión preliminar)](#resize-without-downtime-preview), puede omitir los pasos 1 y 3. 
 
 1. No se pueden realizar operaciones en los discos duros virtuales con la VM en ejecución. Desasigne la máquina virtual con [az vm deallocate](/cli/azure/vm#az_vm_deallocate). En el ejemplo siguiente se desasigna la máquina virtual denominada "*myVM*" en el grupo de recursos *myResourceGroup*:
 

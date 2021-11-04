@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 6e816919d41dbae62c33028c5d35c996654d7f26
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 39ca13ebaea9469dbbfa21cc8ded20b36dc2ed3d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123258298"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131050667"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Aplicación web que inicia sesión de usuarios: Configuración del código
 
@@ -143,7 +143,7 @@ De la misma manera, el URI de cierre de sesión se establecería en `https://loc
 
 En ASP.NET, la aplicación se configura en las líneas 12 a 15 del archivo [Web.Config](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Web.config#L12-L15).
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   For more information on how to configure your ASP.NET application, visit
@@ -249,7 +249,7 @@ Para agregar la autenticación con la Plataforma de identidad de Microsoft (ante
 >
 > Si prefiere iniciar el proyecto con el proyecto web de ASP.NET Core predeterminado actual en Visual Studio o mediante `dotnet new mvc --auth SingleOrg` o `dotnet new webapp --auth SingleOrg`, verá código como el siguiente:
 >
->```c#
+> ```c#
 >  services.AddAuthentication(AzureADDefaults.AuthenticationScheme)
 >          .AddAzureAD(options => Configuration.Bind("AzureAd", options));
 > ```
@@ -372,7 +372,6 @@ from flask import Flask, render_template, session, request, redirect, url_for
 from flask_session import Session  # https://pythonhosted.org/Flask-Session
 import msal
 import app_config
-
 
 app = Flask(__name__)
 app.config.from_object(app_config)

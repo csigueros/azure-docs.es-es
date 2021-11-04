@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 03/07/2021
 ms.author: bagol
-ms.openlocfilehash: 76800b0f7a90dacd1447b87fdc1f1d23300873ec
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: a8e96969dc4edd5a79e1ca85ac32529c10b8a343
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124784401"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131019559"
 ---
 # <a name="commonly-used-azure-sentinel-workbooks"></a>Libros de Azure Sentinel que se usan comúnmente
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 En la tabla siguiente se enumeran los libros de Azure Sentinel integrados que se usan con más frecuencia.
 
@@ -31,7 +33,7 @@ Acceda a los libros de Azure Sentinel en **Administración de amenazas** > **Li
 > [!TIP]
 > Se recomienda implementar los libros asociados a los datos que va a ingerir. Los libros permiten una supervisión e investigación más amplias en función de los datos recopilados.
 >
-> Para más información, consulte [Conexión de orígenes de datos](connect-data-sources.md) and [Detección e implementación de soluciones de Azure Sentinel](sentinel-solutions-deploy.md).
+> Para más información, consulte [Conexión de orígenes de datos](connect-data-sources.md) and [Detección e implementación central de soluciones de Azure Sentinel integradas](sentinel-solutions-deploy.md).
 >
 
 |Nombre del libro  |Description  |
