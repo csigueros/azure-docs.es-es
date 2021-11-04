@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 182fa929b5edf1486d0e8d2372db71ea1ee9747f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 40bfd1fe5614f194aae4feb40e48739a77f5c5ec
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128637881"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131050306"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Tutorial: Llamada a Microsoft Graph API desde una aplicación de escritorio de Windows
 
@@ -35,7 +35,7 @@ En este tutorial, aprenderá a:
 > * Agregar código para llamar a Microsoft Graph API
 > * Prueba de la aplicación
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
 
@@ -105,7 +105,7 @@ Puede registrar rápidamente la aplicación mediante estos pasos:
 
 Para registrar la aplicación y agregar la información de registro de aplicación a la solución, siga estos pasos:
 1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
-1. Si tiene acceso a varios inquilinos, use el filtro **Directorios + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar la aplicación.
+1. Si tiene acceso a varios inquilinos, use el filtro **Directorios y suscripciones** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para ir al inquilino en el que quiere registrar la aplicación.
 1. Busque y seleccione **Azure Active Directory**.
 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
 1. Escriba el **Nombre** de la aplicación, por ejemplo `Win-App-calling-MsGraph`. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
@@ -130,7 +130,7 @@ En este caso, creará una clase para administrar la interacción con MSAL, como 
     ```csharp
     using Microsoft.Identity.Client;
     ```
-   <!-- Workaround for Docs conversion bug -->
+    <!-- Workaround for Docs conversion bug -->
 
 2. Actualice la clase app a la siguiente:
 

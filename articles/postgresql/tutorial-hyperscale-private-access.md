@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: tutorial
 ms.date: 10/15/2021
-ms.openlocfilehash: d024f68b68fd381641c0dc7aaf5aedefd3930119
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 1ae844b4778f8a117bd8ae8807fa28849d9d310d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130075181"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056355"
 ---
 # <a name="create-server-group-with-private-access-preview-in-azure-database-for-postgresql---hyperscale-citus"></a>Creación de un grupo de servidores con acceso privado (versión preliminar): Azure Database for PostgreSQL: Hiperescala (Citus)
 
@@ -154,6 +154,6 @@ az group delete --resource-group link-demo
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Más información sobre el [acceso privado](concepts-hyperscale-private-access.md) (versión preliminar)
-* Más información sobre los [puntos de conexión privados](/azure/private-link/private-endpoint-overview)
-* Más información sobre las [redes virtuales](/azure/virtual-network/concepts-and-best-practices)
-* Más información sobre las [zonas DNS privadas](/azure/dns/private-dns-overview)
+* Más información sobre los [puntos de conexión privados](../private-link/private-endpoint-overview.md)
+* Más información sobre las [redes virtuales](../virtual-network/concepts-and-best-practices.md)
+* Obtenga información sobre las [zonas DNS privadas](../dns/private-dns-overview.md).

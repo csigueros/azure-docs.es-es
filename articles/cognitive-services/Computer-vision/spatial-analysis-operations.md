@@ -10,12 +10,13 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/08/2021
 ms.author: pafarley
-ms.openlocfilehash: 6f4625f87bddfdffca19c3a6b8ebdf7ca4586c70
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 845c2e7080ccc56d49e0d930d041c55f88710aab
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129997656"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131033501"
 ---
 # <a name="spatial-analysis-operations"></a>Operaciones de análisis espacial
 
@@ -41,7 +42,7 @@ Identificador de operación| Descripción
 | cognitiveservices.vision.spatialanalysis-persondistance.debug | Hace un seguimiento de cuando las personas infringen una regla de distancia. <br> Emite un evento _personDistanceEvent_ de manera periódica con la ubicación de cada infracción de distancia. |
 | cognitiveservices.vision.spatialanalysis.debug | Operación genérica que se puede usar para ejecutar todos los escenarios mencionados anteriormente. Esta opción es más útil si quiere ejecutar varios escenarios en la misma cámara o usar los recursos del sistema (por ejemplo, la GPU) más eficazmente. |
 
-El análisis espacial también se puede ejecutar con [Live Video Analytics](../../media-services/live-video-analytics-edge/spatial-analysis-tutorial.md) como su módulo de IA de vídeo. 
+El análisis espacial también se puede ejecutar con [Live Video Analytics](../../azure-video-analyzer/video-analyzer-docs/overview.md) como su módulo de IA de vídeo. 
 
 <!--more details on the setup can be found in the [LVA Setup page](LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics. -->
 
@@ -90,37 +91,38 @@ Este es un ejemplo de los parámetros DETECTOR_NODE_CONFIG para todas las operac
 | Nombre | Tipo| Descripción|
 |---------|---------|---------|
 | `gpu_index` | string| Índice de la GPU en que se ejecutará esta operación.|
-| `enable_breakpad`| bool | Indica si habilitará Breakpad, que se usa para generar volcados de memoria para su uso en la depuración. De forma predeterminada, su valor es `false`. Si lo establece en `true`, también debe agregar `"CapAdd": ["SYS_PTRACE"]` en la parte `HostConfig` del contenedor `createOptions`. De forma predeterminada, el volcado de memoria se carga en la aplicación [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) de AppCenter; si quiere que se carguen en su propia aplicación de AppCenter, puede invalidar la variable de entorno `RTPT_APPCENTER_APP_SECRET` con el secreto de su aplicación.|
+| `enable_breakpad`| bool | Indica si se habilitará Breakpad, que se usa para generar volcados de memoria para su uso en la depuración. De forma predeterminada, su valor es `false`. Si lo establece en `true`, también debe agregar `"CapAdd": ["SYS_PTRACE"]` en la parte `HostConfig` del contenedor `createOptions`. De forma predeterminada, el volcado de memoria se carga en la aplicación [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) de AppCenter; si quiere que se carguen en su propia aplicación de AppCenter, puede invalidar la variable de entorno `RTPT_APPCENTER_APP_SECRET` con el secreto de su aplicación.|
 
 ### <a name="camera-calibration-node-parameter-settings"></a>Configuración de los parámetros del nodo de calibración de la cámara
 Este es un ejemplo de los parámetros `CAMERACALIBRATOR_NODE_CONFIG` de todas las operaciones de análisis espacial.
 
-```
+```json
 {
-"gpu_index": 0,
-"do_calibration": true,
-"enable_breakpad": false,
-"enable_orientation": true
+  "gpu_index": 0,
+  "do_calibration": true,
+  "enable_breakpad": false,
+  "enable_orientation": true
 }
 ```
 
-| Nombre | Tipo| Descripción|
+| Nombre | Tipo | Descripción |
 |---------|---------|---------|
 | `do_calibration` | string | Indica que la calibración está activada. `do_calibration` debe ser true para que **cognitiveservices.vision.spatialanalysis-persondistance** funcione correctamente. `do_calibration` se establece de forma predeterminada en `True`. |
 | `enable_breakpad`| bool | Indica si se habilitará Breakpad, que se usa para generar volcados de memoria para su uso en la depuración. De forma predeterminada, su valor es `false`. Si lo establece en `true`, también debe agregar `"CapAdd": ["SYS_PTRACE"]` en la parte `HostConfig` del contenedor `createOptions`. De forma predeterminada, el volcado de memoria se carga en la aplicación [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) de AppCenter; si quiere que se carguen en su propia aplicación de AppCenter, puede invalidar la variable de entorno `RTPT_APPCENTER_APP_SECRET` con el secreto de su aplicación.
 | `enable_orientation` | bool | Indica si desea calcular la orientación de las personas detectadas, o no. `enable_orientation` se establece de forma predeterminada en `True`. |
 
 ### <a name="calibration-config"></a>Configuración de calibración
+
 Este es un ejemplo de los parámetros `CALIBRATION_CONFIG` de todas las operaciones de análisis espacial.
 
-```
+```json
 {
-"enable_recalibration": true,
-"calibration_quality_check_frequency_seconds": 86400,
-"calibration_quality_check_sample_collect_frequency_seconds": 300,
-"calibration_quality_check_one_round_sample_collect_num": 10,
-"calibration_quality_check_queue_max_size": 1000,
-"calibration_event_frequency_seconds": -1
+  "enable_recalibration": true,
+  "calibration_quality_check_frequency_seconds": 86400,
+  "calibration_quality_check_sample_collect_frequency_seconds": 300,
+  "calibration_quality_check_one_round_sample_collect_num": 10,
+  "calibration_quality_check_queue_max_size": 1000,
+  "calibration_event_frequency_seconds": -1
 }
 ```
 
@@ -133,10 +135,11 @@ Este es un ejemplo de los parámetros `CALIBRATION_CONFIG` de todas las operacio
 | `calibration_quality_check_queue_max_size` | int | Número máximo de muestras de datos que se van a almacenar cuando se calibre el modelo de cámara. El valor predeterminado es `1000`. Solo se usa con `enable_recalibration=True`.|
 | `calibration_event_frequency_seconds` | int | Frecuencia de salida (segundos) de los eventos de calibración de cámara. Un valor de `-1` indica que no se debe enviar la calibración de la cámara, a menos que se haya cambiado la información de calibración de la cámara. El valor predeterminado es `-1`.|
 
-
 ### <a name="camera-calibration-output"></a>Salida de calibración de la cámara
+
 Este es un ejemplo de la salida de calibración de la cámara, si está habilitada. Los puntos suspensivos indican que hay más objetos del mismo tipo en una lista.
-```
+
+```json
 {
   "type": "cameraCalibrationEvent",
   "sourceInfo": {
@@ -216,7 +219,7 @@ Consulte [Salida de la operación de análisis espacial](#spatial-analysis-opera
 | Nombre del campo ZonePlacementInfo | Tipo| Descripción|
 |---------|---------|---------|
 | `optimalZonePolygon` | object| Un polígono en la imagen de la cámara donde se pueden colocar líneas o zonas para las operaciones, con el fin de obtener resultados óptimos. <br/> Cada par de valores representa la x e y de los vértices de un polígono. El polígono representa las áreas en las que se hace un seguimiento o un recuento de las personas y los puntos de polígono se basan en coordenadas normalizadas (0-1), donde la esquina superior izquierda es (0.0, 0.0) y la esquina inferior derecha es (1.0, 1.0).|
-| `fairZonePolygon` | objeto| Un polígono en la imagen de la cámara donde se pueden colocar líneas o zonas para las operaciones, con el fin de obtener resultados buenos, pero posiblemente no óptimos. <br/> Consulte `optimalZonePolygon` arriba para obtener una explicación detallada del contenido. |
+| `fairZonePolygon` | object| Un polígono en la imagen de la cámara donde se pueden colocar líneas o zonas para las operaciones, con el fin de obtener resultados buenos, pero posiblemente no óptimos. <br/> Consulte `optimalZonePolygon` arriba para obtener una explicación detallada del contenido. |
 | `uniformlySpacedPersonBoundingBoxes` | list | Una lista de rectángulos delimitadores de personas dentro de la imagen de cámara distribuidos uniformemente en un espacio real. Los valores se basan en coordenadas normalizadas (0-1).|
 | `personBoundingBoxGroundPoints` | list | Lista de coordenadas en el plano del suelo con respecto a la cámara. Cada coordenada corresponde a la parte inferior derecha del rectángulo delimitador de `uniformlySpacedPersonBoundingBoxes` con el mismo índice. <br/> Para más información sobre cómo se calculan las coordenadas en el plano del suelo, consulte el campo `centerGroundPoint` de la sección [Formato JSON para Conclusiones de IA de cognitiveservices.vision.spatialanalysis-persondistance](#json-format-for-cognitiveservicesvisionspatialanalysis-persondistance-ai-insights). |
 
@@ -235,25 +238,30 @@ Puede configurar el cálculo de la velocidad a través de la configuración de p
 |---------|---------|---------|
 | `enable_speed` | bool | Indica si desea calcular la velocidad de las personas detectadas, o no. `enable_speed` se establece de forma predeterminada en `True`. Se recomienda encarecidamente habilitar tanto la velocidad como la orientación para tener los mejores valores estimados. |
 
-
 ## <a name="spatial-analysis-operations-configuration-and-output"></a>Configuración y salida de operaciones de análisis espacial
+
 ### <a name="zone-configuration-for-cognitiveservicesvisionspatialanalysis-personcount"></a>Configuración de zona para cognitiveservices.vision.spatialanalysis-personcount
 
- Ejemplo de una entrada JSON para el parámetro SPACEANALYTICS_CONFIG que configura una zona. Puede configurar varias zonas para esta operación.
+Ejemplo de una entrada JSON para el parámetro SPACEANALYTICS_CONFIG que configura una zona. Puede configurar varias zonas para esta operación.
 
 ```json
 {
-"zones":[{
-       "name": "lobbycamera",
-       "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
-       "events":[{
-              "type": "count",
-              "config":{
-                     "trigger": "event",
+  "zones": [
+    {
+      "name": "lobbycamera",
+      "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
+      "events": [
+        {
+          "type": "count",
+          "config": {
+            "trigger": "event",
             "threshold": 16.00,
             "focus": "footprint"
-      }
-       }]
+          }
+        }
+      ]
+    }
+  ]
 }
 ```
 
@@ -318,7 +326,7 @@ Ejemplo de una entrada JSON para el parámetro SPACEANALYTICS_CONFIG que configu
 
 Ejemplo de una entrada JSON para el parámetro SPACEANALYTICS_CONFIG que configura una zona. Puede configurar varias zonas para esta operación.
 
- ```json
+```json
 {
 "zones":[
    {
@@ -401,7 +409,7 @@ Este es un ejemplo de una entrada JSON para el parámetro SPACEANALYTICS_CONFIG 
 ### <a name="configuration-for-cognitiveservicesvisionspatialanalysis"></a>Configuración de cognitiveservices.vision.spatialanalysis
 Este es un ejemplo de una entrada JSON para el parámetro SPACEANALYTICS_CONFIG que configura una línea y zona para **cognitiveservices.vision.spatialanalysis**. Puede configurar varias líneas o zonas para esta operación y cada línea o zona puede tener eventos diferentes.
 
- ```
+```json
 {
   "lines": [
     {
@@ -472,6 +480,7 @@ Este es un ejemplo de una entrada JSON para el parámetro SPACEANALYTICS_CONFIG 
   ]
 }
 ```
+
 ## <a name="camera-configuration"></a>Configuración de la cámara
 
 Consulte las instrucciones de la [colocación de la cámara](spatial-analysis-camera-placement.md) para más información sobre cómo configurar zonas y líneas.

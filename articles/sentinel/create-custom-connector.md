@@ -10,19 +10,21 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2021
 ms.author: bagol
-ms.openlocfilehash: 3b578ffbb734c738aa3f082d192eae8557f4e307
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7d69235d1d7131df8b5abcb1c9073defab8f2354
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124755095"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131023355"
 ---
 # <a name="resources-for-creating-azure-sentinel-custom-connectors"></a>Recursos para crear conectores personalizados de Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Azure Sentinel proporciona una amplia gama de [conectores integrados para los servicios de Azure y soluciones externas](connect-data-sources.md), y también admite la ingesta de datos desde algunos orígenes sin un conector dedicado.
 

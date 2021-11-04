@@ -7,14 +7,13 @@ ms.author: cshoe
 ms.date: 05/07/2021
 ms.topic: quickstart
 ms.service: static-web-apps
-ms.custom:
-- mode-portal
-ms.openlocfilehash: 41be62a4e7baed39cc45011ed055a1abfe097002
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: mode-portal
+ms.openlocfilehash: a1f193ded9424361a0ee4afcdbd3566b6e990fe4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124804582"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008890"
 ---
 # <a name="quickstart-building-your-first-static-site-in-the-azure-portal"></a>Inicio rápido: creación del primer sitio estático en Azure Portal
 
@@ -22,7 +21,7 @@ Azure Static Web Apps publica sitios web en entornos de producción mediante la 
 
 Si no tiene ninguna suscripción a Azure, [cree una cuenta de evaluación gratuita](https://azure.microsoft.com/free).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - [GitHub](https://github.com)
 - Cuenta de [Azure](https://portal.azure.com)

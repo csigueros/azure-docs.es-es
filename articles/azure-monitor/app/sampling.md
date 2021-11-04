@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 08/26/2021
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4c45c127710ff5a572a68531a1a5b3836d505e39
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 6c89ad519489892cf2965054d0c331a6f5d9f8e6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124749514"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067706"
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
@@ -238,7 +238,7 @@ En el Explorador de métricas, las tasas, como los recuentos de solicitudes y de
 
 2. **Habilite el módulo de muestreo de frecuencia fija.** Agregue este fragmento de código a [`ApplicationInsights.config`](./configuration-with-applicationinsights-config.md):
    
-    ```XML
+    ```xml
     <TelemetryProcessors>
         <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
             <!-- Set a percentage close to 100/N where N is an integer. -->
@@ -323,7 +323,7 @@ De manera predeterminada, no hay ningún muestreo habilitado en la instrumentaci
 
 2. **Habilite el módulo de muestreo de frecuencia fija**; para ello, agregue el siguiente fragmento de código al archivo `ApplicationInsights.xml`:
 
-    ```XML
+    ```xml
     <TelemetryProcessors>
         <BuiltInProcessors>
             <Processor type="FixedRateSamplingTelemetryProcessor">
@@ -337,7 +337,7 @@ De manera predeterminada, no hay ningún muestreo habilitado en la instrumentaci
 
 3. Puede incluir o excluir determinados tipos de telemetría del muestreo con las siguientes etiquetas dentro del elemento `FixedRateSamplingTelemetryProcessor` de la etiqueta `Processor`:
    
-    ```XML
+    ```xml
     <ExcludedTypes>
         <ExcludedType>Request</ExcludedType>
     </ExcludedTypes>

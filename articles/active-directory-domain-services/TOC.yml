@@ -167,6 +167,6 @@
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/active-directory-ds/'
     - name: Foro de comentarios de Azure AD
-      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+      href: 'https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789'
     - name: Usar Azure AD Domain Services en suscripciones de Azure CSP
       href: csp.md

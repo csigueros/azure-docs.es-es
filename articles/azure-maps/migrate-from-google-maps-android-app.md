@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 3c41a7b8efad5ab0235adb396d0170f5385e21c6
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 50958765e0ff582e630d5a78b3d17f871a0c41aa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123437821"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131072491"
 ---
 # <a name="tutorial-migrate-an-android-app-from-google-maps"></a>Tutorial: Migración de una aplicación Android desde Google Maps
 
@@ -261,14 +261,14 @@ Para mostrar un mapa mediante el SDK de Azure Maps para Android, debe seguir est
         implementation "com.azure.android:azure-maps-control:1.0.0"
         ```
 
-        > [!Note]
+        > [!NOTE]
         > Puede establecer el número de versión en "0+" para que el código apunte siempre a la versión más reciente.
 
     4. Vaya a **Archivo** en la barra de herramientas y haga clic en **Sincronizar proyecto con archivos de Gradle**.
 
 3. Agregue un fragmento de mapa a la actividad principal (resources pwd\> layout \> activity\_main.xml):
 
-    ```XML
+    ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -546,7 +546,7 @@ Este es un ejemplo de Google Maps con el idioma establecido en "fr".
 
 Azure Maps proporciona tres formas diferentes de establecer el idioma y la vista regional del mapa. La primera opción consiste en pasar la información del idioma y de la vista regional a la clase `AzureMaps`. Esta opción utiliza los métodos estáticos `setLanguage` y `setView` de forma global. Se establecerán así el idioma y la vista regional predeterminados en todos los controles de Azure Maps cargados en la aplicación. En este ejemplo se establece el francés con el código de idioma &quot;fr-FR&quot;.
 
-::: zone pivot="programming-language-java-android"
+::: zone pivot=&quot;programming-language-java-android&quot;
 
 ```java
 static {

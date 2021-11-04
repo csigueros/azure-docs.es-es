@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 8/27/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9eabf879522d517f35da2a859c488ebdfbee64a
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: d527db391185c899bed3137c3783aa81f8a00c63
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130038467"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067036"
 ---
 # <a name="tutorial-configure-datawiza-with-azure-active-directory-for-secure-hybrid-access"></a>Tutorial: Configuración de Datawiza con Azure Active Directory para el acceso híbrido seguro
 
@@ -81,7 +81,7 @@ En su lugar, si quiere usar una aplicación web existente en el inquilino de Azu
 
 1. Para ejecutar DAB puede usar Docker o Kubernetes. La imagen de Docker es necesaria para que los usuarios creen una aplicación basada en encabezados de ejemplo. [Configure la integración de DAB y SSO](https://docs.datawiza.com/step-by-step/step3.html). [Implemente DAB con Kubernetes](https://docs.datawiza.com/tutorial/web-app-AKS.html). Se proporciona un archivo `docker-compose.yml` de imagen de Docker de ejemplo para que la descargue y la use. [Inicie sesión en el registro de contenedor](https://docs.datawiza.com/step-by-step/step3.html#important-step) para descargar las imágenes de DAB y la aplicación basada en encabezados.
 
-    ```YML
+    ```yaml
     services:
       datawiza-access-broker:
       image: registry.gitlab.com/datawiza/access-broker

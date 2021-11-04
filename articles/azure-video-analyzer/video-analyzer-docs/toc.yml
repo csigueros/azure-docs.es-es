@@ -6,7 +6,7 @@
       href: overview.md
     - name: Acerca de Video Analyzer for Media
       href: ../video-analyzer-for-media-docs/video-indexer-overview.md
-    - name: Terminología de Video Analyzer
+    - name: Terminología
       href: terminology.md
     - name: Novedades
       items:
@@ -14,63 +14,77 @@
           href: release-notes.md
 - name: Guías de inicio rápido
   items:
-    - name: Introducción a Azure Video Analyzer
+    - name: Módulo perimetral
       items:
-        - name: Uso de una plantilla de Resource Manager
-          href: get-started-detect-motion-emit-events.md
-        - name: Uso del Portal
-          href: get-started-detect-motion-emit-events-portal.md
-    - name: Extensión de Visual Studio Code de Azure Video Analyzer
-      href: create-pipeline-vs-code-extension.md
-    - name: Detección de movimiento y emisión de eventos
-      href: detect-motion-emit-events-quickstart.md
-    - name: 'Detectar movimiento, grabar vídeo'
+        - name: Primeros pasos
+          items:
+            - name: Mediante el portal
+              href: edge/get-started-detect-motion-emit-events-portal.md
+            - name: Uso de una plantilla de Resource Manager
+              href: edge/get-started-detect-motion-emit-events.md
+        - name: Detección de movimiento y emisión de eventos
+          href: edge/detect-motion-emit-events-quickstart.md
+        - name: 'Detectar movimiento, grabar vídeo'
+          items:
+            - name: Grabación de forma local en el perímetro
+              href: edge/detect-motion-record-video-edge-devices.md
+            - name: Grabación en la nube
+              href: edge/detect-motion-record-video-clips-cloud.md
+        - name: Análisis de vídeo en directo
+          items:
+            - name: Uso de gRPC
+              displayName: analyze live video
+              href: edge/analyze-live-video-use-your-model-grpc.md
+            - name: Uso de HTTP
+              displayName: analyze live video
+              href: edge/analyze-live-video-use-your-model-http.md
+        - name: Seguimiento de objetos en vídeos en directo
+          href: edge/track-objects-live-video.md
+    - name: Servicio
       items:
-        - name: En el dispositivo perimetral
-          href: detect-motion-record-video-edge-devices.md
-        - name: En la nube
-          href: detect-motion-record-video-clips-cloud.md
-    - name: Análisis de vídeo en directo
-      items:
-        - name: con su propio modelo gRPC
-          displayName: analyze live video
-          href: analyze-live-video-use-your-model-grpc.md
-        - name: con su propio modelo HTTP
-          displayName: analyze live video
-          href: analyze-live-video-use-your-model-http.md
-    - name: Seguimiento de objetos en vídeos en directo
-      href: track-objects-live-video.md
+        - name: Primeros pasos
+          items:
+            - name: Mediante el portal
+              href: cloud/get-started-livepipelines-portal.md
 - name: Tutoriales
   items:
-    - name: Uso de la grabación continua de vídeo
-      href: use-continuous-video-recording.md
-    - name: Uso de la grabación de vídeo basada en eventos
-      href: record-event-based-live-video.md
-    - name: Grabación y transmisión de datos de inferencia con vídeo
-      href: record-stream-inference-data-with-video.md
-    - name: Uso del cruce de líneas
-      href: use-line-crossing.md
-    - name: Análisis de vídeo en directo
+    - name: Módulo perimetral
       items:
-        - name: Con OVMS a través de la extensión HTTP
-          displayName: 'analyze live video, intel, OpenVINO'
-          href: use-intel-openvino-tutorial.md
-        - name: Con OV DL Streamer a través de la extensión gRPC
-          displayName: 'analyze live video, intel, OpenVINO, DL Streamer, VAS'
-          href: use-intel-grpc-video-analytics-serving-tutorial.md
-        - name: Con Custom Vision
-          displayName: analyze live video
-          href: analyze-live-video-custom-vision.md
-        - name: Con análisis espacial
-          href: computer-vision-for-spatial-analysis.md
-    - name: Visualización de eventos de inferencia de inteligencia artificial
-      href: visualize-ai-events-power-bi.md
+        - name: Grabación continua de vídeo en la nube
+          href: edge/use-continuous-video-recording.md
+        - name: Grabación de vídeo basada en eventos
+          href: edge/record-event-based-live-video.md
+        - name: Grabación y transmisión de datos de inferencia con vídeo
+          href: edge/record-stream-inference-data-with-video.md
+        - name: Uso del cruce de líneas
+          href: edge/use-line-crossing.md
+        - name: Análisis de vídeo en directo
+          items:
+            - name: Con OVMS a través de la extensión HTTP
+              displayName: 'analyze live video, intel, OpenVINO'
+              href: edge/use-intel-openvino-tutorial.md
+            - name: Con OV DL Streamer a través de la extensión gRPC
+              displayName: 'analyze live video, intel, OpenVINO, DL Streamer, VAS'
+              href: edge/use-intel-grpc-video-analytics-serving-tutorial.md
+            - name: Con Custom Vision
+              displayName: analyze live video
+              href: edge/analyze-live-video-custom-vision.md
+            - name: Con análisis espacial
+              href: edge/computer-vision-for-spatial-analysis.md
+        - name: Visualización de eventos de inferencia de inteligencia artificial
+          href: visualize-ai-events-power-bi.md
+    - name: Servicio
+      items:
+        - name: Exportación de un clip de vídeo con el portal
+          href: cloud/export-portion-of-video-as-mp4.md
 - name: Ejemplos de GitHub
   items:
     - name: Repositorio de ejemplo de C#
       href: 'https://go.microsoft.com/fwlink/?linkid=2163551'
     - name: Repositorio de ejemplo de Python
       href: 'https://go.microsoft.com/fwlink/?linkid=2163454'
+    - name: Repositorio de ejemplos de widgets
+      href: 'https://go.microsoft.com/fwlink/?linkid=2173229'
 - name: Conceptos
   items:
     - name: Canalización
@@ -79,16 +93,18 @@
       href: pipeline-extension.md
     - name: Grabación de vídeo
       href: video-recording.md
-    - name: Introducción a la composición de la inteligencia artificial
-      href: ai-composition-overview.md
+    - name: Conexión de cámaras a la nube
+      href: cloud/connect-cameras-to-cloud.md
     - name: Escenarios
       items:
+        - name: Análisis de vídeos en directo
+          href: analyze-live-video-without-recording.md
+        - name: Composición de IA
+          href: ai-composition-overview.md
         - name: Grabación de vídeo basada en eventos
           href: event-based-video-recording-concept.md
         - name: Grabación de vídeo continua
           href: continuous-video-recording.md
-        - name: Análisis de vídeos en directo sin grabación
-          href: analyze-live-video-without-recording.md
 - name: Guías paso a paso
   items:
     - name: Configurar
@@ -99,72 +115,94 @@
           href: managed-identity.md
         - name: Claves administradas por el cliente
           href: customer-managed-keys.md
-    - name: Implementar
+    - name: Implementación en el perímetro
       items:
         - name: Implementación en un dispositivo de IoT Edge
-          href: deploy-iot-edge-device.md
-        - name: Implementación en IoT Edge para Linux en Windows
-          href: deploy-iot-edge-linux-on-windows.md
+          href: edge/deploy-iot-edge-device.md
+        - name: Implementación en un dispositivo Windows
+          href: edge/deploy-iot-edge-linux-on-windows.md
         - name: Implementación en Azure Stack Edge
-          href: deploy-on-stack-edge.md
+          href: edge/deploy-on-stack-edge.md
     - name: Reproducción
       items:
-        - name: Reproducción de una grabación
+        - name: Vídeo grabado
           href: playback-recordings-how-to.md
-        - name: Uso del widget Player de Azure Video Analyzer
-          href: player-widget.md
-        - name: Aplicación de ejemplo de widget reproductor
-          href: sample-player-widget.md
-        - name: Uso de directivas de acceso para la reproducción
+        - name: Creación de directivas de acceso para la reproducción
           href: access-policies.md
+        - name: Habilitación de imágenes de vista previa de vídeo
+          href: edge/enable-video-preview-images.md
     - name: Registro
       items:
-        - name: Administración de la directiva de grabación
-          href: manage-recording-policy.md
+        - name: Administración de la directiva de retención
+          href: manage-retention-policy.md
+    - name: Aplicación de la inteligencia artificial en el perímetro
+      items:
         - name: Configuración de una puerta de señal
-          href: configure-signal-gate.md
-    - name: Aplicación de IA
-      items:
+          href: edge/configure-signal-gate.md
         - name: Desarrollo e implementación de un servidor de inferencia de gRPC
-          href: develop-deploy-grpc-inference-srv.md
+          href: edge/develop-deploy-grpc-inference-srv.md
         - name: Análisis mediante la composición de la inteligencia artificial
-          href: analyze-ai-composition.md
-    - name: Portal
+          href: edge/analyze-ai-composition.md
+    - name: Funcionamiento del módulo perimetral
       items:
-        - name: Invocación de métodos directos con el portal
-          href: use-azure-portal-to-invoke-direct-methods.md
-    - name: Funcionamiento
-      items:
+        - name: Invocar métodos directos
+          href: edge/use-azure-portal-to-invoke-direct-methods.md
+        - name: Detección de cámaras compatibles con ONVIF
+          href: edge/camera-discovery.md
+        - name: Uso de la extensión de Visual Studio Code
+          href: edge/use-visual-studio-code-extension.md
         - name: Supervisión y registro
-          href: monitor-log-edge.md
+          href: edge/monitor-log-edge.md
+        - name: Solución de problemas
+          href: edge/troubleshoot.md
+    - name: Operación del servicio
+      items:
+        - name: Conexión de dispositivos
+          href: cloud/connect-devices.md
+        - name: Conexión de una cámara mediante el adaptador de dispositivo remoto
+          href: cloud/use-remote-device-adapter.md
+        - name: Supervisión y registro
+          href: cloud/monitor-log-cloud.md
+        - name: Solución de problemas
+          href: cloud/troubleshoot.md
+    - name: Redes
+      items:
         - name: Puntos de conexión públicos
           href: access-public-endpoints-networking.md
     - name: Visualización
       items:
+        - name: Inserción del widget de reproductor en una aplicación web
+          href: player-widget.md
+        - name: Uso de la aplicación de ejemplo de widget reproductor
+          href: sample-player-widget.md
         - name: "Inserción del widget de reproductor en Power\_BI"
           href: embed-player-in-power-bi.md
-    - name: Solución de problemas
-      href: troubleshoot.md
 - name: Referencia
   items:
     - name: SDK para desarrolladores
       href: sdk.md
-    - name: Métodos directos
-      href: direct-methods.md
-    - name: Protocolo de la extensión gRPC
-      href: grpc-extension-protocol.md
-    - name: Protocolo de la extensión HTTP
-      href: http-extension-protocol.md
-    - name: Esquema de metadatos de inferencia
-      href: inference-metadata-schema.md
-    - name: Esquema de configuración de módulos gemelos
-      href: module-twin-configuration-schema.md
-    - name: Preparación para la producción y procedimientos recomendados
-      href: production-readiness.md
-    - name: Transparencia y principios de IA responsables
-      href: 'https://go.microsoft.com/fwlink/?linkid=2163476'
+    - name: API de REST
+      href: 'https://docs.microsoft.com/rest/api/videoanalyzer/'
+    - name: Operaciones de análisis espacial
+      href: spatial-analysis-operations.md
     - name: Extensión de Visual Studio Code
       href: visual-studio-code-extension.md
+    - name: Principios de inteligencia artificial sobre transparencia y responsabilidad
+      href: 'https://go.microsoft.com/fwlink/?linkid=2163476'
+    - name: Módulo perimetral
+      items:
+        - name: Métodos directos
+          href: edge/direct-methods.md
+        - name: Protocolo de la extensión gRPC
+          href: edge/grpc-extension-protocol.md
+        - name: Protocolo de la extensión HTTP
+          href: edge/http-extension-protocol.md
+        - name: Esquema de metadatos de inferencia
+          href: edge/inference-metadata-schema.md
+        - name: Configuración de módulos gemelos
+          href: edge/module-twin-configuration-schema.md
+        - name: Preparación para la producción y procedimientos recomendados
+          href: edge/production-readiness.md
 - name: Recursos
   items:
     - name: Actualizaciones de servicio de Azure
@@ -174,8 +212,12 @@
     - name: Regiones disponibles
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=video-analyzer&regions=all'
     - name: Preguntas más frecuentes
-      href: faq-edge.yml
+      items:
+        - name: Preguntas frecuentes sobre el módulo perimetral
+          href: edge/faq.yml
+        - name: Preguntas frecuentes sobre el servicio
+          href: cloud/faq.yml
     - name: Cuotas y limitaciones
       href: quotas-limitations.md
-    - name: Recurso Terraform de Azure Video Analytics
+    - name: Recurso de Terraform
       href: 'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/video_analyzer'

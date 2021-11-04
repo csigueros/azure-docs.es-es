@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.date: 08/05/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex, devx-track-azurepowershell
-ms.openlocfilehash: eac0244393bb3fe8ef2291d27e9dab33563523b2
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 834fcd1732435d99d63d16efc3d867ba58fe4844
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130166727"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131074581"
 ---
 # <a name="orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Modos de orquestación para los conjuntos de escalado de máquinas virtuales de Azure
 
@@ -115,7 +115,7 @@ En la tabla siguiente se compara el modo de orquestación flexible, el modo de o
 | Identidad administrada  | Solo con identidad asignada por el usuario  | Asignada por el sistema o por el usuario  | N/D (puede especificar una identidad administrada en instancias individuales) |
 | Agregar una máquina virtual existente al grupo o eliminarla de él  | No  | No  | No |
 | Service Fabric  | No  | Sí  | No |
-| Azure Kubernetes Service (AKS) / AKE / grupo de nodos k8s  | No  | Sí  | No |
+| Azure Kubernetes Service (AKS)/AKE  | No  | Sí  | No |
 | UserData  | Parcial, UserData se puede especificar para máquinas virtuales individuales | Sí  | UserData se puede especificar para máquinas virtuales individuales |
 
 

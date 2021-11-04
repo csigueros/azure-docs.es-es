@@ -14,7 +14,7 @@
 - name: Ejemplos
   items:
     - name: Plantillas de Resource Manager
-      href: resource-manager-template-samples.md
+      href: ../front-door-quickstart-template-samples.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
 - name: Tutoriales
   items:
     - name: Configuración de directiva de firewall de aplicaciones web

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: iqshah
 ms.author: iqshah
 ms.date: 09/28/2021
-ms.openlocfilehash: 6c08319037a06ff7bb1051fd41b40dc20ec37fb6
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 38eecfefab8bbb8690b8125ad034ca3c3b076a1a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129219383"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131076535"
 ---
 # <a name="configure-prices-for-usage-based-monthly-billing"></a>Configuración de precios para la facturación mensual basada en uso
 
@@ -29,7 +29,7 @@ Algunos aspectos que se deben tener en cuenta al seleccionar una opción de prec
 
 - En las cuatro primeras opciones, Microsoft realiza la conversión de moneda.
 - Microsoft sugiere el uso de precios de tarifa plana para soluciones de software.
-- Los precios son fijos, por lo que una vez publicados no se pueden ajustar. Sin embargo, si desea reducir los precios de las ofertas de máquina virtual, puede abrir una [vale de soporte técnico](/azure/marketplace/support).
+- Los precios son fijos, por lo que una vez publicados no se pueden ajustar. Sin embargo, si desea reducir los precios de las ofertas de máquina virtual, puede abrir una [vale de soporte técnico](./support.md).
 
 ## <a name="new-offering-pricing"></a>Nuevos precios de ofertas
 
@@ -41,4 +41,4 @@ Si el anunciante eligió Gratis, Tarifa plana o Por tamaño de núcleo, el anunc
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si tiene alguna pregunta, abra un vale con el [soporte técnico](/azure/marketplace/support).
+- Si tiene alguna pregunta, abra un vale con el [soporte técnico](./support.md).

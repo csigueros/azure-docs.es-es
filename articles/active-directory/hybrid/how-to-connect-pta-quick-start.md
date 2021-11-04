@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a85f2d5d928d93bf9e85899e53439a2cc4710448
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: ddd534ca0446cbccaf53ea08751803880abe27aa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114455611"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059094"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Autenticación de paso a través de Azure Active Directory: Guía de inicio rápido
 
@@ -183,4 +183,4 @@ Bloqueo inteligente ayuda a bloquear a los actores malintencionados que intentan
 - [Solución de problemas](tshoot-connect-pass-through-authentication.md): Obtenga información sobre cómo resolver problemas comunes relacionados con la característica de autenticación de paso a través.
 - [Análisis a fondo de la seguridad](how-to-connect-pta-security-deep-dive.md): Obtenga información técnica sobre la característica de autenticación de paso a través.
 - [SSO de conexión directa de Azure AD](how-to-connect-sso.md): Más información sobre esta característica complementaria.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Use el foro de Azure Active Directory para solicitar nuevas características.
+- [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789): Use el foro de Azure Active Directory para solicitar nuevas características.

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: eb6f3c6a1463e2a3b71057145a6df770ea880b9d
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: b32978b3674217ce2b4b91cd031989c6478dedd0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108181173"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040064"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios
 
@@ -137,8 +137,8 @@ En este paso, creará un grupo de seguridad del sistema de integración sin o co
    * Consulte con su asociado de integración de Workday cuál es el tipo de grupo de seguridad apropiado que debe seleccionar para la integración.
    * Cuando sepa el tipo de grupo, seleccione **Integration System Security Group (Unconstrained)** (Grupo de seguridad del sistema de integración, sin restricciones) o **Integration System Security Group (Constrained)** (Grupo de seguridad del sistema de integración, con restricciones) en el menú desplegable **Type of Tenanted Security Group** (Tipo de grupo de seguridad con inquilinos).
 
-     > [!div class="mx-imgBorder&quot;]
-     >![Crear grupos de seguridad](./media/workday-inbound-tutorial/wd_isu_04.png &quot;Crear grupos de seguridad")
+     > [!div class="mx-imgBorder"]
+     >![Crear grupos de seguridad](./media/workday-inbound-tutorial/wd_isu_04.png "Crear grupos de seguridad")
 
 3. Una vez que se realice correctamente la creación del grupo de seguridad, verá una página donde puede asignar miembros al grupo de seguridad. Agregue a este grupo de seguridad el usuario del sistema de integración creado en el paso anterior. Si usa el grupo de seguridad *con restricciones*, también deberá seleccionar el ámbito apropiado de la organización.
 
@@ -501,7 +501,7 @@ Sí, esta configuración es compatible. Estos son los pasos de alto nivel para c
 
 #### <a name="how-do-i-suggest-improvements-or-request-new-features-related-to-workday-and-azure-ad-integration"></a>¿Cómo puedo sugerir mejoras o solicitar nuevas características relacionadas con la integración de Workday y Azure AD?
 
-Sus comentarios son muy valiosos porque nos ayudan a definir la dirección de las futuras versiones y mejoras. Agradecemos todos los comentarios y le instamos a que envíe sus ideas o sugerencias de mejora en el [foro de comentarios de Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory). Para encontrar comentarios específicos relacionados con la integración de Workday, seleccione la categoría *Aplicaciones SaaS* y busque con la palabra clave *Workday* para encontrar comentarios existentes relativos a Workday.
+Sus comentarios son muy valiosos porque nos ayudan a definir la dirección de las futuras versiones y mejoras. Agradecemos todos los comentarios y le instamos a que envíe sus ideas o sugerencias de mejora en el [foro de comentarios de Azure AD](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789). Para encontrar comentarios específicos relacionados con la integración de Workday, seleccione la categoría *Aplicaciones SaaS* y busque con la palabra clave *Workday* para encontrar comentarios existentes relativos a Workday.
 
 > [!div class="mx-imgBorder"]
 > ![Aplicaciones SaaS para UserVoice](media/workday-inbound-tutorial/uservoice_saas_apps.png)
@@ -683,17 +683,18 @@ Esta es la forma en que puede controlar tales requisitos para construir *CN* o *
 
 * Para ampliar el ejemplo anterior, supongamos que desea convertir los nombres de ciudad de Workday en valores abreviados y usarlos para crear nombres para mostrar como *Smith, John (CHI)* o *Doe, Jane (NYC)* ; este resultado se puede conseguir con una expresión Switch mediante el atributo *Municipalidad* de Workday como la variable determinante.
 
-     ```
-    Switch
-    (
-      [Municipality],
-      Join(", ", [PreferredLastName], [PreferredFirstName]),  
-           "Chicago", Append(Join(", ",[PreferredLastName], [PreferredFirstName]), "(CHI)"),
-           "New York", Append(Join(", ",[PreferredLastName], [PreferredFirstName]), "(NYC)"),
-           "Phoenix", Append(Join(", ",[PreferredLastName], [PreferredFirstName]), "(PHX)")
-    )
-     ```
-    Consulte también:
+  ```
+  Switch
+  (
+    [Municipality],
+    Join(", ", [PreferredLastName], [PreferredFirstName]),  
+         "Chicago", Append(Join(", ",[PreferredLastName], [PreferredFirstName]), "(CHI)"),
+         "New York", Append(Join(", ",[PreferredLastName], [PreferredFirstName]), "(NYC)"),
+         "Phoenix", Append(Join(", ",[PreferredLastName], [PreferredFirstName]), "(PHX)")
+  )
+  ```
+
+  Consulte también:
   * [Sintaxis de la función Switch](../app-provisioning/functions-for-customizing-application-data.md#switch)
   * [Sintaxis de la función Join](../app-provisioning/functions-for-customizing-application-data.md#join)
   * [Sintaxis de la función Append](../app-provisioning/functions-for-customizing-application-data.md#append)

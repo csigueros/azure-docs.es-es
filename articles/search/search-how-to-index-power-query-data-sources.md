@@ -2,18 +2,18 @@
 title: Indexación de datos mediante conectores de Power Query (versión preliminar)
 titleSuffix: Azure Cognitive Search
 description: Importe datos de distintos orígenes de datos mediante los conectores de Power Query.
-author: MarkHeff
-ms.author: maheff
+author: nitinme
+ms.author: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.custom: references_regions
-ms.openlocfilehash: fb7a16824ccb74ad2cab7c0175532d297ebaf88c
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: f3f6642509b6000e5f909e3dda3e202b580f54fb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123451212"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131076175"
 ---
 # <a name="index-data-using-power-query-connectors-preview"></a>Indexación de datos mediante conectores de Power Query (versión preliminar)
 

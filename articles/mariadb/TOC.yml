@@ -45,7 +45,7 @@
       href: howto-create-users.md
     - name: Configuración de parámetros del servidor
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-cli.md
@@ -57,7 +57,7 @@
   items:
     - name: Diseño de una base de datos
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: tutorial-design-database-using-portal.md
         - name: Azure CLI
           href: tutorial-design-database-cli.md
@@ -85,7 +85,7 @@
           href: howto-create-manage-server-portal.md
     - name: Almacenamiento de crecimiento automático
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: howto-auto-grow-storage-portal.md
         - name: Azure CLI
           href: howto-auto-grow-storage-cli.md
@@ -93,7 +93,7 @@
           href: howto-auto-grow-storage-powershell.md
     - name: Reinicio del servidor
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: howto-restart-server-portal.md
         - name: Azure CLI
           href: howto-restart-server-cli.md
@@ -175,7 +175,7 @@
       href: concepts-backup.md
     - name: Restauración de un servidor
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: howto-restore-server-portal.md
         - name: Azure CLI
           href: howto-restore-server-cli.md
@@ -254,7 +254,7 @@
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-database-mariadb'
     - name: Solicitud de una característica
-      href: 'https://feedback.azure.com/forums/915439-azure-database-for-mariadb'
+      href: 'https://feedback.azure.com/d365community/forum/8f6502f1-ed24-ec11-b6e6-000d3a4f0da0'
     - name: Disponibilidad en regiones
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Opciones de soporte técnico

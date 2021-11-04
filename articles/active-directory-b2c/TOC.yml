@@ -7,6 +7,7 @@
       href: overview.md
     - name: Información técnica y sobre características
       href: technical-overview.md
+      displayName: 'Azure AD B2C architecture, SLA, Azure AD B2C high availability, Azure AD B2C SLA, HA'
     - name: "Características compatibles de Azure\_AD"
       href: supported-azure-ad-features.md
     - name: Novedades de la documentación
@@ -81,7 +82,7 @@
           href: custom-policy-overview.md
     - name: Conectores de API
       href: api-connectors-overview.md
-      displayName: 'REST API, web API, API connectors'
+      displayName: 'REST API, web API, API connectors, Dynamic data retrieval, external data sources, external identity data source, outbound webhooks, third-party integration'
     - name: Cuentas de usuario
       href: user-overview.md
     - name: Atributos de perfil de usuario
@@ -222,7 +223,7 @@
           displayName: 'AD-FS, ADFS'
         - name: Amazon
           href: identity-provider-amazon.md
-        - name: Apple (versión preliminar)
+        - name: Apple
           href: identity-provider-apple-id.md
         - name: "Azure\_AD (inquilino único)"
           href: identity-provider-azure-ad-single-tenant.md
@@ -396,12 +397,13 @@
       items:
         - name: Modificación de experiencias de registro
           href: add-api-connector.md
-          displayName: 'rest claims validation, validate'
+          displayName: 'rest claims validation, validate, third-party integration, outbound webhook, third-party integration'
         - name: Enriquecimiento de tokens con notificaciones externas
           href: add-api-connector-token-enrichment.md
-          displayName: rest claims exchange
+          displayName: 'rest claims exchange, API connectors, Dynamic data retrieval, external data sources, external identity data source, outbound webhooks, third-party integration'
         - name: Protección de un conector de API
           href: secure-rest-api.md
+          displayName: 'API connectors, Dynamic data retrieval, external data sources, external identity data source, outbound webhooks, third-party integration'
     - name: Solución de problemas
       items:
         - name: Recopilación de registros con Application Insights
@@ -607,6 +609,7 @@
       displayName: Page version
     - name: Disponibilidad de región y residencia de datos
       href: data-residency.md
+      displayName: 'SLA, Azure AD B2C high availability, Azure AD B2C SLA, high availability, HA'
     - name: Compilación para resistencia
       items:
         - name: "Introducción a la resistencia de Azure\_AD\_B2C"
@@ -630,6 +633,7 @@
       href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
     - name: Preguntas más frecuentes
       href: ./faq.yml
+      displayName: FAQ
     - name: Ayuda
       href: ../active-directory/develop/developer-support-help-options.md
     - name: Precios

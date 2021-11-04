@@ -4,15 +4,19 @@ description: En este inicio rápido se indica cómo crear una aplicación de LUI
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 04/14/2021
-ms.openlocfilehash: 3de83151aa00d589c470eb7ac772f4c9b5f7eda2
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.date: 10/20/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 70972607788568fbc06f9efe06fe083fd8d8ac01
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107948372"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073631"
 ---
 # <a name="quickstart-build-your-app-in-luis-portal"></a>Inicio rápido: Compilación de la aplicación en el portal del servicio LUIS
+
+> [!NOTE]
+> Hay disponible una versión más reciente de las funcionalidades de Language Understanding como parte de Azure Cognitive Service for Language. Para más información, consulte [Documentación de Azure Cognitive Service for Language](../language-service/index.yml). Para información sobre las funcionalidades de reconocimiento del lenguaje del servicio de lenguaje, consulte [Reconocimiento de lenguaje conversacional](../language-service/conversational-language-understanding/overview.md), [Reconocimiento de entidades con nombre personalizado](../language-service/custom-named-entity-recognition/overview.md) y [Clasificación personalizada](../language-service/custom-classification/overview.md).
 
 En este inicio rápido, creará una aplicación del servicio LUIS mediante el dominio pregenerado HomeAutomation para encender y apagar las luces y los dispositivos. Este dominio pregenerado le proporciona intenciones, entidades y expresiones de ejemplo. A continuación, personalice la aplicación mediante la incorporación de nuevas entidades e intenciones. Cuando termine, tendrá un punto de conexión LUIS que se ejecuta en la nube.
 

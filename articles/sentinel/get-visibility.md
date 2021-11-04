@@ -7,17 +7,19 @@ manager: rkarlin
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
-ms.custom: mvc, fasttrack-edit
+ms.custom: mvc, fasttrack-edit, ignite-fall-2021
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 4fb3b30a35d8f6d22668024a5fa08dbc7358c0ed
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fb01d57a7801b940ba9de2e8c939743070c57eaa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121787130"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131004100"
 ---
 # <a name="visualize-collected-data"></a>Visualización de los datos recopilados
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 En este artículo, aprenderá a ver y supervisar rápidamente lo que sucede en su entorno mediante Azure Sentinel. Después de conectar los orígenes de datos a Azure Sentinel, obtendrá una visualización y un análisis instantáneos de los datos, así sabrá lo que sucede en todos los orígenes de datos conectados. Azure Sentinel ofrece libros que le proporcionan toda la potencia de las herramientas que ya están disponibles en Azure, así como tablas y gráficos que están integrados para ofrecerle análisis de sus registros y consultas. Puede usar los libros integrados o crear un libro fácilmente desde cero o a partir de un libro existente. 
 

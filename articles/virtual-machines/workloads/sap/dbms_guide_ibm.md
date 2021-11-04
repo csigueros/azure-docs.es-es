@@ -12,13 +12,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/17/2021
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e63e2603b6625c7eaee602b107c2d01c40a8ac8
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.custom: H1Hack27Feb2017, ignite-fall-2021
+ms.openlocfilehash: 8740e2969030c331ffd5b45fcd88b73975ef3e63
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122830671"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131013087"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementación de DBMS de Azure Virtual Machines de IBM Db2 para carga de trabajo de SAP
 
@@ -94,7 +94,7 @@ A continuación, se facilita una configuración de línea de base para varios ta
 | Nombre/tamaño de la máquina virtual |Punto de montaje de Db2 |Disco Premium de Azure |Número de discos |E/S |Rendimiento [MB/s] |Tamaño [GB] |IOPS de ráfaga |Rendimiento de ráfaga [GB] | Stripe size (Tamaño de las franjas) | Almacenamiento en memoria caché |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E4ds_v4 |/db2 |P6 |1 |240  |50  |64  |3500  |170  ||  |
-|vCPU: 4 |/db2/```<SID>```/sapdata |P10 |2 |1,000  |200  |256  |7000  |340  |256 KB |ReadOnly |
+|vCPU: 4 |/db2/```<SID>```/sapdata |P10 |2 |1,000  |200  |256  |7000  |340  |256 KB |ReadOnly |
 |RAM: 32 GiB |/db2/```<SID>```/saptmp |P6 |1 |240  |50  |128  |3500  |170  | ||
 | |/db2/```<SID>```/log_dir |P6 |2 |480  |100  |128  |7000  |340  |64 KB ||
 | |/db2/```<SID>```/offline_log_dir |P10 |1 |500  |100  |128  |3500  |170  || |
@@ -103,7 +103,7 @@ A continuación, se facilita una configuración de línea de base para varios ta
 | Nombre/tamaño de la máquina virtual |Punto de montaje de Db2 |Disco Premium de Azure |Número de discos |E/S |Rendimiento [MB/s] |Tamaño [GB] |IOPS de ráfaga |Rendimiento de ráfaga [GB] | Stripe size (Tamaño de las franjas) | Almacenamiento en memoria caché |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E16ds_v4 |/db2 |P6 |1 |240  |50  |64  |3500  |170  || |
-|vCPU: 16 |/db2/```<SID>```/sapdata |P15 |4 |4400  |500  |1024  |14 000  |680  |256 KB |ReadOnly |
+|vCPU: 16 |/db2/```<SID>```/sapdata |P15 |4 |4400  |500  |1024  |14 000  |680  |256 KB |ReadOnly |
 |RAM: 128 GB |/db2/```<SID>```/saptmp |P6 |2 |480  |100  |128  |7000  |340  |128 KB ||
 | |/db2/```<SID>```/log_dir |P15 |2 |2200  |250  |512  |7000  |340  |64 KB ||
 | |/db2/```<SID>```/offline_log_dir |P10 |1 |500  |100  |128  |3500  |170  ||| 
@@ -112,7 +112,7 @@ A continuación, se facilita una configuración de línea de base para varios ta
 | Nombre/tamaño de la máquina virtual |Punto de montaje de Db2 |Disco Premium de Azure |Número de discos |E/S |Rendimiento [MB/s] |Tamaño [GB] |IOPS de ráfaga |Rendimiento de ráfaga [GB] | Stripe size (Tamaño de las franjas) | Almacenamiento en memoria caché |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E32ds_v4 |/db2 |P6 |1 |240  |50  |64  |3500  |170  || |
-|vCPU: 32 |/db2/```<SID>```/sapdata |P30 |2 |10 000  |400  |2048  |10 000  |400  |256 KB |ReadOnly |
+|vCPU: 32 |/db2/```<SID>```/sapdata |P30 |2 |10 000  |400  |2048  |10 000  |400  |256 KB |ReadOnly |
 |RAM: 256 GiB |/db2/```<SID>```/saptmp |P10 |2 |1,000  |200  |256  |7000  |340  |128 KB ||
 | |/db2/```<SID>```/log_dir |P20 |2 |4600  |300  |1024  |7000  |340  |64 KB ||
 | |/db2/```<SID>```/offline_log_dir |P15 |1 |1 100  |125  |256  |3500  |170  ||| 
@@ -121,7 +121,7 @@ A continuación, se facilita una configuración de línea de base para varios ta
 | Nombre/tamaño de la máquina virtual |Punto de montaje de Db2 |Disco Premium de Azure |Número de discos |E/S |Rendimiento [MB/s] |Tamaño [GB] |IOPS de ráfaga |Rendimiento de ráfaga [GB] | Stripe size (Tamaño de las franjas) | Almacenamiento en memoria caché |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E64ds_v4 |/db2 |P6 |1 |240  |50  |64  |3500  |170  || |
-|vCPU: 64 |/db2/```<SID>```/sapdata |P30 |4 |20 000  |800  |4.096  |20 000  |800  |256 KB |ReadOnly |
+|vCPU: 64 |/db2/```<SID>```/sapdata |P30 |4 |20 000  |800  |4.096  |20 000  |800  |256 KB |ReadOnly |
 |RAM: 504 GiB |/db2/```<SID>```/saptmp |P15 |2 |2200  |250  |512  |7000  |340  |128 KB ||
 | |/db2/```<SID>```/log_dir |P20 |4 |9200  |600  |2048  |14 000  |680  |64 KB ||
 | |/db2/```<SID>```/offline_log_dir |P20 |1 |2,300  |150  |512  |3500  |170  || |
@@ -130,7 +130,7 @@ A continuación, se facilita una configuración de línea de base para varios ta
 | Nombre/tamaño de la máquina virtual |Punto de montaje de Db2 |Disco Premium de Azure |Número de discos |E/S |Rendimiento [MB/s] |Tamaño [GB] |IOPS de ráfaga |Rendimiento de ráfaga [GB] | Stripe size (Tamaño de las franjas) | Almacenamiento en memoria caché |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |M128s |/db2 |P10 |1 |500  |100  |128  |3500  |170  || |
-|vCPU: 128 |/db2/```<SID>```/sapdata |P40 |4 |30,000  |1000  |8192  |30,000  |1000  |256 KB |ReadOnly |
+|vCPU: 128 |/db2/```<SID>```/sapdata |P40 |4 |30,000  |1000  |8192  |30,000  |1000  |256 KB |ReadOnly |
 |RAM:  2048 GiB |/db2/```<SID>```/saptmp |P20 |2 |4600  |300  |1024  |7000  |340  |128 KB ||
 | |/db2/```<SID>```/log_dir |P30 |4 |20 000  |800  |4.096  |20 000  |800  |64 KB |WriteAccelerator |
 | |/db2/```<SID>```/offline_log_dir |P30 |1 |5\.000  |200  |1024  |5\.000  |200  || |
@@ -450,7 +450,7 @@ Lea el artículo
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
+[powershell-install-configure]: /powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md

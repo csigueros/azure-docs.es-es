@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/01/2020
 ms.author: mimckitt
-ms.openlocfilehash: 762ab1e62adc81ba4e4098167c65e19e405890d7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ff590e8c3835c78e59921b6ba96c83786c0bf289
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128624792"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131074373"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Generaciones anteriores de tamaños de máquina virtual
 
@@ -54,6 +54,8 @@ Premium Storage:  Compatible
 
 Almacenamiento en caché de Premium Storage:  Compatible
 
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible
+
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS/Mbps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_F1s  | 1  | 2  | 4  | 4  | 4000/32 (12)    | 3200/48   | 2/750   |
@@ -74,6 +76,8 @@ MBps = 10^6 bytes por segundo y GiB = 1024^3 bytes.
 Las máquinas virtuales de la serie NVv2 cuentan con la tecnología de las GPU [Nvidia Test M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) y la tecnología GRID de NVIDIA con CPU Intel Broadwell. Estas máquinas virtuales están orientadas a escritorios virtuales y aplicaciones gráficas aceleradas mediante GPU donde los clientes desean ver sus datos, simular resultados para verlos, trabajar en CAD o representar y transmitir contenido. Además, estas máquinas virtuales pueden ejecutar cargas de trabajo de precisión única, como la codificación y la representación. Las máquinas virtuales NVv2 son compatibles con Premium Storage y traen el doble de memoria del sistema (RAM) si se comparan con la serie NV anterior.  
 
 Cada GPU de las instancias de NVv2 viene con una licencia de GRID. Esta licencia le ofrece flexibilidad para utilizar una instancia de NV como estación de trabajo virtual para un solo usuario; también se pueden conectar 25 usuarios simultáneos a la VM para un escenario de aplicación virtual.
+
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | GPU | Memoria de GPU: GiB | Discos de datos máx. | Nº máx. NIC | Estaciones de trabajo virtuales | Aplicaciones virtuales |
 |---|---|---|---|---|---|---|---|---|---|
@@ -220,6 +224,8 @@ Premium Storage: Compatible
 
 Almacenamiento en caché de Premium Storage: Compatible
 
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible
+
 La serie DC usa la última generación de procesadores Intel XEON E-2176G de 3,7 GHz con la tecnología SGX y, con la tecnología Intel Turbo Boost, puede llegar a 4,7 GHz. 
 
 | Size          | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS / MBps | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
@@ -289,6 +295,8 @@ Premium Storage:  Compatible
 
 Almacenamiento en caché de Premium Storage:  No compatible
 
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible
+
 | Size | vCPU | Memoria (GiB) | Almacenamiento temporal (GiB) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal (IOPS/Mbps) | Rendimiento de disco no almacenado en caché máx. (IOPS/Mbps) | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_L4s   | 4  | 32  | 678  | 16 | 20000/200 | 5000/125  | 2/4000  |
@@ -309,6 +317,8 @@ ACU: 180 - 240 <sup>1</sup>
 Premium Storage:  Compatible
 
 Almacenamiento en caché de Premium Storage:  Compatible
+
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -410,6 +420,7 @@ La configuración NC24rs v2 proporciona una interfaz de red de baja latencia y a
 [Migración en vivo](maintenance-and-updates.md): No compatible<br>
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible<br>
 
 > Para esta serie de máquinas virtuales, la cuota de vCPU (núcleo) en su suscripción está establecida inicialmente en 0 en cada región. [Solicite un aumento de cuota de vCPU](../azure-portal/supportability/regional-quota-requests.md) para esta serie en una [región donde esté disponible](https://azure.microsoft.com/regions/services/).
 >
@@ -436,6 +447,7 @@ Las máquinas virtuales de serie ND son una novedad incorporada a la familia GPU
 [Migración en vivo](maintenance-and-updates.md): No compatible<br>
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible<br>
 
 > Para esta serie de máquinas virtuales, la cuota de vCPU (núcleo) por región en su suscripción está establecida inicialmente en 0. [Solicite un aumento de cuota de vCPU](../azure-portal/supportability/regional-quota-requests.md) para esta serie en una [región donde esté disponible](https://azure.microsoft.com/regions/services/).
 >

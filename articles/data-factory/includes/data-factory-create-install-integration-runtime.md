@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 6bf40202908aa68345fabd2b6fe55d501e8325ff
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 2fb845291697a2aee1d317c700a9a912d57565a5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124733047"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051158"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>Creación de una instancia de Integration Runtime autohospedada
 
@@ -17,7 +17,7 @@ En esta sección se crea una instancia de Integration Runtime autohospedada y se
 
 1. Cree una variable para el nombre de Integration Runtime. Utilice un nombre único y anótelo. Lo usará más adelante en este tutorial. 
 
-    ```powershell
+   ```powershell
    $integrationRuntimeName = "ADFTutorialIR"
     ```
 2. Cree una instancia de Integration Runtime autohospedada. 

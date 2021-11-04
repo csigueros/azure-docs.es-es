@@ -4,15 +4,13 @@ description: Esta guía de inicio rápido muestra cómo usar la plantilla de Res
 ms.date: 03/13/2020
 ms.topic: quickstart
 ms.service: hdinsight
-ms.custom:
-- subject-armqs
-- mode-arm
-ms.openlocfilehash: bf5b2a437d6c6165d6a95ea135d91f4f183ab4e2
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.custom: subject-armqs, mode-arm
+ms.openlocfilehash: a7d530dacaf6aab035d2dfd2817cbe120b86b3eb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111558627"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131077636"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-arm-template"></a>Inicio rápido: Creación de un clúster de Apache Spark en Azure HDInsight mediante una plantilla de Resource Manager
 
@@ -51,7 +49,7 @@ En la plantilla se definen dos recursos de Azure:
 
     |Propiedad |Descripción |
     |---|---|
-    |Subscription|En la lista desplegable, seleccione la suscripción de Azure que se usa para el clúster.|
+    |Suscripción|En la lista desplegable, seleccione la suscripción de Azure que se usa para el clúster.|
     |Resource group|En la lista desplegable, seleccione el grupo de recursos existente o seleccione **Crear**.|
     |Location|El valor se rellenará automáticamente con la ubicación usada para el grupo de recursos.|
     |Cluster Name|Escriba un nombre único global. Use solo letras minúsculas y números para esta plantilla.|

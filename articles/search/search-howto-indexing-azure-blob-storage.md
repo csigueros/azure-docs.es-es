@@ -2,19 +2,19 @@
 title: Indexación de datos desde Azure Blob Storage
 titleSuffix: Azure Cognitive Search
 description: Configure un indizador de blobs de Azure para automatizar la indexación de contenido de blobs en las operaciones de búsqueda de texto completo y la minería del conocimiento en Azure Cognitive Search.
+author: nitinme
+ms.author: nitinme
 manager: nitinme
-author: MarkHeff
-ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/14/2021
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 0014c28b57480e8da301c57823cdba79cea67e96
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 13753918ba850dcb9e62c0d54c1f23259eb92ba4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129274905"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131010714"
 ---
 # <a name="index-data-from-azure-blob-storage"></a>Indexación de datos desde Azure Blob Storage
 

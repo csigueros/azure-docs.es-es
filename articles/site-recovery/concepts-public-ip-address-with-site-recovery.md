@@ -8,18 +8,18 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 01c2f61dcf024e8c9dbbd5b2ee11a479b3c16305
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: da0efe29c7b0ec722464055e70b966c33d6df88c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86130288"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131003606"
 ---
 # <a name="set-up-public-ip-addresses-after-failover"></a>Configuración de direcciones IP públicas tras la conmutación por error
 
 Las direcciones IP públicas permiten a los recursos de Internet la comunicación entrante a los recursos de Azure. También habilitan los recursos de Azure para la comunicación saliente a Internet y los servicios de Azure orientados al público con una dirección IP asignada al recurso.
 - La comunicación entrante desde Internet a los recursos, como Azure Virtual Machines, Azure Application Gateway, Azure Load Balancer, Azure VPN Gateway y otros. Todavía puede comunicarse con recursos como máquinas virtuales desde Internet, si una máquina virtual no tiene asignada una dirección IP pública, y siempre que la máquina virtual forme parte de un grupo de back-end de un equilibrador de carga, y el equilibrador de carga tenga asignada una dirección IP pública.
-- La conectividad saliente a Internet usa una dirección IP predecible. Por ejemplo, una máquina virtual puede establecer una comunicación saliente a Internet sin tener asignada una dirección IP pública, pero su dirección es una dirección de red que Azure traduce a una dirección pública impredecible, de manera predeterminada. Asignar una dirección IP pública a un recurso le permite saber cuál es la dirección IP que se usa para la conexión saliente. Si bien la dirección es predecible, puede cambiar en función del método de asignación que se elija. Para más información, consulte [Creación de una dirección IP pública](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address). Para obtener más información sobre las conexiones salientes de recursos de Azure, consulte [Conexiones salientes](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- La conectividad saliente a Internet usa una dirección IP predecible. Por ejemplo, una máquina virtual puede establecer una comunicación saliente a Internet sin tener asignada una dirección IP pública, pero su dirección es una dirección de red que Azure traduce a una dirección pública impredecible, de manera predeterminada. Asignar una dirección IP pública a un recurso le permite saber cuál es la dirección IP que se usa para la conexión saliente. Si bien la dirección es predecible, puede cambiar en función del método de asignación que se elija. Para más información, consulte [Creación de una dirección IP pública](../virtual-network/ip-services/virtual-network-public-ip-address.md#create-a-public-ip-address). Para obtener más información sobre las conexiones salientes de recursos de Azure, consulte [Conexiones salientes](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 En Azure Resource Manager, una dirección IP pública es un recurso que tiene sus propias propiedades. Estos son algunos de los recursos con los que puede asociar un recurso de dirección IP pública:
 

@@ -5,14 +5,15 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 08/31/2020
-ms.openlocfilehash: 59d24ebd16d25658d75cb36509183233d2f2e500
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 1d0e48da09cccbed74d3a4d8bfc0e89907a336a3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111412158"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131020490"
 ---
-# <a name="tutorial-create-an-faq-bot-with-azure-bot-service"></a>Tutorial: Creación de un bot de preguntas frecuentes con Azure Bot Service
+# <a name="tutorial-create-a-faq-bot-with-azure-bot-service"></a>Tutorial: Creación de un bot de preguntas más frecuentes con Azure Bot Service
 Cree un bot de preguntas frecuentes con QnA Maker y Azure [Bot Service](https://azure.microsoft.com/services/bot-service/) sin código.
 
 En este tutorial, aprenderá a:
@@ -28,17 +29,9 @@ En este tutorial, aprenderá a:
 
 Siga el [inicio rápido](../Quickstarts/create-publish-knowledge-base.md) para crear una base de conocimiento. Una vez que la base de conocimiento se haya publicado correctamente, llegará a la página siguiente.
 
-# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
-
 > [!div class="mx-imgBorder"]
 > ![Captura de pantalla de una publicación correcta](../media/qnamaker-create-publish-knowledge-base/publish-knowledge-base-to-endpoint.png)
 
-# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
-
-> [!div class="mx-imgBorder"]
-> ![Captura de pantalla de una publicación correcta administrada](../media/qnamaker-create-publish-knowledge-base/publish-knowledge-base-to-endpoint-managed.png)
-
----
 
 ## <a name="create-a-bot"></a>Creación de un bot
 
@@ -51,18 +44,8 @@ Si realiza cambios en la base de conocimiento y vuelve a publicarla, no es neces
 
 1. En el portal de QnA Maker, en la página **Publish** (Publicar), seleccione **Create bot** (Crear bot). Este botón solo aparece cuando se publica la base de conocimiento.
 
-    # <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
-
     > [!div class="mx-imgBorder"]
     > ![Captura de pantalla de creación de un bot](../media/qnamaker-create-publish-knowledge-base/create-bot-from-published-knowledge-base-page.png)
-
-    # <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
-
-    > [!div class="mx-imgBorder"]
-    > ![Captura de pantalla de creación de la versión preliminar administrada de un bot](../media/qnamaker-create-publish-knowledge-base/create-bot-from-published-knowledge-base-page-managed.png)
-
-    ---
-    
 
 1. Se abre una nueva pestaña del explorador para Azure Portal, con la página de creación de Azure Bot Service. Configure Azure Bot Service. El bot y QnA Maker pueden compartir el plan del servicio de aplicación web pero no se puede compartir la aplicación web. Esto significa que el **nombre de aplicación** para el bot debe ser diferente del nombre de aplicación para el servicio QnA Maker.
 
@@ -95,4 +78,3 @@ Haga clic en **Canales** en el recurso de Bot Service que ha creado. Puede activ
 
    >[!div class="mx-imgBorder"]
    >![Captura de pantalla de la integración con Teams](../media/qnamaker-tutorial-updates/connect-with-teams.png)
-

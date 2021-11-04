@@ -2,14 +2,15 @@
 title: Ejemplo del widget del reproductor de Azure Video Analyzer
 description: En este artículo de referencia se proporciona una descripción general breve de la aplicación de ejemplo del widget del reproductor Video Analyzer.
 ms.service: azure-video-analyzer
-ms.topic: reference
-ms.date: 08/13/2021
-ms.openlocfilehash: abea3bdd1098dbb32be35d632c7a8b0ad51fc49e
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.topic: how-to
+ms.date: 10/21/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 6ef3333c6e3f9aec083bbb050d677a1acba93847
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129058498"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131087120"
 ---
 # <a name="azure-video-analyzer-player-widget-sample"></a>Ejemplo del widget del reproductor de Azure Video Analyzer
 
@@ -32,41 +33,41 @@ El cajón de zonas le permite crear zonas mediante dibujos de polígonos y líne
   
 **Ejemplo**:
 ```json
-  {
-    "@type": "#Microsoft.VideoAnalyzer.NamedLineString",
-    "name": "Line 1",
-    "line": [
-      {
-        "x": 0.6987951807228916,
-        "y": 0.4430992736077482
-      },
-      {
-        "x": 0.6987951807228916,
-        "y": 0.7046004842615012
-      }
-    ]
-  }{
-    "@type": "#Microsoft.VideoAnalyzer.NamedPolygonString",
-    "name": "Zone 2",
-    "polygon": [
-      {
-        "x": 0.10575635876840696,
-        "y": 0.7481840193704601
-      },
-      {
-        "x": 0.16599732262382866,
-        "y": 0.7796610169491526
-      },
-      {
-        "x": 0.07764390896921017,
-        "y": 0.9007263922518159
-      },
-      {
-        "x": 0.024096385542168676,
-        "y": 0.8547215496368039
-      }
-    ]
-  }
+{
+  "@type": "#Microsoft.VideoAnalyzer.NamedLineString",
+  "name": "Line 1",
+  "line": [
+    {
+      "x": 0.7536813922356091,
+      "y": 0.4358353510895884
+    },
+    {
+      "x": 0.7563587684069611,
+      "y": 0.7699757869249395
+    }
+  ]
+}{
+  "@type": "#Microsoft.VideoAnalyzer.NamedPolygonString",
+  "name": "Zone 2",
+  "polygon": [
+    {
+      "x": 0.11780455153949129,
+      "y": 0.7627118644067796
+    },
+    {
+      "x": 0.15261044176706828,
+      "y": 0.774818401937046
+    },
+    {
+      "x": 0.0749665327978581,
+      "y": 0.8983050847457628
+    },
+    {
+      "x": 0.04551539491298527,
+      "y": 0.864406779661017
+    }
+  ]
+}
 ```
 Puede copiar estas coordenadas con el botón **Copiar al Portapapeles**. Es posible cambiar el nombre de las zonas y líneas, y también eliminarlas, con los tres puntos que están ubicados junto a cada zona y línea.  
 ![Captura de pantalla del cajón de zonas.](./media/sample-player-widget/widget-zone-drawer.png)
@@ -74,9 +75,8 @@ Puede copiar estas coordenadas con el botón **Copiar al Portapapeles**. Es posi
 ## <a name="video-clips"></a>Clips de vídeo
 Los clips de vídeo le permiten seleccionar una fecha y hora de inicio junto con una fecha y hora de finalización. Para generar el clip de vídeo, use el botón *Agregar*.
 Puede seleccionar cualquiera de los clips generados en la lista desplegable, donde cada clip se título como fechas y horas de inicio y finalización.
-(Ejemplo: formato) Así, el clip de vídeo se puede ver en el formato de reproductor de vídeo típico.  
+Así pues, el clip de vídeo se puede ver en el formato de reproductor de vídeo típico.  
 ![Captura de pantalla de clips de vídeo.](./media/sample-player-widget/widget-video-clips.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Intente crear su propio widget personalizado del reproductor de Video Analyzer con estas [instrucciones](./player-widget.md).
-

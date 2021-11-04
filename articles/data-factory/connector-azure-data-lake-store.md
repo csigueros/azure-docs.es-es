@@ -9,12 +9,12 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 10/11/2021
-ms.openlocfilehash: 68f3bb388f003162786a6ce4f50e0f2dd00d48d0
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: e70970336a5e32d1edef9f336cf31e48f71aff9f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129856664"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131033254"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory-or-azure-synapse-analytics"></a>Copia de datos con Azure Data Lake Storage Gen1 como origen o destino mediante Azure Data Factory o Azure Synapse Analytics
 
@@ -187,7 +187,7 @@ Para usar la autenticación de identidad administrada asignada por el usuario, s
     - **Como origen**: en el **Explorador de datos** > **Acceso**, conceda al menos permiso de **ejecución** para TODAS las carpetas de nivel superior incluida la raíz, junto con el permiso de **lectura** para los archivos que se van a copiar. Puede elegir agregarlo a **Esta carpeta y todos los elementos secundarios** si desea que sea recursivo y agregarlo como **un permiso de acceso y una entrada de permiso predeterminada**. No hay ningún requisito en el control de acceso de nivel de cuenta (IAM).
     - **Como receptor**: en el **Explorador de datos** > **Acceso**, conceda al menos permiso de **ejecución** para TODAS las carpetas de nivel superior incluida la raíz, junto con el permiso de **escritura** para la carpeta del receptor. Puede elegir agregarlo a **Esta carpeta y todos los elementos secundarios** si desea que sea recursivo y agregarlo como **un permiso de acceso y una entrada de permiso predeterminada**.
     
-2. Asigne una o varias identidades administradas asignadas por el usuario a la factoría de datos y [cree credenciales](data-factory-service-identity.md#credentials) para cada identidad. 
+2. Asigne una o varias identidades administradas asignadas por el usuario a la factoría de datos y [cree credenciales](credentials.md) para cada identidad. 
 
 Se admite la siguiente propiedad:
 

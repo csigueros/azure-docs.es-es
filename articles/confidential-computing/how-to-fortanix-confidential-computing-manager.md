@@ -8,12 +8,13 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 02/03/2021
 ms.author: jencook
-ms.openlocfilehash: 757ce9b7502316bbc8a5b8f27ba672048b7bbace
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 51432b2d5de800cbfc3748da82f7b9fe26220731
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102563428"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024512"
 ---
 # <a name="fortanix-confidential-computing-manager-in-an-azure-managed-application"></a>Fortanix Confidential Computing Manager en una aplicación administrada de Azure
 
@@ -33,7 +34,7 @@ Fortanix es un proveedor de software de terceros con productos y servicios basad
 
 1. Vaya a [Azure Portal](https://portal.azure.com/).
 
-    :::image type="content" source="media/how-to-fortanix-confidential-computing-manager/azure-portal.png" alt-text="Azure Portal":::.
+    :::image type="content" source="media/how-to-fortanix-confidential-computing-manager/Azure-portal.png" alt-text="Azure Portal":::.
 
 2. En la barra de búsqueda, busque "Fortanix Confidential Computing Manager" y encontrará la lista de Marketplace de Fortanix CCM. Seleccione **Fortanix Confidential Computing Manager on Azure**.
 
@@ -117,9 +118,8 @@ El usuario también puede eliminar un agente de nodo de CCM de la página Confid
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, inscribió un nodo con una aplicación administrada de Azure en Fortanix Confidential Computing Manager. La inscripción del nodo le permite convertir la imagen de la aplicación para la ejecución en una máquina virtual de computación confidencial. Para más información sobre las máquinas virtuales de computación confidencial en Azure, consulte [Soluciones en Virtual Machines](virtual-machine-solutions.md).
+En esta guía de inicio rápido, inscribió un nodo con una aplicación administrada de Azure en Fortanix Confidential Computing Manager. La inscripción del nodo le permite convertir la imagen de la aplicación para la ejecución en una máquina virtual de computación confidencial. Para más información sobre las máquinas virtuales de computación confidencial en Azure, consulte [Soluciones en Virtual Machines](virtual-machine-solutions-sgx.md).
 
 Para más información sobre las ofertas de computación confidencial de Azure, consulte [Computación confidencial de Azure](overview.md).
 
 Más información sobre cómo completar tareas similares con otras ofertas de terceros en Azure, como [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) y [Scone](https://sconedocs.github.io).
-

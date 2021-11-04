@@ -6,13 +6,13 @@ ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/30/2021
-ms.custom: template-how-to
-ms.openlocfilehash: 26e53511cfab9444a9d5a9c4dcd868be07b40e16
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.custom: template-how-to, ignite-fall-2021
+ms.openlocfilehash: 19161ea1e89cf4917442e607903a7c8f0b7c2860
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224364"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131006304"
 ---
 # <a name="set-up-azure-iot-hub-to-deploy-over-the-air-updates"></a>Configuración de Azure IoT Hub para la implementación de actualizaciones de forma inalámbrica
 

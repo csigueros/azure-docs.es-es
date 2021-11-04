@@ -6,12 +6,12 @@ ms.date: 09/30/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3310d3f33d7aa31a24a19bc7c43b59173ffd78d6
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: ae7f7fe3e626079c7e3bcb04dc76ffe5cacfe4a9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129456051"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069793"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Tutorial: Importación de archivos BACPAC de SQL con plantillas de Resource Manager
 
@@ -31,7 +31,7 @@ En este tutorial se describen las tareas siguientes:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este artículo, necesitará lo siguiente:
 
@@ -269,4 +269,4 @@ Cuando los recursos de Azure que implementó dejen de ser necesarios, elimine el
 En este tutorial ha implementado un servidor y una base de datos, y ha importado un archivo BACPAC. Para obtener información sobre cómo solucionar problemas de implementación de plantillas, consulte:
 
 > [!div class="nextstepaction"]
-> [Solución de problemas de las implementaciones de plantillas de Resource Manager](./template-tutorial-troubleshoot.md)
+> [Solución de problemas de las implementaciones de plantillas de Resource Manager](../troubleshooting/quickstart-troubleshoot-arm-deployment.md)

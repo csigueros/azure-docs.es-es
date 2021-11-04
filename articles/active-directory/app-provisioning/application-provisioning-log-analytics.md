@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 918267b9dc2d7d8548d5406d590a03db13870749
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 5ac16491a03b783020e1d8898eb50f30eef98eea
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129991838"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131050914"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>Entienda cómo se integra el aprovisionamiento con los registros de Azure Monitor
 
@@ -34,7 +34,7 @@ Una vez configurada la supervisión de Azure, es posible habilitar registros par
 
 > [!NOTE]
 > Si acaba de aprovisionar un área de trabajo, puede pasar algún tiempo antes de que pueda enviarle registros. Si recibe un error que le indica que la suscripción no está registrada para usar *microsoft.insights*, vuelva a realizar la comprobación después de unos minutos.
- 
+
 ## <a name="understanding-the-data"></a>Descripción de los datos
 El flujo de datos subyacente que el aprovisionamiento envía a los visores de registro es casi idéntico. Los registros de Azure Monitor obtienen casi el mismo flujo que la interfaz de usuario de Azure Portal y la API de Azure. Solo hay algunas **diferencias** en los campos de registro, tal y como se describe en la tabla siguiente. Para obtener más información sobre estos campos, consulte el artículo sobre la [lista provisioningObjectSummary](/graph/api/provisioningobjectsummary-list?preserve-view=true&tabs=http&view=graph-rest-beta).
 
