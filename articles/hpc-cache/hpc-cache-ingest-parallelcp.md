@@ -1,17 +1,17 @@
 ---
 title: 'Ingesta de datos de Azure HPC Cache: script de copia en paralelo'
 description: Uso de un script de copia en paralelo para mover datos a un destino de Blob Storage en Azure HPC Cache
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 10/30/2019
-ms.author: v-erkel
-ms.openlocfilehash: ff7b15a36c5ef19a1fa6ffdca7697dd6ba97c29f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: femila
+ms.openlocfilehash: 0285a57fe0ebecce2f55bdb3d6723dd47ac0070a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87092362"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131087787"
 ---
 # <a name="azure-hpc-cache-data-ingest---parallel-copy-script-method"></a>Ingesta de datos de Azure HPC Cache: método de script de copia en paralelo
 

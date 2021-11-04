@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/04/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 037137cf5a6e4ddd66fc15e8ad9775ea77177ef6
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: f56346b9282be42d6022fd6f15f4ce206ae8dbd6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94625524"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131253092"
 ---
 Use este inicio rápido para buscar su primera imagen mediante la biblioteca cliente de Bing Image Search, un contenedor de la API y que contiene las mismas características. Esta sencilla aplicación de JavaScript envía una consulta de búsqueda de imagen, analiza la respuesta de JSON y muestra la dirección URL de la primera imagen devuelta.
 
@@ -58,13 +58,15 @@ El código fuente de este ejemplo está disponible en [GitHub](https://github.co
 ## <a name="create-an-asynchronous-helper-function"></a>Creación de una función auxiliar asincrónica
 
 1. Cree una función para llamar al cliente de manera asincrónica y devuelva la respuesta del servicio Bing Image Search.
+
     ```javascript
-    //a helper function to perform an async call to the Bing Image Search API
+    // a helper function to perform an async call to the Bing Image Search API
     const sendQuery = async () => {
         return await imageSearchApiClient.imagesOperations.search(searchTerm);
     };
     ```
-   ## <a name="send-a-query-and-handle-the-response"></a>Envío de una consulta y control de la respuesta
+
+## <a name="send-a-query-and-handle-the-response"></a>Envío de una consulta y control de la respuesta
 
 1. Llame a la función auxiliar y controle su `promise` para analizar los resultados de imágenes que se devuelven en la respuesta.
 

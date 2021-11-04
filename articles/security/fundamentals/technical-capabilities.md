@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2021
 ms.author: terrylan
-ms.openlocfilehash: 4894971fa6ac26cdfcbd65fb12c71d3ca73b6168
-ms.sourcegitcommit: 5a27d9ba530aee0e563a1b0159241078e8c7c1e4
+ms.openlocfilehash: e0513ac3c4fdf4cfb01d9d0f879bfe06bf3bb601
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112422577"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037328"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de seguridad de Azure
 Este artículo sirve de introducción a los servicios de seguridad de Azure que ayudan a proteger los datos, recursos y aplicaciones en la nube, así como a satisfacer las necesidades de seguridad de su negocio.
@@ -257,7 +257,7 @@ Azure dispone también de varias características fáciles de usar que contribuy
 
 - [Quitar encabezados de servidor estándar para evitar que las herramientas creen huellas digitales en la aplicación](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/)
 
-- [Conectar de forma segura la aplicación con los recursos de una red privada mediante VPN de punto a sitio](../../app-service/web-sites-integrate-with-vnet.md)
+- [Conectar de forma segura la aplicación con los recursos de una red privada mediante VPN de punto a sitio](../../app-service/overview-vnet-integration.md)
 
 - [Conectar de forma segura la aplicación con los recursos de una red privada mediante conexiones híbridas](../../app-service/app-service-hybrid-connections.md)
 

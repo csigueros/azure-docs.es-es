@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/22/2021
 ms.author: bagol
-ms.openlocfilehash: dd9f0c69b610b54ae6f07661ba15d9f0cf22b3ea
-ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 6525b6821c7107aa100c6ce79d606c2832f04b97
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129407216"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131036929"
 ---
 # <a name="azure-sentinel-process-event-normalization-schema-reference-public-preview"></a>Referencia del esquema de normalización de eventos de proceso de Azure Sentinel (versión preliminar pública)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 El esquema de normalización de eventos de proceso se usa para describir la actividad de ejecución y finalización de un proceso que lleva a cabo el sistema operativo. Los sistemas operativos y los sistemas de seguridad, como EDR (detección y respuesta de punto de conexión), notifican tales eventos.
 
@@ -208,7 +210,7 @@ El esquema de eventos de proceso hace referencia a las entidades siguientes, que
 | <a name="targetusername"></a>**TargetUsername** | Obligatorio para los eventos de creación de procesos. | String     | Nombre de usuario del usuario de destino.  <br><br>Ejemplo:   `CONTOSO\WIN-GG82ULGC9GO$`      |
 | **TargetUsernameType**             | Obligatorio para los eventos de creación de procesos.   | Enumerated | Especifica el tipo de nombre de usuario almacenado en el campo [TargetUsername](#targetusername). Para más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).          <br><br>  Ejemplo: `Windows`        |
 |<a name="targetuserid"></a> **TargetUserId**   | Recomendado | String     | Identificador único del usuario de destino. El identificador específico depende del sistema que genere el evento. Para más información, consulte la [Entidad Usuario](normalization-about-schemas.md#the-user-entity).            <br><br> Ejemplo: `S-1-5-18`    |
-| **TargetUserIdType**               | Recomendado | String     | Tipo del identificador de usuario almacenado en el campo [TargetUserId](#targetuserid). Para más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).            <br><br> Ejemplo: `SID`  |
+| **TargetUserIdType**               | Recomendado | String     | Tipo del identificador de usuario almacenado en el campo [TargetUserId](#targetuserid). Para obtener más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).            <br><br> Ejemplo: `SID`  |
 | **TargetUserSessionId**            | Opcional     | String     |Identificador único de la sesión de inicio de sesión del usuario de destino. <br><br>Ejemplo: `999`          <br><br>**Nota**: El tipo se define como *cadena* para admitir distintos sistemas, pero en Windows este valor debe ser numérico. <br><br>Si usa una máquina Windows o Linux y ha usado un tipo diferente, asegúrese de convertir los valores. Por ejemplo, si ha utilizado un valor hexadecimal, conviértalo en un valor decimal.     |
 | <a name="targetprocessname"></a>**TargetProcessName**              | Mandatory    | string     |Nombre del proceso de destino. Este nombre se deriva normalmente de la imagen o del archivo ejecutable que se usa para definir el código inicial y los datos asignados al espacio de direcciones virtuales del proceso.   <br><br>     Ejemplo: `C:\Windows\explorer.exe`     |
 | **TargetProcessFileCompany**       | Opcional     | String     |Nombre de la empresa que creó el archivo de imagen del proceso de destino.   <br><br>   Ejemplo: `Microsoft` |
@@ -241,8 +243,8 @@ El esquema de eventos de proceso hace referencia a las entidades siguientes, que
 Para más información, consulte:
 
 - [Normalización en Azure Sentinel](normalization.md)
-- [Referencia del esquema de normalización de la autenticación de Azure Sentinel (Versión preliminar pública)](authentication-normalization-schema.md)
+- [Referencia del esquema de normalización de la autenticación de Azure Sentinel (versión preliminar pública)](authentication-normalization-schema.md)
 - [Referencia del esquema de normalización de DNS de Azure Sentinel](dns-normalization-schema.md)
 - [Referencia del esquema de normalización de eventos de archivo de Azure Sentinel (versión preliminar pública)](file-event-normalization-schema.md)
-- [Referencia del esquema de normalización de redes de Azure Sentinel](normalization-schema.md)
+- [Referencia del esquema de normalización de redes de Azure Sentinel](./network-normalization-schema.md)
 - [Referencia del esquema de normalización de eventos de registro de Azure Sentinel (versión preliminar pública)](registry-event-normalization-schema.md)
