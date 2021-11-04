@@ -12,12 +12,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: mathoma
 ms.date: 08/27/2019
-ms.openlocfilehash: 534aa867ed763292ad36b74dd500eca77e5c2559
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 5552faa01df1fd21af75c638549770c737920d9d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130161699"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131031449"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Tutorial: Adición de SQL Managed Instance a un grupo de conmutación por error
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -35,7 +35,7 @@ Agregue instancias administradas de Azure SQL Managed Instance a un grupo de con
   > - Las instancias administradas que participan en un grupo de conmutación por error requieren [Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md), emparejamiento de red virtual global o dos puertas de enlace de VPN conectadas. En este tutorial se proporcionan los pasos para crear y conectar las puertas de enlace de VPN. Sáltese estos pasos si ya tiene ExpressRoute configurado. 
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Para completar este tutorial, asegúrese de disponer de los siguientes elementos: 
@@ -985,7 +985,7 @@ Cree el grupo de conmutación por error mediante Azure Portal.
 
 1. Seleccione **Azure SQL** en el menú izquierdo de [Azure Portal](https://portal.azure.com). Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y, a continuación, escriba `Azure SQL` en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo. 
 1. Seleccione la instancia administrada principal que creó en la primera sección, por ejemplo, `sql-mi-primary`. 
-1. En **Configuración**, vaya a **Grupos de conmutación por error de instancias** y, a continuación, elija **Agregar grupo** para abrir la página **Grupo de conmutación por error de instancias**. 
+1. En **Administración de datos**, vaya a **Grupos de conmutación por error** y seleccione **Agregar grupo** para abrir la página **Grupo de conmutación por error de instancias**. 
 
    ![Adición de un grupo de conmutación por error](./media/failover-group-add-instance-tutorial/add-failover-group.png)
 

@@ -7,18 +7,16 @@ ms.prod: kinect-dk
 ms.date: 03/18/2021
 ms.topic: article
 keywords: azure, kinect, specs, hardware, DK, capabilities, depth, color, RGB, IMU, microphone, array, depth
-ms.custom:
-- CI 114092
-- CSSTroubleshooting
+ms.custom: CI 114092, CSSTroubleshooting
 audience: ITPro
 manager: dcscontentpm
 ms.localizationpriority: high
-ms.openlocfilehash: b5ec67537fe0bd8732b4068c0ed52861ed8f2c1a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 45941395864bde4442748671c6b5c33da81b319d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "116986085"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131082500"
 ---
 # <a name="azure-kinect-dk-hardware-specifications"></a>Especificaciones de hardware de Azure Kinect DK
 
@@ -52,7 +50,7 @@ Hay un archivo STEP para el dispositivo Azure Kinect disponible [aquí](https://
 
 Azure Kinect DK está diseñado para desarrolladores y empresas comerciales que operan en las siguientes condiciones ambientales:
 
-- **Temperatura**: 10-25<sup>0</sup>C
+- **Temperatura**: 10-25 <sup>0</sup>C
 - **Humedad**: humedad relativa del 8-90 % (sin condensar)
 
 > [!NOTE]
@@ -155,7 +153,7 @@ El identificador de proveedor es 0x045E (Microsoft). A continuación se muestra 
 
 |    Interfaz USB        |    IP de PNP    |     Notas            |
 |-------------------------|--------------|----------------------|
-|    Concentrador USB 3.1 Gen1    |    0x097A    |    Concentrador principal    |
+|    Concentrador USB 3.1 Gen2    |    0x097A    |    Concentrador principal    |
 |    Concentrador USB 2.0         |    0x097B    |    USB HS          |
 |    Cámara de profundidad       |    0x097C    |    USB 3.0            |
 |    Cámara de color       |    0x097D    |    USB 3.0            |

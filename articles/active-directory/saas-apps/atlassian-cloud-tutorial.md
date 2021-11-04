@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/29/2021
 ms.author: jeedes
-ms.openlocfilehash: 0a38e05c85da247fdc7a4471d3fbb5d1a99281bc
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 6126cbeec479a1f815fa09cae32e03dc8759a11c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124734475"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063370"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Tutorial: Integración de Atlassian Cloud con Azure Active Directory
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Atlassian Cloud con Azure Active Direc
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Atlassian Cloud con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -83,7 +83,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. Antes de empezar, vaya a la instancia de Atlassian y copie y guarde la dirección URL de la instancia.
    > [!NOTE]
-   > la dirección URL debe ajustarse al patrón `https://<INSTANCE>.atlassian.com`.
+   > La dirección URL debe ajustarse al patrón `https://<INSTANCE>.atlassian.com`.
 
    ![Nombre de instancia](./media/atlassian-cloud-tutorial/instance.png)
 

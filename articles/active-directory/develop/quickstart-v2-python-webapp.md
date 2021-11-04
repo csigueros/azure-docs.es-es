@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: fb38140f09fc7c1eb2c40fc02e8c113cbc6f94a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2201802ca0f4d10a65522dc45e2ecb9b2aa0ce96
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100103522"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040178"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Inicio rápido: Adición del inicio de sesión con Microsoft a una aplicación web de Python
 
@@ -124,15 +124,16 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 
 1. Deberá instalar la biblioteca Python de MSAL, el marco de Flask, las sesiones de Flask para la administración de sesiones del lado servidor y solicitudes mediante pip de la manera siguiente:
 
-    ```Shell
+    ```shell
     pip install -r requirements.txt
     ```
 
-2. Ejecute app.py desde el shell o la línea de comandos:
+2. Ejecute `app.py` desde el shell o la línea de comandos:
 
-    ```Shell
+    ```shell
     python app.py
     ```
+
    > [!IMPORTANT]
    > Esta aplicación de inicio rápido usa un secreto de cliente para identificarse como cliente confidencial. Como el secreto de cliente se agrega como texto sin formato a los archivos del proyecto, por motivos de seguridad, se recomienda que use un certificado en lugar de un secreto de cliente antes de considerar el uso de la aplicación en producción. Para más información sobre cómo usar un certificado, consulte [estas instrucciones](./active-directory-certificate-credentials.md).
 

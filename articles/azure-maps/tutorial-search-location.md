@@ -1,26 +1,27 @@
 ---
 title: 'Tutorial: Búsqueda de ubicaciones cercanas en un mapa | Microsoft Azure Maps'
 description: Tutorial sobre cómo buscar puntos de interés en un mapa. Obtenga información sobre cómo usar el SDK web de Azure Maps para agregar funcionalidades de búsqueda y elementos emergentes interactivos a un mapa.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 1/15/2020
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
+manager: eriklind
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 61ea9691e30fe401946a43d2ffd8488b905c0835
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: db7fc079426d30c8fc34cce99463b22c910e1ab6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131072397"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458995"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Tutorial: Búsqueda de puntos cercanos de interés mediante Azure Maps
 
 En este tutorial se muestra cómo configurar una cuenta con Azure Maps y luego usar las API de Maps para buscar un punto de interés. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
+>
 > * Crear una cuenta de Azure Maps
 > * Recuperar la clave principal de la cuenta de Maps
 > * Crear una nueva página web con Map Control API
@@ -192,7 +193,7 @@ En esta sección se muestra cómo usar [Search API](/rest/api/maps/search) de Ma
 4. Puede ver los datos sin procesar que está representando el mapa especificando la siguiente solicitud HTTPRequest en el explorador. Reemplace \<Your Azure Maps Key\> por la clave principal.
 
    ```http
-   https://atlas.microsoft.com/search/poi/json?api-version=1.0&query=gasoline%20station&subscription-key=<subscription-key>&lat=47.6292&lon=-122.2337&radius=100000
+   https://atlas.microsoft.com/search/poi/json?api-version=1.0&query=gasoline%20station&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&lat=47.6292&lon=-122.2337&radius=100000
    ```
 
 En este momento, la página MapSearch puede mostrar las ubicaciones de los puntos de interés que se devuelven en una consulta de búsqueda aproximada. Vamos a agregar algunas funcionalidades interactivas y más información sobre las ubicaciones.

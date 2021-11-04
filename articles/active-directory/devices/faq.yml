@@ -12,12 +12,12 @@ metadata:
   manager: karenhoran
   ms.reviewer: ravenn
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: ddb697605b12505970f25609eb2365e39646de4f
-  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+  ms.openlocfilehash: 34faf66c08f951ea5cfc53d56ae359a1a5cdda0f
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/24/2021
-  ms.locfileid: "128620889"
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131049869"
 title: Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory
 summary: ''
 sections:
@@ -66,6 +66,9 @@ sections:
     answer: "Sí. Windows tiene una funcionalidad para almacenar en caché un nombre de usuario y contraseña. Esta funcionalidad permite que los usuarios que han iniciado sesión anteriormente accedan rápidamente al escritorio, incluso sin conectividad de red. \n\nCuando un dispositivo se elimina o deshabilita en Azure AD, el dispositivo Windows no lo reconoce. Por lo que los usuarios que han iniciado sesión anteriormente siguen teniendo acceso al escritorio con el nombre de usuario y contraseña almacenados en caché. Pero dado que el dispositivo se ha eliminado o deshabilitado, los usuarios no pueden acceder a los recursos protegidos con el acceso condicional basado en el dispositivo. \n\nLos usuarios que no han iniciado sesión anteriormente no pueden acceder al dispositivo. No se ha habilitado ningún nombre de usuario o contraseña almacenados en caché para ellos. \n"
   - question: ¿Puede un usuario deshabilitado o eliminado iniciar sesión en un dispositivo unido a Azure AD?
     answer: "Sí, pero solo durante un tiempo limitado. Cuando un usuario se elimina o deshabilita en Azure AD, el dispositivo Windows no lo reconoce inmediatamente. Por lo que los usuarios que han iniciado sesión anteriormente pueden acceder al escritorio con el nombre de usuario y contraseña almacenados en caché. \n\nNormalmente, el dispositivo reconoce el estado del usuario en menos de cuatro horas. Tras lo cual, Windows bloquea el acceso de esos usuarios al escritorio. Como el usuario está eliminado o deshabilitado en Azure AD, se revocan todos sus tokens, por lo que no puede tener acceso a ninguno de los recursos. \n\nLos usuarios eliminados o deshabilitados que no han iniciado sesión anteriormente no pueden acceder al dispositivo. No se ha habilitado ningún nombre de usuario o contraseña almacenados en caché para ellos. \n"
+  - question: ¿Puede un usuario invitado iniciar sesión en un dispositivo unido a Azure AD?
+    answer: >
+      No, de momento los usuarios invitados no pueden iniciar sesión en un dispositivo unido a Azure AD.
   - question: ¿Por qué mis usuarios tienen problemas en los dispositivos unidos a Azure AD después de cambiar su UPN?
     answer: "Actualmente, los cambios de UPN no son totalmente compatibles en dispositivos unidos a Azure AD. Por ello, su autenticación con Azure AD genera un error tras la modificación del UPN. Como resultado, los usuarios experimentarán problemas con el acceso condicional y el inicio de sesión único en sus dispositivos. Por tanto, para poder solucionar este problema, los usuarios deben iniciar sesión en Windows con el icono “Otro usuario” mediante su nuevo UPN. Estamos trabajando actualmente para poder resolver este incidente. Sin embargo, los usuarios que inicien sesión con Windows Hello para empresas no tendrán este problema. \n\nLos cambios de nombre principal de usuario se admiten con la actualización 2004 de Windows 10. Los usuarios de dispositivos con esta actualización no tendrán ningún problema después de cambiar su nombre principal de usuario.\n"
   - question: Mis usuarios no pueden buscar impresoras desde dispositivos unidos a Azure AD. ¿Cómo se puede habilitar la impresión desde esos dispositivos?

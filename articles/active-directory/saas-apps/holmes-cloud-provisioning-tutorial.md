@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/07/2021
 ms.author: thwimmer
-ms.openlocfilehash: 82fdfb7621762828a32ad67774e9b0141c6b0464
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.openlocfilehash: 462accaebda816fee959a5a586e331151badc269
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122195320"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058877"
 ---
 # <a name="tutorial-configure-holmes-cloud-for-automatic-user-provisioning"></a>Tutorial: Configuración de Holmes Cloud para el aprovisionamiento automático de usuarios
 
@@ -51,8 +51,8 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 ## <a name="step-2-configure-holmes-cloud-to-support-provisioning-with-azure-ad"></a>Paso 2. Configuración de Holmes Cloud para admitir el aprovisionamiento con Azure AD
 
 > [!NOTE]
-> * Después de comprar la suscripción, recibirá una dirección URL para su inquilino de Holmes Cloud del equipo de **soporte técnico de Holmes Cloud** <cs@holmescloud.com>.
-> * Puede encontrar la información necesaria (dirección URL del punto de conexión, token, etc.) para configurar el servicio de aprovisionamiento en la página de **configuración de la empresa** siempre que se suscriba al servicio de aprovisionamiento de usuarios y al inicio de sesión único.
+> * Después de comprar la suscripción, recibirá la dirección URL del inquilino de Holmes Cloud del equipo de **soporte técnico de Holmes Cloud** <cs@holmescloud.com>.
+> * Puede encontrar la información necesaria (dirección URL del punto de conexión, token, etc.) para configurar el servicio de aprovisionamiento en la página **Configuración de la empresa** siempre que se suscriba al servicio de aprovisionamiento de usuarios y al inicio de sesión único.
  
 1. Inicie sesión a la cuenta de Holmes Cloud con sus credenciales correspondientes.
 1. Seleccione el menú "会社設定 (Configuración de la empresa)" y, luego, seleccione el icono con forma de sombrero.

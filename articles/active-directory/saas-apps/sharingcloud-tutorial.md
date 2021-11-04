@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/10/2021
 ms.author: jeedes
-ms.openlocfilehash: d42394cec8653266f8f9e53ee9ec48f517d83186
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7d507a57ce68376524f0c445b00bc1c956cbbc8a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124741188"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067892"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sharingcloud"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con SharingCloud
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar SharingCloud con Azure Active Directory
 * Permitir que los usuarios puedan iniciar sesión automáticamente en SharingCloud con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -60,7 +60,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con SharingCloud med
 Para configurar y probar el inicio de sesión único de Azure AD con SharingCloud, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[ Configuración del inicio de sesión único en SharingCloud](#configure-sharingcloud-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba en SharingCloud](#create-sharingcloud-test-user)** : para tener un homólogo de B.Simon en SharingCloud que esté vinculado a su representación en Azure AD.
