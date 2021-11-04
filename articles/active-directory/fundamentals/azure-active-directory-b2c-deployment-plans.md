@@ -10,12 +10,12 @@ ms.author: gasinh
 author: gargi-sinha
 manager: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dafaa6174826259eaee1c6d0b290b4de6b63911
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9935fb243b6c2824633e67ac1eed26a80b67bc9d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121724821"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068139"
 ---
 # <a name="azure-active-directory-b2c-deployment-plans"></a>Planes de implementación de Azure Active Directory B2C
 

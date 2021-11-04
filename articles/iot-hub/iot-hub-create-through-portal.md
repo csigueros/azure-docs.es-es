@@ -9,12 +9,12 @@ ms.date: 09/06/2018
 ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: 801d073642114addeed87c4ee2073774f7888fa5
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: fac663053b964cad2bbfc069fdf2e21efa761c61
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109487626"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131072928"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Creación de una instancia de IoT Hub mediante Azure Portal
 
@@ -30,11 +30,7 @@ Para seguir los pasos de este tutorial, necesita una suscripción a Azure. Si no
 
 ## <a name="change-the-settings-of-the-iot-hub"></a>Cambio de la configuración del Centro de IoT
 
-Puede cambiar la configuración de un centro de IoT existente después de crearlo desde el panel IoT Hub (Centro de IoT).
-
-![Captura de pantalla que muestra la configuración de IoT Hub](./media/iot-hub-create-through-portal/iot-hub-settings-panel.png)
-
-Estas son algunas de las propiedades que puede establecer para un centro de IoT:
+Puede cambiar la configuración de un centro de IoT existente después de crearlo desde el panel IoT Hub (Centro de IoT). Estas son algunas de las propiedades que puede establecer para un centro de IoT:
 
 **Pricing and scale** (Precios y escala): puede usar esta propiedad para migrar a un nivel diferente o establecer el número de unidades de IoT Hub. 
 

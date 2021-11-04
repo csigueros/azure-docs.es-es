@@ -5,22 +5,18 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 06/02/2021
-ms.openlocfilehash: 7075b7efd871d3f226faa593e0730d22c8913fd1
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: fb33196d95f21041cf2657bdd27f203ad3f860ea
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124797091"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084944"
 ---
-# <a name="quickstart-deploy-a-managed-apache-spark-cluster-preview-with-azure-databricks"></a>Inicio rápido: implementación de un clúster de Apache Spark administrado (versión preliminar) con Azure Databricks
+# <a name="quickstart-deploy-a-managed-apache-spark-cluster-with-azure-databricks"></a>Inicio rápido: implementación de un clúster de Apache Spark administrado con Azure Databricks
 
 Azure Managed Instance for Apache Cassandra proporciona operaciones automatizadas de implementación y escalado para centros de datos de Apache Cassandra de código abierto administrados, lo que permite acelerar los escenarios híbridos y reducir el mantenimiento continuo.
-
-> [!IMPORTANT]
-> Azure Managed Instance for Apache Cassandra se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 En este inicio rápido se muestra cómo usar Azure Portal para crear un clúster de Apache Spark totalmente administrado en Azure Virtual Network para el clúster de Azure Managed Instance for Apache Cassandra. Creará el clúster de Spark en Azure Databricks. Posteriormente, puede crear o adjuntar cuadernos al clúster, leer datos de diferentes orígenes de datos y analizar la información.
 
@@ -113,4 +109,3 @@ En este inicio rápido se muestra cómo usar Azure Portal para crear un clúster
 
 > [!div class="nextstepaction"]
 > [Administración de recursos de Azure Managed Instance for Apache Cassandra mediante la CLI de Azure](manage-resources-cli.md)
-

@@ -8,12 +8,13 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 1276a242efb1917a0c4a24aa73c3e0d11f81e158
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: ab3cb4360b9bd0c65ac8567109890fc364411367
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105559169"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073061"
 ---
 # <a name="run-existing-iot-edge-modules-from-azure-stack-edge-pro-fpga-devices-on-azure-stack-edge-pro-gpu-device"></a>Ejecución de módulos de IoT Edge existentes desde dispositivos de FPGA de Azure Stack Edge Pro en el dispositivo de GPU de Azure Stack Edge Pro
 
@@ -207,7 +208,7 @@ Para establecer el uso de memoria y CPU, utilice los límites de procesador para
 ```
 La especificación de memoria y CPU no es necesaria pero generalmente se recomienda. Si no se especifica `requests`, se usan los valores establecidos en los límites como mínimo requerido. 
 
-El uso de memoria compartida para los módulos también requiere un método diferente. Por ejemplo, puede usar el modo de IPC de host para el acceso a la memoria compartida entre las soluciones Live Video Analytics e Inferencia, como se describe en [Implementación de Live Video Analytics en Azure Stack Edge](../media-services/live-video-analytics-edge/deploy-azure-stack-edge-how-to.md#deploy-live-video-analytics-edge-module-using-azure-portal).
+El uso de memoria compartida para los módulos también requiere un método diferente. Por ejemplo, puede usar el modo de IPC de host para el acceso a la memoria compartida entre las soluciones Live Video Analytics e Inferencia, como se describe en [Implementación de Live Video Analytics en Azure Stack Edge](../azure-video-analyzer/video-analyzer-docs/overview.md).
 
 
 ## <a name="web-proxy"></a>Proxy web 

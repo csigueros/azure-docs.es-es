@@ -5,17 +5,19 @@ author: batamig
 ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: how-to
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.date: 05/19/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: 0dbdc6be4eb5dd61545bbf761d1805824690ebc7
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
+ms.openlocfilehash: 870106b7f3494ac818af90b6b919603e39a0a598
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681373"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075170"
 ---
 # <a name="expert-configuration-options-on-premises-deployment-and-sapcontrol-log-sources"></a>Opciones de configuración de expertos, implementación local y orígenes de registro de SAPControl
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 En este artículo se describe cómo implementar el conector de datos Azure Sentinel SAP en un proceso experto o personalizado, como el uso de una máquina local y una instancia de Azure Key Vault para almacenar las credenciales.
 
@@ -335,7 +337,7 @@ Esta sección le permite configurar los parámetros siguientes:
 
 Para ingerir todos los registros de ABAP en Azure Sentinel, incluidos los registros basados en NW RFC y SAP Control Web Service, configure los siguientes detalles de ABAP SAP Control:
 
-|Parámetro  |Descripción  |
+|Configuración  |Descripción  |
 |---------|---------|
 |**javaappserver**     |Especifique el host del servidor de ABAP de SAP Control. <br>Por ejemplo: `contoso-erp.appserver.com`         |
 |**javainstance**     |Especifique el número de instancia de ABAP de SAP Control. <br>Por ejemplo: `00`         |

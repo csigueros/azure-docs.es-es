@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a1c9bcec2a9aec2673e29a3f578146cad7de5d6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4f691f2c6cff0abec7454282a239e8ede47277c6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730759"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068120"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Guía de inicio rápido
 
@@ -240,4 +240,4 @@ Para obtener instrucciones sobre cómo sustituir las claves, consulte [Azure Act
 - [Profundización técnica](how-to-connect-sso-how-it-works.md): comprenda cómo funciona la característica de inicio de sesión único de conexión directa.
 - [Preguntas más frecuentes](how-to-connect-sso-faq.yml): obtenga respuestas a las preguntas más frecuentes sobre el inicio de sesión único de conexión directa.
 - [Solución de problemas](tshoot-connect-sso.md): aprenda a resolver problemas comunes con la característica de inicio de sesión único de conexión directa.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Use el foro de Azure Active Directory para solicitar nuevas características.
+- [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789): Use el foro de Azure Active Directory para solicitar nuevas características.

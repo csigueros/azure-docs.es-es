@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 686e342eb68e2e5c97bdbae9cd11bdff5819b5d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c83c52efb8ff6eb59d49fb930ae4edf0b2f9c335
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98927598"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131011852"
 ---
 # <a name="continuous-deployment-with-azure-devops"></a>Implementación continua con Azure DevOps
 
@@ -39,7 +39,7 @@ Los scripts están hospedados en la carpeta [Asistente de voz de Cognitive Servi
 1. En la sección **Configurar**, seleccione "Canalización inicial".
 1. A continuación, se mostrará un editor con un archivo YAML, y deberá reemplazar la sección "steps" por este script.
 
-    ```YAML
+    ```yaml
     steps:
     - task: Bash@3
       displayName: 'Export source app'
@@ -126,7 +126,7 @@ Los scripts están hospedados en la carpeta [Asistente de voz de Cognitive Servi
 1. En la sección **Configurar**, seleccione "Canalización inicial".
 1. A continuación, se mostrará un editor con un archivo YAML, y deberá reemplazar la sección "steps" por este script.
 
-    ```YAML
+    ```yaml
     steps:
     - task: Bash@3
       displayName: 'Import app'

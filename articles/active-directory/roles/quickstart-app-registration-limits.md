@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, devx-track-azurepowershell
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b018dead90b593276a9cb92696dd964473057407
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fdffe02ad1f0b5bc0b1881781f35a056d9a6a2ab
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121732316"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057160"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Inicio rápido: Concesión de permisos para crear registros de aplicaciones ilimitados
 
@@ -26,7 +26,7 @@ En esta guía de inicio rápido, creará un rol personalizado con permiso para c
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una licencia de Azure AD Premium P1 o P2
 - Administrador global o administrador de roles con privilegios
@@ -180,6 +180,6 @@ Body
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- No dude en compartir con nosotros en el [foro de roles administrativos de Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
+- No dude en compartir con nosotros en el [foro de roles administrativos de Azure AD](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
 - Para más información acerca de los roles de Azure AD, consulte [Roles integrados en Azure AD](permissions-reference.md).
 - Para más información acerca de los permisos de usuario predeterminados, consulte la [comparación de los permisos predeterminados de los usuarios miembros e invitados](../fundamentals/users-default-permissions.md).

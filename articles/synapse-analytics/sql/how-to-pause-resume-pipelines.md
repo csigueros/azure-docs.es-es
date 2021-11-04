@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.topic: how-to
 ms.date: 08/12/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 01fd517be7e60a5ab16e7844d8c149ddac2dcb3e
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 60425a0915921632874620ef5a1faf0d3ba22115
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862445"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131013125"
 ---
 # <a name="pause-and-resume-dedicated-sql-pools-with-synapse-pipelines"></a>Pausa y reanudación de grupos de SQL dedicados con canalizaciones de Synapse
 
@@ -226,6 +226,3 @@ Puede encontrar más detalles sobre Identidad administrada para Azure Synapse y 
 [Identidad administrada del área de trabajo de Azure Synapse](../security/synapse-workspace-managed-identity.md)
 
 [Concesión de permisos a una identidad administrada de área de trabajo (versión preliminar)](../security/how-to-grant-workspace-managed-identity-permissions.md)
-
-[Control de acceso SQL para las ejecuciones de canalización de Synapse](../security/how-to-set-up-access-control.md#step-73-sql-access-control-for-azure-synapse-pipeline-runs)
-

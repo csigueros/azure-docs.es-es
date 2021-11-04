@@ -14,17 +14,14 @@ ms.service: network-watcher
 ms.workload: infrastructure
 ms.tgt_pltfrm: network-watcher
 ms.devlang: na
-tags:
-- azure-resource-manager
-ms.custom:
-- mvc
-- mode-portal
-ms.openlocfilehash: e8a9ce38e29f743fd40a6998d8bdc300080b2cee
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+tags: azure-resource-manager
+ms.custom: mvc, mode-portal
+ms.openlocfilehash: c95beb02c88f74546cc549cf1607d9717232bd85
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537763"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084528"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Inicio rápido: Diagnóstico de problemas al filtrar el tráfico de red de las máquinas virtuales con Azure Portal
 
@@ -42,7 +39,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 2. Seleccione **Proceso** y, luego, **Windows Server 2016 Datacenter** o una versión de **Ubuntu Server**.
 3. Escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y luego seleccione **Aceptar**:
 
-    |Configuración|Value|
+    |Configuración|Valor|
     |---|---|
     |Nombre|myVm|
     |Nombre de usuario| Escriba un nombre de usuario de su elección.|
@@ -78,7 +75,7 @@ Cuando se crea una máquina virtual, Azure permite y deniega el tráfico de entr
 2. Seleccione **Comprobación del flujo de IP** en **HERRAMIENTAS DE DIAGNÓSTICO DE RED**.
 3. Seleccione su suscripción, escriba o seleccione los siguientes valores y seleccione **Comprobar**, tal y como se muestra en la siguiente imagen:
 
-    |Configuración            |Value                                                                                              |
+    |Configuración            |Valor                                                                                              |
     |---------          |---------                                                                                          |
     | Resource group    | Seleccione myResourceGroup                                                                            |
     | Máquina virtual   | Seleccione myVm                                                                                       |

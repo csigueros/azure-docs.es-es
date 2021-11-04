@@ -9,12 +9,13 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 94fee0aa5582f76e6d97568a5535d3626d94515b
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 2f6bfda53dc1e15488960dd72e8e71c88a82ab64
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123535228"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131013144"
 ---
 # <a name="create-and-use-views-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Creación y uso de vistas mediante un grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -81,7 +82,7 @@ from openrowset(
            ) as rows
 ```
 
-Delta Lake está en versión preliminar pública, y hay algunos problemas conocidos y limitaciones. Revise los problemas conocidos en la página de autoayuda del [grupo de SQL sin servidor de Synapse](resources-self-help-sql-on-demand.md#delta-lake).
+Revise los problemas conocidos en la página de autoayuda del [grupo de SQL sin servidor de Synapse](resources-self-help-sql-on-demand.md#delta-lake).
 
 ## <a name="partitioned-views"></a>Vistas con particiones
 
@@ -122,7 +123,7 @@ El nombre de la carpeta en la función `OPENROWSET` (`yellow` en este ejemplo) q
 > [!div class="mx-imgBorder"]
 >![Carpeta Yellow Taxi de Delta Lake](./media/shared/yellow-taxi-delta-lake.png)
 
-Delta Lake está en versión preliminar pública y hay algunos problemas conocidos y limitaciones. Revise los problemas conocidos en la [página de autoayuda del grupo de SQL sin servidor de Synapse](resources-self-help-sql-on-demand.md#delta-lake).
+Revise los problemas conocidos en la [página de autoayuda del grupo de SQL sin servidor de Synapse](resources-self-help-sql-on-demand.md#delta-lake).
 
 ## <a name="json-views"></a>Vistas JSON
 

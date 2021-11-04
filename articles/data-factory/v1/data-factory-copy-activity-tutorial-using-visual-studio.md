@@ -6,15 +6,15 @@ ms.service: data-factory
 ms.subservice: v1
 ms.custom: vs-azure, devx-track-azurepowershell
 ms.topic: tutorial
-ms.date: 01/22/2018
+ms.date: 10/22/2021
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5bd8bef3b45ef634577de90656c9452c44399386
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ea8720baf7de28dbe9f36f51b7687528e6c2a460
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128629528"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067629"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Tutorial: Creación de una canalización con la actividad de copia mediante Visual Studio
 > [!div class="op_single_selector"]
@@ -245,52 +245,53 @@ Actualmente, el conjunto de datos de salida es lo que impulsa la programación. 
 3. Reemplace el JSON por el siguiente JSON y guarde el archivo **CopyActivity1.json** .
 
    ```json
-  {
-   "name": "ADFTutorialPipeline",
-   "properties": {
-     "description": "Copy data from a blob to Azure SQL table",
-     "activities": [
-       {
-         "name": "CopyFromBlobToSQL",
-         "type": "Copy",
-         "inputs": [
-           {
-             "name": "InputDataset"
-           }
-         ],
-         "outputs": [
-           {
-             "name": "OutputDataset"
-           }
-         ],
-         "typeProperties": {
-           "source": {
-             "type": "BlobSource"
+   {
+     "name": "ADFTutorialPipeline",
+     "properties": {
+       "description": "Copy data from a blob to Azure SQL table",
+       "activities": [
+         {
+           "name": "CopyFromBlobToSQL",
+           "type": "Copy",
+           "inputs": [
+             {
+               "name": "InputDataset"
+             }
+           ],
+           "outputs": [
+             {
+               "name": "OutputDataset"
+             }
+           ],
+           "typeProperties": {
+             "source": {
+               "type": "BlobSource"
+             },
+             "sink": {
+               "type": "SqlSink",
+               "writeBatchSize": 10000,
+               "writeBatchTimeout": "60:00:00"
+             }
            },
-           "sink": {
-             "type": "SqlSink",
-             "writeBatchSize": 10000,
-             "writeBatchTimeout": "60:00:00"
+           "Policy": {
+             "concurrency": 1,
+             "executionPriorityOrder": "NewestFirst",
+             "style": "StartOfInterval",
+             "retry": 0,
+             "timeout": "01:00:00"
            }
-         },
-         "Policy": {
-           "concurrency": 1,
-           "executionPriorityOrder": "NewestFirst",
-           "style": "StartOfInterval",
-           "retry": 0,
-           "timeout": "01:00:00"
          }
-       }
-     ],
-     "start": "2017-05-11T00:00:00Z",
-     "end": "2017-05-12T00:00:00Z",
-     "isPaused": false
+       ],
+       "start": "2017-05-11T00:00:00Z",
+       "end": "2017-05-12T00:00:00Z",
+       "isPaused": false
+     }
    }
-  }
-    ```   
+   ```
+
    - En la sección de actividades, solo hay una actividad con **type** establecido en **Copy**. Para más información acerca de la actividad de copia, consulte las [actividades de movimiento de datos](data-factory-data-movement-activities.md). En las soluciones de Data Factory, también puede usar [actividades de transformación de datos](data-factory-data-transformation-activities.md).
-   - La entrada de la actividad está establecida en **InputDataset**, mientras que la salida está establecida en **OutputDataset**. 
-   - En la sección **typeProperties**, **BlobSource** se especifica como el tipo de origen y **SqlSink** como el tipo de receptor. Consulte la lista de [almacenes de datos que se admiten](data-factory-data-movement-activities.md#supported-data-stores-and-formats) como orígenes y receptores de la actividad de copia. Para más información sobre cómo usar un almacén de datos admitido específico como receptor de origen, haga clic en el vínculo en la tabla.  
+   - La entrada de la actividad está establecida en **InputDataset**, mientras que la salida está establecida en **OutputDataset**.
+   - En la sección **typeProperties**, **BlobSource** se especifica como el tipo de origen y **SqlSink** como el tipo de receptor. Consulte la lista de [almacenes de datos que se admiten](data-factory-data-movement-activities.md#supported-data-stores-and-formats) como orígenes y receptores de la actividad de copia. Para más información sobre cómo usar un almacén de datos admitido específico como receptor de origen, haga clic en el vínculo en la tabla.
      
      Reemplace el valor de la propiedad **start** por el día actual y el valor **end** por el próximo día. Puede especificar solo la parte de fecha y omitir la parte de hora de la fecha y hora. Por ejemplo, "03-02-2016", que es equivalente a "03-02-2016T00:00:00Z"
      
