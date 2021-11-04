@@ -1,0 +1,44 @@
+- name: Documentación de la oferta Desarrollo/pruebas de Azure
+  href: index.yml
+- name: Información general
+  expanded: true
+  items:
+    - name: ¿Qué es la oferta Desarrollo/pruebas?
+      href: overview-what-is-devtest-offer-visual-studio.md
+- name: Inicio rápido
+  expanded: true
+  items:
+    - name: Introducción a los créditos individuales de Desarrollo/pruebas de Azure
+      href: quickstart-individual-credit.md
+    - name: Creación de una suscripción de Desarrollo/pruebas - Enterprise
+      href: quickstart-create-enterprise-devtest-subscriptions.md
+- name: Conceptos
+  expanded: true
+  items:
+    - name: GitOps y la oferta Desarrollo/pruebas de Azure
+      href: concepts-gitops-azure-devtest.md
+    - name: Seguridad y gobernanza
+      href: concepts-security-governance-devtest.md
+- name: Guías paso a paso
+  expanded: true
+  items:
+    - name: Cambio de inquilinos de directorio
+      href: how-to-change-directory-tenants-visual-studio-azure.md
+    - name: "Eliminación de los límites de crédito\_"
+      href: how-to-remove-credit-limits.md
+    - name: Adición de usuarios al directorio
+      href: how-to-add-users-directory.md
+    - name: Inicio de sesión en Azure con GitHub
+      href: how-to-sign-into-azure-with-github.md
+    - name: Administración y supervisión de Desarrollo/pruebas
+      href: how-to-manage-monitor-devtest.md
+    - name: Administración de la confiabilidad y el rendimiento
+      href: how-to-manage-reliability-performance.md
+- name: Recursos
+  items:
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Precios
+      href: 'https://azure.microsoft.com/en-us/pricing/dev-test/'
+    - name: Disponibilidad regional
+      href: 'https://azure.microsoft.com/regions/services/'

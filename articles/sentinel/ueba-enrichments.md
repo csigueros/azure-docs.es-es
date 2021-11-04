@@ -8,14 +8,17 @@ ms.subservice: azure-sentinel
 ms.topic: reference
 ms.date: 05/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 6420ef1345e20c2aec511a0a0284753a78895020
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 944c2b155a0cfa48d98876aa463c27cf5c47d40c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128627356"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131083714"
 ---
 # <a name="azure-sentinel-ueba-enrichments-reference"></a>Referencia de características enriquecidas de UEBA de Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 En este artículo se describe la tabla **BehaviorAnalytics** de Azure Sentinel encontrada en **Registros** y que se menciona en las [páginas de detalles de la entidad](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages), y proporciona los detalles de los campos de enriquecimiento de la entidad en esa tabla, cuyo contenido se puede usar para centrarse en las investigaciones de sus incidentes de seguridad.
 

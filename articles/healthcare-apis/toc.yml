@@ -23,7 +23,7 @@ items:
     items:
       - name: Implementación de las API de atención sanitaria
         href: healthcare-apis-quickstart.md
-  - name: Guías paso a paso
+  - name: Guías de procedimientos
     expanded: true
     items:
       - name: Autenticación y autorización
@@ -45,6 +45,8 @@ items:
   - name: Recursos
     expanded: true
     items:
+      - name: Notas de la versión
+        href: release-notes.md
       - name: Preguntas más frecuentes
         href: healthcare-apis-faqs.md
       - name: GitHub proyectos

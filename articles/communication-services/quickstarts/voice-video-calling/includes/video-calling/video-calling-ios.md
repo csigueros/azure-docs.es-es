@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: rifox
-ms.openlocfilehash: c2d280de30997996902def6f04eb1d35c956999a
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: f2006869868a94b36078734756fd5e6992cd08b2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122966016"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131253154"
 ---
 Puede empezar a usar Azure Communication Services con Calling SDK de Azure Communication Services para agregar llamadas individuales de vídeo a la aplicación. Aprenderá a iniciar videollamadas y a responder a ellas con Calling SDK de Azure Communication Services para iOS.
 
@@ -56,7 +56,7 @@ Para acceder al micrófono y a la cámara del dispositivo, debe actualizar la li
 
 Haga clic con el botón derecho en la entrada `Info.plist` del árbol del proyecto y seleccione Open As > Source Code (Abrir como > Código fuente). Agregue las líneas siguientes a la sección `<dict>` de nivel superior y guarde el archivo.
 
-```XML
+```xml
 <key>NSMicrophoneUsageDescription</key>
 <string>Need microphone access for VOIP calling.</string>
 <key>NSCameraUsageDescription</key>

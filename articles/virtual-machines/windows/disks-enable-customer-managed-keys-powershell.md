@@ -2,18 +2,18 @@
 title: Azure PowerShell - Habilitación de claves administradas por el cliente con SSE - discos administrados
 description: Habilite el cifrado del lado servidor con las claves administradas por el cliente en los discos administrados con Azure PowerShell.
 author: roygara
-ms.date: 06/29/2021
+ms.date: 11/02/2021
 ms.topic: how-to
 ms.author: rogarana
 ms.service: storage
 ms.subservice: disks
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d5de598c71cda0010869da709e8f6290ccdf03cc
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.custom: devx-track-azurepowershell, ignite-fall-2021
+ms.openlocfilehash: 3dfc34f9319409fa6d6928c830febfa61e136e31
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122772001"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131074429"
 ---
 # <a name="azure-powershell---enable-customer-managed-keys-with-server-side-encryption---managed-disks"></a>Azure PowerShell - Habilitación de claves administradas por el cliente con el cifrado del lado servidor - discos administrados
 

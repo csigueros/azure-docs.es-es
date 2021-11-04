@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/22/2021
 ms.author: bagol
-ms.openlocfilehash: e0cab6a9d2d4c341cf326383e11b289bf606d37a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 9b692046f0e812b903570ecd6e788ba83db6b96b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124755182"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075426"
 ---
 # <a name="azure-sentinel-authentication-normalization-schema-reference-public-preview"></a>Referencia del esquema de normalización de la autenticación de Azure Sentinel (versión preliminar pública)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 El modelo de información de autenticación se usa para describir eventos relacionados con la autenticación de usuario, el inicio de sesión y el cierre de sesión. Muchos dispositivos de informes envían eventos de autenticación, normalmente como parte del flujo de eventos junto con otros eventos.
 
@@ -150,7 +152,7 @@ Un **actor**, que ejecuta una *aplicación que actúa* (**ActingApp**) en un *di
 | **ActingAppType** | Opcionales | Enumerated | Tipo de la aplicación que actúa. Los valores admitidos son: <br> <br>- `Process` <br>- `Browser` <br>- `Resource` <br>- `Other` |
 | **HttpUserAgent** |   Opcional    | String |  Cuando se realiza la autenticación a través de HTTP o HTTPS, el valor de este campo es el encabezado HTTP user_agent proporcionado por la aplicación que actúa al realizar la autenticación.<br><br>Por ejemplo: `Mozilla/5.0 (iPhone; CPU iPhone OS 12_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Mobile/15E148 Safari/604.1` |
 |<a name="targetuserid"></a> **TargetUserId**   | Opcionales | UserId     | Representación única, alfanumérica y legible del usuario de destino. Para obtener más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).            <br><br> Ejemplo: `00urjk4znu3BcncfY0h7`    |
-| **TargetUserIdType**               | Opcionales | UserIdType     | Tipo del identificador de usuario almacenado en el campo [TargetUserId](#targetuserid). Para más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).            <br><br> Ejemplo: `SID`  |
+| **TargetUserIdType**               | Opcionales | UserIdType     | Tipo del identificador de usuario almacenado en el campo [TargetUserId](#targetuserid). Para obtener más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).            <br><br> Ejemplo: `SID`  |
 | <a name="targetusername"></a>**TargetUsername** | Opcionales | Nombre de usuario     | El nombre de usuario de destino, incluida la información de dominio cuando esté disponible. Para obtener más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).  <br><br>Ejemplo:   `MarieC`      |
 | **TargetUsernameType**             |Opcionales  | UsernameType | Especifica el tipo de nombre de usuario almacenado en el campo [TargetUsername](#targetusername). Para obtener más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).          |
 | **TargetUserType** | Opcional | String | Tipo del usuario de destino. <br><br>Por ejemplo: `Member` |
@@ -193,5 +195,5 @@ Para más información, consulte:
 - [Normalización en Azure Sentinel](normalization.md)
 - [Referencia del esquema de normalización de DNS de Azure Sentinel](dns-normalization-schema.md)
 - [Referencia del esquema de normalización de eventos de archivo de Azure Sentinel (versión preliminar pública)](file-event-normalization-schema.md)
-- [Referencia del esquema de normalización de redes de Azure Sentinel](normalization-schema.md)
+- [Referencia del esquema de normalización de redes de Azure Sentinel](./network-normalization-schema.md)
 - [Referencia del esquema de normalización de eventos de proceso de Azure Sentinel (Versión preliminar pública)](process-events-normalization-schema.md)

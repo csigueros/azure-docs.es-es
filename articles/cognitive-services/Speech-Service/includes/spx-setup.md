@@ -5,12 +5,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/28/2021
 ms.author: v-demjoh
-ms.openlocfilehash: 364ceacaea122e7ffda58ef0c7d4db072c8fee13
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 153276c1f3ccc63bbca0f286d3ae18c9e4de1b18
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122263581"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131253504"
 ---
 ## <a name="download-and-install"></a>Descargar e instalar
 
@@ -33,7 +34,7 @@ Escriba `spx` para ver la ayuda de la CLI de Voz.
 ### <a name="font-limitations"></a>Limitaciones de fuentes
 
 En Windows, la CLI de Voz solo puede mostrar las fuentes disponibles para el símbolo del sistema en el equipo local.
-El [terminal de Windows](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701) admite todas las fuentes que genera de forma interactiva la CLI de Voz.
+El [terminal de Windows](https://www.microsoft.com/p/windows-terminal/9n0dx20hk701) admite todas las fuentes que genera de forma interactiva la CLI de Voz.
 
 Si se genera la salida a un archivo, un editor de texto como el Bloc de notas o un explorador Web como Microsoft Edge también pueden mostrar todas las fuentes.
 

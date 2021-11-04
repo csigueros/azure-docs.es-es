@@ -5,15 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: overview
-ms.date: 07/12/2021
+ms.date: 10/12/2021
 ms.author: cherylmc
-ms.custom: contperf-fy2q1-portal
-ms.openlocfilehash: fe1cc48b3106d4874e151ed8be114e6a98e51720
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.custom: contperf-fy2q1-portal, ignite-fall-2021
+ms.openlocfilehash: ea5fb6c17346059ab35467c654a17815e711d213
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123434202"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131087198"
 ---
 # <a name="what-is-azure-bastion"></a>¿Qué es Azure Bastion?
 
@@ -34,7 +34,7 @@ Bastion proporciona conectividad segura de RDP y SSH a todas las máquinas virtu
 
 ## <a name="skus"></a><a name="sku"></a>SKU
 
-Azure Bastion tiene dos SKU disponibles, básica y estándar. La SKU estándar se encuentra actualmente en versión preliminar. Para obtener más información, incluyendo cómo actualizar una SKU, consulte el artículo [Parámetros de configuración](configuration-settings.md#skus). 
+Azure Bastion tiene dos SKU disponibles, básica y estándar. Para obtener más información, incluyendo cómo actualizar una SKU, consulte el artículo [Parámetros de configuración](configuration-settings.md#skus).
 
 En la tabla siguiente se muestran las características y las SKU correspondientes.
 
