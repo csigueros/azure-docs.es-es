@@ -6,26 +6,23 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: bf3aa8b675e242952f32678059b8b2c89d5b95e0
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 15757c3a7e394dcc52c83e8eeef54d8b44b97a34
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129612434"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131468202"
 ---
-# <a name="slow-query-logs-in-azure-database-for-mysql-flexible-server-preview"></a>Registros de consultas lentas en Azure Database for MySQL con servidor flexible (versión preliminar)
+# <a name="slow-query-logs-in-azure-database-for-mysql-flexible-server"></a>Registros de consultas lentas en Azure Database for MySQL con servidor flexible
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Actualmente, Azure Database for MySQL con servidor flexible se encuentra en versión preliminar pública.
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 En Azure Database for MySQL con servidor flexible, los usuarios pueden configurar registros de consultas lentas y acceder a ellos. De forma predeterminada, los registros de consultas lentas están deshabilitados y se pueden habilitar para ayudar a identificar los cuellos de botella de rendimiento durante la solución de problemas.
 
 Para obtener más información sobre el registro de consultas lentas de MySQL, vea la [sección sobre el registro de consultas lentas](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) en la documentación del motor de MySQL.
 
-## <a name="configure-slow-query-logging"></a>Configuración del registro de consultas lentas 
-De forma predeterminada, los registros de consultas lentas están deshabilitados. Para habilitarlos, establezca el parámetro `slow_query_log` del servidor en *Activado*. Para ello, se puede usar Azure Portal o la CLI de Azure <!-- add link to server parameter-->. 
+## <a name="configure-slow-query-logging"></a>Configuración del registro de consultas lentas
+De forma predeterminada, los registros de consultas lentas están deshabilitados. Para habilitarlos, establezca el parámetro `slow_query_log` del servidor en *Activado*. Para ello, se puede usar Azure Portal o la CLI de Azure <!-- add link to server parameter-->.
 
 Entre los parámetros que se pueden ajustar para controlar el comportamiento de los registros de consultas lentas se incluyen los siguientes:
 
@@ -86,7 +83,7 @@ Una vez que los registros de consultas lentos se canalizan a los registros de Az
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s
     | where query_time_d > 10
     ```
 
@@ -96,7 +93,7 @@ Una vez que los registros de consultas lentos se canalizan a los registros de Az
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s
     | order by query_time_d desc
     | take 5
     ```
@@ -107,7 +104,7 @@ Una vez que los registros de consultas lentos se canalizan a los registros de Az
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s
     | summarize count(), min(query_time_d), max(query_time_d), avg(query_time_d), stdev(query_time_d), percentile(query_time_d, 95) by LogicalServerName_s
     ```
 
@@ -117,7 +114,7 @@ Una vez que los registros de consultas lentos se canalizan a los registros de Az
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s
     | summarize count() by LogicalServerName_s, bin(TimeGenerated, 5m)
     | render timechart
     ```
@@ -127,10 +124,10 @@ Una vez que los registros de consultas lentos se canalizan a los registros de Az
     ```Kusto
     AzureDiagnostics
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s
     | where query_time_d > 10
-    ```    
-    
+    ```
+
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información sobre los [registros de auditoría](concepts-audit-logs.md)
 - [Información de rendimiento de consultas](tutorial-query-performance-insights.md)

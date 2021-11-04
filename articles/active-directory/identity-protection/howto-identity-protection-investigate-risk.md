@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0151f4de30c3bf96fa8c0dca77c90282115c70d7
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: b15ccb564fe2c3551103e71b8c1ca2a901ec03e0
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864376"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131440764"
 ---
 # <a name="how-to-investigate-risk"></a>Instrucciones: Investigación de riesgos
 
@@ -93,7 +93,6 @@ Los administradores pueden elegir volver al informe de riesgo del usuario o de i
 
 > [!NOTE] 
 > Nuestro sistema puede detectar que el evento de riesgo que ha contribuido a la puntuación de riesgo del usuario de riesgo era un falso positivo o que se ha corregido el riesgo del usuario con la aplicación de directivas, como al completar una solicitud de MFA o un cambio de contraseña seguro. Por lo tanto, el sistema descartará el estado de riesgo y se mostrará un detalle de riesgo de "La IA confirmó que el inicio de sesión es seguro" y dejará de contribuir al riesgo del usuario. 
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

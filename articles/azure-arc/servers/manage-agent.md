@@ -1,14 +1,14 @@
 ---
 title: Administración del agente de servidores habilitados para Azure Arc
 description: En este artículo se describen las diferentes tareas de administración que normalmente realizará durante el ciclo de vida del agente de Connected Machine de los servidores habilitados para Azure Arc.
-ms.date: 10/14/2021
+ms.date: 10/28/2021
 ms.topic: conceptual
-ms.openlocfilehash: d0b4d32100a8063346d9a6f7bd2b4bd70156d868
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 707e264b2abac0d9f3ba8418cc2eebd25b53b4a9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130041184"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423838"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Administración y mantenimiento del agente de Connected Machine
 
@@ -50,7 +50,7 @@ En el caso de los servidores habilitados para Azure Arc, antes de cambiar el nom
 
 1. Audite las extensiones de VM instaladas en la máquina y anote su configuración, con la [CLI de Azure](manage-vm-extensions-cli.md#list-extensions-installed) o con [Azure PowerShell](manage-vm-extensions-powershell.md#list-extensions-installed).
 
-2. Quite las extensiones de VM instaladas desde [Azure Portal](manage-vm-extensions-portal.md#uninstall-extensions), con la [CLI de Azure](manage-vm-extensions-cli.md#remove-an-installed-extension) o con [Azure PowerShell](manage-vm-extensions-powershell.md#remove-an-installed-extension).
+2. Quite las extensiones de VM instaladas desde [Azure Portal](manage-vm-extensions-portal.md#remove-extensions), con la [CLI de Azure](manage-vm-extensions-cli.md#remove-extensions) o con [Azure PowerShell](manage-vm-extensions-powershell.md#remove-extensions).
 
 3. Use la herramienta **azcmagent** con el parámetro [Disconnect](manage-agent.md#disconnect) para desconectar la máquina de Azure Arc y eliminar el recurso de la máquina de Azure. Al desconectar la máquina de los servidores habilitados para Azure Arc, no se quita el agente de Connected Machine, y no es necesario quitarlo como parte de este proceso. Puede ejecutar azcmagent manualmente con la sesión iniciada de forma interactiva, o bien usar la misma entidad de servicio que usó para incorporar varios agentes o un [token de acceso](../../active-directory/develop/access-tokens.md) de la Plataforma de identidad de Microsoft. Si no ha usado una entidad de servicio para registrar la máquina con los servidores habilitados para Azure Arc, vea el siguiente [artículo](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) para crear una entidad de servicio.
 
@@ -236,7 +236,7 @@ Para desconectarse con sus credenciales de sesión iniciada elevadas (interactiv
 
 Realice uno de los métodos siguientes para desinstalar el agente de Connected Machine de Windows o Linux desde el equipo. Al quitar el agente, no se anula el registro de la máquina con los servidores habilitados para Azure Arc ni se quitan las extensiones de máquina virtual de Azure instaladas. En el caso de los servidores o máquinas que ya no quiera administrar con servidores habilitados para Azure Arc, es necesario seguir estos pasos para detener la administración correctamente: 
 
-1. Quite las extensiones de máquina virtual instaladas que no desee que permanezcan en la máquina desde [Azure Portal](manage-vm-extensions-portal.md#uninstall-extensions), mediante la [CLI de Azure](manage-vm-extensions-cli.md#remove-an-installed-extension) o mediante [Azure PowerShell](manage-vm-extensions-powershell.md#remove-an-installed-extension).
+1. Quite las extensiones de máquina virtual instaladas que no desee que permanezcan en la máquina desde [Azure Portal](manage-vm-extensions-portal.md#remove-extensions), mediante la [CLI de Azure](manage-vm-extensions-cli.md#remove-extensions) o mediante [Azure PowerShell](manage-vm-extensions-powershell.md#remove-extensions).
 1. Para anular el registro de la máquina, ejecute `azcmagent disconnect` para eliminar el recurso de servidores habilitados para Azure Arc en Azure. Si se produce un error, el recurso se puede eliminar manualmente en Azure. De lo contrario, si el recurso se eliminó en Azure, deberá ejecutar `azcmagent disconnect --force-local-only` en el servidor para quitar la configuración local.
 
 ### <a name="windows-agent"></a>Agente de Windows

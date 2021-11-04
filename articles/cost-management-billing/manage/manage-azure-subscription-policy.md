@@ -1,19 +1,19 @@
 ---
 title: Administración de las directivas de suscripción de Azure
 description: Aprenda a administrar las directivas de suscripción de Azure para controlar el movimiento de suscripciones de Azure desde los directorios y hacia estos.
-author: anuragdalmia
+author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/10/2021
-ms.reviewer: banders
-ms.author: andalmia
-ms.openlocfilehash: 4d0ebd73065c538a78c950ab48254cb06d113897
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.date: 10/28/2021
+ms.reviewer: andalmia
+ms.author: banders
+ms.openlocfilehash: 2530cdd36a2844c5b311e97d9747c8734d808206
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108804527"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131464934"
 ---
 # <a name="manage-azure-subscription-policies"></a>Administración de las directivas de suscripción de Azure
 

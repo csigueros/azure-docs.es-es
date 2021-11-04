@@ -3,21 +3,21 @@ title: 'Inicio rápido de la transcripción de conversaciones en tiempo real: se
 titleSuffix: Azure Cognitive Services
 description: Aprenda a usar la transcripción de conversaciones en tiempo real con el SDK de voz. La transcripción de conversaciones le permite transcribir reuniones y otras conversaciones con la posibilidad de agregar, quitar e identificar varios participantes mediante streaming de audio al servicio de Voz.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.author: pafarley
+ms.author: eur
 zone_pivot_groups: acs-js-csharp
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: a30065bf58b2afa9d6e8411c3844071596ebc823
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 00cfb66da3b3e233e703e74b039be9d6a7d02c4b
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131086818"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131508951"
 ---
 # <a name="get-started-with-real-time-conversation-transcription"></a>Introducción a la transcripción de conversaciones en tiempo real
 

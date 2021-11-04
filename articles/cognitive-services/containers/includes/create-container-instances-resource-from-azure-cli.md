@@ -9,18 +9,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 32b00e031e3cf865093c267084117a8704b6e272
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 11a79d45d6966f9fc4f41ab6149cd6a32d4f75b8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107800173"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131253780"
 ---
 ## <a name="create-an-azure-container-instance-resource-from-the-azure-cli"></a>Creación de un recurso de instancia de contenedor de Azure con la CLI de Azure
 
 El siguiente código YAML define el recurso de instancia de contenedor de Azure. Copie y pegue el contenido en un nuevo archivo llamado `my-aci.yaml` y reemplace los valores comentados por los suyos propios. Consulte el [formato de plantilla][template-format] para ver el código YAML válido. Consulte las [imágenes y los repositorios de contenedor][repositories-and-images] para ver los nombres de imagen disponibles y su repositorio correspondiente. Para más información sobre la referencia de YAML para las instancias de contenedor, consulte [Referencia de YAML: Azure Container Instances][aci-yaml-ref].
 
-```YAML
+```yaml
 apiVersion: 2018-10-01
 location: # < Valid location >
 name: # < Container Group name >

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/23/2017
 ms.custom: devx-track-java
 ms.author: rapatchi
-ms.openlocfilehash: 3efa51f5632dd5cdc274ea39df5178aa0351a01f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53f77e719d25ba4b11ad06c0f62f93a227d9becd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97652303"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131022766"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Actualice la aplicación de Java de Service Fabric anterior para capturar las bibliotecas de Java desde Maven
 Los archivos binarios de Java de Service Fabric se han movido desde el SDK de Java de Service Fabric al hospedaje de Maven. Puede usar **mavencentral** para capturar las dependencias de Java de Service Fabric más recientes. Esta guía le ayudará a actualizar las aplicaciones de Java existentes creadas para el SDK de Java de Service Fabric, utilizando cualquier plantilla Yeoman o Eclipse, para que sean compatibles con la compilación basada en Maven.
@@ -35,7 +35,7 @@ Los archivos binarios de Java de Service Fabric se han movido desde el SDK de Ja
 
 4. Actualice los scripts de instalación o desinstalación de la aplicación para utilizar la nueva CLI de Service Fabric siguiendo los pasos mencionados [aquí](service-fabric-application-lifecycle-sfctl.md). Puede hacer referencia a nuestros [ejemplos](https://github.com/Azure-Samples/service-fabric-java-getting-started) de introducción como referencia.
 
->[!TIP]
+> [!TIP]
 > Después de desinstalar el SDK de Java de Service Fabric, Yeoman no funcionará. Siga los requisitos previos mencionados [aquí](service-fabric-create-your-first-linux-application-with-java.md) para que el generador de plantillas Java de Yeoman de Service Fabric funcione.
 
 ## <a name="service-fabric-java-libraries-on-maven"></a>Bibliotecas de Java de Service Fabric en Maven
@@ -46,7 +46,7 @@ Las bibliotecas de Java de Service Fabric han sido hospedadas en Maven. Puede ag
 
 Compatibilidad con Reliable Actor de Service Fabric para la aplicación.
 
-  ```XML
+  ```xml
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-actors</artifactId>
@@ -67,7 +67,7 @@ Compatibilidad con Reliable Actor de Service Fabric para la aplicación.
 
 Compatibilidad con el servicio sin estado de Service Fabric para la aplicación.
 
-  ```XML
+  ```xml
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-services</artifactId>
@@ -90,7 +90,7 @@ Compatibilidad con el servicio sin estado de Service Fabric para la aplicación.
 
 Compatibilidad de la capa de transporte para aplicaciones Java de Service Fabric. No es necesario agregar explícitamente esta dependencia a sus aplicaciones Reliable Actor o de servicio, a menos que programe la capa de transporte.
 
-  ```XML
+  ```xml
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-transport</artifactId>
@@ -111,7 +111,7 @@ Compatibilidad de la capa de transporte para aplicaciones Java de Service Fabric
 
 Compatibilidad en el nivel de sistema para Service Fabric, que se comunica con el entorno de tiempo de ejecución nativo de Service Fabric. No es necesario agregar explícitamente esta dependencia a sus aplicaciones Reliable Actor o de servicio. Se recuperan automáticamente desde Maven, cuando se incluyen las dependencias anteriores.
 
-  ```XML
+  ```xml
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf</artifactId>

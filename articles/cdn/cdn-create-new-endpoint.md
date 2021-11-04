@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: Creación de un perfil y un punto de conexión de Azure CDN'
 description: En esta guía de inicio rápido se describe cómo crear un perfil y un punto de conexión de CDN nuevos para habilitar Azure CDN.
-author: asudbring
+author: duongau
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: azure-cdn
 ms.topic: quickstart
 ms.date: 04/30/2020
-ms.author: allensu
+ms.author: duau
 ms.custom: mvc
-ms.openlocfilehash: e045a7df3389dc58fe8ac2298f2f51b0337a5f94
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: de24b2e9676082da6980c59e696781fc6939f29f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124775519"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423515"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Inicio rápido: Creación de un perfil y un punto de conexión de Azure CDN
 

@@ -1,16 +1,16 @@
 ---
-author: PatrickFarley
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/25/2020
-ms.author: pafarley
+ms.author: eur
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 41ba1bb39b4cf92b84ccc6ff0365cb6735a65bcc
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 4ed099e73e142974eee87847a1318ee515687edb
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130143771"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131510900"
 ---
 En este inicio rápido aprenderá patrones de diseño comunes para realizar la síntesis de texto a voz mediante el SDK de voz. Para empezar, puede realizar una configuración y síntesis básicas y, después, pasar a ejemplos más avanzados para el desarrollo de aplicaciones personalizadas, entre las que se incluyen:
 
@@ -85,7 +85,7 @@ public class Program
 
 El servicio Text to Speech de Azure admite más de 250 voces y más de 70 idiomas y variantes.
 Puede obtener la [lista completa](../../../language-support.md#neural-voices) o probarlos en la [demostración de texto a voz](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
-Especifique el idioma o la voz de [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) para que coincida con el texto de entrada y use la voz que prefiera.
+Especifique el idioma o la voz de [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) para que coincida con el texto de entrada y usar la voz que prefiera.
 
 ```csharp
 static async Task SynthesizeAudioAsync()

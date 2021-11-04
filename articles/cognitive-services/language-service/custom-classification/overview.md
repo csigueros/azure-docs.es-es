@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
-ms.openlocfilehash: c31a348376f41bf61a4632d991fc02f08b360be7
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 729cf1ed5d17345c530bd78f9c5c75c15990ab12
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131450255"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131091492"
 ---
 # <a name="what-is-custom-text-classification-preview"></a>¿Qué es la clasificación de texto personalizada (versión preliminar)?
 
@@ -27,13 +27,7 @@ La clasificación de texto personalizada se ofrece como parte de las caracterís
 La clasificación de texto personalizada admite dos tipos de proyectos: 
 
 * **Clasificación mediante etiqueta única**: puede asignar una sola clase a cada archivo del conjunto de datos. Por ejemplo, el guión de una película solo se puede clasificar como "Acción" o "Suspense". 
-* **Clasificación mediante varias etiquetas**: puede asignar varias clases a cada archivo del conjunto de datos. Por ejemplo, el guión de una película se puede clasificar como "Acción" o como "Acción y suspense".
-
-Esta documentación contiene los siguientes tipos de artículos:
-
-* Los [inicios rápidos](quickstart.md) son instrucciones de inicio que le guiarán a la hora de hacer solicitudes al servicio.
-* Los [conceptos](concepts/evaluation.md) proporcionan explicaciones sobre la funcionalidad y las características del servicio.
-* Las [guías de procedimientos](how-to/tag-data.md) contienen instrucciones para usar el servicio de una manera más específica o personalizada.
+* **Clasificación mediante varias etiquetas**: puede asignar varias clases a cada archivo del conjunto de datos. Por ejemplo, el guión de una película se puede clasificar como "Acción" o como "Acción y suspense". 
 
 ## <a name="example-usage-scenarios"></a>Escenarios de uso de ejemplo
 

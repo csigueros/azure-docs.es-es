@@ -3,20 +3,20 @@ title: 'Lenguaje de marcado de síntesis de voz (SSML): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Uso del lenguaje de marcado de síntesis de voz para controlar la pronunciación y la prosodia en la conversión de texto a voz.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.author: pafarley
+ms.author: eur
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: d6a4278c1d44a0b2bf6b67b1b375169fefd2913b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: dbb9f42f7f0b58b14ae9a5c8824475c0fc15fd05
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131048489"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131505088"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Mejora de la síntesis con el Lenguaje de marcado de síntesis de voz (SSML)
 

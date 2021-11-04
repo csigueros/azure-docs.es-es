@@ -8,20 +8,17 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/19/2021
-ms.openlocfilehash: 7f95dc74c4346e1053e963ba6d4ad458881df727
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 11/02/2021
+ms.openlocfilehash: 7315b27fccf261dcf25ffe347a22fbb41e0d52cb
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130255867"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458805"
 ---
 # <a name="azure-policy-for-azure-active-directory-only-authentication-with-azure-sql"></a>Azure Policy para autenticación exclusiva de Azure Active Directory con Azure SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
-
-> [!NOTE]
-> La **autenticación exclusiva de Azure AD** y la característica Azure Policy asociada que se describen en este artículo se encuentran en **versión preliminar pública**. 
 
 Azure Policy puede exigir la creación de una instancia de Azure SQL Database o Azure SQL Managed Instance con la [autenticación exclusiva de Azure AD](authentication-azure-ad-only-authentication.md) habilitada durante el aprovisionamiento. Con esta directiva aplicada, cualquier intento de crear un [servidor lógico en Azure](logical-servers.md) o una instancia administrada genera un error si no se crea con la autenticación exclusiva de Azure AD habilitada.
 

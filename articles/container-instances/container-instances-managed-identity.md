@@ -3,12 +3,12 @@ title: Habilitación de la identidad administrada en el grupo de contenedores
 description: Aprenda a habilitar una identidad administrada en Azure Container Instances que se pueda autenticar con otros servicios de Azure.
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 44f4e15e6e11fac884c2d117aae351615420ba43
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+ms.openlocfilehash: 03b129b3aa986bb9858280e08c2532ef73806e91
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114219286"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057863"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Cómo utilizar una identidad administrada con Azure Container Instances
 
@@ -358,7 +358,7 @@ Una identidad asignada por el usuario es un identificador de recurso del formula
 
 Puede habilitar una o más identidades asignadas por el usuario.
 
-```YAML
+```yaml
 identity:
   type: UserAssigned
   userAssignedIdentities:
@@ -367,7 +367,7 @@ identity:
 
 ### <a name="system-assigned-identity"></a>Identidad asignada por el sistema
 
-```YAML
+```yaml
 identity:
   type: SystemAssigned
 ```
@@ -376,7 +376,7 @@ identity:
 
 En un grupo de contenedores, puede habilitar una identidad asignada por el sistema y una o más identidades asignadas por el usuario.
 
-```YAML
+```yml
 identity:
   type: SystemAssigned, UserAssigned
   userAssignedIdentities:

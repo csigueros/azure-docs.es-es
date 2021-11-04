@@ -3,20 +3,20 @@ title: 'Tutorial: Habilitación del bot con voz mediante el SDK de voz: servicio
 titleSuffix: Azure Cognitive Services
 description: En este tutorial, creará un bot de eco con Microsoft Bot Framework, lo implementará en Azure y lo registrará en el canal Direct Line Speech de Bot Framework. A continuación, configurará una aplicación cliente de ejemplo para Windows que le permita hablar con el bot y oír su respuesta.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.author: pafarley
+ms.author: eur
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2e133f84888a7a987ca7888f68e5bb195a905f88
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 41ed42da324b11ddf04ffffe86e1ccb4a71fd6dd
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130003977"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131502775"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Tutorial: Habilitación del bot con voz mediante el SDK de voz
 
@@ -54,7 +54,7 @@ Este tutorial abarca lo siguiente:
 > * Agregar la activación de la palabra clave personalizada
 > * Aprender cómo cambiar el idioma de la voz hablada y reconocida
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesitará lo siguiente:
 

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: ac78950f4268155c4c7c0f37e20229044d62ab81
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: f97ff11a1a7e3829ef16aa4e903f88e2ad66949a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129990717"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131432764"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>Uso de SCIM y Microsoft Graph juntos para aprovisionar a los usuarios y enriquecer su aplicación con los datos necesarios
 
@@ -113,7 +113,7 @@ Mi aplicación crea información sobre un usuario que los clientes necesitan en 
 **Recomendación:** Microsoft Graph expone los puntos de conexión /Users y /Groups que puede integrar actualmente para aprovisionar a los usuarios en Azure AD. Tenga en cuenta que Azure Active Directory no admite volver a escribir esos usuarios en Active Directory. 
 
 > [!NOTE]
-> Microsoft cuenta con un servicio de aprovisionamiento que extrae datos de las aplicaciones de RR. HH., como Workday y SuccessFactors. Microsoft crea y administra estas integraciones. Para incorporar una nueva aplicación de RR. HH. a nuestro servicio, puede solicitarla en [UserVoice](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests). 
+> Microsoft cuenta con un servicio de aprovisionamiento que extrae datos de las aplicaciones de RR. HH., como Workday y SuccessFactors. Microsoft crea y administra estas integraciones. Para incorporar una nueva aplicación de RR. HH. a nuestro servicio, puede solicitarla en [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789). 
 
 ## <a name="related-articles"></a>Artículos relacionados
 

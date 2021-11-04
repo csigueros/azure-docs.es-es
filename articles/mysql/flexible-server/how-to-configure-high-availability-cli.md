@@ -7,28 +7,26 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 04/1/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: b6a430c70d59ff980063139e71daf76d1ede220a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3ed931d0f972caa2e4a49012ad09afe9df9d3233
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128610149"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131422774"
 ---
 # <a name="manage-zone-redundant-high-availability-in-azure-database-for-mysql-flexible-server-with-azure-cli"></a>Administración de la alta disponibilidad con redundancia de zona en un servidor flexible de Azure Database for MySQL con la CLI de Azure
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-> [!NOTE]
-> La opción de implementación Servidor flexible de Azure Database for MySQL está en versión preliminar pública.
 
 En este artículo se describe cómo habilitar o deshabilitar la configuración de la alta disponibilidad con redundancia de zona en el momento de la creación del servidor en el servidor flexible. También puede deshabilitar la alta disponibilidad con redundancia de zona después de la creación del servidor. No se admite la habilitación de la alta disponibilidad con redundancia de zona después de la creación del servidor.
 
 La característica de alta disponibilidad proporciona una réplica principal y una réplica en espera separadas físicamente en distintas zonas. Para más información, consulte la [documentación sobre los conceptos de alta disponibilidad](./concepts/../concepts-high-availability.md). La habilitación o deshabilitación de la alta disponibilidad no cambia las demás opciones, como la configuración de red virtual, la configuración del firewall y la retención de copias de seguridad. La deshabilitación de la alta disponibilidad no afecta a la conectividad ni a las operaciones de las aplicaciones.
 
 > [!IMPORTANT]
-> La alta disponibilidad con redundancia de zona está disponible en un conjunto limitado de regiones. Consulte [aquí](./overview.md#azure-regions) las regiones admitidas. 
+> La alta disponibilidad con redundancia de zona está disponible en un conjunto limitado de regiones. Consulte [aquí](./overview.md#azure-regions) las regiones admitidas.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una cuenta de Azure con una suscripción activa. 
 
@@ -69,7 +67,7 @@ Solo puede crear un servidor mediante planes de tarifa de uso general u optimiza
 
 ## <a name="disable-high-availability"></a>Deshabilitación de la alta disponibilidad
 
-Puede deshabilitar la alta disponibilidad mediante el comando [az mysql flexible-server update](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_update). Tenga en cuenta que la deshabilitación de la alta disponibilidad solo se admite si el servidor se creó con alta disponibilidad. 
+Puede deshabilitar la alta disponibilidad mediante el comando [az mysql flexible-server update](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_update). Tenga en cuenta que la deshabilitación de la alta disponibilidad solo se admite si el servidor se creó con alta disponibilidad.
 
 ```azurecli
 az mysql flexible-server update [--high-availability {Disabled, SameZone, ZoneRedundant}]

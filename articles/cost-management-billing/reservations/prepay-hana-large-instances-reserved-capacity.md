@@ -1,19 +1,19 @@
 ---
 title: Ahorre en SAP HANA (instancias grandes) con una reserva de Azure
 description: Comprenda las cosas que debe saber antes de comprar una reserva de instancia grande de HANA y cómo realizar la compra.
-author: yashesvi
-ms.reviewer: yashar
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
 ms.date: 03/19/2021
 ms.author: banders
-ms.openlocfilehash: 579c7b5f66f52551e2504101406e1f7b2bb69e92
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: a7e5838ca79c3f90bf7dd75d2300f346b65588a6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104775534"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131457874"
 ---
 # <a name="save-on-sap-hana-large-instances-with-an-azure-reservation"></a>Ahorre en SAP HANA (instancias grandes) con una reserva de Azure
 

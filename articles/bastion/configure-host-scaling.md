@@ -6,18 +6,19 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 08/30/2021
+ms.date: 10/12/2021
 ms.author: cherylmc
-ms.openlocfilehash: d5087994a72b52ce091dac98987b8e0bc60e287e
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: c5ab750319ffdad58269c909bd14d660d8bdc252
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224731"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131087182"
 ---
-# <a name="configure-host-scaling-preview"></a>Configuración del escalado de host (versión preliminar)
+# <a name="configure-host-scaling"></a>Configuración del escalado de host
 
-Este artículo le ayuda a agregar unidades de escalado (instancias) adicionales a Azure Bastion para dar cabida a conexiones de cliente simultáneas adicionales. En la versión preliminar, esta opción solo se puede configurar en Azure Portal. Para más información sobre el escalado de host, consulte [Valores de configuración](configuration-settings.md#instance). 
+Este artículo le ayuda a agregar unidades de escalado (instancias) adicionales a Azure Bastion para dar cabida a conexiones de cliente simultáneas adicionales. En la versión preliminar, esta opción solo se puede configurar en Azure Portal. Para más información sobre el escalado de host, consulte [Valores de configuración](configuration-settings.md#instance).
 
 ## <a name="configuration-steps"></a>Pasos de configuración
 

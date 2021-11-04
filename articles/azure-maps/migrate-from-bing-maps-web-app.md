@@ -1,26 +1,27 @@
 ---
 title: 'Tutorial: Migración de una aplicación web desde Mapas de Bing | Microsoft Azure Maps'
 description: Tutorial sobre cómo migrar una aplicación web desde Mapas de Bing a Microsoft Azure Maps.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 9/10/2020
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: adec0b04e82d0a00b2f95b6b4f7980f628b93a7a
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 519eb22a7b8108d87970367db489d891fc47e593
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123439639"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131435346"
 ---
 # <a name="tutorial-migrate-a-web-app-from-bing-maps"></a>Tutorial: Migración de una aplicación web desde Mapas de Bing
 
 Las aplicaciones web que usan Mapas de Bing suelen usar el SDK de JavaScript de Mapas de Bing V8. El SDK web para Azure Maps es el SDK adecuado basado en Azure al que se debe migrar. El SDK web para Azure Maps permite personalizar mapas interactivos con contenido propio e imágenes para su presentación en las aplicaciones web o móviles. Este control usa WebGL, lo que permite representar grandes conjuntos de datos con alto rendimiento. Desarrolle con este SDK mediante JavaScript o TypeScript. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
+>
 > * Carga de un mapa
 > * Localizar un mapa
 > * Agregar marcadores, polilíneas y polígonos.
@@ -260,7 +261,7 @@ Si el público está distribuido entre varios países o habla distintos idiomas,
 Para localizar Mapas de Bing, se especifican el idioma y la región mediante los parámetros `setLang` y `UR` y se agregan a la referencia de etiqueta `<script>` a la API. Algunas características de Mapas de Bing solo están disponibles en determinados mercados; el mercado del usuario se especifica mediante el parámetro `setMkt`.
 
 ```html
-<script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?callback=initMap&setLang=[language_code]&setMkt=[market]&UR=[region_code]" async defer></script>
+<script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?callback=initMap&setLang={language-code}&setMkt={market}&UR={region-code}" async defer></script>
 ```
 
 Este es un ejemplo de Mapas de Bing con el idioma establecido en "fr-FR".
@@ -337,8 +338,8 @@ map.setStyle({
 
 **Recursos adicionales**
 
--   [Elección de un estilo de mapa](./choose-map-style.md)
--   [Estilos de mapa admitidos](./supported-map-styles.md)
+* [Elección de un estilo de mapa](./choose-map-style.md)
+* [Estilos de mapa admitidos](./supported-map-styles.md)
 
 ### <a name="adding-a-pushpin"></a>Adición de un marcador
 
@@ -460,16 +461,16 @@ Cuando se usa una capa de símbolos, los datos se deben agregar a un origen de d
 
 **Recursos adicionales**
 
--   [Creación de un origen de datos](./create-data-source-web-sdk.md)
--   [Adición de una capa de símbolos](./map-add-pin.md)
--   [Adición de una capa de burbujas](./map-add-bubble-layer.md)
--   [Datos de punto de clúster](./clustering-point-data-web-sdk.md)
--   [Adición de marcadores HTML](./map-add-custom-html.md)
--   [Uso de expresiones de estilo controladas por datos](./data-driven-style-expressions-web-sdk.md)
--   [Opciones de icono de capa de símbolos](/javascript/api/azure-maps-control/atlas.iconoptions)
--   [Opción de texto de capa de símbolos](/javascript/api/azure-maps-control/atlas.textoptions)
--   [Clase de marcador HTML](/javascript/api/azure-maps-control/atlas.htmlmarker)
--   [Opciones de marcador HTML](/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
+* [Creación de un origen de datos](./create-data-source-web-sdk.md)
+* [Adición de una capa de símbolos](./map-add-pin.md)
+* [Adición de una capa de burbujas](./map-add-bubble-layer.md)
+* [Datos de punto de clúster](./clustering-point-data-web-sdk.md)
+* [Adición de marcadores HTML](./map-add-custom-html.md)
+* [Uso de expresiones de estilo controladas por datos](./data-driven-style-expressions-web-sdk.md)
+* [Opciones de icono de capa de símbolos](/javascript/api/azure-maps-control/atlas.iconoptions)
+* [Opción de texto de capa de símbolos](/javascript/api/azure-maps-control/atlas.textoptions)
+* [Clase de marcador HTML](/javascript/api/azure-maps-control/atlas.htmlmarker)
+* [Opciones de marcador HTML](/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
 
 ### <a name="adding-a-custom-pushpin"></a>Adición de un marcador personalizado
 
@@ -584,14 +585,14 @@ Además, las capas de símbolos de Azure Maps admiten imágenes personalizadas, 
 
 **Recursos adicionales**
 
--   [Creación de un origen de datos](./create-data-source-web-sdk.md)
--   [Adición de una capa de símbolos](./map-add-pin.md)
--   [Adición de marcadores HTML](./map-add-custom-html.md)
--   [Uso de expresiones de estilo controladas por datos](./data-driven-style-expressions-web-sdk.md)
--   [Opciones de icono de capa de símbolos](/javascript/api/azure-maps-control/atlas.iconoptions)
--   [Opción de texto de capa de símbolos](/javascript/api/azure-maps-control/atlas.textoptions)
--   [Clase de marcador HTML](/javascript/api/azure-maps-control/atlas.htmlmarker)
--   [Opciones de marcador HTML](/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
+* [Creación de un origen de datos](./create-data-source-web-sdk.md)
+* [Adición de una capa de símbolos](./map-add-pin.md)
+* [Adición de marcadores HTML](./map-add-custom-html.md)
+* [Uso de expresiones de estilo controladas por datos](./data-driven-style-expressions-web-sdk.md)
+* [Opciones de icono de capa de símbolos](/javascript/api/azure-maps-control/atlas.iconoptions)
+* [Opción de texto de capa de símbolos](/javascript/api/azure-maps-control/atlas.textoptions)
+* [Clase de marcador HTML](/javascript/api/azure-maps-control/atlas.htmlmarker)
+* [Opciones de marcador HTML](/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
 
 ### <a name="adding-a-polyline"></a>Adición de una polilínea
 
@@ -655,9 +656,9 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 
 **Recursos adicionales**
 
--   [Adición de líneas al mapa](./map-add-line-layer.md)
--   [Opciones de capa de línea](/javascript/api/azure-maps-control/atlas.linelayeroptions)
--   [Uso de expresiones de estilo controladas por datos](./data-driven-style-expressions-web-sdk.md)
+* [Adición de líneas al mapa](./map-add-line-layer.md)
+* [Opciones de capa de línea](/javascript/api/azure-maps-control/atlas.linelayeroptions)
+* [Uso de expresiones de estilo controladas por datos](./data-driven-style-expressions-web-sdk.md)
 
 ### <a name="adding-a-polygon"></a>Adición de un polígono
 
@@ -727,11 +728,11 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 
 **Recursos adicionales**
 
--   [Adición de un polígono al mapa](./map-add-shape.md#use-a-polygon-layer)
--   [Adición de un círculo al mapa](./map-add-shape.md#add-a-circle-to-the-map)
--   [Opciones de capa de símbolos](/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
--   [Opciones de capa de línea](/javascript/api/azure-maps-control/atlas.linelayeroptions)
--   [Uso de expresiones de estilo controladas por datos](./data-driven-style-expressions-web-sdk.md)
+* [Adición de un polígono al mapa](./map-add-shape.md#use-a-polygon-layer)
+* [Adición de un círculo al mapa](./map-add-shape.md#add-a-circle-to-the-map)
+* [Opciones de capa de símbolos](/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
+* [Opciones de capa de línea](/javascript/api/azure-maps-control/atlas.linelayeroptions)
+* [Uso de expresiones de estilo controladas por datos](./data-driven-style-expressions-web-sdk.md)
 
 ### <a name="display-an-infobox"></a>Mostrar un cuadro de información
 
@@ -799,12 +800,12 @@ map.events.add('click', marker, function () {
 
 **Recursos adicionales**
 
--   [Adición de un elemento emergente](./map-add-popup.md)
--   [Elemento emergente con contenido multimedia](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Popup%20with%20Media%20Content)
--   [Elementos emergentes en formas](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Popups%20on%20Shapes)
--   [Reutilización de un elemento emergente con varias chinchetas](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Reusing%20Popup%20with%20Multiple%20Pins)
--   [Clase de elemento emergente](/javascript/api/azure-maps-control/atlas.popup)
--   [Opciones de elemento emergente](/javascript/api/azure-maps-control/atlas.popupoptions)
+* [Adición de un elemento emergente](./map-add-popup.md)
+* [Elemento emergente con contenido multimedia](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Popup%20with%20Media%20Content)
+* [Elementos emergentes en formas](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Popups%20on%20Shapes)
+* [Reutilización de un elemento emergente con varias chinchetas](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Reusing%20Popup%20with%20Multiple%20Pins)
+* [Clase de elemento emergente](/javascript/api/azure-maps-control/atlas.popup)
+* [Opciones de elemento emergente](/javascript/api/azure-maps-control/atlas.popupoptions)
 
 ### <a name="pushpin-clustering"></a>Agrupación en clústeres de marcadores
 
@@ -1026,10 +1027,10 @@ Los datos GeoJSON se pueden importar directamente a Azure Maps mediante la funci
 
 **Recursos adicionales**
 
--   [Adición de una capa de símbolos](./map-add-pin.md)
--   [Adición de una capa de burbujas](./map-add-bubble-layer.md)
--   [Datos de punto de clúster](./clustering-point-data-web-sdk.md)
--   [Uso de expresiones de estilo controladas por datos](./data-driven-style-expressions-web-sdk.md)
+* [Adición de una capa de símbolos](./map-add-pin.md)
+* [Adición de una capa de burbujas](./map-add-bubble-layer.md)
+* [Datos de punto de clúster](./clustering-point-data-web-sdk.md)
+* [Uso de expresiones de estilo controladas por datos](./data-driven-style-expressions-web-sdk.md)
 
 ### <a name="add-a-heat-map"></a>Adición de un mapa térmico
 
@@ -1154,10 +1155,10 @@ En Azure Maps, cargue los datos GeoJSON en un origen de datos y conecte el orige
 
 **Recursos adicionales**
 
--   [Adición de una capa de mapa térmico](./map-add-heat-map-layer.md)
--   [Clase de capa de mapa térmico](/javascript/api/azure-maps-control/atlas.layer.heatmaplayer)
--   [Opciones de capa de mapa térmico](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
--   [Uso de expresiones de estilo controladas por datos](./data-driven-style-expressions-web-sdk.md)
+* [Adición de una capa de mapa térmico](./map-add-heat-map-layer.md)
+* [Clase de capa de mapa térmico](/javascript/api/azure-maps-control/atlas.layer.heatmaplayer)
+* [Opciones de capa de mapa térmico](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
+* [Uso de expresiones de estilo controladas por datos](./data-driven-style-expressions-web-sdk.md)
 
 ### <a name="overlay-a-tile-layer"></a>Superposición de una capa de mosaicos
 
@@ -1205,9 +1206,9 @@ map.layers.add(new atlas.layer.TileLayer({
 
 **Recursos adicionales**
 
--   [Adición de capas de mosaicos](./map-add-tile-layer.md)
--   [Clase de capa de mosaico](/javascript/api/azure-maps-control/atlas.layer.tilelayer)
--   [Opciones de capa de mosaico](/javascript/api/azure-maps-control/atlas.tilelayeroptions)
+* [Adición de capas de mosaicos](./map-add-tile-layer.md)
+* [Clase de capa de mosaico](/javascript/api/azure-maps-control/atlas.layer.tilelayer)
+* [Opciones de capa de mosaico](/javascript/api/azure-maps-control/atlas.tilelayeroptions)
 
 ### <a name="show-traffic-data"></a>Mostrar datos del tráfico
 
@@ -1245,9 +1246,9 @@ Si hace clic en uno de los iconos de tráfico de Azure Maps, se mostrará inform
 
 **Recursos adicionales**
 
--   [Visualización del tráfico en el mapa](./map-show-traffic.md)
--   [Opciones de superposición de tráfico](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Traffic%20Overlay%20Options)
--   [Control de tráfico](https://azuremapscodesamples.azurewebsites.net/?sample=Traffic%20controls)
+* [Visualización del tráfico en el mapa](./map-show-traffic.md)
+* [Opciones de superposición de tráfico](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Traffic%20Overlay%20Options)
+* [Control de tráfico](https://azuremapscodesamples.azurewebsites.net/?sample=Traffic%20controls)
 
 ### <a name="add-a-ground-overlay"></a>Adición de una superposición de suelo
 
@@ -1361,8 +1362,8 @@ En Azure Maps, las imágenes georreferenciadas pueden superponerse mediante la c
 
 **Recursos adicionales**
 
--   [Superposición de una imagen](./map-add-image-layer.md)
--   [Clase de capa de imagen](/javascript/api/azure-maps-control/atlas.layer.imagelayer)
+* [Superposición de una imagen](./map-add-image-layer.md)
+* [Clase de capa de imagen](/javascript/api/azure-maps-control/atlas.layer.imagelayer)
 
 ### <a name="add-kml-data-to-the-map"></a>Adición de datos KML al mapa
 
@@ -1517,9 +1518,9 @@ En Azure Maps, GeoJSON es el formato de datos principal que se usa en el SDK web
 
 **Recursos adicionales**
 
--   [Función atlas.io.read](/javascript/api/azure-maps-spatial-io/atlas.io#read-string---arraybuffer---blob--spatialdatareadoptions-)
--   [SimpleDataLayer](/javascript/api/azure-maps-spatial-io/atlas.layer.simpledatalayer)
--   [SimpleDataLayerOptions](/javascript/api/azure-maps-spatial-io/atlas.simpledatalayeroptions)
+* [Función atlas.io.read](/javascript/api/azure-maps-spatial-io/atlas.io#read-string---arraybuffer---blob--spatialdatareadoptions-)
+* [SimpleDataLayer](/javascript/api/azure-maps-spatial-io/atlas.layer.simpledatalayer)
+* [SimpleDataLayerOptions](/javascript/api/azure-maps-spatial-io/atlas.simpledatalayeroptions)
 
 ### <a name="add-drawing-tools"></a>Incorporación de herramientas de dibujo
 
@@ -1632,8 +1633,8 @@ En Azure Maps, el módulo de herramientas de dibujo debe cargarse mediante la ca
 
 **Recursos adicionales**
 
--   [Documentación](./set-drawing-options.md)
--   [Ejemplos de código](https://azuremapscodesamples.azurewebsites.net/#Drawing-Tools-Module)
+* [Documentación](./set-drawing-options.md)
+* [Ejemplos de código](https://azuremapscodesamples.azurewebsites.net/#Drawing-Tools-Module)
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -3,15 +3,13 @@ title: 'Inicio rápido: La primera consulta de Python'
 description: En este inicio rápido, dará los pasos necesarios para habilitar la biblioteca de Resource Graph para Python y ejecutará la primera consulta.
 ms.date: 10/01/2021
 ms.topic: quickstart
-ms.custom:
-- devx-track-python
-- mode-api
-ms.openlocfilehash: 0dfe97eda8244eb0926709d3ed39a514fbb984e9
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.custom: devx-track-python, mode-api
+ms.openlocfilehash: 722816052c14ce154ae69d1ec7c1df59da250d18
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129355464"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131070667"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-python"></a>Inicio rápido: Ejecución de la primera consulta de Resource Graph con Python
 
@@ -19,7 +17,7 @@ El primer paso para usar Azure Resource Graph es comprobar que están instaladas
 
 Cuando finalice, habrá agregado las bibliotecas a la instalación de Python y ejecutado la primera consulta de Resource Graph.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 

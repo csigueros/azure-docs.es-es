@@ -8,15 +8,13 @@ ms.author: laobri
 ms.date: 06/10/2020
 ms.topic: quickstart
 ms.service: data-science-vm
-ms.custom:
-- subject-armqs
-- mode-arm
-ms.openlocfilehash: 63c41484ab1123a5a5fdc9620381afed76e8bf08
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.custom: subject-armqs, mode-arm
+ms.openlocfilehash: c22e8137a90da2908a1e47836ccba2e0c63aa8b9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982743"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131088205"
 ---
 # <a name="quickstart-create-an-ubuntu-data-science-virtual-machine-using-an-arm-template"></a>Inicio rápido: Creación de una instancia de Data Science Virtual Machine de Ubuntu mediante una plantilla de Resource Manager
 
@@ -28,7 +26,7 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 [![Implementación en Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fdatascience%2Fvm-ubuntu-DSVM-GPU-or-CPU%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/services/machine-learning/) antes de empezar.
 

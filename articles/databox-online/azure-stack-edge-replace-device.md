@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: c3c029826ccd4430f935b63b74bc958ad8de4c1e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 96b6b32a694e39a7e227a5b98949f8eb1d4891e4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110460639"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131475965"
 ---
 # <a name="replace-your-azure-stack-edge-device"></a>Reemplazo de un dispositivo de Azure Stack Edge
 
@@ -62,7 +62,7 @@ Siga todos los pasos para devolver el dispositivo original:
 1. [Borre los datos del dispositivo](azure-stack-edge-return-device.md#erase-data-from-the-device).
 2. [Iniciar la devolución del dispositivo](azure-stack-edge-return-device.md#initiate-device-return) original.
 3. [Programe una recogida](azure-stack-edge-return-device.md#schedule-a-pickup).
-4. Una vez que Microsoft recibe el dispositivo, puede [eliminar el recurso](azure-stack-edge-return-device.md#delete-the-resource) asociado al dispositivo devuelto.
+4. Una vez que Microsoft recibe el dispositivo, puede [eliminar el recurso](azure-stack-edge-return-device.md#complete-return) asociado al dispositivo devuelto.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

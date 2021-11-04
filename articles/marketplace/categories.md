@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 11/16/2020
-ms.openlocfilehash: e5e462036e30a533d914f8e9420476f1604645d0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/29/2021
+ms.openlocfilehash: 53b0e0de88f10f9d91a9b1f8d5aace9a40ad071d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128598093"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131445718"
 ---
 # <a name="categories-and-subcategories-in-the-commercial-marketplace"></a>Categorías y subcategorías en Marketplace comercial
 

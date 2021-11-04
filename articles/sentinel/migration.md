@@ -8,14 +8,17 @@ ms.service: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/04/2021
 ms.author: bagol
-ms.openlocfilehash: dc2c1b6ed2d40e7d1af82b3c62f378bfd046a94c
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 38dd71ac717dc5f3aea7d41bb08cb3c2bed671da
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123254129"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037062"
 ---
 # <a name="migrate-to-azure-sentinel-from-an-existing-siem"></a>Migración a Azure Sentinel desde una solución de SIEM existente
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 El equipo del centro de operaciones de seguridad (SOC) usará soluciones centralizadas de administración de eventos e información de seguridad (SIEM) y de orquestación de seguridad, automatización y respuesta (SOAR) para proteger el patrimonio digital, cada vez más descentralizado.
 
@@ -250,7 +253,7 @@ Azure Sentinel utiliza análisis de aprendizaje automático para crear incidente
 - [**Creación de reglas de análisis personalizadas para detectar amenazas**](detect-threats-custom.md) Use la [agrupación de alertas](detect-threats-custom.md#alert-grouping) para reducir el exceso de alertas agrupando las que se producen en un período de tiempo determinado.
 - [**Asignación de campos de datos a entidades en Azure Sentinel**](map-data-fields-to-entities.md) para permitir que los ingenieros de SOC definan entidades como parte de la evidencia para realizar un seguimiento durante una investigación. La asignación de entidades también permite a los analistas de SOC aprovechar un [gráfico de investigación (investigate-cases.md#use-the-investigation-graph-to-deep-dive) intuitivo que puede ayudar a reducir el tiempo y el esfuerzo.
 - [**Investigación de incidentes con datos de UEBA**](investigate-with-ueba.md) a modo de ejemplo de cómo usar evidencias para mostrar eventos, alertas y marcadores asociados a un incidente determinado en el panel de vista previa del incidente.
-- [**Lenguaje de consulta Kusto (KQL)** ](/azure/data-explorer/kusto/query/), que puede usar para enviar solicitudes de solo lectura a la base de datos de [Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) para procesar datos y devolver resultados. KQL también se usa en otras servicios Microsoft, como [Microsoft Defender para punto de conexión](https://www.microsoft.com/microsoft-365/security/endpoint-defender) y [Application Insights](../azure-monitor/app/app-insights-overview.md).
+- [**Lenguaje de consulta Kusto (KQL)**](/azure/data-explorer/kusto/query/), que puede usar para enviar solicitudes de solo lectura a la base de datos de [Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) para procesar datos y devolver resultados. KQL también se usa en otras servicios Microsoft, como [Microsoft Defender para punto de conexión](https://www.microsoft.com/microsoft-365/security/endpoint-defender) y [Application Insights](../azure-monitor/app/app-insights-overview.md).
 
 ## <a name="use-automation-to-streamline-processes"></a>Uso de la automatización para optimizar los procesos
 

@@ -1,20 +1,20 @@
 ---
 title: Creación de un perfil y un punto de conexión de Content Delivery Network (CDN) con la CLI de Azure
 description: Scripts de ejemplo de la CLI de Azure para crear un perfil de Azure CDN, un punto de conexión, un grupo de origen, un origen y un dominio personalizado.
-author: asudbring
-ms.author: allensu
+author: duongau
+ms.author: duau
 manager: danielgi
 ms.date: 03/09/2021
 ms.topic: sample
 ms.service: azure-cdn
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ce01c1f851a5dbaedc85d848b12bf0b0831a16ef
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 46966ed6e4e0db1be50919d368bf1ff2fd0fa85a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104723556"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131476859"
 ---
 # <a name="create-an-azure-cdn-profile-and-endpoint-using-the-azure-cli"></a>Creación de un perfil y un punto de conexión de Azure CDN con la CLI de Azure
 

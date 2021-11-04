@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: vikancha
-ms.openlocfilehash: 12bbaeddadb925cc6057c902a528121c16e05cd7
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: f40ac573e8abb20e7d4eb4b11a0d9e09f251d9c8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129546799"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131022025"
 ---
 # <a name="np-series"></a>Serie NP 
 
@@ -26,7 +26,7 @@ Las máquinas virtuales de la serie NP cuentan con tecnología de FPGA [Xilinx U
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
 Compatibilidad con generación de VM: Generación 1<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible<br>
-[Discos de sistema operativo efímero](ephemeral-os-disks.md): admitidos ([en versión preliminar](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible<br>
 <br>
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | FPGA | Memoria de FPGA: GiB | Discos de datos máx. | Nº máx. de NIC/ancho de banda de red esperado (Mbps) | 

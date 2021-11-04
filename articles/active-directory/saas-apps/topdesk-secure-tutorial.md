@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/09/2021
 ms.author: jeedes
-ms.openlocfilehash: 3784c7b022a807c86805187fbdffb61167970443
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 34d5d0f7daabce877b025c81e9268119e1d3e1e2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128679118"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131459204"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-topdesk---secure"></a>Tutorial: Integración del inicio de sesión único de Azure AD con TOPdesk - Secure
 
@@ -26,7 +26,7 @@ En este tutorial, obtendrá información sobre cómo integrar TOPdesk - Secure c
 * Permitir que los usuarios inicien sesión automáticamente en TOPdesk - Secure (inicio de sesión único) con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
  
@@ -87,7 +87,7 @@ Para configurar el inicio de sesión único de Azure AD con TOPdesk - Secure, re
     c. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.topdesk.net`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de TOPdesk - Secure](https://www.topdesk.com/us/support/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de TOPdesk - Secure](https://www.topdesk.com/en/services/support/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
@@ -173,7 +173,7 @@ En esta sección, va a permitir que B.Simon acceda a TOPdesk - Secure mediante e
 
     b. Para cargar el archivo de certificado, en **Certificado (RSA)**, haga clic en **Examinar**.
 
-    c. Para **Clave privada (RSA, PKCS8, DER)**, puede cargar su propia clave privada o puede ponerse en contacto con el [equipo de soporte técnico de TOPdesk](https://www.topdesk.com/us/support) para obtener la clave privada.
+    c. Para **Clave privada (RSA, PKCS8, DER)**, puede cargar su propia clave privada o puede ponerse en contacto con el [equipo de soporte técnico de TOPdesk](https://www.topdesk.com/en/services/support/) para obtener la clave privada.
 
     d. Para cargar el archivo de logotipo que obtuvo del equipo de soporte técnico de TOPdesk, en **Icono del logotipo**, haga clic en **Examinar**.
 

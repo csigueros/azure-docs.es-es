@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: sideeksh
-ms.openlocfilehash: f63021275574e294fa372357d6e62724f5efe0f7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 29896c026b65859448f923bc542ea7198e8f848b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98541197"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131083467"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Personalización de las configuraciones de red de la máquina virtual de Azure de destino
 
@@ -28,7 +28,7 @@ Obtenga información sobre cómo Site Recovery proporciona recuperación ante de
 Al replicar máquinas virtuales de Azure, se pueden proporcionar las siguientes configuraciones de recursos clave para la máquina virtual de conmutación por error:
 
 - [Equilibrador de carga interno](../load-balancer/load-balancer-overview.md)
-- [Dirección IP pública](../virtual-network/public-ip-addresses.md)
+- [Dirección IP pública](../virtual-network/ip-services/public-ip-addresses.md)
 - [Grupo de seguridad de red](../virtual-network/manage-network-security-group.md) tanto de la subred como de la NIC
 
 ## <a name="prerequisites"></a>Prerrequisitos

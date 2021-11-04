@@ -5,16 +5,16 @@ services: automation
 ms.date: 09/07/2021
 ms.topic: quickstart
 ms.subservice: process-automation
-ms.openlocfilehash: 14fc0af0b75639ae79c417645912a868a0df34f6
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 13b314e5f73a0c970e28dfdd87551d713d60175b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123544760"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131462128"
 ---
 # <a name="quickstart-enable-managed-identities-for-your-automation-account-using-the-azure-portal"></a>Inicio rápido: Habilitación de identidades administradas para la cuenta de Automation mediante Azure Portal
 
-En este inicio rápido se muestra cómo habilitar las identidades administradas en una cuenta de Azure Automation. Para más información sobre cómo funcionan las identidades administradas con Azure Automation, consulte [Identidades administradas (versión preliminar)](../automation-security-overview.md#managed-identities-preview).
+En este inicio rápido se muestra cómo habilitar las identidades administradas en una cuenta de Azure Automation. Para más información sobre cómo funcionan las identidades administradas con Azure Automation, consulte [Identidades administradas (versión preliminar)](../automation-security-overview.md#managed-identities).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -53,7 +53,6 @@ Esta sección continúa donde finalizó la última sección.
 1. En **Identidades administradas asignadas por el usuario**, seleccione la identidad administrada asignada por el usuario existente y, después, seleccione **Agregar**. A continuación, volverá a la pestaña **Usuario asignado**.
 
    :::image type="content" source="media/enable-managed-identity/added-user-identity-portal.png" alt-text="Usuario asignado agregado en el portal.":::
-
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

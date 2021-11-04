@@ -716,7 +716,7 @@
           items:
             - name: Acceso público
               items:
-                - name: Azure portal
+                - name: "Azure\_Portal"
                   href: howto-hyperscale-manage-firewall-using-portal.md
                   displayName: 'firewall rule, hyperscale'
             - name: Acceso privado
@@ -821,7 +821,7 @@
             - name: Conexión de los datos de la aplicación a Power BI
               href: 'https://aka.ms/postg-powerbi-vid'
     - name: Foro de comentarios
-      href: 'https://feedback.azure.com/forums/597976-azure-database-for-postgresql'
+      href: 'https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0'
     - name: Disponibilidad en regiones
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Opciones de soporte técnico

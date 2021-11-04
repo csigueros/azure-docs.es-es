@@ -8,19 +8,20 @@ displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/09/2020
-ms.openlocfilehash: 41477b99c6bb07ab836f6c4ef75a06b2f642f3a2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 08/25/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: d9b596ad4766848e460d534be42930f39c5b6043
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375431"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069204"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Obtener análisis en la base de conocimiento
 
-# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
-
 QnA Maker almacena todos los registros de chat y otra telemetría, si ha habilitado Application Insights durante la [creación del servicio QnA Maker](./set-up-qnamaker-service-azure.md). Ejecute las consultas de ejemplo para obtener los registros de chat de Application Insights.
+
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 1. Vaya al recurso de Application Insights.
 
@@ -48,21 +49,7 @@ QnA Maker almacena todos los registros de chat y otra telemetría, si ha habilit
 
     [![Ejecute la consulta para determinar las preguntas, respuestas y puntuaciones de los usuarios](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
 
-# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
-
-Respuesta a preguntas personalizada (versión preliminar) usa el registro de diagnóstico de Azure para almacenar los datos de telemetría y los registros de chat. Siga los pasos que se indican a continuación para ejecutar consultas de ejemplo para obtener análisis sobre el uso de la knowledge base de QnA Maker.
-
-1. [Habilite el registro de diagnóstico](../../diagnostic-logging.md) del servicio Text Analytics con la característica de respuesta a preguntas personalizada (versión preliminar).
-
-2. En el paso anterior, seleccione **Trace** (Seguimiento), además de **Audit, RequestResponse y AllMetrics** para el registro
-
-    ![Habilitación del registro de seguimiento en QnA Maker administrado (versión preliminar)](../media/qnamaker-how-to-analytics-kb/qnamaker-v2-enable-trace-logging.png)
-
----
-
 ## <a name="run-queries-for-other-analytics-on-your-qna-maker-knowledge-base"></a>Ejecución de consultas de otros análisis en la base de conocimiento de QnA Maker
-
-# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
 
 ### <a name="total-90-day-traffic"></a>Tráfico total de 90 días
 
@@ -131,76 +118,6 @@ traces | extend id = operation_ParentId
 | project timestamp, KbId, question, answer, score
 | order  by timestamp  desc
 ```
-
-# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
-
-### <a name="all-qna-chat-log"></a>Todos los registros de chat de QnA
-
-```kusto
-// All QnA Traffic
-AzureDiagnostics
-| where ResourceProvider == "MICROSOFT.COGNITIVESERVICES"
-| where OperationName=="QnAMaker GenerateAnswer"
-| extend answer_ = tostring(parse_json(properties_s).answer)
-| extend question_ = tostring(parse_json(properties_s).question)
-| extend score_ = tostring(parse_json(properties_s).score)
-| extend kbId_ = tostring(parse_json(properties_s).kbId)
-| project question_, answer_, score_, kbId_
-```
-
-### <a name="traffic-count-per-knowledge-base-and-user-in-a-time-period"></a>Recuento de tráfico por knowledge base y usuario en un período
-
-```kusto
-// Traffic count per KB and user in a time period
-let startDate = todatetime('2019-01-01');
-let endDate = todatetime('2020-12-31');
-AzureDiagnostics
-| where ResourceProvider == "MICROSOFT.COGNITIVESERVICES"
-| where OperationName=="QnAMaker GenerateAnswer"
-| where TimeGenerated <= endDate and TimeGenerated >=startDate
-| extend kbId_ = tostring(parse_json(properties_s).kbId)
-| extend userId_ = tostring(parse_json(properties_s).userId)
-| summarize ChatCount=count() by bin(TimeGenerated, 1d), kbId_, userId_
-```
-
-### <a name="latency-of-generateanswer-api"></a>Latencia de GenerateAnswer API
-
-```kusto
-// Latency of GenerateAnswer
-AzureDiagnostics
-| where ResourceProvider == "MICROSOFT.COGNITIVESERVICES"
-| where OperationName=="Generate Answer"
-| project TimeGenerated, DurationMs
-| render timechart
-```
-
-### <a name="average-latency-of-all-operations"></a>Latencia media de todas las operaciones
-
-```kusto
-// Average Latency of all operations
-AzureDiagnostics
-| where ResourceProvider == "MICROSOFT.COGNITIVESERVICES"
-| project DurationMs, OperationName
-| summarize count(), avg(DurationMs) by OperationName
-| render barchart
-```
-
-### <a name="unanswered-questions"></a>Preguntas sin responder
-
-```kusto
-// All unanswered questions
-AzureDiagnostics
-| where ResourceProvider == "MICROSOFT.COGNITIVESERVICES"
-| where OperationName=="QnAMaker GenerateAnswer"
-| extend answer_ = tostring(parse_json(properties_s).answer)
-| extend question_ = tostring(parse_json(properties_s).question)
-| extend score_ = tostring(parse_json(properties_s).score)
-| extend kbId_ = tostring(parse_json(properties_s).kbId)
-| where score_ == 0
-| project question_, answer_, score_, kbId_
-```
-
----
 
 ## <a name="next-steps"></a>Pasos siguientes
 

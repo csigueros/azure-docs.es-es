@@ -1,18 +1,18 @@
 ---
 title: Metadatos y linaje de Cassandra
 description: En este artículo se describe la extracción del linaje de datos del origen Cassandra.
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 08/12/2021
-ms.openlocfilehash: 68cee75d69be61623789db2c12ce83997646cd43
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: a46649187403c5825f580da167f9fe77dc9ba210
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122014582"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131453333"
 ---
 # <a name="how-to-get-lineage-from-cassandra-into-azure-purview"></a>Procedimiento para obtener el linaje de Cassandra en Azure Purview
 

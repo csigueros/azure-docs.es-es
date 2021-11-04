@@ -5,16 +5,19 @@ services: automation
 ms.subservice: dsc
 ms.date: 04/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8ff365200828b786b4cf770508e5a811983abd58
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 4d7a0a92d538db30ac0de9d0c5c97cb546517088
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109732747"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131026513"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Introducción a Azure Automation State Configuration
 
 En este artículo se proporciona una guía paso a paso para realizar las tareas más comunes con Azure Automation State Configuration, como, por ejemplo, crear, importar y compilar configuraciones, habilitar máquinas para administrarlas y ver informes. Para una introducción a State Configuration, consulte [Introducción a State Configuration](automation-dsc-overview.md). Para obtener documentación de Desired State Configuration, consulte [Información general sobre la configuración de estado deseado de Windows PowerShell](/powershell/scripting/dsc/overview/overview).
+
+> [!NOTE]
+> Antes de habilitar Automation State Configuration, debe saber que ahora hay una versión más reciente de DSC en versión preliminar, administrada por una característica de Azure Policy denominada [configuración de invitado](../governance/policy/concepts/guest-configuration.md). El servicio de configuración de invitado combina características de la extensión DSC, Azure Automation State Configuration y las características que más solicitan los clientes en sus comentarios. La configuración de invitado también incluye la compatibilidad con máquinas híbridas a través de [servidores habilitados para Arc](../azure-arc/servers/overview.md).
 
 Si busca un entorno de ejemplo que ya esté configurado sin seguir los pasos descritos en este artículo, puede usar [Azure Automation Managed Node](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.automation/automation-configuration). Esta plantilla configura un entorno completado de State Configuration (DSC), incluida una máquina virtual de Azure administrada por State Configuration (DSC).
 

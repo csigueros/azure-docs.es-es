@@ -2,20 +2,20 @@
 title: Descarga de los datos de factura de Azure
 description: En este artículo se describe cómo descargar o ver los datos de la factura de Azure.
 keywords: billing invoice,invoice download,azure invoice
-author: genlin
-ms.reviewer: dcscontentpm
+author: bandersmsft
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/28/2021
+ms.date: 10/28/2021
 ms.author: banders
-ms.openlocfilehash: 14183a46085ca0da60f1abb5f6ba390b9d4c334a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: bc159ccab9d2a059d98de59e123d3e708ade9b2b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745416"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450084"
 ---
 # <a name="download-or-view-your-azure-billing-invoice"></a>Descargar o visualización de los datos de la factura de Azure
 

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: f74c751f5b725270cfefcf4bab7353df4c498f01
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d52a30c31bc1e33713d641655cd6b46a8134063d
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638373"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131504595"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Desencadenador de temporizador para Azure Functions
 
@@ -276,14 +276,15 @@ Cuando se invoca una función de desencadenador de temporizador, se pasa a esta 
 
 ```json
 {
-    "schedule":{
+    "Schedule":{
+        "AdjustForDST": true
     },
-    "scheduleStatus": {
-        "last":"2016-10-04T10:15:00+00:00",
-        "lastUpdated":"2016-10-04T10:16:00+00:00",
-        "next":"2016-10-04T10:20:00+00:00"
+    "ScheduleStatus": {
+        "Last":"2016-10-04T10:15:00+00:00",
+        "LastUpdated":"2016-10-04T10:16:00+00:00",
+        "Next":"2016-10-04T10:20:00+00:00"
     },
-    "isPastDue":false
+    "IsPastDue":false
 }
 ```
 

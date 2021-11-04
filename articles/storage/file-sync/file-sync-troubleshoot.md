@@ -4,16 +4,16 @@ description: Solucione los problemas comunes de una implementación en Azure Fil
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 8/24/2021
+ms.date: 11/2/2021
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0ba4fe4968a54be0ee9f19e2df6db242c149a7ee
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 3069ffa1fc7e32d2ac683ecbc90f14f39625ddf4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129080582"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131424824"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solución de problemas de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -506,6 +506,9 @@ Este error se produce porque el agente de Azure File Sync no está autorizado pa
     ```
 2. [Compruebe que la cuenta de almacenamiento existe.](#troubleshoot-storage-account)
 3. [Compruebe que el firewall y la configuración de red virtual de la cuenta de almacenamiento están configurados correctamente (si están habilitados)](file-sync-deployment-guide.md?tabs=azure-portal#configure-firewall-and-virtual-network-settings).
+
+> [!Note]  
+> Una vez restaurada la conectividad de red al servicio Azure File Sync, es posible que la sincronización no se reanude de inmediato. De manera predeterminada, Azure File Sync comenzará una sesión de sincronización cada 30 minutos si no se detecta ningún cambio dentro de la ubicación del punto de conexión del servidor. Para forzar una sesión de sincronización, reinicie el servicio del agente de sincronización del almacenamiento (FileSyncSvc) o haga un cambio en un archivo o directorio dentro de la ubicación del punto de conexión del servidor.
 
 <a id="-2134364022"></a><a id="storage-unknown-error"></a>**Se ha producido un error desconocido al acceder a la cuenta de almacenamiento.**  
 

@@ -4,19 +4,19 @@ description: Lista de servicios que admiten identidades administradas para recur
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 07/13/2021
+ms.date: 10/26/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: c9167111a1799575b5dc0d06cb26bf7cc20002e9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: ca43e9d1e54566da374ccbae011e66ae54297af4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124826793"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131432574"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servicios que admiten identidades administradas para recursos de Azure
 
@@ -28,7 +28,6 @@ Las identidades administradas para los recursos de Azure proporcionan a los serv
 ## <a name="azure-services-that-support-managed-identities-for-azure-resources"></a>Servicios de Azure que admiten identidades administradas de recursos de Azure
 
 Los siguientes servicios de Azure admiten identidades administradas para recursos de Azure:
-
 
 ### <a name="azure-api-management"></a>Azure API Management
 
@@ -102,12 +101,12 @@ Consulte el documento siguiente para volver a configurar una identidad administr
 
 | Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Asignado por el sistema | Versión preliminar | Vista previa | No disponible | Vista previa |
-| Asignado por el usuario | Vista previa | Vista previa | No disponible | Vista previa |
+| Asignado por el sistema | ![Disponible][Check]| ![Disponible][Check] | No disponible | ![Disponible][Check] |
+| Asignado por el usuario | ![Disponible][Check] | ![Disponible][Check] | No disponible | ![Disponible][Check] |
 
 Consulte los siguientes documentos para usar una identidad administrada con [Azure Automation](../../automation/automation-intro.md):
 
-* [Introducción a la autenticación de cuentas de Automation: identidades administradas](../../automation/automation-security-overview.md#managed-identities-preview)
+* [Introducción a la autenticación de cuentas de Automation: identidades administradas](../../automation/automation-security-overview.md#managed-identities)
 * [Habilitación y uso de la identidad administrada para Automation](../../automation/enable-managed-identity-for-automation.md)
 
 ### <a name="azure-blueprints"></a>Azure Blueprint

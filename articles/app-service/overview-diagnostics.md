@@ -5,12 +5,12 @@ keywords: app service, azure app service, diagnósticos, compatibilidad, aplicac
 ms.topic: article
 ms.date: 10/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: cf044baf233c159ff271221522f0f9faf15cc1ed
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: e912e1794f789ff2b670f512c3d575e95715d0ae
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114451594"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131465846"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Introducción a los diagnósticos de Azure App Service
 
@@ -111,4 +111,4 @@ En un equipo grande con integración continua y donde la aplicación tiene mucha
 
 Se puede acceder al análisis de cambios para conocer los cambios en la aplicación a través de los accesos directos de iconos, **Application Changes** (Cambios de aplicación) y **Bloqueos de aplicación** en **Availability and Performance** (Disponibilidad y rendimiento), de forma que pueda usarlo simultáneamente con otras métricas. Antes de usar la característica, primero debe habilitarla. Para más información, consulte [Anuncio de la nueva experiencia de análisis de cambios en los diagnósticos de App Service](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).
 
-Publique sus preguntas o comentarios en [UserVoice](https://feedback.azure.com/forums/169385-web-apps) agregando "[Diag]" en el título.
+Publique sus preguntas o comentarios en [UserVoice](https://feedback.azure.com/d365community/forum/b09330d1-c625-ec11-b6e6-000d3a4f0f1c) agregando "[Diag]" en el título.

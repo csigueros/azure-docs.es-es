@@ -3,12 +3,12 @@ title: Glosario de Azure Backup
 description: En este artículo se definen los términos útiles para su uso con Azure Backup.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: fb46415c8bdb463556d57004e37d741c1b9a9b57
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 774fc63002677aa9fbb986d40a5d8fe2b3e99f7d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102502032"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131465200"
 ---
 # <a name="azure-backup-glossary"></a>Glosario de Azure Backup
 
@@ -186,7 +186,7 @@ Restauración de archivos o carpetas individuales del interior de la máquina de
 
 ## <a name="job"></a>Trabajo
 
-Tarea relacionada con la copia de seguridad que crea un usuario o el servicio Azure Backup. Los trabajos pueden ser programados o a petición (ad hoc). Hay distintos tipos de trabajos: copia de seguridad, restauración, configuración de la protección, etc. [Más información sobre los trabajos](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault).
+Tarea relacionada con la copia de seguridad que crea un usuario o el servicio Azure Backup. Los trabajos pueden ser programados o a petición (ad hoc). Hay distintos tipos de trabajos: copia de seguridad, restauración, configuración de la protección, etc. [Más información sobre los trabajos](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-backup-center).
 
 ## <a name="mabs--azure-backup-server"></a>MABS / Azure Backup Server
 

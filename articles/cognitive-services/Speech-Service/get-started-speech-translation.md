@@ -3,22 +3,22 @@ title: 'Inicio rápido de traducción de voz: servicio Voz'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a usar el SDK de voz para traducir voz. En este inicio rápido, aprenderá sobre la construcción de objetos, los formatos de entrada de audio admitidos y las opciones de configuración de la traducción de voz.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.author: pafarley
+ms.author: eur
 ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-two-with-js-spx
 keywords: traducción de voz
-ms.openlocfilehash: d8975ace10d21be7e8520c7d554652cfe09e740c
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: fe87bd7a3425c8711a0169de2e09b09484e4571a
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123542732"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131506860"
 ---
 # <a name="get-started-with-speech-translation"></a>Introducción a la traducción de voz
 

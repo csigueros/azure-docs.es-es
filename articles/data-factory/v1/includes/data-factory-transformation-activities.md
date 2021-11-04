@@ -3,14 +3,14 @@ author: linda33wj
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 10/22/2021
 ms.author: jingwang
-ms.openlocfilehash: 850333ff1d0a2668dcd0553f2d03562fb2c046a8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8317f05587a63bd8f8a81b0949101ea51d39b28a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128624427"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "131454071"
 ---
 Azure Data Factory admite las siguientes actividades de transformación que se pueden agregar a las canalizaciones tanto individualmente como encadenadas a otra actividad.
 

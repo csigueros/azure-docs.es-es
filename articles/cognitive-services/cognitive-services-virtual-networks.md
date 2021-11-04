@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 02/09/2021
+ms.date: 10/28/2021
 ms.author: aahi
-ms.openlocfilehash: f8c20e9da69c9b4a6f1a301e11d73e39853662e1
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 8ab4c205daaec32b3799d4c6cdccd4f9ddef093a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123467815"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131473478"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configuración de redes virtuales de Azure Cognitive Services
 
@@ -50,8 +50,8 @@ Se admiten redes virtuales en [regiones en las que Cognitive Services está disp
 > * Caras
 > * Language Understanding (LUIS)
 > * Personalizer
-> * Speech Services
-> * Text Analytics
+> * Servicio de voz
+> * Servicio de lenguaje
 > * QnA Maker
 > * Translator Text
 

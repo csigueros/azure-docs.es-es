@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: yunjchoi
 ms.custom: na
-ms.openlocfilehash: fb329273d442c023233fee2e7e01aabe5f5bff8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 81d8da21d5da91c79fa40077832dd6543fd69499
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "83122379"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131432232"
 ---
 # <a name="azure-functions-diagnostics-overview"></a>Información general sobre diagnósticos de Azure Functions
 
@@ -51,7 +51,7 @@ En el caso de las funciones basadas en scripts, se puede usar **Function Executi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Puede formular preguntas o enviar comentarios sobre los diagnósticos de Azure Functions en [UserVoice](https://feedback.azure.com/forums/355860-azure-functions). Incluya `[Diag]` en el título de los comentarios.
+Puede formular preguntas o enviar comentarios sobre los diagnósticos de Azure Functions en [UserVoice](https://feedback.azure.com/d365community/forum/9df02822-f224-ec11-b6e6-000d3a4f0da0). Incluya `[Diag]` en el título de los comentarios.
 
 > [!div class="nextstepaction"]
 > [Supervisión de la aplicación de funciones](functions-monitoring.md)

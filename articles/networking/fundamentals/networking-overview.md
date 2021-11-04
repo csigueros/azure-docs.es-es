@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/07/2021
 ms.author: kumud
-ms.openlocfilehash: 072c26444c3a3fe84cfc9a0690571a524f7db6dc
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 30346fa6c837484613acc4cb48a82e8854d13a3f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113436053"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131076649"
 ---
 # <a name="azure-networking-services-overview"></a>Información general sobre los servicios de red de Azure
 
@@ -35,7 +35,7 @@ En esta sección se describen los servicios que proporcionan conectividad entre 
 Azure Virtual Network (VNet) es el bloque de creación fundamental de una red privada en Azure. Puede usar una red virtual para:
 - **Comunicarse entre recursos de Azure**: tanto las máquinas virtuales como otros tipos de recursos de Azure se pueden implementar en una red virtual, como Azure App Service Environment, Azure Kubernetes Service (AKS) y Azure Virtual Machine Scale Sets. Para ver una lista completa de los recursos de Azure que puede implementar en una red virtual, consulte [Integración de red virtual para los servicios de Azure](../../virtual-network/virtual-network-for-azure-services.md).
 - **Comunicarse entre sí**: Las redes virtuales se pueden conectar entre sí, lo que permite que los recursos de cualquiera de ellas se comuniquen entre sí mediante el emparejamiento de red virtual. Las redes virtuales que conecte pueden estar en la misma región de Azure o en regiones distintas. Para más información, consulte [Emparejamiento de redes virtuales](../../virtual-network/virtual-network-peering-overview.md).
-- **Comunicarse en Internet**: De manera predeterminada, todos los recursos de una red virtual tienen comunicación de salida hacia Internet. Para comunicarse con un recurso entrante, asígnele una dirección IP pública o un equilibrador de carga público. También puede usar [Direcciones IP públicas](../../virtual-network/virtual-network-public-ip-address.md) o [Load Balancer](../../load-balancer/load-balancer-overview.md) público para administrar las conexiones salientes.
+- **Comunicarse en Internet**: De manera predeterminada, todos los recursos de una red virtual tienen comunicación de salida hacia Internet. Para comunicarse con un recurso entrante, asígnele una dirección IP pública o un equilibrador de carga público. También puede usar [Direcciones IP públicas](../../virtual-network/ip-services/virtual-network-public-ip-address.md) o [Load Balancer](../../load-balancer/load-balancer-overview.md) público para administrar las conexiones salientes.
 - **Comunicarse con otras redes en el entorno local**: Puede conectar sus redes y equipos en el entorno local a una red virtual mediante [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) o [ExpressRoute](../../expressroute/expressroute-introduction.md).
 
 Para más información, consulte [¿Qué es Azure Virtual Network?](../../virtual-network/virtual-networks-overview.md).

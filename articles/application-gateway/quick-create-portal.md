@@ -8,15 +8,13 @@ ms.author: victorh
 ms.date: 06/14/2021
 ms.topic: quickstart
 ms.service: application-gateway
-ms.custom:
-- mvc
-- mode-portal
-ms.openlocfilehash: a1c826470a7fb9daf3b311c6e7fff02a21fc5b25
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.custom: mvc, mode-portal
+ms.openlocfilehash: 92c7fbb1db4b25e837947f4ec23b29c23e97542a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112072278"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131021797"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Inicio rápido: Dirección del tráfico web con Azure Application Gateway: Azure Portal
 

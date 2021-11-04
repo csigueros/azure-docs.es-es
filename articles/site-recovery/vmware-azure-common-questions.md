@@ -3,12 +3,12 @@ title: Preguntas comunes sobre la recuperación ante desastres de VMware con Azu
 description: Obtenga respuestas a las preguntas comunes sobre cómo configurar la recuperación ante desastres de máquinas virtuales de VMware locales en Azure mediante Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8480598cc872a051b6b81f928e92740e39353598
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 02e903c876a2e4cdec29006090ed8ddfbe9e4b45
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128621249"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131452611"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Preguntas frecuentes sobre la replicación de VMware en Azure
 
@@ -165,7 +165,7 @@ La replicación es continua cuando se replican máquinas virtuales de VMware en 
 
 ### <a name="can-i-extend-replication"></a>¿Se puede extender la replicación?
 
-No se admite la replicación extendida o encadenada. Solicite esta característica en el [foro de comentarios](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+No se admite la replicación extendida o encadenada. Solicite esta característica en el [foro de comentarios](https://feedback.azure.com/d365community/forum/3ccca344-2d25-ec11-b6e6-000d3a4f0f84).
 
 ### <a name="how-can-i-track-progress-of-initial-replicationsynchronization"></a>¿Cómo se puede realizar el seguimiento del progreso de la replicación inicial o la sincronización?
 
@@ -173,7 +173,7 @@ Esta funcionalidad se ha agregado recientemente a los servicios de Site Recovery
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>¿Se puede realizar una replicación inicial sin conexión?
 
-La replicación sin conexión no es posible. Solicite esta característica en el [foro de comentarios](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+La replicación sin conexión no es posible. Solicite esta característica en el [foro de comentarios](https://feedback.azure.com/d365community/idea/7c09c396-2e25-ec11-b6e6-000d3a4f0f84).
 
 ### <a name="what-is-asrseeddisk"></a>¿Qué es asrseeddisk?
 

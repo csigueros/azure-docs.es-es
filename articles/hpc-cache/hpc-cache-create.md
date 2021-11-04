@@ -1,18 +1,18 @@
 ---
 title: Creación de una instancia de Azure HPC Cache
 description: Creación de una instancia de Azure HPC Cache
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/15/2021
-ms.author: v-erkel
+ms.author: femila
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b7789af76572eeaa3dfdfe4c6ff379889341033e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6f457dcf69b0f38173a3816ea1ac16c2cc7c5935
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128557467"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131015340"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Creación de una instancia de Azure HPC Cache
 
@@ -178,11 +178,11 @@ Especifique estos valores:
 
   | Tamaño de memoria caché | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072 GB    | sí         | No          | No          |
+  | 3072 GB    | sí         | no          | No          |
   | 6144 GB    | sí         | sí         | No          |
   | 12288 GB   | sí         | sí         | sí         |
   | 24576 GB   | No          | sí         | sí         |
-  | 49152 GB   | No          | No          | sí         |
+  | 49152 GB   | No          | no          | sí         |
 
   Si quiere usar más de 10 destinos de almacenamiento con la memoria caché, elija el valor de tamaño de caché más alto disponible para el SKU. Estas configuraciones admiten hasta 20 destinos de almacenamiento.
 
@@ -282,11 +282,11 @@ Proporcione estos valores:
 
   | Tamaño de memoria caché | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072 GB    | sí         | No          | No          |
+  | 3072 GB    | sí         | no          | No          |
   | 6144 GB    | sí         | sí         | no          |
   | 12,288 GB   | sí         | sí         | sí         |
   | 24,576 GB   | no          | sí         | sí         |
-  | 49,152 GB   | no          | No          | sí         |
+  | 49,152 GB   | no          | no          | sí         |
 
   Lea la sección **Establecimiento de la capacidad de la memoria caché** en la pestaña de instrucciones del portal para obtener información importante sobre los precios, el rendimiento y la definición del tamaño adecuado de la caché para su flujo de trabajo.
 

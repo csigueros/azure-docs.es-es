@@ -11,16 +11,16 @@ author: aanjusingh
 manager: daveba
 ms.reviewer: anjusingh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fd77e9a31d8ce49eeab411378726ef712040962
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 31a35994441ad2b0cd2ecdf39675ef51840dc0de
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130245488"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131027956"
 ---
 # <a name="app-support-for-sms-based-authentication"></a>Compatibilidad con aplicaciones para la autenticación basada en SMS
 
-La autenticación basada en SMS está disponible para las aplicaciones de Microsoft integradas con la Plataforma de identidad de Microsoft (Azure AD). En la tabla se enumeran algunas de las aplicaciones web y móviles que admiten la autenticación basada en SMS. Si desea agregar o validar alguna aplicación, [póngase en contacto con nosotros](https://feedback.azure.com/forums/169401-azure-active-directory). 
+La autenticación basada en SMS está disponible para las aplicaciones de Microsoft integradas con la Plataforma de identidad de Microsoft (Azure AD). En la tabla se enumeran algunas de las aplicaciones web y móviles que admiten la autenticación basada en SMS. Si desea agregar o validar alguna aplicación, [póngase en contacto con nosotros](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789). 
 
 | Aplicación | Aplicación web o de explorador | Aplicación móvil nativa |
 | --- |:---:|:---:|

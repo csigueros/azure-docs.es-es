@@ -5,20 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 05/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0db68a72b3b44f9febb7cdef546545b5b549ddae
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 70b58b689798b6651a88674668497a27a2780429
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110069389"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450939"
 ---
 # <a name="enable-startstop-vms-during-off-hours"></a>Habilitación de Start/Stop VMs during off-hours
 
 Siga los pasos de este tema en orden para habilitar la característica Start/Stop VMs during off-hours en las máquinas virtuales con una cuenta de Automation y un área de trabajo de Log Analytics vinculada nuevas o existentes. Después de completar el proceso de instalación, configure las variables para personalizar la característica.
-
->[!NOTE]
->Para usar esta característica con máquinas virtuales clásicas, necesita una cuenta de ejecución clásica, que no se crea de forma predeterminada. Consulte [Creación de una cuenta de ejecución clásica](automation-create-standalone-account.md#create-a-classic-run-as-account).
->
 
 ## <a name="enable-and-configure"></a>Habilitación y configuración 
 

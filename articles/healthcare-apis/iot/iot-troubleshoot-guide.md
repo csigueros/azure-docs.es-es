@@ -8,28 +8,31 @@ ms.subservice: iomt
 ms.topic: troubleshooting
 ms.date: 10/01/2021
 ms.author: jasteppe
-ms.openlocfilehash: 07f1ed78abe90b2967335322f0eea17e721a44bc
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: d5111425c6377cf16d3fbd4afceb7fcacc1e539a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130005416"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131077427"
 ---
 # <a name="iot-connector-troubleshooting-guide"></a>Guía de solución de problemas del conector de IoT
 
 > [!IMPORTANT]
 > Azure Healthcare APIs se encuentra actualmente en VERSIÓN PRELIMINAR. Los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado con disponibilidad general.
 
-En este artículo se proporcionan los pasos para solucionar problemas de condiciones y mensajes de error comunes del conector de IoT. También aprenderá a crear copias de las asignaciones de destino device and Recursos Rápidos de Interoperabilidad en Salud (FHIR&#174;) del conector de IoT. Además, puede usar las copias de asignación de destino de dispositivo y FHIR para editar y archivar fuera del Azure Portal.  
+En este artículo se proporcionan los pasos para solucionar problemas comunes de mensajes y condiciones de error del conector de IoT. También aprenderá a crear copias de las asignaciones de destino device and Recursos Rápidos de Interoperabilidad en Salud (FHIR&#174;) del conector de IoT. Además, puede usar las copias de asignación de destino de dispositivo y FHIR para editar y archivar fuera del Azure Portal.  
 
 > [!TIP]
-> Al abrir una [vale de soporte técnico](https://azure.microsoft.com/support/create-ticket/) de Azure para el conector de IoT, incluya copias de las asignaciones de destino de dispositivos y FHIR para ayudar en el proceso de solución de problemas.
+> Al abrir una [vale de soporte técnico](https://azure.microsoft.com/support/create-ticket/) de Azure para el conector de IoT, incluya copias de las asignaciones de destino de dispositivo y FHIR para ayudar en el proceso de solución de problemas.
 
-## <a name="device-and-fhir-destination-mapping-validations"></a>Validaciones de asignación de destino de dispositivo y FHIR
+## <a name="device-and-fhir-destination-mappings-validations"></a>Validaciones de asignaciones de destino de dispositivos y FHIR
 
-En esta sección se describe el proceso de validación que realiza el conector de IoT. El proceso de validación valida las asignaciones de destino del dispositivo y FHIR antes de permitir que se guarden para su uso. Estos elementos son necesarios en las asignaciones de destino de dispositivo y FHIR.
+En esta sección se describe el proceso de validación que realiza el conector de IoT. El proceso de validación valida las asignaciones de destino de dispositivo y FHIR antes de permitir que se guarden para su uso. Estos elementos son necesarios en las asignaciones de destino de dispositivo y FHIR.
 
-**Asignación de dispositivos**
+> [!TIP]
+> Consulte la herramienta [Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) del conector ioMT para editar, probar y solucionar problemas de asignaciones de dispositivos y destinos de FHIR del conector de IoT. Exporte asignaciones para cargar en el conector de IoT Azure Portal use con la versión [de código abierto](https://github.com/microsoft/iomt-fhir) del conector de IoT.
+
+**Asignaciones de dispositivos**
 
 |Elemento|Obligatorio|
 |:-------|:------|
@@ -45,9 +48,9 @@ En esta sección se describe el proceso de validación que realiza el conector d
 >
 >Por ejemplo:
 > 
->Cuando se coloca o quita un dispositivo IoMT portátil, los elementos no tienen ningún valor, excepto un nombre que el conector de IoT coincide y emite. En la conversión de FHIR, el conector de IoT lo asigna a un concepto con capacidad de código basado en el tipo semántico. Esto significa que no se rellena ningún valor real.
+>Cuando se coloca o quita un dispositivo IoMT portátil, los elementos no tienen ningún valor, excepto un nombre que el conector de IoT coincide y emite. En la conversión de FHIR, el conector de IoT lo asigna a un concepto capaz de código basado en el tipo semántico. Esto significa que no se rellena ningún valor real.
 
-**Asignación de destino de FHIR**
+**Asignaciones de destino de FHIR**
 
 |Elemento|Obligatorio|
 |:------|:-------|
@@ -63,7 +66,7 @@ En esta sección se describe el proceso de validación que realiza el conector d
 |Message|Visualización|Condición|Fix| 
 |-------|---------|---------|---|
 |Se ha alcanzado el número máximo de tipos `iotconnectors` de recursos.|API y Azure Portal|Se alcanza la cuota de suscripción del conector de IoT (el valor predeterminado es 25 por suscripción).|Elimine una de las instancias existentes del conector de IoT. Use otra suscripción que no haya alcanzado la cuota de suscripción. Solicite un aumento de la cuota de suscripción.
-|Asignación `deviceMapping` no válida. Errores de validación: {Lista de errores}|API y Azure Portal|El `properties.deviceMapping` proporcionado en la solicitud de aprovisionamiento de recursos del conector de IoT no es válido.|Corrija los errores del JSON de asignación proporcionado en la propiedad `properties.deviceMapping`.
+|Asignación `deviceMapping` no válida. Errores de validación: {Lista de errores}|API y Azure Portal|El proporcionado en la solicitud de aprovisionamiento de `properties.deviceMapping` recursos del conector de IoT no es válido.|Corrija los errores del JSON de asignación proporcionado en la propiedad `properties.deviceMapping`.
 |`fullyQualifiedEventHubNamespace` es null, está vacío o tiene un formato incorrecto.|API y Azure Portal|La solicitud de aprovisionamiento del conector de IoT `properties.ingestionEndpointConfiguration.fullyQualifiedEventHubNamespace` no es válida.|Actualice el conector de IoT `properties.ingestionEndpointConfiguration.fullyQualifiedEventHubNamespace` al formato correcto. Debe ser `{YOUR_NAMESPACE}.servicebus.windows.net`.
 |Los recursos antecesores deben aprovisionarse por completo antes de que se pueda aprovisionar un recurso secundario.|API|El área de trabajo principal sigue aprovisionando.|Espere hasta que se haya completado el aprovisionamiento del área de trabajo principal y envíe de nuevo la solicitud de aprovisionamiento.
 |La propiedad `Location` de los recursos secundarios debe coincidir con la propiedad `Location` de los recursos principales.|API|La propiedad de solicitud de aprovisionamiento del conector de IoT `location` es diferente de la propiedad workspace `location` primaria.|Establezca la `location` propiedad del conector de IoT en la solicitud de aprovisionamiento en el mismo valor que la propiedad workspace `location` primaria.
@@ -73,11 +76,11 @@ En esta sección se describe el proceso de validación que realiza el conector d
 |Message|Visualización|Condición|Fix| 
 |-------|---------|---------|---|
 |Se ha alcanzado el número máximo de tipos `iotconnectors/destinations` de recursos.|API y Azure Portal|Se alcanza la cuota de recursos de destino del conector de IoT y el valor predeterminado es 1 por conector de IoT.|Elimine la instancia existente del recurso de destino del conector de IoT. Solo se permite un recurso de destino por conector de IoT.
-|El valor `fhirServiceResourceId` proporcionado no es válido.|API y Azure Portal|El proporcionado en la solicitud de aprovisionamiento de recursos de destino no es un identificador de recurso válido para una instancia del servicio FHIR de `properties.fhirServiceResourceId` las API de Azure Healthcare.|Asegúrese de que el identificador de recurso tiene el formato correcto y asegúrese de que el identificador de recurso es para una instancia de FHIR de Las API de Azure Healthcare. El formato debe ser `/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP_NAME}/providers/Microsoft.HealthcareApis/services/{FHIR_SERVER_NAME} or /subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP_NAME}/providers/Microsoft.HealthcareApis/workspaces/{WORKSPACE_NAME}/`.
+|El valor `fhirServiceResourceId` proporcionado no es válido.|API y Azure Portal|El proporcionado en la solicitud de aprovisionamiento de recursos de destino no es un identificador de recurso válido para una instancia del servicio FHIR de `properties.fhirServiceResourceId` las API de Azure Healthcare.|Asegúrese de que el identificador de recurso tiene el formato correcto y asegúrese de que el identificador de recurso es para una instancia de FHIR de Azure Healthcare APIs. El formato debe ser `/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP_NAME}/providers/Microsoft.HealthcareApis/services/{FHIR_SERVER_NAME} or /subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP_NAME}/providers/Microsoft.HealthcareApis/workspaces/{WORKSPACE_NAME}/`.
 |Los recursos antecesores deben aprovisionarse por completo antes de que se pueda aprovisionar un recurso secundario.|API|El área de trabajo primaria o el conector de IoT primario siguen aprovisionamiento.|Espere hasta que se complete el aprovisionamiento del área de trabajo principal o del conector de IoT primario y, a continuación, envíe de nuevo la solicitud de aprovisionamiento.
-|La propiedad `Location` de los recursos secundarios debe coincidir con la propiedad `Location` de los recursos principales.|API|La propiedad Solicitud de `location` aprovisionamiento de destino es diferente de la propiedad principal del conector de `location` IoT.|Establezca la `location` propiedad de Destination en la solicitud de aprovisionamiento en el mismo valor que la propiedad principal del conector de `location` IoT.
+|La propiedad `Location` de los recursos secundarios debe coincidir con la propiedad `Location` de los recursos principales.|API|La propiedad Solicitud de aprovisionamiento `location` de destino es diferente de la propiedad del conector de IoT `location` principal.|Establezca la propiedad de Destination en la solicitud de aprovisionamiento en el mismo valor que la propiedad principal del conector `location` de `location` IoT.
 
-## <a name="why-is-iot-connector-data-not-showing-up-in-the-fhir-service"></a>¿Por qué no se muestran los datos del conector de IoT en el servicio FHIR?
+## <a name="why-is-iot-connector-data-not-showing-up-in-the-fhir-service"></a>¿Por qué los datos del conector de IoT no aparecen en el servicio FHIR?
 
 |Posibles problemas|Correcciones|
 |----------------|-----|
@@ -156,7 +159,7 @@ Las copias de asignación se deben proporcionar al soporte técnico de Azure al 
 > JSON es el único formato admitido para las asignaciones de destino de dispositivo y FHIR en este momento.
 
 > [!TIP]
-> Más información sobre las asignaciones de destino [de dispositivos y FHIR](how-to-use-fhir-mapping-iot.md) del conector de IoT
+> Más información sobre las asignaciones de [dispositivos](how-to-use-device-mapping-iot.md) del conector de IoT y las [asignaciones de destino de FHIR](how-to-use-fhir-mapping-iot.md)
 
 1. Seleccione **"Conectores de IoT"** en el lado izquierdo del área de trabajo de las API de atención sanitaria.
 

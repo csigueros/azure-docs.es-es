@@ -11,19 +11,21 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2021
 ms.author: yelevin
-ms.openlocfilehash: 152b034fe5fd5571ec58c001a8befc98c84f4107
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 903a0ae946a60ff4b1dd2fec7789fa38986d3bcb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737552"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131083790"
 ---
 # <a name="tutorial-use-playbooks-with-automation-rules-in-azure-sentinel"></a>Tutorial: Uso de cuadernos de estrategias con reglas de automatización en Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 En este tutorial se muestra cómo usar los cuadernos de estrategias junto con las reglas de automatización para automatizar la respuesta a los incidentes y corregir las amenazas de seguridad detectadas por Azure Sentinel. Después de realizar este tutorial, podrá:
 

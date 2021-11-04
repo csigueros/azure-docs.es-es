@@ -8,13 +8,13 @@ ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.date: 10/13/2021
 ms.author: jianleishen
-ms.custom: has-adal-ref, synapse
-ms.openlocfilehash: 9d27c292d044b39f841f86906deaf386357df7c7
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.custom: synapse
+ms.openlocfilehash: 3271c2d37c9193fd9fb682359d0e0c57a6585ae4
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130062772"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131504345"
 ---
 # <a name="troubleshoot-azure-data-factory-and-azure-synapse-analytics-connectors"></a>Solución de problemas relacionados con conectores en Azure Data Factory y Azure Synapse Analytics
 

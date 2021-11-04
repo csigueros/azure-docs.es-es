@@ -1,19 +1,19 @@
 ---
 title: Solicitud de datos meteorológicos en tiempo real y previsiones mediante los servicios meteorológicos de Azure Maps
 description: Aprenda a solicitar datos meteorológicos en tiempo real (actuales) y previsiones (minuto, hora, día) con los servicios meteorológicos de Microsoft Azure Maps.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 04/26/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 ms.custom: mvc
-ms.openlocfilehash: ed0985778f27f17292428dddadaf4d0dedc9cd46
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6ee9fefcb0675f35eebfe78b980d6e04d44f5a72
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738512"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131435270"
 ---
 # <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services"></a>Solicitud de datos meteorológicos en tiempo real y previsiones mediante los servicios meteorológicos de Azure Maps
 
@@ -54,7 +54,7 @@ En este ejemplo, usará [Get Current Conditions API](/rest/api/maps/weather/getc
 2. Seleccione el método **GET** HTTP en la pestaña del generador y escriba la dirección URL siguiente. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal.
 
     ```http
-    https://atlas.microsoft.com/weather/currentConditions/json?api-version=1.0&query=47.60357,-122.32945&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/weather/currentConditions/json?api-version=1.0&query=47.60357,-122.32945&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 3. Haga clic en el botón azul **Enviar**. El cuerpo de la respuesta contiene información meteorológica actual.
@@ -244,7 +244,7 @@ En este ejemplo, usará [Get Severe Weather Alerts API](/rest/api/maps/weather/g
 2. Seleccione el método **GET** HTTP en la pestaña del generador y escriba la dirección URL siguiente. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal.
 
     ```http
-    https://atlas.microsoft.com/weather/severe/alerts/json?api-version=1.0&query=41.161079,-104.805450&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/weather/severe/alerts/json?api-version=1.0&query=41.161079,-104.805450&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 3. Haga clic en el botón azul **Enviar**. Si no hay ninguna alerta meteorológica grave, el cuerpo de la respuesta contendrá una matriz `results[]` vacía. Si hay alertas meteorológicas graves, el cuerpo de la respuesta contiene algo parecido a la siguiente respuesta JSON:
@@ -296,10 +296,11 @@ En este ejemplo, usará [Get Daily Forecast API](/rest/api/maps/weather/getdaily
 2. Seleccione el método **GET** HTTP en la pestaña del generador y escriba la dirección URL siguiente. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal.
 
     ```http
-    https://atlas.microsoft.com/weather/forecast/daily/json?api-version=1.0&query=47.60357,-122.32945&duration=5&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/weather/forecast/daily/json?api-version=1.0&query=47.60357,-122.32945&duration=5&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 3. Haga clic en el botón azul **Enviar**. El cuerpo de la respuesta contiene los datos de previsión meteorológica de cinco días. Por motivos de brevedad, la respuesta JSON siguiente muestra la previsión para el primer día.
+
     ```json
     {
     "summary": {
@@ -544,7 +545,7 @@ En este ejemplo, usará [Get Hourly Forecast API](/rest/api/maps/weather/gethour
 2. Seleccione el método **GET** HTTP en la pestaña del generador y escriba la dirección URL siguiente. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal.
 
     ```http
-    https://atlas.microsoft.com/weather/forecast/hourly/json?api-version=1.0&query=47.60357,-122.32945&duration=12&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/weather/forecast/hourly/json?api-version=1.0&query=47.60357,-122.32945&duration=12&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 3. Haga clic en el botón azul **Enviar**. El cuerpo de la respuesta contiene los datos de previsión meteorológica para las próximas 12 horas. Por motivos de brevedad, la respuesta JSON siguiente muestra la previsión para la primera hora.
@@ -652,7 +653,7 @@ En este ejemplo, usará [Get Minute Forecast API](/rest/api/maps/weather/getminu
 2. Seleccione el método **GET** HTTP en la pestaña del generador y escriba la dirección URL siguiente. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal.
 
     ```http
-    https://atlas.microsoft.com/weather/forecast/minute/json?api-version=1.0&query=47.60357,-122.32945&interval=15&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/weather/forecast/minute/json?api-version=1.0&query=47.60357,-122.32945&interval=15&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 3. Haga clic en el botón azul **Enviar**. El cuerpo de respuesta contiene datos de previsión meteorológica para los próximos 120 minutos, en intervalos de 15 minutos.

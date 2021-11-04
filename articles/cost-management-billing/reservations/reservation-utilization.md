@@ -1,19 +1,19 @@
 ---
 title: Visualización del uso de las reservas de Azure
 description: Obtenga información sobre cómo obtener el uso y los detalles de la reserva.
-author: yashesvi
-ms.reviewer: yashar
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
 ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: 15726451525d3ffcaf2d059b9e6c9dee86058591
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: f69c39205ddc465ee4634ec621905fed2d701682
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129710208"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446246"
 ---
 # <a name="view-reservation-utilization-after-purchase"></a>Visualización del uso de las reservas después de la compra
 

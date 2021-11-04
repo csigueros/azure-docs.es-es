@@ -4,16 +4,16 @@ description: Obtenga más información sobre las plantillas de base de datos de 
 author: gsaurer
 ms.author: gesaur
 ms.service: synapse-analytics
-ms.subservice: database-editor
+ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.custom: template-concept, ignite-fall-2021
-ms.openlocfilehash: 628c815905f5c8afb29df028d7ba74020b941043
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 3ae4d5efc5c80a6a4ff5fdd4c1c5e77ac0d7cb30
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131441312"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131093110"
 ---
 # <a name="lake-database-templates"></a>Plantillas de bases de datos de lago
 

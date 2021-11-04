@@ -7,19 +7,17 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 9/21/2020
-ms.openlocfilehash: d3ac694134ada7a5dcb5ef4226d9de7eb6492f56
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 355f4d2d352bb343ab01805a82e9703771c22436
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122653067"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131467784"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql---flexible-server"></a>Solución de problemas de conexión a Azure Database for MySQL: servidor flexible
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-> [!IMPORTANT]
-> Actualmente, Azure Database for MySQL con servidor flexible se encuentra en versión preliminar pública.
 
 Los problemas de conexión pueden deberse a una variedad de causas, como:
 

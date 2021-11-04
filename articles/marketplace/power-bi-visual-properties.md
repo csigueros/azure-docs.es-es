@@ -8,20 +8,20 @@ ms.service: powerbi
 ms.subservice: powerbi-custom-visuals
 ms.topic: how-to
 ms.date: 09/21/2021
-ms.openlocfilehash: a1426d8ed0a97c2ec1715f4b0c368b9b9b9770f7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c0a683cbca2f29c7c4f8250b07ebcb5937400723
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128699788"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079332"
 ---
 # <a name="configure-power-bi-visual-offer-properties"></a>Configuración de propiedades de oferta visual de Power BI
 
-Esta página permite definir las [categorías](/azure/marketplace/categories) que se usan para agrupar su oferta en Microsoft AppSource, los contratos legales que la respaldan y la documentación de soporte técnico.
+Esta página permite definir las [categorías](./categories.md) que se usan para agrupar su oferta en Microsoft AppSource, los contratos legales que la respaldan y la documentación de soporte técnico.
 
 ## <a name="general-info"></a>Información general
 
-- Seleccione hasta tres **[categorías](/azure/marketplace/categories)** para agrupar su oferta en las áreas de búsqueda de marketplace correspondientes.
+- Seleccione hasta tres **[categorías](./categories.md)** para agrupar su oferta en las áreas de búsqueda de marketplace correspondientes.
 - Seleccione hasta dos **sectores**, que se usarán para mostrar su oferta cuando los clientes filtren su búsqueda por sectores en la tienda en línea.
 
 ## <a name="legal-and-support-info"></a>Información legal y de soporte técnico

@@ -1,15 +1,15 @@
 ---
-author: PatrickFarley
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
-ms.author: pafarley
-ms.openlocfilehash: 797d2cc40dfc10de1ce8c8d6bdb623eff56a375f
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.author: eur
+ms.openlocfilehash: 178609e7292c02d863329c0a4da513f6cbc0b846
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129378290"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131502047"
 ---
 Una de las características principales del servicio de voz es la capacidad para reconocer y transcribir la voz humana (que a menudo se denomina "conversión de voz en texto"). En este inicio rápido, aprenderá a usar el SDK de voz en sus aplicaciones y productos para realizar una conversión de voz en texto de alta calidad.
 
@@ -45,7 +45,7 @@ import azure.cognitiveservices.speech as speechsdk
 
 ## <a name="create-a-speech-configuration"></a>Creación de una configuración de voz
 
-Para llamar al servicio de voz con Speech SDK, debe crear un elemento [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig). Esta clase incluye información sobre la suscripción, como la clave y la región o ubicación asociada, el punto de conexión, el host o el token de autorización. Cree una clase [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig) mediante la clave y la región o ubicación. Consulte la página [Búsqueda de claves y región o ubicación](../../../overview.md#find-keys-and-locationregion) para encontrar el par clave-región o ubicación.
+Para llamar al servicio de voz con Speech SDK, debe crear un elemento [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig). Esta clase incluye información sobre la suscripción, como la clave y la región o ubicación asociada, el punto de conexión, el host, o el token de autorización. Cree una clase [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig) mediante la clave y la región o ubicación. Vea la página [Búsqueda de claves y región o ubicación](../../../overview.md#find-keys-and-locationregion) para encontrar el par clave-región o ubicación.
 
 ```Python
 speech_config = speechsdk.SpeechConfig(subscription="<paste-your-speech-key-here>", region="<paste-your-speech-location/region-here>")

@@ -3,7 +3,7 @@ title: Creación de un punto de conexión de Azure CDN | Microsoft Docs
 description: En este artículo se muestra cómo crear un nuevo punto de conexión de Azure Content Delivery Network (CDN), incluida la configuración avanzada.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 ms.service: azure-cdn
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 09/09/2021
-ms.author: allensu
+ms.author: duau
 ms.custom: mvc
-ms.openlocfilehash: 18f4276c3013f50ceacf74f4c8cec068f0de88cb
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e7ca38a7d4a7965b99b7392a3543dc4d28455e6d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124775538"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131454986"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Creación de un punto de conexión de Azure CDN
 Este artículo describe toda la configuración para crear un punto de conexión de [Azure Content Delivery Network (CDN)](cdn-overview.md) en un perfil de CDN existente. Una vez haya creado un perfil y un punto de conexión, podrá iniciar la entrega de contenido a sus clientes. Para una guía de inicio rápido sobre cómo crear un perfil y un punto de conexión, consulte [Inicio rápido: Creación de un perfil y un punto de conexión de Azure CDN](cdn-create-new-endpoint.md).
@@ -102,7 +102,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de Azur
     Si intenta usar el nombre de dominio de la red CDN antes de que la configuración del punto de conexión se haya propagado a los servidores de punto de presencia (POP), puede recibir un estado de respuesta HTTP 404. Si han pasado varias horas desde que creó el punto de conexión y aún recibe un estado de respuesta 404, consulte [Solución de problemas de puntos de conexión de Azure CDN que devuelven un código de estado 404](cdn-troubleshoot-endpoint.md).
 
 > [!NOTE]
-> En el caso de los *puntos de conexión de CDN de Verizon*, cuando un punto de conexión **está deshabilitado** o **detenido** por cualquier motivo, se limpiarán todos los recursos configurados a través del portal complementario de Verizon. Estas configuraciones no se pueden restaurar automáticamente reiniciando el punto de conexión. Tendrá que volver a realizar esos cambios de configuración.
+> En el caso de los *puntos de conexión de CDN de Verizon*, cuando un punto de conexión **está deshabilitado** o **detenido** por cualquier motivo, se limpiarán todos los recursos configurados a través del portal complementario de Verizon. Estas configuraciones no se pueden restaurar automáticamente al reiniciar el punto de conexión. Tendrá que volver a realizar esos cambios de configuración.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 Para eliminar un punto de conexión cuando ya no sea necesario, selecciónelo y, a continuación, seleccione **Eliminar**. 

@@ -3,20 +3,20 @@ title: Uso de la identificación del idioma
 titleSuffix: Azure Cognitive Services
 description: La identificación del idioma se puede usar con el reconocimiento de voz para determinar el idioma que se habla en el audio de voz que se reconoce.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/21/2021
-ms.author: pafarley
+ms.author: eur
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: 917dd55035ecca40c0a8a25a8f70d79d6a7e6e37
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 6d5d88ba1629dce89acb0345d727896c49680cbe
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124806638"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131505013"
 ---
 # <a name="how-to-use-language-identification"></a>Uso de la identificación del idioma
 

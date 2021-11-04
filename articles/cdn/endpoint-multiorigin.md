@@ -2,18 +2,18 @@
 title: Punto de conexión con varios orígenes de Azure CDN
 description: Empiece a trabajar con el punto de conexión con varios orígenes de Azure CDN.
 services: cdn
-author: asudbring
+author: duongau
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 08/18/2021
-ms.author: allensu
-ms.openlocfilehash: 1e17c747c87a5abb184ae4b7b263a8b5bd1a3a49
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.author: duau
+ms.openlocfilehash: 125e480cec9154a8aaf7d2f0a9b76fa854abca40
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129855999"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423439"
 ---
 # <a name="azure-cdn-endpoint-multi-origin"></a>Punto de conexión con varios orígenes de Azure CDN
 
@@ -66,7 +66,7 @@ El primer grupo de origen se establece como el grupo de origen predeterminado. L
 
 2. Escriba o seleccione la siguiente información en la configuración de **Add Origin** (Agregar origen):
 
-   | Configuración           | Valor                                                                 |
+   | Configuración           | Value                                                                 |
    |-------------------|-----------------------------------------------------------------------|
    | Nombre        | Escriba un nombre para el origen.        |
    | Tipo de origen | Seleccione **Almacenamiento**, **Servicio en la nube**, **Aplicación web** u **Origen personalizado**.                                   |

@@ -1,19 +1,19 @@
 ---
 title: Aplicación de descuentos de reserva a Azure Synapse Analytics (solo almacenes de datos) | Microsoft Docs
 description: Obtenga información sobre cómo aplicar descuentos de reserva a Azure Synapse Analytics para ayudarle a ahorrar dinero.
-author: yashesvi
-ms.reviewer: yashar
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 4d8560484e085f44553c717b10c18920725be212
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: edbd58bcc1a499be364c415e4292e481da27f83f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129710233"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131464649"
 ---
 # <a name="how-reservation-discounts-apply-to-azure-synapse-analytics-data-warehousing-only"></a>Aplicación de descuentos de reserva a Azure Synapse Analytics (solo almacenes de datos)
 

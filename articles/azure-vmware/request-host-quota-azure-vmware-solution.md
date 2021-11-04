@@ -4,12 +4,12 @@ description: Aprenda a solicitar la capacidad o la cuota del host para Azure VMw
 ms.topic: how-to
 ms.custom: contperf-fy21q3
 ms.date: 09/27/2021
-ms.openlocfilehash: 985b17183d8e3373f03f156857ee0697c769e28d
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: a95f152c5e55b1750aa34c9a4093e311eb27df29
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130044826"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131504500"
 ---
 # <a name="request-host-quota-for-azure-vmware-solution"></a>Solicitud de la cuota del host para Azure VMware Solution
 
@@ -40,8 +40,7 @@ Necesitará una cuenta de Azure en una suscripción de Azure que cumpla uno de l
    - **Subtipo de problema:** solicitud de cliente de capacidad o cuota de host adicional.
 
 1. En el campo **Descripción** de la incidencia de soporte técnico, en la pestaña **Detalles**, proporcione la siguiente información:
-
-   - Producción 
+ 
    - Nombre de región
    - Número de hosts
    - Cualquier otro detalle
@@ -94,7 +93,6 @@ Acceda a Azure Portal desde el Centro de partners mediante el procedimiento de *
    
    1. En el campo **Descripción** de la incidencia de soporte técnico, en la pestaña **Detalles**, proporcione la siguiente información:
    
-      - Producción 
       - Nombre de región
       - Número de hosts
       - Cualquier otro detalle

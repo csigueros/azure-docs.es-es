@@ -4,13 +4,14 @@ items:
   - name: Azure API for FHIR documentación
     href: index.yml
   - name: Información general
+    expanded: true
     items:
       - name: Acerca de la API de Azure para FHIR
         href: overview.md
       - name: Conector de Azure IoT para FHIR (versión preliminar)
         href: overview.md#azure-iot-connector-for-fhir-preview
   - name: Guías de inicio rápido
-    expanded: false
+    expanded: true
     items:
       - name: Implementación de Azure API for FHIR
         expanded: false
@@ -32,7 +33,7 @@ items:
           - name: Uso de una plantilla de Resource Manager
             href: iot-azure-resource-manager-template-quickstart.md
   - name: Tutoriales
-    expanded: false
+    expanded: true
     items:
       - name: Implementación de una aplicación JavaScript
         expanded: false
@@ -66,7 +67,7 @@ items:
           - name: Da Vinci Plan Net
             href: ../fhir/davinci-plan-net.md
   - name: Guías paso a paso
-    expanded: false
+    expanded: true
     items:
       - name: Registro de aplicaciones
         expanded: false
@@ -152,7 +153,7 @@ items:
       - name: Recuperación ante desastres para Azure API for FHIR
         href: disaster-recovery.md
   - name: Conceptos
-    expanded: false
+    expanded: true
     items:
       - name: "Introducción a Azure\_AD y Azure API for FHIR"
         href: azure-active-directory-identity-configuration.md
@@ -174,14 +175,18 @@ items:
           - name: Controles de seguridad de Azure Policy
             href: ./security-controls-policy.md
   - name: Recursos
+    expanded: true
     items:
-      - name: Preguntas más frecuentes
-        href: fhir-faq.yml
       - name: Características admitidas
         href: fhir-features-supported.md
+      - name: Notas de la versión
+        href: release-notes.md
+      - name: Preguntas más frecuentes
+        href: fhir-faq.yml
       - name: Proyectos de GitHub
         href: fhir-github-projects.md
   - name: Referencia
+    expanded: true
     items:
       - name: Azure CLI
         href: /cli/azure/healthcareapis

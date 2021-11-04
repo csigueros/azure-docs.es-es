@@ -8,12 +8,12 @@ ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2e0e42cb89e4fa15046f3b2de2f43637ca975bfe
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: d3b85de94c0e323cf33bd3cc2cd7fdf11bf654b2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110679156"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131022481"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Administración de servidores registrados con Azure File Sync
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Para ello, transforma los servidores de Windows Server en una caché rápida del recurso compartido de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para tener acceso a los datos localmente (incluidos SMB, NFS y FTPS) y puede tener tantas cachés según sea necesario en todo el mundo.
@@ -35,7 +35,7 @@ Para registrar un servidor con un servicio de sincronización de almacenamiento,
 
 * Asegúrese de que el módulo Azure PowerShell esté instalado en el servidor. Si el servidor es miembro de un clúster de conmutación por error, todos los nodos del clúster necesitarán el módulo Az. Se pueden encontrar más detalles sobre cómo instalar el módulo Az en [Instalación del módulo de Azure PowerShell](/powershell/azure/install-Az-ps).
 
-    > [!Note]  
+    > [!NOTE]
     > Se recomienda usar la versión más reciente del módulo Azure PowerShell para registrar o anular el registro de un servidor. Si el paquete Az se ha instalado anteriormente en este servidor (y la versión de PowerShell en este servidor es 5.* o superior), puede usar el cmdlet `Update-Module` para actualizar este paquete. 
 * Si utiliza un servidor proxy de red en su entorno, configure el proxy en el servidor para que lo utilice el agente de sincronización.
     1. Determine la dirección IP y el número de puerto del proxy.
@@ -49,7 +49,7 @@ Para registrar un servidor con un servicio de sincronización de almacenamiento,
         * Restablecer el proxy: netsh winhttp reset proxy
         * Si se configura esto después de instalar el agente, reinicie el agente de sincronización: net stop filesyncsvc
     
-```XML
+```xml
     Figure 1:
     <system.net>
         <defaultProxy enabled="true" useDefaultCredentials="true">
@@ -73,7 +73,7 @@ Antes de usar un servidor como *punto de conexión del servidor* en un *grupo de
 
 4. Si el servidor no se ha registrado anteriormente, se abre inmediatamente la interfaz de usuario de registro del servidor tras finalizar la instalación.
 
-> [!Important]  
+> [!IMPORTANT]  
 > Si el servidor es miembro de un clúster de conmutación por error, el agente de Azure File Sync se deberá instalar en cada nodo del clúster.
 
 #### <a name="register-the-server-using-the-server-registration-ui"></a>Registro del servidor mediante la interfaz de usuario de registro del servidor
@@ -90,7 +90,7 @@ Antes de usar un servidor como *punto de conexión del servidor* en un *grupo de
 
     ![Cuadro de diálogo de inicio de sesión](media/storage-sync-files-server-registration/server-registration-ui-3.png)
 
-> [!Important]  
+> [!IMPORTANT]  
 > Si el servidor es miembro de un clúster de conmutación por error, cada servidor debe ejecutar el registro de servidor. Cuando ve los servidores registrados en Azure Portal, Azure File Sync reconoce automáticamente cada nodo como miembro del mismo clúster de conmutación por error y los agrupa de la manera adecuada.
 
 #### <a name="register-the-server-with-powershell"></a>Registro del servidor con PowerShell
@@ -103,7 +103,7 @@ Register-AzStorageSyncServer -ResourceGroupName "<your-resource-group-name>" -St
 ### <a name="unregister-the-server-with-storage-sync-service"></a>Cancelación del registro del servidor del servicio de sincronización de almacenamiento
 Hay varios pasos que son necesarios para anular el registro de un servidor del servicio de sincronización de almacenamiento. A continuación se indica cómo anular el registro correctamente de un servidor.
 
-> [!Warning]  
+> [!WARNING]  
 > No intente solucionar los problemas de sincronización, niveles de la nube ni otros aspectos de Azure File Sync mediante la anulación del registro y posterior registro de un servidor o mediante la eliminación y nueva creación de los puntos de conexión de un servidor, salvo que lo indique explícitamente un ingeniero de Microsoft. La anulación del registro de un servidor y eliminación de sus puntos de conexión es una operación destructiva y los archivos en capas de los volúmenes con puntos de conexión de servidor no se "volverán a conectar" a sus ubicaciones del recurso compartido de archivos de Azure después de que el servidor registrado y los punto de conexión del servidor se creen de nuevo, lo que provocará errores de sincronización. Tenga también en cuenta que los archivos en capas que haya fuera de un espacio de nombres de un punto de conexión de servidor pueden perderse de forma permanente. Puede haber archivos en capas en los puntos de conexión de un servidor aunque nunca se hayan habilitado los niveles de la nube.
 
 #### <a name="optional-recall-all-tiered-data"></a>(Opcional) Recuperación de todos los datos con niveles
@@ -114,7 +114,7 @@ Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.Se
 Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 ```
 
-> [!Warning]  
+> [!WARNING]  
 > Si el volumen local que hospeda el punto de conexión de servidor no tiene suficiente espacio disponible para recuperar todos los datos con niveles, el cmdlet `Invoke-StorageSyncFileRecall` dará error.  
 
 #### <a name="remove-the-server-from-all-sync-groups"></a>Eliminación del servidor de todos los grupos de sincronización
@@ -152,13 +152,13 @@ Ahora que todos los datos se han recuperado y que el servidor se ha quitado de t
 ## <a name="ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter"></a>Configuración de Azure File Sync para que sea un buen vecino en el centro de datos 
 Puesto que Azure File Sync rara vez será el único servicio en ejecución en el centro de datos, es posible que le interese limitar el uso de red y de almacenamiento de Azure File Sync.
 
-> [!Important]  
+> [!IMPORTANT]  
 > Si establece límites demasiado bajos, el rendimiento de la sincronización y la recuperación de Azure File Sync se verá afectado.
 
 ### <a name="set-azure-file-sync-network-limits"></a>Establecimiento de límites de red de Azure File Sync
 Puede limitar el uso que hace Azure File Sync de la red mediante los cmdlets `StorageSyncNetworkLimit`.
 
-> [!Note]  
+> [!NOTE]  
 > Los límites de red no se aplican cuando se tiene acceso a un archivo en capas.
 
 Por ejemplo, puede crear un nuevo límite del regulador de carga de trabajo para asegurarse de que Azure File Sync no utiliza más de 10 Mbps entre las 9 a. m. y las 5 p. m. (17:00 h) durante la semana laboral: 

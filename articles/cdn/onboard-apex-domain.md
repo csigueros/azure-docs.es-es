@@ -2,17 +2,17 @@
 title: 'Incorporación de un dominio raíz o de vértice a un punto de conexión existente de Azure CDN: Azure Portal'
 description: Obtenga información sobre cómo incorporar un dominio raíz o de vértice a un punto de conexión existente de Azure CDN mediante Azure Portal.
 services: cdn
-author: asudbring
+author: duongau
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 11/07/2020
-ms.author: allensu
-ms.openlocfilehash: 025950ffcc264a3cfad1185ac1629c6a8fd44814
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.author: duau
+ms.openlocfilehash: 9962ee3d86147520206aee84ec272069577c2eb5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129992579"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131426324"
 ---
 # <a name="onboard-a-root-or-apex-domain-to-an-existing-azure-cdn-endpoint"></a>Incorporación de un dominio raíz o de vértice a un punto de conexión existente de Azure CDN
 

@@ -11,21 +11,18 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/18/2021
-ms.author: gunnarc
-ms.openlocfilehash: 194e425ca62cbe36fa163efaf88a75fb7e1f09f9
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.date: 11/01/2021
+ms.author: ibthampy
+ms.openlocfilehash: 77f6eaf0cbd9478df6659310c61fa4616c17c749
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130175890"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458501"
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se realizan para la [familia][family-explain] determinada en la que se introdujeron.
 
->[!NOTE] 
-
->El sistema operativo invitado de octubre se está implementando actualmente en las máquinas virtuales del servicio en la nube que están configuradas para las actualizaciones automáticas. Una vez completada la implementación, esta versión estará disponible para las actualizaciones manuales mediante Azure Portal y los archivos de configuración. Las revisiones siguientes se incluyen en el sistema operativo invitado de octubre. Esta lista está sujeta a cambios. 
 
 ## <a name="october-2021-guest-os"></a>SO invitado de octubre de 2021
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |

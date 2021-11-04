@@ -1,18 +1,18 @@
 ---
 title: Metadatos y linaje de Looker
 description: En este artículo se describe la extracción de linaje de datos del origen de Looker.
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 08/12/2021
-ms.openlocfilehash: bed8395940643e56d586369fd00341b4c28b27f9
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 254bbe548ffb95ce6bf43c8fbb8b107ac87997eb
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862840"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131428793"
 ---
 # <a name="how-to-get-lineage-from-looker-into-azure-purview"></a>Extracción de linaje de Looker en Azure Purview
 
