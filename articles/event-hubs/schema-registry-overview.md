@@ -2,14 +2,14 @@
 title: Registro de esquema de Azure en Azure Event Hubs
 description: En este artículo se proporciona información general sobre la compatibilidad del registro de esquema de Azure Event Hubs.
 ms.topic: overview
-ms.date: 10/21/2021
+ms.date: 11/02/2021
 ms.custom: references_regions, ignite-fall-2021
-ms.openlocfilehash: a4ecf4d9205c5110e54e00263cfb17d51ba4b482
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 95db225c83bb760b0f5de12a39b20d24c1613d62
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131016314"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131449866"
 ---
 # <a name="azure-schema-registry-in-azure-event-hubs"></a>Registro de esquema de Azure en Azure Event Hubs
 En muchos escenarios de streaming de eventos y mensajería, la carga de eventos o mensajes contiene datos estructurados. El formato controlado por esquemas, como [Apache Avro](https://avro.apache.org/), se suele usar para serializar o deserializar estos datos estructurados. 

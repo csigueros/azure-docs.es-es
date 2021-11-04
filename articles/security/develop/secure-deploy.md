@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 4c71ddbf1d2b435697b2707acf0b1262f2c5dc31
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f8094fc0eaf646a026371db3726706f92c763f6d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94517196"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131460553"
 ---
 # <a name="deploy-secure-applications-on-azure"></a>Implementación de aplicaciones seguras en Azure
 En esta serie de artículos se presentan las actividades y controles de seguridad que hay que tener en cuenta al implementar aplicaciones para la nube. Se tratan los conceptos y preguntas de seguridad que se deben tener en cuenta durante las fases de versión y de respuesta del [Ciclo de vida de desarrollo de seguridad (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) de Microsoft. El objetivo es ayudarle a definir actividades y servicios de Azure que pueden usarse para implementar una aplicación más segura.
@@ -29,8 +29,7 @@ En este artículo se tratan las siguientes fases del SDL:
 - Response
 
 ## <a name="release"></a>Release
-El enfoque de la fase de lanzamiento es preparar un proyecto para el lanzamiento público.
-Esto incluye la planeación de formas de realizar eficazmente las tareas de servicio posteriores a la versión y de abordar las vulnerabilidades de seguridad que puedan producirse más adelante.
+El enfoque de la fase de lanzamiento es preparar un proyecto para el lanzamiento público. Esto incluye la planeación de formas de realizar eficazmente las tareas de servicio posteriores a la versión y de abordar las vulnerabilidades de seguridad que puedan producirse más adelante.
 
 ### <a name="check-your-applications-performance-before-you-launch"></a>Comprobación del rendimiento de la aplicación antes de iniciar
 
@@ -55,6 +54,7 @@ La revisión deliberada de todas las actividades de seguridad que se llevaron a 
 La certificación de software antes de una versión ayuda a garantizar que se cumplen los requisitos de seguridad y privacidad. El archivo de todos los datos pertinentes es esencial para realizar las tareas de mantenimiento posteriores a la versión. El archivado también ayuda a reducir los costos a largo plazo asociados con la ingeniería de software sostenida.
 
 ## <a name="response"></a>Response
+
 La fase de respuesta posterior al lanzamiento se centra en que el equipo de desarrollo sea capaz y esté disponible para responder adecuadamente a cualquier informe de amenazas y vulnerabilidades de software emergentes.
 
 ### <a name="execute-the-incident-response-plan"></a>Ejecución del plan de respuesta ante incidentes
@@ -64,6 +64,7 @@ Ser capaz de implementar el plan de respuesta a incidentes instituido en la fase
 ### <a name="monitor-application-performance"></a>Supervisión del rendimiento de las aplicaciones
 
 La supervisión continua de la aplicación una vez implementada puede ayudarle a detectar problemas de rendimiento y vulnerabilidades de seguridad.
+
 Los servicios de Azure que ayudan con la supervisión de aplicaciones son los siguientes:
 
   - Azure Application Insights

@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.date: 09/16/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f94a21268625adf3df4dda2f022868f7cc40f72f
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 19101cea8f435f09cb37aa2340f0bc02788442f3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129060327"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131459071"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Administración de scripts previos y posteriores
 
@@ -181,7 +181,7 @@ Los scripts previos y los scripts posteriores se ejecutan como runbooks en la cu
 
 Las tareas previas y posteriores se ejecutan como runbooks y no se ejecutan de manera nativa en las VM de Azure de la implementación. Para interactuar con las máquinas virtuales de Azure, debe tener estos elementos:
 
-* Una [identidad administrada](../automation-security-overview.md#managed-identities-preview) o una cuenta de ejecución
+* Una [identidad administrada](../automation-security-overview.md#managed-identities) o una cuenta de ejecución
 * Un runbook que quiera ejecutar
 
 Para interactuar con máquinas de Azure, debe usar el cmdlet [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) para interactuar con las VM de Azure. Para un ejemplo de cómo hacerlo, consulte el ejemplo de runbook [Update Management: ejecutar script con el comando de ejecución](https://github.com/azureautomation/update-management-run-script-with-run-command).
@@ -190,7 +190,7 @@ Para interactuar con máquinas de Azure, debe usar el cmdlet [Invoke-AzVMRunComm
 
 Las tareas previas y posteriores se ejecutan en el contexto de Azure y no tienen acceso a máquinas que no son de Azure. Para poder interactuar con máquinas que no son de Azure, debe tener los siguientes elementos:
 
-* Una [identidad administrada](../automation-security-overview.md#managed-identities-preview) o una cuenta de ejecución
+* Una [identidad administrada](../automation-security-overview.md#managed-identities) o una cuenta de ejecución
 * Hybrid Runbook Worker instalado en la máquina
 * Un runbook que desea ejecutar localmente
 * Un runbook principal

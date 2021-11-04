@@ -8,12 +8,12 @@ ms.date: 05/12/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: 09d888f5102ca085c9f3ddba2e5276ee9b6c9eda
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a6cb65e1f5cc2654b7df245a3f6c88609498d000
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128620186"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456943"
 ---
 # <a name="azure-storage-data-governance-management-and-migration-partners"></a>Asociados de gobernanza, administración y migración de datos con Azure Storage
 
@@ -24,7 +24,7 @@ En este artículo se destacan las empresas asociadas de Microsoft integradas con
 | Asociado | Descripción | Vínculo del sitio web o el producto |
 | ------- | ----------- | -------------------- |
 |![Atempo](./media/atempo-logo.png) |**Atempo**<br>Atempo Miria permite administrar flujos de trabajo de archivos complejos, como la migración, la copia de seguridad, el archivo y la sincronización en entornos heterogéneos. Atempo Miria tiene una guía de compatibilidad que permite implementar flujos de trabajo de datos eficientes entre NAS, FS paralelo, objeto, cinta y disco óptico. La asociación de Azure y Atempo Miria permite a los clientes implementar cualquier flujo de trabajo de archivos desde un entorno local a Azure o desde la nube a Azure. |[Página de asociado](https://www.atempo.com/products/miria-for-archiving-large-file-sets/)|
-|![Logotipo de la empresa Cirrus](./media/cirrus-logo.jpg) |**Cirrus Data**<br>Cirrus Data Solutions es una solución de migración de datos de almacenamiento en bloques para entornos locales y en la nube. Un enfoque de un extremo a otro permite migrar los datos del entorno local a la nube, entre capas de almacenamiento dentro de la nube y migrar sin problemas entre nubes públicas. |[Página de asociado](https://go.cirrusdata.com/Get-Azure-Cloud-Migration)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/cirrusdatasolutionsinc1618222951068.cirrusdata?tab=Overview)|
+|![Logotipo de la empresa Cirrus](./media/cirrus-logo.jpg) |**Cirrus Data**<br>Cirrus Data Solutions es una solución de migración de datos de almacenamiento en bloques para entornos locales y en la nube. Un enfoque de un extremo a otro permite migrar los datos del entorno local a la nube, entre capas de almacenamiento dentro de la nube y migrar sin problemas entre nubes públicas. |[Página de asociado](https://www.cirrusdata.com/cloud-migration/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/cirrusdatasolutionsinc1618222951068.cirrusdata?tab=Overview)|
 |![Logotipo de la empresa CommVault](./media/commvault-logo.jpg) |**Commvault**<br>Optimice, proteja, migre e indexe los datos mediante la infraestructura de Microsoft con Commvault. Tome el control de sus datos con la protección de datos completa de Commvault, la solución de administración de datos centrada en Microsoft y en Azure. Commvault proporciona las herramientas que necesita para administrar, migrar, acceder y recuperar los datos, independientemente de dónde residan, y que, al mismo tiempo, reduce el costo y el riesgo.|[Página de asociado](https://www.commvault.com/complete-data-protection)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/commvault.commvault)|
 |![Logotipo de la compañía Data Dynamics](./media/datadyn-logo.png) |**Data Dynamics**<br>Data Dynamics proporciona soluciones empresariales con el objetivo de administrar datos no estructurados para entornos híbridos y de varias nubes. Su plataforma de administración de datos unificada no estructurada usa análisis y automatización para ayudarle a migrar datos de forma inteligente y eficaz desde entornos de almacenamiento heterogéneos (SMB, NFS o S3 Object) a Azure. La plataforma proporciona una integración sin problemas, escalado empresarial y rendimiento que permite la administración eficaz de los datos para entornos híbridos y de varias nubes. Los casos de uso incluyen: migración inteligente en la nube, recuperación ante desastres, almacenamiento, copia de seguridad y optimización de la infraestructura y administración de datos. |[Página de asociado](https://www.datadynamicsinc.com/partners-2/)|
 ![Logotipo de la compañía de Datadobi](./media/datadob-logo.png) |**Datadobi**<br> Datadobi puede optimizar los entornos de almacenamiento no estructurados. DobiMigrate es un software de clase empresarial que obtiene datos de archivos y objetos, de manera segura, rápida, fácil y rentable, para Azure. Céntrese en las actividades de valor añadido en lugar de en tareas de migración que consumen mucho tiempo. Aumente la superficie de almacenamiento sin inversiones de capital.|[Página de asociado](https://datadobi.com/partners/microsoft/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=Overview)|

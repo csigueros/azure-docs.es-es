@@ -3,7 +3,7 @@ title: Optimización de descarga de archivos grandes con Azure CDN
 description: Obtenga información sobre cómo se pueden optimizar las descargas de archivos de gran tamaño en Azure Content Delivery Network. En este artículo se incluyen varios escenarios.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 05/01/2018
-ms.author: allensu
-ms.openlocfilehash: ed5768e89482d32bb140e9ba7064de2d20809892
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: duau
+ms.openlocfilehash: e5f0044e2697b7332a64a267c4b3250c2086a092
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96020728"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423420"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Optimización de descarga de archivos grandes con Azure CDN
 

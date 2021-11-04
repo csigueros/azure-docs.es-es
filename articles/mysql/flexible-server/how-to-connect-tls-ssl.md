@@ -6,19 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 46a451fd41f460165435305f2abf5d56fca4837d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2f73d6c8969cd6915c1a571eb6196bcf8f901bd6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780432"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131468145"
 ---
 # <a name="connect-to-azure-database-for-mysql---flexible-server-with-encrypted-connections"></a>Conexión al servidor flexible de Azure Database for MySQL con conexiones cifradas
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Actualmente, Azure Database for MySQL con la opción Servidor flexible está en versión preliminar pública.
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 El servidor flexible de Azure Database for MySQL admite la conexión de las aplicaciones cliente al servidor MySQL mediante el cifrado de la Capa de sockets seguros (SSL) con la Seguridad de la capa de transporte (TLS). TLS es un protocolo estándar del sector que garantiza conexiones de red cifradas entre el servidor de bases de datos y las aplicaciones cliente, lo que le permite ajustarse a los requisitos de cumplimiento.
 
@@ -58,7 +55,7 @@ Si la aplicación cliente no admite conexiones cifradas, tendrá que deshabilita
 En el ejemplo siguiente se muestra cómo conectarse al servidor mediante la interfaz de la línea de comandos mysql. Use la configuración de cadena de conexión `--ssl-mode=DISABLED` para deshabilitar la conexión TLS/SSL del cliente de MySQL. Reemplace los valores por el nombre real del servidor y la contraseña.
 
 ```bash
- mysql.exe -h mydemoserver.mysql.database.azure.com -u myadmin -p --ssl-mode=DISABLED 
+ mysql.exe -h mydemoserver.mysql.database.azure.com -u myadmin -p --ssl-mode=DISABLED
 ```
 
 Es importante tener en cuenta que establecer require_secure_transport en OFF no significa que las conexiones cifradas no se admitan en el lado servidor. Si establece require_secure_transport en OFF en el servidor flexible, pero el cliente se conecta con una conexión cifrada, se seguirá aceptando. La siguiente conexión con el cliente de MySQL a un servidor flexible configurado con require_secure_transport=OFF también funcionará como se muestra a continuación.

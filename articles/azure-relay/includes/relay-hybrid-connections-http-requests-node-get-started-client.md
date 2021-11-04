@@ -1,6 +1,6 @@
 ---
 title: Archivo de inclusión
-description: Archivo de inclusión
+description: archivo de inclusión
 services: service-bus-relay
 author: clemensv
 ms.service: service-bus-relay
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/02/2018
 ms.author: clemensv
 ms.custom: include file
-ms.openlocfilehash: 3c18efa7eb520b765c9bb3c2aff00104f971f5a8
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: 3132d052299e284806cfd2aea1e521691c651c7c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "114667466"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131254038"
 ---
 ### <a name="create-a-nodejs-application"></a>Creación de una aplicación Node.js
 
@@ -42,7 +42,7 @@ Ejecute `npm install hyco-https` desde un símbolo del sistema del nodo en la ca
 
 3. Agregue el siguiente código al archivo `sender.js`. Observará que el código no difiere significativamente del uso normal del cliente HTTPS de Node.js; simplemente agrega el encabezado de autorización.
    
-    ```js
+   ```js
    https.get({
         hostname : ns,
         path : (!path || path.length == 0 || path[0] !== '/'?'/':'') + path,
@@ -51,7 +51,7 @@ Ejecute `npm install hyco-https` desde un símbolo del sistema del nodo en la ca
             'ServiceBusAuthorization' : 
                 https.createRelayToken(https.createRelayHttpsUri(ns, path), keyrule, key)
         }
-    }, (res) => {
+   }, (res) => {
         let error;
         if (res.statusCode !== 200) {
             console.error('Request Failed.\n Status Code: ${statusCode}');
@@ -66,10 +66,10 @@ Ejecute `npm install hyco-https` desde un símbolo del sistema del nodo en la ca
                 console.log('No more data in response.');
             });
         };
-    }).on('error', (e) => {
+   }).on('error', (e) => {
         console.error(`Got error: ${e.message}`);
-    });
-    ```
+   });
+   ```
     Este es el aspecto que debería tener el archivo sender.js:
    
     ```js

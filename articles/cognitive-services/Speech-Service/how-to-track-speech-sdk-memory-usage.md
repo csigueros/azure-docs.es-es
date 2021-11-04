@@ -3,7 +3,7 @@ title: 'Seguimiento del uso de memoria del SDK de voz: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: El SDK del servicio de voz admite un gran número de lenguajes de programación para la conversión de texto a voz y voz a texto, junto con la traducción de voz. En este artículo se describen las herramientas de administración de memoria integradas en el SDK.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
@@ -13,12 +13,12 @@ ms.author: rhurey
 ms.custom: devx-track-csharp, ignite-fall-2021
 zone_pivot_groups: programming-languages-set-two
 ROBOTS: NOINDEX
-ms.openlocfilehash: ca6bfb9dbbc087e4fd9f1ec1d3d83f59f8af943f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b1269860e0f79c207df2cdd1b0f54689dab08ea9
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131086761"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131507082"
 ---
 # <a name="how-to-track-speech-sdk-memory-usage"></a>Seguimiento del uso de memoria del SDK de voz
 

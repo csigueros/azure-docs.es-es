@@ -1,18 +1,19 @@
 ---
 title: 'Roles de facturación del Contrato de cliente de Microsoft: Azure'
 description: Aprenda sobre los roles de facturación para las cuentas de facturación de Azure para los contratos de cliente de Microsoft.
-author: amberbhargava
+author: bandersmsft
+ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/27/2021
+ms.date: 10/28/2021
 ms.author: banders
-ms.openlocfilehash: 0ae80689b8250d81a4ffdb83614a5b1743f1bc45
-ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+ms.openlocfilehash: ebf9a4127a98593c714f7de86c40a8c79f145cb8
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113652174"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131443098"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Descripción de los roles administrativos del contrato de cliente de Microsoft en Azure
 

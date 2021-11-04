@@ -13,15 +13,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/29/2020
+ms.date: 11/02/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 120936f3d2b76fd1e66fc12bfad9bf2f0959de5a
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: e84bd6b69c19a40fe660f17d8b41c38e66bd28d8
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130070173"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131449001"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configuraciones de cargas de trabajo de SAP con Azure Availability Zones
 Además de la implementación de los diferentes niveles de arquitectura de SAP en conjuntos de disponibilidad de Azure, la última instancia de [Azure Availability Zones](../../../availability-zones/az-overview.md) presentada se puede usar también para las implementaciones de cargas de trabajo de SAP. Una zona de disponibilidad de Azure se define como: "Ubicaciones físicas exclusivas dentro de una región. Cada zona consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes". Azure Availability Zones no está disponible en todas las regiones. En el caso de las regiones de Azure que proporcionan Availability Zones, compruebe el [mapa de regiones de Azure](https://azure.microsoft.com/global-infrastructure/geographies/). Este mapa va a mostrar qué regiones proporcionan o se anuncian para proporcionar Availability Zones. 
@@ -112,6 +112,7 @@ Las regiones de Azure en las que una implementación activa/activa debería ser 
 - Este de EE. UU. (dos de las tres zonas)
 - Centro-sur de EE. UU. (dos de las tres zonas)
 - Sur de Reino Unido (dos de las tres zonas)
+- Sudeste de Asia
 
 Las regiones de Azure donde no se recomienda esta arquitectura de implementación de SAP entre zonas son:
 
@@ -153,7 +154,6 @@ Si no encuentra una diferencia aceptable entre la latencia de red dentro de una 
 
 Las regiones de Azure donde este tipo de arquitectura de implementación entre distintas zonas puede ser preferibles son:
 
-- Sudeste de Asia
 - Este de Australia
 - Sur de Brasil
 - Centro-oeste de Alemania

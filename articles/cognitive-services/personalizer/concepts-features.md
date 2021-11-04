@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: fb276979530fccfb95fd9d34655573a04391e524
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 8faae773e2ca3e1da51c23967ad6d9ba3fa2c1b7
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129219180"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131426076"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Las características son información acerca de las acciones y del contexto
 
@@ -165,7 +165,7 @@ Por ejemplo:
 Se pueden usar otros elementos de [Azure Cognitive Services](https://www.microsoft.com/cognitive-services), como
 
 * [Entity Linking](../text-analytics/index.yml)
-* [Text Analytics](../text-analytics/overview.md)
+* [Servicio de lenguaje](../language-service/index.yml)
 * [Emoción](../face/overview.md)
 * [Computer Vision](../computer-vision/overview.md)
 

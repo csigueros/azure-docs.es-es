@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: f8f4dc553bcb9750199d38c640c70012b73bf4bf
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b21d70747dd7d3c08025787efb8ab1d7e29b2fa9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131055110"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131467613"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Recursos útiles al trabajar con Azure Sentinel
 
@@ -61,7 +61,7 @@ En el espacio de TechCommunity para Azure Sentinel:
 - [Consulte y realice comentarios en las entradas de blog recientes](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog)
 - [Publique sus propias preguntas sobre Azure Sentinel](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel)
 
-También puede enviar sugerencias para obtener mejoras a través de nuestro programa [Voz del usuario](https://feedback.azure.com/forums/920458-azure-sentinel).
+También puede enviar sugerencias para obtener mejoras a través de nuestro programa [Voz del usuario](https://feedback.azure.com/d365community/forum/37638d17-0625-ec11-b6e6-000d3a4f07b8).
 
 ## <a name="join-the-azure-sentinel-github-community"></a>Únase a la comunidad de GitHub de Azure Sentinel
 

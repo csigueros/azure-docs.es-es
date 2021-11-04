@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: f3eba06b40ef9f96dc5b94b6d21b43e6fecccce1
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 92d879f0ed4d7252624f0d825fc50892d3d5851e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129358087"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131474162"
 ---
 # <a name="tutorial-migrate-a-web-app-from-google-maps"></a>Tutorial: Migración de una aplicación web desde Google Maps
 
@@ -158,7 +158,7 @@ Se muestra un mapa de Google centrado y con zoom en una ubicación.
     </script>
 
     <!-- Google Maps Script Reference -->
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=[Your Google Maps Key]" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key={Your-Google-Maps-Key}" async defer></script>
 </head>
 <body>
     <div id='myMap' style='position:relative;width:600px;height:400px;'></div>
@@ -245,16 +245,16 @@ Si su audiencia se extiende a varios países o regiones y habla distintos idioma
 Para traducir Google Maps, agregue parámetros de idioma y región.
 
 ```html
-<script type="text/javascript" src=" https://maps.googleapis.com/maps/api/js?callback=initMap&key=[api_key]& language=[language_code]&region=[region_code]" async defer></script>
+<script type="text/javascript" src=" https://maps.googleapis.com/maps/api/js?callback=initMap&key={api-Key}& language={language-code}&region={region-code}" async defer></script>
 ```
 
 Este es un ejemplo de Google Maps con el idioma establecido en "fr-FR".
 
 ![Localización de Google Maps](media/migrate-google-maps-web-app/google-maps-localization.png)
 
-#### <a name="after-azure-maps&quot;></a>Después: Azure Maps
+#### <a name="after-azure-maps"></a>Después: Azure Maps
 
-Azure Maps proporciona dos formas diferentes de establecer el idioma y la vista regional del mapa. La primera opción es agregar esta información al espacio de nombres de *atlas* global. Como resultado, todas las instancias de control de mapa de la aplicación tendrán como valor predeterminado esta configuración. El código siguiente establece el idioma en francés (&quot;fr-FR") y la vista regional en "auto":
+Azure Maps proporciona dos formas diferentes de establecer el idioma y la vista regional del mapa. La primera opción es agregar esta información al espacio de nombres de *atlas* global. Como resultado, todas las instancias de control de mapa de la aplicación tendrán como valor predeterminado esta configuración. El código siguiente establece el idioma en francés ("fr-FR") y la vista regional en "auto":
 
 ```javascript
 atlas.setLanguage('fr-FR');
@@ -854,7 +854,7 @@ Especifique una única función de devolución de llamada en el método `map.dat
     </script>
 
     <!-- Google Maps Script Reference -->
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=[Your Google Maps Key]" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key={Your-Google-Maps-Key}" async defer></script>
 </head>
 <body>
     <div id='myMap' style='position:relative;width:600px;height:400px;'></div>
@@ -1008,7 +1008,7 @@ Use la biblioteca MarkerCluster para los marcadores de clúster. Los iconos de c
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
 
     <!-- Google Maps Script Reference -->
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=[Your Google Maps Key]" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key={Your-Google-Maps-Key}" async defer></script>
 </head>
 <body>
     <div id='myMap' style='position:relative;width:600px;height:400px;'></div>
@@ -1214,7 +1214,7 @@ Para crear un mapa térmico, agregue `&libraries=visualization` a la dirección 
     </script>
 
     <!-- Google Maps Script Reference -->
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=[Your Google Maps Key]&libraries=visualization" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key={Your-Google-Maps-Key}&libraries=visualization" async defer></script>
 </head>
 <body>
     <div id='myMap' style='position:relative;width:600px;height:400px;'></div>
@@ -1317,12 +1317,12 @@ map.overlayMapTypes.insertAt(0, new google.maps.ImageMapType({
 
 ![Capa de mosaicos de Google Maps](media/migrate-google-maps-web-app/google-maps-tile-layer.png)
 
-#### <a name="after-azure-maps&quot;></a>Después: Azure Maps
+#### <a name="after-azure-maps"></a>Después: Azure Maps
 
 Agregue una capa de mosaicos al mapa igual que haría con cualquier otra capa. Use una dirección URL con formato que tenga marcadores de X, Y y zoom: `{x}`, `{y}`, `{z}`, para indicar a la capa dónde puede acceder a los mosaicos. Las capas de mosaicos de Azure Maps también admiten los marcadores de posición `{quadkey}`, `{bbox-epsg-3857}` y `{subdomain}`.
 
 > [!TIP]
-> En Azure Maps las capas se pueden representar fácilmente bajo otras capas, incluidas las capas base del mapa. A menudo es conveniente representar las capas de mosaicos debajo de las etiquetas del mapa para que resulten fáciles de leer. El método `map.layers.add` toma un segundo parámetro que es el identificador de la capa en la que se va a insertar la siguiente capa nueva. Para insertar una capa de mosaico debajo de las etiquetas de mapa, use este código: `map.layers.add(myTileLayer, &quot;labels");`
+> En Azure Maps las capas se pueden representar fácilmente bajo otras capas, incluidas las capas base del mapa. A menudo es conveniente representar las capas de mosaicos debajo de las etiquetas del mapa para que resulten fáciles de leer. El método `map.layers.add` toma un segundo parámetro que es el identificador de la capa en la que se va a insertar la siguiente capa nueva. Para insertar una capa de mosaico debajo de las etiquetas de mapa, use este código: `map.layers.add(myTileLayer, "labels");`
 
 ```javascript
 //Create a tile layer and add it to the map below the label layer.
@@ -1424,7 +1424,7 @@ Especifique la dirección URL de la imagen que quiere superponer y un rectángul
     </script>
 
     <!-- Google Maps Script Reference -->
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=[Your Google Maps Key]" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key={Your-Google-Maps-Key}" async defer></script>
 </head>
 <body>
     <div id="myMap" style="position:relative;width:600px;height:400px;"></div>
@@ -1534,7 +1534,7 @@ Tanto Azure como Google Maps pueden importar y representar datos KML, KMZ y GeoR
     </script>
 
     <!-- Google Maps Script Reference -->
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=[Your Google Maps Key]" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key={Your-Google-Maps-Key}" async defer></script>
 </head>
 <body>
     <div id="myMap" style="position:relative;width:600px;height:400px;"></div>

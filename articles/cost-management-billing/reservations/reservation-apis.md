@@ -1,20 +1,20 @@
 ---
 title: API para la automatización de reservas de Azure | Microsoft Docs
 description: Obtenga información sobre las API de Azure que puede usar para obtener información de reservas mediante programación.
-author: yashesvi
-ms.reviewer: yashesvi
+author: bandersmsft
+ms.reviewer: primittal
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 74539bc58e3b0b7261792f492a6ea2cc151b8964
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a82c0ffa8f4396af409624083a945e8b53847a96
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128666616"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131430522"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>API para la automatización de reservas de Azure
 
@@ -59,7 +59,7 @@ Cuerpo de la solicitud:
 }
 ```
 
-También puede comprar una reserva en Azure Portal. Para más información, consulte los siguientes artículos.
+También puede comprar una reserva en Azure Portal. Para más información, consulte los siguientes artículos:
 
 Planes de servicio:
 - [Máquina virtual](../../virtual-machines/prepay-reserved-vm-instances.md?toc=%2fazure%2fbilling%2fTOC.json)

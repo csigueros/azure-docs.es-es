@@ -1,16 +1,16 @@
 ---
-author: v-demjoh
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/14/2020
-ms.author: v-demjoh
+ms.author: eric-urban
 ms.custom: devx-track-js
-ms.openlocfilehash: 1d7fc134ab6e3c27e38b00f61a2463bc9d3d0167
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 42e0db662c9eaae08351c12a03e1954372b628d6
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129377840"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131506906"
 ---
 Una de las características principales del servicio de voz es la capacidad para reconocer la voz humana y traducirla a otros idiomas. En este inicio rápido, aprenderá a usar Speech SDK en sus aplicaciones y productos para realizar la traducción de voz de alta calidad. En este inicio rápido se tratan temas que incluyen:
 

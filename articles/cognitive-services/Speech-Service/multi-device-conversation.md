@@ -3,19 +3,19 @@ title: 'Conversación entre varios dispositivos (versión preliminar): Servicio 
 titleSuffix: Azure Cognitive Services
 description: La conversación entre varios dispositivos facilita la creación de una conversación de voz o texto entre varios clientes y la coordinación de los mensajes que se envían entre ellos.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.author: pafarley
-ms.openlocfilehash: 200298a5b78080e731799619cdde7bcf77b3a7d1
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.author: eur
+ms.openlocfilehash: 262e0286f3e4cba0d11e21676bb4b5f1e468fb71
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123539558"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131510526"
 ---
 # <a name="what-is-multi-device-conversation-preview"></a>¿Qué es la conversación entre varios dispositivos (versión preliminar)?
 

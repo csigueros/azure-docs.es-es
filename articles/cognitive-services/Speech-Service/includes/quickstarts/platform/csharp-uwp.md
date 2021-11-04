@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/15/2020
-ms.author: pafarley
+ms.author: eur
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 087ff15a2dc8aeabf538b0878ea5b117d4b68e36
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 320fc32439b8e22ef3ebee91d470eb37e3c37bf1
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131253087"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131502432"
 ---
 En esta guía se muestra cómo instalar el [SDK de Voz](~/articles/cognitive-services/speech-service/speech-sdk.md) para UWP (Plataforma universal de Windows) en C#. Si desea simplemente que el nombre del paquete comience por su cuenta, ejecute `Install-Package Microsoft.CognitiveServices.Speech` en la consola de NuGet.
 

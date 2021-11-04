@@ -2,7 +2,7 @@
 title: Supervisión, métricas y registros sin procesar para Azure CDN
 description: En este artículo se describe cómo configurar y usar la supervisión, las métricas y los registros sin procesar de Azure CDN.
 services: cdn
-author: asudbring
+author: duongau
 manager: KumudD
 ms.service: azure-cdn
 ms.tgt_pltfrm: na
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: yuajia
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fd117532267672e152b6fd6f6ce382c4bda39687
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 3c169a63a39f26174cf6c39ef73c95ae5e545b2c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110693960"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450483"
 ---
 # <a name="real-time-monitoring-metrics-and-access-logs-for-azure-cdn"></a>Supervisión en tiempo real, métricas y registros de acceso para Azure CDN
 Con Azure CDN de Microsoft, puede supervisar los recursos de las siguientes maneras para ayudarle a solucionar problemas, realizar seguimientos y depurar incidencias. 

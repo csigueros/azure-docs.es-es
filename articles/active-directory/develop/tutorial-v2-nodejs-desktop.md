@@ -3,19 +3,19 @@ title: 'Tutorial: Inicio de sesión por los usuarios y llamada a Microsoft Graph
 titleSuffix: Microsoft identity platform
 description: En este tutorial creará una aplicación de escritorio de Electron con la que los usuarios pueden iniciar sesión y usar el flujo de código de autenticación para obtener un token de acceso de la plataforma de identidad de Microsoft y llamar a Microsoft Graph API.
 services: active-directory
-author: KarenH444
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 02/17/2021
-ms.author: karenhoran
-ms.openlocfilehash: 2036a0317aef3d383d065cdd2ad6143342ea1d91
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.author: marsma
+ms.openlocfilehash: 083c31b427c0f3d8cc261af7c9033d4ec1ffbeae
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130161853"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500476"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-in-an-electron-desktop-app"></a>Tutorial: Inicio de sesión por los usuarios y llamada a Microsoft Graph API en una aplicación de escritorio de Electron
 

@@ -3,12 +3,12 @@ title: Matriz de compatibilidad para la recuperación ante desastres física o d
 description: Resume la compatibilidad de la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure mediante Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/02/2021
-ms.openlocfilehash: 2557292af835f13792673c2cfbb1eb82542b7725
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 084e0b9b0b42bbe2ba3632d54811e738197899f3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129994487"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441483"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure.
 
@@ -251,7 +251,7 @@ NFS de invitado/servidor | No
 Invitado/servidor iSCSI | Para migración: sí<br/>Para recuperación ante desastres: no, iSCSI realiza la conmutación por recuperación como un disco conectado a la máquina virtual
 SMB 3.0 de invitado/servidor | No
 RDM de invitado/servidor | Sí<br/><br/> N/D para servidores físicos
-Disco de invitado/servidor > 1 TB | Sí, el disco debe ser de un tamaño superior a 1024 MB.<br/><br/>Hasta 8192 GB al replicar en discos administrados (versión 9.26 en adelante)<br></br> Hasta 4095 GB al replicar en cuentas de almacenamiento
+Disco de invitado/servidor > 1 TB | Sí, el disco debe ser de un tamaño superior a 1024 MB.<br/><br/>Hasta 32 767 GB al replicar en discos administrados (versión 9.41 en adelante)<br></br> Hasta 4095 GB al replicar en cuentas de almacenamiento
 Disco de invitado/servidor con tamaño de sector físico de 4K y lógico de 4K | No
 Disco de invitado/servidor con tamaño de sector físico de 512 bytes y lógico de 4K | No
 Volumen de invitado/servidor con disco seccionado > 4 TB | Sí

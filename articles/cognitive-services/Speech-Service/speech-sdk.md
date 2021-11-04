@@ -3,19 +3,19 @@ title: 'Acerca del SDK de Voz: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: El kit de desarrollo de software (SDK) de voz expone muchas de las funcionalidades del servicio de voz, lo que facilita el desarrollo de aplicaciones habilitadas para la voz.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.author: pafarley
-ms.openlocfilehash: 6078fdd823160b6ea5e76efd5940342d333e84f1
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.author: eur
+ms.openlocfilehash: b3d7eab14adb2e880b6c140f3dbe3a0d9145b189
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123540128"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131506651"
 ---
 # <a name="about-the-speech-sdk"></a>Acerca del SDK de Voz
 

@@ -3,7 +3,7 @@ title: Encabezados HTTP X-EC-Debug para el motor de reglas de Azure CDN | Micros
 description: El encabezado de solicitud de caché de depuración X-EC-Debug proporciona información adicional acerca de la directiva de caché que se aplica al recurso solicitado. Estos encabezados son específicos de Verizon.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
-ms.author: allensu
-ms.openlocfilehash: 7b0171b2bf74f60e2cc1ea7600f313934737103e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.author: duau
+ms.openlocfilehash: 2a066fa60956992dcc05e1f6b54d1513949a2a43
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128639648"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131454929"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Encabezados HTTP X-EC-Debug para el motor de reglas de Azure CDN
 El encabezado de solicitud de caché de depuración, `X-EC-Debug`, proporciona información adicional acerca de la directiva de caché que se aplica al recurso solicitado. Estos encabezados son específicos de los productos **Azure CDN Premium de Verizon**.

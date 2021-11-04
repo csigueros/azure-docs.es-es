@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 09/13/2021
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 80387608b8c8ab7069ed989078472102e3d9afe8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a95331f1b5cd0110cc38e60870ad9bfd5e4a16bd
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128699832"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131466815"
 ---
 # <a name="change-the-size-of-a-virtual-machine"></a>Cambio del tamaño de una máquina virtual 
 
-**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles 
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles 
 
 En este artículo se muestra cómo mover una máquina virtual a otro [tamaño de máquina virtual](sizes.md).
 

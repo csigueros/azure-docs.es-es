@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 10/26/2021
 ms.author: jasteppe
-ms.openlocfilehash: ef22404d96599768ad55c3c3687e3df9fb4bbf35
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 3550bab190c2b5bbec5a03faa8131094003ee85b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131040478"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446018"
 ---
 # <a name="how-to-use-device-mapping"></a>Uso de la asignación de dispositivos
 
@@ -29,7 +29,7 @@ Los dos tipos de asignaciones se componen en un documento JSON en función de su
 > Las asignaciones se almacenan en un almacenamiento de blobs subyacente y se cargan desde la ejecución de blobs por proceso. Al actualizarse, se aplican inmediatamente. 
 
 > [!TIP]
-> Consulte la herramienta [Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) del conector ioMT para editar, probar y solucionar problemas de asignaciones de dispositivos y destinos de FHIR del conector de IoT. Exporte asignaciones para cargar en el conector de IoT Azure Portal use con la versión [de código abierto](https://github.com/microsoft/iomt-fhir) del conector de IoT.
+> Consulte la herramienta [Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) del conector ioMT para editar, probar y solucionar problemas de asignaciones de dispositivos y destinos de FHIR del conector de IoT. Exporte asignaciones para cargar en el conector de IoT Azure Portal use con la versión [de código](https://github.com/microsoft/iomt-fhir) abierto del conector de IoT.
 
 ## <a name="device-mapping"></a>Asignación de dispositivos
 
@@ -267,7 +267,7 @@ JsonPathContentTemplate permite hacer coincidir valores de un mensaje del centro
 
 IotJsonPathContentTemplate es similar a JsonPathContentTemplate, salvo que DeviceIdExpression y TimestampExpression no son necesarios.
 
-Al usar esta plantilla se supone que los mensajes que se están evaluando se enviaron mediante los [SDK de dispositivo de Azure IoT Hub](../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) o la característica [Exportar datos (heredado)](../../iot-central/core/howto-export-data-legacy.md) de [Azure IoT Central](../../iot-central/core/overview-iot-central.md). Al usar estos SDK, se conocen la identidad del dispositivo (suponiendo que el identificador de dispositivo de Azure Iot Hub/Central se registra como identificador de un recurso de dispositivo en el servicio FHIR de destino) y la marca de tiempo del mensaje. Puede usar JsonPathContentTemplate aunque use el SDK de dispositivo de Azure IoT Hub, si hay propiedades personalizadas en el cuerpo del mensaje correspondientes a la identidad del dispositivo o a la marca de tiempo de la medida.
+Al usar esta plantilla se supone que los mensajes que se están evaluando se enviaron mediante los [SDK de dispositivo de Azure IoT Hub](../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) o la característica [Exportar datos (heredado)](../../iot-central/core/howto-export-data-legacy.md) de [Azure IoT Central](../../iot-central/core/overview-iot-central.md). Cuando se usan estos SDK, la identidad del dispositivo (suponiendo que el identificador de dispositivo de Azure Iot Hub/Central se registra como identificador de un recurso de dispositivo en el servicio FHIR de destino) y la marca de tiempo del mensaje se conocen. Puede usar JsonPathContentTemplate aunque use el SDK de dispositivo de Azure IoT Hub, si hay propiedades personalizadas en el cuerpo del mensaje correspondientes a la identidad del dispositivo o a la marca de tiempo de la medida.
 
 > [!NOTE]
 > Cuando se usa `IotJsonPathContentTemplate`, `TypeMatchExpression` debe resolverse en el mensaje completo como JToken. Consulte los siguientes ejemplos para obtener más información.
@@ -454,6 +454,6 @@ IotCentralJsonPathContentTemplate no requiere DeviceIdExpression ni TimestampExp
 ## <a name="next-steps"></a>Pasos siguientes
 
 >[!div class="nextstepaction"]
->[Uso de asignaciones de destino de FHIR](how-to-use-fhir-mapping-iot.md)
+>[Uso de la asignación de destino de FHIR](how-to-use-fhir-mapping-iot.md)
 
 (FHIR&#174;) es una marca comercial registrada de [HL7](https://hl7.org/fhir/) y se usa con el permiso de HL7.
