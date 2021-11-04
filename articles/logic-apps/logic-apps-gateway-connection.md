@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, azla
 ms.topic: conceptual
 ms.date: 07/14/2021
-ms.openlocfilehash: 4f49e0fbbfa4c2a98b86c96dc3b0e650d6ff6bc9
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: 30fa05a4aad2108ac96de820ac2ea86357cd17b6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114204832"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131457532"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conexión a orígenes de datos locales desde Azure Logic Apps
 
@@ -63,7 +63,7 @@ También puede crear [conectores personalizados](../logic-apps/custom-connector-
   * No es necesario que la aplicación lógica y el recurso de puerta de enlace estén en la misma suscripción de Azure. En los desencadenadores y las acciones en los que puede usar el recurso de puerta de enlace, puede seleccionar una suscripción de Azure diferente que tenga un recurso de puerta de enlace, pero solo si esa suscripción existe en el mismo inquilino o directorio de Azure AD que la aplicación lógica. También debe tener permisos de administrador en la puerta de enlace, que otro administrador puede configurar automáticamente. Para más información, consulte [Puerta de enlace de datos: automatización con PowerShell, parte 1](https://community.powerbi.com/t5/Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) y [PowerShell: puerta de enlace de datos: Add-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser).
 
     > [!NOTE]
-    > Actualmente, no se puede compartir un recurso o una instalación de puerta de enlace en varias suscripciones. Para enviar comentarios sobre el producto, consulte [Foro de comentarios de Microsoft Azure](https://feedback.azure.com/forums/34192--general-feedback).
+    > Actualmente, no se puede compartir un recurso o una instalación de puerta de enlace en varias suscripciones. Para enviar comentarios sobre el producto, consulte [Foro de comentarios de Microsoft Azure](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4).
 
 <a name="create-gateway-resource"></a>
 

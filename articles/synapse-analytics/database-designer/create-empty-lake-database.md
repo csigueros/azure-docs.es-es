@@ -4,16 +4,16 @@ description: Aprenda a crear una base de datos de lago vacía en Azure Synapse A
 author: aamerril
 ms.author: aamerril
 ms.service: synapse-analytics
-ms: 'subservice:'
+ms.subservice: database-editor
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 8717168532f84c8a3ed8735b5298eb0bb8065d20
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 9612fabc94e3425c42bb30e3075a56fb3f789626
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091581"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131510453"
 ---
 # <a name="how-to-create-an-empty-lake-database"></a>Cómo crear de una base de datos de lago vacía
 
@@ -62,7 +62,7 @@ En este artículo, aprenderá a crear una [base de datos de lago](./concepts-lak
     - La base de datos se validará para ver si hay errores antes de su publicación. Los errores encontrados se mostrarán en la pestaña de notificaciones y tendrán instrucciones sobre cómo solucionar el error.
     
        ![Captura de pantalla del panel de validación que muestra los errores de validación en la base de datos](./media/create-empty-lake-database/validation-error.png)
-    - La publicación creará el esquema de base de datos en el Metastore de Azure Synapse. La publicación creará el esquema de base de datos en el Metastore de Azure Synapse. Después de la publicación, los objetos de la base de datos y la tabla serán visibles para otros servicios de Azure y permitirán que los metadatos de la base de datos fluyan a aplicaciones como Power BI o Purview.
+    - La publicación creará el esquema de base de datos en el Metastore de Azure Synapse. Después de la publicación, los objetos de la base de datos y la tabla serán visibles para otros servicios de Azure y permitirán que los metadatos de la base de datos fluyan a aplicaciones como Power BI o Purview.
 
 11. Ya ha creado una base de datos de lago vacía en Azure Synapse y le ha agregado tablas mediante las opciones **Personalización** y **Desde el lago de datos**.
 

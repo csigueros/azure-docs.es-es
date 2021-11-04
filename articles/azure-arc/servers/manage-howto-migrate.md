@@ -3,12 +3,12 @@ title: Migración de servidores habilitados para Azure Arc entre regiones
 description: Aprenda a migrar un servidor habilitado para Azure Arc de una región a otra.
 ms.date: 07/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: ea44fbf060588ca3859e7f0d51b7d7449dc318fa
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 5039ff2d00b83a8f93cf32caa27eee2032ee35dd
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124807393"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131462052"
 ---
 # <a name="how-to-migrate-azure-arc-enabled-servers-across-regions"></a>Migración de servidores habilitados para Azure Arc entre regiones
 
@@ -24,7 +24,7 @@ Para migrar un servidor habilitado para Azure Arc de una región de Azure a otra
 > [!NOTE]
 > Durante esta operación, se produce tiempo de inactividad en la migración.
 
-1. Quite las extensiones de VM instaladas desde [Azure Portal](manage-vm-extensions-portal.md#uninstall-extensions), con la [CLI de Azure](manage-vm-extensions-cli.md#remove-an-installed-extension) o con [Azure PowerShell](manage-vm-extensions-powershell.md#remove-an-installed-extension).
+1. Quite las extensiones de VM instaladas desde [Azure Portal](manage-vm-extensions-portal.md#remove-extensions), con la [CLI de Azure](manage-vm-extensions-cli.md#remove-extensions) o con [Azure PowerShell](manage-vm-extensions-powershell.md#remove-extensions).
 
 2. Use la herramienta **azcmagent** con el parámetro [Disconnect](manage-agent.md#disconnect) para desconectar la máquina de Azure Arc y eliminar el recurso de la máquina de Azure. Al desconectar la máquina de los servidores habilitados para Azure Arc, no se quita el agente de Connected Machine y no es necesario quitarlo como parte de este proceso. Puede realizar esta operación manualmente con la sesión iniciada de forma interactiva, o bien usar la misma entidad de servicio que utilizó para incorporar varios agentes o un [token de acceso](../../active-directory/develop/access-tokens.md) de la Plataforma de identidad de Microsoft. Si no ha usado una entidad de servicio para registrar la máquina con los servidores habilitados para Azure Arc, vea el siguiente [artículo](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) para crear una entidad de servicio.
 

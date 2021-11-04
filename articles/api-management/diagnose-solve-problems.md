@@ -6,12 +6,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 02/05/2021
 ms.author: rongzhang
-ms.openlocfilehash: 9dcbd1bf789d199b0561587949a5381027518ca3
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 83fbb17baf63d51b9f7ef29d369924294aa7c262
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123436417"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131447481"
 ---
 # <a name="azure-api-management-diagnostics-overview"></a>Introducción sobre los diagnósticos de Azure API Management
 
@@ -88,4 +88,4 @@ Además de las herramientas para diagnosticar y solucionar problemas, puede busc
 * Use también el [análisis de API](howto-use-analytics.md) para analizar el uso y el rendimiento de las API. 
 * ¿Desea solucionar problemas de Web Apps con Diagnósticos? Lea al respecto [aquí](../app-service/overview-diagnostics.md)
 * Use Diagnósticos para comprobar los problemas de Azure Kubernetes Services. Consulte [Diagnósticos en AKS](../aks/concepts-diagnostics.md)
-* Publique sus preguntas o comentarios en [UserVoice](https://feedback.azure.com/forums/248703-api-management) agregando "[Diag]" en el título.
+* Publique sus preguntas o comentarios en [UserVoice](https://feedback.azure.com/d365community/forum/e808a70c-ff24-ec11-b6e6-000d3a4f0858) agregando "[Diag]" en el título.

@@ -7,12 +7,12 @@ ms.author: msangapu
 ms.service: app-service
 ms.custom: subject-monitoring
 ms.date: 04/16/2021
-ms.openlocfilehash: 330629c958e036db382bed63b9ae0b9642e14bad
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: bf48bd5fd5155b7409d3868635ee3529cfd97b92
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114227885"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471067"
 ---
 # <a name="monitoring-app-service-data-reference"></a>Supervisión de referencia de datos de App Service
 
@@ -41,10 +41,6 @@ Para obtener más información sobre las dimensiones de métricas, consulte [Mé
 App Service no tiene ninguna métrica que contenga dimensiones.
 
 ## <a name="resource-logs"></a>Registros del recurso
-
-> [!NOTE]
-> La integración de Azure Monitor con App Service se encuentra en [versión preliminar](https://aka.ms/appsvcblog-azmon).
->
 
 En esta sección se enumeran los tipos de registros de recursos que se pueden recopilar para Azure Service Bus. 
 

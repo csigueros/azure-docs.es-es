@@ -3,7 +3,7 @@ title: Encabezados HTTP específicos de Verizon para el motor de reglas de Azure
 description: En este artículo se describe cómo usar los encabezados HTTP específicos de Verizon con el motor de reglas de Azure CDN.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
-ms.author: allensu
-ms.openlocfilehash: e20f6ce9540d357b61ae2cfdf0e8f96d127dc6c0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: duau
+ms.openlocfilehash: 25e51bbc96f07f29fe62e85366d1d6359dffaaea
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84343224"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131439317"
 ---
 # <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Encabezados HTTP específicos de Verizon para el motor de reglas de Azure CDN
 

@@ -3,21 +3,21 @@ title: Migración de su aplicación JavaScript de ADAL.js a MSAL.js | Azure
 titleSuffix: Microsoft identity platform
 description: En este artículo se explica cómo actualizar una aplicación JavaScript con el objetivo de usar la biblioteca de autenticación de Microsoft (MSAL) para la autenticación y autorización en lugar de la biblioteca de autenticación de Active Directory (ADAL).
 services: active-directory
-author: KarenH444
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 07/06/2021
-ms.author: karenhoran
+ms.author: marsma
 ms.custom: has-adal-ref
-ms.openlocfilehash: 9e5e7b5f5bec9cf26e7dbdd019509157b9a225ba
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 6614c1d06dd1e5093dfbe7e3ea3a20ff13ec74c1
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130163900"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501046"
 ---
 # <a name="how-to-migrate-a-javascript-app-from-adaljs-to-msaljs"></a>Cómo migrar una aplicación de JavaScript de ADAL.js a MSAL.js
 
@@ -324,7 +324,7 @@ Los siguientes fragmentos de código demuestran el código mínimo necesario par
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script 
+  <script
     type="text/javascript"
     src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.18/js/adal.min.js">
   </script>
@@ -377,8 +377,8 @@ Los siguientes fragmentos de código demuestran el código mínimo necesario par
 
     tokenButton.addEventListener('click', () => {
         authContext.acquireTokenPopup(
-            "https://graph.microsoft.com", 
-            null, null, 
+            "https://graph.microsoft.com",
+            null, null,
             function (error, token) {
                 console.log(error, token);
             }
@@ -401,8 +401,8 @@ Los siguientes fragmentos de código demuestran el código mínimo necesario par
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script 
-    type="text/javascript" 
+  <script
+    type="text/javascript"
     src="https://alcdn.msauth.net/browser/2.14.2/js/msal-browser.min.js">
   </script>
 </head>

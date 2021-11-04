@@ -3,19 +3,19 @@ title: Instalación de contenedores de Speech
 titleSuffix: Azure Cognitive Services
 description: Detalles de las opciones de configuración de un gráfico Helm de nivel superior para Speech.
 services: cognitive-services
-author: aahill
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/01/2020
-ms.author: aahi
-ms.openlocfilehash: 0257f3af44cc85d0a3656472db224ae5a7e19161
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: eur
+ms.openlocfilehash: d0c666089a6886737018572cdace21b0690d64dc
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96002307"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500786"
 ---
 ### <a name="speech-umbrella-chart"></a>Speech (gráfico de nivel superior)
 

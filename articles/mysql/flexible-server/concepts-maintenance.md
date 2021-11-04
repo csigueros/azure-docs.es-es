@@ -6,21 +6,18 @@ ms.author: nlarin
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 0da77cb5291022357384fdf2e14e90fe76850f4f
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 477d3f5c83c8fa50a4a7d895681dc0c7b2b401a7
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122653400"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131442319"
 ---
 # <a name="scheduled-maintenance-in-azure-database-for-mysql--flexible-server"></a>Mantenimiento programado de Azure Database for MySQL: servidor flexible
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 Azure Database for MySQL: servidor flexible realiza un mantenimiento periódico para conservar la base de datos administrada protegida, estable y actualizada. Durante el mantenimiento, el servidor obtiene nuevas características, actualizaciones y revisiones.
-
-> [!IMPORTANT]
-> Azure Database for MySQL: servidor flexible está en versión preliminar.
 
 ## <a name="select-a-maintenance-window"></a>Selección de una ventana de mantenimiento
 
@@ -43,13 +40,13 @@ A la hora de especificar las preferencias de la programación de mantenimiento, 
 
 Se puede actualizar la configuración de programación en cualquier momento. Si hay un mantenimiento programado para el servidor flexible y se actualizan las preferencias de programación, el lanzamiento actual continuará según lo programado, y el cambio de configuración de programación se aplicará cuando finalice correctamente para el siguiente mantenimiento programado.
 
-Puede definir una programación administrada por el sistema o una programación personalizada para cada servidor flexible de la suscripción a Azure.  
-* Con la programación personalizada, puede elegir el día de la semana y una ventana de una hora para la ventana de mantenimiento del servidor.  
-* Con la programación administrada por el sistema, el sistema elegirá cualquier ventana de una hora entre las 23:00 y las 7:00 según la hora de la región del servidor.  
+Puede definir una programación administrada por el sistema o una programación personalizada para cada servidor flexible de la suscripción a Azure.
+* Con la programación personalizada, puede elegir el día de la semana y una ventana de una hora para la ventana de mantenimiento del servidor.
+* Con la programación administrada por el sistema, el sistema elegirá cualquier ventana de una hora entre las 23:00 y las 7:00 según la hora de la región del servidor.
 
-Como parte del lanzamiento de los cambios, primero aplicamos las actualizaciones a los servidores configurados con programaciones administradas por el sistema y, después, las aplicaciones a los servidores con programaciones personalizadas después de un intervalo mínimo de siete días dentro de una región determinada. Si planea recibir actualizaciones anticipadas en la línea de servidores de los entornos de desarrollo y pruebas, se recomienda configurar una programación administrada por el sistema para los servidores que se usan en los entornos de desarrollo y pruebas. De este modo, podrá recibir primero la actualización más reciente en el entorno de desarrollo/pruebas para las pruebas y evaluaciones de validación. Si se produce algún comportamiento o cambios importantes, tendrá tiempo para solucionarlos antes de que la misma actualización se implemente en los servidores de producción con una programación administrada personalizada. La actualización comienza a implementarse en los servidores flexibles de programación personalizada después de siete días y se aplica al servidor en la ventana de mantenimiento definida. En este momento, no hay ninguna opción para aplazar la actualización una vez enviada la notificación. La programación personalizada se recomienda solo para los entornos de producción. 
+Como parte del lanzamiento de los cambios, primero aplicamos las actualizaciones a los servidores configurados con programaciones administradas por el sistema y, después, las aplicaciones a los servidores con programaciones personalizadas después de un intervalo mínimo de siete días dentro de una región determinada. Si planea recibir actualizaciones anticipadas en la línea de servidores de los entornos de desarrollo y pruebas, se recomienda configurar una programación administrada por el sistema para los servidores que se usan en los entornos de desarrollo y pruebas. De este modo, podrá recibir primero la actualización más reciente en el entorno de desarrollo/pruebas para las pruebas y evaluaciones de validación. Si se produce algún comportamiento o cambios importantes, tendrá tiempo para solucionarlos antes de que la misma actualización se implemente en los servidores de producción con una programación administrada personalizada. La actualización comienza a implementarse en los servidores flexibles de programación personalizada después de siete días y se aplica al servidor en la ventana de mantenimiento definida. En este momento, no hay ninguna opción para aplazar la actualización una vez enviada la notificación. La programación personalizada se recomienda solo para los entornos de producción.
 
-En raras ocasiones, el sistema puede cancelar el evento de mantenimiento, o bien este puede no completarse correctamente. Si se produce un error en la actualización, esta se revertirá y se restaurará la versión anterior de los archivos binarios. En estos escenarios de actualización con errores, es posible que el servidor se reinicie durante la ventana de mantenimiento. Si se produce un error en la actualización o se cancela, el sistema creará una notificación sobre el evento de mantenimiento con errores o cancelado, respectivamente, para notificárselo. El siguiente intento de mantenimiento se programará según la configuración de programación actual, y el usuario recibirá una notificación al respecto con cinco días de antelación. 
+En raras ocasiones, el sistema puede cancelar el evento de mantenimiento, o bien este puede no completarse correctamente. Si se produce un error en la actualización, esta se revertirá y se restaurará la versión anterior de los archivos binarios. En estos escenarios de actualización con errores, es posible que el servidor se reinicie durante la ventana de mantenimiento. Si se produce un error en la actualización o se cancela, el sistema creará una notificación sobre el evento de mantenimiento con errores o cancelado, respectivamente, para notificárselo. El siguiente intento de mantenimiento se programará según la configuración de programación actual, y el usuario recibirá una notificación al respecto con cinco días de antelación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

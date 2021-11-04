@@ -8,24 +8,22 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 9/21/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: b8b7454effbef87eb44ec5e99caf5bfb03756d1a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b737e4095fedec7260a8c666649c77443c7d4523
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128609258"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131433543"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-flexible-server-using-azure-cli"></a>Inicio rápido: Creación de una instancia de Azure Database for MySQL con la opción Servidor flexible mediante la CLI de Azure
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 
 En este inicio rápido se muestra cómo usar los comandos de la [CLI de Azure](/cli/azure/get-started-with-azure-cli) en [Azure Cloud Shell](https://shell.azure.com) para crear una instancia de Azure Database for MySQL con la opción Servidor flexible en cinco minutos. 
 
 [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
-> [!IMPORTANT]
-> Actualmente, Azure Database for MySQL con la opción Servidor flexible está en versión preliminar pública.
 
 ## <a name="launch-azure-cloud-shell"></a>Inicio de Azure Cloud Shell
 
@@ -57,26 +55,25 @@ Cree un [grupo de recursos de Azure](../../azure-resource-manager/management/ove
 az group create --name myresourcegroup --location eastus2
 ```
 
-Cree un servidor flexible con el comando `az mysql flexible-server create`. Un servidor puede contener varias bases de datos. El siguiente comando crea un servidor con los valores predeterminados de servicio y los valores del [contexto local](/cli/azure/local-context) de la CLI de Azure: 
+Cree un servidor flexible con el comando `az mysql flexible-server create`. Un servidor puede contener varias bases de datos. El siguiente comando crea un servidor con los valores predeterminados de servicio y los valores del [contexto local](/cli/azure/local-context) de la CLI de Azure:
 
 ```azurecli-interactive
 az mysql flexible-server create
 ```
 
-El servidor creado tiene los siguientes atributos: 
-- Nombre del servidor generado automáticamente, nombre de usuario de administrador, contraseña de administrador, nombre del grupo de recursos (si aún no se ha especificado en el contexto local) y de la misma ubicación que el grupo de recursos. 
+El servidor creado tiene los siguientes atributos:
+- Nombre del servidor generado automáticamente, nombre de usuario de administrador, contraseña de administrador, nombre del grupo de recursos (si aún no se ha especificado en el contexto local) y de la misma ubicación que el grupo de recursos.
 - Valores predeterminados de servicio para las configuraciones de servidor restantes: nivel de proceso (Flexible), tamaño de proceso/SKU (B1MS), período de retención de copia de seguridad (7 días) y versión de MySQL (5.7)
 - El método de conectividad predeterminado es el acceso privado (integración con red virtual) con una red virtual y una subred generadas automáticamente.
 
-> [!NOTE] 
+> [!NOTE]
 > El método de conectividad no se puede cambiar después de crear el servidor. Por ejemplo, si seleccionó *Acceso privado (integración con red virtual)* durante la creación, no podrá cambiar a *Acceso público (direcciones IP permitidas)* después de la creación. Se recomienda encarecidamente crear un servidor con acceso privado para acceder de forma segura a su servidor mediante la integración con la red virtual. Obtenga más información sobre el acceso privado en el [artículo de conceptos](./concepts-networking.md).
 
-Si quiere cambiar algún valor predeterminado, consulte en la [documentación de referencia](/cli/azure/mysql/flexible-server)de la CLI de Azure la lista completa de parámetros configurables de la CLI. 
+Si quiere cambiar algún valor predeterminado, consulte en la [documentación de referencia](/cli/azure/mysql/flexible-server)de la CLI de Azure la lista completa de parámetros configurables de la CLI.
 
-A continuación se incluye una salida de ejemplo: 
+A continuación se incluye una salida de ejemplo:
 
 ```json
-Command group 'mysql flexible-server' is in preview. It may be changed/removed in a future release.
 Creating Resource Group 'groupXXXXXXXXXX'...
 Creating new vnet "serverXXXXXXXXXVNET" in resource group "groupXXXXXXXXXX"...
 Creating new subnet "serverXXXXXXXXXSubnet" in resource group "groupXXXXXXXXXX" and delegating it to "Microsoft.DBforMySQL/flexibleServers"...
@@ -99,7 +96,7 @@ Make a note of your password. If you forget, you would have to reset your passwo
 }
 ```
 
-Si quiere cambiar algún valor predeterminado, consulte en la [documentación de referencia](/cli/azure/mysql/flexible-server) de la CLI de Azure la lista completa de parámetros configurables de la CLI. 
+Si quiere cambiar algún valor predeterminado, consulte en la [documentación de referencia](/cli/azure/mysql/flexible-server) de la CLI de Azure la lista completa de parámetros configurables de la CLI.
 
 ## <a name="create-a-database"></a>Crear una base de datos
 Ejecute el siguiente comando para crear una base de datos, **newdatabase**, si aún no ha creado una.
@@ -119,7 +116,7 @@ Para conectarse al servidor, debe proporcionar las credenciales de acceso y la i
 az mysql flexible-server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-El resultado está en formato JSON. Tome nota de los valores de **fullyQualifiedDomainName** y **administratorLogin**. A continuación se muestra un ejemplo de salida de JSON: 
+El resultado está en formato JSON. Tome nota de los valores de **fullyQualifiedDomainName** y **administratorLogin**. A continuación se muestra un ejemplo de salida de JSON:
 
 ```json
 {
@@ -168,7 +165,6 @@ az mysql flexible-server connect -n mysqldemoserver1 -u dbuser -p "dbpassword" -
 Debería ver la siguiente salida para una conexión correcta:
 
 ```output
-Command group 'mysql flexible-server' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
 Connecting to newdatabase database.
 Successfully connected to mysqldemoserver1.
 ```
@@ -211,12 +207,12 @@ Si ha aprovisionado un servidor flexible mediante el **acceso público**, tambi�
 Para usar Azure Cloud Shell para conectarse a un servidor flexible, tendrá que permitir el acceso de red desde Azure Cloud Shell al servidor flexible. Para ello, en Azure Portal, puede ir a la hoja **Redes** del servidor flexible de MySQL y activar la casilla de la sección **Firewall** "Permitir el acceso público desde cualquier servicio de Azure a este servidor" que se muestra en la captura de pantalla siguiente y hacer clic en Guardar para conservar la configuración.
 
  > :::image type="content" source="./media/quickstart-create-server-portal/allow-access-to-any-azure-service.png" alt-text="Captura de pantalla que muestra cómo permitir el acceso de Azure Cloud Shell al servidor flexible de MySQL para la configuración de red de acceso público.":::
- 
- 
+
+
 > [!NOTE]
 > La comprobación de **Allow public access from any Azure service within Azure to this server** (Permitir el acceso público desde cualquier servicio de Azure a este servidor) solo debe usarse solo para desarrollo o pruebas. Configura el firewall para permitir conexiones desde las direcciones IP asignadas a cualquier servicio o recurso de Azure, incluidas las conexiones de las suscripciones de otros clientes.
 
-Haga clic en **Probar** para iniciar el Azure Cloud Shell y use los siguientes comandos para conectarse a su servidor flexible. Use el nombre del servidor, el nombre de usuario y la contraseña en el comando. 
+Haga clic en **Probar** para iniciar el Azure Cloud Shell y use los siguientes comandos para conectarse a su servidor flexible. Use el nombre del servidor, el nombre de usuario y la contraseña en el comando.
 
 ```azurecli-interactive
 wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem

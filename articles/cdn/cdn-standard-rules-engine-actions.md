@@ -2,17 +2,17 @@
 title: Acciones en el motor de reglas estándar de Azure CDN | Microsoft Docs
 description: Documentación de referencia para las acciones del motor de reglas estándar de Azure Content Delivery Network (Azure CDN).
 services: cdn
-author: asudbring
+author: duongau
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 08/04/2020
-ms.author: allensu
-ms.openlocfilehash: 051737a9f5e0d4092cda26a3f7ce3df1d7f535ef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: duau
+ms.openlocfilehash: 32c0b0a245f864601110505af0ce81ad4e9b0b0e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87760131"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131461387"
 ---
 # <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Acciones en el motor de reglas estándar de Azure CDN
 
