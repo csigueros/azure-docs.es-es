@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: mldata
 ms.author: laobri
 author: lobrien
-ms.date: 02/26/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: cfbb7d9d5144c0e91b9bf68e332300317dc2f76f
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: f3098bcc4d26d06af53bdb7ffa1bcc01e9fef7e3
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129425949"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131558599"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Movimiento de datos a los pasos de canalización de Machine Learning (Python) y entre ellos
 

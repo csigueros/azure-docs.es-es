@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Obtenga información sobre cómo crear un nuevo clúster de Azure Kubernetes Service a través de Azure Machine Learning, o cómo conectar un clúster de AKS existente al área de trabajo.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 09/16/2021
-ms.openlocfilehash: 7a0b2f24b10ace50d1e994284cb48b50799dfd57
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/21/2021
+ms.openlocfilehash: 2b1d99beea620d0e88705d76df05f52af0c26f89
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128618198"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131554875"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Creación y conexión de un clúster de Azure Kubernetes Service
 
@@ -83,9 +83,6 @@ Cuando **crea** un clúster de Azure Kubernetes Service con uno de los métodos 
 Estos métodos de creación de un clúster de AKS usan la versión __predeterminada__ del clúster. *La versión predeterminada cambia con el tiempo* a medida que están disponibles las nuevas versiones de Kubernetes.
 
 Cuando **adjunta** un clúster de AKS existente, se admiten todas las versiones de AKS compatibles actualmente.
-
-> [!IMPORTANT]
-> Actualmente, Azure Machine Learning no admite la implementación de modelos en la versión **1.21.x** de Azure Kubernetes Service.
 
 > [!IMPORTANT]
 > Azure Kubernetes Service usa el [controlador Blobfuse FlexVolume](https://github.com/Azure/kubernetes-volume-drivers/blob/master/flexvolume/blobfuse/README.md) en las versiones hasta la 1.16 y el [controlador Blob CSI](https://github.com/kubernetes-sigs/blob-csi-driver/blob/master/README.md), en las versiones a partir de 1.17. Por eso es importante que, después de actualizar el clúster, se vuelva a implementar o a [actualizar el servicio web](how-to-deploy-update-web-service.md) para implementar en el método blobfuse adecuado a la versión del clúster.

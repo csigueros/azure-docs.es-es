@@ -10,13 +10,13 @@ ms.custom: troubleshooting, devplatv2
 ms.reviewer: laobri
 ms.author: tracych
 author: tracych
-ms.date: 05/05/2021
-ms.openlocfilehash: ba0dfb7c86250a55de5967bbffafd40823709dce
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.date: 10/21/2021
+ms.openlocfilehash: 97b235e45e1f988fde94272252e738d38b0a53e6
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129425797"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131564677"
 ---
 # <a name="troubleshooting-batch-endpoints-preview"></a>Solución de problemas de puntos de conexión por lotes (versión preliminar)
 
@@ -29,22 +29,8 @@ La tabla siguiente contiene problemas comunes y soluciones que pueden observarse
 | Problema | Posible solución |
 |--|--|
 | Falta la configuración de código o el entorno. | Asegúrese de proporcionar el script de puntuación y una definición de entorno si usa un modelo que no es de MLflow. La implementación sin programación solo se admite para el modelo de MLflow. Para más información, consulte [Seguimiento de modelos de Machine Learning con MLflow y Azure Machine Learning](how-to-use-mlflow.md).|
-| Error al actualizar el modelo, el código, el entorno y el proceso de un punto de conexión por lotes existente. | Cree un nuevo punto de conexión por lotes con un nuevo nombre. Aún no se admite la actualización de estos recursos para un punto de conexión por lotes existente. |
-| No se encontró el recurso. | Asegúrese de usar `--type batch` en el comando de la CLI. Si no se especifica este argumento, se usará el tipo `online` predeterminado.|
 | Datos de entrada no admitidos. | El punto de conexión por lotes acepta datos de entrada de tres formas: 1) datos registrados 2) datos en la nube 3) datos locales. Asegúrese de utilizar el formato adecuado. Para más información, consulte [Uso de puntos de conexión por lotes (versión preliminar) para la puntuación por lotes](how-to-use-batch-endpoint.md).|
-| El nombre del punto de conexión proporcionado ya existe o se está eliminando. | Cree un nuevo punto de conexión por lotes con un nuevo nombre. El comando `endpoint delete` marca el punto de conexión para su eliminación. No se puede reutilizar el mismo nombre para crear un nuevo punto de conexión en la misma región. |
 | La salida ya existe. | Si configura su propia ubicación de salida, asegúrese de proporcionar una nueva salida para cada invocación de punto de conexión. |
-
-##  <a name="scoring-script-requirements"></a>Requisitos del script de puntuación
-
-Si usa un modelo que no es de MLflow, deberá proporcionar un script de puntuación. El script de puntuación debe contener dos funciones:
-
-- `init()`: utilice esta función para cualquier preparación costosa o común para la inferencia posterior. Por ejemplo, para cargar el modelo en un objeto global. Se llamará a esta función una vez al principio del proceso.
--  `run(mini_batch)`: esta función se ejecutará para cada instancia de `mini_batch`.
-    -  `mini_batch`: El valor de `mini_batch` es una lista de rutas de acceso de archivo.
-    -  `response`: el método `run()` debe devolver un dataframe de Pandas o una matriz. Estos elementos devueltos se anexan al archivo de salida común. Cada elemento de salida devuelto indica una ejecución correcta del elemento de entrada en el minilote de entrada. Asegúrese de que se incluyen suficientes datos en el resultado de la ejecución para asignar una única entrada al resultado de la salida de la ejecución. La salida de ejecución se escribirá en el archivo de salida, pero no se garantiza que esté en orden, por lo que debe usar alguna clave en la salida para asignarla a la entrada correcta.
-
-:::code language="python" source="~/azureml-examples-cli-preview/cli/endpoints/batch/mnist/code/digit_identification.py" :::
 
 ## <a name="understanding-logs-of-a-batch-scoring-job"></a>Descripción de los registros de un trabajo de puntuación por lotes
 

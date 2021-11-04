@@ -11,12 +11,12 @@ ms.date: 03/22/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5053bd0c3d63b13b1021476a09dca39dd08f581
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ff64e9778b035d43a7502fcf416ffe037ff54ffa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105108764"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057616"
 ---
 # <a name="pilot-cloud-sync-for-an-existing-synced-ad-forest"></a>Sincronización piloto en la nube para un bosque de AD sincronizado existente 
 
@@ -201,7 +201,7 @@ La sincronización de Azure AD Connect sincroniza los campos que se incluyen en
 >[!NOTE] 
 >Si va a ejecutar su propio programador personalizado para la sincronización de Azure AD Connect, habilite el programador. 
 
-Una vez que el programador está habilitado, Azure AD Connect dejará de exportar los cambios realizados en los objetos con `cloudNoFlow=true` en el metaverso, a menos que se actualice algún atributo de referencia (por ejemplo, manager). En caso de que haya alguna actualización de atributos de referencia en el objeto, Azure AD Connect omitirá la señal `cloudNoFlow` y exportará todas las actualizaciones del objeto.
+Una vez que el programador está habilitado, Azure AD Connect deja de exportar los cambios realizados en los objetos con `cloudNoFlow=true` en el metaverso, a menos que se esté actualizando algún atributo de referencia (por ejemplo, `manager`). En caso de que haya alguna actualización de atributos de referencia en el objeto, Azure AD Connect omitirá la señal `cloudNoFlow` y exportará todas las actualizaciones del objeto.
 
 ## <a name="something-went-wrong"></a>Hubo un problema
 Si la prueba piloto no funciona como cabría esperar, puede volver a la configuración de la sincronización de Azure AD Connect siguiendo estos pasos:

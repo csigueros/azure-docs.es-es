@@ -2,14 +2,14 @@
 title: 'Protocolo de la extensión HTTP: Azure'
 description: Azure Video Analyzer permite mejorar sus funcionalidades de procesamiento a través de un nodo de extensión de canalización. El procesador de extensiones HTTP permite escenarios de extensibilidad mediante el protocolo HTTP, donde el rendimiento o el uso óptimo de los recursos no es la principal preocupación.
 ms.topic: reference
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 50da053a6454a2c6973f52ed55891ce2f40d6e06
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 217848284743b0bcf9e5f805d04b0deb43a587f4
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131090910"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563195"
 ---
 # <a name="use-the-http-extension-protocol"></a>Uso del protocolo de la extensión HTTP 
 

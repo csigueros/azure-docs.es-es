@@ -4,28 +4,21 @@ description: Aprenda a migrar un dispositivo de las series 8100 o 8600 de StorSi
 author: fauhse
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 10/22/2021
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: dbf422beeea23cee975b5721c7becae95bf24b6c
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 9bb33a10314460462cc32838227cadd3480cf362
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123434634"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131022697"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migración de las series 8100 y 8600 de StorSimple a Azure File Sync
 
-La serie StorSimple 8000 está representada por los dispositivos físicos y locales 8100 o 8600 y sus componentes de servicios en la nube. Los datos de uno de estos dispositivos se pueden migrar a un entorno de Azure File Sync. Azure File Sync es el servicio de Azure a largo plazo, estratégico y predeterminado al que se pueden migrar los dispositivos StorSimple.
+La serie StorSimple 8000 está representada por los dispositivos físicos y locales 8100 o 8600 y sus componentes de servicios en la nube. Las aplicaciones virtuales StorSimple 8010 y 8020 también se tratan en esta guía de migración. Es posible migrar los datos de cualquiera de estos dispositivos a recursos compartidos de archivos de Azure con la aplicación Azure File Sync opcional. Azure File Sync es el servicio de Azure a largo plazo predeterminado y estratégico que reemplaza la funcionalidad local de StorSimple.
 
 StorSimple serie 8000 alcanzará el [final de su ciclo de vida](/lifecycle/products/azure-storsimple-8000-series) en diciembre de 2022. Es importante empezar a planear la migración lo antes posible. En este artículo se proporcionan los conocimientos básicos y los pasos de migración necesarios para realizar una migración correcta a Azure File Sync.
-
-## <a name="applies-to"></a>Se aplica a
-| Tipo de recurso compartido de archivos | SMB | NFS |
-|-|:-:|:-:|
-| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## <a name="phase-1-prepare-for-migration"></a>Fase 1: Preparación para la migración
 
@@ -84,6 +77,29 @@ Si no puede encontrar las claves en los registros, puede recuperar una nueva cla
 > * La conexión a través de una sesión HTTPS es la opción más segura y la recomendada.
 > * Es seguro conectarse directamente a la consola en serie del dispositivo, pero la conexión a la consola en serie a través conmutadores de red no lo es.
 > * Las conexiones de sesión HTTP son una opción, pero *no están cifradas*. No se recomiendan a menos que se usen en una red cerrada y de confianza.
+
+### <a name="known-limitations"></a>Restricciones conocidas
+
+Los recursos compartidos de StorSimple Data Manager y Azure tienen algunas limitaciones que debe tener en cuenta antes de comenzar la migración, ya que pueden impedir una migración:
+* Solo se admiten volúmenes NTFS desde el dispositivo StorSimple.
+* El servicio no funciona con volúmenes cifrados mediante BitLocker.
+* Las copias de seguridad de StorSimple dañadas no se pueden migrar.
+* Las opciones de red especiales, como los firewalls o la comunicación de punto de conexión privado, no se pueden habilitar ni en la cuenta de almacenamiento de origen donde se almacenan las copias de seguridad de StorSimple ni en la cuenta de almacenamiento de destino que contiene los recursos compartidos de archivos de Azure.
+
+
+### <a name="file-fidelity"></a>Fidelidad de archivos
+
+Si ninguna de las limitaciones de [Known limitations](#known-limitations) (Limitaciones conocidas) impide una migración. Hay limitaciones en cuanto a lo que se puede almacenar en los recursos compartidos de archivos de Azure que debe tener en cuenta.
+La _fidelidad de los archivos_ hace referencia a la gran cantidad de atributos, marcas de tiempo y datos que componen un archivo. En una migración, la fidelidad de los archivos es una medida de lo bien que se puede trasladar (migrar) la información del origen (volumen StorSimple) al destino (recurso compartido de archivos de Azure).
+[Azure Files admite un subconjunto](/rest/api/storageservices/set-file-properties) de las [propiedades del archivo NTFS](/windows/win32/fileio/file-attribute-constants). Se migrarán las ACL, los metadatos comunes y algunas marcas de tiempo. Los siguientes elementos no impedirán una migración, pero provocarán problemas por elementos durante la misma:
+
+* Marcas de tiempo: no se establecerá el tiempo de cambio de archivo; actualmente es de solo lectura a través del protocolo REST. La marca de tiempo de último acceso de un archivo no se trasladará; actualmente no es un atributo admitido en los archivos almacenados en un recurso compartido de archivos de Azure.
+* Los [flujos de datos alternativos](/openspecs/windows_protocols/ms-fscc/b134f29a-6278-4f3f-904f-5e58a713d2c5) no se pueden almacenar en recursos compartidos de archivos de Azure. Los archivos que contienen flujos de datos alternativos se copiarán, pero los flujos de datos alternativos se eliminarán del archivo en el proceso.
+* Los vínculos simbólicos, los vínculos duros, las uniones y los puntos de análisis se omiten durante una migración. Los registros de copia de la migración mostrarán cada elemento omitido y el motivo de su omisión.
+* Los archivos cifrados de EFS no se copiarán. Los registros de copia mostrarán que el elemento no se pudo copiar con "Access is denied" (Acceso denegado).
+* Los archivos dañados se omiten. Los registros de copia pueden mostrar errores diferentes para cada elemento dañado en el disco de StorSimple: "The request failed due to a fatal device hardware error" (Error en la solicitud debido a un error irrecuperable de hardware del dispositivo) o "The file or directory is corrupted or unreadable" (El archivo o directorio está dañado o no se puede leer) o "The access control list (ACL) structure is invalid" (La estructura de la lista de control de acceso [ACL] no es válida).
+* Se omitirán los archivos individuales de más de 4 TiB.
+* Las longitudes de ruta de acceso de archivo deben ser iguales o inferiores a 2048 caracteres. Se omitirán los archivos y carpetas con rutas de acceso más largas.
 
 ### <a name="storsimple-volume-backups"></a>Copias de seguridad de volúmenes de StorSimple
 
@@ -182,11 +198,7 @@ Tiene la opción de elegir Premium Storage (SSD) para recursos compartidos de ar
 
 * Elija Premium Storage si necesita el [rendimiento de un recurso compartido de archivos Premium de Azure](understanding-billing.md#provisioned-model).
 * Elija almacenamiento estándar para cargas de trabajo de servidor de archivos de uso general, incluidos los datos de acceso frecuente y los datos de archivo. Elija también almacenamiento estándar si la única carga de trabajo en el recurso compartido en la nube será Azure File Sync.
-
-#### <a name="account-kind"></a>Tipo de cuenta
-
-* En el caso de Standard Storage, elija *StorageV2 (uso general V2)* .
-* Para recursos compartidos de archivos prémium, elija *FileStorage*.
+* En el caso de los recursos compartidos de archivos premium, elija *Recursos compartidos de archivos* en el asistente para crear cuentas de almacenamiento.
 
 #### <a name="replication"></a>Replicación
 
@@ -261,7 +273,7 @@ En esta sección se describe cómo configurar un trabajo de migración y asignar
 
 :::row:::
     :::column:::
-       ![Guía de migración de StorSimple serie 8000.](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job.png "Captura de pantalla del nuevo formulario de creación de trabajos para un trabajo de migración.")
+        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job.png" alt-text="Captura de pantalla del nuevo formulario de creación de trabajos para un trabajo de migración.":::
     :::column-end:::
     :::column:::
         **Job definition name (Nombre de la definición de trabajo)**</br>Este nombre debe ser indicativo del conjunto de archivos que se van a mover. Le recomendamos que le asigne un nombre similar al recurso compartido de archivos de Azure. </br></br>**Ubicación en la que se ejecuta el trabajo**</br>Al seleccionar una región, debe seleccionar la misma región que la cuenta de almacenamiento de StorSimple o, si no está disponible, una región cercana a ella. </br></br><h3>Source</h3>**Suscripción de origen**</br>Seleccione la suscripción en la que almacena el recurso de StorSimple Device Manager. </br></br>**Recurso de StorSimple**</br>Seleccione la instancia de StorSimple Device Manager en la que el dispositivo esté registrado. </br></br>**Clave de cifrado de datos de servicio**</br>Consulte esta [sección anterior de este artículo](#storsimple-service-data-encryption-key), en caso de que no pueda localizar la clave en los registros. </br></br>**Dispositivo**</br>Seleccione el dispositivo de StorSimple que contiene el volumen que desea migrar. </br></br>**Volumen**</br>Seleccione el volumen de origen. Más adelante decidirá si desea migrar el volumen o los subdirectorios completos al recurso compartido de archivos de Azure de destino.</br></br> **Copias de seguridad de volumen**</br>Puede elegir *Seleccionar copias de seguridad de volumen* para elegir las copias de seguridad específicas que se moverán como parte de este trabajo. Una [sección dedicada de este artículo más adelante](#selecting-volume-backups-to-migrate) describe el proceso de manera detallada.</br></br><h3>Destino</h3>Seleccione la suscripción, la cuenta de almacenamiento y el recurso compartido de archivos de Azure como destino de este trabajo de migración.</br></br><h3>Asignación de directorios</h3>[En una sección dedicada de este artículo](#directory-mapping), se describen todos los detalles pertinentes.
@@ -272,7 +284,7 @@ En esta sección se describe cómo configurar un trabajo de migración y asignar
 
 Hay algunos aspectos importantes relacionados con la elección de las copias de seguridad que se deben migrar:
 
-- Los trabajos de migración solo pueden migrar copias de seguridad, no datos de un volumen activo. Por lo tanto, la copia de seguridad más reciente es más cercana a los datos activos y siempre debe incluirse en la lista de copias de seguridad que se han trasladado en una migración.
+- Los trabajos de migración solo pueden migrar copias de seguridad, no datos de un volumen activo. Por lo tanto, la copia de seguridad más reciente es más cercana a los datos activos y siempre debe incluirse en la lista de copias de seguridad que se han trasladado en una migración. Al abrir el cuadro de diálogo Backup selection (Selección de copia de seguridad), se selecciona de forma predeterminada.
 - Asegúrese de que la última copia de seguridad sea reciente para mantener el tamaño del delta en el recurso compartido activo lo más pequeño posible. Podría ser conveniente desencadenar y completar manualmente otra copia de seguridad del volumen antes de crear un trabajo de migración. Un pequeño delta en el recurso compartido activo mejorará la experiencia de migración. Si este delta puede ser cero, significa que no se realizaron más cambios en el volumen de StorSimple después de que se tomó la copia de seguridad más reciente de la lista. Por lo tanto, la fase 5: migración total de los usuarios será significativamente más sencilla y rápida.
 - Las copias de seguridad se deben reproducir en el recurso compartido de archivos de Azure **de la más antigua a la más reciente**. Una copia de seguridad antigua no se puede "ordenar" en la lista de copias de seguridad del recurso compartido de archivos de Azure una vez que se ha ejecutado un trabajo de migración. Por lo tanto, debe asegurarse de que la lista de copias de seguridad se ha completado *antes* de crear un trabajo. 
 - Esta lista de copias de seguridad de un trabajo no se puede modificar cuando se ha creado el trabajo, si este nunca se ejecutó. 
@@ -300,7 +312,7 @@ Hay algunos aspectos importantes relacionados con la elección de las copias de 
         :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-select-backups-time.png" alt-text="Captura de pantalla que muestra la selección de un intervalo de tiempo de la hoja Selección de copia de seguridad." lightbox="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-select-backups-time-expanded.png":::
     :::column-end:::
     :::column:::
-        De manera predeterminada, la lista se filtra para mostrar las copias de seguridad del volumen de StorSimple en los últimos siete días para facilitar la selección de la copia de seguridad más reciente. Para las copias de seguridad que son más antiguas, use el filtro de intervalo de tiempo en la parte superior de la hoja. Puede seleccionar uno de los filtros existentes o establecer un intervalo de tiempo personalizado para filtrar solo las copias de seguridad realizadas durante ese período.
+        De manera predeterminada, la lista se filtra para mostrar las copias de seguridad de volúmenes de StorSimple de los últimos siete días. La copia de seguridad más reciente está seleccionada de manera predeterminada aunque no se haya hecho en los últimos siete días. Para las copias de seguridad anteriores, use el filtro de intervalo de tiempo en la parte superior de la hoja. Puede seleccionar uno de los filtros existentes o establecer un intervalo de tiempo personalizado para filtrar solo las copias de seguridad realizadas durante ese período.
     :::column-end:::
 :::row-end:::
 
@@ -373,40 +385,84 @@ Ordena varias ubicaciones de origen en una nueva estructura de directorios:
 Los trabajos de migración aparecen debajo de *Definiciones de trabajos* en el recurso de Data Manager que ha implementado en un grupo de recursos.
 En la lista de definiciones de trabajos, seleccione el trabajo que quiere ejecutar.
 
-En la hoja del trabajo que aparece, puede ver que el trabajo se ejecuta en la lista inferior. Inicialmente, esta lista estará vacía. En la parte superior de la hoja, hay un comando denominado *Ejecutar trabajo*. Este comando no ejecutará el trabajo de inmediato, sino que abrirá la hoja **Ejecución de trabajo**:
+En la hoja de trabajo que se abre, puede ver el estado actual del trabajo y una lista de las copias de seguridad que ha seleccionado. La lista de copias de seguridad se ordena de más antigua a más reciente y se migrará al recurso compartido de archivos de Azure en este orden.  
+
+:::row:::
+    :::column:::        
+        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-never-ran-focused.png" alt-text="Captura de pantalla de la hoja del trabajo de migración con un resaltado alrededor del comando para iniciar el trabajo. También muestra las copias de seguridad seleccionadas programadas para la migración." lightbox="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-never-ran.png":::
+    :::column-end:::
+    :::column:::
+        Inicialmente, el trabajo de migración tendrá el estado: **Never ran** (Nunca ejecutado). </br>Cuando esté listo, puede iniciar este trabajo de migración. (Seleccione la imagen para ver una versión con mayor resolución). </br> Cuando una copia de seguridad se migra correctamente, se hace una instantánea automática del recurso compartido de archivos de Azure. La fecha de la copia de seguridad original de StorSimple se colocará en la sección *Comentarios* de la instantánea del recurso compartido de archivos de Azure. El uso de este campo le permitirá ver cuándo se ha realizado originalmente la copia de seguridad de los datos en comparación con el momento en que se hizo la instantánea del recurso compartido de archivos.
+        </br></br>
+        > [!CAUTION]
+        > Las copias de seguridad deben procesarse de más antigua a más reciente. Una vez creado un trabajo de migración, no se puede cambiar la lista de copias de seguridad de volúmenes StorSimple seleccionados. No inicie el trabajo si la lista de copias de seguridad es incorrecta o está incompleta. Elimine el trabajo y realice uno nuevo con las copias de seguridad correctas seleccionadas.
+    :::column-end:::
+:::row-end:::
+
+### <a name="per-item-errors"></a>Per-item errors (Errores por elemento)
+
+Los trabajos de migración tienen dos columnas en la lista de copias de seguridad que enumeran cualquier problema que se pueda haber producido durante la copia:
+
+* Errores de copia </br>En esta columna se enumeran los archivos o carpetas que no se han copiado pero deberían haberlo hecho. Estos errores suelen ser recuperables. Cuando una copia de seguridad muestra problemas de elementos en esta columna, revise los registros de copia. Si necesita migrar estos archivos, seleccione **Retry backup** (Reintentar copia de seguridad). Esta opción estará disponible una vez que finalice el procesamiento de la copia de seguridad. En la sección [Managing a migration job](#manage-a-migration-job) (Administración de un trabajo de migración) se explican las opciones con más detalle.
+* Unsupported files (Archivos no admitidos) </br>En esta columna se enumeran los archivos o carpetas que no se pueden migrar. Azure Storage tiene limitaciones en los nombres de archivo, las longitudes de ruta de acceso y los tipos de archivo que no se pueden almacenar actualmente o de forma lógica en un recurso compartido de archivos de Azure. Un trabajo de migración no se pausará ante este tipo de errores. Volver a intentar la migración de la copia de seguridad no cambiará el resultado. Cuando una copia de seguridad muestra problemas de elementos en esta columna, revise los registros de copia y tome nota de ellos. Si estos problemas surgen en la última copia de seguridad y en el registro de la copia observa que el error se debió a un nombre de archivo, una longitud de ruta de acceso u otro problema sobre el que tiene influencia, es posible que quiera solucionar el problema en el volumen StorSimple activo, hacer una copia de seguridad del volumen StorSimple y crear un nuevo trabajo de migración solo con esa copia de seguridad. A continuación, migrará este espacio de nombres corregido y se convertirá en la versión activa/más reciente del recurso compartido de archivos de Azure. Se trata de un proceso manual y lento. Revise cuidadosamente los registros de copia y evalúe si merece la pena.
+
+Estos registros son archivos *\*.csv* que muestran los elementos de espacio de nombres correctos y los elementos que no se han podido copiar. Los errores se dividen aún más en las categorías que se han analizado anteriormente.
+En la ubicación del archivo de registro, puede buscar registros de archivos con errores buscando "error". El resultado debería ser un conjunto de registros de los archivos que no se pudieron copiar. Ordene estos registros por tamaño. Puede haber registros adicionales generados con un tamaño de 17 bytes. Están vacíos y se pueden omitir. Mediante la ordenación, puede concentrarse en los registros con contenido.
+
+El mismo proceso se aplica a los archivos de registro que graban copias correctas.
+
+### <a name="manage-a-migration-job"></a>Administración de un trabajo de migración
+
+Los trabajos de migración tienen los siguientes estados:
+* **Never ran** (Nunca ejecutado) </br>Un nuevo trabajo que se ha definido, pero que no se ha ejecutado hasta el momento.
+* **En espera** </br>Un trabajo en este estado está esperando a que los recursos se aprovisionen en el servicio de migración. Cambiará automáticamente a un estado diferente cuando esté listo.
+* **Erróneo** </br>Un trabajo con errores ha dado un error irrecuperable que impide que procese más copias de seguridad. No se espera que un trabajo entre en este estado. La mejor forma de actuar es enviar una solicitud de soporte técnico.
+* **Cancelado** / **Cancelando**</br>Se puede cancelar un trabajo de migración completo o las copias de seguridad individuales dentro del trabajo. Las copias de seguridad canceladas no se procesarán; un trabajo de migración cancelado dejará de procesar más copias de seguridad. Tenga en cuenta que la cancelación de un trabajo llevará mucho tiempo. Esto no impedirá que cree un nuevo trabajo. Tenga paciencia para permitir que un trabajo llegue completamente al estado **Cancelado**. Puede ignorar los trabajos con errores/cancelados o eliminarlos más adelante. No tendrá que eliminar trabajos antes de poder eliminar el recurso Data Manager al final de la migración de StorSimple.
+
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-run-job.png" alt-text="Una imagen que muestra la hoja de ejecución de trabajo con un control de lista desplegable abierto, que muestra las copias de seguridad seleccionadas para la migración. La copia de seguridad más antigua está resaltada y debe seleccionarse primero." lightbox="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-run-job-expanded.png":::
+        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-running-focused.png" alt-text="Captura de pantalla de la hoja del trabajo de migración con un gran icono de estado en la parte superior en estado de ejecución." lightbox="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-running.png":::
     :::column-end:::
     :::column:::
-        En esta versión, cada trabajo se debe ejecutar varias veces. </br></br>**Debe comenzar con la copia de seguridad más antigua de la lista de copias de seguridad que quiere migrar.** (Resaltada en la imagen)</br></br>Vuelva a ejecutar el trabajo, tantas veces como haya copias de seguridad seleccionadas, cada vez con una copia de seguridad más reciente.
-        </br></br>
-        > [!CAUTION]
-        > Es importante que ejecute primero el trabajo de migración con la copia de seguridad más antigua seleccionada y, a continuación, lo ejecute de nuevo cada vez con una copia de seguridad más reciente. Siempre debe mantener el orden de las copias de seguridad manualmente, de la más antigua a la más reciente.
+        **Ejecución** </br></br>Un trabajo en ejecución es aquel que está procesando actualmente una copia de seguridad. Consulte la tabla de la mitad inferior de la hoja para ver qué copia de seguridad se está procesando actualmente y cuáles pueden haber sido ya migradas. </br>Las copias de seguridad ya migradas tienen una columna con un vínculo a un registro de copia. Si se notifican errores para una copia de seguridad, debe revisar su registro de copia.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-paused-focused.png" alt-text="Captura de pantalla de la hoja del trabajo de migración con un gran icono de estado en la parte superior en estado de pausa." lightbox="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-paused.png":::
+    :::column-end:::
+    :::column:::
+        **En pausa** </br></br>Un trabajo de migración se pausa cuando se necesita una decisión. Esta condición habilita dos botones de comando en la parte superior de la hoja: </br>Elija **Retry backup** (Reintentar copia de seguridad) cuando la copia de seguridad muestre los archivos que deberían haberse movido pero no lo hicieron (columna *Error de copia*). </br>Elija **Omitir la copia de seguridad** cuando no haya copia de seguridad (haya sido eliminada por la directiva desde que creó el trabajo de migración) o cuando la copia de seguridad esté dañada. Puede encontrar información de error detallada en la hoja que se abre al hacer clic en la copia de seguridad fallida. </br></br>Al *omitir* la copia de seguridad o *volver a intentar* hacerla, el servicio de migración creará una nueva instantánea en el recurso compartido de archivos de Azure de destino. Quizá quiera eliminar la anterior más adelante, es probable que esté incompleta.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-success-focused.png" alt-text="Imagen que muestra la hoja del trabajo de migración con un gran icono de estado en la parte superior con el estado completo." lightbox="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-success.png":::
+    :::column-end:::
+    :::column:::
+        **Completo** y **Complete with warnings** (Completo con advertencias)</br></br>Un trabajo de migración aparece como **Completo** cuando todas las copias de seguridad del trabajo se han procesado correctamente. </br>**Completo con advertencias** es un estado que se produce cuando: <ul><li>Una copia de seguridad tuvo un problema recuperable. Esta copia de seguridad se marca como *parcialmente correcta* o *con errores*.</li><li>Ha decidido continuar con el trabajo en pausa omitiendo la copia de seguridad con estos problemas. (Eligió *Omitir la copia de seguridad* en lugar de *Retry backup* [Reintentar copia de seguridad])</li></ul> Si el trabajo de migración se completa con advertencias, siempre debe revisar el registro de copia de las copias de seguridad pertinentes.
     :::column-end:::
 :::row-end:::
 
 #### <a name="run-jobs-in-parallel"></a>Ejecución de trabajos en paralelo
 
-Es probable que tenga varias ubicaciones de StorSimple y tenga que copiar cada una de ellas en un recurso compartido de archivos de Azure diferente. Para un único dispositivo StorSimple, puede ejecutar hasta cuatro trabajos de migración en paralelo si tienen como destino cada uno un recurso compartido de archivos de Azure diferente. 
+Es probable que tenga varios volúmenes de StorSimple, cada uno con sus propios recursos compartidos que deben migrarse a un recurso compartido de archivos de Azure. Es importante que comprenda cuánto puede hacer en paralelo. Hay limitaciones que no se aplican en la experiencia del usuario y que degradarán o impedirán una migración completa si los trabajos se ejecutan al mismo tiempo.
 
-Cada trabajo pasa por varias fases. Solo es posible iniciar otro trabajo cuando el anterior ha entrado en la fase de copia de archivos. Normalmente, entre 25 y 35 minutos después de iniciar el trabajo, se puede iniciar otro trabajo, hasta cuatro en paralelo. Los trabajos que tienen como destino el mismo recurso compartido de archivos (para copias de seguridad posteriores) deben copiarse una copia de seguridad después de la otra.
+No hay límites en la definición de trabajos de migración. Puede definir el mismo volumen de origen de StorSimple, el mismo recurso compartido de archivos de Azure, en el mismo o en distintos dispositivos StorSimple. Sin embargo, su ejecución tiene limitaciones:
 
-> [!CAUTION]
-> Inicie solo un trabajo de migración a la vez de aquellos datos que van al mismo recurso compartido de archivos de Azure.
+* Solo se puede ejecutar un trabajo de migración con el mismo volumen de origen de StorSimple al mismo tiempo.
+* Solo se puede ejecutar al mismo tiempo un trabajo de migración con el mismo recurso compartido de archivos de Azure de destino.
+* Puede ejecutar hasta cuatro trabajos de migración en paralelo por administrador de dispositivos de StorSimple, siempre que también cumpla las reglas anteriores.
 
-#### <a name="interpret-the-log-files"></a>Interpretación de los archivos de registro
+Al intentar iniciar un trabajo de migración, se comprueban las reglas anteriores. Si hay trabajos en ejecución, es posible que no pueda iniciar el trabajo actual. Recibirá una alerta que muestra el nombre de los trabajos que se están ejecutando actualmente que deben finalizar antes de poder iniciar el nuevo trabajo.
 
-Un trabajo de migración finalizado muestra un vínculo a los registros de copia. Estos registros son archivos *\*.csv* que muestran los elementos de espacio de nombres correctos y los elementos que no se han podido copiar.
-
-Una vez que accede a la ubicación de los archivos de registro, puede buscar los registros de archivos con errores filtrando la lista con el término de búsqueda "failed" (con errores). El resultado será un conjunto de registros de los archivos que no se pudieron copiar. A continuación, ordénelos por tamaño. Puede haber registros adicionales generados con un tamaño de 17 bytes. Están vacíos y se pueden omitir. Mediante la ordenación, puede concentrarse fácilmente en los registros con contenido.
-
-El mismo proceso se aplica a los archivos de registro que graban copias correctas.
+> [!TIP]
+> Es una buena idea comprobar periódicamente los trabajos de migración en la pestaña *Definición de trabajo* del recurso *Data Manager* para ver si alguno de ellos se ha pausado y necesita una acción por su parte para completarse.
 
 ### <a name="phase-3-summary"></a>Resumen de la fase 3
 
-Al final de la fase 3, habrá ejecutado al menos uno de los trabajos de migración desde los volúmenes de StorSimple en recursos compartidos de archivos de Azure. Habrá ejecutado el mismo trabajo de migración varias veces, de las copias de seguridad más antiguas hasta las más recientes que se deben migrar. Ahora puede centrarse en la configuración de Azure File Sync del recurso compartido (cuando se hayan completado los trabajos de migración de un recurso compartido) o el direccionamiento del acceso compartido para las aplicaciones y los trabajadores de la información al recurso compartido de archivos de Azure.
+Al final de la fase 3, habrá ejecutado al menos uno de los trabajos de migración desde los volúmenes de StorSimple en recursos compartidos de archivos de Azure. Con la ejecución, habrá migrado las copias de seguridad especificadas a las instantáneas del recurso compartido de archivos de Azure. Ahora puede centrarse en la configuración de Azure File Sync del recurso compartido (cuando se hayan completado los trabajos de migración de un recurso compartido) o el direccionamiento del acceso compartido para las aplicaciones y los trabajadores de la información al recurso compartido de archivos de Azure.
 
 ## <a name="phase-4-access-your-azure-file-shares"></a>Fase 4: Acceso a los recursos compartidos de archivos de Azure
 
@@ -483,7 +539,7 @@ La instancia registrada de Windows Server local debe estar preparada y conectad
 
 ### <a name="phase-4-summary"></a>Resumen de la fase 4
 
-En esta fase ha creado y ejecutado varios trabajos de migración en StorSimple Data Manager. Esos trabajos han migrado los archivos y las carpetas a recursos compartidos de archivos de Azure. También ha implementado Azure File Sync o preparado las cuentas de red y almacenamiento para el acceso directo a recursos compartidos.
+Al final de esta fase ha creado y ejecutado varios trabajos de migración en StorSimple Data Manager. Esos trabajos han migrado los archivos y carpetas y sus copias de seguridad a recursos compartidos de archivos de Azure. También ha implementado Azure File Sync o preparado las cuentas de red y almacenamiento para el acceso directo a recursos compartidos.
 
 ## <a name="phase-5-user-cut-over"></a>Fase 5: Migración total de los usuarios
 
@@ -500,6 +556,8 @@ Este enfoque de migración requiere cierto tiempo de inactividad para los usuari
 * Mantenga los volúmenes de StorSimple disponibles mientras ejecuta los trabajos de migración.
 * Cuando haya terminado de ejecutar los trabajos de migración de datos de un recurso compartido, podrá quitar el acceso de usuario (al menos el acceso de escritura) de los volúmenes o recursos compartidos de StorSimple. Un comando RoboCopy final pondrá en marcha el recurso compartido de archivos de Azure. Después, podrá migrar a los usuarios. El lugar en el que se ejecute RoboCopy dependerá de si ha elegido usar Azure File Sync o el acceso directo a recursos compartidos. En la próxima sección sobre RoboCopy se explica este asunto.
 * Una vez completada la puesta al día de RoboCopy, está listo para exponer la nueva ubicación a los usuarios mediante el recurso compartido de archivos de Azure directamente o un recurso compartido de SMB en una instancia de Windows Server con Azure File Sync. A menudo, una implementación de DFS-N lo ayudará a realizar una migración rápida y eficaz. Mantendrá coherentes las direcciones de los recursos compartidos actuales y llevará a cabo la redirección a una nueva ubicación que contenga los archivos y carpetas migrados.
+
+Para los datos de archivo, es un enfoque totalmente viable tomar el tiempo de inactividad en el volumen de StorSimple (o subcarpeta), hacer una copia de seguridad más del volumen de StorSimple, migrar y, a continuación, abrir el destino de la migración para que los usuarios y las aplicaciones puedan acceder a ellos. Esto le ahorrará la necesidad de una copia de seguridad de RoboCopy como se describe en esta sección. Sin embargo, este enfoque conlleva un período de tiempo de inactividad prolongado que podría extenderse a varios días o más dependiendo del número de archivos y copias de seguridad que necesite migrar. Es probable que esto solo sea una opción para las cargas de trabajo de archivo que puedan prescindir del acceso de escritura durante períodos prolongados de tiempo.
 
 ### <a name="determine-when-your-namespace-has-fully-synced-to-your-server"></a>Determinación de si el espacio de nombres se ha sincronizado por completo en el servidor
 
@@ -567,7 +625,7 @@ Si tiene una implementación de DFS-N, puede apuntar los espacios de nombres de 
 
 Más información sobre [DFS-N](/windows-server/storage/dfs-namespaces/dfs-overview).
 
-## <a name="deprovision"></a>Desaprovisionamiento
+## <a name="phase-6-deprovision"></a>Fase 6: Desaprovisionar
 
 Cuando se desaprovisiona un recurso, se pierde el acceso a la configuración de ese recurso, así como a sus datos. El aprovisionamiento no se puede deshacer. No continúe hasta que haya confirmado que:
 
@@ -577,7 +635,7 @@ Cuando se desaprovisiona un recurso, se pierde el acceso a la configuración de 
 Antes de empezar, es un procedimiento recomendado observar la nueva implementación de Azure File Sync en producción durante un tiempo. Esto le ofrece la oportunidad de corregir los problemas que puedan surgir. Una vez que haya observado la implementación de Azure File Sync durante al menos unos días, puede empezar a desaprovisionar los recursos en este orden:
 
 1. Desaprovisione el recurso de StorSimple Data Manager a través de Azure Portal. Todos los trabajos de DTS se eliminarán con él. No podrá recuperar fácilmente los registros de copia. Si es importante para los registros, puede recuperarlos antes de desaprovisionarlos.
-1. Asegúrese de que se han migrado las aplicaciones físicas de StorSimple y, a continuación, anule su registro. Si no está totalmente seguro de que se han migrado, no continúe. Si quita el aprovisionamiento de estos recursos mientras siguen siendo necesarios, no podrá recuperar los datos ni su configuración.<br>Opcionalmente, puede desaprovisionar primero el recurso de volumen de StorSimple, lo cual limpiará los datos del dispositivo. Este proceso puede tardar varios días y **no** pondrá a cero los datos del dispositivo de manera forense. Si esto es importante para usted, administre la puesta a cero del disco por separado del desaprovisionamiento de recursos y de acuerdo con sus directivas.
+1. Asegúrese de que se han migrado las aplicaciones físicas de StorSimple y, a continuación, anule su registro. Si no está seguro de que se han migrado, no continúe. Si quita el aprovisionamiento de estos recursos mientras siguen siendo necesarios, no podrá recuperar los datos ni su configuración.<br>Opcionalmente, puede desaprovisionar primero el recurso de volumen de StorSimple, lo cual limpiará los datos del dispositivo. Este proceso puede tardar varios días y no pondrá a cero los datos del dispositivo de manera forense. Si esto es importante para usted, administre la puesta a cero del disco por separado del desaprovisionamiento de recursos y de acuerdo con sus directivas.
 1. Si no quedan más dispositivos registrados en StorSimple Device Manager, puede continuar para quitar ese recurso de Device Manager.
 1. Ahora es el momento de eliminar la cuenta de almacenamiento de StorSimple en Azure. Una vez más, deténgase en este punto y confirme que la migración se ha completado y no hay nada que dependa de estos datos antes de continuar.
 1. Desconecte el dispositivo físico de StorSimple del centro de datos.

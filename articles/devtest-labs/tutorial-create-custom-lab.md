@@ -3,12 +3,12 @@ title: Tutorial de creación de un laboratorio
 description: En este tutorial, se creará un laboratorio en Azure DevTest Labs desde Azure Portal. Los administradores de laboratorio configuran laboratorios, crean máquinas virtuales en los laboratorios y configuran las directivas.
 ms.topic: tutorial
 ms.date: 06/26/2020
-ms.openlocfilehash: 52640469ff02fd167b0add4210ddec11db05af97
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 239f92aa172e4239403869e488ec7c9348623009
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128655607"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073129"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Tutorial: Configuración de un laboratorio mediante Azure DevTest Labs
 En este tutorial, va a crear un laboratorio mediante Azure Portal. El administrador de laboratorio configura un laboratorio en una organización, crea máquinas virtuales en el laboratorio y configura las directivas. Los usuarios de laboratorio (por ejemplo: desarrolladores y evaluadores) reclaman las máquinas virtuales en el laboratorio, se conectan a ellas y las usan. 
@@ -73,18 +73,24 @@ Los pasos siguientes muestran cómo usar Azure Portal para crear un laboratorio 
 
 ## <a name="add-a-user-to-the-lab-user-role"></a>Adición de un usuario al rol de usuario de laboratorio
 
-1. Seleccione **Configuración y directivas**. 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como [Administrador de acceso de usuario](../role-based-access-control/built-in-roles.md#user-access-administrator) o [Propietario](../role-based-access-control/built-in-roles.md#owner).
 
-    ![Directivas y configuración](./media/tutorial-create-custom-lab/configuration-and-policies-menu.png)
-1. Seleccione **Control de acceso (IAM)** en el menú y seleccione **+ Agregar asignación de rol** en la barra de herramientas. 
+1. Abra el grupo de recursos que contiene el laboratorio que ha creado.
 
-    ![Botón Agregar asignación de rol](./media/tutorial-create-custom-lab/add-role-assignment-button.png)
-1. En la página **Agregar permisos**, realice las siguientes acciones:
-    1. En **Rol**, seleccione **Usuario de DevTest Labs**. 
-    2. Seleccione el **usuario** que desea agregar. 
-    3. Seleccione **Guardar**.
+1. En el menú de navegación, seleccione **Control de acceso (IAM)** .
 
-        ![Agregar usuario](./media/tutorial-create-custom-lab/add-user.png)
+1. Seleccione **Agregar** > **Agregar asignación de roles**.
+
+    ![Página Control de acceso (IAM) con el menú Agregar asignación de roles abierto.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+
+1. En la pestaña **Rol**, seleccione el rol **Usuario de DevTest Labs**.
+
+    ![Página Agregar asignación de roles con la pestaña Rol seleccionada.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
+
+1. En la pestaña **Miembros**, seleccione el usuario al que quiere asignar el rol deseado.
+
+1. En la pestaña **Revisión y asignación**, seleccione **Revisión y asignación** para asignar el rol.
+
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 En el siguiente tutorial se muestra cómo un usuario de laboratorio puede reclamar y conectarse a una máquina virtual en el laboratorio. Si no quiere hacer ese tutorial, y limpiar los recursos creados como parte de este tutorial, siga estos pasos: 

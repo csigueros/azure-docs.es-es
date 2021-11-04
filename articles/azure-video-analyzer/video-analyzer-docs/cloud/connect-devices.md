@@ -3,14 +3,14 @@ title: Conexión de dispositivos a Azure Video Analyzer
 description: En este artículo se describe cómo conectar dispositivos a Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 72a83593134b52c652d8d31bb441ecc083d88fea
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 605c7641c5960bf5643a0ca26e29339d5cd21db0
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091372"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563252"
 ---
 # <a name="connect-devices-to-azure-video-analyzer"></a>Conexión de dispositivos a Azure Video Analyzer
 

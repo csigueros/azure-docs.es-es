@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 62e963cdf3c0cdb60648e032a0520fdd71a90874
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: d33c54bae01d6406e32a0a2c97ef7695df48da9a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129856317"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058864"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-perception-united-states-non-ultipro"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Perception United States (Non-UltiPro)
 
@@ -82,9 +82,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
-    c. La aplicación **Perception United States (no UltiPro)** requiere que el valor de **Identificador de Azure AD** como <entity_id>, que puede obtener de la sección **Configuración de Perception United States (Non-UltiPro)** , esté codificado en URI. Para obtener el valor codificado como URI, use el siguiente vínculo: **http://www.url-encode-decode.com/** .
+    c. La aplicación **Perception United States (no UltiPro)** necesita que el valor **Identificador de Azure AD** como <entity_id>, que se obtiene en la sección **Configuración de Perception United States (Non-UltiPro)** , tenga codificación URI. Para obtener el valor con codificación URI, use el siguiente vínculo: **http://www.url-encode-decode.com/** .
 
-    d. Después de obtener el valor codificado como URI, combínelo con la **Dirección URL de respuesta** según se indica a continuación:
+    d. Después de obtener el valor con codificación URI, combínelo con la **URL de respuesta** como se indica a continuación:
 
     `https://perception.kanjoya.com/sso?idp=<URI encooded entity_id>`
     

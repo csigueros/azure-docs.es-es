@@ -13,12 +13,12 @@ ms.date: 11/26/2019
 ms.author: marsma
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40, has-adal-ref
-ms.openlocfilehash: 0c79ad939a28913a13193b2743c6fda98f553663
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 44afa745df2799b18e67e43fe4a24b09089636d5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128587088"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131050401"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-application"></a>Tutorial: Inicio de sesión de los usuarios y llamada a Microsoft Graph API desde una aplicación de Android
 
@@ -141,12 +141,12 @@ Si aún no tiene una aplicación Android, siga estos pasos para configurar un nu
     ```
 
     Sustituya el nombre del paquete que registró en Azure Portal por el valor `android:host=`.
-    Sustituya el hash de la clave que registró en Azure Portal por el valor `android:path=`. El hash de firma **no** debe estar codificado como dirección URL. Asegúrese de que haya un carácter de `/` inicial al principio del hash de firma.
+    Sustituya el hash de la clave que registró en Azure Portal por el valor `android:path=`. El hash de firma **no** debe tener codificación URL. Asegúrese de que haya un carácter de `/` inicial al principio del hash de firma.
     
-    El "nombre del paquete" con el que reemplazará el valor de `android:host` debería ser similar a: "com.azuresamples.msalandroidapp".
-    El "hash de firma" con el que reemplazará el valor de `android:path` debería ser similar a: "/1wIqXSqBj7w+h11ZifsnqwgyKrY=".
+    El "nombre del paquete" por el que va a reemplazar el valor `android:host` debería ser similar a: `com.azuresamples.msalandroidapp`.
+    El "hash de firma" por el que va a reemplazar el valor `android:path` debería ser similar a: `/1wIqXSqBj7w+h11ZifsnqwgyKrY=`.
     
-    También encontrará estos valores en la hoja autenticación del registro de la aplicación. Tenga en cuenta que el identificador URI de redirección tendrá un aspecto similar al siguiente: "msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D". Aunque el hash de firma está codificado como dirección URL al final de este valor, el hash de firma **no** debe estar codificado como dirección URL en el valor de `android:path`.
+    También encontrará estos valores en la hoja autenticación del registro de la aplicación. Observe que el URI de redireccionamiento va a tener un aspecto similar a: `msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D`. Aunque el hash de firma tiene codificación URL al final de este valor, el hash de firma **no** debe tener codificación URL en el valor `android:path`.
 
 ## <a name="use-msal"></a>Uso de MSAL
 

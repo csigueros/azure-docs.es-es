@@ -9,12 +9,12 @@ ms.subservice: v1
 ms.topic: tutorial
 ms.custom: vs-azure, devx-track-azurepowershell
 ms.date: 10/22/2021
-ms.openlocfilehash: 37ebe53f72841141171cb463b53d4de7c1e1d705
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 51c421fbb6dc38dbf4de26e95b82bb455e0b35bf
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130229510"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051180"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Tutorial: Creación de una instancia de Data Factory mediante Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -98,7 +98,7 @@ Con el servicio vinculado de HDInsight a petición, se crea automáticamente el 
 2. Seleccione **HDInsight On Demand Linked Service** (Servicio vinculado de HDInsight a petición) y haga clic en **Agregar**.
 3. Reemplace el código **JSON** por el siguiente:
 
-     ```json
+    ```json
     {
         "name": "HDInsightOnDemandLinkedService",
         "properties": {
@@ -299,17 +299,17 @@ En este paso, va a publicar las entidades de Data Factory (servicios vinculados,
 
     :::image type="content" source="media/data-factory-build-your-first-pipeline-using-vs/publish-new-data-factory.png" alt-text="Publicar: nueva configuración de Data Factory":::
 
-   1. Seleccione la opción **Crear la nueva factoría de datos** .
+   1. Seleccione la opción **Crear la nueva factoría de datos**.
    2. Escriba un **nombre** único para la factoría de datos. Por ejemplo: **DataFactoryUsingVS09152016**. El nombre debe ser único globalmente.
    3. Seleccione la suscripción correcta en el campo **Suscripción** . 
-        > [!IMPORTANT]
-        > Si no ve ninguna suscripción, asegúrese de que ha iniciado sesión con una cuenta que sea administrador o coadministrador de la suscripción.
+      > [!IMPORTANT]
+      > Si no ve ninguna suscripción, asegúrese de que ha iniciado sesión con una cuenta que sea administrador o coadministrador de la suscripción.
    4. Seleccione el **grupo de recursos** para la factoría de datos que se va a crear.
    5. Seleccione la **Región** de la factoría de datos.
    6. Haga clic en **Siguiente** para cambiar a la página **Publicar elementos**. (Si el botón **Siguiente** está deshabilitado, presione la tecla **TAB** para salir del campo).
-
       > [!IMPORTANT]
       > Si recibe el error **El nombre "DataFactoryUsingVS" de la factoría de datos no está disponible** al realizar la publicación, cambie el nombre (por ejemplo, a suNombreDataFactoryUsingVS). Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.   
+
 1. En la página **Publicar elementos**, asegúrese de que todas las factorías de datos están seleccionadas y haga clic en **Siguiente** para cambiar a la página **Resumen**.
 
     :::image type="content" source="media/data-factory-build-your-first-pipeline-using-vs/publish-items-page.png" alt-text="Página Publicar elementos":::     
@@ -321,20 +321,27 @@ En este paso, va a publicar las entidades de Data Factory (servicios vinculados,
 Puntos importantes que hay que tener en cuenta:
 
 - Si recibe el error: **La suscripción no está registrada para usar el espacio de nombres Microsoft.DataFactory**, realice una de las acciones siguientes e intente publicarla de nuevo:
-    - En Azure PowerShell, ejecute el siguiente comando para registrar el proveedor de Data Factory.
-        ```powershell   
-        Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
-        ```
-        Puede ejecutar el comando siguiente para confirmar que se ha registrado el proveedor de Data Factory.
 
-        ```powershell
-        Get-AzResourceProvider
-        ```
-    - Inicie sesión mediante la suscripción de Azure en el [Portal de Azure](https://portal.azure.com) y vaya a una hoja de Data Factory (o) cree una factoría de datos en el Portal de Azure. Esta acción registra automáticamente el proveedor.
+  - En Azure PowerShell, ejecute el siguiente comando para registrar el proveedor de Data Factory.
+
+    ```powershell
+    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
+    ```
+
+    Puede ejecutar el comando siguiente para confirmar que se ha registrado el proveedor de Data Factory.
+
+    ```powershell
+    Get-AzResourceProvider
+    ```
+
+  - Inicie sesión mediante la suscripción de Azure en el [Portal de Azure](https://portal.azure.com) y vaya a una hoja de Data Factory (o) cree una factoría de datos en el Portal de Azure. Esta acción registra automáticamente el proveedor.
+
 - El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, que sea visible públicamente.
+
 - Para crear instancias de Data Factory, es preciso ser administrador o coadministrador de la suscripción de Azure
 
 ### <a name="monitor-pipeline"></a>Supervisión de la canalización
+
 En este paso, va a supervisar la canalización mediante la vista de diagrama de Data Factory. 
 
 #### <a name="monitor-pipeline-using-diagram-view"></a>Supervisión de una canalización desde la vista de diagrama
@@ -489,7 +496,7 @@ Agregue un archivo de configuración a cada entorno realizando los pasos siguien
             "name": "LastName",
             "type": "String"
         }
-    ],
+    ]
     ```
 
     Configure las propiedades tal como se muestra en el siguiente archivo de configuración (use la indexación de base cero):
@@ -498,15 +505,15 @@ Agregue un archivo de configuración a cada entorno realizando los pasos siguien
     {
         "name": "$.properties.structure[0].name",
         "value": "FirstName"
-    }
+    },
     {
         "name": "$.properties.structure[0].type",
         "value": "String"
-    }
+    },
     {
         "name": "$.properties.structure[1].name",
         "value": "LastName"
-    }
+    },
     {
         "name": "$.properties.structure[1].type",
         "value": "String"
@@ -514,13 +521,14 @@ Agregue un archivo de configuración a cada entorno realizando los pasos siguien
     ```
 
 ### <a name="property-names-with-spaces"></a>Nombres de propiedad con espacios
+
 Si un nombre de propiedad contiene espacios, utilice corchetes como se muestra en el ejemplo siguiente (nombre de servidor de base de datos):
 
 ```json
- {
-     "name": "$.properties.activities[1].typeProperties.webServiceParameters.['Database server name']",
-     "value": "MyAsqlServer.database.windows.net"
- }
+{
+    "name": "$.properties.activities[1].typeProperties.webServiceParameters.['Database server name']",
+    "value": "MyAsqlServer.database.windows.net"
+}
 ```
 
 ### <a name="deploy-solution-using-a-configuration"></a>Implementación de la solución mediante una configuración

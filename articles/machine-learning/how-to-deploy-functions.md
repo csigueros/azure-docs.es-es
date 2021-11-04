@@ -5,18 +5,18 @@ description: Aprenda a usar Azure Machine Learning para empaquetar e implementar
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: vaidyas
-author: vaidya-s
+ms.author: ssambare
+author: shivanissambare
 ms.reviewer: larryfr
-ms.date: 03/06/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: racking-python, devx-track-azurecli
-ms.openlocfilehash: 2f1c1a1e5e467591f12c7c28f3c9108b1d5be9e3
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 561cde1c671c6edcde947e3b69f5e4472034edd4
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129425456"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131557592"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Implementación de un modelo de Machine Learning en Azure Functions (versión preliminar)
 

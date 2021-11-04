@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 5ba23a1bc5740eece8aa5e48d4f6cd81fab7b87e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e22f85a0e6e5bef133d60570f9eba519a7725670
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124803449"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131032228"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adobe-creative-cloud"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Adobe Creative Cloud
 
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar Adobe Creative Cloud con Azure Active D
 * Permitir que los usuarios inicien sesión automáticamente en Adobe Creative Cloud con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -57,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Adobe Creative C
 Para configurar y probar el inicio de sesión único de Azure AD con Adobe Creative Cloud, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Adobe Creative Cloud](#configure-adobe-creative-cloud-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba en Adobe Creative Cloud](#create-adobe-creative-cloud-test-user)** : para tener un homólogo de B.Simon en Adobe Creative Cloud vinculado a la representación de usuario en Azure AD.
@@ -161,7 +161,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Adobe Creative Cl
 
 2. Agregue el usuario en la consola de Adobe como identificador federado y asígnelo a un perfil de producto. Para obtener información detallada sobre cómo agregar usuarios, consulte [Add users in Adobe Admin Console](https://helpx.adobe.com/enterprise/using/users.html#Addusers) (Agregar usuarios en Adobe Admin Console).
 
-3. Escriba ahora su dirección de correo electrónico o UPN en el formulario de inicio de sesión de Adobe, presione el tabulador y debería estar federado de nuevo en Azure AD:
+3. En este punto escriba la dirección de correo electrónico o UPN en el formulario de inicio de sesión de Adobe, presione el tabulador y ya debería estar federado de nuevo en Azure AD:
    * Acceso web: www\.adobe.com/es > Inicio de sesión
    * En la utilidad de una aplicación de escritorio > Inicio de sesión
    * En la aplicación > Ayuda > Inicio de sesión

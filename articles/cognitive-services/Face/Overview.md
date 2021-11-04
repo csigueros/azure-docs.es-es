@@ -11,12 +11,12 @@ ms.date: 09/27/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconocimiento facial, software de reconocimiento facial, análisis facial, coincidencia facial, aplicación de reconocimiento facial, búsqueda de caras por imagen, búsqueda de reconocimiento facial
-ms.openlocfilehash: 90a2b656d66c15eed10d68be8e5af5c35f35d135
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 25e79bb8ab2d37c5b32a6519158cd53d79c1d94b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130005698"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131071427"
 ---
 # <a name="what-is-the-azure-face-service"></a>¿Qué es el servicio Azure Face?
 
@@ -86,9 +86,9 @@ En el siguiente ejemplo se muestra la cara objetivo:
 
 Y estas imágenes son las caras candidatas:
 
-![Cinco imágenes de personas sonriendo. Las imágenes a y b muestran a la misma persona.](./Images/FaceFindSimilar.Candidates.jpg)
+![Cinco imágenes de personas sonriendo. Las imágenes A y B muestran a la misma persona.](./Images/FaceFindSimilar.Candidates.jpg)
 
-Al buscar cuatro caras parecidas, el modo **matchPerson** devuelve a y b, que muestran a la misma persona que la cara objetivo. El modo **matchFace** devuelve a, b, c y d: exactamente cuatro caras candidatas, aunque algunas no sean la misma persona que el objetivo o el nivel de similitud sea bajo. Para más información, vea la guía de conceptos [Reconocimiento facial](concepts/face-recognition.md) o la documentación de referencia de [Find Similar API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
+Para buscar cuatro caras parecidas, el modo **matchPerson** devuelve A y B, que muestran a la misma persona como cara objetivo. El modo **matchFace** devuelve A, B, C y D, exactamente cuatro candidatos, aunque algunos no sean la misma persona que el objetivo o tengan poca similitud. Para más información, vea la guía de conceptos [Reconocimiento facial](concepts/face-recognition.md) o la documentación de referencia de [Find Similar API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
 
 ## <a name="group-faces"></a>Agrupación de caras
 

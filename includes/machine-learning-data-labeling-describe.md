@@ -2,14 +2,14 @@
 author: sgilley
 ms.service: machine-learning
 ms.topic: include
-ms.date: 09/23/2021
+ms.date: 10/21/2021
 ms.author: sdgilley
-ms.openlocfilehash: 08f45c41cd0edd4886ebeb124c91d0655562c543
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 122d8c73948641ead5b859c5ac670d4c4c1a3cfe
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129367573"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131570767"
 ---
 Es importante explicar claramente la tarea de etiquetado. En la página **Instrucciones de etiquetado**, puede agregar un vínculo a un sitio externo que contenga las instrucciones de etiquetado o bien incluir instrucciones en el cuadro de edición de la página. Mantenga las instrucciones orientadas a tareas y adecuadas para el público. Tenga en cuenta estas preguntas:
 

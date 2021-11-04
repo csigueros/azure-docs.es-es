@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 07/05/2021
-ms.openlocfilehash: 6297956cb77898c26beaa617a59b1b43cc111e80
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 1c0e6e052b9e65f02ab57a7a2c165c9ba67be0a8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124771771"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131031050"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Carga incremental de datos de Instancia administrada de Azure SQL a Azure Blob Storage mediante la captura de datos modificados (CDC)
 
@@ -230,7 +230,9 @@ En este paso, creará una canalización, que primero comprueba el número de reg
 
     :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/first-lookup-activity-name.png" alt-text="Actividad de búsqueda: nombre":::
 4. Cambie a la pestaña **Settings** (Configuración) de la ventana **Properties** (Propiedades):
+
    1. Especifique el nombre del conjunto de datos de Instancia administrada de SQL en el campo **Source Dataset** (Conjunto de datos de origen).
+
    2. Seleccione la opción de consulta y escriba lo siguiente en el cuadro de consulta:
     ```sql
     DECLARE  @from_lsn binary(10), @to_lsn binary(10);  
@@ -238,9 +240,11 @@ En este paso, creará una canalización, que primero comprueba el número de reg
     SET @to_lsn = sys.fn_cdc_map_time_to_lsn('largest less than or equal',  GETDATE());
     SELECT count(1) changecount FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, 'all')
     ```
+
    3. Habilite **First row only** (Solo primera fila).
 
     :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/first-lookup-activity-settings.png" alt-text="Actividad de búsqueda: configuración":::
+
 5. Haga clic en el botón **Preview data** (Vista previa de datos) para asegurarse de que la actividad de búsqueda obtiene una salida válida.
 
     :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/first-lookup-activity-preview.png" alt-text="Actividad de búsqueda: vista previa":::
@@ -337,31 +341,38 @@ En este paso, creará un desencadenador de ventana de saltos de tamaño constant
    1. Haga clic en la pestaña **Connection** (Conexión) de las propiedades del conjunto de datos y agregue contenido dinámico en las secciones **Directory** (Directorio) y **File** (Archivo). 
    2. Escriba la siguiente expresión en la sección **Directory** (Directorio); para ello, haga clic en el vínculo de contenido dinámico en el cuadro de texto:
     
-    ```sql
-    @concat('customers/incremental/',formatDateTime(dataset().triggerStart,'yyyy/MM/dd'))
-    ```
+      ```sql
+      @concat('customers/incremental/',formatDateTime(dataset().triggerStart,'yyyy/MM/dd'))
+      ```
    3. Escriba la siguiente expresión en la sección **File** (Archivo). Se crean nombres de archivo basados en la fecha y la hora de inicio del desencadenador, con el sufijo de la extensión csv:
     
-    ```sql
-    @concat(formatDateTime(dataset().triggerStart,'yyyyMMddHHmmssfff'),'.csv')
-    ```
-    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-3.png" alt-text="Configuración del conjunto de datos de receptor: 3":::
+      ```sql
+      @concat(formatDateTime(dataset().triggerStart,'yyyyMMddHHmmssfff'),'.csv')
+      ```
+
+      :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-3.png" alt-text="Configuración del conjunto de datos de receptor: 3":::
 
    4. Vuelva a la configuración de **Sink** (Receptor) de la actividad **Copy** (Copia) haciendo clic en la pestaña **IncrementalCopyPipeline**. 
    5. Expanda las propiedades del conjunto de datos y escriba contenido dinámico en el valor del parámetro triggerStart con la siguiente expresión:
-     ```sql
-     @pipeline().parameters.triggerStartTime
-     ```
-    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-4.png" alt-text="Configuración del conjunto de datos de receptor 4":::
+
+      ```sql
+      @pipeline().parameters.triggerStartTime
+      ```
+
+     :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-4.png" alt-text="Configuración del conjunto de datos de receptor 4":::
 
 6. Haga clic en Debug (Depurar) para probar la canalización y asegurarse de que la estructura de carpetas y el archivo de salida se generan según lo previsto. Descargue y abra el archivo para comprobar el contenido. 
 
     :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-debug-3.png" alt-text="Depuración de copia incremental 3":::
+
 7. Asegúrese de que los parámetros se inserten en la consulta, para lo cual debe revisar los parámetros de entrada de la ejecución de canalización.
 
     :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-debug-4.png" alt-text="Depuración de copia incremental 4":::
+
 8. Para publicar entidades (servicios vinculados, conjuntos de datos y canalizaciones) en el servicio Data Factory, haga clic en el botón **Publicar todo**. Espere hasta ver el mensaje **Publishing succeeded** (Publicación correcta).
+
 9. Por último, configure un desencadenador de ventana de saltos de tamaño constante para ejecutar la canalización a intervalos regulares y establecer los parámetros de hora de inicio y de finalización. 
+
    1. Haga clic en el botón **Add trigger** (Agregar desencadenador) y seleccione **New/Edit** (Nuevo/Editar).
 
    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/add-trigger.png" alt-text="Agregar nuevo desencadenador":::
@@ -371,17 +382,19 @@ En este paso, creará un desencadenador de ventana de saltos de tamaño constant
    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/tumbling-window-trigger.png" alt-text="Desencadenador de ventana de saltos de tamaño constante":::
 
    3. En la siguiente pantalla, especifique los siguientes valores para los parámetros de inicio y de finalización, respectivamente.
-    ```sql
-    @formatDateTime(trigger().outputs.windowStartTime,'yyyy-MM-dd HH:mm:ss.fff')
-    @formatDateTime(trigger().outputs.windowEndTime,'yyyy-MM-dd HH:mm:ss.fff')
-    ```
 
-   :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/tumbling-window-trigger-2.png" alt-text="Desencadenador de ventana de saltos de tamaño constante 2":::
+      ```sql
+      @formatDateTime(trigger().outputs.windowStartTime,'yyyy-MM-dd HH:mm:ss.fff')
+      @formatDateTime(trigger().outputs.windowEndTime,'yyyy-MM-dd HH:mm:ss.fff')
+      ```
+
+      :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/tumbling-window-trigger-2.png" alt-text="Desencadenador de ventana de saltos de tamaño constante 2":::
 
 > [!NOTE]
-> Tenga en cuenta que el desencadenador solo se ejecuta una vez que se ha publicado. Además, el comportamiento esperado de la ventana de saltos de tamaño constante es ejecutar todos los intervalos históricos desde la fecha de inicio hasta ahora. Puede encontrar más información sobre los desencadenadores de ventana de saltos de tamaño constante [aquí](./how-to-create-tumbling-window-trigger.md). 
-  
+> El desencadenador solo se ejecuta una vez que se ha publicado. Además, el comportamiento esperado de la ventana de saltos de tamaño constante es ejecutar todos los intervalos históricos desde la fecha de inicio hasta ahora. Puede encontrar más información sobre los desencadenadores de ventana de saltos de tamaño constante [aquí](./how-to-create-tumbling-window-trigger.md). 
+
 10. Con **SQL Server Management Studio** realice cambios adicionales en la tabla customers mediante la ejecución del siguiente código SQL:
+
     ```sql
     insert into customers (customer_id, first_name, last_name, email, city) values (4, 'Farlie', 'Hadigate', 'fhadigate3@zdnet.com', 'Reading');
     insert into customers (customer_id, first_name, last_name, email, city) values (5, 'Anet', 'MacColm', 'amaccolm4@yellowbook.com', 'Portsmouth');
@@ -390,10 +403,11 @@ En este paso, creará un desencadenador de ventana de saltos de tamaño constant
     delete from customers where customer_id=5;
     ```
 11. Haga clic en el botón **Publicar todo**. Espere hasta ver el mensaje **Publishing succeeded** (Publicación correcta).  
+
 12. Al cabo de unos minutos, se habrá desencadenado la canalización y se habrá cargado un nuevo archivo en Azure Storage.
 
-
 ### <a name="monitor-the-incremental-copy-pipeline"></a>Supervisión de la canalización de la copia incremental
+
 1. Haga clic en la pestaña **Monitor** (Supervisar) de la izquierda. Verá la ejecución de la canalización en la lista y su estado. Haga clic en **Refresh** (Actualizar) para actualizar la lista. Mantenga el puntero cerca del nombre de la canalización para acceder a la acción Rerun (Volver a ejecutar) y al informe de consumo.
 
     :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-pipeline-runs.png" alt-text="Ejecuciones de la canalización":::

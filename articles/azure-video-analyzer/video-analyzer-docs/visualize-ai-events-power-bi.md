@@ -3,14 +3,14 @@ title: Visualización en tiempo real de eventos de inferencia de IA con Power B
 description: Puede usar Azure Video Analyzer para la grabación continua de vídeo o la grabación basada en eventos. Este tutorial le guía por los pasos para visualizar en tiempo real eventos de inferencia de inteligencia artificial de IoT Hub en Microsoft Power BI.
 ms.service: azure-video-analyzer
 ms.topic: tutorial
-ms.date: 09/08/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 9359d51e1767793e1d838777cb76a3af04f30c6d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 571e89e1616f8e7ab2ee0eca021ea1020dea9140
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131073704"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131564080"
 ---
 # <a name="tutorial-real-time-visualization-of-ai-inference-events-with-power-bi"></a>Tutorial: Visualización en tiempo real de eventos de inferencia de IA con Power BI
 

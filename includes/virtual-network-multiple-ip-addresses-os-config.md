@@ -1,5 +1,5 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: virtual-network
 author: asudbring
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/10/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 769c3c5e720486c2c6d590f6feea55de5e0f4b88
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: f76408314f65409d21d163f34efc7da3d6e86f68
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130287893"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131571185"
 ---
 ## <a name="add-ip-addresses-to-a-vm-operating-system"></a><a name="os-config"></a>Incorporación de direcciones IP a un sistema operativo de la máquina virtual
 
@@ -34,10 +34,10 @@ Conéctese e inicie sesión en una máquina virtual que creó con múltiples dir
     * **Máscara de subred**: establezca este valor en función de la subred. Por ejemplo, si la subred es una subred /24, la máscara de subred es 255.255.255.0.
     * **Puerta de enlace predeterminada**: la primera dirección IP de la subred. Si la subred es 10.0.0.1/24, la dirección IP de la puerta de enlace es 10.0.0.0/24.
     * Seleccione **Usar las siguientes direcciones de servidor DNS** y escriba los valores siguientes:
-        * **Servidor DNS preferido**: escriba 168.63.129.16 si no usa un servidor DNS propio.  Si usa su propio servidor DNS, escriba la dirección IP de su servidor.  Para el servidor DNS alternativo, puede elegir cualquier dirección de servidor DNS público que esté disponible.
+      * **Servidor DNS preferido**: escriba 168.63.129.16 si no usa un servidor DNS propio.  Si usa su propio servidor DNS, escriba la dirección IP de su servidor.  Para el servidor DNS alternativo, puede elegir cualquier dirección de servidor DNS público que esté disponible.
     * Seleccione el botón **Avanzadas** y agregue más direcciones IP. Agregue cada una de las direcciones IP privadas secundarias, que agregó a la interfaz de red de Azure en un paso anterior, a la interfaz de red de Windows que se asigna a la dirección IP principal asignada a la interfaz de red de Azure.
 
-        No asigne manualmente la dirección IP pública asignada a una máquina virtual de Azure en el sistema operativo de la máquina virtual. Al establecer manualmente la dirección IP privada en el sistema operativo, asegúrese de que sea la misma que la asignada a la [interfaz de red](../articles/virtual-network/ip-services/virtual-network-network-interface-addresses.md#change-ip-address-settings) de Azure; de lo contrario, perderá la conectividad a la máquina virtual. Más información sobre la configuración de la [dirección IP privada](../articles/virtual-network/ip-services/virtual-network-network-interface-addresses.md#private). Nunca debe asignar una dirección IP pública de Azure dentro del sistema operativo.
+      No asigne manualmente la dirección IP pública asignada a una máquina virtual de Azure en el sistema operativo de la máquina virtual. Al establecer manualmente la dirección IP privada en el sistema operativo, asegúrese de que sea la misma que la asignada a la [interfaz de red](../articles/virtual-network/ip-services/virtual-network-network-interface-addresses.md#change-ip-address-settings) de Azure; de lo contrario, perderá la conectividad a la máquina virtual. Más información sobre la configuración de la [dirección IP privada](../articles/virtual-network/ip-services/virtual-network-network-interface-addresses.md#private). Nunca debe asignar una dirección IP pública de Azure dentro del sistema operativo.
 
     * Haga clic en **Aceptar** para cerrar la configuración de TCP/IP y en **Aceptar** otra vez para cerrar la configuración del adaptador. Se restablece la conexión RDP.
 
@@ -142,9 +142,9 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 ```
 
 - No olvide reemplazar:
-    - **10.0.0.5** con la dirección IP privada que tiene una dirección IP pública asociada
-    - **10.0.0.1** con su puerta de enlace predeterminada
-    - **eth2** con el nombre de la NIC secundaria 
+  - **10.0.0.5** con la dirección IP privada que tiene una dirección IP pública asociada
+  - **10.0.0.1** con su puerta de enlace predeterminada
+  - **eth2** con el nombre de la NIC secundaria 
 
 </details>
 
@@ -246,9 +246,9 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 ```
 
 - No olvide reemplazar:
-    - **10.0.0.5** con la dirección IP privada que tiene una dirección IP pública asociada
-    - **10.0.0.1** con su puerta de enlace predeterminada
-    - **eth2** con el nombre de la NIC secundaria 
+  - **10.0.0.5** con la dirección IP privada que tiene una dirección IP pública asociada
+  - **10.0.0.1** con su puerta de enlace predeterminada
+  - **eth2** con el nombre de la NIC secundaria 
 
 </details>
 
@@ -335,9 +335,9 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 ```
 
 - No olvide reemplazar:
-    - **10.0.0.5** con la dirección IP privada que tiene una dirección IP pública asociada
-    - **10.0.0.1** con su puerta de enlace predeterminada
-    - **eth2** con el nombre de la NIC secundaria 
+  - **10.0.0.5** con la dirección IP privada que tiene una dirección IP pública asociada
+  - **10.0.0.1** con su puerta de enlace predeterminada
+  - **eth2** con el nombre de la NIC secundaria 
 
 
 </details>
@@ -357,18 +357,18 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 1. Actualice el archivo de configuración de la interfaz de red (suponiendo que sea "eth0").
 
    * Abra el archivo de interfaz de red mediante el comando siguiente:
-     
+
      ```bash
      vi /etc/network/interfaces
      ```
-    
+
    * Debería ver las siguientes líneas al final del archivo:
-    
+
       ```bash
       auth eth0
       iface eth0 inet dhcp
       ```
-    
+
    * Deje el elemento de línea existente para dhcp como está. La dirección IP principal permanece configurada que estaba.
    * Agregue las líneas siguientes después de las que existen en este archivo:
 
@@ -390,7 +390,7 @@ ip route add default via 10.0.0.1 dev eth2 table custom
    systemctl restart networking
    ```
    En versiones anteriores de Debian, puede usar los siguientes comandos:
-    
+
    ```bash
    service networking restart
    ```

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/07/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 1e08dc5c0dc0d8e427de9ae1ebc53f16cb8e015a
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 7f4c509b1f59db05db9bf6fca34960f7f2ab6b87
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130043612"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054483"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutorial: Personalización de las asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory
 
@@ -26,7 +26,7 @@ Antes de empezar, debe conocer lo que significa la administración de aplicacion
 - [Series de guías de inicio rápido sobre la administración de aplicaciones en Azure AD](../manage-apps/view-applications-portal.md)
 - [¿Qué es el inicio de sesión único (SSO)?](../manage-apps/what-is-single-sign-on.md)
 
-Hay un conjunto preconfigurado de atributos y asignaciones de atributos entre los objetos de usuario de Azure AD y los objetos de usuario de cada aplicación SaaS. Además de los usuarios, algunas aplicaciones administran otros tipos de objetos, como los grupos.
+Hay un conjunto preconfigurado de atributos y asignaciones de atributos entre objetos de usuario de Azure AD y objetos de usuario de cada aplicación SaaS. Además de los usuarios, algunas aplicaciones administran otros tipos de objetos, como los grupos.
 
 Puede personalizar las asignaciones de atributos predeterminadas según sus necesidades empresariales. Esto significa que puede cambiar o eliminar asignaciones de atributos existentes o crear nuevas asignaciones de atributos.
 
@@ -331,7 +331,7 @@ Al seleccionar esta opción se fuerza la resincronización de todos los usuarios
 - Microsoft Azure AD proporciona una implementación eficaz de un proceso de sincronización. En un entorno inicializado, sólo los objetos que requieren actualizaciones se procesan durante un ciclo de sincronización.
 - Actualizar las asignaciones de atributos repercute en el rendimiento de un ciclo de sincronización. Una actualización de la configuración de la asignación de atributos requiere que se vuelvan a evaluar todos los objetos administrados.
 - Es un procedimiento recomendado mantener el número mínimo de cambios consecutivos de las asignaciones de atributos.
-- Actualmente no se puede agregar un atributo de foto para su aprovisionamiento en una aplicación, ya que no se permite especificar el formato para sincronizar la foto. Puede solicitar la característica en [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory)
+- Actualmente no se puede agregar un atributo de foto para su aprovisionamiento en una aplicación, ya que no se permite especificar el formato para sincronizar la foto. Puede solicitar la característica en [User Voice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)
 - El atributo IsSoftDeleted suele formar parte de las asignaciones predeterminadas para una aplicación. IsSoftdeleted puede ser true en uno de los cuatro escenarios siguientes: el usuario está fuera del ámbito debido a que se ha desasignado de la aplicación; el usuario está fuera del ámbito debido a que no cumple un filtro de ámbito; el usuario se ha eliminado temporalmente en Azure AD; o la propiedad AccountEnabled está establecida en false en el usuario. No se recomienda eliminar el atributo IsSoftDeleted de las asignaciones de atributos.
 - El servicio de aprovisionamiento de Azure AD no admite el aprovisionamiento de valores NULL.
 - La clave principal, normalmente "ID", no se debe incluir como atributo de destino en las asignaciones de atributos. 

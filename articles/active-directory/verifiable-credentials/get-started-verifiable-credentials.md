@@ -9,12 +9,12 @@ ms.author: barclayn
 ms.topic: tutorial
 ms.date: 04/01/2021
 ROBOTS: NOINDEX
-ms.openlocfilehash: 17229aca9833dced65ef07cebb59bd0a3569d6b4
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 096ca46c2a2c7c54553005fcb4a264c6ef8221d2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130006914"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049185"
 ---
 #  <a name="tutorial---get-started-with-azure-active-directory-verifiable-credentials-using-a-sample-app-preview"></a>Tutorial: Introducción a Azure Active Directory Verifiable Credentials con una aplicación de ejemplo (versión preliminar)
 
@@ -141,7 +141,7 @@ Ahora que ha completado la parte de emisión del tutorial y que tiene una creden
     ngrok http 8082
     ```
 
-4. Abra la dirección URL de reenvío de HTTPS de ngrok en el explorador y pulse en el botón **VERIFY CREDENTIAL** (VERIFICAR CREDENCIAL).  
+4. Abra la dirección URL de reenvío https de ngrok en el explorador y pulse en el botón **VERIFY CREDENTIAL** (VERIFICAR CREDENCIAL).  
 
    ![botón verificar el experto en credenciales](media/get-started-verifiable-credentials/prove-credential-expert.png)
 

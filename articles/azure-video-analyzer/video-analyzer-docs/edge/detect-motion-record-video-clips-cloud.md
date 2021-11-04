@@ -2,14 +2,14 @@
 title: Detección de movimiento y grabación de vídeo con Azure Video Analyzer
 description: En esta guía de inicio rápido se muestra cómo usar el módulo perimetral de Azure Video Analyzer para detectar movimiento en una secuencia de vídeo en directo y grabar vídeo en la cuenta de Video Analyzer.
 ms.topic: quickstart
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: a62af8ee0ac3859a6d8f7e7d81d7115877afda35
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 5cc04dc9ce6a149a64a61fb9fabdeeaca6593f51
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030766"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131552893"
 ---
 # <a name="quickstart-detect-motion-record-video-to-video-analyzer"></a>Inicio rápido: Detección de movimiento y grabación de vídeo en Video Analyzer
 

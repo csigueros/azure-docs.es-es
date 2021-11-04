@@ -8,15 +8,15 @@ ms.subservice: enterprise-readiness
 ms.reviewer: jhirono
 ms.author: larryfr
 author: blackmist
-ms.date: 09/15/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: ad81535a8287a4b89f978c4c2523b664375d23d6
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: c488b3ec12d0aabcfb84b0ebb700eb738e8698e1
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129428737"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131558067"
 ---
 # <a name="how-to-create-a-secure-workspace"></a>Procedimiento para crear un área de trabajo segura
 

@@ -8,13 +8,13 @@ ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.custom: data4ml
-ms.date: 05/14/2020
-ms.openlocfilehash: 3af540df0629181197455d8495b774483579b2de
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.date: 10/21/2021
+ms.openlocfilehash: 53abb99aef3a04f3c975cd0fbde4d1097e01269b
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129984014"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131560324"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Creación y exploración de un conjunto de datos de Azure Machine Learning con etiquetas
 
@@ -49,7 +49,7 @@ Puede acceder al conjunto de datos de Azure Machine Learning exportado en la sec
 
 ![Conjunto de datos exportado](./media/how-to-create-labeling-projects/exported-dataset.png)
 
-Cuando haya exportado los datos etiquetados a un conjunto de datos de Azure Machine Learning, puede usar AutoML para compilar modelos de Computer Vision entrenados sobre los datos etiquetados. Más información en [Configuración de AutoML para entrenar modelos de Computer Vision con Python (versión preliminar)](how-to-auto-train-image-models.md).
+Cuando haya exportado los datos etiquetados a un conjunto de datos de Azure Machine Learning, puede usar AutoML para crear modelos de Computer Vision entrenados sobre los datos etiquetados. Más información en [Configuración de AutoML para entrenar modelos de Computer Vision con Python (versión preliminar)](how-to-auto-train-image-models.md).
 
 ## <a name="explore-labeled-datasets"></a>Exploración de conjuntos de datos etiquetados
 

@@ -2,14 +2,14 @@
 title: Uso de Azure Portal para invocar métodos directos para Azure Video Analyzer
 description: Este artículo es una introducción al uso de Azure Portal para invocar métodos directos para Azure Video Analyzer.
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 1ca7a9b57fb43613d42a256675e374bcf4455e51
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: e6b2db32db398bfbc5c5431c49db1d2030f5a99e
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091006"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131564052"
 ---
 # <a name="use-azure-portal-to-invoke-direct-methods-for-azure-video-analyzer"></a>Uso de Azure Portal para invocar métodos directos para Azure Video Analyzer
 

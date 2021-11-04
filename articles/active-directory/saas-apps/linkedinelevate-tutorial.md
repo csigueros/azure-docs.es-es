@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/03/2021
 ms.author: jeedes
-ms.openlocfilehash: b14d9298e87c7868d9a12e91a4fddbbdf118b5ab
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 2ce3a05d517bf12e9efd130fb4694ac13484817f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124832952"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057000"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-linkedin-elevate"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con LinkedIn Elevate
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar LinkedIn Elevate con Azure Active Dire
 * Permitir que los usuarios inicien sesión automáticamente en LinkedIn Elevate con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -59,7 +59,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con LinkedIn Elevate
 Para configurar y probar el inicio de sesión único de Azure AD con LinkedIn Elevate, complete los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en LinkedIn Elevate](#configure-linkedin-elevate-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de LinkedIn Elevate](#create-linkedin-elevate-test-user)** , para tener un homólogo de B.Simon en LinkedIn Elevate que esté vinculado a la representación de este usuario en Azure AD.
@@ -79,7 +79,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     a. En el cuadro de texto **Identificador**, escriba el valor de **Id. de entidad**; este valor lo copiará de Linkedin Portal, que se explica más adelante en este tutorial.
 
-    b. En el cuadro de texto **URL de respuesta**, escriba el valor de **Assertion Consumer Access (ACS) Url** (Dirección URL de Assertion Consumer Access [ACS]); este valor lo copiará de Linkedin Portal, que se explica más adelante en este tutorial.
+    b. En el cuadro de texto **URL de respuesta**, escriba el valor de **dirección URL del servicio de consumidor de aserciones (ACS)** que se encuentra en el portal de Linkedin, que se explica más adelante en este tutorial.
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 

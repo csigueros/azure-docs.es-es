@@ -12,12 +12,12 @@ ms.date: 09/20/2021
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: e6148f10ad257fcac79b0c2a355b16aca4c9a484
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: afe63c06f52ba8c7b81ca46b49461d147c3f6f5f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130044011"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131036168"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Tutorial: Registro de una aplicación web en Azure Active Directory B2C
 
@@ -79,6 +79,9 @@ Para registrar una aplicación web en el inquilino de Azure AD B2C, puede usar
 1. Seleccione **Crear** para completar el registro de la aplicación.
 
 * * *
+
+> [!TIP]
+> Si no ve las aplicaciones que ha creado en **Registros de aplicaciones**, actualice el portal.
 
 ## <a name="create-a-client-secret"></a>Creación de un secreto de cliente
 

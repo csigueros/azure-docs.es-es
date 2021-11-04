@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/03/2021
 ms.author: jeedes
-ms.openlocfilehash: ffba93bd8a926b9b9d1dec7bf49230b0df912cb3
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: fb7a6eae8f2f1a048c94fb7647a9fb37c170a3e1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124738838"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046211"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Tutorial: Integración de Azure Active Directory con LearnUpon
 
@@ -62,7 +62,7 @@ Configure y pruebe el SSO de Azure AD con LearnUpon mediante un usuario de prue
 Para configurar y probar el SSO de Azure AD con LearnUpon, lleve a cabo los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del SSO en LearnUpon](#configure-learnupon-sso)** : para configurar los valores de Inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de LearnUpon](#create-learnupon-test-user)** : el objetivo es tener un homólogo de B.Simon en LearnUpon que esté vinculado a la representación del usuario en Azure AD.

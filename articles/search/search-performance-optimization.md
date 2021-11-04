@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2021
 ms.custom: references_regions
-ms.openlocfilehash: 60dd14be7d420d5aac5da5ba85d3e78e72a5ba42
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 22f037751c913e05dde84395ed18252b16d01a6e
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130002536"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131554381"
 ---
 # <a name="availability-and-business-continuity-in-azure-cognitive-search"></a>Disponibilidad y continuidad empresarial en Azure Cognitive Search
 
@@ -125,11 +125,6 @@ De lo contrario, el código de aplicación que se usa para crear y rellenar un �
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información acerca de los planes de tarifa y los límites de los servicios de cada uno de ellos, consulte [Límites de servicio](search-limits-quotas-capacity.md). Revise [Plan de capacidad](search-capacity-planning.md) para más información sobre las combinaciones de particiones y réplicas, o consulte [Caso práctico: Uso de Cognitive Search para admitir escenarios complejos de inteligencia artificial](https://techcommunity.microsoft.com/t5/azure-ai/case-study-effectively-using-cognitive-search-to-support-complex/ba-p/2804078) para obtener sugerencias del mundo real.
-
-Para obtener una explicación sobre el rendimiento y las demostraciones de las técnicas descritas en este artículo, vea el siguiente vídeo:
-
-> [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON319/player]
->
 
 <!--Image references-->
 [1]: ./media/search-performance-optimization/geo-redundancy.png

@@ -3,14 +3,14 @@ title: Análisis de secuencias de vídeo en directo con varios modelos de IA med
 description: En este artículo se proporcionan instrucciones sobre cómo analizar secuencias de vídeo en directo con varios modelos de IA mediante la característica de composición de IA de Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 04/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: b86cf60f51913c883bdc1fa62a6d8b1bb3f073e9
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 63df94e51b53dde61fd7863ece33b2a9baac2908
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091063"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131554571"
 ---
 # <a name="analyze-live-video-streams-with-multiple-ai-models-using-ai-composition"></a>Análisis de secuencias de vídeo en directo con varios modelos de IA mediante la composición de IA
 

@@ -4,14 +4,14 @@ description: En este tutorial, aprenderá a integrar Azure Defender para IoT con
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 09/23/2021
+ms.date: 10/25/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 30c60a71c15b8b597735c69f2f1f76178016b749
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 81bbedf86c3559b8f668dcfcf26cb0d9dab21af0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128702102"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131070914"
 ---
 # <a name="tutorial-integrate-fortinet-with-azure-defender-for-iot"></a>Tutorial: Integración de Fortinet con Azure Defender para IoT
 
@@ -133,9 +133,9 @@ El firewall de FortiGate se puede utilizar para bloquear el tráfico sospechoso.
     |--|--|
     | **Host** | Especifique la dirección IP del servidor de FortiGate. |
     | **Clave de API** | Escriba la [clave de API](#create-an-api-key-in-fortinet) creada en FortiGate. |
-    | **Interfaz entrante** | Escriba el puerto de la interfaz de entrada. |
-    | **Interfaz de salida** | Escriba el puerto de la interfaz de salida. |
-    | **Configuración**| Asegúrese de que se muestra **√** en las siguientes opciones para habilitar el bloqueo de orígenes sospechosos mediante el firewall de FortiGate: <br> - **Block illegal function codes (Bloquear códigos de función ilegales)** : infracciones de protocolo - valor de campo no válido que infringe la especificación del protocolo ICS (posible ataque) <br /> - **Block unauthorized PLC programming / firmware updates (Bloquear las actualizaciones de firmware/programación de PLC no autorizadas)** : cambios de PLC no autorizados <br /> - **Block unauthorized PLC stop (Bloquear detención de PLC no autorizada)** : detención de PLC (tiempo de inactividad) <br /> - **Block malware-related alerts (Bloquear las alertas relacionadas con malware)** : bloqueo de los intentos de malware industrial (TRITON, NotPetya, etc.). <br /> -  **(Opcional)** : puede seleccionar la opción de **Automatic blocking** (Bloqueo automático). Si se selecciona Automatic blocking (Bloqueo automático), el bloqueo se ejecuta de manera automática e inmediata. <br /> - **Block unauthorized scanning (Bloquear el análisis no autorizado)** : análisis no autorizado (reconocimiento potencial) |
+    | **Interfaz entrante** | Escriba el puerto de la interfaz del firewall de entrada. |
+    | **Interfaz de salida** | Escriba el puerto de la interfaz del firewall de salida. |
+    | **Configuración**| Asegúrese de que se muestra **√** en las siguientes opciones para habilitar el bloqueo de orígenes sospechosos mediante el firewall de FortiGate: <br> - **Block illegal function codes (Bloquear códigos de función ilegales)** : infracciones de protocolo - valor de campo no válido que infringe la especificación del protocolo ICS (posible ataque) <br /> - **Block unauthorized PLC programming / firmware updates (Bloquear las actualizaciones de firmware/programación de PLC no autorizadas)** : cambios de PLC no autorizados <br /> - **Block unauthorized PLC stop (Bloquear detención de PLC no autorizada)** : detención de PLC (tiempo de inactividad) <br> - **Block malware-related alerts (Bloquear las alertas relacionadas con malware)** : bloqueo de los intentos de malware industrial (TRITON, NotPetya, etc.). <br> -  **(Opcional)** : puede seleccionar la opción de **Automatic blocking** (Bloqueo automático). Si se selecciona Automatic blocking (Bloqueo automático), el bloqueo se ejecuta de manera automática e inmediata. <br /> - **Block unauthorized scanning (Bloquear el análisis no autorizado)** : análisis no autorizado (reconocimiento potencial) |
 
 1. Seleccione **Submit** (Enviar).
 
@@ -241,13 +241,24 @@ Por ejemplo, la siguiente alerta puede bloquear el origen malintencionado:
 
    :::image type="content" source="media/tutorial-fortinet/edit.png" alt-text="Captura de pantalla de la vista de edición de la directiva IPv4 de FortiGate.":::
 
+    | Parámetro | Descripción|
+    |--|--|
+    | **Nombre** | El nombre de la directiva. |
+    | **Interfaz entrante** | Interfaz del firewall de entrada del tráfico. |
+    | **Interfaz de salida** | Interfaz del firewall de salida del tráfico. |
+    | **Origen** | Direcciones de origen del tráfico. |
+    | **Destino** | Direcciones de destino del tráfico. |
+    | **Programación** | Repetición de la regla recién definida. Por ejemplo, `always`. |
+    | **Servicio** | Protocolo o puertos específicos del tráfico. |
+    | **Acción** | Acción que va a realizar el firewall. |
+
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 No hay recursos para limpiar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido cómo empezar a trabajar con la integración de Fortinet. Continúe para obtener información sobre la [integración de Palo Alto](./tutorial-palo-alto.md).
+En este tutorial, ha aprendido cómo empezar a trabajar con la integración de Fortinet. Continúe para obtener información sobre la integración de Palo Alto.
 
 > [!div class="nextstepaction"]
 > [Botón de pasos siguientes](./tutorial-palo-alto.md)

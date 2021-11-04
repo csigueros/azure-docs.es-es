@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 07/10/2020
 author: manishmsfte
 ms.author: mansha
-ms.openlocfilehash: ca2f0ffa8384cd908d479ec8f68a14459e4d4d9b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0fc2b11f924a5ae50cf1f6ae96f0ed82ab1813ad
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121786519"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131041086"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Inicio rápido: Creación, consulta y recorrido de una base de datos de grafos de Azure Cosmos DB en la consola de Gremlin
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
@@ -34,13 +34,13 @@ En este inicio rápido se muestra cómo crear una cuenta de [Gremlin API](graph-
 
 La consola de Gremlin se basa en Groovy/Java y se ejecuta en Linux, Mac y Windows. Puede descargarla desde el [sitio de Apache TinkerPop](https://tinkerpop.apache.org/downloads.html).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Necesita tener una suscripción de Azure para crear una cuenta de Azure Cosmos DB para este inicio rápido.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-También necesita instalar la [consola de Gremlin](https://tinkerpop.apache.org/downloads.html). Se **recomienda la versión v3.4.3**, o cualquier versión anterior (para usar la consola de Gremlin en Windows, es preciso instalar [Java Runtime](https://www.oracle.com/technetwork/java/javase/overview/index.html)).
+También necesita instalar la [consola de Gremlin](https://tinkerpop.apache.org/downloads.html). Se **recomienda la versión v3.4.3**, o cualquier versión anterior (Para usar la consola de Gremlin en Windows, debe instalar [Java Runtime](https://www.oracle.com/technetwork/java/javase/overview/index.html), como mínimo Java 8, pero es preferible usar Java 11).
 
 ## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos
 

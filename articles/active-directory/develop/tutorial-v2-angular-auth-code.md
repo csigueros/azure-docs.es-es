@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/14/2021
 ms.author: joarroyo
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: b116c7481dcbbdf05bf7aba476feeef853c0c87f
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 398117120e560db00be97a344feed09351a26258
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129993670"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131050344"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application-spa-using-auth-code-flow"></a>Tutorial: Inicio de sesión de usuarios y llamada a Microsoft Graph API desde una aplicación de página única (SPA) de Angular mediante el uso del flujo de código de autenticación
 
@@ -265,7 +265,7 @@ Registre el valor de **URI de redirección** como **http://localhost:4200/** y e
 
 Agregue el código de las secciones siguientes para invocar el inicio de sesión mediante una ventana emergente o un redireccionamiento de marco completo: 
 
-### <a name="sign-in-using-popups"></a>Inicie sesión mediante elementos emergentes
+### <a name="sign-in-using-pop-ups"></a>Inicio de sesión mediante elementos emergentes
 
 1. Cambie el código de *src/app/app.component.ts* a lo siguiente para iniciar sesión en un usuario mediante una ventana emergente:
 
@@ -555,7 +555,7 @@ Para representar cierta interfaz de usuario solo para los usuarios autenticados,
 
 ### <a name="angular-guard"></a>Angular Guard
 
-MSAL Angular proporciona `MsalGuard`, una clase que puede usar para proteger las rutas y requerir autenticación antes de acceder a la ruta protegida. Los pasos siguientes agregan `MsalGuard` a la ruta `Profile`. Proteger la ruta `Profile` significa que, incluso si un usuario no inicia sesión con el botón `Login`, si intenta acceder a la ruta `Profile` o hace clic en el botón `Profile`, `MsalGuard` solicitará al usuario que se autentique a través de un elemento emergente o un redireccionamiento antes de mostrar la página `Profile`.
+MSAL Angular proporciona `MsalGuard`, una clase que puede usar para proteger las rutas y requerir autenticación antes de acceder a la ruta protegida. Los pasos siguientes agregan `MsalGuard` a la ruta `Profile`. Proteger la ruta `Profile` significa que, aunque un usuario no inicie sesión con el botón `Login`, si intenta acceder a la ruta `Profile` o hace clic en el botón `Profile`, `MsalGuard` le solicita que se autentique mediante un elemento emergente o un redireccionamiento antes de mostrar la página `Profile`.
 
 `MsalGuard` es una clase de utilidad que puede usar para mejorar la experiencia del usuario, pero no debe basarse en ella para la seguridad. Los atacantes pueden moverse por las protecciones del lado cliente y debe asegurarse de que el servidor no devuelva ningún dato al que el usuario no deba acceder.
 
@@ -930,7 +930,7 @@ export class AppComponent implements OnInit, OnDestroy {
 }
 ```
 
-### <a name="sign-out-using-popups"></a>Cierre de sesión con elementos emergentes
+### <a name="sign-out-using-pop-ups"></a>Cierre de sesión mediante elementos emergentes
 
 Actualice el código de *src/app/app.component.ts* para cerrar la sesión de un usuario mediante elementos emergentes:
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: jeedes
-ms.openlocfilehash: 5a8cbdc77a7570037645b350b62787aeaea7374f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b4287baddd3c85e950dd634b35a0b9601122437d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124821514"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131012935"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sentry"></a>Tutorial: Integración del inicio de sesión único de Azure Active Directory con Sentry
 
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar Sentry con Azure Active Directory (Azure�
 * Permitir que los usuarios inicien sesión automáticamente en Sentry con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -59,7 +59,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Sentry mediante 
 Para configurar y probar el inicio de sesión único de Azure AD con Sentry, lleve a cabo los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Sentry](#configure-sentry-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     * **[Creación de un usuario de prueba en Sentry](#create-sentry-test-user)** : para tener un homólogo de B.Simon en Sentry vinculado a la representación del usuario en Azure AD.
@@ -88,7 +88,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los reales de Identificador, URL de respuesta y URL de inicio de sesión. Para obtener más información sobre cómo buscar estos valores, consulte la [documentación de Sentry](https://docs.sentry.io/product/accounts/sso/azure-sso/#installation). También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el icono de copia para copiar el valor **Dirección URL de metadatos de la aplicación** y guárdelo en su equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el icono de copia para copiar el valor **Dirección URL de metadatos de la aplicación** y guárdelo en el equipo.
 
    ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
     

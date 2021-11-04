@@ -3,15 +3,15 @@ title: Análisis de vídeo en directo con su propio modelo (HTTP)
 description: En este inicio rápido se describe cómo analizar vídeo en directo con su propio modelo (HTTP) con Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
-ms.date: 09/10/2021
+ms.date: 11/04/2021
 zone_pivot_groups: video-analyzer-programming-languages
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 7ec8b1215a835c70d72ca7ff23b76c47f65634c1
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 42845d87a8c1679a9b186cf71a9b82a9413fb005
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131092995"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563594"
 ---
 # <a name="quickstart-analyze-live-video-with-your-own-model---http"></a>Inicio rápido: Análisis de vídeo en directo con su propio modelo - HTTP
 

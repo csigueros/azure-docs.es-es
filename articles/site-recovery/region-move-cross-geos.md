@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: sideeksh
 ms.custom: MVC
-ms.openlocfilehash: 24f3d5bfa5883477b436956d90b7af70142311aa
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 57e608348e460c0598f7003af96ea1ac55bbf951
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128587753"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131022823"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Mover las VM de Azure entre Azure Government y las regiones públicas 
 
@@ -57,11 +57,10 @@ Asegúrese de que la cuenta de Azure tiene permisos para la replicación de máq
 
 ### <a name="set-up-an-azure-network"></a>Configurar una red de Azure
 
-Configure una [red de Azure](../virtual-network/quick-create-portal.md) de destino.
+Configure la [red de Azure](../virtual-network/quick-create-portal.md) de destino.
 
 - Las VM de Azure se colocarán en esta red cuando se creen después de la conmutación por error.
 - La red debe estar en la misma región que el almacén de Recovery Services.
-
 
 ### <a name="set-up-an-azure-storage-account"></a>Configurar una cuenta de Azure Storage
 
@@ -98,7 +97,7 @@ Tiene que instalar el Servicio de movilidad en cada servidor que quiera replicar
 
     - [Grupos de seguridad de red](../virtual-network/manage-network-security-group.md)
     - [Equilibradores de carga](../load-balancer/index.yml)
-    - [Dirección IP pública](../virtual-network/virtual-network-public-ip-address.md)
+    - [Dirección IP pública](../virtual-network/ip-services/virtual-network-public-ip-address.md)
     
     Para cualquier otro componente de red, consulte la [documentación](../index.yml?pivot=products&panel=network) de red.
 

@@ -1,5 +1,5 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: service-bus-messaging, event-hubs
 author: spelluru
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/12/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 9bc641d680d927c44814f6814ebf6a6dde958c9e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f4d7b9d272f097f5be332c8ff0acdf7cb30395ea
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98901195"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131570653"
 ---
 Azure Functions permite crear tareas de replicación de solo configuración que se apoyan en un punto de entrada pregenerado. Los [ejemplos de replicación basada en la configuración para Azure Functions](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config) muestran cómo aprovechar [asistentes pregenerados](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication) en el propio código o evitar por completo el control de código y tan solo usar la configuración.
 
@@ -22,7 +22,7 @@ Para crear este tipo de tarea de replicación, cree primero otra carpeta debajo 
 
 A continuación, cree un archivo `function.json` en la carpeta. El archivo configura la función. Empiece con el contenido siguiente:
 
-``` JSON
+```json
 {
     "configurationSource": "config",
     "bindings" : [
@@ -64,7 +64,7 @@ Si quiere recibir eventos de un Centro de eventos, agregue información de confi
 * **eventHubName**: nombre de la instancia de Event Hub en el espacio de nombres identificado mediante la cadena de conexión.
 * **consumerGroup**: nombre del grupo de consumidores. Recuerde que el nombre se incluye entre signos de porcentaje y, por lo tanto, también hace referencia a un valor de configuración de la aplicación.
 
-```JSON
+```json
     ...
     "bindings" : [
         {
@@ -86,7 +86,7 @@ Si quiere recibir eventos de una cola de Service Bus, agregue información de co
 * **connection**: nombre del valor de configuración de la aplicación de la cadena de conexión de Service Bus.
 * **queueName**: nombre de la cola de Service Bus en el espacio de nombres identificado mediante la cadena de conexión.
 
-```JSON
+```json
     ...
     "bindings" : [
         {
@@ -108,7 +108,7 @@ Si quiere recibir eventos de un tema de Service Bus, agregue información de con
 * **topicName**: nombre del tema de Service Bus en el espacio de nombres identificado mediante la cadena de conexión.
 * **subscriptionName**: nombre de la suscripción de Service Bus en el tema especificado en el espacio de nombres identificado mediante la cadena de conexión.
 
-```JSON
+```json
     ...
     "bindings" : [
         {
@@ -132,7 +132,7 @@ Si quiere enviar eventos a un Centro de eventos, agregue información de configu
 * **connection**: nombre del valor de configuración de la aplicación de la cadena de conexión de Event Hubs. 
 * **eventHubName**: nombre de la instancia de Event Hub en el espacio de nombres identificado mediante la cadena de conexión.
 
-```JSON
+```json
     ...
     "bindings" : [
         {
@@ -156,7 +156,7 @@ Si quiere enviar eventos a una cola de Service Bus, agregue información de conf
 * **connection**: nombre del valor de configuración de la aplicación de la cadena de conexión de Service Bus. 
 * **queueName**: nombre de la cola de Service Bus en el espacio de nombres identificado mediante la cadena de conexión.
 
-```JSON
+```json
     ...
     "bindings" : [
         {
@@ -180,7 +180,7 @@ Si quiere enviar eventos a un tema de Service Bus, agregue información de confi
 * **connection**: nombre del valor de configuración de la aplicación de la cadena de conexión de Service Bus. 
 * **topicName**: nombre del tema de Service Bus en el espacio de nombres identificado mediante la cadena de conexión.
 
-```JSON
+```json
     ...
     "bindings" : [
         {
@@ -200,7 +200,7 @@ Si quiere enviar eventos a un tema de Service Bus, agregue información de confi
 
 La configuración del punto de entrada elige una de las tareas de replicación estándar. Si va a modificar el proyecto `Azure.Messaging.Replication`, aquí también puede agregar tareas y hacer referencia a ellas. Por ejemplo:
 
-```JSON
+```json
     ...
     "scriptFile": "../dotnet/bin/Azure.Messaging.Replication.dll",
     "entryPoint": "Azure.Messaging.Replication.EventHubReplicationTasks.ForwardToEventHub"

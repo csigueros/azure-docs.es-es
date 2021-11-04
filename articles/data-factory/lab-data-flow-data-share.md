@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 06/04/2021
-ms.openlocfilehash: 4194c277a8472f8834362de462d804db2a3b406d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 4d99139e708f0b69b3ddacd40e380853dabf8b2b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124798871"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131077959"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integración de datos mediante Azure Data Factory y Azure Data Share
 
@@ -97,7 +97,7 @@ En Azure Data Factory, los servicios vinculados definen la información de conex
 
 En la sección *Transformación de datos mediante flujos de datos de asignación* creará este tipo de flujos de datos. Antes de crear flujos de datos de asignación, se recomienda activar el modo de depuración, que permite probar la lógica de transformación en segundos en un clúster de Spark activo.
 
-Para activar la depuración, haga clic en el control deslizante **Data flow debug** (Depuración de flujo de datos) de la barra superior del lienzo de flujo de datos o del lienzo de la canalización cuando tenga actividades de **Data Flow**. Haga clic en OK (Aceptar) cuando aparezca el cuadro de diálogo de confirmación. El clúster tardará entre 5 y 7 minutos en iniciarse. Continúe en *Ingesta de datos de Azure SQL Database en ADLS Gen2 mediante la actividad de copia* mientras se inicializa.
+Para activar la depuración, haga clic en el control deslizante **Data flow debug** (Depuración de flujo de datos) de la barra superior del lienzo de flujo de datos o del lienzo de la canalización cuando tenga actividades de **Data Flow**. Haga clic en **Aceptar** cuando aparezca el cuadro de diálogo de confirmación. El clúster tarda entre 5 y 7 minutos en iniciarse. Continúe en *Ingesta de datos de Azure SQL Database en ADLS Gen2 mediante la actividad de copia* mientras se inicializa.
 
 :::image type="content" source="media/lab-data-flow-data-share/configure10.png" alt-text="Configuración en el portal 10":::
 
