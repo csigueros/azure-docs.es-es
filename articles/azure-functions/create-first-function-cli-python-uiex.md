@@ -8,12 +8,12 @@ ms.custom:
 - devx-track-azurecli
 - devx-track-azurepowershell
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 8bbd177e5cf9a6148179dfec7f7f6b6c0082cdde
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 951a0cec92d531aa980b519df2a046355997c175
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739838"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131039342"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>Inicio rápido: Creación de una función de Python en Azure desde la línea de comandos
 
@@ -37,13 +37,13 @@ Antes de empezar, debe disponer de lo siguiente:
 
 + Una cuenta de Azure <abbr title="El perfil que mantiene la información de facturación en relación con el uso de Azure.">account</abbr> con una suscripción activa. <abbr title="La estructura organizativa básica en la que administra los recursos de Azure, que normalmente se asocia a un individuo o departamento dentro de una organización.">subscription</abbr>. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ [Azure Functions Core Tools](functions-run-local.md#v2), versión 3.x. 
-  
++ [Azure Functions Core Tools](functions-run-local.md#v2), versión 3.x.
+
 + O <abbr title="Un conjunto de herramientas de línea de comandos multiplataforma para trabajar con recursos de Azure desde el equipo de desarrollo local, como alternativa al uso de Azure Portal.">Azure CLI</abbr> o bien <abbr title="Un módulo de PowerShell que proporciona comandos para trabajar con recursos de Azure desde el equipo de desarrollo local, como alternativa al uso de Azure Portal.">Azure PowerShell</abbr> para crear recursos de Azure:
 
     + [CLI de Azure](/cli/azure/install-azure-cli), versión 2.4 o posterior.
 
-    + [Azure PowerShell](/powershell/azure/install-az-ps), versión 5.0 o posterior.
+    + El [módulo Az de PowerShell](/powershell/azure/install-az-ps) de Azure, versión 5.9.0 o posterior.
 
 + [Python 3.8 (64 bits)](https://www.python.org/downloads/release/python-382/), [Python 3.7 (64 bits)](https://www.python.org/downloads/release/python-375/), [Python 3.6 (64 bits)](https://www.python.org/downloads/release/python-368/), que son compatibles con la versión 3.x de Azure Functions.
 
@@ -65,7 +65,7 @@ Compruebe los requisitos previos, que dependen de si usa la CLI de Azure o Azure
 
 + En una ventana de terminal o de comandos, ejecute `func --version` para comprobar que <abbr title="El conjunto de herramientas de línea de comandos para trabajar con Azure Functions en su equipo local.">Azure Functions Core Tools</abbr> representan la versión 3.x.
 
-+ Ejecute `(Get-Module -ListAvailable Az).Version` y compruebe que es la versión 5.0 o posterior. 
++ Ejecute `(Get-Module -ListAvailable Az).Version` y compruebe que es la versión 5.0 o posterior.
 
 + Ejecute `Connect-AzAccount` para iniciar sesión en Azure y comprobar una suscripción activa.
 
@@ -119,7 +119,7 @@ py -m venv .venv
 
 ---
 
-Ejecute todos los comandos siguientes en este entorno virtual activado. 
+Ejecute todos los comandos siguientes en este entorno virtual activado.
 
 <br/>
 
@@ -129,7 +129,7 @@ Ejecute todos los comandos siguientes en este entorno virtual activado.
 
 En esta sección, va a crear un proyecto <abbr title="Un contenedor lógico para una o varias funciones individuales que se pueden implementar y administrar juntas.">local de Azure Functions</abbr> en Python. Cada función del proyecto responde a un determinado <abbr title="El tipo de evento que invoca el código de la función, como una solicitud HTTP, un mensaje de cola o una hora específica.">desencadenador</abbr>.
 
-1. Ejecute el comando `func init` para crear un proyecto de Functions en una carpeta llamada *LocalFunctionProj* con el entorno de ejecución especificado:  
+1. Ejecute el comando `func init` para crear un proyecto de Functions en una carpeta llamada *LocalFunctionProj* con el entorno de ejecución especificado:
 
     ```console
     func init LocalFunctionProj --python
@@ -140,11 +140,11 @@ En esta sección, va a crear un proyecto <abbr title="Un contenedor lógico para
     ```console
     cd LocalFunctionProj
     ```
-    
+
     <br/>
     <details>
     <summary><strong>¿Qué se crea en la carpeta LocalFunctionProj?</strong></summary>
-    
+
     Esta carpeta contiene varios archivos del proyecto, incluidos los archivos de configuración [local.settings.json](functions-develop-local.md#local-settings-file) y [host.json](functions-host-json.md). Como *local.settings.json* puede contener secretos descargados de Azure, el archivo se excluye del control de código fuente de forma predeterminada en el archivo *.gitignore*.
     </details>
 
@@ -152,21 +152,21 @@ En esta sección, va a crear un proyecto <abbr title="Un contenedor lógico para
 
     ```console
     func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
-    ```   
+    ```
     El argumento `--name` es el nombre único de la función (HttpExample).
 
     El argumento `--template` especifica el desencadenador de la función (HTTP).
-    
+
     `func new` crea una subcarpeta que coincide con el nombre de la función que contiene un archivo *\_\_init\_\_.py* con el código de la función y un archivo de configuración denominado *function.json*.
 
-    <br/>    
+    <br/>
     <details>
     <summary><strong>Código de __init__.py</strong></summary>
-    
+
     *\_\_init\_\_.py* contiene una función `main()` de Python que se desencadena en función de la configuración de *function.json*.
-    
+
     :::code language="python" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/__init__.py":::
-    
+
     Con un desencadenador HTTP, la función recibe datos de solicitud en la variable `req`, como se define en *function.json*. `req` es una instancia de la [clase azure.functions.HttpRequest](/python/api/azure-functions/azure.functions.httprequest). El objeto devuelto, definido como `$return` en *function.json*, es una instancia de la [clase azure.functions.HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Para más información, vea [Enlaces y desencadenadores HTTP de Azure Functions](./functions-bindings-http-webhook.md?tabs=python).
     </details>
 
@@ -175,12 +175,12 @@ En esta sección, va a crear un proyecto <abbr title="Un contenedor lógico para
     <summary><strong>Código de function.json</strong></summary>
 
     *function.json* es un archivo de configuración que define los <abbr title="Conexiones declarativas entre una función y otros recursos. Un enlace de entrada proporciona datos a la función, mientras que un enlace de salida proporciona datos de la función a otros recursos.">enlaces de entrada y de salida</abbr> de la función, incluido el tipo de desencadenador.
-    
+
     Si lo desea, puede cambiar `scriptFile` para invocar otro un archivo de Python.
-    
+
     :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
-    
-    Cada enlace requiere una dirección, un tipo y un nombre único. El desencadenador HTTP tiene un enlace de entrada de tipo [`httpTrigger`](functions-bindings-http-webhook-trigger.md) y un enlace de salida de tipo [`http`](functions-bindings-http-webhook-output.md).    
+
+    Cada enlace requiere una dirección, un tipo y un nombre único. El desencadenador HTTP tiene un enlace de entrada de tipo [`httpTrigger`](functions-bindings-http-webhook-trigger.md) y un enlace de salida de tipo [`http`](functions-bindings-http-webhook-output.md).
     </details>
 
 <br/>
@@ -195,21 +195,21 @@ En esta sección, va a crear un proyecto <abbr title="Un contenedor lógico para
     func start
     ```
 
-    Hacia el final de la salida, deberían aparecer las líneas siguientes: 
-    
+    Hacia el final de la salida, deberían aparecer las líneas siguientes:
+
     <pre class="is-monospace is-size-small has-padding-medium has-background-tertiary has-text-tertiary-invert">
     ...
-    
+
     Now listening on: http://0.0.0.0:7071
     Application started. Press Ctrl+C to shut down.
-    
+
     Http Functions:
-    
+
             HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
     ...
-    
+
     </pre>
-    
+
     <br/>
     <details>
     <summary><strong>No veo HttpExample en la salida</strong></summary>
@@ -242,7 +242,7 @@ Antes de poder implementar el código de la función en Azure, debe crear un <ab
 
     El comando [az login](/cli/azure/reference-index#az_login) inicia sesión en su cuenta de Azure.
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell) 
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
     ```azurepowershell
     Connect-AzAccount
     ```
@@ -251,14 +251,14 @@ Antes de poder implementar el código de la función en Azure, debe crear un <ab
 
     ---
 
-1. Cree un grupo de recursos llamado `AzureFunctionsQuickstart-rg` en la región `westeurope`. 
+1. Cree un grupo de recursos llamado `AzureFunctionsQuickstart-rg` en la región `westeurope`.
 
     # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
-    
+
     ```azurecli
     az group create --name AzureFunctionsQuickstart-rg --location westeurope
     ```
- 
+
     El comando [az group create](/cli/azure/group#az_group_create) crea un grupo de recursos. Conviene crear el grupo de recursos y los recursos en una <abbr title="Una referencia geográfica a un centro de datos de Azure específico en el que se asignan recursos.">region</abbr> cercana al usuario, mediante una región disponible devuelta por el comando `az account list-locations`.
 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
@@ -281,7 +281,7 @@ Antes de poder implementar el código de la función en Azure, debe crear un <ab
     az storage account create --name <STORAGE_NAME> --location westeurope --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS
     ```
 
-    El comando [az storage account create](/cli/azure/storage/account#az_storage_account_create) crea la cuenta de almacenamiento. 
+    El comando [az storage account create](/cli/azure/storage/account#az_storage_account_create) crea la cuenta de almacenamiento.
 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
@@ -294,33 +294,33 @@ Antes de poder implementar el código de la función en Azure, debe crear un <ab
     ---
 
     Sustituya `<STORAGE_NAME>` por un nombre que sea adecuado y que sea <abbr title="El nombre debe ser único en todas las cuentas de almacenamiento utilizadas por todos los clientes de Azure de forma global. Por ejemplo, se puede usar una combinación del nombre personal o de la empresa, el nombre de la aplicación y un identificador numérico, como en contosobizappstorage20.">único en Azure Storage</abbr>. Los nombres deben contener entre 3 y 24 caracteres y solo letras minúsculas. `Standard_LRS` especifica una cuenta de uso general, que es [compatible con Functions](storage-considerations.md#storage-account-requirements).
-    
+
     Este inicio rápido solo le supondrá unos pequeños gastos a la cuenta de almacenamiento.
 
 1. Cree la aplicación de funciones en Azure:
 
     # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
-        
+
     ```azurecli
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime python --runtime-version 3.8 --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME> --os-type linux
     ```
-    
+
     El comando [az functionapp create](/cli/azure/functionapp#az_functionapp_create) crea la aplicación de funciones en Azure. Si usa Python 3.7 o 3.6, cambie `--runtime-version` a `3.7` o `3.6`, respectivamente.
-    
+
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
-    
+
     ```azurepowershell
     New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -FunctionsVersion 3 -RuntimeVersion 3.8 -Runtime python -Location 'West Europe'
     ```
-    
+
     El cmdlet [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) crea la aplicación de funciones en Azure. Si usa Python 3.7 o 3.6, cambie `-RuntimeVersion` a `3.7` o `3.6`, respectivamente.
 
     ---
-    
+
     Sustituya `<STORAGE_NAME>` por el nombre de la cuenta que usó en el paso anterior.
 
-    Sustituya `<APP_NAME>` por un <abbr title="Un nombre que debe ser único para todos los clientes de Azure de forma global. Por ejemplo, se puede usar una combinación del nombre personal o de la empresa, el nombre de la aplicación y un identificador numérico, como en contoso-bizapp-func-20.">nombre único global adecuado para usted</abbr>. `<APP_NAME>` también es el dominio DNS predeterminado de la aplicación de función. 
-    
+    Sustituya `<APP_NAME>` por un <abbr title="Un nombre que debe ser único para todos los clientes de Azure de forma global. Por ejemplo, se puede usar una combinación del nombre personal o de la empresa, el nombre de la aplicación y un identificador numérico, como en contoso-bizapp-func-20.">nombre único global adecuado para usted</abbr>. `<APP_NAME>` también es el dominio DNS predeterminado de la aplicación de función.
+
     <br/>
     <details>
     <summary><strong>¿Cuál es el costo de los recursos aprovisionados en Azure?</strong></summary>
@@ -334,7 +334,7 @@ Antes de poder implementar el código de la función en Azure, debe crear un <ab
 
 ## <a name="6-deploy-the-function-project-to-azure"></a>6. Implementación del proyecto de función en Azure
 
-Después de haber creado correctamente su aplicación de funciones en Azure, estará listo para **implementar el proyecto de funciones local** mediante el comando [func azure functionapp publish](functions-run-local.md#project-file-deployment).  
+Después de haber creado correctamente su aplicación de funciones en Azure, estará listo para **implementar el proyecto de funciones local** mediante el comando [func azure functionapp publish](functions-run-local.md#project-file-deployment).
 
 En el ejemplo siguiente, reemplace `<APP_NAME>` por el nombre de su aplicación.
 
@@ -367,7 +367,7 @@ Functions in msdocs-azurefunctions-qs:
 
 ## <a name="7-invoke-the-function-on-azure"></a>7. Invocación de la función en Azure
 
-Como la función usa un desencadenador HTTP, para invocarla es preciso enviar una solicitud HTTP a la dirección URL correspondiente en el explorador o mediante una herramienta como CURL. <abbr title="Una herramienta de línea de comandos para generar solicitudes HTTP a una dirección URL. Consulte https://curl.se/">curl</abbr>. 
+Como la función usa un desencadenador HTTP, para invocarla es preciso enviar una solicitud HTTP a la dirección URL correspondiente en el explorador o mediante una herramienta como CURL. <abbr title="Una herramienta de línea de comandos para generar solicitudes HTTP a una dirección URL. Consulte https://curl.se/">curl</abbr>.
 
 # <a name="browser"></a>[Browser](#tab/browser)
 
@@ -393,7 +393,7 @@ func azure functionapp logstream <APP_NAME> --browser
 
 Reemplace `<APP_NAME>` por el nombre de la aplicación de función.
 
-En una ventana de terminal independiente o en el explorador, vuelva a llamar a la función remota. En la ventana de terminal, se mostrará un registro detallado de la ejecución de la función en Azure. 
+En una ventana de terminal independiente o en el explorador, vuelva a llamar a la función remota. En la ventana de terminal, se mostrará un registro detallado de la ejecución de la función en Azure.
 
 <br/>
 
