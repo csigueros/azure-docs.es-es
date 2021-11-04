@@ -7,12 +7,12 @@ metadata:
   ms.service: data-catalog
   ms.topic: conceptual
   ms.date: 08/01/2019
-  ms.openlocfilehash: fc39c9a8cdc447a9a38b75aa30de3990aaa8516d
-  ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+  ms.openlocfilehash: dd498c1a0f9f3ef62435986415bfde35eb7112c3
+  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/04/2021
-  ms.locfileid: "123479067"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131461045"
 title: Preguntas frecuentes sobre Azure Data Catalog
 summary: >
   [!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
@@ -77,7 +77,7 @@ sections:
   - question: >
       ¿Cómo solicito soporte técnico para otro origen de datos?
     answer: >
-      Para enviar solicitudes de funciones y otros comentarios, vaya al [foro de comentarios de Azure Data Catalog](https://feedback.azure.com/forums/906052-data-catalog/category/320788-data-sources).
+      Para enviar solicitudes de funciones y otros comentarios, vaya al [foro de comentarios de Azure Data Catalog](https://feedback.azure.com/d365community/forum/3bedd14b-6b26-ec11-b6e6-000d3a4f032c?c=47edd14b-6b26-ec11-b6e6-000d3a4f032c#).
   - question: >
       ¿Por qué obtengo un error "El catálogo ya existe" cuando intento crear un nuevo catálogo?
     answer: "Al comprar Office 365 E5 con licencia de Power BI Pro, Microsoft crea un catálogo predeterminado en la región de la suscripción automáticamente. Este catálogo usa la SKU gratuita. La licencia de Office 365 o Power BI se administra en la página de administración. \n\nSin embargo, este tipo de catálogo de datos no tiene una **opción de administrador** y no se puede ver en **Azure Portal**. No se puede eliminar este tipo de catálogo de datos. Del mismo modo, no se le permite cambiar el nombre del catálogo de datos y no puede trasladarlo a otra región. \n\nLas cuentas de los usuarios que se asignan a una licencia de Power BI Pro automática tienen acceso al catálogo de datos debido al Contrato de licencia al registrarse en Office 365 E5 con la licencia de Power BI Pro. Este tipo de usuario tiene acceso total a los recursos del catálogo de datos sin privilegios administrativos. Este tipo de usuario *no* forma parte del rol de **usuario de catálogo** en Azure Data Catalog.\n"
@@ -117,7 +117,7 @@ sections:
   - question: >
       ¿Funciona el catálogo con otro origen de datos que me interesa?
     answer: >
-      Trabajamos activamente para agregar más orígenes de datos a Data Catalog. Si desea que un origen de datos concreto sea compatible, sugiéralo (o indique que está de acuerdo con esta sugerencia si ya se ha planteado) en el [foro de comentarios de Azure Data Catalog](https://feedback.azure.com/forums/906052-data-catalog).
+      Trabajamos activamente para agregar más orígenes de datos a Data Catalog. Si desea que un origen de datos concreto sea compatible, sugiéralo (o indique que está de acuerdo con esta sugerencia si ya se ha planteado) en el [foro de comentarios de Azure Data Catalog](https://feedback.azure.com/d365community/forum/3bedd14b-6b26-ec11-b6e6-000d3a4f032c).
   - question: >
       ¿Qué permisos necesito para registrar recursos en Data Catalog?
     answer: >
@@ -131,7 +131,7 @@ sections:
       Data Catalog es un servicio en la nube que puede funcionar con orígenes de datos tanto locales como en la nube para ofrecer una solución híbrida de detección de orígenes de datos. Actualmente no está prevista la creación de una versión del servicio Data Catalog que se ejecute de forma local.
   - question: >
       ¿Se pueden extraer más metadatos, o metadatos más ricos, de los orígenes de datos que se registran?
-    answer: "Trabajamos activamente para ampliar las funcionalidades de Data Catalog. Si desea que se extraigan más metadatos del origen de datos durante el registro, sugiéralo (o vote por ello si ya se ha planteado) en el [foro de comentarios de Azure Data Catalog](https://feedback.azure.com/forums/906052-data-catalog). \n\nSi desea incluir metadatos de columna o esquema, vistas previas o perfiles de datos para orígenes de datos en los que no se extraen estos metadatos mediante la herramienta de registro de orígenes de datos, puede usar la API de Data Catalog para añadir estos metadatos. Para más información, consulte la [API de REST de Azure Data Catalog](/rest/api/datacatalog/).\n"
+    answer: "Trabajamos activamente para ampliar las funcionalidades de Data Catalog. Si desea que se extraigan más metadatos del origen de datos durante el registro, sugiéralo (o vote por ello si ya se ha planteado) en el [foro de comentarios de Azure Data Catalog](https://feedback.azure.com/d365community/forum/3bedd14b-6b26-ec11-b6e6-000d3a4f032c). \n\nSi desea incluir metadatos de columna o esquema, vistas previas o perfiles de datos para orígenes de datos en los que no se extraen estos metadatos mediante la herramienta de registro de orígenes de datos, puede usar la API de Data Catalog para añadir estos metadatos. Para más información, consulte la [API de REST de Azure Data Catalog](/rest/api/datacatalog/).\n"
   - question: >
       ¿Cómo se restringe la visibilidad de los recursos de datos registrados para que solo determinadas personas puedan detectarlos?
     answer: >

@@ -4,12 +4,12 @@ ms.service: azure-web-pubsub
 ms.topic: include
 ms.date: 08/06/2021
 ms.author: lianwei
-ms.openlocfilehash: 785114c797fba5c84e97f5a0d0cc1a34dc14d540
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3671a5d221afa89c776dca1bc3a17b965b621c5b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121785578"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131424006"
 ---
 Use el comando de la CLI de Azure [az webpubsub create](/cli/azure/webpubsub#az_webpubsub_create) para crear una instancia de Web PubSub en el grupo de recursos del paso anterior, proporcionando la siguiente información:
 
@@ -25,9 +25,6 @@ Use el comando de la CLI de Azure [az webpubsub create](/cli/azure/webpubsub#az_
 ```azurecli-interactive
 az webpubsub create --name "<your-unique-resource-name>" --resource-group "myResourceGroup" --location "EastUS" --sku Free_F1
 ```
-
-> [!Note]
-> Puesto que el servicio Web PubSub todavía está en versión preliminar, es posible que haya observado que hay una advertencia en la consola de la CLI con un mensaje similar al siguiente: "El comando requiere la extensión webpubsub. ¿Quiere instalarla ahora? El comando seguirá ejecutándose una vez instalada la extensión. (Y/n)". Presione Y para instalar la extensión.
 
 La salida de este comando muestra las propiedades del recurso que acaba de crear. Tome nota de las dos propiedades siguientes:
 

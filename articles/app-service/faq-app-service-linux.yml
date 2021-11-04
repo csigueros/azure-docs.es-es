@@ -9,12 +9,12 @@ metadata:
   ms.date: 10/30/2018
   ms.author: msangapu
   ms.custom: seodec18
-  ms.openlocfilehash: 7d061a32032fd1edcbe0e2b8dc38290db2664f9d
-  ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+  ms.openlocfilehash: 737fcf42e351822da58e5e4c493f120cdfd6c4dd
+  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/07/2021
-  ms.locfileid: "123542584"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131462411"
 title: Peguntas más frecuentes sobre Azure App Service en Linux
 summary: >
   Con el lanzamiento de App Service en Linux, estamos trabajando en incorporar características y realizar mejoras en nuestra plataforma. Este artículo proporciona respuestas a preguntas que nuestros clientes nos han formulado recientemente.
@@ -145,7 +145,7 @@ sections:
   - question: >
       ¿Cuál es el formato del nombre de la imagen en la opción del registro privado?
     answer: >
-      Agregue el nombre de la imagen completo, incluida la dirección URL de registro privado (por ejemplo, myacr.azurecr.io/dotnet:latest). Los nombres de imágenes que usan un puerto personalizado [no se pueden especificar a través del portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Para establecer `docker-custom-image-name`, use la [`az`herramienta de línea de comandos](/cli/azure/webapp/config/container#az_webapp_config_container_set).
+      Agregue el nombre de la imagen completo, incluida la dirección URL de registro privado (por ejemplo, myacr.azurecr.io/dotnet:latest). Los nombres de imágenes que usan un puerto personalizado [no se pueden especificar a través del portal](https://feedback.azure.com/d365community/). Para establecer `docker-custom-image-name`, use la [`az`herramienta de línea de comandos](/cli/azure/webapp/config/container#az_webapp_config_container_set).
   - question: >
       ¿Se puede exponer más de un puerto en mi imagen de contenedor personalizado?
     answer: >

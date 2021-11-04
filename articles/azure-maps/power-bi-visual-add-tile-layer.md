@@ -1,20 +1,20 @@
 ---
 title: Adición de una capa de mosaico al objeto visual de Azure Maps en Power BI | Microsoft Azure Maps
 description: En este artículo, aprenderá a usar la capa de mosaico en el objeto visual de Microsoft Azure Maps para Power BI.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 06/26/2020
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
+manager: eriklind
 ms.custom: ''
-ms.openlocfilehash: 0edb31901950da22c321af2d6c41966465f916f9
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 7811174ce91de74f5fbc3f433c44e2aed223d01c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123430421"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131477010"
 ---
 # <a name="add-a-tile-layer"></a>Adición de una capa de icono
 
@@ -45,21 +45,21 @@ El cuadro de límite y el rango de zoom de donde está disponible un servicio de
 
 El objeto visual de Azure Maps admite tres convenciones de nomenclatura del servicio de mosaico diferentes:
 
--   **X, Y, notación Zoom**: X es la columna, Y es la posición de fila del mosaico en la cuadrícula de mosaico y la notación Zoom es un valor basado en el nivel de zoom.
--   **Notación Quadkey**: combina la información de zoom, x e y en un valor de cadena único. Este valor de cadena se convierte en un identificador único para un solo mosaico.
--   **Cuadro de límite**: Especifique una imagen en el formato de coordenadas del cuadro de límite: `{west},{south},{east},{north}`. Este formato se usa normalmente en [Web Mapping Services (WMS)](https://www.opengeospatial.org/standards/wms).
+* **X, Y, notación Zoom**: X es la columna, Y es la posición de fila del mosaico en la cuadrícula de mosaico y la notación Zoom es un valor basado en el nivel de zoom.
+* **Notación Quadkey**: combina la información de zoom, x e y en un valor de cadena único. Este valor de cadena se convierte en un identificador único para un solo mosaico.
+* **Cuadro de límite**: Especifique una imagen en el formato de coordenadas del cuadro de límite: `{west},{south},{east},{north}`. Este formato se usa normalmente en [Web Mapping Services (WMS)](https://www.opengeospatial.org/standards/wms).
 
 La dirección URL del mosaico es una URL https a una plantilla de dirección URL de un mosaico, que usa los parámetros siguientes:
 
--   `{x}`: posición del mosaico en X. También necesita `{y}` y `{z}`.
--   `{y}`: posición del mosaico en Y. También necesita `{x}` y `{z}`.
--   `{z}`: nivel de zoom del mosaico. También necesita `{x}` y `{y}`.
--   `{quadkey}`: Identificador `quadkey` del mosaico basado en la convención de nomenclatura del sistema de mosaicos de Bing Maps.
--   `{bbox-epsg-3857}`: Cadena de un cuadro de límite con el formato `{west},{south},{east},{north}` en el sistema de referencia espacial EPSG 3857.
+* `{x}`: posición del mosaico en X. También necesita `{y}` y `{z}`.
+* `{y}`: posición del mosaico en Y. También necesita `{x}` y `{z}`.
+* `{z}`: nivel de zoom del mosaico. También necesita `{x}` y `{y}`.
+* `{quadkey}`: Identificador `quadkey` del mosaico basado en la convención de nomenclatura del sistema de mosaicos de Bing Maps.
+* `{bbox-epsg-3857}`: Cadena de un cuadro de límite con el formato `{west},{south},{east},{north}` en el sistema de referencia espacial EPSG 3857.
 
 Por ejemplo, a continuación se presenta una dirección URL con formato para el [servicio de mosaicos de radar meteorológico](/rest/api/maps/render-v2/get-map-tile) en Azure Maps. Tenga en cuenta que `[subscription-key]` es un marcador de posición para la clave de suscripción de Azure Maps.
 
-> `https://atlas.microsoft.com/map/tile?zoom={z}&x={x}&y={y}&tilesetId=microsoft.weather.radar.main&api-version=2.0&subscription-key=[subscription-key]`
+> `https://atlas.microsoft.com/map/tile?zoom={z}&x={x}&y={y}&tilesetId=microsoft.weather.radar.main&api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}`
 
 Para más información sobre el sistema de mosaicos de Azure Maps, consulte [Niveles de zoom y cuadrícula de mosaico](zoom-levels-and-tile-grid.md).
 

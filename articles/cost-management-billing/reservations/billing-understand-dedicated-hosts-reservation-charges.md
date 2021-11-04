@@ -1,18 +1,19 @@
 ---
 title: Información sobre el descuento de instancias reservadas de Azure Dedicated Host
 description: Obtenga información sobre cómo se aplica el descuento de instancias reservadas de máquina virtual de Azure a las instancias de Azure Dedicated Host.
-author: yashesvi
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 3e0f6bc30ca86653ff7a05f2874236a51d359955
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c6b4f4fbb37cf360dc235408e0ff54925492fade
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128631103"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131453827"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-azure-dedicated-hosts"></a>Aplicación del descuento de la reserva de Azure a instancias de Azure Dedicated Host
 

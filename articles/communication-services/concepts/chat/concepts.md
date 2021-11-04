@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: chat
-ms.openlocfilehash: 54a04db65c94adb1200000d027cdd9177c228297
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 49fb9db94ceeaef94dc6c255002f392232ca820c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128672141"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131434168"
 ---
 # <a name="chat-concepts"></a>Conceptos de chat 
 
@@ -35,8 +35,6 @@ Las conversaciones de chat se producen dentro de los hilos o **conversaciones de
 
 ### <a name="user-access"></a>Acceso de usuarios
 Normalmente, el creador de la conversación y los participantes tienen el mismo nivel de acceso a la conversación y pueden ejecutar todas las operaciones relacionadas disponibles en el SDK, incluida la eliminación. Los participantes no tienen acceso de escritura a los mensajes enviados por otros participantes, lo que significa que solo el remitente del mensaje puede actualizar o eliminar los mensajes enviados. Si otro participante intenta hacerlo, obtendrá un error. 
-
-Si desea limitar el acceso a las características del chat para un conjunto de usuarios, puede configurar el acceso como parte del servicio de confianza. El servicio de confianza es el servicio que organiza la autenticación y autorización de los participantes del chat. Lo exploraremos con más detalle a continuación.  
 
 ### <a name="chat-data"></a>Datos del chat 
 Communication Services almacena el historial de chat hasta que se elimina explícitamente. Los participantes de la conversación de chat pueden usar `ListMessages` para ver el historial de mensajes de una conversación determinada. Los usuarios que se quitaron de una conversación de chat podrán ver el historial de mensajes anterior, pero no podrán enviar ni recibir nuevos mensajes como parte de esa conversación de chat. Una conversación completamente inactiva sin participantes se eliminará automáticamente después de 30 días. Para más información sobre los datos que almacena Communication Services, consulte la documentación sobre [privacidad](../privacy.md).  

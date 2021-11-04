@@ -3,19 +3,19 @@ title: Actualizar un parámetro de comando desde una aplicación cliente
 titleSuffix: Azure Cognitive Services
 description: Aprenda actualizar comandos desde una aplicación cliente.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.author: pafarley
-ms.openlocfilehash: c5314e659379fb56aca1eea0f1834985fc303c86
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.author: eur
+ms.openlocfilehash: 08fc6fa9e30ad7ca0ef2a0d26c6d0f50d63d5c1b
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123541034"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131511286"
 ---
 # <a name="update-a-command-from-a-client-app"></a>Actualización de un comando desde una aplicación cliente
 

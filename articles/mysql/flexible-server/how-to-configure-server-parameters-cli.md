@@ -8,21 +8,18 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 11/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bd1be8c63e295aedead72fdd5c6ce407179dc660
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 02a58891ebe39d0dab4156c18e594cc0785dba86
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122652388"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131438120"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-flexible-server-using-the-azure-cli"></a>Configuración de parámetros de servidor en el servidor flexible de Azure Database for MySQL mediante la CLI de Azure
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-> [!IMPORTANT]
-> Actualmente, Azure Database for MySQL: servidor flexible se encuentra en versión preliminar pública.
-
-Puede enumerar, mostrar y actualizar los parámetros de un servidor flexible de Azure Database for MySQL con la CLI de Azure, la utilidad de la línea de comandos de Azure. Los parámetros de servidor se configuran con los valores predeterminados y recomendados al crear el servidor.  
+Puede enumerar, mostrar y actualizar los parámetros de un servidor flexible de Azure Database for MySQL con la CLI de Azure, la utilidad de la línea de comandos de Azure. Los parámetros de servidor se configuran con los valores predeterminados y recomendados al crear el servidor.
 
 En este artículo se describe cómo enumerar, mostrar y actualizar los parámetros del servidor mediante la CLI de Azure.
 
@@ -55,8 +52,7 @@ En este ejemplo se muestran detalles del parámetro **slow\_query\_log** del ser
 az mysql flexible-server parameter show --name slow_query_log --resource-group myresourcegroup --server-name mydemoserver
 ```
 ## <a name="modify-a-server-parameter-value"></a>Modificación del valor de los parámetros del servidor
-
-También puede modificar el valor de un determinado parámetro del servidor; esta acción actualizará el valor de configuración subyacente del motor del servidor MySQL. Para actualizar el parámetro, use el comando [az mysql flexible-server parameter set](/cli/azure/mysql/flexible-server/parameter). 
+También puede modificar el valor de un determinado parámetro del servidor; esta acción actualizará el valor de configuración subyacente del motor del servidor MySQL. Para actualizar el parámetro, use el comando [az mysql flexible-server parameter set](/cli/azure/mysql/flexible-server/parameter).
 
 Para actualizar el parámetro **slow\_query\_log** del servidor **mydemoserver.mysql.database.azure.com** en el grupo de recursos **myresourcegroup.**
 ```azurecli-interactive
@@ -66,7 +62,7 @@ Si desea restablecer el valor de un parámetro, omita el parámetro opcional `--
 ```azurecli-interactive
 az mysql flexible-server parameter set --name slow_query_log --resource-group myresourcegroup --server-name mydemoserver
 ```
-Este código restablece **slow\_query\_log** al valor predeterminado **OFF**. 
+Este código restablece **slow\_query\_log** al valor predeterminado **OFF**.
 
 ## <a name="setting-non-modifiable-server-parameters"></a>Establecimiento de parámetros de servidor no modificables
 
@@ -113,7 +109,7 @@ az mysql flexible-server parameter set --name time_zone --resource-group myresou
 
 ### <a name="setting-the-session-level-time-zone"></a>Establecimiento de la zona horaria de nivel de sesión
 
-La zona horaria de nivel de sesión se puede establecer mediante la ejecución del comando `SET time_zone` desde una herramienta como la línea de comandos de MySQL o MySQL Workbench. En el ejemplo siguiente se establece la zona horaria en **US/Pacific**.  
+La zona horaria de nivel de sesión se puede establecer mediante la ejecución del comando `SET time_zone` desde una herramienta como la línea de comandos de MySQL o MySQL Workbench. En el ejemplo siguiente se establece la zona horaria en **US/Pacific**.
 
 ```sql
 SET time_zone = 'US/Pacific';

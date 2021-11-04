@@ -1,19 +1,19 @@
 ---
 title: Descuentos de reserva para Azure App Service
 description: Obtenga información sobre cómo se aplican los descuentos de reserva a instancias de Azure App Service Premium v3 y Premium v2 y unidades de escalado aisladas.
-author: yashesvi
-ms.reviewer: yashar
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 05/13/2021
 ms.author: banders
-ms.openlocfilehash: b6230f86fc33dca290f6d61f923024c9352d8600
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 2158a99d12b39891c9e52220fd2b84821b742c58
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378515"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446322"
 ---
 # <a name="how-reservation-discounts-apply-to-azure-app-service"></a>Aplicación de los descuentos de reserva a Azure App Service
 

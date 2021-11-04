@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 10/17/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: cfa9d14d13270a038586d5c0949a510ccd5ad44b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a00a0c0d3507323314adb3dbb1052051f8caf184
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131019536"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131422109"
 ---
 # <a name="work-with-threat-indicators-in-azure-sentinel"></a>Trabajo con los indicadores de amenazas en Azure Sentinel
 
@@ -204,12 +204,12 @@ En la página **Inteligencia sobre amenazas**:
 
 La regla de **Análisis de coincidencias de Inteligencia sobre amenazas de Microsoft** coincide actualmente con los indicadores de dominio con los siguientes orígenes de registro:
 
-|Origen del registro  |Descripción  |
-|---------|---------|
-|[CEF](connect-common-event-format.md)     |  La coincidencia se realiza para todos los registros CEF que se ingieren en la tabla **CommonSecurityLog** de Log Analytics, excepto aquellos en los que el `DeviceVendor` aparece como `Cisco`. <br><br>Para hacer coincidir la inteligencia sobre amenazas generada por Microsoft con los registros CEF, asegúrese de asignar el dominio en el campo `RequestURL` del registro CEF.      |
-|[DNS](./data-connectors-reference.md#domain-name-server)     | La coincidencia se realiza para todos los registros DNS que son consultas de DNS de búsqueda de clientes a servicios DNS (`SubType == "LookupQuery"`). Las consultas de DNS se procesan solo para consultas IPv4 (`QueryType=”A”`) e IPv6 (`QueryType=” AAAA”`).<br><br>Para hacer coincidir la inteligencia sobre amenazas generada por Microsoft con los registros DNS, no se necesita ninguna asignación manual de columnas Windows, ya que todas las columnas son estándar de un servidor DNS y los dominios estarán en la columna `Name` de forma predeterminada.   |
-|[Syslog](connect-syslog.md)     |  Actualmente, la coincidencia solo se realiza para los eventos de Syslog donde `Facility` es `cron`. <br><br>Para hacer coincidir la inteligencia sobre amenazas generada por Microsoft con Syslog, no se necesita ninguna asignación manual de columnas. Los detalles se incluyen en el campo `SyslogMessage` de Syslog de forma predeterminada y la regla analizará el dominio directamente desde SyslogMessage.     |
-|     |         |
+| Origen del registro | Descripción |
+| --------- | --------- |
+| [CEF](connect-common-event-format.md) | La coincidencia se realiza para todos los registros CEF que se ingieren en la tabla **CommonSecurityLog** de Log Analytics, excepto aquellos en los que el `DeviceVendor` aparece como `Cisco`. <br><br>Para hacer coincidir la inteligencia sobre amenazas generada por Microsoft con los registros CEF, asegúrese de asignar el dominio en el campo `RequestURL` del registro CEF. |
+| [DNS](./data-connectors-reference.md#windows-dns-server-preview) | La coincidencia se realiza para todos los registros DNS que son consultas de DNS de búsqueda de clientes a servicios DNS (`SubType == "LookupQuery"`). Las consultas de DNS se procesan solo para consultas IPv4 (`QueryType=”A”`) e IPv6 (`QueryType=” AAAA”`).<br><br>Para hacer coincidir la inteligencia sobre amenazas generada por Microsoft con los registros DNS, no se necesita ninguna asignación manual de columnas Windows, ya que todas las columnas son estándar de un servidor DNS y los dominios estarán en la columna `Name` de forma predeterminada. |
+| [Syslog](connect-syslog.md) | Actualmente, la coincidencia solo se realiza para los eventos de Syslog donde `Facility` es `cron`. <br><br>Para hacer coincidir la inteligencia sobre amenazas generada por Microsoft con Syslog, no se necesita ninguna asignación manual de columnas. Los detalles se incluyen en el campo `SyslogMessage` de Syslog de forma predeterminada y la regla analizará el dominio directamente desde SyslogMessage. |
+|  |  |
 
 
 ## <a name="workbooks-provide-insights-about-your-threat-intelligence"></a>Los libros proporcionan información sobre la inteligencia sobre amenazas

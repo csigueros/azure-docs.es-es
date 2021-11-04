@@ -3,21 +3,21 @@ title: 'Introducción a la tecnología de texto a voz: el servicio Voz'
 titleSuffix: Azure Cognitive Services
 description: La característica de texto a voz del servicio de voz permite que sus aplicaciones, herramientas o dispositivos conviertan el texto en una voz sintetizada natural similar a la humana. En este artículo, encontrará información general sobre las ventajas y las funcionalidades del servicio de conversión de texto a voz.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.author: pafarley
+ms.author: eur
 ms.custom: cog-serv-seo-aug-2020
 keywords: texto a voz
-ms.openlocfilehash: 7be06937cf9f3117d426fd9c19cbb6059826e6ec
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a086ebf1d7e9da9f8394a6cdde411e5ee55a5f28
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124736904"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131511053"
 ---
 # <a name="what-is-neural-text-to-speech"></a>¿Qué es el texto a voz neuronal?
 

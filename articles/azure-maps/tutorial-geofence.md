@@ -1,23 +1,23 @@
 ---
 title: 'Tutorial: Creación de una geovalla y seguimiento de dispositivos en un mapa de Microsoft Azure'
 description: Tutorial sobre cómo configurar una geovalla. Obtenga información sobre cómo hacer un seguimiento de los dispositivos con respecto a la geovalla mediante el servicio espacial de Azure Maps.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 7/06/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 ms.custom: mvc
-ms.openlocfilehash: f9b2c74f25d5f27385b604d53530edbdb57a91fd
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b3f98990a34ada3d832498a892d289323f485a28
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750210"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131455347"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: Configuración de una geovalla con Azure Maps
 
-Este tutorial le guía por los aspectos básicos de la creación y el uso de los servicios de geovalla de Azure Maps. 
+Este tutorial le guía por los aspectos básicos de la creación y el uso de los servicios de geovalla de Azure Maps.
 
 Considere el caso siguiente:
 
@@ -26,6 +26,7 @@ Considere el caso siguiente:
 Azure Maps proporciona una serie de servicios que admiten el seguimiento de los equipos que entran y salen del área de construcción. En este tutorial, aprenderá lo siguiente:
 
 > [!div class="checklist"]
+>
 > * Cargará los [datos GeoJSON de geovallas](geofence-geojson.md) que definen las áreas del sitio de construcción que desea supervisar. Usará [Data Upload API](/rest/api/maps/data-v2/upload-preview) para cargar geovallas como coordenadas de polígonos en la cuenta de Azure Maps.
 > * Configurará dos [aplicaciones lógicas](../event-grid/handler-webhooks.md#logic-apps) que, cuando se desencadenan, envían notificaciones de correo electrónico al administrador de operaciones del sitio de construcción, cuando el equipo entre y salga del área de la geovalla.
 > * Usará [Azure Event Grid](../event-grid/overview.md) para suscribirse a los eventos de entrada y salida de la geovalla de Azure Maps. Configurará dos suscripciones a eventos de webhook que llaman a los puntos de conexión HTTP definidos en las dos aplicaciones lógicas. A continuación, las aplicaciones lógicas enviarán las notificaciones de correo electrónico adecuadas sobre los equipos que salen o entran de la geovalla.
@@ -58,7 +59,7 @@ Para cargar los datos GeoJSON de geovallas:
 5. Escriba la siguiente dirección URL. La solicitud debe ser como la siguiente dirección URL (reemplace `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal):
 
     ```HTTP
-    https://us.atlas.microsoft.com/mapData?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.0&dataFormat=geojson
+    https://us.atlas.microsoft.com/mapData?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=2.0&dataFormat=geojson
     ```
 
     El parámetro `geojson` en la ruta de acceso de la dirección URL representa el formato de los datos que se cargan.
@@ -162,7 +163,7 @@ Para cargar los datos GeoJSON de geovallas:
 11. Copie el valor de la clave de **Operation-Location**, que es `status URL`. Usaremos `status URL` para comprobar el estado de la carga de datos de GeoJSON.
 
     ```http
-    https://us.atlas.microsoft.com/mapData/operations/<operationId>?api-version=2.0
+    https://us.atlas.microsoft.com/mapData/operations/{operationId}?api-version=2.0
     ```
 
 ### <a name="check-the-geojson-data-upload-status"></a>Comprobación del estado de carga de datos de GeoJSON
@@ -173,14 +174,14 @@ Para comprobar el estado de los datos de GeoJSON y recuperar su identificador ú
 
 2. En la ventana **Crear nuevo**, seleccione **Solicitud HTTP**.
 
-3. En **Nombre de solicitud**, escriba un nombre para la solicitud, como *Estado de carga de datos GET*.
+3. En **Request name** (Nombre de solicitud), escriba un nombre para la solicitud, como *GET Data Upload Status*.
 
 4. Seleccione el método HTTP **GET**.
 
 5. Escriba la `status URL` que copió en [Carga de datos GeoJSON de geovallas](#upload-geofencing-geojson-data). La solicitud debe ser como la siguiente dirección URL (reemplace `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal):
 
    ```HTTP
-   https://us.atlas.microsoft.com/mapData/<operationId>?api-version=2.0&subscription-key={Subscription-key}
+   https://us.atlas.microsoft.com/mapData/{operationId}?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
    ```
 
 6. Seleccione **Enviar**.
@@ -208,7 +209,7 @@ Para recuperar metadatos de contenido:
 5. Escriba la `resource Location URL` que copió en [Comprobación del estado de carga de datos de GeoJSON](#check-the-geojson-data-upload-status). La solicitud debe ser como la siguiente dirección URL (reemplace `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal):
 
     ```http
-    https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 6. En la ventana de respuesta, seleccione la pestaña **Cuerpo**. Los metadatos deben ser como el siguiente fragmento JSON:
@@ -226,7 +227,7 @@ Para recuperar metadatos de contenido:
 
 ## <a name="create-workflows-in-azure-logic-apps"></a>Creación de flujos de trabajo en Azure Logic Apps
 
-A continuación, va a crear dos puntos de conexión de la [aplicación lógica](../event-grid/handler-webhooks.md#logic-apps) que desencadenan una notificación por correo electrónico. 
+A continuación, va a crear dos puntos de conexión de la [aplicación lógica](../event-grid/handler-webhooks.md#logic-apps) que desencadenan una notificación por correo electrónico.
 
 Para crear las aplicaciones lógicas:
 
@@ -338,7 +339,7 @@ En cada una de las secciones siguientes se realizan solicitudes a la API con las
 5. Escriba la siguiente dirección URL. La solicitud debe tener un aspecto similar a la siguiente dirección URL (reemplace `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal y `{udid}` por el `udid` guardado en la [sección Carga de datos GeoJSON de geovallas](#upload-geofencing-geojson-data)).
 
    ```HTTP
-   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
    ```
 
 6. Seleccione **Enviar**.
@@ -386,7 +387,7 @@ En la respuesta GeoJSON anterior, la distancia negativa desde la geovalla del si
 5. Escriba la siguiente dirección URL. La solicitud debe tener un aspecto similar a la siguiente dirección URL (reemplace `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal y `{udid}` por el `udid` guardado en la [sección Carga de datos GeoJSON de geovallas](#upload-geofencing-geojson-data)).
 
    ```HTTP
-   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
    ```
 
 6. Seleccione **Enviar**.
@@ -434,7 +435,7 @@ En la respuesta GeoJSON anterior, el equipo permaneció en la geovalla del sitio
 5. Escriba la siguiente dirección URL. La solicitud debe tener un aspecto similar a la siguiente dirección URL (reemplace `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal y `{udid}` por el `udid` guardado en la [sección Carga de datos GeoJSON de geovallas](#upload-geofencing-geojson-data)).
 
     ```HTTP
-      https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
+      https://atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
       ```
 
 6. Seleccione **Enviar**.
@@ -485,7 +486,7 @@ En la respuesta GeoJSON anterior, el equipo permaneció en la geovalla del sitio
 5. Escriba la siguiente dirección URL. La solicitud debe tener un aspecto similar a la siguiente dirección URL (reemplace `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal y `{udid}` por el `udid` guardado en la [sección Carga de datos GeoJSON de geovallas](#upload-geofencing-geojson-data)).
 
     ```HTTP
-    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&userTime=2023-01-16&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
+    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&userTime=2023-01-16&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
     ```
 
 6. Seleccione **Enviar**.
@@ -527,7 +528,7 @@ En la respuesta GeoJSON anterior, el equipo permaneció en la geovalla del sitio
 5. Escriba la siguiente dirección URL. La solicitud debe tener un aspecto similar a la siguiente dirección URL (reemplace `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal y `{udid}` por el `udid` guardado en la [sección Carga de datos GeoJSON de geovallas](#upload-geofencing-geojson-data)).
 
     ```HTTP
-    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63799&lon=-122.134505&searchBuffer=5&isAsync=True&mode=EnterAndExit
+    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63799&lon=-122.134505&searchBuffer=5&isAsync=True&mode=EnterAndExit
     ```
 
 6. Seleccione **Enviar**.

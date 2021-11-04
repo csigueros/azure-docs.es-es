@@ -1,18 +1,18 @@
 ---
 title: Procedimientos recomendados para el servicio Route de Azure Maps en Microsoft Azure Maps
 description: Conozca cómo enrutar vehículos mediante el servicio Route de Microsoft Azure Maps.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 09/02/2020
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: 31a5a7f37ef61103a0e70b3daca076e62a16eaaf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 327747b731bfb26192f22631e23b4f3f7dc49cf3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121742635"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131447177"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Procedimientos recomendados para el servicio Route de Azure Maps
 
@@ -86,7 +86,7 @@ En las secciones siguientes se muestra cómo realizar llamadas a las API de Rout
 En el primero de los ejemplos siguientes, la hora de salida se establece en el futuro, en el momento de redactar este texto.
 
 ```http
-https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&query=51.368752,-0.118332:51.385426,-0.128929&travelMode=car&traffic=true&departAt=2025-03-29T08:00:20&computeTravelTimeFor=all
+https://atlas.microsoft.com/route/directions/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&query=51.368752,-0.118332:51.385426,-0.128929&travelMode=car&traffic=true&departAt=2025-03-29T08:00:20&computeTravelTimeFor=all
 ```
 
 La respuesta contiene un elemento summary (resumen), como el siguiente. Como la hora de salida se establece en el futuro, el valor de **trafficDelayInSeconds** es cero. El valor **travelTimeInSeconds** se calcula con los datos de tráfico histórico dependientes del tiempo. Por tanto, en este caso el valor **travelTimeInSeconds** es igual al valor **historicTrafficTravelTimeInSeconds**.
@@ -109,7 +109,7 @@ La respuesta contiene un elemento summary (resumen), como el siguiente. Como la 
 En el segundo ejemplo siguiente, hay una solicitud de enrutamiento en tiempo real, donde el tiempo de salida es ahora. No se especifica explícitamente en la dirección URL porque es el valor predeterminado.
 
 ```http
-https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&query=47.6422356,-122.1389797:47.6641142,-122.3011268&travelMode=car&traffic=true&computeTravelTimeFor=all
+https://atlas.microsoft.com/route/directions/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&query=47.6422356,-122.1389797:47.6641142,-122.3011268&travelMode=car&traffic=true&computeTravelTimeFor=all
 ```
 
 La respuesta contiene un resumen, como se muestra a continuación. Debido a los atascos, el valor **trafficDelaysInSeconds** es mayor que cero. También es mayor que **historicTrafficTravelTimeInSeconds**.
@@ -160,7 +160,7 @@ Las API de enrutamiento de Azure Maps admiten el enrutamiento de vehículos come
 La solicitud de ejemplo siguiente consulta una ruta para un camión comercial. El camión transporta residuos peligrosos de clase 1.
 
 ```http
-https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&vehicleWidth=2&vehicleHeight=2&vehicleCommercial=true&vehicleLoadType=USHazmatClass1&travelMode=truck&instructionsType=text&query=51.368752,-0.118332:41.385426,-0.128929
+https://atlas.microsoft.com/route/directions/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&vehicleWidth=2&vehicleHeight=2&vehicleCommercial=true&vehicleLoadType=USHazmatClass1&travelMode=truck&instructionsType=text&query=51.368752,-0.118332:41.385426,-0.128929
 ```
 
 La API de Route devuelve indicaciones que acomodan las dimensiones del camión y los residuos peligrosos. Puede leer las instrucciones de ruta expandiendo el elemento `guidance`.
@@ -172,7 +172,7 @@ La API de Route devuelve indicaciones que acomodan las dimensiones del camión y
 Si se cambia el valor US Hazmat Class de la consulta anterior, el resultado será una ruta diferente para acomodar este cambio.
 
 ```http
-https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&vehicleWidth=2&vehicleHeight=2&vehicleCommercial=true&vehicleLoadType=USHazmatClass9&travelMode=truck&instructionsType=text&query=51.368752,-0.118332:41.385426,-0.128929
+https://atlas.microsoft.com/route/directions/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&vehicleWidth=2&vehicleHeight=2&vehicleCommercial=true&vehicleLoadType=USHazmatClass9&travelMode=truck&instructionsType=text&query=51.368752,-0.118332:41.385426,-0.128929
 ```
 
 La respuesta siguiente es para un camión que transporta materiales peligrosos de clase 9, que son menos peligrosos que los de clase 1. Al expandir el elemento `guidance` para leer las indicaciones, observará que no son las mismas. Hay más instrucciones de enrutamiento para el camión que transporta materiales peligrosos de clase 1.
@@ -192,7 +192,7 @@ Con las API Route Direction de Azure Maps, los desarrolladores pueden solicitar 
 En la consulta siguiente se establece `sectionType` en `traffic`. Solicita las secciones que contienen información de tráfico de Seattle a San Diego.
 
 ```http
-https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&sectionType=traffic&query=47.6062,-122.3321:32.7157,-117.1611
+https://atlas.microsoft.com/route/directions/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&sectionType=traffic&query=47.6062,-122.3321:32.7157,-117.1611
 ```
 
 La respuesta contiene las secciones que son adecuadas para el tráfico en las coordenadas especificadas.
@@ -220,7 +220,7 @@ Si quiere optimizar el mejor orden para visitar los puntos de referencia concret
 En la siguiente consulta se solicitan seis puntos de referencia a la ruta, con el parámetro `computeBestOrder` establecido en `false`. También es el valor predeterminado del parámetro `computeBestOrder`.
 
 ```http
-https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&computeBestOrder=false&query=47.606544,-122.336502:47.759892,-122.204821:47.670682,-122.120415:47.480133,-122.213369:47.615556,-122.193689:47.676508,-122.206054:47.495472,-122.360861
+https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&computeBestOrder=false&query=47.606544,-122.336502:47.759892,-122.204821:47.670682,-122.120415:47.480133,-122.213369:47.615556,-122.193689:47.676508,-122.206054:47.495472,-122.360861
 ```
 
 La respuesta describe que la longitud del trayecto es de 140 851 metros y que se tardarían 9991 segundos en recorrerlo.
@@ -231,8 +231,6 @@ En la imagen siguiente se muestra el trayecto resultante de esta consulta. Este 
 
 ![Imagen no optimizada](media/how-to-use-best-practices-for-routing/non-optimized-image-img.png)
 
-
-
 El orden de los puntos de referencia de este trayecto es el siguiente: 0, 1, 2, 3, 4, 5 y 6.
 
 ### <a name="sample-query"></a>Consulta de ejemplo
@@ -240,7 +238,7 @@ El orden de los puntos de referencia de este trayecto es el siguiente: 0, 1, 2, 
 En la consulta se solicitan los mismos seis puntos de referencia del trayecto, como en el ejemplo anterior. En esta ocasión, el parámetro `computeBestOrder` se establece en `true` (la optimización del viajante).
 
 ```http
-https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&computeBestOrder=true&query=47.606544,-122.336502:47.759892,-122.204821:47.670682,-122.120415:47.480133,-122.213369:47.615556,-122.193689:47.676508,-122.206054:47.495472,-122.360861
+https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&computeBestOrder=true&query=47.606544,-122.336502:47.759892,-122.204821:47.670682,-122.120415:47.480133,-122.213369:47.615556,-122.193689:47.676508,-122.206054:47.495472,-122.360861
 ```
 
 La respuesta describe que la longitud del trayecto es de 91 814 metros y que se tardarían 7797 segundos en recorrerlo. Aquí, los valores de distancia y tiempo de desplazamiento son bajos porque la API ha devuelto la ruta optimizada.
