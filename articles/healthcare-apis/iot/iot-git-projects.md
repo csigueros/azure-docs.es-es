@@ -5,14 +5,14 @@ services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 10/19/2021
+ms.date: 10/28/2021
 ms.author: jasteppe
-ms.openlocfilehash: e66a6f3e2603645be4efeb68211ffd4d785067db
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: f82e1f2bacd0ae863b4ddac19a16a45e52ff173a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130259418"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131445958"
 ---
 # <a name="open-source-projects"></a>Proyectos de código abierto
 
@@ -39,6 +39,10 @@ HealthKit
 * [microsoft/healthkit-on-fhir:](https://github.com/microsoft/healthkit-on-fhir)lleve los datos&#174; HealthKit de Apple&#174; a un servicio FHIR.
 
 * [microsoft/healthkit-to-fhir:](https://github.com/microsoft/healthkit-to-fhir)proporciona una manera sencilla de crear recursos de FHIR a partir de HKObjects
+
+Google Fit en FHIR
+
+* [microsoft/googlefit-on-fhir:](https://github.com/microsoft/googlefit-on-fhir)lleve Google Fit&#174; datos a un servicio de FHIR.
 
 Estado Data Sync
 
