@@ -9,12 +9,13 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sashan, moslake
 ms.date: 05/18/2021
-ms.openlocfilehash: 2fa7a60b4f0cbc7e72304c1b01444bf9a9f6a842
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: d5a67a12d6dbdb72625ab0459767eb8be92a8241
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129667637"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131035999"
 ---
 # <a name="azure-sql-managed-instance---compute-hardware-in-the-vcore-service-tier"></a>Azure SQL Managed Instance: hardware de proceso en el nivel de servicio de núcleo virtual
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -35,7 +36,7 @@ Entre las opciones de nivel de servicio del modelo de compra de núcleo virtual 
 |**Caso de uso**|**Uso general**|**Crítico para la empresa**|
 |---|---|---|
 |Más adecuado para|La mayoría de las cargas de trabajo empresariales. Ofrece opciones de proceso y almacenamiento equilibradas y escalables pensando en el presupuesto. |Ofrece a las aplicaciones empresariales la mayor resistencia a los errores mediante el uso de varias réplicas aisladas y proporciona el mayor rendimiento de E/S.|
-|Storage|Usa el almacenamiento remoto. 32 GB - 8 TB </br> 16 TB (versión preliminar), según el número de núcleos; solo Gen5 |Usa almacenamiento local de SSD. 32 GB - 4 TB |
+|Storage|Usa el almacenamiento remoto. De 32 GB a 16 TB, según el número de núcleos |Usa almacenamiento local de SSD. <BR>- **Serie estándar (Gen5):** de 32 GB a 4 TB <BR>- **Serie prémium:** de 32 GB a 5,5 TB <BR>- **Serie prémium optimizada para memoria:** de 32 GB a 16 TB |
 |IOPS y rendimiento (aproximado)|consulte [Introducción a los límites de recursos de Instancia administrada de Azure SQL](../managed-instance/resource-limits.md#service-tier-characteristics).|consulte [Introducción a los límites de recursos de Instancia administrada de Azure SQL](../managed-instance/resource-limits.md#service-tier-characteristics).|
 |Disponibilidad|1 réplica, sin réplicas de escalado de lectura|4 réplicas, 1 [réplica de escalado de lectura](../database/read-scale-out.md),<br/> 2 réplicas de alta disponibilidad (HA)|
 |Copias de seguridad|[Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)](../../storage/common/geo-redundant-design.md), de 1 a 35 días (7 días de forma predeterminada)|[RA-GRS](../../storage/common/geo-redundant-design.md), de 1 a 35 días (7 días de forma predeterminada)|
@@ -55,20 +56,15 @@ El proceso de SQL Managed Instance proporciona una cantidad específica de recur
 
 ## <a name="hardware-generations"></a>Generaciones de hardware
 
-Entre las opciones de generación de hardware del modelo de núcleo virtual se incluye la serie de hardware Gen 5. En general, la generación de hardware define los límites de proceso y de memoria, así como otras características que afectan al rendimiento de la carga de trabajo.
+Las opciones de generación de hardware en el modelo de núcleo virtual incluyen las generaciones de hardware de serie estándar (Gen5), de serie prémium y de serie prémium optimizada para memoria. En general, la generación de hardware define los límites de proceso y de memoria, así como otras características que afectan al rendimiento de la carga de trabajo.
 
-### <a name="compute-and-memory-specifications"></a>Especificaciones de memoria y proceso
+Para obtener más información sobre las limitaciones y detalles específicos de las generaciones de hardware, vea [Características de la generación de hardware](resource-limits.md#hardware-generation-characteristics).
 
-|Generación de hardware  |Proceso  |Memoria  |
-|:---------|:---------|:---------|
-|Gen4     |- Procesadores Intel&reg; E5-2673 v3 (Haswell) de 2,4 GHz<br>- Aprovisionamiento de hasta 24 núcleos virtuales (1 núcleo virtual = 1 núcleo físico)  |- 7 GB por núcleo virtual<br>- Aprovisionamiento de hasta 168 GB|
-|Gen5     |- Procesadores Intel&reg; E5-2673 v4 (Broadwell) de 2,3 GHz, Intel&reg; SP-8160 (Skylake)\* e Intel&reg; 8272CL (Cascade Lake) de 2,5 GHz\*<br>- Aprovisionamiento de hasta 80 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)|5,1 GB por núcleo virtual<br>- Aprovisionamiento de hasta 408 GB|
-
-\* En la vista de administración dinámica [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database), la generación de hardware para bases de datos que usan procesadores Intel&reg; SP-8160 (Skylake) aparece como Gen6, mientras que la generación de hardware para las instancias que usan procesadores Intel&reg; 8272CL (Cascade Lake) aparece como Gen7. Los límites de recursos en todas las instancias Gen5 son los mismos, independientemente del tipo de procesador (Broadwell, Skylake o Cascade Lake).
+ En la vista de administración dinámica [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database), la generación de hardware para bases de datos que usan procesadores Intel&reg; SP-8160 (Skylake) aparece como Gen6, mientras que la generación de hardware para las instancias que usan procesadores Intel&reg; 8272CL (Cascade Lake) aparece como Gen7. Las CPU 8370C (Ice Lake) de Intel&reg; que usan las generaciones de hardware de la serie prémium y la serie prémium optimizada para memoria aparecen como Gen8. Los límites de recursos de todas las instancias de la serie estándar (Gen5) son los mismos, independientemente del tipo de procesador (Broadwell, Skylake o Cascade Lake).
 
 ### <a name="selecting-a-hardware-generation"></a>Selección de una generación de hardware
 
-En Azure Portal, puede seleccionar la generación de hardware en el momento de la creación o puede cambiar la generación de hardware de una instancia de SQL Managed Instance existente.
+En Azure Portal, puede seleccionar la generación de hardware en el momento de la creación o puede cambiar la generación de hardware de una instancia de SQL Managed Instance existente.
 
 **Selección de una generación de hardware al crear una instancia administrada de SQL**
 
@@ -112,11 +108,15 @@ Para más información, vea el comando [az sql mi update](/cli/azure/sql/mi#az_s
 
 ### <a name="hardware-availability"></a>Disponibilidad de hardware
 
-#### <a name="gen4gen5"></a><a id="gen4gen5-1"></a> Gen4/Gen5
+#### <a name="gen4"></a><a id="gen4gen5-1"></a> Gen4
 
-El hardware de Gen4 está [en proceso de eliminación gradual](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/) y ya no está disponible para las nuevas implementaciones. Todas las nuevas instancias administradas deben implementarse en hardware Gen5.
+El hardware de Gen4 está [en proceso de eliminación gradual](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/) y ya no está disponible para las nuevas implementaciones. Todas las instancias nuevas deben implementarse en generaciones de hardware posteriores.
 
-Gen5 está disponible en todas las regiones públicas de todo el mundo.
+#### <a name="standard-series-gen5-and-premium-series"></a>Series estándar (Gen5) y prémium
+
+El hardware de la serie estándar (Gen5) está disponible en todas las regiones públicas de todo el mundo.
+  
+El hardware de la serie prémium y la serie prémium optimizada para memoria está en versión preliminar y tiene una disponibilidad regional limitada. Para obtener información detallada, vea [Límites de recursos de Azure SQL Managed Instance ](../managed-instance/resource-limits.md#hardware-generation-characteristics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

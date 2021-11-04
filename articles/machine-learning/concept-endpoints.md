@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: seramasu
 author: rsethur
 ms.reviewer: laobri
-ms.custom: devplatv2
-ms.date: 06/17/2021
-ms.openlocfilehash: 4a4cc34b3f3bb77e0c2405d3b0a29b40fa1cd616
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.custom: devplatv2, ignite-fall-2021
+ms.date: 10/21/2021
+ms.openlocfilehash: 02c927b55812e4b309e53679cf3548d889bdc12f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129427008"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079422"
 ---
 # <a name="what-are-azure-machine-learning-endpoints-preview"></a>¿Qué son los puntos de conexión de Azure Machine Learning (versión preliminar)? 
 
@@ -29,7 +29,7 @@ En este artículo, aprenderá lo siguiente:
 > * Puntos de conexión
 > * Implementaciones
 > * Puntos de conexión en línea administrados
-> * Puntos de conexión en línea de Azure Kubernetes Service (AKS)
+> * Puntos de conexión en línea de Kubernetes
 > * Puntos de conexión de inferencias por lotes
 
 ## <a name="what-are-endpoints-and-deployments-preview"></a>¿Qué son los puntos de conexión y las implementaciones (versión preliminar)?
@@ -95,7 +95,7 @@ Aprenda a [implementar de forma segura en puntos de conexión en línea](how-to-
 
 Todos los puntos de conexión en línea se integran con Application Insights para supervisar los Acuerdos de Nivel de Servicio y diagnosticar problemas. 
 
-No obstante, los [puntos de conexión en línea administrados](#managed-online-endpoints-vs-aks-online-endpoints-preview) también incluyen integración lista para su uso con los registros y métricas de Azure.
+No obstante, los [puntos de conexión en línea administrados](#managed-online-endpoints-vs-kubernetes-online-endpoints-preview) también incluyen integración lista para su uso con los registros y métricas de Azure.
 
 ### <a name="security"></a>Seguridad
 
@@ -104,25 +104,25 @@ No obstante, los [puntos de conexión en línea administrados](#managed-online-e
 - SSL de forma predeterminada para la invocación de puntos de conexión
 
 
-## <a name="managed-online-endpoints-vs-aks-online-endpoints-preview"></a>Puntos de conexión en línea administrados frente a puntos de conexión en línea de AKS (versión preliminar)
+## <a name="managed-online-endpoints-vs-kubernetes-online-endpoints-preview"></a>Puntos de conexión en línea administrados frente a puntos de conexión en línea de Kubernetes (versión preliminar)
 
-Hay dos tipos de puntos de conexión en línea: **puntos de conexión en línea administrados** (versión preliminar) y **puntos de conexión en línea de AKS** (versión preliminar). En la tabla siguiente se resaltan algunas de sus principales diferencias.
+Hay dos tipos de puntos de conexión en línea: **puntos de conexión en línea administrados** (versión preliminar) y **puntos de conexión en línea de Kubernetes** (versión preliminar). En la tabla siguiente se resaltan algunas de sus principales diferencias.
 
-|  | Puntos de conexión en línea administrados | Puntos de conexión en línea de AKS |
+|  | Puntos de conexión en línea administrados | Puntos de conexión en línea de Kubernetes |
 |-|-|-|
-| **Usuarios recomendados** | Usuarios que desean una implementación de modelo administrada y una experiencia de MLOps mejorada | Usuarios que prefieren Azure Kubernetes Service (AKS) y pueden autoadministrar los requisitos de infraestructura |
+| **Usuarios recomendados** | Usuarios que desean una implementación de modelo administrada y una experiencia de MLOps mejorada | Usuarios que prefieren Kubernetes y pueden autoadministrar los requisitos de infraestructura |
 | **Administración de la infraestructura** | Aprovisionamiento de proceso administrado, escalado, actualizaciones de imágenes del sistema operativo del host y reforzamiento de la seguridad | Responsabilidad del usuario |
-| **Compute type (Tipo de proceso)** | Administrado (AmlCompute) | AKS |
+| **Compute type (Tipo de proceso)** | Administrado (AmlCompute) | Clúster de Kubernetes (Kubernetes) |
 | **Supervisión inmediata** | [Supervisión de Azure](how-to-monitor-online-endpoints.md) <br> (incluye métricas clave como la latencia y el rendimiento) | No compatible |
-| **Registro inmediato** | [Registros y análisis de registros de Azure en el nivel de punto de conexión](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics) | Configuración manual en el nivel del clúster |
+| **Registro inmediato** | [Registros y análisis de registros de Azure en el nivel de punto de conexión](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics) | Compatible |
 | **Application Insights** | Compatible | Compatible |
-| **Identidad administrada** | [Compatible](tutorial-deploy-managed-endpoints-using-system-managed-identity.md) | No compatible |
-| **Virtual Network (VNET)** | No admitido (versión preliminar pública) | Configuración manual en el nivel del clúster |
+| **Identidad administrada** | [Compatible](tutorial-deploy-managed-endpoints-using-system-managed-identity.md) | Compatible |
+| **Virtual Network (VNET)** | No admitido (versión preliminar pública) | Compatible |
 | **Visualización de costos** | [Nivel de punto de conexión y de implementación](how-to-view-online-endpoints-costs.md) | Nivel de clúster |
 
 ### <a name="managed-online-endpoints"></a>Puntos de conexión en línea administrados
 
-Los puntos de conexión en línea administrados pueden ayudar a simplificar el proceso de implementación. Los puntos de conexión en línea administrados proporcionan las siguientes ventajas con respecto a los puntos de conexión en línea de AKS:
+Los puntos de conexión en línea administrados pueden ayudar a simplificar el proceso de implementación. Los puntos de conexión en línea administrados proporcionan las siguientes ventajas con respecto a los puntos de conexión en línea de Kubernetes:
 
 - Infraestructura administrada
     - Aprovisiona automáticamente el proceso y hospeda el modelo (el usuario solo tiene que especificar el tipo de máquina virtual y la configuración del escalado). 

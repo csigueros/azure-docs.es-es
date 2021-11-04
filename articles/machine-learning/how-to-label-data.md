@@ -8,13 +8,13 @@ ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.date: 09/24/2021
-ms.custom: data4ml
-ms.openlocfilehash: d07a48267effa51a721d1b64c79bc0a6ba7d439f
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.custom: data4ml, ignite-fall-2021
+ms.openlocfilehash: 3fae9f8f6e5c0e54d42751456b693a4bc094771c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429649"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079384"
 ---
 # <a name="labeling-images-and-text-documents"></a>Etiquetado de imágenes y documentos de texto
 
@@ -25,7 +25,7 @@ Una vez que el administrador del proyecto crea un [proyecto de etiquetado de dat
 > * Herramientas de etiquetado
 > * Cómo usar las herramientas para tareas específicas de etiquetado
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una [cuenta Microsoft](https://account.microsoft.com/account) o una cuenta de Azure Active Directory para la organización y el proyecto
 * Acceso de nivel de colaborador al área de trabajo que contiene el proyecto de etiquetado.
@@ -52,13 +52,19 @@ En todas las tareas de etiquetado de datos, elija una o varias etiquetas adecuad
 
 Los algoritmos de aprendizaje automático se pueden desencadenar durante el etiquetado. Si estos algoritmos se han habilitado en su proyecto, puede ver lo siguiente:
 
-* Para las imágenes, después de que se haya habilitado una cierta cantidad de datos, puede ver el mensaje **Tareas en clúster** en la parte superior de la pantalla al lado del nombre del proyecto,  lo cual significa que las imágenes se agrupan para mostrar las imágenes que sean similares en la misma página.  En ese caso, cambie a una de las distintas vistas de las imágenes para aprovechar la agrupación.  
+* Imágenes
 
-* Más adelante puede ver **Tasks prelabeled** (Tareas preetiquetadas) junto al nombre del proyecto.  Luego aparecerán elementos con una etiqueta sugerida que proviene de un modelo de clasificación de aprendizaje automático. Ninguno de los modelos de Machine Learning tiene una precisión del 100 %. Aunque solo usamos datos para os que el modelo sea seguro, existe la posibilidad de que estos datos no estén preetiquetados correctamente.  Cuando vea etiquetas, corrija las incorrectas antes de enviar la página.  
+    * Después de que se haya habilitado una cierta cantidad de datos, puede ver el mensaje **Tareas en clúster** en la parte superior de la pantalla al lado del nombre del proyecto,  lo cual significa que las imágenes se agrupan para mostrar las imágenes que sean similares en la misma página.  En ese caso, cambie a una de las distintas vistas de las imágenes para aprovechar la agrupación.  
+    
+    * Más adelante puede ver **Tasks prelabeled** (Tareas preetiquetadas) junto al nombre del proyecto.  Luego aparecerán elementos con una etiqueta sugerida que proviene de un modelo de clasificación de aprendizaje automático. Ninguno de los modelos de Machine Learning tiene una precisión del 100 %. Aunque solo usamos datos para os que el modelo sea seguro, existe la posibilidad de que estos datos no estén preetiquetados correctamente.  Cuando vea etiquetas, corrija las incorrectas antes de enviar la página.  
+    
+    * En el caso de los modelos de identificación de objetos, puede ver que los cuadros de límite y las etiquetas ya están presentes.  Corrija los que sean incorrectos antes de enviar la página.
+    
+    * En el caso de los modelos de segmentación, puede ver que los polígonos y las etiquetas ya están presentes.  Corrija los que sean incorrectos antes de enviar la página. 
 
-* En el caso de los modelos de identificación de objetos, puede ver que los cuadros de límite y las etiquetas ya están presentes.  Corrija los que sean incorrectos antes de enviar la página.
-
-* En el caso de los modelos de segmentación, puede ver que los polígonos y las etiquetas ya están presentes.  Corrija los que sean incorrectos antes de enviar la página. 
+* Texto
+    
+    * En algún momento, puede ver **Tasks prelabeled** (Tareas preetiquetadas) junto al nombre del proyecto.  Luego aparecerán elementos con una etiqueta sugerida que proviene de un modelo de clasificación de aprendizaje automático. Ninguno de los modelos de Machine Learning tiene una precisión del 100 %. Aunque solo usamos datos para os que el modelo sea seguro, existe la posibilidad de que estos datos no estén preetiquetados correctamente.  Cuando vea etiquetas, corrija las incorrectas antes de enviar la página.
 
 En las primeras fases de un proyecto de etiquetado, es posible que el modelo de Machine Learning sea suficientemente preciso para preetiquetar un pequeño subconjunto de imágenes. Una vez que se etiqueten estas imágenes, el proyecto de etiquetado volverá al etiquetado manual para recopilar más datos para la siguiente ronda del entrenamiento del modelo. Con el paso del tiempo, el modelo pasará a ser más seguro en una mayor proporción de imágenes, lo cual dará como resultado posteriormente un mayor número de tareas preetiquetadas en el proyecto.
 
@@ -195,5 +201,3 @@ Cuando haya terminado de etiquetar, seleccione su nombre en la esquina superior 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Aprenda a [entrenar modelos de clasificación de imágenes en Azure](./tutorial-train-models-with-aml.md).
-
-

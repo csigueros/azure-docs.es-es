@@ -8,14 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 10/11/2021
 ms.author: aahi
-ms.openlocfilehash: 6918218d8434c06f59b0738e60cad53b94b0a0b5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 7415070639f4f6dbcee62c33871f4fbdbc64edac
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98939835"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131011739"
 ---
 # <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Implementación del contenedor de detección de idioma Text Analytics en Azure Kubernetes Service
 
@@ -38,7 +39,7 @@ Este procedimiento requiere varias herramientas que se deben instalar y ejecutar
 
 Este procedimiento carga y ejecuta el ejemplo de contenedor de Cognitive Services para la detección de idioma. El ejemplo tiene dos contenedores, uno para la aplicación cliente y otro para el contenedor de Cognitive Services. Insertaremos ambas imágenes en la instancia de Azure Container Registry. Una vez que estén allí, cree una instancia de Azure Kubernetes Service para acceder a estas imágenes y ejecute los contenedores. Cuando se ejecuten los contenedores, use la CLI **kubectl** para ver su rendimiento. Acceda a la aplicación cliente con una solicitud HTTP y vea los resultados.
 
-![Idea conceptual de la ejecución de contenedores de ejemplo](../text-analytics/media/how-tos/container-instance-sample/containers.png)
+![Diagrama que muestra la idea conceptual de ejecutar un contenedor en Kubernetes](media/container-instance-sample.png)
 
 ## <a name="the-sample-containers"></a>Los contenedores de ejemplo
 
@@ -383,7 +384,7 @@ Si la dirección `EXTERNAL-IP` para el servicio se muestra como pendiente, vuelv
 
 Abra un explorador y vaya a la dirección IP externa del contenedor `language` de la sección anterior: `http://<external-ip>:5000/swagger/index.html`. Puede usar la característica `Try it` de la API para probar el punto de conexión de detección de idioma.
 
-![Visualización de la documentación de Swagger del contenedor](../text-analytics/media/how-tos/container-instance-sample/language-detection-container-swagger-documentation.png)
+![Captura de pantalla que muestra la documentación de Swagger del contenedor](./media/language-detection-container-swagger-documentation.png)
 
 ## <a name="test-the-client-application-container"></a>Prueba del contenedor de la aplicación cliente
 

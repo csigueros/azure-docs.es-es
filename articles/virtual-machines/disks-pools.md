@@ -4,16 +4,16 @@ description: Obtenga información sobre los grupos de discos de Azure (versión 
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/23/2021
+ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions
-ms.openlocfilehash: ea06b3c4fdf9be626df99f4a06f4190ce86df4b3
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.custom: references_regions, ignite-fall-2021
+ms.openlocfilehash: d6e2eda8fd7bc2ba3b41b911b5964c2a65e33c14
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123433285"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131074559"
 ---
 # <a name="azure-disk-pools-preview"></a>Grupos de discos de Azure (versión preliminar)
 
@@ -31,7 +31,8 @@ Al agregar un disco administrado al grupo de discos, el disco se asocia a contro
 
 En la versión preliminar, los grupos de discos tienen las siguientes restricciones:
 
-- Solo se pueden agregar discos Ultra o SSD Premium a un grupo de discos.
+- A un grupo de discos solo se le pueden agregar SSD prémium y SSD estándar, o bien discos Ultra.
+    - No se puede configurar un grupo de discos para que contenga discos Ultra y SSD prémium o estándar al mismo tiempo. Si un grupo de discos está configurado para usar discos Ultra, solo puede contener discos Ultra. Del mismo modo, un grupo de discos configurado para usar SSD prémium y estándar solo puede contener SSD prémium o estándar.
 - Actualmente no se admiten los discos que usan [almacenamiento con redundancia de zona (ZRS)](disks-redundancy.md#zone-redundant-storage-for-managed-disks). 
 
 ### <a name="regional-availability"></a>Disponibilidad regional

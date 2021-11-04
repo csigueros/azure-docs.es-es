@@ -6,14 +6,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: include
-ms.custom: include file
-ms.date: 11/09/2020
-ms.openlocfilehash: d1b0877bf93b18aa60903388a10419833fe6cf35
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.custom: include file, ignite-fall-2021
+ms.date: 09/13/2021
+ms.openlocfilehash: cc9b4dc8d6471699c72a24017ef855caf3470971
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129300276"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131043744"
 ---
 En esta guía de inicio rápido basada en Postman se ofrece orientación sobre cómo obtener una respuesta de una base de conocimiento.
 
@@ -23,15 +23,7 @@ En esta guía de inicio rápido basada en Postman se ofrece orientación sobre c
     * Última versión de [**Postman**](https://www.getpostman.com/).
     * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
 
-# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
-
 > * Un [recurso de QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) creado en Azure Portal. Recuerde el identificador de Azure Active Directory, la suscripción y el nombre de recurso de QnA que seleccionó al crear el recurso.
-
-# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
-
-> * Un [recurso de Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) con la característica de respuesta a preguntas personalizada habilitada en Azure Portal. Recuerde el identificador de Azure Active Directory, la suscripción y el nombre del recurso de Text Analytics que seleccionó al crear el recurso.
-
----
 
    * Una base de conocimiento entrenada y publicada con preguntas y respuestas creada en el [inicio rápido](../Quickstarts/add-question-metadata-portal.md) anterior y configurada con metadatos y charla.
 
@@ -40,8 +32,6 @@ En esta guía de inicio rápido basada en Postman se ofrece orientación sobre c
 > Cuando esté listo para generar una respuesta a una pregunta de la base de conocimiento, debe [entrenar](../Quickstarts/create-publish-knowledge-base.md#save-and-train) y [publicar](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) la base de conocimiento. Cuando se publica la base de conocimiento, en la página **Publicar** se muestra la configuración de la solicitud HTTP para generar una respuesta. La pestaña **Postman** muestra la configuración necesaria para generar una respuesta.
 
 ## <a name="set-up-postman-for-requests"></a>Configuración de Postman para solicitudes
-
-# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
 
 En este inicio rápido se usa la misma configuración que para la solicitud **POST** de Postman y, a continuación, se configura en el código JSON de la sección body de la solicitud POST que se envía al servicio en función de lo que se intenta consultar.
 
@@ -58,25 +48,6 @@ Use este procedimiento para configurar Postman y, luego, lea todas las secciones
     ||`{"question":"<Your question>"}`|El cuerpo de la solicitud POST como un objeto JSON. Este valor cambiará en cada sección posterior, en función de aquello para lo que esté pensada la consulta.|
 
 1. Abra Postman y cree una nueva solicitud **POST** básica con la configuración de la base de conocimiento publicada. En las secciones siguientes, modifique el código JSON de la sección body de la solicitud POST para cambiar la consulta a la base de conocimiento.
-
-# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
-
-En este inicio rápido se usa la misma configuración que para la solicitud **POST** de Postman y, a continuación, se configura en el código JSON de la sección body de la solicitud POST que se envía al servicio en función de lo que se intenta consultar.
-
-Use este procedimiento para configurar Postman y, luego, lea todas las secciones posteriores para configurar el código JSON de la sección body de la solicitud POST.
-
-1. En la página **Configuración** de la base de conocimiento, seleccione la pestaña **Postman** para ver la configuración que se usa para generar una respuesta de la base de conocimiento. Copie la siguiente información para usarla en Postman.
-
-    |Nombre|Configuración|Propósito y valor|
-    |--|--|--|
-    |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|Este es el método HTTP y la ruta de la dirección URL.|
-    |`Host`|`https://YOUR-RESOURCE_NAME.cognitiveservices.azure.com/qnamaker`|Este es el host de la dirección URL. Concatene los valores de Host y Post para obtener la dirección URL completa de generateAnswer.|
-    |`Ocp-Apim-Subscription-Key`|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`|El valor del encabezado para autorizar la solicitud. |
-    |`Content-type`|`application/json`|El valor del encabezado para el contenido.|
-    ||`{"question":"<Your question>"}`|El cuerpo de la solicitud POST como un objeto JSON. Este valor cambiará en cada sección posterior, en función de aquello para lo que esté pensada la consulta.|
-
-1. Abra Postman y cree una nueva solicitud **POST** básica con la configuración de la base de conocimiento publicada. En las secciones siguientes, modifique el código JSON de la sección body de la solicitud POST para cambiar la consulta a la base de conocimiento.
----
 
 ## <a name="use-metadata-to-filter-answer"></a>Uso de metadatos para filtrar las respuestas
 
@@ -355,7 +326,7 @@ La respuesta JSON usa el mismo esquema que la consulta de la base de conocimient
     }
     ```
 
-    Dado que la pregunta de `Thank you` coincidía exactamente con una pregunta de charla, QnA Maker está completamente seguro con la puntuación de 100. QnA Maker también ha devuelto todas las preguntas relacionadas, así como la propiedad metadata que contiene la información de la etiqueta de metadatos de charla.
+    Dado que la pregunta de `Thank you` coincidía exactamente con una pregunta de charla, QnA Maker está completamente seguro con la puntuación de 100. QnA Maker también ha devuelto todas las preguntas relacionadas y la propiedad metadata que contiene la información de la etiqueta de metadatos de charla.
 
 ## <a name="use-threshold-and-default-answer"></a>Uso de un umbral y una respuesta predeterminada
 
@@ -439,51 +410,4 @@ Puede solicitar un umbral mínimo para la respuesta. Si no se cumple el umbral, 
     ```
 ## <a name="use-unstructured-data-sources"></a>Utilice orígenes de datos no estructurados.
     
-Ahora se admite la capacidad de agregar documentos no estructurados que no se pueden usar para extraer PyR. El usuario puede elegir incluir o excluir conjuntos de datos no estructurados en GenerateAnswer API al capturar una respuesta a la consulta.
-     
-# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
-No se admiten conjuntos de datos no estructurados en el servicio de disponibilidad general.
-
-# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
-
-1. Establezca el parámetro *includeUnstructuredResources* en true si desea incluir orígenes de datos no estructurados al evaluar la respuesta a Generate Answer API y viceversa.
-   ```json
-    {
-       "question": "what is Surface Headphones 2+ priced at?",
-       "includeUnstructuredSources":true,
-       "top": 2
-    }
-    ```
-2. La respuesta incluye el origen de la respuesta. 
-    ```json
-       {
-     "answers": [
-       {
-         "questions": [],
-         "answer": "Surface Headphones 2+ is priced at $299.99 USD. Business and education customers in select markets can place orders today through microsoft.com\n\nor their local authorized reseller.\n\nMicrosoft Modern USB and Wireless Headsets:\n\nCertified for Microsoft Teams, these Microsoft Modern headsets enable greater focus and call privacy, especially in shared workspaces.",
-         "score": 82.11,
-         "id": 0,
-         "source": "blogs-introducing-surface-laptop-4-and-new-access.pdf",
-         "isDocumentText": false,
-         "metadata": [],
-         "answerSpan": {
-           "text": "$299.99 USD",
-           "score": 0.0,
-           "startIndex": 34,
-           "endIndex": 45
-         }
-       },
-       {
-         "questions": [],
-         "answer": "Now certified for Microsoft Teams with the included dongle, Surface Headphones 2+ provides an even more robust meeting experience with on‐ear Teams controls and improved remote calling. Surface Headphones 2+ is priced at $299.99 USD. Business and education customers in select markets can place orders today through microsoft.com\n\nor their local authorized reseller.",
-         "score": 81.95,
-         "id": 0,
-         "source": "blogs-introducing-surface-laptop-4-and-new-access.pdf",
-         "isDocumentText": false,
-         "metadata": []
-       }
-     ],
-     "activeLearningEnabled": true
-   }
-    ```
----
+Ahora se admiten la capacidad para agregar documentos no estructurados que no se pueden usar para extraer preguntas y respuestas. El usuario puede elegir incluir o excluir conjuntos de datos no estructurados en GenerateAnswer API al capturar una respuesta a la consulta. No se admiten conjuntos de datos no estructurados en el servicio de disponibilidad general. Solo se admite en respuestas a preguntas personalizadas.
