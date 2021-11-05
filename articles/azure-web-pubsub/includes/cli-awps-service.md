@@ -4,12 +4,12 @@ ms.service: azure-web-pubsub
 ms.topic: include
 ms.date: 08/06/2021
 ms.author: lianwei
-ms.openlocfilehash: 2b12b25b973d9e56de0241c1e088e2409137b086
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a34e4d77d77ad34a8a0487a9efcdeb48ed510dda
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121788255"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131663674"
 ---
 ### <a name="publish-messages-and-manage-the-clients"></a>Publicación de mensajes y administración de los clientes
 
@@ -21,7 +21,7 @@ Abra **otro** comando de la CLI y podrá difundir mensajes a los clientes.
 - Nombre del grupo de recursos: **myResourceGroup**.
 
 ```azurecli-interactive
-az webpubsub service broadcast --name "<your-unique-resource-name>" --resource-group "myResourceGroup" --hub-name myHub1 --payload "Hello World"
+az webpubsub service broadcast --name "<your-unique-resource-name>" --resource-group "myResourceGroup" --hub-name "myHub1" --payload "Hello World"
 ```
 
 Vuelva al comando anterior de la CLI y verá que el cliente recibió el mensaje:
