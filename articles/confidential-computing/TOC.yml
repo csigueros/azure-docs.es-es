@@ -3,71 +3,84 @@
 - name: Información general
   expanded: true
   items:
-    - name: Bienvenido a la computación confidencial de Azure
+    - name: ¿Qué es la computación confidencial?
       href: overview.md
+    - name: Computación confidencial en Azure
+      href: overview-azure-products.md
     - name: Casos de uso y escenarios
       href: use-cases-scenarios.md
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Máquinas virtuales
+    - name: Máquinas virtuales confidenciales con enclaves
       items:
-        - name: Creación en Azure Portal
-          href: quick-create-portal.md
-        - name: Creación con Marketplace
-          href: quick-create-marketplace.md
-    - name: Azure Kubernetes Services (AKS)
+        - name: Implementación de Intel SGX
+          items:
+            - name: Creación de una máquina virtual de Intel SGX en Azure Portal
+              href: quick-create-portal.md
+            - name: Creación de una máquina virtual de Intel SGX con Marketplace
+              href: quick-create-marketplace.md
+    - name: Contenedores confidenciales con enclaves
       items:
-        - name: Introducción a los nodos confidenciales de AKS
-          href: confidential-nodes-aks-overview.md
-        - name: Nodos confidenciales con la CLI de Azure
-          href: confidential-nodes-aks-get-started.md
-        - name: Preguntas más frecuentes sobre los nodos confidenciales en AKS
-          href: confidential-nodes-aks-faq.yml
+        - name: Creación de Intel SGX AKS con la CLI
+          href: confidential-enclave-nodes-aks-get-started.md
 - name: Conceptos
   expanded: true
   items:
-    - name: Máquinas virtuales (VM)
+    - name: Creación de soluciones de computación confidencial
+      href: confidential-computing-solutions.md
+    - name: Implementación de soluciones en la computación confidencial
+      href: confidential-computing-deployment-models.md
+    - name: Máquinas virtuales confidenciales
       items:
-        - name: Máquinas virtuales compatibles con Enclave
-          href: confidential-computing-enclaves.md
-        - name: Soluciones en máquinas virtuales
-          href: virtual-machine-solutions.md
-        - name: Preguntas frecuentes sobre las máquinas virtuales de computación confidencial
-          href: faq.yml
-    - name: Proceso de contenedor
-      expanded: true
+        - name: Creación con enclaves
+          items:
+            - name: Introducción a los enclaves
+              href: confidential-computing-enclaves.md
+            - name: Desarrollo de aplicaciones de enclave
+              items:
+                - name: Introducción al desarrollo de enclaves
+                  href: application-development.md
+                - name: Proyectos de código abierto para el desarrollo
+                  href: enclave-development-oss.md
+                - name: Atestación de enclaves de aplicaciones
+                  href: attestation.md
+            - name: Implementación de máquinas virtuales de Intel SGX
+              href: virtual-machine-solutions-sgx.md
+            - name: Preguntas más frecuentes sobre la máquina virtual del enclave de aplicaciones
+              href: faq-application-enclaves.yml
+    - name: Contenedores confidenciales
       items:
-        - name: Contenedores confidenciales
+        - name: Introducción a las soluciones de contenedor
+          href: confidential-containers.md
+        - name: Elección de la oferta de contenedor adecuada
+          href: choose-confidential-containers-offerings.md
+        - name: Implementación de contenedores
           items:
-            - name: Introducción
-              href: confidential-containers.md
-        - name: Contenedores compatibles con Enclave
-          items:
-            - name: Introducción
+            - name: Contenedores compatibles con Enclave
               href: enclave-aware-containers.md
-    - name: Atestación
-      href: attestation.md
-    - name: Desarrollo de aplicaciones
-      href: application-development.md
+            - name: Nodos de enclave confidenciales en AKS
+              href: confidential-nodes-aks-overview.md
+            - name: Complemento de AKS
+              href: confidential-nodes-aks-addon.md
+            - name: Preguntas frecuentes sobre los nodos de enclave confidenciales
+              href: confidential-nodes-aks-faq.yml
 - name: Procedimientos
   items:
-    - name: Fortanix Confidential Computing Manager
-      href: how-to-fortanix-confidential-computing-manager.md
-    - name: Agente de nodo de Fortanix Confidential Computing Manager
-      href: how-to-fortanix-confidential-computing-manager-node-agent.md
-- name: Referencias
-  items:
-    - name: Característica de SGX Quote Helper
-      href: confidential-nodes-out-of-proc-attestation.md
+    - name: Soluciones de socios
+      items:
+        - name: Fortanix
+          items:
+            - name: Fortanix Confidential Computing Manager
+              href: how-to-fortanix-confidential-computing-manager.md
+            - name: Agente de nodo de Fortanix Confidential Computing Manager
+              href: how-to-fortanix-confidential-computing-manager-node-agent.md
 - name: Recursos
   items:
     - name: Comentarios acerca de la computación confidencial
       href: 'https://feedback.azure.com/forums/919792-azure-confidential-compute'
     - name: StackOverflow
       href: 'https://stackoverflow.com/questions/tagged/azure-confidential-computing'
-    - name: Apertura de SDL de Enclave
-      href: 'https://aka.ms/oesdkGitHubRepo'
     - name: Confidential Computing Consortium
       href: 'https://confidentialcomputing.io/'
     - name: Máquinas virtuales en Azure

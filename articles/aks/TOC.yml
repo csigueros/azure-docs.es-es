@@ -61,7 +61,7 @@
           href: ./security-controls-policy.md
     - name: Redes
       href: concepts-network.md
-    - name: Almacenamiento
+    - name: Storage
       href: concepts-storage.md
     - name: Escala
       href: concepts-scale.md
@@ -192,6 +192,8 @@
               href: use-system-pools.md
             - name: Uso de grupos de nodos de interfaz del sistema de WebAssembly (WASI)
               href: use-wasi-node-pools.md
+            - name: Inicio o detención de grupos de nodos (versión preliminar)
+              href: start-stop-nodepools.md
         - name: Implementación de AKS con Terraform
           href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true
@@ -363,6 +365,8 @@
           href: howto-deploy-java-liberty-app.md
         - name: Uso de Azure API Management
           href: ../api-management/api-management-kubernetes.md
+        - name: Uso de Dapr
+          href: dapr.md
           maintainContext: true
     - name: Implementación de una malla de servicio
       items:
@@ -378,22 +382,20 @@
                   href: open-service-mesh-deploy-addon-az-cli.md
                 - name: Uso de plantilla de Bicep
                   href: open-service-mesh-deploy-addon-bicep.md
-            - name: Descarga del binario de cliente de OSM
+            - name: Descarga y configuración del binario de cliente de OSM
               href: open-service-mesh-binary.md
             - name: Tutoriales de OSM
               items:
                 - name: Administración de una nueva implementación de aplicaciones
                   href: open-service-mesh-deploy-new-application.md
-                - name: Administración de una implementación de aplicaciones existente
+                - name: Incorporación de aplicaciones a la malla
                   href: open-service-mesh-deploy-existing-application.md
                 - name: Uso de la entrada de Azure Application Gateway
                   href: open-service-mesh-azure-application-gateway-ingress.md
-                - name: Uso de la entrada de NGINX
+                - name: Uso del controlador de entrada de Kubernetes Nginx
                   href: open-service-mesh-nginx-ingress.md
                 - name: 'Configuración de la observabilidad mediante Prometheus, Grafana y Jaeger'
                   href: open-service-mesh-open-source-observability.md
-                - name: Personalización de la experiencia de la CLI de OSM
-                  href: open-service-mesh-customize-add-on-experience.md
                 - name: "Exclusión del intervalo de direcciones\_IP y puertos"
                   href: open-service-mesh-ip-port-exclusion.md
             - name: Configuración de Azure Monitor
@@ -402,6 +404,8 @@
               href: open-service-mesh-troubleshoot.md
             - name: Deshabilitación de OSM
               href: open-service-mesh-disable-add-on.md
+    - name: Uso de extensiones de clúster (versión preliminar)
+      href: cluster-extensions.md
     - name: DevOps
       items:
         - name: Uso de Ansible para crear clústeres de AKS

@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 07/28/2021
 ms.custom: mvc
-ms.openlocfilehash: 3d3fc18ebceb18e7411a68c19e069a0db4889854
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: dfeb24812c2fa735500d4a29429dece17747ebe8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124797122"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037936"
 ---
 # <a name="tutorial-discover-servers-running-in-a-vmware-environment-with-azure-migrate"></a>Tutorial: Detección de los servidores que se ejecutan en un entorno de VMware con Azure Migrate
 
@@ -318,7 +318,7 @@ Para comenzar la detección de vCenter Server, haga clic en **Start discovery** 
 * El [inventario de software](how-to-discover-applications.md) identifica el rol de servidor web existente en los servidores detectados. Si se detecta que un servidor tiene habilitado el rol de servidor web, Azure Migrate realiza la detección de aplicaciones web en el servidor. Los datos de configuración de las aplicaciones web se actualizan una vez cada 24 horas.
 * Durante el inventario de software, las credenciales de servidor agregadas se iteran en los servidores y se validan para realizar el análisis de dependencias sin agente. Una vez completada la detección de servidores, puede habilitar desde el portal el análisis de dependencias sin agente en los servidores. Solo se pueden seleccionar los servidores en los que la validación se realiza correctamente para habilitar el [análisis de dependencias sin agente](how-to-create-group-machine-dependencies-agentless.md).
 * Los datos de las aplicaciones web de ASP.NET y las instancias y bases de datos de SQL Server comienzan a aparecer en el portal en un plazo de 24 horas después de iniciar la detección.
-* De manera predeterminada, Azure Migrate usa la manera más segura de conectarse a las instancias de SQL, es decir, Azure Migrate cifra la comunicación entre el dispositivo de Azure Migrate y las instancias de SQL Server de origen estableciendo la propiedad TrustServerCertificate en `true`. Además, la capa de transporte usa SSL para cifrar el canal y omitir la cadena de certificados para validar la confianza. Por lo tanto, el servidor del dispositivo se debe configurar para confiar en la entidad de certificación raíz del certificado. Sin embargo, puede modificar la configuración de conexión; para ello, seleccione **Edit SQL Server connection properties** (xxx) en el dispositivo. [Consulte este vínculo](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) para saber qué elegir.
+* De manera predeterminada, Azure Migrate usa la manera más segura de conectarse a las instancias de SQL, es decir, Azure Migrate cifra la comunicación entre el dispositivo de Azure Migrate y las instancias de SQL Server de origen estableciendo la propiedad TrustServerCertificate en `true`. Además, la capa de transporte usa SSL para cifrar el canal y omitir la cadena de certificados para validar la confianza. Por lo tanto, el servidor del dispositivo se debe configurar para confiar en la entidad de certificación raíz del certificado. Sin embargo, puede modificar la configuración de conexión; para ello, seleccione **Edit SQL Server connection properties** (Editar las propiedades de conexión de SQL Server) en el dispositivo. [Descubra más](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) para saber lo que elegir.
 
     :::image type="content" source="./media/tutorial-discover-vmware/sql-connection-properties.png" alt-text="Captura de pantalla que muestra cómo editar las propiedades de conexión de SQL Server.":::
 
@@ -326,9 +326,10 @@ Para comenzar la detección de vCenter Server, haga clic en **Start discovery** 
 
 ### <a name="view-discovered-data"></a>Visualización de los datos detectados
 
-1. Vuelva al portal de Azure Migrate.
-1. Haga clic en actualizar tal como se muestra en la captura de pantalla siguiente para ver los datos detectados.
-    :::image type="content" source="./media/tutorial-discover-vmware/discovery-assessment-tile.png" alt-text="Captura de pantalla que muestra cómo actualizar los datos en el icono de detección y evaluación.":::
+1. Vuelva a Azure Migrate en Azure Portal.
+1. Seleccione **Actualizar** para ver los datos detectados.
+
+   :::image type="content" source="./media/tutorial-discover-vmware/discovery-assessment-tile.png" alt-text="Captura de pantalla que muestra cómo actualizar los datos en el icono de detección y evaluación.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

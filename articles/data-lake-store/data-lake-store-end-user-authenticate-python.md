@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: normesta
 ms.custom: has-adal-ref, devx-track-python
-ms.openlocfilehash: e40780b0730b0b483a267ab2a92fd17ac50ff41e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2bb7afacaafa40319ceb39f9d9035e752cfb4ad0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128648068"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131077731"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Autenticación de usuario final con Azure Data Lake Storage Gen1 mediante el uso de Python
 > [!div class="op_single_selector"]
@@ -56,20 +56,20 @@ pip install azure-datalake-store
 
 ## <a name="create-a-new-python-application"></a>Creación de una nueva aplicación de Python
 
-1. En el IDE que prefiera, cree una nueva aplicación de Python, por ejemplo, **mysample.py**.
+1. En el IDE que prefiera, cree una nueva aplicación de Python, por ejemplo, `mysample.py`.
 
 2. Agregue el fragmento de código siguiente para importar los módulos necesarios
 
-    ```
-    ## Use this for Azure AD authentication
-    from msrestazure.azure_active_directory import AADTokenCredentials
+   ```python
+   ## Use this for Azure AD authentication
+   from msrestazure.azure_active_directory import AADTokenCredentials
 
-    ## Required for Azure Data Lake Storage Gen1 account management
-    from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
-    from azure.mgmt.datalake.store.models import DataLakeStoreAccount
+   ## Required for Azure Data Lake Storage Gen1 account management
+   from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
+   from azure.mgmt.datalake.store.models import DataLakeStoreAccount
 
-    ## Required for Azure Data Lake Storage Gen1 filesystem management
-    from azure.datalake.store import core, lib, multithread
+   ## Required for Azure Data Lake Storage Gen1 filesystem management
+   from azure.datalake.store import core, lib, multithread
 
     # Common Azure imports
     import adal
@@ -80,7 +80,7 @@ pip install azure-datalake-store
     import logging, pprint, uuid, time
     ```
 
-3. Guarde los cambios en mysample.py.
+3. Guarde los cambios realizados en `mysample.py`.
 
 ## <a name="end-user-authentication-with-multi-factor-authentication"></a>Autenticación de usuario final con autenticación multifactor
 

@@ -3,12 +3,13 @@ title: Permisos a repositorios en Azure Container Registry
 description: Cree un token con permisos orientados a repositorios específicos de un registro Premium para extraer o insertar imágenes, o realizar otras acciones.
 ms.topic: article
 ms.date: 02/04/2021
-ms.openlocfilehash: 796d98173a5ec850af2f8dbec3e8bfd1db902ca0
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 560722669dc663799af3219393cb7bdc4acdf3ab
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114220440"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037993"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Creación de un token con permisos orientados al repositorio
 
@@ -428,7 +429,7 @@ En el portal, seleccione el token en la pantalla **Tokens (Preview)** (Tokens [v
 
 * Para administrar asignaciones de ámbito y tokens, use otros comandos de los grupos de comandos [az acr scope-map][az-acr-scope-map] y [az acr token][az-acr-token].
 * Consulte la [información general sobre la autenticación](container-registry-authentication.md) para conocer otras opciones de autenticarse con un registro de contenedor de Azure, como el uso de una identidad de Azure Active Directory, una entidad de servicio o una cuenta de administrador.
-
+* Obtenga información sobre los [registros conectados](intro-connected-registry.md) y el uso de tokens para el [acceso](overview-connected-registry-access.md).
 
 <!-- LINKS - External -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

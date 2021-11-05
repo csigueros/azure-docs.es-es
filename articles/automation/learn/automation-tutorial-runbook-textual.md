@@ -3,19 +3,22 @@ title: 'Tutorial: Creación de un runbook de flujo de trabajo de PowerShell en A
 description: Este tutorial le enseña a crear, probar y publicar un runbook de flujo de trabajo de PowerShell.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/23/2021
+ms.date: 10/28/2021
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e1550caff2fbd28a08e89c3fa570216ff8002430
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 2c677d7690acc3ab05c5d8df2ab516d396be2eb4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129057707"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131465632"
 ---
 # <a name="tutorial-create-a-powershell-workflow-runbook-in-automation"></a>Tutorial: Creación de un runbook de flujo de trabajo de PowerShell en Automation
 
-Este tutorial le guiará para crear un [runbook de flujo de trabajo de PowerShell](../automation-runbook-types.md#powershell-workflow-runbooks) en Azure Automation. Los runbooks de flujo de trabajo de PowerShell son runbooks de texto basados en el flujo de trabajo de Windows PowerShell. Puede crear y modificar directamente el código del runbook con el editor de texto en Azure Portal. 
+Este tutorial le guiará para crear un [runbook de flujo de trabajo de PowerShell](../automation-runbook-types.md#powershell-workflow-runbooks) en Azure Automation. Los runbooks de flujo de trabajo de PowerShell son runbooks de texto basados en el flujo de trabajo de Windows PowerShell. Puede crear y modificar directamente el código del runbook con el editor de texto en Azure Portal.
+
+>[!NOTE]
+>  Este artículo es aplicable a PowerShell 5.1; en cambio, PowerShell 7.1 (versión preliminar) no admite flujos de trabajo.
 
 En este tutorial, aprenderá a:
 
@@ -30,14 +33,14 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Una cuenta de Azure Automation con al menos una identidad administrada asignada por el usuario. Para más información, consulte [Habilitación de identidades administradas](../quickstarts/enable-managed-identity.md).
+* Una cuenta de Azure Automation con al menos una identidad administrada asignada por el usuario. Para obtener más información, consulte [Habilitación de identidades administradas](../quickstarts/enable-managed-identity.md).
 * Módulos de az: `Az.Accounts` y `Az.Compute` se han importado en la cuenta de Automation. Para más información, consulte [Importación de módulos Az](../shared-resources/modules.md#import-az-modules).
 * Dos o más [máquinas virtuales de Azure](../../virtual-machines/windows/quick-create-powershell.md). Puesto que detiene e inicia estas máquinas, no deben ser máquinas virtuales de producción.
 * El [módulo Azure Az de PowerShell](/powershell/azure/new-azureps-module-az) instalado en la máquina. Para instalar o actualizar, vea [Instalación del módulo Azure Az de PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="assign-permissions-to-managed-identities"></a>Asignación de permisos a las identidades administradas
 
-Asigne permisos a la [identidad administrada](../automation-security-overview.md#managed-identities-preview) apropiada para permitirle detener una máquina virtual. El runbook puede usar la identidad administrada asignada por el sistema de la cuenta de Automation o una identidad administrada asignada por el usuario. Se proporcionan los pasos necesarios para asignar permisos a cada identidad. En los pasos siguientes se usa Azure Portal. Si prefiere usar PowerShell, consulte [Asignación de roles de Azure mediante Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+Asigne permisos a la [identidad administrada](../automation-security-overview.md#managed-identities) apropiada para permitirle detener una máquina virtual. El runbook puede usar la identidad administrada asignada por el sistema de la cuenta de Automation o una identidad administrada asignada por el usuario. Se proporcionan los pasos necesarios para asignar permisos a cada identidad. En los pasos siguientes se usa Azure Portal. Si prefiere usar PowerShell, consulte [Asignación de roles de Azure mediante Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a su cuenta de Automation.
 
@@ -89,16 +92,24 @@ Asigne permisos a la [identidad administrada](../automation-security-overview.md
 
 ## <a name="create-new-runbook"></a>Creación de un runbook
 
-Empiece por crear un [runbook de flujo de trabajo de PowerShell](../automation-runbook-types.md#powershell-workflow-runbooks) sencillo. Una ventaja de los flujos de trabajo de Windows PowerShell es la capacidad para realizar un conjunto de comandos en paralelo, en lugar de hacerlo secuencialmente como con un script típico.
+Empiece por crear un [runbook de flujo de trabajo de PowerShell](../automation-runbook-types.md#powershell-workflow-runbooks) sencillo. Una ventaja de los flujos de trabajo de Windows PowerShell es la capacidad para realizar un conjunto de comandos en paralelo en lugar de hacerlo secuencialmente como con un script típico.
+
+>[!NOTE]
+> Con la creación de runbooks de la versión, tiene una nueva experiencia en Azure Portal. Al seleccionar la hoja **Runbooks** > **Crear un runbook**, se abre la nueva página **Creación de un runbook** con las opciones aplicables. 
 
 1. En la página de la cuenta de Automation abierta, en **Automatización de procesos**, seleccione **Runbooks**.
 
-1. Seleccione **+ Crear un runbook**.
-    1. Asigne al runbook el nombre `MyFirstRunbook-Workflow`.
-    1. En el menú desplegable **Tipo de Runbook**, seleccione **Flujo de trabajo de PowerShell**.
-    1. Seleccione **Crear**.
-
    :::image type="content" source="../media/automation-tutorial-runbook-textual/create-powershell-workflow-runbook.png" alt-text="Creación de un runbook de flujo de trabajo de PowerShell desde el portal":::
+
+1. Seleccione **+ Crear un runbook**.
+    1. Asigne un nombre al runbook. Por ejemplo, prueba.
+    1. En el menú desplegable **Tipo de Runbook**, seleccione **PowerShell**.
+    1. En la lista desplegable **Versión del entorno de ejecución**, seleccione **5.1**.
+    1. Escriba la **descripción** correspondiente.
+    1. Seleccione **Crear**.
+   
+    :::image type="content" source="../media/automation-tutorial-runbook-textual/create-powershell-workflow-runbook-options.png" alt-text=" Opciones de runbook del flujo de trabajo de PowerShell desde el portal":::
+   
 
 ## <a name="add-code-to-the-runbook"></a>Agregar código al runbook
 

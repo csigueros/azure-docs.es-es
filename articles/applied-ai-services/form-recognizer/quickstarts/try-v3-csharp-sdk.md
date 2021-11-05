@@ -7,79 +7,69 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 10/07/2021
+ms.date: 11/02/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: 50c1cfbcfc79212f03fd67f783afaff110ce1e09
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 27ac34a6c875b680bc72d460968be212afef131d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130216739"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131021116"
 ---
-# <a name="quickstart-form-recognizer-c-client-library-sdks-v30--preview"></a>Inicio rápido: Versión v3.0 de los SDK de biblioteca cliente de Form Recognizer para C# | Versión preliminar
-
-Comience a usar Azure Form Recognizer mediante el lenguaje de programación C#. Azure Form Recognizer es un servicio en la nube de [Azure Applied AI Services](../../../applied-ai-services/index.yml) que permite crear software de procesamiento de datos automatizado mediante la tecnología de aprendizaje automático. Puede usar Form Recognizer mediante la API REST o un SDK. Se recomienda usar el servicio gratuito cuando se está aprendiendo la tecnología. Recuerde que el número de páginas gratuitas se limita a 500 al mes.
+# <a name="quickstart-c-client-library-sdk-v30--preview"></a>Inicio rápido: SDK v3.0 de la biblioteca cliente de C# | Versión preliminar
 
 >[!NOTE]
-> Form Recognizer v3.0 está actualmente en versión preliminar pública. Es posible que algunas características no se admitan o que tengan funcionalidades limitadas. 
+> Form Recognizer v3.0 está actualmente en versión preliminar pública. Es posible que algunas características no se admitan o que tengan funcionalidades limitadas.
 
 [Documentación de referencia](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet&preserve-view=true ) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src) | [Paquete (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [Ejemplos](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
-Form Recognizer de Azure Cognitive Services es un servicio en la nube que usa el aprendizaje automático para extraer y analizar campos de formulario, texto y tablas de los documentos. Puede llamar fácilmente a los modelos de Form Recognizer mediante la integración de los SDK de biblioteca cliente en los flujos de trabajo y aplicaciones.
+Comience a usar Azure Form Recognizer mediante el lenguaje de programación C#. Azure Form Recognizer es un componente de Azure Applied AI Services en la nube que usa el aprendizaje automático para extraer y analizar campos de formulario, texto y tablas de los documentos. Puede llamar fácilmente a los modelos de Form Recognizer mediante la integración de los SDK de biblioteca cliente en los flujos de trabajo y aplicaciones. Se recomienda usar el servicio gratuito cuando se está aprendiendo la tecnología. Recuerde que el número de páginas gratuitas se limita a 500 al mes.
 
-### <a name="form-recognizer-models"></a>Modelos de Form Recognizer
-
-El SDK para C# admite los siguientes modelos y funcionalidades:
-
-* 🆕Documento general: analizar y extraer texto, tablas, estructura, pares clave-valor y entidades con nombre.|
-* Diseño: analizar y extraer tablas, líneas, palabras y marcas de selección, como botones de radio y casillas en documentos de formularios, sin necesidad de entrenar un modelo.
-* Personalizado: analizar y extraer campos de formulario y otro contenido de los formularios personalizados mediante modelos entrenados con sus propios tipos de formulario.
-* Facturas: analizar y extraer los campos comunes de las facturas mediante un modelo de facturas entrenado previamente.
-* Recibos: analizar y extraer los campos comunes de los recibos mediante un modelo de recibos entrenado previamente.
-* Documentos de identificación: analizar y extraer campos comunes de documentos de identificación, como pasaportes o permisos de conducir, mediante un modelo de documentos de identificación entrenado previamente.
-* Tarjetas de presentación: analizar y extraer campos comunes de tarjetas de presentación mediante un modelo de tarjetas de presentación previamente entrenado.
+Para más información sobre las características y las opciones de desarrollo de Form Recognizer, visite nuestra página de [información general](../overview.md#form-recognizer-features-and-development-options).
 
 En este inicio rápido, usará las siguientes características para analizar y extraer datos y valores de formularios y documentos:
 
-* [**Documento general**](#try-it-general-document-model)
+* [🆕 **Documento general**](#try-it-general-document-model): análisis y extracción de texto, tablas, estructuras, pares clave-valor y entidades con nombre.
 
-* [**Layout**](#try-it-layout-model)
+* [**Diseño**](#try-it-layout-model): análisis y extracción de tablas, líneas, palabras y marcas de selección, como botones de radio y casillas en documentos de formularios, sin necesidad de entrenar un modelo.
 
-* [**Factura precompilada**](#try-it-prebuilt-invoice-model)
+* [**Modelo precompilado (factura)** ](#try-it-prebuilt-model): análisis y extracción de campos comunes de facturas mediante un modelo de facturas entrenado previamente.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/)
+* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/).
 
-* Versión actual del [IDE de Visual Studio](https://visualstudio.microsoft.com/vs/) o [.NET Core](https://dotnet.microsoft.com/download).
+* Versión actual del [IDE de Visual Studio](https://visualstudio.microsoft.com/vs/). <!-- or [.NET Core](https://dotnet.microsoft.com/download). -->
 
 * Un recurso de Cognitive Services o Form Recognizer. Una vez que tenga la suscripción de Azure, cree un recurso de Form Recognizer de [servicio único](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) o de [varios servicios](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) en Azure Portal para obtener la clave y el punto de conexión. Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
 
-> [!TIP] 
+> [!TIP]
 > Cree un recurso de Cognitive Services si tiene previsto acceder a varios servicios de Cognitive Services en un único punto de conexión o clave. Para acceder únicamente a Form Recognizer, cree un recurso de Form Recognizer. Tenga en cuenta que necesitará un recurso de servicio único si tiene previsto usar la [autenticación de Azure Active Directory](../../../active-directory/authentication/overview-authentication.md).
 
-* Una vez que se implemente el recurso, haga clic en **Ir al recurso**. Necesitará la clave y el punto de conexión del recurso que ha creado para conectar la aplicación a la API de Form Recognizer. En una sección posterior de este mismo inicio rápido, pegará la clave y el punto de conexión en el código siguiente:
+* Una vez implementado el recurso, seleccione **Ir al recurso**. Necesitará la clave y el punto de conexión del recurso que ha creado para conectar la aplicación a la API de Form Recognizer. En una sección posterior de este inicio rápido, pegará la clave y el punto de conexión en el código siguiente:
 
   :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Captura de pantalla: claves y ubicación del punto de conexión en Azure Portal.":::
 
 ## <a name="set-up"></a>Configurar
 
-### <a name="option-1-net-command-line-interface-cli"></a>[Opción 1: Interfaz de la línea de comandos (CLI) de .NET](#tab/cli)
+<!--- 
+### [Option 1: .NET Command-line interface (CLI)](#tab/cli)
 
-En una ventana de consola (por ejemplo, cmd, PowerShell o Bash), use el comando `dotnet new` para crear una nueva aplicación de consola con el nombre `formrecognizer-quickstart`. Este comando crea un sencillo proyecto "Hola mundo" de C# con un solo archivo de origen: *Program.cs*.
+In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `formrecognizer-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
 
 ```console
 dotnet new console -n formrecognizer-quickstart
 ```
 
-Abra una línea de comandos y cambie al directorio que contiene el archivo del proyecto. Compile la aplicación:
+Open a command line and switch to the directory that contains your project file. Build the application with:
 
 ```console
 dotnet build
 ```
 
-La salida de la compilación no debe contener advertencias ni errores.
+The build output should contain no warnings or errors.
 
 ```console
 ...
@@ -89,17 +79,18 @@ Build succeeded.
 ...
 ```
 
-### <a name="install-the-client-library-with-nuget"></a>Instalación de la biblioteca cliente con NuGet
+### Install the client library with NuGet
 
-Dentro del directorio que contiene el proyecto, instale la biblioteca cliente de Form Recognizer para .NET con el siguiente comando:
+In the directory that contains your project, install the Form Recognizer client library for .NET with the following command:
 
 ```console
 dotnet add package Azure.AI.FormRecognizer
 ```
 
-Esta versión de la biblioteca cliente tiene como valor predeterminado la versión 2021-09-30-preview del servicio.
+This version of the client library defaults to the 2021-09-30-preview version of the service.
 
-### <a name="option-2-visual-studio"></a>[Opción 2: Visual Studio](#tab/vs)
+### [Option 2: Visual Studio](#tab/vs)
+--->
 
 1. Inicie Visual Studio 2019.
 
@@ -113,7 +104,7 @@ Esta versión de la biblioteca cliente tiene como valor predeterminado la versi�
 
 1. En la ventana de diálogo **Configure su nuevo proyecto**, escriba `formRecognizer_quickstart` en el cuadro Nombre de proyecto. Después, haga clic en Siguiente.
 
-    :::image type="content" source="../media/quickstarts/configure-new-project.png" alt-text="Captura de pantalla: ventana de diálogo Configure su nuevo proyecto de Visual Studio.":::
+    :::image type="content" source="../media/quickstarts/configure-new-project.png" alt-text="Captura de pantalla: ventana de diálogo para configurar un nuevo proyecto de Visual Studio.":::
 
 1. En la ventana de diálogo **Información adicional**, seleccione **.NET 5.0 (Actual)** y, a continuación, seleccione **Crear**.
 
@@ -129,12 +120,13 @@ Esta versión de la biblioteca cliente tiene como valor predeterminado la versi�
 
      :::image type="content" source="../media/quickstarts/azure-nuget-package.png" alt-text="Captura de pantalla: select-form-recognizer-package.png":::
 
- 1. Seleccione la versión deseada en el menú desplegable y seleccione **Instalar**.
+ 1. Active la casilla **Incluir versión preliminar**.
 
-     Esta versión de la biblioteca cliente tiene como valor predeterminado la versión 2021-09-30-preview del servicio.
+ 1. Seleccione la versión **4.0.0-beta.1** en el menú desplegable y elija **Instalar**.
 
----
+     :::image type="content" source="../media/quickstarts/prerelease-nuget-package.png" alt-text="{alt-text}":::
 
+<!-- --- -->
 ## <a name="build-your-application"></a>Compilación de la aplicación
 
 Para interactuar con el servicio Form Recognizer, tiene que crear una instancia de la clase `DocumentAnalysisClient`. Para ello, creará un elemento `AzureKeyCredential` con el elemento apiKey y una instancia de `DocumentAnalysisClient` con el elemento `AzureKeyCredential` y el elemento `endpoint` de Form Recognizer.
@@ -146,6 +138,8 @@ Para interactuar con el servicio Form Recognizer, tiene que crear una instancia 
     ```csharp
     using System;
     using System.Threading.Tasks;
+    using Azure;
+    using Azure.AI.FormRecognizer;
     using Azure.AI.FormRecognizer.DocumentAnalysis;
     ```
 
@@ -154,21 +148,34 @@ Para interactuar con el servicio Form Recognizer, tiene que crear una instancia 
     ```csharp
     string endpoint = "<your-endpoint>";
     string apiKey = "<your-apiKey>";
-    var credential = new AzureKeyCredential(apiKey);
-    var client = new DocumentAnalysisClient(new Uri(endpoint), credential);
+    AzureKeyCredential credential = new AzureKeyCredential(apiKey);
+    DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
     ```
 
-1. Elimine la línea `Console.Writeline("Hello World!");` y agregue el código de **Pruébelo** al método **Main** en el archivo **Program.cs**:
+1. Elimine la línea `Console.Writeline("Hello World!");` y agregue uno de los ejemplos de código **Probar** al método **Main** en el archivo **Program.cs**:
 
     :::image type="content" source="../media/quickstarts/add-code-here.png" alt-text="Captura de pantalla: adición del código de ejemplo al método Main.":::
+
+### <a name="select-a-code-sample-to-copy-and-paste-into-your-applications-main-method"></a>Seleccione un ejemplo de código para copiar y pegar en el método main de la aplicación:
+
+* [**Documento general**](#try-it-general-document-model)
+
+* [**Layout**](#try-it-layout-model)
+
+* [**Factura precompilada**](#try-it-prebuilt-model)
+
+> [!IMPORTANT]
+>
+> Recuerde quitar la clave del código cuando haya terminado y no hacerla nunca pública. En producción, use métodos seguros para almacenar y acceder a sus credenciales. Para más información, consulte el artículo sobre la [seguridad](../../../cognitive-services/cognitive-services-security.md) de Cognitive Services.
 
 ## <a name="try-it-general-document-model"></a>**Pruébelo**: modelo de documento general
 
 > [!div class="checklist"]
 >
 > * Para este ejemplo, necesitará un **archivo de documento de formulario en un identificador URI**. Puede usar nuestro [documento de formulario de ejemplo](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) para este inicio rápido.
-> * Agregue el valor del identificador URI del archivo a la variable `string fileUri` en la parte superior del método Main.
 > * Para analizar un archivo determinado en un identificador URI, utilizará el método `StartAnalyzeDocumentFromUri`. El valor devuelto es un objeto `AnalyzeResult` que contiene datos sobre el documento enviado.
+> * Se ha agregado el valor del URI del archivo a la variable `string fileUri` en la parte superior del método main.
+> * Por motivos de simplicidad, aquí no se muestran todos los campos de entidad que devuelve el servicio. Para ver la lista de todos los campos admitidos y los tipos correspondientes, consulte nuestra página de concepto del [documento general](../concept-general-document.md#named-entity-recognition-ner-categories).
 
 ### <a name="add-the-following-code-to-your-general-document-application-main-method"></a>Agregue el código siguiente al método **Main** de la aplicación de documento general.
 
@@ -280,7 +287,7 @@ Extraiga de los documentos texto, marcas de selección, estilos de texto y estru
 > [!div class="checklist"]
 >
 > * Para este ejemplo, necesitará un **archivo de documento de formulario en un identificador URI**. Puede usar nuestro [documento de formulario de ejemplo](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) para este inicio rápido.
-> * Agregue el valor del identificador URI del archivo a la variable `string fileUri` en la parte superior del método Main.
+> * Se ha agregado el valor del URI del archivo a la variable `string fileUri` en la parte superior del método main.
 > * Para extraer el diseño de un archivo determinado en un identificador URI, use el método `StartAnalyzeDocumentFromUri` y pase `prebuilt-layout` como identificador de modelo. El valor devuelto es un objeto `AnalyzeResult` que contiene datos del documento enviado.
 
 ### <a name="add-the-following-code-to-your-layout-application-main-method"></a>Agregue el código siguiente al método **Main** de la aplicación de diseño.
@@ -358,24 +365,25 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ```
 
-## <a name="try-it-prebuilt-invoice-model"></a>**Pruébelo**: modelo precompilado de factura
+## <a name="try-it-prebuilt-model"></a>**Probar**: modelo precompilado
 
-En este ejemplo se muestra cómo analizar datos de determinados tipos de documentos comunes con modelos entrenados previamente, utilizando una factura como ejemplo.
+En este ejemplo, se muestra cómo analizar datos procedentes de algunos tipos de documentos comunes con un modelo previamente entrenado. Por ejemplo, utilizando una factura.
 
 > [!div class="checklist"]
 >
-> * Para este ejemplo, necesitará un **archivo de documento de factura en un identificador URI**. Puede usar nuestro [documento de factura de ejemplo](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) para este inicio rápido.
-> * Agregue el valor del identificador URI del archivo a la variable `string fileUri` en la parte superior del método Main.
+> * En este ejemplo, analizaremos un documento de factura mediante un modelo precompilado. Puede usar nuestro [documento de factura de ejemplo](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) para este inicio rápido.
+> * Se ha agregado el valor del URI del archivo a la variable `string fileUri` en la parte superior del método main.
 > * Para analizar un archivo determinado en un identificador URI, use el método `StartAnalyzeDocumentFromUri` y pase `prebuilt-invoice` como identificador de modelo. El valor devuelto es un objeto `AnalyzeResult` que contiene datos del documento enviado.
+> * Por motivos de simplicidad, aquí no se muestran todos los pares clave-valor que devuelve el servicio. Para ver la lista de todos los campos admitidos y los tipos correspondientes, consulte nuestra página de concepto de [factura](../concept-invoice.md#field-extraction).
 
 ### <a name="choose-the-invoice-prebuilt-model-id"></a>Elección del identificador de modelo precompilado de factura
 
 No está limitado a las facturas: hay varios modelos precompilados entre los que elegir, cada uno de los cuales tiene su propio conjunto de campos admitidos. El modelo que se va a usar para la operación de análisis depende del tipo de documento que se va a analizar. Estos son los identificadores de modelo de los modelos precompilados admitidos actualmente por el servicio Form Recognizer:
 
-* **prebuilt-invoice**: extrae texto, marcas de selección, tablas, pares clave-valor y la información principal de las facturas.
-* **prebuilt-businessCard**: extrae el texto y la información principal de las tarjetas de presentación.
-* **prebuilt-idDocument**: extrae el texto y la información principal de permisos de conducir y pasaportes internacionales.
-* **prebuilt-receipt**: extrae el texto y la información principal de los recibos.
+* [**prebuilt-invoice**](../concept-invoice.md): extrae texto, marcas de selección, tablas, pares clave-valor e información clave de las facturas.
+* [**prebuilt-receipt**](../concept-receipt.md): extrae texto e información clave de los recibos.
+* [**prebuilt-idDocument**](../concept-id-document.md): extrae texto e información clave de permisos de conducir y pasaportes internacionales.
+* [**prebuilt-businessCard**](../concept-business-card.md): extrae texto e información clave de las tarjetas de presentación.
 
 ### <a name="add-the-following-code-to-your-prebuilt-invoice-application-main-method"></a>Agregue el código siguiente al método **Main** de la aplicación de factura pregenerada.
 
@@ -483,21 +491,21 @@ for (int i = 0; i < result.Documents.Count; i++)
 
 ## <a name="run-your-application"></a>Ejecución de la aplicación
 
-### <a name="net-command-line-interface-cli"></a>[Interfaz de la línea de comandos (CLI) de .NET](#tab/cli)
+<!-- ### [.NET Command-line interface (CLI)](#tab/cli)
 
-Abra el símbolo del sistema, vaya al directorio que contiene el proyecto y escriba lo siguiente:
+Open your command prompt and go to the directory that contains your project and type the following:
 
 ```console
 dotnet run formrecognizer-quickstart.dll
 ```
 
-### <a name="visual-studio"></a>[Visual Studio](#tab/vs)
+### [Visual Studio](#tab/vs) -->
 
 Elija el botón verde **Inicio** situado junto a formRecognizer_quickstart para compilar y ejecutar el programa, o pulse **F5**.
 
   :::image type="content" source="../media/quickstarts/run-visual-studio.png" alt-text="Captura de pantalla: ejecución del programa en Visual Studio.":::
 
----
+<!-- --- -->
 
 ¡Enhorabuena! En este inicio rápido, ha usado el SDK de Form Recognizer para C# para analizar varios formularios y documentos de maneras diferentes. A continuación, explore la documentación de referencia para encontrar más información sobre la API de Form Recognizer.
 
@@ -505,3 +513,6 @@ Elija el botón verde **Inicio** situado junto a formRecognizer_quickstart para 
 
 > [!div class="nextstepaction"]
 > [Documentación de referencia de la versión v3.0 de la API REST](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)
+
+> [!div class="nextstepaction"]
+> [Biblioteca de referencia de Form Recognizer](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet&preserve-view=true)

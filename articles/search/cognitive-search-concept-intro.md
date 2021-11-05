@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/10/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7d3f76777b717051b7524585abf593f57fedc47d
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: dfb4cf341c6014854e219c17d387076f5beab595
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129707925"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131010733"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Enriquecimiento con IA en Azure Cognitive Search
 
-En Azure Cognitive Search, el enriquecimiento con IA hace referencia a aptitudes cognitivas integradas y otras personalizadas que agregan transformación y generación de contenido durante la indexación. Los enriquecimientos crean información nueva donde no existía anteriormente: extracción de información de imágenes, detección de la opinión, frases clave y entidades del texto, por nombrar algunas. Los enriquecimientos también agregan estructura a texto no diferenciado. Todos estos procesos producen documentos que mejoran la eficacia de la búsqueda de texto completo. En muchos casos, los documentos enriquecidos son útiles para escenarios que no son de búsqueda, como, por ejemplo, para la minería de datos de conocimiento.
+En Azure Cognitive Search, el enriquecimiento con IA hace referencia a aptitudes cognitivas integradas y otras personalizadas que agregan análisis, transformaciones y generación de contenido durante la indexación. Los enriquecimientos crean información nueva donde no existía anteriormente: extracción de información de imágenes, detección de la opinión, frases clave y entidades del texto, por nombrar algunas. Los enriquecimientos también agregan estructura a texto no diferenciado. Todos estos procesos hacen que los contenidos que antes no se podían buscar estén disponibles para los escenarios de búsqueda de texto completo. En muchos casos, los documentos enriquecidos son útiles para escenarios que no son de búsqueda, como, por ejemplo, para la minería de datos de conocimiento.
 
-El enriquecimiento se define mediante un [conjunto de aptitudes](cognitive-search-working-with-skillsets.md) asociado a un [indexador](search-indexer-overview.md). El indexador extraerá y configurará el contenido, mientras que el conjunto de aptitudes identifica, analiza y crea información y estructuras a partir de imágenes, blobs y otros orígenes de datos no estructurados. La salida de una canalización de enriquecimiento es un [índice de búsqueda](search-what-is-an-index.md) o un [almacén de conocimiento](knowledge-store-concept-intro.md).
+El enriquecimiento se define mediante un [**conjunto de aptitudes**](cognitive-search-working-with-skillsets.md) asociado a un [**indexador**](search-indexer-overview.md). El indexador extraerá y configurará el contenido, mientras que el conjunto de aptitudes identifica, analiza y crea información y estructuras a partir de imágenes, blobs y otros orígenes de datos no estructurados. La salida de una canalización de enriquecimiento es un [**índice de búsqueda**](search-what-is-an-index.md) o un [**almacén de conocimiento**](knowledge-store-concept-intro.md).
 
 ![Diagrama de una canalización de enriquecimiento](./media/cognitive-search-intro/cogsearch-architecture.png "introducción a la canalización de enriquecimiento")
 
@@ -109,17 +109,17 @@ El contenido enriquecido se genera durante la ejecución del conjunto de aptitud
 
 En Azure Cognitive Search, un indizador guarda el resultado que crea.
 
-Una de las salidas que siempre crea un indexador es un [índice que permite búsquedas](search-what-is-an-index.md). La especificación de un índice es un requisito del indexador. Cuando se asocia un conjunto de aptitudes, la salida del conjunto, además de los campos que se asignan directamente desde el origen, se usan para rellenar el índice. Normalmente, las salidas de aptitudes específicas, como frases clave o puntuaciones de opinión, se ingieren en el índice en campos creados para ese fin.
+Una de las salidas que siempre crea un indexador es un [**índice que permite búsquedas**](search-what-is-an-index.md). La especificación de un índice es un requisito del indexador. Cuando se asocia un conjunto de aptitudes, la salida del conjunto, además de los campos que se asignan directamente desde el origen, se usan para rellenar el índice. Normalmente, las salidas de aptitudes específicas, como frases clave o puntuaciones de opinión, se ingieren en el índice en campos creados para ese fin.
 
-Un [almacén de conocimiento](knowledge-store-concept-intro.md) es una salida opcional, que se usa para aplicaciones de nivel inferior, como la minería de conocimiento. Los almacenes de conocimiento se definen dentro de conjuntos de aptitudes. Su definición determina si los documentos enriquecidos se proyectan como tablas u objetos (archivos o blobs). Las proyecciones tabulares son adecuadas para análisis interactivos en herramientas como Power BI, mientras que los archivos y los blobs se usan normalmente en ciencia de datos o en procesos similares.
+Un [**almacén de conocimiento** ](knowledge-store-concept-intro.md) es una salida opcional, que se usa para aplicaciones de nivel inferior, como la minería de conocimiento. Los almacenes de conocimiento se definen dentro de conjuntos de aptitudes. Su definición determina si los documentos enriquecidos se proyectan como tablas u objetos (archivos o blobs). Las proyecciones tabulares son adecuadas para análisis interactivos en herramientas como Power BI, mientras que los archivos y los blobs se usan normalmente en ciencia de datos o en procesos similares.
 
-Por último, un indexador puede [almacenar en caché documentos enriquecidos](cognitive-search-incremental-indexing-conceptual.md) en Azure Blob Storage para su posible reutilización en ejecuciones posteriores de conjuntos de aptitudes. La caché es solo para uso interno. Los enriquecimientos almacenados en caché puede consumirlos el mismo conjunto de aptitudes que se vuelve a ejecutar en una fecha posterior. El almacenamiento en caché es útil si el conjunto de aptitudes incluye análisis de imágenes u OCR, y usted desea ahorrarse el tiempo y los gastos derivados de tener que procesar de nuevo los archivos de imagen.
+Por último, un indexador puede [**almacenar en caché documentos enriquecidos**](cognitive-search-incremental-indexing-conceptual.md) en Azure Blob Storage para su posible reutilización en ejecuciones posteriores de conjuntos de aptitudes. La caché es solo para uso interno. Los enriquecimientos almacenados en caché puede consumirlos el mismo conjunto de aptitudes que se vuelve a ejecutar en una fecha posterior. El almacenamiento en caché es útil si el conjunto de aptitudes incluye análisis de imágenes u OCR, y usted desea ahorrarse el tiempo y los gastos derivados de tener que procesar de nuevo los archivos de imagen.
 
 Los índices y los almacenes de conocimiento son totalmente independientes entre sí. Aunque debe adjuntar un índice para satisfacer los requisitos del indexador, si su único objetivo es un almacén de conocimiento, puede omitir el índice una vez rellenado. No obstante, procure no eliminarlo. Si desea volver a ejecutar el indexador y el conjunto de aptitudes, necesitará el índice para que se ejecute el indexador.
 
 ## <a name="using-enriched-content"></a>Uso de contenido enriquecido
 
-Una vez finalizado el procesamiento, obtendrá un [índice de búsqueda](search-what-is-an-index.md) que consta de documentos enriquecidos y texto totalmente apto para búsquedas en Azure Cognitive Search. Para acceder al contenido enriquecido que la canalización genera, los desarrolladores y usuarios [consultan el índice](search-query-overview.md). El índice es similar a cualquier otro que pueda crear para Azure Cognitive Search: puede complementar análisis de texto con analizadores personalizados, invocar consultas de búsqueda aproximada, agregar filtros o experimentar con perfiles de puntuación para ajustar la pertinencia de la búsqueda.
+Una vez finalizado el procesamiento, obtendrá un [índice de búsqueda](search-what-is-an-index.md) que consta de documentos enriquecidos y texto totalmente apto para búsquedas en Azure Cognitive Search. Para acceder al contenido enriquecido que la canalización genera, los desarrolladores y usuarios [**consultan el índice**](search-query-overview.md). El índice es similar a cualquier otro que pueda crear para Azure Cognitive Search: puede complementar análisis de texto con analizadores personalizados, invocar consultas de búsqueda aproximada, agregar filtros o experimentar con perfiles de puntuación para ajustar la pertinencia de la búsqueda.
 
 También puede tener un [almacén de conocimiento](knowledge-store-concept-intro.md). El almacén de conocimiento contiene datos que se pueden consumir en escenarios de minería de conocimiento, como análisis o aprendizaje automático. Puede usar [Explorador de Storage](knowledge-store-view-storage-explorer.md), [Power BI](knowledge-store-connect-power-bi.md) o cualquier aplicación que se conecte a Azure Storage.
 

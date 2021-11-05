@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 07/30/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: d46a4f812d9fd6a4de89bb2e0e0f82fdaf48dca6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f3f865d28452c6930ef53f5882e59570b07ef551
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780554"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131016613"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Usa comandos de la extensión de MongoDB para administrar los datos almacenados en la API de Azure Cosmos DB para MongoDB 
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -221,7 +221,7 @@ En la siguiente tabla se describen los parámetros del comando:
 | `offerThroughput` | `int` | Opcional | Rendimiento aprovisionado para establecer en la base de datos. Si no se proporciona este parámetro, el valor predeterminado será el mínimo, 400 RU/s. *Para especificar el rendimiento más allá de 10 000 RU/s, se requiere el parámetro `shardKey`.|
 | `shardKey` | `string` | Se requiere para las colecciones de gran rendimiento | La ruta de acceso a la clave de partición para la colección con particiones. Este parámetro es necesario si establece más de 10 000 RU/s en `offerThroughput`.  Si se especifica, todos los documentos insertados requerirán este valor y esta clave. |
 | `autoScaleSettings` | `Object` | Se requiere para el [modo de escalabilidad automática](../provision-throughput-autoscale.md). | Este objeto contiene la configuración asociada al modo de capacidad de escalabilidad automática. Puede configurar el valor de `maxThroughput`, que describe la mayor cantidad de unidades de solicitud en las que se aumentará la colección de forma dinámica. |
-| `indexes` | `Array` | Opcionalmente, configure índices. Este parámetro solo se admite para las cuentas con la versión 3.6 o superior. | Cuando está presente, se requiere un índice en _id. Cada entrada de la matriz debe incluir una clave de uno o varios campos, un nombre, y puede contener opciones de índice. Por ejemplo, para crear un índice único compuesto en los campos a y b, use esta entrada: `{key: {a: 1, b: 1}, name:"a_1_b_1", unique: true}`.
+| `indexes` | `Array` | Opcionalmente, configure índices. Este parámetro solo se admite para las cuentas con la versión 3.6 o superior. | Cuando está presente, se requiere un índice en _id. Cada entrada de la matriz debe incluir una clave de uno o varios campos, un nombre, y puede contener opciones de índice. Por ejemplo, para crear un índice único compuesto en los campos `a` y `b`, use esta entrada: `{key: {a: 1, b: 1}, name:"a_1_b_1", unique: true}`.
 
 ### <a name="output"></a>Output
 
@@ -316,7 +316,7 @@ En la siguiente tabla se describen los parámetros del comando:
 | `autoScaleSettings` | `Object` | Se requiere para el [modo de escalabilidad automática](../provision-throughput-autoscale.md). Este objeto contiene la configuración asociada al modo de capacidad de escalabilidad automática. El valor de `maxThroughput` describe la mayor cantidad de unidades de solicitud en las que se aumentará la colección de forma dinámica. |
 | `indexes` | `Array` | Opcionalmente, configure índices. Este parámetro solo se admite para las cuentas con la versión 3.6 o superior. Cuando están presentes, los índices existentes de la colección se reemplazan por el conjunto de índices especificados (incluida la eliminación de índices). Se requiere un índice en _id. Cada entrada de la matriz debe incluir una clave de uno o varios campos, un nombre, y puede contener opciones de índice. Por ejemplo, para crear un índice único compuesto en los campos a y b, use esta entrada: `{key: {a: 1, b: 1}, name: "a_1_b_1", unique: true}`.
 
-## <a name="output"></a>Output
+### <a name="output"></a>Output
 
 Devuelve una respuesta predeterminada del comando personalizado. Consulte la [salida predeterminada](#default-output) del comando personalizado para los parámetros en la salida.
 

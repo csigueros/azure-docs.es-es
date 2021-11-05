@@ -11,6 +11,8 @@
       href: tutorial-enable-sspr.md
     - name: "Habilitación de Azure\_AD Multi-Factor Authentication"
       href: tutorial-enable-azure-mfa.md
+    - name: Habilitación de la escritura recuperación de contraseñas de la sincronización en la nube (versión preliminar)
+      href: tutorial-enable-cloud-sync-sspr-writeback.md
     - name: Habilitación de escritura diferida de contraseñas en un entorno local
       href: tutorial-enable-sspr-writeback.md
     - name: Configuración de listas personalizadas de contraseñas prohibidas
@@ -272,7 +274,7 @@
 - name: Recursos
   items:
     - name: Foro de comentarios de Azure
-      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+      href: 'https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789'
     - name: Página de preguntas y respuestas de Microsoft
       href: /answers/topics/azure-active-directory.html
     - name: Precios

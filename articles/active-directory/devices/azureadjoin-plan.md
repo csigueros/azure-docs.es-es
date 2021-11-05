@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3eb56d9de903fc6013600908e3b44e8e0f547ed
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 28a6ca16de88df5bde2b003879814c032ed0c519
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128618122"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049964"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedimientos: Planeación de la implementación de la unión a Azure AD
 
@@ -24,7 +24,7 @@ Unión a Azure AD permite unir dispositivos directamente a Azure AD sin necesida
 
 Este artículo proporciona la información que necesita para planear su implementación de Unión a Azure AD.
  
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este artículo se da por hecho que está familiarizado con la [introducción a la administración de dispositivos en Azure Active Directory](./overview.md).
 
@@ -84,7 +84,7 @@ Si el proveedor de identidades no admite estos protocolos, la opción Unión a A
 
 No se puede usar las tarjetas inteligentes ni la autenticación basada en certificados para unir dispositivos a Azure AD. Sin embargo, las tarjetas inteligentes se pueden usar para iniciar sesión en dispositivos unidos a Azure AD si tiene AD FS configurado.
 
-**Recomendación:** Implemente Windows Hello para empresas para la autenticación segura y sin contraseña en dispositivos Windows 10.
+**Recomendación:** Implemente Windows Hello para empresas para la autenticación segura y sin contraseña en dispositivos con Windows 10 y versiones posteriores.
 
 ### <a name="user-configuration"></a>Configuración del usuario
 
@@ -103,8 +103,8 @@ Los cambios de UPN solo se admiten a partir de la actualización de 2004 de Wi
 
 Unión a Azure AD:
 
-- Solo es aplicable a dispositivos Windows 10. 
-- No es aplicable a versiones anteriores de Windows ni a otros sistemas operativos. Si tiene dispositivos Windows 7/8.1, debe actualizar a Windows 10 para implementar Unión a Azure AD.
+- Es aplicable a dispositivos Windows 10 y Windows 11. 
+- No es aplicable a versiones anteriores de Windows ni a otros sistemas operativos. Si tiene dispositivos Windows 7/8.1, debe actualizar al menos a Windows 10 para implementar Unión a Azure AD.
 - Es compatible con TPM 2.0 compatible con FIPS, pero no con TPM 1.2. Si los dispositivos tienen TPM 1.2 compatible con FIPS, debe deshabilitarlos antes de continuar con la unión a Azure AD. Microsoft no proporciona ninguna herramienta para deshabilitar el modo FIPS para TPM, ya que eso depende del fabricante de TPM. Póngase en contacto con el OEM de hardware para obtener soporte técnico.
  
 **Recomendación:** Use siempre la versión más reciente de Windows 10 para aprovechar las características actualizadas.

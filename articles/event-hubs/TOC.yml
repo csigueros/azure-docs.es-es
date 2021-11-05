@@ -11,7 +11,7 @@
   items:
     - name: Creación de un centro de eventos
       items:
-        - name: Azure portal
+        - name: Azure Portal
           href: event-hubs-create.md
         - name: Azure CLI
           href: event-hubs-quickstart-cli.md
@@ -48,6 +48,12 @@
           href: event-hubs-capture-python.md
     - name: Streaming en Event Hubs para Apache Kafka
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
+    - name: Uso de un registro de esquema
+      items:
+        - name: Creación de un registro de esquema
+          href: create-schema-registry.md
+        - name: Validación de eventos mediante un esquema (.NET y AMQP)
+          href: schema-registry-dotnet-send-receive-quickstart.md
     - name: Creación de un clúster dedicado
       href: event-hubs-dedicated-cluster-create-portal.md
 - name: Tutoriales
@@ -157,8 +163,6 @@
           href: configure-processing-units-premium-namespace.md
         - name: Adición de datos personalizados a eventos
           href: add-custom-data-event.md
-        - name: Creación de un registro de esquema
-          href: create-schema-registry.md
         - name: Adición dinámica de particiones
           href: dynamically-add-partitions.md
         - name: "Uso de Blob Storage como almacén de puntos de comprobación en Azure\_Stack Hub"

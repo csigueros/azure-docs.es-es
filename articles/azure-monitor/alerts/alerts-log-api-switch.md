@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 101a575d9acac5da4a8c0399f60e8f32e591d2cf
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: f3d55bfe93ec3bcaa713e77db6326488851994d1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107285365"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131026229"
 ---
 # <a name="upgrade-to-the-current-log-alerts-api-from-legacy-log-analytics-alert-api"></a>Actualización a la API de alertas de registro actual desde la API de alertas heredada de Log Analytics
 
@@ -25,11 +25,12 @@ En el pasado, los usuarios usaban [Alert API de Log Analytics heredada](./api-al
 ## <a name="benefits"></a>Ventajas
 
 - Una sola plantilla para la creación de reglas de alertas (antes se necesitaban tres plantillas independientes).
-- API única para las áreas de trabajo de Log Analytics y los recursos de Application Insights.
+- API única para todas las alertas de registro de recursos de Azure.
+- Compatibilidad con vistas previas de alertas de registro con estado y de 1 minuto.
 - [Compatibilidad con cmdlets de PowerShell](./alerts-log.md#managing-log-alerts-using-powershell).
 - Correspondencia de la gravedad con los demás tipos de alerta.
 - Capacidad para crear [alertas de registro entre áreas de trabajo](../logs/cross-workspace-query.md) que abarcan varios recursos externos, como áreas de trabajo de Log Analytics o recursos de Application Insights.
-- Los usuarios pueden especificar dimensiones para dividir las alertas mediante el parámetro "Agregado en".
+- Los usuarios pueden especificar dimensiones para dividir las alertas.
 - Las alertas de registro tienen un período de hasta dos días de datos (antes estaba limitado a un día).
 
 ## <a name="impact"></a>Impacto

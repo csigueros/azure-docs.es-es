@@ -2,26 +2,27 @@
 title: Revisión del sistema operativo Windows en el clúster de Service Fabric
 description: Aquí se muestra cómo habilitar las actualizaciones automáticas de imágenes del sistema operativo para aplicar revisiones en los nodos de clúster de Service Fabric que se ejecutan en Windows.
 ms.topic: how-to
-ms.date: 03/09/2021
-ms.openlocfilehash: 5a3b2c78f0a7a3103c2fc56fe518739ac648ad31
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/19/2021
+ms.openlocfilehash: 940a0af02f5355e9d28bb057798004fc963dfeca
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124796502"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131019407"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
 
 Las obtención de [actualizaciones de imágenes de sistema operativo automáticas en el conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) es el procedimiento recomendado para mantener el sistema operativo revisado en Azure. Las actualizaciones automáticas de imágenes del sistema operativo basadas en un conjunto de escalado de máquinas virtuales requieren una durabilidad Silver o superior en un conjunto de escalado.
 
-### <a name="requirements-for-automatic-os-image-upgrades-by-virtual-machine-scale-sets"></a>Requisitos para las actualizaciones automáticas de imágenes del sistema operativo por Virtual Machine Scale Sets
+## <a name="requirements-for-automatic-os-image-upgrades-by-virtual-machine-scale-sets"></a>Requisitos para las actualizaciones automáticas de imágenes del sistema operativo por Virtual Machine Scale Sets
 
--   El [nivel de durabilidad](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) de Service Fabric es Plata u Oro, no Bronce.
--   La extensión de Service Fabric en la definición del modelo de conjunto de escalado debe tener la versión 1.1 o posterior de TypeHandlerVersion.
--   El nivel de durabilidad debe ser el mismo en el clúster de Service Fabric y la extensión Service Fabric de la definición del modelo de conjunto de escalado.
+- El [nivel de durabilidad](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) de Service Fabric es Plata u Oro, no Bronce.
+- La extensión de Service Fabric en la definición del modelo de conjunto de escalado debe tener la versión 1.1 o posterior de TypeHandlerVersion.
+- El nivel de durabilidad debe ser el mismo en el clúster de Service Fabric y la extensión Service Fabric de la definición del modelo de conjunto de escalado.
 - No es necesario realizar un sondeo de estado adicional o el uso de la extensión de estado de aplicación para Virtual Machine Scale Sets.
+- Los tipos de nodo sin estado son la única excepción, que tienen durabilidad como Bronze, pero las actualizaciones automáticas de imágenes del sistema operativo todavía se pueden configurar en ellos. Para obtener más información, consulte [Implementación de un clúster de Azure Service Fabric con tipos de nodo sin estado](service-fabric-stateless-node-types.md).
 
-Asegúrese de que la configuración de durabilidad coincida con la del clúster y la extensión de Service Fabric, ya que la falta de coincidencia produce errores de actualización. Los niveles de durabilidad se pueden modificar según las directrices que se describen en [esta página](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels).
+Asegúrese de que la configuración de durabilidad coincida con la del clúster y la extensión de Service Fabric, ya que la falta de coincidencia produce errores de actualización. Los niveles de durabilidad se pueden modificar según las directrices que se describen en [esta página](service-fabric-cluster-capacity.md#changing-durability-levels).
 
 La actualización automática de la imagen del sistema operativo no está disponible con durabilidad Bronce. Si bien la [Aplicación de orquestación de parches](service-fabric-patch-orchestration-application.md) (pensada solo para clústeres alojados que no sean de Azure) *no se recomienda* para niveles de durabilidad Plata o mayores, es su única opción para automatizar las actualizaciones de Windows con respecto a la actualización de dominios de Service Fabric.
 

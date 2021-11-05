@@ -1,29 +1,32 @@
 ---
-title: Uso del panel de cumplimiento normativo de Azure Security Center
-description: Aprenda a agregar y quitar estándares normativos desde el panel de cumplimiento normativo de Security Center
+title: El panel de cumplimiento normativo de Microsoft Defender for Cloud
+description: Aprenda a agregar y quitar estándares normativos desde el panel de cumplimiento normativo de Defender for Cloud.
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
 ms.date: 08/05/2021
 ms.author: memildin
-ms.openlocfilehash: 523375ff69d6139a1e910b9253a6816235bfecc4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: d5d54fe73c417f3d79c518ec1e78bade71135cfb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741970"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037400"
 ---
 # <a name="customize-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalización del conjunto de estándares en el panel de cumplimiento normativo
 
-Azure Security Center compara continuamente la configuración de los recursos con los requisitos de los estándares del sector, las regulaciones y los bancos de pruebas. En el **panel de cumplimiento normativo** se proporciona información sobre su postura de cumplimiento en función de cómo cumple los requisitos de cumplimiento específicos.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+Microsoft Defender for Cloud compara continuamente la configuración de los recursos con los requisitos de los estándares del sector, las regulaciones y los bancos de pruebas. En el **panel de cumplimiento normativo** se proporciona información sobre su postura de cumplimiento en función de cómo cumple los requisitos de cumplimiento específicos.
 
 > [!TIP]
-> Obtenga más información sobre Security Center panel de cumplimiento normativo de la aplicación en las [preguntas más frecuentes](security-center-compliance-dashboard.md#faq---regulatory-compliance-dashboard).
+> Obtenga más información sobre el panel de cumplimiento normativo de Defender for Cloud en las [preguntas más frecuentes](regulatory-compliance-dashboard.md#faq---regulatory-compliance-dashboard).
 
-## <a name="how-are-regulatory-compliance-standards-represented-in-security-center"></a>¿Cómo se representan los estándares de cumplimiento normativo en Security Center?
+## <a name="how-are-regulatory-compliance-standards-represented-in-defender-for-cloud"></a>¿Cómo se representan los estándares de cumplimiento normativo en Defender for Cloud?
 
-Los estándares del sector, los estándares normativos y las pruebas comparativas se representan en el panel de cumplimiento normativo de Security Center. Cada estándar es una iniciativa definida en Azure Policy.
+Los estándares del sector, los estándares normativos y los puntos de referencia se representan en el panel de cumplimiento normativo de Defender for Cloud. Cada estándar es una iniciativa definida en Azure Policy.
 
 Para ver los datos de cumplimiento asignados como evaluaciones en el panel, agregue un estándar de cumplimiento a la suscripción o al grupo de administración desde la página **Directiva de seguridad**. Para obtener más información sobre Azure Policy y las iniciativas, consulte [Uso de directivas de seguridad](tutorial-security-policy.md).
 
@@ -32,7 +35,7 @@ Cuando haya asignado un estándar o una prueba comparativa al ámbito selecciona
 Microsoft realiza un seguimiento de los estándares normativos y mejora automáticamente su cobertura en algunos de los paquetes a lo largo del tiempo. Cuando Microsoft publica contenido nuevo para la iniciativa, aparece automáticamente en el panel a medida que se asignan directivas a los controles en el estándar.
 
 
-## <a name="what-regulatory-compliance-standards-are-available-in-security-center"></a>¿Qué estándares de cumplimiento normativo están disponibles en Security Center?
+## <a name="what-regulatory-compliance-standards-are-available-in-defender-for-cloud"></a>¿Qué estándares de cumplimiento normativo están disponibles en Defender for Cloud?
 
 De manera predeterminada, cada suscripción tiene la **Azure Security Benchmark** asignado. Son las directrices específicas de Azure creadas por Microsoft para ofrecer los procedimientos recomendados de seguridad y cumplimiento basados en marcos de cumplimiento comunes. [Mas información sobre Azure Security Benchmark](/security/benchmark/azure/introduction).
 
@@ -53,10 +56,15 @@ Los estándares se agregan al panel a medida que están disponibles.
 
 En los pasos siguientes se explica cómo agregar un paquete para supervisar el cumplimiento de uno de los estándares normativos admitidas.
 
-> [!NOTE]
-> Para agregar estándares al panel, la suscripción debe tener habilitado Azure Defender. Además, solo los usuarios que son propietario o colaborador de directivas tienen los permisos necesarios para agregar estándares de cumplimiento. 
+### <a name="prerequisites"></a>Prerrequisitos
+Para agregar estándares al panel:
 
-1. En la barra lateral de Security Center, seleccione **Cumplimiento normativo** para abrir el panel de cumplimiento normativo. Aquí puede ver los estándares de cumplimiento asignados actualmente a las suscripciones que están seleccionadas.   
+- La suscripción debe tener habilitadas las características de seguridad mejoradas de Defender for Cloud.
+- El usuario debe tener permisos de propietario o de colaborador de la directiva.
+
+### <a name="add-a-standard"></a>Adición de un estándar
+
+1. En el menú de Defender for Cloud, seleccione **Cumplimiento normativo** para abrir el panel de cumplimiento normativo. Aquí puede ver los estándares de cumplimiento asignados actualmente a las suscripciones que están seleccionadas.   
 
 1. En la parte superior de la página, seleccione **Administrar directivas de cumplimiento**. Se mostrará la página Administración de directivas.
 
@@ -79,18 +87,18 @@ En los pasos siguientes se explica cómo agregar un paquete para supervisar el c
     - **CMMC nivel 3**
     - **ISM restringido en Nueva Zelanda**
     
-    ![Adición de estándares normativos al panel de cumplimiento normativo de Azure Security Center.](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
+    ![Adición de estándares normativos al panel de cumplimiento normativo de Microsoft Defender for Cloud.](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
 
 1. Seleccione **Agregar** y escriba todos los detalles necesarios para la iniciativa específica, como el ámbito, los parámetros y la corrección.
 
-1. En la barra lateral de Security Center, vuelva a seleccionar **Cumplimiento normativo** para volver al panel de cumplimiento normativo.
+1. En el menú de Defender for Cloud, vuelva a seleccionar **Cumplimiento normativo** para volver al panel de cumplimiento normativo.
 
     El nuevo estándar aparece ahora en la lista de estándares normativos y del sector. 
 
     > [!NOTE]
     > Asimismo, un estándar recién agregado en el panel de cumplimiento puede tardar unas horas en aparecer en el mismo.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Panel de cumplimiento normativo." lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
+    :::image type="content" source="./media/regulatory-compliance-dashboard/compliance-dashboard.png" alt-text="Panel de cumplimiento normativo." lightbox="./media/regulatory-compliance-dashboard/compliance-dashboard.png":::
 
 ## <a name="remove-a-standard-from-your-dashboard"></a>Eliminación de un estándar del panel
 
@@ -98,7 +106,7 @@ Si alguno de los estándares normativos proporcionados no es relevante para su o
 
 Para quitar un estándar:
 
-1. En el menú de Security Center, seleccione **Directiva de seguridad**.
+1. En el menú de Defender for Cloud, seleccione **Directiva de seguridad**.
 
 1. Seleccione la suscripción pertinente de la que desea quitar un estándar.
 
@@ -107,7 +115,7 @@ Para quitar un estándar:
 
     Se abrirá la página de directivas de seguridad. En la suscripción seleccionada, se muestra la directiva predeterminada, el sector y los estándares normativos, así como las iniciativas personalizadas que haya creado.
 
-    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard.png" alt-text="Eliminación de un estándar normativo del panel de cumplimiento normativo en Azure Security Center":::.
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard.png" alt-text="Eliminación de un estándar normativo del panel de cumplimiento normativo en Microsoft Defender for Cloud":::.
 
 1. Para el estándar que desea quitar, seleccione **Deshabilitar**. Se abrirá una ventana de confirmación.
 
@@ -123,5 +131,5 @@ En este artículo, ha aprendido cómo **agregar estándares de cumplimiento** pa
 Para obtener material relacionado, vea las páginas siguientes:
 
 - [Azure Security Benchmark](/security/benchmark/azure/introduction)
-- [Panel de cumplimiento normativo de Security Center](security-center-compliance-dashboard.md): obtenga información sobre cómo hacer seguimiento de los datos de cumplimiento normativo y cómo exportarlos con Security Center y herramientas externas.
+- [Panel de cumplimiento normativo de Defender for Cloud](regulatory-compliance-dashboard.md): obtenga información sobre cómo hacer seguimiento de los datos de cumplimiento normativo y cómo exportarlos con Defender for Cloud y herramientas externas.
 - [Uso de las directivas de seguridad](tutorial-security-policy.md)

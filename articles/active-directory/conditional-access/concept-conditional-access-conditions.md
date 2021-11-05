@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/13/2021
+ms.date: 10/22/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: calebb
+ms.reviewer: calebb, sandeo-MSFT
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae75a0526dcccb39ba6d3b6b7779b9f6b3051039
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 89dab74b476345e08a5b995ad04d7d512d0e3a28
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128592023"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131012650"
 ---
 # <a name="conditional-access-conditions"></a>Acceso condicional: Condiciones
 
@@ -26,7 +26,7 @@ Dentro de una directiva de acceso condicional, un administrador puede usar seña
 
 Se pueden combinar varias condiciones para crear directivas de acceso condicional específicas y concretas.
 
-Por ejemplo, al tener acceso a una aplicación confidencial, un administrador puede factorizar la información de riesgo de inicio de sesión de Identity Protection y la ubicación en su decisión de acceso, además de otros controles como autenticación multifactor.
+Por ejemplo, al acceder a una aplicación confidencial, un administrador puede factorizar la información de riesgo de inicio de sesión de Identity Protection y la ubicación en su decisión de acceso, además de otros controles, como la autenticación multifactor.
 
 ## <a name="sign-in-risk"></a>Riesgo de inicio de sesión
 
@@ -59,7 +59,7 @@ Al configurar la ubicación como una condición, las organizaciones pueden elegi
 
 Al incluir **cualquier ubicación**, esta opción incluye cualquier dirección IP en Internet, no solo en las ubicaciones con nombre configuradas. Al seleccionar **cualquier ubicación**, los administradores pueden optar por excluir **todas las ubicaciones de confianza** o **seleccionadas**.
 
-Por ejemplo, algunas organizaciones pueden optar por no requerir la autenticación multifactor cuando los usuarios están conectados a la red en una ubicación de confianza, como su oficina central física. Los administradores pueden crear una directiva que incluya cualquier ubicación, pero excluya las ubicaciones seleccionadas para las redes de la oficina central.
+Por ejemplo, algunas organizaciones pueden optar por no requerir la autenticación multifactor cuando los usuarios se conectan a la red en una ubicación de confianza, como su oficina central física. Los administradores pueden crear una directiva que incluya cualquier ubicación, pero excluya las ubicaciones seleccionadas para las redes de la oficina central.
 
 Para más información sobre las ubicaciones, consulte el artículo [¿Qué es la condición de ubicación del acceso condicional de Azure Active Directory?](location-condition.md)
 
@@ -190,18 +190,23 @@ Para más información, consulte los siguientes artículos.
 Si selecciona **Otros clientes**, puede especificar una condición que afecta a las aplicaciones que usan la autenticación básica con protocolos de correo electrónico como IMAP, MAPI, POP, SMTP y aplicaciones de Office más antiguas que no usan la autenticación moderna.
 
 ## <a name="device-state-preview"></a>Estado del dispositivo (versión preliminar)
+> [!CAUTION]
+> **Esta característica en versión preliminar está en desuso.** Los clientes deben usar la condición **Filtro para dispositivos** de Acceso condicional para satisfacer escenarios, lo que anteriormente se lograba mediante la condición de estado del dispositivo (versión preliminar).
 
 La condición del estado del dispositivo se puede usar para excluir dispositivos que están unidos a Azure AD híbrido o dispositivos marcados como compatibles con una directiva de cumplimiento de Microsoft Intune de las directivas de acceso condicional de una organización.
 
 Por ejemplo, *Todos los usuarios* que acceden a la aplicación en la nube *Administración de Microsoft Azure*, incluido **Todos los estados de dispositivo**, excluidos **Unido a Azure AD híbrido de dispositivo** y **Dispositivo marcado como compatible** y para *Controles de acceso*, **Bloquear**. 
    - En este ejemplo se crea una directiva que solo permite el acceso a la Administración de Microsoft Azure desde dispositivos unidos a Azure AD híbrido o desde dispositivos marcados como compatibles.
 
+El escenario anterior se puede configurar mediante *Todos los usuarios* que acceden a la aplicación en la nube *Administración de Microsoft Azure*, excepto la condición **Filtro para dispositivos**, con la siguiente regla **device.trustType -ne "ServerAD" -o device.isCompliant -ne True** y para *Controles de acceso*, **Bloquear**.
+- En este ejemplo se crea una directiva que solo permite el acceso a la Administración de Microsoft Azure desde dispositivos unidos a Azure AD híbrido o desde dispositivos marcados como compatibles.
+
 > [!IMPORTANT]
 > El estado del dispositivo y los filtros para dispositivos no se pueden usar juntos en la directiva de acceso condicional. Los filtros para dispositivos proporcionan una selección de destino más granular, incluida la compatibilidad con la información de estado del dispositivo de destino a través de las propiedades `trustType` y `isCompliant`.
 
-## <a name="filters-for-devices-preview"></a>Filtros para dispositivos (versión preliminar)
+## <a name="filter-for-devices"></a>Filtro para dispositivos
 
-Hay una nueva condición opcional en el acceso condicional denominada filtros para dispositivos. Al configurar filtros para dispositivos como condición, las organizaciones pueden elegir incluir o excluir dispositivos según unos filtros mediante una expresión de regla en las propiedades del dispositivo. La expresión de regla de los filtros de dispositivos se puede crear mediante el generador de reglas o la sintaxis de regla. Esta experiencia es similar a la que se usa para las reglas de pertenencia dinámica para grupos. Para más información, consulte el artículo [Acceso condicional: Filtros para dispositivos (versión preliminar)](concept-condition-filters-for-devices.md).
+Hay una nueva condición opcional en el acceso condicional que se conoce como "filtro para dispositivos". Al configurar el filtro para dispositivos como condición, las organizaciones pueden elegir incluir o excluir dispositivos según un filtro mediante una expresión de regla en las propiedades del dispositivo. La expresión de regla del filtro para dispositivos se puede crear mediante el generador de reglas o la sintaxis de regla. Esta experiencia es similar a la que se usa para las reglas de pertenencia dinámica para grupos. Para más información, consulte el artículo [Acceso condicional: filtros para dispositivos (versión preliminar)](concept-condition-filters-for-devices.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

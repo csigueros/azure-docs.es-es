@@ -17,12 +17,12 @@ ms.author: billmath
 author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9200c43b76e3ee95618fe1667e4fe0b6a62b160
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: fb602f5ab56ee173683f8f17b741705b26c48e70
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129231660"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046287"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Administración de la confianza de AD FS con Azure AD mediante Azure AD Connect
 
@@ -30,10 +30,10 @@ ms.locfileid: "129231660"
 
 Al federar un entorno local con Azure AD, establece una relación de confianza entre el proveedor de identidades local y Azure AD.  Azure AD Connect puede administrar la federación entre los Servicios de federación de Active Directory (AD FS) locales y Azure AD. En este artículo se proporciona información general de:
 
-* Las distintas configuraciones de la confianza de Azure AD Connect
-* Las reglas de transformación de emisión (reglas de notificación) establecidas por Azure AD Connect
-* Cómo realizar una copia de seguridad de las reglas de notificación, y restaurarlas, entre actualizaciones y actualizaciones de configuración. 
-* Procedimiento recomendado para proteger y supervisar la confianza de AD FS con Azure AD
+* Las distintas configuraciones de la confianza de Azure AD Connect.
+* Las reglas de transformación de emisión (reglas de notificaciones) establecidas por Azure AD Connect.
+* Cómo realizar una copia de seguridad de las reglas de notificación y restaurarlas entre actualizaciones y actualizaciones de configuración.
+* Procedimiento recomendado para proteger y supervisar la confianza de AD FS con Azure AD.
 
 ## <a name="settings-controlled-by-azure-ad-connect"></a>Configuración controlada por Azure AD Connect
 

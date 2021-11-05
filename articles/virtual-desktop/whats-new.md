@@ -8,12 +8,12 @@ ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
 ms.custom: references_regions
-ms.openlocfilehash: 438a3f4091afbfb885e2f585196193ce91f13f4a
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: bddf6510b5763a592be6cf44ba3668568bfc0964
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129154553"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054559"
 ---
 # <a name="whats-new-in-azure-virtual-desktop"></a>Novedades de Azure Virtual Desktop
 
@@ -70,6 +70,34 @@ Estos son los cambios que se han realizado en el agente Azure Virtual Desktop:
 ## <a name="fslogix-updates"></a>Actualizaciones de FSLogix
 
 ¿Desea conocer las últimas actualizaciones de FSLogix? Consulte las [novedades de FSLogix](/fslogix/whats-new).
+
+## <a name="october-2021"></a>Octubre de 2021
+
+Estos son los cambios que han tenido lugar en octubre de 2021:
+
+## <a name="azure-virtual-desktop-support-for-windows-11"></a>Compatibilidad de Azure Virtual Desktop con Windows 11
+
+La compatibilidad de Azure Virtual Desktop con Windows 11 ahora está disponible con carácter general para implementaciones de una y varias sesiones. Ya puede usar imágenes de Windows 11 al crear grupos host en Azure Portal. Para obtener más información, consulte [nuestra entrada de blog](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/windows-11-is-now-generally-available-on-azure-virtual-desktop/ba-p/2810545).
+
+## <a name="rdp-shortpath-now-generally-available"></a>RDP Shortpath ya disponible con carácter general
+
+Remote Desktop Protocol (RDP) Shortpath para redes administradas ya está disponible con carácter general. RDP Shortpath establece una conexión directa entre el cliente de Escritorio remoto y el host de sesión. Esta conexión directa reduce la dependencia de las puertas de enlace, mejora la confiabilidad de la conexión y aumenta el ancho de banda disponible para cada sesión de usuario. Para obtener más información, consulte [nuestra entrada de blog](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/rdp-shortpath-for-managed-networks-is-generally-available/m-p/2861468).
+
+## <a name="screen-capture-protection-updates"></a>Actualizaciones de protección de capturas de pantalla
+
+La protección de capturas de pantalla ahora se admite en el cliente macOS y en las nubes de Azure Government y Azure China. Para obtener más información, consulte [nuestra entrada de blog](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/screen-capture-protection-for-macos-client-and-support-for/m-p/2840089#M7940).
+
+## <a name="azure-active-directory-domain-join"></a>Unión a un dominio de Azure Active Directory 
+
+La unión a un dominio de Azure Active Directory para máquinas virtuales de Azure Virtual Desktop ahora está disponible en las nubes de Azure Government y Azure China. Microsoft Endpoint Manager (Intune) solo se admite actualmente en la nube pública de Azure. Puede encontrar más información en [Implementación de máquinas virtuales unidas a Azure AD en Azure Virtual Desktop](deploy-azure-ad-joined-vm.md).
+
+## <a name="breaking-change-in-azure-virtual-desktop-azure-resource-manager-template"></a>Cambio importante en la plantilla de Azure Resource Manager para Azure Virtual Desktop
+
+Se ha introducido un cambio importante en la plantilla de Azure Resource Manager para Azure Virtual Desktop. Si va a usar código que dependa del cambio, deberá seguir las instrucciones de [nuestra entrada de blog](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/azure-virtual-desktop-arm-template-change-removal-of-script/m-p/2851538#M7971) para solucionar el problema.
+
+## <a name="autoscale-preview-public-preview"></a>Versión preliminar pública de la escalabilidad automática
+
+La escalabilidad automática para Azure Virtual Desktop está ahora en versión preliminar pública. Esta característica activa o desactiva de forma nativa las máquinas virtuales (VM) de los grupos de host agrupados en función de las necesidades de disponibilidad. Al programar cuándo las máquinas virtuales se activan y desactivan, se optimizan los costos de implementación. Además, esta característica también ofrece opciones de programación flexibles en función de sus necesidades. Una vez que haya configurado el rol de control de acceso basado en rol (RBAC) personalizado necesario, puede empezar a configurar el plan de escalado. Para más información, consulte [Escalabilidad automática (versión preliminar) para grupos de hosts de Azure Virtual Desktop](autoscale-scaling-plan.md).
 
 ## <a name="september-2021"></a>Septiembre de 2021
 

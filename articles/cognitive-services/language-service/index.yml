@@ -1,0 +1,93 @@
+### YamlMime:Hub
+title: Documentación de Azure Cognitive Service for Language
+summary: 'Aprenda a integrar la inteligencia artificial en sus aplicaciones que pueden extraer información, clasificar texto, comprender el lenguaje conversacional, responder preguntas y mucho más.'
+brand: azure
+metadata:
+  title: 'Documentación de Azure Cognitive Service for Language: tutoriales, referencia de API | Microsoft Docs'
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  description: Aprenda a integrar la inteligencia artificial que funciona en texto escrito en sus aplicaciones.
+  author: aahill
+  manager: nitinme
+  ms.service: speech-service
+  ms.topic: hub-page
+  ms.date: 09/13/2021
+  ms.author: aahi
+highlightedContent:
+  items:
+    - title: ¿Qué es Azure Cognitive Service for Language?
+      itemType: overview
+      url: overview.md
+    - title: Novedades
+      itemType: whats-new
+      url: whats-new.md
+    - title: Introducción a Language Studio
+      itemType: get-started
+      url: language-studio.md
+    - title: Uso responsable de la inteligencia artificial
+      itemType: concept
+      url: /legal/cognitive-services/language-service/transparency-note?context=/azure/cognitive-services/language-service/context/context
+conceptualContent:
+  items:
+    - title: Extracción de información
+      links:
+        - itemType: overview
+          text: Extracción de frases clave
+          url: key-phrase-extraction/overview.md
+        - itemType: overview
+          text: Búsqueda de entidades vinculadas
+          url: entity-linking/overview.md
+        - itemType: overview
+          text: Reconocimiento de entidades con nombre (NER)
+          url: named-entity-recognition/overview.md
+        - itemType: overview
+          text: Detección de información de identificación personal
+          url: personally-identifiable-information/overview.md
+        - itemType: overview
+          text: Reconocimiento de entidades con nombre (NER personalizado)
+          url: custom-named-entity-recognition/overview.md
+        - itemType: overview
+          text: Text Analytics for Health
+          url: text-analytics-for-health/overview.md
+    - title: Clasificación de texto
+      links:
+        - itemType: overview
+          text: Análisis de opiniones y minería de texto para opiniones
+          url: sentiment-opinion-mining/overview.md
+        - itemType: overview
+          text: Detección de idioma
+          url: language-detection/overview.md
+        - itemType: overview
+          text: Clasificación de texto personalizada
+          url: custom-classification/overview.md
+    - title: Información sobre conversaciones y respuestas a preguntas
+      links:
+        - itemType: overview
+          text: Reconocimiento del lenguaje conversacional
+          url: conversational-language-understanding/overview.md
+        - itemType: overview
+          text: Respuesta a preguntas
+          url: question-answering/overview.md
+    - title: Traducir texto
+      links:
+        - itemType: overview
+          text: Uso de la traducción automática en texto
+          url: ../translator/translator-overview.md
+    - title: Resumen de texto
+      links:
+        - itemType: overview
+          text: Resumen de texto
+          url: text-summarization/overview.md
+additionalContent:
+  sections:
+    - items:
+        - title: Recursos
+          links:
+            - text: Precios
+              url: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
+            - text: Obtener información
+              url: /learn/browse/?products=azure-cognitive-services&term=Speech
+        - title: Soporte técnico
+          links:
+            - text: Ayuda y soporte técnico
+              url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context

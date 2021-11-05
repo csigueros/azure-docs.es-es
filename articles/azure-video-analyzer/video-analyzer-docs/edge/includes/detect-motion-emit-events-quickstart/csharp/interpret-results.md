@@ -2,15 +2,15 @@
 author: fvneerden
 ms.service: azure-video-analyzer
 ms.topic: include
-ms.date: 05/05/2021
+ms.date: 11/04/2021
 ms.author: faneerde
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 9566ec1e5d9a8f689e412fbeea2b2214614188b3
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 17f32b1500f5218a1a6668a875c63bfd64de83b9
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030799"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131861346"
 ---
 Cuando se ejecuta la canalización en directo, los resultados del nodo procesador del detector de movimiento recorren el nodo receptor de mensajes de IoT Hub hasta llegar al centro de IoT. Los mensajes que aparecen en la ventana de **salida** de Visual Studio Code contienen una sección **body** y una sección **applicationProperties**. Para más información, consulte [Creación y lectura de mensajes de IoT Hub](../../../../../../iot-hub/iot-hub-devguide-messages-construct.md).
 

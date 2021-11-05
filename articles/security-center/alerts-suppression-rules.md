@@ -1,30 +1,33 @@
 ---
-title: Uso de reglas de eliminación de alertas para eliminar falsos positivos u otras alertas de seguridad no deseadas en Azure Security Center.
-description: En este artículo se explica cómo usar las reglas de eliminación de Azure Security Center para ocultar las alertas de seguridad no deseadas
+title: Uso de reglas de eliminación de alertas para eliminar falsos positivos u otras alertas de seguridad no deseadas en Microsoft Defender for Cloud
+description: En este artículo se explica cómo usar las reglas de supresión de Microsoft Defender for Cloud para ocultar alertas de seguridad no deseadas
 author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 02/17/2021
+ms.date: 10/18/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 6bf722279462c1f9b6d08830af19577ec218f756
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 03b1c1be820691fccb94a659e298d235874ad6ea
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130039151"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131010600"
 ---
-# <a name="suppress-alerts-from-azure-defender"></a>Eliminación de alertas de Azure Defender
+# <a name="suppress-alerts-from-microsoft-defender-for-cloud"></a>Supresión de alertas de Microsoft Defender for Cloud
 
-En esta página se explica cómo usar reglas de eliminación de alertas para eliminar falsos positivos u otras alertas de seguridad no deseadas en Azure Defender.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+En esta página se explica cómo usar reglas de eliminación de alertas para eliminar falsos positivos u otras alertas de seguridad no deseadas en Defender for Cloud.
 
 ## <a name="availability"></a>Disponibilidad
 
 |Aspecto|Detalles|
 |----|:----|
 |Estado de la versión:|Disponibilidad general (GA)|
-|Precios:|Gratuito<br>(La mayoría de las alertas de seguridad solo están disponibles con Azure Defender).|
+|Precios:|Gratuito<br>(La mayoría de las alertas de seguridad solo están disponibles con las [características de seguridad mejorada](enable-enhanced-security.md))|
 |Roles y permisos necesarios:|Los roles de **Administrador de seguridad** y **Propietario** pueden crear o eliminar reglas.<br>Los roles de **Lector de seguridad** y **Lector** pueden ver las reglas.|
 |Nubes:|:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Nacionales o soberanas (Azure Government, Azure China 21Vianet)|
 |||
@@ -32,7 +35,7 @@ En esta página se explica cómo usar reglas de eliminación de alertas para eli
 
 ## <a name="what-are-suppression-rules"></a>¿Qué son las reglas de supresión?
 
-Los distintos planes de Azure Defender detectan amenazas en cualquier área del entorno y generan alertas de seguridad.
+Los distintos planes de Microsoft Defender detectan amenazas en cualquier área del entorno y generan alertas de seguridad.
 
 Si una alerta no es interesante ni pertinente, puede descartarla manualmente. También puede usar la característica de reglas de eliminación para descartar de forma automática alertas similares en el futuro. Por lo general, se usaría una regla de eliminación para:
 
@@ -43,7 +46,7 @@ Si una alerta no es interesante ni pertinente, puede descartarla manualmente. Ta
 Las reglas de eliminación definen los criterios que se deben seguir para saber qué alertas se deben descartar automáticamente.
 
 > [!CAUTION]
-> La eliminación de alertas de seguridad reduce la eficacia de la protección contra amenazas de Azure Defender. Debe comprobar de forma minuciosa el posible efecto de cualquier regla de eliminación y supervisarla a lo largo del tiempo.
+> La supresión de alertas de seguridad reduce la eficacia de la protección contra amenazas de Defender for Cloud. Debe comprobar de forma minuciosa el posible efecto de cualquier regla de eliminación y supervisarla a lo largo del tiempo.
 
 :::image type="content" source="./media/alerts-suppression-rules/create-suppression-rule.gif" alt-text="Cree una regla de eliminación de alertas.":::
 
@@ -58,7 +61,7 @@ Las reglas de eliminación solo pueden descartar las alertas que ya se hayan des
 
 Para crear una regla directamente en Azure Portal:
 
-1. En la página de alertas de seguridad de Security Center:
+1. En la página de alertas de seguridad de Defender for Cloud:
 
     - Seleccione la alerta específica que ya no desea ver y, en el panel de detalles, elija **Realizar acción**.
 
@@ -87,7 +90,7 @@ Para crear una regla directamente en Azure Portal:
 
 Para editar las reglas que ha creado, use la página de reglas de eliminación.
 
-1. En la página de alertas de seguridad de Security Center, seleccione el vínculo de **reglas de eliminación** en la parte superior de la página.
+1. En la página de alertas de seguridad de Defender for Cloud, seleccione el vínculo de **reglas de eliminación** en la parte superior de la página.
 1. Se abre la página de reglas de supresión con todas las reglas de las suscripciones seleccionadas.
 
     [![Lista de reglas de eliminación.](media/alerts-suppression-rules/suppression-rules-page.png)](media/alerts-suppression-rules/suppression-rules-page.png#lightbox)
@@ -99,7 +102,7 @@ Para editar las reglas que ha creado, use la página de reglas de eliminación.
 
 Para eliminar una o varias reglas que haya creado, use la página de reglas de eliminación.
 
-1. En la página de alertas de seguridad de Security Center, seleccione el vínculo de **reglas de eliminación** en la parte superior de la página.
+1. En la página de alertas de seguridad de Defender for Cloud, seleccione el vínculo de **reglas de eliminación** en la parte superior de la página.
 1. Se abre la página de reglas de supresión con todas las reglas de las suscripciones seleccionadas.
 1. Para eliminar una sola regla, abra el menú de puntos suspensivos (...) de la regla y seleccione **Eliminar**.
 1. Para eliminar varias reglas, active las casillas de las reglas que se vayan a eliminar y seleccione **Eliminar**.
@@ -107,7 +110,7 @@ Para eliminar una o varias reglas que haya creado, use la página de reglas de e
 
 ## <a name="create-and-manage-suppression-rules-with-the-api"></a>Creación y administración de reglas de eliminación con la API
 
-Puede crear, ver o eliminar reglas de eliminación de alertas a través de la API REST de Security Center. 
+Puede crear, ver o eliminar reglas de eliminación de alertas a través de la API de REST de Defender for Cloud. 
 
 Los métodos HTTP pertinentes para la eliminación de reglas en la API REST son:
 
@@ -128,8 +131,8 @@ Para obtener información completa y ejemplos de uso, consulte la [documentació
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo se describen las reglas de eliminación en Azure Security Center que descartan automáticamente las alertas no deseadas.
+En este artículo se describen las reglas de supresión de Microsoft Defender for Cloud que descartan automáticamente las alertas no deseadas.
 
-Para más información sobre las alertas de seguridad de Azure Defender, consulte las siguientes páginas:
+Para más información sobre las alertas de seguridad de Defender for Cloud, consulte las siguientes páginas:
 
-- [Alertas de seguridad y la cadena de eliminación de intenciones](alerts-reference.md): una guía de referencia de las alertas de seguridad que puede recibir de Azure Defender.
+- [Alertas de seguridad y la cadena de eliminación de intenciones](alerts-reference.md): una guía de referencia de las alertas de seguridad que puede recibir de Defender for Cloud.

@@ -1,0 +1,52 @@
+### YamlMime:Landing
+title: Documentación del conector de servicio
+summary: El conector de servicio es un servicio administrado por Azure que ayuda a los desarrolladores a conectar fácilmente el servicio de proceso a los servicios de respaldo de destino.
+metadata:
+  title: Documentación del conector de servicio
+  description: Conecte el servicio de proceso de Azure a los servicios de respaldo fácilmente con el conector de servicio.
+  ms.service: service-connector
+  ms.topic: landing-page
+  author: shizn
+  ms.author: xshi
+  ms.date: 10/29/2021
+  ms.openlocfilehash: 9388686488d452f08610485a1fedeecb9daf8e5d
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131088367"
+landingContent:
+- title: Acerca del conector de servicio
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es el conector de servicio?
+      url: overview.md
+    - text: Conceptos clave del conector de servicio
+      url: concept-service-connector-internals.md
+- title: Introducción
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Creación de una nueva conexión de servicio en App Service
+      url: quickstart-portal-app-service-connection.md
+    - text: Creación de una nueva conexión de servicio en Spring Cloud
+      url: quickstart-portal-spring-cloud-connection.md
+- title: Tareas comunes
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Aplicación Python (Django) con PostgreSQL
+      url: tutorial-django-webapp-postgres-cli.md
+    - text: Aplicación Spring Cloud con MySQL
+      url: tutorial-java-spring-mysql.md
+    - text: Aplicación ASP.NET con Blob Storage
+      url: tutorial-csharp-webapp-storage-cli.md
+    - text: Aplicación Spring Cloud con Kafka en la nube de Confluent
+      url: tutorial-java-spring-confluent-kafka.md
+  - linkListType: how-to-guide
+    links:
+    - text: Guía de solución de problemas
+      url: how-to-troubleshoot-front-end-error.md
+    - text: Regiones admitidas
+      url: concept-region-support.md

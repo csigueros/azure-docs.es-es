@@ -12,12 +12,12 @@ author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 06/23/2021
-ms.openlocfilehash: c3f6046617458606d13aab243c96ef24246714fd
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 290065bb7410c42695cf2b0062cdd11cb02c9580
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113090320"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131065539"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Cifrado de datos transparente de Azure SQL con una clave administrada por el cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -82,9 +82,15 @@ Los auditores pueden usar Azure Monitor para revisar los registros de los objeto
 
 - Key Vault y SQL Database (o una instancia administrada) deben pertenecer al mismo inquilino de Azure Active Directory. No se admiten las interacciones de servidor y almacén de claves entre inquilinos. Para mover los recursos después, se tendrá que volver a configurar el TDE con AKV. Obtenga más información sobre el [movimiento de recursos](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-- La característica de [eliminación temporal](../../key-vault/general/soft-delete-overview.md) debe estar habilitada en el almacén de claves para protegerlo contra la pérdida de datos en caso de que se eliminen las claves (o el almacén de claves) de manera involuntaria. Los recursos eliminados temporalmente se conservan durante 90 días, a menos que el cliente los recupere o los purgue dentro de ese plazo. Las acciones de *recuperación* y *purga* tienen permisos propios asociados a una directiva de acceso al almacén de claves. La característica de eliminación temporal está desactivada de forma predeterminada y se puede habilitar mediante [PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell) o la [CLI](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli). No se puede habilitar mediante Azure Portal.  
+- Las características de [eliminación temporal](../../key-vault/general/soft-delete-overview.md) y de la [protección de purga](../../key-vault/general/soft-delete-overview.md#purge-protection) debe estar habilitada en Key Vault para obtener protección contra la pérdida de datos en caso de que se eliminen las claves (o Key Vault) de manera involuntaria. 
+    - Los recursos eliminados temporalmente se conservan durante 90 días, a menos que el cliente los recupere o los purgue. Las acciones de *recuperación* y *purga* tienen permisos propios asociados a una directiva de acceso al almacén de claves. La característica de eliminación temporal se puede habilitar con Azure Portal, [PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell) o la [CLI de Azure](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli).
+    - La protección de purga se puede activar mediante la [CLI de Azure](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli) o con [PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell). Cuando la protección de purgas está activada, un almacén o un objeto en estado eliminado no se pueden purgar hasta que haya transcurrido el período de retención. El período de retención predeterminado es de 90 días, pero se puede configurar de 7 a 90 días en Azure Portal.   
 
-- Conceda al servidor o a la instancia administrada acceso al almacén de claves (get, wrapKey o unwrapKey) con su identidad de Azure Active Directory. Cuando usa Azure Portal, la identidad de Azure AD se crea automáticamente. Al usar PowerShell o la CLI, se debe crear explícitamente la identidad de Azure AD y se debe comprobar la finalización. Consulte [Configuración de TDE con BYOK](transparent-data-encryption-byok-configure.md) y [Configuración de TDE con BYOK para SQL Managed Instance](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) para obtener instrucciones detalladas paso a paso cuando se usa PowerShell.
+> [!IMPORTANT]
+> Tanto la eliminación temporal como la protección de purga deben estar habilitadas en los almacenes de claves para los servidores que se configuran con el TDE administrado por el cliente, así como los servidores existentes que usan el TDE administrado por el cliente. En el caso de un servidor que usa el TDE administrado por el cliente, si la eliminación temporal y la protección de purga no están habilitadas en el almacén de claves asociado, al realizar acciones como la creación de bases de datos, la configuración de replicación geográfica, la restauración de bases de datos, la actualización del protector de TDE, se producirá un error con el siguiente mensaje de error *"The provided Key Vault uri is not valid. Please ensure the key vault has been configured with soft-delete and purge protection".* (El URI de Key Vault proporcionado no es válido. Asegúrese de que el almacén de claves se ha configurado con protección de eliminación flexible y purga).
+
+- Conceda al servidor o a la instancia administrada acceso al almacén de claves (*get*, *wrapKey* o *unwrapKey*) con su identidad de Azure Active Directory. Al usar Azure Portal, la identidad de Azure AD se crea automáticamente cuando se crea el servidor. Al usar PowerShell o la CLI de Azure, se debe crear explícitamente la identidad de Azure AD y se debe comprobar la finalización. Consulte [Configuración de TDE con BYOK](transparent-data-encryption-byok-configure.md) y [Configuración de TDE con BYOK para SQL Managed Instance](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) para obtener instrucciones detalladas paso a paso cuando se usa PowerShell.
+    - En función del modelo de permisos del almacén de claves (directiva de acceso o RBAC de Azure), se puede conceder acceso al almacén de claves creando una directiva de acceso en el almacén de claves o creando una nueva asignación de roles RBAC de Azure con el rol [Usuario de cifrado de servicio criptográfico de Key Vault](/azure/key-vault/general/rbac-guide#azure-built-in-roles-for-key-vault-data-plane-operations).
 
 - Al usar un firewall con AKV, debe habilitar la opción *Permitir que los servicios de confianza de Microsoft omitan el firewall*.
 
@@ -113,6 +119,9 @@ Los auditores pueden usar Azure Monitor para revisar los registros de los objeto
 - Habilite la auditoría y la generación de informes en todas las claves de cifrado: El almacén de claves proporciona registros que son fáciles de insertar en otras herramientas de administración de eventos e información de seguridad. [Log Analytics](../../azure-monitor/insights/key-vault-insights-overview.md) de Operations Management Suite es un ejemplo de un servicio que ya está integrado.
 
 - Vincule cada servidor con dos almacenes de claves que residan en regiones diferentes y que conserven el mismo material de clave para garantizar una alta disponibilidad de bases de datos cifradas. Marque solo la clave del almacén de claves que está en la misma región que un protector de TDE. El sistema cambiará automáticamente al almacén de claves de la región remota si se produce una interrupción que afecte al almacén de claves en la misma región.
+
+> [!NOTE]
+> Para permitir una mayor flexibilidad en la configuración del TDE administrado por el cliente, el servidor de Azure SQL Database e Instancia administrada en una región ahora se pueden vincular al almacén de claves de cualquier otra región. El servidor y el almacén de claves no tienen que estar ubicados en la misma región. 
 
 ### <a name="recommendations-when-configuring-tde-protector"></a>Recomendaciones para la configuración del protector de TDE
 
@@ -210,6 +219,8 @@ Para evitar problemas durante la replicación geográfica debido a la falta de m
 ![Grupos de conmutación por error y recuperación ante desastres con localización geográfica](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-bcdr.png)
 
 Para probar una conmutación por error, siga los pasos descritos en la [información general sobre la replicación geográfica activa](active-geo-replication-overview.md). La prueba de la conmutación por error se debe realizar de forma periódica para validar que SQL Database ha mantenido el permiso de acceso a ambos almacenes de claves.
+
+**El servidor de Azure SQL Database servidor e Instancia administrada en una región ahora se pueden vincular al almacén de claves en cualquier otra región.** El servidor y el almacén de claves no tienen que estar ubicados en la misma región. Con esto, por motivos de simplicidad, los servidores principal y secundario se pueden conectar al mismo almacén de claves (en cualquier región). Esto ayudará a evitar escenarios en los que el material de clave puede estar sin sincronizar si se usan almacenes de claves independientes para ambos servidores. Azure Key Vault dispone de varias capas de redundancia para asegurarse de que las claves y los almacenes de claves siguen estando disponibles en caso de errores de servicio o región. [Redundancia y disponibilidad de Azure Key Vault](../../key-vault/general/disaster-recovery-guidance.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

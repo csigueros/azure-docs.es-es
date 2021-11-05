@@ -3,22 +3,22 @@ title: Configuración de Azure Active Directory B2C como IdP de SAML para las ap
 title-suffix: Azure Active Directory B2C
 description: Obtenga información sobre cómo configurar Azure Active Directory B2C para proporcionar aserciones de protocolo SAML a las aplicaciones (proveedores de servicios).
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/20/2021
-ms.author: mimart
+ms.date: 10/05/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 673835a3e3112bf433faeba815e65c6203dd9ce8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d0bc55f909fe019dedb92d20cce0584ea5d33768
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128603816"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131012821"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrar una aplicación SAML en Azure AD B2C
 
@@ -179,7 +179,7 @@ Ahora que la directiva puede crear respuestas SAML, debe configurarla para emiti
 
 1. Abra el archivo *SignUpOrSigninSAML.xml* en el editor que prefiera.
 
-1. Cambie los valores `PolicyId` y `PublicPolicyUri` de la directiva por `_B2C_1A_signup_signin_saml_` y `http://<tenant-name>.onmicrosoft.com/B2C_1A_signup_signin_saml`.
+1. Cambie los valores `PolicyId` y `PublicPolicyUri` de la directiva por `B2C_1A_signup_signin_saml` y `http://<tenant-name>.onmicrosoft.com/B2C_1A_signup_signin_saml`.
 
     ```xml
     <TrustFrameworkPolicy
@@ -317,7 +317,10 @@ En el caso de las aplicaciones SAML, debe configurar varias propiedades en el ma
 
 Cuando la aplicación SAML realiza una solicitud a Azure AD B2C, la solicitud de autenticación de SAML incluye un atributo `Issuer`. El valor de este atributo suele coincidir con el valor `entityID` de los metadatos de la aplicación. Azure AD B2C usa este valor para buscar el registro de aplicación en el directorio y leer la configuración. Para que esta búsqueda se realice correctamente, el valor `identifierUri` del registro de aplicación se debe rellenar con un valor que coincida con el atributo `Issuer`.
 
-En el manifiesto de registro, busque el parámetro `identifierURIs` y agregue el valor adecuado. Este valor será el mismo que el configurado en las solicitudes de autenticación de SAML para `EntityId` en la aplicación y el valor `entityID` en los metadatos de la aplicación.
+En el manifiesto de registro, busque el parámetro `identifierURIs` y agregue el valor adecuado. Este valor será el mismo que el configurado en las solicitudes de autenticación de SAML para `EntityId` en la aplicación y el valor `entityID` en los metadatos de la aplicación. También deberá buscar el parámetro `accessTokenAcceptedVersion` y establecer el valor en `2`.
+
+> [!IMPORTANT]
+> Si no actualiza `accessTokenAcceptedVersion` a `2`, recibirá un mensaje de error que requiere un dominio verificado.
 
 En el ejemplo siguiente se muestra el valor `entityID` de los metadatos de SAML:
 
@@ -349,7 +352,7 @@ Mediante el uso de la aplicación de prueba de SAML como ejemplo, usaría el sig
 
 Puede configurar la dirección URL de respuesta a la que Azure AD B2C envía respuestas SAML. Las direcciones URL de respuesta se pueden configurar en el manifiesto de aplicación. Esta configuración es útil cuando la aplicación no expone un punto de conexión de metadatos de acceso público.
 
-La dirección URL de respuesta de una aplicación SAML es el punto de conexión en el que la aplicación espera recibir respuestas SAML. Normalmente, la aplicación proporciona esta dirección URL en el documento de metadatos bajo el atributo `AssertionConsumerServiceUrl`, como se muestra a continuación:
+La dirección URL de respuesta de una aplicación SAML es el punto de conexión en el que la aplicación espera recibir respuestas SAML. Normalmente, la aplicación proporciona esta dirección URL en el documento de metadatos como el atributo `Location` del elemento `AssertionConsumerService`, como se muestra en este ejemplo:
 
 ```xml
 <SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -358,7 +361,7 @@ La dirección URL de respuesta de una aplicación SAML es el punto de conexión 
 </SPSSODescriptor>
 ```
 
-Si quiere invalidar los metadatos proporcionados en el atributo `AssertionConsumerServiceUrl` o la dirección URL no está presente en el documento de metadatos, puede configurar la dirección URL en el manifiesto en la propiedad `replyUrlsWithType`. El valor `BindingType` se establecerá en `HTTP POST`.
+Si falta el elemento `AssertionConsumerService` de los metadatos de la aplicación o desea invalidarlo, configure la propiedad `replyUrlsWithType` del manifiesto de registro de la aplicación. Azure AD B2C usa `replyUrlsWithType` para redirigir a los usuarios después de haber iniciado sesión con el tipo de enlace `HTTP-POST`.
 
 Si usa la aplicación de prueba de SAML, establezca la propiedad `url` de `replyUrlsWithType` en el valor que se muestra en el siguiente fragmento de código JSON:
 
@@ -373,20 +376,18 @@ Si usa la aplicación de prueba de SAML, establezca la propiedad `url` de `reply
 
 #### <a name="override-or-set-the-logout-url-optional"></a>Invalidación o establecimiento de la dirección URL de cierre de sesión (opcional)
 
-Puede configurar la dirección URL de cierre de sesión a la que Azure AD B2C enviará al usuario después de una solicitud de cierre de sesión. Las direcciones URL de respuesta se pueden configurar en el manifiesto de aplicación.
-
-Si quiere invalidar los metadatos proporcionados en el atributo `SingleLogoutService` o la dirección URL no está presente en el documento de metadatos, puede configurarlo en el manifiesto bajo la propiedad `Logout`. El valor `BindingType` se establecerá en `Http-Redirect`.
-
-Normalmente, la aplicación proporciona esta dirección URL en el documento de metadatos bajo el atributo `AssertionConsumerServiceUrl`, como se muestra en el ejemplo siguiente:
+La dirección URL de cierre de sesión define dónde redirigir al usuario después de una solicitud de cierre de sesión. Normalmente, la aplicación proporciona esta dirección URL en el documento de metadatos como el atributo `Location` del elemento `SingleLogoutService`, como se muestra en el ejemplo siguiente:
 
 ```xml
-<IDPSSODescriptor WantAuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+<SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
     <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://samltestapp2.azurewebsites.net/logout" ResponseLocation="https://samltestapp2.azurewebsites.net/logout" />
 
-</IDPSSODescriptor>
+</SPSSODescriptor>
 ```
 
-Si usa la aplicación de prueba de SAML como ejemplo, debe dejar `logoutUrl` establecido en `https://samltestapp2.azurewebsites.net/logout`:
+Si falta el elemento `SingleLogoutService` de los metadatos de la aplicación, configure la propiedad `logoutUrl` del manifiesto de registro de  la aplicación. Azure AD B2C usa para `logoutURL` redirigir a los usuarios después de que se haya firmado con el tipo de `HTTP-Redirect` enlace.
+
+Con la aplicación de prueba SAML como ejemplo, establecería la propiedad `logoutUrl` en `https://samltestapp2.azurewebsites.net/logout`:
 
 ```json
 "logoutUrl": "https://samltestapp2.azurewebsites.net/logout",

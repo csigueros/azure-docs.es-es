@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 05/24/2021
 ms.topic: conceptual
-ms.openlocfilehash: 36ead3f16a04055e7056c702b0600265dd8e61ce
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: ced119e7835f6c7fd7bf6aea34a10ebea4af3fc5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110483587"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131026286"
 ---
 # <a name="use-azure-policy-to-enforce-job-execution-on-hybrid-runbook-worker"></a>Uso de Azure Policy para exigir la ejecución de trabajos en Hybrid Runbook Worker
 
@@ -140,15 +140,15 @@ En este punto se crea la regla de directiva y, a continuación, se asigna a un g
     # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
     ```azurecli
-   az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
-   ```
+    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
+    ```
 
-   El parámetro **scope** de `az policy assignment create` funciona con un grupo de administración, una suscripción, un grupo de recursos o un único recurso. El parámetro utiliza una ruta de acceso de recurso completa. El patrón de **scope** para cada contenedor es el siguiente. Reemplace `{rName}`, `{rgName}`, `{subId}` y `{mgName}` por el nombre del recurso, el nombre del grupo de recursos, el identificador de suscripción y el nombre del grupo de administración, respectivamente. `{rType}` se reemplazaría por el **tipo de recurso** del recurso como, por ejemplo, `Microsoft.Compute/virtualMachines` para una máquina virtual.
+    El parámetro **scope** de `az policy assignment create` funciona con un grupo de administración, una suscripción, un grupo de recursos o un único recurso. El parámetro utiliza una ruta de acceso de recurso completa. El patrón de **scope** para cada contenedor es el siguiente. Reemplace `{rName}`, `{rgName}`, `{subId}` y `{mgName}` por el nombre del recurso, el nombre del grupo de recursos, el identificador de suscripción y el nombre del grupo de administración, respectivamente. `{rType}` se reemplazaría por el **tipo de recurso** del recurso como, por ejemplo, `Microsoft.Compute/virtualMachines` para una máquina virtual.
 
-   - Recurso `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
-   - Grupo de recursos `/subscriptions/{subID}/resourceGroups/{rgName}`
-   - Suscripción `/subscriptions/{subID}`
-   - Grupo de administración `/providers/Microsoft.Management/managementGroups/{mgName}`
+    - Recurso `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+    - Grupo de recursos `/subscriptions/{subID}/resourceGroups/{rgName}`
+    - Suscripción `/subscriptions/{subID}`
+    - Grupo de administración `/providers/Microsoft.Management/managementGroups/{mgName}`
 
     Puede obtener el id. de definición de Azure Policy si usa PowerShell con el comando siguiente:
     

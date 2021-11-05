@@ -1,44 +1,52 @@
 ---
-title: Cómo registrar y examinar áreas de trabajo de Azure Synapse Analytics
-description: Obtenga información sobre cómo examinar un área de trabajo de Azure Synapse en su catálogo de datos de Azure Purview.
+title: Conectar y administrar áreas de trabajo de Azure Synapse Analytics
+description: En esta guía se describe cómo conectarse a áreas de trabajo de Azure Synapse Analytics en Azure Purview y cómo usar las características de Purview para examinar y administrar el origen de área de trabajo de Azure Synapse Analytics.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/27/2021
-ms.openlocfilehash: 8a7b23089e9b17e35b56b04991c76b37baedf231
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 11/02/2021
+ms.custom: template-how-to, ignite-fall-2021
+ms.openlocfilehash: ed76730cd37cf903c77b0893b546ab824e7ddff3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129207799"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131010923"
 ---
-# <a name="register-and-scan-azure-synapse-analytics-workspaces"></a>Registro y examen de áreas de trabajo de Azure Synapse Analytics
+# <a name="connect-to-and-manage-azure-synapse-analytics-workspaces-in-azure-purview"></a>Conexión y administración de áreas de trabajo de Azure Synapse Analytics en Azure Purview
 
-En este artículo se describe cómo registrar un área de trabajo de Azure Synapse Analytics en Azure Purview y cómo configurar un examen de esta.
+En este artículo se describe cómo registrar áreas de trabajo Azure Synapse Analytics y cómo autenticarse e interactuar con áreas de trabajo de Azure Synapse Analytics en Azure Purview. Para obtener más información sobre Azure Purview, consulte el [artículo de introducción](overview.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
-Los exámenes de áreas de trabajo de Azure Synapse Analytics permiten capturar metadatos y esquemas con relación a bases de datos SQL dedicadas y sin servidor contenidas dentro de ellos. Los exámenes de áreas de trabajo también clasifican los datos automáticamente en función de las reglas de clasificación personalizadas y del sistema.
+|**Extracción de metadatos**|  **Examen completo**  |**Examen incremental**|**Examen con ámbito**|**Clasificación**|**Directiva de acceso**|**Lineage**|
+|---|---|---|---|---|---|---|
+| [Sí](#register) | [Sí](#scan)| [Sí](#scan) | [Sí](#scan)| [Sí](#scan)| No| [Sí](how-to-lineage-azure-synapse-analytics.md)|
 
-## <a name="prerequisites"></a>Requisitos previos
 
-- Antes de registrar los orígenes de datos, cree una cuenta de Azure Purview. Para obtener más información, consulte [Guía de inicio rápido: Creación de una cuenta de Azure Purview](create-catalog-portal.md).
-- Debe ser administrador de orígenes de datos de Azure Purview.
-- Configure la autenticación tal como se explica en las secciones siguientes.
+<!-- 4. Prerequisites
+Required. Add any relevant/source-specific prerequisites for connecting with this source. Authentication/Registration should be covered by the sections below and does not need to be covered here.
+-->
 
-## <a name="register-and-scan-an-azure-synapse-workspace"></a>Registro y examen de áreas de trabajo de Azure Synapse
+## <a name="prerequisites"></a>Prerrequisitos
 
-> [!IMPORTANT]
-> Para examinar el área de trabajo correctamente, siga los pasos y aplique los permisos exactamente como se describen en las secciones siguientes.
+* Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-### <a name="step-1-register-your-source"></a>**Paso 1**: Registrar los dispositivos
+* Un [recurso de Purview](create-catalog-portal.md) activo.
 
-> [!NOTE]
-> Solo los usuarios con al menos un rol *Lector* en el área de Azure Synapse que también sean *administradores de orígenes de datos* en Azure Purview pueden realizar este paso.
+* Tendrá que ser administrador de orígenes de datos y lector de datos para poder registrar un origen y administrarlo en Purview Studio. Para obtener más información, consulte la [página Permisos de Azure Purview](catalog-permissions.md).
 
-Para registrar un nuevo origen de Azure Synapse en el catálogo de datos, haga lo siguiente:
+## <a name="register"></a>Register
+
+En esta sección se describe cómo registrar áreas de trabajo de Azure Synapse Analytics en Azure Purview mediante [Purview Studio](https://web.purview.azure.com/).
+
+### <a name="authentication-for-registration"></a>Autenticación para registro
+
+Solo los usuarios con al menos un rol de *Lector* en el área de trabajo de Azure Synapse que también sean *administradores de orígenes de datos* en Azure Purview pueden realizar este paso.
+
+### <a name="steps-to-register"></a>Pasos para registrarse
 
 1. Vaya a la cuenta de Azure Purview.
 1. En el panel izquierdo, seleccione **Dispositivos**.
@@ -56,28 +64,33 @@ Para registrar un nuevo origen de Azure Synapse en el catálogo de datos, haga l
     d. En las listas desplegables de puntos de conexión, los puntos de conexión SQL se rellenan automáticamente en función de la selección del área de trabajo.  
     e. En la lista desplegable **Seleccionar una colección**, elija la colección con la que está trabajando o, opcionalmente, cree una nueva.  
     f. Seleccione **Registrar** para registrar el origen de datos.
-    
+
     :::image type="content" source="media/register-scan-synapse-workspace/register-synapse-source-details.png" alt-text="Captura de pantalla de la página &quot;Registrar orígenes (Azure Synapse Analytics)&quot; para especificar detalles sobre el Azure Synapse origen.":::
 
+## <a name="scan"></a>Examinar
 
-### <a name="step-2-apply-permissions-to-enumerate-the-contents-of-the-azure-synapse-workspace"></a>**Paso 2**: Aplicar permisos para enumerar el contenido del área de trabajo de Azure Synapse
+Siga los pasos que se indican a continuación para áreas de trabajo de Azure Synapse Analytics para identificar automáticamente los recursos y clasificar los datos. Para obtener más información sobre el examen en general, consulte la [introducción a los exámenes y la ingesta](concept-scans-and-ingestion.md).
 
-#### <a name="set-up-authentication-for-enumerating-dedicated-sql-database-resources"></a>Configuración de la autenticación para enumerar recursos de bases de datos SQL dedicadas
+Primero deberá configurar la autenticación para enumerar los recursos [dedicados](#authentication-for-enumerating-dedicated-sql-database-resources) o [sin servidor](#authentication-for-enumerating-serverless-sql-database-resources). Esto permitirá a Purview enumerar los recursos de área de trabajo y realizar exámenes dentro de ámbito.
+
+Posteriormente, deberá [aplicar permisos para examinar el contenido del área de trabajo](#apply-permissions-to-scan-the-contents-of-the-workspace).
+
+### <a name="authentication-for-enumerating-dedicated-sql-database-resources"></a>Autenticación para enumerar recursos de base de datos SQL dedicados
 
 1. En Azure Portal, vaya al recurso de área de trabajo de Azure Synapse.  
-1. En el panel izquierdo, seleccione  **Control de acceso (IAM)** . 
+1. En el panel izquierdo, seleccione  **Control de acceso (IAM)** .
 
    > [!NOTE]
    > Debe ser *propietario* o *administrador de acceso de usuarios* para agregar un rol al grupo de recursos.
-   
-1. Seleccione el botón **Agregar**.   
+
+1. Seleccione el botón **Agregar**.
 1. Establezca el rol **Lector** y escriba el nombre de la cuenta de Azure Purview, que representa su identidad de servicio administrada (MSI).
 1. Haga clic en **Guardar** para finalizar la asignación del rol.
 
 > [!NOTE]
-> Si planea registrar y examinar varias áreas de trabajo de Azure Synapse en su cuenta de Azure Purview, también puede asignar el rol desde un nivel superior, como un grupo de recursos o una suscripción. 
+> Si planea registrar y examinar varias áreas de trabajo de Azure Synapse en su cuenta de Azure Purview, también puede asignar el rol desde un nivel superior, como un grupo de recursos o una suscripción.
 
-#### <a name="set-up-authentication-for-enumerating-serverless-sql-database-resources"></a>Configuración de la autenticación para enumerar recursos de bases de datos SQL sin servidor
+### <a name="authentication-for-enumerating-serverless-sql-database-resources"></a>Autenticación para enumerar recursos de base de datos SQL sin servidor
 
 Hay tres lugares en los que deberá establecer la autenticación para permitir que Purview enumere los recursos de base de datos SQL sin servidor: el área de trabajo de Synapse, el almacenamiento asociado y las bases de datos sin servidor. Los pasos siguientes establecerán permisos para los tres.
 
@@ -107,7 +120,7 @@ Hay tres lugares en los que deberá establecer la autenticación para permitir q
     CREATE LOGIN [PurviewAccountName] FROM EXTERNAL PROVIDER;
     ```
 
-### <a name="step-3-apply-permissions-to-scan-the-contents-of-the-workspace"></a>**Paso 3**: Aplicar permisos para examinar el contenido del área de trabajo
+### <a name="apply-permissions-to-scan-the-contents-of-the-workspace"></a>Aplicación de permisos para examinar el contenido del área de trabajo
 
 Puede configurar la autenticación para un origen de Azure Synapse de dos maneras:
 
@@ -175,6 +188,7 @@ GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewA
     EXEC sp_addrolemember 'db_datareader', [ServicePrincipalID]
     GO
     ```
+
 > [!NOTE]
 > Repita el paso anterior para todas las bases de datos SQL dedicadas en el área de trabajo de Synapse. 
 
@@ -194,7 +208,7 @@ GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewA
     ALTER ROLE db_datareader ADD MEMBER [ServicePrincipalID]; 
     ```
 
-### <a name="step-4-set-up-azure-synapse-workspace-firewall-access"></a>**Paso 4**: Configurar el acceso al firewall del área de trabajo de Azure Synapse
+### <a name="set-up-azure-synapse-workspace-firewall-access"></a>Configuración del acceso al firewall de área de trabajo de Azure Synapse
 
 1. En Azure Portal, vaya al área de trabajo de Azure Synapse. 
 
@@ -204,7 +218,7 @@ GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewA
 
 1. Seleccione **Guardar**.
 
-### <a name="step-5-set-up-a-scan-on-the-workspace"></a>**Paso 5**: Configurar un examen en el área de trabajo
+### <a name="create-and-run-scan"></a>Creación y ejecución de un examen
 
 Para crear y ejecutar un nuevo examen, siga estos pasos:
 
@@ -229,36 +243,14 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
 
 1. Elija el desencadenador del examen. Puede programarlo para que se ejecute **semanalmente, mensualmente** o **una vez**.
 
-1. Revise el examen y seleccione **Guardar** para completar la configuración.   
+1. Revise el examen y seleccione **Guardar** para completar la configuración.  
 
-#### <a name="view-your-scans-and-scan-runs"></a>Visualización de los exámenes y las ejecuciones de exámenes
-
-1. Para ver los detalles del origen, haga clic en **Ver detalles** en el icono de la sección de Orígenes. 
-
-      :::image type="content" source="media/register-scan-synapse-workspace/synapse-source-details.png" alt-text="Captura de pantalla de la Azure Synapse Analytics detalles del origen."::: 
-
-1. Para ver los detalles de la ejecución del examen, vaya a la página **Detalles del examen**.
-
-    * La **barra de estado** muestra un breve resumen sobre el estado de ejecución de los recursos secundarios. El estado se muestra en el examen de nivel de área de trabajo.  
-    * El color verde indica una ejecución de examen correcta, el rojo, una ejecución de examen con errores, y el gris, que la ejecución del examen todavía está en curso.  
-    * Puede ver información más pormenorizada sobre las ejecuciones de examen seleccionándolas.
-
-      :::image type="content" source="media/register-scan-synapse-workspace/synapse-scan-details.png" alt-text="Captura de pantalla de la página de detalles del examen de Azure Synapse Analytics." lightbox="media/register-scan-synapse-workspace/synapse-scan-details.png"::: 
-
-    * Puede ver un resumen de las ejecuciones de exámenes recientes con errores en la parte inferior de la **página de detalles del origen**. De nuevo, puede ver información más pormenorizada sobre las ejecuciones de examen seleccionándolas.
-
-#### <a name="manage-your-scans"></a>Administración de exámenes
-
-Para editar, eliminar o cancelar un examen, haga lo siguiente:
-
-1. Vaya al centro de administración. En la sección **Orígenes y exámenes**, seleccione **Orígenes de datos** y, a continuación, el origen de datos que desea administrar.
-
-1. Seleccione el examen que desea administrar y, a continuación, seleccione **Editar**.
-
-   - Seleccione **Eliminar** para eliminar el examen.
-   - Si se está ejecutando un examen, también puede cancelarlo.
+[!INCLUDE [create and manage scans](includes/view-and-manage-scans.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Navegación por el catálogo de datos de Azure Purview](how-to-browse-catalog.md)
-- [Búsqueda en el catálogo de datos de Azure Purview](how-to-search-catalog.md)   
+Ahora que ha registrado el origen, siga las guías a continuación para obtener más información sobre Purview y sus datos.
+
+- [Información sobre datos en Azure Purview](concept-insights.md)
+- [Linaje en Azure Purview](catalog-lineage-user-guide.md)
+- [Búsqueda en Data Catalog](how-to-search-catalog.md)

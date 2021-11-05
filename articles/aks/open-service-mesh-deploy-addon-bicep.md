@@ -6,26 +6,23 @@ ms.topic: article
 ms.date: 9/20/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
-ms.openlocfilehash: f479a05fb305887d5e901ca236cb0183d4a2d87b
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: b0452588b8eb9eebbf8ab592ad2d0a8a0e9a6b92
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130227309"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131066793"
 ---
 # <a name="deploy-open-service-mesh-osm-azure-kubernetes-service-aks-add-on-using-bicep"></a>Implementación del complemento Open Service Mesh (OSM) en Azure Kubernetes Service (AKS) mediante Bicep
 
 En este artículo se explica cómo implementar el complemento OSM en AKS mediante una plantilla de [Bicep](../azure-resource-manager/bicep/index.yml).
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-[Bicep](../azure-resource-manager/bicep/overview.md) es un lenguaje específico de dominio (DSL) que usa sintaxis declarativa para implementar recursos de Azure. Bicep se puede usar en lugar de crear plantillas de [ARM](../azure-resource-manager/templates/overview.md) de Azure para implementar los recursos de Azure de infraestructura como código.
+[Bicep](/azure/azure-resource-manager/bicep/overview) es un lenguaje específico de dominio (DSL) que usa sintaxis declarativa para implementar recursos de Azure. Bicep se puede usar en lugar de crear plantillas de [ARM](/azure/azure-resource-manager/templates/overview) de Azure para implementar los recursos de Azure de infraestructura como código.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - CLI de Azure, versión 2.20.0 o posterior
-- Extensión `aks-preview`, versión 0.5.5 o posterior
-- Versión v 0.9.1 o posterior de OSM
+- Versión 0.11.1 o posterior de OSM
 - Una clave pública SSH usada para implementar AKS
 - [Visual Studio Code](https://code.visualstudio.com/) con un terminal de Bash
 - La [extensión Bicep](../azure-resource-manager/bicep/install.md) de Visual Studio Code

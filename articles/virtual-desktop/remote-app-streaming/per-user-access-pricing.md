@@ -8,16 +8,19 @@ ms.topic: how-to
 ms.date: 07/14/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a3a72975db0a08d8bf3d35cdc8c177ef4230fd23
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+ms.openlocfilehash: 67e16d2cf0a9ddbc7b4447b22207c908be4a3ac9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114220180"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131036663"
 ---
 # <a name="enroll-your-subscription-in-per-user-access-pricing"></a>Inscripción de la suscripción en los precios de acceso por usuario
 
-Para que los usuarios externos puedan conectarse a una implementación, es preciso inscribir una suscripción en los precios de acceso por usuario. Los precios de acceso por usuario permiten a los usuarios que no pertenezcan a su organización acceder a las aplicaciones y escritorios de su suscripción. La suscripción inscrita se cobrará todos los meses en función del número de usuarios distintos que se conectan a los recursos de Azure Virtual Desktop.
+Para que los usuarios externos puedan conectarse a una implementación, es preciso inscribir una suscripción en los precios de acceso por usuario. Los precios de acceso por usuario permiten que los usuarios ajenos a su organización accedan a aplicaciones y escritorios de su suscripción mediante identidades que proporcione y administre. La suscripción inscrita se cobrará todos los meses en función del número de usuarios distintos que se conectan a los recursos de Azure Virtual Desktop.
+
+>[!NOTE]
+>Tenga cuidado de no confundir *usuarios* externos con *identidades* externas. Actualmente, Azure Virtual Desktop no admite identidades externas, incluidas las cuentas de invitado o las identidades de negocio a negocio (B2B). Tanto si atiende a usuarios internos como a usuarios externos con Azure Virtual Desktop, usted mismo deberá crear y administrar las identidades de esos usuarios. Los precios de acceso por usuario no son una manera de habilitar cuentas de usuario invitado con Azure Virtual Desktop. Para más información, consulte [Descripción de las licencias y los precios de acceso por usuario](licensing.md).
 
 ## <a name="how-to-enroll"></a>Cómo inscribirse
 
@@ -39,4 +42,4 @@ Para inscribir una suscripción de Azure en los precios de acceso por usuario:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre los precios de acceso por usuario, consulte [Descripción de las licencias y los precios de acceso por usuario](licensing.md). Si desea aprender calcular los costos de streaming de aplicaciones por usuario para la implementación, consulte [Estimación de los costos de streaming de aplicaciones por usuario para Azure Virtual Desktop](streaming-costs.md). Para calcular los costos totales de implementación, consulte [Descripción de los costos totales de implementación de Azure Virtual Desktop](total-costs.md). 
+Para más información sobre los precios de acceso por usuario, consulte [Descripción de las licencias y los precios de acceso por usuario](licensing.md). Si desea aprender calcular los costos de streaming de aplicaciones por usuario para la implementación, consulte [Estimación de los costos de streaming de aplicaciones por usuario para Azure Virtual Desktop](streaming-costs.md). Para calcular los costos totales de implementación, consulte [Descripción de los costos totales de implementación de Azure Virtual Desktop](total-costs.md).

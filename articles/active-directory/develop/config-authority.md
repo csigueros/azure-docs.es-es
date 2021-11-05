@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: af729767467d2dc950fb7a559fec4d0a81d07cab
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 50a0593081e5a1971a22b6342f0c983c81b24bb1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123029189"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067219"
 ---
 # <a name="configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>Configuración de MSAL para iOS y macOS para el uso de diferentes proveedores de identidades
 

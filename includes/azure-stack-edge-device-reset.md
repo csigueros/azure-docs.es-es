@@ -2,14 +2,14 @@
 author: v-dalc
 ms.service: databox
 ms.topic: include
-ms.date: 03/03/2021
+ms.date: 09/20/2021
 ms.author: alkohli
-ms.openlocfilehash: df3e040b80ac8a7f78a27e06a0433a1cf1d86be0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fe4af9325d86227716ae51796d12718286d3c1ca
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443563"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131005659"
 ---
 Para restablecer el dispositivo mediante la interfaz de usuario web local, siga estos pasos.
 
@@ -18,7 +18,7 @@ Para restablecer el dispositivo mediante la interfaz de usuario web local, siga 
 
     ![Restablecer el dispositivo](media/azure-stack-edge-device-reset/device-reset-1.png)
 
-3. Cuando se le pida confirmación, revise la advertencia y seleccione **Sí** para continuar.
+3. Cuando se le pida confirmación, revise la advertencia. Escriba **Sí** y luego seleccione **Sí** para continuar.
 
     ![Confirmar el restablecimiento](media/azure-stack-edge-device-reset/device-reset-2.png)  
 

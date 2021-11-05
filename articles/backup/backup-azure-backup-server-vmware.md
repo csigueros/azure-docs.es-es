@@ -3,12 +3,12 @@ title: Copia de seguridad de máquinas virtuales de VMware con Azure Backup Serv
 description: En este artículo, aprenderá a usar Azure Backup Server para realizar una copia de seguridad de las máquinas virtuales de VMware que se ejecutan en un servidor de VMWare vCenter y ESXi.
 ms.topic: conceptual
 ms.date: 07/27/2021
-ms.openlocfilehash: d734b9852da54c13d498cfd4a60caf007735d2f6
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: f8ab0de1a1fb126d8aabd536a596c4e73f66d4af
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114722574"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131026077"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Copia de seguridad de máquinas virtuales de VMware con Azure Backup Server
 
@@ -210,7 +210,7 @@ En la tabla siguiente se capturan los privilegios que debe asignar a la cuenta d
 | Virtual machine .Provisioning.Allow file access                            | Virtual machine .Provisioning.Allow file access                            |
 | Virtual machine .Provisioning.Allow read-only disk access                  | Virtual machine .Provisioning.Allow read-only disk access                  |
 | Virtual machine .Provisioning.Allow virtual machine download               | Virtual machine .Provisioning.Allow virtual machine download               |
-| Virtual machine .Snapshot management. Creación de instantáneas                      | Virtual machine .Snapshot management. Creación de instantáneas                      |
+| Virtual machine .Snapshot management. Create snapshot                      | Virtual machine .Snapshot management. Create snapshot                      |
 | Virtual machine .Snapshot management.Remove Snapshot                       | Virtual machine .Snapshot management.Remove Snapshot                       |
 | Virtual machine .Snapshot management.Revert to snapshot                    | Virtual machine .Snapshot management.Revert to snapshot                    |
 
@@ -468,9 +468,9 @@ Para configurar la exclusión de disco, siga estos pasos:
   1. En la consola de VMware, vaya a la configuración de la máquina virtual para la que desee excluir el disco.
   2. Seleccione el disco que desee excluir y anote su ruta de acceso.
 
-        Por ejemplo, para excluir el disco duro 2 de TestVM4, la ruta de acceso del disco duro 2 es **[datastore1] TestVM4/TestVM4\_1.vmdk**.
+     Por ejemplo, para excluir el disco duro 2 de TestVM4, la ruta de acceso del disco duro 2 es **[datastore1] TestVM4/TestVM4\_1.vmdk**.
 
-        ![Disco duro que se va a excluir](./media/backup-azure-backup-server-vmware/test-vm.png)
+     ![Disco duro que se va a excluir](./media/backup-azure-backup-server-vmware/test-vm.png)
 
 ### <a name="configure-mabs-server"></a>Configuración del servidor de MABS
 
@@ -478,93 +478,93 @@ Vaya al servidor de MABS donde la máquina virtual de VMware esté configurada p
 
   1. Obtenga los detalles del host de VMware que está protegido en el servidor de MABS.
 
-        ```powershell
-        $psInfo = get-DPMProductionServer
-        $psInfo
-        ```
+     ```powershell
+     $psInfo = get-DPMProductionServer
+     $psInfo
+     ```
 
-        ```output
-        ServerName   ClusterName     Domain            ServerProtectionState
-        ----------   -----------     ------            ---------------------
-        Vcentervm1                   Contoso.COM       NoDatasourcesProtected
-        ```
+     ```output
+     ServerName   ClusterName     Domain            ServerProtectionState
+     ----------   -----------     ------            ---------------------
+     Vcentervm1                   Contoso.COM       NoDatasourcesProtected
+     ```
 
   2. Seleccione el host de VMware y enumere la protección de las máquinas virtuales para él.
 
-        ```powershell
-        $vmDsInfo = get-DPMDatasource -ProductionServer $psInfo[0] -Inquire
-        $vmDsInfo
-        ```
+     ```powershell
+     $vmDsInfo = get-DPMDatasource -ProductionServer $psInfo[0] -Inquire
+     $vmDsInfo
+     ```
 
-        ```output
-        Computer     Name     ObjectType
-        --------     ----     ----------
-        Vcentervm1  TestVM2      VMware
-        Vcentervm1  TestVM1      VMware
-        Vcentervm1  TestVM4      VMware
-        ```
+     ```output
+     Computer     Name     ObjectType
+     --------     ----     ----------
+     Vcentervm1  TestVM2      VMware
+     Vcentervm1  TestVM1      VMware
+     Vcentervm1  TestVM4      VMware
+     ```
 
   3. Seleccione la máquina virtual para la que desee excluir un disco.
 
-        ```powershell
-        $vmDsInfo[2]
-        ```
+     ```powershell
+     $vmDsInfo[2]
+     ```
 
-        ```output
-        Computer     Name      ObjectType
-        --------     ----      ----------
-        Vcentervm1   TestVM4   VMware
-        ```
+     ```output
+     Computer     Name      ObjectType
+     --------     ----      ----------
+     Vcentervm1   TestVM4   VMware
+     ```
 
   4. Para excluir el disco, vaya a la carpeta `Bin` y ejecute el script *ExcludeDisk.ps1* con los parámetros siguientes:
 
-        > [!NOTE]
-        > Antes de ejecutar este comando, detenga el servicio DPMRA en el servidor de MABS. De lo contrario, el script devuelve un mensaje que indica que se ejecutó correctamente, pero no actualiza la lista de exclusión. Asegúrese de que no haya trabajos en curso antes de detener el servicio.
+     > [!NOTE]
+     > Antes de ejecutar este comando, detenga el servicio DPMRA en el servidor de MABS. De lo contrario, el script devuelve un mensaje que indica que se ejecutó correctamente, pero no actualiza la lista de exclusión. Asegúrese de que no haya trabajos en curso antes de detener el servicio.
 
      **Para agregar o quitar el disco de la exclusión, ejecute el siguiente comando:**
 
-      ```powershell
-      ./ExcludeDisk.ps1 -Datasource $vmDsInfo[0] [-Add|Remove] "[Datastore] vmdk/vmdk.vmdk"
-      ```
+     ```powershell
+     ./ExcludeDisk.ps1 -Datasource $vmDsInfo[0] [-Add|Remove] "[Datastore] vmdk/vmdk.vmdk"
+     ```
 
      **Ejemplo**:
 
      para agregar la exclusión de disco para TestVM4, ejecute el siguiente comando:
 
-       ```powershell
-      C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -Add "[datastore1] TestVM4/TestVM4\_1.vmdk"
-       ```
+     ```powershell
+     C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -Add "[datastore1] TestVM4/TestVM4\_1.vmdk"
+     ```
 
-      ```output
-       Creating C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\excludedisk.xml
-       Disk : [datastore1] TestVM4/TestVM4\_1.vmdk, has been added to disk exclusion list.
-      ```
+     ```output
+     Creating C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\excludedisk.xml
+     Disk : [datastore1] TestVM4/TestVM4\_1.vmdk, has been added to disk exclusion list.
+     ```
 
   5. Compruebe que el disco se ha agregado para excluirlo.
 
      **Para ver la exclusión existente de máquinas virtuales específicas, ejecute el siguiente comando:**
 
-        ```powershell
-        ./ExcludeDisk.ps1 -Datasource $vmDsInfo[0] [-view]
-        ```
+     ```powershell
+     ./ExcludeDisk.ps1 -Datasource $vmDsInfo[0] [-view]
+     ```
 
      **Ejemplo**
 
-        ```powershell
-        C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -view
-        ```
+     ```powershell
+     C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -view
+     ```
 
-        ```output
-        <VirtualMachine>
-        <UUID>52b2b1b6-5a74-1359-a0a5-1c3627c7b96a</UUID>
-        <ExcludeDisk>[datastore1] TestVM4/TestVM4\_1.vmdk</ExcludeDisk>
-        </VirtualMachine>
-        ```
+     ```output
+     <VirtualMachine>
+       <UUID>52b2b1b6-5a74-1359-a0a5-1c3627c7b96a</UUID>
+       <ExcludeDisk>[datastore1] TestVM4/TestVM4\_1.vmdk</ExcludeDisk>
+     </VirtualMachine>
+     ```
 
      Una vez que configure la protección para esta máquina virtual, el disco excluido no aparecerá en la lista durante la protección.
 
-        > [!NOTE]
-        > Si va a realizar estos pasos para una máquina virtual ya protegida, debe ejecutar la comprobación de coherencia manualmente después de agregar el disco para excluirlo.
+     > [!NOTE]
+     > Si va a realizar estos pasos para una máquina virtual ya protegida, debe ejecutar la comprobación de coherencia manualmente después de agregar el disco para excluirlo.
 
 ### <a name="remove-the-disk-from-exclusion"></a>Eliminación del disco de la exclusión
 

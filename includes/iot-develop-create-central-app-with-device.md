@@ -1,5 +1,5 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 author: timlt
 ms.service: iot-develop
@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 04/28/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 981ebfece7bc12584adfdf1e565bd275d8e1b2fb
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 210978e3ecc817c55103267014fef9bd9e36a0e7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108226751"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131032828"
 ---
 ## <a name="create-an-application"></a>Crear una aplicación
 Existen varias formas de conectar los dispositivos a Azure IoT. En esta sección, aprenderá a conectar un dispositivo con Azure IoT Central. IoT Central es una plataforma de aplicaciones IoT que reduce el costo y la complejidad de administrar dispositivos en una solución IoT.
@@ -38,16 +38,15 @@ Para crear una aplicación:
     :::image type="content" source="media/iot-develop-create-central-app-with-device/iot-central-created.png" alt-text="Panel de aplicación nueva de IoT Central":::
 
 ## <a name="add-a-device"></a>Agregar un dispositivo
-En esta sección, se agrega un nuevo dispositivo a una aplicación de IoT Central. El dispositivo es una instancia de una plantilla de dispositivo que representa un dispositivo real o simulado que se conectará a la aplicación. 
+En esta sección, se agrega un nuevo dispositivo a una aplicación de IoT Central. El dispositivo es una instancia de una plantilla de dispositivo que representa un dispositivo que se conectará a la aplicación. 
 
 Para crear un dispositivo:
 1. En el panel izquierdo, seleccione **Dispositivos** y, después, seleccione **+ Nuevo**.
-1. En **Plantilla de dispositivo** deje la opción *Sin asignar*.
+1. Deje **Plantilla de dispositivo** establecido en *Sin asignar* y **Simulate this device?** (¿Simular este dispositivo?) establecido en *No*.
 
-    > [!NOTE]
-    > En aras de la sencillez, en este inicio rápido, se conecta un dispositivo simulado que usa una plantilla sin asignar. Si sigue usando IoT Central para administrar dispositivos, aprenderá a usar plantillas de dispositivo. Para obtener información general sobre cómo trabajar con plantillas de dispositivo, consulte [Inicio rápido: Adición de un dispositivo simulado a una aplicación de IoT Central](../articles/iot-central/core/quick-create-simulated-device.md).
 1. Establezca un **nombre de dispositivo** y un **identificador de dispositivo** descriptivos. Opcionalmente, use los valores generados.
     :::image type="content" source="media/iot-develop-create-central-app-with-device/iot-central-create-device.png" alt-text="Cuadro de diálogo de nuevo dispositivo de IoT Central":::
+
 1. Seleccione **Crear**.
 
     El dispositivo creado aparece en la lista **Todos los dispositivos**.

@@ -1,0 +1,57 @@
+### YamlMime:FAQ
+metadata:
+  title: Preguntas más frecuentes sobre la actualización parcial de documentos en Azure Cosmos DB
+  description: Preguntas más frecuentes sobre la actualización parcial de documentos para Azure Cosmos DB
+  author: abhirockzz
+  ms.author: abhishgu
+  ms.service: cosmos-db
+  ms.topic: conceptual
+  ms.date: 09/16/2021
+  ms.openlocfilehash: 07a5a1daf0500938189ff79817a9d2a4ce058ae3
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131091015"
+title: Preguntas más frecuentes sobre la actualización parcial de documentos en Azure Cosmos DB
+summary: >
+  [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
+
+  La actualización parcial de documentos permite modificar propiedades o campos específicos de un elemento sin necesidad de realizar una operación de reemplazo de documentos completa. En este artículo se responden las preguntas más frecuentes sobre la actualización parcial de documentos en Azure Cosmos DB.
+sections:
+- name: General
+  questions:
+  - question: >
+      ¿Se trata de una implementación de JSON Patch RFC 6902?
+    answer: >
+      La actualización parcial de documentos de Azure Cosmos DB se *inspira* en [JSON Patch RFC 6902](https://datatracker.ietf.org/doc/html/rfc6902). Existen otras características, como [Revisión condicional](partial-document-update.md#supported-modes), mientras que algunas de las características de JSON Patch RFC 6902, como (`Copy`, `Move` y `Test`) no se han implementado.
+  - question: >
+      ¿Es compatible la actualización parcial de documentos con los modos de facturación sin servidor, de rendimiento aprovisionado y escalabilidad automática?
+    answer: >
+      Sí, la actualización parcial de documentos está disponible en los modos sin servidor, de rendimiento aprovisionado y escalabilidad automática.
+  - question: >
+      ¿Cómo se calculan los precios de RU?
+    answer: >
+      La actualización parcial de documentos se normaliza en la facturación de la unidad de solicitud de la misma manera que [otras operaciones de la base de datos](how-pricing-works.md). Los usuarios no deben esperar una reducción significativa en RU.
+  - question: >
+      ¿Existe un límite en el número de operaciones de actualización parcial de documentos?
+    answer: >
+      Hay un límite de 10 operaciones de revisión que se pueden agregar en una única especificación de revisión. Si necesita aumentar este número, póngase en contacto con el [equipo de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+  - question: >
+      ¿Se admite la actualización parcial de documentos para las propiedades generadas por el sistema?
+    answer: >
+      No se admite la actualización parcial de documentos para las propiedades generadas por el sistema como `_id`, `_ts`, `_etag` y `_rid`.
+  - question: >
+      ¿Se puede aplicar una revisión al período de vida (TTL)?
+    answer: >
+      Sí, es posible aplicar revisiones a la propiedad [Time to Live](time-to-live.md) (`ttl`) de un documento.
+  - question: >
+      ¿Cómo funciona la resolución de conflictos de varias regiones para matrices?
+    answer: >
+      Las matrices se tratan como una unidad atómica. Si la misma propiedad de una matriz se actualiza simultáneamente en regiones diferentes (lo que da lugar a un conflicto), solo se conservará uno de los cambios.
+  - question: >
+      ¿Se admite la actualización parcial de documentos para las cuentas habilitadas para el almacén analítico/Synapse Link?
+    answer: >
+      Sí, la actualización parcial de documentos funciona con cuentas habilitadas para el almacén analítico/Synapse Link.
+additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n\n* Más información sobre la [actualización parcial de documentos](partial-document-update.md)."

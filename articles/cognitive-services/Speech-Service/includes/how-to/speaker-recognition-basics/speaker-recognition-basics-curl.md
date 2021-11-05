@@ -4,13 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/28/2020
 ms.author: v-jawe
-ms.custom: references_regions
-ms.openlocfilehash: 3a32946e10e8a81394b54fc44e4c92e8625e7ad6
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: references_regions, ignite-fall-2021
+ms.openlocfilehash: 11e93561a0f78ad1fb62d1cab1f3e8d8f3f3b293
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015502"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069195"
 ---
 En este inicio rápido, aprenderá los patrones de diseño básicos de Speaker Recognition mediante el SDK de Voz, que incluyen:
 
@@ -18,9 +18,9 @@ En este inicio rápido, aprenderá los patrones de diseño básicos de Speaker R
 * Identificación del hablante para identificar una muestra de voz entre un grupo de voces.
 * Eliminación de perfiles de voz.
 
-Para obtener una visión general de los conceptos de reconocimiento de voz, consulte el artículo de [información general](../../../speaker-recognition-overview.md).
+Para obtener una visión general de los conceptos de Speaker Recognition, consulte el artículo de [información general](../../../speaker-recognition-overview.md). Consulte el nodo de referencia situado en el panel de navegación izquierdo para ver una lista de las plataformas admitidas.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este artículo se da por sentado que tiene una cuenta de Azure y una suscripción al servicio de voz. Si no dispone de una cuenta y una suscripción, [pruebe el servicio de voz de forma gratuita](../../../overview.md#try-the-speech-service-for-free).
 
@@ -29,7 +29,7 @@ En este artículo se da por sentado que tiene una cuenta de Azure y una suscripc
 
 ## <a name="text-dependent-verification"></a>Comprobación dependiente del texto
 
-Speaker Verification es el acto de confirmar que un hablante coincide con una voz conocida o **inscrita**. El primer paso es **inscribir** un perfil de voz, de modo que el servicio tenga algo para comparar futuras muestras de voz. En este ejemplo, el perfil se inscribe mediante una estrategia **dependiente del texto** que requiere que se use una frase de contraseña específica tanto para la inscripción como para la comprobación. Consulte los [documentos de referencia](/rest/api/speakerrecognition/) para ver la lista de las frases de contraseña admitidas.
+Speaker Verification es el acto de confirmar que un hablante coincide con una voz conocida o **inscrita**. El primer paso es **inscribir** un perfil de voz, de modo que el servicio tenga algo para comparar futuras muestras de voz. En este ejemplo, el perfil se inscribe mediante una estrategia **dependiente del texto**, que requiere que se use una frase de contraseña específica tanto para la inscripción como para la comprobación. Consulte los [documentos de referencia](/rest/api/speakerrecognition/) para ver la lista de las frases de contraseña admitidas.
 
 Para empezar, [cree un perfil de voz](/rest/api/speakerrecognition/verification/textdependent/createprofile). Tendrá que insertar la región y la clave de suscripción del servicio Voz en cada uno de los comandos curl de este artículo.
 

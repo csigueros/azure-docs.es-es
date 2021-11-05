@@ -9,21 +9,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/04/2020
+ms.date: 10/26/2021
 ms.author: allensu
-ms.openlocfilehash: 32cac3156a020beebf046fff9c429a75a348ebcd
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 576965485de7bd3c193beae219af74139bffb827
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130215285"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068329"
 ---
 # <a name="azure-load-balancer-components"></a>Componentes de Azure Load Balancer
 
 Azure Load Balancer incluye algunos componentes clave. Puede configurar esos componentes en su suscripción mediante:
 
 * Azure portal
-* CLI de Azure
+* Azure CLI
 * Azure PowerShell
 * Plantillas de Resource Manager
 
@@ -50,7 +50,9 @@ Un equilibrador de carga puede tener varias direcciones IP de front-end. Obtenga
 
 El grupo de máquinas virtuales o instancias de un conjunto de escalado de máquinas virtuales que van a atender la solicitud entrante. Para escalar de forma rentable, con el fin de satisfacer grandes volúmenes de instrucciones para el procesamiento de tráfico entrante, generalmente se recomienda agregar más instancias al grupo de back-end.
 
-El equilibrador de carga se reconfigura al instante de forma automática mediante el escalado o la reducción vertical de instancias. Si se agregan o quitan máquinas virtuales del grupo de servidores back-end, el equilibrador de carga se vuelve a configurar sin operaciones adicionales. El ámbito del grupo de back-end es cualquier máquina virtual de una sola red virtual.
+El equilibrador de carga se reconfigura al instante de forma automática mediante el escalado o la reducción vertical de instancias. Si se agregan o quitan máquinas virtuales del grupo de servidores back-end, el equilibrador de carga se vuelve a configurar sin operaciones adicionales. El ámbito del grupo de back-end es cualquier máquina virtual de una sola red virtual. 
+
+Los grupos de back-end admiten la adición de instancias a través de la [interfaz de red o direcciones IP](backend-pool-management.md).
 
 A la hora de considerar cómo diseñar el grupo de back-end, diseñe el menor número de recursos individuales del grupo de back-end para optimizar la duración de las operaciones de administración. No hay ninguna diferencia en el rendimiento o la escala del plano de los datos.
 

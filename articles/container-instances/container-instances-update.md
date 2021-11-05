@@ -3,12 +3,12 @@ title: Actualización de un grupo de contenedores
 description: Aprenda a actualizar contenedores en ejecución en los grupos de contenedores de Azure Container Instances.
 ms.topic: article
 ms.date: 04/17/2020
-ms.openlocfilehash: cbb2e830490d2591645b8156ee830856da0f9049
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f2ec8ed3641fd9e692c89c6fdb29a7bea268b023
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107786970"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131853346"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Actualización de contenedores en Azure Container Instances
 
@@ -73,6 +73,7 @@ Los cambios en estas propiedades requieren la eliminación del grupo de contened
 * CPU, memoria o recursos de GPU
 * Directiva de reinicio
 * Perfil de red
+* Zona de disponibilidad
 
 Al eliminar un grupo de contenedores y volver a crearlo, no se reimplementa sino que se crea uno nuevo. Todas las capas de imagen se extraen actualizadas del Registro, y no de las almacenadas en caché por una implementación anterior. La dirección IP del contenedor también podría cambiar debido a que se implementa en un host subyacente diferente.
 

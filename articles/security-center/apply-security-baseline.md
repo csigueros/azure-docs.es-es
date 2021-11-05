@@ -1,20 +1,23 @@
 ---
-title: Protección del sistema operativo Windows y Linux con la línea de base de seguridad de Azure y Azure Security Center
-description: Descubra cómo usa Azure Security Center la configuración de invitado para comparar la protección del sistema operativo con la guía de Azure Security Benchmark.
+title: Protección del sistema operativo Windows y Linux con la línea de base de seguridad de Azure y Microsoft Defender for Cloud
+description: Obtener información sobre cómo usa Microsoft Defender for Cloud la configuración de invitado para comparar la protección del sistema operativo con la guía de Azure Security Benchmark
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
 ms.date: 10/04/2021
 ms.author: memildin
-ms.openlocfilehash: 9a15a87eb5f00316f88109e05e069032de795807
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: a48f95c3bedd291a3639f7aabc97eb92c25d735f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129435968"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131010410"
 ---
 # <a name="apply-azure-security-baselines-to-machines"></a>Aplicación de líneas base de seguridad de Azure a máquinas
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Para reducir la superficie de ataque de una máquina y evitar riesgos conocidos, es importante configurar el sistema operativo (SO) de la forma más segura posible.
 
@@ -37,7 +40,7 @@ Use las recomendaciones de seguridad descritas en este artículo para evaluar la
 
 ## <a name="what-are-the-hardening-recommendations"></a>¿Cuáles son las recomendaciones de seguridad?
 
-Azure Security Center incluye dos recomendaciones que comprueban si la configuración de las máquinas Windows y Linux en su entorno cumple las configuraciones de línea de base de seguridad de Azure:
+Microsoft Defender for Cloud incluye dos recomendaciones que comprueban si la configuración de las máquinas Windows y Linux en su entorno cumple las configuraciones de línea de base de seguridad de Azure:
 
 - En el caso de las máquinas **Windows**, [las vulnerabilidades en la configuración de seguridad de las máquinas Windows deben corregirse (con tecnología de la Configuración de invitado)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1f655fb7-63ca-4980-91a3-56dbc2b715c6) y se comparan con la configuración de la [línea de base de seguridad de Windows](../governance/policy/samples/guest-configuration-baseline-windows.md).
 - En el caso de las máquinas **Linux**, [las vulnerabilidades en la configuración de seguridad de las máquinas Linux deben corregirse (con tecnología de la Configuración de invitado)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8c3d9ad0-3639-4686-9cd2-2b2ab2609bda) y se comparan con la configuración de la [línea de base de seguridad de Linux](../governance/policy/samples/guest-configuration-baseline-linux.md).
@@ -48,7 +51,7 @@ Estas recomendaciones usan la característica Configuración de invitado de Azur
 
 Para comparar las máquinas con las líneas base de seguridad del sistema operativo:
  
-1. En las páginas del portal de Security Center, abra la página **Recomendaciones**. 
+1. En las páginas del portal de Defender for Cloud, abra la página **Recomendaciones**. 
 1. Seleccione la recomendación pertinente:
     - En las máquinas **Windows**, las [vulnerabilidades de la configuración de seguridad de las máquinas Windows deben corregirse (con tecnología de Configuración de invitado)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1f655fb7-63ca-4980-91a3-56dbc2b715c6).
     - En las máquinas **Linux**, las [vulnerabilidades de la configuración de seguridad de las máquinas Linux deben corregirse (con tecnología de Configuración de invitado)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8c3d9ad0-3639-4686-9cd2-2b2ab2609bda).
@@ -98,7 +101,7 @@ La lista de recursos en la pestaña **No aplicable** incluye una columna **Motiv
 |                                                                   |                                                                                                                                                                                |
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este documento, ha aprendido a usar las recomendaciones de configuración de invitado de Security Center para comparar la protección del sistema operativo con la línea de base de seguridad de Azure.
+En este documento, ha aprendido a usar las recomendaciones de configuración de invitado de Defender for Cloud para comparar la protección del sistema operativo con la línea de base de seguridad de Azure.
 
 Para obtener más información sobre estos cambios de configuración, consulte:
 

@@ -5,26 +5,28 @@ description: En este tutorial, aprenderá a implementar una función de red como
 author: prmitt
 ms.service: network-function-manager
 ms.topic: tutorial
-ms.date: 06/16/2021
+ms.date: 11/02/2021
 ms.author: prmitt
-ms.openlocfilehash: 0e45f8db150505b323f45cd79eed40215b3a44f8
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 3ac4c4e0654e1d5f22c128c45106079916676a4f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130223336"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131005088"
 ---
-# <a name="tutorial-deploy-network-functions-on-azure-stack-edge-preview"></a>Tutorial: Implementación de funciones de red en Azure Stack Edge (versión preliminar)
+# <a name="tutorial-deploy-network-functions-on-azure-stack-edge"></a>Tutorial: Implementación de funciones de red en Azure Stack Edge
 
 En este tutorial, aprenderá a implementar una función de red en Azure Stack Edge mediante Azure Marketplace. Network Function Manager habilita una experiencia de Azure Managed Applications para obtener una implementación simplificada en Azure Stack Edge.
 
 > [!div class="checklist"]
-> * Verificación de los [requisitos previos](overview.md#prereq)
+> * Verificación de los [requisitos previos](#prereq)
 > * Creación de una función de red
 > * Comprobación de los detalles de la función de red
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a><a name="prereq"></a>Requisitos previos
 
+* Cumple todos los requisitos previos enumerados en el artículo sobre [requisitos previos y otras exigencias](requirements.md).
 * Ha creado un recurso de dispositivo para Network Function Manager. Si no ha completado esos pasos, consulte [Creación de un recurso de dispositivo](create-device.md).
 * En la pestaña **Información general** del dispositivo, compruebe que aparezcan los siguientes valores:
   * Estado de aprovisionamiento = Correcto
@@ -32,7 +34,7 @@ En este tutorial, aprenderá a implementar una función de red en Azure Stack Ed
 
 ## <a name="create-a-network-function"></a><a name="create"></a>Creación de una función de red
 
-1. Inicie sesión en el [portal de vista previa de Azure](https://aka.ms/AzureNetworkFunctionManager).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Vaya al recurso **Dispositivo** en el que quiere implementar una función de red y seleccione **+Crear función de red**.
 
    :::image type="content" source="./media/deploy-functions/create-network-function.png" alt-text="Captura de pantalla de +Crear función de red." lightbox="./media/deploy-functions/create-network-function.png":::
@@ -57,7 +59,7 @@ En este tutorial, aprenderá a implementar una función de red en Azure Stack Ed
 1. Establezca la configuración básica.
 
    :::image type="content" source="./media/deploy-functions/basics-blade.png" alt-text="Captura de pantalla Configuración básica." lightbox="./media/deploy-functions/basics-blade.png":::
-1. Aplique la identidad administrada. Para obtener más información, vea [Identidad administrada](overview.md#managed-identity).
+1. Aplique la identidad administrada. Para obtener más información, vea [Identidad administrada](resources-permissions.md).
 
    :::image type="content" source="./media/deploy-functions/managed-identity.png" alt-text="Captura de pantalla de Identidad administrada." lightbox="./media/deploy-functions/managed-identity.png":::
 1. Escriba la información de dirección IP para las interfaces de administración, LAN y WAN de la máquina virtual de Fusion Core.

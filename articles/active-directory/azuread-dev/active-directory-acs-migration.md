@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 24bdbb37a2ec88d930752f728acecd23eb2896b7
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 7d3034c37251f293763f7b65d380284d9716e670
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113106936"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131018269"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procedimientos: Migración desde Azure Access Control Service
 
@@ -112,9 +112,9 @@ A partir de noviembre de 2017, todos los componentes de Access Control son total
 
 Aquí está el calendario que indica el desuso de los componentes de Access Control:
 
-- **Noviembre de 2017**:  la experiencia de administración de Azure AD en el Portal de Azure clásico [se retira](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). En este momento, la administración del espacio de nombres de Access Control estará disponible en esta nueva dirección URL dedicada: `https://manage.windowsazure.com?restoreClassic=true`. Use esta URl para ver los espacios de nombres existentes y habilitar, deshabilitar y eliminar diversos espacios de nombres si así lo desea.
+- **Noviembre de 2017**: la experiencia de administración de Azure AD en el la versión clásica de Azure Portal [se retira](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). En este momento, la administración del espacio de nombres de Access Control estará disponible en esta nueva dirección URL dedicada: `https://manage.windowsazure.com?restoreClassic=true`. Use esta URL para ver los espacios de nombres existentes y habilitar, deshabilitar y eliminar diversos espacios de nombres si así lo desea.
 - **2 de abril de 2018**: el Portal de Azure clásico se ha retirado por completo, lo que significa que la administración del espacio de nombres de Access Control ya no está disponible a través de ninguna dirección URL. No podrá deshabilitar o habilitar, eliminar o enumerar los espacios de nombres de Access Control. Sin embargo, el portal de administración de Access Control será totalmente funcional y se ubicará en `https://<namespace>.accesscontrol.windows.net`. Todos los demás componentes de Access Control también seguirán funcionando con normalidad.
-- **7 de noviembre de 2018**: todos los componentes de Access Control se cierran permanentemente. Esto incluye el portal de administración de Access Control, el servicio de administración, STS y el motor de reglas de transformación de tokens. En este momento, las solicitudes enviadas a Access Control (ubicado en \<namespace\>.accesscontrol.windows.net) producirán un error. Debe haber migrado todos los servicios y aplicaciones existentes a otras tecnologías bastante antes de esta fecha.
+- **7 de noviembre de 2018**: todos los componentes de Access Control se cierran permanentemente. Esto incluye el portal de administración de Access Control, el servicio de administración, STS y el motor de reglas de transformación de tokens. En este momento, las solicitudes enviadas a Access Control (ubicado en `<namespace>.accesscontrol.windows.net`) darán un error. Debe haber migrado todos los servicios y aplicaciones existentes a otras tecnologías bastante antes de esta fecha.
 
 > [!NOTE]
 > Una directiva deshabilita los espacios de nombres que no han solicitado un token durante un período de tiempo. A partir de principios de septiembre de 2018, este período de tiempo es actualmente de 14 días de inactividad, pero se reducirá a 7 días de inactividad en las próximas semanas. Si tiene espacios de nombres de Access Control que actualmente están deshabilitados, puede [descargar e instalar PowerShell ACS](#download-and-install-acs-powershell) para volver a habilitarlos.

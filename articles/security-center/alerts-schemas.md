@@ -1,30 +1,30 @@
 ---
-title: Esquemas para las alertas de Azure Security Center
-description: En este artículo se describen los distintos esquemas que usa Azure Security Center para las alertas de seguridad.
+title: Esquemas para las alertas de Microsoft Defender for Cloud
+description: En este artículo se describen los diferentes esquemas usados por Microsoft Defender for Cloud para las alertas de seguridad.
 services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/18/2021
+ms.date: 10/18/2021
 ms.author: memildin
-ms.openlocfilehash: e65fd5a0c672e500a0a4bc08f45e9ced32d89047
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 335f20150490d9f792f9ba552b13b01e64e95673
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114463510"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131010619"
 ---
 # <a name="security-alerts-schemas"></a>Esquemas de las alertas de seguridad
 
-Si su suscripción tiene habilitado Azure Defender, recibirá alertas de seguridad cuando Security Center detecte amenazas para sus recursos.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Estas alertas se pueden ver en las páginas de **Protección contra amenazas** de Azure Security Center o a través de herramientas externas como:
+Si la suscripción tiene habilitadas las características de seguridad mejorada, recibirá alertas de seguridad cuando Defender for Cloud detecte amenazas para sus recursos.
 
-- [Azure Sentinel](../sentinel/index.yml): SIEM nativo de la nube de Microsoft. El conector de Sentinel obtiene las alertas de Azure Security Center y las envía al [área de trabajo de Log Analytics](../azure-monitor/logs/quick-create-workspace.md) para Azure Sentinel.
+Puede ver estas alertas de seguridad en las páginas de Microsoft Defender for Cloud ([panel de información general](overview-page.md), [alertas](tutorial-security-incident.md), [páginas de estado de recursos](investigate-resource-health.md) o [panel de protección de cargas de trabajo](workload-protections-dashboard.md)) y a través de herramientas externas como:
+
+- [Microsoft Sentinel](../sentinel/index.yml): SIEM nativo de la nube de Microsoft. El conector de Sentinel obtiene alertas de Microsoft Defender for Cloud y las envía al [área de trabajo de Log Analytics](../azure-monitor/logs/quick-create-workspace.md) para Microsoft Sentinel.
 - SIEM de terceros: enviar datos a [Azure Event Hubs](../event-hubs/index.yml). Luego, integre los datos de Event Hubs con un SIEM de terceros. Puede encontrar más información en [Transmisión de alertas a una solución de administración de servicios de TI, SIEM o SOAR](export-to-siem.md).
 - [La API REST](/rest/api/securitycenter/): si usa la API REST para acceder a las alertas, consulte la [documentación de Alerts API en línea](/rest/api/securitycenter/alerts).
 
@@ -37,20 +37,20 @@ Si utiliza cualquier método de programación para consumir las alertas, necesit
 ## <a name="the-schemas"></a>Los esquemas 
 
 
-### <a name="azure-sentinel"></a>[Azure Sentinel](#tab/schema-sentinel)
+### <a name="microsoft-sentinel"></a>[Microsoft Sentinel](#tab/schema-sentinel)
 
-El conector de Sentinel obtiene las alertas de Azure Security Center y las envía al área de trabajo de Log Analytics para Azure Sentinel.
+El conector de Sentinel obtiene alertas de Microsoft Defender for Cloud y las envía al área de trabajo de Log Analytics para Microsoft Sentinel.
 
-Para crear un caso o incidente de Sentinel mediante alertas de Security Center, necesitará el esquema para las alertas que se muestran a continuación. 
+Para crear un caso o incidente de Microsoft Sentinel mediante alertas de Defender for Cloud, necesitará el esquema para esas alertas que se muestran a continuación. 
 
-Para más información acerca de Azure Sentinel, consulte [la documentación](../sentinel/index.yml).
+Para más información acerca de Microsoft Sentinel, consulte [la documentación](../sentinel/index.yml).
 
 [!INCLUDE [Sentinel and workspace schema](../../includes/security-center-alerts-schema-log-analytics-workspace.md)]
 
 
 ### <a name="azure-activity-log"></a>[Registro de actividad de Azure](#tab/schema-activitylog)
 
-Las auditorías de Azure Security Center generaban alertas de seguridad como eventos en el registro de actividad de Azure.
+Las auditorías de Microsoft Defender for Cloud generaron alertas de seguridad como eventos en el registro de actividad de Azure.
 
 Para ver los eventos de las alertas de seguridad en el registro de actividad, busque el evento Activar alerta como se muestra:
 
@@ -123,7 +123,7 @@ Para ver los eventos de las alertas de seguridad en el registro de actividad, bu
 |Campo|Descripción|
 |----|----|
 |**channels**|Constante, "Operation"|
-|**correlationId**|Identificador de alerta de Azure Security Center|
+|**correlationId**|El identificador de alerta de Microsoft Defender for Cloud|
 |**description**|Descripción de la alerta|
 |**eventDataId**|Consulte correlationId|
 |**eventName**|Los subcampos value y localizedValue contienen el nombre para mostrar de la alerta|
@@ -153,7 +153,7 @@ Para obtener el esquema de alertas cuando se usa la automatización del flujo de
 
 ### <a name="continuous-export"></a>[Exportación continua](#tab/schema-continuousexport)
 
-La característica de exportación continua de Security Center pasa los datos de las alertas a:
+La característica de exportación continua de Defender for Cloud pasa los datos de alerta a:
 
 - Azure Event Hubs con el mismo esquema que la [API de alertas](/rest/api/securitycenter/alerts).
 - Áreas de trabajo de Log Analytics según el [esquema SecurityAlert](/azure/azure-monitor/reference/tables/SecurityAlert) de la documentación de referencia de datos de Azure Monitor.
@@ -172,11 +172,11 @@ El esquema y una representación JSON de las alertas de seguridad enviadas a MS 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo se han descrito los esquemas que usan las herramientas de protección contra amenazas de Azure Security Center al enviar información de alertas de seguridad.
+En este artículo se han descrito los esquemas que usan las herramientas de protección contra amenazas de Microsoft Defender for Cloud al enviar información de alertas de seguridad.
 
-Para más información sobre las distintas formas de acceder a las alertas de seguridad desde fuera de Security Center, consulte las siguientes páginas:
+Para más información sobre las distintas formas de acceder a las alertas de seguridad desde fuera de Defender for Cloud, consulte las siguientes páginas:
 
-- [Azure Sentinel](../sentinel/index.yml): SIEM nativo de la nube de Microsoft
+- [Microsoft Sentinel](../sentinel/index.yml): SIEM nativo de la nube de Microsoft
 - [Azure Event Hubs](../event-hubs/index.yml): servicio de ingesta de datos en tiempo real y totalmente administrado de Microsoft
-- [Exportación continua de alertas y recomendaciones de seguridad](continuous-export.md)
+- [Exportación continua de datos de Defender for Cloud](continuous-export.md)
 - [Áreas de trabajo de Log Analytics](../azure-monitor/logs/quick-create-workspace.md): Azure Monitor almacena los datos de registro en un área de trabajo de Log Analytics, un contenedor que incluye información de configuración y datos

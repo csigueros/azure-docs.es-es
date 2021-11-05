@@ -2,18 +2,21 @@
 title: Configuración de la supervisión para ASP.NET con Azure Application Insights | Microsoft Docs
 description: Configure las herramientas de análisis del rendimiento, la disponibilidad y de comportamiento de usuarios para un sitio web de ASP.NET, hospedado localmente o en Azure.
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 10/12/2021
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: a0a262564306448fd587a699b24982595506df50
-ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
+ms.openlocfilehash: c1609e40d83e7064f7a840e178333a229d12083f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129740709"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131070021"
 ---
 # <a name="configure-application-insights-for-your-aspnet-website"></a>Configuración de Application Insights para un sitio web de ASP.NET
 
 Este procedimiento configura una aplicación web de ASP.NET para que envíe datos de telemetría a la característica [Application Insights](./app-insights-overview.md) del servicio de Azure Monitor. Funciona en las aplicaciones ASP.NET que se hospedan en sus propios servidores IIS locales o en la nube. 
+
+> [!NOTE]
+> Hay disponible una [oferta de .NET basada en OpenTelemetry](opentelemetry-enable.md?tabs=net) en versión preliminar. [Más información](opentelemetry-overview.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 Para agregar Application Insights al sitio web de ASP.NET, necesita:
@@ -51,6 +54,7 @@ Esta sección le guiará a través de la incorporación automática de Applicati
     ```xml
     <InstrumentationKey>your-instrumentation-key-goes-here</InstrumentationKey>
     ```
+
 4. Seleccione **Proyecto** > **Administrar paquetes NuGet** > **Actualizaciones**. A continuación, actualice el paquete NuGet `Microsoft.ApplicationInsights` a la versión estable más reciente.   
 5. Ejecute la aplicación seleccionando **IIS Express**. Se abrirá una aplicación ASP.NET básica. A medida que navega por las páginas en la telemetría del sitio se enviarán a Application Insights.
 

@@ -7,18 +7,19 @@ ms.subservice: confidential-computing
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: 74c0ea83d5792083993c6ce9c5dab88684234928
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 2f1f13a67bb827aa29b9d2de83f2fb46f95095d6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114469589"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056668"
 ---
-# <a name="enclave-aware-containers"></a>Contenedores compatibles con enclave
+# <a name="enclave-aware-containers-with-intel-sgx"></a>Contenedores preparados para enclaves compatibles con Intel SGX
 
-Un enclave es una región protegida de la memoria que proporciona confidencialidad para la ejecución de los datos y el código. Es una instancia de un entorno de ejecución de confianza (TEE) protegida por hardware. Los nodos de computación confidencial de AKS usan la tecnología [Intel Software Guard Extensions (SGX)](https://software.intel.com/sgx) para crear entornos de enclave aislados en los nodos entre cada aplicación de contenedor.
+Un enclave es una región protegida de la memoria que proporciona confidencialidad para la ejecución de los datos y el código. Es una instancia de un entorno de ejecución de confianza (TEE) protegida por hardware. Las máquinas virtuales de computación confidencial de AKS usan la tecnología [Intel Software Guard Extensions (SGX)](https://software.intel.com/sgx) para crear entornos de enclave aislados en los nodos entre cada aplicación de contenedor.
 
-Al igual que las máquinas virtuales con Intel SGX, las aplicaciones de contenedor desarrolladas para ejecutarse en enclaves tienen dos componentes:
+Al igual que las máquinas virtuales con Intel SGX, las aplicaciones de contenedor que se desarrollan para ejecutarse en enclaves tienen dos componentes:
 
 - Un componente que no es de confianza (el host).
 - Un componente de confianza (el enclave).
@@ -30,7 +31,7 @@ La arquitectura de las aplicaciones de contenedor compatible con enclave proporc
 ## <a name="enablers"></a>Habilitadores
 
 ### <a name="open-enclave-sdk"></a>SDK de Open Enclave
-El SDK de Open Enclave es una biblioteca de código abierto independiente del hardware para el desarrollo de aplicaciones en C y C++ que usan entornos de ejecución de confianza basados en hardware. La implementación actual es compatible con Intel SGX, así como con la versión preliminar de [OP-TEE OS en Arm TrustZone](https://optee.readthedocs.io/en/latest/general/about.html).
+El [SDK de Open Enclave](https://github.com/openenclave/openenclave/tree/master/docs/GettingStartedDocs) es una biblioteca de código abierto independiente del hardware para el desarrollo de aplicaciones en C y C++ que usa entornos de ejecución de confianza basados en hardware. La implementación actual es compatible tanto con Intel SGX como con la versión preliminar de [OP-TEE OS en Arm TrustZone](https://optee.readthedocs.io/en/latest/general/about.html).
 
 [Aquí](https://github.com/openenclave/openenclave/tree/master/docs/GettingStartedDocs) encontrará la introducción a las aplicaciones de contenedor basadas en Open Enclave
 
@@ -60,10 +61,12 @@ El [SDK de EGo](https://www.ego.dev) de código abierto ofrece compatibilidad co
 
 [Ejemplos de Azure para contenedores compatibles con enclave en AKS](https://github.com/Azure-Samples/confidential-computing/tree/main/containersamples)
 
+[Implementación de un clúster de AKS con nodos de máquina virtual confidencial de Intel SGX](./confidential-enclave-nodes-aks-get-started.md)
+
 <!-- LINKS - external -->
 [Azure Attestation](../attestation/overview.md)
 
 
 <!-- LINKS - internal -->
-[Máquina virtual de la serie DC](./virtual-machine-solutions.md)
+[Máquina virtual confidenciales con Intel SGX en Azure](./virtual-machine-solutions-sgx.md)
 [Contenedores confidenciales](./confidential-containers.md)

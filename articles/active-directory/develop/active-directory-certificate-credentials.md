@@ -9,22 +9,24 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/23/2021
+ms.date: 10/18/2021
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: contperf-fy21q4, aaddev
-ms.openlocfilehash: ed3495bb7267c54f9b95f7fc3465d76ddde2faaa
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: b4d0dcee8791ad43c0b216ffb289bf4de1b819d6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112581896"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067325"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenciales de certificado para la autenticación de aplicaciones en la plataforma de identidad de Microsoft
 
 La Plataforma de identidad de Microsoft permite que una aplicación use sus propias credenciales para la autenticación en cualquier parte en la que podría usarse un secreto de cliente; por ejemplo, en el flujo de [concesión de credenciales de cliente](v2-oauth2-client-creds-grant-flow.md) de OAuth 2.0 y el flujo [con derechos delegados](v2-oauth2-on-behalf-of-flow.md) (OBO).
 
-Un formato de credencial que una aplicación puede utilizar para la autenticación es una aserción de [JSON Web Token](./security-tokens.md#json-web-tokens-and-claims) (JWT) firmada con un certificado que la aplicación posea.
+Un formato de credencial que una aplicación puede utilizar para la autenticación es una aserción de [JSON Web Token](./security-tokens.md#json-web-tokens-and-claims) (JWT) firmada con un certificado que la aplicación posea. Esto se describe en la especificación de [Conectar OpenID](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) para la opción de autenticación de cliente `private_key_jwt`.
+
+Si está interesado en usar un JWT emitido por otro proveedor de identidades como credencial para la aplicación, consulte [federación de identidades de carga de trabajo](workload-identity-federation.md) para obtener información sobre cómo configurar una directiva de federación.
 
 ## <a name="assertion-format"></a>Formato de aserción
 
@@ -42,12 +44,12 @@ Para calcular la aserción, puede usar una de las muchas bibliotecas de JWT en e
 
 Tipo de notificación | Value | Descripción
 ---------- | ---------- | ----------
-aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | La notificación "aud" (audiencia) identifica los destinatarios para los que está previsto el JWT (en este caso Azure AD) Vea [RFC 7519, sección 4.1.3](https://tools.ietf.org/html/rfc7519#section-4.1.3).  En este caso, el destinatario es el servidor de inicio de sesión (login.microsoftonline.com).
-exp | 1601519414 | La notificación "exp" (fecha de expiración) identifica la hora de expiración en la que o después de la que el token JWT no debe ser aceptado para su procesamiento. Vea [RFC 7519, Sección 4.1.4](https://tools.ietf.org/html/rfc7519#section-4.1.4).  Esto permite que la aserción se use hasta entonces, por lo que debe mantenerse a menos de 5-10 minutos después de `nbf` como máximo.  En la actualidad, Azure AD no impone restricciones en el tiempo de `exp`. 
-iss | {ClientID} | La notificación "iss" (emisor) identifica la entidad de seguridad que ha emitido el JWT; en este caso, la aplicación cliente.  Use el identificador de aplicación GUID.
-jti | (un GUID) | La notificación "jti" (Id. de JWT) proporciona un identificador único para el JWT. El valor del identificador se DEBE asignar de forma que se garantice que hay una probabilidad insignificante de que el mismo valor se asigne por accidente a otro objeto de datos; si en la aplicación se usan varios emisores, también se DEBEN evitar las colisiones entre los valores generados por otros emisores. El valor "jti" es una cadena que distingue mayúsculas de minúsculas. [RFC 7519, Sección 4.1.7](https://tools.ietf.org/html/rfc7519#section-4.1.7).
-nbf | 1601519114 | La notificación "nbf" (no antes de) identifica la hora antes de la cual no debe ser aceptado el token JWT para su procesamiento. [RFC 7519, Sección 4.1.5](https://tools.ietf.org/html/rfc7519#section-4.1.5).  El uso de la hora actual es adecuado. 
-sub | {ClientID} | La notificación "sub" (asunto) identifica el asunto del JWT; en este caso, también su aplicación. Use el mismo valor que `iss`. 
+`aud` | `https://login.microsoftonline.com/{tenantId}/v2.0` | La notificación "aud" (audiencia) identifica los destinatarios para los que está previsto el JWT (en este caso Azure AD) Vea [RFC 7519, sección 4.1.3](https://tools.ietf.org/html/rfc7519#section-4.1.3).  En este caso, el destinatario es el servidor de inicio de sesión (login.microsoftonline.com).
+`exp` | 1601519414 | La notificación "exp" (fecha de expiración) identifica la hora de expiración en la que o después de la que el token JWT no debe ser aceptado para su procesamiento. Vea [RFC 7519, Sección 4.1.4](https://tools.ietf.org/html/rfc7519#section-4.1.4).  Esto permite que la aserción se use hasta entonces, por lo que debe mantenerse a menos de 5-10 minutos después de `nbf` como máximo.  En la actualidad, Azure AD no impone restricciones en el tiempo de `exp`. 
+`iss` | {ClientID} | La notificación "iss" (emisor) identifica la entidad de seguridad que ha emitido el JWT; en este caso, la aplicación cliente.  Use el identificador de aplicación GUID.
+`jti` | (un GUID) | La notificación "jti" (Id. de JWT) proporciona un identificador único para el JWT. El valor del identificador se DEBE asignar de forma que se garantice que hay una probabilidad insignificante de que el mismo valor se asigne por accidente a otro objeto de datos; si en la aplicación se usan varios emisores, también se DEBEN evitar las colisiones entre los valores generados por otros emisores. El valor "jti" es una cadena que distingue mayúsculas de minúsculas. [RFC 7519, Sección 4.1.7](https://tools.ietf.org/html/rfc7519#section-4.1.7).
+`nbf` | 1601519114 | La notificación "nbf" (no antes de) identifica la hora antes de la cual no debe ser aceptado el token JWT para su procesamiento. [RFC 7519, Sección 4.1.5](https://tools.ietf.org/html/rfc7519#section-4.1.5).  El uso de la hora actual es adecuado. 
+`sub` | {ClientID} | La notificación "sub" (asunto) identifica el asunto del JWT; en este caso, también su aplicación. Use el mismo valor que `iss`. 
 
 ### <a name="signature"></a>Firma
 

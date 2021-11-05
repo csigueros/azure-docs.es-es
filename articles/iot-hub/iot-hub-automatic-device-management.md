@@ -5,17 +5,17 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 10/26/2021
 ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 0e017f4df413d6db528bb99756646859d9a74aea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 02be8a37814eb37e50425b7593b7717b1f0a292e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92545402"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068365"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Administración automática de dispositivos y módulos IoT mediante Azure Portal
 
@@ -56,13 +56,13 @@ Antes de crear una configuración, debe especificar a qué dispositivos o módul
 
 ## <a name="create-a-configuration"></a>Creación de una configuración
 
-1. En [Azure Portal](https://portal.azure.com), vaya hasta su instancia de IoT Hub. 
+1. En [Azure Portal](https://portal.azure.com), vaya hasta su instancia de IoT Hub.
 
-2. Seleccione **Configuración de dispositivo IoT**.
+2. En el panel de navegación de la izquierda, seleccione **Configuraciones**.
 
 3. Seleccione **Agregar configuración del dispositivo** o **Agregar configuración del módulo**.
 
-   ![Agregar configuración del dispositivo o configuración del módulo](./media/iot-hub-automatic-device-management/create-automatic-configuration.png)
+   :::image type="content" source="./media/iot-hub-automatic-device-management/create-automatic-configuration.png" alt-text="Captura de pantalla que muestra cómo agregar una configuración." border="true":::
 
 Hay cinco pasos para crear una configuración. En las siguientes secciones se abordan cada uno de ellos. 
 

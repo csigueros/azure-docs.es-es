@@ -45,6 +45,12 @@
           href: extend-sentinel-across-workspaces-tenants.md
         - name: Línea de base de seguridad
           href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=%2fazure%2fsentinel%2fTOC.json
+    - name: Contenido de Azure Sentinel
+      items:
+        - name: Acerca del contenido de Sentinel
+          href: sentinel-solutions.md
+        - name: Catálogo del centro de contenidos
+          href: sentinel-solutions-catalog.md
     - name: Recopilación de datos y análisis
       items:
         - name: Métodos de recopilación de datos
@@ -61,12 +67,6 @@
               href: normalization-content.md
         - name: Clasificación de datos con entidades
           href: entities-in-azure-sentinel.md
-    - name: Soluciones de Azure Sentinel
-      items:
-        - name: Acerca de las soluciones de Sentinel
-          href: sentinel-solutions.md
-        - name: Catálogo de soluciones
-          href: sentinel-solutions-catalog.md
     - name: Información sobre amenazas
       items:
         - name: Descripción de la inteligencia sobre amenazas en Azure Sentinel
@@ -75,9 +75,13 @@
           href: threat-intelligence-integration.md
     - name: Detección de amenazas
       items:
+        - name: Reglas de detección de amenazas integradas
+          href: detect-threats-built-in.md
+        - name: Reglas de análisis casi en tiempo real (NRT)
+          href: near-real-time-rules.md
         - name: Análisis de comportamiento de usuarios y entidades (UEBA)
           href: identify-threats-with-entity-behavior-analytics.md
-        - name: Anomalías de SOC-ML
+        - name: Reglas de detección de anomalías
           href: soc-ml-anomalies.md
         - name: Ataques de varias etapas (Fusion)
           href: fusion.md
@@ -109,6 +113,12 @@
           href: resource-context-rbac.md
     - name: Migración a Azure Sentinel
       href: migration.md
+    - name: Administración del contenido de Azure Sentinel
+      items:
+        - name: Detección e implementación de contenido de forma lista para su uso
+          href: sentinel-solutions-deploy.md
+        - name: Implementación de contenido personalizado desde el repositorio
+          href: ci-cd.md
     - name: Recopilación de datos
       items:
         - name: Conexión del origen de datos
@@ -154,8 +164,6 @@
           href: monitor-data-connector-health.md
         - name: Integración en Azure Data Explorer
           href: store-logs-in-azure-data-explorer.md
-    - name: Detección e implementación de soluciones
-      href: sentinel-solutions-deploy.md
     - name: Uso de la inteligencia sobre amenazas
       items:
         - name: Conexión de plataformas de inteligencia sobre amenazas
@@ -172,11 +180,9 @@
           href: ./monitor-your-data.md
     - name: Detección de amenazas y análisis de datos
       items:
-        - name: Uso de roles integrados
-          href: detect-threats-built-in.md
-        - name: Crear reglas personalizadas
+        - name: Creación de reglas de detección de amenazas
           items:
-            - name: Crear una regla
+            - name: Creación de una regla de consulta programada
               href: detect-threats-custom.md
             - name: Asignación de campos de datos a entidades
               href: map-data-fields-to-entities.md
@@ -186,14 +192,20 @@
               href: customize-alert-details.md
             - name: Exportación e importación de reglas de análisis
               href: import-export-analytics-rules.md
-            - name: Uso de reglas de anomalías de SOC-ML
+            - name: Creación de reglas de análisis casi en tiempo real (NRT)
+              href: create-nrt-rules.md
+            - name: Trabajar con reglas de detección de anomalías
               href: work-with-anomaly-rules.md
             - name: Administración de versiones de plantilla para reglas de análisis
               href: manage-analytics-rule-templates.md
+            - name: Obtención de recomendaciones de ajuste
+              href: detection-tuning.md
         - name: Habilitación del análisis del comportamiento de usuarios y entidades (UEBA)
           href: enable-entity-behavior-analytics.md
-        - name: Uso de reglas de anomalías de SOC-ML
+        - name: Trabajar con reglas de anomalías listas para su uso
           href: work-with-anomaly-rules.md
+        - name: Configuración de reglas de ataque de varias etapas (fusión)
+          href: configure-fusion-rules.md
         - name: Control de falsos positivos
           href: false-positives.md
         - name: Creación de incidentes a partir de alertas de seguridad de Microsoft
@@ -203,9 +215,13 @@
     - name: Búsqueda de amenazas
       items:
         - name: Búsqueda con Jupyter Notebooks
-          href: notebooks.md
-        - name: Configuración avanzada de MSTICPy para cuadernos de Jupyter Notebook
-          href: notebooks-msticpy-advanced.md
+          items:
+            - name: Información general
+              href: notebooks.md
+            - name: Configuración avanzada de MSTICPy para cuadernos de Jupyter Notebook
+              href: notebooks-msticpy-advanced.md
+            - name: Análisis de seguridad a gran escala con Azure Synapse
+              href: notebooks-with-synapse.md
         - name: Búsqueda con marcadores
           href: bookmarks.md
         - name: Búsqueda con Live Stream
@@ -308,6 +324,8 @@
           href: entities-reference.md
         - name: Enriquecimientos con UEBA
           href: ueba-enrichments.md
+        - name: Escenarios de detección de ataques de varias fases
+          href: fusion-scenario-reference.md
         - name: Esquemas de plantilla de lista de reproducción
           href: watchlist-schemas.md
         - name: Lenguaje de consulta Kusto

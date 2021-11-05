@@ -1,0 +1,69 @@
+### YamlMime:Landing
+title: Documentación de Azure Virtual Network Manager
+summary: Aprenda a usar Azure Virtual Network Manager para simplificar el enrutamiento dinámico entre las aplicaciones virtuales de red y la red virtual.
+metadata:
+  title: Documentación de Azure Virtual Network Manager
+  description: Obtenga más información sobre Azure Virtual Network Manager.
+  services: virtual-network-manager
+  ms.service: virtual-network-manager
+  ms.topic: landing-page
+  author: duongau
+  ms.author: duau
+  ms.date: 11/02/2021
+  ms.openlocfilehash: 7b61df1521d2e80ff4c4e4847f54eff84669e4e6
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131088406"
+landingContent:
+- title: Acerca de Azure Virtual Network Manager
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Azure Virtual Network Manager?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Preguntas más frecuentes
+      url: faq.md
+- title: Introducción
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Ámbito
+      url: concept-network-manager-scope.md
+    - text: Grupos de red
+      url: concept-network-groups.md
+    - text: Implementación
+      url: concept-deployments.md
+  - linkListType: quickstart
+    links:
+    - text: 'Creación y configuración de una instancia de Virtual Network Manager: Portal'
+      url: create-virtual-network-manager-portal.md
+    - text: 'Creación y configuración de una instancia de Virtual Network Manager: PowerShell'
+      url: create-virtual-network-manager-powershell.md
+  - linkListType: tutorial
+    links:
+    - text: Creación de una red en estrella tipo hub-and-spoke protegida
+      url: tutorial-create-secured-hub-and-spoke.md
+- title: Conectividad
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Configuración de conectividad
+      url: concept-connectivity-configuration.md
+  - linkListType: how-to-guide
+    links:
+    - text: Creación de una topología de red en estrella tipo hub-and-spoke
+      url: how-to-create-hub-and-spoke.md
+- title: Seguridad
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Configuración de administrador de seguridad
+      url: concept-security-admins.md
+  - linkListType: how-to-guide
+    links:
+    - text: Bloqueo del tráfico de red con reglas de administración de seguridad
+      url: how-to-block-network-traffic-portal.md

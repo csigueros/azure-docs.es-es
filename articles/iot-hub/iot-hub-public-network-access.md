@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/07/2021
-ms.openlocfilehash: a729cd14c2f65b7ff4ab478f9efd25e13a1170b4
-ms.sourcegitcommit: 555ea0d06da38dea1de6ecbe0ed746cddd4566f5
+ms.openlocfilehash: b77fa4d3e82114c4b52edca250aada9837157782
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113515589"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068304"
 ---
 # <a name="managing-public-network-access-for-your-iot-hub"></a>Administración del acceso a la red pública para su instancia de IoT Hub
 
@@ -26,7 +26,7 @@ Para restringir el acceso solo a un [punto de conexión privado de un centro de 
 4. En "Allow public network access to" (Permitir acceso a la red pública para), seleccione **Deshabilitado**.
 5. Seleccione **Guardar**.
 
-:::image type="content" source="media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png" alt-text="Imagen que muestra en Azure Portal dónde desactivar el acceso a la red pública" lightbox="media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png":::
+:::image type="content" source="./media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png" alt-text="Captura de pantalla que muestra en Azure Portal dónde desactivar el acceso a la red pública":::
 
 Para activar el acceso a la red pública, seleccione **Todas las redes** y **Guardar**.
 
@@ -57,7 +57,7 @@ Hay un error con IoT Hub en el que el [punto de conexión compatible con el cent
 5. En el cuadro de diálogo **Filtro IP** que se abre, seleccione **Agregar la dirección IP del cliente** y escriba un nombre y un intervalo de direcciones.
 6. Seleccione **Guardar**. Si el botón está atenuado, asegúrese de que la dirección IP del cliente ya se ha agregado como filtro IP.
 
-:::image type="content" source="media/iot-hub-publicnetworkaccess/turn-on-public-network-access.png" alt-text="Imagen que muestra dónde activar el acceso a la red pública en Azure Portal":::
+:::image type="content" source="./media/iot-hub-publicnetworkaccess/turn-on-public-network-access.png" alt-text="Captura de pantalla que muestra en Azure Portal dónde activar el acceso a la red pública":::
 
 ### <a name="turn-on-all-network-ranges"></a>Activación de todos los intervalos de red
 

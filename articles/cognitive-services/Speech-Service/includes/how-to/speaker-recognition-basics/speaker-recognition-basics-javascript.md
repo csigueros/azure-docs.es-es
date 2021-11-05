@@ -4,13 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/07/2020
 ms.author: v-jawe
-ms.custom: references_regions
-ms.openlocfilehash: a651fe0ddb25fb44de518c794264133f16879982
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.custom: references_regions, ignite-fall-2021
+ms.openlocfilehash: 6b167c24aeaa5acc97f1c071d7b0ae8f5c0cbc71
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129378026"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069189"
 ---
 En este inicio rápido, aprenderá los patrones de diseño básicos de Speaker Recognition mediante el SDK de Voz, que incluyen:
 
@@ -18,11 +18,11 @@ En este inicio rápido, aprenderá los patrones de diseño básicos de Speaker R
 * Identificación del hablante para identificar una muestra de voz entre un grupo de voces.
 * Eliminación de perfiles de voz.
 
-Para obtener una visión general de los conceptos de reconocimiento de voz, consulte el artículo de [información general](../../../speaker-recognition-overview.md).
+Para obtener una visión general de los conceptos de Speaker Recognition, consulte el artículo de [información general](../../../speaker-recognition-overview.md). Consulte el nodo de referencia situado en el panel de navegación izquierdo para ver una lista de las plataformas admitidas.
 
 ## <a name="skip-to-samples-on-github"></a>Pasar a los ejemplos en GitHub
 
-Si quiere pasar directamente al código de ejemplo, consulte los [ejemplos del inicio rápido de JavaScript](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/fa6428a0837779cbeae172688e0286625e340942/quickstart/javascript/node/speaker-recognition) en GitHub.
+Si quiere pasar directamente al código de ejemplo, consulte los [ejemplos del inicio rápido de JavaScript](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition) en GitHub.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/11/2021
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 381cc0d1114e60cbb9678c0df9a66176f3b51e99
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 74341e9f4c2436768a73591878f29e7f392b1f3a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128627603"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131006836"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Uso de referencias de Key Vault para App Service y Azure Functions
 
@@ -88,7 +88,7 @@ O bien:
 
 ## <a name="rotation"></a>Rotación
 
-Si no se especifica una versión en la referencia, la aplicación usará la versión más reciente que exista en Key Vault. Cuando haya disponibles versiones más recientes, como con un evento de rotación, la aplicación se actualizará automáticamente y comenzará a usar la versión más reciente en el plazo de un día. Los cambios de configuración realizados en la aplicación actualizarán inmediatamente a las versiones más recientes todos los secretos a los que se hace referencia.
+Si no se especifica una versión en la referencia, la aplicación usará la versión más reciente que exista en el almacén de claves. Cuando haya disponibles versiones más recientes, como con un evento de rotación, la aplicación se actualizará automáticamente y comenzará a usar la versión más reciente en el plazo de 24 horas. El retraso se debe a App Service almacena en caché los valores de las referencias del almacén de claves y lo vuelve a capturar cada 24 horas. Cualquier cambio de configuración en la aplicación provoca una captura inmediata de todos los secretos a los que se hace referencia.
 
 ## <a name="source-application-settings-from-key-vault"></a>Configuración de la aplicación de origen desde Key Vault
 

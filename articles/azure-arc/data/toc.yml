@@ -85,6 +85,10 @@ items:
             href: retrieve-the-username-password-for-data-controller.md
           - name: Actualización de credenciales de entidad de servicio
             href: update-service-principal-credentials.md
+      - name: Actualizar
+        items:
+          - name: 'Controlador de datos indirecto: CLI'
+            href: upgrade-data-controller-indirect-cli.md
       - name: Solución de problemas
         items:
           - name: Guía
@@ -193,6 +197,10 @@ items:
                 href: reserved-capacity-overview.md
               - name: Eliminar
                 href: delete-managed-instance.md
+          - name: Actualizar
+            items:
+              - name: Actualización a través de la CLI
+                href: upgrade-sql-managed-instance-cli.md
           - name: Migrate
             items:
               - name: Migración a SQL Managed Instance (Azure Arc)

@@ -2,14 +2,14 @@
 title: 'Diagnóstico con Live Metrics Stream: Azure Application Insights'
 description: Supervise la aplicación web en tiempo real con métricas personalizadas y diagnostique problemas con una fuente directa de errores, seguimientos y eventos.
 ms.topic: conceptual
-ms.date: 04/22/2019
+ms.date: 10/12/2021
 ms.reviewer: sdash
-ms.openlocfilehash: 3e19d424f8aa56f37b12ab776c9ff85ca78f6738
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 7c587cc9bdfa4fdc0483a99d9248fbd986c048e8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129614961"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131026248"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: supervisión y diagnóstico con una latencia de 1 segundo
 
@@ -160,7 +160,7 @@ Si quiere supervisar una instancia de rol de servidor en particular, puede filtr
 ## <a name="secure-the-control-channel"></a>Protección del canal de control
 
 > [!NOTE]
-> Actualmente, solo se puede configurar un canal autenticado mediante la supervisión basada en código y no se pueden autenticar los servidores con la conexión sin código.
+> Actualmente, solo puede configurar un canal autenticado mediante la instrumentación manual (SDK) y no puede autenticar servidores mediante la integración de servicios de Azure (o la instrumentación automática).
 
 Los criterios de filtros personalizados que especifique en el portal de Live Metrics se envían hacia el componente de Live Metrics del SDK de Application Insights. Los filtros podrían contener información confidencial, como identificadores de clientes. Puede hacer que el canal seguro con una clave secreta de API, además de la clave de instrumentación.
 
@@ -175,7 +175,7 @@ Los criterios de filtros personalizados que especifique en el portal de Live Met
 
 En el archivo applicationinsights.config, agregue AuthenticationApiKey a QuickPulseTelemetryModule:
 
-```XML
+```xml
 <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
       <AuthenticationApiKey>YOUR-API-KEY-HERE</AuthenticationApiKey>
 </Add>
@@ -233,8 +233,8 @@ Sin embargo, si reconoce y confía en todos los servidores conectados, puede pro
 
 ![Opciones de autenticación de Live Metrics](./media/live-stream/live-stream-auth.png)
 
->[!NOTE]
->Se recomienda que configure el canal autenticado antes de escribir información potencialmente confidencial, como identificadores de clientes en los criterios de filtro.
+> [!NOTE]
+> Se recomienda que configure el canal autenticado antes de escribir información potencialmente confidencial, como identificadores de clientes en los criterios de filtro.
 >
 
 ## <a name="supported-features-table"></a>Tabla de características compatibles

@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.date: 08/05/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
-ms.openlocfilehash: db141f863389d724cc1437beeed3b00b44020098
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 65f3ea7217930b680cfb197092533989a3206894
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130161840"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054578"
 ---
 # <a name="orchestration-modes-api-comparison"></a>Comparación de API de modos de orquestación 
 
@@ -31,7 +31,6 @@ En este artículo se comparan las diferencias de API entre los modos de orquesta
 
 | API uniforme | Alternativa flexible |
 |-|-|
-| Operaciones por lotes del ciclo de vida de máquina virtual de conjuntos de escalado de máquinas virtuales:  | Invocar API de máquina virtual única en instancias específicas: |
 | [Desasignar](/rest/api/compute/virtualmachinescalesetvms/deallocate)  | [Invocar API de máquina virtual única - Desasignar](/rest/api/compute/virtualmachines/deallocate)   |
 | [Eliminar](/rest/api/compute/virtualmachinescalesetvms/delete)  | [Invocar API de máquina virtual única - Eliminar](/rest/api/compute/virtualmachines/delete)  |
 | [Obtener vista de instancia](/rest/api/compute/virtualmachinescalesetvms/getinstanceview)  | [Invocar API de máquina virtual única - Vista de instancia](/rest/api/compute/virtualmachines/instanceview)  |
@@ -47,23 +46,42 @@ En este artículo se comparan las diferencias de API entre los modos de orquesta
 
 ## <a name="get-or-update"></a>Obtener o actualizar 
 
-### <a name="uniform-api"></a>API uniforme
+**API uniforme:**
+
 Obtener o actualizar instancia de máquina virtual de conjuntos de escalado de máquinas virtuales:
 - [Get](/rest/api/compute/virtualmachinescalesetvms/get) 
 - [Actualizar](/rest/api/compute/virtualmachinescalesetvms/update)
 
-### <a name="flexible-alternative"></a>Alternativa flexible 
+**Alternativa flexible:** 
+
 Invocar API de máquina virtual única:
 - [Bloqueo de recursos de ARM](../azure-resource-manager/management/lock-resources.md?tabs=json) para comportamiento de tipo de protección de instancias 
+    
+
+## <a name="get-or-update-scale-set-vm-instances"></a>Obtener o actualizar instancias de máquina virtual del conjunto de escalado
+
+| API uniforme | Alternativa flexible |
+|-|-|
+| [Obtener detalles de la máquina virtual del conjunto de escalado](/rest/api/compute/virtualmachinescalesetvms/get) | [Obtención de una máquina virtual](/rest/api/compute/virtualmachines/get) |
+| [Actualizar una instancia de máquina virtual del conjunto de escalado](/rest/api/compute/virtualmachinescalesetvms/update) | [Actualizar una máquina virtual](/rest/api/compute/virtualmachines/update) |
+
+
+## <a name="instance-protection"></a>Protección de instancias 
+
+| API uniforme | Alternativa flexible |
+|-|-|
+| [Protección de instancias](virtual-machine-scale-sets-instance-protection.md) | [Bloqueo de recursos de ARM](../azure-resource-manager/management/lock-resources.md?tabs=json) para comportamiento de tipo de protección de instancias | 
 
 
 ## <a name="list-instances"></a>Enumerar instancias. 
 
-### <a name="uniform-api"></a>API uniforme
+**API uniforme:**
+
 `VMSS List Instances`: 
 - Devuelve el identificador del conjunto de escalado asociado a cada instancia.
 
-### <a name="flexible-alternative"></a>Alternativa flexible
+**Alternativa flexible:**
+
 Azure Resource Graph: 
 
 ```armasm
@@ -72,9 +90,10 @@ resources
 | where properties.virtualMachineScaleSet.id contains "portalbb01" 
 ```
 
-## <a name="scale-set-operations"></a>Operaciones de conjunto de escalado 
+## <a name="scale-set-instance-operations"></a>Operaciones de instancia del conjunto de escalado 
 
-### <a name="uniform-api"></a>API uniforme
+**API uniforme:**
+
 Operaciones de conjuntos de escalado de máquinas virtuales:
 - [Actualizar instancias](/rest/api/compute/virtual-machine-scale-sets/update-instances)
 - [Desasignar](/rest/api/compute/virtual-machine-scale-sets/deallocate)
@@ -87,7 +106,8 @@ Operaciones de conjuntos de escalado de máquinas virtuales:
 - [Establecer el estado del servicio de orquestación](/rest/api/compute/virtual-machine-scale-sets/set-orchestration-service-state)
 - [Iniciar](/rest/api/compute/virtual-machine-scale-sets/start)
 
-### <a name="flexible-alternative"></a>Alternativa flexible
+**Alternativa flexible:**
+
 Invocar operaciones en máquinas virtuales individuales.
 
 Operaciones de máquinas virtuales:
@@ -95,7 +115,8 @@ Operaciones de máquinas virtuales:
 
 ## <a name="vm-extension"></a>Extensión de máquina virtual
 
-### <a name="uniform-api"></a>API uniforme
+**API uniforme:**
+
 Extensión de máquina virtual de conjuntos de escalado de máquinas virtuales:
 - [Crear o actualizar](/rest/api/compute/virtual-machine-scale-set-vm-extensions/create-or-update)
 - [Eliminar](/rest/api/compute/virtual-machine-scale-set-vm-extensions/delete)
@@ -103,28 +124,33 @@ Extensión de máquina virtual de conjuntos de escalado de máquinas virtuales:
 - [Lista](/rest/api/compute/virtual-machine-scale-set-vm-extensions/list)
 - [Actualizar](/rest/api/compute/virtual-machine-scale-set-vm-extensions/update) 
 
-### <a name="flexible-alternative"></a>Alternativa flexible
+**Alternativa flexible:**
+
 Invocar operaciones en máquinas virtuales individuales.
 
 
 ## <a name="networking"></a>Redes 
 
-### <a name="uniform-api"></a>API uniforme
-- Grupo de NAT/reenvío de puertos 
-- Los conjuntos de escalado flexibles no admiten grupos de NAT.  
+| API uniforme | Alternativa flexible |
+|-|-|
+| Grupo NAT del equilibrador de carga | Especificar una regla NAT en instancias específicas | 
 
-### <a name="flexible-alternative"></a>Alternativa flexible
-- Configurar reglas NAT individuales en cada máquina virtual.
+> [!IMPORTANT]
+> El comportamiento de las redes variará en función de cómo elija crear las máquinas virtuales en el conjunto de escalado. Las **instancias de VM agregadas manualmente** tienen acceso de conectividad de salida predeterminado. Las **instancias de VM creadas implícitamente** no tienen acceso predeterminado.
+>
+> Para obtener más información sobre las redes para conjuntos de escalado flexibles, consulte [Conectividad de red escalable](../virtual-machines/flexible-virtual-machine-scale-sets-migration-resources.md#create-scalable-network-connectivity).
 
 
 ## <a name="scale-set-apis"></a>API de conjunto de escalado
 
-### <a name="uniform-api"></a>API uniforme
+**API uniforme:**
+
 API uniformes de conjuntos de escalado de máquinas virtuales:
 - [Convertir en grupo de selección de ubicación único](/rest/api/compute/virtual-machine-scale-sets/convert-to-single-placement-group)
 - [Forzar recorrido de dominio de actualización de plataforma de recuperación de Service Fabric](/rest/api/compute/virtual-machine-scale-sets/force-recovery-service-fabric-platform-update-domain-walk)
 
-### <a name="flexible-alternative"></a>Alternativa flexible
+**Alternativa flexible:**
+
 No está contemplado en los conjuntos de escalado de máquinas virtuales flexibles.
 
 

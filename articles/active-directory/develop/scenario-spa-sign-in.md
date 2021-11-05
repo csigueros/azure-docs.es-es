@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: marsma
 ms.custom: aaddev
-ms.openlocfilehash: 858234982aa4a148fe6af71ba8993923e80044dd
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 2fa29b8cfd15ccee133ef416d729c1807aa0a400
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129230194"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131017927"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>Aplicación de página única: Inicio y cierre de sesión
 
@@ -458,7 +458,7 @@ function App() {
 
 MSAL.js v2 proporciona un método `logoutPopup` que borra la caché en el almacenamiento del explorador y abre una ventana emergente a la página de cierre de sesión de Azure Active Directory (Azure AD). Después de cerrar la sesión, Azure AD redirige el elemento emergente a la aplicación y MSAL.js lo cierra.
 
-Puede configurar el URI al que Azure AD debe realizar el redireccionamiento tras el cierre de sesión. Para ello, establezca `postLogoutRedirectUri`. Este URI se debe registrar como un URI de redireccionamiento en el registro de la aplicación.
+Puede configurar el URI al que Azure AD debe realizar el redireccionamiento tras el cierre de sesión. Para ello, establezca `postLogoutRedirectUri`. Este URI se debe registrar como un URI de redirección en el registro de la aplicación.
 
 También puede configurar `logoutPopup` para redirigir la ventana principal a otra página, como la página principal o la página de inicio de sesión, una vez completado el cierre de sesión mediante el paso de `mainWindowRedirectUri` como parte de la solicitud.
 
@@ -558,7 +558,7 @@ function App() {
 
 MSAL.js proporciona un método `logout` en v1 (y un método `logoutRedirect` en v2), que borra la memoria caché en el almacenamiento del explorador y redirige la ventana a la página de cierre de sesión de Azure Active Directory (Azure AD). Después de cerrar sesión, Azure AD realiza el redireccionamiento a la página que invocó el cierre de sesión de forma predeterminada.
 
-Puede configurar el URI de redirección tras el cierre de sesión mediante el establecimiento del valor `postLogoutRedirectUri`. Este URI se debe registrar como un URI de redireccionamiento en el registro de la aplicación.
+Puede configurar el URI de redirección tras el cierre de sesión mediante el establecimiento del valor `postLogoutRedirectUri`. Este URI se debe registrar como un URI de redirección en el registro de la aplicación.
 
 # <a name="javascript-msaljs-v2"></a>[JavaScript (MSAL.js v2)](#tab/javascript2)
 

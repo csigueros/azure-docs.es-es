@@ -10,18 +10,21 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: pafarley
-ms.custom: cog-serv-seo-aug-2020
+ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 keywords: speaker recognition, reconocimiento del hablante, biometría de voz
-ms.openlocfilehash: c3f71ab3adc93546b0cd748968a0099743455be8
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 44772137d9b9e3366a2a04fded34fa81dafe8886
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123537002"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058395"
 ---
-# <a name="what-is-speaker-recognition-preview"></a>¿Qué es Speaker Recognition (versión preliminar)?
+# <a name="what-is-speaker-recognition"></a>¿Qué es Speaker Recognition?
 
-El servicio Speaker Recognition proporciona algoritmos que comprueban e identifican a los hablantes por sus características de voz únicas mediante la biometría de la voz. Speaker Recognition se usa para responder a la pregunta "¿quién está hablando?". Proporciona datos de entrenamiento de audio para un solo hablante, que crea un perfil de inscripción basado en las características únicas de la voz del hablante. Después, puede realizar una comprobación cruzada de los ejemplos de voz de audio con respecto a este perfil para comprobar que el hablante es la misma persona (verificación del hablante) o muestras de voz de audio de una consulta cruzada en un *grupo* de perfiles de altavoz inscritos, para ver si coincide con algún perfil del grupo (identificación del hablante). Por el contrario, [Speaker Diarization](batch-transcription.md#speaker-separation-diarization) agrupa segmentos de audio por hablante en una operación por lotes.
+Speaker Recognition se usa para determinar quién habla en un clip de audio. El servicio puede comprobar e identificar a los hablantes por sus características de voz únicas mediante la biometría de voz. Proporciona datos de entrenamiento de audio para un solo hablante, que crea un perfil de inscripción basado en las características únicas de la voz del hablante. Después, puede realizar una comprobación cruzada de los ejemplos de voz de audio con respecto a este perfil para comprobar que el hablante es la misma persona (verificación del hablante) o muestras de voz de audio de una consulta cruzada en un *grupo* de perfiles de altavoz inscritos, para ver si coincide con algún perfil del grupo (identificación del hablante).
+
+> [!IMPORTANT]
+> Microsoft limita el acceso a Speaker Recognition. Puede solicitar usarlo mediante la [revisión de acceso limitado para Speaker Recognition de Azure Cognitive Services](https://aka.ms/azure-speaker-recognition). Después de la aprobación, podrá acceder a las API de Speaker Recognition. Para obtener más información, visite [Acceso limitado para Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition).
 
 ## <a name="speaker-verification"></a>Verificación del hablante
 
@@ -35,7 +38,7 @@ La verificación del hablante puede ser dependiente del texto o independiente de
 
 En la **verificación dependiente del texto**, la voz del hablante se inscribe indicando una frase de contraseña de un conjunto de frases predefinidas. Las características de voz se extraen de la grabación de audio para formar una firma de voz única, mientras que también se reconoce la frase de contraseña seleccionada. Juntos, la firma de voz y la frase de contraseña se usan para verificar el hablante. 
 
-La **verificación independiente del texto** no tiene restricciones en lo que el hablante indica durante la inscripción o en la muestra de audio que se va a verificar, ya que solo extrae características de voz para puntuar la similitud. 
+La **verificación independiente del texto** no tiene restricciones sobre lo que dice el hablante durante la inscripción, además de la frase de activación inicial para activar la inscripción. No tiene ninguna restricción en la muestra de audio que se va a comprobar, ya que solo extrae características de voz para puntuar la similitud. 
 
 Las API no están pensadas para determinar si el audio proviene de una persona de carne y hueso, una imitación o una grabación de un hablante inscrito. 
 
@@ -48,7 +51,7 @@ Speaker Identification se usa para determinar la identidad de un hablante descon
 
 ### <a name="how-does-speaker-identification-work"></a>¿Cómo funciona Speaker Identification?
 
-La inscripción para la identificación del hablante **no depende del texto**, lo que significa que no hay restricciones con respecto a lo que el hablante dice en el audio. De forma similar a Speaker Verification, en la fase de inscripción, se graba la voz del hablante y se extraen las características de voz para formar una firma de voz única. En la fase de identificación, la muestra de voz de entrada se compara con una lista especificada de voces inscritas (hasta 50 en cada solicitud).
+La inscripción para la identificación del hablante **no depende del texto**, lo cual significa que no hay restricciones con respecto a lo que el hablante dice en el audio, excepto la frase de activación inicial para activar la inscripción. De forma similar a Speaker Verification, se graba la voz del hablante en la fase de inscripción y se extraen las características de voz para formar una firma de voz única. En la fase de identificación, la muestra de voz de entrada se compara con una lista especificada de voces inscritas (hasta 50 en cada solicitud).
 
 ## <a name="data-security-and-privacy"></a>Privacidad y seguridad de los datos
 
@@ -56,7 +59,7 @@ Los datos de inscripción de hablantes se almacenan en un sistema protegido, inc
 
 Puede controlar cuánto tiempo se deben conservar los datos. Los clientes pueden crear, actualizar y quitar los datos de inscripción de un hablante mediante las llamadas API. Cuando se elimine la suscripción, todos los datos de inscripción del hablante asociados a la suscripción también se eliminarán. 
 
-Al igual que sucede con todos los recursos de Cognitive Services, los desarrolladores que usan el servicio Speaker Recognition deben estar al tanto de las directivas de Microsoft sobre los datos de los clientes. Debe asegurarse de haber recibido los permisos adecuados de los usuarios para Speaker Recognition. Para obtener más información, vea la  [página de Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)  en Microsoft Trust Center. 
+Al igual que sucede con todos los recursos de Cognitive Services, los desarrolladores que usan el servicio Speaker Recognition deben estar al tanto de las directivas de Microsoft sobre los datos de los clientes. Debe asegurarse de haber recibido los permisos adecuados de los usuarios para Speaker Recognition. Puede encontrar más detalles en [Datos y privacidad de Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/data-privacy-speaker-recognition). Para obtener más información, vea la  [página de Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)  en Microsoft Trust Center. 
 
 ## <a name="common-questions-and-solutions"></a>Preguntas comunes y soluciones
 
@@ -64,7 +67,7 @@ Al igual que sucede con todos los recursos de Cognitive Services, los desarrolla
 |---------|----------|
 | ¿Para qué escenarios se puede usar Speaker Recognition? | Verificación del cliente del centro de llamadas, registro de pacientes basado en la voz, transcripción de reuniones y personalización de dispositivos multiusuario.|
 | ¿Cuál es la diferencia entre la identificación y la verificación? | La identificación es el proceso de detectar qué miembro de un grupo de hablantes está hablando. La verificación es el acto de confirmar que un hablante coincide con una voz conocida o **inscrita**.|
-| ¿Qué diferencia hay entre las comprobaciones dependiente e independiente del texto? | La verificación dependiente del texto requiere una frase de contraseña específica para la inscripción y el reconocimiento. La verificación independiente del texto requiere una muestra de voz más larga para la inscripción, pero se puede decir cualquier cosa, incluso durante el reconocimiento.|
+| ¿Qué diferencia hay entre las comprobaciones dependiente e independiente del texto? | La verificación dependiente del texto requiere una frase de contraseña específica para la inscripción y el reconocimiento. La verificación independiente del texto requiere una muestra de voz más larga que debe comenzar con una frase de activación determinada para la inscripción, pero se puede decir cualquier cosa, incluso durante el reconocimiento.|
 | ¿Qué idiomas se admiten? | Inglés, francés, español, chino, alemán, italiano, japonés y portugués. |
 | ¿Qué regiones de Azure se admiten? | Speaker Recognition es un servicio en versión preliminar y actualmente solo está disponible en la región Oeste de EE. UU.|
 | ¿Qué formatos de audio se admiten? | WAV de 16 bits en mono a 16 kHz con codificación PCM. |
@@ -77,3 +80,11 @@ Al igual que sucede con todos los recursos de Cognitive Services, los desarrolla
 > [!div class="nextstepaction"]
 > * Complete la lectura del [artículo sobre conceptos básicos](./get-started-speaker-recognition.md) de Speaker Recognition para realizar una revisión de los modelos de diseño comunes que puede usar en sus aplicaciones.
 > * Consulte el [tutorial de vídeo](https://azure.microsoft.com/resources/videos/speaker-recognition-text-independent-verification-developer-tutorial/) para la verificación del hablante independiente del texto.
+
+## <a name="responsible-use-of-ai"></a>Uso responsable de la inteligencia artificial
+> [!div class="ResponsibleUseOfAI"]
+> * [Nota de transparencia para Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/transparency-note-speaker-recognition)
+> * [Características y limitaciones de Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/characteristics-and-limitations-speaker-recognition)
+> * [Acceso limitado para Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition)
+> * [Instrucciones para la integración y el uso responsable con Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/guidance-integration-responsible-use-speaker-recognition)
+> * [Datos y privacidad de Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/data-privacy-speaker-recognition)

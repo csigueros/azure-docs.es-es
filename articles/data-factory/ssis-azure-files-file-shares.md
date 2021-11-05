@@ -1,19 +1,19 @@
 ---
 title: Abrir y guardar archivos con paquetes SSIS implementados en Azure
 description: Obtenga información sobre cómo abrir y guardar archivos de forma local y en Azure al aplicar lift-and-shift a los paquetes SSIS que usan los sistemas de archivos locales en SSIS en Azure.
-ms.date: 06/27/2018
+ms.date: 10/22/2021
 ms.topic: conceptual
 ms.service: data-factory
 ms.subservice: integration-services
 author: swinarko
 ms.author: sawinark
 ms.reviewer: jburchel
-ms.openlocfilehash: fe6640336093fd4a47c7f3a220293b720cf66587
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 846b27b135714c0fb1eed1c660be15634b2e834e
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121731436"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131849280"
 ---
 # <a name="open-and-save-files-on-premises-and-in-azure-with-ssis-packages-deployed-in-azure"></a>Abrir y guardar archivos de forma local y en Azure con paquetes SSIS implementados en Azure
 

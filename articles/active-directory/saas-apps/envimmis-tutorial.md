@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/12/2021
 ms.author: jeedes
-ms.openlocfilehash: d6265163ad60b1ac057ccc3a08cc281b7b54ca5d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 9be5d831afc5781c4951f76e72a332abd7be1e4c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124835607"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059126"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Tutorial: integrar Azure Active Directory con Envi MMIS
 
@@ -26,7 +26,7 @@ En este tutorial, obtendrá información sobre cómo integrar Envi MMIS en Azure
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Envi MMIS con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -57,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Envi MMIS median
 Para configurar y probar el inicio de sesión único de Azure AD con Envi MMIS, lleve a cabo los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Envi MMIS](#configure-envi-mmis-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Envi MMIS](#create-envi-mmis-test-user)** : para tener un homólogo de B.Simon en Envi MMIS que esté vinculado a la representación del usuario en Azure AD.
@@ -75,9 +75,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo iniciado por **IDP** siga estos pasos:
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://www.<CUSTOMER DOMAIN>.com/Account`
+    1. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://www.<CUSTOMER DOMAIN>.com/Account`
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://www.<CUSTOMER DOMAIN>.com/Account/Acs`
+    1. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://www.<CUSTOMER DOMAIN>.com/Account/Acs`
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
@@ -138,15 +138,15 @@ En esta sección, va a permitir que B.Simon acceda a Envi MMIS mediante el inici
 
     ![Captura de pantalla que muestra la pestaña "Resources" (Recursos) con la acción "Upload Metadata" (Cargar metadatos) seleccionada.](./media/envimmis-tutorial/metadata.png)
 
-6. En la ventana emergente **Cargar metadatos**, realice los siguientes pasos:
+6. En la ventana emergente **Upload Metadata** (Cargar metadatos), realice los siguientes pasos:
 
-    ![Captura de pantalla que muestra el elemento emergente "Upload Metadata" (Cargar metadatos) con la opción "File" (Archivo) seleccionada y el icono de selección de archivo y el botón "Aceptar" resaltados.](./media/envimmis-tutorial/file.png)
+    ![Captura de pantalla que muestra el elemento emergente "Upload Metadata" (Cargar metadatos) con la opción "Archivo" seleccionada y el icono de selección de archivo y el botón "Aceptar" resaltados.](./media/envimmis-tutorial/file.png)
 
-    a. Seleccione la opción **Archivo** desde la lista desplegable **Upload From** (Cargar desde).
+    1. Seleccione la opción **Archivo** desde la lista desplegable **Upload From** (Cargar desde).
 
-    b. Para cargar el archivo de metadatos descargado de Azure Portal, seleccione el **icono para elegir archivo**.
+    1. Para cargar el archivo de metadatos descargado de Azure Portal, seleccione el **icono para elegir archivo**.
 
-    c. Haga clic en **Aceptar**.
+    1. Haga clic en **Aceptar**.
 
 7. Después de cargar el archivo de metadatos descargado, los campos se rellenarán automáticamente. Haga clic en **Update**(Actualizar).
 
@@ -172,19 +172,19 @@ Para permitir que los usuarios de Azure AD inicien sesión en Envi MMIS, deben a
 
     ![Captura de pantalla que muestra como agregar un empleado.](./media/envimmis-tutorial/add-user.png)
 
-    a. En el cuadro de texto **Nombre de usuario**, escriba el nombre del usuario de la cuenta de Britta Simon, como **brittasimon\@contoso.com**.
+    1. En el cuadro de texto **Nombre de usuario**, escriba el nombre del usuario de la cuenta de Britta Simon, como **brittasimon\@contoso.com**.
     
-    b. En el cuadro de texto **Nombre**, escriba el nombre del usuario de BrittaSimon, como **Britta**.
+    1. En el cuadro de texto **Nombre**, escriba el nombre del usuario de BrittaSimon, como **Britta**.
 
-    c. En el cuadro de texto **Apellido**, escriba el nombre del usuario de Britta Simon, como **Simon**.
+    1. En el cuadro de texto **Apellido**, escriba el nombre del usuario de Britta Simon, como **Simon**.
 
-    d. Escriba el tratamiento del usuario en el cuadro de texto **Título**.
-    
-    e. En el cuadro de texto **Dirección de correo electrónico**, escriba la dirección de correo electrónico de la cuenta de Britta Simon, como **brittasimon\@contoso.com**.
+    1. Escriba el tratamiento del usuario en el cuadro de texto **Título**.
 
-    f. En el cuadro de texto **SSO User Name** (Nombre de usuario de SSO), escriba el nombre del usuario de la cuenta de Britta Simon, como **brittasimon\@contoso.com**.
+    1. En el cuadro de texto **Dirección de correo electrónico**, escriba la dirección de correo electrónico de la cuenta de Britta Simon, como **brittasimon\@contoso.com**.
 
-    g. Haga clic en **Save**(Guardar).
+    1. En el cuadro de texto **SSO User Name** (Nombre de usuario de SSO), escriba el nombre del usuario de la cuenta de Britta Simon, como **brittasimon\@contoso.com**.
+
+    1. Haga clic en **Save**(Guardar).
 
 ## <a name="test-sso"></a>Prueba de SSO
 

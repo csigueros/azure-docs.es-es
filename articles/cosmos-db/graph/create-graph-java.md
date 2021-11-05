@@ -9,12 +9,12 @@ ms.date: 03/26/2019
 author: manishmsfte
 ms.author: mansha
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 52060633158c66e0cbf981b46b34347bdcece649
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 79b8c95a43d4e9d083c8021c1b0ec4d606cd80f4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121785967"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131041078"
 ---
 # <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-gremlin-api"></a>Inicio rápido: Creación de una base de datos de grafos con el SDK de Java y una cuenta de Azure Cosmos DB para Gremlin API
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
@@ -30,11 +30,12 @@ ms.locfileid: "121785967"
 
 En este inicio rápido, se crea y administra una cuenta de Azure Cosmos DB para Gremlin (Graph) API desde Azure Portal, y se agregan datos mediante una aplicación de Java clonada desde GitHub. Azure Cosmos DB es un servicio de base de datos multimodelo que permite crear y consultar rápidamente bases de datos de documentos, tablas, claves-valores y grafos con funcionalidades de distribución global y escala horizontal.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 - Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
 - [Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Apunte su variable de entorno `JAVA_HOME` a la carpeta donde está instalado el JDK.
 - Un [archivo binario de Maven](https://maven.apache.org/download.cgi). 
 - [Git](https://www.git-scm.com/downloads). 
+- [Gremlin-driver 3.4.0](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver/3.4.0), esta dependencia se menciona en el archivo pom.xml del ejemplo de inicio rápido.
 
 ## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos
 

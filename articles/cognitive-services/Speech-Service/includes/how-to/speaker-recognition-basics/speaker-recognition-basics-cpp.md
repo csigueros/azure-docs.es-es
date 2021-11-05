@@ -4,13 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/28/2020
 ms.author: v-jawe
-ms.custom: references_regions
-ms.openlocfilehash: 655c5d80f1fb4e047a3cd9cc751a853815a70a68
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.custom: references_regions, ignite-fall-2021
+ms.openlocfilehash: 68e088b088c461b29311a1289e1867c4df9e5b1a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114671166"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069196"
 ---
 En este inicio rápido, aprenderá los patrones de diseño básicos de Speaker Recognition mediante el SDK de Voz, que incluyen:
 
@@ -18,7 +18,7 @@ En este inicio rápido, aprenderá los patrones de diseño básicos de Speaker R
 * Identificación del hablante para identificar una muestra de voz entre un grupo de voces.
 * Eliminación de perfiles de voz.
 
-Para obtener una visión general de los conceptos de reconocimiento de voz, consulte el artículo de [información general](../../../speaker-recognition-overview.md).
+Para obtener una visión general de los conceptos de Speaker Recognition, consulte el artículo de [información general](../../../speaker-recognition-overview.md). Consulte el nodo de referencia situado en el panel de navegación izquierdo para ver una lista de las plataformas admitidas.
 
 ## <a name="skip-to-samples-on-github"></a>Pasar a los ejemplos en GitHub
 
@@ -29,7 +29,7 @@ Si quiere pasar directamente al código de ejemplo, consulte los [ejemplos del i
 En este artículo se da por sentado que tiene una cuenta de Azure y una suscripción al servicio de voz. Si no dispone de una cuenta y una suscripción, [pruebe el servicio de voz de forma gratuita](../../../overview.md#try-the-speech-service-for-free).
 
 > [!IMPORTANT]
-> Speaker Recognition *solo* se admite actualmente en los recursos de Voz de Azure creados en la región de `westus`.
+> Microsoft limita el acceso a Speaker Recognition. Puede solicitar usarlo mediante la [revisión de acceso limitado para Speaker Recognition de Azure Cognitive Services](https://aka.ms/azure-speaker-recognition). Después de la aprobación, podrá acceder a las API de Speaker Recognition. 
 
 ## <a name="install-the-speech-sdk"></a>Instalación de Speech SDK
 
@@ -91,10 +91,7 @@ Luego, [SpeechRecognizer::RecognizeOnceAsync](/cpp/cognitive-services/speech/spe
 
 ## <a name="text-independent-verification"></a>Comprobación independiente del texto
 
-A diferencia de la comprobación **dependiente del texto**, la comprobación **independiente del texto**:
-
-* No es preciso que se diga una frase de contraseña determinada, se puede decir cualquier cosa.
-* No se necesitan tres muestras de audio, pero *sí* 20 segundos de audio en total.
+A diferencia de la comprobación **dependiente del texto**, la comprobación *independiente del texto* no requiere tres muestras de audio, pero **sí** requiere 20 segundos de audio total.
 
 ### <a name="textindependentverification-function"></a>Función TextIndependentVerification
 

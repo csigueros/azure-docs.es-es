@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/11/2020
 ms.author: thwimmer
-ms.openlocfilehash: bb87222737e4c85eebb2869a812f44d9e703c8d4
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 60647cbceed7b7917daa18e8b8c7ed6531ebe0c9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322439"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059132"
 ---
 # <a name="tutorial-configure-contentful-for-automatic-user-provisioning"></a>Tutorial: Configuración de Contentful para el aprovisionamiento automático de usuarios
 
@@ -34,7 +34,7 @@ En este artículo, se describen los pasos que debe realizar en Contentful y Azur
 > * Aprovisionamiento de grupos y pertenencias a grupos en Contentful
 > * [Inicio de sesión único](contentful-tutorial.md) en Contentful (recomendado)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
@@ -62,7 +62,7 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 
 5. Seleccione **Generate personal access token** (Generar token de acceso personal).
 
-    ![url](media/contentful-provisioning-tutorial/generate.png)
+    ![Captura de pantalla que muestra la dirección URL de SCIM para generar un token de acceso personal.](media/contentful-provisioning-tutorial/generate.png)
 
 6. En la ventana modal, escriba un nombre para el token de acceso personal y, a continuación, seleccione **Generar**.
 

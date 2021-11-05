@@ -1,5 +1,5 @@
 ---
-title: Exención de una recomendación de Azure Security Center de un recurso, una suscripción, un grupo de administración y una puntuación de seguridad
+title: Exención de una recomendación de Microsoft Defender for Cloud de un recurso, suscripción, grupo de administración y puntuación segura
 description: Obtenga información sobre cómo crear reglas para excluir las recomendaciones de seguridad de las suscripciones o los grupos de administración y evitar que afecten a la puntuación de seguridad.
 author: memildin
 ms.author: memildin
@@ -7,20 +7,23 @@ ms.date: 05/12/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: f69b7174ec37a38fd972f53daaaf09776a279cea
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 2adced83b238e471027bb7c1bf86f1fb13c64239
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745095"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075852"
 ---
 # <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>Exención de recursos y recomendaciones de la puntuación de seguridad 
 
-Una prioridad básica de cada equipo de seguridad es asegurarse de que los analistas puedan centrarse en las tareas y los incidentes que importan en la organización. Security Center presenta muchas características para personalizar la experiencia y garantizar que la puntuación de seguridad refleje las prioridades de seguridad de la organización. La opción **Exención** es una característica de este tipo.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Cuando se investigan recomendaciones de seguridad en Azure Security Center, uno de los primeros datos que se revisan es la lista de recursos afectados.
+Una prioridad básica de cada equipo de seguridad es asegurarse de que los analistas puedan centrarse en las tareas y los incidentes que importan en la organización. Defender for Cloud presenta muchas características para personalizar la experiencia y garantizar que la puntuación de seguridad refleje las prioridades de seguridad de la organización. La opción **Exención** es una característica de este tipo.
 
-En ocasiones, aparecerá un recurso que no debe estar incluido. O se mostrará una recomendación en un ámbito en el que cree que no pertenece. Es posible que el recurso lo haya corregido un proceso del que Security Center no ha realizado un seguimiento. La recomendación podría no ser adecuada para una suscripción específica. O quizás la organización ha decidido simplemente aceptar los riesgos relacionados con la recomendación o el recurso específico.
+Cuando se investigan recomendaciones de seguridad en Microsoft Defender for Cloud, uno de los primeros datos que se revisan es la lista de recursos afectados.
+
+En ocasiones, aparecerá un recurso que no debe estar incluido. O se mostrará una recomendación en un ámbito en el que cree que no pertenece. Es posible que el recurso lo haya corregido un proceso del que Defender for Cloud no ha realizado un seguimiento. La recomendación podría no ser adecuada para una suscripción concreta. O quizás la organización ha decidido simplemente aceptar los riesgos relacionados con la recomendación o el recurso específico.
 
 En tales casos, puede crear una exención para una recomendación para:
 
@@ -33,21 +36,21 @@ En tales casos, puede crear una exención para una recomendación para:
 | Aspecto                          | Detalles                                                                                                                                                                                                                                                                                                                            |
 |---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Estado de la versión:                  | Versión preliminar<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]                                                                                                                                                                                                                                             |
-| Precios:                        | Se trata de una funcionalidad prémium de Azure Policy que se ofrece a los clientes de Azure Defender sin costo adicional. En el caso de otros usuarios, pueden aplicarse cargos en el futuro.                                                                                                                                                                 |
+| Precios:                        | Se trata de una funcionalidad premium de Azure Policy que se ofrece sin costo adicional para los clientes con las características de seguridad mejorada de Microsoft Defender for Cloud habilitadas. En el caso de otros usuarios, pueden aplicarse cargos en el futuro.                                                                                                                                                                 |
 | Roles y permisos necesarios: | **Propietario** o **Colaborador de la directiva de recursos** para crear una exención<br>Para crear una regla, necesita permisos para editar directivas en Azure Policy.<br>Obtenga más información en [Permisos de Azure RBAC en Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).                                            |
-| Limitaciones:                    | Solo se pueden crear exenciones para las recomendaciones incluidas en la iniciativa predeterminada de Azure Security Center, [Azure Security Benchmark](/security/benchmark/azure/introduction) o cualquiera de las iniciativas normativas estándar proporcionadas. No se pueden crear exenciones para las recomendaciones que se generan a partir de iniciativas personalizadas. Obtenga más información sobre las relaciones entre [directivas, iniciativas y recomendaciones](security-policy-concept.md). |
+| Limitaciones:                    | Solo se pueden crear exenciones para las recomendaciones incluidas en la iniciativa predeterminada de Microsoft Defender for Cloud, [Azure Security Benchmark](/security/benchmark/azure/introduction) o cualquiera de las iniciativas normativas estándar proporcionadas. No se pueden crear exenciones para las recomendaciones que se generan a partir de iniciativas personalizadas. Obtenga más información sobre las relaciones entre [directivas, iniciativas y recomendaciones](security-policy-concept.md). |
 | Nubes:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/no-icon.png"::: Nacionales o soberanas (Azure Government y Azure China 21Vianet)                                                                                                                                                                                         |
 |                                 |                                                                                                                                                                                                                                                                                                                                    |
 
 ## <a name="define-an-exemption"></a>Definición de una exención
 
-Para ajustar las recomendaciones de seguridad que Security Center realiza para las suscripciones, el grupo de administración o los recursos, puede crear una regla de exención para:
+Para ajustar las recomendaciones de seguridad que Defender for Cloud realiza para las suscripciones, el grupo de administración o los recursos, puede crear una regla de exención para:
 
 - Marcar una **recomendación** específica o como "Mitigada" o "Riesgo aceptado". Puede crear exenciones de recomendación para una suscripción, varias suscripciones o un grupo de administración completo.
 - Marcar **uno o más recursos** como "Mitigado" o "Riesgo aceptado" para una recomendación concreta.
 
 > [!NOTE]
-> Solo se pueden crear exenciones para las recomendaciones incluidas en la iniciativa predeterminada de Azure Security Center, Azure Security Benchmark o cualquiera de las iniciativas normativas estándar proporcionadas. No se pueden crear exenciones para las recomendaciones que se generan a partir de iniciativas personalizadas asignadas a las suscripciones. Obtenga más información sobre las relaciones entre [directivas, iniciativas y recomendaciones](security-policy-concept.md).
+> Solo se pueden crear exenciones para las recomendaciones incluidas en la iniciativa predeterminada de Microsoft Defender for Cloud, Azure Security Benchmark o cualquiera de las iniciativas normativas estándar proporcionadas. No se pueden crear exenciones para las recomendaciones que se generan a partir de iniciativas personalizadas asignadas a las suscripciones. Obtenga más información sobre las relaciones entre [directivas, iniciativas y recomendaciones](security-policy-concept.md).
 
 > [!TIP]
 > También puede crear exenciones mediante la API. Para obtener un ejemplo de JSON y una explicación de las estructuras pertinentes, consulte [Estructura de exención de Azure Policy](../governance/policy/concepts/exemption-structure.md).
@@ -68,7 +71,7 @@ Para crear una regla de exención:
     1. Escriba un nombre para esta regla de exención.
     1. Opcionalmente, puede establecer una fecha de expiración.
     1. Seleccione la categoría de la exención:
-        - **Se resuelve a través de terceros (mitigada)** : si está usando un servicio de terceros que Security Center no ha identificado. 
+        - **Se resuelve a través de terceros (mitigada)** : si está usando un servicio de terceros que Defender for Cloud no ha identificado. 
 
             > [!NOTE]
             > Cuando se excluye de una recomendación como mitigada, no se proporcionan puntos hacia la puntuación de seguridad. No obstante, dado que los puntos no se *quitan* para los recursos incorrectos, el resultado es que aumentará la puntuación.
@@ -82,9 +85,9 @@ Para crear una regla de exención:
     Cuando la exención surte efecto (puede tardar hasta 30 minutos):
     - La recomendación o los recursos no afectarán a la puntuación de seguridad.
     - Si ha excluido recursos específicos, se mostrarán en la pestaña **No aplicable** de la página de detalles de la recomendación.
-    - Si ha excluido una recomendación, se ocultará de manera predeterminada en la página de recomendaciones de Security Center. Esto se debe a que las opciones predeterminadas del filtro de **estado de recomendación** de la página indican que se excluyan las recomendaciones **No aplicables**. Lo mismo sucede si se excluyen todas las recomendaciones en un control de seguridad.
+    - Si ha excluido una recomendación, se ocultará de manera predeterminada en la página de recomendaciones de Defender for Cloud. Esto se debe a que las opciones predeterminadas del filtro de **estado de recomendación** de la página indican que se excluyan las recomendaciones **No aplicables**. Lo mismo sucede si se excluyen todas las recomendaciones en un control de seguridad.
 
-        :::image type="content" source="media/exempt-resource/recommendations-filters-hiding-not-applicable.png" alt-text="Filtros predeterminados en la página de recomendaciones de Azure Security Center Ocultar las recomendaciones y los controles de seguridad no aplicables":::
+        :::image type="content" source="media/exempt-resource/recommendations-filters-hiding-not-applicable.png" alt-text="Filtros predeterminados en la página de recomendaciones de Microsoft Defender for Cloud Ocultar las recomendaciones y los controles de seguridad no aplicables":::
 
     - La franja de información en la parte superior de la página de detalles de la recomendación actualiza el número de recursos exentos:
         
@@ -114,17 +117,17 @@ Como se explicó anteriormente en esta página, las reglas de exención son una 
 
 Para realizar un seguimiento de cómo los usuarios están ejerciendo esta funcionalidad, hemos creado una plantilla de Azure Resource Manager (ARM) que implementa un cuaderno de estrategias de aplicaciones lógicas y todas las conexiones de API necesarias para recibir una notificación cuando se ha creado una exención.
 
-- Para más información sobre los cuadernos de estrategias, vea la entrada de blog de la comunidad tecnológica [Seguimiento de las exenciones de recursos en Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-keep-track-of-resource-exemptions-in-azure-security/ba-p/1770580).
-- Encontrará la plantilla de ARM en el [repositorio de GitHub de Azure Security Center](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation/Notify-ResourceExemption).
+- Para más información sobre los cuadernos de estrategias, vea la entrada de blog de la comunidad tecnológica [Seguimiento de las exenciones de recursos en Microsoft Defender for Cloud](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-keep-track-of-resource-exemptions-in-azure-security/ba-p/1770580)
+- Encontrará la plantilla de ARM en el [repositorio de GitHub Microsoft Defender for Cloud](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation/Notify-ResourceExemption)
 - Para implementar todos los componentes necesarios, [use este proceso automatizado](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Security-Center%2Fmaster%2FWorkflow%2520automation%2FNotify-ResourceExemption%2Fazuredeploy.json).
 
 ## <a name="use-the-inventory-to-find-resources-that-have-exemptions-applied"></a>Uso del inventario para buscar recursos a los que se han aplicado exenciones
 
-La página de inventario de recursos de Azure Security Center proporciona una sola página para ver la posición de seguridad de los recursos que se han conectado a Security Center. Más información en [Exploración y administración de los recursos con Asset Inventory](asset-inventory.md).
+La página de inventario de recursos de Microsoft Defender for Cloud proporciona una sola página para ver la posición de seguridad de los recursos que se han conectado a Defender for Cloud. Más información en [Exploración y administración de los recursos con Asset Inventory](asset-inventory.md).
 
 La página de inventario incluye muchos filtros que le permiten restringir la lista de recursos a los que más le interesen en un escenario determinado. Uno de estos filtros es **Contains exemptions** (Contiene exenciones). Use este filtro para buscar todos los recursos que se han eximido de una o varias recomendaciones.
 
-:::image type="content" source="media/exempt-resource/inventory-filter-exemptions.png" alt-text="Página de inventario de recursos de Security Center y el filtro para buscar recursos con exenciones":::
+:::image type="content" source="media/exempt-resource/inventory-filter-exemptions.png" alt-text="Página de inventario de recursos de Defender for Cloud y el filtro para buscar recursos con exenciones":::
 
 
 ## <a name="find-recommendations-with-exemptions-using-azure-resource-graph"></a>Uso de Azure Resource Graph para encontrar recomendaciones con exenciones
@@ -135,7 +138,7 @@ Para ver todas las recomendaciones que tienen reglas de exención:
 
 1. Abra **Azure Resource Graph Explorer**.
 
-    :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Inicio de la página de recomendaciones de Azure Resource Graph Explorer**" :::
+    :::image type="content" source="./media/multi-factor-authentication-enforcement/opening-resource-graph-explorer.png" alt-text="Inicio de la página de recomendaciones de Azure Resource Graph Explorer**" :::
 
 1. Escriba la siguiente consulta y seleccione **Ejecutar consulta**.
 
@@ -182,15 +185,15 @@ Más información en las siguientes páginas:
 
 A veces, se muestra una recomendación de seguridad en más de una iniciativa de directiva. Si tiene varias instancias de la misma recomendación asignadas a la misma suscripción y crea una exención para la recomendación, afectará a todas las iniciativas para las que tenga permiso de edición. 
 
-Por ejemplo, la recomendación **** forma parte de la iniciativa de directivas predeterminada asignada a todas las suscripciones de Azure mediante Azure Security Center. También en XXXXX.
+Por ejemplo, la recomendación **** forma parte de la iniciativa de directivas predeterminada asignada a todas las suscripciones de Azure mediante Microsoft Defender for Cloud. También se encuentra en XXXXX.
 
 Si intenta crear una exención para esta recomendación, verá uno de los dos mensajes siguientes:
 
-- Si tiene los permisos necesarios para editar ambas iniciativas, verá el siguiente mensaje:
+- Si **tiene** los permisos necesarios para editar ambas iniciativas, verá el siguiente mensaje:
 
     *Esta recomendación se incluye en varias iniciativas de directiva: [nombres de las iniciativas separados por comas]. Se crearán exenciones en todas ellas.*  
 
-- Si no tiene permisos suficientes en ambas iniciativas, verá este mensaje en su lugar:
+- Si **no tiene** permisos suficientes en ambas iniciativas, verá este mensaje en su lugar:
 
     *Tiene permisos limitados para aplicar la exención en todas las iniciativas de directiva. Las exenciones se crearán solo en las iniciativas con permisos suficientes.*
 
@@ -217,4 +220,4 @@ Estas recomendaciones no admiten la exención:
 
 En este artículo, aprendió a eximir un recurso de una recomendación para que no afecte a la puntuación segura. Para más información sobre la puntuación segura, consulte:
 
-- [Puntuación de seguridad de Azure Security Center](secure-score-security-controls.md)
+- [Puntuación segura en Microsoft Defender for Cloud](secure-score-security-controls.md)

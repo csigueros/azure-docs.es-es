@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 07/22/2021
-ms.openlocfilehash: 1a4fbbb84eb296acabd383461e01e90cbf570d9d
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 1bbc831b32d2a29cf590f36ea0f2c436f739ee6b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129657385"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131076706"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Ejecución de cuadernos de Jupyter Notebook en el área de trabajo
 
@@ -150,6 +150,8 @@ Para ejecutar un cuaderno o un script de Python, primero tiene que conectarse a 
 * Si tiene una instancia de proceso detenida, seleccione **Start compute** (iniciar proceso) a la derecha de la lista desplegable Proceso. En función del tamaño de la pantalla, es posible que se encuentre en el menú **...**
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/start-compute.png" alt-text="Inicio de la instancia de proceso":::
+    
+Una vez conectado a una instancia de proceso, use la barra de herramientas para ejecutar todas las celdas del cuaderno, o Control + Entrar para ejecutar una sola celda seleccionada. 
 
 Solo puede ver y usar las instancias de proceso que usted cree.  Los **Archivos de usuario** se almacenan de forma independiente de la máquina virtual y se comparten entre todas las instancias de proceso en el área de trabajo.
 

@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 10/07/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: d52b951ef959053d441e61515c42b6644368fa8a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 14b6d365b38181ffd6fb3a9b3d8cf72abd85cfa4
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131077520"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131860733"
 ---
 [![Examinar el código](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/device/PnpDeviceSamples)
 
@@ -42,7 +42,7 @@ Instale los siguientes requisitos previos en la máquina de desarrollo, excepto 
 
 [!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
 
-## <a name="run-a-device"></a>Ejecución de un dispositivo
+## <a name="run-the-device-sample"></a>Ejecución del ejemplo de dispositivo
 
 En esta sección, usará el SDK de C# para enviar mensajes desde un dispositivo al centro de IoT. Ejecutará un ejemplo que implementa un controlador de temperatura con dos sensores de termostato.
 

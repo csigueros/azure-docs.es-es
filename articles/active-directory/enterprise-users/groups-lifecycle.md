@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/02/2021
+ms.date: 10/22/2021
 ms.author: curtand
-ms.reviewer: krbain
+ms.reviewer: jodah
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 834893a35c8284012f61d228bf44385cb9eb5549
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 7bde4362580ebfd04f67b5311c79cb8c64e85ddc
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129986461"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131052662"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Configuración de la directiva de expiración de grupos de Microsoft 365
 
@@ -42,7 +42,9 @@ Para más información sobre cómo descargar e instalar los cmdlets de PowerShel
 
 ## <a name="activity-based-automatic-renewal"></a>Renovación automática basada en la actividad
 
-Con la inteligencia de Azure AD, ahora los grupos se renuevan automáticamente en función de si se han usado recientemente. Esta característica elimina la necesidad de intervención manual por parte de los propietarios del grupo, ya que se basa en la actividad del usuario en los grupos de los servicios de Microsoft 365, como Outlook, SharePoint o Teams. Por ejemplo, si el propietario o el miembro de un grupo hace cosas como cargar un documento en SharePoint, visitar un canal de Teams o enviar un correo electrónico al grupo en Outlook, el grupo se renueva automáticamente cada 35 días aproximadamente antes de que este expire y el propietario no obtiene ninguna notificación de renovación.
+Con la inteligencia de Azure AD, ahora los grupos se renuevan automáticamente en función de si se han usado recientemente. Esta característica elimina la necesidad de intervención manual por parte de los propietarios del grupo, ya que se basa en la actividad del usuario en los grupos de los servicios de Microsoft 365, como Outlook, SharePoint o Teams. Por ejemplo, si el propietario o el miembro de un grupo hace cosas como cargar un documento en SharePoint, visitar un canal de Teams o enviar un correo electrónico al grupo en Outlook, el grupo se renueva automáticamente cada 35 días aproximadamente antes de que este expire y el propietario no obtiene ninguna notificación de renovación. El grupo "Toda la empresa" convertido en modo nativo de Yammer en un grupo de Microsoft 365 actualmente no admite este tipo de renovación automática y las actividades de Yammer para ese grupo no se cuentan como actividades.
+
+Por ejemplo, considere una directiva de caducidad establecida para que un grupo caduque después de 30 días de inactividad. Sin embargo, para evitar enviar un correo electrónico de caducidad el día en que se habilita la caducidad del grupo (porque aún no hay ninguna actividad de registro), Azure AD espera primero cinco días. Si hay actividad en esos cinco días, la directiva de caducidad funciona según lo previsto. Si no hay ninguna actividad en un plazo de cinco días, se envía un correo electrónico de caducidad o renovación. Por supuesto, si el grupo estuvo inactivo durante cinco días, se envió un correo electrónico y, a continuación, el grupo estaba activo, lo volveremos a iniciar e iniciaremos de nuevo el período de caducidad.
 
 ### <a name="activities-that-automatically-renew-group-expiration"></a>Actividades que renuevan automáticamente la expiración del grupo
 
@@ -100,6 +102,9 @@ Si los grupos no se renuevan automáticamente, se envían notificaciones por cor
 ![Notificaciones por correo electrónico de expiración](./media/groups-lifecycle/expiration-notification.png)
 
 En el correo electrónico de notificación **Renovar grupo**, los propietarios de los grupos pueden acceder directamente a la página de detalles del grupo en el [Panel de acceso](https://account.activedirectory.windowsazure.com/r#/applications). Ahí, los usuarios pueden obtener más información sobre el grupo, como su descripción, cuando se renovó por última vez, cuándo expira y la posibilidad de renovarlo. La página de detalles del grupo ahora incluye también vínculos a los recursos de grupos de Microsoft 365, así el propietario del grupo puede ver cómodamente el contenido y la actividad de su grupo.
+
+>[!Important]
+> Si hay algún problema con los correos electrónicos de notificación y no se envían o se retrasan, tenga por seguro que Microsoft nunca eliminará un grupo antes de enviar el último correo electrónico.
 
 Cuando un grupo expira, el grupo se elimina un día después de la fecha de expiración. Se envía una notificación por correo electrónico como esta a los propietarios del grupo de Microsoft 365 donde se informa sobre la expiración y la posterior eliminación del grupo de Microsoft 365.
 

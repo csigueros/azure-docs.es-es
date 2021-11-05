@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 04/28/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: e5d83a17edd2cff6c58ee7ac646c2bdf2fe30f5e
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: ce451558d91b164cd6b291edc6eeff05c7b8b749
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131861105"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131032811"
 ---
 [![Examinar el código](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/pnp)
 
@@ -32,7 +32,7 @@ Instale los siguientes requisitos previos en la máquina de desarrollo:
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
-## <a name="run-the-device-sample"></a>Ejecución del ejemplo de dispositivo
+## <a name="run-a-device"></a>Ejecución de un dispositivo
 En esta sección, configurará el entorno local, instalará el SDK de dispositivo de Azure IoT para Python y ejecutará un ejemplo que crea un controlador de temperatura.
 
 ### <a name="configure-your-environment"></a>Configurar su entorno

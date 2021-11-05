@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 6f59bd00e110fd281d44db68030e0ad0d7c07ddf
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: fd5bab28d73781339b959e5d8e51eb6d8c455a39
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124761246"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060371"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-novatus"></a>Tutorial: integración de Azure Active Directory con Novatus
 
@@ -182,7 +182,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección se creará un usuario llamado Britta Simon en Novatus. Novatus admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario deja de existir en Novatus, se crea uno nuevo después de la autenticación.
 
 >[!NOTE]
->Si necesita crear manualmente un usuario, es preciso que se ponga contacto con el [equipo de soporte técnico de Novatus](mailto:jvinci@novatusinc.com). 
+>Si necesita crear manualmente un usuario, debe ponerse en contacto con el [equipo de soporte técnico de Novatus](mailto:jvinci@novatusinc.com). 
 > 
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 

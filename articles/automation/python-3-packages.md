@@ -3,19 +3,23 @@ title: Administración de paquetes de Python 3 en Azure Automation
 description: En este artículo se describe cómo administrar paquetes de Python 3 (versión preliminar) en Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/25/2021
+ms.date: 11/01/2021
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: d3ec338b6d6edac2c56c8b42f877a1095aace2a0
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: a33f4f9b6403d1f4aff88cadb57ae0f78f02038b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129349606"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131443764"
 ---
 # <a name="manage-python-3-packages-preview-in-azure-automation"></a>Administración de paquetes de Python 3 (versión preliminar) en Azure Automation
 
-Azure Automation permite ejecutar runbooks de Python 3 (versión preliminar) en el entorno de espacio aislado de Azure y en Hybrid Runbook Worker de Linux. Para simplificar los runbooks, puede usar los paquetes de Python para importar los módulos que necesite. Azure Package 4.0.0 está instalado de forma predeterminada en el entorno de Automation de Python 3. La versión predeterminada se puede invalidar si se importan los paquetes de Python en la cuenta de Automation. Se da preferencia a la versión importada en la cuenta de Automation. Para importar un solo paquete, consulte [Importación de un paquete](#import-a-package). Para importar un paquete con varios paquetes, consulte [Importación de un paquete con dependencias](#import-a-package-with-dependencies). En este artículo se describe cómo administrar y usar paquetes de Python 3 (versión preliminar) en Azure Automation.
+En este artículo se describe cómo importar, administrar y usar paquetes de Python 3 (versión preliminar) en la instancia de Azure Automation que se ejecuta en el entorno de espacio aislado de Azure y Hybrid Runbook Workers. Para simplificar los runbooks, puede usar paquetes de Python para importar los módulos que necesite. 
+
+Para admitir runbooks de Python 3 en el servicio de Automation, el paquete de Azure 4.0.0 se instala de forma predeterminada en la cuenta de Automation. La versión predeterminada se puede invalidar si se importan los paquetes de Python en la cuenta de Automation. Asimismo, se da preferencia a la versión importada en la cuenta de Automation. Para importar un solo paquete, consulte [Importación de un paquete](#import-a-package). Para importar un paquete con varios paquetes, consulte [Importación de un paquete con dependencias](#import-a-package-with-dependencies). 
+
+Para obtener información sobre cómo administrar paquetes de Python 2, consulte [Administración de paquetes de Python 2](./python-packages.md).
 
 ## <a name="packages-as-source-files"></a>Paquetes como archivos de origen
 
@@ -35,17 +39,19 @@ Algunos paquetes de Python disponibles en PyPI no proporcionan un archivo wheel.
 
 ## <a name="import-a-package"></a>Importación de un paquete
 
-Seleccione **Paquetes de Python** en **Recursos compartidos**, en la cuenta de Automation. A continuación, seleccione **+ Agregar un paquete de Python**.
+1. Seleccione **Paquetes de Python** en **Recursos compartidos**, en la cuenta de Automation. A continuación, seleccione **+ Agregar un paquete de Python**.
 
-:::image type="content" source="media/python-3-packages/add-python-3-package.png" alt-text="Captura de pantalla de la página Paquetes de Python 3 que muestra los paquetes de Python 3 en el menú izquierdo y la opción para agregar un paquete de Python 2 resaltada.":::
+   :::image type="content" source="media/python-3-packages/add-python-3-package.png" alt-text="Captura de pantalla de la página de paquetes de Python que muestra los paquetes de Python en el menú izquierdo y la opción para agregar un paquete de Python resaltada.":::
 
-En la página **Add Python Package** (Agregar un paquete de Python), seleccione **Python 3** como **versión** y elija un paquete local para cargar. El paquete puede ser un archivo **.whl** o **.tar.gz**. Con el paquete seleccionado, haga clic en **Aceptar** para cargarlo.
+1. En la página **Agregar un paquete de Python**, seleccione un paquete local para cargar. El paquete puede ser un archivo **.whl** o **.tar.gz**. 
+1. Escriba un nombre y seleccione la **versión del entorno de ejecución** como Python 3.8.x (versión preliminar).
+1. Seleccione **Importar**.
 
-:::image type="content" source="media/python-3-packages/upload-package.png" alt-text="Captura de pantalla que muestra la página Agregar un paquete de Python 3, con un archivo tar.gz cargado y seleccionado.":::
+   :::image type="content" source="media/python-3-packages/upload-package.png" alt-text="Captura de pantalla que muestra la página Agregar un paquete de Python 3.8.x, con un archivo tar.gz cargado y seleccionado.":::
 
-Una vez que se ha importado un paquete, se muestra en la página de paquetes de Python de la cuenta de Automation, en la pestaña **Paquetes de Python 3 (versión preliminar)** . Si debe quitar un paquete, seleccione el paquete y luego **Eliminar**.
+Una vez que se haya importado un paquete, este se muestra en la página de Paquetes de Python en su cuenta de Automation. Si necesita quitar un paquete, selecciónelo y haga clic en **Eliminar**.
 
-:::image type="content" source="media/python-3-packages/python-3-packages-list.png" alt-text="Captura de pantalla que muestra la página Paquetes de Python 3 después de importar un paquete.":::
+:::image type="content" source="media/python-3-packages/python-3-packages-list.png" alt-text="Captura de pantalla que muestra la página Paquetes de Python 3.8.x después de importar un paquete.":::
 
 ### <a name="import-a-package-with-dependencies"></a>Importación de un paquete con dependencias
 

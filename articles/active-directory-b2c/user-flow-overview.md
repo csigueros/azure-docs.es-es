@@ -12,12 +12,12 @@ ms.date: 04/08/2021
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 7e2b1e02f63257a74d66a70531cfbf7ef56a1c65
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 73d1649881428047cf0c593335d66d9d3145ec2c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130043916"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131021873"
 ---
 # <a name="user-flows-and-custom-policies-overview"></a>Información general sobre los flujos de usuario y las directivas personalizadas
 
@@ -82,9 +82,9 @@ En la tabla siguiente se proporciona una comparación detallada de los escenario
 |-|-------------------|-----------------|
 | Usuarios de destino | Todos los desarrolladores de aplicaciones con o sin conocimientos sobre la identidad. | Profesionales de la identidad, integradores de sistemas, consultores y equipos internos de identidad. Se sienten cómodos con los flujos de OpenID Connect y comprenden a los proveedores de identidades y la autenticación basada en notificaciones. |
 | Método de configuración | Azure Portal con una interfaz de usuario (UI) fácil de usar. | Edición directa de archivos XML y posterior carga en Azure Portal. |
-| Personalización de la interfaz de usuario | [Personalización completa de la interfaz de usuario](customize-ui-with-html.md), incluido HTML, CSS y [JavaScript](javascript-and-page-layout.md).<br><br>[Compatibilidad multilingüe](language-customization.md) con cadenas personalizadas. | Iguales |
-| Personalización de atributos | Atributos estándar y personalizados. | Iguales |
-| Administración de tokens y sesiones | [Personalización de tokens](configure-tokens.md) y del [comportamiento de sesiones](session-behavior.md). | Iguales |
+| Personalización de la interfaz de usuario | [Personalización completa de la interfaz de usuario](customize-ui-with-html.md), incluido HTML, CSS y [JavaScript](javascript-and-page-layout.md).<br><br>[Compatibilidad multilingüe](language-customization.md) con cadenas personalizadas. | Igual que flujos de usuario |
+| Personalización de atributos | Atributos estándar y personalizados. | Igual que flujos de usuario |
+| Administración de tokens y sesiones | [Personalización de tokens](configure-tokens.md) y del [comportamiento de sesiones](session-behavior.md). | Igual que flujos de usuario |
 | Proveedores de identidades | [Proveedor local](identity-provider-local.md) o [social](add-identity-provider.md) predefinido, como la federación con inquilinos de Azure Active Directory. | OIDC, OAUTH y SAML basados en estándares.  También es posible la autenticación mediante la integración con API REST. |
 | Tareas de identidad | [Registro o inicio de sesión](add-sign-up-and-sign-in-policy.md) con cuentas locales o muchas cuentas de redes sociales.<br><br>[Autoservicio de restablecimiento de contraseña](add-password-reset-policy.md).<br><br>[Edición del perfil](add-profile-editing-policy.md).<br><br>Autenticación multifactor.<br><br>Flujos de token de acceso. | Completar las mismas tareas que con los flujos de usuario usando proveedores de identidades personalizados o usar ámbitos personalizados.<br><br>Aprovisionar una cuenta de usuario en otro sistema en el momento del registro.<br><br>Enviar un mensaje de bienvenida con su propio proveedor de servicios de correo electrónico.<br><br>Usar un almacén de usuario externo a Azure AD B2C.<br><br>Validar la información proporcionada por el usuario con un sistema de confianza mediante el uso de una API. |
 

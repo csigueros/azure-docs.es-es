@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/20/2021
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 414884fe0ef72b7628c99dd4b6ca39d4e851f9fe
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 5c63cb4f4e2ce41fa488e49201ba90bfc4b16222
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130035816"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131012840"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-for-user-flows"></a>Configuración del registro e inicio de sesión telefónico para flujos de usuario
 
@@ -75,10 +75,10 @@ Este es un ejemplo en el que se muestra cómo agregar el registro telefónico a 
 
     ![Botón Creación de flujo de usuario](./media/phone-authentication-user-flows/select-version.png)
 
-1. Escriba un **nombre** para el flujo de usuario. Por ejemplo, *signupsignin1*.
+1. Proporcione un **nombre** para el flujo de usuario, como *signupsignin1*.
 1. En la sección **Proveedores de identidades**, en **Cuentas locales**, seleccione **Phone signup**(Registro telefónico).
 
-   ![Opción de registro telefónico del flujo de usuario seleccionada](media/phone-authentication-user-flows/user-flow-phone-signup.png)
+   ![Opción de **registro telefónico** del flujo de usuario seleccionada](media/phone-authentication-user-flows/user-flow-phone-signup.png)
 
 1. En **Proveedores de identidades sociales**, seleccione cualquier otro proveedor de identidades que desee permitir para este flujo de usuario.
 

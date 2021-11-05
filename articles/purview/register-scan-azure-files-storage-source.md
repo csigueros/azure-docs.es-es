@@ -1,22 +1,29 @@
 ---
-title: Registro y examen de Azure Files
-description: En esta guía de procedimientos, se describen los detalles de cómo examinar Azure Files en Azure Purview.
+title: Conexión y administración de Azure Files
+description: En esta guía se describe cómo conectarse a Azure Files en Azure Purview y usar las características de Purview para examinar y administrar el origen de Azure Files.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 06/22/2021
-ms.openlocfilehash: 2db2b5343b8a55e29881bf0908fded0a48b90b78
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 11/02/2021
+ms.custom: template-how-to, ignite-fall-2021
+ms.openlocfilehash: e91e435ca2d8050a0c6d9728c4d010f9e9c844c4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129209915"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131076270"
 ---
-# <a name="register-and-scan-azure-files"></a>Registro y examen de Azure Files
+# <a name="connect-to-and-manage-azure-files-in-azure-purview"></a>Conexión y administración de Azure Files en Azure Purview
+
+En este artículo se describe cómo registrar Azure Files y cómo autenticarse e interactuar con Azure Files en Azure Purview. Para obtener más información sobre Azure Purview, consulte el [artículo de introducción](overview.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
+
+|**Extracción de metadatos**|  **Examen completo**  |**Examen incremental**|**Examen con ámbito**|**Clasificación**|**Directiva de acceso**|**Lineage**|
+|---|---|---|---|---|---|---|
+| [Sí](#register) | [Sí](#scan) | [Sí](#scan) | [Sí](#scan) | [Sí](#scan) | No | No |
 
 Azure Files admite exámenes completos e incrementales para capturar los metadatos y las clasificaciones, en función de reglas de clasificación predeterminadas del sistema y personalizadas.
 
@@ -24,20 +31,27 @@ Para los tipos de archivo como csv, tsv, psv y ssv, el esquema se extrae cuando 
 
 1. Los valores de la primera fila no están vacíos.
 2. Los valores de la primera fila son únicos.
-3. Los valores de la primera fila no son una fecha ni un número.
+3. Los valores de la primera fila no son una fecha ni un número
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-- Antes de registrar los orígenes de datos, cree una cuenta de Azure Purview. Para más información sobre cómo crear una cuenta de Purview, consulte [Inicio rápido: creación de una cuenta de Azure Purview](create-catalog-portal.md).
-- Debe ser administrador de los orígenes de datos para poder configurar y programar exámenes. Consulte [Permisos del catálogo](catalog-permissions.md) para obtener más información.
+* Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="setting-up-authentication-for-a-scan"></a>Configuración de la autenticación para un examen
+* Un [recurso de Purview](create-catalog-portal.md) activo.
+
+* Tendrá que ser administrador de orígenes de datos y lector de datos para poder registrar un origen y administrarlo en Purview Studio. Para obtener más información, consulte la [página Permisos de Azure Purview](catalog-permissions.md).
+
+## <a name="register"></a>Register
+
+En esta sección se describe cómo registrar Azure Files en Azure Purview mediante [Purview Studio](https://web.purview.azure.com/).
+
+### <a name="authentication-for-registration"></a>Autenticación para registro
 
 Actualmente solo hay una forma de configurar la autenticación para los recursos compartidos de archivos de Azure:
 
 - Clave de cuenta
 
-### <a name="account-key"></a>Clave de cuenta
+#### <a name="account-key-to-register"></a>Clave de cuenta que se registrará
 
 Cuando el método de autenticación seleccionado es **Clave de cuenta**, debe obtener la clave de acceso y almacenarla en el almacén de claves:
 
@@ -51,7 +65,7 @@ Cuando el método de autenticación seleccionado es **Clave de cuenta**, debe ob
 1. Si el almacén de claves todavía no está conectado a Purview, deberá [crear una conexión del almacén de claves](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
 1. Por último, [cree una credencial](manage-credentials.md#create-a-new-credential) mediante la clave para configurar el examen.
 
-## <a name="register-an-azure-files-storage-account"></a>Registro de una cuenta de Azure Files
+### <a name="steps-to-register"></a>Pasos para registrarse
 
 Para registrar una nueva cuenta de Azure Files en el catálogo de datos, siga estos pasos:
 
@@ -73,7 +87,11 @@ En la pantalla **Register sources (Azure Files)** (Registrar orígenes [Azure Fi
 
 :::image type="content" source="media/register-scan-azure-files/azure-file-register-source.png" alt-text="Opciones de registro de orígenes" border="true":::
 
-## <a name="creating-and-running-a-scan"></a>Creación y ejecución de un examen
+## <a name="scan"></a>Examinar
+
+Siga los pasos que se indican a continuación para analizar Azure Files para identificar automáticamente los recursos y clasificar los datos. Para obtener más información sobre el examen en general, consulte la [introducción a los exámenes y la ingesta](concept-scans-and-ingestion.md).
+
+### <a name="create-and-run-scan"></a>Creación y ejecución de un examen
 
 Para crear y ejecutar un nuevo examen, siga estos pasos:
 
@@ -83,7 +101,7 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
 
 1. Seleccione **New scan** (Nuevo examen).
 
-1. Seleccione la credencial de clave de cuenta para conectarse al origen de datos. 
+1. Seleccione la credencial de clave de cuenta para conectarse al origen de datos.
 
    :::image type="content" source="media/register-scan-azure-files/set-up-scan-azure-file.png" alt-text="Configurar examen":::
 
@@ -101,10 +119,12 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
 
 1. Revise el examen y seleccione **Save and run** (Guardar y ejecutar).
 
-
 [!INCLUDE [create and manage scans](includes/view-and-manage-scans.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Examen del catálogo de datos de Azure Purview](how-to-browse-catalog.md)
-- [Búsqueda en el catálogo de datos de Azure Purview](how-to-search-catalog.md)
+Ahora que ha registrado el origen, siga las guías a continuación para obtener más información sobre Purview y sus datos.
+
+- [Información sobre datos en Azure Purview](concept-insights.md)
+- [Linaje en Azure Purview](catalog-lineage-user-guide.md)
+- [Búsqueda en Data Catalog](how-to-search-catalog.md)

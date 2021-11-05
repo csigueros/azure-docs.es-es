@@ -1,22 +1,25 @@
 ---
-title: Archivo de novedades de Azure Security Center
-description: Una descripción de las novedades y los cambios en Azure Security Center desde hace seis meses y versiones anteriores.
+title: Archivo de novedades de Defender for Cloud
+description: Una descripción de las novedades y los cambios en Defender for Cloud en los últimos seis meses, e incluso antes.
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
 ms.date: 10/03/2021
 ms.author: memildin
-ms.openlocfilehash: 516fa13a24c9cb5376bc6e8d38eeb1fc077f1d57
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 5bf77a3c5e2803ea6a89c460136f3630630065d1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129713947"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131014600"
 ---
-# <a name="archive-for-whats-new-in-azure-security-center"></a>Archivo de novedades de Azure Security Center
+# <a name="archive-for-whats-new-in-defender-for-cloud"></a>Archivo de novedades de Defender for Cloud
 
-La página principal de notas de la versión de [novedades de Azure Security Center](release-notes.md) contiene actualizaciones de los últimos seis meses, mientras que esta página contiene elementos más antiguos.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+La página principal de notas de la versión de [Novedades de Defender for Cloud](release-notes.md) contiene actualizaciones de los últimos seis meses, mientras que esta página contiene elementos más antiguos.
 
 En este página se proporciona información acerca de lo siguiente:
 
@@ -45,7 +48,7 @@ Las actualizaciones de abril incluyen:
 
 El estado de los recursos de Security Center se ha ampliado y mejorado para proporcionar una vista de instantánea del estado general de un recurso individual. 
 
-Puede revisar información detallada sobre el recurso y todas las recomendaciones que se aplican a ese recurso. Además, si usa [Azure Defender](azure-defender.md), también puede ver alertas de seguridad pendientes para ese recurso específico.
+Puede revisar información detallada sobre el recurso y todas las recomendaciones que se aplican a ese recurso. Además, si usa [los planes de protección avanzados de Microsoft Defender](defender-for-cloud-introduction.md), también puede ver alertas de seguridad pendientes para ese recurso específico.
 
 Para abrir la página de mantenimiento de un recurso, seleccione cualquier recurso en la [página de inventario de recursos](asset-inventory.md).
 
@@ -95,14 +98,14 @@ Puede encontrar más información en [Uso de Azure Defender para Kubernetes con 
 
 ### <a name="microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-released-for-general-availability-ga"></a>La integración de Microsoft Defender para punto de conexión con Azure Defender ahora es compatible con Windows Server 2019 y Windows 10 Virtual Desktop (WVD) lanzado en disponibilidad general
 
-Microsoft Defender para punto de conexión es una solución integral de seguridad de punto de conexión que se entrega en la nube. Proporciona funciones de administración y evaluación de vulnerabilidades basadas en riesgos, así como de detección y respuesta de puntos de conexión (EDR). Para obtener una lista completa de las ventajas del uso de Defender para punto de conexión junto con Azure Security Center, consulte [Proteja los puntos de conexión con la solución EDR integrada de Security Center: Microsoft Defender para punto de conexión](security-center-wdatp.md).
+Microsoft Defender para punto de conexión es una solución integral de seguridad de punto de conexión que se entrega en la nube. Proporciona funciones de administración y evaluación de vulnerabilidades basadas en riesgos, así como de detección y respuesta de puntos de conexión (EDR). Para obtener una lista completa de las ventajas del uso de Defender para punto de conexión junto con Azure Security Center, consulte [Proteja los puntos de conexión con la solución EDR integrada de Security Center: Microsoft Defender para punto de conexión](integration-defender-for-endpoint.md).
 
 Cuando habilita Azure Defender para servidores en un servidor de Windows, el plan incluye una licencia de Defender para punto de conexión. Si ya ha habilitado Azure Defender para servidores y tiene servidores de Windows 2019 en la suscripción, los servidores recibirán automáticamente Defender para punto de conexión con esta actualización. No se requiere ninguna acción manual. 
 
 Ahora se ha ampliado la compatibilidad para incluir Windows Server 2019 y [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md).
 
 > [!NOTE]
-> Si va a habilitar Defender para punto de conexión en un equipo con Windows Server 2019, asegúrese de que cumple los requisitos previos descritos en [Habilitación de la integración de Microsoft Defender para punto de conexión](security-center-wdatp.md#enable-the-microsoft-defender-for-endpoint-integration).
+> Si va a habilitar Defender para punto de conexión en un equipo con Windows Server 2019, asegúrese de que cumple los requisitos previos descritos en [Habilitación de la integración de Microsoft Defender para punto de conexión](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
 
 
 ### <a name="recommendations-to-enable-azure-defender-for-dns-and-resource-manager-in-preview"></a>Recomendaciones para habilitar Azure Defender para DNS y Resource Manager (en versión preliminar)
@@ -115,7 +118,7 @@ Se han agregado dos nuevas recomendaciones para simplificar el proceso de habili
 La habilitación de los planes de Azure Defender conlleva cargos. Obtenga información sobre los detalles de los precios por región en la página de precios de Security Center: https://aka.ms/pricing-security-center.
 
 > [!TIP]
-> Las recomendaciones de la versión preliminar no representan un recurso incorrecto y no se incluyen en los cálculos de una puntuación segura. Corríjalas siempre que sea posible, de tal forma que, cuando finalice el período de versión preliminar, contribuyan a la puntuación. Puede encontrar más información sobre cómo responder a estas recomendaciones en [Recomendaciones de corrección en Azure Security Center](security-center-remediate-recommendations.md).
+> Las recomendaciones de la versión preliminar no representan un recurso incorrecto y no se incluyen en los cálculos de una puntuación segura. Corríjalas siempre que sea posible, de tal forma que, cuando finalice el período de versión preliminar, contribuyan a la puntuación. Puede encontrar más información sobre cómo responder a estas recomendaciones en [Recomendaciones de corrección en Azure Security Center](implement-security-recommendations.md).
 
 
 ### <a name="three-regulatory-compliance-standards-added-azure-cis-130-cmmc-level-3-and-new-zealand-ism-restricted"></a>Se han agregado tres estándares de cumplimiento normativo: Azure CIS 1.3.0, CMMC Nivel 3 e ISM restringido de Nueva Zelanda
@@ -132,8 +135,8 @@ Puede asignarlos a las suscripciones como se describe en [Personalización del c
 
 Puede encontrar más información en:
 - [Personalización del conjunto de estándares en el panel de cumplimiento normativo](update-regulatory-compliance-packages.md)
-- [Tutorial: Mejora del cumplimiento normativo](security-center-compliance-dashboard.md)
-- [Tutorial: Mejora del cumplimiento normativo](security-center-compliance-dashboard.md#faq---regulatory-compliance-dashboard)
+- [Tutorial: Mejora del cumplimiento normativo](regulatory-compliance-dashboard.md)
+- [Tutorial: Mejora del cumplimiento normativo](regulatory-compliance-dashboard.md#faq---regulatory-compliance-dashboard)
 
 ### <a name="four-new-recommendations-related-to-guest-configuration-in-preview"></a>Cuatro nuevas recomendaciones relacionadas con la configuración de invitado (en versión preliminar)
 
@@ -358,7 +361,7 @@ Ahora, en la página verá:
 
 :::image type="content" source="media/release-notes/recommendations-grid-enhancements-initiatives.png" alt-text="Mejoras en la lista &quot;plana&quot; de recomendaciones de Azure Security Center: marzo de 2021" lightbox="media/release-notes/recommendations-grid-enhancements-initiatives.png":::
 
-Más información en [Recomendaciones de seguridad en el Centro de seguridad de Azure](security-center-recommendations.md)
+Más información en [Recomendaciones de seguridad en el Centro de seguridad de Azure](review-security-recommendations.md)
 
 ## <a name="february-2021"></a>Febrero de 2021
 
@@ -384,9 +387,9 @@ La página de alertas de seguridad de Azure Security Center se ha rediseñado pa
 - **Mejor rendimiento** de listas de alertas grandes.
 - **Desplazamiento mediante el teclado** a través de la lista de alertas.
 - **Alertas de Azure Resource Graph**: puede consultar las alertas en Azure Resource Graph, la API similar a Kusto para todos los recursos. Esto también resulta útil si va a crear sus propios paneles de alertas. [Más información sobre Azure Resource Graph](../governance/resource-graph/index.yml).
-- **Característica Crear alertas de ejemplo**: para crear alertas de ejemplo en la nueva experiencia de alertas, consulte el apartado [Generación de alertas de ejemplo de Azure Defender](security-center-alert-validation.md#generate-sample-azure-defender-alerts).
+- **Característica Crear alertas de ejemplo**: para crear alertas de ejemplo en la nueva experiencia de alertas, consulte el apartado [Generación de alertas de ejemplo de Azure Defender](alert-validation.md#generate-sample-security-alerts).
 
-:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Lista de alertas de seguridad de Security Center":::
+:::image type="content" source="media/managing-and-responding-alerts/alerts-page.png" alt-text="Lista de alertas de seguridad de Security Center":::
 
 
 ### <a name="kubernetes-workload-protection-recommendations-released-for-general-availability-ga"></a>Las recomendaciones de protección de la carga de trabajo de Kubernetes se han publicado con disponibilidad general (GA)
@@ -402,19 +405,19 @@ Por ejemplo, puede exigir que no se creen los contenedores con privilegios y que
 Más información en [Procedimientos recomendados de protección de cargas de trabajo con el control de admisión de Kubernetes](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
 
 > [!NOTE]
-> Aunque las recomendaciones estaban en versión preliminar, no representaban los recursos de clúster de AKS en mal estado y no se incluían en los cálculos de la puntuación segura. Con este anuncio de disponibilidad general, se incluirán en el cálculo de puntuaciones. Si aún no ha hecho nada al respecto, esto podría afectar negativamente a su puntuación segura. Corríjalas siempre que sea posible como se describe en [Recomendaciones de corrección en Azure Security Center](security-center-remediate-recommendations.md).
+> Aunque las recomendaciones estaban en versión preliminar, no representaban los recursos de clúster de AKS en mal estado y no se incluían en los cálculos de la puntuación segura. Con este anuncio de disponibilidad general, se incluirán en el cálculo de puntuaciones. Si aún no ha hecho nada al respecto, esto podría afectar negativamente a su puntuación segura. Corríjalas siempre que sea posible como se describe en [Recomendaciones de corrección en Azure Security Center](implement-security-recommendations.md).
 
 
 ### <a name="microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-in-preview"></a>La integración de Microsoft Defender para punto de conexión con Azure Defender ahora es compatible con Windows Server 2019 y Windows 10 Virtual Desktop (WVD) (en versión preliminar)
 
-Microsoft Defender para punto de conexión es una solución integral de seguridad de punto de conexión que se entrega en la nube. Proporciona funciones de administración y evaluación de vulnerabilidades basadas en riesgos, así como de detección y respuesta de puntos de conexión (EDR). Para obtener una lista completa de las ventajas del uso de Defender para punto de conexión junto con Azure Security Center, consulte [Proteja los puntos de conexión con la solución EDR integrada de Security Center: Microsoft Defender para punto de conexión](security-center-wdatp.md).
+Microsoft Defender para punto de conexión es una solución integral de seguridad de punto de conexión que se entrega en la nube. Proporciona funciones de administración y evaluación de vulnerabilidades basadas en riesgos, así como de detección y respuesta de puntos de conexión (EDR). Para obtener una lista completa de las ventajas del uso de Defender para punto de conexión junto con Azure Security Center, consulte [Proteja los puntos de conexión con la solución EDR integrada de Security Center: Microsoft Defender para punto de conexión](integration-defender-for-endpoint.md).
 
 Cuando habilita Azure Defender para servidores en un servidor de Windows, el plan incluye una licencia de Defender para punto de conexión. Si ya ha habilitado Azure Defender para servidores y tiene servidores de Windows 2019 en la suscripción, los servidores recibirán automáticamente Defender para punto de conexión con esta actualización. No se requiere ninguna acción manual. 
 
 Ahora se ha ampliado la compatibilidad para incluir Windows Server 2019 y [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md).
 
 > [!NOTE]
-> Si va a habilitar Defender para punto de conexión en un equipo con Windows Server 2019, asegúrese de que cumple los requisitos previos descritos en [Habilitación de la integración de Microsoft Defender para punto de conexión](security-center-wdatp.md#enable-the-microsoft-defender-for-endpoint-integration).
+> Si va a habilitar Defender para punto de conexión en un equipo con Windows Server 2019, asegúrese de que cumple los requisitos previos descritos en [Habilitación de la integración de Microsoft Defender para punto de conexión](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
 
 ### <a name="direct-link-to-policy-from-recommendation-details-page"></a>Vínculo directo a la directiva desde la página de detalles de la recomendación
 
@@ -578,9 +581,9 @@ Esta capacidad significa que Security Center proporciona visibilidad y protecci�
 - Incorporación de todos los recursos a los cálculos de puntuación segura de Security Center
 - Evaluaciones de cumplimiento normativo de los recursos de AWS y GCP
 
-En el menú de Security Center, seleccione **Multi cloud connectors** (Conectores en varias nubes) y verá las opciones para crear conectores:
+En el menú de Defender for Cloud, seleccione **Conectores multinube** y verá las opciones para crear conectores:
 
-:::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Botón Add AWS account (Agregar cuenta de AWS) de la página Conectores multinube de Security Center":::
+:::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Botón &quot;Agregar cuenta de AWS&quot; de la página &quot;Conectores multinube&quot; de Security Center":::
 
 Puede encontrar más información en:
 - [Conexión de las cuentas de AWS a Azure Security Center](quickstart-onboard-aws.md)
@@ -607,7 +610,7 @@ Puede obtener más información en [Exención de recursos y recomendaciones de l
 
 Si algún usuario no tiene los permisos necesarios para ver los datos de Security Center, ahora verá un vínculo para solicitar permisos al administrador global de su organización. La solicitud incluye el rol que desean y la justificación de por qué es necesario.
 
-:::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Banner que informa a los usuarios de que pueden solicitar permisos para todo el inquilino.":::
+:::image type="content" source="media/management-groups-roles/request-tenant-permissions.png" alt-text="Banner que informa a los usuarios de que pueden solicitar permisos para todo el inquilino.":::
 
 Para más información, consulte [Solicitud de permisos para todo el inquilino cuando el suyo sea insuficiente](tenant-wide-permissions-management.md#request-tenant-wide-permissions-when-yours-are-insufficient).
 
@@ -619,7 +622,7 @@ Para más información, consulte [Solicitud de permisos para todo el inquilino c
 Para aumentar la cobertura del punto de referencia se han agregado a Security Center las siguientes 35 recomendaciones en versión preliminar.
 
 > [!TIP]
-> Las recomendaciones de la versión preliminar no representan un recurso incorrecto y no se incluyen en los cálculos de una puntuación segura. Corríjalas siempre que sea posible, de tal forma que, cuando finalice el período de versión preliminar, contribuyan a la puntuación. Puede encontrar más información sobre cómo responder a estas recomendaciones en [Recomendaciones de corrección en Azure Security Center](security-center-remediate-recommendations.md).
+> Las recomendaciones de la versión preliminar no representan un recurso incorrecto y no se incluyen en los cálculos de una puntuación segura. Corríjalas siempre que sea posible, de tal forma que, cuando finalice el período de versión preliminar, contribuyan a la puntuación. Puede encontrar más información sobre cómo responder a estas recomendaciones en [Recomendaciones de corrección en Azure Security Center](implement-security-recommendations.md).
 
 | Control de seguridad                     | Nuevas recomendaciones                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 |--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -648,9 +651,9 @@ Con este anuncio, vamos a cambiar el comportamiento del botón **Descargar como 
 
 Por ejemplo, en la imagen siguiente puede ver que la lista se ha filtrado a dos recomendaciones. El archivo CSV que se genera incluye los detalles de estado de cada recurso afectado por esas dos recomendaciones.   
 
-:::image type="content" source="media/security-center-managing-and-responding-alerts/export-to-csv-with-filters.png" alt-text="Exportación de las recomendaciones filtradas a un archivo .csv.":::
+:::image type="content" source="media/managing-and-responding-alerts/export-to-csv-with-filters.png" alt-text="Exportación de las recomendaciones filtradas a un archivo .csv.":::
 
-Más información en [Recomendaciones de seguridad en el Centro de seguridad de Azure](security-center-recommendations.md)
+Más información en [Recomendaciones de seguridad en el Centro de seguridad de Azure](review-security-recommendations.md)
 
 
 ### <a name="not-applicable-resources-now-reported-as-compliant-in-azure-policy-assessments"></a>Los recursos en estado "No aplicable" ahora se notifican como "Compatible" en las valoraciones de Azure Policy
@@ -759,9 +762,9 @@ La página de alertas de seguridad de Azure Security Center se ha rediseñado pa
 
 Para acceder a la nueva experiencia, use el vínculo "Intentarlo ahora" del banner de la parte superior de la página de alertas de seguridad.
 
-:::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Banner con un vínculo a la versión preliminar de la nueva experiencia de alertas.":::
+:::image type="content" source="media/managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Banner con un vínculo a la versión preliminar de la nueva experiencia de alertas.":::
 
-Para crear alertas de ejemplo a partir de la nueva experiencia de alertas, consulte el apartado [Generación de alertas de ejemplo de Azure Defender](security-center-alert-validation.md#generate-sample-azure-defender-alerts).
+Para crear alertas de ejemplo a partir de la nueva experiencia de alertas, consulte el apartado [Generación de alertas de ejemplo de Azure Defender](alert-validation.md#generate-sample-security-alerts).
 
 
 ### <a name="revitalized-security-center-experience-in-azure-sql-database--sql-managed-instance"></a>Experiencia de Security Center revitalizada en Azure SQL Database y SQL Managed Instance 
@@ -818,7 +821,7 @@ Los filtros que se han agregado este mes proporcionan opciones para refinar la l
     > El filtro de acciones de respuesta reemplaza al filtro **Solución rápida disponible (Sí/No)** . 
     > 
     > Puede aprender más información acerca de cada una de estas opciones de respuesta:
-    > - [Botón Corregir](security-center-remediate-recommendations.md#fix-button)
+    > - [Botón Corregir](implement-security-recommendations.md#fix-button)
     > - [Evitar errores de configuración con las recomendaciones Aplicar o Denegar](prevent-misconfigurations.md).
 
 :::image type="content" source="./media/release-notes/added-recommendations-filters.png" alt-text="Recomendaciones agrupadas por control de seguridad." lightbox="./media/release-notes/added-recommendations-filters.png":::
@@ -861,7 +864,7 @@ Azure Security Benchmark es el conjunto de directrices específico de Azure crea
 
 Se han agregado a Security Center las siguientes 29 recomendaciones en versión preliminar para aumentar la cobertura de la prueba comparativa.
 
-Las recomendaciones de la versión preliminar no representan un recurso incorrecto y no se incluyen en los cálculos de una puntuación segura. Corríjalas siempre que sea posible, de tal forma que, cuando finalice el período de versión preliminar, contribuyan a la puntuación. Puede encontrar más información sobre cómo responder a estas recomendaciones en [Recomendaciones de corrección en Azure Security Center](security-center-remediate-recommendations.md).
+Las recomendaciones de la versión preliminar no representan un recurso incorrecto y no se incluyen en los cálculos de una puntuación segura. Corríjalas siempre que sea posible, de tal forma que, cuando finalice el período de versión preliminar, contribuyan a la puntuación. Puede encontrar más información sobre cómo responder a estas recomendaciones en [Recomendaciones de corrección en Azure Security Center](implement-security-recommendations.md).
 
 | Control de seguridad                     | Nuevas recomendaciones                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 |--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -917,7 +920,7 @@ Ahora puede configurar el aprovisionamiento automático de:
 - (Nuevo) Complemento de Azure Policy para Kubernetes
 - (Nuevo) Microsoft Dependency Agent
 
-Obtenga más información en [Aprovisionamiento automático de agentes y extensiones de Azure Security Center](security-center-enable-data-collection.md).
+Obtenga más información en [Aprovisionamiento automático de agentes y extensiones de Azure Security Center](enable-data-collection.md).
 
 
 ### <a name="secure-score-is-now-available-in-continuous-export-preview"></a>La puntuación de seguridad ahora está disponible en la exportación continua (versión preliminar)
@@ -1023,7 +1026,7 @@ Azure Resource Graph es un servicio de Azure diseñado para proporcionar una exp
 Para Azure Security Center, puede usar ARG y el [lenguaje de consulta Kusto (KQL)](/azure/data-explorer/kusto/query/) para consultar una amplia variedad de datos de posición de seguridad. Por ejemplo:
 
 - El inventario de recursos utiliza ARG.
-- Hemos documentado una consulta de ARG de ejemplo sobre la [Identificación de cuentas sin Multi-Factor Authentication (MFA) habilitado](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled).
+- Hemos documentado una consulta de ARG de ejemplo sobre la [Identificación de cuentas sin Multi-Factor Authentication (MFA) habilitado](multi-factor-authentication-enforcement.md#identify-accounts-without-multi-factor-authentication-mfa-enabled).
 
 En ARG hay tablas de datos que se pueden usar en las consultas.
 
@@ -1305,7 +1308,7 @@ Se han mejorado las siguientes áreas de los correos electrónicos con respecto 
 - Se notifica de forma proactiva y predeterminada a los propietarios de la suscripción sobre las alertas de gravedad alta (con una probabilidad elevada de que se produzcan infracciones genuinas).
 - Se ha eliminado el campo de número de teléfono de la página de configuración de notificaciones por correo electrónico.
 
-Más información en [Configuración de notificaciones de alertas de seguridad por correo electrónico](security-center-provide-security-contact-details.md)
+Más información en [Configuración de notificaciones de alertas de seguridad por correo electrónico](configure-email-notifications.md)
 
 
 ### <a name="secure-score-doesnt-include-preview-recommendations"></a>La puntuación de seguridad no incluye recomendaciones en versión preliminar 
@@ -1537,7 +1540,7 @@ La característica de controles de aplicaciones adaptables ha recibido dos actua
     * El uso de un carácter comodín en medio de una ruta de acceso para habilitar un nombre ejecutable conocido con un nombre de carpeta cambiante (por ejemplo, carpetas de usuario personales con un archivo ejecutable conocido, nombres de carpeta generados automáticamente, etc.).
 
 
-[Más información acerca de los controles de aplicación adaptables](security-center-adaptive-application.md).
+[Más información acerca de los controles de aplicación adaptables](adaptive-application-controls.md).
 
 
 
@@ -1722,7 +1725,7 @@ Esta actualización lleva a cabo los siguientes cambios en esta característica:
 
 - La recomendación se desencadena solo si hay puertos de administración abiertos.
 
-Más información acerca de [la característica de acceso JIT](security-center-just-in-time.md).
+Más información acerca de [la característica de acceso JIT](just-in-time-access-usage.md).
 
 
 ### <a name="custom-recommendations-have-been-moved-to-a-separate-security-control"></a>Las recomendaciones personalizadas se han migrado a un control de seguridad independiente
@@ -1788,7 +1791,7 @@ Más información sobre [mejora de las recomendaciones personalizadas con inform
 
 ### <a name="crash-dump-analysis-capabilities-migrating-to-fileless-attack-detection"></a>Migración de funcionalidades de análisis de volcado de memoria a detección de ataques sin archivos 
 
-Estamos integrando las capacidades de detección del análisis de volcado de memoria de Windows (CDA) en [detección de ataques sin archivos](defender-for-servers-introduction.md#what-are-the-benefits-of-azure-defender-for-servers). El análisis de detección de ataques sin archivos proporciona versiones mejoradas de las siguientes alertas de seguridad para máquinas Windows: Inserción de código detectada, Detectado módulo de Windows enmascarado, Shellcode detectado y Segmento de código sospechoso.
+Estamos integrando las capacidades de detección del análisis de volcado de memoria de Windows (CDA) en [detección de ataques sin archivos](defender-for-servers-introduction.md#what-are-the-benefits-of-microsoft-defender-for-servers). El análisis de detección de ataques sin archivos proporciona versiones mejoradas de las siguientes alertas de seguridad para máquinas Windows: Inserción de código detectada, Detectado módulo de Windows enmascarado, Shellcode detectado y Segmento de código sospechoso.
 
 Algunas de las ventajas de esta transición son:
 
@@ -1845,7 +1848,7 @@ Si tiene suscripciones en el plan de tarifa gratuito, su puntuación de segurida
 
 Más información sobre [recomendaciones de identidad y acceso](recommendations-reference.md#recs-identityandaccess).
 
-Obtenga más información cómo [administrar la aplicación de la autenticación multifactor (MFA) en las suscripciones](security-center-identity-access.md).
+Obtenga más información cómo [administrar la aplicación de la autenticación multifactor (MFA) en las suscripciones](multi-factor-authentication-enforcement.md).
 
 
 
@@ -1907,7 +1910,7 @@ Las características, la operación y la interfaz de usuario de las herramientas
 - **Campo de justificación**: al solicitar acceso a una máquina virtual (VM) a través de la página Just-in-Time del Azure Portal, hay un nuevo campo opcional disponible para especificar una justificación para la solicitud. Se puede realizar un seguimiento de la información especificada en este campo en el registro de actividad. 
 - **Limpieza automática de reglas Just-In-Time (JIT) redundantes**: siempre que se actualiza una directiva JIT, se ejecuta automáticamente una herramienta de limpieza para comprobar la validez de todo el conjunto de reglas. La herramienta busca discrepancias entre las reglas de la directiva y las reglas del grupo de seguridad de red. Si la herramienta de limpieza encuentra una discrepancia, determina la causa y, cuando es seguro hacerlo, quita las reglas integradas que ya no son necesarias. El limpiador no elimina nunca las reglas que ha creado. 
 
-Más información acerca de [la característica de acceso JIT](security-center-just-in-time.md).
+Más información acerca de [la característica de acceso JIT](just-in-time-access-usage.md).
 
 
 ### <a name="two-security-recommendations-for-web-applications-deprecated"></a>Dos recomendaciones de seguridad para las aplicaciones web en desuso
@@ -2093,7 +2096,7 @@ Las actualizaciones de septiembre incluyen:
 
 Se ha mejorado la experiencia de administración de reglas para máquinas virtuales mediante controles de aplicación adaptables. Los controles de aplicación adaptables de Azure Security Center ayudan a controlar qué aplicaciones se pueden ejecutar en las máquinas virtuales. Además de una mejora general en la administración de reglas, una nueva ventaja le permite controlar qué tipos de archivo se protegerán cuando agregue una nueva regla.
 
-[Más información acerca de los controles de aplicación adaptables](security-center-adaptive-application.md).
+[Más información acerca de los controles de aplicación adaptables](adaptive-application-controls.md).
 
 
 ### <a name="control-container-security-recommendation-using-azure-policy"></a>Controlar la recomendación de seguridad del contenedor mediante Azure Policy
@@ -2139,7 +2142,7 @@ Vea qué recomendaciones tiene habilitada la corrección rápida en la [guía de
 
 Security Center admite ahora escenarios de administración entre inquilinos como parte de Azure Lighthouse. Esto le permite obtener visibilidad y administrar la postura de seguridad de varios inquilinos en Security Center. 
 
-[Más información sobre las experiencias de administración entre inquilinos](security-center-cross-tenant-management.md).
+[Más información sobre las experiencias de administración entre inquilinos](cross-tenant-management.md).
 
 
 ## <a name="july-2019"></a>Julio de 2019
@@ -2157,4 +2160,4 @@ Azure Security Center (ASC) ha lanzado nuevas recomendaciones de redes y ha mejo
 
 Una de las superficies de ataque más importantes para las cargas de trabajo que se ejecutan en la nube pública son las conexiones hacia y desde la red pública de Internet. Nuestros clientes saben que es difícil saber qué reglas del grupo de seguridad de red (NSG) deben estar en vigor para asegurarse de que las cargas de trabajo de Azure solo están disponibles para los intervalos de origen necesarios. Con esta característica, Security Center aprende los patrones de conectividad y el tráfico de red de las cargas de trabajo de Azure y proporciona recomendaciones de reglas de NSG, para las máquinas virtuales orientadas a Internet. Esto ayuda a nuestro cliente a configurar mejor las directivas de acceso a la red y limitar su exposición a los ataques. 
 
-[Más información sobre la protección de red adaptable](security-center-adaptive-network-hardening.md).
+[Más información sobre la protección de red adaptable](adaptive-network-hardening.md).

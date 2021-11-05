@@ -9,12 +9,13 @@ ms.reviewer: jrasnick, garye, negust, ruxu
 ms.date: 06/30/2021
 author: garyericson
 ms.author: garye
-ms.openlocfilehash: 3af2efda3d54f8db29d4817357ea8cb826b7c608
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 108220b63e6562bf56119bb43c1ca27d4460c735
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114294147"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131036720"
 ---
 # <a name="cognitive-services-in-azure-synapse-analytics"></a>Cognitive Services en Azure Synapse Analytics
 
@@ -22,11 +23,14 @@ Con los modelos previamente entrenados de Azure Cognitive Services, puede enriqu
 
 [Azure Cognitive Services](../../cognitive-services/what-are-cognitive-services.md) son servicios basados en la nube que agregan inteligencia cognitiva a los datos, incluso si no tiene aptitudes para la inteligencia artificial o ciencia de datos. Existen varias maneras de utilizar estos servicios con los datos en Synapse Analytics:
 
-- El asistente para Cognitive Services de Synapse Analytics genera código PySpark en un cuaderno de Synapse que se conecta a un servicio cognitivo mediante los datos de una tabla de Spark. A continuación, mediante modelos de aprendizaje automático previamente entrenados, el servicio realiza el trabajo para agregar inteligencia artificial a los datos.
+- El asistente para Cognitive Services de Synapse Analytics genera código PySpark en un cuaderno de Synapse que se conecta a un servicio cognitivo mediante los datos de una tabla de Spark. A continuación, mediante modelos de aprendizaje automático previamente entrenados, el servicio realiza el trabajo para agregar inteligencia artificial a los datos. Consulte el [Asistente para análisis de sentimiento](tutorial-cognitive-services-sentiment.md) y el [Asistente para detección de anomalías](tutorial-cognitive-services-anomaly.md) para más información.
 
-- En [Tutorial: Creación de aplicaciones de aprendizaje automático con Microsoft Machine Learning para Apache Spark (versión preliminar)](tutorial-build-applications-use-mmlspark.md) se muestra cómo llamar a varios servicios cognitivos mediante Microsoft Machine Learning para Apache Spark (MMLSpark).
+- Microsoft Machine Learning para Apache Spark ([MMLSpark](https://github.com/Azure/mmlspark)) permite crear modelos analíticos y predictivos eficaces y altamente escalables a partir de diversos orígenes de datos de Spark. Synapse Spark proporciona bibliotecas de MMLSpark integradas, entre las que se incluye [Cognitive Services en Spark](https://github.com/microsoft/SynapseML/blob/master/docs/cogsvc.md). Consulte [Tutoriales](#tutorials) para más información.
 
 - A partir del código de PySpark generado por el asistente o el código MMLSpark de ejemplo proporcionado en el tutorial, puede escribir su propio código para utilizar otros servicios cognitivos con sus datos. Consulte [¿Qué es Azure Cognitive Services?](../../cognitive-services/what-are-cognitive-services.md) para más información sobre los servicios disponibles.
+
+
+
 
 ## <a name="get-started"></a>Introducción
 
@@ -40,7 +44,102 @@ En los tutoriales siguientes se proporcionan ejemplos completos del uso de Cogni
 
 - [Tutorial: Detección de anomalías con Cognitive Services (versión preliminar)](tutorial-cognitive-services-anomaly.md): con un conjunto de datos de ejemplo de datos de serie temporal, cree una tabla de Spark con una columna que indique si los datos de cada fila presentan una anomalía.
 
-- [Tutorial: Creación de aplicaciones de aprendizaje automático con Microsoft Machine Learning para Apache Spark (versión preliminar)](tutorial-build-applications-use-mmlspark.md): en este tutorial se muestra cómo se utiliza MMLSpark para acceder a varios modelos desde Cognitive Services.
+- [Tutorial: Creación de aplicaciones de aprendizaje automático con Microsoft Machine Learning para Apache Spark](tutorial-build-applications-use-mmlspark.md): en este tutorial se muestra cómo se utiliza MMLSpark para acceder a varios modelos desde Cognitive Services.
+
+- En el tutorial [Form Recognizer con Applied AI Services](tutorial-form-recognizer-use-mmlspark.md) se indica cómo usar [Form Recognizer](../../applied-ai-services/form-recognizer/index.yml) para analizar los formularios y documentos, extraer texto y datos en Azure Synapse Analytics. 
+
+- En el tutorial, [Text Analytics con Cognitive Services](tutorial-text-analytics-use-mmlspark.md) se muestra el uso de [Text Analytics](../../cognitive-services/text-analytics/index.yml) para analizar texto no estructurado en Azure Synapse Analytics.
+
+- En el tutorial [Translator con Cognitive Services](tutorial-translator-use-mmlspark.md) se indica cómo usar [Translator](../../cognitive-services/Translator/index.yml) para crear soluciones inteligentes en varios idiomas en Azure Synapse Analytics.
+
+- En [Computer Vision con Cognitive Services](tutorial-computer-vision-use-mmlspark.md) se muestra cómo usar [Computer Vision](../../cognitive-services/computer-vision/index.yml) para analizar imágenes en Azure Synapse Analytics.
+
+## <a name="available-cognitive-services-apis"></a>Cognitive Services APIs disponibles
+### <a name="bing-image-search"></a>Bing Image Search
+
+| Tipo de API                                   | MMLSpark API                  | Cognitive Services APIs (versiones)                                                                                               | DEP VNet Support |
+| ------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+|Bing Image Search|BingImageSearch|Images - Visual Search V7.0| No compatible|
+
+### <a name="anomaly-detector"></a>Anomaly Detector
+
+| Tipo de API                                   | MMLSpark API                  | Cognitive Services APIs (versiones)                                                                                               | DEP VNet Support |
+| ------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| Detección de la anomalía más reciente                        | DetectLastAnomaly              | Detect Last Point V1.0                                                                                                          | Compatible        |
+| Detección de anomalías                           | DetectAnomalies                | Detect Entire Series V1.0                                                                                                       | Compatible        |
+| Simple DetectAnomalies                     | SimpleDetectAnomalies          | Detect Entire Series V1.0                                                                                                       | Compatible        |
+
+### <a name="computer-vision"></a>Visión del equipo
+
+| Tipo de API                                   | MMLSpark API                  | Cognitive Services APIs (versiones)                                                                                               | DEP VNet Support |
+| ------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| OCR                                        | OCR                            | Recognize Printed Text V2.0                                                                                                     | Compatible        |
+| Reconocer texto                             | RecognizeText                  | Recognize Text V2.0                                                                                                             | Compatible        |
+| Lectura de imágenes                                 | ReadImage                      | Read V3.1                                                                                                                       | Compatible        |
+| Generación de miniaturas                        | GenerateThumbnails             | Generate Thumbnail V2.0                                                                                                         | Compatible        |
+| Analyze Image                              | AnalyzeImage                   | Analyze Image V2.0                                                                                                              | Compatible        |
+| Reconocimiento del contenido específico del dominio          | RecognizeDomainSpecificContent | Analyze Image By Domain V2.0                                                                                                    | Compatible        |
+| Etiquetado de imágenes                                  | TagImage                       | Tag Image V2.0                                                                                                                  | Compatible        |
+| Describe Image                             | DescribeImage                  | Describe Image V2.0                                                                                                             | Compatible        |
+
+
+### <a name="translator"></a>Traductor
+
+| Tipo de API                                   | MMLSpark API                  | Cognitive Services APIs (versiones)                                                                                               | DEP VNet Support |
+| ------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| Traducción de texto                             | Translate                      | Translate V3.0                                                                                                                  | No compatible    |
+| Transliteración de texto                         | Transliterar                  | Transliterate V3.0                                                                                                              | No compatible    |
+| Detección de idioma                            | Detect                         | Detect V3.0                                                                                                                     | No compatible    |
+| División de frases                             | BreakSentence                  | Break Sentence V3.0                                                                                                             | No compatible    |
+| Búsqueda en el diccionario (traducciones alternativas) | DictionaryLookup               | Dictionary Lookup V3.0                                                                                                          | No compatible    |
+| Traducción de documentos                       | DocumentTranslator             | Document Translation V1.0                                                                                                       | No compatible    |
+
+
+### <a name="face"></a>Caras
+
+| Tipo de API                                   | MMLSpark API                  | Cognitive Services APIs (versiones)                                                                                               | DEP VNet Support |
+| ------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| Detección de caras                                | DetectFace                     | Detect With Url V1.0                                                                                                            | Compatible        |
+| Búsqueda de caras similares                          | FindSimilarFace                | Find Similar V1.0                                                                                                               | Compatible        |
+| Agrupación de caras                                | GroupFaces                     | Group V1.0                                                                                                                      | Compatible        |
+| Identificación de caras                             | IdentifyFaces                  | Identify V1.0                                                                                                                   | Compatible        |
+| Comprobación de caras                               | VerifyFaces                    | Verify Face To Face V1.0                                                                                                        | Compatible        |
+
+### <a name="form-recognizer"></a>Form Recognizer
+| Tipo de API                                   | MMLSpark API                  | Cognitive Services APIs (versiones)                                                                                               | DEP VNet Support |
+| ------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| Análisis de diseño                             | AnalyzeLayout                  | Analyze Layout Async V2.1                                                                                                       | Compatible        |
+| Análisis de recibos                           | AnalyzeReceipts                | Analyze Receipt Async V2.1                                                                                                      | Compatible        |
+| Análisis de tarjetas de presentación                     | AnalyzeBusinessCards           | Analyze Business Card Async V2.1                                                                                                | Compatible        |
+| Análisis de facturas                           | AnalyzeInvoices                | Analyze Invoice Async V2.1                                                                                                      | Compatible        |
+| Análisis de documentos de identificación                       | AnalyzeIDDocuments             | identification (ID) document model V2.1                                                                                         | Compatible        |
+| Lista de modelos personalizados                         | ListCustomModels               | List Custom Models V2.1                                                                                                         | Compatible        |
+| Obtención de modelos personalizados                           | GetCustomModel                 | Get Custom Models V2.1                                                                                                          | Compatible        |
+| Análisis de modelos personalizados                       | AnalyzeCustomModel             | Analyze With Custom Model V2.1                                                                                                  | Compatible        |
+
+### <a name="speech-to-text"></a>Voz a texto
+| Tipo de API                                   | MMLSpark API                  | Cognitive Services APIs (versiones)                                                                                               | DEP VNet Support |
+| ------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| Speech To Text                             | SpeechToText                   | SpeechToText V1.0 |  No compatible    |
+| Voz a texto (SDK)                         | SpeechToTextSDK                | Uso de Speech SDK Version 1.14.0                                                                                                 | No compatible    |
+
+
+### <a name="text-analytics"></a>Text Analytics
+
+| Tipo de API                                   | MMLSpark API                  | Cognitive Services APIs (versiones)                                                                                               | DEP VNet Support |
+| ------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| Text Sentiment V2                          | TextSentimentV2                | Sentiment V2.0                                                                                                                  | Compatible        |
+| Language Detector V2                       | LanguageDetectorV2             | Languages V2.0                                                                                                                  | Compatible        |
+| Entity Detector V2                         | EntityDetectorV2               | Entities Linking V2.0                                                                                                           | Compatible        |
+| NER V2                                     | NERV2                          | Entities Recognition General V2.0                                                                                               | Compatible        |
+| Key Phrase Extractor V2                    | KeyPhraseExtractorV2           | Key Phrases V2.0                                                                                                                | Compatible        |
+| Text Sentiment                             | TextSentiment                  | Sentiment V3.1                                                                                                                  | Compatible        |
+| Key Phrase Extractor                       | KeyPhraseExtractor             | Key Phrases V3.1                                                                                                                | Compatible        |
+| PII                                        | PII                            | Entities Recognition Pii V3.1                                                                                                   | Compatible        |
+| NER                                        | NER                            | Entities Recognition General V3.1                                                                                               | Compatible        |
+| Detector de idioma                          | LanguageDetector               | Languages V3.1                                                                                                                  | Compatible        |
+| Detector de entidad                            | EntityDetector                 | Entities Linking V3.1                                                                                                           | Compatible        |
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

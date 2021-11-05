@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 11/12/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0af9aeb9efe3b652f52b01e3b45307253e810742
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 392b9d5b753ff75ab64a2f21a87301ba17de24c3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122418654"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058015"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Trasladar un área de trabajo de Log Analytics a otro grupo de recursos o suscripción
 
@@ -42,6 +42,7 @@ Las suscripciones de origen y destino del área de trabajo deben existir dentro 
 > **Clientes de Azure Sentinel**
 > - Actualmente, después de implementar Azure Sentinel en un área de trabajo, no se admite el traslado del área de trabajo a otro grupo de recursos o suscripción. 
 > - Si ya ha movido el área de trabajo, deshabilite todas las reglas activas en **Análisis** y vuelva a habilitarlas después de cinco minutos. Esto debe ser una solución efectiva en la mayoría de los casos; sin embargo, cabe reiterar que no se admite y se realiza bajo su responsabilidad.
+> - Azure Resource Manager podría tardar unas horas en completarse y es posible que las soluciones no respondan durante la operación.
 > 
 > **Nueva creación de alertas**
 > - Todas las alertas deben volver a crearse, ya que los permisos se basan en el identificador de recurso del área de trabajo, que cambia durante el movimiento del área de trabajo o el cambio de nombre del recurso. Las alertas en áreas de trabajo creadas después del 1 de junio de 2019 o en áreas de trabajo que se [actualizaron de la API heredada de alertas de Log Analytics a scheduledQueryRules API](../alerts/alerts-log-api-switch.md) se pueden exportar en la plantilla e implementarse después del traslado. Puede [comprobar si scheduledQueryRules API se usa para las alertas del área de trabajo](../alerts/alerts-log-api-switch.md#check-switching-status-of-workspace). Como alternativa, puede configurar alertas manualmente en el área de trabajo de destino.

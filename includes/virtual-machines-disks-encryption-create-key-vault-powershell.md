@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/15/2020
+ms.date: 10/25/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9ad82e65258dd985ce351b5fa11156ccdd2ef977
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: f74228b918b3d87ab77b75132501327b08b25668
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122772002"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131022059"
 ---
 1. Asegúrese de haber instalado la versión más reciente de [Azure PowerShell](/powershell/azure/install-az-ps) y de haber iniciado sesión en una cuenta de Azure con Connect-AzAccount
 
@@ -61,3 +61,38 @@ ms.locfileid: "122772002"
         ```powershell  
         Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $des.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
         ```
+
+### <a name="use-a-key-vault-in-a-different-subscription"></a>Uso de un almacén de claves en una suscripción diferente
+
+Como alternativa, puede administrar las instancias de Azure Key Vault de forma centralizada desde una sola suscripción y usar las claves almacenadas en Key Vault para cifrar discos administrados e instantáneas en otras suscripciones de su organización. Esto permite a su equipo de seguridad aplicar y administrar fácilmente una directiva de seguridad sólida en una sola suscripción.
+
+> [!IMPORTANT]
+> Para esta configuración, tanto Key Vault como el conjunto de cifrado de disco deben estar en la misma región y usar el mismo inquilino.
+
+El siguiente script es un ejemplo de cómo puede configurar un conjunto de cifrado de disco para usar una clave de una instancia de Key Vault que se encuentra en una suscripción diferente, pero en la misma región:
+
+```azurepowershell
+$sourceSubscriptionId="<sourceSubID>"
+$sourceKeyVaultName="<sourceKVName>"
+$sourceKeyName="<sourceKeyName>"
+
+$targetSubscriptionId="<targetSubID>"
+$targetResourceGroupName="<targetRGName>"
+$targetDiskEncryptionSetName="<targetDiskEncSetName>"
+$location="<targetRegion>"
+
+Set-AzContext -Subscription $sourceSubscriptionId
+
+$key = Get-AzKeyVaultKey -VaultName $sourceKeyVaultName -Name $sourceKeyName
+
+Set-AzContext -Subscription $targetSubscriptionId
+
+$desConfig=New-AzDiskEncryptionSetConfig -Location $location `
+-KeyUrl $key.Key.Kid `
+-IdentityType SystemAssigned `
+-RotationToLatestKeyVersionEnabled $false
+
+$des=New-AzDiskEncryptionSet -Name $targetDiskEncryptionSetName `
+-ResourceGroupName $targetResourceGroupName `
+-InputObject $desConfig
+```

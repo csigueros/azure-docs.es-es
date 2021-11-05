@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
 ms.author: kumud
-ms.openlocfilehash: 8c43a0125dac9931e68ae9567f47d63b3409f878
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: f3f0e1d714c5edef75f0f042edce1749b8f01bcf
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113357236"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056516"
 ---
 # <a name="troubleshoot-resource-health-and-inbound-availability-issues"></a>Solución de problemas de estado y disponibilidad de entrada de los recursos 
 
@@ -62,8 +62,8 @@ Supongamos que comprobamos el estado de sondeo de mantenimiento y encontramos qu
 * Revise los grupos de seguridad de red que se aplican a nuestros recursos de back-end. Asegúrese de que no hay ninguna regla con una prioridad mayor que AllowAzureLoadBalancerInBound, lo que bloquearía el sondeo de estado.
   * Para ello, visite la hoja de redes de las máquinas virtuales de back-end o Virtual Machine Scale Sets
   * Si existe este problema de NSG, mueva la regla de permiso existente o cree una nueva regla de prioridad alta para permitir el tráfico de AzureLoadBalancer.
-* Compruebe el sistema operativo. Asegúrese de que las máquinas virtuales están escuchando en el puerto de sondeo y revise las reglas de firewall del sistema operativo para asegurarse de que no estén bloqueando el tráfico de sondeo procedente de la dirección IP 168.63.129.16.
-  * Puede comprobar los puertos de escucha ejecutando netstat -a en el símbolo del sistema de Windows o netstat-l en un terminal de Linux.
+* Compruebe el sistema operativo. Asegúrese de que las máquinas virtuales están escuchando en el puerto de sondeo y revise las reglas de firewall del sistema operativo para asegurarse de que no estén bloqueando el tráfico de sondeo procedente de la dirección IP `168.63.129.16`.
+  * Puede comprobar los puertos de escucha ejecutando `netstat -a` desde un símbolo del sistema de Windows o `netstat -l` desde un terminal de Linux.
 * No coloque una máquina virtual NVA de firewall en el grupo de back-end del equilibrador de carga, use [rutas definidas por el usuario](../virtual-network/virtual-networks-udr-overview.md#user-defined) para enrutar el tráfico a las instancias de back-end a través del firewall.
 * Asegúrese de que usa el protocolo correcto, si usa HTTP para sondear un puerto que escucha una aplicación que no es HTTP, se producirá un error en el sondeo.
 

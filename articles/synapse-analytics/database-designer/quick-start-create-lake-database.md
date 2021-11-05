@@ -4,16 +4,16 @@ description: Inicio rápido sobre cómo usar las plantillas de base de datos y d
 author: gsaurer
 ms.author: gesaur
 ms.service: synapse-analytics
-ms.subservice: ''
+ms.subservice: database-editor
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.custom: template-concept, ignite-fall-2021
-ms.openlocfilehash: 615d31355c56d3a6616aac18d92cba27e4648057
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 4db8799afdaf4a69278ce40c76baf05ab0eb1eee
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093444"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131467195"
 ---
 # <a name="quickstart-create-a-new-lake-database-leveraging-database-templates"></a>Inicio rápido: creación de una nueva base de datos de lago mediante plantillas de base de datos
 

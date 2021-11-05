@@ -1,111 +1,110 @@
 ---
-title: Mapa de ruta de preparación para Azure Security Center | Microsoft Docs
-description: Este documento le proporciona un mapa de ruta de preparación para sacar el máximo partido de Azure Security Center.
+title: Hoja de ruta de preparación de Defender for Cloud | Microsoft Docs
+description: En este documento se proporciona un mapa de ruta de preparación para el desarrollo de Defender for Cloud.
 services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: fece670cc-df70-445d-9773-b32cbaba8d4a
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/03/2018
 ms.author: memildin
-ms.openlocfilehash: 42ca1bf538ff7a8a7479f8db041d35d4ea68692e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 045dbd56f1177f334916850f481c7fa4f9f48f4c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121731090"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131009517"
 ---
-# <a name="azure-security-center-readiness-roadmap"></a>Mapa de ruta de preparación para Azure Security Center
-Este documento le proporciona un mapa de ruta de preparación que le ayudará a empezar a trabajar con Azure Security Center.
+# <a name="defender-for-cloud-readiness-roadmap"></a>Hoja de ruta de preparación de Defender for Cloud
 
-## <a name="understanding-security-center"></a>Descripción de Security Center
-Azure Security Center ofrece una administración de seguridad unificada y una protección contra amenazas avanzada para las cargas de trabajo que se ejecutan en Azure, de forma local y en otras nubes. 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Use los siguientes recursos para empezar a trabajar con Security Center.
+Este documento le proporciona un mapa de ruta de preparación que le ayudará a empezar a trabajar con Defender for Cloud.
+
+## <a name="understanding-defender-for-cloud"></a>Descripción de Defender for Cloud
+Defender for Cloud ofrece una administración de seguridad unificada y una protección contra amenazas avanzada para las cargas de trabajo que se ejecutan en Azure, de forma local y en otras nubes. 
+
+Use los siguientes recursos para empezar a trabajar con Defender for Cloud.
 
 Artículos
-- [Introducción al Centro de seguridad de Azure](security-center-introduction.md)
-- [Guía de inicio rápido de Azure Security Center](security-center-get-started.md)
+- [Introducción a Defender for Cloud](defender-for-cloud-introduction.md)
+- [Guía de inicio rápido de Defender for Cloud](get-started.md)
 
 Vídeos
 - [Vídeo de presentación rápida](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
-- [Introducción a las funcionalidades de prevención, detección y respuesta de Security Center](https://azure.microsoft.com/resources/videos/azurecon-2015-new-azure-security-center-helps-you-prevent-detect-and-respond-to-threats/)
+- [Introducción a las funcionalidades de prevención, detección y respuesta de Defender for Cloud](https://azure.microsoft.com/resources/videos/azurecon-2015-new-azure-security-center-helps-you-prevent-detect-and-respond-to-threats/)
 
 ## <a name="planning-and-operations"></a>Planeamiento y operaciones
 
-Para sacar el máximo partido a Security Center, es importante comprender cómo distintas personas o equipos de su organización usarán el servicio para satisfacer las necesidades relativas a las operaciones seguras, la supervisión, la gobernanza y la respuesta a incidentes.
+Para sacar el máximo partido a Defender for Cloud, es importante comprender cómo distintas personas o equipos de su organización usarán el servicio para satisfacer las necesidades relativas a las operaciones seguras, la supervisión, la gobernanza y la respuesta a incidentes.
 
 Use los siguientes recursos como ayuda durante los procesos de planeamiento y de operaciones.
 
-- [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md)
+- [Guía de planeamiento y operaciones de Defender for Cloud](security-center-planning-and-operations-guide.md)
 
 
-### <a name="onboarding-computers-to-security-center"></a>Incorporación de equipos a Security Center
-Security Center detecta automáticamente las suscripciones o áreas de trabajo de Azure que no están protegidas por Azure Defender. Aquí se incluyen las suscripciones de Azure que usan Security Center gratis y las áreas de trabajo que no tiene la solución de seguridad habilitada.
+### <a name="onboarding-computers-to-defender-for-cloud"></a>Incorporación de equipos a Defender for Cloud
+Defender for Cloud detecta automáticamente las suscripciones o áreas de trabajo de Azure que no están protegidas por Azure Defender. Aquí se incluyen las suscripciones de Azure que usan Defender for Cloud gratis y las áreas de trabajo que no tiene la solución de seguridad habilitada.
 
 Use los siguientes recursos como ayuda durante los procesos de incorporación.
 
 - [Incorporar equipos que no son de Azure](quickstart-onboard-machines.md)
-- [Introducción sobre Azure Security Center híbrido](https://youtu.be/NMa4L_M597k)
+- [Defender for Cloud híbrido: información general](https://youtu.be/NMa4L_M597k)
 
-## <a name="mitigating-security-issues-using-security-center"></a>Mitigación de problemas de seguridad mediante Security Center
-Security Center recopila, analiza e integra automáticamente los datos de registro de los recursos de Azure, la red y las soluciones de asociados conectados, como firewalls y soluciones de protección de puntos de conexión, para detectar amenazas reales y reducir los falsos positivos.
+## <a name="mitigating-security-issues-using-defender-for-cloud"></a>Mitigación de problemas de seguridad mediante Defender for Cloud
+Defender for Cloud recopila, analiza e integra automáticamente los datos de registro de los recursos de Azure, la red y las soluciones de asociados conectados, como firewalls y soluciones de protección de puntos de conexión, para detectar amenazas reales y reducir los falsos positivos.
 
 Utilice los siguientes recursos como ayuda para administrar las alertas de seguridad y proteger los recursos.
 
 Artículos    
-- [Protección de las redes en Azure Security Center](./security-center-network-recommendations.md)
-- [Protección del servicio SQL de Azure en Azure Security Center](./security-center-remediate-recommendations.md)
+- [Protección de la red en Defender for Cloud](./protect-network-resources.md)
+- [Protección del servicio de Azure SQL y los datos en Defender for Cloud](./implement-security-recommendations.md)
 
 
 Vídeo    
-- [Mitigación de problemas de seguridad mediante Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center)
+- [Mitigación de problemas de seguridad mediante Defender for Cloud](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center)
 
-### <a name="security-center-for-incident-response"></a>Security Center para respuesta a incidentes
-Para reducir los costos y los daños, es importante tener un plan de respuesta a incidentes implantado antes de que se produzca un ataque. Azure Security Center puede usarse en distintas fases de una respuesta a incidentes.
+### <a name="defender-for-cloud-for-incident-response"></a>Defender for Cloud para la respuesta a incidentes
+Para reducir los costos y los daños, es importante tener un plan de respuesta a incidentes implantado antes de que se produzca un ataque. Puede usar Defender for Cloud en distintas fases de una respuesta a incidentes.
 
-Use los siguientes recursos para comprender cómo se puede incorporar Security Center al proceso de respuesta a incidentes.
+Use los siguientes recursos para comprender cómo se puede incorporar Defender for Cloud al proceso de respuesta a incidentes.
 
 Vídeos    
-* [Azure Security Center in Incident Response](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response) (Uso de Azure Security Center para dar respuesta a incidentes)
+* [Defender for Cloud en la respuesta a incidentes](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response)
 * [Respond quickly to threats with next-generation security operation, and investigation](https://youtu.be/e8iFCz5RM4g) (Respuesta rápida ante amenazas mediante investigación y operaciones de última generación)
 
 Artículos    
-* [Uso de Azure Security Center para dar respuesta a incidentes](./tutorial-security-incident.md)
-* [Uso de la automatización para responder a los desencadenadores de Security Center](workflow-automation.md)
+* [Uso de Defender for Cloud para una respuesta a incidentes](./tutorial-security-incident.md)
+* [Uso de la automatización para responder a los desencadenadores de Defender for Cloud](workflow-automation.md)
 
 ## <a name="advanced-cloud-defense"></a>Protección en la nube avanzada
 
-Las máquinas virtuales de Azure pueden aprovechar las funcionalidades de protección en la nube avanzada de Security Center. Estas funcionalidades incluyen el acceso a máquinas virtuales "Just-In-Time" y controles de aplicación adaptables.
+Las máquinas virtuales de Azure pueden aprovechar las funcionalidades de protección en la nube avanzada de Defender for Cloud. Estas funcionalidades incluyen el acceso a máquinas virtuales "Just-In-Time" y controles de aplicación adaptables.
 
-Use los siguientes recursos para aprender a utilizar estas funcionalidades de Security Center.
+Use los siguientes recursos para aprender a utilizar estas funcionalidades de Defender for Cloud.
 
 Vídeos    
-* [Azure Security Center – Just-in-Time VM Access](https://youtu.be/UOQb2FcdQnU) (Azure Security Center: Acceso a máquinas virtuales "Just-in-Time")
-* [Azure Security Center - Adaptive Application Controls](https://youtu.be/wWWekI1Y9ck) (Azure Security Center: Controles de aplicación adaptables)
+* [Defender for Cloud: acceso a máquinas virtuales JIT](https://youtu.be/UOQb2FcdQnU)
+* [Defender for Cloud: controles de aplicaciones adaptables](https://youtu.be/wWWekI1Y9ck)
 
 Artículos    
-* [Administración del acceso a máquina virtual mediante Just-In-Time](./security-center-just-in-time.md)
-* [Controles de aplicación adaptables en Azure Security Center](./security-center-adaptive-application.md)
+* [Administración del acceso a máquina virtual mediante Just-In-Time](./just-in-time-access-usage.md)
+* [Controles de aplicaciones adaptables en Defender for Cloud](./adaptive-application-controls.md)
 
 ## <a name="hands-on-activities"></a>Actividades prácticas
 
-* [Laboratorios prácticos de Security Center](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=78871abf-6f35-4aa0-840f-d801f5cdbd72)
-* [Guión de procedimientos con recomendaciones de firewall de aplicaciones web (WAF) en Security Center](https://gallery.technet.microsoft.com/ASC-Playbook-Protect-38bd47ff)
-* [Cuaderno de estrategias de Azure Security Center: alertas de seguridad](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
+* [Laboratorio de prácticas de Defender for Cloud](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=78871abf-6f35-4aa0-840f-d801f5cdbd72)
+* [Guión de procedimientos con recomendaciones de firewall de aplicaciones web (WAF) en Defender for Cloud](https://gallery.technet.microsoft.com/ASC-Playbook-Protect-38bd47ff)
+* [Cuaderno de Defender for Cloud: alertas de seguridad](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
 
 ## <a name="additional-resources"></a>Recursos adicionales
-* [Página Documentación de Security Center](./index.yml)
-* [Página Documentación de API de REST de Security Center](/previous-versions/azure/reference/mt704034(v=azure.100))
-* [Preguntas más frecuentes sobre Azure Security Center](./faq-general.yml)
-* [Página Precios de Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/)
+* [Página de documentación de Defender for Cloud](./index.yml)
+* [Página de documentación de la API de REST de Defender for Cloud](/previous-versions/azure/reference/mt704034(v=azure.100))
+* [Preguntas más frecuentes de Defender for Cloud (P+F)](./faq-general.yml)
+* [Página de precios](https://azure.microsoft.com/pricing/details/security-center/)
 * [Identificación de procedimientos recomendados de seguridad](../security/fundamentals/identity-management-best-practices.md)
 * [Procedimientos recomendados de seguridad de red](../security/fundamentals/network-best-practices.md)
 * [Recomendaciones sobre PaaS](../security/fundamentals/paas-deployments.md)
 * [Cumplimiento normativo](https://www.microsoft.com/trustcenter/compliance/due-diligence-checklist)
-* [Los clientes de Log Analytics pueden usar ahora Azure Security Center para proteger sus cargas de trabajo en la nube híbrida](/archive/blogs/msoms/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads).
+* [Los clientes de Log Analytics pueden usar ahora Defender for Cloud para proteger sus cargas de trabajo en la nube híbrida](/archive/blogs/msoms/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads)

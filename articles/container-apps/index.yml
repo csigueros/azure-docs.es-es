@@ -1,0 +1,66 @@
+### YamlMime:Landing
+title: Documentación de la versión preliminar de Azure Container Apps
+summary: Azure Container Apps permite ejecutar aplicaciones contenedorizadas sin preocuparse por la orquestación o la infraestructura.
+metadata:
+  title: Documentación de Azure Container Apps
+  description: Azure Container Apps permite ejecutar aplicaciones contenedorizadas sin preocuparse por la orquestación o la infraestructura.
+  ms.topic: landing-page
+  ms.service: app-service
+  author: craigshoemaker
+  ms.author: cshoe
+  ms.date: 10/22/2021
+  ms.openlocfilehash: 3ac87235ba581b75b51de60e687d128c0d3feabc
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131088483"
+landingContent:
+- title: Acerca de Azure Container Apps
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Azure Container Apps?
+      url: overview.md
+- title: Introducción
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Implementación de la primera aplicación de contenedor
+      url: ./get-started.md
+  - linkListType: concept
+    links:
+    - text: Entornos
+      url: environment.md
+    - text: Contenedores
+      url: containers.md
+    - text: Revisiones
+      url: revisions.md
+    - text: Administración del ciclo de vida de aplicación
+      url: application-lifecycle-management.md
+    - text: Microservicios
+      url: microservices.md
+- title: Tareas comunes
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Establecimiento de reglas de escalado
+      url: scale-app.md
+    - text: Protección de una aplicación
+      url: secure-app.md
+    - text: Supervisión de una aplicación
+      url: monitor.md
+    - text: Administración de revisiones
+      url: revisions-manage.md
+    - text: Configuración de la entrada HTTP
+      url: ingress.md
+    - text: Conexión de varias aplicaciones
+      url: connect-apps.md
+- title: Aplicaciones y microservicios
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Microservicios con Dapr
+      url: microservices-dapr.md
+    - text: Proceso en segundo plano
+      url: background-processing.md

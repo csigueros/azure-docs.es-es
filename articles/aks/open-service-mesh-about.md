@@ -1,27 +1,25 @@
 ---
-title: Open Service Mesh (versión preliminar)
+title: Apertura de Service Mesh
 description: Open Service Mesh (OSM) en Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 3/12/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
-ms.openlocfilehash: cd1cfde1b3c1dbeda7fb112b29e8579f32bdf05a
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: d03aead2056ef3394c35f5e9679edd28e47e3fd0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123440248"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131066907"
 ---
-# <a name="open-service-mesh-aks-add-on-preview"></a>Complemento Open Service Mesh (versión preliminar) de AKS
+# <a name="open-service-mesh-aks-add-on"></a>Complemento Open Service Mesh de AKS
 
-[Open Service Mesh (OSM)](https://docs.openservicemesh.io/) es una malla de servicio nativa ligera, extensible y en la nube que permite a los usuarios administrar de forma uniforme características de observación para entornos de microservicios muy dinámicos, así como protegerlas y disfrutar de ellas de inmediato. 
+[Open Service Mesh (OSM)](https://docs.openservicemesh.io/) es una malla de servicio nativa ligera, extensible y en la nube que permite a los usuarios administrar de forma uniforme características de observación para entornos de microservicios muy dinámicos, así como protegerlas y disfrutar de ellas de inmediato.
 
 OSM ejecuta un plano de control basado en Envoy en Kubernetes, se puede configurar con API de [SMI](https://smi-spec.io/) y funciona insertando un proxy de Envoy como un contenedor sidecar junto a cada instancia de la aplicación. El proxy de Envoy contiene y ejecuta reglas en torno a las directivas de control de acceso, implementa la configuración de enrutamiento y captura las métricas. El plano de control configura continuamente los servidores proxy para asegurarse de que las directivas y las reglas de enrutamiento están actualizadas y garantiza que los servidores proxy sean correctos.
 
 El proyecto de OSM se originó en Microsoft y, desde entonces, ha sido donado y se rige por [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io/). El proyecto de código abierto de OSM seguirá siendo una colaboración dirigida por la comunidad en torno a características y funcionalidades, y se agradecen y fomentan las contribuciones al proyecto. Consulte nuestra guía de la [Escala de colaboradores](https://github.com/openservicemesh/osm/blob/main/CONTRIBUTOR_LADDER.md) para ver cómo puede participar.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="capabilities-and-features"></a>Características y funcionalidades
 

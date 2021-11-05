@@ -1,0 +1,109 @@
+### YamlMime:FAQ
+metadata:
+  title: Preguntas más frecuentes sobre etiquetas de confidencialidad en Azure Purview
+  description: Obtenga información sobre las preguntas más frecuentes de las etiquetas de confidencialidad de Azure Purview.
+  services: purview
+  author: ajaykar
+  ms.service: purview
+  ms.subservice: purview-insights
+  ms.topic: 
+  ms.date: 09/17/2021
+  ms.author: ajaykar
+  ms.openlocfilehash: 9d5ab94d9c398c6efecd110c4292ad669a389720
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131014941"
+title: Preguntas más frecuentes sobre etiquetas de confidencialidad en Azure Purview
+summary: >
+  En este artículo se enumeran las preguntas más frecuentes sobre el etiquetado de confidencialidad en Azure Purview, con sus respuestas y vínculos a más información según sea necesario.</br></br>
+
+
+  > [!IMPORTANT]
+
+  > Las etiquetas de confidencialidad de Azure Purview se encuentran actualmente en VERSIÓN PRELIMINAR. Los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+
+  >
+sections:
+- name: Licencias y configuración
+  questions:
+  - question: ¿Cuáles son los requisitos de licencia para usar etiquetas de confidencialidad en archivos y columnas de base de datos en Azure Purview?
+    answer: "Para usar etiquetas de confidencialidad en Azure Purview, necesitará al menos una licencia o cuenta de Microsoft 365 en el mismo inquilino de Azure Active Directory (AAD) que la cuenta de Azure Purview.  \n\nLas siguientes licencias de Microsoft 365 son necesarias para aplicar automáticamente etiquetas de confidencialidad a los recursos de [Microsoft 365](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance#which-licenses-provide-the-rights-for-a-user-to-benefit-from-the-service-10) y [Azure Purview](how-to-automatically-label-your-content.md):  \n\n* Microsoft 365 E5/A5/G5\n* Cumplimiento de Microsoft 365 E5/A5/G5 \n* Microsoft 365 E5/A5/G5 Information Protection y Gobernanza  \n* Office 365 E5, Enterprise Mobility + Security E5/A5/G5 y AIP Plan  \n\nPara más información, consulte [Descripciones de servicios de Microsoft 365](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance#information-protection).\n"
+  - question: Si mi organización tiene varias cuentas de Azure Purview en un inquilino de Azure AD, ¿tengo que extender manualmente las etiquetas a cada cuenta de Purview por separado?
+    answer: >
+      No. Al extender las etiquetas de confidencialidad a Azure Purview, esas etiquetas se extienden a todas las cuentas de Purview del inquilino.
+  - question: Mi organización ya usa etiquetas de confidencialidad en Microsoft 365. ¿Cuál es el impacto de extender estas etiquetas a Purview? ¿Afectará a mi configuración existente en Microsoft 365?
+    answer: "La extensión de las etiquetas a Purview no afecta a la configuración de Microsoft 365 ni modifica de ninguna manera los recursos, incluidos los archivos y las bases de datos.  \n\n* Al extender las etiquetas de confidencialidad a Purview, la configuración de Microsoft 365 seguirá funcionando como de costumbre. \n* La extensión de las etiquetas de confidencialidad permite a Purview aplicar esas etiquetas a los recursos de Azure y de nube múltiple en el catálogo de Purview. El catálogo es un almacén de metadatos y el usuario puede eliminarlo en cualquier momento. \n* Las etiquetas de confidencialidad solo se aplican a los metadatos de recursos del catálogo de Purview y no se aplican a los archivos y columnas de base de datos reales. La aplicación de etiquetas de confidencialidad no modifica los archivos ni las bases de datos de ninguna manera.</br></br>\n"
+- name: Clasificación frente a etiquetas de confidencialidad
+  questions:
+  - question: ¿Cuál es la diferencia entre las clasificaciones y las etiquetas de confidencialidad de Azure Purview?
+    answer: "En la tabla siguiente se enumeran las diferencias entre las clasificaciones y las etiquetas de confidencialidad de Azure Purview:\n\n|De comparación|Clasificaciones|Etiquetas de confidencialidad|\n|---|---|---|\n|**Definición**| Las clasificaciones son expresiones regulares o patrones que pueden ayudar a identificar los tipos de datos que existen dentro de un recurso. | Las etiquetas de confidencialidad son etiquetas que permiten a las organizaciones clasificar los datos en función del impacto empresarial, a la vez que abstraen el tipo de datos del usuario. |\n|**Ejemplos**| Número del seguro social, número de permiso de conducir, número de cuenta bancaria, etc. | Extremadamente confidencial, confidencial, general, público, etc. |\n| **Ámbito** | El ámbito de las clasificaciones aplicadas a un recurso se limita a la cuenta de Purview donde se aplicaron las clasificaciones. Si los datos se mueven a un recurso administrado por otra cuenta de Purview, las clasificaciones aplicadas en la ubicación original no son visibles en la nueva ubicación. | Las etiquetas de confidencialidad aplicadas en un recurso viajan con los datos independientemente de la ubicación de destino. Por ejemplo, esto significa que las etiquetas de confidencialidad aplicadas a un archivo de Microsoft 365 son visibles automáticamente y permanecen aplicadas al archivo, incluso si se mueve a Azure, SharePoint o Teams. |\n| **Proceso de examen** | El examen de un recurso en Azure Purview busca clasificaciones definidas por el sistema y definidas por el usuario (personalizadas) en los datos. Si se encuentran, las clasificaciones se agregan al catálogo de Purview para el recurso examinado. | Si tiene etiquetas de confidencialidad extendidas a Azure Purview y reglas de etiquetado automático definidas, el examen de un recurso en Purview aplica las etiquetas a los recursos del catálogo en función de las clasificaciones encontradas en el examen. |\n| **Entorno de creación** | Las clasificaciones personalizadas y las reglas de clasificación se pueden crear en Azure Purview Studio. También puede crear clasificaciones personalizadas en Microsoft 365. Sin embargo, aún no se admite su importación en Purview. | Administre las etiquetas de confidencialidad mediante el [Centro de cumplimiento de Microsoft 365](/microsoft-365/compliance/create-sensitivity-labels). |\n| **Límites de asignación** | Los recursos pueden no tener ninguna clasificación, o bien tener una o varias clasificaciones asignadas. | Cada recurso solo puede tener una etiqueta de confidencialidad. |\n| **Flujo de trabajo de la aplicación del recurso** | Puede usar Purview para agregar o modificar manualmente las clasificaciones asignadas a un recurso. | En Purview, las etiquetas de confidencialidad se asignan automáticamente a los recursos en función de las clasificaciones encontradas. Actualmente no se admite la aplicación manual de etiquetas en Purview. | \n| **Más información** | [Obtenga más información sobre las clasificaciones](create-a-custom-classification-and-classification-rule.md). | [Obtenga más información sobre las etiquetas de confidencialidad](/microsoft-365/compliance/create-sensitivity-labels).|\n||||\n"
+  - question: ¿Las clasificaciones en Purview y los tipos de información confidencial (SIT) de Microsoft 365 son lo mismo?
+    answer: Aunque las clasificaciones y los tipos SIT son fundamentalmente lo mismo, las clasificaciones son un concepto de Azure Purview y los tipos SIT son un concepto de Microsoft 365. Tanto las clasificaciones como los tipos SIT se usan en sus respectivos servicios para identificar el tipo de datos encontrados en un recurso.
+  - question: He creado un tipo de información confidencial (SIT) personalizado en Microsoft 365 y lo he usado en mis reglas de etiquetado automático para las columnas de base de datos. ¿Puedo usar este tipo SIT personalizado en Azure Purview?
+    answer: >
+      No, los [tipos de información confidencial personalizados](/microsoft-365/compliance/sensitive-information-type-learn-about#creating-custom-sensitive-information-types) de Microsoft 365 no se admiten en Azure Purview en este momento. Actualmente, Azure Purview solo admite los [tipos de información confidencial integrados](/microsoft-365/compliance/sensitive-information-type-learn-about) de Microsoft 365.</br></br>
+- name: Funcionalidades de etiquetado de Azure Purview
+  questions:
+  - question: ¿Cómo puedo determinar si se ha concedido consentimiento para extender el etiquetado a Purview?
+    answer: "Solo los administradores de cumplimiento, los administradores globales del inquilino o un rol personalizado que tenga acceso al cmdlet [Set-PolicyConfig](/powershell/module/exchange/set-policyconfig) pueden [habilitar etiquetas para Azure Purview](how-to-automatically-label-your-content.md). Para comprobar si un administrador ha extendido el etiquetado a Purview, conéctese a Exchange Online PowerShell y ejecute el cmdlet [Get-PolicyConfig](/powershell/module/exchange/get-policyconfig).  Por ejemplo:\n\n~~~powershell\nGet-PolicyConfig | format-list Purview*\n~~~\n\nCuando el etiquetado se haya extendido a Purview, verá **True** para el parámetro **PurviewLabelConsent**, una marca de tiempo que indica cuándo se activó el consentimiento y un **ObjectId** de quién activó el consentimiento.\n\n~~~output\nPurviewLabelConsent        : True\nPurviewLabelConsentCaller  : d8675309-1111-2222-3333-1234567890ab\nPurviewLabelConsentTime    : 9/28/2021 6:04:45 PM\nPurviewLabelConsentDetails : {\"Consent\":true,\"Caller\":\"d8675309-1111-2222-3333-1234567890ab\",\"Time\":\"9/28/2021 6:04:45 PM\"}\n~~~\n\nSi no se ha ampliado el etiquetado, verá False para **PurviewLabelConsent** como en el ejemplo siguiente:\n\n~~~output\nPurviewLabelConsent        : False\nPurviewLabelConsentCaller  : \nPurviewLabelConsentTime    : \nPurviewLabelConsentDetails :\n~~~\n\nEs diferente que auditar la acción de agregar Purview al ámbito de una etiqueta de confidencialidad. Esa actividad se puede encontrar en los registros de auditoría unificados. Por ejemplo,\n\n~~~powershell\nSearch-UnifiedAuditLog -Operations \"Set-Label\" -StartDate 10/05/2021 -EndDate 10/16/2021\n~~~\n\nPara obtener más información, vea [Buscar en el registro de auditoría](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance) en el Centro de cumplimiento de Microsoft 365.\n"
+  - question: ¿A qué orígenes de datos puedo aplicar etiquetas de confidencialidad en Azure Purview?
+    answer: "Puede aplicar etiquetas de confidencialidad a todos los orígenes de datos que se pueden examinar en Azure Purview. Para más información, consulte [Tipos de datos admitidos para las etiquetas de confidencialidad en Azure Purview](create-sensitivity-label.md#supported-data-sources). \n"
+  - question: ¿Puedo etiquetar manualmente un recurso o modificar o quitar manualmente una etiqueta en Azure Purview?
+    answer: "Azure Purview solo admite el etiquetado automático. Las etiquetas se aplican automáticamente a los recursos de Azure Purview en función de las clasificaciones que se encuentran en los recursos y las reglas de etiquetado automático de las etiquetas. \n\nPurview no admite actualmente la aplicación manual de una etiqueta, la modificación o la eliminación de una etiqueta de un recurso. \n"
+  - question: ¿Se puede aplicar el etiquetado automático a los recursos que pueden incluir contenido de credenciales?
+    answer: Azure Purview no admite actualmente el examen de credenciales. Si Purview admite el examen de credenciales, debería poder aplicar etiquetas en función de las credenciales encontradas.
+  - question: ¿Puedo aplicar el cifrado o el marcado de contenido en los archivos de Azure Purview, de forma similar a Microsoft 365?
+    answer: No, actualmente no se admiten el cifrado y el marcado de contenido de archivos en Azure Purview.
+  - question: ¿A qué tipos de archivo puedo aplicar etiquetas de confidencialidad en Azure Purview?
+    answer: >
+      Puede aplicar etiquetas de confidencialidad a todos los [orígenes de datos y tipos de archivo admitidos de Azure Purview](sources-and-scans.md).
+  - question: ¿Azure Purview admite actualmente funcionalidades de prevención de pérdida de datos?
+    answer: >
+      No, Azure Purview no proporciona funcionalidades de prevención de pérdida de datos actualmente. Actualmente, la [prevención de pérdida de datos](/microsoft-365/compliance/information-protection#prevent-data-loss) solo se admite en Microsoft 365.</br></br>
+- name: Acceso y roles
+  questions:
+  - question: ¿Dónde puedo administrar mis etiquetas de confidencialidad?
+    answer: >
+      Las etiquetas de confidencialidad solo se administran en el [Centro de cumplimiento de Microsoft 365](https://compliance.microsoft.com/). Para obtener más información, consulte [Cómo crear etiquetas de confidencialidad en Microsoft 365](how-to-automatically-label-your-content.md).
+
+
+      La compatibilidad con la administración de etiquetas de confidencialidad en Azure Purview Studio no está disponible actualmente.
+  - question: ¿Quién puede administrar etiquetas de confidencialidad en el Centro de cumplimiento de Microsoft 365?
+    answer: "Los siguientes roles de administrador integrados incluyen permisos para administrar etiquetas de confidencialidad en el Centro de cumplimiento: \n\n* Administrador global  \n* Administrador de cumplimiento \n\nPara obtener más información, vea [Permisos necesarios para crear y administrar etiquetas de confidencialidad](/microsoft-365/compliance/get-started-with-sensitivity-labels#permissions-required-to-create-and-manage-sensitivity-labels).  Una vez configurados los administradores globales y de cumplimiento, estos pueden [proporcionar acceso a usuarios individuales](/microsoft-365/security/office-365-security/grant-access-to-the-security-and-compliance-center). \n"
+  - question: ¿Quién puede buscar y examinar recursos con etiquetas de confidencialidad en Azure Purview?
+    answer: Todos los usuarios que tengan al menos acceso de lector de datos a la cuenta de Purview tienen permisos para buscar y examinar recursos con etiquetas de confidencialidad en Azure Purview.
+  - question: ¿Quién puede ver el informe de información de etiquetas de confidencialidad en Azure Purview?
+    answer: Todos los usuarios que tengan al menos acceso de lector de datos a la cuenta de Purview tienen permisos para ver informes de información de etiquetas de confidencialidad en Azure Purview. </br></br>
+- name: Detalles técnicos
+  questions:
+  - question: ¿Azure Purview y Microsoft 365 usan el mismo motor de clasificación?
+    answer: Sí, tanto Azure Purview como Microsoft 365 utilizan el mismo motor de clasificación.
+  - question: ¿Purview examina todo un recurso al aplicar etiquetas automáticas a las columnas de base de datos?
+    answer: "El escáner de Purview muestrea los archivos de la manera siguiente: \n\n* **En el caso de los tipos de archivo estructurados**, Purview muestrea 128 filas de cada columna o 1 MB, lo que sea menor. \n* **En el caso de los formatos de archivo de documento**, muestrea 20 MB de cada archivo. \n* **Si un archivo de documento es mayor de 20 MB**, no estará sujeto a un examen profundo ni a una clasificación. En estos casos, Purview captura solo metadatos básicos como los nombres de archivo y los nombres completos. \n"
+  - question: Si hay varias etiquetas de confidencialidad que cumplen los criterios de clasificación, ¿qué etiqueta se aplica?
+    answer: "En Microsoft 365, las etiquetas de confidencialidad tienen un \"orden\" de prioridad y Purview usa el mismo orden para asignar etiquetas. Si hay varias etiquetas que cumplen los criterios de clasificación, Purview elige la etiqueta con el orden más alto.  \n\nPara obtener más información, vea [Prioridad de etiqueta (el orden importa)](/microsoft-365/compliance/sensitivity-labels#label-priority-order-matters).</br></br>\n"
+- name: Clasificación y detección de datos de SQL
+  questions:
+  - question: '¿Por qué Microsoft admite dos experiencias de clasificación para bases de datos de SQL: "Azure Purview" y "clasificación y detección de datos de SQL"?'
+    answer: "Azure Purview proporciona una experiencia de clasificación y etiquetado para todos los recursos de Azure, incluidas las bases de datos SQL. Azure Purview está pensado para organizaciones que desean administrar todo su patrimonio de datos en un solo lugar con la eficacia de la clasificación, el etiquetado, las alertas, etc. Azure Purview usa etiquetas de confidencialidad, que tienen un ámbito global y viajan con los datos independientemente de dónde se muevan o en qué se transformen. \n\nPor el contrario, la experiencia de [clasificación y detección de datos de SQL](../azure-sql/database/data-discovery-and-classification-overview.md) está integrada en SQL. La experiencia de clasificación y detección de datos de SQL existía antes que Purview como una manera de proporcionar funcionalidades básicas para detectar, clasificar, etiquetar y notificar datos confidenciales en las bases de datos SQL. La experiencia de clasificación y detección de datos de SQL usa etiquetas locales que no tienen un ámbito global y no admite etiquetas de confidencialidad. \n"
+  - question: He aplicado etiquetas en la experiencia de clasificación y detección de datos de SQL. ¿Por qué estas etiquetas no aparecen en mi recurso en Azure Purview?
+    answer: >
+      La clasificación de SQL usa etiquetas locales, mientras que Azure Purview usa etiquetas de confidencialidad. Las etiquetas aplicadas en la experiencia de clasificación de SQL no se mostrarán en Purview. Para más información, consulte [Etiquetado de bases de datos SQL](create-sensitivity-label.md#labeling-for-sql-databases).
+additionalContent: >-
+  Para más información, consulte: </br>
+
+  > [!div class="nextstepaction"]
+
+  > [Etiquetado automático del contenido](how-to-automatically-label-your-content.md)</br>
+
+
+  > [!div class="nextstepaction"]
+
+  > [Conclusiones de etiquetas de confidencialidad](sensitivity-insights.md)</br>
+
+
+  > [!div class="nextstepaction"]
+
+  > [Información de la clasificación](./classification-insights.md)

@@ -2,15 +2,15 @@
 author: Juliako
 ms.service: azure-video-analyzer
 ms.topic: include
-ms.date: 04/07/2021
+ms.date: 11/04/2021
 ms.author: juliako
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: ce5a609884feb9304aae7c9c5b238fed22dc701f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 5b0f58607552d1891b116e463332f06ea8578b94
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093004"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131861421"
 ---
 * Una cuenta de Azure que incluya una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), en caso de que aún no lo haya hecho.
 

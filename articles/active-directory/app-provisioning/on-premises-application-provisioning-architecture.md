@@ -11,12 +11,12 @@ ms.date: 05/28/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd3b716cd754c26c0a3fe0b1f95183c86bac941f
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 89a0f2bd6b48d195836303a89143593c4d959bfb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129991211"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131028013"
 ---
 # <a name="azure-ad-on-premises-application-provisioning-architecture"></a>Arquitectura de aprovisionamiento de aplicaciones locales de Azure AD
 
@@ -62,11 +62,11 @@ La siguiente información se proporciona para explicar mejor los atributos delim
 
 El atributo delimitador es un atributo único de un tipo de objeto que no cambia y representa ese objeto en la memoria caché en memoria del host del conector de ECMA.
 
-El nombre distintivo (DN) es un nombre que identifica de forma única un objeto indicando su ubicación actual en la jerarquía del directorio.  O, en el caso de SQL, en la partición. El nombre se forma concatenando el atributo delimitador a la raíz de la partición de directorio. 
+El nombre distintivo (DN) es un nombre que identifica de forma única un objeto indicando su ubicación actual en la jerarquía del directorio.  O, en el caso de SQL, en la partición. Para formar el nombre se concatena el atributo delimitador en la raíz de la partición de directorio. 
 
 Cuando se piensa en nombres distintivos tradicionales en formato tradicional, por ejemplo, de Active Directory o LDAP, se piensa en algo similar a:
 
-  CN=Lola Jacobson,CN=Users,DC=contoso,DC=com
+  `CN=Lola Jacobson,CN=Users,DC=contoso,DC=com`
 
 Sin embargo, para un origen de datos como SQL, que es plano, no jerárquico, el nombre distintivo debe estar ya presente en una de las tablas o crearse a partir de la información que proporcionamos al host del conector de ECMA.  
 

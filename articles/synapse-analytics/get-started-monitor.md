@@ -9,13 +9,14 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
-ms.date: 12/31/2020
-ms.openlocfilehash: e2038ce9d14f4a80cf1a67321f3991c6d6f88bc4
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 08/25/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: cab153403d41a7eca026fb2350d8f94238df6ec2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111558393"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054795"
 ---
 # <a name="monitor-your-synapse-workspace"></a>Supervisión del área de trabajo de Synapse
 
@@ -33,6 +34,13 @@ Abra Synapse Studio y vaya al centro **Supervisar**. Aquí, puede ver un histori
 1. Vaya a **Integration > Pipeline runs** (Integración > Ejecuciones de canalización). En esta vista, puede ver cada vez que se ha ejecutado una canalización en el área de trabajo. 
 1. Busque la canalización que ejecutó en el paso anterior y haga clic en el **Nombre de canalización** para ver los detalles.
 1. Haga clic en **Barra de ruta de navegación** cerca de la parte superior de Synapse Studio, haga clic en **Todas las ejecuciones de la canalización** para volver a la vista anterior.
+
+## <a name="data-explorer-activities"></a>Actividades de Data Explorer
+
+1. Vaya a **Actividades > Solicitudes de KQL**.
+1. En esta vista puede ver las solicitudes de KQL.
+1. Seleccione un **grupo** para supervisar con el filtro **Grupo**. Ahora puede ver todas las aplicaciones de KQL que se están ejecutando o que se han ejecutado en el área de trabajo de ese grupo.
+1. Busque una solicitud de KQL específica y haga clic en el vínculo **Más** para ver el texto completo de la solicitud de KQL.
 
 ## <a name="apache-spark-activities"></a>Actividades de Apache Spark
 

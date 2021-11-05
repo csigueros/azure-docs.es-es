@@ -7,19 +7,21 @@ ms.service: azure-redhat-openshift
 keywords: encryption, byok, aro, deploy, openshift, red hat
 ms.topic: how-to
 ms.date: 10/18/2021
-ms.custom: template-how-to
-ms.openlocfilehash: f9b60767f929f8fc9d40836daa6435d0c69d110f
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.custom: template-how-to, ignite-fall-2021
+ms.openlocfilehash: b4df39040ac3cfbab2ecfa8cb24c72ff19ee5bdc
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130134289"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131048242"
 ---
 # <a name="encrypt-os-disks-with-a-customer-managed-key-cmk-on-azure-red-hat-openshift-aro-preview"></a>Cifrado de discos de sistema operativo con una clave administrada por el cliente (CMK) en Red Hat OpenShift en Azure (ARO) (versión preliminar)
 
 De forma predeterminada, los discos de sistema operativo de las máquinas virtuales de un clúster de Red Hat OpenShift en Azure se cifran con claves generadas automáticamente administradas por Microsoft Azure. Para mayor seguridad, los clientes pueden cifrar los discos del sistema operativo con claves autoadministradas al implementar un clúster de ARO. Estas características permiten un mayor control mediante el cifrado de datos confidenciales con claves administradas por el cliente.
 
 Los clústeres creados con claves administradas por el cliente tienen una clase de almacenamiento predeterminada habilitada con sus claves. Por lo tanto, estas claves cifran los discos del sistema operativo y los de datos. Las claves administradas por el cliente se almacenan en Azure Key Vault. Para más información sobre el uso de Azure Key Vault para crear y mantener claves, consulte [Cifrado del lado servidor de Azure Disk Storage](../key-vault/general/basic-concepts.md) en la documentación de Microsoft Azure.
+
+Con el cifrado basado en host, los datos almacenados en el host de máquina virtual de las máquinas virtuales de los nodos de agente de ARO se cifran en reposo y se transmiten cifrados al servicio de Storage. Esto significa que los discos temporales se cifran en reposo con claves administradas por la plataforma. La memoria caché de los discos de datos y del sistema operativo se cifra en reposo con claves administradas por la plataforma o por el cliente, según el tipo de cifrado establecido en esos discos. De forma predeterminada, cuando se usa ARO, el sistema operativo y los discos de datos se cifran en reposo con claves administradas por la plataforma, lo cual significa que las memorias caché de estos discos también se cifran de forma predeterminada en reposo con claves administradas por la plataforma. Puede especificar sus propias claves administradas siguiendo los pasos de cifrado siguientes. La memoria caché de estos discos también se cifrará con la clave que especifique en este paso.
 
 > [!IMPORTANT]
 > Las características en vista previa de ARO están disponibles como opción de participación y autoservicio. Las características en vista previa se proporcionan "tal cual" y "según disponibilidad", y se excluyen de los contratos de nivel de servicio y la garantía limitada. Las características en vista previa reciben cobertura parcial del soporte al cliente en la medida de lo posible. Por lo tanto, estas características no están diseñadas para usarse en producción.

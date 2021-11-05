@@ -313,6 +313,9 @@
             - name: Aprendizaje automático habilitado para Azure Arc
               displayName: 'Azure Arc, Kubernetes, on-premise, multi-cloud'
               href: how-to-attach-arc-kubernetes.md
+            - name: Tipos de instancias de Kubernetes
+              displayName: 'Azure Arc, Kubernetes, on-premise, multi-cloud'
+              href: how-to-kubernetes-instance-type.md
             - name: Azure Kubernetes Service
               displayName: 'AKS, inference'
               href: how-to-create-attach-kubernetes.md
@@ -547,7 +550,7 @@
           items:
             - name: Tiempo real
               items:
-                - name: Implementación de un modelo de Machine Learning con un punto de conexión en línea administrado
+                - name: Implementación de un modelo de Machine Learning con un punto de conexión en línea
                   href: how-to-deploy-managed-online-endpoints.md
                 - name: Implementación de un contenedor personalizado con un punto de conexión en línea administrado
                   href: how-to-deploy-custom-container.md

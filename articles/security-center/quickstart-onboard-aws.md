@@ -1,46 +1,49 @@
 ---
-title: Conexión de las cuentas de AWS a Azure Security Center
-description: Supervisión de los recursos de AWS desde Azure Security Center
+title: Conexión de una cuenta de AWS a Microsoft Defender for Cloud
+description: Supervisión de los recursos de AWS desde Microsoft Defender for Cloud
 author: memildin
 ms.author: memildin
 ms.date: 01/24/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 781157c8cf9e3cc749f74aeb7d9d2f582823885a
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: fb37074fae4d984009f33b45c805cb4dcc886551
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123426767"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131047788"
 ---
-#  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Conexión de las cuentas de AWS a Azure Security Center
+#  <a name="connect-your-aws-accounts-to-microsoft-defender-for-cloud"></a>Conexión de cuentas de AWS a Microsoft Defender for Cloud
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Las cargas de trabajo de nube abarcan normalmente varias plataformas de nube, por lo que los servicios de seguridad de la nube deben hacer lo mismo.
 
-Azure Security Center protege las cargas de trabajo de Azure, Amazon Web Services (AWS) y Google Cloud Platform (GCP).
+Microsoft Defender for Cloud protege las cargas de trabajo de Azure, Amazon Web Services (AWS) y Google Cloud Platform (GCP).
 
-Al incorporar la cuenta de AWS a Security Center, se integran AWS Security Hub y Azure Security Center. Por lo tanto, Security Center ofrece visibilidad y protección en ambos entornos de nube para proporcionar:
+La incorporación de una cuentas de AWP a Defender for Cloud integra AWS Security Hub y Microsoft Defender for Cloud. Por lo tanto, Defender for Cloud ofrece visibilidad y protección en ambos entornos de nube para proporcionar:
 
-- Aprovisionamiento automático de agentes (Security Center usa [Azure Arc](../azure-arc/servers/overview.md) para implementar el agente de Log Analytics en las instancias de AWS)
+- Aprovisionamiento automático de agentes (Defender for Cloud usa [Azure Arc](../azure-arc/servers/overview.md) para implementar el agente de Log Analytics en las instancias de AWS)
 - Administración de directivas
 - Administración de vulnerabilidades
 - Detección y respuesta de puntos de conexión (EDR) integrados
 - Detección de errores de configuración de seguridad
-- Una sola vista que muestra recomendaciones de Security Center y resultados de AWS Security Hub
-- Incorporación de los recursos de AWS a los cálculos de puntuación segura de Security Center
+- Una sola vista que muestra recomendaciones de Defender for Cloud y resultados de AWS Security Hub
+- Incorporación de los recursos de AWS a los cálculos de puntuación segura de Cloud
 - Evaluaciones de cumplimiento normativo de los recursos de AWS
 
-En la captura de pantalla siguiente puede ver que se muestran cuentas de AWS en el panel de información general de Security Center.
+En la captura de pantalla siguiente puede ver que se muestran cuentas de AWS en el panel de información general de Defender for Cloud.
 
-:::image type="content" source="./media/quickstart-onboard-aws/aws-account-in-overview.png" alt-text="Tres proyectos de GCP que se muestran en el panel de información general de Security Center" lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
+:::image type="content" source="./media/quickstart-onboard-aws/aws-account-in-overview.png" alt-text="Tres proyectos de GCP que se muestran en el panel de información general de Defender for Cloud" lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
 
 ## <a name="availability"></a>Disponibilidad
 
 |Aspecto|Detalles|
 |----|:----|
 |Estado de la versión:|Disponibilidad general (GA)|
-|Precios:|Requiere [Azure Defender para servidores](defender-for-servers-introduction.md).|
+|Precios:|Requiere [Microsoft Defender para servidores](defender-for-servers-introduction.md).|
 |Roles y permisos necesarios:|**Propietario** en la suscripción de Azure en cuestión<br>Un **colaborador** también puede conectar una cuenta de AWS si un propietario proporciona los detalles de la entidad de servicio.|
 |Nubes:|:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/no-icon.png"::: Nacionales o soberanas (Azure Government y Azure China 21Vianet)|
 |||
@@ -64,14 +67,14 @@ Siga los pasos que se indican a continuación para crear su conector de nube de 
 
         La primera vez que se habilita Security Hub, los datos pueden tardar varias horas en estar disponibles.
 
-### <a name="step-2-set-up-authentication-for-security-center-in-aws"></a>Paso 2. Configuración de la autenticación para Security Center en AWS
+### <a name="step-2-set-up-authentication-for-defender-for-cloud-in-aws"></a>Paso 2. Configuración de la autenticación para Defender for Cloud en AWS
 
-Hay dos maneras de permitir que Security Center se autentique en AWS:
+Hay dos maneras de que Defender for Cloud se autentique en AWS:
 
-- **Crear un rol IAM para Security Center**: este es el método más seguro y es el que se recomienda.
-- **Usuario de AWS para Security Center**: opción menos segura si no tiene IAM habilitado.
+- **Crear un rol IAM para Defender for Cloud**: este es el método más seguro y el que se recomienda.
+- **Usuario de AWS para Defender for Cloud**: es una opción menos segura si IAM no está habilitado.
 
-#### <a name="create-an-iam-role-for-security-center"></a>Creación de un rol IAM para Security Center
+#### <a name="create-an-iam-role-for-defender-for-cloud"></a>Creación de un rol de IAM para Defender for Cloud
 1. En la consola de Amazon Web Services, en **Security, Identity & Compliance** (Seguridad, identidad y cumplimiento), seleccione **IAM**.
     :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="Servicios de AWS.":::
 
@@ -79,9 +82,9 @@ Hay dos maneras de permitir que Security Center se autentique en AWS:
 1. Seleccione **Another AWS account** (Otra cuenta de AWS).
 1. Escriba la siguiente información:
 
-    - **Account ID** (Id. de cuenta): escriba el identificador de la cuenta Microsoft (**158177204117**) que aparece en la página del conector de AWS en Security Center.
+    - **Account ID** (Id. de cuenta): escriba el identificador de la cuenta Microsoft (**158177204117**) que aparece en la página del conector de AWS en Defender for Cloud.
     - **Require External ID** (Requerir id. externo): esta opción debe estar seleccionada.
-    - **External ID** (Id. externo): escriba el identificador de suscripción que se muestra en la página del conector de AWS en Security Center. 
+    - **External ID** (Id. externo): escriba el identificador de la suscripción que se muestra en la página del conector de AWS en Defender for Cloud. 
 
 1. Seleccione **Next** (Siguiente).
 1. En la sección **Attach permission policies** (Asociar directivas de permisos), seleccione las siguientes [directivas administradas por AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html):
@@ -97,9 +100,9 @@ Hay dos maneras de permitir que Security Center se autentique en AWS:
 
 1. Guarde el nombre del recurso de Amazon (ARN) para más adelante. 
 
-#### <a name="create-an-aws-user-for-security-center"></a>Creación de un usuario de AWS para Security Center 
+#### <a name="create-an-aws-user-for-defender-for-cloud"></a>Creación de un usuario de AWS para Defender for Cloud 
 1. Abra la pestaña **Users** (Usuarios) y seleccione **Add user** (Agregar usuario).
-1. En el paso **Details** (Detalles), escriba un nombre de usuario para Security Center y asegúrese de seleccionar **Programmatic access** (Acceso mediante programación) para el tipo de acceso de AWS. 
+1. En el paso **Details** (Detalles), escriba un nombre de usuario para Defender for Cloud y asegúrese de seleccionar **Programmatic access** (Acceso mediante programación) en el tipo de acceso de AWS. 
 1. Seleccione **Next Permissions** (Siguientes permisos).
 1. Seleccione **Attach existing policies directly** (Asociar directivas existentes directamente):
     - SecurityAudit
@@ -128,25 +131,25 @@ Para automatizar las tareas entre los recursos de AWS, se requiere el administra
 1. Cree una entidad de servicio para la incorporación a gran escala. Como **propietario** de la suscripción que desea usar para la incorporación, cree una entidad de servicio para la incorporación de Azure Arc, como se describe en [Creación de una entidad de servicio para la incorporación a gran escala](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale).
 
 
-### <a name="step-5-connect-aws-to-security-center"></a>Paso 5. Conexión de AWS a Security Center
+### <a name="step-5-connect-aws-to-defender-for-cloud"></a>Paso 5. Conexión de AWS a Defender for Cloud
 
-1. En el menú de Security Center, seleccione **Conectores multinube**.
+1. En el menú de Defender for Cloud, seleccione **Multi-cloud connectors** (Conectores de nube múltiple).
 1. Seleccione **Add AWS account** (Agregar cuenta de AWS).
-    :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Botón Add AWS account (Agregar cuenta de AWS) de la página Conectores multinube de Security Center":::
+    :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Botón Add AWS account (Agregar cuenta de AWS) de la página de conectores de nube múltiple de Defender for Cloud":::
 1. Configure las opciones en la pestaña **AWS authentication** (Autenticación de AWS):
     1. Escriba un **nombre para mostrar** para el conector.
     1. Confirme que la suscripción es correcta. Se trata de la suscripción que incluirá las recomendaciones del conector y de AWS Security Hub.
-    1. En función de la opción de autenticación elegida en [Paso 2. Configuración de la autenticación para Security Center en AWS](#step-2-set-up-authentication-for-security-center-in-aws):
-        - Seleccione **Assume Role** (Asumir rol) y pegue el ARN de [Creación de un rol IAM para Security Center](#create-an-iam-role-for-security-center).
+    1. En función de la opción de autenticación que haya elegido en el [Paso 2. Configuración de la autenticación para Defender for Cloud en AWS](#step-2-set-up-authentication-for-defender-for-cloud-in-aws):
+        - Seleccione **Assume Role** (Asumir rol) y pegue el ARN de [Creación de un rol de IAM para Defender for Cloud](#create-an-iam-role-for-defender-for-cloud).
             :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Pegado del archivo ARN en el campo pertinente del asistente para conexión de AWS en Azure Portal.":::
 
             O BIEN
 
-        - Seleccione **Credentials** (Credenciales) y pegue la **clave de acceso** y la **clave secreta** del archivo .csv que guardó en [Creación de un usuario de AWS para Security Center](#create-an-aws-user-for-security-center).
+        - Seleccione **Credentials** (Credenciales) y pegue la **clave de acceso** y la **clave secreta**, que encontrará en el archivo .csv que guardó en [Creación de un usuario de AWS para Defender for Cloud](#create-an-aws-user-for-defender-for-cloud).
 1. Seleccione **Next** (Siguiente).
 1. Configure las opciones de la pestaña **Configuración de Azure Arc**:
 
-    Security Center detecta las instancias de EC2 en la cuenta de AWS conectada y usa SSM para incorporarlas a Azure Arc. 
+    Defender for Cloud detecta las instancias de EC2 en la cuenta de AWS conectada y usa SSM para incorporarlas a Azure Arc. 
 
     > [!TIP]
     > Para ver la lista de sistemas operativos compatibles, consulte la sección [¿Qué sistemas operativos son compatibles con las instancias de EC2?](#what-operating-systems-for-my-ec2-instances-are-supported) en las preguntas frecuentes.
@@ -166,24 +169,24 @@ Para automatizar las tareas entre los recursos de AWS, se requiere el administra
 
 Cuando el conector se ha creado correctamente y AWS Security Hub se ha configurado adecuadamente:
 
-- Security Center examina el entorno en busca de las instancias de AWS EC2 y las incorpora a Azure Arc, lo que permite instalar el agente de Log Analytics y proporcionar recomendaciones de seguridad y protección contra amenazas. 
-- El servicio ASC busca nuevas instancias de AWS EC2 cada 6 horas y las incorpora de acuerdo con la configuración.
-- El estándar CIS de AWS se mostrará en el panel de cumplimiento normativo de Security Center.
-- Si está habilitada la directiva de Security Hub, las recomendaciones aparecerán en el portal de Security Center y en el panel de cumplimiento normativo entre 5 y 10 minutos después de que finalice la incorporación.
-    :::image type="content" source="./media/quickstart-onboard-aws/aws-resources-in-recommendations.png" alt-text="Recursos y recomendaciones de AWS en la página de recomendaciones de Security Center":::
+- Defender for Cloud examina el entorno en busca de instancias de AWS EC2 y las incorpora a Azure Arc, lo que permite instalar el agente de Log Analytics y proporcionar recomendaciones de seguridad y protección contra amenazas. 
+- El servicio Defender for Cloud busca nuevas instancias de AWS EC2 cada seis horas y las incorpora de acuerdo con la configuración.
+- El estándar CIS de AWS se mostrará en el panel de cumplimiento de normativas de Defender for Cloud.
+- Si está habilitada la directiva de Security Hub, las recomendaciones aparecerán en el portal de Defender for Cloud y en el panel de cumplimiento normativo entre 5 y 10 minutos después de que finalice la incorporación.
+    :::image type="content" source="./media/quickstart-onboard-aws/aws-resources-in-recommendations.png" alt-text="Recursos y recomendaciones de AWS en la página de recomendaciones de Defender for Cloud":::
 
 
 
 ## <a name="monitoring-your-aws-resources"></a>Supervisión de los recursos de AWS
 
-Como se mostró anteriormente, en la página de recomendaciones de seguridad de Azure Security Center aparecen los recursos de AWS junto con los recursos de Azure y GCP, lo que ofrece una verdadera vista de varias nubes.
+Como se mostró anteriormente, en la página de recomendaciones de seguridad de Microsoft Defender for Cloud aparecen los recursos de AWS junto con los recursos de Azure y GCP, lo que ofrece una verdadera vista multinube.
 
-Para ver todas las recomendaciones activas de los recursos por tipo de recurso, use la página de inventario de recursos de Security Center y filtre por el tipo de recurso de AWS que le interesa:
+Para ver todas las recomendaciones activas de los recursos por tipo de recurso, use la página de inventario de recursos de Defender for Cloud y filtre por el tipo de recurso de AWS que le interesa:
 
 :::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="Filtro de tipo de recurso de la página de inventario de recursos que muestra las opciones de AWS"::: 
 
 
-## <a name="faq---aws-in-security-center"></a>Preguntas frecuentes sobre AWS en Security Center
+## <a name="faq---aws-in-defender-for-cloud"></a>Preguntas frecuentes: AWS en Defender for Cloud
 
 ### <a name="what-operating-systems-for-my-ec2-instances-are-supported"></a>¿Qué sistemas operativos son compatibles con las instancias de EC2?
 
@@ -199,6 +202,6 @@ Sistema operativo compatible con la incorporación automática a Azure Arc para 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-La conexión de la cuenta de AWS forma parte de la experiencia de varias nubes disponible en Azure Security Center. Para información relacionada, consulte la página siguiente:
+La conexión de la cuenta de AWS forma parte de la experiencia multinube disponible en Microsoft Defender for Cloud. Para información relacionada, consulte la página siguiente:
 
-- [Conexión de las cuentas de GCP a Azure Security Center](quickstart-onboard-gcp.md)
+- [Conexión de cuentas de GCP a Microsoft Defender for Cloud](quickstart-onboard-gcp.md)

@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 11/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6f556fff4f83e76fc99f508d96d1e05aefac0023
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: 1317bc86b2f4283475b1cc819d24c1ac6475a486
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109847914"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045694"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Generación de perfiles de aplicaciones web en ejecución en una máquina virtual o un conjunto de escalado de máquinas virtuales de Azure mediante Application Insights Profiler
 
@@ -67,21 +67,23 @@ En este artículo se muestran los pasos necesarios para que Application Insights
 
 1. Si la aplicación deseada se ejecuta mediante [IIS](https://www.microsoft.com/web/downloads/platform.aspx), habilite la característica `IIS Http Tracing` de Windows.
 
-   a. Establezca el acceso remoto al entorno y, a continuación, use la ventana [Agregar características de Windows](/iis/configuration/system.webserver/tracing/). También puede ejecutar el siguiente comando en PowerShell (como administrador):  
+   1. Establezca el acceso remoto al entorno y, a continuación, use la ventana [Agregar características de Windows](/iis/configuration/system.webserver/tracing/). También puede ejecutar el siguiente comando en PowerShell (como administrador):  
 
-    ```powershell
-    Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
-    ```  
-   b. Si el establecimiento del acceso remoto supone un problema, puede usar la [CLI de Azure](/cli/azure/get-started-with-azure-cli) para ejecutar el siguiente comando:  
+      ```powershell
+      Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
+      ```
+  
+   1. Si el establecimiento del acceso remoto supone un problema, puede usar la [CLI de Azure](/cli/azure/get-started-with-azure-cli) para ejecutar el siguiente comando:  
 
-    ```azurecli
-    az vm run-command invoke -g MyResourceGroupName -n MyVirtualMachineName --command-id RunPowerShellScript --scripts "Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All"
-    ```
+      ```azurecli
+      az vm run-command invoke -g MyResourceGroupName -n MyVirtualMachineName --command-id RunPowerShellScript --scripts "Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All"
+      ```
 
 1. Implementación de aplicación.
 
 ## <a name="set-profiler-sink-using-azure-resource-explorer"></a>Establecimiento del receptor de Profiler con Azure Resource Explorer
-Todavía no tenemos forma de establecer el receptor de Application Insights Profiler desde el portal. En lugar de usar PowerShell como se describió anteriormente, puede usar Azure Resource Explorer para establecer el receptor. Pero tenga en cuenta que, si vuelve a implementar la máquina virtual, el receptor se perderá. Deberá actualizar la configuración que usa al implementar la VM para conservar este ajuste.
+
+Todavía no tenemos forma de establecer el receptor de Application Insights Profiler desde el portal. En lugar de usar PowerShell como se describe anteriormente, puede usar Azure Resource Explorer para establecer el receptor. Pero tenga en cuenta que, si vuelve a implementar la máquina virtual, el receptor se perderá. Deberá actualizar la configuración que usa al implementar la VM para conservar este ajuste.
 
 1. Compruebe que la extensión Windows Azure Diagnostics esté instalada. Para ello, revise las extensiones instaladas para la máquina virtual.  
 

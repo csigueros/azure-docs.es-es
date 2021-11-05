@@ -7,12 +7,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/10/2021
-ms.openlocfilehash: c189fd8d77d33a2397e5a83f73dcdda759247a03
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 08bf1a57c4b7d4905693c3f11964feeb04c8beef
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123535246"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131014868"
 ---
 # <a name="skillset-concepts-in-azure-cognitive-search"></a>Conceptos de conjunto de aptitudes en Azure Cognitive Search
 
@@ -91,7 +91,7 @@ Un documento enriquecido es una estructura de datos temporal similar a un árbol
 
 Inicialmente, un documento enriquecido es simplemente el contenido extraído de un origen de datos durante el [*descifrado de documentos*](search-indexer-overview.md#document-cracking), donde el texto y las imágenes se extraen del origen y están disponibles para el análisis de idioma o imagen. 
 
-El contenido inicial es el *nodo raíz*. Normalmente es un documento completo o una imagen normalizada. La forma en que se articula en un árbol de enriquecimiento varía según cada tipo de origen de datos. En la tabla siguiente se muestra el estado de un documento que entra en la canalización de enriquecimiento para varios orígenes de datos compatibles:
+El contenido inicial es el *nodo raíz* (`document\content`) y suele ser un documento completo o una imagen normalizada que se extrae de un origen de datos durante el descifrado de documentos. La forma en que se articula en un árbol de enriquecimiento varía según cada tipo de origen de datos. En la tabla siguiente se muestra el estado de un documento que entra en la canalización de enriquecimiento para varios orígenes de datos compatibles:
 
 |Origen de datos\Modo de análisis|Valor predeterminado|JSON, líneas JSON y CSV|
 |---|---|---|
@@ -99,7 +99,7 @@ El contenido inicial es el *nodo raíz*. Normalmente es un documento completo o 
 |Azure SQL|/document/{column1}<br>/document/{column2}<br>…|N/D |
 |Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/D|
 
-A medida que se ejecutan las aptitudes, la salida se agrega al árbol de enriquecimiento como nodos nuevos. Estos nodos se pueden usar como entradas para las aptitudes de nivel inferior y, finalmente, se proyectarán en un almacén de conocimiento o se asignarán a campos de índice. Las aptitudes que crean contenido, como las cadenas traducidas, escribirán su salida en el documento enriquecido. Del mismo modo, las aptitudes que consumen la salida de las aptitudes de nivel superior leerán desde el documento enriquecido para obtener las entradas necesarias. 
+A medida que se ejecutan las aptitudes, la salida se agrega al árbol de enriquecimiento como nodos nuevos. Estos nodos se pueden usar como entradas para las aptitudes de nivel inferior y, finalmente, se proyectarán en un almacén de conocimiento o se asignarán a campos de índice. Las aptitudes que crean contenido, como las cadenas traducidas, escribirán su salida en el documento enriquecido. Del mismo modo, las aptitudes que consumen la salida de las aptitudes de nivel superior leerán desde el documento enriquecido para obtener las entradas necesarias.
 
 :::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-def-enrichment-tree.png" alt-text="Aptitudes de lectura y escritura desde el árbol de enriquecimiento" border="false":::
 

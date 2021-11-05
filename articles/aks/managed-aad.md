@@ -3,14 +3,14 @@ title: Uso de Azure AD en Azure Kubernetes Service
 description: Aprenda a usar Azure AD en Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 02/1/2021
+ms.date: 10/20/2021
 ms.author: miwithro
-ms.openlocfilehash: c78c48bc86c999ab85c02f0ba596d425b516ac5a
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 488b5a6736e308abc78d53b3e9bdbf14af488ca3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129984979"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067873"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Integración de Azure Active Directory administrado por AKS
 
@@ -31,7 +31,7 @@ Obtenga más información sobre el flujo de integración de Azure AD en la [doc
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* La CLI de Azure, versión 2.11.0 o posterior
+* La versión 2.29.0 de la CLI de Azure, o cualquier versión posterior.
 * Kubectl con la versión [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181), como mínimo, o [kubelogin](https://github.com/Azure/kubelogin)
 * Si usa [helm](https://github.com/helm/helm), versión mínima de helm 3.3.
 
@@ -188,36 +188,15 @@ Actualice kubeconfig para acceder al clúster; para ello, siga los pasos que se 
 
 Hay algunos escenarios no interactivos, como las canalizaciones de integración continua, que no están disponibles actualmente con kubectl. Puede usar [`kubelogin`](https://github.com/Azure/kubelogin) para acceder al clúster con el inicio de sesión no interactivo de la entidad de servicio.
 
-## <a name="disable-local-accounts-preview"></a>Deshabilitación de cuentas locales (versión preliminar)
+## <a name="disable-local-accounts"></a>Deshabilitación de cuentas locales
 
 Al implementar un clúster de AKS, las cuentas locales se habilitan de forma predeterminada. Incluso al habilitar la integración de RBAC o de Azure Active Directory, el acceso a `--admin` sigue existiendo, básicamente como una opción de puerta trasera no auditable. Teniendo esto en cuenta, AKS ofrece a los usuarios la capacidad de deshabilitar las cuentas locales a través de una marca, `disable-local-accounts`. También se ha agregado un campo, `properties.disableLocalAccounts`, a la API de clúster administrado para indicar si la característica se ha habilitado en el clúster.
 
 > [!NOTE]
 > En los clústeres en los que está habilitada la integración con Azure AD, los usuarios que pertenezcan a un grupo especificado por `aad-admin-group-object-ids` podrán acceder a través de credenciales que no sean de administrador. En clústeres sin la integración con Azure AD habilitada y `properties.disableLocalAccounts` establecido en true, se producirá un error al obtener las credenciales de usuario y administrador.
 
-### <a name="register-the-disablelocalaccountspreview-preview-feature"></a>Registro de la característica en vista previa (GB) `DisableLocalAccountsPreview`
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-Para usar un clúster de AKS sin cuentas locales, debe habilitar la marca de característica `DisableLocalAccountsPreview` en la suscripción. Asegúrese de que usa la versión más reciente de la CLI de Azure y la extensión `aks-preview`.
-
-Registro de `DisableLocalAccountsPreview` la marca de característica con el comando de [característica de registro az][az-feature-register], tal como se muestra en el siguiente ejemplo:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "DisableLocalAccountsPreview"
-```
-
-Tarda unos minutos en que el estado muestre *Registrado*. Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/DisableLocalAccountsPreview')].{Name:name,State:properties.state}"
-```
-
-Cuando todo esté listo, actualice el registro del proveedor de recursos *Microsoft.ContainerService* con el comando [az provider register][az-provider-register]:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+> [!NOTE]
+> Después de deshabilitar los usuarios de cuentas locales en un clúster de AKS ya existente en el que los usuarios podrían haber usado cuentas locales, el administrador debe [rotar los certificados de clúster](certificate-rotation.md#rotate-your-cluster-certificates) para revocar los certificados a los que esos usuarios podrían tener acceso.  Si se trata de un nuevo clúster, no se requiere ninguna acción.
 
 ### <a name="create-a-new-cluster-without-local-accounts"></a>Creación de un clúster sin cuentas locales
 

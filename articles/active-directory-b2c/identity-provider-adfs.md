@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 511f546437d12714ae77d1e3a99f15feda31e33f
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: ad00a74871373338a2b4e8b557297a808e8186fc
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130228137"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131007303"
 ---
 # <a name="add-ad-fs-as-an-openid-connect-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Incorporación de AD FS como proveedor de identidades de OpenID Connect mediante las directivas personalizadas de Azure Active Directory B2C
 
@@ -62,7 +62,7 @@ En este paso, configure las notificaciones que la aplicación AD FS devuelve a A
 
     | Atributo LDAP | Tipo de notificación saliente |
     | -------------- | ------------------- |
-    | User-Principal-Name | UPN |
+    | User-Principal-Name | upn |
     | Surname | family_name |
     | Given-Name | given_name |
     | Display-Name | name |
@@ -94,10 +94,10 @@ En este paso, configure las notificaciones que la aplicación AD FS devuelve a A
 1. (Opcional) En **Sugerencia de dominio**, escriba `contoso.com`. Para más información, consulte [Configuración de inicio de sesión directo con Azure Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
 1. En **Asignación de notificaciones del proveedor de identidades**, seleccione las siguientes notificaciones:
 
-    - **Id. de usuario**: *upn*
-    - **Nombre para mostrar**: *unique_name*
-    - **Nombre propio**: *given_name*
-    - **Apellido**: *family_name*
+    - **Id. de usuario**: `upn`
+    - **Nombre para mostrar**: `unique_name`
+    - **Nombre propio**: `given_name`
+    - **Apellido**
 
 1. Seleccione **Guardar**.
 

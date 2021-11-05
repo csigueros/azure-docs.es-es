@@ -1,72 +1,50 @@
 ---
 title: Tutorial para conectar Azure-SSIS Integration Runtime a una red virtual
-description: Obtenga información sobre cómo conectar Azure-SSIS Integration Runtime a una red virtual de Azure.
-author: chugugrace
-ms.author: chugu
+description: Aprenda a conectar Azure-SSIS Integration Runtime a una red virtual.
+author: swinarko
+ms.author: sawinark
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 1/10/2020
-ms.openlocfilehash: a79229537b76dc62bca48985720f9c911de0c68c
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.date: 10/27/2021
+ms.openlocfilehash: 8ee28e9c310002c0a0b2e29a77b35c71045c9fc4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129400674"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040878"
 ---
-# <a name="configure-an-azure-sql-server-integration-services-ssis-integration-runtime-ir-to-join-a-virtual-network"></a>Configuración de Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR) para conectarlo a una red virtual
+# <a name="configure-azure-ssis-integration-runtime-to-join-a-virtual-network"></a>Conexión de Azure-SSIS Integration Runtime a una red virtual
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este tutorial se describen los pasos básicos necesarios para configurar Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR) con Azure Portal para conectarse a una red virtual.
+En este tutorial se proporcionan los pasos mínimos a través de la interfaz de usuario de Azure Data Factory (ADF) o Azure Portal para conectar Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR) a una red virtual con el método de inserción rápida.  Entre los pasos se incluyen:
 
-Entre los pasos se incluyen:
+1. Configure una red virtual para el método de inserción rápida mediante Azure Portal.
+1. Conexión de la instancia de Azure-SSIS IR a la red virtual con el método de inserción rápida mediante la interfaz de usuario de ADF
 
-- Configurar una red virtual.
-- Conectar Azure-SSIS IR a una red virtual desde el portal de Azure Data Factory.
+## <a name="prerequisites"></a>Prerrequisitos
 
-## <a name="prerequisites"></a>Requisitos previos
+- **Azure-SSIS IR:** si aún no tiene una, [cree una instancia de Azure-SSIS IR mediante la interfaz de usuario de ADF](tutorial-deploy-ssis-packages-azure.md) en primer lugar.
 
-- **Integration Runtime de SSIS de Azure**. Si no tiene una instancia de Azure-SSIS Integration Runtime, [aprovisione una instancia de Azure-SSIS Integration Runtime en Azure Data Factory](tutorial-deploy-ssis-packages-azure.md) antes de comenzar.
+- **Red virtual**: si aún no tiene una, [cree una red virtual mediante Azure Portal](../virtual-network/quick-create-portal.md) en primer lugar. Asegúrese de lo siguiente:
+  - No hay ningún bloqueo de recursos en la red virtual.
+  - Al usuario que crea Azure-SSIS IR se le conceden los permisos de control de acceso basado en rol (RBAC) necesarios para conectarse a la red virtual o subred. Consulte la sección sobre cómo [seleccionar permisos de red virtual](azure-ssis-integration-runtime-express-virtual-network-injection.md#perms).
 
-- **Permiso del usuario**. El usuario que crea la instancia de Azure-SSIS IR debe tener como mínimo en el recurso de Azure Data Factory alguna de las siguientes [asignaciones de roles](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope):
+Las siguientes configuraciones de red virtual no se tratan en este tutorial:
 
-    - Use el rol Colaborador de red integrado. Este rol requiere el permiso _Microsoft.Network /\*_ , que tiene un ámbito mucho mayor del necesario.
-    - Crear un rol personalizado que incluya solo el permiso _Microsoft.Network/virtualNetworks/\*/join/action_ necesario. Si también quiere traer sus propias direcciones IP públicas de Azure-SSIS IR al conectar la instancia a una red virtual de Azure Resource Manager, incluya también el permiso _Microsoft.Network/publicIPAddresses/*/join/action_ en el rol.
+- Si usa una dirección IP pública estática para Azure-SSIS IR.
+- Si usa su propio servidor de Sistema de nombres de dominio (DNS).
+- Si usa un grupo de seguridad de red (NSG).
+- Si usa rutas definidas por el usuario (UDR).
 
-- **Red virtual**.
-
-    - Si no tiene una red virtual, [cree una mediante Azure Portal](../virtual-network/quick-create-portal.md).
-
-    - Asegúrese de que el grupo de recursos de la red virtual puede crear y eliminar determinados recursos de Azure Network.
-    
-        La instancia de Integration Runtime para la integración de SSIS en Azure necesita crear determinados recursos de red en el mismo grupo de recursos de la red virtual. Estos recursos incluyen:
-        - Instancia de Azure Load Balancer, con el nombre *\<Guid>-azurebatch-cloudserviceloadbalancer*.
-        - Grupo de seguridad de red, con el nombre *\<Guid>-azurebatch-cloudservicenetworksecuritygroup.
-        - Una dirección IP pública de Azure llamada -azurebatch-cloudservicepublicip.
-    
-        Estos recursos se crearán al iniciarse la instancia de Azure-SSIS IR. Se eliminarán cuando esta se detenga. Para evitar que se bloquee la detención en la instancia de Azure-SSIS IR, no vuelva a usar estos recursos de red en los demás recursos.
-
-    - Asegúrese de que no tiene ningún [bloqueo de recursos](../azure-resource-manager/management/lock-resources.md) en el grupo de recursos ni en la suscripción a la que pertenece la red virtual. Si configura un bloqueo de solo lectura o de eliminación, se producirá un error al iniciar o detener la instancia de Azure-SSIS IR, o esta dejará de responder.
-
-    - Asegúrese de no tener ninguna asignación de Azure Policy que impida que se creen los siguientes recursos en el grupo de recursos o en la suscripción a la que pertenece la red virtual:
-        - Microsoft.Network/LoadBalancers
-        - Microsoft.Network/NetworkSecurityGroups
-
-- Los siguientes escenarios de **configuración de red** no se describen en este tutorial:
-    - Si trae direcciones IP públicas propias para la instancia de Azure-SSIS IR.
-    - Si usa un servidor de sistema de nombres de dominio (DNS) propio.
-    - Si usa un grupo de seguridad de red (NSG) en la subred.
-    - Si usa Azure ExpressRoute o una ruta definida por el usuario (UDR).
-    - Si usa una instancia de Azure-SSIS IR personalizada.
-    
-    Para obtener más información, consulte la [configuración de la red virtual](azure-ssis-integration-runtime-virtual-network-configuration.md).
+Si desea seguir estos pasos opcionales, consulte el artículo sobre el [método de inserción rápida de la red virtual](azure-ssis-integration-runtime-express-virtual-network-injection.md).
 
 ## <a name="configure-a-virtual-network"></a>Configuración de una red virtual
 
-Use Azure Portal para configurar una red virtual antes de conectarle una instancia de Azure-SSIS IR.
+Use Azure Portal para configurar una red virtual antes de intentar conectar su Azure-SSIS IR a ella.
 
-1. Inicie Microsoft Edge o Google Chrome. Actualmente, estos exploradores web son los únicos que admiten la interfaz de usuario de Data Factory.
+1. Inicie Microsoft Edge o Google Chrome. Actualmente, solo estos exploradores web admiten la interfaz de usuario de ADF.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
@@ -74,45 +52,31 @@ Use Azure Portal para configurar una red virtual antes de conectarle una instanc
 
 1. Filtre y seleccione su red virtual en la lista.
 
-1. En la página **Red virtual**, seleccione **Propiedades**.
+1. En el menú de la izquierda, seleccione **Subredes**:
 
-1. Seleccione el botón de copia en **ID. DE RECURSO** para copiar el identificador de recurso de la red virtual en el Portapapeles. Guarde el identificador del Portapapeles en OneNote o en un archivo.
+   - Asegúrese de que hay una subred adecuada a la que pueda conectarse la instancia de Azure-SSIS IR. Para ello, consulte la sección sobre cómo [seleccionar una subred](azure-ssis-integration-runtime-express-virtual-network-injection.md#subnet).
 
-1. En el menú de la izquierda, seleccione **Subredes**.
+   - Asegúrese de que la subred seleccionada se delega en Azure Batch. Para ello, consulte la sección sobre cómo [delegar una subred en Azure Batch](azure-ssis-integration-runtime-virtual-network-configuration.md#delegatesubnet).
 
-    - Asegúrese de que la subred que seleccione tenga suficiente espacio de direcciones disponible para usar Azure-SSIS IR. Deje direcciones IP disponibles para al menos dos veces el número de nodos del entorno de ejecución de integración. Azure reserva algunas direcciones IP dentro de cada subred. Estas direcciones no se pueden usar. La primera y la última direcciones IP de las subredes están reservadas para la conformidad con el protocolo y las otras tres se usan para los servicios de Azure. Para más información, consulte [¿Hay alguna restricción en el uso de direcciones IP dentro de estas subredes?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
-    - No seleccione GatewaySubnet para implementar Azure-SSIS Integration Runtime. Está dedicado a las puertas de enlace de red virtual.
-    - No use una subred que esté ocupada exclusivamente por otros servicios de Azure (por ejemplo, Instancia administrada de SQL Database, App Service, etc.).
+1. Asegúrese de que *Microsoft.Batch* es un proveedor de recursos registrado en la suscripción de Azure que tiene la red virtual idónea para la conexión a la misma de la instancia de Azure-SSIS IR. Para obtener instrucciones detalladas, consulte la sección sobre cómo [registrar Azure Batch como proveedor de recursos](azure-ssis-integration-runtime-virtual-network-configuration.md#registerbatch).
 
-1. Compruebe que el proveedor de Azure Batch está registrado en la suscripción de Azure que tiene la red virtual. O bien, registre el proveedor de Azure Batch. Si ya tiene una cuenta de Azure Batch en su suscripción, significa que la suscripción está registrada para Azure Batch. Si crea la instancia de Integration Runtime para la integración de SSIS en Azure en el portal de Data Factory, el proveedor de Azure Batch se registrará automáticamente.
+## <a name="join-azure-ssis-ir-to-the-virtual-network"></a>Conexión de Azure-SSIS IR a la red virtual
 
-   1. En Azure Portal, en el menú de la izquierda, seleccione **Suscripciones**.
+Después de configurar una red virtual, puede conectar su Azure-SSIS IR a la red virtual:
 
-   1. Seleccione su suscripción.
-
-   1. A la izquierda, seleccione **Proveedores de recursos** y confirme que **Microsoft.Batch** es un proveedor registrado.
-
-   :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png" alt-text="Confirmación del ":::estado &quot;Registrado&quot;.
-
-   Si no ve **Microsoft.Batch** en la lista, regístrelo. Para ello, [cree una cuenta de Azure Batch vacía](../batch/batch-account-create-portal.md) en su suscripción. Puede eliminarlo más tarde.
-
-## <a name="join-the-azure-ssis-ir-to-a-virtual-network"></a>Unión de la instancia de Integration Runtime para la integración de SSIS en Azure a una red virtual
-
-Después de configurar la red virtual de Azure Resource Manager o la red virtual clásica, puede conectar Azure-SSIS Integration Runtime a la red virtual:
-
-1. Inicie Microsoft Edge o Google Chrome. Actualmente, estos exploradores web son los únicos que admiten la interfaz de usuario de Data Factory.
+1. Inicie Microsoft Edge o Google Chrome. Actualmente, solo estos exploradores web admiten la interfaz de usuario de ADF.
 
 1. En [Azure Portal](https://portal.azure.com), en el menú izquierdo, seleccione **Factorías de datos**. Si no ve **Factorías de datos** en el menú, seleccione **Más servicios** y luego, en la sección **INTELIGENCIA Y ANÁLISIS**, seleccione **Factorías de datos**.
 
    :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png" alt-text="Lista de factorías de datos":::
 
-1. Seleccione su factoría de datos con Azure-SSIS Integration Runtime en la lista. Verá la página principal de la factoría de datos. Seleccione el icono **Crear y supervisar**. Verá la interfaz de usuario de Data Factory en una pestaña independiente.
+1. Seleccione la instancia de ADF con Azure-SSIS IR en la lista. Verá la página principal de la instancia de ADF. Seleccione el icono **Crear y supervisar**. Verá la interfaz de usuario de ADF en una pestaña independiente.
 
    :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png" alt-text="Página principal Factoría de datos":::
 
-1. En la interfaz de usuario de Data Factory, vaya a la pestaña **Editar**, seleccione **Conexiones** y vaya a la pestaña **Integration Runtimes** (Entornos de ejecución de integración).
+1. En la interfaz de usuario de ADF, vaya a la pestaña **Editar**, seleccione **Conexiones** y vaya a la pestaña **Entornos de ejecución de integración**.
 
-   :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/integration-runtimes-tab.png" alt-text="Pestaña ":::&quot;Integration runtimes&quot; (Entornos de ejecución de integración)
+   :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/integration-runtimes-tab.png" alt-text="Pestaña&quot;Integration runtimes&quot; ":::(Entornos de ejecución de integración)
 
 1. Si Azure-SSIS Integration Runtime está en funcionamiento, en la lista **Integration Runtimes** (Entornos de ejecución de integración), en la columna **Acciones**, seleccione el botón **Detener** de Azure-SSIS Integration Runtime. No puede editar la instancia de Azure-SSIS IR hasta que la detenga.
 
@@ -122,29 +86,43 @@ Después de configurar la red virtual de Azure Resource Manager o la red virtual
 
    :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/integration-runtime-edit.png" alt-text="Edición de Integration Runtime":::
 
-1. En el panel de configuración del entorno de ejecución de integración, avance por las secciones **General Settings** (Configuración general) y **SQL Settings** (Configuración de SQL) con el botón **Next** (Siguiente).
+1. En el panel **Configuración de Integration Runtime**, avance por las páginas **Configuración general** y **Configuración de implementación** seleccionando el botón **Siguiente**.
 
-1. En la sección **Advanced Settings** (Configuración avanzada):
+1. En la página **Configuración avanzada**, haga lo siguiente.
+
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-vnet-express.png" alt-text="Configuración avanzada de la inserción rápida de la red virtual":::
+
    1. Seleccione la casilla **Select a VNet for your Azure-SSIS Integration Runtime to join, allow ADF to create certain network resources, and optionally bring your own static public IP addresses** (Seleccionar una red virtual a la que conectar Azure-SSIS Integration Runtime, permitir que ADF cree determinados recursos de red y, opcionalmente, traer direcciones IP públicas propias).
 
    1. En **Subscription** (Suscripción), seleccione la suscripción de Azure que tiene la red virtual.
 
    1. En **Location** (Ubicación), está seleccionada la misma ubicación del entorno de ejecución de integración.
 
-   1. En **Type** (Tipo), seleccione el tipo de red virtual: clásica o de Azure Resource Manager. Se recomienda seleccionar una red virtual de Azure Resource Manager, puesto que las redes virtuales clásicas dejarán de utilizarse pronto.
+   1. En **Tipo**, especifique el tipo de la red virtual: **red virtual de Azure Resource Manager**/red virtual clásica. Se recomienda que seleccione **red virtual de Azure Resource Manager**, puesto que la red virtual clásica dejará de utilizarse pronto.
 
-   1. En **VNet Name** (Nombre de red virtual), seleccione el nombre de la red virtual. Debe ser la misma que se usa para SQL Database con puntos de conexión de servicio de red virtual o para Instancia administrada de SQL con un punto de conexión privado para hospedar SSISDB. O bien, la misma que está conectada a la red local. De lo contrario, puede ser cualquier red virtual para traer sus propias direcciones IP públicas estáticas de Azure-SSIS IR.
+   1. En **VNet Name** (Nombre de red virtual), seleccione el nombre de la red virtual. Debe ser el mismo que se usa para configurar un punto de conexión de servicio de red virtual/un punto de conexión privado para el servidor Azure SQL Database que hospeda SSISDB. O bien, debe ser el mismo unido por Azure SQL Managed Instance que hospeda SSISDB. O bien, la misma que está conectada a la red local.
 
-   1. En **Subnet Name** (Nombre de subred), seleccione el nombre de la subred en la red virtual. Debe ser la misma que se usa para SQL Database con puntos de conexión de servicio de red virtual para hospedar SSISDB. O bien, debe ser una subred diferente de la que se usa en Instancia administrada de SQL con un punto de conexión privado para hospedar SSISDB. De lo contrario, puede ser cualquier subred para traer sus propias direcciones IP públicas estáticas de Azure-SSIS IR.
+   1. En **Subnet Name** (Nombre de subred), seleccione el nombre de la subred en la red virtual. Debe ser el mismo que se usa para configurar un punto de conexión de servicio de red virtual para el servidor Azure SQL Database que hospeda SSISDB. O bien, debe ser una subred diferente de la unida por Azure SQL Managed Instance que hospeda SSISDB.
+
+   1. En **Método de inyección de red virtual**, seleccione **Rápido** para la inserción rápida de la red virtual.
 
    1. Seleccione **VNet Validation** (Validación de red virtual). Si la validación es correcta, seleccione **Continuar**.
 
-   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-vnet.png" alt-text="Configuración avanzada con una red virtual":::
+1. En la página **Resumen**, revise toda la configuración de Azure-SSIS IR y, a continuación, seleccione **Actualizar**.
 
-1. En la página **Resumen**, revise toda la configuración de Azure-SSIS Integration Runtime. Después, seleccione **Actualizar**.
-
-1. Inicie Azure-SSIS Integration Runtime mediante la selección del botón **Iniciar** de la columna **Acciones** de Azure-SSIS IR. Se tarda aproximadamente entre 20 y 30 minutos en iniciar la instancia de Azure-SSIS IR que se conecta a una red virtual.
+1. Inicie Azure-SSIS Integration Runtime mediante la selección del botón **Iniciar** de la columna **Acciones** de Azure-SSIS IR. Se tarda en iniciar la instancia de Azure-SSIS IR que se conecta a una red virtual con el método de inserción rápida unos 5 minutos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre cómo [conectar Azure-SSIS IR a una red virtual](join-azure-ssis-integration-runtime-virtual-network.md).
+- [Configuración de una red virtual para insertar Azure-SSIS IR](azure-ssis-integration-runtime-virtual-network-configuration.md)
+- [Método de inserción rápida de la red virtual](azure-ssis-integration-runtime-express-virtual-network-injection.md)
+- [Conexión de Azure-SSIS IR a una red virtual mediante la interfaz de usuario de ADF](join-azure-ssis-integration-runtime-virtual-network-ui.md)
+- [Conexión de Azure-SSIS IR a una red virtual mediante Azure PowerShell](join-azure-ssis-integration-runtime-virtual-network-powershell.md)
+
+Para más información acerca de Azure-SSIS IR, consulte los siguientes artículos: 
+
+- [Azure-SSIS IR](concepts-integration-runtime.md#azure-ssis-integration-runtime). En este artículo se proporciona información conceptual general acerca de los entornos de ejecución de integración, incluido Azure-SSIS IR. 
+- [Tutorial: Implementación de paquetes SSIS en Azure](tutorial-deploy-ssis-packages-azure.md). En este tutorial se proporcionan instrucciones paso a paso para crear Azure-SSIS IR. Usa el servidor de Azure SQL Database para hospedar SSISDB. 
+- [Creación de una instancia de Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). En este artículo se amplía el tutorial. Proporciona instrucciones sobre el uso de un servidor de Azure SQL Database configurado con un punto de conexión de servicio de red virtual, una regla de firewall de IP, un punto de conexión privado o Azure SQL Managed Instance que se conecta a una red virtual para hospedar SSISDB. Muestra cómo conectar Azure-SSIS IR a una red virtual. 
+- [Monitor an Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime) (Supervisión de una instancia de Integration Runtime de SSIS de Azure). En este artículo se muestra cómo recuperar y comprender la información acerca de Azure-SSIS IR.
+- [Administración de Integration Runtime de SSIS de Azure](manage-azure-ssis-integration-runtime.md). En este artículo se muestra cómo iniciar, detener o eliminar Azure-SSIS IR. También se muestra cómo escalar horizontalmente la instancia de Azure SSIS IR mediante la adición de más nodos.

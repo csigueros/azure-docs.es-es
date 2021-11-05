@@ -1,16 +1,16 @@
 ---
 title: Configuración de un contenedor personalizado
 description: Aprenda a configurar un contenedor personalizado en Azure App Service. En este artículo se muestran las tareas de configuración más comunes.
-ms.topic: article
-ms.date: 08/25/2021
+ms.topic: how-to
+ms.date: 10/22/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: c65f1c511e0f33f4b460bf7d1f7a40895437b019
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: bfcd178a43e7a21ea6ef35d4462956bd49037e6f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129709834"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131006874"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Configuración de un contenedor de Linux personalizado para Azure App Service
 
@@ -39,18 +39,18 @@ Si desea utilizar una imagen de Windows personalizada, debe elegir la [imagen pr
 
 La descarga de una imagen primaria tarda un tiempo en completarse durante el inicio de la aplicación. Sin embargo, puede reducir el tiempo de inicio mediante una de las siguientes imágenes primarias que ya están almacenadas en caché en Azure App Service:
 
-- [mcr.microsoft.com/windows/servercore](https://hub.docker.com/_/microsoft-windows-servercore):2004
+- [mcr.microsoft.com/windows/servercore](https://hub.docker.com/_/microsoft-windows-servercore):20H2
 - [mcr.microsoft.com/windows/servercore](https://hub.docker.com/_/microsoft-windows-servercore):ltsc2019
-- [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.8-windowsservercore-2004
+- [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.8-windowsservercore-20H2
 - [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.8-windowsservercore-ltsc2019
-- [mcr.microsoft.com/dotnet/core/runtime](https://hub.docker.com/_/microsoft-dotnet-core-runtime/):3.1-nanoserver-2004
-- [mcr.microsoft.com/dotnet/core/runtime](https://hub.docker.com/_/microsoft-dotnet-core-runtime/):3.1-nanoserver-1909
-- [mcr.microsoft.com/dotnet/core/runtime](https://hub.docker.com/_/microsoft-dotnet-core-runtime/):3.1-nanoserver-1903
-- [mcr.microsoft.com/dotnet/core/runtime](https://hub.docker.com/_/microsoft-dotnet-core-runtime/):3.1-nanoserver-1809
-- [mcr.microsoft.com/dotnet/core/aspnet](https://hub.docker.com/_/microsoft-dotnet-core-aspnet/):3.1-nanoserver-2004
-- [mcr.microsoft.com/dotnet/core/aspnet](https://hub.docker.com/_/microsoft-dotnet-core-aspnet/):3.1-nanoserver-1909
-- [mcr.microsoft.com/dotnet/core/aspnet](https://hub.docker.com/_/microsoft-dotnet-core-aspnet/):3.1-nanoserver-1903
-- [mcr.microsoft.com/dotnet/core/aspnet](https://hub.docker.com/_/microsoft-dotnet-core-aspnet/):3.1-nanoserver-1809
+- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/):5.0-nanoserver-20H2
+- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/):5.0-nanoserver-1809
+- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/):5.0-nanoserver-20H2
+- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/):5.0-nanoserver-1809
+- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/):3.1-nanoserver-20H2
+- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/):3.1-nanoserver-1809
+- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/):3.1-nanoserver-20H2
+- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/):3.1-nanoserver-1809
 
 ::: zone-end
 
@@ -71,6 +71,68 @@ az webapp config container set --name <app-name> --resource-group <group-name> -
 ```
 
 En *\<username>* y *\<password>* , especifique las credenciales de inicio de sesión de su cuenta de registro privada.
+
+## <a name="use-managed-identity-to-pull-image-from-azure-container-registry"></a>Uso de la identidad administrada para extraer la imagen de Azure Container Registry
+
+Siga estos pasos para configurar la aplicación web para la extracción de ACR mediante la identidad administrada. Los pasos usarán la identidad administrada asignada por el sistema, pero también puede usar la identidad administrada asignada por el usuario.
+
+1. Habilite [la identidad administrada asignada por el sistema](./overview-managed-identity.md) para la aplicación web mediante el comando [`az webapp identity assign`](/cli/azure/webapp/identity#az_webapp_identity-assign):
+
+    ```azurecli-interactive
+    az webapp identity assign --resource-group <group-name> --name <app-name> --query principalId --output tsv
+    ```
+    Reemplace `<app-name>` por el valor que usó en el paso anterior. La salida del comando (filtrada por los argumentos --query y --output) es el identificador de la entidad de servicio de la identidad asignada, la cual usará pronto.
+1. Obtenga el identificador de recurso de su instancia de Azure Container Registry:
+    ```azurecli-interactive
+    az acr show --resource-group <group-name> --name <registry-name> --query id --output tsv
+    ```
+    Reemplace `<registry-name>` por el nombre del registro. La salida del comando (filtrada por los argumentos --query y --output) es el identificador de recurso de Azure Container Registry.
+1. Conceda permiso a la identidad administrada para acceder al registro de contenedor:
+
+    ```azurecli-interactive
+    az role assignment create --assignee <principal-id> --scope <registry-resource-id> --role "AcrPull"
+    ```
+
+    Reemplace los siguientes valores:
+    - `<principal-id>` por el identificador de entidad de servicio del comando `az webapp identity assign`
+    - `<registry-resource-id>` por el identificador del registro de contenedor desde el comando `az acr show`
+
+    Para más información acerca de estos permisos, consulte [¿Qué es el control de acceso basado en rol de Azure?](../role-based-access-control/overview.md).
+
+1. Configure la aplicación para que use la identidad administrada para la extracción de Azure Container Registry.
+
+    ```azurecli-interactive
+    az webapp config set --resource-group <group-name> --name <app-name> --generic-configurations '{"acrUseManagedIdentityCreds": true}'
+    ```
+
+    Reemplace los siguientes valores:
+    - `<app-name>` por el nombre de la aplicación web.
+    >[!Tip]
+    > Si está utilizando la consola PowerShell para ejecutar los comandos, tendrá que aplicar el escape a las cadenas en el argumento `--generic-configurations` en este y el siguiente paso. Por ejemplo: `--generic-configurations '{\"acrUseManagedIdentityCreds\": true'`
+1. (Opcional) Si su aplicación utiliza una [identidad administrada asignada por el usuario](overview-managed-identity.md#add-a-user-assigned-identity), asegúrese de que está configurada en la aplicación web y establezca una propiedad `acrUserManagedIdentityID` adicional para especificar su identificador de cliente:
+    
+    ```azurecli-interactive
+    az identity show --resource-group <group-name> --name <identity-name> --query clientId --output tsv
+    ```
+    Reemplace el valor `<identity-name>` de la identidad administrada asignada por el usuario y use la salida `<client-id>` para configurar el identificador de la identidad administrada asignada por el usuario.
+
+    ```azurecli-interactive
+    az  webapp config set --resource-group <group-name> --name <app-name> --generic-configurations '{"acrUserManagedIdentityID": "<client-id>"}'
+    ```
+
+Está todo listo, y la aplicación web ahora usará la identidad administrada para extraer de Azure Container Registry. 
+
+::: zone pivot="container-linux"
+
+## <a name="use-an-image-from-a-network-protected-registry"></a>Uso de una imagen de un registro protegido por red
+
+Para conectarse a un registro dentro de una red virtual o en el entorno local, y para extraer de él, su aplicación tendrá que estar conectada a una red virtual utilizando la característica de integración de VNet. Esto también es necesario para Azure Container Registry con el punto de conexión privado. Cuando la red y la resolución DNS están configuradas, se habilita el enrutamiento de la extracción de imágenes a través de la VNet mediante el ajuste de la configuración de las aplicaciones `WEBISTE_PULL_IMAGE_OVER_VNET=true`:
+
+```azurecli-interactive
+az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBISTE_PULL_IMAGE_OVER_VNET=true
+```
+
+::: zone-end
 
 ## <a name="i-dont-see-the-updated-container"></a>No veo el contenedor actualizado
 

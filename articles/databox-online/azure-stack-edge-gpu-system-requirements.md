@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/08/2021
 ms.author: alkohli
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: 2cacb9a975dba536fc4744a24ea26ec1083b5668
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b79f878b7149bb41732f924c657f711f9bdf3128
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124827062"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131033121"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>Requisitos del sistema de Azure Stack Edge Pro con GPU 
 
@@ -85,6 +85,17 @@ Utilice la siguiente tabla para la configuración de los puertos de los servidor
 | TCP 443 (HTTPS)| Fuera       | WAN        | Sí      | Abierto para comunicación de salida en el aprovisionamiento de IoT Edge. Esta configuración es necesaria cuando se usen scripts manuales o Azure IoT Device Provisioning Service (DPS).|
 
 Para obtener información completa, vaya a [Reglas de configuración de puertos y firewall para la implementación de IoT Edge](../iot-edge/troubleshoot.md).
+
+
+### <a name="port-requirements-for-kubernetes-on-azure-stack-edge"></a>Requisitos de puerto para Kubernetes en Azure Stack Edge
+
+| N.º de puerto | Dentro o fuera | Ámbito de puerto | Obligatorio | Guía |
+|----------|-----------|------------|----------|----------|
+| TCP 31000 (HTTPS)| En       | LAN        | En algunos casos. <br> Vea las notas.      |Este puerto solo es necesario si se conecta al panel de Kubernetes para supervisar el dispositivo. |
+| TCP 6443 (HTTPS)| En       | LAN        | En algunos casos. <br> Vea las notas.       |El servidor de la API de Kubernetes necesita este puerto solo si se utiliza `kubectl` para acceder al dispositivo. |
+
+> [!IMPORTANT]
+> Si el firewall del centro de datos restringe o filtra el tráfico en función de direcciones MAC o direcciones IP de origen, asegúrese de que las direcciones IP de proceso (direcciones IP de nodo de Kubernetes) y direcciones MAC se encuentren en la lista de permitidos. Para especificar las direcciones MAC, ejecute el cmdlet `Set-HcsMacAddressPool` en la interfaz de PowerShell del dispositivo.
 
 ## <a name="url-patterns-for-firewall-rules"></a>Patrones de URL para reglas de firewall
 

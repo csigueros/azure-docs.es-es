@@ -5,17 +5,19 @@ services: sentinel
 author: batamig
 ms.author: bagol
 ms.service: azure-sentinel
-ms.custom: subject-cost-optimization
+ms.custom: subject-cost-optimization, ignite-fall-2021
 ms.topic: how-to
-ms.date: 09/02/2021
-ms.openlocfilehash: bd3ff870952701901f432660ec0069afa5151916
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.date: 10/17/2021
+ms.openlocfilehash: 8997a8a3d06fb14c4ad76fe01517a7f59c0944eb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129275361"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060865"
 ---
 # <a name="plan-and-manage-costs-for-azure-sentinel"></a>Planeamiento y administración de los costos de Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 En este artículo, se describe cómo planear y administrar los costos de Azure Sentinel. Antes de agregar recursos para el servicio, use la calculadora de precios de Azure para ayudar a planear los costos de Azure Sentinel. Después, a medida que agregue recursos de Azure, revise los costos estimados.
 
@@ -62,7 +64,7 @@ Hay dos maneras de pagar el servicio Azure Sentinel: **Pago por uso** y **Nivele
 
 - Log Analytics y Azure Sentinel también tienen el modelo de precios **Nivel de compromiso**, anteriormente llamado Reservas de capacidad, que es más predecible y ahorra hasta un 65 % en comparación con el modelo de precios de Pago por uso.
 
-    Con el sistema de precios de nivel de compromiso, puede adquirir un compromiso a partir de 100 GB al día. Cualquier uso por encima del nivel de compromiso se factura según la tarifa del nivel de compromiso que haya seleccionado. Por ejemplo, un nivel de compromiso de 100 GB al día le factura por el volumen de datos de 100 GB al día con el que se ha comprometido, y cualquier GB por día adicional se le factura a la tarifa con descuento para ese nivel.
+    Con el sistema de precios de nivel de compromiso, puede adquirir un compromiso a partir de 100 GB al día. Cualquier uso por encima del nivel de compromiso se factura según la tarifa del nivel de compromiso que haya seleccionado. Por ejemplo, un nivel de compromiso de 100 GB le factura por el volumen de datos de 100 GB con el que se ha comprometido, y cualquier GB por día adicional se le factura a la tarifa con descuento para ese nivel.
 
     Puede aumentar el nivel de compromiso en cualquier momento y reducirlo cada 31 días para optimizar los costos a medida que aumenta o disminuye el volumen de datos. Para ver su plan de tarifa actual de Azure Sentinel, seleccione **Configuración** en el panel de navegación izquierdo de Azure Sentinel y, a continuación, seleccione la pestaña **Precios**. El plan de tarifa actual está marcado como **Nivel actual**.
 
@@ -123,8 +125,23 @@ Al quitar Azure Sentinel, no se quita el área de trabajo de Log Analytics en la
 
 ### <a name="free-trial"></a>Evaluación gratuita
 
-Puede habilitar Azure Sentinel en un área de trabajo de Log Analytics nueva o existente sin costo adicional durante los primeros 31 días. Los cargos relacionados con Log Analytics, Automation y BYOML también se aplican durante la evaluación gratuita. La utilización más allá de los primeros 31 días se cobra según los [precios de Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel). 
+Pruebe Azure Sentinel gratis durante los primeros 31 días. Azure Sentinel se puede habilitar sin costo adicional en un área de Azure Monitor Log Analytics, con los límites indicados a continuación:
 
+- Las **nuevas áreas de trabajo de Log Analytics** pueden ingerir hasta 10 GB/día de datos de registro durante los primeros 31 días sin costo alguno. Las nuevas áreas de trabajo incluyen áreas de trabajo con menos de tres días de antigüedad.
+
+   Los cargos por el uso de la ingesta de datos y de Azure Sentinel se anulan durante el período de 31 días de prueba. Esta evaluación gratuita está sujeta a un límite de 20 áreas de trabajo por inquilino de Azure.
+
+- Las **áreas de trabajo de Log Analytics existentes** pueden habilitar Azure Sentinel sin costo adicional. Las áreas de trabajo existentes incluyen todas aquellas áreas de trabajo creadas hace más de tres días.
+
+   Durante el período de prueba de 31 días, solo se anulan los cargos por uso de Azure Sentinel.
+
+El uso por encima de estos límites se cobrará según el precio que se indica en la página de [precios de Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel). Los cargos relacionados con funcionalidades adicionales para la [automatización](automation-in-azure-sentinel.md) y el [aprendizaje automático propio](bring-your-own-ml.md) siguen siendo aplicables durante la evaluación gratuita.
+
+> [!TIP]
+> Durante el período de evaluación gratuita, encuentre recursos para la administración de costos, la formación y mucha más información en la pestaña **Novedades y guías > Evaluación gratuita** de Azure Sentinel.
+>
+> Esta pestaña también muestra detalles sobre las fechas de la evaluación gratuita y cuántos días le quedan hasta su expiración.
+>
 ### <a name="free-data-sources"></a>Orígenes de datos gratuitos
 
 Los siguientes orígenes de datos son gratuitos con Azure Sentinel:
@@ -259,13 +276,13 @@ Para habilitar el libro de informe de uso del área de trabajo, haga lo siguient
 
 ## <a name="export-cost-data"></a>Exportación de datos de costos
 
-También puede [exportar los datos de costos](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) a una cuenta de almacenamiento. Esto resulta útil cuando usted u otro usuario necesita hacer un análisis de datos adicional para los costos. Por ejemplo, un equipo de finanzas puede analizar los datos con Excel o Power BI. Puede exportar los costos en una programación diaria, semanal o mensual y establecer un intervalo de fechas personalizado. La exportación de los datos de costos es la forma recomendada de recuperar conjuntos de datos de costos.
+También puede [exportar los datos de costos](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) a una cuenta de almacenamiento. La exportación de datos de costos resulta útil cuando usted u otro usuario necesita hacer un análisis de datos adicional para los costos. Por ejemplo, un equipo de finanzas puede analizar los datos con Excel o Power BI. Puede exportar los costos en una programación diaria, semanal o mensual y establecer un intervalo de fechas personalizado. La exportación de los datos de costos es la forma recomendada de recuperar conjuntos de datos de costos.
 
 ## <a name="create-budgets"></a>Creación de presupuestos
 
 Puede crear [presupuestos](../cost-management/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) para administrar los costos y crear [alertas](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) que envíen notificaciones automáticamente a las partes interesadas sobre anomalías en los gastos y riesgos de gastos adicionales. Las alertas se basan en el gasto comparado con los umbrales de presupuesto y costo. Los presupuestos y las alertas se crean para las suscripciones y los grupos de recursos de Azure, por lo que son útiles como parte de una estrategia general de supervisión de costos. 
 
-Puede crear presupuestos con filtros para recursos o servicios de Azure específicos si quiere más detalle en la supervisión. Los filtros ayudan a garantizar que no se crean accidentalmente recursos nuevos con un costo adicional. Para más información sobre las opciones de filtro disponibles al crear un presupuesto, consulte [Opciones de agrupación y filtrado](../cost-management-billing/costs/group-filter.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+Puede crear presupuestos con filtros para recursos o servicios de Azure específicos si quiere más detalle en la supervisión. Los filtros ayudan a garantizar que no se crean accidentalmente recursos, que suponen un mayor costo. Para más información sobre las opciones de filtro disponibles al crear un presupuesto, consulte [Opciones de agrupación y filtrado](../cost-management-billing/costs/group-filter.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
 ### <a name="use-a-playbook-for-cost-management-alerts"></a>Use un cuaderno de estrategias para alertas de administración de costos
 
@@ -321,7 +338,7 @@ Al buscar o investigar amenazas en Azure Sentinel, es posible que tenga que acce
 
 ### <a name="optimize-log-analytics-costs-with-dedicated-clusters"></a>Optimice los costos de Log Analytics con clústeres dedicados
 
-Si ingiere al menos 500 GB al día en el área de trabajo de Azure Sentinel o en las áreas de trabajo de la misma región, considere la posibilidad de pasar a un clúster dedicado de Log Analytics para reducir los costos. Un nivel de compromiso de clúster dedicado de Log Analytics agrega un volumen de datos en áreas de trabajo que ingieren en conjunto un total de 500 GB al día, o más.
+Si ingiere al menos 500 GB en el área de trabajo o las áreas de trabajo de Azure Sentinel de la misma región, considere la posibilidad de pasar a un clúster dedicado de Log Analytics para reducir los costos. Un nivel de compromiso de clúster dedicado de Log Analytics agrega el volumen de datos en áreas de trabajo que ingieren colectivamente un total de 500 GB o más.
 
 Los clústeres dedicados de Log Analytics no se aplican a los niveles de compromiso de Azure Sentinel. Los costos de Azure Sentinel se siguen aplicando por área de trabajo en el clúster dedicado.
 
@@ -329,7 +346,7 @@ Puede agregar varias áreas de trabajo de Azure Sentinel a un clúster dedicado 
 
 - Las consultas entre áreas de trabajo se ejecutan más rápido si todas las áreas de trabajo implicadas en la consulta están en el clúster dedicado. Sigue siendo mejor tener el menor número de áreas de trabajo posible en el entorno y un clúster dedicado que conserva el [límite de 100 áreas de trabajo](../azure-monitor/logs/cross-workspace-query.md) para incluirlas en una sola consulta entre áreas de trabajo.
 
-- Todas las áreas de trabajo del clúster dedicado pueden compartir el nivel de compromiso de Log Analytics establecido en el clúster. No tener que confirmar niveles de compromiso de Log Analytics independientes para cada área de trabajo puede permitir ahorrar costos y eficiencias. Al habilitar un clúster dedicado, se compromete a un nivel de compromiso de Log Analytics mínimo de 500 GB de ingesta al día.
+- Todas las áreas de trabajo del clúster dedicado pueden compartir el nivel de compromiso de Log Analytics establecido en el clúster. No tener que confirmar niveles de compromiso de Log Analytics independientes para cada área de trabajo puede permitir ahorrar costos y eficiencias. Al habilitar un clúster dedicado, confirma un nivel de compromiso mínimo de Log Analytics de ingesta de 500 GB.
 
 Estas son otras consideraciones para pasar a un clúster dedicado para la optimización de costos:
 

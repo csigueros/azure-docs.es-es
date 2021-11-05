@@ -8,24 +8,24 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 10/20/2021
 ms.author: hirsin
 ms.reviewer: marsma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ecbb461e45b19630319622e978ad3bd49a376e74
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 62e4557b003c0347c6ecbf8a39102260abb66386
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129092744"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131050249"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>La Plataforma de identidad de Microsoft y el flujo de credenciales de cliente de OAuth 2.0
 
-Puede usar la [concesión de credenciales de cliente de OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.4) especificada en RFC 6749 y a veces denominada *OAuth de dos días*, para acceder a recursos hospedados en la web mediante la identidad de una aplicación. Este tipo de concesión se usa principalmente para las interacciones entre servidores que se deben ejecutar en segundo plano, sin la interacción inmediata con un usuario. Estos tipos de aplicaciones suelen denominarse *demonios* o *cuentas de servicio*.
+Puede usar la concesión de credenciales de cliente de OAuth 2.0 especificada en [RFC 6749](https://tools.ietf.org/html/rfc6749#section-4.4) y a veces denominada *OAuth de dos días*, para acceder a recursos hospedados en la web mediante la identidad de una aplicación. Este tipo de concesión se usa principalmente para las interacciones entre servidores que se deben ejecutar en segundo plano, sin la interacción inmediata con un usuario. Estos tipos de aplicaciones suelen denominarse *demonios* o *cuentas de servicio*.
 
 En este artículo se describe cómo programar directamente con el protocolo de la aplicación. Cuando sea posible, se recomienda usar las bibliotecas de autenticación de Microsoft (MSAL) admitidas, en lugar de [adquirir tokens y API web protegidas por llamadas](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Además, eche un vistazo a las [aplicaciones de ejemplo que usan MSAL](sample-v2-code.md).
 
-El flujo de concesión de credenciales de cliente de OAuth 2.0 permite que un servicio web (cliente confidencial) use sus propias credenciales para autenticarse al llamar a otro servicio web, en lugar de suplantar a un usuario. Para conseguir un mayor nivel de control, la plataforma de identidad de Microsoft también permite que el servicio que realiza la llamada use un certificado (en lugar de un secreto compartido) como credencial.  Como se utilizan las credenciales propias de las aplicaciones, estas credenciales se deben mantener seguras: _nunca_ publique esas credenciales en el código fuente, nunca las inserte en páginas web ni las use en una aplicación nativa ampliamente distribuida. 
+El flujo de concesión de credenciales de cliente de OAuth 2.0 permite que un servicio web (cliente confidencial) use sus propias credenciales para autenticarse al llamar a otro servicio web, en lugar de suplantar a un usuario. Para conseguir un mayor nivel de control, la plataforma de identidad de Microsoft también permite que el servicio que realiza la llamada se autentique con un [certificado](#second-case-access-token-request-with-a-certificate) o una credencial federada en lugar de un secreto compartido.  Como se utilizan las credenciales propias de las aplicaciones, estas credenciales se deben mantener seguras: _nunca_ publique esas credenciales en el código fuente, nunca las inserte en páginas web ni las use en una aplicación nativa ampliamente distribuida. 
 
 En el flujo de credenciales de cliente, un administrador concede los permisos directamente en la propia aplicación. Cuando la aplicación presenta un token a un recurso, este exige que la propia aplicación tenga autorización para realizar una acción, ya que no hay ningún usuario implicado en la autorización.  En este artículo se describen los pasos necesarios para [autorizar a una aplicación para que llame a una API](#application-permissions), además de [cómo obtener los tokens necesarios para llamar a esa API](#get-a-token).
 
@@ -192,6 +192,26 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 | `grant_type` | Obligatorio | Se debe establecer en `client_credentials`. |
 
 Los parámetros de la solicitud basada en certificados solo difieren de una manera de la solicitud basada en secreto compartido: el parámetro `client_secret` se reemplaza por los parámetros `client_assertion_type` y `client_assertion`.
+
+### <a name="third-case-access-token-request-with-a-federated-credential"></a>Tercer caso: solicitud de token de acceso con una credencial federada
+
+```HTTP
+POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
+Host: login.microsoftonline.com
+Content-Type: application/x-www-form-urlencoded
+
+scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
+&client_id=97e0a5b7-d745-40b6-94fe-5f77d35c6e05
+&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer
+&client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg
+&grant_type=client_credentials
+```
+
+| Parámetro | Condición | Descripción |
+| --- | --- | --- |
+| `client_assertion` | Obligatorio | Una aserción (un JWT o JSON Web Token) que la aplicación recibe de otro proveedor de identidades fuera de la plataforma de identidad de Microsoft, como Kubernetes. Los detalles de este JWT deben estar registrados en la aplicación como una [credencial de identidad federada](workload-identity-federation-create-trust.md). Lea sobre la [federación de identidades de carga de trabajo](workload-identity-federation.md) para obtener información sobre cómo configurar y usar las aserciones generadas por otros proveedores de identidades.|
+
+Todo el contenido de la solicitud es igual al del flujo basado en certificados anterior, con una excepción fundamental: el origen de `client_assertion`. En este flujo, la aplicación no crea la propia aserción de JWT.  En su lugar, la aplicación usa un JWT creado por otro proveedor de identidades.  Esto se denomina "[federación de identidades de carga de trabajo](workload-identity-federation.md)", donde la identidad de las aplicaciones de otra plataforma de identidad se usa para adquirir tokens dentro de la plataforma de identidad de Microsoft.  Esto es óptimo para escenarios entre nubes, como hospedar el proceso fuera de Azure, pero acceder a las API protegidas por la plataforma de identidad de Microsoft. 
 
 ### <a name="successful-response"></a>Respuesta correcta
 

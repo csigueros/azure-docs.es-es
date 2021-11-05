@@ -1,26 +1,29 @@
 ---
-title: Analizador de vulnerabilidades de Azure Defender para imágenes de contenedor en flujos de trabajo de CI/CD
-description: Obtenga información sobre el uso de Azure Defender en registros de contenedor para examinar imágenes de contenedores en flujos de trabajo de CI/CD.
+title: Analizador de vulnerabilidades de Defender for Cloud para imágenes de contenedor en flujos de trabajo de CI/CD
+description: Obtener información sobre cómo examinar imágenes de contenedores en flujos de trabajo de CI/CD con Microsoft Defender para registros de contenedor
 author: memildin
 ms.author: memildin
 ms.date: 05/25/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: eb7309f067c350eac0d9455767b137377caf588b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 97fed8a7afce16a33497860cda70b12fc90bed2c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121736307"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131014906"
 ---
 # <a name="identify-vulnerable-container-images-in-your-cicd-workflows"></a>Identificación de imágenes de contenedor vulnerables en los flujos de trabajo de CI/CD
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 En esta página se explica cómo examinar las imágenes de contenedores basadas en Azure Container Registry con el analizador de vulnerabilidades integrado cuando se han creado como parte de los flujos de trabajo de GitHub.
 
-Para configurar el analizador, deberá habilitar **Azure Defender para registros de contenedor** y la integración de CI/CD. Cuando los flujos de trabajo de CI/CD insertan imágenes en los registros, puede ver los resultados del examen de registros y un resumen de los resultados del examen de CI/CD.
+Para configurar el analizador, deberá habilitar **Microsoft Defender para registros de contenedor** y la integración de CI/CD. Cuando los flujos de trabajo de CI/CD insertan imágenes en los registros, puede ver los resultados del examen de registros y un resumen de los resultados del examen de CI/CD.
 
-Los resultados de los exámenes de CI/CD son un enriquecimiento de los resultados del examen de registros existentes de Qualys. El análisis de CI/CD de Azure Defender cuenta con la tecnología de [Aqua Trivy](https://github.com/aquasecurity/trivy).
+Los resultados de los exámenes de CI/CD son un enriquecimiento de los resultados del examen de registros existentes de Qualys. El análisis de CI/CD de Defender for Cloud cuenta con la tecnología de [Aqua Trivy](https://github.com/aquasecurity/trivy).
 
 Obtendrá información sobre la rastreabilidad como, por ejemplo, el flujo de trabajo y la dirección URL de ejecución de GitHub, para ayudar a identificar los flujos de trabajo que dan como resultado imágenes vulnerables.
 
@@ -32,25 +35,25 @@ Obtendrá información sobre la rastreabilidad como, por ejemplo, el flujo de tr
 |Aspecto|Detalles|
 |----|:----|
 |Estado de la versión:| **Esta integración de CI/CD está en versión preliminar.**<br>Se recomienda experimentar con él solo en flujos de trabajo que no sean de producción.<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
-|Precios:|**Azure Defender para registros de contenedor** se factura como se indica en la [página de precios de Security Center](https://azure.microsoft.com/pricing/details/security-center/).|
+|Precios:|**Microsoft Defender para registros de contenedor** se factura como se muestra en la [página de precios](https://azure.microsoft.com/pricing/details/security-center/)|
 |Nubes:|:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/no-icon.png"::: Nacionales o soberanas (Azure Government y Azure China 21Vianet)|
 |||
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Para examinar las imágenes a medida que se insertan mediante flujos de trabajo de CI/CD en los registros, debe tener **Azure Defender para registros de contenedor** habilitado en la suscripción. 
+Para examinar las imágenes a medida que se insertan mediante flujos de trabajo de CI/CD en los registros, debe tener **Microsoft Defender para registros de contenedor** habilitado en la suscripción. 
 
 ## <a name="set-up-vulnerability-scanning-of-your-cicd-workflows"></a>Configuración del examen de vulnerabilidades de los flujos de trabajo de CI/CD
 
 Para habilitar exámenes de vulnerabilidades de imágenes en los flujos de trabajo de GitHub:
 
-[Paso 1. Habilitación de la integración de CI/CD en Security Center](#step-1-enable-the-cicd-integration-in-security-center)
+[Paso 1. Habilitación de la integración de CI/CD en Defender for Cloud](#step-1-enable-the-cicd-integration-in-defender-for-cloud)
 
 [Paso 2. Adición de las líneas necesarias al flujo de trabajo de GitHub](#step-2-add-the-necessary-lines-to-your-github-workflow-and-perform-a-scan)
 
-### <a name="step-1-enable-the-cicd-integration-in-security-center"></a>Paso 1. Habilitación de la integración de CI/CD en Security Center
+### <a name="step-1-enable-the-cicd-integration-in-defender-for-cloud"></a>Paso 1. Habilitación de la integración de CI/CD en Defender for Cloud
 
-1. En la barra lateral de Security Center, seleccione **Precios y configuración**.
+1. En el menú Defender for Cloud, seleccione **Parámetros del entorno**.
 1. Seleccione la suscripción correspondiente.
 1. En la barra lateral de la página de configuración de esa suscripción, seleccione **Integraciones**.
 1. En el panel que aparece, seleccione una cuenta de Application Insights para insertar los resultados del examen de CI/CD del flujo de trabajo.
@@ -67,6 +70,10 @@ Para habilitar exámenes de vulnerabilidades de imágenes en los flujos de traba
 
     > [!TIP]
     > Se recomienda crear dos secretos en el repositorio para hacer referencia en el archivo YAML como se indica a continuación. A los secretos se les pueden asignar nombres según sus propias convenciones de nomenclatura. En este ejemplo, se hace referencia a los secretos como **AZ_APPINSIGHTS_CONNECTION_STRING** y **AZ_SUBSCRIPTION_TOKEN**.
+
+    > [!IMPORTANT]
+    >  La inserción en el registro debe realizarse antes de que se publiquen los resultados.
+
 
 
     ```yml
@@ -93,7 +100,7 @@ Para habilitar exámenes de vulnerabilidades de imágenes en los flujos de traba
         subscription-token: ${{ secrets.AZ_SUBSCRIPTION_TOKEN }} 
     ```
 
-1. Ejecute el flujo de trabajo que insertará la imagen en el registro de contenedor seleccionado. Una vez que la imagen se inserta en el registro, se ejecuta un examen del registro y puede ver los resultados del examen de CI/CD junto con los resultados del examen del registro en Azure Security Center.
+1. Ejecute el flujo de trabajo que insertará la imagen en el registro de contenedor seleccionado. Una vez que la imagen se inserta en el registro, se ejecuta un examen del registro y puede ver los resultados del examen de CI/CD junto con los resultados del examen del registro en Microsoft Defender for Cloud.
 
 1. [Vea los resultados del examen de CI/CD](#view-cicd-scan-results).
 
@@ -135,5 +142,4 @@ Para habilitar exámenes de vulnerabilidades de imágenes en los flujos de traba
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Más información sobre Azure Defender](azure-defender.md)
+Obtenga más información sobre [los planes de protección avanzados de Microsoft Defender](defender-for-cloud-introduction.md).

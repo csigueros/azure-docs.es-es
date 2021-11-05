@@ -5,22 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/28/2021
+ms.date: 10/25/2021
 ms.author: justinha
 author: justinha
 manager: daveba
-ms.reviewer: rhicock
+ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1a6ff8a64ac82b27df6e49ef7f500af3fd65316
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: a695c5d207bb441bfc3393ee0c5c1222efac4e79
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129352724"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063392"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>¿Cómo funciona la escritura diferida del autoservicio de restablecimiento de contraseña en Azure Active Directory?
 
-El autoservicio de restablecimiento de contraseña (SSPR) de Azure Active Directory (Azure AD) permite a los usuarios restablecer sus contraseñas en la nube, pero la mayoría de las empresas también tienen un entorno de Active Directory Domain Services (AD DS) local en el que existen los usuarios. La escritura diferida de contraseñas es una característica que se habilita con [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) y que permite que los cambios de contraseña en la nube se escriban en diferido en un directorio local existente en tiempo real. En esta configuración, a medida que los usuarios cambian o restablecen sus contraseñas mediante SSPR en la nube, las contraseñas actualizadas también se vuelven a escribir en el entorno de AD DS local.
+El autoservicio de restablecimiento de contraseña (SSPR) de Azure Active Directory (Azure AD) permite a los usuarios restablecer sus contraseñas en la nube, pero la mayoría de las empresas también tienen un entorno de Active Directory Domain Services (AD DS) local para los usuarios. La escritura diferida de contraseñas permite que los cambios de contraseña en la nube se vuelvan a escribir en un directorio local en tiempo real mediante [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) o la [sincronización en la nube de Azure AD Connect](tutorial-enable-cloud-sync-sspr-writeback.md). Cuando los usuarios cambian o restablecen sus contraseñas mediante SSPR en la nube, las contraseñas actualizadas también se escriben en el entorno AD DS local.
 
 > [!IMPORTANT]
 > Este artículo teórico explica al administrador cómo funciona la escritura diferida del autoservicio de restablecimiento de contraseña. Los usuarios finales registrados para el restablecimiento de contraseña de autoservicio que necesiten volver a su cuenta deben ir a https://aka.ms/sspr.
@@ -40,18 +41,23 @@ La escritura diferida de contraseñas ofrece las siguientes características:
 * **Permite el cambio de contraseña en el panel de acceso y Microsoft 365**: cuando los usuarios federados o con sincronización de hash de contraseña modifican las contraseñas expiradas o no expiradas, estas se vuelven a escribir en AD DS.
 * **Admite la escritura diferida de contraseñas cuando un administrador las restablece desde Azure Portal**: siempre que un administrador restablece la contraseña de un usuario en [Azure Portal](https://portal.azure.com) y se trata de un usuario federado o con sincronización de hash de contraseña, la contraseña se vuelve a escribir en el entorno local. Esta funcionalidad no se admite actualmente en el Portal de administración de Office.
 * **No requiere ninguna regla de firewall de entrada**: la escritura diferida de contraseñas usa una retransmisión de Azure Service Bus como canal de comunicación subyacente. Toda la comunicación es de salida a través del puerto 443.
+* **Admite la implementación en paralelo de nivel de dominio** mediante [Azure AD Connect](tutorial-enable-sspr-writeback.md) o la [sincronización en la nube](tutorial-enable-cloud-sync-sspr-writeback.md) para dirigirse a distintos conjuntos de usuarios en función de sus necesidades, incluidos los usuarios que están en dominios desconectados.  
 
 > [!NOTE]
-> Las cuentas de administrador que se encuentran dentro de grupos protegidos en AD local se pueden utilizar con la escritura diferida de contraseñas. Los administradores pueden cambiar su contraseña en la nube, pero no pueden usar el restablecimiento de contraseña para restablecer una contraseña olvidada. Para obtener más información sobre los grupos protegidos, consulte [Cuentas y grupos protegidos en Active Directory](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory).
+> Las cuentas de administrador que se encuentran dentro de grupos protegidos en AD local se pueden utilizar con la escritura diferida de contraseñas. Los administradores pueden cambiar su contraseña en la nube, pero no pueden restablecer una contraseña olvidada. Para obtener más información sobre los grupos protegidos, consulte [Cuentas y grupos protegidos en Active Directory](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory).
 
-Para empezar a trabajar con la escritura diferida de SSPR, realice el siguiente tutorial:
+Para empezar a trabajar con la escritura diferida de SSPR, complete uno o ambos de los tutoriales siguientes:
 
-> [!div class="nextstepaction"]
-> [Tutorial: Habilitación de la escritura diferida del autoservicio de restablecimiento de contraseña (SSPR)](./tutorial-enable-sspr-writeback.md).
+- [Tutorial: Habilitación de la escritura diferida del autoservicio de restablecimiento de contraseña (SSPR)](tutorial-enable-cloud-sync-sspr-writeback.md).
+- [Tutorial: Habilitación de la escritura diferida del autoservicio de restablecimiento de contraseña de la sincronización en la nube de Azure Active Directory Connect en un entorno local (versión preliminar)](tutorial-enable-cloud-sync-sspr-writeback.md)
+
+## <a name="azure-ad-connect-and-cloud-sync-side-by-side-deployment"></a>Implementación en paralelo de Azure AD Connect y la sincronización en la nube
+
+Puede implementar Azure AD Connect y la sincronización en la nube en paralelo en dominios diferentes para dirigirse a distintos conjuntos de usuarios. Esto ayuda a los usuarios existentes con los cambios en la escritura diferida de contraseñas al agregar la opción en los casos en los que los usuarios están en dominios desconectados debido a una fusión o división de la empresa. Azure AD Connect y la sincronización en la nube se pueden configurar en dominios diferentes para que los usuarios de un dominio puedan usar Azure AD Connect mientras que los usuarios de otro dominio usan la sincronización en la nube. La sincronización en la nube también puede proporcionar una mayor disponibilidad porque no se basa en una sola instancia de Azure AD Connect. Para obtener una comparación de características entre las dos opciones de implementación, consulte [Comparación entre Azure AD Connect y la sincronización en la nube](../cloud-sync/what-is-cloud-sync.md#comparison-between-azure-ad-connect-and-cloud-sync).
 
 ## <a name="how-password-writeback-works"></a>Funcionamiento de la escritura diferida de contraseñas
 
-Si un usuario federado o configurado con autenticación transferida y sincronización de hash de contraseñas cambia o restablece su contraseña en la nube, ocurre lo siguiente:
+Cuando una cuenta de usuario configurada para federación, la sincronización de hash de contraseñas (o, en el caso de una implementación de Azure AD Connect, la autenticación de paso a través) intenta restablecer o cambiar una contraseña en la nube, se producen las siguientes acciones:
 
 1. Se comprueba qué tipo de contraseña tiene el usuario. Si la contraseña del usuario se administra en el entorno local:
    * Se comprueba si el servicio de escritura diferida está en funcionamiento. Si es así, el usuario puede continuar.

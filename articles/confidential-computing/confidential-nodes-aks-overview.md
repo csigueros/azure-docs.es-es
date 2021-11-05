@@ -8,12 +8,13 @@ ms.subservice: confidential-computing
 ms.topic: overview
 ms.date: 2/08/2021
 ms.author: amgowda
-ms.openlocfilehash: 203185d9f6def2204906b8722f1969b14eee8787
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: e63e8d2caba6fe9ca5fa7b4a239f2194976dd569
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933158"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131086516"
 ---
 # <a name="confidential-computing-nodes-on-azure-kubernetes-service"></a>Nodos de computación confidencial en Azure Kubernetes Service
 
@@ -53,11 +54,13 @@ Los nodos de computación confidencial de AKS también admiten contenedores prog
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Implementación de un clúster de AKS con nodos de computación confidencial](./confidential-nodes-aks-get-started.md)
+[Implementación de un clúster de AKS con nodos de computación confidencial](./confidential-enclave-nodes-aks-get-started.md)
 
 [Inicio rápido con ejemplos de contenedores confidenciales](https://github.com/Azure-Samples/confidential-container-samples)
 
-[Lista de SKU de DCsv2](../virtual-machines/dcv2-series.md)
+[Máquinas virtuales confidenciales con Intel SGX: lista de SKU de DCsv2](../virtual-machines/dcv2-series.md)
+
+[Máquinas virtuales confidenciales con Intel SGX: lista de SKU de DCsv3](../virtual-machines/dcv3-series.md)
 
 [Sesión de seminario web sobre la defensa en profundidad con contenedores confidenciales](https://www.youtube.com/watch?reload=9&v=FYZxtHI_Or0&feature=youtu.be)
 
@@ -66,4 +69,4 @@ Los nodos de computación confidencial de AKS también admiten contenedores prog
 
 
 <!-- LINKS - internal -->
-[DC Virtual Machine]: /confidential-computing/virtual-machine-solutions
+[DC Virtual Machine]: /confidential-computing/virtual-machine-solutions-sgx.md

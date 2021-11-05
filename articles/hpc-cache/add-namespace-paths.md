@@ -1,17 +1,17 @@
 ---
 title: Configuración del espacio de nombres agregado de Azure HPC Cache
 description: Creación de rutas de acceso orientadas al cliente para el almacenamiento de back-end con Azure HPC Cache
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 04/22/2021
-ms.author: v-erkel
-ms.openlocfilehash: 0374c2da7cda001da779c42cacaf11db6f797356
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.author: femila
+ms.openlocfilehash: 903ed4b3d17b0fc7290e5ce2755518cf768ac342
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113587398"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131015378"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>Configuración del espacio de nombres agregado
 
@@ -101,7 +101,7 @@ Rellene estos valores para cada ruta de acceso del espacio de nombres:
 
 * **Export subdirectory** (Subdirectorio de exportación): si desea que esta ruta de acceso monte un subdirectorio específico de la exportación, indíquelo aquí. En caso contrario, deje este campo en blanco.
 
-![Captura de pantalla de la página de espacio de nombres del portal con la página de edición abierta a la derecha. El formulario de edición muestra la configuración de la ruta de acceso de un espacio de nombres de destino de almacenamiento de NFS](media/namespace-edit-nfs.png)
+![Captura de pantalla de la página de espacio de nombres del portal con la página de edición abierta a la derecha. El formulario de edición muestra la configuración de una ruta de acceso de un espacio de nombres de destino de almacenamiento de NFS.](media/namespace-edit-nfs.png)
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 

@@ -1,5 +1,5 @@
 ---
-title: Procedimiento de copia de seguridad y recuperación de recursos de personalización de voz
+title: Procedimiento de copia de seguridad y recuperación de recursos de cliente de voz
 titleSuffix: Azure Cognitive Services
 description: Obtenga información sobre cómo prepararse para las interrupciones del servicio con Habla personalizada y Voz personalizada.
 services: cognitive-services
@@ -10,18 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/28/2021
 ms.author: mitagaki
-ms.openlocfilehash: 0f540025561b6e452371a74093133bf3e1183b1b
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 860e70f567742a418e8de75c68793b29fb691df2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124744117"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058376"
 ---
-# <a name="back-up-and-recover-speech-customization-resources"></a>Copia de seguridad y recuperación de recursos de personalización de voz
+# <a name="back-up-and-recover-speech-customer-resources"></a>Copia de seguridad y recuperación de recursos de cliente de voz
 
 El servicio Voz está [disponible en distintas regiones](./regions.md). Las claves de suscripción del servicio están vinculadas a una sola región. Al adquirir una clave, se selecciona una región específica donde residen los datos, el modelo y las implementaciones.
 
-Los conjuntos de datos para los recursos de datos creados por el cliente, como los modelos de voz personalizados y las fuentes de voz personalizadas, también están **disponibles solo dentro de la región implementada por el servicio**. Estos recursos son:
+Los conjuntos de datos para los recursos de datos creados por el cliente, como los modelos de voz personalizados, las fuentes de voz personalizadas y los perfiles de voz de Speaker Recognition, también están **disponibles solo dentro de la región implementada por el servicio**. Estos recursos son:
 
 **Habla personalizada**
 -   Datos de audio/texto de entrenamiento
@@ -33,6 +34,10 @@ Los conjuntos de datos para los recursos de datos creados por el cliente, como l
 -   Datos de audio/texto de entrenamiento
 -   Datos de audio/texto de prueba
 -   Cuentes de voz personalizadas
+
+**Speaker Recognition**
+- Audio de inscripción del hablante
+- Firma de voz del hablante
 
 Aunque algunos clientes usan nuestros puntos de conexión predeterminados para transcribir audio o voces estándar para la síntesis de voz, otros clientes crean recursos para la personalización.
 
@@ -114,3 +119,9 @@ Compruebe las [voces públicas disponibles](./language-support.md#neural-voices)
     -   Nota: El punto de conexión adicional está sujeto a cargos adicionales. [Compruebe los precios del hospedaje de modelos aquí](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 4.  Configure el cliente para conmutar por error a la región secundaria. Vea el código de ejemplo en C#: [GitHub: conmutación por error de voz personalizada a la región secundaria](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_samples.cs#L920).
+
+### <a name="speaker-recognition"></a>Speaker Recognition
+
+Speaker Recognition usa [regiones emparejadas de Azure](/azure/best-practices-availability-paired-regions) para realizar automáticamente operaciones de conmutación por error. Las inscripciones del hablante y las firmas de voz se copian periódicamente para evitar la pérdida de datos y para su uso en caso de una interrupción.
+
+Durante una interrupción, el servicio de Speaker Recognition conmutará por error automáticamente a una región emparejada y usará los datos de copia de seguridad para continuar procesando las solicitudes hasta que la región principal vuelva a estar en línea.

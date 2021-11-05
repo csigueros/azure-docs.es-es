@@ -13,12 +13,12 @@ ms.date: 11/20/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: 038646d4d6245398f5385e2a6a1595ce2909ee39
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 590c070617e20a3e8efda38619393d701dcfbfc5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122418783"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131036245"
 ---
 # <a name="application-configuration-options"></a>Opciones de configuración de aplicaciones
 

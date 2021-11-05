@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4656c98718d024a43096081df2ac662b38b2efb8
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 6cac0f689592aa6840520c87438add4bda987b32
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130162998"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131019103"
 ---
 # <a name="understand-azure-files-billing"></a>Descripción de la facturación de Azure Files
 Azure Files proporciona dos modelos de facturación distintos: aprovisionado y pago por uso. El modelo aprovisionado solo está disponible para los recursos compartidos de archivos prémium, que son recursos compartidos de archivos implementados en el tipo de cuenta de almacenamiento **FileStorage**. El modelo de pago por uso solo está disponible para los recursos compartidos de archivos estándar, que son recursos compartidos de archivos implementados en el tipo de cuenta de almacenamiento de **uso general, versión 2 (GPv2)** . En este artículo se explica cómo funcionan ambos modelos con el fin de ayudarle a entender la factura mensual de Azure Files.
@@ -77,7 +77,7 @@ Es posible reducir el tamaño del recurso compartido aprovisionados por debajo d
 ### <a name="provisioning-method"></a>Método de aprovisionamiento
 Al aprovisionar un recurso compartido de archivos prémium, se especifica la cantidad de GiB que requiere la carga de trabajo. Cada GiB aprovisionado permite beneficiarse de IOPS y rendimiento adicionales con una proporción fija. Además de la IOPS de línea de base garantizada, cada recurso compartido de archivos prémium admite ráfagas dentro de lo posible. Las fórmulas de IOPS y rendimiento son las siguientes:
 
-| Elemento | Value |
+| Elemento | Valor |
 |-|-|
 | Tamaño máximo de un recurso compartido de archivos | 100 GiB |
 | Unidad de aprovisionamiento | 1 GiB |
@@ -151,6 +151,39 @@ Hay cinco categorías de transacción básicas: escritura, lista, lectura, otras
 
 > [!Note]  
 > NFS 4.1 solo está disponible para los recursos compartidos de archivos prémium, que usan el modelo de facturación aprovisionado. Las transacciones no afectan a la facturación de los recursos compartidos de archivos prémium.
+
+## <a name="value-add-services"></a>Servicios de valor agregado
+
+### <a name="azure-file-sync"></a>Azure File Sync
+Si está pensando en usar Azure File Sync, tenga en cuenta lo siguiente al evaluar el costo:
+
+#### <a name="server-fee"></a>Cuota del servidor
+Por cada servidor que se haya conectado a un grupo de sincronización, hay un cargo adicional de 5 USD. Esto es independiente del número de puntos de conexión de servidor. Por ejemplo, si tuviera un servidor con tres puntos de conexión de servidor diferentes, solo tendría un cargo de 5 USD. Un servidor de sincronización es gratuito por servicio de sincronización de almacenamiento. 
+
+#### <a name="data-cost"></a>Costo de los datos
+El costo de los datos en reposo depende del nivel de facturación que elija. Este es el costo de almacenar datos en el recurso compartido de archivos de Azure en la nube, incluido el almacenamiento de instantáneas.  
+
+#### <a name="cloud-enumeration-scans-cost"></a>Costo de los exámenes de enumeración en la nube
+Azure File Sync enumera el recurso compartido de archivos de Azure en la nube una vez al día para detectar los cambios que se realizaron directamente en el recurso compartido para que puedan sincronizarse con los puntos de conexión del servidor. Este examen genera transacciones que se facturan a la cuenta de almacenamiento a una tasa de dos transacciones LIST por directorio al día. Puede poner este número en la [calculadora de precios](https://azure.microsoft.com/pricing/calculator/) para calcular el costo del examen.  
+
+> [!Tip]  
+> Si no está seguro de cuántas carpetas tiene, consulte la herramienta TreeSize de JAM Software GmbH.
+
+#### <a name="churn-and-tiering-costs"></a>Costos de renovación y almacenamiento por niveles
+A medida que los archivos cambian en los puntos de conexión del servidor, los cambios se cargan en el recurso compartido en la nube, lo que genera transacciones. Cuando se habilita la nube por niveles, se generan transacciones adicionales para administrar los archivos en niveles, incluida la E/S que se está produciendo en los archivos en niveles, además de los costos de salida. La cantidad y el tipo de transacciones son difíciles de predecir debido a las tasas de renovación y la eficacia de la memoria caché, pero puede usar los patrones de transacción anteriores para predecir los costos futuros si solo tiene un recurso compartido de archivos en la cuenta de almacenamiento. Consulte [Elección de un nivel de facturación](#choosing-a-billing-tier) para obtener más información sobre cómo ver las transacciones anteriores.  
+
+#### <a name="choosing-a-billing-tier"></a>Elección de un nivel de facturación
+Para clientes de Azure File Sync, se recomienda elegir recursos compartidos de archivos estándar en lugar de recursos compartidos de archivos Premium. Esto se debe a que con Azure File Sync los clientes obtienen esa baja latencia local que siempre tenían, por lo que el mayor rendimiento que proporcionan los recursos compartidos de archivos Premium no es necesario. Al migrar por primera vez a Azure Files a través de Azure File Sync, se recomienda el nivel Optimizado para transacciones debido al gran número de transacciones en las que se incurre durante la migración. Una vez completada la migración, puede indicar las transacciones anteriores en la [calculadora de precios](https://azure.microsoft.com/pricing/calculator/) para averiguar qué nivel es más adecuado para la carga de trabajo. 
+
+Para ver las transacciones anteriores:
+1. Vaya a la cuenta de almacenamiento y seleccione **Métricas** en la barra de navegación izquierda.
+2. Seleccione **Ámbito** como nombre de la cuenta de almacenamiento, **Espacio de nombres de métricas** como "Archivo", **Métrica** como "Transacciones" y **Agregación** como "Suma".
+3. Haga clic en **Aplicar división**.
+4. Seleccione **Valores** como "Nombre de API". Seleccione los valores deseados en **Límite** y **Orden**.
+5. Seleccione el período de tiempo deseado.
+
+> [!Note]  
+> Asegúrese de ver las transacciones durante un período de tiempo para obtener una mejor idea del número medio de transacciones. Asegúrese de que el período de tiempo elegido no se superponga con el aprovisionamiento inicial. Multiplique el número medio de transacciones durante este período de tiempo para obtener las transacciones estimadas durante todo un mes.
 
 ## <a name="file-storage-comparison-checklist"></a>Lista de comprobación para la comparación del almacenamiento de archivos
 Para evaluar correctamente el costo de Azure Files en comparación con otras opciones de almacenamiento de archivos, tenga en cuenta las siguientes preguntas:

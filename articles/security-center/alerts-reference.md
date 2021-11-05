@@ -1,28 +1,35 @@
 ---
-title: Tabla de referencia de todas las alertas de seguridad de Azure Security Center
-description: En este artículo se enumeran las alertas de seguridad visibles en el panel de Azure Defender en Azure Security Center.
+title: Tabla de referencia de todas las alertas de seguridad en Microsoft Defender for Cloud
+description: En este artículo se enumeran las alertas de seguridad visibles en Microsoft Defender for Cloud
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 10/04/2021
+ms.date: 10/18/2021
 ms.author: memildin
-ms.openlocfilehash: 3ebcf82d59262bf36eb7dfb9f2cf6910263517f9
-ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 3c26bf3cd5b5b6e130f89c3e3b593112e2853d1c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130138743"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131014830"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de seguridad: una guía de referencia
 
-En este artículo se muestran las alertas de seguridad que puede recibir de Azure Security Center y los planes de Azure Defender que haya habilitado. Las alertas que se muestran en su entorno dependen de los recursos y servicios que va a proteger, así como de la configuración personalizada.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-En la parte inferior de esta página, hay una tabla que describe la cadena de eliminación de Azure Security Center que está en línea con la versión 7 de [MITRE ATT&CK Matrix](https://attack.mitre.org/versions/v7/).
+En este artículo se enumeran las alertas de seguridad que puede obtener de Microsoft Defender for Cloud y los planes de Microsoft Defender que ha habilitado. Las alertas que se muestran en su entorno dependen de los recursos y servicios que va a proteger, así como de la configuración personalizada.
 
-[Aprenda a responder a estas alertas](security-center-managing-and-responding-alerts.md).
+En la parte inferior de esta página, hay una tabla que describe la cadena de eliminación de Microsoft Defender for Cloud que está en línea con la versión 7 de [MITRE ATT&CK Matrix](https://attack.mitre.org/versions/v7/).
+
+[Aprenda a responder a estas alertas](managing-and-responding-alerts.md).
 
 [Aprenda a exportar alertas](continuous-export.md).
+
+> [!NOTE]
+> Las alertas de orígenes diferentes pueden tardar un tiempo distinto en aparecer. Por ejemplo, las alertas que requieren un análisis del tráfico de red pueden tardar más en aparecer que las alertas relacionadas con procesos sospechosos que se ejecutan en máquinas virtuales.
+
 
 ## <a name="alerts-for-windows-machines"></a><a name="alerts-windows"></a>Alertas de máquinas Windows
 
@@ -531,7 +538,7 @@ Las alertas de Azure Defender para hosts de contenedores no se limitan a las ale
 
 ## <a name="security-incident-alerts"></a><a name="alerts-fusion"></a>Alertas de incidente de seguridad
 
-[Más detalles y notas](security-center-alerts-overview.md#cloud-smart-alert-correlation-in-azure-security-center-incidents)
+[Más detalles y notas](alerts-overview.md#cloud-smart-alert-correlation-incidents)
 
 | Alerta                                                | Descripción                                                                                                                                                                         | Tácticas MITRE<br>([Más información](#intentions)) | severity |
 |------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------:|----------|
@@ -544,11 +551,11 @@ Las alertas de Azure Defender para hosts de contenedores no se limitan a las ale
 
 ## <a name="mitre-attck-tactics"></a>Tácticas de MITRE ATT&CK <a name="intentions"></a>
 
-Comprender la intención de un ataque puede ayudarle a investigar y notificar el evento más fácilmente. Para ayudarle en estos esfuerzos, las alertas de Azure Security Center incluyen tácticas de MITRE con muchas de las alertas.
+Comprender la intención de un ataque puede ayudarle a investigar y notificar el evento más fácilmente. Para ayudar con estos esfuerzos, las alertas de Microsoft Defender for Cloud incluyen las tácticas de MITRE con muchas alertas.
 
 La serie de pasos que describen la progresión de un ciberataque desde el reconocimiento a la exfiltración de datos se denomina a menudo "cadena de eliminación". 
 
-Las intenciones de la cadena de eliminación admitidas de Security Center se basan en la [versión 7 de MITRE ATT&CK Matrix](https://attack.mitre.org/versions/v7/) y se describen en la tabla siguiente.
+Las intenciones de la cadena de eliminación admitidas de Defender for Cloud se basan en la [versión 7 de MITRE ATT&CK Matrix](https://attack.mitre.org/versions/v7/) y se describen en la tabla siguiente.
 
 | Táctica                   | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -573,6 +580,6 @@ Las intenciones de la cadena de eliminación admitidas de Security Center se bas
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre las alertas de seguridad de Azure Defender, consulte las siguientes páginas:
 
-- [Alertas de seguridad en el Centro de seguridad de Azure](security-center-alerts-overview.md)
-- [Administración y respuesta a alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md)
-- [Exportación continua de datos de Security Center](continuous-export.md)
+- [Alertas de seguridad en Microsoft Defender for Cloud](alerts-overview.md)
+- [Administración de alertas de seguridad y respuesta a ellas en Microsoft Defender for Cloud](managing-and-responding-alerts.md)
+- [Exportación continua de datos de Defender for Cloud](continuous-export.md)

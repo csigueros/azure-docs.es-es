@@ -1,0 +1,77 @@
+- name: Documentación de Virtual Network Manager
+  href: index.yml
+- name: Información general
+  items:
+    - name: ¿Qué es Azure Virtual Network Manager?
+      href: overview.md
+- name: Guías de inicio rápido
+  items:
+    - name: 'Creación de una instancia de Virtual Network Manager: portal'
+      href: create-virtual-network-manager-portal.md
+    - name: 'Creación de una instancia de Virtual Network Manager: PowerShell'
+      href: create-virtual-network-manager-powershell.md
+  expanded: true
+- name: Tutoriales
+  items:
+    - name: Creación de un concentrador y radio protegidos
+      href: tutorial-create-secured-hub-and-spoke.md
+- name: Conceptos
+  items:
+    - name: Preguntas más frecuentes
+      href: faq.md
+    - name: Ámbito
+      href: concept-network-manager-scope.md
+    - name: Grupos de red
+      href: concept-network-groups.md
+    - name: Tipos de configuración
+      items:
+        - name: Conectividad
+          href: concept-connectivity-configuration.md
+        - name: Reglas de administrador de seguridad
+          href: concept-security-admins.md
+    - name: Implementaciones
+      href: concept-deployments.md
+    - name: Eliminación o actualización de componentes
+      href: concept-remove-components-checklist.md
+- name: Guías paso a paso
+  items:
+    - name: Bloqueo del tráfico de red
+      items:
+        - name: Portal
+          href: how-to-block-network-traffic-portal.md
+        - name: PowerShell
+          href: how-to-block-network-traffic-powershell.md
+    - name: Creación de una topología de red
+      items:
+        - name: En malla
+          items:
+            - name: Azure Portal
+              href: how-to-create-mesh-network.md
+            - name: Azure PowerShell
+              href: how-to-create-mesh-network-powershell.md
+        - name: Radial
+          items:
+            - name: Azure Portal
+              href: how-to-create-hub-and-spoke.md
+            - name: Azure PowerShell
+              href: how-to-create-hub-and-spoke-powershell.md
+    - name: Visualización de las configuraciones aplicadas
+      href: how-to-view-applied-configurations.md
+    - name: Exclusión de elementos de la pertenencia dinámica
+      href: how-to-exclude-elements.md
+    - name: Problemas comunes
+      href: common-issues.md
+- name: Referencia
+  items:
+    - name: REST
+      href: /rest/api/networkmanager/
+    - name: .NET SDK
+      href: /dotnet/api/microsoft.azure.management.network?view=azure-dotnet
+- name: Recursos
+  items:
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Blog de redes
+      href: 'https://azure.microsoft.com/blog/topics/networking/'
+    - name: Calculadora de precios
+      href: 'https://azure.microsoft.com/pricing/calculator/'

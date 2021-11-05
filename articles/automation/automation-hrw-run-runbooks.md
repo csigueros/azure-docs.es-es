@@ -3,15 +3,15 @@ title: Ejecución de runbooks de Azure Automation en una instancia de Hybrid Run
 description: En este artículo se describe cómo ejecutar runbooks en máquinas del centro de datos local o en otro proveedor de nube con la instancia de Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/30/2021
+ms.date: 11/01/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 702fcc816bac95345fca8c701be504e4eaa3a1fe
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 71f13679a1f19672368a7b72987e28813232f846
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129354760"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131465562"
 ---
 # <a name="run-automation-runbooks-on-a-hybrid-runbook-worker"></a>Ejecución de runbooks de Automation en una instancia de Hybrid Runbook Worker
 
@@ -32,8 +32,18 @@ Azure Automation controla los trabajos en Hybrid Runbook Worker de forma diferen
 ### <a name="windows"></a>Windows 
 
 Los trabajos de instancias de Hybrid Runbook Worker se ejecutan en la cuenta de **sistema** local.
+>[!NOTE]
+>  Para ejecutar PowerShell 7.x en una instancia de Hybrid Runbook Worker de Windows, consulte [Instalación de PowerShell en Windows](/powershell/scripting/install/installing-powershell-on-windows).
+> Actualmente, solo se admite la incorporación basada en extensiones de Hybrid Worker, tal como se mencionó [aquí](/azure/automation/extension-based-hybrid-runbook-worker-install). 
+
+Asegúrese de que conoce la ruta de acceso donde se encuentra el ejecutable *pwsh.exe* y que se agrega a la variable de entorno PATH. Reinicie la instancia de Hybrid Runbook Worker una vez completada la instalación.
 
 ### <a name="linux"></a>Linux
+
+>[!NOTE]
+> Para ejecutar PowerShell 7.x en una instancia de Hybrid Runbook Worker de Linux, consulte [Instalación de PowerShell en Linux](/powershell/scripting/install/installing-powershell-on-linux).
+> Actualmente, solo se admite la incorporación basada en extensiones de Hybrid Worker, tal como se mencionó [aquí](/azure/automation/extension-based-hybrid-runbook-worker-install).
+
 
 Se crean las cuentas de servicio **nxautomation** y **omsagent**. El script de creación y asignación de permisos se puede ver en [https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/installer/datafiles/linux.data](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/installer/datafiles/linux.data). La cuentas, con los permisos sudo correspondientes, deben estar presentes durante la [instalación de la instancia de Hybrid Runbook Worker en Linux](automation-linux-hrw-install.md). Si intenta instalar el trabajo y la cuenta no está presente o no tiene los permisos adecuados, se producirá un error de la instalación. No cambie los permisos de la carpeta `sudoers.d` ni su propiedad. Se requiere permiso sudo para las cuentas y no se deben quitar los permisos. Su restricción a determinadas carpetas o comandos puede dar lugar a un cambio importante. El usuario **nxautomation** habilitado como parte de Update Management solo ejecuta runbooks firmados.
 
@@ -99,7 +109,7 @@ Realice los pasos siguientes para usar una identidad administrada para los recur
 
     Si desea que el runbook se ejecute con la identidad administrada asignada por el sistema, deje el código tal y como está. Si prefiere usar una identidad administrada asignada por el usuario, haga lo siguiente:
     1. En la línea 5, quite `$AzureContext = (Connect-AzAccount -Identity).context`.
-    1. Reemplácelo por `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`.
+    1. Reemplace el valor por `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`.
     1. Escriba el id. de cliente.
 
 ### <a name="use-runbook-authentication-with-run-as-account"></a>Uso de la autenticación de runbooks con la cuenta de ejecución
@@ -225,6 +235,9 @@ Puede configurar una instancia de Hybrid Runbook Worker en Windows para que solo
 > [!IMPORTANT]
 > Cuando haya configurado una instancia de Hybrid Runbook Worker para que solo ejecute runbooks firmados, los runbooks que no estén firmados no se ejecutarán en el rol de trabajo.
 
+> [!NOTE]
+>  PowerShell 7.x no admite runbooks firmados para las instancias de Hybrid Runbook Worker de Windows y Linux.  
+
 ### <a name="create-signing-certificate"></a>Creación de certificado de firma
 
 En el ejemplo siguiente se crea un certificado autofirmado que se puede usar para firmar runbooks. Este código crea el certificado y lo exporta para que Hybrid Runbook Worker pueda importarlo más adelante. También se devuelve la huella digital para su uso posterior al hacer referencia al certificado.
@@ -293,6 +306,9 @@ Realizará los pasos siguientes para completar esta configuración:
 * Puesta a disposición del conjunto de claves para Hybrid Runbook Worker
 * Verificación de que la validación de firmas está activada
 * Ejecución de un runbook
+
+> [!NOTE]
+>  PowerShell 7.x no admite runbooks firmados para las instancias de Hybrid Runbook Worker de Windows y Linux.
 
 ### <a name="create-a-gpg-keyring-and-keypair"></a>Creación un conjunto de claves y un par de claves de GPG
 

@@ -8,22 +8,22 @@ ms.date: 07/06/2021
 ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 9def9f39e28851498c7bf87d5b6b2e7d0a26f2c2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 913d750353053398015da9939ec35f0f9b0de1c5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128599418"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131013714"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Preparación de una aplicación Java Spring para su implementación en Azure Spring Cloud
 
 ::: zone pivot="programming-language-csharp"
 Azure Spring Cloud proporciona servicios sólidos para hospedar, supervisar, escalar y actualizar una aplicación de Steeltoe. En este artículo se muestra cómo preparar una aplicación Steeltoe existente para su implementación en Azure Spring Cloud.
 
-En este artículo se explican las dependencias, la configuración y el código necesarios para ejecutar una aplicación Steeltoe de .NET Core en Azure Spring Cloud. Para obtener información sobre cómo implementar una aplicación en Azure Spring Cloud, consulte [implementación de la primera aplicación de Azure Spring Cloud](./quickstart.md).
+En este artículo se explican las dependencias, la configuración y el código necesarios para ejecutar una aplicación Steeltoe de .NET Core en Azure Spring Cloud. Para obtener información sobre cómo implementar una aplicación en Azure Spring Cloud, consulte [Implementación de la primera aplicación de Spring Boot en Azure Spring Cloud](./quickstart.md).
 
 >[!Note]
-> Compatibilidad de Steeltoe con Azure Spring Cloud se ofrece actualmente como versión preliminar pública. Las ofertas de versión preliminar pública permiten a los clientes experimentar con nuevas características antes de su publicación oficial.  Los servicios y las características en versión preliminar pública no están diseñados para su uso en producción.  Para más información sobre el soporte técnico durante las versiones preliminares, revise las [preguntas frecuentes](https://azure.microsoft.com/support/faq/) o envíe una [solicitud de soporte técnico](../azure-portal/supportability/how-to-create-azure-support-request.md).
+> La compatibilidad de Steeltoe con Azure Spring Cloud se ofrece actualmente como versión preliminar pública. Las ofertas de versión preliminar pública permiten a los clientes experimentar con nuevas características antes de su publicación oficial.  Los servicios y las características en versión preliminar pública no están diseñados para su uso en producción.  Para más información sobre el soporte técnico durante las versiones preliminares, revise las [preguntas frecuentes](https://azure.microsoft.com/support/faq/) o envíe una [solicitud de soporte técnico](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## <a name="supported-versions"></a>Versiones compatibles
 
@@ -136,9 +136,7 @@ En este artículo se explican las dependencias necesarias y cómo agregarlas al 
 
 ## <a name="java-runtime-version"></a>Versión del entorno de ejecución de Java
 
-Las aplicaciones de Spring/Java son las únicas que se pueden ejecutar en Azure Spring Cloud.
-
-Azure Spring Cloud es compatible con Java 8 y Java 11. El entorno de hospedaje contiene la versión más reciente de Azul Zulu OpenJDK para Azure. Para más información sobre Azul Zulu OpenJDK para Azure, consulte [Instalación del JDK para Azure y Azure Stack](/azure/developer/java/fundamentals/java-jdk-install).
+Azure Spring Cloud es compatible con Java 8 y Java 11. En general, PaaS de Azure solo admite versiones LTS de Java y Azure Spring Cloud admitirá Java 17 LTS. El entorno de hospedaje contiene la versión más reciente de Azul Zulu OpenJDK para Azure. Para más información sobre Azul Zulu OpenJDK para Azure, consulte [Instalación del JDK para Azure y Azure Stack](/azure/developer/java/fundamentals/java-jdk-install).
 
 ## <a name="spring-boot-and-spring-cloud-versions"></a>Versiones de Spring Boot y Spring Cloud
 

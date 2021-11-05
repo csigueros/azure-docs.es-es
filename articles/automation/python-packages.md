@@ -3,33 +3,37 @@ title: Administrar paquetes de Python 2 en Azure Automation
 description: En este artículo se describe cómo administrar paquetes de Python 2 en Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/13/2021
+ms.date: 10/29/2021
 ms.topic: conceptual
 ms.custom: devx-track-python
-ms.openlocfilehash: 916cd5fa9251a1f6c14b4518db7b77398c7ab5e0
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 302ed99a2032200d770f371d24388c92a28a97e6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124799992"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131470833"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Administrar paquetes de Python 2 en Azure Automation
 
-Azure Automation le permite ejecutar runbooks de Python 2 en Azure y en Hybrid Runbook Worker de Linux. Para simplificar los runbooks, puede usar los paquetes de Python para importar los módulos que necesite. En este artículo se describe cómo administrar y usar paquetes de Python en Azure Automation.
+En este artículo se describe cómo importar, administrar y usar paquetes de Python 2 en Azure Automation que se ejecutan en el entorno de espacio aislado de Azure e Hybrid Runbook Worker. Para simplificar los runbooks, puede usar paquetes de Python para importar los módulos que necesita.
+
+Para obtener información sobre cómo administrar paquetes de Python 3, consulte [Administración de paquetes de Python 3](./python-3-packages.md).
 
 ## <a name="import-packages"></a>Importación de paquetes
 
-En la cuenta de Automation, seleccione **Paquetes de Python 2** en **Recursos compartidos**. Haga clic en **+ Add a Python 2 package** (+ Agregar un paquete de Python 2).
+1. Seleccione **Paquetes de Python** en **Recursos compartidos**, en la cuenta de Automation. Haga clic en **+ Agregar un paquete de Python**.
 
-:::image type="content" source="media/python-packages/add-python-package.png" alt-text="Captura de pantalla de la página Paquetes de Python 2 que muestra los paquetes de Python 2 en el menú izquierdo y la opción Agregar un paquete de Python 2 resaltada.":::
+    :::image type="content" source="media/python-packages/add-python-package.png" alt-text="Captura de pantalla de la página de paquetes de Python que muestra los paquetes de Python en el menú izquierdo y la opción para agregar un paquete de Python resaltada.":::
 
-En la página Agregar un paquete de Python 2, seleccione un paquete local para cargar. El paquete puede ser un archivo **.whl** o **.tar.gz**. Cuando el paquete esté seleccionado, haga clic en **Aceptar** para cargarlo.
+2. En la página **Agregar un paquete de Python**, seleccione un paquete local para cargar. El paquete puede ser un archivo **.whl** o **.tar.gz**. 
+3. Escriba el nombre y seleccione la **versión del entorno de ejecución**  como 2.x.x.
+4. Seleccione **Import** (Importar).
 
-:::image type="content" source="media/python-packages/upload-package.png" alt-text="Captura de pantalla que muestra la página Agregar un paquete de Python 2 con un archivo tar.gz cargado seleccionado.":::
+   :::image type="content" source="media/python-packages/upload-package.png" alt-text="Captura de pantalla que muestra la página Agregar un paquete de Python, con un archivo tar.gz cargado y seleccionado.":::
 
-Una vez que se haya importado un paquete, este se muestra en la página de Paquetes de Python 2 en su cuenta de Automation. Si necesita quitar un paquete, selecciónelo y haga clic en **Eliminar**.
+Una vez que se haya importado un paquete, este se muestra en la página de **Paquetes de Python** en su cuenta de Automation. Si necesita quitar un paquete, selecciónelo y haga clic en **Eliminar**.
 
-:::image type="content" source="media/python-packages/package-list.png" alt-text="Captura de pantalla que muestra la página Paquetes de Python 2 después de importar un paquete.":::
+:::image type="content" source="media/python-packages/package-list.png" alt-text="Captura de pantalla que muestra la página Paquetes de Python 2.7.x después de importar un paquete.":::
 
 ## <a name="import-packages-with-dependencies"></a>Importación de paquetes con dependencias
 
@@ -58,7 +62,7 @@ Una vez que se descargan los paquetes, puede importarlos en su cuenta de Automat
 
 El runbook permite especificar el paquete que se va a descargar. Por ejemplo, el uso del parámetro `Azure` descarga todos los módulos de Azure y todas las dependencias (aproximadamente 105).
 
-Una vez completado el runbook, puede consultar la página **Paquetes de Python 2** en **Recursos compartidos** en su cuenta de Automation para comprobar que el paquete se importó correctamente.
+Una vez completado el runbook, puede consultar la página **Paquetes de Python** en **Recursos compartidos** en su cuenta de Automation para comprobar que el paquete se importó correctamente.
 
 ## <a name="use-a-package-in-a-runbook"></a>Usar un paquete en un runbook
 

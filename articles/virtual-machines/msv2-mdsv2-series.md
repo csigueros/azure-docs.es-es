@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: e129b596473784c72cab93568be88dd6dcb6fe2a
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: dd97273c37f4707827f5706889152811745199ab
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122697998"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063655"
 ---
 # <a name="msv2-and-mdsv2-series-medium-memory"></a>Serie de memoria media Msv2 y Mdsv2
 
@@ -32,7 +32,7 @@ La serie de máquinas virtuales Msv2 y Mdsv2 de memoria media incluye el procesa
 [Compatibilidad con generación de VM](generation-2.md): Generación 2<br>
 [Acelerador de escritura](./how-to-enable-write-accelerator.md): Compatible<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible<br>
-[Discos de sistema operativo efímero](ephemeral-os-disks.md): No compatible <br>
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): admitidos en Mdsv2 <br>
 <br>
  
 ## <a name="msv2-medium-memory-diskless"></a>Msv2 de memoria media sin disco 

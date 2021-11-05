@@ -9,12 +9,12 @@ ms.subservice: flexible-scale-sets
 ms.date: 10/14/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
-ms.openlocfilehash: b6cdeff69c1d9a919651d68b937af1c7b328edbe
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: b4662c2fd6c5a0950bc3b2b6f336fabab12fc1aa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130257962"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008490"
 ---
 # <a name="migrate-deployments-and-resources-to-virtual-machine-scale-sets-in-flexible-orchestration"></a>Migración de implementaciones y recursos a conjuntos de escalado de máquinas virtuales en orquestación flexible 
 
@@ -86,23 +86,31 @@ Actualmente no hay ninguna herramienta automatizada para mover directamente las 
 
 Los conjuntos de escalado de máquinas virtuales con orquestación flexible le permiten combinar la escalabilidad de los [conjuntos de escalado de máquinas virtuales del modo de orquestación uniforme](../virtual-machine-scale-sets/overview.md) con las garantías de disponibilidad regionales de los conjuntos de disponibilidad. Los siguientes son aspectos clave a la hora de decidirse a trabajar con el modo de orquestación flexible. 
 
-### <a name="explicit-network-outbound-connectivity-required"></a>Se requiere conectividad de salida de red explícita 
+### <a name="create-scalable-network-connectivity"></a>Creación de una conectividad de red escalable 
+<!-- the following is an important link to use in FLEX documentation to reference this section:
+/virtual-machines/flexible-virtual-machine-scale-sets-migration-resources.md#create-scalable-network-connectivity
+-->
 
-Para mejorar la seguridad de red predeterminada, los conjuntos de escalado de máquinas virtuales con orquestación flexible exigen que las instancias creadas de manera implícita por medio del perfil de escalado automático tengan conectividad de salida definida de forma explícita gracias a alguno de los métodos siguientes: 
+El comportamiento del acceso de salida de red variará en función de cómo elija crear las máquinas virtuales en el conjunto de escalado. Las **instancias de VM agregadas manualmente** tienen acceso de conectividad de salida predeterminado. Las **instancias de VM creadas implícitamente** no tienen acceso predeterminado. 
+
+Para mejorar la seguridad de red predeterminada, **las instancias de máquina virtual creadas implícitamente a través del perfil de escalado automático no tienen acceso de salida predeterminado**. Para usar conjuntos de escalado de máquinas virtuales con instancias de VM creadas implícitamente, el acceso de salida debe definirse explícitamente mediante uno de los métodos siguientes: 
 
 - En la mayoría de los escenarios, se recomienda [NAT Gateway adjunto a la subred](../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md).
 - En escenarios con requisitos de seguridad elevados, o si se usa Azure Firewall o Network Virtual Appliance (NVA), puede especificar una ruta definida por el usuario personalizada como próximo salto a través del firewall. 
 - Las instancias están en el grupo de back-end de una instancia de Azure Load Balancer de SKU estándar. 
 - Adjunte una dirección IP pública a la interfaz de red de la instancia. 
 
-Con máquinas virtuales de instancia única y conjuntos de escalado de máquinas virtuales con orquestación uniforme, la conectividad de salida se proporciona automáticamente. 
-
 Entre los escenarios comunes que requieren conectividad de salida explícita se incluyen: 
 
 - La activación de una máquina virtual Windows requiere que se haya definido la conectividad de salida desde la instancia de máquina virtual al Servicio de administración de claves (KMS) de activación de Windows. Vea [Solución de problemas de activación de máquinas virtuales Windows](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems) para obtener más información.  
 - Acceda a cuentas de almacenamiento o Key Vault. La conectividad con los servicios de Azure también se puede establecer por medio de [Private Link](../private-link/private-link-overview.md). 
+- Actualizaciones de Windows.
+- Acceso a los administradores de paquetes de Linux. 
 
-Vea [Acceso de salida predeterminado en Azure](../virtual-network/ip-services/default-outbound-access.md) para obtener más detalles sobre cómo definir conexiones de salida seguras.
+Vea [Acceso de salida predeterminado en Azure](../virtual-network/ip-services/default-outbound-access.md) para obtener más detalles sobre cómo definir la conectividad de salida.
+
+Con las VM de instancia única en las que se crea explícitamente la NIC, se proporciona acceso de salida predeterminado. Los conjuntos de escalado de máquinas virtuales en modo de orquestación uniforme también tienen conectividad de salida predeterminada. 
+
 
 > [!IMPORTANT]
 > Confirme que tiene conectividad de red saliente explícita. Obtenga más información sobre esto en [redes virtuales y máquinas virtuales de Azure](../virtual-network/network-overview.md) y asegúrese de que lleva a cabo los siguientes [procedimientos recomendados](../virtual-network/concepts-and-best-practices.md) de redes de Azure. 
@@ -155,17 +163,9 @@ Use las API y los comandos de máquina virtual estándar para recuperar las capt
 Use las extensiones destinadas a las máquinas virtuales estándar, en lugar de las destinadas a instancias del modo de orquestación uniforme.
 
 
+### <a name="protect-instances-from-delete"></a>Protección de instancias frente a la eliminación
 
-
-
-
-
-
-
-
-
-
-
+Los conjuntos de escalado de máquinas virtuales en modo de orquestación flexible no tienen actualmente opciones de protección de instancias. Si tiene habilitado el escalado automático en un conjunto de escalado de máquinas virtuales, algunas VM podrían estar en riesgo de eliminación durante el escalado. Si desea proteger determinadas instancias de VM de la eliminación, use el [bloqueo de Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).
 
 
 

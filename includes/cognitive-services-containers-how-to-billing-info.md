@@ -1,17 +1,17 @@
 ---
 author: aahill
 ms.author: aahi
-ms.date: 03/02/2021
+ms.date: 07/27/2021
 ms.service: cognitive-services
 ms.topic: include
-ms.openlocfilehash: d61813e723992f4381c5ea82121da8bbb70016dc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1013fc4746a858445ce8df6a451f05632a46aad4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102032942"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024608"
 ---
-Las consultas en el contenedor se facturan con el plan de tarifa del recurso de Azure que se usa para `ApiKey`.
+Las consultas en el contenedor se facturan con el plan de tarifa del recurso de Azure que se usa para el parámetro `ApiKey`.
 
 Los contenedores de Azure Cognitive Services no tienen licencia para ejecutarse si no están conectados al punto de conexión de facturación o a las mediciones. Debe habilitar los contenedores para que comuniquen la información de facturación al punto de conexión de facturación en todo momento. Los contenedores de Cognitive Services no envían datos de los clientes (por ejemplo, la imagen o el texto que se está analizando) a Microsoft.
 

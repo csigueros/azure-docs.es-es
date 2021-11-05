@@ -5,18 +5,18 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 10/26/2021
 ms.author: victorh
-ms.openlocfilehash: 73a07af0fa98adf66d6104f1ab545d31a0cfd6d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 98524c2c5c73ab7a75395464911585f80bcd092c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95802026"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024303"
 ---
 # <a name="azure-firewall-manager-policy-overview"></a>Información general sobre la directiva de Azure Firewall Manager
 
-Una directiva de firewall es un recurso de Azure que contiene colecciones de reglas de NAT, red y aplicación, así como valores de configuración de inteligencia sobre amenazas. Es un recurso global que se puede utilizar en varias instancias de Azure Firewall en centros virtuales protegidos y redes virtuales de centros. Las directivas funcionan entre regiones y suscripciones.
+Directiva de Firewall, el método recomendado para configurar Azure Firewall. Es un recurso global que se puede utilizar en varias instancias de Azure Firewall en centros virtuales protegidos y redes virtuales de centros. Las directivas funcionan entre regiones y suscripciones.
 
 ![Directiva de Azure Firewall Manager](media/policy-overview/policy-overview.png)
 
@@ -24,9 +24,34 @@ Una directiva de firewall es un recurso de Azure que contiene colecciones de reg
 
 Una directiva se puede crear y administrar de varias maneras, entre las que se incluyen Azure Portal, API REST, plantillas, Azure PowerShell y CLI.
 
-También puede migrar las reglas existentes de Azure Firewall mediante el portal o mediante Azure PowerShell para crear las directivas. Para más información, consulte [Cómo migrar configuraciones de Azure Firewall a la directiva de Azure Firewall](migrate-to-policy.md). 
+También puede migrar las reglas clásicas existentes de Azure Firewall mediante el portal o mediante Azure PowerShell para crear las directivas. Para más información, consulte [Cómo migrar configuraciones de Azure Firewall a la directiva de Azure Firewall](migrate-to-policy.md). 
 
 Las directivas se pueden asociar a uno o varios centros o redes virtuales. El firewall puede estar en cualquier suscripción asociada a su cuenta y en cualquier región.
+
+## <a name="classic-rules-and-policies"></a>Directivas y reglas clásicas
+
+Azure Firewall admite tanto reglas clásicas como directivas, pero la configuración recomendada son las directivas. En la tabla siguiente se comparan las directivas y las reglas clásicas:
+
+
+| Asunto | Directiva  | Reglas clásicas |
+| ------- | ------- | ----- |
+|Contains     |Reglas NAT, de red y de aplicación, configuración de proxy DNS y DNS personalizado, grupos de IP y configuración de Inteligencia sobre amenazas (incluida la lista de permitidos), IDPS, inspección de TLS, categorías web, filtrado de direcciones URL|Reglas NAT, de red y de aplicación, configuración de proxy DNS y DNS personalizado, grupos de IP y configuración de inteligencia sobre amenazas (incluida la lista de permitidos)|
+|Protege     |Centros virtuales y redes virtuales|Solo redes virtuales|
+|Experiencia del portal     |Administración centralizada mediante Firewall Manager|Experiencia de firewall independiente|
+|Compatibilidad con varios firewalls     |La directiva de firewall es un recurso independiente que se puede usar entre firewalls.|Exporte e importe manualmente reglas o use soluciones de administración de terceros |
+|Precios     |Facturado en función de la asociación del firewall. Consulte [Precios](#pricing).|Gratuito|
+|Mecanismos de implementación admitidos     |Portal, API REST, plantillas, Azure PowerShell y CLI|Portal, API REST, plantillas, PowerShell y CLI. |
+
+## <a name="standard-and-premium-policies"></a>Directivas Estándar y Premium
+
+Azure Firewall admite las directivas Estándar y las Premium. En la tabla siguiente se resume la diferencia entre ambas:
+
+
+|Tipo de directiva|Compatibilidad de características  | Compatibilidad con la SKU de Firewall|
+|---------|---------|----|
+|Directiva Estándar    |Reglas NAT, reglas de red, reglas de aplicación<br>DNS personalizado, proxy DNS<br>Grupos de IP<br>Categorías web<br>Información sobre amenazas|Estándar o Premium|
+|Directiva Premium    |Admite todas las características de la directiva Estándar, además de:<br><br>Inspección de TLS<br>Categorías web<br>Filtrado de direcciones URL<br>IDPS|Premium
+
 
 ## <a name="hierarchical-policies"></a>Directivas jerárquicas
 
@@ -42,19 +67,7 @@ Las colecciones de reglas NAT no se heredan porque son específicas de un firewa
 
 Mediante la herencia, los cambios en la directiva primaria se aplican automáticamente a las directivas secundarias de firewall asociadas.
 
-## <a name="traditional-rules-and-policies"></a>Reglas y directivas tradicionales
 
-Azure Firewall admite las reglas y las directivas tradicionales. En la siguiente tabla se comparan las directivas y las reglas:
-
-
-| Asunto | Directiva  | Reglas |
-| ------- | ------- | ----- |
-|Contains     |Reglas de NAT, red y aplicación, configuración de proxy DNS y DNS personalizado, grupos de direcciones IP y configuración de inteligencia sobre amenazas (incluida la lista de permitidos)|Reglas de NAT, red y aplicación, configuración de proxy DNS y DNS personalizado, grupos de direcciones IP y configuración de inteligencia sobre amenazas (incluida la lista de permitidos)|
-|Protege     |Centros virtuales y redes virtuales|Solo redes virtuales|
-|Experiencia del portal     |Administración centralizada mediante Firewall Manager|Experiencia de firewall independiente|
-|Compatibilidad con varios firewalls     |La directiva de firewall es un recurso independiente que se puede usar entre firewalls.|Exporte e importe manualmente reglas o use soluciones de administración de terceros |
-|Precios     |Facturado en función de la asociación del firewall. Consulte [Precios](#pricing).|Gratuito|
-|Mecanismos de implementación admitidos     |Portal, API REST, plantillas, Azure PowerShell y CLI|Portal, API REST, plantillas, PowerShell y CLI. |
 
 ## <a name="pricing"></a>Precios
 

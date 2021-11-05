@@ -1,20 +1,20 @@
 ---
 title: Creación de un conjunto de escalado que use máquinas virtuales de acceso puntual de Azure
 description: Aprenda a crear conjuntos de escalado de Azure que usen máquinas virtuales de acceso puntual para ahorrar costos.
-author: JagVeerappan
-ms.author: jagaveer
+author: mimckitt
+ms.author: mimckitt
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: spot
-ms.date: 02/26/2021
+ms.date: 10/22/2021
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b0c0ffdce85450900c0d4ca0da936b8675820f79
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 842394ed341da88fdb37ff6deb7ccdc519ac2f8e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122690569"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060521"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>Máquinas virtuales de acceso puntual de Azure para conjuntos de escalado 
 
@@ -24,6 +24,20 @@ El uso de máquinas virtuales de acceso puntual de Azure en conjuntos de escalad
 
 La cantidad de capacidad sin usar disponible varía, por ejemplo, en función del tamaño, la región o la hora del día. Al implementar instancias de máquinas virtuales de acceso puntual en los conjuntos de escalado, Azure asigna las instancias solo si hay capacidad disponible, aunque estas no tienen un Acuerdo de Nivel de Servicio. Un conjunto de escalado de máquinas virtuales de acceso puntual se implementa en un dominio de error único y no ofrece garantías de alta disponibilidad.
 
+## <a name="limitations"></a>Limitaciones
+
+Los siguientes tamaños no se admiten en las máquinas virtuales de acceso puntual de Azure:
+ - Serie B
+ - Versiones de promoción de cualquier tamaño (como los tamaños de promoción Dv2, NV, NC, H)
+
+Las máquinas virtuales de acceso puntual de Azure se pueden implementar en cualquier región, excepto en Microsoft Azure China 21Vianet.
+
+Actualmente se admiten los siguientes [tipos de ofertas](https://azure.microsoft.com/support/legal/offer-details/):
+
+-   Contrato Enterprise
+-   Código de oferta de pago por uso (003P)
+-   Patrocinado (0036P y 0136P)
+- Para el proveedor de servicios en la nube (CSP), consulte el [Centro de partners](/partner-center/azure-plan-get-started) o contacte con su partner directamente.
 
 ## <a name="pricing"></a>Precios
 
@@ -33,22 +47,6 @@ Los precios de las instancias de máquinas virtuales de acceso puntual de Azure 
 La variabilidad en los precios permite establecer un precio máximo, en dólares estadounidenses (USD), con un máximo de 5 decimales. Por ejemplo, el valor `0.98765` correspondería a un precio máximo de 0,98765 USD por hora. Si establece el precio máximo en `-1`, la instancia no se expulsará según el precio. El precio de la instancia será el precio actual de la máquina virtual de acceso puntual de Azure o el de una instancia estándar, el que sea menor de los dos, siempre que haya capacidad y cuota disponibles.
 
 
-## <a name="limitations"></a>Limitaciones
-
-Los siguientes tamaños no se admiten en las máquinas virtuales de acceso puntual de Azure:
- - Serie B
- - Versiones de promoción de cualquier tamaño (como los tamaños de promoción Dv2, NV, NC, H)
-
-Las máquinas virtuales de acceso puntual de Azure se pueden implementar en cualquier región, excepto en Microsoft Azure China 21Vianet.
-
-<a name="channel"></a>
-
-Actualmente se admiten los siguientes [tipos de ofertas](https://azure.microsoft.com/support/legal/offer-details/):
-
--   Contrato Enterprise
--   Código de oferta de pago por uso (003P)
--   Patrocinado (0036P y 0136P)
-- Para el proveedor de servicios en la nube (CSP), consulte el [Centro de partners](/partner-center/azure-plan-get-started) o contacte con su partner directamente.
 
 ## <a name="eviction-policy"></a>Directiva de expulsión
 
@@ -60,14 +58,20 @@ Si quiere que las instancias se eliminen al expulsarse, puede establecer la dire
 
 Los usuarios pueden optar por recibir notificaciones en las máquinas virtuales mediante [Azure Scheduled Events](../virtual-machines/linux/scheduled-events.md). De este modo se le notificará que se van a expulsar las máquinas virtuales y tendrá 30 segundos para terminar los trabajos y cerrar las tareas antes de que esto ocurra. 
 
-<a name="bkmk_try"></a>
-## <a name="try--restore-preview"></a>Prueba y restauración (versión preliminar)
+## <a name="eviction-history"></a>Historial de expulsiones
+Puede ver los precios históricos y las tasas de expulsión por tamaño en una región en el portal. Seleccione **View pricing history and compare prices in nearby regions** (Ver el historial de precios y comparar precios en regiones cercanas) para ver una tabla o gráfico de precios para un tamaño específico.  Los precios y las tasas de expulsión en las siguientes imágenes son solo ejemplos. 
 
-Esta nueva característica de nivel de plataforma usará IA para intentar restaurar automáticamente las instancias de máquina virtual de acceso puntual de Azure expulsadas dentro de un conjunto de escalado para mantener el recuento de instancias de destino. 
+**Gráfico**:
 
-> [!IMPORTANT]
-> La característica Prueba y restauración se encuentra en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+:::image type="content" source="../virtual-machines/media/spot-chart.png" alt-text="Captura de pantalla de las opciones de región con la diferencia de precios y tasas de expulsión en forma de gráfico.":::
+
+**Tabla**:
+
+:::image type="content" source="../virtual-machines/media/spot-table.png" alt-text="Captura de pantalla de las opciones de región con la diferencia de precios y tasas de expulsión en forma de tabla.":::
+
+## <a name="try--restore"></a>Intento de restauración 
+
+Esta característica de nivel de plataforma usará IA para intentar restaurar automáticamente las instancias de máquina virtual de acceso puntual de Azure expulsadas dentro de un conjunto de escalado para mantener el recuento de instancias de destino. 
 
 Ventajas de Prueba y restauración:
 - Intenta restaurar las máquinas virtuales de acceso puntual de Azure expulsadas por motivos de capacidad.
@@ -77,49 +81,6 @@ Ventajas de Prueba y restauración:
 
 La característica Prueba y restauración está deshabilitada en los conjuntos de escalado en los que se usa [Escalado automático](virtual-machine-scale-sets-autoscale-overview.md). El número de máquinas virtuales del conjunto de escalado está controlado por las reglas de escalado automático.
 
-### <a name="register-for-try--restore"></a>Registro para Prueba y restauración
-
-Antes de poder usar la característica Prueba y restauración, debe registrar la suscripción para la versión preliminar. El registro puede tardar varios minutos en terminar. Puede usar la CLI de Azure o PowerShell para completar el registro de la característica.
-
-
-**Uso de la CLI**
-
-Utilice [az feature register](/cli/azure/feature#az_feature_register) para habilitar la versión preliminar de su suscripción. 
-
-```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name SpotTryRestore 
-```
-
-El registro de la característica puede tardar hasta 15 minutos. Para comprobar el estado del registro, siga estos pasos: 
-
-```azurecli-interactive
-az feature show --namespace Microsoft.Compute --name SpotTryRestore 
-```
-
-Una vez que la característica se ha registrado para su suscripción, complete el proceso de participación mediante la propagación del cambio en el proveedor de recursos de Compute. 
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute 
-```
-**Uso de PowerShell** 
-
-Use el cmdlet [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) para habilitar la versión preliminar de su suscripción. 
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName SpotTryRestore -ProviderNamespace Microsoft.Compute 
-```
-
-El registro de la característica puede tardar hasta 15 minutos. Para comprobar el estado del registro, siga estos pasos: 
-
-```azurepowershell-interactive
-Get-AzProviderFeature -FeatureName SpotTryRestore -ProviderNamespace Microsoft.Compute 
-```
-
-Una vez que la característica se ha registrado para su suscripción, complete el proceso de participación mediante la propagación del cambio en el proveedor de recursos de Compute. 
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute 
-```
 
 ## <a name="placement-groups"></a>Grupos de selección de ubicación
 
@@ -138,7 +99,7 @@ Para implementar máquinas virtuales de acceso puntual en conjuntos de escalado,
 
 ## <a name="portal"></a>Portal
 
-El proceso para crear un conjunto de escalado que use máquinas virtuales de acceso puntual de Azure es igual que el que se detalla en el [artículo de introducción](quick-create-portal.md). Cuando vaya a implementar un conjunto de escalado, puede elegir establecer la marca de Spot y la directiva de expulsión: ![Creación de un conjunto de escalado con máquinas virtuales de acceso puntual de Azure](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-max-price.png)
+El proceso para crear un conjunto de escalado que use máquinas virtuales de acceso puntual de Azure es igual que el que se detalla en el [artículo de introducción](quick-create-portal.md). Al implementar un conjunto de escalado, puede elegir establecer la marca de Spot, el tipo de expulsión, la directiva de expulsión y, si desea habilitarlo, intente restaurar instancias: ![Creación de un conjunto de escalado con máquinas virtuales de acceso puntual de Azure](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-1.png)
 
 
 ## <a name="azure-cli"></a>Azure CLI
@@ -155,7 +116,10 @@ az vmss create \
     --admin-username azureuser \
     --generate-ssh-keys \
     --priority Spot \
-    --max-price -1 
+    --eviction-policy Deallocate \
+    --max-price -1 \
+    --enable-spot-restore True \
+    --spot-restore-timeout PT1H
 ```
 
 ## <a name="powershell"></a>PowerShell
@@ -170,7 +134,10 @@ $vmssConfig = New-AzVmssConfig `
     -SkuName "Standard_DS2" `
     -UpgradePolicyMode Automatic `
     -Priority "Spot" `
-    -max-price -1
+    -max-price -1 `
+    -EnableSpotRestore `
+    -SpotRestoreTimeout 60 `
+    -EvictionPolicy delete
 ```
 
 ## <a name="resource-manager-templates"></a>Plantillas de Resource Manager
@@ -179,7 +146,7 @@ El proceso para crear un conjunto de escalado que use máquinas virtuales de acc
 
 Para implementaciones de plantilla de máquina virtual de acceso puntual de Azure, use `"apiVersion": "2019-03-01"` o posterior. 
 
-Agregue las propiedades `priority`, `evictionPolicy` y `billingProfile` a la sección `"virtualMachineProfile":` y la propiedad `"singlePlacementGroup": false,` a la sección `"Microsoft.Compute/virtualMachineScaleSets"` de la plantilla:
+Agregue las propiedades `priority`, `evictionPolicy`, `billingProfile` y `spotRestoryPolicy` a la sección `"virtualMachineProfile":` y la propiedad `"singlePlacementGroup": false,` a la sección `"Microsoft.Compute/virtualMachineScaleSets"` en la plantilla:
 
 ```json
 
@@ -195,7 +162,11 @@ Agregue las propiedades `priority`, `evictionPolicy` y `billingProfile` a la sec
                 "evictionPolicy": "Deallocate",
                 "billingProfile": {
                     "maxPrice": -1
-                }
+                },
+                "spotRestorePolicy": {
+                  "enabled": "bool",
+                  "restoreTimeout": "string"
+    },
             },
 ```
 

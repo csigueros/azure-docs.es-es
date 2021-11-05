@@ -253,6 +253,37 @@
           href: container-registry-tasks-pack-build.md
         - name: Vista de los registros de tareas
           href: container-registry-tasks-logs.md
+- name: Registro conectado
+  expanded: true
+  items:
+    - name: Información general
+      expanded: false
+      items:
+        - name: Acerca del registro conectado
+          href: intro-connected-registry.md
+        - name: Uso con IoT Edge
+          href: overview-connected-registry-and-iot-edge.md
+    - name: Guías de inicio rápido
+      expanded: true
+      items:
+        - name: 'Creación de un registro conectado: CLI'
+          href: quickstart-connected-registry-cli.md
+        - name: 'Creación de un registro conectado: portal'
+          href: quickstart-connected-registry-portal.md
+        - name: Implementación de un registro conectado en IoT Edge
+          href: quickstart-deploy-connected-registry-iot-edge-cli.md
+    - name: Tutoriales
+      items:
+        - name: Implementación de un registro conectado en IoT Edge anidado
+          href: tutorial-deploy-connected-registry-nested-iot-edge-cli.md
+    - name: Conceptos
+      items:
+        - name: Acceso al registro conectado
+          href: overview-connected-registry-access.md
+    - name: Guías paso a paso
+      items:
+        - name: Extracción de imágenes del registro conectado
+          href: pull-images-from-connected-registry.md
 - name: Referencia
   expanded: false
   items:

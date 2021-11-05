@@ -10,33 +10,21 @@ ms.topic: conceptual
 ms.date: 10/07/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: 49ee6ed3ff8f23cb819a901aba3f370b95901fa9
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 63d381f96a9781f2f3ab1abfd45d03c968d6dad8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129716323"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131027534"
 ---
 <!-- markdownlint-disable MD033 -->
 
-# <a name="form-recognizer-general-document-model--preview"></a>Modelo de documento general de Form Recognizer | Versión preliminar
+# <a name="form-recognizer-general-document-model-preview"></a>Modelo de documento general de Form Recognizer (versión preliminar)
 
 El modelo de vista previa de documento general combina eficaces funcionalidades de reconocimiento óptico de caracteres (OCR) con modelos de aprendizaje profundo para extraer pares clave-valor y entidades de documentos. El documento general solo está disponible con la API de versión preliminar (v3.0).  Para más información sobre el uso de la API de versión preliminar (v3.0), consulte nuestra [guía de migración](v3-migration-guide.md).
 
-* La API de documento general admite la mayoría de tipos de formulario y analiza los documentos y asocia valores a las claves y entradas de las tablas que detecta. Es ideal para extraer pares clave-valor comunes de documentos. Puede usar el modelo de documento general como alternativa al [entrenamiento de un modelo personalizado sin etiquetas](compose-custom-models.md#train-without-labels).
-
-## <a name="try-form-recognizer-studio-preview"></a>Probar Form Recognizer Studio (versión preliminar)
-
-* Form Recognizer Studio y el modelo de documento general están disponibles con la API de versión preliminar (v3.0).
-
-* Extraiga tablas, valores y entidades de formularios y documentos con la característica Documentos generales de Form Recognizer Studio:
-
-##### <a name="sample-document-processed-in-the-form-recognizer-studio"></a>Documento de ejemplo procesado en [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document):
-
-:::image type="content" source="media/general-document-analyze.png" alt-text="Captura de pantalla: análisis de documento general en Form Recognizer Studio.":::
-
-> [!div class="nextstepaction"]
-> [Prueba de Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document)
+La API de documento general admite la mayoría de tipos de formulario y analiza los documentos y asocia valores a las claves y entradas de las tablas que detecta. Es ideal para extraer pares clave-valor comunes de documentos. Puede usar el modelo de documento general como alternativa al [entrenamiento de un modelo personalizado sin etiquetas](compose-custom-models.md#train-without-labels).
 
 ## <a name="general-document-features"></a>Características del documento general
 
@@ -47,6 +35,44 @@ El modelo de vista previa de documento general combina eficaces funcionalidades 
 * Se trata de un modelo previamente entrenado que se entrenará periódicamente con nuevos datos para mejorar la cobertura y la precisión.
 
 * El modelo de documento general admite datos estructurados, semiestructurados y no estructurados.
+
+***Documento de ejemplo procesado en Form Recognizer Studio***
+
+:::image type="content" source="media/studio/general-document-analyze.png" alt-text="Captura de pantalla: análisis de documento general en Form Recognizer Studio.":::
+
+## <a name="development-options"></a>Opciones de desarrollo
+
+Los siguientes recursos son compatibles con Form Recognizer v3.0:
+
+| Característica | Recursos |
+|----------|-------------------------|
+|🆕 **Modelo de documento general**|<ul ><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**API DE REST**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**SDK DE C#**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**SDK de Python**](quickstarts/try-v3-python-sdk.md)</li><li>[**SDK de Java**](quickstarts/try-v3-java-sdk.md)</li><li>[**SDK de JavaScript**](quickstarts/try-v3-javascript-sdk.md)</li></ul>|
+
+### <a name="try-form-recognizer"></a>Probar Form Recognizer
+
+Vea cómo los datos, incluidas las tablas, los valores y las entidades, se extraen de formularios y documentos mediante Form Recognizer Studio o nuestra herramienta de etiquetado de ejemplo. Necesitará lo siguiente:
+
+* Una suscripción a Azure: puede [crear una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/)
+
+* Una [instancia de Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) en Azure Portal. Puede usar el plan de tarifa gratuito (`F0`) para probar el servicio. Después de implementar el recurso, seleccione **Ir al recurso** para obtener la clave de API y el punto de conexión.
+
+ :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Captura de pantalla: claves y ubicación del punto de conexión en Azure Portal.":::
+
+#### <a name="form-recognizer-studio-preview"></a>Form Recognizer Studio (versión preliminar)
+
+> [!NOTE]
+> Form Recognizer Studio y el modelo de documento general están disponibles con la API de versión preliminar (v3.0).
+
+1. En la página principal de Form Recognizer Studio, seleccione **Documentos generales**
+
+1. Puede analizar el documento de ejemplo o seleccionar el botón **+ Agregar** para cargar su propio ejemplo.
+
+1. Seleccione el botón **Analizar**:
+
+    :::image type="content" source="media/studio/general-document-analyze-1.png" alt-text="Captura de pantalla: menú de análisis de documentos generales.":::
+
+    > [!div class="nextstepaction"]
+    > [Prueba de Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document)
 
 ## <a name="key-value-pairs"></a>Pares clave-valor
 
@@ -93,20 +119,20 @@ El modelo de extracción de pares clave-valor y el modelo de identificación de 
 
 | Category | Tipo | Descripción |
 |-----------|-------|--------------------|
-| Person | string | Nombre parcial o completo de una persona. |
-|PersonType | string | Tipo de trabajo o rol de una persona.  |
-| Location | string | Puntos de referencia naturales y humanos, estructuras, características geográficas y entidades geopolíticas. |
-| Organización | string | Empresas, grupos políticos, bandas musicales, clubs deportivos, organismos gubernamentales y organizaciones públicas. |
-| Evento | string | Eventos históricos, sociales y naturales. |
-| Producto | string |Objetos físicos de varias categorías. |
-| Habilidad | string | Capacidad, aptitud o experiencia. |
-| Dirección | string | Dirección de correo postal completa. |
-| Número de teléfono | string| Números de teléfono. | 
-Correo electrónico | string | Dirección de correo electrónico. |
-| Resolución | string| Direcciones URL y vínculos del sitio web|
-| Dirección IP | string| Direcciones IP de red. |
-| DateTime | string| Fechas y horas del día. |
-| Cantidad | string | Unidades y medidas numéricas. |
+| Person | String | Nombre parcial o completo de una persona. |
+| PersonType | String | Tipo de trabajo o rol de una persona.  |
+| Location | String | Puntos de referencia naturales y humanos, estructuras, características geográficas y entidades geopolíticas. |
+| Organización | String | Empresas, grupos políticos, bandas musicales, clubs deportivos, organismos gubernamentales y organizaciones públicas. |
+| Evento | String | Eventos históricos, sociales y naturales. |
+| Producto | String |Objetos físicos de varias categorías. |
+| Habilidad | String | Capacidad, aptitud o experiencia. |
+| Dirección | String | Dirección de correo postal completa. |
+| Número de teléfono | String| Números de teléfono. | 
+| Email | String | Dirección de correo electrónico. |
+| URL | String | Direcciones URL y vínculos del sitio web. |
+| Dirección IP | String | Direcciones IP de red. |
+| DateTime | String | Fechas y horas del día. |
+| Cantidad | String | Unidades y medidas numéricas. |
 
 ## <a name="considerations"></a>Consideraciones
 
@@ -120,7 +146,7 @@ Correo electrónico | string | Dirección de correo electrónico. |
 
 * Siga nuestra [**guía de migración de Form Recognizer v3.0**](v3-migration-guide.md) para obtener información sobre cómo usar la versión preliminar en las aplicaciones y flujos de trabajo.
 
-* Explore nuestra [**API de REST (versión preliminar)** ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) para obtener más información sobre la versión preliminar y las nuevas funcionalidades.
+* Explore nuestra [**API de REST (versión preliminar)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) para obtener más información sobre la versión preliminar y las nuevas funcionalidades.
 
 > [!div class="nextstepaction"]
 > [Prueba de Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)

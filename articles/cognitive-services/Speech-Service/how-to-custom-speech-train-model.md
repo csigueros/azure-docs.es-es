@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: pafarley
-ms.openlocfilehash: 73076c141f28bc22450c87491053130ace6b5793
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: e45c5badecfe97cb0be75e3e30f9442bf71beb69
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123540764"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080581"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Entrenamiento e implementación de un modelo de Habla personalizada
 
@@ -27,8 +28,8 @@ Si tiene problemas de reconocimiento con un modelo base, puede usar transcripcio
 
 | Caso de uso | Tipo de datos |
 | -------- | --------- |
-| Mejorar la precisión del reconocimiento en el vocabulario y la gramática específicos del sector, como la terminología médica o la jerga de TI. | Texto relacionado (frases o expresiones) |
-| Definir tanto la fonética como la forma que se muestra de una palabra o término que tiene una pronunciación no estándar, como nombres de producto o acrónimos | Texto relacionado (pronunciación) |
+| Mejorar la precisión del reconocimiento en el vocabulario y la gramática específicos del sector, como la terminología médica o la jerga de TI. | Texto sin formato o datos de texto estructurado |
+| Definir tanto la fonética como la forma que se muestra de una palabra o término que tiene una pronunciación no estándar, como nombres de producto o acrónimos | Datos de pronunciación o pronunciación fonética en texto estructurado |
 | Mejorar la precisión del reconocimiento en estilos de habla, acentos o ruidos de fondo específicos | Transcripciones de audio con etiqueta humana |
 
 ## <a name="train-and-evaluate-a-model"></a>Entrenamiento y evaluación de un modelo

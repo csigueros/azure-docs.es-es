@@ -3,14 +3,14 @@ title: Uso de runbooks y módulos de Azure Automation en la Galería de PowerShe
 description: En este artículo se indica cómo usar runbooks y módulos de repositorios de GitHub de Microsoft y la Galería de PowerShell.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/07/2021
+ms.date: 10/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: 203900e225700055c581ce4c7a100e055d9526b7
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 1f6b3a47d7d8bcab77c80b71fcbc06c3381509c9
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124837449"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131504198"
 ---
 # <a name="use-existing-runbooks-and-modules"></a>Uso de los runbooks y módulos existentes
 
@@ -21,22 +21,40 @@ En lugar de crear sus propios runbooks y módulos en Azure Automation, dispone d
 
 ## <a name="import-runbooks-from-github-with-the-azure-portal"></a>Importación de runbooks desde GitHub con Azure Portal
 
+> [!NOTE]
+>- La opción **Examinar galería** de Azure Portal tiene una experiencia de usuario mejorada.
+>- En la hoja **Automatización de procesos** > **Runbook**, puede importar runbooks mediante la opción **Importar un runbook** o **Examinar galería** y la página **Runbooks** muestra dos columnas nuevas: **Versión en entorno de ejecución** y **Tipo de runbook**.
+ 
 1. En Azure Portal, abra su cuenta de Automation.
-2. Seleccione **Galería de runbooks** en **Automatización de procesos**.
-3. Seleccione **Origen: GitHub**.
-4. Puede usar los filtros situados encima de la lista para restringir la presentación por publicador, tipo y ordenación. Busque el elemento de la galería que desee y selecciónelo para ver sus detalles.
+1. Seleccione la hoja **Runbooks** en **Automatización de procesos**.
+1. Haga clic en **Importar un runbook** en la página **Runbooks**.
+
+   :::image type="content" source="./media/automation-runbook-gallery/import-runbook.png" alt-text="Captura de pantalla de la selección de un runbook de la opción de importación de runbooks.":::
+
+1. En la página **Importar un runbook**, puede importar un archivo almacenado en el equipo local o desde GitHub mediante **Buscar archivo** o **Examinar la galería**, respectivamente.
+1. Seleccione el archivo.
+1. Escriba el **nombre**, la **versión del entorno de ejecución** y la **descripción**.
+1. Haga clic en **Import**.
+   
+   :::image type="content" source="./media/automation-runbook-gallery/import-runbook-upload-runbook-file.png" alt-text="Captura de pantalla de la selección de un runbook desde un archivo o galería.":::
+
+1. Como alternativa, seleccione **Examinar galería** en la página **Runbooks** para examinar los runbooks disponibles.
+
+   :::image type="content" source="./media/automation-runbook-gallery/browse-gallery-option.png" alt-text="Captura de pantalla de la selección de la opción de la galería de exploración en la hoja del runbook.":::
+
+1. Puede usar los filtros situados encima de la lista para restringir la presentación por publicador, tipo y ordenación. Busque el elemento de la galería que desee y selecciónelo para ver sus detalles.
 
    :::image type="content" source="./media/automation-runbook-gallery/browse-gallery-github.png" alt-text="Examen de la galería de runbooks." lightbox="./media/automation-runbook-gallery/browse-gallery-github-expanded.png":::
 
-5. Para importar un elemento, haga clic en **Importar** en la página de detalles.
+1. Haga clic en **Seleccionar** para seleccionar el runbook que haya elegido. 
+1. En la página **Importar un runbook**, escriba el **nombre** y seleccione las **versiones del entorno de ejecución**.
+1. El **tipo de runbook** y la **descripción** se completan automáticamente.
+1. Haga clic en **Import**.
 
    :::image type="content" source="./media/automation-runbook-gallery/gallery-item-import.png" alt-text="Importación de elementos de la galería.":::
 
-6. Si lo desea, cambie el nombre del runbook en la hoja de importación y después haga clic en **Aceptar** para importarlo.
-
-   :::image type="content" source="./media/automation-runbook-gallery/gallery-item-import-blade.png" alt-text="Hoja de importación de elementos de la galería.":::
-
 7. El runbook aparecerá en la pestaña **Runbooks** para la cuenta de Automation.
+
  
 ## <a name="runbooks-in-the-powershell-gallery"></a>Runbooks de la galería de PowerShell
 
@@ -56,7 +74,7 @@ Solo se puede importar directamente desde la Galería de PowerShell mediante Azu
 
 Los módulos de PowerShell contienen cmdlets que puede usar en sus runbooks. Los módulos existentes que se pueden instalar en Azure Automation están disponibles en la [Galería de PowerShell](https://www.powershellgallery.com). Puede iniciar esta galería desde Azure Portal e instalar los módulos directamente en Azure Automation, o puede descargarlos e instalarlos de forma manual.
 
-También puede encontrar módulos para importar en Azure Portal. Se muestran para la cuenta de Automation en **Galería de módulos** en **Recursos compartidos**.
+También puede encontrar módulos para importar en Azure Portal. Se muestran para la cuenta de Automation en la opción **Módulos** en **Recursos compartidos**.
 
 > [!IMPORTANT] 
 > No incluya la palabra clave "AzureRm" en ningún script diseñado para ejecutarse con el módulo Az. La inclusión de la palabra clave, incluso en un comentario, puede hacer que AzureRm se cargue y, a continuación, entre en conflicto con el módulo Az.
@@ -99,7 +117,8 @@ Microsoft recomienda agregar a la Galería de PowerShell aquellos runbooks que p
 ## <a name="import-a-module-from-the-modules-gallery-in-the-azure-portal"></a>Importación de un módulo de la galería de módulos de Azure Portal
 
 1. En Azure Portal, abra su cuenta de Automation.
-1. En **Recursos compartidos**, seleccione **Galería de módulos** para que se abra la lista de módulos.
+1. En **Recursos compartidos**, seleccione **Módulos**.
+1. En la página **Módulos**, seleccione **Examinar galería** para abrir la lista de módulos.
 
       :::image type="content" source="media/automation-runbook-gallery/modules-blade-sm.png" alt-text="Vista de la galería de módulos." lightbox="media/automation-runbook-gallery/modules-blade-lg.png":::
 
@@ -127,7 +146,7 @@ Microsoft recomienda agregar a la Galería de PowerShell aquellos runbooks que p
 
 ## <a name="request-a-runbook-or-module"></a>Solicitud de un runbook o módulo
 
-Puede enviar solicitudes a [Voz de usuario](https://feedback.azure.com/forums/246290-azure-automation/).  Si necesita ayuda para escribir un runbook o se plantea preguntas acerca de PowerShell, publique una pregunta en nuestra [Página de preguntas y respuestas de Microsoft](/answers/topics/azure-automation.html).
+Puede enviar solicitudes a [Voz de usuario](https://feedback.azure.com/d365community/forum/8ddd03a2-0225-ec11-b6e6-000d3a4f0858).  Si necesita ayuda para escribir un runbook o se plantea preguntas acerca de PowerShell, publique una pregunta en nuestra [Página de preguntas y respuestas de Microsoft](/answers/topics/azure-automation.html).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

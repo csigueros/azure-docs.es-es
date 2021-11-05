@@ -1,641 +1,683 @@
-- name: Documentación sobre el servicio de voz
-  href: index.yml
-- name: Información general
-  expanded: true
-  items:
-    - name: Introducción al servicio de voz
-      href: overview.md
-    - name: Idioma y voz admitidos
-      displayName: 'languages,locales,voice,gender,language code,locale,locale code,neural voice,standard voice'
-      href: language-support.md
-    - name: Regiones admitidas
-      href: regions.md
-    - name: Precios
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
-    - name: Cuotas y límites
-      href: speech-services-quotas-and-limits.md
-- name: Voz a texto
-  items:
-    - name: Documentación de voz a texto
-      href: index-speech-to-text.yml
-    - name: Introducción a la conversión de voz en texto
-      href: speech-to-text.md
-    - name: Inicio rápido de voz a texto
-      href: get-started-speech-to-text.md
-    - name: Guías paso a paso
-      items:
-        - name: Cambio del idioma de origen de reconocimiento de voz
-          href: how-to-specify-source-language.md
-        - name: Uso de formatos de entrada de audio comprimidos
-          href: how-to-use-codec-compressed-audio-input-streams.md
-          displayName: 'codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk'
-        - name: Selección de un dispositivo de entrada de micrófono específico
-          href: how-to-select-audio-input-devices.md
-        - name: Identificación del idioma
-          href: language-identification.md
-        - name: Uso de la identificación del idioma
-          href: how-to-automatic-language-detection.md
-        - name: Uso de la API de transcripciones de Azure Batch
-          href: batch-transcription.md
-        - name: "Migración de la versión\_2.0 a la versión\_3.0"
-          href: migrate-v2-to-v3.md
-        - name: Uso de la evaluación de la pronunciación
-          href: how-to-pronunciation-assessment.md
-        - name: Personalización
-          items:
-            - name: ¿Qué es Habla personalizada?
-              href: custom-speech-overview.md
-            - name: Preparación de los datos para Habla personalizada
-              href: how-to-custom-speech-test-and-train.md
-            - name: Inspección de los datos de Habla personalizada
-              href: how-to-custom-speech-inspect-data.md
-            - name: Evaluación y mejora de la precisión de Habla personalizada
-              href: how-to-custom-speech-evaluate-data.md
-            - name: Entrenamiento e implementación de un modelo de Habla personalizada
-              href: how-to-custom-speech-train-model.md
-            - name: CI/CD para Habla personalizada
-              href: how-to-custom-speech-continuous-integration-continuous-deployment.md
-            - name: Creación de transcripciones con la etiqueta humana
-              href: how-to-custom-speech-human-labeled-transcriptions.md
-            - name: Ciclo de vida del modelo y punto de conexión
-              href: how-to-custom-speech-model-and-endpoint-lifecycle.md
-    - name: Uso responsable de la inteligencia artificial
-      items:
-        - name: Voz a texto
-          items:
-            - name: Nota de transparencia
-              items:
-                - name: Casos de uso de la conversión de voz en texto
-                  href: /legal/cognitive-services/speech-service/speech-to-text/transparency-note?context=/azure/cognitive-services/speech-service/context/context
-                - name: Características y limitaciones
-                  href: /legal/cognitive-services/speech-service/speech-to-text/characteristics-and-limitations?context=/azure/cognitive-services/speech-service/context/context
-            - name: Integración y uso responsable
-              href: /legal/cognitive-services/speech-service/speech-to-text/guidance-integration-responsible-use?context=/azure/cognitive-services/speech-service/context/context
-            - name: 'Datos, privacidad y seguridad'
-              href: /legal/cognitive-services/speech-service/speech-to-text/data-privacy-security?context=/azure/cognitive-services/speech-service/context/context
-        - name: Valoración de la pronunciación
-          items:
-            - name: Nota de transparencia
-              items:
-                - name: Casos de uso de la valoración de la pronunciación
-                  href: /legal/cognitive-services/speech-service/pronunciation-assessment/transparency-note-pronunciation-assessment?context=/azure/cognitive-services/speech-service/context/context
-                - name: Características y limitaciones
-                  href: /legal/cognitive-services/speech-service/pronunciation-assessment/characteristics-and-limitations-pronunciation-assessment?context=/azure/cognitive-services/speech-service/context/context
-    - name: Tutoriales
-      items:
-        - name: Mejora de la precisión con modelos de inquilino
-          href: tutorial-tenant-model.md
-    - name: Referencia
-      items:
-        - name: C++
-          displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-          href: /cpp/cognitive-services/speech/
-        - name: C#
-          displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
-          href: /dotnet/api/microsoft.cognitiveservices.speech
-        - name: Go
-          displayName: 'Go SDK, Go dev kit,reference,reference docs,ref documentation'
-          href: 'https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go'
-        - name: Java
-          displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-          href: /java/api/com.microsoft.cognitiveservices.speech
-        - name: JavaScript
-          displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
-          href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
-        - name: Objective-C
-          displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
-          href: /objectivec/cognitive-services/speech/
-        - name: Python
-          displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
-          href: /python/api/azure-cognitiveservices-speech/
-        - name: Notas de la versión
-          displayName: 'release notes,updates,what''s new,what is new,changes'
-          href: releasenotes.md
-        - name: Speech-to-text REST API
-          href: rest-speech-to-text.md
-    - name: Recursos
-      items:
-        - name: Compatibilidad con idiomas
-          href: language-support.md#speech-to-text
-        - name: Regiones admitidas
-          href: regions.md#speech-to-text-text-to-speech-and-translation
-        - name: Cliente de ingesta
-          href: ingestion-client.md
-        - name: Preguntas más frecuentes sobre la conversión de voz a texto
-          displayName: 'FAQ,STT FAQ,SR FAQ,frequently asked questions'
-          href: faq-stt.yml
-- name: Texto a voz
-  items:
-    - name: Documentación de texto a voz
-      href: index-text-to-speech.yml
-    - name: Introducción a la tecnología de texto a voz
-      href: text-to-speech.md
-    - name: Inicio rápido para la conversión de texto a voz
-      href: get-started-text-to-speech.md
-    - name: Guías paso a paso
-      items:
-        - name: Mejora de síntesis con SSML
-          href: speech-synthesis-markup.md
-        - name: Menor latencia de síntesis de voz mediante el SDK de Voz
-          href: how-to-lower-speech-synthesis-latency.md
-        - name: Síntesis de voz con Long Audio API
-          href: long-audio-api.md
-        - name: Obtención de eventos de postura facial para la sincronización de labios
-          href: how-to-speech-synthesis-viseme.md
-        - name: Personalización
-          items:
-            - name: Voz neuronal personalizada
-              items:
-                - name: ¿Qué es la voz neuronal personalizada?
-                  href: custom-neural-voice.md
-                - name: Introducción a Voz neuronal personalizada
-                  displayName: 'custom voice, neural voice'
-                  href: how-to-custom-voice.md
-                - name: Preparación de los datos para el entrenamiento
-                  href: how-to-custom-voice-prepare-data.md
-                - name: Creación y uso de un modelo de voz
-                  href: how-to-custom-voice-create-voice.md
-                - name: Grabación de ejemplos de voz
-                  href: record-custom-voice-samples.md
-            - name: Audio Content Creation
-              items:
-                - name: Audio Content Creation
-                  href: how-to-audio-content-creation.md
-    - name: Uso responsable de la inteligencia artificial
-      items:
-        - name: Voz neuronal personalizada
-          items:
-            - name: Nota de transparencia
-              items:
-                - name: Casos de uso de Voz neuronal personalizada
-                  href: /legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
-                - name: Características y limitaciones
-                  href: /legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
-            - name: Integración y uso responsable
-              items:
-                - name: Acceso limitado
-                  href: /legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
-                - name: Implementación responsable de la voz sintética
-                  href: concepts-guidelines-responsible-deployment-synthetic.md
-                - name: Divulgación de talento de voz
-                  href: /legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context
-                - name: Directrices de diseño de divulgación de información
-                  href: concepts-disclosure-guidelines.md
-                - name: Modelos de diseño de divulgación
-                  href: concepts-disclosure-patterns.md
-                - name: Código de conducta
-                  href: /legal/cognitive-services/speech-service/tts-code-of-conduct?context=/azure/cognitive-services/speech-service/context/context
-            - name: 'Datos, privacidad y seguridad'
-              href: /legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
-    - name: Referencia
-      items:
-        - name: C++
-          displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-          href: /cpp/cognitive-services/speech/
-        - name: C#
-          displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
-          href: /dotnet/api/microsoft.cognitiveservices.speech
-        - name: Java
-          displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-          href: /java/api/com.microsoft.cognitiveservices.speech
-        - name: JavaScript
-          displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
-          href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
-        - name: Objective-C
-          displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
-          href: /objectivec/cognitive-services/speech/
-        - name: Python
-          displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
-          href: /python/api/azure-cognitiveservices-speech/
-        - name: Notas de la versión
-          displayName: 'release notes,updates,what''s new,what is new,changes'
-          href: releasenotes.md
-        - name: Text-to-speech REST API
-          href: rest-text-to-speech.md
-    - name: Recursos
-      items:
-        - name: Compatibilidad con voz neuronal
-          href: language-support.md#neural-voices
-        - name: Regiones admitidas
-          href: regions.md#speech-to-text-text-to-speech-and-translation
-        - name: Conjuntos fonéticos de SSML
-          href: speech-ssml-phonetic-sets.md
-- name: Traducción de voz
-  items:
-    - name: Documentación de traducción de voz
-      href: index-speech-translation.yml
-    - name: Introducción a la traducción de voz
-      href: speech-translation.md
-    - name: Inicio rápido sobre la traducción de voz
-      href: get-started-speech-translation.md
-    - name: Guías paso a paso
-      items:
-        - name: Traducción y síntesis de texto con API REST
-          href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
-    - name: Referencia
-      items:
-        - name: C++
-          displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-          href: /cpp/cognitive-services/speech/
-        - name: C#
-          displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
-          href: /dotnet/api/microsoft.cognitiveservices.speech
-        - name: Java
-          displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-          href: /java/api/com.microsoft.cognitiveservices.speech
-        - name: JavaScript
-          displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
-          href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
-        - name: Objective-C
-          displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
-          href: /objectivec/cognitive-services/speech/
-        - name: Python
-          displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
-          href: /python/api/azure-cognitiveservices-speech/
-        - name: Notas de la versión
-          displayName: 'release notes,updates,what''s new,what is new,changes'
-          href: releasenotes.md
-    - name: Recursos
-      items:
-        - name: Compatibilidad con idiomas
-          href: language-support.md#speech-translation
-        - name: Regiones admitidas
-          href: regions.md#speech-to-text-text-to-speech-and-translation
-        - name: Preguntas más frecuentes sobre la traducción de voz
-          href: 'https://www.microsoft.com/translator/faq.aspx'
-- name: Reconocimiento de la intención
-  items:
-    - name: Documentación de reconocimiento de intenciones
-      href: index-intent-recognition.yml
-    - name: Introducción al reconocimiento de intenciones
-      href: intent-recognition.md
-    - name: Inicio rápido sobre el reconocimiento de intención
-      href: get-started-intent-recognition.md
-    - name: Guías paso a paso
-      items:
-        - name: 'Reconocimiento de las intenciones de voz con LUIS, C#'
-          href: how-to-recognize-intents-from-speech-csharp.md
-        - name: 'Reconocimiento de intenciones de voz con coincidencia de patrones simple, C++'
-          href: how-to-use-simple-language-pattern-matching.md
-    - name: Referencia
-      items:
-        - name: SDK de voz
-          items:
-            - name: C++
-              displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-              href: /cpp/cognitive-services/speech/
-            - name: C#
-              displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
-              href: /dotnet/api/microsoft.cognitiveservices.speech
-            - name: Java
-              displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-              href: /java/api/com.microsoft.cognitiveservices.speech
-            - name: JavaScript
-              displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
-              href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
-            - name: Objective-C
-              displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
-              href: /objectivec/cognitive-services/speech/
-            - name: Python
-              displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
-              href: /python/api/azure-cognitiveservices-speech/
-            - name: Notas de la versión
-              displayName: 'release notes,updates,what''s new,what is new,changes'
-              href: releasenotes.md
-        - name: Servicio de LUIS
-          items:
-            - name: Recursos para desarrolladores de LUIS
-              href: ../luis/developer-reference-resource.md
-    - name: Recursos
-      items:
-        - name: Compatibilidad con idiomas
-          href: ../luis/luis-language-support.md
-        - name: Regiones admitidas
-          href: regions.md#intent-recognition
-- name: Speaker Recognition
-  items:
-    - name: Introducción a Speaker Recognition
-      href: speaker-recognition-overview.md
-    - name: Inicio rápido de Speaker Recognition
-      href: get-started-speaker-recognition.md
-    - name: Referencia
-      items:
-        - name: API REST de Speaker Recognition
-          href: /rest/api/speakerrecognition/
-- name: Reconocimiento de palabras clave
-  items:
-    - name: Introducción al reconocimiento de palabras clave
-      href: keyword-recognition-overview.md
-    - name: Inicio rápido de Palabra clave personalizada
-      href: custom-keyword-basics.md
-    - name: Recomendaciones e instrucciones
-      href: keyword-recognition-guidelines.md
-    - name: Regiones admitidas
-      href: keyword-recognition-region-support.md
-- name: Profundización en el escenario
-  items:
-    - name: Escenarios de conversación
-      items:
-        - name: Documentación de escenarios de conversación
-          displayName: 'meeting, meetings, conversation, call center, transcription, multi-device conversation'
-          href: index-conversation-scenarios.yml
-        - name: Transcripción de conversaciones
-          items:
-            - name: Introducción a la transcripción de conversaciones
-              href: conversation-transcription.md
-            - name: Inicio rápido de la transcripción de conversaciones en tiempo real
-              href: how-to-use-conversation-transcription.md
-            - name: Guías paso a paso
-              items:
-                - name: Control de escenarios de centro de llamadas
-                  displayName: 'IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers'
-                  href: call-center-transcription.md
-                - name: Transcripción de conversaciones asincrónicas
-                  href: how-to-async-conversation-transcription.md
-            - name: Referencia
-              items:
-                - name: SDK de voz
-                  items:
-                    - name: C++
-                      displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-                      href: /cpp/cognitive-services/speech/
-                    - name: C#
-                      displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
-                      href: /dotnet/api/microsoft.cognitiveservices.speech
-                    - name: Java
-                      displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-                      href: /java/api/com.microsoft.cognitiveservices.speech
-                    - name: JavaScript
-                      displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
-                      href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
-                    - name: Objective-C
-                      displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
-                      href: /objectivec/cognitive-services/speech/
-                    - name: Python
-                      displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
-                      href: /python/api/azure-cognitiveservices-speech/
-                    - name: Notas de la versión
-                      displayName: 'release notes,updates,what''s new,what is new,changes'
-                      href: releasenotes.md
-                - name: API de REST
-                  items:
-                    - name: API REST de transcripción de conversaciones
-                      href: 'https://signature.centralus.cts.speech.microsoft.com/UI/index.html'
-        - name: Conversación entre varios dispositivos
-          items:
-            - name: Introducción a la conversación entre varios dispositivos
-              href: multi-device-conversation.md
-            - name: Inicio rápido de la conversación entre varios dispositivos
-              href: quickstarts/multi-device-conversation.md
-            - name: Referencia
-              items:
-                - name: SDK de voz
-                  items:
-                    - name: C++
-                      href: /cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-transcription-namespace
-                    - name: C#
-                      href: /dotnet/api/microsoft.cognitiveservices.speech.transcription
-                    - name: Java
-                      href: /java/api/com.microsoft.cognitiveservices.speech.transcription
-    - name: Asistentes de voz
-      items:
-        - name: Documentación de asistentes de voz
-          href: index-voice-assistants.yml
-        - name: Introducción a los asistentes de voz
-          href: voice-assistants.md
-        - name: Comandos personalizados
-          items:
-            - name: ¿Qué es Comandos personalizados?
-              href: custom-commands.md
-            - name: Guías de inicio rápido
-              items:
-                - name: Creación de una aplicación Comandos personalizados
-                  href: quickstart-custom-commands-application.md
-            - name: Guías paso a paso
-              items:
-                - name: Desarrollo y personalización de aplicaciones de Comandos personalizados
-                  href: how-to-develop-custom-commands-application.md
-                - name: Integración con aplicaciones cliente
-                  items:
-                    - name: Integración con una aplicación cliente mediante el SDK de voz
-                      href: how-to-custom-commands-setup-speech-sdk.md
-                    - name: Envío de actividad a una aplicación cliente
-                      href: how-to-custom-commands-send-activity-to-client.md
-                    - name: Configuración de puntos de conexión web
-                      href: how-to-custom-commands-setup-web-endpoints.md
-                    - name: Exportación de una aplicación de Comandos personalizados como si fuera una aptitud
-                      href: how-to-custom-commands-integrate-remote-skills.md
-                    - name: Actualización de un comando desde la aplicación cliente
-                      href: how-to-custom-commands-update-command-from-client.md
-                    - name: Actualizar un comando desde un punto de conexión web
-                      href: how-to-custom-commands-update-command-from-web-endpoint.md
-                - name: Implementación continua con Azure DevOps
-                  href: how-to-custom-commands-deploy-cicd.md
-                - name: Prueba de aplicaciones de Comandos personalizados
-                  href: how-to-custom-commands-developer-flow-test.md
-                - name: Depuración de errores al crear la aplicación
-                  href: how-to-custom-commands-debug-build-time.md
-                - name: Depuración de errores al ejecutar la aplicación
-                  href: how-to-custom-commands-debug-runtime.md
-            - name: Recursos
-              items:
-                - name: Conceptos de Comandos personalizados
-                  href: custom-commands-references.md
-                - name: Ejemplos de Comandos personalizados (GitHub)
-                  href: 'https://aka.ms/speech/cc-samples'
-                - name: Ejemplos de asistentes de voz (GitHub)
-                  href: 'http://aka.ms/speech/va-samples'
-                - name: Preguntas frecuentes sobre asistentes de voz
-                  href: faq-voice-assistants.yml
-                - name: Cifrado de Comandos personalizados de datos en reposo
-                  href: custom-commands-encryption-of-data-at-rest.md
-        - name: Direct Line Speech
-          items:
-            - name: ¿Qué es Direct Line Speech?
-              href: direct-line-speech.md
-            - name: Guías de inicio rápido
-              items:
-                - name: Creación de un asistente de voz personalizado
-                  href: quickstarts/voice-assistants.md
-            - name: Tutoriales
-              items:
-                - name: Habilitar el bot con voz mediante el SDK de voz
-                  href: tutorial-voice-enable-your-bot-speech-sdk.md
-            - name: Recursos
-              items:
-                - name: Preguntas frecuentes sobre asistentes de voz
-                  href: faq-voice-assistants.yml
-        - name: Asistentes de voz en Windows
-          items:
-            - name: Introducción a los asistentes de voz en Windows
-              href: windows-voice-assistants-overview.md
-            - name: Guías paso a paso
-              items:
-                - name: Primeros pasos en el desarrollo de un asistente con Windows
-                  href: how-to-windows-voice-assistants-get-started.md
-                - name: Habilitación de la activación por voz
-                  href: windows-voice-assistants-implementation-guide.md
-            - name: Recursos
-              items:
-                - name: Directrices y requisitos de privacidad
-                  href: windows-voice-assistants-automatic-enablement-guidelines.md
-                - name: Procedimientos recomendados para el uso del asistente
-                  href: windows-voice-assistants-best-practices.md
-                - name: Ejemplos y preguntas frecuentes
-                  href: windows-voice-assistants-faq.yml
-- name: Guías paso a paso
-  items:
-    - name: Habilitar registro
-      href: how-to-use-logging.md
-    - name: Seguimiento de uso de la memoria
-      href: how-to-track-speech-sdk-memory-usage.md
-    - name: Habilitación de punto de conexión privado
-      href: speech-services-private-link.md
-    - name: Habilitación de un punto de conexión de servicio de una red virtual
-      href: speech-service-vnet-service-endpoint.md
-    - name: Configuración de OpenSSL para Linux
-      displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
-      href: how-to-configure-openssl-linux.md
-    - name: Configuración de RHEL/CentOS 7
-      href: how-to-configure-rhel-centos-7.md
-      displayName: 'RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO'
-    - name: Uso de contenedores
-      items:
-        - name: Instalación y ejecución de contenedores de voz
-          displayName: 'containers,install container,run container'
-          href: speech-container-howto.md
-        - name: Configuración de contenedores de voz
-          displayName: 'containers,configure containers,container config,configuration'
-          href: speech-container-configuration.md
-        - name: Procesamiento por lotes con contenedores de voz
-          href: speech-container-batch-processing.md
-        - name: Contenedores de voz con Kubernetes y Helm
-          displayName: 'containers,kubernetes,k8s,helm,orchestration,on-prem,on-premises'
-          href: speech-container-howto-on-premises.md
-        - name: Contenedores de voz en instancias de contenedor de Azure
-          displayName: 'ACI,azure container instances,container instances,containers'
-          maintainContext: true
-          href: ../containers/azure-container-instance-recipe.md
-        - name: Preguntas frecuentes sobre Containers
-          href: speech-container-faq.yml
-        - name: Documentación de contenedores de Cognitive Services
-          href: ../containers/index.yml
-          maintainContext: true
-    - name: Migración
-      items:
-        - name: Desde Bing Speech
-          href: how-to-migrate-from-bing-speech.md
-        - name: Desde Translator Speech API
-          href: how-to-migrate-from-translator-speech-api.md
-    - name: Adecuado para empresas
-      items:
-        - name: Configuración de redes virtuales
-          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/speech-service/context/context
-        - name: Uso de claves administradas por el cliente
-          href: speech-encryption-of-data-at-rest.md
-        - name: Procedimiento de copia de seguridad y recuperación de recursos de personalización de voz
-          href: resiliency-and-recovery-plan.md
-- name: Dispositivos
-  items:
-    - name: Documentación de dispositivos de voz
-      href: index-devices.yml
-    - name: Información general
-      items:
-        - name: ¿Qué es el SDK de dispositivos de voz?
-          href: speech-devices-sdk.md
-        - name: Obtención del SDK de dispositivos de voz
-          href: get-speech-devices-sdk.md
-        - name: Ejemplos del SDK de dispositivos de voz (GitHub)
-          href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
-    - name: Hardware
-      items:
-        - name: Recomendaciones de la matriz de micrófonos
-          href: speech-devices-sdk-microphone.md
-        - name: Detalles de Roobo v1
-          href: speech-devices-sdk-roobo-v1.md
-        - name: Detalles de Roobo v2
-          href: speech-devices-sdk-roobo-v2.md
-    - name: Guías paso a paso
-      items:
-        - name: Configuración de una matriz de micrófonos
-          href: how-to-devices-microphone-array-configuration.md
-    - name: Guía de inicio rápido
-      items:
-        - name: Uso del SDK de dispositivos de voz
-          href: speech-devices-sdk-quickstart.md
-    - name: Recursos
-      items:
-        - name: Solución de problemas del SDK de dispositivos de voz
-          href: speech-devices-sdk-troubleshooting.md
-    - name: Referencia
-      items:
-        - name: Notas de la versión del SDK de dispositivos de voz
-          href: devices-sdk-release-notes.md
-- name: Recursos
-  items:
-    - name: SDK de voz
-      items:
-        - name: Introducción al SDK de Voz
-          href: speech-sdk.md
-        - name: Configuración del SDK de Voz
-          href: quickstarts/setup-platform.md
-        - name: Notas de la versión del SDK de voz
-          href: releasenotes.md
-        - name: Referencia
-          items:
-            - name: C++
-              href: /cpp/cognitive-services/speech/
-            - name: C#
-              href: /dotnet/api/microsoft.cognitiveservices.speech
-            - name: Java
-              href: /java/api/com.microsoft.cognitiveservices.speech
-            - name: JavaScript
-              href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
-            - name: Objective-C
-              href: /objectivec/cognitive-services/speech/
-            - name: Python
-              href: /python/api/azure-cognitiveservices-speech/
-            - name: Go
-              href: 'https://github.com/microsoft/cognitive-services-speech-sdk-go'
-    - name: CLI de Voz
-      displayName: SPX
-      items:
-        - name: Introducción a la CLI de Voz
-          displayName: 'What is SPX?, spx, spx overview'
-          href: spx-overview.md
-        - name: Inicio rápido de la CLI de Voz
-          displayName: 'spx basics, spx quickstart, spx get started, speech cli get started'
-          href: spx-basics.md
-        - name: Guías paso a paso
-          items:
-            - name: Opciones de configuración de la CLI de Voz
-              displayName: 'SPX configuration options, speech cli config, speech cli data store, data store, datastore, speech cli datastore'
-              href: spx-data-store-configuration.md
-            - name: Operaciones por lotes de la CLI de Voz
-              displayName: 'spx batch, spx batch operations, speech batch, speech cli speech to text batch, speech cli tex to speech batch'
-              href: spx-batch-operations.md
-    - name: Speech Studio
-      items:
-        - name: Introducción a Speech Studio
-          href: speech-studio-overview.md
-        - name: Control de acceso basado en rol en Speech Studio
-          href: speech-studio-role-based-access-control.md
-    - name: Adecuado para empresas
-      items:
-        - name: Regiones admitidas
-          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
-        - name: Cumplimiento y certificación
-          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Opciones de ayuda y soporte técnico
-      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
-    - name: Documentación de Swagger
-      href: swagger-documentation.md
-    - name: Nubes soberanas
-      displayName: 'fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china'
-      href: sovereign-clouds.md
-    - name: Calculadora de precios
-      href: 'https://azure.microsoft.com/pricing/calculator/#cognitive-services'
-    - name: Azure Roadmap
-      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
-    - name: Privacidad y cookies
-      href: 'https://privacy.microsoft.com/privacystatement'
+items:
+  - name: Documentación sobre el servicio de voz
+    href: index.yml
+  - name: Información general
+    expanded: true
+    items:
+      - name: Introducción al servicio de voz
+        href: overview.md
+      - name: Idioma y voz admitidos
+        displayName: 'languages,locales,voice,gender,language code,locale,locale code,neural voice,standard voice'
+        href: language-support.md
+      - name: Regiones admitidas
+        href: regions.md
+      - name: Precios
+        href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
+      - name: Cuotas y límites
+        href: speech-services-quotas-and-limits.md
+  - name: Voz a texto
+    items:
+      - name: Documentación de voz a texto
+        href: index-speech-to-text.yml
+      - name: Introducción a la conversión de voz en texto
+        href: speech-to-text.md
+      - name: Inicio rápido de voz a texto
+        href: get-started-speech-to-text.md
+      - name: Guías paso a paso
+        items:
+          - name: Cambio del idioma de origen de reconocimiento de voz
+            href: how-to-specify-source-language.md
+          - name: Uso de formatos de entrada de audio comprimidos
+            href: how-to-use-codec-compressed-audio-input-streams.md
+            displayName: 'codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk'
+          - name: Selección de un dispositivo de entrada de micrófono específico
+            href: how-to-select-audio-input-devices.md
+          - name: Identificación del idioma
+            href: language-identification.md
+          - name: Uso de la identificación del idioma
+            href: how-to-automatic-language-detection.md
+          - name: Uso de la API de transcripciones de Azure Batch
+            href: batch-transcription.md
+          - name: "Migración de la versión\_2.0 a la versión\_3.0"
+            href: migrate-v2-to-v3.md
+          - name: Uso de la evaluación de la pronunciación
+            href: how-to-pronunciation-assessment.md
+          - name: Personalización
+            items:
+              - name: ¿Qué es Habla personalizada?
+                href: custom-speech-overview.md
+              - name: Preparación de los datos para Habla personalizada
+                href: how-to-custom-speech-test-and-train.md
+              - name: Inspección de los datos de Habla personalizada
+                href: how-to-custom-speech-inspect-data.md
+              - name: Evaluación y mejora de la precisión de Habla personalizada
+                href: how-to-custom-speech-evaluate-data.md
+              - name: Entrenamiento e implementación de un modelo de Habla personalizada
+                href: how-to-custom-speech-train-model.md
+              - name: CI/CD para Habla personalizada
+                href: how-to-custom-speech-continuous-integration-continuous-deployment.md
+              - name: Personalización de la pronunciación
+                href: customize-pronunciation.md
+              - name: Creación de transcripciones con la etiqueta humana
+                href: how-to-custom-speech-human-labeled-transcriptions.md
+              - name: Ciclo de vida del modelo y punto de conexión
+                href: how-to-custom-speech-model-and-endpoint-lifecycle.md
+      - name: Uso responsable de la inteligencia artificial
+        items:
+          - name: Voz a texto
+            items:
+              - name: Nota de transparencia
+                items:
+                  - name: Casos de uso de la conversión de voz en texto
+                    href: /legal/cognitive-services/speech-service/speech-to-text/transparency-note?context=/azure/cognitive-services/speech-service/context/context
+                  - name: Características y limitaciones
+                    href: /legal/cognitive-services/speech-service/speech-to-text/characteristics-and-limitations?context=/azure/cognitive-services/speech-service/context/context
+              - name: Integración y uso responsable
+                href: /legal/cognitive-services/speech-service/speech-to-text/guidance-integration-responsible-use?context=/azure/cognitive-services/speech-service/context/context
+              - name: 'Datos, privacidad y seguridad'
+                href: /legal/cognitive-services/speech-service/speech-to-text/data-privacy-security?context=/azure/cognitive-services/speech-service/context/context
+          - name: Valoración de la pronunciación
+            items:
+              - name: Nota de transparencia
+                items:
+                  - name: Casos de uso de la valoración de la pronunciación
+                    href: /legal/cognitive-services/speech-service/pronunciation-assessment/transparency-note-pronunciation-assessment?context=/azure/cognitive-services/speech-service/context/context
+                  - name: Características y limitaciones
+                    href: /legal/cognitive-services/speech-service/pronunciation-assessment/characteristics-and-limitations-pronunciation-assessment?context=/azure/cognitive-services/speech-service/context/context
+      - name: Tutoriales
+        items:
+          - name: Mejora de la precisión con modelos de inquilino
+            href: tutorial-tenant-model.md
+      - name: Referencia
+        items:
+          - name: C++
+            displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
+            href: /cpp/cognitive-services/speech/
+          - name: C#
+            displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
+            href: /dotnet/api/microsoft.cognitiveservices.speech
+          - name: Go
+            displayName: 'Go SDK, Go dev kit,reference,reference docs,ref documentation'
+            href: 'https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go'
+          - name: Java
+            displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
+            href: /java/api/com.microsoft.cognitiveservices.speech
+          - name: JavaScript
+            displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
+            href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
+          - name: Objective-C
+            displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
+            href: /objectivec/cognitive-services/speech/
+          - name: Python
+            displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
+            href: /python/api/azure-cognitiveservices-speech/
+          - name: Notas de la versión
+            displayName: 'release notes,updates,what''s new,what is new,changes'
+            href: releasenotes.md
+          - name: Speech-to-text REST API
+            href: rest-speech-to-text.md
+      - name: Recursos
+        items:
+          - name: Compatibilidad con idiomas
+            href: language-support.md#speech-to-text
+          - name: Regiones admitidas
+            href: regions.md#speech-to-text-text-to-speech-and-translation
+          - name: Cliente de ingesta
+            href: ingestion-client.md
+          - name: ' Conjunto de segmentos acústicos universal'
+            href: phone-sets.md
+          - name: Preguntas más frecuentes sobre la conversión de voz a texto
+            displayName: 'FAQ,STT FAQ,SR FAQ,frequently asked questions'
+            href: faq-stt.yml
+  - name: Texto a voz
+    items:
+      - name: Documentación de texto a voz
+        href: index-text-to-speech.yml
+      - name: Introducción a la tecnología de texto a voz
+        href: text-to-speech.md
+      - name: Inicio rápido para la conversión de texto a voz
+        href: get-started-text-to-speech.md
+      - name: Guías paso a paso
+        items:
+          - name: Mejora de síntesis con SSML
+            href: speech-synthesis-markup.md
+          - name: Menor latencia de síntesis de voz mediante el SDK de Voz
+            href: how-to-lower-speech-synthesis-latency.md
+          - name: Síntesis de voz con Long Audio API
+            href: long-audio-api.md
+          - name: Obtención de eventos de postura facial para la sincronización de labios
+            href: how-to-speech-synthesis-viseme.md
+          - name: Personalización
+            items:
+              - name: Voz neuronal personalizada
+                items:
+                  - name: ¿Qué es la voz neuronal personalizada?
+                    href: custom-neural-voice.md
+                  - name: Introducción a Voz neuronal personalizada
+                    displayName: 'custom voice, neural voice'
+                    href: how-to-custom-voice.md
+                  - name: Preparación de los datos para el entrenamiento
+                    href: how-to-custom-voice-prepare-data.md
+                  - name: Creación y uso de un modelo de voz
+                    href: how-to-custom-voice-create-voice.md
+                  - name: Grabación de ejemplos de voz
+                    href: record-custom-voice-samples.md
+              - name: Audio Content Creation
+                items:
+                  - name: Audio Content Creation
+                    href: how-to-audio-content-creation.md
+      - name: Uso responsable de la inteligencia artificial
+        items:
+          - name: Voz neuronal personalizada
+            items:
+              - name: Nota de transparencia
+                items:
+                  - name: Casos de uso de Voz neuronal personalizada
+                    href: /legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+                  - name: Características y limitaciones
+                    href: /legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+              - name: Integración y uso responsable
+                items:
+                  - name: Acceso limitado
+                    href: /legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+                  - name: Implementación responsable de la voz sintética
+                    href: concepts-guidelines-responsible-deployment-synthetic.md
+                  - name: Divulgación de talento de voz
+                    href: /legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context
+                  - name: Directrices de diseño de divulgación de información
+                    href: concepts-disclosure-guidelines.md
+                  - name: Modelos de diseño de divulgación
+                    href: concepts-disclosure-patterns.md
+                  - name: Código de conducta
+                    href: /legal/cognitive-services/speech-service/tts-code-of-conduct?context=/azure/cognitive-services/speech-service/context/context
+              - name: 'Datos, privacidad y seguridad'
+                href: /legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+      - name: Referencia
+        items:
+          - name: C++
+            displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
+            href: /cpp/cognitive-services/speech/
+          - name: C#
+            displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
+            href: /dotnet/api/microsoft.cognitiveservices.speech
+          - name: Java
+            displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
+            href: /java/api/com.microsoft.cognitiveservices.speech
+          - name: JavaScript
+            displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
+            href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
+          - name: Objective-C
+            displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
+            href: /objectivec/cognitive-services/speech/
+          - name: Python
+            displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
+            href: /python/api/azure-cognitiveservices-speech/
+          - name: Notas de la versión
+            displayName: 'release notes,updates,what''s new,what is new,changes'
+            href: releasenotes.md
+          - name: Text-to-speech REST API
+            href: rest-text-to-speech.md
+      - name: Recursos
+        items:
+          - name: Compatibilidad con voz neuronal
+            href: language-support.md#neural-voices
+          - name: Regiones admitidas
+            href: regions.md#speech-to-text-text-to-speech-and-translation
+          - name: Conjuntos fonéticos de SSML
+            href: speech-ssml-phonetic-sets.md
+  - name: Traducción de voz
+    items:
+      - name: Documentación de traducción de voz
+        href: index-speech-translation.yml
+      - name: Introducción a la traducción de voz
+        href: speech-translation.md
+      - name: Inicio rápido sobre la traducción de voz
+        href: get-started-speech-translation.md
+      - name: Guías paso a paso
+        items:
+          - name: Traducción y síntesis de texto con API REST
+            href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
+      - name: Referencia
+        items:
+          - name: C++
+            displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
+            href: /cpp/cognitive-services/speech/
+          - name: C#
+            displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
+            href: /dotnet/api/microsoft.cognitiveservices.speech
+          - name: Java
+            displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
+            href: /java/api/com.microsoft.cognitiveservices.speech
+          - name: JavaScript
+            displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
+            href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
+          - name: Objective-C
+            displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
+            href: /objectivec/cognitive-services/speech/
+          - name: Python
+            displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
+            href: /python/api/azure-cognitiveservices-speech/
+          - name: Notas de la versión
+            displayName: 'release notes,updates,what''s new,what is new,changes'
+            href: releasenotes.md
+      - name: Recursos
+        items:
+          - name: Compatibilidad con idiomas
+            href: language-support.md#speech-translation
+          - name: Regiones admitidas
+            href: regions.md#speech-to-text-text-to-speech-and-translation
+          - name: Preguntas más frecuentes sobre la traducción de voz
+            href: 'https://www.microsoft.com/translator/faq.aspx'
+  - name: Reconocimiento de la intención
+    items:
+      - name: Documentación de reconocimiento de intenciones
+        href: index-intent-recognition.yml
+      - name: Introducción al reconocimiento de intenciones
+        href: intent-recognition.md
+      - name: Inicio rápido sobre el reconocimiento de intención
+        href: get-started-intent-recognition.md
+      - name: Guías paso a paso
+        items:
+          - name: 'Reconocimiento de las intenciones de voz con LUIS, C#'
+            href: how-to-recognize-intents-from-speech-csharp.md
+          - name: 'Reconocimiento de intenciones de voz con coincidencia de patrones simple, C++'
+            href: how-to-use-simple-language-pattern-matching.md
+      - name: Referencia
+        items:
+          - name: SDK de voz
+            items:
+              - name: C++
+                displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
+                href: /cpp/cognitive-services/speech/
+              - name: C#
+                displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
+                href: /dotnet/api/microsoft.cognitiveservices.speech
+              - name: Java
+                displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
+                href: /java/api/com.microsoft.cognitiveservices.speech
+              - name: JavaScript
+                displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
+                href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
+              - name: Objective-C
+                displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
+                href: /objectivec/cognitive-services/speech/
+              - name: Python
+                displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
+                href: /python/api/azure-cognitiveservices-speech/
+              - name: Notas de la versión
+                displayName: 'release notes,updates,what''s new,what is new,changes'
+                href: releasenotes.md
+          - name: Servicio de LUIS
+            items:
+              - name: Recursos para desarrolladores de LUIS
+                href: ../luis/developer-reference-resource.md
+      - name: Recursos
+        items:
+          - name: Compatibilidad con idiomas
+            href: ../luis/luis-language-support.md
+          - name: Regiones admitidas
+            href: regions.md#intent-recognition
+  - name: Speaker Recognition
+    items:
+      - name: Introducción a Speaker Recognition
+        href: speaker-recognition-overview.md
+      - name: Inicio rápido de Speaker Recognition
+        href: get-started-speaker-recognition.md
+      - name: Uso responsable de la inteligencia artificial
+        items:
+          - name: Nota de transparencia
+            items:
+              - name: Casos de uso de Speaker Recognition
+                href: /legal/cognitive-services/speech-service/speaker-recognition/transparency-note-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context
+              - name: Características y limitaciones
+                href: /legal/cognitive-services/speech-service/speaker-recognition/characteristics-and-limitations-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context
+          - name: Integración y uso responsable
+            items:
+              - name: Acceso limitado
+                href: /legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context
+              - name: Directrices generales
+                href: /legal/cognitive-services/speech-service/speaker-recognition/guidance-integration-responsible-use-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context
+          - name: 'Datos, privacidad y seguridad'
+            href: /legal/cognitive-services/speech-service/speaker-recognition/data-privacy-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context
+      - name: Referencia
+        items:
+          - name: API REST de Speaker Recognition
+            href: /rest/api/speakerrecognition/
+          - name: C++
+            displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
+            href: /cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-speaker-namespace
+          - name: C#
+            displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
+            href: /dotnet/api/microsoft.cognitiveservices.speech
+          - name: Java
+            displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
+            href: /java/api/com.microsoft.cognitiveservices.speech
+          - name: JavaScript
+            displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
+            href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
+          - name: Objective-C
+            displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
+            href: /objectivec/cognitive-services/speech/
+          - name: Python
+            displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
+            href: /python/api/azure-cognitiveservices-speech/
+          - name: Notas de la versión
+            displayName: 'release notes,updates,what''s new,what is new,changes'
+            href: releasenotes.md
+  - name: Reconocimiento de palabras clave
+    items:
+      - name: Introducción al reconocimiento de palabras clave
+        href: keyword-recognition-overview.md
+      - name: Inicio rápido de Palabra clave personalizada
+        href: custom-keyword-basics.md
+      - name: Recomendaciones e instrucciones
+        href: keyword-recognition-guidelines.md
+      - name: Regiones admitidas
+        href: keyword-recognition-region-support.md
+  - name: Identificación del idioma
+    href: language-identification.md
+  - name: Profundización en el escenario
+    items:
+      - name: Escenarios de conversación
+        items:
+          - name: Documentación de escenarios de conversación
+            displayName: 'meeting, meetings, conversation, call center, transcription, multi-device conversation'
+            href: index-conversation-scenarios.yml
+          - name: Transcripción de conversaciones
+            items:
+              - name: Introducción a la transcripción de conversaciones
+                href: conversation-transcription.md
+              - name: Inicio rápido de la transcripción de conversaciones en tiempo real
+                href: how-to-use-conversation-transcription.md
+              - name: Guías paso a paso
+                items:
+                  - name: Control de escenarios de centro de llamadas
+                    displayName: 'IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers'
+                    href: call-center-transcription.md
+                  - name: Transcripción de conversaciones asincrónicas
+                    href: how-to-async-conversation-transcription.md
+              - name: Referencia
+                items:
+                  - name: SDK de voz
+                    items:
+                      - name: C++
+                        displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
+                        href: /cpp/cognitive-services/speech/
+                      - name: C#
+                        displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
+                        href: /dotnet/api/microsoft.cognitiveservices.speech
+                      - name: Java
+                        displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
+                        href: /java/api/com.microsoft.cognitiveservices.speech
+                      - name: JavaScript
+                        displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
+                        href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
+                      - name: Objective-C
+                        displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
+                        href: /objectivec/cognitive-services/speech/
+                      - name: Python
+                        displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
+                        href: /python/api/azure-cognitiveservices-speech/
+                      - name: Notas de la versión
+                        displayName: 'release notes,updates,what''s new,what is new,changes'
+                        href: releasenotes.md
+                  - name: API de REST
+                    items:
+                      - name: API REST de transcripción de conversaciones
+                        href: 'https://signature.centralus.cts.speech.microsoft.com/UI/index.html'
+          - name: Conversación entre varios dispositivos
+            items:
+              - name: Introducción a la conversación entre varios dispositivos
+                href: multi-device-conversation.md
+              - name: Inicio rápido de la conversación entre varios dispositivos
+                href: quickstarts/multi-device-conversation.md
+              - name: Referencia
+                items:
+                  - name: SDK de voz
+                    items:
+                      - name: C++
+                        href: /cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-transcription-namespace
+                      - name: C#
+                        href: /dotnet/api/microsoft.cognitiveservices.speech.transcription
+                      - name: Java
+                        href: /java/api/com.microsoft.cognitiveservices.speech.transcription
+      - name: Asistentes de voz
+        items:
+          - name: Documentación de asistentes de voz
+            href: index-voice-assistants.yml
+          - name: Introducción a los asistentes de voz
+            href: voice-assistants.md
+          - name: Comandos personalizados
+            items:
+              - name: ¿Qué es Comandos personalizados?
+                href: custom-commands.md
+              - name: Guías de inicio rápido
+                items:
+                  - name: Creación de una aplicación Comandos personalizados
+                    href: quickstart-custom-commands-application.md
+              - name: Guías paso a paso
+                items:
+                  - name: Desarrollo y personalización de aplicaciones de Comandos personalizados
+                    href: how-to-develop-custom-commands-application.md
+                  - name: Integración con aplicaciones cliente
+                    items:
+                      - name: Integración con una aplicación cliente mediante el SDK de voz
+                        href: how-to-custom-commands-setup-speech-sdk.md
+                      - name: Envío de actividad a una aplicación cliente
+                        href: how-to-custom-commands-send-activity-to-client.md
+                      - name: Configuración de puntos de conexión web
+                        href: how-to-custom-commands-setup-web-endpoints.md
+                      - name: Exportación de una aplicación de Comandos personalizados como si fuera una aptitud
+                        href: how-to-custom-commands-integrate-remote-skills.md
+                      - name: Actualización de un comando desde la aplicación cliente
+                        href: how-to-custom-commands-update-command-from-client.md
+                      - name: Actualizar un comando desde un punto de conexión web
+                        href: how-to-custom-commands-update-command-from-web-endpoint.md
+                  - name: Implementación continua con Azure DevOps
+                    href: how-to-custom-commands-deploy-cicd.md
+                  - name: Prueba de aplicaciones de Comandos personalizados
+                    href: how-to-custom-commands-developer-flow-test.md
+                  - name: Depuración de errores al crear la aplicación
+                    href: how-to-custom-commands-debug-build-time.md
+                  - name: Depuración de errores al ejecutar la aplicación
+                    href: how-to-custom-commands-debug-runtime.md
+              - name: Recursos
+                items:
+                  - name: Conceptos de Comandos personalizados
+                    href: custom-commands-references.md
+                  - name: Ejemplos de Comandos personalizados (GitHub)
+                    href: 'https://aka.ms/speech/cc-samples'
+                  - name: Ejemplos de asistentes de voz (GitHub)
+                    href: 'http://aka.ms/speech/va-samples'
+                  - name: Preguntas frecuentes sobre asistentes de voz
+                    href: faq-voice-assistants.yml
+                  - name: Cifrado de Comandos personalizados de datos en reposo
+                    href: custom-commands-encryption-of-data-at-rest.md
+          - name: Direct Line Speech
+            items:
+              - name: ¿Qué es Direct Line Speech?
+                href: direct-line-speech.md
+              - name: Guías de inicio rápido
+                items:
+                  - name: Creación de un asistente de voz personalizado
+                    href: quickstarts/voice-assistants.md
+              - name: Tutoriales
+                items:
+                  - name: Habilitar el bot con voz mediante el SDK de voz
+                    href: tutorial-voice-enable-your-bot-speech-sdk.md
+              - name: Recursos
+                items:
+                  - name: Preguntas frecuentes sobre asistentes de voz
+                    href: faq-voice-assistants.yml
+          - name: Asistentes de voz en Windows
+            items:
+              - name: Introducción a los asistentes de voz en Windows
+                href: windows-voice-assistants-overview.md
+              - name: Guías paso a paso
+                items:
+                  - name: Primeros pasos en el desarrollo de un asistente con Windows
+                    href: how-to-windows-voice-assistants-get-started.md
+                  - name: Habilitación de la activación por voz
+                    href: windows-voice-assistants-implementation-guide.md
+              - name: Recursos
+                items:
+                  - name: Directrices y requisitos de privacidad
+                    href: windows-voice-assistants-automatic-enablement-guidelines.md
+                  - name: Procedimientos recomendados para el uso del asistente
+                    href: windows-voice-assistants-best-practices.md
+                  - name: Ejemplos y preguntas frecuentes
+                    href: windows-voice-assistants-faq.yml
+  - name: Guías paso a paso
+    items:
+      - name: Habilitar registro
+        href: how-to-use-logging.md
+      - name: Seguimiento de uso de la memoria
+        href: how-to-track-speech-sdk-memory-usage.md
+      - name: Habilitación de punto de conexión privado
+        href: speech-services-private-link.md
+      - name: Habilitación de un punto de conexión de servicio de una red virtual
+        href: speech-service-vnet-service-endpoint.md
+      - name: Configuración de OpenSSL para Linux
+        displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
+        href: how-to-configure-openssl-linux.md
+      - name: Configuración de RHEL/CentOS 7
+        href: how-to-configure-rhel-centos-7.md
+        displayName: 'RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO'
+      - name: Uso de contenedores
+        items:
+          - name: Instalación y ejecución de contenedores de voz
+            displayName: 'containers,install container,run container'
+            href: speech-container-howto.md
+          - name: Configuración de contenedores de voz
+            displayName: 'containers,configure containers,container config,configuration'
+            href: speech-container-configuration.md
+          - name: Procesamiento por lotes con contenedores de voz
+            href: speech-container-batch-processing.md
+          - name: Contenedores de voz con Kubernetes y Helm
+            displayName: 'containers,kubernetes,k8s,helm,orchestration,on-prem,on-premises'
+            href: speech-container-howto-on-premises.md
+          - name: Contenedores de voz en instancias de contenedor de Azure
+            displayName: 'ACI,azure container instances,container instances,containers'
+            maintainContext: true
+            href: ../containers/azure-container-instance-recipe.md
+          - name: Preguntas frecuentes sobre Containers
+            href: speech-container-faq.yml
+          - name: Documentación de contenedores de Cognitive Services
+            href: ../containers/index.yml
+            maintainContext: true
+      - name: Migración
+        items:
+          - name: Desde Bing Speech
+            href: how-to-migrate-from-bing-speech.md
+          - name: Desde Translator Speech API
+            href: how-to-migrate-from-translator-speech-api.md
+      - name: Adecuado para empresas
+        items:
+          - name: Configuración de redes virtuales
+            href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/speech-service/context/context
+          - name: Uso de claves administradas por el cliente
+            href: speech-encryption-of-data-at-rest.md
+          - name: Procedimiento de copia de seguridad y recuperación de recursos de personalización de voz
+            href: resiliency-and-recovery-plan.md
+  - name: Dispositivos
+    items:
+      - name: Introducción
+        items:
+          - name: Información general del procesamiento de audio
+            href: audio-processing-overview.md
+          - name: Integración de SDK de voz
+            href: audio-processing-speech-sdk.md
+      - name: Hardware
+        items:
+          - name: Recomendaciones de la matriz de micrófonos
+            href: speech-sdk-microphone.md
+      - name: Referencia
+        items:
+          - name: Documentación de Speech Devices SDK
+            href: index-devices.yml
+          - name: ¿Qué es el SDK de dispositivos de voz?
+            href: speech-devices-sdk.md
+          - name: Obtención del SDK de dispositivos de voz
+            href: get-speech-devices-sdk.md
+          - name: Uso del SDK de dispositivos de voz
+            href: speech-devices-sdk-quickstart.md
+          - name: Ejemplos del SDK de dispositivos de voz (GitHub)
+            href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
+          - name: Solución de problemas del SDK de dispositivos de voz
+            href: speech-devices-sdk-troubleshooting.md
+          - name: Notas de la versión del SDK de dispositivos de voz
+            href: devices-sdk-release-notes.md
+          - name: Configuración de una matriz de micrófonos
+            href: how-to-devices-microphone-array-configuration.md
+          - name: Detalles de Roobo v1
+            href: speech-devices-sdk-roobo-v1.md
+          - name: Detalles de Roobo v2
+            href: speech-devices-sdk-roobo-v2.md
+  - name: Recursos
+    items:
+      - name: SDK de voz
+        items:
+          - name: Introducción al SDK de Voz
+            href: speech-sdk.md
+          - name: Configuración del SDK de Voz
+            href: quickstarts/setup-platform.md
+          - name: Notas de la versión del SDK de voz
+            href: releasenotes.md
+          - name: Referencia
+            items:
+              - name: C++
+                href: /cpp/cognitive-services/speech/
+              - name: C#
+                href: /dotnet/api/microsoft.cognitiveservices.speech
+              - name: Java
+                href: /java/api/com.microsoft.cognitiveservices.speech
+              - name: JavaScript
+                href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
+              - name: Objective-C
+                href: /objectivec/cognitive-services/speech/
+              - name: Python
+                href: /python/api/azure-cognitiveservices-speech/
+              - name: Go
+                href: 'https://github.com/microsoft/cognitive-services-speech-sdk-go'
+      - name: CLI de Voz
+        displayName: SPX
+        items:
+          - name: Introducción a la CLI de Voz
+            displayName: 'What is SPX?, spx, spx overview'
+            href: spx-overview.md
+          - name: Inicio rápido de la CLI de Voz
+            displayName: 'spx basics, spx quickstart, spx get started, speech cli get started'
+            href: spx-basics.md
+          - name: Guías paso a paso
+            items:
+              - name: Opciones de configuración de la CLI de Voz
+                displayName: 'SPX configuration options, speech cli config, speech cli data store, data store, datastore, speech cli datastore'
+                href: spx-data-store-configuration.md
+              - name: Operaciones por lotes de la CLI de Voz
+                displayName: 'spx batch, spx batch operations, speech batch, speech cli speech to text batch, speech cli tex to speech batch'
+                href: spx-batch-operations.md
+      - name: Speech Studio
+        items:
+          - name: Introducción a Speech Studio
+            href: speech-studio-overview.md
+          - name: Control de acceso basado en rol en Speech Studio
+            href: speech-studio-role-based-access-control.md
+      - name: Adecuado para empresas
+        items:
+          - name: Regiones admitidas
+            href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+          - name: Cumplimiento y certificación
+            href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+      - name: Opciones de ayuda y soporte técnico
+        href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
+      - name: Documentación de Swagger
+        href: swagger-documentation.md
+      - name: Nubes soberanas
+        displayName: 'fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china'
+        href: sovereign-clouds.md
+      - name: Calculadora de precios
+        href: 'https://azure.microsoft.com/pricing/calculator/#cognitive-services'
+      - name: Azure Roadmap
+        href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
+      - name: Privacidad y cookies
+        href: 'https://privacy.microsoft.com/privacystatement'
