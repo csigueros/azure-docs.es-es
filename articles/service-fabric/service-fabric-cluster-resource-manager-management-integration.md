@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: ae80ac5833e90164fc4ff92010fd1830ae932cd2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b3622f2a46a0e5c22b7e63c6cdad635227a30714
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92174040"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131003891"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integración del Administrador de recursos de clúster con la administración de clústeres de Service Fabric
 Cluster Resource Manager de Service Fabric no impulsa las actualizaciones en Service Fabric, pero participa. Cluster Resource Manager contribuye a la administración, en primer lugar, realizando un seguimiento del estado deseado del clúster y los servicios que contiene. Además, envía informes de mantenimiento cuando no puede colocar el clúster en la configuración deseada. Por ejemplo, si no hay capacidad suficiente, Cluster Resource Manager envía advertencias y errores de estado que indican el problema. Otro aspecto de la integración tiene que ver con el funcionamiento de las actualizaciones. Durante ellas, Cluster Resource Manager modifica ligeramente su comportamiento.  
@@ -194,9 +194,9 @@ Lo más importante a tener en cuenta en este punto es que las reglas -las restri
 Cuando se inicia una actualización, Resource Manager crea una instantánea de la disposición actual del clúster. A medida que cada dominio de actualización finaliza, intenta devolver los servicios que estaban en ese nodo de actualización a su disposición original. Por tanto, un servicio sufre al menos dos transiciones durante la actualización. Primero sale del nodo afectado y luego regresa de nuevo. El hecho de que el clúster o servicio recuperen su disposición original también garantiza que la actualización no afecte a la distribución del clúster. 
 
 ### <a name="reduced-churn"></a>Renovación reducida
-Otra cosa que sucede durante las actualizaciones es que Cluster Resource Manager desactiva el equilibrio. La detención del equilibrio evita respuestas innecesarias a la propia actualización, como mover servicios a nodos que se vaciaron para la actualización. Si la actualización en cuestión es una actualización de clúster, se detiene el equilibrio en todo el clúster durante la actualización. Las comprobaciones de restricciones permanecen activas, solo permanece deshabilitado el movimiento basado en el equilibrio proactivo de métricas.
+Durante las actualizaciones, Cluster Resource Manager también desactiva el equilibrio. La detención del equilibrio evita respuestas innecesarias a la propia actualización, como mover servicios a nodos que se vaciaron para la actualización. Si la actualización en cuestión es una actualización de clúster, se detiene el equilibrio en todo el clúster durante la actualización. Las comprobaciones de restricciones permanecen activas, solo permanece deshabilitado el movimiento basado en el equilibrio proactivo de métricas.
 
-### <a name="buffered-capacity--upgrade"></a>Capacidad de búfer y actualización
+### <a name="buffered-capacity-and-upgrade"></a>Capacidad de búfer y actualización
 Por regla general, quiere que la actualización se complete, aunque el clúster esté restringido o casi lleno. Administrar la capacidad del clúster es incluso más importante durante las actualizaciones que de costumbre. En función del número de dominios de actualización, se debe migrar entre un 5 y un 20 por ciento de la capacidad a medida que la actualización pasa por el clúster. Ese trabajo tiene que ir a algún sitio. Aquí es donde el concepto de [capacidades almacenadas en búfer](service-fabric-cluster-resource-manager-cluster-description.md#node-buffer-and-overbooking-capacity) resulta de utilidad. La capacidad almacenada en búfer se respeta durante el funcionamiento normal. Cluster Resource Manager puede llenar los nodos hasta su capacidad total (que consume el búfer) durante las actualizaciones en caso necesario.
 
 ## <a name="next-steps"></a>Pasos siguientes

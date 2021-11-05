@@ -1,6 +1,6 @@
 ---
 title: Administración de IoT Central desde la CLI de Azure o PowerShell | Microsoft Docs
-description: En este artículo se describe cómo crear y administrar aplicaciones de IoT Central con la CLI de Azure o PowerShell. Puede ver, modificar y quitar la aplicación con estas herramientas.
+description: En este artículo se describe cómo crear y administrar aplicaciones de IoT Central con la CLI de Azure o PowerShell. Puede ver, modificar y quitar la aplicación con estas herramientas. También puede configurar una identidad de sistema administrada que pueda usar para configurar la exportación de datos segura.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom:
 - devx-track-azurecli
 - devx-track-azurepowershell
-ms.openlocfilehash: 05eca5bb95906ebb34e51f79d70a33cc003f2220
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 979da680c3a5a9b70973fa7da00613f7ffbcf86b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129091642"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131088088"
 ---
 # <a name="manage-iot-central-from-azure-cli-or-powershell"></a>Administración de IoT Central con la CLI de Azure o PowerShell
 
@@ -180,6 +180,30 @@ Remove-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
 ```
 
 ---
+
+## <a name="configure-a-managed-identity"></a>Configuración de una identidad administrada
+
+Una aplicación de IoT Central puede utilizar una [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md) asignada por el sistema para asegurar la conexión a un [destino de exportación de datos](howto-export-data.md#connection-options).
+
+Para habilitar la identidad administrada, utilice una de las siguientes opciones: [Azure Portal - Configurar una identidad administrada](howto-manage-iot-central-from-portal.md#configure-a-managed-identity) o [API de REST](howto-manage-iot-central-with-rest-api.md):
+
+:::image type="content" source="media/howto-manage-iot-central-from-cli/managed-identity.png" alt-text="Captura de pantalla que muestra la identidad administrada en Azure Portal.":::
+
+Después de habilitar la identidad administrada, puede usar la CLI para configurar las asignaciones de roles.
+
+Para crear una asignación de roles, utilice el comando [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create). Por ejemplo, los siguientes comandos recuperan primero el identificador de entidad de seguridad de la identidad administrada. El segundo comando asigna el `Azure Event Hubs Data Sender` rol al identificador principal en el ámbito del `MyIoTCentralResourceGroup`grupo de recursos:
+
+```azurecli-interactive
+spID=$(az resource list -n myiotcentralapp --query [*].identity.principalId --out tsv)
+az role assignment create --assignee $spID --role "Azure Event Hubs Data Sender" \
+  --scope /subscriptions/<your subscription id>/resourceGroups/MyIoTCentralResourceGroup
+```
+
+Para más información sobre las asignaciones de roles, consulte:
+
+- [Roles integrados de Azure Event Hubs](../../event-hubs/authenticate-application.md#built-in-roles-for-azure-event-hubs)
+- [Roles integrados para Azure Service Bus](../../service-bus-messaging/authenticate-application.md#azure-built-in-roles-for-azure-service-bus)
+- [Roles integrados para Azure Storage Services](/rest/api/storageservices/authorize-with-azure-active-directory#manage-access-rights-with-rbac)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

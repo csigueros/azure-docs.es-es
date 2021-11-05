@@ -2,13 +2,13 @@
 author: Juliako
 ms.service: azure-video-analyzer
 ms.topic: include
-ms.date: 03/18/2021
+ms.date: 11/04/2021
 ms.author: juliako
-ms.openlocfilehash: 49e12f34c0369acc7fd8fb4ec6c9556206008b5e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: fec832e253d9f96a42cbc0ee69ed498e81c5f562
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030700"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131860736"
 ---
 Si quiere probar otros artículos de inicio rápidos o tutoriales, conserve los recursos que creó. En caso contrario, vaya a Azure Portal, luego a los grupos de recursos, seleccione el grupo de recursos en que ejecutó este inicio rápido y elimine todos los recursos.

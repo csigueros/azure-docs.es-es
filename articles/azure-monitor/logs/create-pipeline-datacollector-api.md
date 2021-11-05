@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/09/2018
-ms.openlocfilehash: ab2e9c691f17b8f0891ecbc82ff42cd3529a1328
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6f862f6f467d491d1aeb992a0e918244bde40a0d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031198"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051408"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Creación de una canalización de datos con Data Collector API
 
@@ -36,7 +36,7 @@ En este artículo no se explica cómo crear datos ni cómo [cargarlos en una cue
 
 1. Un proceso detectará que se han cargado nuevos datos.  En nuestro ejemplo se utiliza una [aplicación lógica de Azure](../../logic-apps/logic-apps-overview.md) que dispone de un desencadenador para detectar la carga de nuevos datos en un blob.
 
-2. Un procesador lee estos nuevos datos y los convierte en JSON, el formato requerido por Azure Monitor. En este ejemplo, usamos una [función de Azure](../../azure-functions/functions-overview.md) como una manera ligera, eficaz y rentable de ejecutar el código de procesamiento. La misma aplicación lógica que se utiliza para detectar nuevos datos inicia la función.
+2. Un procesador lee estos nuevos datos y los convierte en JSON, el formato requerido por Azure Monitor. En este ejemplo, usamos una [función de Azure](../../azure-functions/functions-overview.md) como una manera ligera, eficaz y rentable de ejecutar el código de procesamiento. La misma aplicación lógica que se ha usado para detectar los nuevos datos inicia la función.
 
 3. Por último, una vez que el objeto JSON está disponible, se envía a Azure Monitor. La misma aplicación lógica envía los datos a Azure Monitor mediante la actividad integrada de Log Analytics Data Collector.
 

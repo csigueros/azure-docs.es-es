@@ -11,12 +11,12 @@ ms.date: 05/26/2021
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: de89199f3400b3d6e434916835411531f288747f
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 2d6aeddaaf2efc039150d7060f76f46045bd0efe
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130041127"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008320"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Solicitud de token de acceso en Azure Active Directory B2C
 
@@ -66,7 +66,7 @@ Si el parámetro **response_type** de una solicitud de `/authorize` incluye `tok
 
 Para solicitar un token de acceso, necesita un código de autorización. A continuación se muestra un ejemplo de solicitud de código de autorización al punto de conexión `/authorize`. Los dominios personalizados no se admiten para usarse con tokens de acceso. Use su dominio tenant-name.onmicrosoft.com en la URL de solicitud.
 
-En el ejemplo siguiente, reemplace estos valores:
+En el ejemplo siguiente, reemplace estos valores en la cadena de consulta:
 
 - `<tenant-name>`: el nombre de su inquilino de Azure AD B2C.
 - `<policy-name>`: el nombre de su directiva o flujo de usuarios personalizados.
@@ -90,7 +90,7 @@ La respuesta con el código de autorización debe ser similar a este ejemplo:
 https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 ```
 
-Después de recibir correctamente el código de autorización, puede usarlo para solicitar un token de acceso:
+Después de recibir correctamente el código de autorización, puede usarlo para solicitar un token de acceso. Tenga en cuenta que los parámetros se encuentran en el cuerpo de la solicitud HTTP POST:
 
 ```http
 POST <tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token HTTP/1.1
@@ -104,7 +104,7 @@ grant_type=authorization_code
 &redirect_uri=https://jwt.ms
 &client_secret=2hMG2-_:y12n10vwH...
 ```
-
+ 
 Debe ver algo parecido a la siguiente respuesta:
 
 ```json

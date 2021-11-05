@@ -5,16 +5,16 @@ ms.topic: conceptual
 ms.date: 10/11/2021
 author: mattmccleary
 ms.author: mmcc
-ms.openlocfilehash: 8f8daa67c22f8a505014ff326ca3961fa86f21f5
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 3961f7233de1fcd09dc8a2199dfa424b505add27
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130160834"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058110"
 ---
 # <a name="enable-azure-monitor-opentelemetry-exporter-for-net-nodejs-and-python-applications-preview"></a>Habilitación de Azure Monitor OpenTelemetry Exporter para aplicaciones de .NET, Node.js y Python (versión preliminar)
 
-En este artículo se explica cómo habilitar y configurar la oferta de versión preliminar de Azure Monitor basada en OpenTelemetry. Cuando termine de leer las instrucciones de este artículo podrá enviar seguimientos de OpenTelemetry a Azure Monitor Application Insights.
+En este artículo se explica cómo habilitar y configurar la oferta de versión preliminar de Azure Monitor basada en OpenTelemetry. Cuando termine de leer las instrucciones de este artículo podrá enviar seguimientos de OpenTelemetry a Azure Monitor Application Insights. Para obtener más información sobre OpenTelemetry, consulte [Introducción a OpenTelemetry](opentelemetry-overview.md) o las [preguntas más frecuentes de OpenTelemetry](/azure/azure-monitor/faq#opentelemetry).
 
 > [!IMPORTANT]
 > Azure Monitor OpenTelemetry Exporter para aplicaciones de .NET, Node.js y Python se encuentra actualmente en VERSIÓN PRELIMINAR.
@@ -31,7 +31,7 @@ Medite detenidamente si esta versión preliminar es adecuada para usted. **Habil
  - Captura automática de excepciones no controladas
  - [Generador de perfiles](profiler-overview.md)
  - [Depurador de instantáneas](snapshot-debugger.md)
- - Almacenamiento en disco sin conexión
+ - [Almacenamiento en disco sin conexión y lógica de reintento](telemetry-channels.md#built-in-telemetry-channels)
  - [Autenticación de Azure AD](azure-ad-authentication.md)
  - [Muestreo](sampling.md)
  - Rellenado automático de Nombre del rol en la nube e Instancia de rol en la nube en entornos de Azure
@@ -72,7 +72,7 @@ Medite detenidamente si esta versión preliminar es adecuada para usted. **Habil
  - [Live Metrics](live-stream.md)
  - API de registro (registros de consola, bibliotecas de registro, etc.)
  - Captura automática de excepciones no controladas
- - Almacenamiento en disco sin conexión
+ - Almacenamiento en disco sin conexión y lógica de reintento
  - [Autenticación de Azure AD](azure-ad-authentication.md)
  - [Muestreo](sampling.md)
  - Rellenado automático de Nombre del rol en la nube e Instancia de rol en la nube en entornos de Azure
@@ -175,17 +175,7 @@ pip install azure-monitor-opentelemetry-exporter
 
 ##### <a name="net"></a>[.NET](#tab/net)
 
-> [!NOTE]
-> En las siguientes instrucciones se muestra cómo habilitar Azure Monitor Application Insights para aplicaciones de consola de C#.
-> 
-> Vea los Léames de GitHub de OpenTelemetry para obtener instrucciones sobre otros tipos de aplicaciones:
-> - [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Instrumentation.AspNet/README.md)
-> - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Instrumentation.AspNetCore/README.md)
-> - [HttpClient and HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Instrumentation.Http/README.md)
-> 
-> El método de extensión `AddAzureMonitorTraceExporter` para enviar datos a Application Insights es aplicable a todos los tipos de aplicaciones indicados.
-> 
-> Para obtener recursos adicionales, vea [Ejemplos de OpenTelemetry en GitHub](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/examples). 
+En el código siguiente se muestra cómo habilitar OpenTelemetry en una aplicación de consola de C# mediante la configuración de OpenTelemetry TracerProvider. Este código debe estar en el inicio de la aplicación. En el caso de ASP.NET Core, suele realizarse en el método `ConfigureServices` de la clase `Startup` de la aplicación. En el caso de las aplicaciones ASP.NET, suele realizarse en `Global.aspx.cs`.
 
 ```csharp
 using System.Diagnostics;
@@ -299,6 +289,9 @@ with tracer.start_as_current_span("hello"):
 ```
 
 ---
+
+> [!TIP]
+> Agregue [Bibliotecas de instrumentación](#instrumentation-libraries) para recopilar automáticamente datos de telemetría entre marcos o bibliotecas populares.
 
 #### <a name="set-application-insights-connection-string"></a>Establecimiento de la cadena de conexión de Application Insights
 
@@ -431,9 +424,9 @@ Las bibliotecas siguientes están validadas para funcionar con la versión preli
 
 #### <a name="python"></a>[Python](#tab/python)
 
-- Versión de [Django](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-django/README.md): [0.24b0](https://pypi.org/project/opentelemetry-instrumentation-django/0.24b0/)
-- Versión de [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask/README.md): [0.24b0](https://pypi.org/project/opentelemetry-instrumentation-flask/0.24b0/)
-- Versión de [solicitudes](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests/README.md): [0.24b0](https://pypi.org/project/opentelemetry-instrumentation-requests/0.24b0/)
+- Versión de [Django](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-django): [0.24b0](https://pypi.org/project/opentelemetry-instrumentation-django/0.24b0/)
+- Versión de [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask): [0.24b0](https://pypi.org/project/opentelemetry-instrumentation-flask/0.24b0/)
+- Versión de [solicitudes](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests): [0.24b0](https://pypi.org/project/opentelemetry-instrumentation-requests/0.24b0/)
 
 ---
 
@@ -478,7 +471,7 @@ Los [atributos](#add-span-attributes) que se agregan a la actividad o el interva
 1. Muchas bibliotecas de instrumentación proporcionan una opción de enriquecimiento. Vea el Léame de las bibliotecas de instrumentación correspondientes para obtener instrucciones.
     - [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.AspNet/README.md#enrich)
     - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#enrich)
-    - [HttpClient y HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.Http/README.md#enrich)
+    - [HttpClient and HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.Http/README.md#enrich)
 
 2. Uso de procesador personalizado:
 

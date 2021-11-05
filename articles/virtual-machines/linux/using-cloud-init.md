@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/29/2021
 ms.author: srijangupta
-ms.openlocfilehash: 1e62653a7b48ac22f4482974696ad14c13b39a88
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 7ebabe554121e2ad07ef776ed78046a09db9ca9c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698860"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054597"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Compatibilidad con cloud-init para máquinas virtuales en Azure
 
@@ -142,12 +142,11 @@ packages:
 > [!NOTE]
 > cloud-init tiene varios [tipos de entrada](https://cloudinit.readthedocs.io/en/latest/topics/format.html), cloud-init usará la primera línea de CustomData/UserData para indicar cómo debe procesar la entrada; por ejemplo, `#cloud-config` indica que el contenido debe procesarse como una configuración de cloud-init.
 
-
-Presione `ctrl-X` para salir del archivo, escriba `y` para guardar el archivo y presione `enter` para confirmar el nombre del archivo al salir.
+Presione <kbd>Ctrl + X</kbd> para salir del archivo, escriba <kbd>y</kbd> para guardar el archivo y presione <kbd>Entrar</kbd> para confirmar el nombre del archivo al salir.
 
 El paso final es crear la máquina virtual con el comando [az vm create](/cli/azure/vm). 
 
-En el ejemplo siguiente, se crea una máquina virtual denominada *centos74* y las claves SSH si aún no existen en una ubicación de claves predeterminada. Para utilizar un conjunto específico de claves, utilice la opción `--ssh-key-value`.  Use el parámetro `--custom-data` para pasar su archivo de configuración cloud-init. Proporcione la ruta de acceso completa a la configuración de *cloud-init.txt* si guardó el archivo fuera de su directorio de trabajo actual. 
+En el ejemplo siguiente se crea una máquina virtual denominada "`centos74`" y las claves SSH si aún no existen en una ubicación de claves predeterminada. Para utilizar un conjunto específico de claves, utilice la opción `--ssh-key-value`.  Use el parámetro `--custom-data` para pasar su archivo de configuración cloud-init. Proporcione la ruta de acceso completa a la configuración de *cloud-init.txt* si guardó el archivo fuera de su directorio de trabajo actual. 
 
 ```azurecli-interactive 
 az vm create \

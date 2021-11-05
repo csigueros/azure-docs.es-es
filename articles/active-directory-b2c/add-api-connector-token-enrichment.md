@@ -2,21 +2,21 @@
 title: 'Enriquecimiento de tokens: Azure Active Directory B2C'
 description: Enriquezca tokens con notificaciones de orígenes externos mediante API.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/29/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 20473d6a5dcbdc826605d46928a7bfbb90792e0e
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 8f5bf34424754106c6d86195c37d23c3c9060c1c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123186072"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008358"
 ---
 # <a name="enrich-tokens-with-claims-from-external-sources-using-api-connectors"></a>Enriquecimiento de tokens con notificaciones de orígenes externos mediante conectores de API
 
@@ -105,7 +105,7 @@ Solo se pueden enviar en la solicitud las propiedades de usuario y los atributos
 Los atributos personalizados existen en el formato **extension_\<extensions-app-id>_CustomAttribute** en el directorio. La API esperará recibir las notificaciones con este mismo formato serializado. Para obtener más información sobre los atributos personalizados, consulte [Definición de atributos personalizados en Azure AD B2C](user-flow-custom-attributes.md).
 
 Además, estas notificaciones normalmente se envían en todas las solicitudes de este paso:
-- **Configuraciones regionales de interfaz de usuario ("ui_locales"):** configuraciones regionales de un usuario final configuradas en su dispositivo. La API puede usar esto para devolver respuestas internacionalizadas.
+- **Configuraciones regionales de interfaz de usuario ("ui_locales"):** configuraciones regionales de un usuario final configuradas en su dispositivo. La API puede usarlas para devolver respuestas internacionalizadas.
 - **Paso ("step"):** paso o punto del flujo de usuario en el que se ha invocado al conector de API. El valor de este paso es `.
 - **Id. de cliente ("client_id"):** valor `appId` de la aplicación en la que se está autenticando un usuario final en un flujo de usuario. *No* es el valor `appId` de la aplicación de recursos de los tokens de acceso.
 - **objectId:** identificador del usuario. Puede usarlo para consultar servicios de nivel inferior a fin de obtener información sobre el usuario.
@@ -144,7 +144,7 @@ Content-type: application/json
 }
 ```
 
-| Parámetro                                          | Tipo              | Requerido | Descripción                                                                                                                                                                                                                                                                            |
+| Parámetro                                          | Tipo              | Obligatorio | Descripción                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version     | String | Sí      | Versión de la API.                                                    |
 | action                                             | String            | Sí      | El valor debe ser `Continue`.                                                                                                                                                                                                                                                              |
@@ -191,7 +191,7 @@ La configuración del punto de conexión de API REST está fuera del ámbito de 
 
 Una notificación proporciona un almacenamiento temporal de datos durante la ejecución de una directiva de Azure AD B2C. Puede declarar notificaciones dentro de la sección del [esquema de notificaciones](claimsschema.md). 
 
-1. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
+1. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`**</em>.
 1. Busque el elemento [BuildingBlocks](buildingblocks.md). Si el elemento no existe, agréguelo.
 1. Busque el elemento [ClaimsSchema](claimsschema.md). Si el elemento no existe, agréguelo.
 1. Agregue las notificaciones siguientes al elemento **ClaimsSchema**.  
@@ -255,7 +255,7 @@ Después de implementar la API REST, configure los metadatos del perfil técnico
     
 Consulte los [metadatos del perfil técnico de RESTful](restful-technical-profile.md#metadata) para obtener más configuraciones.
 
-Los comentarios anteriores `AuthenticationType` y `AllowInsecureAuthInProduction` especifican los cambios que se deben realizar al pasar a un entorno de producción. Para aprender a proteger las API RESTful para la producción, consulte [Proteger la API RESTful](secure-rest-api.md).
+Los comentarios anteriores `AuthenticationType` y `AllowInsecureAuthInProduction` especifican los cambios que se deben realizar al pasar a un entorno de producción. Para aprender a proteger las API RESTful para la producción, consulte [Protección de la API RESTful](secure-rest-api.md).
 
 ## <a name="add-an-orchestration-step"></a>Agregar un paso de orquestación
 
@@ -415,5 +415,3 @@ Para obtener información sobre cómo proteger las API, vea los siguientes artí
 - [Referencia: Perfil técnico de RESTful](restful-technical-profile.md)
 
 ::: zone-end
-
-

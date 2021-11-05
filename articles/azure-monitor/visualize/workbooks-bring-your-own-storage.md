@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/11/2020
-ms.openlocfilehash: 5dc75b3f28198bd3686df48b1d46cb5a8e192a23
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: af32a91344d2201899757d806019f70eccd736ad
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130132519"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131072282"
 ---
 # <a name="bring-your-own-storage-to-save-workbooks"></a>Aportación del almacenamiento propio para guardar los libros
 
@@ -27,11 +27,11 @@ Hay ocasiones en las que puede tener una consulta o lógica de negocios que dese
 3. Seleccione el botón **Guardar** para guardar el libro.
 4. Hay una opción para `Save content to an Azure Storage Account`, seleccione la casilla para guardar en una cuenta de Azure Storage.
 
-    ![Captura de pantalla que muestra el cuadro de diálogo guardado](./media/workbooks-bring-your-own-storage/saved-dialog-default.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo **Guardar**.](./media/workbooks-bring-your-own-storage/saved-dialog-default.png)
 
 5. Seleccione la cuenta de almacenamiento y el contenedor que desee. La lista de cuentas de almacenamiento es de la suscripción seleccionada anteriormente.
 
-    ![Captura de pantalla que muestra un cuadro de diálogo Guardar con la opción de almacenamiento](./media/workbooks-bring-your-own-storage/save-dialog-with-storage.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo **Guardar** con la opción de almacenamiento.](./media/workbooks-bring-your-own-storage/save-dialog-with-storage.png)
 
 6. A continuación, elija **Cambiar** para seleccionar una identidad administrada creada anteriormente.
 

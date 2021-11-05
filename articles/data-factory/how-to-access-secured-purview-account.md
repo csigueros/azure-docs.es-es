@@ -9,12 +9,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 09/02/2021
-ms.openlocfilehash: 32bf7849a8d15b455fc6028ac94009ebd46791e4
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 51da9cba732c5654709d0c1e84398035d4675cc8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123440274"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131005734"
 ---
 # <a name="access-a-secured-azure-purview-account-from-azure-data-factory"></a>Acceso a una cuenta protegida de Azure Purview desde Azure Data Factory
 
@@ -53,7 +53,7 @@ Para crear puntos de conexión privados administrados para Purview en UI de crea
 
 5. Haga clic en **Crear** para crear los puntos de conexión privados. Después de la creación, se generarán cuatro solicitudes de punto de conexión privado que deben [ser aprobadas por un propietario de Purview](#approve-private-endpoint-connections).
 
-Esta creación de puntos de conexión privados administrados por lotes solo se proporciona en la UI de Data Factory. Si quiere crear los puntos de conexión privados administrados mediante programación, debe hacerlo de forma individual. Puede encontrar la información de los recursos administrados de Purview en Azure Portal -> cuenta de Purview -> Recursos administrados.
+Esta creación de puntos de conexión privados administrados por lotes solo se proporciona en la UI de Purview. Si quiere crear los puntos de conexión privados administrados mediante programación, debe hacerlo de forma individual. Puede encontrar la información de los recursos administrados de Purview en Azure Portal -> cuenta de Purview -> Recursos administrados.
 
 ### <a name="approve-private-endpoint-connections"></a>Aprobación de las conexiones de punto de conexión privado
 

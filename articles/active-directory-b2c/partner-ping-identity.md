@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/20/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 04aa6f6a7f99eed32c12cf5459c7a7e49089ce6c
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 5c7938e9c80cbce1128981516ccac2adcbcb8949
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111962322"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131044539"
 ---
 # <a name="tutorial-configure-ping-identity-with-azure-active-directory-b2c-for-secure-hybrid-access"></a>Tutorial: Configuración de Ping Identity con Azure Active Directory B2C para el acceso híbrido seguro
 
@@ -182,12 +182,12 @@ Siga estos pasos para crear una asignación de identidad:
 5. En la tabla **Attribute-Mapping** (Asignación y atributos), especifique las asignaciones necesarias. Por ejemplo,
 
    Nombre del atributo | Nombre de encabezado |
-   |-------|--------|
-   |upn | x-userprinciplename |
-   |email   |    x-email  |
-   |oid   | x-oid  |
-   |scp   |     x-scope |
-   |amr    |    x-amr    |
+   |---|---|
+   | "upn" | x-userprincipalname |
+   | "email" | x-email |
+   | "oid" | x-oid |
+   | "scp" | x-scope |
+   | "amr" | x-amr |
 
 6. Seleccione **Guardar**.
 

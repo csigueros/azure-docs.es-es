@@ -7,12 +7,12 @@ ms.date: 03/31/2021
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: dcbbe63754bdcfc4ded249720b58940e0c219bf9
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: d106830a4fb2d0b7060a38d978bcd71e0fd08eff
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121861559"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131077314"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Integrar Azure Key Vault con Azure Policy
 
@@ -39,11 +39,16 @@ Key Vault ha creado un conjunto de directivas que se pueden usar para administra
 
 # <a name="certificate-policies"></a>[Directivas de certificado](#tab/certificates)
 
-### <a name="certificates-should-have-the-specified-maximum-validity-period-preview"></a>Los certificados deben tener el período de validez máximo especificado (versión preliminar)
+### <a name="manage-certificates-that-are-within-a-specified-number-of-days-of-expiration"></a>Administrar los certificados que están dentro de un número específico de días de expiración. 
 
-Esta directiva permite administrar el período de validez máximo de los certificados almacenados en el almacén de claves. Es una buena práctica de seguridad limitar el período de validez máximo de los certificados. Si una clave privada del certificado va a estar en peligro sin detección, el uso de certificados de corta duración reduce el período de tiempo para los daños en curso y reduce el valor del certificado a un atacante.
+El servicio puede experimentar una interrupción si un certificado que no se está supervisando adecuadamente no se gira antes de la expiración. Esta directiva es fundamental para asegurarse de que los certificados almacenados en el almacén de claves se están supervisando. Se recomienda aplicar esta directiva varias veces con umbrales de expiración diferentes, por ejemplo, en los umbrales 180, 90, 60 y 30 días. Esta directiva se puede usar para supervisar y evaluar la expiración de certificados en la organización. 
 
-### <a name="certificates-should-use-allowed-key-types-preview"></a>Los certificados deben usar tipos de clave permitidos (versión preliminar)
+
+### <a name="certificates-should-have-the-specified-lifetime-action-triggers"></a>Los certificados deben disponer de los desencadenadores de acciones de duración que se hayan especificado  
+
+Esta directiva permite administrar la acción de duración especificada para los certificados que están dentro de un número determinado de días de expiración o que han alcanzado un porcentaje determinado de su vida útil.
+
+### <a name="certificates-should-use-allowed-key-types"></a>Los certificados deben utilizar tipos de clave admitidos  
 
 Esta directiva le permite restringir el tipo de certificados que pueden encontrarse en el almacén de claves. Puede usar esta directiva para asegurarse de que las claves privadas del certificado son RSA, ECC o están respaldadas por HSM. Puede elegir en la siguiente lista los tipos de certificados que se permiten.
 
@@ -52,19 +57,15 @@ Esta directiva le permite restringir el tipo de certificados que pueden encontra
 - ECC
 - ECC - HSM
 
-### <a name="certificates-should-have-the-specified-lifetime-action-triggers-preview"></a>Los certificados deben tener los desencadenadores de acciones de vigencia especificados (versión preliminar)
-
-Esta directiva permite administrar la acción de duración especificada para los certificados que están dentro de un número determinado de días de expiración o que han alcanzado un porcentaje determinado de su vida útil.
-
-### <a name="certificates-should-be-issued-by-the-specified-integrated-certificate-authority-preview"></a>La entidad de certificación integrada especificada debe emitir los certificados (versión preliminar)
+### <a name="certificates-should-be-issued-by-the-specified-integrated-certificate-authority"></a>Los certificados debe emitirlos la entidad de certificación integrada que se haya especificado  
 
 Si usa una Key Vault entidad de certificación integrada (DigiCert o GlobalSign) y quiere que los usuarios usen uno de estos proveedores o cualquiera de ellos, puede usar esta directiva para auditar o aplicar la selección. Esta directiva evaluará la entidad de certificación seleccionada en la directiva de emisión del certificado y el proveedor de la entidad de certificación definido en el almacén de claves. Esta directiva también se puede utilizar para auditar o denegar la creación de certificados autofirmados en el almacén de claves.
 
-### <a name="certificates-should-be-issued-by-the-specified-non-integrated-certificate-authority-preview"></a>La entidad de certificación integrada especificada debe emitir los certificados (versión preliminar)
+### <a name="certificates-should-be-issued-by-the-specified-non-integrated-certificate-authority"></a>Los certificados debe emitirlos la entidad de certificación no integrada que se haya especificado  
 
 Si usa una entidad de certificación interna o una entidad de certificación que no está integrada con el almacén de claves y quiere que los usuarios usen una entidad de certificación de la lista que proporcione, puede usar esta directiva para crear una lista de entidades de certificación permitidas por nombre de emisor. Esta directiva también se puede utilizar para auditar o denegar la creación de certificados autofirmados en el almacén de claves.
 
-### <a name="certificates-using-elliptic-curve-cryptography-should-have-allowed-curve-names-preview"></a>Los certificados que usan criptografía de curva elíptica deben tener nombres de curva permitidos (versión preliminar)
+### <a name="certificates-using-elliptic-curve-cryptography-should-have-allowed-curve-names"></a>Los certificados que usan la criptografía de curva elíptica deben tener nombres de curva admitidos 
 
 Si usa criptografía de curva elíptica o certificados ECC, puede personalizar una lista de nombres de curva permitidos en la siguiente lista. La opción predeterminada permite los siguientes nombres de curva.
 
@@ -73,7 +74,7 @@ Si usa criptografía de curva elíptica o certificados ECC, puede personalizar u
 - P-384
 - P-521
 
-## <a name="certificates-using-rsa-cryptography-manage-minimum-key-size-for-rsa-certificates-preview"></a>Los certificados que usan la criptografía RSA deben tener el tamaño de clave mínimo especificado (versión preliminar)
+### <a name="certificates-using-rsa-cryptography-manage-minimum-key-size-for-rsa-certificates"></a>Los certificados que usan la criptografía RSA deben tener el tamaño de clave mínimo para los certificados RSA.  
 
 Si usa certificados RSA, puede elegir un tamaño de clave mínimo que los certificados deben tener. Puede seleccionar una opción de la lista siguiente.
 
@@ -81,13 +82,13 @@ Si usa certificados RSA, puede elegir un tamaño de clave mínimo que los certif
 - bit 3072
 - bit 4096
 
-## <a name="manage-certificates-that-are-within-a-specified-number-of-days-of-expiration-preview"></a>Administrar certificados que estén dentro de un número especificado de días de expiración (versión preliminar)
+### <a name="certificates-should-have-the-specified-maximum-validity-period-preview"></a>Los certificados deben tener el período de validez máximo especificado (versión preliminar)
 
-El servicio puede experimentar una interrupción si un certificado que no se está supervisando adecuadamente no se gira antes de la expiración. Esta directiva es fundamental para asegurarse de que los certificados almacenados en el almacén de claves se están supervisando. Se recomienda aplicar esta directiva varias veces con umbrales de expiración diferentes, por ejemplo, en los umbrales 180, 90, 60 y 30 días. Esta directiva se puede usar para supervisar y evaluar la expiración de certificados en la organización.
+Esta directiva permite administrar el período de validez máximo de los certificados almacenados en el almacén de claves. Es una buena práctica de seguridad limitar el período de validez máximo de los certificados. Si una clave privada del certificado va a estar en peligro sin detección, el uso de certificados de corta duración reduce el período de tiempo para los daños en curso y reduce el valor del certificado a un atacante.
 
 # <a name="key-policies"></a>[Directivas de claves](#tab/keys)
 
-### <a name="keys-should-not-be-active-for-longer-than-the-specified-number-of-days-preview"></a>Las claves no deben estar activas durante más tiempo que el número especificado de días (versión preliminar)
+### <a name="keys-should-not-be-active-for-longer-than-the-specified-number-of-days"></a>Las claves no deben estar activas durante más tiempo que el número especificado de días 
 
 Si desea asegurarse de que las claves no estén activas durante más tiempo que un número especificado de días, puede usar esta directiva para auditar cuánto tiempo ha estado activa la clave.
 
@@ -95,7 +96,7 @@ Si desea asegurarse de que las claves no estén activas durante más tiempo que 
 
 **Si la clave no tiene establecida una fecha de activación**, esta directiva calculará el número de días transcurridos desde la **fecha de creación** de la clave hasta la fecha actual. Si el número de días supera el umbral establecido, la clave se marcará como no compatible con la directiva.
 
-### <a name="keys-should-be-the-specified-cryptographic-type-rsa-or-ec-preview"></a>Las claves deben ser del tipo criptográfico especificado, RSA o EC (versión preliminar)
+### <a name="keys-should-be-the-specified-cryptographic-type-rsa-or-ec"></a>Las claves deben ser del tipo criptográfico especificado, RSA o EC 
 
 Esta directiva le permite restringir el tipo de claves que pueden encontrarse en el almacén de claves. Puede usar esta directiva para asegurarse de que las claves son RSA, ECC o están respaldadas por HSM. Puede elegir en la siguiente lista los tipos de certificados que se permiten.
 
@@ -104,7 +105,7 @@ Esta directiva le permite restringir el tipo de claves que pueden encontrarse en
 - ECC
 - ECC - HSM
 
-### <a name="keys-using-elliptic-curve-cryptography-should-have-the-specified-curve-names-preview"></a>Las claves que usan criptografía de curva elíptica deben tener especificados nombres de curva (versión preliminar)
+### <a name="keys-using-elliptic-curve-cryptography-should-have-the-specified-curve-names"></a>Las claves que usan criptografía de curva elíptica deben tener especificados los nombres de curva 
 
 Si usa criptografía de curva elíptica o claves ECC, puede personalizar una lista de nombres de curva permitidos en la siguiente lista. La opción predeterminada permite los siguientes nombres de curva.
 
@@ -113,29 +114,29 @@ Si usa criptografía de curva elíptica o claves ECC, puede personalizar una lis
 - P-384
 - P-521
 
-### <a name="keys-should-have-expirations-dates-set-preview"></a>Las claves deben tener establecida la fecha de expiración (versión preliminar)
+### <a name="keys-should-have-expirations-dates-set"></a>Las claves deben tener establecida la fecha de expiración. 
 
 Esta directiva audita todas las claves de los almacenes de claves y marca las claves que no tienen establecida una fecha de expiración como no compatibles. También puede usar esta directiva para bloquear la creación de claves que no tienen establecida una fecha de expiración.
 
-### <a name="keys-should-have-more-than-the-specified-number-of-days-before-expiration-preview"></a>Deben faltar más días que el número especificado para la expiración de las claves (versión preliminar)
+### <a name="keys-should-have-more-than-the-specified-number-of-days-before-expiration"></a>Las claves deben tener más días que los especificados en la expiración 
 
 Si una clave está demasiado cerca de la expiración, un retraso de la organización para rotar la clave puede producir una interrupción. Las claves se deben rotar cuando falta un número especificado de días antes de la expiración, para proporcionar el tiempo suficiente para reaccionar ante un error. Esta directiva auditará las claves que estén demasiado cerca de su fecha de expiración y le permitirá establecer este umbral en días. También puede usar esta directiva para evitar la creación de nuevas claves que estén demasiado cerca de su fecha de expiración.
 
-### <a name="keys-should-be-backed-by-a-hardware-security-module-preview"></a>Las claves deben estar respaldadas por un módulo de seguridad de hardware (versión preliminar)
+### <a name="keys-should-be-backed-by-a-hardware-security-module"></a>Las claves deben estar respaldadas por un módulo de seguridad de hardware. 
 
 Un HSM es un módulo de seguridad de hardware que almacena claves. Un HSM proporciona una capa física de protección para las claves criptográficas. La clave criptográfica no puede salir de un HSM físico que proporciona un mayor nivel de seguridad que una clave de software. Algunas organizaciones tienen requisitos de cumplimiento que exigen el uso de claves de HSM. Use esta directiva para auditar las claves almacenadas en el almacén de claves que no estén respaldadas por HSM. También puede usar esta directiva para bloquear la creación de claves que no están respaldadas por HSM. Esta directiva se aplicará a todos los tipos de clave, RSA y ECC.
 
-### <a name="keys-using-rsa-cryptography-should-have-a-specified-minimum-key-size-preview"></a>Las claves que usan la criptografía RSA deben tener el tamaño de clave mínimo que se haya especificado (versión preliminar)
+### <a name="keys-using-rsa-cryptography-should-have-a-specified-minimum-key-size"></a>Las claves que usan la criptografía RSA deben tener el tamaño de clave mínimo que se haya especificado 
 
 El uso de claves RSA con tamaños de clave más pequeños no es una práctica de diseño seguro. Puede estar sujeto a estándares de auditoría y certificación que exijan el uso de un tamaño de clave mínimo. La siguiente directiva le permite establecer un requisito mínimo de tamaño de clave en el almacén de claves. Puede auditar las claves que no cumplan este requisito mínimo. Esta directiva también se puede usar para bloquear la creación de nuevas claves que no cumplan el requisito de tamaño mínimo de clave.
 
-### <a name="keys-should-have-the-specified-maximum-validity-period-preview"></a>Las claves deben tener el período de validez máximo especificado (versión preliminar)
+### <a name="keys-should-have-the-specified-maximum-validity-period"></a>Las claves deben tener un período de validez máximo especificado
 
 Administre los requisitos de cumplimiento de su organización. Para ello, especifique la cantidad máxima de tiempo en días que una clave puede ser válido en el almacén de claves. Las claves que son válidas durante más tiempo que el umbral establecido se marcarán como no compatibles. También puede usar esta directiva para bloquear la creación de nuevas claves que tienen establecida una fecha de expiración mayor que el período de validez máximo que especifique.
 
 # <a name="secret-policies"></a>[Directivas de secretos](#tab/secrets)
 
-### <a name="secrets-should-not-be-active-for-longer-than-the-specified-number-of-days-preview"></a>Los secretos no deben estar activos durante más tiempo que el número especificado de días (versión preliminar)
+### <a name="secrets-should-not-be-active-for-longer-than-the-specified-number-of-days"></a>Los secretos no deben estar activos durante más tiempo que el número especificado de días 
 
 Si desea asegurarse de que los secretos no estén activos durante más tiempo que un número especificado de días, puede usar esta directiva para auditar cuánto tiempo ha estado activo el secreto.
 
@@ -143,19 +144,19 @@ Si desea asegurarse de que los secretos no estén activos durante más tiempo qu
 
 **Si el secreto no tiene establecida una fecha de activación**, esta directiva calculará el número de días transcurridos desde la **fecha de creación** del secreto hasta la fecha actual. Si el número de días supera el umbral establecido, el secreto se marcará como no compatible con la directiva.
 
-### <a name="secrets-should-have-content-type-set-preview"></a>Los secretos deben tener establecido el tipo de contenido (versión preliminar)
+### <a name="secrets-should-have-content-type-set"></a>Los secretos deben tener establecido el tipo de contenido 
 
 Cualquier archivo de texto sin formato o codificado se puede almacenar como un secreto del almacén de claves. Sin embargo, puede que la organización quiera establecer diferentes directivas de rotación y restricciones en las contraseñas, las cadenas de conexión o los certificados almacenados como claves. Una etiqueta de tipo de contenido puede ayudar a un usuario a ver lo que se almacena en un objeto de secreto sin leer el valor del secreto. Puede usar esta directiva para auditar secretos que no tienen un conjunto de etiquetas de tipo de contenido. También puede usar esta directiva para evitar que se creen nuevos secretos si no tienen un conjunto de etiquetas de tipo de contenido.
 
-### <a name="secrets-should-have-expiration-date-set-preview"></a>Los secretos deben tener establecida la fecha de expiración (versión preliminar)
+### <a name="secrets-should-have-expiration-date-set"></a>Los secretos deben tener establecidas las fechas de expiración. 
 
 Esta directiva audita todos los secretos de los almacenes de claves y marca los secretos que no tienen establecida una fecha de expiración como no compatibles. También puede usar esta directiva para bloquear la creación de secretos que no tienen establecida una fecha de expiración.
 
-### <a name="secrets-should-have-more-than-the-specified-number-of-days-before-expiration-preview"></a>Deben faltar más días que el número especificado para la expiración de los secretos (versión preliminar)
+### <a name="secrets-should-have-more-than-the-specified-number-of-days-before-expiration"></a>Los secretos deben tener más días que los especificados en la expiración 
 
 Si un secreto está demasiado cerca de la expiración, un retraso de la organización para rotar el secreto puede producir una interrupción. Los secretos se deben rotar cuando falta un número especificado de días antes de la expiración, para proporcionar el tiempo suficiente para reaccionar ante un error. Esta directiva auditará los secretos que estén demasiado cerca de su fecha de expiración y le permitirá establecer este umbral en días. También puede usar esta directiva para evitar la creación de nuevos secretos que estén demasiado cerca de su fecha de expiración.
 
-### <a name="secrets-should-have-the-specified-maximum-validity-period-preview"></a>Los secretos deben tener el período de validez máximo especificado (versión preliminar)
+### <a name="secrets-should-have-the-specified-maximum-validity-period"></a>Los secretos deben tener un período de validez máximo especificado 
 
 Administre los requisitos de cumplimiento de su organización. Para ello, especifique la cantidad máxima de tiempo en días que un secreto puede ser válido en el almacén de claves. Los secretos que son válidos durante más tiempo que el umbral establecido se marcarán como no compatibles. También puede usar esta directiva para bloquear la creación de nuevos secretos que tienen establecida una fecha de expiración mayor que el período de validez máximo que especifique.
 
@@ -242,16 +243,25 @@ Puede administrar un almacén de claves usado por varios equipos que contengan 1
 
 ## <a name="feature-limitations"></a>Limitaciones de característica
 
-Asignar una directiva con un efecto de "denegación" puede tardar hasta 30 minutos (caso promedio) y 1 hora (peor de los casos) para empezar a denegar la creación de recursos no compatibles. La evaluación de la directiva de los componentes existentes en un almacén puede tardar hasta 1 hora (caso promedio) y 2 horas (peor de los casos) antes de que se puedan ver los resultados de cumplimiento en la interfaz de usuario del portal. Si los resultados de cumplimiento se muestran como "No iniciado", puede deberse a los siguientes motivos:
+Asignar una directiva con un efecto de "denegación" puede tardar hasta 30 minutos (caso promedio) y 1 hora (peor de los casos) para empezar a denegar la creación de recursos no compatibles. El retraso hace referencia a los siguientes escenarios:
+1.  Asignación de una nueva directiva
+2.  Cambio de una asignación de directiva existente
+3.  Creación de un nuevo KeyVault (recurso) en un ámbito con directivas existentes.
+
+La evaluación de la directiva de los componentes existentes en un almacén puede tardar hasta 1 hora (caso promedio) y 2 horas (peor de los casos) antes de que se puedan ver los resultados de cumplimiento en la interfaz de usuario del portal. Si los resultados de cumplimiento se muestran como "No iniciado", puede deberse a los siguientes motivos:
 - La valoración de la directiva no se ha completado todavía. La latencia de evaluación inicial puede tardar hasta 2 horas en el peor de los casos. 
 - No hay almacén de claves en el ámbito de la asignación de directiva.
 - No hay almacén de claves con certificados dentro del ámbito de la asignación de directivas.
+
+
+
 
 > [!NOTE]
 > Los [modos de proveedor de recursos](../../governance/policy/concepts/definition-structure.md#resource-provider-modes) de Azure Policy, como los de Azure Key Vault, proporcionan información sobre el cumplimiento en la página [Compatibilidad de componentes](../../governance/policy/how-to/get-compliance-data.md#component-compliance).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- [Registro y preguntas más frecuentes sobre la directiva de Azure para Key Vault](../general/troubleshoot-azure-policy-for-key-vault.md)
 - Para más información sobre el [servicio de Azure Policy](../../governance/policy/overview.md)
 - Vea ejemplos de Key Vault: [Definiciones de directivas integradas en Key Vault](../../governance/policy/samples/built-in-policies.md#key-vault)
 - Más información sobre la [guía de Azure Security Benchmark en Key Vault](/security/benchmark/azure/baselines/key-vault-security-baseline?source=docs#network-security)

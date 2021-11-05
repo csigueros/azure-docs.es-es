@@ -4,16 +4,16 @@ description: En este artículo se describe cómo limpiar los registros de implem
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 08/28/2021
+ms.date: 10/22/2021
 author: swinarko
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7e235bd04b0693a0fabc9f4432aff01c85b5c67e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 78b6c754fe2b49ceabf940aa76b86ddd90dfc91e
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124824705"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131843670"
 ---
 # <a name="how-to-clean-up-ssisdb-logs-automatically"></a>Procedimiento de limpieza automática de registros de SSISDB
 

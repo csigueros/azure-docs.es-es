@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 10/26/2021
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f2497e47078f91c1649db107dd105227e219ae2
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: d8e4b08f407417136462ff066d0f0e81312662ae
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113565731"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051726"
 ---
 # <a name="create-an-access-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Creación de una revisión de acceso de un paquete de acceso de administración de derechos de Azure AD
 
@@ -40,9 +40,33 @@ Para obtener más información, consulte [Requisitos de licencia](entitlement-ma
 
 Puede habilitar revisiones de acceso cuando [cree un paquete de acceso](entitlement-management-access-package-create.md) o [edite una directiva de paquetes de acceso existente](entitlement-management-access-package-lifecycle-policy.md). Siga estos pasos para habilitar las revisiones de acceso de un paquete de acceso:
 
-1. Abra la pestaña **Ciclo de vida** de un paquete de acceso y desplácese hacia abajo hasta **Revisiones de acceso**.
+1. Abra la pestaña **Ciclo de vida** de un paquete de acceso para especificar cuándo expira la asignación de un usuario para el paquete de acceso. También puede especificar si los usuarios pueden extender sus asignaciones.
 
-1. Mueva el botón de alternancia **Exigir revisiones de acceso** a la posición **Sí**.
+1. En la sección **Expiración**, establezca La asignación de paquetes de acceso expira en **En la fecha**, **Número de días**, **Número de horas** o **Nunca**.
+
+    Para la opción **En la fecha**, seleccione una fecha de expiración en el futuro.
+
+    Para la opción **Número de días**, especifique un número entre 0 y 3660 días.
+
+    En **Número de horas**, especifique un número de horas.
+
+    En función de lo que seleccione, la asignación de un usuario para el paquete de acceso expirará en una fecha concreta, un número determinado de días después de la aprobación o nunca.
+    
+    ![Paquete de acceso - Configuración de la expiración de la directiva](./media/entitlement-management-access-reviews/expiration.png)
+
+1. Haga clic en Mostrar configuración de expiración avanzada para mostrar la configuración adicional.
+
+1. Para permitir que el usuario amplíe sus asignaciones, establezca **Permitir que los usuarios extiendan el acceso** en **Sí**.
+
+    Si se permiten las extensiones en la directiva, el usuario recibirá un correo electrónico 14 días y 1 día antes de que se establezca la expiración de su asignación de paquete de acceso en el que se le solicitará que amplíe la asignación. El usuario todavía debe estar en el ámbito de la directiva en el momento de solicitar una extensión. Asimismo, si la directiva tiene una fecha de finalización explícita para las asignaciones y el usuario envía una solicitud para extender el acceso, la fecha de la extensión de la solicitud debe ser igual o anterior a la de expiración de las asignaciones, tal y como se define en la directiva que se usó para conceder al usuario acceso al paquete de acceso. Por ejemplo, si la directiva indica que las asignaciones están configuradas para expirar el 30 de junio, la extensión máxima que un usuario puede solicitar es el 30 de junio.
+
+    Si se extiende el acceso de un usuario, no podrán solicitar el paquete de acceso después de la fecha de extensión especificada (la fecha está establecida en la zona horaria del usuario que ha creado la directiva).
+
+1. Para requerir la aprobación para conceder una extensión, establezca **Requerir aprobación para conceder extensión** en **Sí**.
+
+    Se utilizará la misma configuración de aprobación que se especificó en la pestaña Solicitudes.
+
+1. A continuación, mueva el botón de alternancia **Exigir revisiones de acceso** a la posición **Sí**.
 
     ![Adición de la revisión de acceso](./media/entitlement-management-access-reviews/access-reviews-pane.png)
 

@@ -7,16 +7,17 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 09/24/2021
-ms.openlocfilehash: d1d15fb4ff3bc2d820311b4f847c21236d83b6f3
-ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.openlocfilehash: 4e15f2813a0aea04f63cc11b3273c4a91d44afb2
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128708769"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131845881"
 ---
 # <a name="understanding-resource-sets"></a>Descripción de los conjuntos de recursos
 
 Este artículo le ayuda a entender cómo Azure Purview usa conjuntos de recursos para asignar recursos de datos a recursos lógicos.
+
 ## <a name="background-info"></a>Información de contexto
 
 Los sistemas de procesamiento de datos a escala normalmente almacenan una sola tabla en un almacenamiento en varios archivos. En el catálogo de datos de Azure Purview, este concepto se representa mediante conjuntos de recursos. Un conjunto de recursos es un único objeto del catálogo que representa una gran cantidad de recursos en almacenamiento.
@@ -67,9 +68,6 @@ La habilitación de conjuntos de recursos avanzados también permite la creació
 ### <a name="turning-on-advanced-resource-sets"></a>Activación de conjuntos de recursos avanzados
 
 Los conjuntos de recursos avanzados están desactivados de forma predeterminada en todas las instancias nuevas de Azure Purview. Los conjuntos de recursos avanzados se pueden habilitar desde la **información de la cuenta** en el centro de administración.
-
-> [!NOTE]
-> Todas las instancias de Purview creadas antes del 19 de agosto de 2021 tienen el conjunto de recursos avanzado activado de forma predeterminada.
 
 :::image type="content" source="media/concept-resource-sets/advanced-resource-set-toggle.png" alt-text="Active el conjuntos de recursos avanzados." border="true":::
 
@@ -130,6 +128,7 @@ Al analizar una cuenta de almacenamiento, Azure Purview usa un conjunto de patro
 - Marcar incorrectamente un recurso como que no es un conjunto de recursos
 
 Para personalizar o invalidar la forma en que Azure Purview detecta qué recursos se agrupan como conjuntos de recursos, además de cómo se muestran dentro del catálogo, puede definir reglas de patrón en el centro de administración. Para obtener instrucciones paso a paso y sintaxis, consulte las [reglas de patrón del conjunto de recursos](how-to-resource-set-pattern-rules.md).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para empezar a trabajar con Azure Purview, consulte [Inicio rápido: Creación de una cuenta de Azure Purview](create-catalog-portal.md).

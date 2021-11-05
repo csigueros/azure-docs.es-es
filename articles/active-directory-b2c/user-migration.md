@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 90e1600c54bb7bf7a405ca3748f15edc29ad53a6
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 0cd0b976ec511070432538e99b7a8e20001a0156
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130043840"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058158"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrar usuarios a Azure AD B2C
 
@@ -88,7 +88,7 @@ No toda la información del proveedor de identidades heredado debe migrarse al d
   - Datos confidenciales, como números de tarjetas de crédito, números de seguridad social (SSN), registros médicos u otros datos regulados por el gobierno u organismos de cumplimiento del sector.
   - Preferencias de marketing o de comunicación, comportamientos de los usuarios y conocimientos.
 
-### <a name="directory-clean-up"></a>Limpieza de directorios
+### <a name="directory-cleanup"></a>Limpieza del directorio
 
 Antes de comenzar el proceso de migración, aproveche la oportunidad para limpiar el directorio.
 

@@ -4,16 +4,16 @@ description: Obtenga información acerca de cómo montar un recurso compartido d
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/01/2021
+ms.date: 10/25/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 8f3565f05fc04a74e761b1070f0374677703d225
-ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
+ms.openlocfilehash: 04d3174900ce5aa788f3793b39fa4d6c06222001
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113225269"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131036796"
 ---
 # <a name="how-to-mount-an-nfs-file-share-preview"></a>Montaje de un recurso compartido de archivos NFS (versión preliminar)
 
@@ -42,12 +42,12 @@ ms.locfileid: "113225269"
 
 ## <a name="disable-secure-transfer"></a>Deshabilitación de la transferencia segura
 
-1. Inicie sesión en Azure Portal y acceda a la cuenta de almacenamiento que contiene el recurso compartido de NFS que creó.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) y acceda a la cuenta de almacenamiento que contiene el recurso compartido de NFS que creó.
 1. Seleccione **Configuración**.
 1. Seleccione **Deshabilitado** para **Se requiere transferencia segura**.
 1. Seleccione **Guardar**.
 
-    :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/storage-account-disable-secure-transfer.png" alt-text="Captura de la pantalla de configuración de la cuenta de almacenamiento con la transferencia segura deshabilitada.":::
+    :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png" alt-text="Captura de la pantalla de configuración de la cuenta de almacenamiento con la transferencia segura deshabilitada." lightbox="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png":::
 
 ## <a name="mount-an-nfs-share"></a>Montaje de un recurso compartido de NFS
 

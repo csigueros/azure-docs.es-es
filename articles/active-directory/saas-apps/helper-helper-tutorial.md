@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/13/2021
 ms.author: jeedes
-ms.openlocfilehash: fd69e7e16913a6d2adce8f70a77227a907858237
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: f5650ad60922636f8430ff2ce132f10b57cda0b8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130004262"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131039836"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-helper-helper"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Helper Helper
 
@@ -26,7 +26,7 @@ En este tutorial, obtendrá información sobre cómo integrar Helper Helper con 
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Helper Helper con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -56,7 +56,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Helper Helper me
 Para configurar y probar el inicio de sesión único de Azure AD con Helper Helper, complete los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-   1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+   1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Helper Helper](#configure-helper-helper-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
    1. **[Creación de un usuario de prueba en Helper Helper](#create-helper-helper-test-user)** , para tener un homólogo de B.Simon en Helper Helper que esté vinculado a la representación del usuario en Azure AD.

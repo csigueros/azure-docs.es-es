@@ -2,17 +2,17 @@
 title: Mejora de la confiabilidad de la aplicación con Advisor
 description: Use Azure Advisor para garantizar y mejorar la confiabilidad en las implementaciones de Azure críticas para la empresa.
 ms.topic: article
-ms.date: 09/27/2020
-ms.openlocfilehash: 8d0c8902c41d50f4391a5431aba7a58faa917208
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.date: 10/26/2021
+ms.openlocfilehash: f7ea986424271315843af9557555aa82a708a12c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111887553"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045869"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Mejora de la confiabilidad de la aplicación mediante el uso de Azure Advisor
 
-Azure Advisor lo ayuda a garantizar y mejorar la continuidad de las aplicaciones empresariales críticas. Puede obtener recomendaciones de confiabilidad de Advisor en la pestaña **Confiabilidad** del panel de Advisor.
+Azure Advisor lo ayuda a garantizar y mejorar la continuidad de las aplicaciones empresariales críticas. Puede obtener recomendaciones de confiabilidad en la pestaña **Confiabilidad** de [Azure Advisor](https://aka.ms/azureadvisordashboard).
 
 ## <a name="check-the-version-of-your-check-point-network-virtual-appliance-image"></a>Compruebe la versión de la imagen de aplicación virtual de la red de Check Point.
 
@@ -59,6 +59,9 @@ Azure Advisor busca las puertas de enlace VPN que sean una SKU básica y le reco
 - Directiva IPSec/IKE personalizada. 
 - Mayor estabilidad y disponibilidad.
 
+## <a name="ensure-reliable-outbound-connectivity-with-vnet-nat"></a>Garantizar una conectividad de salida confiable con NAT de Virtual Network
+No se recomienda usar la conectividad de salida predeterminada proporcionada por una instancia de Standard Load Balancer u otros recursos de Azure para cargas de trabajo de producción, ya que esto provoca errores de conexión (también se denomina agotamiento de puertos SNAT). El enfoque recomendado es usar una NAT de Virtual Network que evitará errores de conectividad en este sentido. NAT puede escalar sin problemas para asegurarse de que la aplicación nunca está fuera de los puertos. [Obtenga más información sobre NAT de Virtual Network](../virtual-network/nat-gateway/nat-overview.md).
+
 ## <a name="ensure-virtual-machine-fault-tolerance-temporarily-disabled"></a>Garantía de la tolerancia a errores en máquinas virtuales (deshabilitada temporalmente)
 
 Para proporcionar redundancia a la aplicación, recomendamos que agrupe dos máquinas virtuales o más en un conjunto de disponibilidad. Advisor identifica las máquinas virtuales que no forman parte de un conjunto de disponibilidad y recomienda moverlas a uno. Esta configuración garantiza que, durante un evento de mantenimiento planeado o no planeado, al menos una máquina virtual esté disponible y cumpla el Acuerdo de Nivel de Servicio de máquina virtual de Azure. Puede elegir crear un conjunto de disponibilidad de la máquina virtual o agregar la máquina virtual a uno existente.
@@ -70,9 +73,9 @@ Para proporcionar redundancia a la aplicación, recomendamos que agrupe dos máq
 
 Para proporcionar redundancia a la aplicación, recomendamos que agrupe dos máquinas virtuales o más en un conjunto de disponibilidad. Advisor identifica conjuntos de disponibilidad que contienen una sola máquina virtual y recomienda que se agregue una o más máquinas virtuales a él.  Esta configuración garantiza que, durante un evento de mantenimiento planeado o no planeado, al menos una máquina virtual esté disponible y cumpla el Acuerdo de Nivel de Servicio de máquina virtual de Azure.  Puede elegir crear una máquina virtual o agregar una existente al conjunto de disponibilidad.  
 
-## <a name="use-managed-disks-to-improve-data-reliability-temporarily-disabled"></a>Uso de discos administrados para mejorar la fiabilidad de los datos (deshabilitado temporalmente)
+## <a name="use-managed-disks-to-improve-data-reliability"></a>Uso de discos administrados para mejorar la confiabilidad de los datos
 
-Las máquinas virtuales que están en un conjunto de disponibilidad con discos que comparten las cuentas de almacenamiento o las unidades de escalado de almacenamiento no son resistentes a errores de unidad de escalado de almacenamiento único durante las interrupciones. Advisor identifica estos conjuntos de disponibilidad y recomendará migrar a discos administrados de Azure. Esta migración garantizará que los discos de las máquinas virtuales del conjunto de disponibilidad estén lo suficientemente aislados entre sí como para evitar un único punto de error. 
+Las máquinas virtuales de un conjunto de disponibilidad con discos que comparten las cuentas de almacenamiento o las unidades de escalado de almacenamiento no son resistentes a errores de unidad de escalado de almacenamiento único durante las interrupciones. Migre a Azure Managed Disks para garantizar que los discos de las distintas máquinas virtuales del conjunto de disponibilidad estén lo suficientemente aislados entre sí como para evitar un único punto de error.
 
 ## <a name="repair-invalid-log-alert-rules"></a>Reparación de las reglas de alertas de registro no válidas
 
@@ -113,13 +116,7 @@ Las máquinas virtuales que no tienen habilitada la replicación en otra región
 El [agente de Azure Connected Machine](../azure-arc/servers/manage-agent.md) se actualiza periódicamente con correcciones de errores, mejoras de estabilidad y nuevas funcionalidades. Hemos identificado recursos que no funcionan en la versión más reciente del agente de equipo y esta recomendación de Advisor le sugerirá que actualice el agente a la versión más reciente para obtener la mejor experiencia de Azure Arc.
 
 ## <a name="do-not-override-hostname-to-ensure-website-integrity"></a>No reemplace el nombre de host para garantizar la integridad del sitio web.
-Advisor recomienda evitar reemplazar el nombre de host al configurar Application Gateway. Tener un dominio diferente en el front-end de Application Gateway que el que se usa para tener acceso al back-end puede provocar que se interrumpan las cookies o las direcciones URL de redireccionamiento. Tenga en cuenta que esto podría no ser el caso en todas las situaciones y que determinadas categorías de back-end (como las API REST) en general son menos sensibles a esto. Asegúrese de que el back-end puede tratar con esto o actualice la configuración de Application Gateway para que no sea necesario sobrescribir el nombre de host hacia el back-end. Cuando se usa con App Service, adjunte un nombre de dominio personalizado a la aplicación web y evite el uso del *nombre de host .azurewebsites.net en el back-end*. [Obtenga más información sobre el dominio personalizado](../application-gateway/troubleshoot-app-service-redirection-app-service-url.md).
-
-## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Obtención de acceso a las recomendaciones sobre alta disponibilidad en Advisor
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y después abra [Azure Advisor](https://aka.ms/azureadvisordashboard).
-
-2.  En el panel de Advisor, seleccione la pestaña **Alta disponibilidad**.
+Advisor recomienda evitar reemplazar el nombre de host al configurar Application Gateway. Tener un dominio diferente en el front-end de Application Gateway que el que se usa para tener acceso al back-end puede provocar que se interrumpan las cookies o las direcciones URL de redireccionamiento. Tenga en cuenta que esto podría no ser el caso en todas las situaciones y que determinadas categorías de back-end (como las API REST) en general son menos sensibles a esto. Asegúrese de que el back-end puede tratar con esto o actualice la configuración de Application Gateway para que no sea necesario sobrescribir el nombre de host hacia el back-end. Cuando se usa con App Service, adjunte un nombre de dominio personalizado a la aplicación web y evite el uso del nombre de host `*.azurewebsites.net` en el back-end. [Obtenga más información sobre el dominio personalizado](../application-gateway/troubleshoot-app-service-redirection-app-service-url.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

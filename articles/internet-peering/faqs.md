@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: reference
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 9b0b2b08e01c99fc918c4bc5649197c9caa4978a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4c58a0550d35575721a1d27ce7a572ac0e00e90
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "75774035"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024209"
 ---
 # <a name="internet-peering---faqs"></a>Preguntas más frecuentes sobre el emparejamiento de Internet
 
@@ -29,7 +29,7 @@ La configuración de la conexión de emparejamiento mediante Azure PowerShell se
 
 **Cuando se llama a New-AzPeeringDirectConnectionObject, ¿qué direcciones IP se asignan a los dispositivos de Microsoft y a los del mismo nivel?**
 
-Al llamar al cmdlet New-AzPeeringDirectConnectionObject, se especifica una dirección /31 (a.b.c.d/31) o una dirección /30 (a.b.c.d/30). La primera dirección IP (a.b.c.d+0) se proporciona al dispositivo del mismo nivel y la segunda (a.b.c.d+1) al dispositivo de Microsoft.
+Al llamar al cmdlet New-AzPeeringDirectConnectionObject, se especifica una dirección `/31` (`a.b.c.d/31`) o una dirección `/30` (`a.b.c.d/30`). La primera dirección IP (`a.b.c.d+0`) se proporciona al dispositivo del mismo nivel y la segunda (`a.b.c.d+1`), al dispositivo de Microsoft.
 
 **¿Qué son los parámetros MaxPrefixesAdvertisedIPv4 y MaxPrefixesAdvertisedIPv6 en el cmdlet New-AzPeeringDirectConnectionObject?**
 

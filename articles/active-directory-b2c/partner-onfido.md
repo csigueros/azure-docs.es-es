@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 1441210303984bf777c6b580f6f7ab0c67ce6f21
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 25d24c6f9d1f8346ad088308badca181a5bf1944
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107257864"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131012802"
 ---
 # <a name="tutorial-for-configuring-onfido-with-azure-active-directory-b2c"></a>Tutorial para configurar Onfido con Azure Active Directory B2C
 
@@ -110,9 +110,9 @@ La configuración de la aplicación se puede configurar en [App Service en Azure
 
 2. Abra los archivos HTML.
 
-3. Busque {your-ui-blob-container-url} y reemplácelo por la dirección URL donde se encuentran las carpetas **ocean_blue**, **dist** y **assets** de la interfaz de usuario.
+3. Busque `{your-ui-blob-container-url}` y reemplácelo por la dirección URL donde se encuentran las carpetas **ocean_blue**, **dist** y **assets** de la interfaz de usuario.
 
-4. Busque {your-intermediate-api-url} y reemplácelo por la dirección URL del servicio de aplicaciones de API intermedias.
+4. Busque `{your-intermediate-api-url}` y reemplace el valor por la dirección URL del servicio de aplicaciones de API intermedias.
 
 #### <a name="upload-your-files"></a>Carga de los archivos
 

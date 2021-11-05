@@ -3,14 +3,14 @@ title: Creación y administración de grupos de acciones en Azure Portal
 description: Obtenga información acerca de cómo crear y administrar grupos de acciones en Azure Portal.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 05/28/2021
+ms.date: 10/18/2021
 ms.author: dukek
-ms.openlocfilehash: cc5d5aa589b56fb6e6fda1845e50606ff492fbdd
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 7a2efe5a47e88fd8ad8e9a382d522271d8ab4c3b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129217890"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131017908"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 Un grupo de acciones es una colección de las preferencias de notificación que el propietario de una suscripción de Azure define. Las alertas de Azure Monitor, Service Health y Azure Advisor usan grupos de acciones para notificar a los usuarios que se ha desencadenado una alerta. Varias alertas pueden usar el mismo grupo de acciones o distintos grupos de acciones en función de los requisitos del usuario. 
@@ -158,6 +158,14 @@ Al configurar el *Rol de ARM de correo electrónico*, debe asegurarse de que se 
 
 > [!NOTE]
 > El cliente puede tardar hasta **24 horas** en empezar a recibir notificaciones después de agregar un nuevo rol de ARM a su suscripción.
+
+### <a name="event-hub-preview"></a>Centro de eventos (versión preliminar)
+> [!NOTE]
+> El tipo de acción del centro de eventos está actualmente en *versión preliminar*. Durante la versión preliminar, puede haber errores e interrupciones en la disponibilidad de la funcionalidad.
+
+Una acción del centro de eventos publica notificaciones en un [centro de eventos de Azure](~/articles/event-hubs/event-hubs-about.md). A continuación, puede suscribirse al flujo de notificación de alertas desde el receptor de eventos.
+
+Actualmente, la acción del centro de eventos solo se puede definir mediante una [plantilla de Azure Resource Manager](./action-groups-create-resource-manager-template.md).
 
 ### <a name="function"></a>Función
 Llama a un punto de conexión del desencadenador HTTP existente en [Azure Functions](../../azure-functions/functions-get-started.md). Para controlar una solicitud, el punto de conexión debe controlar el verbo HTTP POST.

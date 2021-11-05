@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/05/2021
 ms.author: madsd
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 6ebfa0cb7e65ce09178e3b468a1bf766a0379595
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: b907e6539762f08dc299304eea49ee2950f18ab7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129425835"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131065710"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Hybrid Connections de Azure App Service
 
@@ -225,6 +225,7 @@ Si el estado indica **Conectado**, pero la aplicación no puede comunicarse con 
 * Asegúrese de estar usando un nombre DNS en la conexión híbrida. Si usa una dirección IP, es posible que no se produzca la búsqueda de DNS de cliente necesaria. Si el cliente que se ejecuta en la aplicación web no realiza una búsqueda de DNS, la conexión híbrida no funciona.
 * Compruebe que el nombre DNS que se usa en la conexión híbrida pueda resolverse desde el host de HCM. Compruebe la resolución mediante *nslookup EndpointDNSname*, donde EndpointDNSname es una coincidencia exacta con lo que se usa en la definición de la conexión híbrida.
 * Pruebe el acceso desde el host de HCM al punto de conexión mediante el comando *Test-NetConnection EndpointDNSname -P Port* de PowerShell. Si no puede comunicarse con el punto de conexión desde el host de HCM, compruebe los firewalls entre los dos hosts, incluidos los firewalls basados en host en el host de destino.
+* Si usa App Service en Linux, asegúrese de que no usa "localhost" como host de punto de conexión. En su lugar, use el nombre de la máquina si está intentando crear una conexión con un recurso en el equipo local.
 
 En App Service, es posible invocar la herramienta de la línea de comandos **tcpping** desde la consola de herramientas avanzadas (Kudu). Esta herramienta puede indicarle si tiene acceso a un punto de conexión TCP, pero no si tiene acceso a un punto de conexión híbrida. Cuando usa la herramienta de la consola en un punto de conexión híbrida, simplemente confirma que usa una combinación de host:puerto.  
 

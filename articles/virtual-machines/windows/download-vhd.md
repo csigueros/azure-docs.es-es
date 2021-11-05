@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/13/2019
 ms.author: cynthn
-ms.openlocfilehash: de96ea4b32b9a2fc6baefd4cd6b14d31dea98165
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 5d43ce73efa602cded23c533fefd29009998b809
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122690811"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131003359"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Descargar un VHD de Windows desde Azure
 
@@ -56,7 +56,7 @@ Tome una instantánea del disco para descargarla.
 5. En **Tipo de instantánea**, seleccione **Completo** o **Incremental**.
 6. Cuando haya terminado, seleccione **Revisar y crear**.
 
-La instantánea se creará en breve y, a continuación, se puede usar para descargar o crear otra máquina virtual.
+La instantánea se creará en breve y, entonces, se podrá usar para descargar o crear otra máquina virtual.
 
 > [!NOTE]
 > Si no detiene primero la máquina virtual, la instantánea no estará limpia. La instantánea estará en el mismo estado que si la máquina virtual se hubiera encendido o se bloqueara en el momento en que se realizó la instantánea.  Aunque normalmente es seguro, esto podría causar problemas si las aplicaciones que se ejecutan a la hora no son resistentes a bloqueos.

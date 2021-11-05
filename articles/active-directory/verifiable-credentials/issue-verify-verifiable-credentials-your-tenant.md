@@ -11,12 +11,12 @@ ms.date: 07/20/2021
 ms.author: barclayn
 ms.reviewer: ''
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3b2c4e49e7d7b892b581876918152acc4bbe6aa3
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: bf1e79f2868ee5f1a3c6b0b920a93a8a1f92c068
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130006743"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049166"
 ---
 # <a name="tutorial---issue-and-verify-verifiable-credentials-using-your-tenant-preview"></a>Tutorial: emisión y comprobación de credenciales verificables mediante el inquilino (versión preliminar)
 

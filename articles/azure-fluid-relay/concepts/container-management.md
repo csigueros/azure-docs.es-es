@@ -7,12 +7,12 @@ ms.author: hickeys
 ms.date: 10/05/2021
 ms.topic: article
 ms.service: azure-fluid
-ms.openlocfilehash: 934122f4cb952a4be915c55c2555e336705a71c2
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 38999f706cdec3b27f41b9408c1ffcf5c689c41b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129710365"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131039495"
 ---
 # <a name="managing-fluid-containers"></a>Administración de contenedores de Fluid
 
@@ -45,6 +45,22 @@ El servicio Azure Fluid Relay asigna un nombre a los contenedores en el momento 
 ### <a name="container-discovery"></a>Detección de contenedores
 
 Los desarrolladores son responsables de cualquier experiencia y lógica de negocios relacionada con la detección de contenedores existentes por parte de los usuarios. Esto podría tener la forma de una lista de contenedores que se puede explorar en función de la participación del usuario en la sesión de Fluid, el uso compartido y directo de contenedores entre usuarios o la asignación mediante programación de contenedores a artefactos o procesos existentes.
+
+## <a name="example-container-creation-flow"></a>Ejemplo del flujo de creación de un contenedor
+
+:::image type="content" source="../images/container-creation-flow.jpg" lightbox="../images/container-creation-flow-lightbox.jpg" alt-text="Diagrama en el que se describen los flujos de datos del proceso de creación de un contenedor":::
+
+En este ejemplo, la aplicación o página se carga con un JWT genérico (no enlazado a un contenedor determinado) que la aplicación cliente usará cuando llegue el momento de crear un contenedor.
+
+La aplicación del lado cliente usa Fluid Framework API para crear un contenedor en el servicio Azure Fluid Relay, lo que genera un objeto contenedor con un identificador de contenedor recién asignado. Otras interacciones con el contenedor requieren un JWT nuevo que contenga el identificador del contenedor.
+
+Una vez que el cliente haya creado el contenedor nuevo, guardará el identificador del contenedor en algún sistema que asigna contenedores y usuarios para administrar permisos. Este sistema impulsará cualquier experiencia de detección o exploración de contenedores que el desarrollador quiera crear para sus usuarios.
+
+Antes de interactuar con el contenedor, el cliente solicitará un JWT específico del contenedor que se usará para las llamadas subsiguientes desde el runtime de Fluid Framework al servicio Azure Fluid Relay. 
+
+## <a name="exporting-container-content"></a>Exportación del contenido de un contenedor
+
+Si una aplicación almacena datos que es posible que los usuarios finales deban exportar, el desarrollador de la aplicación es responsable de compilar esa funcionalidad de exportación en su aplicación, utilizando el estado actual del contenedor de Fluid, representado por las estructuras de datos distribuidos definidas en el contenedor. Para más información sobre cómo conectarse a contenedores de Fluid y cómo abrirlos, consulte: [Containers (fluidframework.com)](https://fluidframework.com/docs/build/containers/). Para más información sobre cómo enumerar y eliminar contenedores con la API del plano de control, consulte: [Eliminación de contenedores de Fluid en el servidor de Microsoft Azure Fluid Relay](../how-tos/container-deletion.md).
 
 ## <a name="see-also"></a>Consulte también
 

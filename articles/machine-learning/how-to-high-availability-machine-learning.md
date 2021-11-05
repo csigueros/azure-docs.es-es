@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 05/05/2021
-ms.openlocfilehash: fc13ac868f2abb1ccd466b245c22682af79ba915
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 70429e7d9b1628f17672aaaa545c6c5bba3c30b1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130161271"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131032699"
 ---
 # <a name="failover-for-business-continuity-and-disaster-recovery"></a>Conmutación por error para la continuidad empresarial y la recuperación ante desastres
 
@@ -29,6 +29,8 @@ Microsoft se esfuerza por garantizar que los servicios de Azure siempre estén d
 
 > [!NOTE]
 > El servicio Azure Machine Learning no proporciona por sí mismo conmutación automática por error ni recuperación ante desastres.
+
+En caso de que haya eliminado el área de trabajo o los componentes correspondientes por accidente, en este artículo también se proporcionan las opciones de recuperación que se admiten actualmente.
 
 ## <a name="understand-azure-services-for-azure-machine-learning"></a>Descripción de los servicios de Azure para Azure Machine Learning
 
@@ -186,6 +188,18 @@ Los artefactos siguientes se pueden exportar e importar entre áreas de trabajo 
 > [!TIP]
 > * Los __conjunto de datos registrados__ no se pueden descargar ni cambiar de sitio. Se incluyen los conjuntos de datos generados por Azure ML, como los conjuntos de datos de canalización intermedia. Sin embargo, los conjuntos de datos que hagan referencia a una ubicación de archivos compartidos a la que pueden acceder ambas áreas de trabajo, o en donde se replica el almacenamiento de datos subyacente, se pueden registrar en ambas áreas de trabajo. Use [az ml dataset register](/cli/azure/ml(v1)/dataset#ext_azure_cli_ml_az_ml_dataset_register) para registrar un conjunto de datos.
 > * Las __salidas de ejecución__ se almacenan en la cuenta de almacenamiento predeterminada asociada a un área de trabajo. Aunque las salidas de ejecución pueden quedar inaccesibles desde la interfaz de usuario de Studio en caso de una interrupción del servicio, se puede acceder directamente a los datos a través de la cuenta de almacenamiento. Para obtener más información sobre cómo trabajar con datos almacenados en blobs, consulte [Creación, descarga y enumeración de blobs mediante la CLI de Azure](../storage/blobs/storage-quickstart-blobs-cli.md).
+
+## <a name="recovery-options"></a>Opciones de recuperación
+
+### <a name="workspace-deletion"></a>Eliminación del área de trabajo
+
+Actualmente, no es posible recuperar el área de trabajo si la eliminó por accidente. Sin embargo, puede seguir estos pasos para recuperar los cuadernos existentes del almacenamiento correspondiente:
+* En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento vinculada al área de trabajo de Azure Machine Learning que se eliminó.
+* En la sección Almacenamiento de datos que aparece a la izquierda, haga clic en **Recursos compartidos de archivos**.
+* Los cuadernos se encuentran en el recurso compartido de archivos con el nombre que contiene el identificador del área de trabajo. 
+
+![Recurso compartido de archivos de cuaderno de referencia](./media/how-to-high-availability-machine-learning/notebook-file-share.png)
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para implementar Azure Machine Learning con los recursos asociados con la configuración de alta disponibilidad, use una [plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/).

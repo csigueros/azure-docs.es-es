@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/26/2021
 ms.author: justinha
-ms.openlocfilehash: 67eeae96e7965db1eb92f34f23ca6d8745aaac3a
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 07ce4db1e3cca141ccbddde61f9dc196da801698
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114707986"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131044464"
 ---
 # <a name="administer-group-policy-in-an-azure-active-directory-domain-services-managed-domain"></a>Administrar directiva de grupo en un dominio administrado de Azure Active Directory Domain Services
 
@@ -24,6 +24,8 @@ La configuración de los objetos de usuario y de equipo en Azure Active Director
 En un entorno híbrido, las directivas de grupo configuradas en un entorno de AD DS local no se sincronizan con Azure AD DS. Para definir los valores de configuración de los usuarios o equipos en Azure AD DS, edite uno de los GPO predeterminados o cree un GPO personalizado.
 
 En este artículo se muestra cómo se instalan las herramientas de Administración de directivas de grupo y, posteriormente, cómo se editan los GPO integrados y se crean otros personalizados.
+
+Si le interesa la estrategia de administración de servidores, incluidas las máquinas en Azure y con [conexión híbrida](../azure-arc/servers/overview.md), considere la posibilidad de leer cómo [convertir contenido de directiva de grupo](../governance/policy/how-to/guest-configuration-create-group-policy.md) en la característica de [configuración de invitado](../governance/policy/concepts/guest-configuration.md) de [Azure Policy](../governance/policy/overview.md).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 

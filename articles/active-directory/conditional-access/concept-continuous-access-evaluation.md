@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/13/2021
+ms.date: 10/21/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: jlu
 ms.custom: has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5e3804ae4fd386668f4c34d11172e7f3dd1ae62
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 71a1e5f8ee6bb3641fce243233a654d15363e254
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128595415"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131012631"
 ---
 # <a name="continuous-access-evaluation"></a>Evaluación continua de acceso
 
@@ -144,7 +144,7 @@ En el ejemplo siguiente, un administrador de acceso condicional ha configurado u
 En esta página, puede limitar opcionalmente los usuarios y grupos que estarán sujetos a la versión preliminar.
 
 > [!NOTE]
-> Puede consultar Microsoft Graph mediante [**continuousAccessEvaluationPolicy**](/graph/api/continuousaccessevaluationpolicy-get?view=graph-rest-beta&tabs=http#request-body) para comprobar la configuración de CAE en el inquilino. Una respuesta HTTP 200 y el cuerpo de respuesta asociado indican si CAE está habilitado o deshabilitado en el inquilino. CAE no está configurado si Microsoft Graph devuelve una respuesta HTTP 404.
+> Puede consultar Microsoft Graph mediante [**continuousAccessEvaluationPolicy**](/graph/api/continuousaccessevaluationpolicy-get?view=graph-rest-beta&preserve-view=true&tabs=http#request-body) para comprobar la configuración de CAE en el inquilino. Una respuesta HTTP 200 y el cuerpo de respuesta asociado indican si CAE está habilitado o deshabilitado en el inquilino. CAE no está configurado si Microsoft Graph devuelve una respuesta HTTP 404.
 
 ![Habilitar la versión preliminar de CAE en Azure Portal](./media/concept-continuous-access-evaluation/enable-cae-preview.png)
 
@@ -155,6 +155,23 @@ Las organizaciones tienen opciones a la hora de habilitar CAE.
 1. Si deja el valor predeterminado **Auto Enable after general availability** (Habilitado automáticamente después de la disponibilidad general) seleccionado, se habilitará la funcionalidad cuando CAE esté disponible con carácter general.
 1. Los clientes que seleccionen **Enable preview** (Habilitar versión preliminar) se benefician inmediatamente de la nueva funcionalidad y no tendrán que realizar ningún cambio en el momento de la disponibilidad general. 
 1. Los clientes que seleccionen **Disable preview** (Deshabilitar versión preliminar) tienen tiempo para adoptar CAE al ritmo de su organización. Esta configuración se conservará como **Deshabilitado** en el momento de la disponibilidad general.
+
+#### <a name="migration"></a>Migración
+
+La configuración de CAE se ha movido en el acceso condicional. Los clientes que han configurado los valores de CAE en Seguridad antes tienen que migrar este valor a una directiva de acceso condicional. Siga los pasos que se indican a continuación para migrar la configuración a una directiva de acceso condicional.
+
+:::image type="content" source="media/concept-continuous-access-evaluation/migrate-continuous-access-evaluation.png" alt-text="Vista del portal que muestra la opción de migrar la evaluación continua de acceso a una directiva de acceso condicional." lightbox="media/concept-continuous-access-evaluation/migrate-continuous-access-evaluation.png":::
+
+1. Inicie sesión en **Azure Portal** como administrador de acceso condicional, administrador de seguridad o administrador global. 
+1.  Vaya a **Azure Active Directory** > **Seguridad** > **Evaluación continua de acceso (versión preliminar)** . 
+1.  A continuación, verá la opción de **Migrar** la directiva. Esta acción es la única a la que tendrá acceso en este momento.
+1. Vaya a **Acceso condicional** y encontrará una nueva directiva denominada **Directiva de CA creada a partir de la configuración de CAE** con la configuración establecida. Los administradores pueden optar por personalizar esta directiva o crear la suya propia para reemplazarla.
+
+Puede encontrar más información sobre la evaluación continua de acceso como control de sesión en la sección [Personalización de la evaluación continua de acceso](concept-conditional-access-session.md#customize-continuous-access-evaluation).
+
+### <a name="strict-enforcement"></a>Cumplimiento estricto 
+
+Con la configuración de CAE más reciente en Acceso condicional, el cumplimiento estricto es una nueva característica que permite mejorar la seguridad en función de dos factores: la variación de la dirección IP y la funcionalidad del cliente. Esta funcionalidad se puede habilitar al personalizar las opciones CAE para una directiva determinada. Al activar el cumplimiento estricto, CAE revocará el acceso al detectar cualquier instancia de [variación de dirección IP](#ip-address-variation) o de falta de [funcionalidad de cliente](#client-capabilities) de CAE.
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -206,7 +223,7 @@ Cuando varios usuarios colaboran en un documento al mismo tiempo, es posible que
 - Cerrar la aplicación de Office
 - Después de un período de 10 horas
 
-Para reducir este tiempo, un administrador de SharePoint puede reducir la duración máxima de las sesiones de coautoría para los documentos almacenados en SharePoint Online y OneDrive para la Empresa mediante la [configuración de una directiva de ubicación de red en SharePoint Online](/sharepoint/control-access-based-on-network-location). Una vez que se cambia esta configuración, la vigencia máxima de las sesiones de coautoría se reducirá a 15 minutos, y se puede ajustar más mediante el comando de PowerShell de SharePoint Online "[Set-SPOTenant –IPAddressWACTokenLifetime](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps)".
+Para reducir este tiempo, un administrador de SharePoint puede reducir la duración máxima de las sesiones de coautoría para los documentos almacenados en SharePoint Online y OneDrive para la Empresa mediante la [configuración de una directiva de ubicación de red en SharePoint Online](/sharepoint/control-access-based-on-network-location). Una vez que se cambia esta configuración, la vigencia máxima de las sesiones de coautoría se reducirá a 15 minutos, y se puede ajustar más mediante el comando de PowerShell de SharePoint Online "[Set-SPOTenant –IPAddressWACTokenLifetime](/powershell/module/sharepoint-online/set-spotenant)".
 
 ### <a name="enable-after-a-user-is-disabled"></a>Habilitar después de deshabilitar un usuario
 
@@ -229,4 +246,5 @@ La frecuencia de inicio de sesión se respetará con o sin CAE.
 
 - [Uso de las API habilitadas para la evaluación continua de acceso en las aplicaciones](../develop/app-resilience-continuous-access-evaluation.md)
 - [Desafíos de notificaciones, solicitudes de notificaciones y funcionalidades de cliente](../develop/claims-challenge.md)
+- [Acceso condicional: Sesión](concept-conditional-access-session.md)
 - [Supervisión y solución de problemas de evaluación continua de acceso](howto-continuous-access-evaluation-troubleshoot.md)

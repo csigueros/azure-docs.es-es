@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 27e17fd6cc9f50a5a46bf3de9bf2603209894bf3
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 1fbb9ead768c20f4630629f5afd1be51c985d0d1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110368254"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045698"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Cómo usar identidades administradas para App Service y Azure Functions
 
@@ -525,8 +525,9 @@ Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupNam
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Acceso seguro a SQL Database mediante una identidad administrada](app-service-web-tutorial-connect-msi.md)
+- [Acceso seguro a SQL Database mediante una identidad administrada](tutorial-connect-msi-sql-database.md)
 - [Acceso seguro a Azure Storage mediante una identidad administrada](scenario-secure-app-access-storage.md)
 - [Llamada segura a Microsoft Graph mediante una identidad administrada](scenario-secure-app-access-microsoft-graph-as-app.md)
+- [Conexión segura a servicios con los secretos de Key Vault](tutorial-connect-msi-key-vault.md)
 
 [Referencia de Microsoft.Azure.Services.AppAuthentication]: /dotnet/api/overview/azure/service-to-service-authentication

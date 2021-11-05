@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 415e397ff9e8ef1a2194f081cd9e854335725a93
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e5d5e3f51d7b50ae57d6e627d97ba4e07dd40ec1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124761027"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131032038"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-heybuddy"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con HeyBuddy
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar HeyBuddy con Azure Active Directory (Az
 - Permitir que los usuarios puedan iniciar sesión automáticamente en HeyBuddy con sus cuentas de Azure AD.
 - Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -61,7 +61,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con HeyBuddy mediant
 Para configurar y probar el inicio de sesión único de Azure AD con HeyBuddy, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-   1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+   1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en HeyBuddy](#configure-heybuddy-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
    1. **[Creación de un usuario de prueba de HeyBuddy](#create-heybuddy-test-user)** : para tener un homólogo de B.Simon en HeyBuddy que esté vinculado a la representación del usuario en Azure AD.
@@ -82,7 +82,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://api.heybuddy.com/auth/<ENTITY ID>`
 
    > [!NOTE]
-   > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. El identificador `Entity ID` en la dirección URL de inicio de sesión se genera automáticamente para cada organización. Póngase en contacto con el [equipo de soporte técnico al cliente de HeyBuddy](mailto:support@heybuddy.com) para obtener estos valores.
+   > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. El valor de `Entity ID` de la dirección URL de inicio de sesión se genera automáticamente para cada organización. Póngase en contacto con el [equipo de soporte técnico al cliente de HeyBuddy](mailto:support@heybuddy.com) para obtener estos valores.
 
 1. La aplicación HeyBuddy espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 

@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/01/2020
+ms.date: 10/21/2021
 ms.author: allensu
-ms.openlocfilehash: fc474bf8a6df613a8dc1e95169b4730251ff22b7
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 5000ac68cc0e00cdbe9d0ebd430f8cd88fe49e98
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114472857"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057711"
 ---
 # <a name="azure-load-balancer-skus"></a>SKU de Azure Load Balancer
 
@@ -34,6 +34,7 @@ Las máquinas virtuales independientes, los conjuntos de disponibilidad y los co
 
 | | Standard Load Balancer | Versión Básico de Load Balancer |
 | --- | --- | --- |
+| **Tipo de back-end** | Basado en IP, basado en NIC | Basado en NIC |
 | **[Tamaño de grupo de back-end](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)** | Admite hasta 1000 instancias. | Admite hasta 300 instancias. |
 | **Puntos de conexión del grupo de back-end** | Todas las máquinas virtuales o conjuntos de escalado de máquinas virtuales de una red virtual individual. | Máquinas virtuales en un único conjunto de disponibilidad o conjunto de escalado de máquinas virtuales. |
 | **[Sondeos de estado](./load-balancer-custom-probe-overview.md#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
@@ -53,7 +54,7 @@ Para más información, consulte [Límites del equilibrador de carga](../azure-r
 
 ## <a name="limitations"></a>Limitaciones
 
-- Las SKU no son mutables. No se puede cambiar la SKU de un recurso existente.
+- Puede [actualizar SKU de Load Balancer](upgrade-basic-standard.md).
 - Un recurso de máquina virtual independiente, un recurso de conjunto de disponibilidad o un recurso de conjunto de escalado de máquinas virtuales puede hacer referencia únicamente a una SKU, nunca a ambas.
 - [Operaciones de movimiento](../azure-resource-manager/management/move-resource-group-and-subscription.md):
   - Las operaciones de movimiento de grupos de recursos (dentro de la misma suscripción) **se admiten** para Standard Load Balancer y las direcciones IP pública estándar. 

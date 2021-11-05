@@ -5,15 +5,15 @@ author: prsandhu
 ms.service: azure
 ms.topic: conceptual
 ms.date: 10/01/2021
-ms.author: prsandhu
+ms.author: rarco
 ms.reviewer: cynthn
 ms.custom: references_regions
-ms.openlocfilehash: bc31ebc507eed47caab3118aa32332cb26005f7a
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 48cb14166a229e6bcaf3337f0be92b7d07acb3d6
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130003351"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131843126"
 ---
 # <a name="regions-and-availability-zones"></a>Regiones y zonas de disponibilidad
 
@@ -53,8 +53,8 @@ Azure proporciona la superficie global más amplia de cualquier proveedor de nub
 | Centro de EE. UU. | Norte de Europa | | Japón Oriental |
 | Este de EE. UU. | Este de Noruega | | Centro de Corea del Sur |
 | Este de EE. UU. 2 | Sur de Reino Unido 2 | | Sudeste de Asia |
-| Centro-sur de EE. UU. | Oeste de Europa |  | Este de Asia* |
-| US Gov - Virginia | Suecia* | | |
+| Centro-sur de EE. UU. | Oeste de Europa |  | Este de Asia |
+| US Gov - Virginia | Suecia | | |
 | Oeste de EE. UU. 2 | | | |
 | Oeste de EE. UU. 3 | | | |
 

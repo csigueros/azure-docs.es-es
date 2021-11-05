@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 09/28/2021
 ms.custom: generated
-ms.openlocfilehash: 710905390f9da5e38b8459a5faa36306461bed52
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: a4ac1b31688fe1ac37fe52fd38da338848d3cd07
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129709294"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037803"
 ---
 # <a name="azure-resource-provider-operations"></a>Operaciones del proveedor de recursos de Azure
 
@@ -10147,7 +10147,7 @@ Servicio de Azure: [Azure Monitor](../azure-monitor/index.yml)
 > | Acción | Descripción |
 > | --- | --- |
 > | Microsoft.OperationalInsights/register/action | Registra una suscripción en un proveedor de recursos. |
-> | microsoft.operationalinsights/register/action | Registra la suscripción. |
+> | microsoft.operationalinsights/register/action | Registra la suscripción |
 > | microsoft.operationalinsights/unregister/action | Anula el registro de la suscripción. |
 > | microsoft.operationalinsights/querypacks/action | Realiza acciones de paquetes de consulta. |
 > | microsoft.operationalinsights/availableservicetiers/read | Obtiene los niveles de servicio disponibles. |

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 10/01/2021
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 5a01eb29caee02874cf828d1b2dd6b2df7440b4d
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: ca637cec58531de65847d5f1e7d19e81ed45318d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130043061"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131036435"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Introducción a los aspectos técnicos y las características de Azure Active Directory B2C
 
@@ -81,7 +81,7 @@ Obtenga más información sobre las [opciones de inicio de sesión](sign-in-opti
 
 Azure AD B2C permite administrar los atributos comunes de los perfiles de cuentas de consumidor. Por ejemplo, nombre para mostrar, apellido, nombre propio, ciudad y otros.
 
-También se puede ampliar el esquema de Azure AD para almacenar información adicional sobre los usuarios. Por ejemplo, su país o región de residencia, el idioma preferido y las preferencias, por ejemplo, si quieren suscribirse a un boletín o habilitar la autenticación multifactor. Para más información, consulte:
+También se puede ampliar el esquema de Azure AD para almacenar información adicional sobre los usuarios. Por ejemplo, su país o región de residencia, el idioma preferido y las preferencias, como si quieren suscribirse a un boletín o habilitar la autenticación multifactor. Para más información, consulte:
 
 * [Atributos de perfil de usuario](user-profile-attributes.md)
 * [Adición de atributos de usuario y personalización de entradas de usuario en Azure Active Directory B2C](configure-user-input.md)
@@ -212,13 +212,13 @@ Varias aplicaciones pueden usar el mismo flujo de usuario o directiva personaliz
 
 Por ejemplo, para iniciar sesión en una aplicación, la aplicación usa el flujo de usuario de *registro o inicio de sesión*. Cuando el usuario ha iniciado sesión, puede querer editar su perfil, así que la aplicación inicia otra solicitud de autorización, esta vez mediante el flujo de usuario de *edición del perfil*.
 
-## <a name="multi-factor-authentication-mfa"></a>Multi-Factor Authentication (MFA)
+## <a name="multifactor-authentication-mfa"></a>Autenticación multifactor (MFA)
 
-La autenticación multifactor (MFA) de Azure AD B2C ayuda a proteger el acceso a los datos y las aplicaciones, al tiempo que mantiene la simplicidad para los usuarios. Ofrece seguridad adicional al exigir una segunda forma de autenticación y proporciona autenticación segura con una oferta de métodos de autenticación fáciles de usar. 
+La autenticación multifactor (MFA) de Azure AD B2C ayuda a proteger el acceso a los datos y las aplicaciones de forma sencilla para los usuarios. Ofrece seguridad adicional al exigir una segunda forma de autenticación y proporciona autenticación segura con una oferta de métodos de autenticación fáciles de usar. 
 
 Puede que a los usuarios no se les muestre el desafío de MFA, ya que depende de las decisiones de configuración que pueda tomar como administrador.
 
-Consulte cómo se habilita MFA en los flujos de usuario en [Habilitación de la autenticación multifactor en Azure Active Directory B2C](multi-factor-authentication.md).
+Consulte cómo se habilita MFA en los flujos de usuario en [Habilitación de la autenticación multifactor en Azure Active Directory B2C](multi-factor-authentication.md).
 
 ## <a name="conditional-access"></a>Acceso condicional
 
@@ -226,7 +226,7 @@ Las características de detección de riesgos de Azure AD Identity Protection, 
 
 ![Flujo de acceso condicional](media/technical-overview/conditional-access-flow.png)
 
-Azure AD B2C evalúa todos los eventos de inicio de sesión y garantiza que se cumplan todos los requisitos de las directivas antes de conceder acceso al usuario. Los usuarios o inicios de sesión arriesgados pueden bloquearse, o se les puede presentar un desafío con un remedio específico como la autenticación multifactor (MFA). Para obtener más información, vea [Identity Protection y acceso condicional](conditional-access-identity-protection-overview.md).
+Azure AD B2C evalúa todos los eventos de inicio de sesión y garantiza que se cumplan todos los requisitos de las directivas antes de conceder acceso al usuario. Se puede bloquear a los usuarios o inicios de sesión de riesgo, o bien se les puede presentar un desafío con un remedio específico como la autenticación multifactor (MFA). Para obtener más información, vea [Identity Protection y acceso condicional](conditional-access-identity-protection-overview.md).
 
 ## <a name="password-complexity"></a>Complejidad de la contraseña
 
@@ -299,6 +299,11 @@ Azure AD B2C permite detectar cuándo los usuarios se registran o inician sesi�
 Al integrar Azure Application Insights en las directivas personalizadas de Azure AD B2C, puede sacar conclusiones sobre cómo cada usuario se registra, inicia sesión, restablece su contraseña o edita su perfil. Con este conocimiento, puede tomar decisiones basadas en los datos de cara a los próximos ciclos de desarrollo.
 
 Para más información, consulte [Seguimiento del comportamiento del usuario en Azure Active Directory B2C mediante Application Insights](analytics-with-application-insights.md).
+
+## <a name="region-availability-and-data-residency"></a>Disponibilidad de regiones y residencia de datos
+El servicio Azure AD B2C está disponible con carácter general en todo el mundo, con la opción de residencia de datos en las regiones especificadas en [Productos disponibles por región](https://azure.microsoft.com/regions/services/). La residencia de datos viene determinada por el país o la región que seleccione al [crear un inquilino](tutorial-create-tenant.md). 
+
+Puede encontrar más información en [Azure Active Directory B2C: Disponibilidad de región y residencia de datos](data-residency.md).
 
 ## <a name="automation-using-microsoft-graph-api"></a>Automatización mediante Microsoft Graph API
 

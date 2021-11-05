@@ -1,5 +1,5 @@
 ---
-title: Integración de Azure Stream Analytics con Azure Machine Learning Studio (versión clásica)
+title: Integración de Azure Stream Analytics con Machine Learning Studio (versión clásica)
 description: En este artículo se explica cómo configurar rápidamente un trabajo sencillo de Azure Stream Analytics que integre Azure Machine Learning Studio (versión clásica) mediante una función definida por el usuario.
 ms.service: stream-analytics
 author: sidramadoss
@@ -7,19 +7,19 @@ ms.author: sidram
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1ebe62c1b90e09b36dd75b5bda4054cca08d5759
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 32031960a928a10395b217524256f1d342d08b03
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102441217"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063772"
 ---
-# <a name="do-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Realización de análisis de opinión con Azure Stream Analytics y Azure Machine Learning Studio (clásico)
+# <a name="do-sentiment-analysis-with-azure-stream-analytics-and-machine-learning-studio-classic"></a>Realización de análisis de opinión con Azure Stream Analytics y Machine Learning Studio (clásico)
 
-En este artículo se muestra cómo configurar un trabajo sencillo de Azure Stream Analytics que usa Azure Machine Learning Studio (clásico) para el análisis de opinión. Un modelo de análisis de opinión de Studio (versión clásica) de la galería de Cortana Intelligence se usa para analizar datos de texto que se están transmitiendo y determinar la puntuación de opiniones.
+En este artículo se muestra cómo configurar un trabajo sencillo de Azure Stream Analytics que usa Machine Learning Studio (clásico) para el análisis de opinión. Un modelo de análisis de opinión de Studio (versión clásica) de la galería de Cortana Intelligence se usa para analizar datos de texto que se están transmitiendo y determinar la puntuación de opiniones.
 
 > [!TIP]
-> Es muy recomendable usar las [UDF de Azure Machine Learning](machine-learning-udf.md) en lugar de las de Azure Machine Learning Studio (clásico) para mejorar el rendimiento y la confiabilidad.
+> Es muy recomendable usar las [UDF de Azure Machine Learning](machine-learning-udf.md) en lugar de las de Machine Learning Studio (clásico) para mejorar el rendimiento y la confiabilidad.
 
 Puede aplicar lo que aprenda en este artículo a escenarios como estos:
 
@@ -48,7 +48,7 @@ En este paso, cargará un archivo CSV en el contenedor de almacenamiento.
 
    |Campo  |Valor  |
    |---------|---------|
-   |Subscription|Elija su suscripción.|
+   |Suscripción|Elija su suscripción.|
    |Resource group|Elija el grupo de recursos.|
    |El nombre de la cuenta de almacenamiento|Escriba un nombre para la cuenta de almacenamiento. El nombre debe ser único en Azure.|
    |Location|Elija una ubicación. Todos los recursos deben usar la misma ubicación.|
@@ -78,7 +78,7 @@ Ahora que los datos de ejemplo están en un blob, puede habilitar el modelo de a
 
 2. Seleccione **Abrir en Studio (clásico)** .  
    
-   ![Stream Analytics Azure Machine Learning Studio (versión clásica): abrir Studio (versión clásica)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)  
+   ![Stream Analytics Machine Learning Studio (versión clásica): abrir Studio (versión clásica)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)  
 
 3. Inicie sesión para dirigirse al área de trabajo. Seleccione una ubicación.
 
@@ -100,7 +100,7 @@ Ahora que los datos de ejemplo están en un blob, puede habilitar el modelo de a
 
 7. En la columna **Aplicaciones**, seleccione el vínculo **Libro de Excel 2010 o anterior** para descargar un libro de Excel. El libro contiene una clave de API y la dirección URL que se necesitan más adelante para configurar el trabajo de Stream Analytics.
 
-    ![Stream Analytics Azure Machine Learning Studio (versión clásica), vistazo rápido](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
+    ![Stream Analytics Machine Learning Studio (versión clásica), vistazo rápido](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
 
 ## <a name="create-a-stream-analytics-job-that-uses-the-studio-classic-model"></a>Creación de un trabajo de Análisis de transmisiones que usa el modelo de Studio (versión clásica)
 
@@ -214,7 +214,7 @@ Ya se puede iniciar el trabajo de Stream Analytics.
 
 3. Abra el archivo CSV generado. Verá algo parecido al siguiente ejemplo:  
 
-   ![Stream Analytics Azure Machine Learning Studio (versión clásica), vista CSV](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-csv-view.png)  
+   ![Stream Analytics Machine Learning Studio (versión clásica), vista CSV](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-csv-view.png)  
 
 ### <a name="view-metrics"></a>Visualización de métricas
 

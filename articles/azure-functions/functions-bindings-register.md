@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/14/2020
 ms.author: cshoe
-ms.openlocfilehash: 7267e733971b2abed258ca815a010b13938bc2a6
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: b847243543eb8667a38d253e7eaad215af29e7b2
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129613479"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131852351"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registro de las extensiones de enlace de Azure Functions
 
@@ -51,6 +51,7 @@ En la tabla siguiente se enumeran las versiones disponibles actualmente del conj
 | --- | --- | --- |
 | 1.x | `[1.*, 2.0.0)` | Consulte el archivo [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v1.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) utilizado para generar el conjunto. |
 | 2.x | `[2.*, 3.0.0)` | Consulte el archivo [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v2.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) utilizado para generar el conjunto. |
+| 3.x | `[3.3.0, 4.0.0)` | Consulte el archivo [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v3.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) utilizado para generar el conjunto. |
 
 > [!NOTE]
 > Aunque puede especificar un intervalo de versiones personalizado en el archivo host.json, se recomienda usar un valor de versión de esta tabla.
@@ -92,7 +93,7 @@ Si la aplicación de función usa enlaces que no reconoce Core Tools, debe insta
 Utilice el siguiente comando para instalar un paquete de extensiones específico en una versión específica, en este caso la extensión de almacenamiento:
 
 ```command
-func extensions install --package Microsoft.Azure.WebJobs.Extensions.Storage --version 4.0.2
+func extensions install --package Microsoft.Azure.WebJobs.Extensions.Storage --version 5.0.0
 ```
 
 Para obtener más información, vea el [comando `func extensions install`](functions-core-tools-reference.md#func-extensions-install).

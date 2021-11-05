@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1e409fa879f4a541f1f3da7b1c68c06d01e1f8d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a9d56443885c79f6d5aa153695df76156f4f9407
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128587126"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131012688"
 ---
 # <a name="conditional-access-cloud-apps-actions-and-authentication-context"></a>Acceso condicional: aplicaciones, acciones y contexto de autenticación en la nube
 
@@ -71,7 +71,7 @@ Los administradores pueden asignar una directiva de acceso condicional a las sig
 - ATP de Windows Defender
 
 > [!IMPORTANT]
-> Las aplicaciones que están disponibles para el acceso condicional han pasado por un proceso de incorporación y validación. Esta lista no incluye todas las aplicaciones de Microsoft, ya que muchas son servicios de back-end y no están diseñadas para que se les aplique la directiva directamente. Si está buscando una aplicación que falta, puede ponerse en contacto con el equipo de la aplicación específica o hacer una solicitud en [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=167259).
+> Las aplicaciones que están disponibles para el acceso condicional han pasado por un proceso de incorporación y validación. Esta lista no incluye todas las aplicaciones de Microsoft, ya que muchas son servicios de back-end y no están diseñadas para que se les aplique la directiva directamente. Si está buscando una aplicación que falta, puede ponerse en contacto con el equipo de la aplicación específica o hacer una solicitud en [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
 
 ### <a name="office-365"></a>Office 365
 

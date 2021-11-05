@@ -14,12 +14,12 @@ ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.reviewer: miccohen
-ms.openlocfilehash: 2bc309ed4d4fcfcc205ff3b464d23769d1e2182c
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 3e00bce1090a623efbab0c84722e4dbc46200f5f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129611864"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131039817"
 ---
 # <a name="deploy-an-f5-big-ip-virtual-edition-vm-to-azure-active-directory"></a>Implementación de una VM de F5 BIG-IP Virtual Edition en Azure Active Directory
 
@@ -47,9 +47,9 @@ No se necesita experiencia ni conocimientos previos de F5 BIG-IP, aunque es reco
 
 - Un certificado comodín o de nombre alternativo del firmante (SAN), para publicar aplicaciones web a través de la capa de sockets seguros (SSL). [Let's Encrypt](https://letsencrypt.org/) ofrece un certificado gratis de 90 días para las pruebas.
 
-- Un certificado SSL para proteger la interfaz de administración de BIG-IPs. Se puede utilizar un certificado que se usa para publicar aplicaciones web, si su asunto se corresponde con el nombre de dominio completo de BIG-IP. Por ejemplo, un certificado comodín definido con un asunto *.contoso.com sería adecuado para `https://big-ip-vm.contoso.com:8443`
+- Un certificado SSL para proteger la interfaz de administración de BIG-IPs. Se puede utilizar un certificado que se usa para publicar aplicaciones web, si su asunto se corresponde con el nombre de dominio completo de BIG-IP. Por ejemplo, un certificado comodín definido con un asunto `*.contoso.com` sería adecuado para `https://big-ip-vm.contoso.com:8443`.
 
-La implementación de la máquina virtual y las configuraciones del sistema base tardan aproximadamente 30 minutos, momento en el cual la plataforma BIG-IP estará lista para implementar cualquiera de los escenarios de acceso híbrido seguro que se muestran [aquí](f5-aad-integration.md).
+La implementación de la máquina virtual y las configuraciones del sistema base tardan aproximadamente 30 minutos, tiempo en el cual la plataforma BIG-IP estará lista para implementar cualquiera de los escenarios de acceso híbrido seguro que se muestran en [Integración de F5 BIG-IP con Azure Active Directory](f5-aad-integration.md).
 
 Para probar los escenarios, en este tutorial se da por supuesto que BIG-IP se implementará en un grupo de recursos de Azure que contiene un entorno de Active Directory (AD). El entorno debe constar de una máquina virtual que actúe de controlador de dominio (DC) y otra de host web (IIS). Tener estos servidores en otras ubicaciones de la máquina virtual de BIG-IP también es correcto siempre que BIG-IP tenga una línea de visión sobre cada uno de los roles necesarios para admitir un escenario determinado. También se admiten los escenarios en los que la máquina virtual de BIG-IP está conectada a otro entorno a través de una conexión VPN.
 
@@ -234,7 +234,7 @@ En los pasos siguientes se da por supuesto que la zona DNS del dominio público 
   Si administra el espacio de nombres de dominio del DNS con un proveedor externo como [GoDaddy](https://www.godaddy.com/), deberá crear los registros mediante su propia utilidad de administración de DNS.
 
 >[!NOTE]
->También puede usar el archivo localhosts de un equipo si prueba y cambia con frecuencia los registros de DNS. Para acceder al archivo localhosts en un equipo con Windows presione Win + R en el teclado y escriba la palabra **drivers** en el cuadro Ejecutar. Tenga en cuenta que un registro de localhost solo proporcionará la resolución DNS para el equipo local, no para otros clientes.
+>También puede usar el archivo localhosts de un equipo si prueba y cambia con frecuencia los registros de DNS. Para acceder al archivo localhosts en un equipo con Windows, presione Win + R en el teclado y escriba la palabra *drivers* en el cuadro **Ejecutar**. Tenga en cuenta que un registro de localhost solo proporcionará la resolución DNS para el equipo local, no para otros clientes.
 
 ## <a name="client-traffic"></a>Tráfico de cliente
 
@@ -355,7 +355,7 @@ El aprovisionamiento de perfiles de SSL de cliente y de servidor tendrá la inst
 
 2. En la lista desplegable **Tipo de importación**, seleccione **PKCS 12(IIS)** .
 
-3. Proporcione un nombre para el certificado importado, por ejemplo `ContosoWilcardCert`.
+3. Proporcione un nombre para el certificado importado, como `ContosoWildcardCert`.
 
 4. Seleccione **Elegir archivo** para ir al certificado web de SSL cuyo nombre de asunto se corresponde con el sufijo de dominio que se va a usar para los servicios publicados.
 
@@ -363,7 +363,7 @@ El aprovisionamiento de perfiles de SSL de cliente y de servidor tendrá la inst
 
 6. En la barra de navegación izquierda, vaya a **Local Traffic** > **Profiles** > **SSL** > **Client** (Tráfico local > Perfiles > SSL > Cliente) y, después, seleccione **Create** (Crear).
 
-7. En la página **New Client SSL Profile** (Nuevo perfil de SSL de cliente), proporcione un nombre descriptivo único para el nuevo perfil de SSL de cliente y asegúrese de que el perfil primario esté establecido en **clientssl**.
+7. En la página **New Client SSL Profile** (Nuevo perfil de SSL de cliente), proporcione un nombre descriptivo único para el nuevo perfil de SSL de cliente y asegúrese de que el perfil primario esté establecido en `clientssl`.
 
 ![En la imagen se muestra la opción Update (Actualizar) de BIG-IP](./media/f5ve-deployment-plan/client-ssl.png)
 
@@ -375,7 +375,7 @@ El aprovisionamiento de perfiles de SSL de cliente y de servidor tendrá la inst
 
 10. Repita los pasos 6 a 9 para crear un **perfil de certificado SSL de servidor**. En la cinta de opciones superior, seleccione **SSL** > **Server** > **Create** (SSL > Servidor > Crear).
 
-11. En la página **New Server SSL Profile** (Nuevo perfil de SSL de servidor), proporcione un nombre descriptivo único para el nuevo perfil de SSL de servidor y asegúrese de que el perfil primario esté establecido en **serverssl**.
+11. En la página **New Server SSL Profile** (Nuevo perfil de SSL de servidor), proporcione un nombre descriptivo único para el nuevo perfil de SSL de servidor y asegúrese de que el perfil primario esté establecido en `serverssl`.
 
 12. Active la casilla de la derecha para las filas Certificado y Clave y, en la lista desplegable, seleccione el certificado importado y, después, seleccione **Finished** (Finalizado).
 

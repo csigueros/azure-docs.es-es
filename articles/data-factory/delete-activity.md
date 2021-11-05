@@ -9,12 +9,12 @@ ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: c3e5dc6c0a45d8db64d697232d7a5d3f0c212317
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 30aa69b414770a1d787767f0be4b1e27b50d86d7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124782634"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084925"
 ---
 # <a name="delete-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Actividad Eliminar de Azure Data Factory y Azure Synapse Analytics
 
@@ -365,10 +365,10 @@ Puede crear una canalización para limpiar los archivos antiguos o expirados apr
 
 ### <a name="move-files-by-chaining-the-copy-activity-and-the-delete-activity"></a>Movimiento de archivos encadenando la actividad de copia y la actividad de eliminación
 
-Puede mover un archivo mediante una actividad de copia para copiar un archivo y, a continuación, una actividad de eliminación para eliminar un archivo en una canalización.  Si desea mover varios archivos, puede usar la actividad GetMetadata + actividad de filtro + actividad Foreach + actividad de copia + actividad de eliminación como en el ejemplo siguiente:
+Puede mover un archivo mediante una actividad de copia para copiar un archivo y, a continuación, una actividad de eliminación para eliminar un archivo en una canalización.  Si quiere mover varios archivos, puede usar la actividad GetMetadata + actividad de filtro + actividad Foreach + actividad de copia + actividad de eliminación como en el ejemplo siguiente.
 
 > [!NOTE]
-> Si desea mover toda la carpeta definiendo un conjunto de datos que contiene solo una ruta de carpeta y, a continuación, usando una actividad de copia y una actividad de eliminación para hacer referencia al mismo conjunto de datos que representa una carpeta, deberá tener mucho cuidado. El motivo es que tiene que asegurarse de que NO lleguen nuevos archivos a la carpeta entre la operación de copia y la operación de eliminación.  Si llegan archivos nuevos a la carpeta en el momento en que la actividad de copia acaba de completar el trabajo de copia pero la actividad de eliminación aún no ha empezado, es posible que la actividad de eliminación elimine este nuevo archivo entrante que NO se ha copiado aún en el destino mediante la eliminación de toda la carpeta. 
+> Si quiere mover toda la carpeta definiendo un conjunto de datos que contiene solo una ruta de carpeta y, a continuación, usando una actividad de copia y una actividad de eliminación para hacer referencia al mismo conjunto de datos que representa una carpeta, deberá tener mucho cuidado. Debe asegurarse de que **no** llegue ningún archivo nuevo a la carpeta entre la operación de copia y la operación de eliminación. Si llegan archivos nuevos a la carpeta en el momento en que la actividad de copia acaba de completar el trabajo de copia pero la actividad de eliminación aún no ha empezado, es posible que la actividad de eliminación elimine este nuevo archivo entrante que NO se ha copiado aún en el destino mediante la eliminación de toda la carpeta. 
 
 #### <a name="sample-pipeline"></a>Canalización de ejemplo
 

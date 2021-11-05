@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 4e2a220b9b595bd94fd835d12860800a439f8bb8
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: 60d99ea9b1add522701a82bbd461e4ef064286aa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122825256"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131070458"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-have-two-sets-of-authentication-credentials"></a>Automatización de la rotación de un secreto para recursos que tienen dos conjuntos de credenciales de autenticación
 
@@ -195,7 +195,7 @@ Get-AzKeyVaultSecret -VaultName vaultrotation-kv -Name storageKey -AsPlainText
 
 Observe que el valor de `CredentialId` se actualiza al valor de `keyName` alternativo y que se regenera `value`:
 
-![Captura de pantalla que muestra la salida del comando a z keyvault secret show para la primera cuenta de almacenamiento.](../media/secrets/rotation-dual/dual-rotation-4.png)
+![Captura de pantalla que muestra la salida del comando A Z keyvault secret show para la primera cuenta de almacenamiento.](../media/secrets/rotation-dual/dual-rotation-4.png)
 
 Recupere las claves de acceso para comparar los valores:
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
@@ -211,7 +211,7 @@ Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotat
 
 Tenga en cuenta que el elemento `value` de la clave es igual que el secreto en el almacén de claves:
 
-![Captura de pantalla que muestra la salida del comando a z storage account keys list para la primera cuenta de almacenamiento.](../media/secrets/rotation-dual/dual-rotation-5.png)
+![Captura de pantalla que muestra la salida del comando A Z storage account keys list para la primera cuenta de almacenamiento.](../media/secrets/rotation-dual/dual-rotation-5.png)
 
 ## <a name="add-storage-accounts-for-rotation"></a>Incorporación de cuentas de almacenamiento para la rotación
 
@@ -298,7 +298,7 @@ Get-AzKeyVaultSecret -VaultName vaultrotation-kv -Name storageKey2 -AsPlainText
 
 Observe que el valor de `CredentialId` se actualiza al valor de `keyName` alternativo y que se regenera `value`:
 
-![Captura de pantalla que muestra la salida del comando a z keyvault secret show para la segunda cuenta de almacenamiento.](../media/secrets/rotation-dual/dual-rotation-8.png)
+![Captura de pantalla que muestra la salida del comando A Z keyvault secret show para la segunda cuenta de almacenamiento.](../media/secrets/rotation-dual/dual-rotation-8.png)
 
 Recupere las claves de acceso para comparar los valores:
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
@@ -314,7 +314,7 @@ Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotat
 
 Tenga en cuenta que el elemento `value` de la clave es igual que el secreto en el almacén de claves:
 
-![Captura de pantalla que muestra la salida del comando a z storage account keys list para la segunda cuenta de almacenamiento.](../media/secrets/rotation-dual/dual-rotation-9.png)
+![Captura de pantalla que muestra la salida del comando A Z storage account keys list para la segunda cuenta de almacenamiento.](../media/secrets/rotation-dual/dual-rotation-9.png)
 
 ## <a name="key-vault-rotation-functions-for-two-sets-of-credentials"></a>Funciones de rotación de Key Vault para dos conjuntos de credenciales
 

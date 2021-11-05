@@ -4,16 +4,16 @@ description: Describe el concepto de un espacio de nombres jerárquico de Azure 
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/01/2021
+ms.date: 10/22/2021
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 4eaee714d079836e0919621b2d2e5661d07dfe80
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 38a5298bcbefcacdd6869eba75d8accec207c821
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128664853"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008757"
 ---
 # <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Espacio de nombres jerárquico de Azure Data Lake Storage Gen2
 
@@ -33,7 +33,7 @@ Uno de los motivos por los que históricamente los almacenamientos de objetos no
 
 ## <a name="deciding-whether-to-enable-a-hierarchical-namespace"></a>Decisión de si habilitar un espacio de nombres jerárquico
 
-Una vez que haya habilitado un espacio de nombres jerárquico en su cuenta, no podrá revertirlo a un espacio de nombres plano. Por lo tanto, tenga en cuenta si tiene sentido habilitar un espacio de nombres jerárquico en función de la naturaleza de las cargas de trabajo del almacén de objetos.
+Una vez que haya habilitado un espacio de nombres jerárquico en su cuenta, no podrá revertirlo a un espacio de nombres plano. Por lo tanto, tenga en cuenta si tiene sentido habilitar un espacio de nombres jerárquico en función de la naturaleza de las cargas de trabajo del almacén de objetos. Para evaluar el impacto de habilitar un espacio de nombres jerárquico en cargas de trabajo, aplicaciones, costos, integraciones de servicios, herramientas, características y documentación, vea [Actualización de Azure Blob Storage con funcionalidades de Azure Data Lake Storage Gen2](upgrade-to-data-lake-storage-gen2.md).
 
 Puede que algunas cargas de trabajo no obtengan ninguna ventaja al habilitar un espacio de nombres jerárquico. Algunos ejemplos incluyen las copias de seguridad, el almacenamiento de imágenes y otras aplicaciones donde la organización de objetos y los propios objetos se almacenan por separado (por ejemplo, en una base de datos independiente).
 
@@ -45,10 +45,7 @@ Las razones para habilitar un espacio de nombres jerárquico las determina un an
 
 Para analizar las diferencias en los precios del almacenamiento de datos, los precios de las transacciones y los precios de las reservas de capacidad de almacenamiento entre cuentas que tienen un espacio de nombres jerárquico plano en lugar de un espacio de nombres jerárquico, consulte [Precios de Azure Data Lake Storage Gen2](https://azure.microsoft.com/pricing/details/storage/data-lake/).
 
-## <a name="enabling-a-hierarchical-namespace"></a>Habilitación de un espacio de nombres jerárquico
-
-No se puede habilitar un espacio de nombres jerárquico en una cuenta de almacenamiento existente. Solo puede habilitar un espacio de nombres jerárquico al crear una cuenta de almacenamiento. Para obtener instrucciones, consulte [Creación de una cuenta de almacenamiento para su uso con Azure Data Lake Storage Gen2 habilitado](create-data-lake-storage-account.md).
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Crear una cuenta de almacenamiento](../common/storage-account-create.md)
+- Habilite un espacio de nombres jerárquico al crear una cuenta de almacenamiento. Vea [Creación de una cuenta de Storage](../common/storage-account-create.md).
+- No se puede habilitar un espacio de nombres jerárquico en una cuenta de almacenamiento existente. Vea [Actualización de Azure Blob Storage con funcionalidades de Azure Data Lake Storage Gen2](upgrade-to-data-lake-storage-gen2-how-to.md).

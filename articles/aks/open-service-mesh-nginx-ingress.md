@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 8/26/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
-ms.openlocfilehash: c06e6fe787070adbe0817e295380b2a2ef2775b5
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: ee313000b5b2fd21e7f629c57f45bbe0d3557835
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123440133"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131066831"
 ---
 # <a name="deploy-an-application-managed-by-open-service-mesh-osm-with-nginx-ingress"></a>Implementación de una aplicación administrada por Open Service Mesh (OSM) con entrada de NGINX
 
@@ -36,11 +36,8 @@ En los pasos que se detallan en este artículo se supone que ha creado un clúst
 Debe tener instalados los siguientes recursos:
 
 - CLI de Azure, versión 2.20.0 o posterior
-- Extensión `aks-preview`, versión 0.5.5 o posterior
-- Versión v.0.8.0 o posterior de OSM
+- Versión 0.11.1 o posterior de OSM
 - Procesador JSON "jq" versión 1.6+
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="view-and-verify-the-current-osm-cluster-configuration"></a>Visualización y comprobación de la configuración actual del clúster de OSM
 
@@ -177,7 +174,7 @@ service/bookwarehouse created
 deployment.apps/bookwarehouse created
 ```
 
-## <a name="update-the-bookbuyer-service"></a>Actualización del servicio bookbuyer
+## <a name="update-the-bookbuyer-service"></a>Actualización del servicio Bookbuyer
 
 Actualice el servicio `bookbuyer` a la configuración de puerto de entrada correcta con el siguiente manifiesto de servicio.
 
@@ -209,7 +206,7 @@ En primer lugar, se obtiene el nombre del pod de `bookbuyer`.
 kubectl get pod -n bookbuyer
 ```
 
-Debería ver una salida similar a la siguiente. El pod de `bookbuyer` tiene un nombre único anexado.
+Debería ver una salida similar a la siguiente. El pod de `bookbuyer` tendrá un nombre único anexado.
 
 ```Output
 NAME                         READY   STATUS    RESTARTS   AGE

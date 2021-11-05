@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/14/2021
 ms.author: jeedes
-ms.openlocfilehash: dba4bd60c428bd833812e212a67d308204228e6c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 4cd3ca1b08518cfed87b2d25b92d41478d536715
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124745166"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040121"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workshop"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Workshop
 
@@ -26,7 +26,7 @@ En este tutorial, obtendrá información sobre cómo integrar Workshop con Azure
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Workshop con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -60,7 +60,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Workshop mediant
 Para configurar y probar el inicio de sesión único de Azure AD con Workshop, haga lo siguiente:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Workshop](#configure-workshop-sso)** , para configurar los valores de Inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Workshop](#create-workshop-test-user)** , para tener un homólogo de B.Simon en Workshop que esté vinculado a la representación del usuario en Azure AD.
@@ -142,7 +142,7 @@ En esta sección, va a permitir que B.Simon acceda a Workshop mediante el inicio
 
 1. En el cuadro de texto **Dirección URL de metadatos de Idp**, pegue el valor de la **Dirección URL de metadatos de federación de aplicaciones** que copió de Azure Portal. 
 
-    ![captura de pantalla de la dirección URL de los metadatos](./media/workshop-tutorial/metadata-url.png)
+    ![Captura de pantalla de la dirección URL de los metadatos](./media/workshop-tutorial/metadata-url.png)
 
 1. Haga clic en **Crear SSO**.
 

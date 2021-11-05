@@ -8,12 +8,12 @@ ms.date: 10/14/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 2ed6da37d1e0e2cd61a6954903f7233f851c75bc
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: b2999019ce991ef8a8bbb9e1087b22190a6c54bb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130047956"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131022462"
 ---
 # <a name="premium-block-blob-storage-accounts"></a>Cuentas de almacenamiento de blobs en bloques Prémium
 

@@ -13,12 +13,12 @@ ms.date: 08/31/2021
 ms.author: sahmalik
 ms.reviewer: saeeda, shermanouko, jmprieur
 ms.custom: devx-track-csharp, aaddev, has-adal-ref
-ms.openlocfilehash: 1ccd2acaaec8c49de761511ebd3d4a5ad86f4095
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 0bb1dc80d9bebf0488bfa2a272f5f7fa5303b31b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129233661"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131018022"
 ---
 # <a name="migrate-public-client-applications-from-adalnet-to-msalnet"></a>Migración de aplicaciones cliente públicas de ADAL.NET a MSAL.NET
 
@@ -55,7 +55,7 @@ Los escenarios interactivos son donde la aplicación cliente pública muestra un
 El código ADAL de la aplicación en una aplicación cliente pública que usa la autenticación interactiva crea instancias de `AuthenticationContext` e incluye una llamada `AcquireTokenAsync`, con los parámetros siguientes.
  - `clientId`, que es un GUID que representa el registro de la aplicación.
  - `resourceUrl`, que indica el recurso para el que pide un token.
- - Uri, que es la dirección URL de respuesta.
+ - Una URI que es la dirección URL de respuesta.
  - Un objeto `PlatformParameters`. 
 
  #### <a name="update-the-code-for-interactive-scenarios"></a>Actualizar el código en escenarios interactivos
@@ -224,7 +224,7 @@ result = await context.AcquireTokenAsync(resource, clientId,
       // AcquireTokenByIntegratedWindowsAuth form that takes in the username
 
       // Error Code: integrated_windows_auth_not_supported_managed_user
-      // Explanation: This method relies on an a protocol exposed by Active Directory (AD). If a user was created in Azure
+      // Explanation: This method relies on a protocol exposed by Active Directory (AD). If a user was created in Azure
       // Active Directory without AD backing ("managed" user), this method will fail. Users created in AD and backed by
       // AAD ("federated" users) can benefit from this non-interactive method of authentication.
       // Mitigation: Use interactive authentication

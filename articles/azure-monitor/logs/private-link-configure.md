@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 08/01/2021
-ms.openlocfilehash: 9f0b1a3f51a5eae7b10ed74880c8abe1c92aae7a
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 99e8830b1b4b667d68bb8db1243d1c0ddaeab15a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129279001"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131006779"
 ---
 # <a name="configure-your-private-link"></a>Configuración de Private Link
 Para configurar Private Link se necesitan algunos pasos: 
@@ -303,5 +303,5 @@ Esta zona configura la conectividad con la cuenta de almacenamiento de paquetes 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtener información sobre el [almacenamiento privado](private-storage.md).
+- Más información sobre el [almacenamiento privado](private-storage.md) para registros personalizados y claves administradas por el cliente (CMK).
 - Más información sobre [Private Link para Automation](../../automation/how-to/private-link-security.md)

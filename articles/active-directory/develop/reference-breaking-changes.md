@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 6/4/2021
+ms.date: 10/22/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: 606d1d06a76a1783b38841f2344f2e5273add915
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 04dffd4dcebee3cee9023cf445fda6e3fd05b008
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130069581"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131050686"
 ---
 # <a name="whats-new-for-authentication"></a>Novedades en la autenticación
 
@@ -35,7 +35,27 @@ El sistema de autenticación altera y agrega características constantemente par
 
 ## <a name="upcoming-changes"></a>Próximos cambios
 
+Sin próximos cambios que deban tenerse en cuenta. 
+
 ## <a name="october-2021"></a>Octubre de 2021
+
+### <a name="error-50105-has-been-fixed-to-not-return-interaction_required-during-interactive-authentication"></a>Se ha corregido el error 50105 para no devolver `interaction_required` durante la autenticación interactiva
+
+**Fecha de entrada en vigor**: octubre de 2021
+
+**Puntos de conexión afectados**: v2.0 y v1.0
+
+**Protocolo afectado**: todos los flujos de usuario para aplicaciones [que requieren la asignación del usuario](../manage-apps/what-is-access-management.md#requiring-user-assignment-for-an-app)
+
+**Cambio**
+
+Se genera el error 50105 (la designación actual) cuando un usuario no asignado intenta iniciar sesión en una aplicación que un administrador ha marcado como necesidad de asignación de usuario.  Se trata de un patrón de control de acceso común y los usuarios a menudo deben encontrar un administrador para solicitar la asignación para desbloquear el acceso.  El error tenía un error que provocaría bucles infinitos en aplicaciones bien codificadas que controlaban correctamente la respuesta de error `interaction_required`. `interaction_required` indica a una aplicación que realice la autenticación interactiva, pero incluso después de hacerlo, Azure AD seguiría devolviendo una respuesta de error `interaction_required`.  
+
+El escenario de error se ha actualizado, por lo que durante la autenticación no interactiva (donde `prompt=none` se usa para ocultar la experiencia de usuario), se indicará a la aplicación que realice la autenticación interactiva mediante una respuesta de error `interaction_required`. En la autenticación interactiva posterior, Azure AD contendrá ahora el usuario y mostrará un mensaje de error directamente, evitando que se produzca un bucle. 
+
+Como recordatorio, Azure AD no admite aplicaciones que detectan códigos de error individuales, como la comprobación de cadenas para `AADSTS50105`. En su lugar, la [directriz de Azure AD](reference-aadsts-error-codes.md#handling-error-codes-in-your-application) es seguir los estándares y usar las [respuestas de autenticación estandarizadas](https://openid.net/specs/openid-connect-core-1_0.html#AuthError) como `interaction_required` y `login_required`. Se encuentran en el campo `error` estándar de la respuesta: los otros campos son para consumo humano durante la solución de problemas. 
+
+Puede revisar el texto actual del error 50105 y mucho más en el servicio de búsqueda de errores: https://login.microsoftonline.com/error?code=50105. 
 
 ### <a name="appid-uri-in-single-tenant-applications-will-require-use-of-default-scheme-or-verified-domains"></a>El URI de AppId en aplicaciones de inquilino único requerirá el uso del esquema predeterminado o los dominios comprobados
 
@@ -57,21 +77,7 @@ Si una solicitud produce un error en la comprobación de validación, la API de 
 
 [!INCLUDE [active-directory-identifierUri](../../../includes/active-directory-identifier-uri-patterns.md)]
 
-## <a name="june-2021"></a>Junio de 2021
-
-### <a name="the-device-code-flow-ux-will-now-include-an-app-confirmation-prompt"></a>La experiencia de usuario para el flujo de código de dispositivo ahora incluirá un mensaje de confirmación de la aplicación
-
-**Fecha de entrada en vigor**: junio de 2021
-
-**Puntos de conexión afectados**: v2.0 y v1.0
-
-**Protocolo afectado**: el [flujo de código de dispositivo](v2-oauth2-device-code.md)
-
-Como mejora de seguridad, el flujo de código de dispositivo se actualizó para agregar un mensaje adicional, que valida que el usuario está iniciando sesión en la aplicación que espera. Esto se agrega para ayudar a evitar ataques de suplantación de identidad (phishing).
-
-El mensaje que aparece tiene el siguiente aspecto:
-
-:::image type="content" source="media/breaking-changes/device-code-flow-prompt.png" alt-text="Nuevo mensaje, donde se lee &quot;Intenta iniciar sesión en la CLI de Azure?&quot;.":::
+## <a name="august-2021"></a>Agosto de 2021
 
 ### <a name="conditional-access-will-only-trigger-for-explicitly-requested-scopes"></a>El acceso condicional solo se desencadenará para ámbitos solicitados explícitamente
 
@@ -97,6 +103,23 @@ Si, después, la aplicación solicita `scope=files.readwrite`, el acceso condici
 
 Si la aplicación realiza una última solicitud para cualquiera de los tres ámbitos (por ejemplo, `scope=tasks.read`), Azure AD verá que el usuario ya ha completado las directivas de acceso condicional necesarias para `files.readwrite` y, de nuevo, emitirá un token con los tres permisos. 
 
+
+## <a name="june-2021"></a>Junio de 2021
+
+### <a name="the-device-code-flow-ux-will-now-include-an-app-confirmation-prompt"></a>La experiencia de usuario para el flujo de código de dispositivo ahora incluirá un mensaje de confirmación de la aplicación
+
+**Fecha de entrada en vigor**: junio de 2021
+
+**Puntos de conexión afectados**: v2.0 y v1.0
+
+**Protocolo afectado**: el [flujo de código de dispositivo](v2-oauth2-device-code.md)
+
+Como mejora de seguridad, el flujo de código de dispositivo se actualizó para agregar un mensaje adicional, que valida que el usuario está iniciando sesión en la aplicación que espera. Esto se agrega para ayudar a evitar ataques de suplantación de identidad (phishing).
+
+El mensaje que aparece tiene el siguiente aspecto:
+
+:::image type="content" source="media/breaking-changes/device-code-flow-prompt.png" alt-text="Nuevo mensaje, donde se lee &quot;Intenta iniciar sesión en la CLI de Azure?&quot;.":::
+
 ## <a name="may-2020"></a>Mayo de 2020
 
 ### <a name="bug-fix-azure-ad-will-no-longer-url-encode-the-state-parameter-twice"></a>Corrección del error: Azure AD ya no codificará la dirección URL del parámetro de estado dos veces.
@@ -107,7 +130,7 @@ Si la aplicación realiza una última solicitud para cualquiera de los tres ámb
 
 **Protocolo afectado**: todos los flujos que visitan el punto de conexión `/authorize` (flujo implícito y flujo de código de autorización)
 
-Se encontró un error y se corrigió en la respuesta de autorización de Azure AD. Durante el tramo `/authorize` de autenticación, el parámetro `state` de la solicitud se incluye en la respuesta, con el fin de conservar el estado de la aplicación y ayudar a evitar ataques CSRF. En Azure AD, el parámetro `state` de la dirección URL se ha codificado de manera incorrecta antes de insertarlo en la respuesta, donde se ha codificado una vez más.  Como consecuencia, las aplicaciones podrían rechazar incorrectamente la respuesta de Azure AD. 
+Se encontró un error y se corrigió en la respuesta de autorización de Azure AD. Durante el tramo `/authorize` de autenticación, el parámetro `state` de la solicitud se incluye en la respuesta, con el fin de conservar el estado de la aplicación y ayudar a evitar ataques CSRF. En Azure AD, el parámetro `state` de la dirección URL se ha codificado de manera incorrecta antes de insertarlo en la respuesta, donde se ha codificado una vez más.  Como consecuencia, las aplicaciones podrían rechazar incorrectamente la respuesta de Azure AD.
 
 Azure AD ya no hará doble codificación de este parámetro, lo que permite que las aplicaciones analicen correctamente el resultado. Este cambio se realizará para todas las aplicaciones. 
 

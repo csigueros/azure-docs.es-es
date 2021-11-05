@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/07/2020
+ms.date: 10/26/2021
 ms.author: adbadram
 ms.reviewer: mathoma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bc4bfc48c9b8f6891c45730215f2c49e84467a42
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 8c0e4e5c0c12284bd3cc2f777f6951e04cc06926
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130161886"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131071864"
 ---
 # <a name="register-multiple-sql-vms-in-azure-with-the-sql-iaas-agent-extension"></a>Registro de varias máquinas virtuales con SQL en Azure con la extensión Agente de IaaS de SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -38,6 +38,8 @@ En este artículo se explica cómo registrar máquinas virtuales con SQL Server
 El cmdlet `Register-SqlVMs` se puede usar para registrar todas las máquinas virtuales en una lista determinada de suscripciones, grupos de recursos o una lista de máquinas virtuales específicas. El cmdlet registrará las máquinas virtuales en el [modo de administración ligero](sql-server-iaas-agent-extension-automate-management.md#management-modes) y luego generará un [informe y un archivo de registro](#output-description). 
 
 El proceso de registro no conlleva ningún riesgo, no tiene ningún tiempo de inactividad y no reiniciará el servicio SQL Server ni la máquina virtual. 
+
+De manera predeterminada, las máquinas virtuales de Azure con SQL Server 2016 o posterior instalado se registrarán automáticamente con la extensión Agente de IaaS de SQL cuando el [servicio CEIP](/sql/sql-server/usage-and-diagnostic-data-configuration-for-sql-server) la detecta.  Para obtener más información, consulte [Complemento de privacidad de SQL Server](/sql/sql-server/sql-server-privacy#non-personal-data).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -249,4 +251,4 @@ Para más información, consulte los siguientes artículos.
 * [Introducción a SQL Server en máquinas virtuales Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Preguntas más frecuentes de SQL Server en máquinas virtuales Windows](frequently-asked-questions-faq.yml)
 * [Orientación de precios de SQL Server para máquinas virtuales de Azure](pricing-guidance.md)
-* [Novedades de SQL Server en VM de Azure](doc-changes-updates-release-notes-whats-new.md)
+* [Novedades de SQL Server en Azure VM](doc-changes-updates-release-notes-whats-new.md)

@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo empaquetar una aplicación de Azur
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 168e6d6dc7ab5bfeccc4e1dabc7bd50efcbe8f34
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f575ea61f2406e8e1a636c2cf633a034753853bf
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98789709"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131003929"
 ---
 # <a name="package-an-application"></a>Empaquetar una aplicación
 
@@ -209,8 +209,7 @@ Puede indicar a Visual Studio que comprima paquetes en la implementación, agreg
 A partir de la versión 6.1, Service Fabric permite el aprovisionamiento desde un almacén externo.
 Con esta opción, el paquete de aplicación no tiene que copiarse al almacén de imágenes. En su lugar, puede crear un archivo `sfpkg` y cargarlo a un almacén externo. A continuación, debe proporcionar el URI de descarga a Service Fabric durante el aprovisionamiento. El mismo paquete puede aprovisionarse a varios clústeres. El aprovisionamiento desde el almacén externo ahorra el tiempo que se necesita para copiar el paquete a cada clúster.
 
-El archivo `sfpkg` es un archivo ZIP que contiene el paquete de aplicación inicial y tiene la extensión ".sfpkg".
-En el archivo ZIP, el paquete de aplicación puede estar comprimido o no. La compresión del paquete de aplicación en el archivo ZIP se realiza en el nivel de paquete de código, configuración y datos, como [se ha mencionado anteriormente](service-fabric-package-apps.md#compress-a-package).
+El archivo `sfpkg` es un archivo ZIP que contiene el paquete de aplicación inicial y tiene la extensión `.sfpkg`. En el archivo ZIP, el paquete de aplicación puede estar comprimido o no. La compresión del paquete de aplicación en el archivo ZIP se realiza en el nivel de paquete de código, configuración y datos, como [se ha mencionado anteriormente](service-fabric-package-apps.md#compress-a-package).
 
 Para crear un archivo `sfpkg`, comience con una carpeta que contenga el paquete de aplicación original, comprimido o no. A continuación, utilice cualquier utilidad que comprima la carpeta con la extensión ".sfpkg". Por ejemplo, utilice [ZipFile.CreateFromDirectory](/dotnet/api/system.io.compression.zipfile.createfromdirectory#System_IO_Compression_ZipFile_CreateFromDirectory_System_String_System_String_System_IO_Compression_CompressionLevel_System_Boolean_).
 

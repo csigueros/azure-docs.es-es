@@ -1,65 +1,68 @@
 ---
-title: 'Azure Defender para servidores: ventajas y características'
-description: Obtenga información sobre las ventajas y características de Azure Defender para servidores.
+title: 'Microsoft Defender para servidores: ventajas y características'
+description: Obtenga información sobre las ventajas y características de Microsoft Defender para servidores.
 author: memildin
 ms.author: memildin
 ms.date: 09/05/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 1a7b5d1e7ed3c4c1de2c535fb126b67f3ffadecd
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 121809ab32db6811eb6755c857f13a3469cbcfa0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129711721"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131061055"
 ---
-# <a name="introduction-to-azure-defender-for-servers"></a>Introducción a Azure Defender para servidores
+# <a name="introduction-to-microsoft-defender-for-servers"></a>Introducción a Microsoft Defender para servidores
 
-Azure Defender para servidores agrega la detección de amenazas y defensas avanzadas para las máquinas Windows y Linux.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Para Windows, Azure Defender se integra con servicios de Azure para supervisar y proteger las máquinas Windows. Security Center presenta las alertas y las sugerencias de corrección de todos estos servicios en un formato fácil de usar.
+Microsoft Defender para servidores agrega la detección de amenazas y defensas avanzadas para las máquinas Windows y Linux.
 
-Para Linux, Azure Defender recopila registros de auditoría de máquinas Linux mediante auditd, uno de los marcos de trabajo de Linux más comunes.
+Para Windows, Microsoft Defender for Cloud se integra con servicios de Azure para supervisar y proteger las máquinas Windows. Defender for Cloud presenta las alertas y las sugerencias de corrección de todos estos servicios en un formato fácil de usar.
+
+Para Linux, Defender for Cloud recopila registros de auditoría de máquinas Linux mediante auditd, uno de los marcos de trabajo de Linux más comunes.
 
 
-## <a name="what-are-the-benefits-of-azure-defender-for-servers"></a>¿Cuáles son las ventajas de Azure Defender para servidores?
+## <a name="what-are-the-benefits-of-microsoft-defender-for-servers"></a>¿Cuáles son las ventajas de Microsoft Defender para servidores?
 
-Las funcionalidades de detección de amenazas y protección que se proporcionan con Azure Defender para servidores incluyen:
+Las funcionalidades de detección de amenazas y protección que se proporcionan con Microsoft Defender para servidores incluyen:
 
-- **Licencia integrada de Microsoft Defender para punto de conexión (solo Windows)** : Azure Defender para servidores incluye [Microsoft Defender para punto de conexión](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Esta integración ofrece funcionalidades completas de detección y respuesta (EDR) de puntos de conexión. Para más información, consulte [Proteja los puntos de conexión con la solución EDR integrada de Security Center: Microsoft Defender para punto de conexión](security-center-wdatp.md).
+- **Licencia integrada de Microsoft Defender para punto de conexión**: Microsoft Defender para servidores incluye [Microsoft Defender para punto de conexión](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Esta integración ofrece funcionalidades completas de detección y respuesta (EDR) de puntos de conexión. Para más información, consulte [Proteja los puntos de conexión con la solución EDR integrada de Security Center: Microsoft Defender para punto de conexión](integration-defender-for-endpoint.md).
 
-    Cuando Defender for Endpoint detecta una amenaza, desencadena una alerta. La alerta se muestra en Security Center. En Security Center, también puede dinamizar hasta la consola de Defender for Endpoint para realizar una investigación detallada y descubrir el alcance del ataque. Obtenga más información acerca de Microsoft Defender for Endpoint.
+    Cuando Defender for Endpoint detecta una amenaza, desencadena una alerta. La alerta se muestra en Defender for Cloud. En Defender for Cloud, también puede dinamizar hasta la consola de Defender para punto de conexión para realizar una investigación detallada y descubrir el alcance del ataque. Obtenga más información acerca de Microsoft Defender for Endpoint.
 
     > [!IMPORTANT]
-    > La integración de Security Center con Microsoft Defender para punto de conexión está habilitada de forma predeterminada. Por lo tanto, al habilitar Azure Defender, da su consentimiento para Azure Defender para que los servidores accedan a los datos de Microsoft Defender para punto de conexión relacionados con vulnerabilidades, software instalado y alertas de sus puntos de conexión.
+    > La integración de Defender for Cloud con Microsoft Defender para punto de conexión está habilitada de manera predeterminada. Por lo tanto, al habilitar Microsoft Defender, da su consentimiento para Defender for Cloud para que los servidores accedan a los datos de Microsoft Defender para punto de conexión relacionados con vulnerabilidades, software instalado y alertas de sus puntos de conexión.
     >
-    > Actualmente ofrecemos el sensor para máquinas Linux en versión preliminar. Para más información, consulte [Protección de los puntos de conexión con la solución EDR integrada de Security Center: Microsoft Defender para punto de conexión](security-center-wdatp.md).
+    > Actualmente ofrecemos el sensor para máquinas Linux en versión preliminar. Para obtener más información, consulte [Protección de los puntos de conexión con la solución EDR integrada de Defender for Cloud: Microsoft Defender para punto de conexión](integration-defender-for-endpoint.md).
 
-- **Herramientas de evaluación de vulnerabilidades para máquinas**: Azure Defender para servidores incluye una selección de herramientas de detección y administración de vulnerabilidades para las máquinas. En las páginas de configuración de Security Center, puede seleccionar cuál de estas herramientas se implementa en las máquinas y las vulnerabilidades detectadas se mostrarán en una recomendación de seguridad.
+- **Herramientas de evaluación de vulnerabilidades para máquinas**: Microsoft Defender para servidores incluye una selección de herramientas de detección y administración de vulnerabilidades para las máquinas. En las páginas de configuración de Defender for Cloud, puede seleccionar cuál de estas herramientas se implementa en las máquinas y las vulnerabilidades detectadas se mostrarán en una recomendación de seguridad.
 
     - **Administración de vulnerabilidades y amenazas de Microsoft**: detecte las vulnerabilidades y configuraciones incorrectas en tiempo real con Microsoft Defender for Endpoint y sin necesidad de agentes ni exámenes periódicos. La [administración de amenazas y vulnerabilidades](/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt) prioriza las vulnerabilidades en función del panorama de las amenazas, las detecciones en la organización, la información confidencial de los dispositivos vulnerables y el contexto empresarial. Obtenga más información en [Investigación de puntos débiles con la solución de administración de amenazas y vulnerabilidades de Microsoft Defender para punto de conexión](deploy-vulnerability-assessment-tvm.md)
 
-    - **Detector de vulnerabilidades con tecnología de Qualys**: el detector de Qualys es una de las herramientas líderes para identificar en tiempo real las vulnerabilidades en las máquinas virtuales híbridas y de Azure. No se necesita ninguna licencia ni cuenta de Qualys, ya que todo se administra sin problemas en Security Center. Obtenga más información en [Detector de Qualys integrado en Azure Defender para Azure y máquinas híbridas](deploy-vulnerability-assessment-vm.md).
+    - **Detector de vulnerabilidades con tecnología de Qualys**: el detector de Qualys es una de las herramientas líderes para identificar en tiempo real las vulnerabilidades en las máquinas virtuales híbridas y de Azure. No necesita ninguna licencia ni cuenta de Qualys, ya que todo se administra sin problemas en Defender for Cloud. Obtenga más información en [Examen de Qualys integrado en Defender for Cloud para Azure y máquinas híbridas](deploy-vulnerability-assessment-vm.md).
 
 - **Acceso Just-In-Time (JIT) a máquinas virtuales**: los agentes de amenazas buscan activamente máquinas accesibles con puertos de administración abiertos, como RDP o SSH. Todas las máquinas virtuales son objetivos potenciales para un ataque. Cuando se consigue poner en peligro a una máquina virtual, se usa como punto de entrada para atacar más recursos dentro de su entorno.
 
-    Una vez habilitado Azure Defender para servidores, puede usar el acceso Just-In-Time a máquinas virtuales ara bloquear el tráfico entrante a las máquinas virtuales, lo que reduce la exposición a ataques al mismo tiempo que proporciona un acceso sencillo para conectarse a las máquinas virtuales cuando sea necesario. Para más información, consulte [Descripción del acceso a la máquina virtual Just-in-Time (JIT)](just-in-time-explained.md).
+    Una vez habilitado Microsoft Defender para servidores, puede usar el acceso Just-In-Time a máquinas virtuales para bloquear el tráfico entrante a las máquinas virtuales, lo que reduce la exposición a ataques al mismo tiempo que proporciona un acceso sencillo para conectarse a las máquinas virtuales cuando sea necesario. Para más información, consulte [Descripción del acceso a la máquina virtual Just-in-Time (JIT)](just-in-time-access-overview.md).
 
 - **Supervisión de la integridad de los archivos (FIM)** : la supervisión de la integridad de los archivos (FIM), conocida también como supervisión de los cambios, examina los archivos y los registros del sistema operativo, el software de aplicación y demás para comprobar la existencia de cambios que podrían indicar un ataque. Para determinar si el estado actual del archivo es diferente del último examen del archivo, se usa un método de comparación. Puede aprovechar esta comparación para determinar si se han realizado modificaciones sospechosas o válidas en los archivos.
 
-    Una vez habilitado Azure Defender para servidores, puede usar FIM para validar la integridad de los archivos de Windows, los registros de Windows y los archivos de Linux. Para más información, consulte [Supervisión de la integridad de los archivos en Azure Security Center](security-center-file-integrity-monitoring.md).
+    Una vez habilitado Microsoft Defender para servidores, puede usar FIM para validar la integridad de los archivos de Windows, los registros de Windows y los archivos de Linux. Para obtener más información, vea [Supervisión de la integridad de los archivos en Microsoft Defender for Cloud](file-integrity-monitoring-overview.md).
 
 - **Controles de aplicaciones adaptables (ACC)** : los controles de aplicaciones adaptables son una solución inteligente y automatizada que permite definir listas de aplicaciones permitidas seguras conocidas para las máquinas.
 
-    Cuando haya habilitado y configurado controles de aplicaciones adaptables, recibirá alertas de seguridad si alguna aplicación ejecuta otros distintos a los definidos como seguros. Para más información, consulte [Uso de controles de aplicaciones adaptables para reducir las superficies de ataque de las máquinas](security-center-adaptive-application.md).
+    Cuando haya habilitado y configurado controles de aplicaciones adaptables, recibirá alertas de seguridad si alguna aplicación ejecuta otros distintos a los definidos como seguros. Para más información, consulte [Uso de controles de aplicaciones adaptables para reducir las superficies de ataque de las máquinas](adaptive-application-controls.md).
 
 - **Protección de red adaptable (ANH)** : la aplicación de grupos de seguridad de red (NSG) para filtrar el tráfico hacia y desde los recursos mejora la posición de seguridad de red. Sin embargo, aún puede haber algunos casos en los que el tráfico real que fluye a través del NSG es un subconjunto de las reglas de NSG definidas. En estos casos, puede mejorar la postura de seguridad al proteger aún más las reglas de NSG, según los patrones de tráfico real.
 
-    La protección de red adaptable proporciona recomendaciones para proteger mejor las reglas de NSG. Usa un algoritmo de aprendizaje automático que tiene en cuenta el tráfico real, la configuración de confianza conocida, la inteligencia de amenazas y otros indicadores de riesgo, y luego proporciona recomendaciones para permitir el tráfico solo desde tuplas IP y puerto específicas. Para más información, consulte [Mejora de la posición de seguridad de red con la protección de redes adaptativa](security-center-adaptive-network-hardening.md).
+    La protección de red adaptable proporciona recomendaciones para proteger mejor las reglas de NSG. Usa un algoritmo de aprendizaje automático que tiene en cuenta el tráfico real, la configuración de confianza conocida, la inteligencia de amenazas y otros indicadores de riesgo, y luego proporciona recomendaciones para permitir el tráfico solo desde tuplas IP y puerto específicas. Para más información, consulte [Mejora de la posición de seguridad de red con la protección de redes adaptativa](adaptive-network-hardening.md).
 
 
-- **Protección de host de Docker**: Azure Security Center identifica contenedores no administrados y que están hospedados en VM de IaaS Linux u otras máquinas Linux que ejecutan contenedores de Docker. Security Center evalúa continuamente las configuraciones de estos contenedores. A continuación, las compara con el Banco de prueba para Docker del Centro de seguridad de Internet (CIS). Security Center incluye todo el conjunto de reglas del banco de prueba de Docker de CIS y le avisa si los contenedores no cumplen ninguno de los controles. Para más información, consulte [Protección de los hosts de Docker](harden-docker-hosts.md).
+- **Protección del host de Docker**: Microsoft Defender for Cloud identifica contenedores no administrados y que están hospedados en VM de IaaS Linux u otras máquinas de Linux que ejecutan contenedores de Docker. Defender for Cloud evalúa continuamente las configuraciones de estos contenedores. A continuación, las compara con el Banco de prueba para Docker del Centro de seguridad de Internet (CIS). Defender for Cloud incluye todo el conjunto de reglas del banco de prueba de Docker de CIS y le avisa si los contenedores no cumplen ninguno de los controles. Para más información, consulte [Protección de los hosts de Docker](harden-docker-hosts.md).
 
 - **Detección de ataques sin archivos**: Los ataques sin archivos inyectan cargas malintencionadas en la memoria para evitar la detección mediante técnicas de detección basadas en disco. Luego, la carga del atacante se conserva dentro de la memoria de los procesos en peligro y realiza una amplia variedad de actividades malintencionadas.
 
@@ -75,9 +78,9 @@ Las funcionalidades de detección de amenazas y protección que se proporcionan 
 
   Para obtener detalles de las alertas de detección de ataques sin archivo, consulte la [Tabla de referencia de alertas](alerts-reference.md#alerts-windows).
 
-- **Integración de las alertas de auditd de Linux y el agente de Log Analytics (solo Linux)** : el sistema de auditd consta de un subsistema de nivel de kernel, que es responsable de supervisar las llamadas del sistema. Las filtra según un conjunto de reglas especificado y escribe mensajes para ellas en un socket. Security Center integra funcionalidades del paquete auditd dentro del agente de Log Analytics. Esta integración permite una colección de eventos de auditd en todas las distribuciones de Linux admitidas sin requisitos previos.
+- **Integración de las alertas de auditd de Linux y el agente de Log Analytics (solo Linux)** : el sistema de auditd consta de un subsistema de nivel de kernel, que es responsable de supervisar las llamadas del sistema. Las filtra según un conjunto de reglas especificado y escribe mensajes para ellas en un socket. Defender for Cloud integra funcionalidades del paquete auditd dentro del agente de Log Analytics. Esta integración permite una colección de eventos de auditd en todas las distribuciones de Linux admitidas sin requisitos previos.
 
-    El agente de Log Analytics para Linux recopila registros auditados, los enriquece y los agrega a eventos. Security Center agrega continuamente análisis nuevos que usan señales de Linux para detectar comportamientos malintencionados en máquinas Linux locales y en la nube. De manera similar a las funcionalidades de Windows, estos análisis abarcan varios procesos sospechosos, intentos de inicio de sesión dudosos, carga de módulos de kernel y otras actividades. Estas actividades pueden indicar que una máquina está sufriendo un ataque o se ha vulnerado.  
+    El agente de Log Analytics para Linux recopila registros auditados, los enriquece y los agrega a eventos. Defender for Cloud agrega continuamente análisis nuevos que usan señales de Linux para detectar comportamientos malintencionados en máquinas Linux locales y en la nube. De manera similar a las funcionalidades de Windows, estos análisis abarcan varios procesos sospechosos, intentos de inicio de sesión dudosos, carga de módulos de kernel y otras actividades. Estas actividades pueden indicar que una máquina está sufriendo un ataque o se ha vulnerado.  
 
     Para obtener una lista de las alertas de Linux, consulte la [Tabla de referencia de alertas](alerts-reference.md#alerts-linux).
 
@@ -86,20 +89,20 @@ Las funcionalidades de detección de amenazas y protección que se proporcionan 
 
 Puede simular alertas mediante la descarga de alguno de los cuadernos de estrategias:
 
-- Para Windows: [Cuaderno de estrategias de Azure Security Center: alertas de seguridad](https://github.com/Azure/Azure-Security-Center/blob/master/Simulations/Azure%20Security%20Center%20Security%20Alerts%20Playbook_v2.pdf)
+- Por Windows: [Cuaderno de Microsoft Defender for Cloud: alertas de seguridad](https://github.com/Azure/Azure-Security-Center/blob/master/Simulations/Azure%20Security%20Center%20Security%20Alerts%20Playbook_v2.pdf).
 
-- Para Linux: [Cuaderno de estrategias de Azure Security Center: Detecciones de Linux](https://github.com/Azure/Azure-Security-Center/blob/master/Simulations/Azure%20Security%20Center%20Linux%20Detections_v2.pdf).
+- Para Linux: [Cuaderno de Microsoft Defender for Cloud: detecciones de Linux](https://github.com/Azure/Azure-Security-Center/blob/master/Simulations/Azure%20Security%20Center%20Linux%20Detections_v2.pdf).
 
 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha obtenido información sobre Azure Defender para servidores. 
+En este artículo, ha obtenido información sobre Microsoft Defender para servidores. 
 
 > [!div class="nextstepaction"]
-> [Habilitación de Azure Defender](enable-azure-defender.md)
+> [Habilitación de las protecciones mejoradas](enable-enhanced-security.md)
 
 Puede encontrar material relacionado en la página siguiente:
 
-- Tanto si Security Center genera una alerta, como si la recibe de un producto de seguridad diferente, puede exportarla. Para exportar las alertas a Azure Sentinel, a cualquier SIEM de terceros o a cualquier otra herramienta externa, siga las instrucciones de [Exportación de alertas a un SIEM](continuous-export.md).
+- Tanto si Defender for Cloud genera una alerta como si la recibe desde un producto de seguridad diferente, puede exportarla. Para exportar las alertas a Microsoft Sentinel, a cualquier SIEM de terceros o a cualquier otra herramienta externa, siga las instrucciones de [Exportación de alertas a un SIEM](continuous-export.md).

@@ -5,35 +5,41 @@ services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, logicappspm
-ms.topic: article
-ms.date: 05/09/2020
-ms.openlocfilehash: aebce8f284ed4bb21d99efffc8dd6d0c51b39533
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 05/01/2021
+ms.openlocfilehash: 73b7538c41f1a560d07a702660a28f41b2c0e1de
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87001492"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131072453"
 ---
-# <a name="encode-and-decode-flat-files-in-azure-logic-apps-by-using-the-enterprise-integration-pack"></a>Codificación y descodificación de archivos planos en Azure Logic Apps mediante Enterprise Integration Pack
+# <a name="encode-and-decode-flat-files-in-azure-logic-apps"></a>Codificación y descodificación de archivos planos en Azure Logic Apps
 
-Antes de enviar contenido XML a un socio comercial en un escenario de negocio a negocio (B2B), le recomendamos que primero codifique el contenido. Al compilar una aplicación lógica, puede codificar y descodificar archivos planos mediante el conector de **archivos planos**. La aplicación lógica puede obtener este contenido XML de diversos orígenes, como el desencadenador de solicitud, otra aplicación u otros [conectores compatibles con Azure Logic Apps](../connectors/apis-list.md). Para más información, consulte [¿Qué es Azure Logic Apps?](logic-apps-overview.md)
+Antes de enviar contenido XML a un socio comercial en un escenario de negocio a negocio (B2B), le recomendamos que primero codifique el contenido. Al compilar el flujo de trabajo de una aplicación lógica, puede codificar y descodificar archivos planos mediante el conector de **archivos planos**. El flujo de trabajo de la aplicación lógica puede obtener este contenido XML de diversos orígenes, como el desencadenador de solicitud, otra aplicación u otros [conectores compatibles con Azure Logic Apps](../connectors/apis-list.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Suscripción a Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
-
-* La aplicación lógica en la que quiere usar el conector de **archivos planos** y un desencadenador que inicie el flujo de trabajo de la aplicación lógica. El conector de **archivos planos** proporciona únicamente las acciones, no los desencadenadores. Puede usar el desencadenador u otra acción para insertar el contenido XML en la aplicación lógica para la codificación o descodificación. Si es la primera vez que usa aplicaciones lógicas, revise [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Una cuenta y una suscripción de Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) asociada con la suscripción a Azure y [vinculada a las aplicaciones lógicas](./logic-apps-enterprise-integration-create-integration-account.md#link-account) en las que planea usar el conector de **archivos planos**. Tanto la cuenta de integración como la aplicación de lógica deben existir en la misma ubicación o región de Azure.
 
+* Al menos dos [socios comerciales](logic-apps-enterprise-integration-partners.md) que ya haya definido en su cuenta de integración
+
 * El [esquema](logic-apps-enterprise-integration-schemas.md) del archivo plano que ha cargado a la cuenta de integración para codificar o descodificar el contenido XML
 
-* Al menos dos [socios comerciales](logic-apps-enterprise-integration-partners.md) que ya haya definido en su cuenta de integración
+* La aplicación lógica en la que quiere usar el conector de **archivos planos** y un desencadenador que inicie el flujo de trabajo de la aplicación lógica. El conector de **archivos planos** proporciona únicamente las acciones, no los desencadenadores. Puede usar el desencadenador u otra acción para insertar el contenido XML en el flujo de trabajo de la aplicación lógica para la codificación o descodificación. Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](logic-apps-overview.md) e [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
+## <a name="limits"></a>Límites
+
+Asegúrese de que los grupos XML contenidos en el esquema de archivo plano que genere no tengan números excesivos de la propiedad `max count` establecida en un valor *mayor que 1*. Evite anidar un grupo XML con un valor de propiedad `max count` mayor que 1 dentro de otro grupo  XML con una propiedad `max count` mayor que 1.
+
+Cada vez que el esquema de archivo plano permite elegir el fragmento siguiente, el motor de Azure Logic Apps que analiza el esquema genera un *símbolo* y una *predicción* para ese fragmento. Si el esquema permite demasiadas construcciones de este tipo, por ejemplo, más de 100 000, la expansión del esquema se vuelve excesivamente grande, lo que consume demasiados recursos y tiempo.
 
 ## <a name="add-flat-file-encode-action"></a>Agregar una acción de codificación de archivo plano
 
-1. En [Azure Portal](https://portal.azure.com), abra la aplicación lógica en Diseñador de aplicación lógica.
+1. En [Azure Portal](https://portal.azure.com) abra el flujo de trabajo de la aplicación lógica en el diseñador.
 
 1. En el desencadenador o la acción de su aplicación lógica, seleccione **Nuevo paso** > **Agregar una acción**. En este ejemplo se usa el desencadenador de solicitud, denominado **Cuando se recibe una solicitud HTTP** y controla las solicitudes entrantes desde fuera de la aplicación lógica.
 
@@ -65,7 +71,7 @@ Ahora ya ha terminado de configurar la acción de codificación de archivos plan
 
 ## <a name="add-flat-file-decode-action"></a>Agregar una acción de descodificación de archivo plano
 
-1. En [Azure Portal](https://portal.azure.com), abra la aplicación lógica en Diseñador de aplicación lógica.
+1. En [Azure Portal](https://portal.azure.com) abra el flujo de trabajo de la aplicación lógica en el diseñador.
 
 1. En el desencadenador o la acción de su aplicación lógica, seleccione **Nuevo paso** > **Agregar una acción**. En este ejemplo se usa el desencadenador de solicitud, denominado **Cuando se recibe una solicitud HTTP** y controla las solicitudes entrantes desde fuera de la aplicación lógica.
 

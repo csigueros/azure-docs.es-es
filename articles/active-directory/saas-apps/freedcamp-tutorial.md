@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/30/2021
 ms.author: jeedes
-ms.openlocfilehash: 9653e837350f1149a19eed52283187a356cf9efc
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7178d525a1f38083fe732a1e2b7a0183dd16d39e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124791125"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058205"
 ---
 # <a name="tutorial-integrate-freedcamp-with-azure-active-directory"></a>Tutorial: Integración de Freedcamp con Azure Active Directory
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Freedcamp con Azure Active Directory (
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Freedcamp con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -60,7 +60,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Freedcamp utiliz
 Para configurar y probar el inicio de sesión único de Azure AD con Freedcamp, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Freedcamp](#configure-freedcamp-sso)** , para configurar el inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba en Freedcamp](#create-freedcamp-test-user)** , para tener un homólogo de B. Simon en Freedcamp que esté vinculado a la representación del usuario en Azure AD.
@@ -87,7 +87,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.freedcamp.com/login`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Los usuarios también pueden especificar los valores de las direcciones URL con arreglo a su propio dominio de cliente, por lo que no tienen que ajustarse necesariamente al patrón `freedcamp.com`, y escribir cualquier valor del dominio del cliente específico de la instancia de la aplicación. También puede ponerse en contacto con el [equipo de soporte técnico de Freedcamp](mailto:devops@freedcamp.com) si necesita más información sobre los patrones de las direcciones URL.
+    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Los usuarios también pueden especificar los valores de dirección URL con arreglo a su propio dominio de cliente, por lo que no tienen que ajustarse necesariamente al patrón `freedcamp.com`; pueden escribir cualquier valor del dominio del cliente específico de la instancia de la aplicación. También puede ponerse en contacto con el [equipo de soporte técnico de Freedcamp](mailto:devops@freedcamp.com) si necesita más información sobre los patrones de dirección URL.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 

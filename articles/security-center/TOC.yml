@@ -31,11 +31,7 @@
       href: get-started.md
     - name: 2. Habilitación de las protecciones mejoradas
       href: enable-enhanced-security.md
-    - name: 3. Configuración del aprovisionamiento automático
-      href: enable-data-collection.md
-    - name: 4. Configuración de notificaciones de correo electrónico
-      href: configure-email-notifications.md
-    - name: 5. Conexión de máquinas híbridas y de varias nubes
+    - name: 3. Conexión de máquinas híbridas y de varias nubes
       items:
         - name: Conexión de máquinas que no son de Azure
           displayName: 'azure stack, ash, windows, linux, hybrid, arc'
@@ -46,6 +42,10 @@
         - name: Conexión de cuentas de GCP
           displayName: 'hybrid, multicloud, multi-cloud, google'
           href: quickstart-onboard-gcp.md
+    - name: 4. Configuración del aprovisionamiento automático
+      href: enable-data-collection.md
+    - name: 5. Configuración de notificaciones de correo electrónico
+      href: configure-email-notifications.md
     - name: 6. Creación de respuestas automáticas a alertas
       displayName: 'Resource Manager, ARM'
       href: quickstart-automation-alert.md
@@ -95,6 +95,9 @@
       href: workload-protections-dashboard.md
     - name: Acceso y seguimiento de la puntuación segura
       href: secure-score-access-and-track.md
+    - name: Clasificación de acciones de seguridad por confidencialidad de datos
+      displayName: 'sensitivity, data, purview, inventory'
+      href: information-protection.md
     - name: Administración de los recursos con el inventario de recursos
       href: asset-inventory.md
     - name: Creación de informes interactivos

@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 01f51e20176a7535681bdb21b4cee6c7fa298292
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 262d9a123180588ed8eaee35a5faf17797cbbc07
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130038030"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008111"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>La nueva experiencia Registros de aplicaciones para Azure Active Directory B2C
 
@@ -45,7 +45,7 @@ La experiencia Registros de aplicaciones de Azure AD B2C se basa en la [experi
 
 - El panel **Puntos de conexión** permite identificar rápidamente los puntos de conexión pertinentes para el escenario, como la configuración de OpenID Connect, los metadatos de SAML, Microsoft Graph API y los [puntos de conexión de flujo de usuario de OAuth 2.0](tokens-overview.md#endpoints).
 
-- En **Permisos de API** y **Exponer una API** se proporciona una administración más extensa de ámbitos, permisos y consentimientos. Ahora también puede asignar permisos de MS Graph y Azure AD Graph a una aplicación.
+- En **Permisos de API** y **Exponer una API** se proporciona una administración más extensa de ámbitos, permisos y consentimientos. Ahora también puede asignar permisos de MS Graph a una aplicación.
 
 -   Ahora **Propietarios** y **Manifiesto** están disponibles para las aplicaciones que se autentican con Azure AD B2C. Puede agregar propietarios para los registros y editar directamente las propiedades de la aplicación [mediante el editor de manifiestos](../active-directory/develop/reference-app-manifest.md).
 

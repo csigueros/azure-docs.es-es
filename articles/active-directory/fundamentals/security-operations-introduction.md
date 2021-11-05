@@ -12,12 +12,12 @@ ms.date: 07/15/2021
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf83185b5c36723621ad586839d6b92260e1a99a
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: a0e35c11a94e1c0c6e86964d68c784c5cb3e7741
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130046209"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060200"
 ---
 # <a name="azure-active-directory-security-operations-guide"></a>Guía de operaciones de seguridad de Azure Active Directory
 
@@ -156,7 +156,7 @@ Como parte de un entorno híbrido de Azure, lo siguiente se debe tomar como refe
 
 * **Agente de PTA**: el agente de autenticación transferida se usa para habilitar la autenticación de paso a través y se instala en el entorno local. Consulte [Agente de autenticación de paso a través de Azure AD: Historial de lanzamiento de versiones](../hybrid/reference-connect-pta-version-history.md) para información sobre cómo verificar la versión del agente y los pasos siguientes. 
 
-* **AD FS/WAP**: Servicios de federación de Active Directory (AD FS) (Azure AD FS) y Web Application Proxy (WAP) permiten compartir de forma segura la identidad digital y los derechos en los límites de seguridad y empresa. Para información sobre los procedimientos recomendados de seguridad, consulte [Procedimientos recomendados para proteger Servicios de federación de Active Directory (AD FS)]/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs. 
+* **AD FS/WAP**: Servicios de federación de Active Directory (AD FS) (Azure AD FS) y Web Application Proxy (WAP) permiten compartir de forma segura la identidad digital y los derechos en los límites de seguridad y empresa. Para obtener información sobre los procedimientos recomendados de seguridad, consulte [Procedimientos recomendados para proteger los Servicios de federación de Active Directory](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs). 
 
 * **Agente de Azure AD Connect Health**: el agente que se usa para proporcionar un vínculo de comunicaciones para Azure AD Connect Health. Para información sobre de cómo instalar el agente, consulte [Instalación del agente de Azure AD Connect Health](../hybrid/how-to-connect-health-agent-install.md). 
 

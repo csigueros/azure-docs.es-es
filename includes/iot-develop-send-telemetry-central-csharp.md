@@ -7,16 +7,16 @@ ms.topic: include
 ms.date: 10/08/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: ab1618125ba42545702571629e7242871ecec4f7
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 1a61f369d0987caac2cc821e37c1e5e1ed7cda40
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131032823"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131861287"
 ---
 [![Examinar el código](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/main/iot-hub/Samples/device/PnpDeviceSamples)
 
-En este artículo de inicio rápido, se explica un flujo de trabajo básico de desarrollo de aplicaciones de Azure IoT. En primer lugar, cree una aplicación de Azure IoT Central para hospedar dispositivos. Luego use un ejemplo del SDK de dispositivo IoT de Azure para crear un controlador de temperatura, conectarlo de forma segura a IoT Central y enviar telemetría. La aplicación de ejemplo del controlador de temperatura se ejecuta en la máquina local y genera datos de sensor simulados para enviarlos a IoT Central.
+En este artículo de inicio rápido, se explica un flujo de trabajo básico de desarrollo de aplicaciones de Azure IoT. En primer lugar, cree una aplicación de Azure IoT Central para hospedar dispositivos. A continuación, usará un ejemplo del SDK de dispositivo IoT de Azure para crear un controlador de temperatura, conectarlo de forma segura a IoT Central y enviar datos de telemetría. La aplicación de ejemplo del controlador de temperatura se ejecuta en la máquina local y genera datos del sensor simulados para enviarlos a IoT Central.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -37,7 +37,7 @@ Instale los siguientes requisitos previos en la máquina de desarrollo:
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
-## <a name="run-a-device"></a>Ejecución de un dispositivo
+## <a name="run-the-device-sample"></a>Ejecución del ejemplo de dispositivo
 En esta sección se configura el entorno local, se instalan los ejemplos de C# de Azure IoT y se ejecuta un ejemplo que crea un controlador de temperatura.
 
 ### <a name="configure-your-environment"></a>Configurar su entorno
@@ -117,7 +117,7 @@ En esta sección se configura el entorno local, se instalan los ejemplos de C# d
     dotnet run
     ```
 
-    Una vez que el dispositivo se conecta a la aplicación IoT Central, se conecta a la instancia del dispositivo creado en la aplicación y comienza a enviar telemetría. En la consola se muestran los detalles de conexión y la salida de telemetría:
+    Una vez que el dispositivo se conecta a la aplicación IoT Central, se conecta a la instancia del dispositivo que creó en la aplicación y comienza a enviar telemetría. En la consola se muestran los detalles de conexión y la salida de telemetría:
 
     ```output
     [10/09/2021 00:29:18]info: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]

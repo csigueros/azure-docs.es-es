@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f34d031bafd801cf068d19a4885bb9a818885c7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 754520be35cbac4321fb7fbb65135016642a7ee1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128561924"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131018326"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Términos de uso de Azure Active Directory
 
@@ -44,7 +44,7 @@ Las directivas de los términos de uso de Azure AD tienen las siguientes funcio
 - Requerir a empleados o invitados que acepten la directiva de los términos de uso antes de registrar información de seguridad en Azure AD Multi-Factor Authentication (MFA).
 - Requerir a empleados o invitados que acepten la directiva de los términos de uso antes de registrar información de seguridad en el autoservicio de restablecimiento de contraseña (SSPR) de Azure AD.
 - Presentar una directiva de términos de uso generales para todos los usuarios de la organización.
-- Presentar directivas de términos de uso específicas basadas en los atributos de un usuario (por ejemplo, médicos por un lado y enfermeras por otro, empleados nacionales por un lado e internacionales por otro, mediante [grupos dinámicos](../enterprise-users/groups-dynamic-membership.md)).
+- Presentar directivas de condiciones de uso específicas basadas en los atributos de un usuario (como médicos frente a enfermeras, o empleados nacionales frente a internacionales) utilizando [grupos dinámicos](../enterprise-users/groups-dynamic-membership.md)).
 - Presentar directivas de términos de uso específicas al acceder a aplicaciones con una alta repercusión en la empresa, como Salesforce.
 - Presentar directivas de términos de uso en diferentes idiomas.
 - Mostrar quién ha aceptado o no las directivas de términos de uso.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/10/2021
 ms.author: jeedes
-ms.openlocfilehash: d46c09c582c6ea44b36dfb95e25c2d4b9f5c94cb
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 5674e27332d96a70fd1d2825dd4910dce11b861f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124832870"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057033"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-linkedin-sales-navigator"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con LinkedIn Sales Navigator
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar LinkedIn Sales Navigator con Azure Activ
 * Permitir que los usuarios inicien sesión automáticamente en LinkedIn Sales Navigator con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -62,7 +62,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con LinkedIn Sales N
 Para configurar y probar el inicio de sesión único de Azure AD con LinkedIn Sales Navigator, complete los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en LinkedIn Sales Navigator](#configure-linkedin-sales-navigator-sso)** , para configurar el inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de LinkedIn Sales Navigator](#create-linkedin-sales-navigator-test-user)** , para tener un homólogo de B.Simon en LinkedIn Sales Navigator que esté vinculado a la representación del usuario en Azure AD.
@@ -82,7 +82,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     a. En el cuadro de texto **Identificador**, escriba el valor de **Id. de entidad**; este valor lo copiará de Linkedin Portal, que se explica más adelante en este tutorial.
 
-    b. En el cuadro de texto **URL de respuesta**, escriba el valor de **Assertion Consumer Access (ACS) Url** (Dirección URL de Assertion Consumer Access [ACS]); este valor lo copiará de Linkedin Portal, que se explica más adelante en este tutorial.
+    b. En el cuadro de texto **URL de respuesta**, escriba el valor de **Assertion Consumer Access (ACS) Url** (URL de Acceso de consumidor de aserciones [ACS]); este valor lo copiará del portal de Linkedin, que se explica más adelante en este tutorial.
 
 1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 

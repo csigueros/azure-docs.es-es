@@ -12,12 +12,12 @@ ms.date: 11/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: c1d9c88825dc8460c619131b8f69b5e802a8758b
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 03926f656bd96205057703e610bfab17c144dd5e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129080757"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059383"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Ámbitos para una API web que acepta tokens de la versión 1.0
 
@@ -65,7 +65,7 @@ La lógica que usa Azure AD es la siguiente:
 
 - Para el punto de conexión de ADAL (Azure AD v1.0) con un token de acceso de la versión 1.0 (el único posible), aud = resource.
 - En el caso de MSAL (Plataforma de identidad de Microsoft) que pide un token de acceso para un recurso que acepta tokens v2.0, `aud=resource.AppId`.
-- En el caso de MSAL (punto de conexión de la versión 2.0) que pide un token de acceso para un recurso que acepta tokens de la versión 1.0 (que es el caso anterior), Azure AD analiza la audiencia deseada desde el ámbito solicitado tomando todo el contenido antes de la última barra diagonal y usándolo como el identificador del recurso. Por lo tanto, si https:\//database.windows.net espera una audiencia de "htpps\//database.windows.net/", deberá solicitar un ámbito de "https:\//database.windows.net//.default". Consulte también el problema de GitHub [#747: falta la barra diagonal final de la dirección URL del recurso, lo que ha provocado un error de autenticación de SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747)
+- En el caso de MSAL (punto de conexión de la versión 2.0) que pide un token de acceso para un recurso que acepta tokens de la versión 1.0 (que es el caso anterior), Azure AD analiza la audiencia deseada desde el ámbito solicitado tomando todo el contenido antes de la última barra diagonal y usándolo como el identificador del recurso. Por lo tanto, si `https://database.windows.net` espera una audiencia de `https://database.windows.net`, será preciso solicitar un ámbito de `https://database.windows.net//.default`. Consulte también el problema de GitHub [#747: `Resource url's trailing slash is omitted, which caused sql auth failure`](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
 ## <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Ámbitos para solicitar acceso a todos los permisos de una aplicación de la versión 1.0
 

@@ -17,12 +17,12 @@ ms.date: 07/16/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 187d6fbb8f398291325a04bb07f2ce31b7aca721
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: b5940205b9a1a17a6d6d51d96a6ab792ac744d3f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129997428"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051636"
 ---
 # <a name="sign-in-logs-in-azure-active-directory"></a>Registros de inicios de sesión en Azure Active Directory
 
@@ -120,12 +120,12 @@ Aunque el elemento de registro proporciona un motivo del error, hay casos en los
 
 
 
-## <a name="filter-sign-in-activities&quot;></a>Filtrado de las actividades de inicio de sesión
+## <a name="filter-sign-in-activities"></a>Filtrado de las actividades de inicio de sesión
 
 
 Puede filtrar los datos de un registro para restringirlo a un nivel que funcione en su caso:
 
-![Captura de pantalla que muestra la opción Agregar filtros.](./media/concept-sign-ins/04.png &quot;Actividad de inicio de sesión")
+![Captura de pantalla que muestra la opción Agregar filtros.](./media/concept-sign-ins/04.png "Actividad de inicio de sesión")
 
 **Identificador de solicitud**: el identificador de la solicitud que le interesa.
 

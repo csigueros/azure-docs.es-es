@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/16/2021
 ms.author: jamesmantu
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: e3481ee896e6caed33bdf7e59c64307a88136fde
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: a42f4e5cd0b58c2078a4ba498b262efb804edcf8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129993660"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131050287"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-react-single-page-app-spa-using-auth-code-flow"></a>Tutorial: Inicio de sesión de usuarios y llamada a Microsoft Graph API desde una aplicación de página única (SPA) de React mediante el flujo de código de autorización
 
@@ -163,9 +163,9 @@ En el paso [URI de redireccionamiento: MSAL.js 2.0 con flujo de código de aute
 
 Cree una carpeta en *src* denominada *components*  y cree en ella el archivo *SignInButton.jsx*. Agregue el código de cualquiera de las secciones siguientes para invocar el inicio de sesión mediante una ventana emergente o un redireccionamiento de marco completo:
 
-### <a name="sign-in-using-popups"></a>Inicie sesión mediante elementos emergentes
+### <a name="sign-in-using-pop-ups"></a>Inicio de sesión mediante elementos emergentes
 
-Agregue el siguiente código a *src/components/SignInButton.jsx* para crear un componente botón que invoque un inicio de sesión con elementos emergentes al seleccionarlo:
+Agregue el siguiente código a *src/components/SignInButton.jsx* para crear un componente de botón que invoque un inicio de sesión con elementos emergentes al seleccionarlo:
 
 ```jsx
 import React from "react";
@@ -277,9 +277,9 @@ En este momento, se envía un código de autorización protegido por PKCE al pun
 
 En *src/components*, cree un archivo denominado *SignOutButton.jsx*. Agregue el código de cualquiera de las secciones siguientes para invocar el cierre de sesión mediante una ventana emergente o un redireccionamiento de marco completo:
 
-### <a name="sign-out-using-popups"></a>Cierre de sesión mediante elementos emergentes
+### <a name="sign-out-using-pop-ups"></a>Cierre de sesión mediante elementos emergentes
 
-Agregue el siguiente código a *src/components/SignOutButton.jsx* para crear un componente botón que invoque un cierre de sesión con elementos emergentes al seleccionarlo:
+Agregue el siguiente código a *src/components/SignOutButton.jsx* para crear un componente de botón que invoque un cierre de sesión con elementos emergentes al seleccionarlo:
 
 ```jsx
 import React from "react";

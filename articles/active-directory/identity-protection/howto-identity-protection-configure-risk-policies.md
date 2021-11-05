@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 05/27/2021
+ms.date: 10/26/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11751323d1341cbcde19451bc101197c7d714368
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c9e3bfc88442f495d49116e01cc06e876be95787
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739978"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051598"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Instrucciones: Configuración y habilitación de directivas de riesgo
 
@@ -41,7 +41,7 @@ Identity Protection usa las [ubicaciones de red](../conditional-access/location-
 
 ### <a name="risk-remediation"></a>Corrección de riesgos
 
-Las organizaciones pueden optar por bloquear el acceso cuando se detecta riesgo. El bloqueo a veces impide que los usuarios legítimos haga lo que necesitan. Una solución mejor es permitir la autocorrección mediante la autenticación multifactor (MFA) de Azure AD y el autoservicio de restablecimiento de contraseña (SSPR). 
+Las organizaciones pueden optar por bloquear el acceso cuando se detecta riesgo. El bloqueo a veces impide que los usuarios legítimos haga lo que necesitan. Una solución mejor es permitir la autocorrección mediante la autenticación multifactor (MFA) de Azure AD y el autoservicio de restablecimiento de contraseña (SSPR).
 
 - Cuando se desencadena una directiva de riesgo de usuario: 
    - Los administradores pueden requerir un restablecimiento de contraseña seguro, que requiere que Azure AD MFA se realice antes de que el usuario cree una nueva contraseña con SSPR y restablezca el riesgo del usuario. 
@@ -67,6 +67,8 @@ Hay dos ubicaciones donde se pueden configurar estas directivas: acceso condicio
    - Uso de más atributos de acceso condicional en la directiva
 
 > [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
+
+Antes de habilitar directivas de corrección, es posible que las organizaciones quieran [investigar](howto-identity-protection-investigate-risk.md) y [corregir](howto-identity-protection-remediate-unblock.md) los riesgos activos.
 
 ### <a name="user-risk-with-conditional-access"></a>Riesgos del usuario con acceso condicional
 

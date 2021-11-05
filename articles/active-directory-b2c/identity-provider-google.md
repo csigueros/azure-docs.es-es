@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 4113f9743c92ab5809977f681e35d41b759fe599
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: faed36e348a8716e1023705ca077e892a24ac2d1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130217342"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131007246"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de Google mediante Azure Active Directory B2C
 
@@ -41,7 +41,7 @@ ms.locfileid: "130217342"
 
 ## <a name="create-a-google-application"></a>Creación de una aplicación de Google
 
-Para permitir el inicio de sesión de los usuarios con una cuenta de Google en Azure Active Directory B2C (Azure AD B2C), tiene que crear una aplicación en la [consola para desarrolladores de Google](https://console.developers.google.com/). Para más información, consulte [Configuración de OAuth 2.0](https://support.google.com/googleapi/answer/6158849). Si aún no tiene una cuenta de Google, puede obtenerla en [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp).
+Para permitir el inicio de sesión de los usuarios con una cuenta de Google en Azure Active Directory B2C (Azure AD B2C), tiene que crear una aplicación en la [consola para desarrolladores de Google](https://console.developers.google.com/). Para más información, consulte [Configuración de OAuth 2.0](https://support.google.com/googleapi/answer/6158849). Si aún no tiene una cuenta de Google, puede obtenerla en [`https://accounts.google.com/signup`](https://accounts.google.com/signup).
 
 1. Inicie sesión en [Google Developers Console](https://console.developers.google.com/) e inicie sesión con las credenciales de su cuenta de Google.
 1. En la esquina superior izquierda de la página, seleccione la lista de proyectos y, luego, **Nuevo proyecto**.
@@ -197,4 +197,4 @@ Si el proceso de inicio de sesión se completa correctamente, el explorador se r
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre cómo [pasar el token de Google a la aplicación](idp-pass-through-user-flow.md).
+Obtenga información sobre cómo [pasar un token de Google a la aplicación](idp-pass-through-user-flow.md).

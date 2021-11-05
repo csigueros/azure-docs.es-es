@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/20/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: d090d6c97a26b78799adf8c5927e6e680c43938a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 173ef82e77e44f3b7e2a664d613b1810995fee21
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128596512"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131044805"
 ---
 # <a name="tutorial-configure-biocatch-with-azure-active-directory-b2c"></a>Tutorial: Configuración Azure Active Directory B2C con BioCatch
 
@@ -84,7 +84,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 2. Cree un archivo que herede del archivo de extensiones.
 
-    ```XML
+    ```xml
     <BasePolicy> 
 
         <TenantId>tenant.onmicrosoft.com</TenantId> 
@@ -96,7 +96,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 3. Cree una referencia a la interfaz de usuario personalizada para ocultar el cuadro de entrada, en el recurso BuildingBlocks.
 
-    ```XML
+    ```xml
     <ContentDefinitions> 
 
         <ContentDefinition Id="api.selfasserted"> 
@@ -112,7 +112,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 4. Agregue las siguientes notificaciones en el recurso BuildingBlocks.
 
-    ```XML
+    ```xml
     <ClaimsSchema> 
 
           <ClaimType Id="riskLevel"> 
@@ -146,7 +146,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 5. Configure el proveedor de notificaciones autoafirmado para el campo de identificador de sesión de cliente.
 
-    ```XML
+    ```xml
     <ClaimsProvider> 
 
           <DisplayName>Client Session ID Claims Provider</DisplayName> 
@@ -190,7 +190,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 6. Configure el proveedor de notificaciones de la API REST para BioCatch. 
 
-    ```XML
+    ```xml
     <TechnicalProfile Id="BioCatch-API-GETSCORE"> 
 
           <DisplayName>Technical profile for BioCatch API to return session information</DisplayName> 
@@ -236,8 +236,8 @@ document.getElementById("clientSessionId").style.display = 'none';
       </TechnicalProfiles>
     ```
 
-    > [!Note]
-    > BioCatch proporcionará la dirección URL, el identificador de cliente y el identificador de usuario único (uuID) que se van a configurar. La notificación SessionID del cliente se pasa como un parámetro querystring a BioCatch. Puede elegir el tipo de actividad; por ejemplo, *MAKE_PAYMENT*.
+    > [!NOTE]
+    > BioCatch proporcionará la dirección URL, el identificador de cliente y el identificador de usuario único (UUID) que se van a configurar. La notificación SessionID del cliente se pasa como un parámetro de cadena de consulta a BioCatch. Puede elegir el tipo de actividad; por ejemplo, *MAKE_PAYMENT*.
 
 7. Configure el elemento userjourney y siga el ejemplo.
 
@@ -247,7 +247,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
    1. Si el valor de *risk* (riesgo) de la notificación devuelta es *low* (bajo), omita el paso de MFA; de lo contrario, fuerce la autenticación multifactor para los usuarios.
 
-    ```XML
+    ```xml
     <OrchestrationStep Order="8" Type="ClaimsExchange"> 
 
           <ClaimsExchanges> 
@@ -295,7 +295,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
     Resulta útil pasar la información devuelta por BioCatch a la aplicación como notificaciones en el token, específicamente *riskLevel* y *score*.
 
-    ```XML
+    ```xml
     <RelyingParty> 
 
     <DefaultUserJourney ReferenceId="SignUpOrSignInMfa" /> 

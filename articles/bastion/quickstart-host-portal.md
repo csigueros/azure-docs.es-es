@@ -6,14 +6,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 08/30/2021
+ms.date: 10/12/2021
 ms.author: cherylmc
-ms.openlocfilehash: d9f3d2c8f30f3b5d249aae0789a7e2fee282e867
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 9e9504220ac6aa001314c8ebf78bdb11a6cd011a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128677822"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131071598"
 ---
 # <a name="quickstart-configure-azure-bastion-from-vm-settings"></a>Inicio rápido: Configuración de Azure Bastion a partir de las opciones de máquina virtual
 
@@ -95,8 +96,8 @@ Hay varias maneras de configurar un host bastión. En los pasos siguientes crear
 1. Después de que se crea la subred, la página avanza automáticamente al **paso 3**. En el paso 3, use los valores siguientes:
 
    * **Nombre**: nombre del host bastión.
-   * **Nivel:** el nivel es el SKU. Para este ejercicio, seleccione **Estándar** en la lista desplegable. La selección de la SKU Estándar permite configurar el recuento de instancias para el escalado de host. La SKU Básica no admite el escalado de host. Para obtener más información, vea [Opciones de configuración: SKU](configuration-settings.md#skus). La SKU Estándar se encuentra en versión preliminar.
-   * **Recuento de instancias:** esta es la configuración para el escalado de host. Use el control deslizante para configurarlo. Si especifica la SKU de nivel Básico, está limitado a 2 instancias y no puede ajustar esta configuración. Para obtener más información, consulte [Opciones de configuración: escalado de host](configuration-settings.md#instance). El recuento de instancias está en versión preliminar y se basa en la SKU Estándar. En este inicio rápido, puede seleccionar el recuento de instancias que prefiera, teniendo en cuenta las consideraciones de [precios](https://azure.microsoft.com/pricing/details/azure-bastion) de las unidades de escalado.
+   * **Nivel:** el nivel es el SKU. Para este ejercicio, seleccione **Estándar** en la lista desplegable. La selección de la SKU Estándar permite configurar el recuento de instancias para el escalado de host. La SKU Básica no admite el escalado de host. Para obtener más información, vea [Opciones de configuración: SKU](configuration-settings.md#skus).
+   * **Recuento de instancias:** esta es la configuración para el escalado de host. Use el control deslizante para configurarlo. Si especifica la SKU de nivel Básico, está limitado a 2 instancias y no puede ajustar esta configuración. Para obtener más información, consulte [Opciones de configuración: escalado de host](configuration-settings.md#instance). El recuento de instancias se basa en la SKU estándar. En este inicio rápido, puede seleccionar el recuento de instancias que prefiera, teniendo en cuenta las consideraciones de [precios](https://azure.microsoft.com/pricing/details/azure-bastion) de las unidades de escalado.
    * **Dirección IP pública**: seleccione **Crear nueva**.
    * **Nombre de dirección IP pública:** nombre del recurso de la dirección IP pública.
    * **SKU de dirección IP pública:** preconfigurado como **Estándar**.

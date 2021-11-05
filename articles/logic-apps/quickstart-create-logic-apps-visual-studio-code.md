@@ -7,12 +7,12 @@ ms.reviewer: azla
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/25/2021
-ms.openlocfilehash: 41ed5f3e85390a51fa30316bc9f95c8b320c4468
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 15f3481e42c543bead8ccf5f01654912cce5085f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110474473"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131078434"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-with-multi-tenant-azure-logic-apps-and-visual-studio-code"></a>Inicio rápido - Cree y administre definiciones de flujo de trabajo de aplicación lógica con Azure Logic Apps multiinquilino y Visual Studio Code
 
@@ -56,7 +56,7 @@ Antes de empezar, asegúrese de que dispone de estos elementos:
 
 <a name="access-azure"></a>
 
-## <a name="access-azure-from-visual-studio"></a>Acceso a Azure desde Visual Studio
+## <a name="access-azure-from-visual-studio-code"></a>Acceso a Azure desde Visual Studio Code
 
 1. Abra Visual Studio Code. En la barra de herramientas de Visual Studio Code, seleccione el icono de Azure.
 

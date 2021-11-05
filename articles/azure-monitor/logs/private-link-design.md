@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 08/01/2021
-ms.openlocfilehash: b42b3c9146b99ee6e65dc83968ba8e97c8f209fb
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 6bc664d5f7dab7d000f1ea540db56e240c307e15
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129730496"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131006665"
 ---
 # <a name="design-your-private-link-setup"></a>Diseño de la configuración de Private Link
 
@@ -151,9 +151,9 @@ Si la configuración de Private Link se creó antes del 19 de abril de 2021, no 
     |Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Salida
 
 ### <a name="collecting-custom-logs-and-iis-log-over-private-link"></a>Recopilación de registros personalizados y de IIS a través de Private Link
-Las cuentas de almacenamiento se usan en el proceso de ingesta de registros personalizados. De forma predeterminada, se usan cuentas de almacenamiento administradas por el servicio. Sin embargo, para ingerir registros personalizados en vínculos privados, debe usar sus propias cuentas de almacenamiento y asociarlas a áreas de trabajo de Log Analytics. Vea más detalles sobre cómo configurar tales cuentas mediante la [línea de comandos](/cli/azure/monitor/log-analytics/workspace/linked-storage).
+Las cuentas de almacenamiento se usan en el proceso de ingesta de registros personalizados. De forma predeterminada, se usan cuentas de almacenamiento administradas por el servicio. Sin embargo, para ingerir registros personalizados en vínculos privados, debe usar sus propias cuentas de almacenamiento y asociarlas a áreas de trabajo de Log Analytics.
 
-Para obtener más información sobre cómo conectar su propia cuenta de almacenamiento, consulte la información sobre [cuentas de almacenamiento propiedad del cliente para la ingesta de registros](private-storage.md).
+Para obtener más información sobre cómo conectar su propia cuenta de almacenamiento, consulte la información sobre [cuentas de almacenamiento propiedad del cliente para la ingesta de registros](private-storage.md) y, específicamente, el [uso de Private Links](private-storage.md#using-private-links) y la [vinculación de cuentas de almacenamiento al área de trabajo de Log Analytics](private-storage.md#link-storage-accounts-to-your-log-analytics-workspace).
 
 ### <a name="automation"></a>Automatización
 Si usa soluciones de Log Analytics que requieren una cuenta de Automation (como Update Management, Change Tracking o Inventario), también debe crear una instancia de Private Link para la cuenta de Automation. Para obtener más información, vea [Uso de Azure Private Link para conectar redes a Azure Automation de forma segura](../../automation/how-to/private-link-security.md).
@@ -206,5 +206,5 @@ No se admite el [operador `externaldata`](/azure/data-explorer/kusto/query/exter
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Aprenda a [configurar Private Link](private-link-configure.md).
-- Obtener información sobre el [almacenamiento privado](private-storage.md).
+- Más información sobre el [almacenamiento privado](private-storage.md) para registros personalizados y claves administradas por el cliente (CMK).
 - Más información sobre [Private Link para Automation](../../automation/how-to/private-link-security.md)

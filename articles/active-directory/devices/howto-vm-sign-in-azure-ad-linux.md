@@ -5,26 +5,26 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 07/26/2021
+ms.date: 10/21/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 996c82b428c01ce9f598fbf8e35e2fb664ef8763
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: aeca09f5763cf11edc13cecd2df0c267fad8a23d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128601964"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049755"
 ---
 # <a name="preview-login-to-a-linux-virtual-machine-in-azure-with-azure-active-directory-using-ssh-certificate-based-authentication"></a>Versión preliminar: Inicio de sesión en una máquina virtual con Linux en Azure con Azure Active Directory mediante la autenticación basada en certificados SSH
 
 Para mejorar la seguridad de las máquinas virtuales (VM) con Linux en Azure, puede integrarla con la autenticación de Azure Active Directory (Azure AD). Ahora puede usar Azure AD como plataforma de autenticación principal y una entidad de certificación para conectarse mediante SSH a una VM Linux con la autenticación basada en certificados SSH y AD. Esta funcionalidad permite a las organizaciones controlar y aplicar de forma centralizada el control de acceso basado en rol (RBAC) de Azure y las directivas de acceso condicional que administran el acceso a las máquinas virtuales. En este artículo se muestra cómo crear y configurar una VM Linux e iniciar sesión con Azure AD mediante la autenticación basada en certificados SSH.
 
 > [!IMPORTANT]
-> Esta funcionalidad se encuentra actualmente en versión preliminar. [La versión anterior que usaba el flujo de código de dispositivo quedará en desuso el 15 de agosto de 2021](../../virtual-machines/linux/login-using-aad.md). Para migrar de la versión anterior a esta versión, consulte la sección [Migración desde la versión preliminar anterior](#migration-from-previous-preview).
+> Esta funcionalidad se encuentra actualmente en versión preliminar. [La versión anterior que usaba el flujo de código de dispositivo está en desuso el 15 de agosto de 2021](../../virtual-machines/linux/login-using-aad.md). Para migrar de la versión anterior a esta versión, consulte la sección [Migración desde la versión preliminar anterior](#migration-from-previous-preview).
 > Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Use esta característica en una máquina virtual de prueba que espere descartar después de realizar pruebas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Usar Azure AD con la autenticación basada en certificados SSH para iniciar sesión en las VM Linux en Azure implica varias ventajas, entre las que se incluyen:
@@ -44,19 +44,17 @@ La versión preliminar de esta característica admite actualmente estas distribu
 
 | Distribución | Versión |
 | --- | --- |
-| CentOS | CentOS 7, CentOS 8.3 |
+| CentOS | CentOS 7, CentOS 8 |
 | Debian | Debian 9/Debian 10 |
-| openSUSE | openSUSE Leap 42.3 |
-| RedHat Enterprise Linux | RHEL 7.4 a RHEL 7.10, RHEL 8.3 |
-| SUSE Linux Enterprise Server | SLES 12 |
+| openSUSE | openSUSE Leap 42.3, openSUSE Leap 15.1+ |
+| RedHat Enterprise Linux | RHEL 7.4 a RHEL 7.10, RHEL 8.3+ |
+| SUSE Linux Enterprise Server | SLES 12, SLES 15.1+ |
 | Ubuntu Server | Ubuntu Server 16.04 a Ubuntu Server 20.04 |
 
 La versión preliminar de esta característica actualmente admite estas regiones de Azure:
 
 - Azure Global
 
-> [!Note]
-> La versión preliminar de esta característica se admitirá en Azure Government y Azure China en junio de 2021.
  
 No se admite el uso de esta extensión en clústeres de Azure Kubernetes Service (AKS). Para obtener más información, consulte [Directivas de soporte técnico para AKS](../../aks/support-policies.md).
 
@@ -96,7 +94,7 @@ Para Azure China
 Asegúrese de que la máquina virtual está configurada con la siguiente funcionalidad:
 
 - Identidad administrada asignada por el sistema. Esta opción se selecciona automáticamente cuando se usa Azure Portal para crear la máquina virtual y seleccionar la opción de inicio de sesión de Azure AD. También puede habilitar la identidad administrada asignada por el sistema en una máquina virtual nueva o existente mediante la CLI de Azure.
-- aadsshlogin y aadsshlogin-selinux (según corresponda). Estos paquetes se instalan con la extensión de máquina virtual AADSSHLoginForLinux. La extensión se instala cuando se usa Azure Portal para crear una máquina virtual y habilitar el inicio de sesión de Azure AD (pestaña Administración) o a través de la CLI de Azure.
+- `aadsshlogin` y `aadsshlogin-selinux` (según el caso). Estos paquetes se instalan con la extensión de máquina virtual AADSSHLoginForLinux. La extensión se instala cuando se usa Azure Portal para crear una máquina virtual y habilitar el inicio de sesión de Azure AD (pestaña Administración) o a través de la CLI de Azure.
 
 ### <a name="client"></a>Remoto
 
@@ -340,13 +338,13 @@ Una vez que los usuarios con el rol de administrador de máquinas virtuales asig
 
 Se admiten los conjuntos de escalado de máquinas virtuales, pero los pasos son ligeramente diferentes para habilitar y conectarse a las máquinas virtuales del conjunto de escalado de máquinas virtuales.
 
-En primer lugar, cree un conjunto de escalado de máquinas virtuales o elija uno que ya exista. Habilite una identidad administrada asignada por el sistema para el conjunto de escalado de máquinas virtuales.
+1. Cree un conjunto de escalado de máquinas virtuales o elija uno que ya exista. Habilite una identidad administrada asignada por el sistema para el conjunto de escalado de máquinas virtuales.
 
 ```azurecli
 az vmss identity assign --vmss-name myVMSS --resource-group AzureADLinuxVMPreview
 ```
 
-Instale la extensión de Azure AD en el conjunto de escalado de máquinas virtuales.
+2. Instale la extensión de Azure AD en el conjunto de escalado de máquinas virtuales.
 
 ```azurecli
 az vmss extension set --publisher Microsoft.Azure.ActiveDirectory --name Azure ADSSHLoginForLinux --resource-group AzureADLinuxVMPreview --vmss-name myVMSS
@@ -363,21 +361,30 @@ az ssh vm --ip 10.11.123.456
 
 ## <a name="migration-from-previous-preview"></a>Migración desde una versión preliminar anterior
 
-Para los clientes que usan la versión anterior del inicio de sesión de Azure AD para Linux que se basaba en el flujo de código del dispositivo, complete los pasos siguientes.
+Para los clientes que usan la versión anterior del inicio de sesión de Azure AD para Linux que se basaba en el flujo de código del dispositivo, complete los pasos siguientes mediante la CLI de Azure.
 
 1. Desinstale la extensión AADLoginForLinux en la máquina virtual.
-   1. Con la CLI de Azure: `az vm extension delete -g MyResourceGroup --vm-name MyVm -n AADLoginForLinux`
+   
+   ```azurecli
+   az vm extension delete -g MyResourceGroup --vm-name MyVm -n AADLoginForLinux
+   ```
+
 1. Habilite una identidad administrada asignada por el sistema en la máquina virtual.
-   1. Con la CLI de Azure: `az vm identity assign -g myResourceGroup -n myVm`
+
+   ```azurecli
+   az vm identity assign -g myResourceGroup -n myVm
+   ```
+
 1. Instale la extensión AADLoginForLinux en la máquina virtual.
-   1. Con la CLI de Azure:
-      ```azurecli
-      az vm extension set \
-                --publisher Microsoft.Azure.ActiveDirectory \
-                --name AADSSHLoginForLinux \
-                --resource-group myResourceGroup \
-                --vm-name myVM
-      ```
+
+    ```azurecli
+    az vm extension set \
+        --publisher Microsoft.Azure.ActiveDirectory \
+        --name AADSSHLoginForLinux \
+        --resource-group myResourceGroup \
+        --vm-name myVM
+    ```
+
 ## <a name="using-azure-policy-to-ensure-standards-and-assess-compliance"></a>Uso de Azure Policy para garantizar estándares y evaluar el cumplimiento
 
 Use Azure Policy para asegurarse de que el inicio de sesión de Azure AD está habilitado para las máquinas virtuales Linux nuevas y existentes, y evaluar el cumplimiento de su entorno a escala en el panel de cumplimiento de Azure Policy. Con esta funcionalidad, puede usar muchos niveles de aplicación: puede marcar las VM Linux nuevas y existentes dentro de su entorno que no tengan habilitado el inicio de sesión Azure AD. También puede usar Azure Policy para implementar la extensión de Azure AD en nuevas VM Linux que no tengan habilitado el inicio de sesión de Azure AD, así como corregir las VM Linux existentes con el mismo estándar. Además de estas funcionalidades, también puede usar Azure Policy para detectar y marcar las VM Linux que tienen cuentas locales no aprobadas creadas en sus máquinas. Para más información, consulte [Azure Policy](../../governance/policy/overview.md).
@@ -447,6 +454,6 @@ Las conexiones de máquina virtual del conjunto de escalado de máquinas virtual
 
 ## <a name="preview-feedback"></a>Comentarios sobre la versión preliminar
 
-Comparta sus comentarios sobre esta Característica en vista previa (GB) o notifique cualquier problema mediante el [foro de comentarios de Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
+Comparta sus comentarios sobre esta Característica en vista previa (GB) o notifique cualquier problema mediante el [foro de comentarios de Azure AD](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
 
 ## <a name="next-steps"></a>Pasos siguientes

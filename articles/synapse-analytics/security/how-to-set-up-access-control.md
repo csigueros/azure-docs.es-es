@@ -10,12 +10,12 @@ ms.date: 8/05/2021
 ms.author: ronytho
 ms.reviewer: jrasnick, wiassaf
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 513b2edd432a274f155e79362e715fbc426a9f9e
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 3e90ab30e8eb916ef70248af32b7b95ff0a48428
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129081517"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131003549"
 ---
 # <a name="how-to-set-up-access-control-for-your-azure-synapse-workspace"></a>Procedimiento para configurar el control de acceso para el área de trabajo de Azure Synapse 
 
@@ -167,7 +167,7 @@ Para crear grupos de SQL, grupos de Apache Spark y entornos de ejecución de in
 
     ![Página Agregar asignación de roles en Azure Portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png) 
 
-## <a name="step-6-assign-sql-active-directory-admin-role&quot;></a>PASO 6: Asignación del rol Administrador de SQL Active Directory
+## <a name="step-6-assign-sql-active-directory-admin-role"></a>PASO 6: Asignación del rol Administrador de SQL Active Directory
 
 El creador del área de trabajo se configura automáticamente como el administrador de SQL Active Directory para el área de trabajo.  Este rol solo se puede conceder a un solo usuario o grupo. En este paso, asignará el administrador de SQL Active Directory del área de trabajo al grupo de seguridad `workspace1_SQLAdmins`.  La asignación de este rol proporciona a este grupo el acceso de administrador con privilegios elevados a todos los grupos y base de datos de SQL en el área de trabajo.   
 
@@ -179,20 +179,19 @@ El creador del área de trabajo se configura automáticamente como el administra
 >[!Note]
 >El paso 6 es opcional.  Puede optar por conceder al grupo `workspace1_SQLAdmins` un rol con menos privilegios. Para asignar `db_owner` u otros roles de SQL, debe ejecutar scripts en cada base de datos SQL. 
 
-## <a name=&quot;step-7-grant-access-to-sql-pools&quot;></a>PASO 7: Concesión de acceso a grupos de SQL
+## <a name="step-7-grant-access-to-sql-pools"></a>PASO 7: Concesión de acceso a grupos de SQL
 
-De forma predeterminada, a todos los usuarios a los que se asigna el rol de administrador de Synapse también se les asigna el rol `db_owner` de SQL en el grupo de SQL dedicado y sin servidor del área de trabajo.
+De forma predeterminada, a todos los usuarios a los que se asigna el rol de administrador de Synapse también se les asigna el rol `db_owner` de SQL en los grupos de SQL sin servidor del área de trabajo.
 
-El acceso a los grupos de SQL para otros usuarios y para las identidades administradas para recursos de Azure del área de trabajo se controla mediante permisos SQL.  La asignación de permisos de SQL requiere que los scripts de SQL se ejecuten en cada base de datos SQL después de la creación.  Hay tres casos en los que es necesario ejecutar estos scripts:
-1. Al conceder a otros usuarios acceso al grupo de SQL sin servidor, &quot;Integrado&quot;, y sus bases de datos
+El acceso a grupos de SQL para otros usuarios se controla mediante permisos de SQL.  La asignación de permisos de SQL requiere que los scripts de SQL se ejecuten en cada base de datos SQL después de la creación.  Hay tres casos en los que es necesario ejecutar estos scripts:
+1. Al conceder a otros usuarios acceso al grupo de SQL sin servidor, "Integrado", y sus bases de datos
 2. Al conceder acceso a cualquier usuario a bases de datos de grupos de SQL dedicados
-3. Al conceder acceso a las identidades de servicio administradas del área de trabajo a una base de datos de grupo de SQL a fin de habilitar canalizaciones que requieran el acceso al grupo de SQL para ejecutarse correctamente.
 
 A continuación, se incluyen scripts SQL de ejemplo.
 
-Para conceder acceso a una base de datos de grupo de SQL dedicado, el creador del área de trabajo o cualquier miembro de los grupos `workspace1_SQLAdmins` o `workspace1_SynapseAdministrators` puede ejecutar los scripts.  
+Para conceder acceso a una base de datos de grupo de SQL dedicado, el creador del área de trabajo o cualquier miembro del grupo `workspace1_SynapseAdministrators` puede ejecutar los scripts.  
 
-Para conceder acceso al grupo de SQL sin servidor (&quot;Integrado"), cualquier miembro del grupo `workspace1_SQLAdmins` o del grupo `workspace1_SynapseAdministrators` puede ejecutar los scripts. 
+Para conceder acceso al grupo de SQL sin servidor ("Integrado"), cualquier miembro del grupo `workspace1_SQLAdmins` o del grupo `workspace1_SynapseAdministrators` puede ejecutar los scripts. 
 
 > [!TIP]
 > Los pasos siguientes se deben realizar para **cada** grupo de SQL con el fin de conceder a los usuarios el acceso a todas las bases de datos SQL, excepto en la sección [Permiso de ámbito de área de trabajo](#workspace-scoped-permission), en que puede asignar un rol sysadmin a un usuario en el nivel de área de trabajo.
@@ -268,36 +267,6 @@ Para conceder acceso a un **único** grupo de SQL dedicado, siga estos pasos en 
 
 Después de crear los usuarios, ejecute consultas para validar que el grupo de SQL sin servidor pueda realizar consultas en la cuenta de almacenamiento.
 
-### <a name="step-73-sql-access-control-for-azure-synapse-pipeline-runs"></a>PASO 7.3: Control de acceso SQL para las ejecuciones de canalización de Azure Synapse
-
-### <a name="workspace-managed-identity"></a>Identidad administrada del área de trabajo
-
-> [!IMPORTANT]
-> Para ejecutar correctamente canalizaciones que incluyen conjuntos de datos o actividades que hacen referencia a un grupo de SQL, es preciso que se conceda a la identidad del área de trabajo acceso al grupo de SQL.
-
-Para obtener información sobre la identidad administrada del área de trabajo, vea [Identidad administrada del área de trabajo de Azure Synapse](synapse-workspace-managed-identity.md). Ejecute los siguientes comandos en cada grupo de SQL para permitir que la identidad del sistema administrada del área de trabajo ejecute canalizaciones en las bases de datos del grupo de SQL:  
-
->[!note]
->En los siguientes scripts, para una base de datos de grupo de SQL dedicada, `<databasename>` es igual que el nombre del grupo.  En el caso de una base de datos del grupo de SQL sin servidor "Integrada", `<databasename>` es el nombre de la base de datos.
-
-```sql
---Create a SQL user for the workspace MSI in database
-CREATE USER [<workspacename>] FROM EXTERNAL PROVIDER;
-
---Granting permission to the identity
-GRANT CONTROL ON DATABASE::<databasename> TO <workspacename>;
-```
-
-Este permiso se puede quitar. Para ello, es preciso ejecutar el siguiente script en el mismo grupo de SQL:
-
-```sql
---Revoke permission granted to the workspace MSI
-REVOKE CONTROL ON DATABASE::<databasename> TO <workspacename>;
-
---Delete the workspace MSI user in the database
-DROP USER [<workspacename>];
-```
-
 ## <a name="step-8-add-users-to-security-groups"></a>PASO 8: Adición de usuarios a grupos de seguridad
 
 La configuración inicial del sistema de control de acceso está completa.
@@ -320,7 +289,7 @@ El área de trabajo ahora está completamente configurada y protegida.
 
 Esta guía se centra en la configuración de un sistema de control de acceso básico. Para admitir escenarios más avanzados, puede crear grupos de seguridad adicionales y asignarles roles más precisos en ámbitos más específicos. Considere los casos siguientes:
 
-**Habilite la compatibilidad con GIT** para el área de trabajo a fin de obtener escenarios de desarrollo más avanzados, como CI/CD.  En el modo GIT, los permisos de GIT determinarán si un usuario puede confirmar los cambios en su rama de trabajo.  La publicación en el servicio solo tiene lugar desde la rama de colaboración.  Considere la posibilidad de crear un grupo de seguridad para los desarrolladores que necesitan desarrollar y depurar las actualizaciones en una rama de trabajo, pero que no necesitan publicar los cambios en el servicio en directo.
+**Habilite la compatibilidad con GIT** para el área de trabajo a fin de obtener escenarios de desarrollo más avanzados, como CI/CD.  En el modo GIT, los permisos de GIT y RBAC de Synapse determinarán si un usuario puede confirmar los cambios en su rama de trabajo.  La publicación en el servicio solo tiene lugar desde la rama de colaboración.  Considere la posibilidad de crear un grupo de seguridad para los desarrolladores que necesitan desarrollar y depurar las actualizaciones en una rama de trabajo, pero que no necesitan publicar los cambios en el servicio en directo.
 
 **Restrinja el acceso de desarrollador** a recursos específicos.  Cree otros grupos de seguridad adicionales más precisos para los desarrolladores que solo necesitan acceder a recursos específicos.  Asigne a estos grupos los roles de Azure Synapse adecuados que tengan como ámbito grupos de Spark específicos, entornos de ejecución de Integration o credenciales.
 

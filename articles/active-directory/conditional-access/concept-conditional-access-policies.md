@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 10/26/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 674f4cf80d68095ebd7b134c679b60b45ff2a548
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 54155113920c61d2f32474f0fac2414a6751bcdf
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128619351"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067420"
 ---
 # <a name="building-a-conditional-access-policy"></a>Creación de una directiva de acceso condicional
 
@@ -26,7 +26,9 @@ Como se explica en el artículo [¿Qué es el acceso condicional?](overview.md),
 
 ![Acceso condicional (señales + decisiones + aplicación = directivas)](./media/concept-conditional-access-policies/conditional-access-signal-decision-enforcement.png)
 
-Se pueden aplicar varias directivas de acceso condicional a un usuario individual en cualquier momento. En este caso, se tienen que satisfacer todas las directivas que se aplican. Por ejemplo, si una directiva exige la autenticación multifactor (MFA) y otra requiere un dispositivo compatible, tendrá que completar la MFA y usar un dispositivo compatible. A todas las asignaciones se les asigna **la operación lógica AND**. Si tiene más de una asignación configurada, se deben satisfacer todas las asignaciones para desencadenar una directiva.
+Se pueden aplicar varias directivas de acceso condicional a un usuario individual en cualquier momento. En este caso, se tienen que satisfacer todas las directivas que se aplican. Por ejemplo, si una directiva exige la autenticación multifactor (MFA) y otra requiere un dispositivo compatible, tendrá que completar la MFA y usar un dispositivo compatible. A todas las asignaciones se les asigna **la operación lógica AND**. Si tiene más de una asignación configurada, todas las asignaciones deben cumplirse para desencadenar una directiva.
+
+Si se selecciona una directiva en la que se selecciona "Requerir uno de los controles seleccionados", se solicita en el orden definido; en cuanto se cumplen los requisitos de la directiva, se concede acceso.
 
 Todas las directivas se aplican en dos fases:
 
@@ -36,7 +38,7 @@ Todas las directivas se aplican en dos fases:
 - Fase 2: Cumplimiento 
    - Use los detalles de la sesión recopilados en la fase 1 para identificar los requisitos que no se han cumplido. 
    - Si hay una directiva que está configurada para bloquear el acceso, con el control de concesión de bloqueo, la aplicación se detendrá aquí y se bloqueará al usuario. 
-   - Se le pedirá al usuario que complete los requisitos de control de concesión adicionales que no se cumplieron durante la fase 1 en el orden siguiente, hasta que se satisfaga la directiva:  
+   - Se le pedirá al usuario que complete más requisitos de control de concesión que no se cumplieron durante la fase 1 en el orden siguiente, hasta que se satisfaga la directiva:  
       - Multi-Factor Authentication 
       - Directiva de protección de aplicaciones/aplicaciones cliente aprobada 
       - Dispositivo administrado (combinación de Azure AD compatible o híbrido) 
@@ -79,7 +81,7 @@ Los datos de ubicación se proporcionan mediante datos de geolocalización de di
 
 De manera predeterminada, todas las directivas de acceso condicional recién creadas se aplicarán a todos los tipos de aplicaciones cliente, incluso si la condición de las aplicaciones cliente no está configurada.
 
-El comportamiento de la condición de las aplicaciones cliente se actualizó en agosto de 2020. Si ya tiene directivas de acceso condicional, estas permanecerán sin cambios. Sin embargo, si hace clic en una directiva existente, se habrá quitado el botón de alternancia de configuración, y estarán seleccionadas las aplicaciones cliente a las que se aplica la directiva.
+El comportamiento de la condición de las aplicaciones cliente se actualizó en agosto de 2020. Si ya tiene directivas de acceso condicional, estas permanecerán sin cambios. Sin embargo, si selecciona una directiva existente, se habrá quitado el botón de alternancia de configuración, y estarán seleccionadas las aplicaciones cliente a las que se aplica la directiva.
 
 #### <a name="device-state"></a>Estado del dispositivo
 

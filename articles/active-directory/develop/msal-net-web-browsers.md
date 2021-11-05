@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev, has-adal-ref
-ms.openlocfilehash: 9a431a2088ac01b3e0bec21b951fa4af0c5347e0
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: b53166da12d2949cbebb590cd326b8bd86d5bec4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122419044"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131052714"
 ---
 # <a name="using-web-browsers-msalnet"></a>Uso de exploradores web (MSAL.NET)
 
@@ -65,7 +65,7 @@ El uso del explorador del sistema tiene la ventaja significativa de compartir el
 
 ## <a name="system-browser-experience-on-net"></a>Experiencia del explorador del sistema en .NET 
 
-En .NET Core, MSAL.NET iniciará el explorador del sistema como un proceso separado. MSAL.NET no tiene control sobre este navegador, pero una vez que el usuario finaliza la autenticación, la página web se redirige de tal manera que MSAL.NET pueda interceptar el Uri.
+En .NET Core, MSAL.NET iniciará el explorador del sistema como un proceso separado. MSAL.NET no tiene control sobre este navegador, pero una vez que el usuario finaliza la autenticación, la página web se redirige de tal manera que MSAL.NET pueda interceptar el URI.
 
 También puede configurar las aplicaciones escritas para .NET Classic o .NET 5 que usará este navegador al especificar lo siguiente:
 
@@ -82,8 +82,8 @@ MSAL.NET debe escuchar en `http://localhost:port` e interceptar el código que A
 
 Para habilitar el explorador del sistema:
 
-1. Durante el registro de la aplicación, configure `http://localhost` como el Uri de redireccionamiento (actualmente no es compatible con B2C).
-2. Cuando construya su elemento PublicClientApplication, especifique este Uri de redireccionamiento:
+1. Durante el registro de la aplicación, configure `http://localhost` como el URI de redireccionamiento (actualmente no es compatible con B2C).
+2. Cuando construya su elemento PublicClientApplication, especifique este URI de redireccionamiento:
 
 ```csharp
 IPublicClientApplication pca = PublicClientApplicationBuilder
@@ -227,4 +227,4 @@ authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
 #### <a name="net-core-doesnt-support-interactive-authentication-with-an-embedded-browser"></a>.NET Core no admite la autenticación interactiva con un explorador insertado
 
 En .NET Core, la adquisición de tokens de forma interactiva solo está disponible a través del explorador web del sistema y no con las vistas web insertadas. De hecho, .NET Core aún no proporciona la interfaz de usuario.
-Si quiere personalizar la experiencia de navegación con el explorador web del sistema, puede implementar la interfaz [IWithCustomUI](scenario-desktop-acquire-token.md#withcustomwebui) e incluso proporcionar su propio explorador.
+Si quiere personalizar la experiencia de navegación con el explorador web del sistema, puede implementar la interfaz [IWithCustomUI](scenario-desktop-acquire-token-interactive.md#withcustomwebui) e incluso proporcionar su propio explorador.

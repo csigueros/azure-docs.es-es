@@ -3,20 +3,20 @@ title: ContentDefinitions
 titleSuffix: Azure AD B2C
 description: Especifique el elemento ContentDefinitions de una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/12/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: bbe79082f63065ed73b573ab87f3299f7df79148
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: af77df3d3839a019e4977b32c6b8b138b375b4f1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124740234"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131007455"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -79,7 +79,7 @@ El elemento **ContentDefinition** contiene los elementos siguientes:
 
 El elemento **LoadUri** se usa para especificar la dirección URL de la página HTML5 para la definición de contenido. Los [paquetes de inicio de directivas personalizadas](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack) de Azure AD B2C incluyen definiciones de contenido que usan páginas HTML de Azure AD B2C. El elemento **LoadUri** comienza por `~`, que es una ruta de acceso relativa al inquilino de Azure AD B2C.
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>~/tenant/templates/AzureBlue/unified.cshtml</LoadUri>
   ...
@@ -88,12 +88,12 @@ El elemento **LoadUri** se usa para especificar la dirección URL de la página 
 
 Puede [personalizar la interfaz de usuario con plantillas HTML](customize-ui-with-html.md). Cuando use plantillas HTML, proporcione una dirección URL absoluta. En el ejemplo siguiente se muestra una definición de contenido con una plantilla HTML:
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html</LoadUri>
   ...
 </ContentDefinition>
-``` 
+```
 
 ### <a name="datauri"></a>DataUri
 
@@ -103,7 +103,7 @@ El elemento **DataUri** se usa para especificar el identificador de página. Azu
 | ----- | ----------- |
 | `globalexception` | Muestra una página de error cuando se produce una excepción o un error. |
 | `providerselection`, `idpselection` | Muestra una lista de los proveedores de identidades que los usuarios pueden elegir durante el inicio de sesión.  |
-| `unifiedssp` | Muestra un formulario para iniciar sesión con una cuenta local basada en una dirección de correo electrónico o un nombre de usuario. Este valor también proporciona la función “Mantener iniciada la sesión” y el vínculo "¿Ha olvidado la contraseña?" |
+| `unifiedssp` | Muestra un formulario para iniciar sesión con una cuenta local basada en una dirección de correo electrónico o un nombre de usuario. Este valor también proporciona la función "Mantener iniciada la sesión" y el vínculo "¿Ha olvidado la contraseña?" |
 | `unifiedssd` | Muestra un formulario para iniciar sesión con una cuenta local basada en una dirección de correo electrónico o un nombre de usuario. Este identificador de página está en desuso. Use el identificador de página `unifiedssp` en su lugar.  |
 | `multifactor` | Verifica los números de teléfono mediante mensajes de texto o llamadas de voz durante el registro o inicio de sesión. |
 | `selfasserted` | Muestra un formulario para recopilar datos de un usuario. Por ejemplo, permite a los usuarios crear o actualizar su perfil. |
@@ -150,7 +150,7 @@ Para migrar desde el valor de **DataUri** anterior (sin contrato de página) a l
 | `urn:com:microsoft:aad:b2c:elements:multifactor:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.5` |
 | `urn:com:microsoft:aad:b2c:elements:multifactor:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.5` |
 
-En el ejemplo siguiente se muestran los identificadores de definición de contenido y el elemento **DataUri** correspondiente con la [versión de la última página](page-layout.md): 
+En el ejemplo siguiente se muestran los identificadores de definición de contenido y el elemento **DataUri** correspondiente con la [versión de la última página](page-layout.md):
 
 ```xml
 <!-- 

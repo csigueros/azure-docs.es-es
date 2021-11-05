@@ -1,6 +1,6 @@
 ---
-title: 'Image Builder: creación de una imagen de Windows Virtual Desktop'
-description: Cree una imagen de máquina virtual de Azure de Windows Virtual Desktop con el servicio Image Builder de Azure en PowerShell.
+title: 'Image Builder: creación de una imagen de Azure Virtual Desktop'
+description: Cree una imagen de máquina virtual de Azure de Azure Virtual Desktop con el servicio Image Builder de Azure en PowerShell.
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: cynthn
@@ -10,21 +10,21 @@ ms.service: virtual-machines
 ms.collection: windows
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fdda25ecc9d111d626b7c9836757c31d4972c25f
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 046bec93d3a9ae0ffef8b189470f412ab357943d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122692455"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131018496"
 ---
-# <a name="create-a-windows-virtual-desktop-image-using-azure-vm-image-builder-and-powershell"></a>Creación de una imagen de Windows Virtual Desktop mediante Azure VM Image Builder y PowerShell
+# <a name="create-a-azure-virtual-desktop-image-using-azure-vm-image-builder-and-powershell"></a>Creación de una imagen de Azure Virtual Desktop mediante Azure VM Image Builder y PowerShell
 
 **Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows 
 
-En este artículo se muestra cómo crear una imagen de Windows Virtual Desktop con estas personalizaciones:
+En este artículo se muestra cómo crear una imagen de Azure Virtual Desktop con estas personalizaciones:
 
 * Instalación de [FsLogix](https://github.com/DeanCefola/Azure-WVD/blob/master/PowerShell/FSLogixSetup.ps1).
-* Ejecución de un [script de optimización de Windows Virtual Desktop](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) desde el repositorio de la comunidad.
+* Ejecución de un [script de optimización de Azure Virtual Desktop](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) desde el repositorio de la comunidad.
 * Instalación de [Microsoft Teams](../../virtual-desktop/teams-on-avd.md).
 * [Restart](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-restart-customizer) (Reiniciar)
 * Ejecución de [Windows Update](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-update-customizer)

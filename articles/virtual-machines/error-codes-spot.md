@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: f035d7813dfcf84d21e5913fa4626188e125db9a
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: b38730604072fdf61c551ade8e147e18a487a160
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691090"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131082763"
 ---
 # <a name="error-messages-for-azure-spot-virtual-machines-and-scale-sets"></a>Mensajes de error para máquinas virtuales de acceso puntual de Azure y conjuntos de escalado
 
@@ -39,6 +39,8 @@ Estos son algunos de los códigos de error que podría recibir al usar máquinas
 | MoveResourcesWithAzureSpotVMNotSupported  |  La solicitud Mover recursos contiene una máquina virtual de acceso puntual de Azure. No compatible. Consulte los detalles del error para conocer los identificadores de máquina virtual. | No puede mover máquinas virtuales de acceso puntual de Azure. |
 | MoveResourcesWithAzureSpotVmssNotSupported  |  La solicitud Mover recursos contiene un conjunto de escalado de máquinas virtuales de Azure Spot. No compatible. Consulte los detalles del error para conocer los identificadores de conjunto de escalado de máquinas virtuales. | No puede mover instancias de conjuntos de escalado de máquinas virtuales de acceso puntual de Azure. |
 | AzureSpotVMNotSupportedInVmssWithVMOrchestrationMode | Los conjuntos de escalado de máquinas virtuales con el modo de orquestación de VM no admiten máquinas virtuales de acceso puntual de Azure. | Para permitir el uso de instancias de máquinas virtuales de acceso puntual de Azure, establezca el modo de orquestación en el conjunto de escalado de máquinas virtuales. |
+| SpotRestorationIsNotSupportedForThisAPIVersion | La característica de restauración de spot no es compatible con esta versión de API. |  Para un conjunto de escalado existente, realice una revisión utilizando la versión de API 2021-07-01 o posterior. <br><br> Para las nuevas implementaciones de conjunto de escalado, agregue la siguiente propiedad a la plantilla Azure Resource Manager utilizando la versión de API 2021-07-01 o posterior: <br><br> :::image type="content" source="media/spot/spot-try-restore-error-codes-1.png" alt-text="Ejemplo de código de error para usar la versión correcta de la API.":::| 
+| SpotRestorationIsSupportedOnlyForAzureSpotScaleSets | La característica de restauración de spot solo se admite para conjuntos de escalado de máquinas virtuales de Azure Spot. | La característica de restauración de spot solo es compatible con conjuntos de escalado de máquinas virtuales de Azure Spot. Para usar esta característica, implemente Azure Spot mediante conjuntos de escalado de máquinas virtuales. | 
 
 
 **Pasos siguientes** Para más información, consulte [Máquinas virtuales de Spot](./spot-vms.md).

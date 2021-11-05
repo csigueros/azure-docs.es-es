@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: vikancha
-ms.openlocfilehash: dba6962199f61eeb93dfb2f98e3e448c94ff633a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 110021730ecc91281f2c187a5ef6f1f989fbaf87
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128567107"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131018477"
 ---
 # <a name="fpga-attestation-for-azure-np-series-vms-preview"></a>Atestación de FPGA para las máquinas virtuales de Azure de la serie NP (versión preliminar)
 
@@ -34,9 +34,9 @@ Deberá tener autorizado el identificador de inquilino y de suscripción para lo
 
 ## <a name="building-your-design-for-attestation"></a>Creación del diseño para la atestación  
 
-El conjunto de herramientas de Xilinx preferido para la creación de diseños es Vitis 2020.2. Se pueden usar los archivos netlist que se crearon con una versión anterior del conjunto de herramientas y que sigan siendo compatibles con la versión 2020.2. Asegúrese de que ha cargado el shell correcto con el que se va a realizar la compilación. La versión admitida actualmente es xilinx_u250_gen3x16_xdma_2_1_202010_1. Los archivos auxiliares se pueden descargar desde la sala de Xilinx Alveo. 
+El conjunto de herramientas de Xilinx preferido para la creación de diseños es Vitis 2020.2. Se pueden usar los archivos netlist que se crearon con una versión anterior del conjunto de herramientas y que sigan siendo compatibles con la versión 2020.2. Asegúrese de que ha cargado el shell correcto con el que se va a realizar la compilación. La versión que se admite actualmente es la `xilinx_u250_gen3x16_xdma_2_1_202010_1`. Los archivos auxiliares se pueden descargar desde la sala de Xilinx Alveo.
 
-Debe incluir el siguiente argumento en Vitis (línea de comandos v++) para compilar un archivo xclbin que contenga un archivo netlist en lugar de un archivo bitstream.   
+Debe incluir el siguiente argumento en Vitis (línea de comandos v++) para compilar un archivo `xclbin` que contenga un archivo netlist en lugar de un archivo bitstream.
 
 `--advanced.param compiler.acceleratorBinaryContent=dcp`
 

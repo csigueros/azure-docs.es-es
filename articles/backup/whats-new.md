@@ -2,13 +2,13 @@
 title: Novedades de Azure Backup
 description: Obtenga información acerca de las nuevas características de Azure Backup.
 ms.topic: conceptual
-ms.date: 08/05/2021
-ms.openlocfilehash: e05b98e61a632ee494689eeb1cf013996150bcb3
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 10/20/2021
+ms.openlocfilehash: 398833135c97d3d067e7e2b29704ffd6bad25bbd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130244236"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131020433"
 ---
 # <a name="whats-new-in-azure-backup"></a>Novedades de Azure Backup
 
@@ -18,6 +18,8 @@ Para obtener más información acerca de las nuevas versiones, puede marcar esta
 
 ## <a name="updates-summary"></a>Resumen de actualizaciones
 
+- Octubre de 2021
+  - [Métricas y alertas de métricas de Azure Backup (versión preliminar)](#azure-backup-metrics-and-metrics-alerts-in-preview)
 - Julio de 2021
   - [La compatibilidad con el nivel de acceso de archivo de SQL Server en máquinas virtuales de Azure para Azure Backup ya está disponible con carácter general](#archive-tier-support-for-sql-server-in-azure-vm-for-azure-backup-is-now-generally-available)
 - Mayo de 2021
@@ -46,6 +48,25 @@ Para obtener más información acerca de las nuevas versiones, puede marcar esta
   - [Copia de seguridad de SAP HANA en Azure Virtual Machines de RHEL (en versión preliminar)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
   - [Almacenamiento con redundancia de zona para datos de copia de seguridad (en versión preliminar)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Eliminación temporal de las cargas de trabajo de SQL Server y SAP HANA en máquinas virtuales de Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="azure-backup-metrics-and-metrics-alerts-in-preview"></a>Métricas y alertas de métricas de Azure Backup (versión preliminar)
+
+Azure Backup ahora ofrece un conjunto de métricas integradas a través de [Azure Monitor](/azure/azure-monitor/essentials/data-platform-metrics) que le permiten supervisar el estado de sus copias de seguridad. También puede configurar reglas de alertas que desencadenan alertas cuando las métricas superan los umbrales definidos.
+
+Azure Backup ofrece estas funcionalidades clave:
+ 
+- Capacidad de ver métricas de fábrica relacionadas con el estado de las copias de seguridad y restauraciones de los elementos de copia de seguridad, junto con las tendencias asociadas.
+- Capacidad de escribir reglas de alertas personalizadas en estas métricas para supervisar de forma eficaz el estado de los elementos de copia de seguridad.
+- Capacidad de enrutar las alertas de métricas activadas por varios canales de notificación compatibles con Azure Monitor, como correo electrónico, ITSM, webhook, aplicaciones lógicas, entre otros.
+ 
+Actualmente, Azure Backup admite métricas integradas para estos tipos de cargas de trabajo:
+
+- Azure VM
+- Bases de datos SQL en VM de Azure
+- Bases de datos de SAP HANA en VM de Azure
+- Azure Files
+
+Para más detalles, consulte [Supervisión del estado de las copias de seguridad mediante las métricas de Azure Backup (versión preliminar)](metrics-overview.md).
 
 ## <a name="archive-tier-support-for-sql-server-in-azure-vm-for-azure-backup-is-now-generally-available"></a>La compatibilidad con el nivel de acceso de archivo de SQL Server en máquinas virtuales de Azure para Azure Backup ya está disponible con carácter general
 

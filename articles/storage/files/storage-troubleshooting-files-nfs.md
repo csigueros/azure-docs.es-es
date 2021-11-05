@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: e2cdcf3b42fbb71751644efbaa394c51d2f861fc
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 730b7344a213922bd87d5efa3a659d352ff8624f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123258329"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131019156"
 ---
 # <a name="troubleshoot-azure-nfs-file-share-problems"></a>Solución de problemas de recursos compartidos de archivos NFS de Azure
 
@@ -122,7 +122,7 @@ Todavía no se admite el cifrado doble de los recursos compartidos de NFS. Azure
 
 Deshabilite Se requiere transferencia segura en la hoja Configuración de la cuenta de almacenamiento.
 
-:::image type="content" source="media/storage-files-how-to-mount-nfs-shares/storage-account-disable-secure-transfer.png" alt-text="Captura de pantalla de la hoja Configuración de la cuenta de almacenamiento, en la que se deshabilita la opción Se requiere transferencia segura":::
+:::image type="content" source="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png" alt-text="Captura de pantalla de la hoja Configuración de la cuenta de almacenamiento, en la que se deshabilita la opción Se requiere transferencia segura":::
 
 ### <a name="cause-3-nfs-common-package-is-not-installed"></a>Causa 3: el paquete nfs-common no está instalado
 Antes de ejecutar el comando de montaje, instale el paquete mediante la ejecución del comando específico de la distribución que se muestra a continuación.
@@ -157,43 +157,14 @@ El protocolo NFS se comunica con su servidor a través del puerto 2049; asegúr
 
 Compruebe que el puerto 2049 está abierto en el cliente mediante la ejecución del siguiente comando: `telnet <storageaccountnamehere>.file.core.windows.net 2049`. Si el puerto no está abierto, ábralo.
 
-## <a name="ls-list-files-command-shows-incorrectinconsistent-results"></a>El comando ls (list files) muestra resultados incorrectos o incoherentes
-
-### <a name="cause-inconsistency-between-cached-values-and-server-file-metadata-values-when-the-file-handle-is-open"></a>Causa: Incoherencia entre valores almacenados en caché y valores de metadatos de archivo de servidor cuando el identificador de archivo está abierto
-A veces, el comando "list files" (o "df" o "find") muestra un tamaño distinto de cero como era de esperar; en su lugar, en el comando list files siguiente muestra un tamaño de cero o una marca de tiempo muy antigua. Se trata de un problema conocido debido al almacenamiento en caché incoherente de los valores de metadatos de archivo mientras el archivo está abierto. Para resolver el problema, puede usar una de las siguientes soluciones alternativas:
-
-#### <a name="workaround-1-for-fetching-file-size-use-wc--c-instead-of-ls--l"></a>Alternativa 1: Para obtener el tamaño de archivo, use wc -c en lugar de ls -l
-El uso de wc -c siempre recuperará el valor más reciente del servidor y no tendrá ninguna incoherencia.
-
-#### <a name="workaround-2-use-noac-mount-flag"></a>Alternativa 2: Use la marca de montaje "noac"
-Vuelva a montar el sistema de archivos mediante la marca "noac" con el comando mount. De esta forma, siempre obtendrá todos los valores de metadatos del servidor. Puede haber cierta sobrecarga de rendimiento secundaria para todas las operaciones de metadatos si se usa esta solución alternativa.
-
-
-## <a name="unable-to-mount-an-nfs-share-that-is-restored-back-from-soft-deleted-state"></a>No se puede montar un recurso compartido NFS que se restauró a partir del estado de eliminación temporal
-Hay un problema conocido durante la versión preliminar en el que los recursos compartidos NFS se eliminan temporalmente a pesar de que la plataforma no lo admite por completo. Estos recursos compartidos se eliminarán de manera rutinaria al expirar. También puede eliminarlas anticipadamente mediante el flujo "recuperar recurso compartido + deshabilitar la eliminación temporal + eliminar recurso compartido". Sin embargo, si intenta recuperar y usar los recursos compartidos, se le denegará el acceso o el permiso, o se producirá un error de E/S de NFS en el cliente.
-
-## <a name="ls-la-throws-io-error"></a>ls –la produce un error de E/S
-
-### <a name="cause-a-known-bug-that-has-been-fixed-in-newer-linux-kernel"></a>Causa: error conocido que se ha corregido en el kernel de Linux más reciente
-En kernels anteriores, NFS4ERR_NOT_SAME provoca que el cliente deje de enumerar (en lugar de reiniciar para el directorio). Los kernels más recientes se desbloquearían de inmediato; desafortunadamente, en el caso de distribuciones como SUSE, no hay ninguna revisión para SUSE Enterprise Linux Server 12 o 15 que actualice el kernel con esta corrección.  La revisión está disponible a partir del kernel 5.12.  La revisión de la corrección del lado cliente se describe a continuación: [PATCH v3 15/17 NFS: Handle NFS4ERR_NOT_SAME and NFSERR_BADCOOKIE from readdir calls](https://www.spinics.net/lists/linux-nfs/msg80096.html).
-
-#### <a name="workaround-use-latest-kernel-workaround-while-the-fix-reaches-the-region-hosting-your-storage-account"></a>Solución alternativa: usar la solución más reciente del kernel hasta que llegue la corrección a la región que hospeda su cuenta de almacenamiento
-La revisión está disponible a partir del kernel 5.12.
-
 ## <a name="ls-hangs-for-large-directory-enumeration-on-some-kernels"></a>ls no responde con la enumeración de directorios grandes en algunos kernels
 
 ### <a name="cause-a-bug-was-introduced-in-linux-kernel-v511-and-was-fixed-in-v5125"></a>Causa: en el kernel de Linux v5.11 se introdujo un error, que se corrigió en v5.12.5.  
-Algunas versiones de kernel tienen un error que hace que las listas de directorios provoquen secuencias READDIR infinitas. Los directorios muy pequeños donde todas las entradas se pueden enviar en una sola llamada no tienen este problema.
+Algunas versiones de kernel tienen un error que hace que las listas de directorios provoquen una secuencia READDIR infinita. Los directorios muy pequeños donde todas las entradas se pueden enviar en una sola llamada no tienen este problema.
 El error se introdujo en el kernel de Linux v5.11 y se corrigió en v5.12.5. Por lo tanto, todas las versiones intermedias tienen el error. Se sabe que RHEL 8.4 tiene esta versión del kernel.
 
 #### <a name="workaround-downgrading-or-upgrading-the-kernel"></a>Solución alternativa: cambiar a una versión anterior o posterior del kernel
 Cambie a una versión anterior o posterior del kernel para resolver el problema.
-
-## <a name="df-and-find-command-shows-inconsistent-results-on-clients-other-than-where-the-writes-happen"></a>El comando df y find muestra resultados incoherentes en clientes distintos de donde se produce la escritura
-Se trata de un problema conocido. Microsoft está trabajando activamente para resolverlo.
-
-## <a name="application-fails-with-error-underlying-file-changed-by-an-external-force-when-using-exclusive-open"></a>Error "El archivo subyacente ha cambiado por una fuerza externa" en la aplicación al usar OPEN exclusivo 
-Se trata de un problema conocido. Microsoft está trabajando activamente para resolverlo.
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 Si sigue necesitando ayuda, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.

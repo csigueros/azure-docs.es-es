@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: fa486647f124e374087abab959ced16cbddad539
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: a2900b055f95372080d73b80e794b3b5d909db06
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130131645"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069964"
 ---
 # <a name="tile-visualizations"></a>Visualizaciones de mosaico
 

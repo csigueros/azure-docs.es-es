@@ -2,18 +2,21 @@
 title: Soluciones de supervisión en Azure Monitor | Microsoft Docs
 description: Obtenga información sobre las colecciones empaquetadas previamente de reglas de lógica, visualización y adquisición de datos para diferentes áreas problemáticas.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 10/16/2020
+author: rboucher
+ms.author: robb
+ms.date: 10/16/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: a9f1cb05a87af95272624a4a0406deac5bc0c411
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 57f5c3f3dace57b42ed5ac32e48c5d070517e03a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128594092"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059953"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluciones de supervisión en Azure Monitor
+
+> [!CAUTION]
+> Las soluciones de supervisión ya no están en desarrollo activo.  La tecnología de reemplazo se denomina [Azure Monitor Insights](/azure/azure-monitor/monitor-reference#insights). Se recomienda usar la información y no implementar nuevas instancias de soluciones.  
 
 Las soluciones de supervisión de Azure Monitor proporcionan análisis del funcionamiento de un servicio o una aplicación de Azure. En este artículo se proporciona una breve descripción de las soluciones de supervisión en Azure y los detalles sobre su uso e instalación. 
 

@@ -4,15 +4,15 @@ description: Administración de las conexiones, la configuración de control de 
 ms.service: data-factory
 ms.subservice: authoring
 ms.topic: conceptual
-author: jasonwhowell
-ms.author: jasonh
+author: joshuha-msft
+ms.author: joowen
 ms.date: 04/27/2021
-ms.openlocfilehash: d4793a36e72715bc7d4ffdc44ad788ebfae0832f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 9c25ccdababc228be0f3509084fdba8090a1b649
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131077845"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131844627"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Centro de administración de Azure Data Factory
 

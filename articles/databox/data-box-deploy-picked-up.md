@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/21/2021
+ms.date: 10/26/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 5f2d368748dc722e680f956ea7dd233313a97efe
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 055ffcb662b5a12dfefe194b08e293f277ba5005
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130251991"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131005614"
 ---
 ::: zone target="docs"
 
@@ -73,7 +73,9 @@ Los siguientes pasos vienen determinados por el lugar al que se vaya a devolver 
 
 ## <a name="ship-data-box-back"></a>Devolución de Data Box
 
-Asegúrese de que la copia de datos en el dispositivo se ha completado y que la ejecución de **Preparación para el envío** se ha realizado correctamente. Según la región a la que envíe el dispositivo, el procedimiento es distinto.
+Asegúrese de que la copia de datos en el dispositivo se ha completado y que la ejecución de **Preparación para el envío** se ha realizado correctamente. 
+
+Según la región a la que envíe el dispositivo, el procedimiento es distinto. En muchos países o regiones, puede usar el envío administrado por Microsoft o el envío autogestionado.
 
 ### <a name="microsoft-managed-shipping"></a>Envío administrado por Microsoft
 
@@ -83,9 +85,15 @@ Si usa el envío administrado por Microsoft, siga las instrucciones correspondie
 
 [!INCLUDE [data-box-shipping-in-us-canada](../../includes/data-box-shipping-in-us-canada.md)]
 
-## <a name="europe"></a>[Europa](#tab/in-europe)
+## <a name="eu"></a>[EU](#tab/in-europe)
 
 [!INCLUDE [data-box-shipping-in-eu](../../includes/data-box-shipping-in-eu.md)]
+
+**Si el envío es desde Alemania o Suiza,** también puede [usar el envío autoadministrado](#self-managed-shipping).
+
+## <a name="uk"></a>[Reino Unido](#tab/in-uk)
+
+[!INCLUDE [data-box-shipping-in-uk](../../includes/data-box-shipping-in-uk.md)]
 
 ## <a name="australia"></a>[Australia](#tab/in-australia)
 
@@ -99,23 +107,27 @@ Si usa el envío administrado por Microsoft, siga las instrucciones correspondie
 
 [!INCLUDE [data-box-shipping-in-singapore](../../includes/data-box-shipping-in-singapore.md)]
 
-## <a name="south-africa"></a>[Sudáfrica](#tab/in-sa)
-
-[!INCLUDE [data-box-shipping-in-sa](../../includes/data-box-shipping-in-sa.md)]
-
 ## <a name="hong-kong"></a>[RAE de Hong Kong](#tab/in-hk)
 
 [!INCLUDE [data-box-shipping-in-hk](../../includes/data-box-shipping-in-hk.md)]
+
+## <a name="korea"></a>[Corea](#tab/in-korea)
+
+[!INCLUDE [data-box-shipping-in-korea](../../includes/data-box-shipping-in-korea.md)]
+
+## <a name="s-africa"></a>[Sudáfrica](#tab/in-sa)
+
+[!INCLUDE [data-box-shipping-in-sa](../../includes/data-box-shipping-in-sa.md)]
 
 ## <a name="uae"></a>[Emiratos Árabes Unidos](#tab/in-uae)
 
 [!INCLUDE [data-box-shipping-in-uae](../../includes/data-box-shipping-in-uae.md)]
 
----
-
 ### <a name="self-managed-shipping"></a>Envío autoadministrado
 
 [!INCLUDE [data-box-shipping-self-managed](../../includes/data-box-shipping-self-managed.md)]
+
+---
 
 ::: zone target="chromeless"
 

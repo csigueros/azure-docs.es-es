@@ -1,21 +1,19 @@
 ---
-title: Flujo de trabajo de CI/CD con GitOps - Kubernetes habilitado para Azure Arc
+title: 'Flujo de trabajo de CI/CD con GitOps: Kubernetes habilitado para Azure Arc'
 services: azure-arc
 ms.service: azure-arc
 ms.date: 03/03/2021
 ms.topic: conceptual
-author: tcare
-ms.author: tcare
 description: En este artículo se proporciona información general conceptual de un flujo de trabajo de CI/CD con GitOps.
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, contenedores, CI, CD, Azure DevOps
-ms.openlocfilehash: 47633ed5bec1a07c878983d0e93e03149d8967ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 837c0124739fa6659fc4c7652fcb9ca7be4fbf85
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105025873"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131039665"
 ---
-# <a name="cicd-workflow-using-gitops---azure-arc-enabled-kubernetes"></a>Flujo de trabajo de CI/CD con GitOps: Kubernetes habilitado para Azure Arc
+# <a name="cicd-workflow-using-gitops---azure-arc-enabled-kubernetes"></a>Flujo de trabajo de CI/CD con GitOps: Kubernetes habilitado para Azure Arc
 
 Las implementaciones de Kubernetes modernas alojan varias aplicaciones, clústeres y entornos. Con GitOps, puede administrar estas configuraciones complejas más fácilmente, con un seguimiento del estado deseado de los entornos de Kubernetes mediante declaración con Git. Con las herramientas comunes de Git para realizar el seguimiento del estado del clúster, puede aumentar la responsabilidad, facilitar la investigación de errores y habilitar la automatización para administrar entornos.
 
@@ -42,7 +40,7 @@ La canalización de CD se desencadena automáticamente mediante compilaciones de
 ### <a name="gitops-repo"></a>Repositorio de GitOps
 El repositorio de GitOps representa el estado deseado actual de todos los entornos entre los clústeres. Los cambios en este repositorio los detecta el servicio Flux en cada clúster y se implementan. Las PR se crean con cambios al estado deseado, se revisan y se combinan. Estas PR contienen cambios en las plantillas de implementación y en los manifiestos de Kubernetes representados resultantes. Los manifiestos representados de bajo nivel permiten una inspección más minuciosa de los cambios que normalmente no se muestran en el nivel de plantilla.
 ### <a name="kubernetes-clusters"></a>Clústeres de Kubernetes
-Al menos uno de los clústeres de Kubernetes habilitado para Azure Arc sirven para los diferentes entornos necesarios para la aplicación. Por ejemplo, un único clúster puede atender a un entorno de desarrollo y QA a través de espacios de nombres diferentes. Un segundo clúster puede proporcionar una separación más sencilla de los entornos y un control más preciso.
+Al menos uno de los clústeres de Kubernetes habilitado para Azure Arc sirve para los diferentes entornos necesarios para la aplicación. Por ejemplo, un único clúster puede atender a un entorno de desarrollo y QA a través de espacios de nombres diferentes. Un segundo clúster puede proporcionar una separación más sencilla de los entornos y un control más preciso.
 ## <a name="example-workflow"></a>Flujo de trabajo de ejemplo
 Como desarrolladora de aplicaciones, Alice:
 * Escribe el código de la aplicación.
@@ -74,4 +72,4 @@ Suponga que Alice desea hacer un cambio en la aplicación que modifique la image
 8.  Una vez realizadas correctamente las implementaciones en todos los entornos, la canalización se completa.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Obtenga más información sobre la creación de conexiones entre el clúster y un repositorio de GIT como un [recurso de configuración con Kubernetes habilitado para Azure Arc](./conceptual-configurations.md).
+Obtenga más información sobre la creación de conexiones entre el clúster y un repositorio de GIT como un [recurso de configuración con Kubernetes habilitado para Azure Arc](./conceptual-configurations.md).

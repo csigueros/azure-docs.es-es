@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/10/2021
 ms.author: danlep
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ee5d0ac639cbd36215df5545d684909af3acd748
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6dc297736403b6124b27f34462ffaee0bfa4cf4a
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128563827"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131845786"
 ---
 # <a name="connect-to-a-virtual-network-in-internal-mode-using-azure-api-management"></a>Conexión a una red virtual en modo interno mediante Azure API Management 
 Con las redes virtuales de Azure (VNET), Azure API Management puede administrar API inaccesibles por Internet mediante varias tecnologías de VPN para realizar la conexión. Puede implementar API Management mediante modos [externos](./api-management-using-with-vnet.md) o internos. Para ver las opciones, los requisitos y las consideraciones de conectividad de red virtual, consulte [Uso de una red virtual con Azure API Management](virtual-network-concepts.md).
@@ -152,7 +152,6 @@ Para acceder a estos puntos de conexión de servicio de API Management, puede cr
 
 Así, podrá tener acceso a todos los puntos de conexión de servicio desde la máquina virtual que ha creado.
 
-Si usa un servidor DNS personalizado en una red virtual, también puede crear registros A de DNS y acceder a estos puntos de conexión desde cualquier lugar de la red virtual.
 
 ### <a name="access-on-custom-domain-names"></a>Acceso de nombres de dominio personalizados
 

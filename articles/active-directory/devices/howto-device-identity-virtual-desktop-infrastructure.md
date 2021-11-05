@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca70009eea6f8988fadd8f09a0460911fac299de
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b81bdc056bd56e96669bde7e6d0473ef3feb3402
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128630326"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049850"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identidad del dispositivo y virtualización del escritorio
 
@@ -94,7 +94,7 @@ A la hora de implementar un entorno VDI no persistente, Microsoft recomienda que
    - Implemente **dsregcmd /join** como parte de la secuencia u orden de arranque de la máquina virtual y antes de que el usuario inicie sesión.
    - **NO** ejecute el comando dsregcmd /leave como parte del proceso de apagado o reinicio de la máquina virtual.
 - Defina e implemente el proceso para [administrar dispositivos obsoletos](manage-stale-devices.md).
-   - Una vez que disponga de una estrategia para identificar los dispositivos no persistentes que se hayan unido a Azure AD híbrido, puede efectuar una limpieza más concienzuda de estos dispositivos para garantizar que su directorio no se quede sin espacio debido al acceso de muchos dispositivos obsoletos.
+   - Una vez que disponga de una estrategia para identificar los dispositivos no persistentes que se hayan unido a Azure AD híbrido (por ejemplo, usar un prefijo de nombre para mostrar del equipo), puede efectuar una limpieza más concienzuda de estos dispositivos para garantizar que su directorio no se quede sin espacio debido al acceso de muchos dispositivos obsoletos.
    - En el caso de las implementaciones de VDI no persistentes en Windows actual y Windows de nivel inferior, se deben eliminar los dispositivos con más de 15 días de antigüedad en **ApproximateLastLogonTimestamp**.
 
 > [!NOTE]

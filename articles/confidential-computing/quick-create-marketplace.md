@@ -1,27 +1,26 @@
 ---
-title: 'Inicio rápido: Creación de una máquina virtual de computación confidencial de Azure con Marketplace'
-description: Para empezar a trabajar con sus implementaciones, aprenda a crear rápidamente una máquina virtual de computación confidencial con Marketplace.
+title: 'Inicio rápido: Creación de una máquina virtual Intel SGX en Azure Marketplace'
+description: Para empezar a trabajar con sus implementaciones, aprenda a crear rápidamente una máquina virtual Intel SGX en Marketplace.
 author: JBCook
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: quickstart
-ms.date: 06/13/2021
+ms.date: 11/01/2021
 ms.author: JenCook
-ms.openlocfilehash: 1bf3dd7fadea22c4266f87373c09c16f08349f7c
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 43a6e24ac887336854b59f747233b1cd355f4686
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113107260"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131077864"
 ---
-# <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-marketplace"></a>Inicio rápido: Implementación de una máquina virtual de computación confidencial de Azure en Marketplace
+# <a name="quickstart-create-intel-sgx-vm-in-the-azure-marketplace"></a>Inicio rápido: Creación de una máquina virtual Intel SGX en Azure Marketplace
 
-Empiece a trabajar con la computación confidencial de Azure mediante Azure Portal para crear una máquina virtual con el respaldo de Intel SGX. De forma opcional, puede probar una aplicación de enclave creada con Open Enclave Software (SDK). 
+Este tutorial le guía por el proceso de implementación de máquinas virtuales Intel SGX mediante Azure Marketplace. De lo contrario, se recomienda seguir el flujo de implementación de máquinas virtuales [mediante el portal o la CLI](quick-create-portal.md).
 
-Se recomienda este tutorial si está interesado en implementar una máquina virtual de computación confidencial con una configuración de plantilla. De lo contrario, se recomienda seguir el flujo de implementación de máquinas virtuales de Azure estándar [mediante el portal o la CLI](quick-create-portal.md).
-
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) antes de empezar.
 
@@ -44,7 +43,7 @@ Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.
 1. En la página de aterrizaje de la máquina virtual, seleccione **Crear**.
 
 
-## <a name="configure-a-confidential-computing-virtual-machine"></a>Configuración de una máquina virtual de computación confidencial
+## <a name="configure-an-intel-sgx-virtual-machine"></a>Configuración de una máquina virtual Intel SGX
 
 1. En la pestaña **Aspectos básicos**, seleccione la **Suscripción** y el **Grupo de recursos** (el grupo debe estar vacío para implementar esta plantilla).
 
@@ -55,11 +54,11 @@ Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.
    * **Región**: Seleccione la región de Azure adecuada para usted.
 
         > [!NOTE]
-        > Las máquinas virtuales de computación confidencial solo se ejecutan en hardware especializado disponible en regiones específicas. Para ver las regiones más recientes disponibles para las máquinas virtuales de la serie DCsv2, consulte las [regiones disponibles](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+        > Las máquinas virtuales Intel SGX se ejecutan en hardware especializado en regiones específicas. Para obtener la disponibilidad regional más reciente, busque las series DCsv2 o DCsv3/DCdsv3 en las [regiones disponibles](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 
 1. Configure la imagen del sistema operativo que le gustaría usar para la máquina virtual. Esta configuración solo admite implementaciones de imágenes y máquinas virtuales de Gen 2
 
-    * **Ecoja una imagen**: para este tutorial, seleccione Ubuntu 18.04 LTS (Gen 2). También puede seleccionar Windows Server Datacenter 2019, Windows Server Datacenter 2016 y Ubuntu 16.04 LTS. Si decide hacerlo, se le proporcionará la información adecuada en este tutorial.
+    * **Elija una imagen**: para este tutorial, seleccione Ubuntu 20.04 LTS (Gen 2). También puede seleccionar Windows Server Datacenter 2019 y Ubuntu 18.04 LTS. Si decide hacerlo, se le proporcionará la información adecuada en este tutorial.
    
 1. Introduzca la siguiente información en la pestaña Aspectos básicos:
 
@@ -77,8 +76,9 @@ Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.
 1. Introduzca la siguiente información en la pestaña "Configuración de máquina virtual":
 
    * Elección del tamaño de SKU de máquina virtual
-   * Si ha elegido una máquina virtual **DC1s_v2**, **DC2s_v2**, **DC4s_V2**, elija un tipo de disco que sea **SSD estándar** o **SSD Premium**. Para una máquina virtual **DC8_v2**, solo puede elegir **SSD estándar** como tipo de disco.
-
+   * La **serie DCsv2** admite **SSD estándar**; **SSD prémium** se admite en DC1, DC2 y DC4. 
+   * Las **series DCsv3 y DCdsv3** admiten **SSD estándar**, **SSD prémium** y **Disco Ultra**.
+   
    * **Puertos de entrada públicos**: Elija **Permitir los puertos seleccionados** y seleccione **SSH (22)** y **HTTP (80)** en la lista **Seleccionar puertos de entrada públicos**. Si va a implementar una máquina virtual Windows, seleccione **HTTP (80)** y **RDP (3389)** . En este inicio rápido, este paso es necesario para conectar la máquina virtual.
    
     >[!Note]
@@ -127,17 +127,7 @@ Para más información acerca de cómo conectarse a máquinas virtuales Linux, c
 ## <a name="intel-sgx-drivers"></a>Controladores de Intel SGX
 
 > [!NOTE]
-> Los controladores de Intel SGX que ya forman parte de las imágenes de la galería de Windows Azure y Ubuntu. No se requiere ninguna instalación especial de los controladores. De manera opcional, también puede actualizar los controladores existentes incluidos en las imágenes examinando la [lista de controladores DCAP de Intel SGX](https://01.org/intel-software-guard-extensions/downloads).
-
-## <a name="optional-testing-enclave-apps-built-with-open-enclave-sdk-oe-sdk"></a>Opcional: prueba de aplicaciones de enclave creadas con el SDK de Open Enclave (SDK de OE) <a id="Install"></a>
-
-Siga las instrucciones detalladas para instalar el [SDK de OE](https://github.com/openenclave/openenclave) en la máquina virtual de la serie DCsv2 con una imagen de Ubuntu 18.04 LTS Gen 2. 
-
-Si la máquina virtual se ejecuta en Ubuntu 18.04 LTS Gen 2, deberá seguir las [instrucciones de instalación de Ubuntu 18.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md).
-
-
-> [!NOTE]
-> Los controladores de Intel SGX que ya forman parte de las imágenes de la galería de Windows Azure y Ubuntu. No se requiere ninguna instalación especial de los controladores. De forma opcional, también puede actualizar los controladores existentes incluidos en las imágenes.
+> Los controladores de Intel SGX que ya forman parte de las imágenes de la galería de Microsoft Azure y Ubuntu. Para asegurarse de que usa los controladores más recientes, visite la [lista de controladores DCAP de Intel SGX](https://01.org/intel-software-guard-extensions/downloads).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -147,7 +137,7 @@ Seleccione el grupo de recursos de la máquina virtual y haga clic en **Eliminar
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha implementado una máquina virtual de computación confidencial y ha instalado el SDK de Open enclave. Para más información sobre las máquinas virtuales de computación confidencial en Azure, consulte [Soluciones en Virtual Machines](virtual-machine-solutions.md). 
+En este inicio rápido, ha implementado la máquina virtual Intel SGX y se ha conectado a ella. Para obtener más información, consulte [Soluciones en máquinas virtuales](virtual-machine-solutions-sgx.md). 
 
 Descubra cómo puede crear aplicaciones de computación confidencial. Para ello, continúe con los ejemplos del SDK de Open Enclave en GitHub. 
 

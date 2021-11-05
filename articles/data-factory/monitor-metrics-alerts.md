@@ -1,19 +1,19 @@
 ---
 title: Métricas y alertas de Data Factory
 description: Obtenga información sobre las métricas disponibles para la supervisión de Azure Data Factory.
-author: jasonwhowell
-ms.author: jasonh
+author: joshuha-msft
+ms.author: joowen
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 09/02/2021
-ms.openlocfilehash: 57378ba773fd9907b0fdf0104d4165285129e958
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: becbd026a45a6eedf7cbb9162335f8d6d47de4dd
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131020205"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131849299"
 ---
 # <a name="data-factory-metrics-and-alerts"></a>Métricas y alertas de Data Factory
 

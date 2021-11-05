@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/20/2021
 ms.author: robinsh
-ms.openlocfilehash: bf8bf9d1b472ff1986596f6cae7e1f7b415d3bc6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 64d0c6120b5e74b1693f4d7965bb780c62583b53
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121729838"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131015279"
 ---
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Configuración de cargas de archivos de IoT Hub mediante Azure Portal
 
@@ -32,15 +32,13 @@ Para usar la [funcionalidad de carga de archivos en IoT Hub](iot-hub-devguide-f
 
 1. En [Azure Portal](https://portal.azure.com), navegue a su centro de IoT y seleccione **Carga de archivos** para mostrar las propiedades de carga de archivos. A continuación, seleccione **Contenedor de Azure Storage** en **Configuración del contenedor de almacenamiento**.
 
-    :::image type="content" source="./media/iot-hub-configure-file-upload/file-upload-settings.png" alt-text="Visualización de la configuración de carga de archivos de IoT Hub en el portal":::
+    :::image type="content" source="./media/iot-hub-configure-file-upload/file-upload-settings.png" alt-text="Captura de pantalla que muestra cómo configurar la carga de archivos en el portal.":::
 
-1. Seleccione una cuenta de Azure Storage y un contenedor de blobs en su suscripción actual para asociarlos a su centro de IoT. Si es necesario, puede crear una cuenta de Azure Storage en el panel **Cuentas de almacenamiento** y un contenedor de blobs en el panel **Contenedores**. 
+1. Seleccione una cuenta de Azure Storage y un contenedor de blobs en su suscripción actual para asociarlos a su centro de IoT. Si es necesario, puede crear una cuenta de Azure Storage en el panel **Cuentas de almacenamiento** y un contenedor de blobs en el panel **Contenedores**.
 
-   :::image type="content" source="./media/iot-hub-configure-file-upload/file-upload-container-selection.png" alt-text="Visualización de contenedores de almacenamiento para la carga de archivos en el portal":::
+   :::image type="content" source="./media/iot-hub-configure-file-upload/file-upload-container-selection.png" alt-text="Captura de pantalla que muestra cómo ver los contenedores de almacenamiento para la carga de archivos.":::
 
-1. Después de seleccionar una cuenta de Azure Storage y un contenedor de blobs, configure el resto de las propiedades de carga de archivos.    
-
-    :::image type="content" source="./media/iot-hub-configure-file-upload/file-upload-selected-container.png" alt-text="Configuración de la carga de archivos de IoT Hub en el portal":::
+1. Después de seleccionar una cuenta de Azure Storage y un contenedor de blobs, configure el resto de las propiedades de carga de archivos.
 
     * **Receive notifications for uploaded files**(Recibir notificaciones para archivos cargados): habilite o deshabilite las notificaciones de carga de archivos mediante el botón de alternancia.
 

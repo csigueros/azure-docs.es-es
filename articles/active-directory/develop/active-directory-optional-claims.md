@@ -12,12 +12,12 @@ ms.date: 7/19/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 91dfb7c7a4a25ba741d7b2dc21b42705a9b79c34
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 1d910871008bee6ba1a2820a68b3225c3fdfd67d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123034277"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131032266"
 ---
 # <a name="provide-optional-claims-to-your-app"></a>Proporcionar notificaciones opcionales a la aplicación
 
@@ -163,7 +163,7 @@ Puede configurar notificaciones opcionales para la aplicación mediante la inter
 
 1. En **Administrar**, seleccione **Manifiesto**. Se abrirá un editor de manifiestos basado en web que le permitirá editar el manifiesto. Si lo desea, puede seleccionar **Descargar**, editar el manifiesto de forma local y, a continuación, usar **Cargar** para volver a aplicarlo a la aplicación. Para más información sobre el manifiesto de aplicación, consulte el [artículo Descripción del manifiesto de aplicación de Azure AD](reference-app-manifest.md).
 
-    La siguiente entrada del manifiesto de aplicación agrega las notificaciones opcionales auth_time, ipaddr y upn a los tokens de identificador, acceso y SAML.
+    La entrada siguiente del manifiesto de aplicación agrega las notificaciones opcionales `auth_time`, `ipaddr` y `upn` a los tokens de identificador, acceso y SAML.
 
     ```json
     "optionalClaims": {

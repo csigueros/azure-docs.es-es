@@ -1,12 +1,11 @@
 ---
-title: Implementación de soluciones de Azure Sentinel | Microsoft Docs
-description: En este artículo se muestra cómo los clientes pueden encontrar e implementar fácilmente herramientas de análisis de datos empaquetadas junto con conectores de datos.
+title: Detección e implementación de las soluciones y el contenido integrado de Azure Sentinel | Microsoft Docs
+description: En este artículo se muestra cómo los clientes pueden encontrar e implementar fácilmente herramientas de análisis de datos, empaquetadas junto con conectores de datos y otro contenido.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,78 +14,88 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/05/2021
 ms.author: yelevin
-ms.openlocfilehash: 5cb84ad912e5430948d0dedc71d94e69d1dd1a86
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 8c2c749ff6b77d9d63778e6ff02e83fe40a0205f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123251910"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131064216"
 ---
-# <a name="discover-and-deploy-azure-sentinel-solutions"></a>Detección e implementación de soluciones de Azure Sentinel
+# <a name="centrally-discover-and-deploy-azure-sentinel-out-of-the-box-content-and-solutions-public-preview"></a>Detección central e implementación de las soluciones y el contenido integrado de Azure Sentinel (versión preliminar pública)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >
-> La experiencia de las soluciones de Azure Sentinel está actualmente en **VERSIÓN PRELIMINAR**, al igual que todos los paquetes de soluciones individuales. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+> Las soluciones de Azure Sentinel y el centro de contenido de Azure Sentinel se encuentran en **versión preliminar**, igual que todos los paquetes de soluciones individuales. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
-Las soluciones de Azure Sentinel proporcionan detectabilidad en el producto, implementación en un solo paso y habilitación de escenarios de productos, dominios o verticales de un extremo a otro en Azure Sentinel. Esta experiencia cuenta con la tecnología [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) para la detectabilidad, implementación y habilitación de soluciones, y del [Centro de partners de Microsoft](/partner-center/overview) para la creación y publicación de soluciones.
+El centro de contenido de Azure Sentinel proporciona acceso a contenido y soluciones integrados de Azure Sentinel, que se llenan de contenido para satisfacer las necesidades de producto, dominio o sector de un extremo a otro.
 
-Las soluciones pueden constar de cualquiera de los componentes siguientes (o todos ellos):
+En este artículo se describe cómo instalar soluciones en su área de trabajo de Azure Sentinel, lo que permitirá que el contenido de estas esté disponible para su uso.
 
-- **Conectores de datos**, algunos con **analizadores** adjuntos
-- **Libros**
-- **Reglas de análisis**
-- **Consultas de búsqueda**
-- **Playbooks**
+- Encuentre sus soluciones en el centro de contenido a partir de sus estados, el contenido incluido y el servicio de asistencia, entre otros.
 
-## <a name="find-your-solution"></a>Búsqueda de la solución
+- Instale la solución que quiera en su área de trabajo cuando encuentre una que se ajuste a las necesidades de su organización. Debe mantenerla actualizada con los cambios más recientes.
 
-1. En el menú de navegación de Azure Sentinel, seleccione **Soluciones (versión preliminar)** .
+> [!TIP]
+> Si es un partner y quiere crear una solución propia, vea la [guía de compilación de soluciones de Azure Sentinel](https://aka.ms/sentinelsolutionsbuildguide) para crear y publicar soluciones.
+>
+## <a name="find-a-solution"></a>Búsqueda de una solución
 
-1. La hoja **Soluciones** muestra una lista de soluciones en la que se pueden realizar búsquedas.
+1. En el menú de navegación de Azure Sentinel, en la sección **Administración de contenido**, seleccione **Centro de contenido (versión preliminar)** .
 
-    :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Lista de soluciones":::
+1. La página **Centro de contenido** muestra una cuadrícula de soluciones en la que se pueden hacer búsquedas y aplicar filtros.
 
-    - Si se desplaza hasta el final de la lista pero no encuentra lo que busca, seleccione el vínculo **Cargar más** de la parte inferior para expandirla.
+    Filtre la lista mostrada seleccionando valores específicos de los filtros o escribiendo una parte del nombre o la descripción de una solución en el campo **Buscar**.
 
-        :::image type="content" source="./media/sentinel-solutions-deploy/load-more.png" alt-text="Carga de más soluciones":::
+    Para obtener más información, vea [Categorías del contenido y las soluciones integradas de Azure Sentinel](sentinel-solutions.md#azure-sentinel-out-of-the-box-content-and-solution-categories).
 
-1. Para restringir las opciones y encontrar la solución que quiere más fácilmente, escriba cualquier parte del nombre de la solución en el campo **Buscar** de la parte superior de la lista. (El motor de búsqueda solo reconocerá palabras enteras).
+    > [!TIP]
+    > Si una solución que ha implementado tiene alguna actualización desde que la implementó, se mostrará un triángulo naranja que indica que hay actualizaciones que implementar, indicadas en el triángulo azul de la parte superior de la página.
+    >
 
-    :::image type="content" source="./media/sentinel-solutions-deploy/solutions-search-1.png" alt-text="Búsqueda de soluciones":::
+En cada solución de la cuadrícula se muestran las categorías aplicadas a la solución y los tipos de contenido incluidos en ella.
 
-1. Seleccione la solución deseada de la lista para implementarla. La página de detalles de la solución se abrirá en la pestaña **Información general**, que muestra información esencial e importante sobre la solución.
+Por ejemplo, en la imagen siguiente, la solución **Cisco Umbrella** muestra la categoría **Security - Others** (Seguridad: otros), y que esta solución incluye 10 reglas de análisis, 11 consultas de búsqueda, un analizador y tres cuadernos de estrategias, entre otros.
 
-    :::image type="content" source="./media/sentinel-solutions-deploy/proofpoint-tap-solution.png" alt-text="Solución Proofpoint Tap":::
+:::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Captura de pantalla del centro de contenido de Azure Sentinel" lightbox="./media/sentinel-solutions-deploy/solutions-list.png":::.
 
-1. Puede ver otra información útil sobre la solución en las pestañas **Planes** e **Información de uso y soporte técnico**, y puede obtener las opiniones de otros clientes en la pestaña **Revisiones**.
+## <a name="install-or-update-a-solution"></a>Instalación o actualización de una solución
 
-## <a name="deploy-your-solution"></a>Implementación de la solución
+1. En el centro de contenido, seleccione una solución para ver más información a la derecha. Después, seleccione **Instalar** o **Actualizar**, si necesita actualizaciones. Por ejemplo:
 
-1. Seleccione el botón **Crear** para iniciar el Asistente para la implementación de soluciones, que se abrirá en la pestaña **Aspectos básicos**.
 
-    :::image type="content" source="./media/sentinel-solutions-deploy/wizard-basics.png" alt-text="pestaña de aspectos básicos del Asistente para la implementación":::
+1. En la página de detalles de la solución, seleccione **Crear** o **Actualizar** para iniciar el asistente para soluciones. En la pestaña **Datos básicos** del asistente, escriba la suscripción, el grupo de recursos y el área de trabajo en la que quiera implementar la solución. Por ejemplo:
 
-1. Escriba la suscripción, el grupo de recursos y el área de trabajo en la que desea implementar la solución. 
+    :::image type="content" source="media/sentinel-solutions-deploy/wizard-basics.png" alt-text="Captura de pantalla de un asistente de instalación de una solución, con la pestaña Datos básicos":::.
 
-1. Seleccione **Siguiente** para desplazarse por las pestañas restantes (correspondientes a los componentes incluidos en la solución), donde puede obtener información sobre cada uno de los componentes y, en algunos casos, configurarlos.
+1. Seleccione **Siguiente** para desplazarse por las pestañas restantes (correspondientes a los componentes incluidos en la solución), donde puede obtener información sobre cada uno de los componentes de contenido y, en algunos casos, configurarlos.
 
     > [!NOTE]
-    > Las pestañas que se enumeran a continuación se corresponden con los componentes que ofrece la solución que se muestra en las capturas de pantalla adjuntas. Las diferentes soluciones pueden tener distintos tipos de componentes, por lo que es posible que no vea todas las mismas pestañas en todas las soluciones, y es posible que vea pestañas que no se muestran a continuación.
+    > Las pestañas que se muestran se corresponden con el contenido que ofrece la solución. Las distintas soluciones pueden tener distintos tipos de contenido, así que es posible que no vea las mismas pestañas en todas las soluciones.
+    >
+    > También es posible que se le pida que escriba las credenciales en un servicio de terceros para que Azure Sentinel pueda autenticarse en sus sistemas. Por ejemplo, con los cuadernos de estrategias, es recomendable que efectúe las acciones de respuesta tal como indica el sistema.
+    >
 
-    1. Pestaña **Análisis** :::image type="content" source="./media/sentinel-solutions-deploy/wizard-analytics.png" alt-text="pestaña Análisis del Asistente para la implementación":::
+1. Por último, en la pestaña **Revisar y crear**, espere el mensaje `Validation Passed` y, después, seleccione **Crear** o **Actualizar** para implementar la solución. También puede seleccionar el vínculo **Descargar una plantilla para la automatización** para implementar la solución como código.
 
-    1. Pestaña **Libros** :::image type="content" source="./media/sentinel-solutions-deploy/wizard-workbooks.png" alt-text="pestaña Libros del Asistente para la implementación":::
+Para obtener más información, consulte [Catálogo del centro de contenido de Azure Sentinel](sentinel-solutions-catalog.md) y [Búsqueda del conector de datos de Azure Sentinel](data-connectors-reference.md).
 
-    1. Pestaña **Cuadernos de estrategias**: aquí deberá escribir las credenciales válidas de Proofpoint TAP, para que el cuaderno de estrategias pueda autenticarse en su sistema Proofpoint para realizar las acciones de respuesta prescritas.
-        :::image type="content" source="./media/sentinel-solutions-deploy/wizard-playbooks.png" alt-text="pestaña Cuadernos de estrategias del Asistente para implementación":::
 
-1. Por último, en la pestaña **Revisar y crear**, espere el mensaje "Validación superada" y seleccione **Crear** para implementar la solución. También puede seleccionar el vínculo **Descargar una plantilla para la automatización** para implementar la solución como código.
+## <a name="find-the-support-model-for-your-solution"></a>Búsqueda del modelo de soporte técnico para su solución
 
-    :::image type="content" source="./media/sentinel-solutions-deploy/wizard-create.png" alt-text="pestaña Revisar y crear del Asistente para implementación":::
+Cada solución muestra los detalles sobre su modelo de soporte técnico en el panel de detalles correspondiente, en la casilla **Soporte técnico**, donde se muestra **Microsoft** o el nombre de un partner. Por ejemplo:
+
+:::image type="content" source="media/sentinel-solutions-deploy/find-support-details.png" alt-text="Captura de pantalla de dónde se encuentra el modelo de soporte técnico de su solución." lightbox="media/sentinel-solutions-deploy/find-support-details.png":::
+
+Cuando se ponga en contacto con el soporte técnico, puede que necesite otros detalles sobre su solución, como el editor, el proveedor y los valores del id. del plan. Encontrará esta información en la página de detalles de la solución, en la pestaña **Información de uso y soporte técnico**. Por ejemplo:
+
+:::image type="content" source="media/sentinel-solutions-deploy/usage-support.png" alt-text="Captura de pantalla de los detalles de uso y soporte técnico de una solución.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este documento, ha aprendido sobre las soluciones de Azure Sentinel, así como a buscarlas e implementarlas.
+En este documento, no solo ha obtenido información sobre las soluciones de Azure Sentinel, sino que también ha aprendido a buscar e implementar contenido integrado.
 
 - Obtenga más información sobre las [soluciones de Azure Sentinel](sentinel-solutions.md).
-- Consulte el [catálogo completo de soluciones de Sentinel](sentinel-solutions-catalog.md).
+- Consulte el [catálogo completo de soluciones de Azure Sentinel](sentinel-solutions-catalog.md).

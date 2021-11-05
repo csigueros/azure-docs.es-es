@@ -3,22 +3,22 @@ title: Configuración del flujo de credenciales de contraseña del propietario d
 titleSuffix: Azure AD B2C
 description: Obtenga información sobre cómo configurar el flujo de credenciales de contraseña del propietario del recurso en Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/12/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8a64c0e4a2c6ee080288bd0a700defc4adf598d2
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 0acca4a87ea72157a11862ec448483008af87526
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129708629"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008245"
 ---
 # <a name="set-up-a-resource-owner-password-credentials-flow-in-azure-active-directory-b2c"></a>Configuración del flujo de credenciales de contraseña del propietario del recurso en Azure Active Directory B2C
 
@@ -70,6 +70,9 @@ Al usar el flujo ROPC, tenga en cuenta lo siguiente:
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
+
+## <a name="pre-requisite"></a>Requisito previo 
+Si no lo ha hecho, obtenga información sobre el paquete de inicio de directivas personalizadas en [Introducción a las directivas personalizadas en Active Directory B2C](tutorial-create-user-flows.md).
 
 ##  <a name="create-a-resource-owner-policy"></a>Creación de una directiva del propietario del recurso
 

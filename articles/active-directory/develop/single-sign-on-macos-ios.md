@@ -13,12 +13,12 @@ ms.date: 02/03/2020
 ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: 94174eeb943f4016fde8baf329fa6ba27768e486
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 02140728536e458c85e8c63a0fa1ca3c9663506b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123039939"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131050513"
 ---
 # <a name="configure-sso-on-macos-and-ios"></a>Configuración del inicio de sesión único en macOS e iOS
 

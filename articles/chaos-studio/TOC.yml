@@ -1,0 +1,62 @@
+- name: Documentación de Azure Chaos Studio
+  href: index.yml
+- name: Información general
+  items:
+    - name: ¿Qué es Azure Chaos Studio?
+      href: chaos-studio-overview.md
+    - name: ¿Qué es la ingeniería del caos?
+      href: /azure/architecture/framework/resiliency/chaos-engineering?toc=/azure/chaos-studio/toc.json&bc=/azure/chaos-studio/breadcrumb/toc.json
+- name: Inicio rápido
+  items:
+    - name: Creación y ejecución de un experimento de caos con Azure Chaos Studio
+      href: chaos-studio-quickstart-azure-portal.md
+- name: Tutoriales
+  items:
+    - name: Ejecución y administración del experimento
+      href: chaos-studio-run-experiment.md
+- name: Ejemplos
+  items:
+    - name: API REST de Azure
+      href: chaos-studio-samples-rest-api.md
+- name: Conceptos
+  items:
+    - name: Experimentos del caos
+      href: chaos-studio-chaos-experiments.md
+    - name: Errores y acciones
+      href: chaos-studio-faults-actions.md
+    - name: Destinos y capacidades
+      href: chaos-studio-targets-capabilities.md
+    - name: Permisos y seguridad
+      href: chaos-studio-permissions-security.md
+- name: Guías paso a paso
+  items:
+    - name: 'Creación y ejecución de un experimento: errores directos del servicio'
+      href: chaos-studio-tutorial-service-direct.md
+    - name: 'Creación y ejecución de un experimento: errores basados en agente'
+      href: chaos-studio-tutorial-agent-based.md
+    - name: 'Creación y ejecución de un experimento: errores de Chaos Mesh en AKS'
+      href: chaos-studio-tutorial-aks.md
+    - name: Solución de problemas comunes
+      href: troubleshooting.md
+- name: Referencia
+  items:
+    - name: Biblioteca de errores
+      href: chaos-studio-fault-library.md
+    - name: Proveedores de errores
+      href: chaos-studio-fault-providers.md
+    - name: Límites de servicio
+      href: chaos-studio-service-limits.md
+    - name: Documentación de la API de REST
+      href: 'https://docs.microsoft.com/rest/api/chaosstudio'
+- name: Recursos
+  items:
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/'
+    - name: Calculadora de precios
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Actualizaciones del servicio
+      href: 'https://azure.microsoft.com/updates/?product='
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/'

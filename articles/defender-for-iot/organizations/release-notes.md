@@ -2,25 +2,28 @@
 title: Novedades de Azure Defender para IoT
 description: Este artículo le permite conocer las novedades de la versión más reciente de Defender para IoT.
 ms.topic: overview
-ms.date: 05/05/2021
-ms.openlocfilehash: bb039f53228b5b6abc05708ba7f6efd79c349672
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.date: 10/20/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: a4a39ef6d48ecd2466c6642fcaa91611d2f44da6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130179552"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073080"
 ---
 # <a name="whats-new-in-azure-defender-for-iot"></a>Novedades de Azure Defender para IoT  
+
+[!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
 En este artículo se enumeran las nuevas características y mejoras de características de Defender para IoT.
 
 Las características mencionadas se encuentran en VERSIÓN PRELIMINAR. Los [Términos de uso complementarios para las versiones preliminares de Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen otros términos legales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado con disponibilidad general.
 
-## <a name="versioning-and-support-for-azure-defender-for-iot"></a>Control de versiones y compatibilidad con Azure Defender para IoT 
+## <a name="versioning-and-support-for-azure-defender-for-iot"></a>Control de versiones y compatibilidad con Azure Defender para IoT
 
-A continuación se enumeran la compatibilidad, las directivas de cambios importantes de Defender para IoT y las versiones de Azure Defender para IoT que están disponibles actualmente. 
+A continuación se enumeran la compatibilidad, las directivas de cambios importantes de Defender para IoT y las versiones de Azure Defender para IoT que están disponibles actualmente.
 
-### <a name="servicing-information-and-timelines"></a>Información y escalas de tiempo de mantenimiento 
+### <a name="servicing-information-and-timelines"></a>Información y escalas de tiempo de mantenimiento
 
 Microsoft planea publicar actualizaciones de Azure Defender para IoT al menos una vez por trimestre. Cada versión de disponibilidad general del sensor de Azure Defender para IoT y la consola de administración local tienen nueve meses de soporte técnico después de su publicación. Las correcciones y las nuevas funcionalidades se aplicarán a la versión de disponibilidad general actual que se encuentre actualmente con soporte técnico y no se aplicarán a las versiones anteriores de disponibilidad general.
 
@@ -29,7 +32,8 @@ Microsoft planea publicar actualizaciones de Azure Defender para IoT al menos un
 | Versión | Fecha de lanzamiento | Fecha de finalización de soporte técnico |
 |--|--|--|
 | 10.0 | Enero de 2021 | Octubre de 2021 |
-| 10,3 | 04/2021 | 02/2022 |
+| 10,3 | 04/2021 | 01/2022 |
+| 10.5.2 | 11/2021 | 07/2022 |
 
 ## <a name="october-2021"></a>Octubre de 2021
 
@@ -93,7 +97,8 @@ Ahora se admiten caracteres Unicode al trabajar con frases de contraseña del ce
 
 Los nuevos paquetes de inteligencia sobre amenazas ahora se pueden insertar automáticamente en los sensores conectados a la nube a medida que Microsoft Defender para IoT los libera. A esto además se le suma la posibilidad de descargar los paquetes de inteligencia sobre amenazas y luego cargarlos en los sensores.
 
-Trabajar con actualizaciones automáticas ayuda a reducir los esfuerzos operativos y a garantizar una mayor seguridad. Habilite la actualización automática mediante la incorporación del sensor conectado a la nube en el portal de Defender para IoT con el botón de alternancia **Automatic Threat Intelligence Updates** (Actualizaciones automáticas de inteligencia sobre amenazas) activado.
+Trabajar con actualizaciones automáticas ayuda a reducir los esfuerzos operativos y a garantizar una mayor seguridad.
+Habilite la actualización automática mediante la incorporación del sensor conectado a la nube en el portal de Defender para IoT con el botón de alternancia **Automatic Threat Intelligence Updates** (Actualizaciones automáticas de inteligencia sobre amenazas) activado.
 
 Si quiere adoptar un enfoque más conservador para actualizar los datos de inteligencia sobre amenazas, puede insertar manualmente paquetes desde el portal de Azure Defender para IoT en los sensores conectados a la nube solo cuando considere que es necesario.
 Así, puede controlar cuándo se instala un paquete, sin necesidad de descargarlo y luego cargarlo en los sensores. Inserte manualmente actualizaciones en los sensores desde la página **Sites and Sensors** (Sitios y sensores) de Defender para IoT.
@@ -101,7 +106,7 @@ Así, puede controlar cuándo se instala un paquete, sin necesidad de descargarl
 También puede revisar la siguiente información sobre los paquetes de inteligencia sobre amenazas:
 
 - Versión instalada del paquete
-- Modo de actualización de inteligencia sobre amenazas 
+- Modo de actualización de inteligencia sobre amenazas
 - Estado de la actualización de inteligencia sobre amenazas
 
 ### <a name="view-cloud-connected-sensor-information-public-preview"></a>Visualización de la información del sensor conectado a la nube (versión preliminar pública)

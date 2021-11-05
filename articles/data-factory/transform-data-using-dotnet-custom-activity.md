@@ -9,12 +9,12 @@ ms.author: abnarain
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell, synapse
 ms.date: 09/09/2021
-ms.openlocfilehash: 5446bf3c2271fd31fc99e5fadb2f3ab92ca38e26
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 0f7c3c85e07bb2a17685e283b5212432864a4818
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124806302"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131005791"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-or-azure-synapse-analytics-pipeline"></a>Uso de actividades personalizadas en una canalización de Azure Data Factory o Azure Synapse Analytics
 
@@ -26,7 +26,7 @@ ms.locfileid: "124806302"
 Hay dos tipos de actividades que puede usar en una canalización de Azure Data Factory o de Synapse.
 
 - [Actividades de movimiento de datos](copy-activity-overview.md) para mover datos entre [almacenes de datos de origen y receptor compatibles](copy-activity-overview.md#supported-data-stores-and-formats).
-- [Actividades de transformación de datos](transform-data.md) para transformar datos mediante procesos como Azure HDInsight, Azure Batch y ML Studio (clásico).
+- [Actividades de transformación de datos](transform-data.md) para transformar datos mediante servicios de proceso como Azure HDInsight y Azure Batch.
 
 Para mover datos desde y hacia un almacén de datos incompatible con el servicio, o para transformar o procesar datos de algún modo incompatible con el servicio, puede crear una **actividad personalizada** con su propia lógica de movimiento o transformación de datos y usarla en una canalización. La actividad personalizada ejecuta la lógica del código personalizado en un grupo de máquinas virtuales de **Azure Batch**.
 
@@ -389,5 +389,4 @@ Vea los siguientes artículos, en los que se explica cómo transformar datos de 
 * [Actividad de MapReduce](transform-data-using-hadoop-map-reduce.md)
 * [Actividad de streaming de Hadoop](transform-data-using-hadoop-streaming.md)
 * [Actividad de Spark](transform-data-using-spark.md)
-* [Actividad de ejecución por lotes de ML Studio (clásico)](transform-data-using-machine-learning.md)
 * [Actividad de procedimiento almacenado](transform-data-using-stored-procedure.md)

@@ -1,55 +1,64 @@
 ---
-title: Descripción de los roles necesarios para realizar tareas comunes en Synapse
+title: Descripción de los roles necesarios para realizar tareas comunes en Azure Synapse
 description: En este artículo se describen los roles RBAC de Synapse integrados que se necesitan para realizar tareas específicas.
 author: meenalsri
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 12/1/2020
+ms.date: 11/02/2021
 ms.author: mesrivas
-ms.reviewer: jrasnick
-ms.openlocfilehash: 88597690ca4b3bf9cfd51b6e56eb9395df8ee1ba
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.reviewer: wiassaf
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 376c91c93c61f3070c5b81a24fd8ae145bdee6ad
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128583679"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131018838"
 ---
-# <a name="understand-the-roles-required-to-perform-common-tasks-in-synapse"></a>Descripción de los roles necesarios para realizar tareas comunes en Synapse
+# <a name="understand-the-roles-required-to-perform-common-tasks-in-azure-synapse"></a>Descripción de los roles necesarios para realizar tareas comunes en Azure Synapse
 
-Este artículo le ayudará a comprender qué rol RBAC de Synapse (control de acceso basado en rol) o de Azure necesita para realizar el trabajo en Synapse Studio.  
+Este artículo le ayudará a comprender qué roles RBAC (control de acceso basado en rol) de Synapse o de Azure necesita para realizar el trabajo en Synapse Studio.  
 
 ## <a name="synapse-studio-access-control-and-workflow-summary"></a>Resumen del control de acceso y flujo de trabajo de Synapse Studio 
 
-### <a name="accessing-synapse-studio-and-viewing-its-content"></a>Acceso a Synapse Studio y visualización de su contenido
+### <a name="access-synapse-studio"></a>Acceso a Synapse Studio
 
-- Puede abrir Synapse Studio, ver los detalles del área de trabajo y enumerar los recursos de Azure (grupos de SQL, grupos de Spark o entornos de ejecución de integración) si se le ha asignado algún rol RBAC de Synapse o tiene el rol de lector, colaborador o propietario de Azure en el área de trabajo.
+Puede abrir Synapse Studio, ver los detalles del área de trabajo y enumerar los recursos de Azure (grupos de SQL, grupos de Spark o entornos de ejecución de integración) si se le ha asignado algún rol RBAC de Synapse o tiene el rol de lector, colaborador o propietario de Azure en el área de trabajo.
 
 ### <a name="resource-management"></a>Administración de recursos
 
-- Puede crear grupos de SQL, grupos de Apache Spark y entornos de ejecución de integración si es propietario o colaborador de Azure en el área de trabajo. Al usar plantillas de ARM para la implementación automatizada, debe ser colaborador de Azure en el grupo de recursos.
-- Puede pausar o escalar un grupo de SQL dedicado y configurar un grupo de Spark o un entorno de ejecución de integración si es propietario o colaborador de Azure en el área de trabajo o en ese recurso.
+Puede crear grupos de SQL, grupos de Data Explorer, grupos de Apache Spark y entornos de ejecución de integración si es propietario o colaborador de Azure en el área de trabajo. Al usar plantillas de ARM para la implementación automatizada, debe ser colaborador de Azure en el grupo de recursos.
 
-### <a name="viewing-and-editing-code-artifacts"></a>Vista y edición de artefactos de código
+Puede pausar o escalar un grupo de SQL dedicado y configurar un grupo de Spark o un entorno de ejecución de integración si es propietario o colaborador de Azure en el área de trabajo o en ese recurso.
 
-- Con el acceso a Synapse Studio, puede crear nuevos artefactos de código, como scripts SQL, cuadernos, trabajos de Spark, servicios vinculados, canalizaciones, flujos de trabajo, desencadenadores y credenciales.  (Estos artefactos se pueden publicar o guardar con permisos adicionales).  
-- Si es un usuario o editor de artefactos de Synapse, o bien un colaborador o administrador de Synapse, puede mostrar, abrir y editar los artefactos de código ya publicados.
+### <a name="view-and-edit-code-artifacts"></a>Visualización y edición de artefactos de código
 
-### <a name="executing-your-code"></a>Ejecución del código
+Con el acceso a Synapse Studio, puede crear nuevos artefactos de código, como scripts SQL, scripts KQL, cuadernos, trabajos de Spark, servicios vinculados, canalizaciones, flujos de trabajo, desencadenadores y credenciales.  (Estos artefactos se pueden publicar o guardar con permisos adicionales).  
 
-- Puede ejecutar scripts SQL en grupos de SQL si tiene los permisos SQL necesarios definidos en los grupos de SQL.  
-- Puede ejecutar cuadernos y trabajos de Spark si tiene permisos de operador de proceso de Synapse en el área de trabajo o en grupos de Apache Spark específicos.  
-- Con los permisos de operador de proceso en el área de trabajo o en entornos de ejecución de integración específicos y los permisos de credenciales adecuados, puede ejecutar canalizaciones.
+Si es un usuario o editor de artefactos de Synapse, o bien un colaborador o administrador de Synapse, puede mostrar, abrir y editar los artefactos de código ya publicados.
 
-### <a name="monitoring-and-managing-execution"></a>Supervisión y administración de la ejecución
-- Puede revisar el estado de los cuadernos y trabajos en ejecución en los grupos de Apache Spark si es un usuario de Synapse.
-- Puede revisar los registros y cancelar los trabajos y las canalizaciones en ejecución si es un operador de proceso de Synapse en el área de trabajo o para un grupo o canalización de Spark específico.  
+### <a name="execute-your-code"></a>Ejecución del código
 
-### <a name="publishing-and-saving-your-code"></a>Publicación y almacenamiento del código
+Puede ejecutar scripts SQL en grupos de SQL si tiene los permisos SQL necesarios definidos en los grupos de SQL. Puede ejecutar scripts KQL en grupos de Data Explorer si tiene los permisos necesarios.  
 
-- Puede publicar artefactos de código nuevos o actualizados en el servicio si es un editor de artefactos de Synapse o bien un colaborador o administrador de Synapse. 
-- Puede confirmar los artefactos de código en una rama de trabajo de un repositorio de GIT si el área de trabajo está habilitada para GIT y usted tiene permisos de Git. Con GIT habilitado, solo se permite la publicación desde la rama de colaboración.
-- Si cierra Synapse Studio sin publicar o confirmar los cambios en los artefactos de código, se perderán dichos cambios.
+Puede ejecutar cuadernos y trabajos de Spark si tiene permisos de operador de proceso de Synapse en el área de trabajo o en grupos de Apache Spark específicos.  
+
+Con los permisos de operador de proceso en el área de trabajo o en entornos de ejecución de integración específicos y los permisos de credenciales adecuados, puede ejecutar canalizaciones.
+
+### <a name="monitor-and-manage-execution"></a>Supervisión y administración de la ejecución
+
+Puede revisar el estado de los cuadernos y trabajos en ejecución en los grupos de Apache Spark si es un usuario de Synapse.
+
+Puede revisar los registros y cancelar los trabajos y las canalizaciones en ejecución si es un operador de proceso de Synapse en el área de trabajo o para un grupo o canalización de Spark específico.  
+
+### <a name="publish-and-save-your-code"></a>Publicar y guardar el código
+
+Puede publicar artefactos de código nuevos o actualizados en el servicio si es un editor de artefactos de Synapse o bien un colaborador o administrador de Synapse. 
+
+Puede confirmar los artefactos de código en una rama de trabajo de un repositorio de GIT si el área de trabajo está habilitada para GIT y usted tiene permisos de Git. Con GIT habilitado, solo se permite la publicación desde la rama de colaboración.
+
+Si cierra Synapse Studio sin publicar o confirmar los cambios en los artefactos de código, se perderán dichos cambios.
 
 
 ## <a name="tasks-and-required-roles"></a>Tareas y roles necesarios
@@ -57,17 +66,20 @@ Este artículo le ayudará a comprender qué rol RBAC de Synapse (control de acc
 En la tabla siguiente se muestran las tareas comunes y, para cada tarea, los roles RBAC de Synapse o Azure necesarios.  
 
 >[!Note]
->- El administrador de Synapse no se muestra para cada tarea a menos que sea el único rol que proporciona el permiso necesario.  Un administrador de Synapse puede realizar todas las tareas que habilitan otros roles RBAC de Synapse.</br>
->- Se muestra el rol RBAC de Synapse mínimo requerido.
->- Todos los roles RBAC de Synapse de cualquier ámbito le proporcionan permisos de usuario de Synapse en el área de trabajo.
->- Todos los permisos o acciones de RBAC de Synapse que se muestran en la tabla tienen el prefijo Microsoft/Synapse/áreas de trabajo/... </br>
+> El administrador de Synapse no se muestra para cada tarea a menos que sea el único rol que proporciona el permiso necesario. Un administrador de Synapse puede realizar todas las tareas que habilitan otros roles RBAC de Synapse.</br>
+
+Se muestra el rol RBAC de Synapse mínimo requerido. 
+
+Todos los roles RBAC de Synapse de cualquier ámbito le proporcionan permisos de usuario de Synapse en el área de trabajo.
+
+Todos los permisos o acciones RBAC de Synapse que se muestran en la tabla tienen el prefijo `Microsoft/Synapse/workspaces/...`.
 
 
 Tarea (quiero...) |Rol (necesito ser...)|Permiso/acción de RBAC de Synapse
 --|--|--
 |Abrir Synapse Studio en un área de trabajo|Usuario de Synapse o|leer
 | |propietario, colaborador o lector de Azure en el área de trabajo|ninguno
-|Mostrar grupos de SQL, grupos de Apache Spark, entornos de ejecución de integración y acceso a los detalles de configuración|Usuario de Synapse o|leer|
+|Mostrar grupos de SQL, grupos de Data Explorer, grupos de Apache Spark, entornos de ejecución de integración y acceso a los detalles de configuración|Usuario de Synapse o|leer|
 ||propietario, colaborador o lector de Azure en el área de trabajo|ninguno
 |Mostrar servicios vinculados, credenciales y puntos de conexión privados administrados|Usuario de Synapse|leer
 GRUPOS DE SQL|
@@ -80,6 +92,14 @@ Ejecutar un script de SQL en un grupo de SQL dedicado|Permisos SQL en el grupo (
 Publicar un script de SQL nuevo, actualizado o eliminado|Editor de artefactos de Synapse, colaborador de Synapse|sqlScripts/escritura, eliminación
 Confirmar cambios en un script de SQL el un repositorio de Git|Requiere permisos de GIT en el repositorio.|
 Asignar un administrador de Active Directory en el área de trabajo (mediante las propiedades del área de trabajo de Azure Portal)|Propietario o colaborador de Azure en el área de trabajo |
+GRUPOS DE DATA EXPLORER|
+Crear un grupo de Data Explorer |Propietario o colaborador de Azure en el área de trabajo|ninguno
+Administrar (pausar, escalar o eliminar) un grupo de Data Explorer|Propietario o colaborador de Azure en el área de trabajo o el grupo de Data Explorer|ninguno
+Crear un script KQL</br>|Usuario de Synapse, </br>*Se requieren permisos de Data Explorer adicionales para ejecutar, publicar o confirmar un script*.|
+Mostrar y abrir cualquier script KQL publicado| Usuario de artefactos de Synapse, editor de artefactos, colaborador de Synapse|artefactos/lectura
+Ejecutar un script KQL en un grupo de Data Explorer| Permisos de Data Explorer en el grupo (concedidos automáticamente a un administrador de Synapse)|ninguno
+Publicar un script KQL nuevo, actualizarlo o eliminarlo|Editor de artefactos de Synapse, colaborador de Synapse|kqlScripts/escritura, eliminación
+Confirmar cambios en un script KQL en un repositorio de Git|Requiere permisos de GIT en el repositorio.|
 GRUPOS DE APACHE SPARK|
 Creación de un grupo de Apache Spark|Propietario o colaborador de Azure en el área de trabajo|
 Supervisión de aplicaciones de Apache Spark| Usuario de Synapse|leer
@@ -115,11 +135,10 @@ ADMINISTRACIÓN DE ACCESO|
 Revisar asignaciones de roles RBAC de Synapse en cualquier ámbito|Usuario de Synapse|leer
 Asignar y quitar asignaciones de roles RBAC de Synapse para usuarios, grupos y entidades de servicio| Administrador de Synapse en el área de trabajo o en un ámbito de elemento de área de trabajo específico|roleAssignments/escritura, eliminación 
 
->[!Note]
->Los usuarios invitados de otro inquilino también podrán revisar, agregar o cambiar las asignaciones de roles cuando se hayan asignado como administradores de Synapse. 
+> [!Note]
+> Los usuarios invitados de otro inquilino también podrán revisar, agregar o cambiar las asignaciones de roles cuando se hayan asignado como administradores de Synapse. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre [cómo revisar asignaciones de roles RBAC de Synapse](./how-to-review-synapse-rbac-role-assignments.md).
-
-Obtenga información sobre [cómo administrar asignaciones de roles RBAC de Synapse](./how-to-manage-synapse-rbac-role-assignments.md). 
+ - [Examinar asignaciones de roles RBAC de Synapse](./how-to-review-synapse-rbac-role-assignments.md)
+ - [Administración de las asignaciones de roles RBAC de Synapse](./how-to-manage-synapse-rbac-role-assignments.md)

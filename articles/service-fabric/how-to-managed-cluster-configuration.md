@@ -2,13 +2,13 @@
 title: Configuración del clúster administrado de Service Fabric
 description: Aprenda a configurar el clúster administrado de Service Fabric para las actualizaciones automáticas del sistema operativo, las reglas de grupo de seguridad de red y mucho más.
 ms.topic: how-to
-ms.date: 8/23/2021
-ms.openlocfilehash: 5be6422af6a1611bb8978ff4f0b76122cb146eb7
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.date: 10/25/2021
+ms.openlocfilehash: 808b7e96778821c695ed5fca08648e95f4290959
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864358"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060637"
 ---
 # <a name="service-fabric-managed-cluster-configuration-options"></a>Opciones de configuración del clúster administrado de Service Fabric
 
@@ -19,52 +19,15 @@ Además de seleccionar el [SKU de clúster administrado de Service Fabric](overv
 * Configuración de las [opciones de red](how-to-managed-cluster-networking.md) del clúster
 * Configuración de un tipo de nodo para [grandes conjuntos de escalado de máquinas virtuales](how-to-managed-cluster-large-virtual-machine-scale-sets.md)
 * Configuración de la [identidad administrada](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md) en los tipos de nodo de clúster
-* Habilitación de las [actualizaciones automáticas del sistema operativo](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades) para nodos de clúster
 * Habilitación del [cifrado de discos de datos y sistema operativo](how-to-enable-managed-cluster-disk-encryption.md) en los nodos de clúster
+* Configuración del [escalado automático](how-to-managed-cluster-autoscale.md) en un tipo de nodo secundario
+* [Escalado manual de un tipo de nodo](how-to-managed-cluster-modify-node-type.md#scale-a-node-type-manually-with-portal)
+* Habilitación de las [actualizaciones automáticas de las imágenes del sistema operativo](how-to-managed-cluster-modify-node-type.md#enable-automatic-os-image-upgrades) en los tipos de nodo de clúster
+* Modificación de la [imagen del sistema operativo](how-to-managed-cluster-modify-node-type.md#modify-the-os-image-for-a-node-type-with-portal) usada para un tipo de nodo
+* Configuración de las [propiedades de selección de ubicación](how-to-managed-cluster-modify-node-type.md#configure-placement-properties-for-a-node-type-with-portal) para un tipo de nodo
 * Selección del SKU de [tipo de disco administrado](how-to-managed-cluster-managed-disk.md) del clúster
 * Configuración de las [opciones de actualización](how-to-managed-cluster-upgrades.md) del clúster para las actualizaciones del runtime
 
-## <a name="enable-automatic-os-image-upgrades"></a>Habilitar las actualizaciones automáticas de las imágenes del sistema operativo
-
-Puede elegir habilitar las actualizaciones automáticas de imágenes del sistema operativo en las máquinas virtuales que ejecutan los nodos de clúster administrados. Aunque los recursos del conjunto de escalado de máquinas virtuales se administran en su nombre con los clústeres administrados, es su elección habilitar actualizaciones automáticas de imágenes de sistema operativo para los nodos del clúster. Al igual que con los clústeres de [Service fabric clásicos](service-fabric-best-practices-infrastructure-as-code.md#virtual-machine-os-automatic-upgrade-configuration), los nodos de clústeres administrados no se actualizan de forma predeterminada, con el fin de evitar interrupciones imprevistas en el clúster.
-
-Para habilitar las actualizaciones automáticas del sistema operativo:
-
-* Utilice la versión `2021-05-01` (o posterior) de los recursos *Microsoft.ServiceFabric/managedclusters* y *Microsoft.ServiceFabric/managedclusters/nodetypes*.
-* Establezca la propiedad `enableAutoOSUpgrade` del clúster en *true*.
-* Establezca la propiedad del recurso nodeTypes del clúster `vmImageVersion` en *latest*.
-
-Por ejemplo:
-
-```json
-    {
-      "apiVersion": "2021-05-01",
-      "type": "Microsoft.ServiceFabric/managedclusters",
-      ...
-      "properties": {
-        ...
-        "enableAutoOSUpgrade": true
-      },
-    },
-    {
-      "apiVersion": "2021-05-01",
-      "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-       ...
-      "properties": {
-        ...
-        "vmImageVersion": "latest",
-        ...
-      }
-    }
-}
-
-```
-
-Una vez habilitado, Service Fabric comenzará a consultar y realizar el seguimiento de las versiones de imagen del sistema operativo en el clúster administrado. Si hay disponible una nueva versión del sistema operativo, se actualizarán los tipos de nodo de clúster (conjuntos de escalado de máquinas virtuales), de uno en uno. Las actualizaciones en tiempo de ejecución de Service Fabric solo se realizan después de confirmar que no hay actualizaciones de imágenes de sistema operativo de nodo de clúster en curso.
-
-Si se produce un error en una actualización, Service Fabric lo volverá a intentar después de 24 horas, con un máximo de tres reintentos. Al igual que las actualizaciones de Service Fabric clásico (no administradas), las aplicaciones o los nodos incorrectos pueden bloquear la actualización de la imagen del sistema operativo.
-
-Para más información sobre las actualizaciones de imágenes, consulte [Actualizaciones automáticas de imágenes de sistema operativo con conjuntos de escalado de máquinas virtuales de Azure](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

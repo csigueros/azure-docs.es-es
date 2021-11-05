@@ -6,13 +6,13 @@ ms.author: chugu
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 9/12/2019
-ms.openlocfilehash: 3fb4a4022920afb9f20dcfb8a43f25a192a34ff6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 10/22/2021
+ms.openlocfilehash: 4696a5405be18ca5ef0f95df9eea20756c02cacf
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750971"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131852206"
 ---
 # <a name="ssis-migration-with-azure-sql-managed-instance-as-the-database-workload-destination"></a>Migración de SSIS con Instancia administrada de Azure SQL como destino de la carga de trabajo de base de datos
 

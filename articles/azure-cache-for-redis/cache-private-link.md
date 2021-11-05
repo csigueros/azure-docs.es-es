@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 3/31/2021
-ms.openlocfilehash: 25572c32eff7fcdaffe3bad2bbf349bc8ca885f7
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 4a98b229497aa3b11692fff044bb0f0347ada9d7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130045813"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131039532"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link"></a>Azure Cache for Redis con Azure Private Link
 
@@ -208,6 +208,116 @@ Para crear un punto de conexión privado, siga estos pasos.
 > Hay una marca `publicNetworkAccess` que está establecida en `Disabled` de manera predeterminada.
 > Puede establecer el valor en `Disabled` o `Enabled`. Cuando se establece en habilitado, esta marca permite el acceso del punto de conexión público y privado a la memoria caché. Cuando se establece en `Disabled`, solo permite el acceso a puntos de conexión privados. Para más información sobre cómo cambiar el valor, consulte las [preguntas más frecuentes](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access).
 >
+## <a name="create-a-private-endpoint-using-azure-powershell"></a>Creación de un punto de conexión privado mediante Azure PowerShell
+
+Para crear un punto de conexión privado denominado *MyPrivateEndpoint* para una instancia existente de Azure Cache for Redis, ejecute el siguiente comando de PowerShell. Reemplace los valores de las variables por los detalles de su entorno:
+
+```azurepowershell-interactive
+
+$SubscriptionId = "<your Azure subscription ID>"
+# Resource group where the Azure Cache for Redis instance and virtual network resources are located
+$ResourceGroupName = "myResourceGroup"
+# Name of the Azure Cache for Redis instance
+$redisCacheName = "mycacheInstance"
+
+# Name of the existing virtual network
+$VNetName = "myVnet"
+# Name of the target subnet in the virtual network
+$SubnetName = "mySubnet"
+# Name of the private endpoint to create
+$PrivateEndpointName = "MyPrivateEndpoint"
+# Location where the private endpoint can be created. The private endpoint should be created in the same location where your subnet or the virtual network exists
+$Location = "westcentralus"
+
+$redisCacheResourceId = "/subscriptions/$($SubscriptionId)/resourceGroups/$($ResourceGroupName)/providers/Microsoft.Cache/Redis/$($redisCacheName)"
+
+$privateEndpointConnection = New-AzPrivateLinkServiceConnection -Name "myConnectionPS" -PrivateLinkServiceId $redisCacheResourceId -GroupId "redisCache"
+ 
+$virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName  $ResourceGroupName -Name $VNetName  
+ 
+$subnet = $virtualNetwork | Select -ExpandProperty subnets | Where-Object  {$_.Name -eq $SubnetName}  
+ 
+$privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $ResourceGroupName -Name $PrivateEndpointName -Location "westcentralus" -Subnet  $subnet -PrivateLinkServiceConnection $privateEndpointConnection
+```
+
+## <a name="retrieve-a-private-endpoint-using-azure-powershell"></a>Recuperación de un punto de conexión privado mediante Azure PowerShell
+
+Para obtener los detalles de un punto de conexión privado, use este comando de PowerShell:
+
+```azurepowershell-interactive
+Get-AzPrivateEndpoint -Name $PrivateEndpointName -ResourceGroupName $ResourceGroupName
+```
+
+## <a name="remove-a-private-endpoint-using-azure-powershell"></a>Eliminación de un punto de conexión privado mediante Azure PowerShell
+
+Para quitar un punto de conexión privado, use el siguiente comando de PowerShell:
+
+```azurepowershell-interactive
+Remove-AzPrivateEndpoint -Name $PrivateEndpointName -ResourceGroupName $ResourceGroupName
+```
+
+## <a name="create-a-private-endpoint-using-azure-cli"></a>Creación de un punto de conexión privado mediante la CLI de Azure
+
+Para crear un punto de conexión privado denominado *myPrivateEndpoint* para una instancia existente de Azure Cache for Redis, ejecute el siguiente comando de la CLI de Azure. Reemplace los valores de las variables por los detalles de su entorno:
+
+```azurecli-interactive
+# Resource group where the Azure Cache for Redis and virtual network resources are located
+ResourceGroupName="myResourceGroup"
+
+# Subscription ID where the Azure Cache for Redis and virtual network resources are located
+SubscriptionId="<your Azure subscription ID>"
+
+# Name of the existing Azure Cache for Redis instance
+redisCacheName="mycacheInstance"
+
+# Name of the virtual network to create
+VNetName="myVnet"
+
+# Name of the subnet to create
+SubnetName="mySubnet"
+
+# Name of the private endpoint to create
+PrivateEndpointName="myPrivateEndpoint"
+
+# Name of the private endpoint connection to create
+PrivateConnectionName="myConnection"
+
+az network vnet create \
+    --name $VNetName \
+    --resource-group $ResourceGroupName \
+    --subnet-name $SubnetName
+
+az network vnet subnet update \
+    --name $SubnetName \
+    --resource-group $ResourceGroupName \
+    --vnet-name $VNetName \
+    --disable-private-endpoint-network-policies true
+
+az network private-endpoint create \
+    --name $PrivateEndpointName \
+    --resource-group $ResourceGroupName \
+    --vnet-name $VNetName  \
+    --subnet $SubnetName \
+    --private-connection-resource-id "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Cache/Redis/$redisCacheName" \
+    --group-ids "redisCache" \
+    --connection-name $PrivateConnectionName
+```
+
+## <a name="retrieve-a-private-endpoint-using-azure-cli"></a>Recuperación de un punto de conexión privado mediante la CLI de Azure
+
+Para obtener los detalles de un punto de conexión privado, use el siguiente comando de la CLI:
+
+```azurecli-interactive
+az network private-endpoint show --name MyPrivateEndpoint --resource-group MyResourceGroup
+```
+
+## <a name="remove-a-private-endpoint-using-azure-cli"></a>Eliminación de un punto de conexión privado mediante la CLI de Azure
+
+Para quitar un punto de conexión privado, use el siguiente comando de la CLI:
+
+```azurecli-interactive
+az network private-endpoint delete --name MyPrivateEndpoint --resource-group MyResourceGroup
+```
 
 ## <a name="faq"></a>Preguntas más frecuentes
 
@@ -223,11 +333,14 @@ Para crear un punto de conexión privado, siga estos pasos.
 
 ### <a name="why-cant-i-connect-to-a-private-endpoint"></a>¿Por qué no puedo conectarme a un punto de conexión privado?
 
-Si la memoria caché ya está insertada en la red virtual, los puntos de conexión privados no se pueden usar con la instancia de la memoria caché. Si la instancia de caché usa una característica no admitida, que se enumera a continuación, no podrá conectarse a su instancia de punto de conexión privado.
+- Si la memoria caché ya está insertada en la red virtual, los puntos de conexión privados no se pueden usar con la instancia de la memoria caché.
+- Tiene un límite de un vínculo privado para las memorias caché en clúster. Para todas las demás cachés, el límite es de 100 vínculos privados.
+- Si intenta [conservar los datos en la cuenta de almacenamiento](cache-how-to-premium-persistence.md) a la que se han aplicado las reglas de firewall, podría impedir que cree la instancia de Private Link.
+- Si la instancia de caché usa una [característica no admitida](#what-features-arent-supported-with-private-endpoints), es posible que no pueda conectarse al punto de conexión privado.
 
 ### <a name="what-features-arent-supported-with-private-endpoints"></a>¿Qué características no son compatibles con los puntos de conexión privados?
 
-Actualmente, no se admiten la compatibilidad con la consola del portal ni la persistencia en cuentas de almacenamiento de firewall.
+No puede intentar conectarse desde la consola Azure Portal. Si lo hace, se mostrará un error de conexión.
 
 ### <a name="how-do-i-verify-if-my-private-endpoint-is-configured-correctly"></a>¿Cómo compruebo si mi punto de conexión privado está configurado correctamente?
 

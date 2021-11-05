@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/15/2021
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 34938a6d5e52912db8d82b39bed3fdbad9f4814c
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: c92b17158beee9d1f6c60becb858564555bf56bb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129859027"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131048451"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control"></a>Acceso a las claves, los certificados y los secretos de Key Vault con un control de acceso basado en rol de Azure
 
@@ -35,9 +35,8 @@ Nuestra recomendación es usar un almacén por aplicación y entorno (desarrollo
 
 Los permisos de claves, secretos y certificados individuales solo deben usarse para escenarios concretos:
 
--   Aplicaciones multicapa que necesitan un control de acceso independiente entre las distintas capas
-
--   Compartir un secreto individual entre varias aplicaciones
+-   Compartir secretos individuales entre varias aplicaciones, por ejemplo, una aplicación necesita tener acceso a los datos de la otra aplicación
+-   Cifrado entre inquilinos con la clave de cliente, por ejemplo, ISV que usa una clave de un almacén de claves del cliente para cifrar sus datos
 
 Para más información acerca de las directrices de administración de Azure Key Vault, consulte:
 

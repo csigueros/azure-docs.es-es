@@ -7,12 +7,12 @@ ms.author: beloh
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/06/2021
-ms.openlocfilehash: da5769f2d9562676b9a3f1c0494395295737ae94
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 0b80869f3f2cf7754a7dbca8882fa22a38539f3a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129620191"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131048071"
 ---
 # <a name="troubleshooting-odata-collection-filters-in-azure-cognitive-search"></a>Solución de problemas de filtros de colección de OData en Azure Cognitive Search
 
@@ -28,7 +28,7 @@ En la tabla siguiente se enumeran los errores que pueden surgir al intentar ejec
 | --- | --- | --- |
 | La función "ismatch" no tiene ningún parámetro enlazado a la variable de rango "s". Dentro de las expresiones lambda solo se admiten referencias de campo enlazadas ("any" o "all"). Cambie el filtro para que la función "ismatch" esté fuera de la expresión lambda y vuelva a intentarlo. | Uso de `search.ismatch` o `search.ismatchscoring` dentro de una expresión lambda | [Reglas de filtrado de colecciones complejas](#bkmk_complex) |
 | Expresión lambda no válida. Se ha encontrado una prueba de igualdad o desigualdad cuando se esperaba lo contrario en una expresión lambda que recorre en iteración un campo de tipo Collection(Edm.String). Para "any", use expresiones con el formato "x eq y" o "search.in(...)". Para "all", use expresiones con el formato "x ne y", "not (x eq y)" o "not search.in(...)". | Filtrado por un campo de tipo `Collection(Edm.String)` | [Reglas de filtrado de colecciones de cadenas](#bkmk_strings) |
-| Expresión lambda no válida. Se ha encontrado un formato de expresión booleana compleja no admitido. Para "any", use expresiones que sean "OR de AND", también conocidas como forma normal disyuntiva. Por ejemplo: "(a and b) or (c y d)", donde a, b, c y d son las subexpresiones de comparación o igualdad. Para "all", use expresiones que sean "AND de OR", también conocidas como forma normal conjuntiva. Por ejemplo: "(a or b) and (c or d)", donde a, b, c y d son subexpresiones de comparación o desigualdad. Ejemplos de expresiones de comparación: "x gt 5", "x le 2". Ejemplo de una expresión de igualdad: "x eq 5". Ejemplo de una expresión de desigualdad: "x ne 5". | Filtrado por campos de tipo `Collection(Edm.DateTimeOffset)`, `Collection(Edm.Double)`, `Collection(Edm.Int32)` o `Collection(Edm.Int64)` | [Reglas de filtrado de colecciones comparables](#bkmk_comparables) |
+| Expresión lambda no válida. Se ha encontrado un formato de expresión booleana compleja no admitido. Para "any", use expresiones que sean "OR de AND", también conocidas como forma normal disyuntiva. Por ejemplo: `(a and b) or (c and d)`, donde a, b, c y d son las subexpresiones de comparación o igualdad. Para "all", use expresiones que sean "AND de OR", también conocidas como forma normal conjuntiva. Por ejemplo: `(a or b) and (c or d)`, donde a, b, c y d son subexpresiones de comparación o desigualdad. Ejemplos de expresiones de comparación: "x gt 5", "x le 2". Ejemplo de una expresión de igualdad: "x eq 5". Ejemplo de una expresión de desigualdad: "x ne 5". | Filtrado por campos de tipo `Collection(Edm.DateTimeOffset)`, `Collection(Edm.Double)`, `Collection(Edm.Int32)` o `Collection(Edm.Int64)` | [Reglas de filtrado de colecciones comparables](#bkmk_comparables) |
 | Expresión lambda no válida. Se ha encontrado un uso no admitido de geo.distance() o geo.intersects() en una expresión lambda que recorre en iteración un campo de tipo Collection(Edm.GeographyPoint). Para "any", asegúrese de comparar geo.distance() con los operadores "lt" o "le", y de que el uso de geo.intersects() no sea negativo. Para "all", asegúrese de comparar geo.distance() con los operadores "gt" o "ge", y de que el uso de geo.intersects() sea negativo. | Filtrado por un campo de tipo `Collection(Edm.GeographyPoint)` | [Reglas de filtrado para colecciones GeographyPoint](#bkmk_geopoints) |
 | Expresión lambda no válida. No se admiten expresiones booleanas complejas en expresiones lambda que recorren en iteración campos de tipo Collection(Edm.GeographyPoint). Para "any", combine las subexpresiones con "or"; no se admite "and". Para "all", combine las subexpresiones con "and"; no se admite "or". | Filtrado por campos de tipo `Collection(Edm.String)` o `Collection(Edm.GeographyPoint)` | [Reglas de filtrado de colecciones de cadenas](#bkmk_strings) <br/><br/> [Reglas de filtrado para colecciones GeographyPoint](#bkmk_geopoints) |
 | Expresión lambda no válida. Se ha encontrado un operador de comparación (uno de "lt", "le", "gt" o "ge"). Solo se permiten operadores de igualdad en expresiones lambda que recorren en iteración los campos de tipo Collection(Edm.String). Para "any", use expresiones con el formato "x eq y". Para "all", use expresiones con el formato "x ne y" o "not (x eq y)". | Filtrado por un campo de tipo `Collection(Edm.String)` | [Reglas de filtrado de colecciones de cadenas](#bkmk_strings) |

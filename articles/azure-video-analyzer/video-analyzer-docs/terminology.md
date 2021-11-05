@@ -3,14 +3,14 @@ title: Terminología de Azure Video Analyzer
 description: En este artículo se proporciona información general sobre la terminología de Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 11/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 4ef39c92891012a62d42399a12aaa2717be33bfa
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 9010ae81606bcd84d37debc4c702a0bc53e328dd
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131073764"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131846964"
 ---
 # <a name="azure-video-analyzer-terminology"></a>Terminología de Azure Video Analyzer
 

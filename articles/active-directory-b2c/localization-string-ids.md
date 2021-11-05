@@ -1,21 +1,21 @@
 ---
-title: 'Identificadores de cadenas de localización: Azure Active Directory B2C | Microsoft Docs'
+title: 'Identificadores de cadenas de localización: Azure Active Directory B2C'
 description: Especifique los identificadores de una definición de contenido con un identificador api.signuporsignin en una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/10/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 88c320d8296972ee84776aa232d688cc9e981f83
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: eab029ea4640199b6ed1086c85cdf59fe92f45c2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129349655"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131036416"
 ---
 # <a name="localization-string-ids"></a>Identificadores de cadenas de localización
 
@@ -57,9 +57,8 @@ Los siguientes identificadores se usan en una definición de contenido con un id
 | **invalid_generic** | Especifique un {0} válido. | `>= 2.1.1` |
 | **heading** | Inicio de sesión | `>= 2.1.1` |
 
-
 > [!NOTE]
-> * Los marcadores de posición como {0} se rellenarán automáticamente con el valor `DisplayName` de `ClaimType`. 
+> * Los marcadores de posición como {0} se rellenarán automáticamente con el valor `DisplayName` de `ClaimType`.
 > * Para obtener información sobre cómo localizar `ClaimType`, consulte [Ejemplo de registro o de inicio de sesión](#signupsigninexample).
 
 En el ejemplo siguiente se muestra el uso de algunos de los elementos de la interfaz de usuario en la página de registro o de inicio de sesión:
@@ -95,7 +94,7 @@ En el ejemplo siguiente se localiza el proveedor de identidades de Facebook en �
 
 ### <a name="sign-up-or-sign-in-error-messages"></a>Mensajes de error al iniciar sesión o registrarse
 
-| ID | Valor predeterminado |
+| id | Valor predeterminado |
 | --- | ------------- |
 | **UserMessageIfInvalidPassword** | La contraseña es incorrecta. |
 | **UserMessageIfPasswordExpired**| La contraseña expiró.|
@@ -184,7 +183,7 @@ Los siguientes identificadores corresponden a una definición de contenido con u
 
 ### <a name="sign-up-and-self-asserted-pages-error-messages"></a>Mensajes de error en las páginas autoafirmadas y de registro
 
-| ID | Valor predeterminado |
+| id | Valor predeterminado |
 | --- | ------------- |
 | **UserMessageIfClaimsPrincipalAlreadyExists** | Ya existe un usuario con el identificador especificado. Elija otro. |
 | **UserMessageIfClaimNotVerified** | Reclamación no comprobada: {0} |
@@ -373,7 +372,7 @@ Los siguientes son los identificadores de un [control de pantalla de verificaci�
 |but_change_claims | Cambie la dirección de correo electrónico.|
 
 Nota: El elemento `intro_msg` está oculto y no aparece en la página autofirmada. Para hacerlo visible, use la [personalización HTML](customize-ui-with-html.md) con hojas de estilo CSS. Por ejemplo:
-    
+
 ```css
 .verificationInfoText div{display: block!important}
 ```
@@ -438,7 +437,6 @@ Estos son los identificadores de los mensajes de error de [perfil técnico del s
 |UserMessageIfDnsResolutionFailed | No se pudo resolver el nombre de host del punto de conexión de servicio RESTful. Dirección URL del servicio RESTful: {0} |
 |UserMessageIfRequestTimeout | No se pudo establecer la conexión con el punto de conexión del servicio RESTful dentro del límite de tiempo de espera de {0}segundos. Dirección URL del servicio RESTful: {1} |
 
-
 ### <a name="restful-service-example"></a>Ejemplo de servicio RESTful
 
 ```xml
@@ -492,10 +490,9 @@ Estos son los identificadores de los mensajes de error de un [perfil técnico de
 |UserMessageIfVerificationFailedNoRetry | Se ha superado el número máximo de intentos de comprobación.|
 |UserMessageIfVerificationFailedRetryAllowed | Error de comprobación. Vuelva a intentarlo.|
 
-
 ### <a name="azure-ad-sspr-example"></a>Ejemplo de autoservicio de restablecimiento de contraseña de Azure AD
 
-```XML
+```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInternalError">We are having trouble verifying your email address. Please try again later.</LocalizedString>
@@ -511,7 +508,7 @@ Estos son los identificadores de los mensajes de error de un [perfil técnico de
 
 Los siguientes son los identificadores de los mensajes de error de un [perfil técnico de contraseña única](one-time-password-technical-profile.md).
 
-| ID | Valor predeterminado | Descripción | 
+| id | Valor predeterminado | Descripción |
 | --- | ------------- | ----------- |
 | UserMessageIfSessionDoesNotExist | No | Mensaje que se mostrará al usuario si la sesión de verificación de código ha expirado. Es posible que el código haya expirado o que nunca se haya generado para un identificador determinado. |
 | UserMessageIfMaxRetryAttempted | No | Mensaje que se mostrará al usuario si ha superado el número máximo de intentos de verificación permitidos. |
@@ -539,9 +536,9 @@ Los siguientes son los identificadores de los mensajes de error de un [perfil t�
 
 Los siguientes son los identificadores de los mensajes de error de transformaciones de notificaciones:
 
-| ID | Transformación de notificaciones | Valor predeterminado |
+| id | Transformación de notificaciones | Valor predeterminado |
 | --- | ------------- |------------- |
-|UserMessageIfClaimsTransformationBooleanValueIsNotEqual |[AssertBooleanClaimIsEqualToValue](boolean-transformations.md#assertbooleanclaimisequaltovalue) | Error de comparación de valores de notificación booleano para el tipo de notificación "inputClaim".| 
+|UserMessageIfClaimsTransformationBooleanValueIsNotEqual |[AssertBooleanClaimIsEqualToValue](boolean-transformations.md#assertbooleanclaimisequaltovalue) | Error de comparación de valores de notificación booleano para el tipo de notificación "inputClaim".|
 |DateTimeGreaterThan |[AssertDateTimeIsGreaterThan](date-transformations.md#assertdatetimeisgreaterthan) | Error al comparar el valor de la notificación: El operando izquierdo proporcionado es mayor que el derecho.|
 |UserMessageIfClaimsTransformationStringsAreNotEqual |[AssertStringClaimsAreEqual](string-transformations.md#assertstringclaimsareequal) | Error en la comparación de valores de notificaciones mediante StringComparison "OrdinalIgnoreCase".|
 

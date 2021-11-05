@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: dc1cf6a9a250b64b84cacbcf300183b913144b45
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 4d5b00526219b0a4ade24b7522ea4826236fd70e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122180171"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057768"
 ---
 # <a name="tutorial-deploy-and-walkthrough-the-continuous-patient-monitoring-app-template"></a>Tutorial: Implementación y tutorial de la plantilla de aplicación de supervisión continua de pacientes
 
@@ -25,7 +25,7 @@ Muchos dispositivos ponibles médicos de los que se usan en las soluciones de Io
 
 ## <a name="mobile-phone-gateway"></a>Puerta de enlace de teléfono móvil
 
-La función principal de la aplicación de teléfono móvil es recopilar datos de Bluetooth de bajo consumo de dispositivos médicos y comunicarlos a Azure IoT Central. La aplicación también guía a los pacientes a través de la configuración del dispositivo y les permite ver su información sanitaria personal. Otras soluciones podrían utilizar una puerta de enlace de tableta o una puerta de enlace estática de una habitación de hospital. Hay una aplicación móvil de código abierto de ejemplo disponible para Android e iOS que se puede usar como punto de partida para el desarrollo de la aplicación. Para más información, consulte la [aplicación móvil de supervisión continua de pacientes con IoT Central](/samples/iot-for-all/iotc-cpm-sample/iotc-cpm-sample/).
+La función principal de la aplicación de teléfono móvil es recopilar datos de Bluetooth de bajo consumo de dispositivos médicos y comunicarlos a Azure IoT Central. La aplicación también guía a los pacientes a través de la configuración del dispositivo y les permite ver su información sanitaria personal. Otras soluciones podrían utilizar una puerta de enlace de tableta o una puerta de enlace estática de una habitación de hospital. Hay una aplicación móvil de código abierto de ejemplo disponible para Android e iOS que se puede usar como punto de partida para el desarrollo de la aplicación. Para más información, consulte la [aplicación móvil de ejemplo de supervisión continua de pacientes en GitHub](https://github.com/iot-for-all/iotc-cpm-sample).
 
 ## <a name="export-to-azure-api-for-fhirreg"></a>Exportar a Azure API for FHIR&reg;
 

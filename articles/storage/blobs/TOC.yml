@@ -18,7 +18,7 @@ items:
         items:
           - name: Uso de blobs
             items:
-              - name: Azure Portal
+              - name: Azure portal
                 href: storage-quickstart-blobs-portal.md
               - name: Explorador de Storage
                 href: quickstart-storage-explorer.md
@@ -844,7 +844,7 @@ items:
                 href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Administración del control de acceso
             items:
-              - name: Azure Portal
+              - name: Azure portal
                 href: data-lake-storage-acl-azure-portal.md
               - name: Explorador de Storage
                 href: data-lake-storage-explorer-acl.md

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/06/2021
 ms.author: jeedes
-ms.openlocfilehash: d3e027c8a6de4cdd73197909289a00659a5839e7
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a0a65e424d295b6cecd478a7fdff9ae8df79a3fd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124745474"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131039998"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Workday
 
@@ -26,7 +26,7 @@ En este tutorial, obtendrá información sobre cómo integrar Workday con Azure 
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Workday con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -197,7 +197,7 @@ En esta sección, va a permitir que B. Simon acceda a Workday mediante el inici
     e. Haga clic en **OK**.
 
     > [!NOTE]
-    > Asegúrese de configurar el inicio de sesión único correctamente. Si habilita el inicio de sesión único con una configuración incorrecta, es posible que no pueda entrar en la aplicación con sus credenciales y quede bloqueado fuera de esta. En esta situación, Workday proporciona una URL de inicio de sesión de respaldo donde los usuarios pueden iniciar sesión con su nombre de usuario y contraseña normal en el siguiente formato: [Su URL de Workday]/login.flex?redirect=n
+    > Asegúrese de configurar el inicio de sesión único correctamente. En caso de que habilite el inicio de sesión único con una configuración incorrecta, es posible que no pueda entrar en la aplicación con sus credenciales y que se quede bloqueado. En esta situación, Workday proporciona una dirección URL de inicio de sesión de respaldo en la que los usuarios pueden iniciar sesión con su nombre de usuario y contraseña normales con el siguiente formato:[Su dirección URL de Workday]/login.flex?redirect=n
 
 ### <a name="create-workday-test-user"></a>Creación de un usuario de prueba de Workday
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/06/2021
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 77ec7a7dad4b215ae22bf3766172f1e92e932593
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 344b3aeba1c10e3a66d01458800d771ca31dd3a7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124736205"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056441"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Capacidades de transacción de marketplace comercial
 
@@ -59,7 +59,7 @@ En función de la opción de transacción usada, los cargos de suscripción son 
 
 - **Precios de suscripción**: las cuotas de licencia de software se presentan como cuotas de suscripción periódicas mensuales o anuales que se facturan como tarifa plana o por puesto. Las cuotas de suscripción periódicas no se prorratean por cancelaciones del cliente a mitad del período o por la falta de uso de los servicios. Las cuotas de suscripción periódicas se pueden prorratear si el cliente cambia a una versión superior o inferior de su suscripción a mitad del período.
 - **Precios basados en el uso**: en el caso de ofertas de máquinas virtuales de Azure, se factura a los clientes en función del alcance de su uso de la oferta. Si son imágenes de máquina virtual, a los clientes se les cobra una tarifa por hora de Azure Marketplace, establecida por el publicador, por el uso de las máquinas virtuales implementadas a partir de las imágenes. La tarifa por horas puede ser uniforme o variar según los distintos tamaños de máquina virtual. Las horas parciales se cobran por minuto. Los planes se facturan mensualmente.
-- **Precios de uso medido**: con las ofertas de aplicaciones de Azure y SaaS, los publicadores pueden usar el [servicio de medición de Marketplace](marketplace-metering-service-apis.md) para facturar el consumo según las dimensiones personalizadas de los medidores que configuren. Estos cambios se suman a los cargos mensuales o anuales incluidos en el contrato (derecho). Algunos ejemplos de dimensiones de medidores personalizadas son el ancho de banda, los vales o los correos electrónicos procesados. Los publicadores pueden definir una o más dimensiones de uso medido para cada plan, con un máximo de 30 por oferta. Los publicadores son responsables de hacer un seguimiento del uso individual de los clientes, con cada medidor definido en la oferta. Los eventos se deben notificar a Microsoft en el plazo de una hora. Microsoft cobra a los clientes en función de la información de uso notificada por los anunciantes para el período de facturación aplicable.
+- **Precios de uso medido**: con las ofertas de aplicaciones de Azure y SaaS, los publicadores pueden usar el [servicio de medición de Marketplace](marketplace-metering-service-apis.md) para facturar el consumo según las dimensiones personalizadas de los medidores que configuren. Estos cambios se suman a los cargos mensuales o anuales incluidos en el contrato (derecho). Algunos ejemplos de dimensiones de medidores personalizadas son el ancho de banda, los vales o los correos electrónicos procesados. Los publicadores pueden definir una o más dimensiones de uso medido para cada plan, con un máximo de 30 por oferta. Los publicadores son responsables de hacer un seguimiento del uso individual de los clientes, con cada medidor definido en la oferta. Los eventos se deben notificar a Microsoft en el plazo de una hora tras la repetición. Microsoft cobra a los clientes en función de la información de uso notificada por los anunciantes para el período de facturación aplicable.
 
 > [!NOTE]
 > Las ofertas que se facturan según el uso nos on aptas para reembolsos una vez que se ha usado la solución.
@@ -81,7 +81,7 @@ Las ofertas de máquina virtual y aplicación de Azure son una buena opción si 
 
 ### <a name="usage-based-and-subscription-pricing"></a>Precios de suscripción y basados en el uso
 
-Al publicar una oferta basada en el uso o una transacción de una suscripción, Microsoft proporciona la tecnología y los servicios para procesar las compras, las devoluciones y los contracargos de las licencias de software. En este escenario, el publicador autoriza a Microsoft a actuar como agente para estos fines. El publicador permite a Microsoft facilitar la transacción de licencias de software. El publicador mantiene su designación como vendedor, proveedor, distribuidor y licenciatario.
+Al publicar una oferta basada en el uso o una transacción de una suscripción, Microsoft proporciona la tecnología y los servicios para procesar las compras, las devoluciones y los contracargos de las licencias de software. En este escenario, el publicador autoriza a Microsoft a actuar como agente para estos fines. El publicador permite a Microsoft facilitar la transacción de licencias de software. El publicador, sin embargo, mantiene la designación como vendedor, proveedor, distribuidor y licenciatario.
 
 Microsoft permite a los clientes pedir, licenciar y usar el su software, sujeto a los términos y condiciones de marketplace comercial de Microsoft y de su contrato de licencia para el usuario final. Debe proporcionar su propio contrato de licencia para el usuario final o seleccionar el [Contrato estándar](./standard-contract.md) al crear la oferta.
 
@@ -165,7 +165,7 @@ Cuando se han seleccionado los modelos de precios de suscripción o de pago por 
 
 ### <a name="publisher-payout-and-reporting"></a>Pagos e informes al publicador
 
-Las tarifas de licencia de software que cobra Microsoft como agente están sujetas a una tarifa de servicio de tienda del 3 %, a menos que se especifique lo contrario y se deduzcan en el momento del pago del anunciante.
+Las tarifas de licencia de software que cobra Microsoft como agente están sujetas a una tarifa de servicio de tienda del 3 %, a menos que se especifique lo contrario y se deduzcan en el [momento del pago del anunciante](/partner-center/payout-policy-details).
 
 Normalmente, los clientes compran con contrato Enterprise o mediante contrato de pago por uso con tarjeta de crédito. El tipo de contrato determina los plazos de facturación, cobro y pago.
 
@@ -201,10 +201,10 @@ La posibilidad de realizar la transacción a través de Microsoft solo está dis
 
 Puede crear un plan privado para una oferta, con precios negociados específicos para el negocio, o bien con configuraciones personalizadas.
 
-Los planes privados le permiten ofrecer un precio mayor o menor a determinados clientes con respecto a la oferta disponible públicamente. Los planes privados pueden usarse para descontar o agregar una prima a una oferta. Los planes privados pueden estar disponibles para uno o más clientes mediante la inclusión en una lista de su suscripción de Azure en el nivel de plan.
+Los planes privados le permiten ofrecer un precio mayor o menor a determinados clientes con respecto al plan disponible públicamente. Los planes privados pueden usarse para descontar o agregar una prima a una oferta. Los planes privados pueden estar disponibles para uno o más clientes mediante la inclusión en una lista de su suscripción de Azure en el nivel de plan.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Revise los patrones de publicación por tienda en línea para ver ejemplos de cómo la solución se asigna a un tipo de oferta y configuración.
+- Para obtener información sobre las opciones de lista y precios en función de la tienda en línea, consulte [Introducción a las opciones de lista](determine-your-listing-type.md#listing-and-pricing-options-by-online-store).
 - [Guía de publicación por tipo de oferta](publisher-guide-by-offer-type.md).
 - [Planes y precios de las ofertas del marketplace comercial](./plans-pricing.md)

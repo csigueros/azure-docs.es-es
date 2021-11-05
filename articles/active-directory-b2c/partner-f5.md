@@ -10,12 +10,12 @@ ms.subservice: B2C
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/15/2021
-ms.openlocfilehash: 1db63555d2bf0ad8cfedcdfe90ba2ebae14292ee
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: ca0d912c837a4c3fb218d1bb3fb8b07b43100119
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130253925"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131044634"
 ---
 # <a name="tutorial-extend-azure-active-directory-b2c-to-protect-on-premises-applications-using-f5-big-ip"></a>Tutorial: Ampliación de Azure Active Directory B2C para proteger aplicaciones locales mediante BIG-IP de F5
 
@@ -222,9 +222,9 @@ En este caso, configuraremos Azure AD B2C como el idP de OAuth2. Observará qu
 
   |Propiedades | Descripciones|
   |:---------|:---------|
-  | Id. de cliente | El identificador de cliente de la aplicación que representa BIG-IP en el inquilino de Azure AD B2C.|
+  | Id. de cliente | El identificador de cliente de la aplicación que representa BIG-IP en el inquilino de Azure AD B2C. |
   | Secreto del cliente | El secreto de cliente correspondiente de la aplicación. |
-  |Perfil SSL de cliente-servidor | Al establecer un perfil SSL, se asegurará de que APM se comunica con el IdP de Azure AD B2C a través de TLS. Seleccione la opción serverssl predeterminada.|
+  |Perfil SSL de cliente-servidor | Al establecer un perfil SSL, se asegurará de que APM se comunica con el IdP de Azure AD B2C a través de TLS. Seleccione la opción `serverssl` predeterminada. |
 
 - **Configuración de solicitudes de OAuth**
 
@@ -234,38 +234,38 @@ En este caso, configuraremos Azure AD B2C como el idP de OAuth2. Observará qu
 
   | Propiedades | Descripción |
   |:-----------|:------------|
-  |Elección de la solicitud de OAuth | Crear nuevo |
+  | Elección de la solicitud de OAuth | Crear nuevo |
   | HTTP method | POST |
-  |Activación de encabezados| No activado |
+  | Activación de encabezados| No activado |
   | Activación de parámetros | Activada |
 
   | Tipo de parámetro | Nombre de parámetro | Valor del parámetro|
   |:---------|:---------------|:----------------|
-  | client-id| client-id | |
-  |valor de seguridad |valor de seguridad| |
+  | client-id | client-id | |
+  | valor de seguridad | valor de seguridad| |
   | redirect-uri | redirect-uri | |
   | scope | scope | |
-  | response-type |response-type | |
-  |client-secret| client-secret| |
+  | response-type | response-type | |
+  | client-secret | client-secret | |
   | custom | grant_type | authorization_code |
 
 - **Solicitud de redireccionamiento de autenticación: habilitada**
 
   | Propiedades | Descripción |
   |:-----------|:------------|
-  |Elección de la solicitud de OAuth | Crear nuevo |
-  |HTTP method | GET |
-  |Tipo de aviso | None |
-  |Activación de encabezados | No activado |
-  |Activación de parámetros | Activada |
+  | Elección de la solicitud de OAuth | Crear nuevo |
+  | HTTP method | GET |
+  | Tipo de aviso | None |
+  | Activación de encabezados | No activado |
+  | Activación de parámetros | Activada |
 
   | Tipo de parámetro | Nombre de parámetro | Valor del parámetro|
   |:---------|:---------------|:----------------|
-  | client-id| client-id | |
+  | client-id | client-id | |
   | redirect-uri | redirect-uri | |
   | response-type |response-type | |
   | scope | scope | |
-  |valor de seguridad| valor de seguridad| |
+  | valor de seguridad | valor de seguridad | |
 
 - **Solicitud de actualización de tokens** - **Deshabilitada**: se puede habilitar y configurar si es necesario.
 
@@ -281,7 +281,7 @@ En este caso, configuraremos Azure AD B2C como el idP de OAuth2. Observará qu
   | Puerto del servicio | HTTPS |
   | Activación de puerto de redireccionamiento | Compruebe que los usuarios se redirijan automáticamente de http a https |
   | Puerto de redireccionamiento | HTTP |
-  | Perfil SSL de cliente | Intercambie el perfil de clientssl predefinido por el que contiene el certificado SSL. Las pruebas con el perfil predeterminado también son correctas, pero probablemente provocarán una alerta del explorador.|
+  | Perfil SSL de cliente | Intercambie el perfil `clientssl` predefinido por el que contiene el certificado SSL. Las pruebas con el perfil predeterminado también son correctas, pero probablemente provocarán una alerta del explorador. |
 
 - **Propiedades del grupo**
 

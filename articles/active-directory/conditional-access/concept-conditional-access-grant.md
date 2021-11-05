@@ -9,14 +9,14 @@ ms.date: 06/25/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: calebb
+ms.reviewer: calebb, sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d8c0bf5ac063fbf300cf43cd46a22e8904cb6bf
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 36d6283bd8304a33b80797e502edde45c952e06a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128548794"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067401"
 ---
 # <a name="conditional-access-grant"></a>Acceso condicional: Conceder
 
@@ -62,11 +62,25 @@ Un dispositivo se puede marcar como compatible con Intune (para cualquier sistem
 
 Los dispositivos deben estar registrados en Azure AD para poder marcarlos como compatibles. Puede encontrar más información sobre el registro del dispositivo en el artículo [¿Qué es una identidad de dispositivo?](../devices/overview.md)
 
+**Comentarios:**
+
+- El requisito **Requerir que el dispositivo esté marcado como compatible**:
+   - Solo admite dispositivos Windows (Windows 10 o superiores), iOS, Android y macOS registrados con Azure AD e inscritos con Intune.
+   - Para los dispositivos inscritos con sistemas MDM de terceros, consulte [Compatibilidad con asociados de cumplimiento de dispositivos de terceros en Intune](/mem/intune/protect/device-compliance-partners).
+   - El acceso condicional no puede considerar Microsoft Edge en modo InPrivate como un dispositivo compatible.
+
+
 ### <a name="require-hybrid-azure-ad-joined-device"></a>Requerir un dispositivo unido a Azure AD híbrido
 
 Las organizaciones pueden optar por usar la identidad del dispositivo como parte de la directiva de acceso condicional. Las organizaciones pueden requerir que los dispositivos estén unidos a Azure AD híbrido utilizando esta casilla. Para más información sobre las identidades del dispositivo, consulte el artículo [¿Qué es una identidad de dispositivo?](../devices/overview.md)
 
 Al usar el [flujo de OAuth de código de dispositivo](../develop/v2-oauth2-device-code.md), no se admiten el control de concesión de dispositivo administrado ni la condición de estado de dispositivo. Esto se debe a que el dispositivo que realiza la autenticación no puede proporcionar su estado de dispositivo al que proporciona un código y el estado del dispositivo en el token está bloqueado en el dispositivo que realiza la autenticación. En su lugar, use el control de concesión de autenticación multifactor necesario.
+
+**Comentarios:**
+
+- El requisito **Requerir un dispositivo unido a Azure AD híbrido**:
+   - Solo admite dispositivos Windows de nivel inferior (Windows 10) y Windows dispositivos actuales (Windows 10 y superiores).
+   - El acceso condicional no puede considerar Microsoft Edge en modo InPrivate como un dispositivo unido a Azure AD híbrido.
 
 ### <a name="require-approved-client-app"></a>Requerir aplicación cliente aprobada
 
@@ -146,7 +160,7 @@ Se ha confirmado que las siguientes aplicaciones cliente admiten esta configurac
 - Nine Mail - Email & Calendar
 
 > [!NOTE]
-> Microsoft Kaizala, Microsoft Skype Empresarial y Microsoft Visio no admiten la concesión **Requerir directiva de protección de aplicaciones**. Si necesita que estas aplicaciones funcionen, use exclusivamente la concesión **Requerir aplicaciones aprobadas**. El uso de la cláusula OR entre las dos concesiones no funciona para estas tres aplicaciones.
+> Microsoft Kaizala, Microsoft Skype Empresarial y Microsoft Visio no admiten la concesión **Requerir directiva de protección de aplicaciones**. Si necesita que estas aplicaciones funcionen, use exclusivamente la concesión **Requerir aplicaciones aprobadas**. El uso de la cláusula  `or` entre las dos concesiones no funciona para estas tres aplicaciones.
 
 **Comentarios:**
 

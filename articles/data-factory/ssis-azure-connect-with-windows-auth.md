@@ -1,19 +1,19 @@
 ---
 title: Acceso a almacenes de datos y recursos compartidos de archivos con la autenticación de Windows
 description: Aprenda a configurar el catálogo de SSIS en Azure SQL Database y Azure-SSIS Integration Runtime en Azure Data Factory para ejecutar paquetes que accedan a los almacenes de datos y los recursos compartidos de archivos con la autenticación de Windows.
-ms.date: 10/27/2020
+ms.date: 10/22/2021
 ms.topic: conceptual
 ms.service: data-factory
 ms.subservice: integration-services
 author: swinarko
 ms.author: sawinark
 ms.reviewer: jburchel
-ms.openlocfilehash: a0777b13eb394ac221bc85679c2ea05925b156c1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5d1ced9c1c867a45a56b684515db53aaf9a73848
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733004"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131850363"
 ---
 # <a name="access-data-stores-and-file-shares-with-windows-authentication-from-ssis-packages-in-azure"></a>Acceso a los almacenes de datos y los recursos compartidos de archivos con la autenticación de Windows desde paquetes SSIS en Azure
 
@@ -97,7 +97,7 @@ Para comprobar que puede conectarse a una instancia local de SQL Server, haga lo
 
 3. En SSMS, compruebe que puede conectarse a SQL Server en el entorno local.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 Para acceder a una instancia local de SQL Server desde paquetes que se ejecutan en Azure, lleve a cabo los pasos siguientes:
 
@@ -124,7 +124,7 @@ Para comprobar que puede conectarse a un recurso compartido de archivos local, h
 
 3. Compruebe que se devuelve la lista de directorios del recurso compartido de archivos local.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 Para acceder a un recurso compartido de archivos en el entorno local desde paquetes que se ejecutan en Azure, realice lo siguiente:
 

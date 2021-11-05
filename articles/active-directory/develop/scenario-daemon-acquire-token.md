@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 19ead7fe063992e95588641f7fd739081cf54a2f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9e037a1ba1ba3c0820321662d4f3feffa6dd2b35
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104578420"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131050629"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Aplicación de demonio que llama a las API web: adquisición de un token
 
@@ -65,7 +65,7 @@ El ámbito usado para las credenciales del cliente siempre debe ser el identific
 
 > [!IMPORTANT]
 > Cuando MSAL solicita un token de acceso para un recurso que acepta tokens de acceso de la versión 1.0, Azure AD analiza la audiencia deseada del ámbito solicitado, para lo cual toma todo lo que hay delante de la última barra diagonal y lo usa como identificador del recurso.
-> Por tanto si, al igual que Azure SQL Database (**https:\//database.windows.net**), el recuso espera una audiencia que finaliza con una barra diagonal (en el caso de Azure SQL Database, `https://database.windows.net/`), deberá solicitar un ámbito de `https://database.windows.net//.default`. (Tenga en cuenta la barra diagonal doble). Consulte también el problema de MSAL.NET [747: falta la barra diagonal final de la dirección URL del recurso, lo que ha provocado un error de autenticación de SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747)
+> Por tanto si, al igual que Azure SQL Database (`https://database.windows.net`), el recurso espera una audiencia que finaliza con una barra diagonal (en el caso de Azure SQL Database, `https://database.windows.net/`), deberá solicitar un ámbito de `https://database.windows.net//.default` (tenga en cuenta la doble barra diagonal). Consulte también el problema de MSAL.NET [747: `Resource url's trailing slash is omitted, which caused sql auth failure`](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
 ## <a name="acquiretokenforclient-api"></a>API AcquireTokenForClient
 

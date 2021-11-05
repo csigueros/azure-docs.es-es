@@ -7,12 +7,12 @@ ms.author: jtoland
 ms.custom: mvc, references_regions
 ms.topic: conceptual
 ms.date: 10/12/2021
-ms.openlocfilehash: 1f4682f616ce09d59e26c578fd6d21e480fae6ef
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 8406f9b551d80959db983a3837b441dc9f965782
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130069546"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131005278"
 ---
 # <a name="whats-new-in-azure-database-for-mysql---flexible-server-preview"></a>Novedades de Azure Database for MySQL: servidor flexible (versión preliminar)
 
@@ -24,7 +24,11 @@ En este artículo se resumen las nuevas versiones y características de Azure Da
 
 ## <a name="october-2021"></a>Octubre de 2021
 
-- **Selección de Availability Zones al crear réplicas de lectura**
+- **Restauración de copias de seguridad con redundancia geográfica en una región emparejada geográficamente para escenarios de recuperación ante desastres**
+
+    El servicio ahora proporciona más flexibilidad para elegir el almacenamiento de copia de seguridad con redundancia geográfica con el fin de proporcionar una mayor resistencia de los datos. Al habilitar la redundancia geográfica, los clientes pueden recuperarse de un desastre geográfico o un error regional cuando no pueden acceder al servidor de la región primaria. Con esta característica habilitada, los clientes pueden llevar a cabo una restauración geográfica e implementar un nuevo servidor en la región emparejada geográficamente, aprovechando la última copia de seguridad con redundancia geográfica disponible del servidor original. [Más información](../flexible-server/concepts-backup-restore.md). 
+
+-  **Selección de Availability Zones al crear réplicas de lectura**
 
     Al crear una réplica de lectura, tiene la opción de seleccionar la ubicación de Availability Zones que prefiera. Una zona de disponibilidad es una oferta de alta disponibilidad que protege las aplicaciones y los datos de los errores que se producen en el centro de datos. Las zonas de disponibilidad son ubicaciones físicas exclusivas dentro de una región de Azure. [Más información](../flexible-server/concepts-read-replicas.md).
 
@@ -49,6 +53,9 @@ En este artículo se resumen las nuevas versiones y características de Azure Da
 - **Compatibilidad de Terraform con MySQL con servidor flexible**
     
     La compatibilidad de Terraform con MySQL con servidor flexible ya se ha publicado con la [versión 2.81.0 más reciente de azurerm](https://github.com/hashicorp/terraform-provider-azurerm/blob/v2.81.0/CHANGELOG.md). Puede encontrar el documento de referencia detallado para aprovisionar y administrar un servidor flexible de MySQL mediante Terraform [aquí](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mysql_flexible_server). Los errores o problemas conocidos se pueden encontrar o notificar [aquí](https://github.com/hashicorp/terraform-provider-azurerm/issues).
+
+- **Problemas conocidos**
+    - Cuando una región primaria de Azure está fuera de servicio, no se pueden crear servidores con redundancia geográfica en la región emparejada geográficamente, ya que no se puede aprovisionar almacenamiento en la región primaria de Azure. Hay que esperar a que la región primaria esté lista para aprovisionar servidores con redundancia geográfica en la región emparejada geográficamente. 
 
 ## <a name="september-2021"></a>Septiembre de 2021
 
@@ -78,11 +85,11 @@ Esta versión de Azure Database for MySQL: servidor flexible incluye las siguien
 
 - **Alta disponibilidad dentro de una sola zona mediante alta disponibilidad en la misma zona**
 
-  El servicio ahora brinda a los clientes la flexibilidad de elegir la zona de disponibilidad preferida para su servidor en espera cuando habilitan la alta disponibilidad. Con esta característica, los clientes pueden colocar un servidor en espera en la misma zona que el servidor principal, lo que reduce el retraso de replicación entre el servidor principal y el que está en espera. Esto también logra latencias inferiores entre el servidor de aplicaciones y el servidor de bases de datos si se colocan dentro de la misma zona de Azure. [Más información](/azure/mysql/flexible-server/concepts-high-availability#same-zone-high-availability).
+  El servicio ahora brinda a los clientes la flexibilidad de elegir la zona de disponibilidad preferida para su servidor en espera cuando habilitan la alta disponibilidad. Con esta característica, los clientes pueden colocar un servidor en espera en la misma zona que el servidor principal, lo que reduce el retraso de replicación entre el servidor principal y el que está en espera. Esto también logra latencias inferiores entre el servidor de aplicaciones y el servidor de bases de datos si se colocan dentro de la misma zona de Azure. [Más información](./concepts-high-availability.md).
 
 - **Selección de zona en espera con alta disponibilidad con redundancia de zona**
 
-  El servicio ahora brinda a los clientes la capacidad de elegir la ubicación de la zona del servidor en espera. Con esta característica, los clientes pueden colocar el servidor en espera en la zona que prefieran. La colocación de los servidores de bases de datos y las aplicaciones en espera en la misma zona reduce las latencias y permite a los clientes prepararse mejor para situaciones de recuperación ante desastres y escenarios de "zona fuera de servicio". [Más información](/azure/mysql/flexible-server/concepts-high-availability#standby-zone-selection).
+  El servicio ahora brinda a los clientes la capacidad de elegir la ubicación de la zona del servidor en espera. Con esta característica, los clientes pueden colocar el servidor en espera en la zona que prefieran. La colocación de los servidores de bases de datos y las aplicaciones en espera en la misma zona reduce las latencias y permite a los clientes prepararse mejor para situaciones de recuperación ante desastres y escenarios de "zona fuera de servicio". [Más información](./concepts-high-availability.md).
 
 - **Integración de zonas DNS privadas**
 
@@ -94,7 +101,7 @@ Esta versión de Azure Database for MySQL: servidor flexible incluye las siguien
 
 - **Restauración a un momento dado para un servidor en una zona de disponibilidad**
 
-  La experiencia de restauración a un momento dado para el servicio ahora permite a los clientes configurar la zona de disponibilidad. Colocalizar los servidores de bases de datos y las aplicaciones en espera en la misma zona reduce las latencias y permite a los clientes prepararse mejor para situaciones de recuperación ante desastres y escenarios de "zona fuera de servicio". [Más información](/azure/mysql/flexible-server/concepts-high-availability#standby-zone-selection).
+  La experiencia de restauración a un momento dado para el servicio ahora permite a los clientes configurar la zona de disponibilidad. Colocalizar los servidores de bases de datos y las aplicaciones en espera en la misma zona reduce las latencias y permite a los clientes prepararse mejor para situaciones de recuperación ante desastres y escenarios de "zona fuera de servicio". [Más información](./concepts-high-availability.md).
 
 - **Complemento validate_password y caching_sha2_password disponibles en versión preliminar privada**
 

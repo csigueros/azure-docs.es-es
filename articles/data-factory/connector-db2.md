@@ -9,12 +9,12 @@ ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: def376920d111f915edfa7f367fcbedd4bc370f4
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 5fb5a7c83aba80d5eb58bac4437121ce37b6345a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124778065"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024409"
 ---
 # <a name="copy-data-from-db2-using-azure-data-factory-or-synapse-analytics"></a>Copia de datos de DB2 con Azure Data Factory o Synapse Analytics
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -108,7 +108,7 @@ Propiedades habituales dentro de la cadena de conexión:
 | certificateCommonName | Al usar el cifrado de Capa de sockets seguros (SSL) o de Seguridad de la capa de transporte (TLS), debe escribir un valor para el nombre común del certificado. | No |
 
 > [!TIP]
-> Si recibe un mensaje de error que indica `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`, el motivo es que no se ha creado un paquete necesario para el usuario. De manera predeterminada, el servicio intentará crear un paquete en la colección con nombre como el usuario que haya usado para conectarse a DB2. Especifique la propiedad de colección de paquetes para indicar en dónde quiere que el servicio cree los paquetes necesarios al consultar la base de datos.
+> Si recibe un mensaje de error que indica `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`, el motivo es que no se ha creado un paquete necesario para el usuario. De manera predeterminada, el servicio intentará crear el paquete en la colección con nombre como el usuario que haya usado para conectarse a DB2. Especifique la propiedad de colección de paquetes para indicar en dónde quiere que el servicio cree los paquetes necesarios al consultar la base de datos.
 
 **Ejemplo**:
 

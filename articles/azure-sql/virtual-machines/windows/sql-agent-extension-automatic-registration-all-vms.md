@@ -9,15 +9,15 @@ ms.subservice: management
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 9/01/2021
+ms.date: 10/26/2021
 ms.custom: devx-track-azurepowershell
 ms.reviewer: mathoma
-ms.openlocfilehash: 7fa68f13438069990b035b182dee0fd44ab65d32
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 6a29c239b223c016d436136a225ca1bd8784b919
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130262401"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131071892"
 ---
 # <a name="automatic-registration-with-sql-iaas-agent-extension"></a>Registro automático con la extensión Agente de IaaS de SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,8 +41,13 @@ Cuando el registro automático está habilitado, un trabajo se ejecuta diariamen
 
 Una vez que el registro automático esté habilitado para una suscripción, todas las máquinas virtuales actuales y futuras que tengan SQL Server instalado se registrarán con la extensión de agente de IaaS de SQL **en modo ligero sin tiempo de inactividad y sin reiniciar el servicio de SQL Server**. Aún debe [actualizar manualmente al modo de administración completo](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full) para aprovechar todo el conjunto de características. El tipo de licencia predeterminado es el de la imagen de máquina virtual. Si usa una imagen de pago por uso para la máquina virtual, el tipo de licencia será `PAYG`; de lo contrario, el tipo de licencia será `AHUB` de forma predeterminada. 
 
+De manera predeterminada, las máquinas virtuales de Azure con SQL Server 2016 o posterior instalado se registrarán automáticamente con la extensión Agente de IaaS de SQL cuando el [servicio CEIP](/sql/sql-server/usage-and-diagnostic-data-configuration-for-sql-server) la detecta.  Para obtener más información, consulte [Complemento de privacidad de SQL Server](/sql/sql-server/sql-server-privacy#non-personal-data).
+
 > [!IMPORTANT]
 > La extensión del Agente de IaaS de SQL recopila datos con el fin de ofrecer a los clientes ventajas opcionales al usar SQL Server en Azure Virtual Machines. Microsoft no usará estos datos para auditorías de licencias sin el consentimiento previo del cliente. Para obtener más información, consulte [Complemento de privacidad de SQL Server](/sql/sql-server/sql-server-privacy#non-personal-data).
+
+
+
 
 ## <a name="prerequisites"></a>Requisitos previos
 

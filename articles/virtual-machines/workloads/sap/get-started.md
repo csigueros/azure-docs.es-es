@@ -13,15 +13,15 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/08/2021
+ms.date: 10/26/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4b38ef3fe940484cfa6abbfa1ba8ca5a28415bc5
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 883c4a0b4abe05d563ff418e84b507051e20c14c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129997504"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131013068"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso de Azure para hospedar y ejecutar escenarios de carga de trabajo de SAP
 
@@ -80,7 +80,9 @@ En esta sección encontrará información sobre cómo configurar el inicio de se
 En esta sección encontrará documentos sobre la integración de Microsoft Power BI en orígenes de datos de SAP, así como la integración de Azure Data Factory en SAP BW.
 
 ## <a name="change-log"></a>Registro de cambios
-- 11 de octubre de 2021: Cambio en el [clúster de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows mediante un disco compartido de clúster en Azure](./sap-high-availability-guide-wsfc-shared-disk.md), [Preparación de la infraestructura de Azure para alta disponibilidad de SAP mediante un clúster de conmutación por error de Windows y un disco compartido para ASCS/SCS de SAP](./sap-high-availability-infrastructure-wsfc-shared-disk.md) y [Alta disponibilidad de varios SID de instancia de ASCS/SCS de SAP con clústeres de conmutación por error de servidor de Windows y disco compartido de Azure](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md) para agregar instrucciones  acerca del almacenamiento con redundancia de zona (ZRS) para la compatibilidad con discos compartidos de Azure.
+- 26 de octubre de 2021: Cambio en la [Escalabilidad horizontal de SAP HANA de HSR con Pacemaker en máquinas virtuales de Azure en RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) para actualizar los nombres de los recursos en la escalabilidad horizontal de HANA activo/activo (habilitado para lectura).
+- 19 de octubre de 2021: Cambio en la [Escalabilidad horizontal de SAP HANA de HSR con Pacemaker en máquinas virtuales de Azure en RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) para agregar instrucciones para la configuración de la escalabilidad horizontal de HANA activo/activo (habilitado para lectura).
+- 11 de octubre de 2021: Cambio en el [clúster de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows mediante un disco compartido de clúster en Azure](./sap-high-availability-guide-wsfc-shared-disk.md), [Preparación de la infraestructura de Azure para alta disponibilidad de SAP mediante un clúster de conmutación por error de Windows y un disco compartido para ASCS/SCS de SAP](./sap-high-availability-infrastructure-wsfc-shared-disk.md) y [Alta disponibilidad de varios SID de instancia de ASCS/SCS de SAP con clústeres de conmutación por error de servidor de Windows y disco compartido de Azure](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md) para agregar instrucciones acerca del almacenamiento con redundancia de zona (ZRS) para la compatibilidad con discos compartidos de Azure.
 - 08 de octubre de 2021: cambio en [Escalabilidad horizontal de SAP HANA de HSR con Pacemaker en VM de Azure en SLES](./sap-hana-high-availability-scale-out-hsr-suse.md), [Alta disponibilidad del escalado vertical de SAP HANA con ANF en RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) y [Escalabilidad horizontal de SAP HANA de HSR con Pacemaker en VM de Azure en RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) para agregar valores predeterminados en el archivo sudoers y la actualización para la escalabilidad horizontal de HANA (para HANA srHook).
 - 1 de octubre de 2021: se ha agregado un vínculo a la nueva arquitectura de Azure Backup para el documento de copia de seguridad de SAP HANA en la tabla de contenido. Se ha agregado un enlace al servicio Azure Backup para Oracle DBMS en [Implementación de Oracle DBMS de Azure Virtual Machines para la carga de trabajo de SAP](./dbms_guide_oracle.md).
 - 24 de septiembre de 2021: cambio en [Escalabilidad horizontal de SAP HANA de HSR con Pacemaker en máquinas virtuales de Azure en SLES](./sap-hana-high-availability-scale-out-hsr-suse.md), [Alta disponibilidad del escalado vertical de SAP HANA con Azure NetApp Files en Red Hat Enterprise Linux](./sap-hana-high-availability-netapp-files-red-hat.md) y [Escalabilidad horizontal de SAP HANA de HSR con Pacemaker en máquinas virtuales de Azure en RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) para ajustar las instrucciones de creación del archivo sudoers (para HANA srHook).

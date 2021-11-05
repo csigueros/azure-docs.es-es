@@ -13,12 +13,12 @@ ms.date: 09/30/2021
 ms.author: jmprieur
 ms.reviewer: mmacy
 ms.custom: devx-track-csharp, aaddev, has-adal-ref
-ms.openlocfilehash: 5452f6bd6adc4693b74a20d174b6efe42346226d
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 896e52bf70229358a25055a23403ab2a5a2d7963
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129351832"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054312"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serialización de la caché de tokens en MSAL.NET
 
@@ -39,7 +39,7 @@ La biblioteca [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-iden
 
 | Método de extensión | Descripción  |
 | ---------------- | ------------ |
-| `AddInMemoryTokenCaches` | Serialización de la caché de tokens en memoria. Esta implementación es excelente para pruebas. También funciona bien en las aplicaciones de producción, siempre que no le importe que se pierda la caché de tokens cuando se reinicia la aplicación web. `AddInMemoryTokenCaches` toma un parámetro opcional de tipo `MsalMemoryTokenCacheOptions` que le permite especificar la duración transcurrida la cual expirará la entrada de caché a menos que se utilice.
+| `AddInMemoryTokenCaches` | Serialización de la caché de tokens en memoria. Esta implementación es excelente en ejemplos y para aplicaciones de demonio (tokens de aplicación a aplicación / `AcquireTokenForClient`). También funciona bien en las aplicaciones de producción, siempre que no le importe que se pierda la caché de tokens cuando se reinicia la aplicación web. A partir de Microsoft.Identity.Web 1.19.0, se configura MSAL para usar una caché estática (compartida) en todas las instancias de la aplicación y es significativamente más rápida que otros mecanismos de almacenamiento en caché.
 | `AddSessionTokenCaches` | La caché de tokens está enlazada a la sesión de usuario. Esta opción no es conveniente si el token de identificador contiene muchas notificaciones, ya que la cookie se volvería demasiado grande.
 | `AddDistributedTokenCaches` | La caché de tokens es un adaptador contra la implementación de `IDistributedCache` ASP.NET Core, lo que permite elegir entre una caché de memoria distribuida, una caché en Redis, una NCache distribuida o una caché de SQL Server. Para más información sobre las implementaciones de `IDistributedCache`, consulte [Caché de memoria distribuida](/aspnet/core/performance/caching/distributed).
 
