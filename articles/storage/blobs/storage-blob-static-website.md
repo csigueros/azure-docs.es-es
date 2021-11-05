@@ -6,21 +6,21 @@ ms.service: storage
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: dineshm
-ms.date: 09/04/2020
+ms.date: 11/04/2021
 ms.subservice: blobs
 ms.custom: devx-track-js
-ms.openlocfilehash: ffab1f466de9352d1ea6784cbacb7cb9672ecaa7
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 3cfa4113d0b2307c6683b8a103d3480ed5dfb41c
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131467386"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131843196"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedaje de sitios web estáticos en Azure Storage
 
-Puede proporcionar contenido estático (HTML, CSS, JavaScript y archivos de imagen) directamente desde un contenedor de almacenamiento llamado *$web*. El hospedaje de contenido en Azure Storage permite usar arquitecturas sin servidor que incluyen [Azure Functions](../../azure-functions/functions-overview.md) y otros servicios de plataforma como servicio (PaaS). El hospedaje de sitios web estáticos de Azure Storage es una opción excelente en los casos en los que no es necesario que un servidor web represente contenido.
+Puede proporcionar contenido estático (HTML, CSS, JavaScript y archivos de imagen) directamente desde un contenedor de almacenamiento llamado *$web*. El hospedaje de contenido en Azure Storage permite usar arquitecturas sin servidor que incluyen [Azure Functions](../../azure-functions/functions-overview.md) y otros servicios de plataforma como servicio (PaaS). El hospedaje de sitios web estáticos de Azure Storage es una opción excelente en los casos en los que no es necesario que un servidor web represente contenido. 
 
-Las [aplicaciones web estáticas de App Service](https://azure.microsoft.com/services/app-service/static/) es una excelente alternativa al hospedaje de sitios web estáticos de Azure Storage y también es adecuado en los casos en los que no es necesario que un servidor web represente contenido. Las aplicaciones web estáticas de App Service proporcionan un flujo de trabajo de integración continua y entrega continua (CI/CD) totalmente administrado desde el origen de GitHub a la implementación global.
+[!INCLUDE [static websites vs static web apps](../../../includes/storage-blob-static-website-vs-static-web-app.md)]
 
 Si necesita un servidor web para representar contenido, puede usar [Azure App Service](https://azure.microsoft.com/services/app-service/).
 

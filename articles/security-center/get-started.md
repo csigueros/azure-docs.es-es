@@ -7,13 +7,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 10/21/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: f194a0326f4caa90fc57bfd9af2991a9f4e1fbeb
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0d623789b1f99e6e7728fd5d3f80bb7ca2be7218
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131017567"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441787"
 ---
 # <a name="quickstart-set-up-microsoft-defender-for-cloud"></a>Inicio rápido: Configuración de Microsoft Defender for Cloud
 
@@ -21,12 +20,12 @@ ms.locfileid: "131017567"
 
 Defender for Cloud proporciona administración unificada de la seguridad y protección contra amenazas para cargas de trabajo híbridas y de varias nubes. Aunque las características gratis solo ofrecen una seguridad limitada para los recursos de Azure, al habilitar las características de seguridad mejorada, se amplían estas funcionalidades tanto a un entorno local como a otras nubes. Defender for Cloud le ayuda a encontrar y corregir los puntos vulnerables de seguridad, aplicar controles de acceso y de aplicación para bloquear actividades malintencionadas, detectar amenazas mediante análisis e inteligencia, y responder rápidamente en caso de ataque. Puede probar las características de seguridad mejorada sin costo alguno. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/).
 
-Esta sección del inicio rápido le guía por todos los pasos recomendados para habilitar Microsoft Defender for Cloud y las características de seguridad mejorada. Cuando haya completado todos los pasos de inicio rápido:
+Esta sección del inicio rápido le guía por todos los pasos recomendados para habilitar Microsoft Defender for Cloud y las características de seguridad mejorada. Cuando haya completado todos los pasos de inicio rápido, tendrá:
 
 > [!div class="checklist"]
 > * Defender for Cloud estará habilitado en las suscripciones de Azure
 > * Las [características de seguridad mejorada](enhanced-security-features-overview.md) estarán habilitados en las suscripciones de Azure
-> * La recopilación automática de datos estará configurada
+> * Configuración de la recopilación automática de datos
 > * [Las notificaciones por correo electrónico](configure-email-notifications.md) de alertas de seguridad estarán configuradas
 > * Las máquinas híbridas y de varias nubes conectadas a Azure
 

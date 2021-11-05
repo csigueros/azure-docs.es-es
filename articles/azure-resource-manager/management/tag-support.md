@@ -2,13 +2,13 @@
 title: Compatibilidad de etiquetas de los recursos
 description: Muestra los tipos de recursos de Azure que admiten etiquetas. Proporciona detalles de todos los servicios de Azure.
 ms.topic: conceptual
-ms.date: 07/20/2021
-ms.openlocfilehash: 6581a4c9a61fb3de1e04119b13bc83a4b67ce92d
-ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.date: 10/20/2021
+ms.openlocfilehash: 863e7fbc686ed27588153979432b6189aabcba50
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128707738"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130248128"
 ---
 # <a name="tag-support-for-azure-resources"></a>Compatibilidad de etiquetas de los recursos de Azure
 En este artículo se describe si un tipo de recurso admite [etiquetas](tag-resources.md). La columna con la etiqueta **Admite etiquetas** indica si el tipo de recurso tiene una propiedad para la etiqueta. La columna con la etiqueta **Etiqueta en el informe de costos** indica si ese tipo de recurso pasa la etiqueta al informe de costos. Puede ver los costos por etiquetas en el [análisis de costos de Cost Management](../../cost-management-billing/costs/group-filter.md) y los [datos de uso diario y de facturación de Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -39,13 +39,15 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.AzureArcData](#microsoftazurearcdata)
 > - [Microsoft.AzureCIS](#microsoftazurecis)
 > - [Microsoft.AzureData](#microsoftazuredata)
+> - [Microsoft.AzurePercept](#microsoftazurepercept)
 > - [Microsoft.AzureSphere](#microsoftazuresphere)
 > - [Microsoft.AzureStack](#microsoftazurestack)
 > - [Microsoft.AzureStackHCI](#microsoftazurestackhci)
+> - [Microsoft.BackupSolutions](#microsoftbackupsolutions)
 > - [Microsoft.BareMetalInfrastructure](#microsoftbaremetalinfrastructure)
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft.Billing](#microsoftbilling)
-> - [Microsoft.BingMaps](#microsoftbingmaps)
+> - [Microsoft.BillingBenefits](#microsoftbillingbenefits)
 > - [Microsoft.Blockchain](#microsoftblockchain)
 > - [Microsoft.BlockchainTokens](#microsoftblockchaintokens)
 > - [Microsoft.Blueprint](#microsoftblueprint)
@@ -61,10 +63,12 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.ClassicNetwork](#microsoftclassicnetwork)
 > - [Microsoft.ClassicStorage](#microsoftclassicstorage)
 > - [Microsoft.ClusterStor](#microsoftclusterstor)
+> - [Microsoft.CodeSigning](#microsoftcodesigning)
 > - [Microsoft.Codespaces](#microsoftcodespaces)
 > - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
 > - [Microsoft.Commerce](#microsoftcommerce)
 > - [Microsoft.Compute](#microsoftcompute)
+> - [Microsoft.ConfidentialLedger](#microsoftconfidentialledger)
 > - [Microsoft. ConnectedCache](#microsoftconnectedcache)
 > - [Microsoft.ConnectedVehicle](#microsoftconnectedvehicle)
 > - [Microsoft.ConnectedVMwarevSphere](#microsoftconnectedvmwarevsphere)
@@ -76,6 +80,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.CustomerLockbox](#microsoftcustomerlockbox)
 > - [Microsoft.CustomProviders](#microsoftcustomproviders)
 > - [Microsoft.D365CustomerInsights](#microsoftd365customerinsights)
+> - [Microsoft.Dashboard](#microsoftdashboard)
 > - [Microsoft.DataBox](#microsoftdatabox)
 > - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
 > - [Microsoft.Databricks](#microsoftdatabricks)
@@ -89,6 +94,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.DBforMariaDB](#microsoftdbformariadb)
 > - [Microsoft.DBforMySQL](#microsoftdbformysql)
 > - [Microsoft.DBforPostgreSQL](#microsoftdbforpostgresql)
+> - [Microsoft.DelegatedNetwork](#microsoftdelegatednetwork)
 > - [Microsoft.DeploymentManager](#microsoftdeploymentmanager)
 > - [Microsoft.DesktopVirtualization](#microsoftdesktopvirtualization)
 > - [Microsoft.Devices](#microsoftdevices)
@@ -96,6 +102,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.DevOps](#microsoftdevops)
 > - [Microsoft.DevSpaces](#microsoftdevspaces)
 > - [Microsoft.DevTestLab](#microsoftdevtestlab)
+> - [Microsoft.Diagnostics](#microsoftdiagnostics)
 > - [Microsoft.DigitalTwins](#microsoftdigitaltwins)
 > - [Microsoft.DocumentDB](#microsoftdocumentdb)
 > - [Microsoft.DomainRegistration](#microsoftdomainregistration)
@@ -107,15 +114,21 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.Experimentation](#microsoftexperimentation)
 > - [Microsoft.Falcon](#microsoftfalcon)
 > - [Microsoft.Features](#microsoftfeatures)
+> - [Microsoft.Fidalgo](#microsoftfidalgo)
+> - [Microsoft.FluidRelay](#microsoftfluidrelay)
 > - [Microsoft.Gallery](#microsoftgallery)
 > - [Microsoft.Genomics](#microsoftgenomics)
+> - [Microsoft.Graph](#microsoftgraph)
 > - [Microsoft.GuestConfiguration](#microsoftguestconfiguration)
 > - [Microsoft.HanaOnAzure](#microsofthanaonazure)
 > - [Microsoft.HardwareSecurityModules](#microsofthardwaresecuritymodules)
 > - [Microsoft.HDInsight](#microsofthdinsight)
 > - [Microsoft.HealthBot](#microsofthealthbot)
 > - [Microsoft.HealthcareApis](#microsofthealthcareapis)
+> - [Microsoft.HpcWorkbench](#microsofthpcworkbench)
 > - [Microsoft.HybridCompute](#microsofthybridcompute)
+> - [Microsoft.HybridConnectivity](#microsofthybridconnectivity)
+> - [Microsoft.HybridContainerService](#microsofthybridcontainerservice)
 > - [Microsoft.HybridData](#microsofthybriddata)
 > - [Microsoft.HybridNetwork](#microsofthybridnetwork)
 > - [Microsoft.Hydra](#microsofthydra)
@@ -130,24 +143,26 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.KubernetesConfiguration](#microsoftkubernetesconfiguration)
 > - [Microsoft.Kusto](#microsoftkusto)
 > - [Microsoft.LabServices](#microsoftlabservices)
+> - [Microsoft.LocationServices](#microsoftlocationservices)
 > - [Microsoft.Logic](#microsoftlogic)
 > - [Microsoft.MachineLearning](#microsoftmachinelearning)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
 > - [Microsoft.Maintenance](#microsoftmaintenance)
 > - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
-> - [Microsoft.ManagedNetwork](#microsoftmanagednetwork)
 > - [Microsoft.ManagedServices](#microsoftmanagedservices)
 > - [Microsoft.Management](#microsoftmanagement)
 > - [Microsoft.Maps](#microsoftmaps)
 > - [Microsoft.Marketplace](#microsoftmarketplace)
 > - [Microsoft.MarketplaceApps](#microsoftmarketplaceapps)
+> - [Microsoft.MarketplaceNotifications](#microsoftmarketplacenotifications)
 > - [Microsoft.MarketplaceOrdering](#microsoftmarketplaceordering)
 > - [Microsoft.Media](#microsoftmedia)
-> - [Microsoft.Microservices4Spring](#microsoftmicroservices4spring)
 > - [Microsoft.Migrate](#microsoftmigrate)
 > - [Microsoft.MixedReality](#microsoftmixedreality)
 > - [Microsoft.MobileNetwork](#microsoftmobilenetwork)
+> - [Microsoft.Monitor](#microsoftmonitor)
 > - [Microsoft.NetApp](#microsoftnetapp)
+> - [Microsoft.NetworkFunction](#microsoftnetworkfunction)
 > - [Microsoft.Network](#microsoftnetwork)
 > - [Microsoft.Notebooks](#microsoftnotebooks)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
@@ -156,6 +171,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.OperationalInsights](#microsoftoperationalinsights)
 > - [Microsoft.OperationsManagement](#microsoftoperationsmanagement)
 > - [Microsoft.Peering](#microsoftpeering)
+> - [Microsoft.PlayFab](#microsoftplayfab)
 > - [Microsoft.PolicyInsights](#microsoftpolicyinsights)
 > - [Microsoft.Portal](#microsoftportal)
 > - [Microsoft.PowerBI](#microsoftpowerbi)
@@ -165,6 +181,8 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.ProviderHub](#microsoftproviderhub)
 > - [Microsoft.Purview](#microsoftpurview)
 > - [Microsoft.Quantum](#microsoftquantum)
+> - [Microsoft.Quota](#microsoftquota)
+> - [Microsoft.RecommendationsService](#microsoftrecommendationsservice)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
 > - [Microsoft.RedHatOpenShift](#microsoftredhatopenshift)
 > - [Microsoft.Relay](#microsoftrelay)
@@ -173,6 +191,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft.Resources](#microsoftresources)
 > - [Microsoft.SaaS](#microsoftsaas)
+> - [Microsoft.Scom](#microsoftscom)
 > - [Microsoft.ScVmm](#microsoftscvmm)
 > - [Microsoft.Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
@@ -194,21 +213,19 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.StorageCache](#microsoftstoragecache)
 > - [Microsoft.StorageReplication](#microsoftstoragereplication)
 > - [Microsoft.StorageSync](#microsoftstoragesync)
-> - [Microsoft.StorageSyncDev](#microsoftstoragesyncdev)
-> - [Microsoft.StorageSyncInt](#microsoftstoragesyncint)
 > - [Microsoft.StorSimple](#microsoftstorsimple)
 > - [Microsoft.StreamAnalytics](#microsoftstreamanalytics)
 > - [Microsoft.Subscription](#microsoftsubscription)
 > - [Microsoft.Synapse](#microsoftsynapse)
+> - [Microsoft.TestBase](#microsofttestbase)
 > - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
-> - [Microsoft.Token](#microsofttoken)
+> - [Microsoft.VideoIndexer](#microsoftvideoindexer)
 > - [Microsoft.VirtualMachineImages](#microsoftvirtualmachineimages)
 > - [Microsoft.VMware](#microsoftvmware)
 > - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
-> - [Microsoft.VnfManager](#microsoftvnfmanager)
 > - [Microsoft.VSOnline](#microsoftvsonline)
-> - [Microsoft.Web](#microsoftweb)
 > - [Microsoft.WindowsDefenderATP](#microsoftwindowsdefenderatp)
+> - [Microsoft.Web](#microsoftweb)
 > - [Microsoft.WindowsESU](#microsoftwindowsesu)
 > - [Microsoft.WindowsIoT](#microsoftwindowsiot)
 > - [Microsoft.WorkloadBuilder](#microsoftworkloadbuilder)
@@ -256,6 +273,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | de películas | No | No |
 > | suppressions | No | No |
 
+> [!NOTE]
+> Todos los recursos de Microsoft.Advisor son gratuitos y, por tanto, no se incluyen en el informe de costos.
+
 ## <a name="microsoftagfoodplatform"></a>Microsoft.AgFoodPlatform
 
 > [!div class="mx-tableFixed"]
@@ -263,6 +283,8 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | farmBeats | Sí | Sí |
 > | farmBeats/eventGridFilters | No | No |
+> | farmBeats/extensions | No | No |
+> | farmBeatsExtensionDefinitions | No | No |
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
@@ -292,7 +314,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | clusters | Sí | Sí |
+> | clusters | No | No |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 
@@ -303,6 +325,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | getDomainOwnershipIdentifier | No | No |
 > | reportFeedback | No | No |
 > | service | Sí | Sí |
+> | service/eventGridFilters | No | No |
 > | validateServiceName | No | No |
 
 > [!NOTE]
@@ -313,7 +336,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | migrateProjects | Sí | Sí |
+> | migrateProjects | No | No |
 > | migrateProjects/assessments | No | No |
 > | migrateProjects/assessments/assessedApplications | No | No |
 > | migrateProjects/assessments/assessedApplications/machines | No | No |
@@ -323,7 +346,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | migrateProjects/sites | No | No |
 > | migrateProjects/sites/applianceConfigurations | No | No |
 > | migrateProjects/sites/machines | No | No |
-> | osVersions | No | No |
 
 ## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
 
@@ -358,11 +380,15 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | accessReviewScheduleDefinitions | No | No |
 > | accessReviewScheduleSettings | No | No |
+> | batchResourceCheckAccess | No | No |
 > | classicAdministrators | No | No |
 > | dataAliases | No | No |
 > | dataPolicyManifests | No | No |
 > | denyAssignments | No | No |
+> | diagnosticSettings | No | No |
+> | diagnosticSettingsCategories | No | No |
 > | elevateAccess | No | No |
+> | eligibleChildResources | No | No |
 > | findOrphanRoleAssignments | No | No |
 > | locks | No | No |
 > | permisos | No | No |
@@ -392,8 +418,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | accounts | Sí | Sí |
+> | bestPractices | No | No |
+> | bestPractices/versions | No | No |
+> | configurationProfileAssignmentIntents | No | No |
 > | configurationProfileAssignments | No | No |
 > | configurationProfilePreferences | Sí | Sí |
+> | configurationProfiles | Sí | Sí |
+> | configurationProfiles/versions | Sí | Sí |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
@@ -402,6 +433,8 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | automationAccounts | Sí | Sí |
 > | automationAccounts/configurations | Sí | Sí |
+> | automationAccounts/hybridRunbookWorkerGroups | No | No |
+> | automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers | No | No |
 > | automationAccounts/jobs | No | No |
 > | automationAccounts / privateEndpointConnectionProxies | No | No |
 > | automationAccounts / privateEndpointConnections | No | No |
@@ -424,6 +457,8 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | privateClouds/cloudLinks | No | No |
 > | privateClouds / clusters | No | No |
 > | privateClouds/clusters/datastores | No | No |
+> | privateClouds/clusters/placementPolicies | No | No |
+> | privateClouds/clusters/virtualMachines | No | No |
 > | privateClouds/globalReachConnections | No | No |
 > | privateClouds / hcxEnterpriseSites | No | No |
 > | privateClouds/scriptExecutions | No | No |
@@ -435,6 +470,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | privateClouds/workloadNetworks/dnsZones | No | No |
 > | privateClouds/workloadNetworks/gateways | No | No |
 > | privateClouds/workloadNetworks/portMirroringProfiles | No | No |
+> | privateClouds/workloadNetworks/publicIPs | No | No |
 > | privateClouds/workloadNetworks/segments | No | No |
 > | privateClouds/workloadNetworks/virtualMachines | No | No |
 > | privateClouds/workloadNetworks/vmGroups | No | No |
@@ -463,18 +499,20 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | dataControllers | Sí | Sí |
-> | dataWarehouseInstances | Sí | Sí |
-> | postgresInstances | Sí | Sí |
-> | sqlManagedInstances | Sí | Sí |
-> | sqlServerInstances | Sí | Sí |
+> | DataControllers | No | No |
+> | DataWarehouseInstances | No | No |
+> | PostgresInstances | No | No |
+> | SqlManagedInstances | No | No |
+> | SqlServerInstances | No | No |
 
 ## <a name="microsoftazurecis"></a>Microsoft.AzureCIS
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | autopilotEnvironments | Sí | Sí |
+> | autopilotEnvironments | No | No |
+> | dstsServiceAccounts | No | No |
+> | dstsServiceClientIdentities | No | No |
 
 ## <a name="microsoftazuredata"></a>Microsoft.AzureData
 
@@ -484,13 +522,26 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | sqlServerRegistrations | Sí | Sí |
 > | sqlServerRegistrations/sqlServers | No | No |
 
+## <a name="microsoftazurepercept"></a>Microsoft.AzurePercept
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | accounts | No | No |
+> | accounts/devices | No | No |
+
 ## <a name="microsoftazuresphere"></a>Microsoft.AzureSphere
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | catalogs | Sí | Sí |
-> | catalogs/products | Sí | Sí |
+> | catalogs | No | No |
+> | catalogs/certificates | No | No |
+> | catalogs/deployments | No | No |
+> | catalogs/devices | No | No |
+> | catalogs/images | No | No |
+> | catalogs/products | No | No |
+> | catalogs/products/devicegroups | No | No |
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 
@@ -498,7 +549,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | cloudManifestFiles | No | No |
-> | edgeSubscriptions | Sí | Sí |
 > | linkedSubscriptions | Sí | Sí |
 > | registrations | Sí | Sí |
 > | registrations/customerSubscriptions | No | No |
@@ -509,12 +559,23 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | clusters | Sí | Sí |
-> | galleryImages | Sí | Sí |
-> | networkInterfaces | Sí | Sí |
-> | virtualHardDisks | Sí | Sí |
-> | virtualMachines | Sí | Sí |
-> | virtualNetworks | Sí | Sí |
+> | clusters | No | No |
+> | clusters/arcsettings | No | No |
+> | clusters/arcsettings/extensions | No | No |
+> | galleryImages | No | No |
+> | networkInterfaces | No | No |
+> | virtualHardDisks | No | No |
+> | virtualmachines | No | No |
+> | virtualmachines/extensions | No | No |
+> | virtualmachines/hybrididentitymetadata | No | No |
+> | virtualNetworks | No | No |
+
+## <a name="microsoftbackupsolutions"></a>Microsoft.BackupSolutions
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | VMwareApplications | Sí | Sí |
 
 ## <a name="microsoftbaremetalinfrastructure"></a>Microsoft.BareMetalInfrastructure
 
@@ -539,6 +600,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | billingAccounts | No | No |
 > | billingAccounts/agreements | No | No |
+> | billingAccounts/appliedReservationOrders | No | No |
 > | billingAccounts/billingPermissions | No | No |
 > | billingAccounts/billingProfiles | No | No |
 > | billingAccounts/billingProfiles/billingPermissions | No | No |
@@ -565,6 +627,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | billingAccounts/billingProfiles/invoiceSections/transfers | No | No |
 > | billingAccounts/billingProfiles/invoiceSections/validateDeleteInvoiceSectionEligibility | No | No |
 > | billingAccounts/BillingProfiles/patchOperations | No | No |
+> | billingAccounts/billingProfiles/paymentMethodLinks | No | No |
 > | billingAccounts/billingProfiles/paymentMethods | No | No |
 > | billingAccounts/billingProfiles/policies | No | No |
 > | billingAccounts/billingProfiles/pricesheet | No | No |
@@ -589,11 +652,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | billingAccounts/customers/products | No | No |
 > | billingAccounts/customers/transactions | No | No |
 > | billingAccounts/customers/transfers | No | No |
+> | billingAccounts/customers/transferSupportedAccounts | No | No |
 > | billingAccounts/departments | No | No |
 > | billingAccounts / departments / billingPermissions | No | No |
 > | billingAccounts / departments / billingRoleAssignments | No | No |
 > | billingAccounts / departments / billingRoleDefinitions | No | No |
 > | billingAccounts/departments/billingSubscriptions | No | No |
+> | billingAccounts/departments/enrollmentAccounts | No | No |
 > | billingAccounts/enrollmentAccounts | No | No |
 > | billingAccounts / enrollmentAccounts / billingPermissions | No | No |
 > | billingAccounts / enrollmentAccounts / billingRoleAssignments | No | No |
@@ -620,8 +685,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | billingAccounts/payableOverage | No | No |
 > | billingAccounts/paymentMethods | No | No |
 > | billingAccounts/payNow | No | No |
+> | billingAccounts/policies | No | No |
 > | billingAccounts/products | No | No |
+> | billingAccounts/promotionalCredits | No | No |
 > | billingAccounts / reservations | No | No |
+> | billingAccounts/savingsPlanOrders | No | No |
+> | billingAccounts/savingsPlanOrders/savingsPlans | No | No |
+> | billingAccounts/savingsPlans | No | No |
 > | billingAccounts/transactions | No | No |
 > | billingPeriods | No | No |
 > | billingPermissions | No | No |
@@ -632,6 +702,8 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | departments | No | No |
 > | enrollmentAccounts | No | No |
 > | invoices | No | No |
+> | paymentMethods | No | No |
+> | promotionalCredits | No | No |
 > | promociones | No | No |
 > | transfers | No | No |
 > | transfers/acceptTransfer | No | No |
@@ -640,13 +712,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | transfers/validateTransfer | No | No |
 > | validateAddress | No | No |
 
-## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
+## <a name="microsoftbillingbenefits"></a>Microsoft.BillingBenefits
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | mapApis | Sí | Sí |
-> | updateCommunicationPreference | No | No |
+> | savingsPlanOrderAliases | No | No |
+> | validate | No | No |
 
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
 
@@ -689,6 +761,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | botServices | Sí | Sí |
 > | botServices/channels | No | No |
 > | botServices/connections | No | No |
+> | botServices/privateEndpointConnectionProxies | No | No |
+> | botServices/privateEndpointConnections | No | No |
+> | botServices/privateLinkResources | No | No |
 > | hostSettings | No | No |
 > | languages | No | No |
 > | plantillas | No | No |
@@ -744,7 +819,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | sites | Sí | Sí |
+> | sites | No | No |
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 
@@ -785,6 +860,8 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | cambios | No | No |
+> | changeSnapshots | No | No |
+> | computeChanges | No | No |
 > | perfile | No | No |
 > | resourceChanges | No | No |
 
@@ -869,6 +946,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | nodes | Sí | Sí |
 
+## <a name="microsoftcodesigning"></a>Microsoft.CodeSigning
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | codeSigningAccounts | No | No |
+> | codeSigningAccounts/certificateProfiles | No | No |
+
 ## <a name="microsoftcodespaces"></a>Microsoft.Codespaces
 
 > [!div class="mx-tableFixed"]
@@ -886,6 +971,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | accounts/privateEndpointConnectionProxies | No | No |
 > | accounts/privateEndpointConnections | No | No |
 > | accounts/privateLinkResources | No | No |
+> | deletedAccounts | No | No |
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 
@@ -894,6 +980,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | RateCard | No | No |
 > | UsageAggregates | No | No |
+
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
@@ -939,21 +1026,28 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | virtualMachineScaleSets/virtualMachines/networkInterfaces | No | No |
 
 > [!NOTE]
-> No se puede aregar una etiqueta a una máquina virtual marcada como generalizada. Un máquina virtual se marca como generalizada con [Set-AzVm-Generalized](/powershell/module/Az.Compute/Set-AzVM) o [az vm generalize](/cli/azure/vm#az_vm_generalize).
+> No se puede aregar una etiqueta a una máquina virtual marcada como generalizada. Un máquina virtual se marca como generalizada con [Set-AzVm-Generalized](/powershell/module/Az.Compute/Set-AzVM) o [az vm generalize](/cli/azure/vm#az-vm-generalize).
+
+## <a name="microsoftconfidentialledger"></a>Microsoft.ConfidentialLedger
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | Ledgers | No | No |
 
 ## <a name="microsoftconnectedcache"></a>Microsoft.ConnectedCache
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | CacheNodes | Sí | Sí |
+> | CacheNodes | No | No |
 
 ## <a name="microsoftconnectedvehicle"></a>Microsoft.ConnectedVehicle
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | platformAccounts | Sí | Sí |
+> | platformAccounts | No | No |
 > | registeredSubscriptions | No | No |
 
 ## <a name="microsoftconnectedvmwarevsphere"></a>Microsoft.ConnectedVMwarevSphere
@@ -961,15 +1055,18 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | ResourcePools | Sí | Sí |
-> | VCenters | Sí | Sí |
+> | Clústeres | No | No |
+> | Almacenes de datos | No | No |
+> | Hosts | No | No |
+> | ResourcePools | No | No |
+> | VCenters | No | No |
 > | VCenters/InventoryItems | No | No |
-> | VirtualMachines | Sí | Sí |
+> | VirtualMachines | No | No |
 > | VirtualMachines/Extensions | Sí | Sí |
 > | VirtualMachines/GuestAgents | No | No |
 > | VirtualMachines/HybridIdentityMetadata | No | No |
-> | VirtualMachineTemplates | Sí | Sí |
-> | VirtualNetworks | Sí | Sí |
+> | VirtualMachineTemplates | No | No |
+> | VirtualNetworks | No | No |
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
 
@@ -1057,6 +1154,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | managedClusters | Sí | Sí |
 > | ManagedClusters/eventGridFilters | No | No |
 > | openShiftManagedClusters | Sí | Sí |
+> | snapshots | Sí | Sí |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 
@@ -1064,8 +1162,10 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | Alertas | No | No |
+> | BenefitUtilizationSummaries | No | No |
 > | BillingAccounts | No | No |
 > | Presupuestos | No | No |
+> | calculatePrice | No | No |
 > | CloudConnectors | No | No |
 > | Conectores | Sí | Sí |
 > | costAllocationRules | No | No |
@@ -1121,6 +1221,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | instances | Sí | Sí |
+
+## <a name="microsoftdashboard"></a>Microsoft.Dashboard
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | grafana | No | No |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
@@ -1247,6 +1354,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | flexibleServers | Sí | Sí |
+> | getPrivateDnsZoneSuffix | No | No |
 > | servers | Sí | Sí |
 > | servers/advisors | No | No |
 > | servers/keys | No | No |
@@ -1269,6 +1377,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | flexibleServers | Sí | Sí |
+> | getPrivateDnsZoneSuffix | No | No |
 > | serverGroups | Sí | Sí |
 > | serverGroupsv2 | Sí | Sí |
 > | servers | Sí | Sí |
@@ -1284,6 +1393,15 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | servers/virtualNetworkRules | No | No |
 > | servers/waitStatistics | No | No |
 > | serversv2 | Sí | Sí |
+
+## <a name="microsoftdelegatednetwork"></a>Microsoft.DelegatedNetwork
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | controlador | Sí | Sí |
+> | delegatedSubnets | Sí | Sí |
+> | orchestrators | Sí | Sí |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 
@@ -1311,7 +1429,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | hostpools/sessionhosts | No | No |
 > | hostpools/sessionhosts/usersessions | No | No |
 > | hostpools/usersessions | No | No |
-> | scalingPlans | Sí | Sí |
+> | scalingplans | Sí | Sí |
 > | workspaces | Sí | Sí |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
@@ -1324,6 +1442,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ElasticPools / IotHubTenants / securitySettings | No | No |
 > | IotHubs | Sí | Sí |
 > | IotHubs/eventGridFilters | No | No |
+> | IotHubs/failover | No | No |
 > | IotHubs / securitySettings | No | No |
 > | ProvisioningServices | Sí | Sí |
 > | usages | No | No |
@@ -1333,8 +1452,8 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | accounts | Sí | Sí |
-> | accounts/instances | Sí | Sí |
+> | accounts | No | No |
+> | accounts/instances | No | No |
 > | registeredSubscriptions | No | No |
 
 ## <a name="microsoftdevops"></a>Microsoft.DevOps
@@ -1363,6 +1482,15 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | labs/virtualMachines | Sí | Sí |
 > | schedules | Sí | Sí |
 
+## <a name="microsoftdiagnostics"></a>Microsoft.Diagnostics
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | AzureKB | No | No |
+> | InsightDiagnostics | No | No |
+> | solutions | No | No |
+
 ## <a name="microsoftdigitaltwins"></a>Microsoft.DigitalTwins
 
 > [!div class="mx-tableFixed"]
@@ -1370,6 +1498,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | digitalTwinsInstances | Sí | Sí |
 > | digitalTwinsInstances / endpoints | No | No |
+> | digitalTwinsInstances/timeSeriesDatabaseConnections | No | No |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
@@ -1407,8 +1536,8 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | direcciones | Sí | Sí |
-> | orderCollections | Sí | Sí |
-> | pedidos | Sí | Sí |
+> | orderItems | Sí | Sí |
+> | pedidos | No | No |
 > | productFamiliesMetadata | No | No |
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
@@ -1478,6 +1607,33 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | providers | No | No |
 > | subscriptionFeatureRegistrations | No | No |
 
+## <a name="microsoftfidalgo"></a>Microsoft.Fidalgo
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | devcenters | No | No |
+> | devcenters/catalogs | No | No |
+> | devcenters/catalogs/items | No | No |
+> | devcenters/environmentTypes | No | No |
+> | devcenters/mappings | No | No |
+> | machinedefinitions | No | No |
+> | networksettings | No | No |
+> | projects | No | No |
+> | projects/catalogItems | No | No |
+> | projects/environments | No | No |
+> | projects/environments/deployments | No | No |
+> | projects/environmentTypes | No | No |
+> | projects/pools | No | No |
+
+## <a name="microsoftfluidrelay"></a>Microsoft.FluidRelay
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | fluidRelayServers | No | No |
+> | fluidRelayServers/fluidRelayContainers | No | No |
+
 ## <a name="microsoftgallery"></a>Microsoft.Gallery
 
 > [!div class="mx-tableFixed"]
@@ -1502,6 +1658,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | accounts | Sí | Sí |
+
+## <a name="microsoftgraph"></a>Microsoft.Graph
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | AzureAdApplication | No | No |
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
@@ -1538,6 +1701,11 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | clusterPools | Sí | Sí |
 > | clusterPools/clusters | Sí | Sí |
+> | clusterPools/clusters/instanceViews | No | No |
+> | clusterPools/clusters/serviceConfigs | No | No |
+> | clusterPools/clusters/sessionClusters | Sí | Sí |
+> | clusterPools/clusters/sessionClusters/instanceViews | No | No |
+> | clusterPools/clusters/sessionClusters/serviceConfigs | No | No |
 > | clusters | Sí | Sí |
 > | clusters/applications | No | No |
 
@@ -1546,7 +1714,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | healthBots | Sí | Sí |
+> | healthBots | No | No |
 
 ## <a name="microsofthealthcareapis"></a>Microsoft.HealthcareApis
 
@@ -1562,6 +1730,21 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | services / privateLinkResources | No | No |
 > | workspaces | Sí | Sí |
 > | workspaces/dicomservices | Sí | Sí |
+> | workspaces/eventGridFilters | No | No |
+> | workspaces/fhirservices | Sí | Sí |
+> | workspaces/iotconnectors | Sí | Sí |
+> | workspaces/iotconnectors/destinations | No | No |
+> | workspaces/iotconnectors/fhirdestinations | No | No |
+> | workspaces / privateEndpointConnectionProxies | No | No |
+> | workspaces / privateEndpointConnections | No | No |
+> | workspaces / privateLinkResources | No | No |
+
+## <a name="microsofthpcworkbench"></a>Microsoft.HpcWorkbench
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | instances | No | No |
 
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 
@@ -1577,6 +1760,20 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | privateLinkScopes/privateEndpointConnectionProxies | No | No |
 > | privateLinkScopes/privateEndpointConnections | No | No |
 
+## <a name="microsofthybridconnectivity"></a>Microsoft.HybridConnectivity
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | extremos | No | No |
+
+## <a name="microsofthybridcontainerservice"></a>Microsoft.HybridContainerService
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | provisionedClusters | No | No |
+
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 
 > [!div class="mx-tableFixed"]
@@ -1589,15 +1786,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | devices | Sí | Sí |
-> | networkfunctions | Sí | Sí |
+> | devices | No | No |
+> | networkFunctions | No | No |
 > | networkFunctionVendors | No | No |
 > | registeredSubscriptions | No | No |
-> | Proveedores | No | No |
-> | Vendors/vendorskus | No | No |
-> | Vendors/vendorskus/previewsubscriptions | No | No |
-> | virtualNetworkFunctions | Sí | Sí |
-> | virtualNetworkFunctionVendors | No | No |
+> | vendors | No | No |
+> | vendors / vendorSkus | No | No |
+> | vendors/vendorskus/previewSubscriptions | No | No |
 
 ## <a name="microsofthydra"></a>Microsoft.Hydra
 
@@ -1619,7 +1814,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | actionGroups | Sí | No |
+> | actionGroups | Sí | Sí |
 > | activityLogAlerts | Sí | Sí |
 > | alertrules | Sí | Sí |
 > | autoscalesettings | Sí | Sí |
@@ -1662,7 +1857,12 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
+> | alertTypes | No | No |
 > | defenderSettings | No | No |
+> | onPremiseSensors | No | No |
+> | recommendationTypes | No | No |
+> | sensors | No | No |
+> | sites | No | No |
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 
@@ -1692,7 +1892,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | connectedClusters | Sí | Sí |
+> | connectedClusters | No | No |
 > | registeredSubscriptions | No | No |
 
 ## <a name="microsoftkubernetesconfiguration"></a>Microsoft.KubernetesConfiguration
@@ -1701,6 +1901,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | extensions | No | No |
+> | fluxConfigurations | No | No |
 > | sourceControlConfigurations | No | No |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
@@ -1729,6 +1930,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | labs | Sí | Sí |
 > | users | No | No |
 
+## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | accounts | Sí | Sí |
+
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
 > [!div class="mx-tableFixed"]
@@ -1755,7 +1963,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | modelinventories | Sí | Sí |
+> | aisysteminventories | Sí | Sí |
 > | virtualclusters | Sí | Sí |
 > | workspaces | Sí | Sí |
 > | workspaces / batchEndpoints | Sí | Sí |
@@ -1764,8 +1972,11 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | workspaces/batchEndpoints/jobs | No | No |
 > | workspaces / codes | No | No |
 > | workspaces / codes / versions | No | No |
+> | workspaces/components | No | No |
+> | workspaces/components/versions | No | No |
 > | workspaces/computes | No | No |
 > | workspaces/data | No | No |
+> | workspaces/datasets | No | No |
 > | workspaces / datastores | No | No |
 > | workspaces/environments | No | No |
 > | workspaces/eventGridFilters | No | No |
@@ -1798,16 +2009,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | Identities | No | No |
 > | userAssignedIdentities | Sí | Sí |
-
-## <a name="microsoftmanagednetwork"></a>Microsoft.ManagedNetwork
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
-> | ------------- | ----------- | ----------- |
-> | managedNetworks | Sí | Sí |
-> | managedNetworks / managedNetworkGroups | Sí | Sí |
-> | managedNetworks / managedNetworkPeeringPolicies | Sí | Sí |
-> | notificación | Sí | Sí |
 
 ## <a name="microsoftmanagedservices"></a>Microsoft.ManagedServices
 
@@ -1858,9 +2059,17 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | privateStoreClient | No | No |
 > | privateStores | No | No |
 > | privateStores/AdminRequestApprovals | No | No |
+> | privateStores/billingAccounts | No | No |
+> | privateStores/bulkCollectionsAction | No | No |
+> | privateStores/collections | No | No |
+> | privateStores/collections/offers | No | No |
+> | privateStores/collections/transferOffers | No | No |
+> | privateStores/collectionsToSubscriptionsMapping | No | No |
 > | privateStores/offers | No | No |
 > | privateStores/offers/acknowledgeNotification | No | No |
+> | privateStores/queryApprovedPlans | No | No |
 > | privateStores/queryNotificationsState | No | No |
+> | privateStores/queryOffers | No | No |
 > | privateStores/RequestApprovals | No | No |
 > | privateStores/requestApprovals/query | No | No |
 > | privateStores/requestApprovals/withdrawPlan | No | No |
@@ -1877,6 +2086,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | classicDevServices | Sí | Sí |
 > | updateCommunicationPreference | No | No |
+
+## <a name="microsoftmarketplacenotifications"></a>Microsoft.MarketplaceNotifications
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | reviewsnotifications | No | No |
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
 
@@ -1914,14 +2130,12 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | mediaservices/transforms | No | No |
 > | mediaservices/transforms/jobs | No | No |
 > | videoAnalyzers | Sí | Sí |
+> | videoAnalyzers/accessPolicies | No | No |
 > | videoAnalyzers/edgeModules | No | No |
-
-## <a name="microsoftmicroservices4spring"></a>Microsoft.Microservices4Spring
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
-> | ------------- | ----------- | ----------- |
-> | appClusters | Sí | Sí |
+> | videoAnalyzers/livePipelines | No | No |
+> | videoAnalyzers/pipelineJobs | No | No |
+> | videoAnalyzers/pipelineTopologies | No | No |
+> | videoAnalyzers/videos | No | No |
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 
@@ -1949,11 +2163,27 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | networks | Sí | Sí |
-> | networks/sites | Sí | Sí |
-> | packetCores | Sí | Sí |
-> | sims | Sí | Sí |
-> | sims/simProfiles | Sí | Sí |
+> | mobileNetworks | No | No |
+> | mobileNetworks/dataNetworks | No | No |
+> | mobileNetworks/services | No | No |
+> | mobileNetworks/simPolicies | No | No |
+> | mobileNetworks/sites | No | No |
+> | mobileNetworks/slices | No | No |
+> | networks | No | No |
+> | networks/sites | No | No |
+> | packetCoreControlPlanes | No | No |
+> | packetCoreControlPlanes/packetCoreDataPlanes | No | No |
+> | packetCoreControlPlanes/packetCoreDataPlanes/attachedDataNetworks | No | No |
+> | packetCores | No | No |
+> | sims | No | No |
+> | sims/simProfiles | No | No |
+
+## <a name="microsoftmonitor"></a>Microsoft.Monitor
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | accounts | Sí | Sí |
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
@@ -1965,7 +2195,16 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | netAppAccounts/capacityPools | Sí | Sí |
 > | netAppAccounts/capacityPools/volumes | Sí | No |
 > | netAppAccounts/capacityPools/volumes/snapshots | No | No |
+> | netAppAccounts/capacityPools/volumes/subvolumes | No | No |
+> | netAppAccounts/snapshotPolicies | Sí | Sí |
 > | netAppAccounts/volumeGroups | No | No |
+
+## <a name="microsoftnetworkfunction"></a>Microsoft.NetworkFunction
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | azureTrafficCollectors | Sí | Sí |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
@@ -2080,7 +2319,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | osNamespaces | Sí | Sí |
+> | osNamespaces | No | No |
 
 ## <a name="microsoftoffazure"></a>Microsoft.OffAzure
 
@@ -2131,11 +2370,20 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | cdnPeeringPrefixes | No | No |
 > | legacyPeerings | No | No |
+> | lookingGlass | No | No |
 > | peerAsns | No | No |
 > | peerings | Sí | Sí |
 > | peeringServiceCountries | No | No |
 > | peeringServiceProviders | No | No |
 > | peeringServices | Sí | Sí |
+
+## <a name="microsoftplayfab"></a>Microsoft.PlayFab
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | PlayerAccountPools | No | No |
+> | Títulos | No | No |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
@@ -2177,12 +2425,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | autoScaleVCores | Sí | Sí |
 > | capacities | Sí | Sí |
+> | servers | Sí | Sí |
 
 ## <a name="microsoftpowerplatform"></a>Microsoft.PowerPlatform
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
+> | accounts | Sí | Sí |
 > | enterprisePolicies | Sí | Sí |
 
 ## <a name="microsoftprojectbabylon"></a>Microsoft.ProjectBabylon
@@ -2201,6 +2451,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | providerRegistrations | No | No |
 > | providerRegistrations/customRollouts | No | No |
 > | providerRegistrations / defaultRollouts | No | No |
+> | providerRegistrations/resourceActions | No | No |
 > | providerRegistrations/resourceTypeRegistrations | No | No |
 
 ## <a name="microsoftpurview"></a>Microsoft.Purview
@@ -2219,7 +2470,25 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | Áreas de trabajo | Sí | Sí |
+> | Áreas de trabajo | No | No |
+
+## <a name="microsoftquota"></a>Microsoft.Quota
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | quotaRequests | No | No |
+> | quotas | No | No |
+> | usages | No | No |
+
+## <a name="microsoftrecommendationsservice"></a>Microsoft.RecommendationsService
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | accounts | No | No |
+> | accounts/modeling | No | No |
+> | accounts/serviceEndpoints | No | No |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
@@ -2290,6 +2559,8 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | deployments/operations | No | No |
 > | deploymentScripts | Sí | Sí |
 > | deploymentScripts/logs | No | No |
+> | deploymentStacks | No | No |
+> | deploymentStacks/snapshots | No | No |
 > | vínculos | No | No |
 > | providers | No | No |
 > | resourceGroups | Sí | No |
@@ -2307,16 +2578,23 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | resources | Sí | Sí |
 > | saasresources | No | No |
 
+## <a name="microsoftscom"></a>Microsoft.Scom
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | managedInstances | No | No |
+
 ## <a name="microsoftscvmm"></a>Microsoft.ScVmm
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | clouds | Sí | Sí |
-> | VirtualMachines | Sí | Sí |
-> | VirtualMachineTemplates | Sí | Sí |
-> | VirtualNetworks | Sí | Sí |
-> | vmmservers | Sí | Sí |
+> | clouds | No | No |
+> | VirtualMachines | No | No |
+> | VirtualMachineTemplates | No | No |
+> | VirtualNetworks | No | No |
+> | vmmservers | No | No |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
@@ -2336,27 +2614,26 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | alerts | No | No |
 > | alertsSuppressionRules | No | No |
 > | allowedConnections | No | No |
+> | antiMalwareSettings | No | No |
 > | applicationWhitelistings | No | No |
 > | assessmentMetadata | No | No |
 > | assessments | No | No |
+> | asignaciones | Sí | Sí |
 > | autoDismissAlertsRules | No | No |
 > | automations | Sí | Sí |
 > | AutoProvisioningSettings | No | No |
 > | Compliances | No | No |
+> | connectedContainerRegistries | No | No |
 > | conectores | No | No |
+> | customAssessmentAutomations | Sí | Sí |
+> | customEntityStoreAssignments | Sí | Sí |
 > | dataCollectionAgents | No | No |
-> | devices | No | No |
 > | deviceSecurityGroups | No | No |
 > | discoveredSecuritySolutions | No | No |
 > | externalSecuritySolutions | No | No |
 > | InformationProtectionPolicies | No | No |
 > | ingestionSettings | No | No |
 > | insights | No | No |
-> | iotAlerts | No | No |
-> | iotAlertTypes | No | No |
-> | iotDefenderSettings | No | No |
-> | iotRecommendations | No | No |
-> | iotRecommendationTypes | No | No |
 > | iotSecuritySolutions | Sí | Sí |
 > | iotSecuritySolutions/analyticsModels | No | No |
 > | iotSecuritySolutions/analyticsModels/aggregatedAlerts | No | No |
@@ -2365,11 +2642,8 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | iotSecuritySolutions / iotAlertTypes | No | No |
 > | iotSecuritySolutions/iotRecommendations | No | No |
 > | iotSecuritySolutions/iotRecommendationTypes | No | No |
-> | iotSensors | No | No |
-> | iotSites | No | No |
 > | jitNetworkAccessPolicies | No | No |
 > | jitPolicies | No | No |
-> | onPremiseIotSensors | No | No |
 > | directivas | No | No |
 > | pricings | No | No |
 > | regulatoryComplianceStandards | No | No |
@@ -2379,6 +2653,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | secureScoreControls | No | No |
 > | secureScores | No | No |
 > | secureScores/secureScoreControls | No | No |
+> | securityConnectors | Sí | Sí |
 > | securityContacts | No | No |
 > | securitySolutions | No | No |
 > | securitySolutionsReferenceData | No | No |
@@ -2387,6 +2662,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | serverVulnerabilityAssessments | No | No |
 > | configuración | No | No |
 > | sqlVulnerabilityAssessments | No | No |
+> | standards | Sí | Sí |
 > | subAssessments | No | No |
 > | tareas | No | No |
 > | topologies | No | No |
@@ -2418,8 +2694,11 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | entityQueries | No | No |
 > | entityQueryTemplates | No | No |
 > | incidents | No | No |
+> | metadata | No | No |
 > | officeConsents | No | No |
+> | onboardingStates | No | No |
 > | configuración | No | No |
+> | sourceControls | No | No |
 > | threatIntelligence | No | No |
 > | watchlists | No | No |
 
@@ -2520,8 +2799,10 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | accounts / accountQuotaPolicies | No | No |
 > | accounts / groupPolicies | No | No |
 > | accounts / jobs | No | No |
+> | accounts/models | No | No |
 > | accounts / storageContainers | No | No |
 > | images | No | No |
+> | quotas | No | No |
 
 ## <a name="microsoftsoftwareplan"></a>Microsoft.SoftwarePlan
 
@@ -2591,6 +2872,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | deletedAccounts | No | No |
 > | storageAccounts | Sí | Sí |
 > | storageAccounts/blobServices | No | No |
+> | storageAccounts/encryptionScopes | No | No |
 > | storageAccounts/fileServices | No | No |
 > | storageAccounts/queueServices | No | No |
 > | storageAccounts/services | No | No |
@@ -2616,30 +2898,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | replicationGroups | No | No |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
-> | ------------- | ----------- | ----------- |
-> | storageSyncServices | Sí | Sí |
-> | storageSyncServices/registeredServers | No | No |
-> | storageSyncServices/syncGroups | No | No |
-> | storageSyncServices/syncGroups/cloudEndpoints | No | No |
-> | storageSyncServices/syncGroups/serverEndpoints | No | No |
-> | storageSyncServices/workflows | No | No |
-
-## <a name="microsoftstoragesyncdev"></a>Microsoft.StorageSyncDev
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
-> | ------------- | ----------- | ----------- |
-> | storageSyncServices | Sí | Sí |
-> | storageSyncServices/registeredServers | No | No |
-> | storageSyncServices/syncGroups | No | No |
-> | storageSyncServices/syncGroups/cloudEndpoints | No | No |
-> | storageSyncServices/syncGroups/serverEndpoints | No | No |
-> | storageSyncServices/workflows | No | No |
-
-## <a name="microsoftstoragesyncint"></a>Microsoft.StorageSyncInt
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
@@ -2695,12 +2953,33 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
+> | kustoOperations | No | No |
 > | privateLinkHubs | Sí | Sí |
 > | workspaces | Sí | Sí |
 > | workspaces / bigDataPools | Sí | Sí |
+> | workspaces/kustoPools | Sí | Sí |
+> | workspaces/kustoPools/attacheddatabaseconfigurations | No | No |
+> | workspaces/kustoPools/databases | No | No |
+> | workspaces/kustoPools/databases/dataconnections | No | No |
 > | workspaces / operationStatuses | No | No |
 > | workspaces/sqlDatabases | Sí | Sí |
 > | workspaces / sqlPools | Sí | Sí |
+
+## <a name="microsofttestbase"></a>Microsoft.TestBase
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | testBaseAccounts | No | No |
+> | testBaseAccounts/customerEvents | No | No |
+> | testBaseAccounts/emailEvents | No | No |
+> | testBaseAccounts/flightingRings | No | No |
+> | testBaseAccounts/packages | No | No |
+> | testBaseAccounts/packages/favoriteProcesses | No | No |
+> | testBaseAccounts/packages/osUpdates | No | No |
+> | testBaseAccounts/testSummaries | No | No |
+> | testBaseAccounts/testTypes | No | No |
+> | testBaseAccounts/usages | No | No |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 
@@ -2715,15 +2994,12 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | environments/privateLinkResources | No | No |
 > | environments/referenceDataSets | Sí | No |
 
-## <a name="microsofttoken"></a>Microsoft.Token
+## <a name="microsoftvideoindexer"></a>Microsoft.VideoIndexer
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | almacenes | Sí | Sí |
-> | stores / accessPolicies | No | No |
-> | stores/services | No | No |
-> | stores/services/tokens | No | No |
+> | accounts | No | No |
 
 ## <a name="microsoftvirtualmachineimages"></a>Microsoft.VirtualMachineImages
 
@@ -2738,13 +3014,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | ArcZones | Sí | Sí |
-> | ResourcePools | Sí | Sí |
-> | VCenters | Sí | Sí |
+> | arczones | No | No |
+> | resourcepools | No | No |
+> | vcenters | No | No |
 > | VCenters/InventoryItems | No | No |
-> | virtualmachines | Sí | Sí |
-> | VirtualMachineTemplates | Sí | Sí |
-> | VirtualNetworks | Sí | Sí |
+> | virtualmachines | No | No |
+> | virtualmachinetemplates | No | No |
+> | virtualnetworks | No | No |
 
 ## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
 
@@ -2755,19 +3031,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | dedicatedCloudServices | Sí | Sí |
 > | virtualMachines | Sí | Sí |
 
-## <a name="microsoftvnfmanager"></a>Microsoft.VnfManager
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
-> | ------------- | ----------- | ----------- |
-> | devices | Sí | Sí |
-> | registeredSubscriptions | No | No |
-> | vendors | No | No |
-> | vendors / skus | No | No |
-> | vendors/vnfs | No | No |
-> | virtualNetworkFunctionSkus | No | No |
-> | vnfs | Sí | Sí |
-
 ## <a name="microsoftvsonline"></a>Microsoft.VSOnline
 
 > [!div class="mx-tableFixed"]
@@ -2776,6 +3039,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | accounts | Sí | No |
 > | plans | Sí | No |
 > | registeredSubscriptions | No | No |
+
+## <a name="microsoftwindowsdefenderatp"></a>Microsoft.WindowsDefenderATP
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | diagnosticSettings | No | No |
+> | diagnosticSettingsCategories | No | No |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 
@@ -2829,14 +3100,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | verifyHostingEnvironmentVnet | No | No |
 > | webAppStacks | No | No |
 
-## <a name="microsoftwindowsdefenderatp"></a>Microsoft.WindowsDefenderATP
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
-> | ------------- | ----------- | ----------- |
-> | diagnosticSettings | No | No |
-> | diagnosticSettingsCategories | No | No |
-
 ## <a name="microsoftwindowsesu"></a>Microsoft.WindowsESU
 
 > [!div class="mx-tableFixed"]
@@ -2856,8 +3119,8 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | migrationAgents | Sí | Sí |
-> | workloads | Sí | Sí |
+> | migrationAgents | No | No |
+> | workloads | No | No |
 > | workloads / instances | No | No |
 > | workloads / versions | No | No |
 > | workloads / versions / artifacts | No | No |

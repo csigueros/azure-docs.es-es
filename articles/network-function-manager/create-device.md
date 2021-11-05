@@ -1,36 +1,30 @@
 ---
-title: 'Tutorial: Creación de un recurso de dispositivo para Azure Network Function Manager'
-description: En este tutorial, aprenderá cómo crear un recurso de dispositivo para Azure Network Function Manager.
+title: 'Inicio rápido: Creación de un recurso de dispositivo para Azure Network Function Manager'
+description: En este inicio rápido, aprenderá a crear un recurso de dispositivo para Azure Network Function Manager.
 author: prmitt
 ms.service: network-function-manager
-ms.topic: tutorial
-ms.date: 06/30/2021
+ms.topic: quickstart
+ms.date: 11/02/2021
 ms.author: prmitt
-ms.openlocfilehash: 41347c5afe8664955fd5b298330f4299244edb6a
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 2ab440166ba7e5b27f07880c5ac0cb7fef27466a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130263332"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131070265"
 ---
-# <a name="tutorial-create-a-network-function-manager-device-resource-preview"></a>Tutorial: Creación de un recurso de dispositivo para Network Function Manager (versión preliminar)
+# <a name="quickstart-create-a-network-function-manager-device-resource"></a>Inicio rápido: Creación de un recurso de dispositivo para Network Function Manager
 
-En este tutorial, aprenderá cómo crear un recurso de **dispositivo** para Azure Network Function Manager (NFM). El recurso de dispositivo de Network Function Manager está vinculado al recurso de Azure Stack Edge. El recurso de dispositivo agrega todas las funciones de red implementadas en un dispositivo Azure Stack Edge y proporciona servicios comunes para la implementación, supervisión, solución de problemas y operaciones de administración coherentes para todas las funciones de red implementadas en Azure Stack Edge. Debe crear el recurso de dispositivo de Network Function Manager para poder implementar funciones de red en el dispositivo Azure Stack Edge.
-
-En este tutorial, hizo lo siguiente:
-
-> [!div class="checklist"]
-> * Comprobar los requisitos previos
-> * Creación de un recurso de dispositivo
-> * Obtener una clave de registro
-> * Registro del dispositivo
+En este inicio rápido, aprenderá a crear un recurso de **dispositivo** para Azure Network Function Manager (NFM). El recurso de dispositivo de Network Function Manager está vinculado al recurso de Azure Stack Edge. El recurso de dispositivo agrega todas las funciones de red implementadas en un dispositivo Azure Stack Edge y proporciona servicios comunes para la implementación, supervisión, solución de problemas y operaciones de administración coherentes para todas las funciones de red implementadas en Azure Stack Edge. Debe crear el recurso de dispositivo de Network Function Manager para poder implementar funciones de red en el dispositivo Azure Stack Edge.
 
 ## <a name="prerequisites"></a><a name="pre"></a>Requisitos previos
 
 Verifique los requisitos previos siguientes:
 
-* Ha completado todos los requisitos previos enumerados en el artículo [Información general](overview.md#prereq).
-* Tiene asignados los permisos adecuados. Para más información, consulte [Permisos y registro del proveedor de recursos](overview.md#permissions).
+* Compruebe que tiene una cuenta de Azure con una suscripción activa. Si no tiene una cuenta, puede [crearla de forma gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Cumple todos los requisitos previos enumerados en el artículo sobre [requisitos previos y otras exigencias](requirements.md).
+* Tiene asignados los permisos adecuados. Para más información, consulte [Permisos y registro del proveedor de recursos](resources-permissions.md).
 * Revise la sección  [Disponibilidad de la región](overview.md#regions)  antes de crear un recurso de dispositivo.
 * Compruebe que puede conectarse de forma remota desde un cliente Windows al dispositivo GPU de Azure Stack Edge Pro a través de PowerShell. Para más información, consulte el artículo [Conexión a la interfaz de PowerShell](../databox-online/azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
@@ -40,7 +34,7 @@ Si tiene un recurso de dispositivo existente de Azure Network Function Manager, 
 
 Para crear un recurso de **dispositivo**, siga estos pasos.
 
-1. Inicie sesión en el [Portal Azure de versión preliminar](https://aka.ms/AzureNetworkFunctionManager) con sus credenciales de Microsoft Azure.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con las credenciales de Microsoft Azure.
 
 1. En la pestaña **Aspectos básicos**, configure **Detalles del proyecto** y **Detalles de la instancia** en las opciones de configuración del dispositivo.
    :::image type="content" source="./media/create-device/device-settings.png" alt-text="Captura de pantalla de la configuración del dispositivo.":::
@@ -62,7 +56,7 @@ Para crear un recurso de **dispositivo**, siga estos pasos.
 ## <a name="get-the-registration-key"></a><a name="key"></a>Obtención de la clave de registro
 
 1. Una vez que el dispositivo se haya aprovisionado correctamente, vaya al grupo de recursos en el que se implementa el recurso del dispositivo.
-1. Haga clic en el recurso del **dispositivo**. Para obtener la clave de registro, haga clic en **Obtener clave de registro**. Asegúrese de que tiene los permisos adecuados para generar una clave de registro. Para más información, consulte [Permisos](overview.md#permissions).
+1. Haga clic en el recurso del **dispositivo**. Para obtener la clave de registro, haga clic en **Obtener clave de registro**. Asegúrese de que tiene los permisos adecuados para generar una clave de registro. Para más información, consulte el artículo [Permisos y registro del proveedor de recursos](resources-permissions.md).
 
    :::image type="content" source="./media/create-device/register-device.png" alt-text="Captura de pantalla de la clave de registro." lightbox="./media/create-device/register-device.png":::
 1. Anote la clave de registro del dispositivo, que se usará en los pasos siguientes.

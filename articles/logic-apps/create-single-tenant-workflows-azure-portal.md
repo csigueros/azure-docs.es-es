@@ -6,12 +6,13 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 10/05/2021
-ms.openlocfilehash: 5be8a3cfa8681bced90ba6fc74ebc69baa2f7962
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 507e7a97c0ec884580b0a29fd8a8691035221751
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130065680"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131085987"
 ---
 # <a name="create-an-integration-workflow-with-single-tenant-azure-logic-apps-standard-in-the-azure-portal"></a>Creación de un flujo de trabajo de integración con Azure Logic Apps (estándar) de inquilino único en Azure Portal
 
@@ -65,7 +66,7 @@ A medida que avance, completará estas tareas de alto nivel:
 
 1. En el cuadro de búsqueda de Azure Portal, escriba `logic apps` y seleccione **Logic Apps**.
 
-   ![Captura de pantalla que muestra el cuadro de búsqueda de Azure Portal con el término de búsqueda "logic apps" y el recurso "Logic Apps (estándar)" seleccionado.](./media/create-single-tenant-workflows-azure-portal/find-logic-app-resource-template.png)
+   ![Captura de pantalla que muestra el cuadro de búsqueda de Azure Portal con el término de búsqueda "aplicaciones lógicas" y el grupo "Logic Apps" seleccionado.](./media/create-single-tenant-workflows-azure-portal/find-logic-app-resource-template.png)
 
 1. En la página **Logic Apps**, seleccione en **Agregar**.
 
@@ -76,7 +77,7 @@ A medida que avance, completará estas tareas de alto nivel:
    | **Suscripción** | Sí | <*Azure-subscription-name*> | La suscripción de Azure que se usa para la aplicación lógica. |
    | **Grupo de recursos** | Sí | <*nombre del grupo de recursos de Azure*> | El grupo de recursos de Azure en el que se crea la aplicación lógica y los recursos relacionados. El nombre del recurso debe ser único entre las regiones y solo puede contener letras, números, guiones ( **-** ), caracteres de subrayado ( **_** ), paréntesis ( **()** ) y puntos ( **.** ). <p><p>En este ejemplo se crea un grupo de recursos denominado `Fabrikam-Workflows-RG`. |
    | **Tipo** | Sí | **Estándar** | Este tipo de recurso de aplicación lógica se ejecuta en el entorno de Azure Logic Apps de un solo inquilino y usa el [modelo de uso, facturación y precios Estándar](logic-apps-pricing.md#standard-pricing). |
-   | **Nombre de la aplicación lógica** | Sí | <*nombre-de-la-aplicación-lógica*> | Nombre que se va a usar para la aplicación lógica. El nombre del recurso debe ser único entre las regiones y solo puede contener letras, números, guiones ( **-** ), caracteres de subrayado ( **_** ), paréntesis ( **()** ) y puntos ( **.** ). <p><p>En este ejemplo se crea una aplicación lógica denominada `Fabrikam-Workflows`. <p><p>**Nota**: El nombre de la aplicación lógica obtiene automáticamente el sufijo `.azurewebsites.net`, ya que el recurso **Logic Apps (estándar)** se basa en Azure Functions, que usa la misma convención de nomenclatura de la aplicación. |
+   | **Nombre de la aplicación lógica** | Sí | <*nombre-de-la-aplicación-lógica*> | Nombre que se va a usar para la aplicación lógica. El nombre del recurso debe ser único entre las regiones y solo puede contener letras, números, guiones ( **-** ), caracteres de subrayado ( **_** ), paréntesis ( **()** ) y puntos ( **.** ). <p><p>En este ejemplo se crea una aplicación lógica denominada `Fabrikam-Workflows`. <p><p>**Nota**: El nombre de la aplicación lógica obtiene automáticamente el sufijo, `.azurewebsites.net`, porque el recurso **Aplicación lógica (estándar)** está basado en el entorno de ejecución de Azure Logic Apps de inquilino único, que usa el modelo de extensibilidad de Azure Functions y se hospeda como una extensión en el sistema en tiempo de ejecución de Azure Functions. Azure Functions usa la misma convención de nomenclatura de aplicaciones. |
    | **Publicar** | Sí | <*entorno-de-implementación*> | El destino de implementación de la aplicación lógica. De forma predeterminada, se selecciona **Flujo de trabajo** para la implementación en Azure Logic Apps de un solo inquilino. Azure crea un recurso de aplicación lógica vacío donde tiene que agregar el primer flujo de trabajo. <p><p>**Nota**: Actualmente, la opción **Contenedor de Docker** requiere una [*ubicación personalizada*](../azure-arc/kubernetes/conceptual-custom-locations.md) en un clúster de Kubernetes habilitado para Azure Arc, que puede utilizar con [instancias de Logic Apps habilitadas para Azure Arc (versión preliminar)](azure-arc-enabled-logic-apps-overview.md). Las ubicaciones del recurso de la aplicación lógica, la ubicación personalizada y el clúster deben tener los mismos valores. |
    | **Región** | Sí | <*Azure-region*> | Ubicación que se usará para crear el grupo de recursos y los recursos. En este ejemplo se implementa la aplicación lógica de ejemplo en Azure y se usa **Oeste de EE. UU.** <p>- Si seleccionó **Contenedor de Docker**, seleccione la ubicación personalizada. <p>- Para implementar en un recurso de [ASEv3,](../app-service/environment/overview.md) que debe existir primero, seleccione ese recurso de entorno en la lista **Región**. |
    |||||
@@ -89,6 +90,7 @@ A medida que avance, completará estas tareas de alto nivel:
 
    | Propiedad | Obligatorio | Value | Descripción |
    |----------|----------|-------|-------------|
+   | **Tipo de almacenamiento** | Yes | - **SQL y Azure Storage** <br>- **Azure Storage** | Tipo de almacenamiento que quiere usar para los artefactos y los datos relacionados con el flujo de trabajo. <p><p>- Para implementar solo en Azure, seleccione **Azure Storage**. <p><p>- Para usar SQL como almacenamiento principal y Azure Storage como almacenamiento secundario, seleccione **SQL y Azure Storage** y revise [Configuración del almacenamiento de base de datos SQL para aplicaciones lógicas estándar en instancias de Azure Logic Apps de inquilino único](set-up-sql-db-storage-single-tenant-standard-workflows.md). <p><p>**Nota**: Si va a realizar la implementación en una región de Azure, también necesita una cuenta de Azure Storage, que se usa para completar el hospedaje puntual de la configuración de la aplicación lógica en la plataforma Azure Logic Apps. El estado del flujo de trabajo en curso, el historial de ejecución y otros artefactos en tiempo de ejecución se almacenan en la base de datos de SQL. <p><p>En el caso de implementaciones en una ubicación personalizada hospedada en un clúster de Azure Arc, solo necesita SQL como proveedor de almacenamiento. |
    | **Cuenta de almacenamiento** | Sí | <*Azure-storage-account-name*> | La [cuenta de Azure Storage](../storage/common/storage-account-overview.md) que se usará para transacciones de almacenamiento. <p><p>Este nombre de recurso debe ser único en todas las regiones y tener de 3 a 24 caracteres (solo números y letras minúsculas). Seleccione una cuenta existente o cree una nueva. <p><p>En este ejemplo se crea una cuenta de almacenamiento denominada `fabrikamstorageacct`. |
    | **Tipo de plan** | Sí | <*plan-de-hospedaje*> | Plan de hospedaje que se usará para implementar la aplicación lógica. <p><p>Para más información, revise [Planes de hospedaje y planes de tarifa](logic-apps-pricing.md#standard-pricing). |
    | **Plan de Windows** | Sí | <*nombre-de-plan*> | El nombre de plan que se usará. Seleccione el nombre de un plan existente o proporcione un nombre para un plan nuevo. <p><p>Este ejemplo usa el nombre de `Fabrikam-Service-Plan`. |

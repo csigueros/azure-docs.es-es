@@ -3,20 +3,20 @@ title: 'Compatibilidad con idiomas: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: El servicio de voz admite un gran número de idiomas para la conversión de texto a voz y voz a texto, junto con la traducción de voz. En este artículo se proporciona una lista completa de idiomas compatibles por servicio.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.author: pafarley
+ms.author: eur
 ms.custom: references_regions, ignite-fall-2021
-ms.openlocfilehash: 84841dff43fa827a942eee28cb9cbcc1499e1fcc
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: da7d2acfe48d4d598e2bbbfddccb55e2a7d20241
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131011814"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131505372"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Compatibilidad con idiomas y voces en el servicio de voz
 
@@ -483,7 +483,7 @@ Hay más de 75 voces estándar disponibles en más de 45 idiomas y configuracion
 
 | Idioma | Configuración regional (BCP-47) | Sexo | Nombre de voz |
 |--|--|--|--|
-| Árabe (árabe) | `ar-EG` | Female | `ar-EG-Hoda`|
+| Árabe (Egipto) | `ar-EG` | Female | `ar-EG-Hoda`|
 | Árabe (Arabia Saudí) | `ar-SA` | Male | `ar-SA-Naayf`|
 | Búlgaro (Bulgaria) | `bg-BG` | Male | `bg-BG-Ivan`|
 | Catalán (España) | `ca-ES` | Female | `ca-ES-HerenaRUS`|
@@ -576,25 +576,36 @@ Voz personalizada está disponible en el nivel neuronal (conocido también como 
 
 | Idioma | Configuración regional | Neuronal | Multilingüe |
 |--|--|--|--|
-| Búlgaro (Bulgaria)| `bg-BG` | Sí | No |
+| Árabe (Egipto) | `ar-EG` | Sí | No |
+| Búlgaro (Bulgaria) | `bg-BG` | Sí | No |
 | Chino (mandarín, simplificado) | `zh-CN` | Sí | Sí |
 | Chino (mandarín, simplificado), inglés bilingüe | `zh-CN` bilingüe | Sí | Sí |
-| Neerlandés (Países Bajos)   | `nl-NL` | Sí | No |
+| Chino (mandarín, Taiwán) | `zh-TW` | Sí | No |
+| Checo (República Checa) | `cs-CZ` | Sí | No |
+| Neerlandés (Países Bajos) | `nl-NL` | Sí | No |
 | Inglés (Australia) | `en-AU` | Sí | Sí |
+| Inglés (Canadá) | `en-CA` | Sí | No |
 | Inglés (India) | `en-IN` | Sí | No |
+| Inglés (Irlanda) | `en-IE` | Sí | No |
 | Inglés (Reino Unido) | `en-GB` | Sí | Sí |
 | Spanish (Traditional Sort) - Spain | `en-US` | Sí | Sí |
 | Francés (Canadá) | `fr-CA` | Sí | Sí |
 | Francés (Francia) | `fr-FR` | Sí | Sí |
+| Alemán (Austria) | `de-AT` | Sí | No |
 | Alemán (Alemania) | `de-DE` | Sí | Sí |
+| Húngaro (Hungría) | `hu-HU` | Sí | No |
 | Italiano (Italia) | `it-IT` | Sí | Sí |
 | Japonés (Japón) | `ja-JP` | Sí | Sí |
 | Coreano (Corea) | `ko-KR` | Sí | Sí |
 | Noruego (Bokmål, Noruega) | `nb-NO` | Sí | No |
 | Portugués (Brasil) | `pt-BR` | Sí | Sí |
+| Portugués (Portugal) | `pt-PT` | Sí | No |
 | Ruso (Rusia) | `ru-RU` | Sí | Sí |
+| Eslovaco (Eslovaquia) | `sk-SK` | Sí | No |
 | Español (México) | `es-MX` | Sí | Sí |
 | Español (España) | `es-ES` | Sí | Sí |
+| Turco (Turquía) | `tr-TR` | Sí | No |
+| Vietnamita (Vietnam) | `vi-VN` | Sí | No |
 
 Seleccione la configuración regional adecuada que coincida con los datos de entrenamiento que tiene para entrenar un modelo de voz personalizado. Por ejemplo, si los datos de grabación que tienen que hablar en inglés con acento británico, seleccione `en-GB`.
 

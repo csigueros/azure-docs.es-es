@@ -6,14 +6,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: include
-ms.custom: include file
-ms.date: 11/09/2020
-ms.openlocfilehash: 2219eca3be83aa955d761b333c66c4ade3bd4999
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.custom: include file, ignite-fall-2021
+ms.date: 09/13/2021
+ms.openlocfilehash: 42150afd167ea55e6e4a27114f512b01e5e992fa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129300339"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131043731"
 ---
 En este artículo de inicio rápido basado en cURL se ofrece orientación sobre cómo obtener una respuesta de la base de conocimiento.
 
@@ -23,15 +23,7 @@ En este artículo de inicio rápido basado en cURL se ofrece orientación sobre 
     * Versión más reciente de [**cURL**](https://curl.haxx.se/).
     * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
 
-# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
-
 > * Un [recurso de QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) creado en Azure Portal. Recuerde el identificador de Azure Active Directory, la suscripción y el nombre de recurso de QnA que seleccionó al crear el recurso.
-
-# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
-
-> * Un [recurso de Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) con la característica de respuesta a preguntas personalizada habilitada en Azure Portal. Recuerde el identificador de Azure Active Directory, la suscripción y el nombre del recurso de Text Analytics que seleccionó al crear el recurso.
-
----
 
    * Una base de conocimiento entrenada y publicada con preguntas y respuestas creada en el [inicio rápido](../Quickstarts/add-question-metadata-portal.md) anterior y configurada con metadatos y charla.
 
@@ -46,17 +38,9 @@ Use la base de conocimiento del anterior inicio rápido para consultar una respu
 1. En la página **Configuración** de la base de conocimiento, seleccione la pestaña **cURL** para ver un ejemplo de comando de cURL usado para generar una respuesta desde la base de conocimiento.
 1. Copie el comando en un entorno editable (como un archivo de texto) para poder editarlo. Edite el valor de la pregunta como se indica a continuación para que los metadatos de `service:qna_maker` se usen como filtro para los pares de QnA.
 
-   # <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
-
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
     ```
-   # <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
-    
-    ```bash
-    curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H   "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
-    ```
-    ---
 
     La pregunta es solo una palabra, `size`, que puede devolver cualquiera de los dos pares de QnA. La matriz `strictFilters` indica a la respuesta que se reduzca a solo las contestaciones de `qna_maker`.
 
@@ -109,15 +93,9 @@ Debug: {Enable:true}
 
 1. Edite el comando de cURL para que incluya la propiedad debug para ver más información.
 
-   # <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'Debug':{'Enable':true}}"
     ```
-   # <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
-    ```bash
-    curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'question':'size', 'Debug':{'Enable':true}}"
-    ```
-    ---
 
 1. La respuesta incluye la información pertinente acerca de la respuesta. En la siguiente salida JSON, algunos detalles de la depuración se han reemplazado por puntos suspensivos por cuestiones de brevedad.
 
@@ -220,16 +198,11 @@ isTest:true
 ```
 
 El comando de cURL tiene el siguiente aspecto:
-# <a name="qna-maker-ga"></a>[Disponibilidad general de QnA Maker](#tab/v1)
+
 ```bash
 curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'IsTest':true}"
 ```
-# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
-```bash
-curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'question':'size', 'IsTest':true}"
-```
 
----
 La respuesta JSON usa el mismo esquema que la consulta de la base de conocimiento publicada.
 
 > [!NOTE]
@@ -238,18 +211,10 @@ La respuesta JSON usa el mismo esquema que la consulta de la base de conocimient
 ## <a name="use-curl-to-query-for-a-chit-chat-answer"></a>Uso de cURL para consultar una respuesta de charla
 
 1. En el terminal con cURL habilitado, use una instrucción de fin de conversación de bot desde el usuario como, por ejemplo `Thank you`, como pregunta. No hay ninguna otra propiedad para establecer.
-    
-   # <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'thank you'}"
     ```
-   # <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
-
-    ```bash
-    curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'question':'thank you'}"
-    ```
-    ---
 
 1. Ejecute el comando cURL y reciba la respuesta JSON, que incluye la puntuación y la respuesta.
 
@@ -333,7 +298,7 @@ La respuesta JSON usa el mismo esquema que la consulta de la base de conocimient
     }
     ```
 
-    Dado que la pregunta de `Thank you` coincidía exactamente con una pregunta de charla, QnA Maker está completamente seguro con la puntuación de 100. QnA Maker también ha devuelto todas las preguntas relacionadas, así como la propiedad metadata que contiene la información de la etiqueta de metadatos de charla.
+    Dado que la pregunta de `Thank you` coincidía exactamente con una pregunta de charla, QnA Maker está completamente seguro con la puntuación de 100. QnA Maker también ha devuelto todas las preguntas relacionadas y la propiedad metadata que contiene la información de la etiqueta de metadatos de charla.
 
 ## <a name="use-threshold-and-default-answer"></a>Uso de un umbral y una respuesta predeterminada
 
@@ -341,15 +306,9 @@ Puede solicitar un umbral mínimo para la respuesta. Si no se cumple el umbral, 
 
 1. Agregue la propiedad `threshold` para solicitar una respuesta a `size` con un umbral del 80 % o superior. La base de conocimiento no encuentra esa respuesta ya que la puntuación de la pregunta es del 71 %. El resultado devuelve la respuesta predeterminada que proporcionó al crear la base de conocimiento.
 
-   # <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':80.00}"
     ```
-   # <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
-    ```bash
-    curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':80.00}"
-    ```
-    ---
 
 1. Ejecute el comando cURL y reciba la respuesta JSON.
 
@@ -374,15 +333,9 @@ Puede solicitar un umbral mínimo para la respuesta. Si no se cumple el umbral, 
 
 1. Cambie el valor de umbral a 60 % y vuelva a realizar la consulta:
     
-   # <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':60.00}"
     ```
-   # <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
-    ```bash
-    curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':60.00}"
-    ```
-    ---
 
     El código JSON devuelto encontró la respuesta.
 
@@ -421,49 +374,4 @@ Puede solicitar un umbral mínimo para la respuesta. Si no se cumple el umbral, 
     ```
 ## <a name="use-unstructured-data-sources"></a>Utilizar orígenes de datos no estructurados
     
-Ahora se admite la capacidad de agregar documentos no estructurados que no se pueden usar para extraer PyR. El usuario puede elegir incluir o excluir conjuntos de datos no estructurados en GenerateAnswer API al capturar una respuesta a la consulta.
-     
-# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
-No se admiten conjuntos de datos no estructurados en el servicio de disponibilidad general.
-
-# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
-
-1. Establezca el parámetro *includeUnstructuredResources* en true si desea incluir orígenes de datos no estructurados al evaluar la respuesta a Generate Answer API y viceversa.
-
-    ```bash
-    curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'question': 'what is Surface Headphones 2+ priced at?', 'includeUnstructuredSources':true,'top': 2}"
-    ```
-
-2. La respuesta incluye el origen de la respuesta. 
-    
-    ```json
-    {
-       "answers": [{
-               "questions": [],
-               "answer": "Surface Headphones 2+ is priced at $299.99 USD. Business and education customers in select markets can place orders today through microsoft.com\n\nor their local authorized reseller.\n\nMicrosoft Modern USB and Wireless Headsets:\n\nCertified for Microsoft Teams, these Microsoft Modern headsets enable greater focus and call privacy, especially in shared workspaces.",
-               "score": 82.11,
-               "id": 0,
-               "source": "blogs-introducing-surface-laptop-4-and-new-access.pdf",
-               "isDocumentText": false,
-               "metadata": [],
-               "answerSpan": {
-                   "text": "$299.99 USD",
-                   "score": 0.0,
-                   "startIndex": 34,
-                   "endIndex": 45
-               }
-           },
-           {
-               "questions": [],
-               "answer": "Now certified for Microsoft Teams with the included dongle, Surface Headphones 2+ provides an even more robust meeting experience with on‐ear Teams controls and improved remote calling. Surface Headphones 2+ is priced at $299.99 USD. Business and education customers in select markets can place orders today through microsoft.com\n\nor their local authorized reseller.",
-               "score": 81.95,
-               "id": 0,
-               "source": "blogs-introducing-surface-laptop-4-and-new-access.pdf",
-               "isDocumentText": false,
-               "metadata": []
-           }
-       ],
-       "activeLearningEnabled": true
-   }
-    ```
----
+Ahora se admiten la capacidad para agregar documentos no estructurados que no se pueden usar para extraer preguntas y respuestas. El usuario puede elegir incluir o excluir conjuntos de datos no estructurados en GenerateAnswer API al capturar una respuesta a la consulta. No se admiten conjuntos de datos no estructurados en el servicio de disponibilidad general, solo se incluyen en la respuesta a preguntas personalizadas.

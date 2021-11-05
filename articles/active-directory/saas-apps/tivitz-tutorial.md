@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 9a9a9bd0c48eda6ab218fa4b8245c4a6b415e16c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3d833e341f6adf50f1f9dd2c5d141daf16db2d76
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124783052"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046135"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tivitz"></a>Tutorial: Integración de Azure Active Directory con TiViTz
 
@@ -30,7 +30,7 @@ La integración de TiViTz con Azure AD le proporciona las siguientes ventajas:
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para configurar la integración de Azure AD con TiViTz, necesita los siguientes elementos:
 
@@ -183,7 +183,7 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 En esta sección, se crea un usuario llamado Britta Simon en TiViTz. TiViTz admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario deja de existir en TiViTz, se crea uno después de la autenticación.
 
 >[!NOTE]
->Si necesita crear manualmente un usuario, es preciso que se ponga en contacto con el [equipo de soporte técnico de TiViTz](mailto:info@tivitz.com).
+>Si necesita crear manualmente un usuario, debe ponerse en contacto con el [equipo de soporte técnico de TiViTz](mailto:info@tivitz.com).
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

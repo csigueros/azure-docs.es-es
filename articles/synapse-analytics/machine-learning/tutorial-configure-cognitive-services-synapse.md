@@ -9,12 +9,13 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: e10a31b2156cce03dcef40a88f5cb380f12dd03c
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 04d9b7ab0255212ed1b753d0bf6f31abfe1db03d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835532"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131019007"
 ---
 # <a name="quickstart-configure-prerequisites-for-using-cognitive-services-in-azure-synapse-analytics"></a>Inicio rápido: Configuración de los requisitos previos para usar Cognitive Services en Azure Synapse Analytics
 
@@ -39,7 +40,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-cognitive-services-resource"></a>Creación de un recurso de Cognitive Services
 
-[Azure Cognitive Services](../../cognitive-services/index.yml) incluye muchos tipos de servicios. Text Analytics y Anomaly Detector son dos ejemplos en los tutoriales de Azure Synapse.
+[Azure Cognitive Services](../../cognitive-services/index.yml) incluye muchos tipos de servicios. Los siguientes servicios son ejemplos que se usan en los tutoriales Azure Synapse.
 
 Puede crear un recurso de [Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) en Azure Portal:
 
@@ -48,6 +49,28 @@ Puede crear un recurso de [Text Analytics](https://ms.portal.azure.com/#create/M
 Puede crear un recurso de [Anomaly Detector](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) en Azure Portal:
 
 ![Captura de pantalla que muestra Anomaly Detector en el portal, con el botón Crear.](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00a.png)
+
+Puede crear un recurso de [Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) en Azure Portal:
+
+![Captura de pantalla que muestra Form Recognizer en el portal, con el botón Crear.](media/tutorial-configure-cognitive-services/tutorial-configure-form-recognizer.png)
+
+Puede crear un recurso de [Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) en Azure Portal:
+
+![Captura de pantalla que muestra Traductor en el portal, con el botón Crear.](media/tutorial-configure-cognitive-services/tutorial-configure-translator.png)
+
+Puede crear un recurso de [Computer Vision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) en Azure Portal:
+
+![Captura de pantalla que muestra Computer Vision en el portal, con el botón Crear.](media/tutorial-configure-cognitive-services/tutorial-configure-computer-vision.png)
+
+
+Puede crear un recurso de [Face](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace) en Azure Portal:
+
+![Captura de pantalla que muestra Face en el portal, con el botón Crear.](media/tutorial-configure-cognitive-services/tutorial-configure-face.png)
+
+
+Puede crear un recurso de [Voz](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) en Azure Portal:
+
+![Captura de pantalla que muestra Voz en el portal, con el botón Crear.](media/tutorial-configure-cognitive-services/tutorial-configure-speech.png)
 
 ## <a name="create-a-key-vault-and-configure-secrets-and-access"></a>Creación de un almacén de claves y configuración de los secretos y el acceso
 

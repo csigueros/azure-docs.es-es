@@ -13,12 +13,13 @@ ms.workload: iaas-sql-server
 ms.date: 05/30/2021
 ms.author: pamela
 ms.reviewer: mathoma
-ms.openlocfilehash: a25f5bf28feb8fcb3903094f45568e96388ec0bd
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 16b2a041dc384e8c04df077638a51db1a7823da2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130162158"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131072127"
 ---
 # <a name="manage-sql-server-vms-by-using-the-azure-portal"></a>Administración de máquinas virtuales con SQL Server mediante Azure Portal
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -124,6 +125,13 @@ Use la página **Security Center** del recurso Máquinas virtuales SQL para ver 
 
 ![Configuración de Security Center de SQL Server en Azure Portal mediante el recurso Máquinas virtuales SQL](./media/manage-sql-vm-portal/sql-vm-security-center.png)
 
+## <a name="sql-assessment-preview"></a>SQL Assessment (versión preliminar)
+
+Use la página **SQL Assessment** del recurso de máquinas virtuales de SQL para evaluar el estado de la máquina virtual de SQL Server. Una vez habilitada la característica, se examinan las instancias y bases de datos de SQL Server y se muestran recomendaciones para mejorar el rendimiento (índices, estadísticas, marcas de seguimiento, entre otros) y para identificar las configuraciones de procedimientos recomendados que faltan. SQL Assessment está actualmente en versión preliminar. 
+
+:::image type="content" source="./media/manage-sql-vm-portal/sql-vm-assessment-workbook.png" alt-text="Vea instancias de SQL Assessment en Azure Portal en la página de recursos de máquina virtual de SQL." lightbox="./media/manage-sql-vm-portal/sql-vm-assessment-workbook.png":::
+
+Para obtener más información, vea [SQL Assessment para SQL Server en máquinas virtuales de Azure](sql-assessment-for-sql-vm.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -132,6 +140,4 @@ Para más información, consulte los siguientes artículos.
 * [Introducción a SQL Server en máquinas virtuales Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Preguntas más frecuentes de SQL Server en máquinas virtuales Windows](frequently-asked-questions-faq.yml)
 * [Orientación de precios de SQL Server para máquinas virtuales de Azure](pricing-guidance.md)
-* [Novedades de SQL Server en VM de Azure](doc-changes-updates-release-notes-whats-new.md)
-
-
+* [Novedades de SQL Server en Azure VM](doc-changes-updates-release-notes-whats-new.md)

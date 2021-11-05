@@ -8,12 +8,13 @@ ms.service: api-management
 ms.topic: article
 ms.date: 07/19/2021
 ms.author: danlep
-ms.openlocfilehash: c593d9d9f2d957564eed5be98f3f92f29ce79a27
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 950684fdbaa1553447b818c0751b13f4a8e26f34
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128551106"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131031772"
 ---
 # <a name="api-management-policies"></a>Directivas de administración de API
 En esta sección se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](api-management-howto-policies.md).
@@ -85,6 +86,8 @@ En esta sección se proporciona una referencia para las siguientes directivas de
     - [Validar parámetros](validation-policies.md#validate-parameters): valida los parámetros del encabezado de solicitud, la consulta o la ruta de acceso con el esquema de la API.
     - [Validar encabezados](validation-policies.md#validate-headers): valida los encabezados de respuesta con el esquema de la API.
     - [Validar código de estado](validation-policies.md#validate-status-code): valida los códigos de estado HTTP en las respuestas con el esquema de la API.
+- [Directiva de validación de GraphQL](graphql-validation-policies.md)
+    - [Validar solicitud de GraphQL](graphql-validation-policies.md#validate-graphql-request): valida y autoriza una solicitud a una API de GraphQL.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre cómo trabajar con directivas, consulte:

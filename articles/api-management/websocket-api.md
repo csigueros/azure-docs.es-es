@@ -6,24 +6,22 @@ ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 08/25/2021
-ms.custom: template-how-to
-ms.openlocfilehash: b3eb368184eceeabc6af46bac8ca08254560e252
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.date: 11/2/2021
+ms.custom: template-how-to, ignite-fall-2021
+ms.openlocfilehash: 027a87a7502f551b7fb97d52a732a90bc0b8aa45
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123097876"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131065691"
 ---
-# <a name="import-a-websocket-api-preview"></a>Importación de una API de WebSocket (versión preliminar)
+# <a name="import-a-websocket-api"></a>Importación de WebSocket API
 
 Con la solución de la API de WebSocket de API Management, ahora puede administrar, proteger, observar y exponer tanto las API de WebSocket como las API REST con API Management, así como proporcionar un centro de conectividad para detectar y consumir todas las API. Los publicadores de API pueden agregar rápidamente una API de WebSocket en API Management a través de:
 * Un gesto sencillo en Azure Portal, y 
 * La API de administración y Azure Resource Manager. 
 
 Puede proteger las API de WebSocket aplicando las directivas de control de acceso existentes, como la [validación de JWT](./api-management-access-restriction-policies.md#ValidateJWT). También puede probar las API de WebSocket mediante las consolas de prueba de las API en Azure Portal y el portal para desarrolladores. A través de las funcionalidades de observabilidad existentes, API Management proporciona métricas y registros para supervisar y solucionar problemas de las API de WebSocket. 
-
-[!INCLUDE [preview](./includes/preview/preview-callout-websocket-api.md)]
 
 En este artículo:
 > [!div class="checklist"]
@@ -115,11 +113,11 @@ Por ejemplo, en la captura de pantalla siguiente se muestran las respuestas reci
 
 ## <a name="limitations"></a>Limitaciones
 
-Las API de WebSocket están disponibles y se admiten en la versión preliminar pública mediante Azure Portal, la API de administración y Azure Resource Manager. A continuación se muestran las restricciones actuales de compatibilidad con WebSocket en API Management:
+A continuación se muestran las restricciones actuales de compatibilidad con WebSocket en API Management:
 
-* Las API de WebSocket no se admiten en el plan de consumo.
-* Las API de WebSocket no se admiten en la [puerta de enlace autohospedada](./how-to-deploy-self-hosted-gateway-azure-arc.md).
-* La CLI de Azure, PowerShell y el SDK no admiten operaciones de administración de las API de WebSocket.
+* Las API de WebSocket no se admiten aún en el nivel de consumo.
+* Las API de WebSocket no se admiten aún en la [puerta de enlace autohospedada](./self-hosted-gateway-overview.md).
+* La CLI de Azure, PowerShell y el SDK no admiten actualmente operaciones de administración de las API de WebSocket.
 
 ### <a name="unsupported-policies"></a>Directivas no admitidas
 

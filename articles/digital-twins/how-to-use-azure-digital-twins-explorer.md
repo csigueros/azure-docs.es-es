@@ -4,19 +4,19 @@ titleSuffix: Azure Digital Twins
 description: Aprenda a usar las características de Azure Digital Twins Explorer.
 author: baanders
 ms.author: baanders
-ms.date: 4/20/2021
+ms.date: 10/19/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 22ad40dadf36b711bde4b7af7e8b24b09610ab89
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: e17d6026f9b655c6a08bc7e91939482d734a911d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114459510"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131070952"
 ---
 # <a name="use-azure-digital-twins-explorer-preview"></a>Uso de Azure Digital Twins Explorer (versión preliminar)
 
-[Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) es una herramienta para visualizar y trabajar con instancias de Azure Digital Twins. En este artículo se describen las características de Azure Digital Twins Explorer y cómo usarlas para administrar los datos de la instancia de Azure Digital Twins. 
+[Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) es una herramienta para visualizar y trabajar con instancias de Azure Digital Twins. En este artículo se describen las características de Azure Digital Twins Explorer y cómo usarlas para administrar los datos de la instancia de Azure Digital Twins. Puede interactuar con la aplicación Azure Digital Twins Explorer mediante clics o [métodos abreviados de teclado](#accessibility-and-advanced-settings).
 
 >[!NOTE]
 >Esta herramienta se encuentra actualmente en **versión preliminar pública**.
@@ -46,7 +46,7 @@ Puede usar el panel **Query Explorer** (Explorador de consultas) para realizar [
 Escriba la consulta que desea ejecutar y seleccione el botón **Run Query** (Ejecutar consulta). Esto cargará los resultados de la consulta en el panel **Twin Graph** (Grafo de gemelos).
 
 >[!NOTE]
-> Los resultados de la consulta que contienen relaciones solo se pueden representar en el panel **Twin Graph** (Grafo de gemelos) si los resultados incluyen también al menos un gemelo. Aunque las consultas que devuelven solo relaciones son posibles en Azure Digital Twins, solo se pueden ver en Azure Digital Twins Explorer mediante el [panel Output](#advanced-settings) (Salida).
+> Los resultados de la consulta que contienen relaciones solo se pueden representar en el panel **Twin Graph** (Grafo de gemelos) si los resultados incluyen también al menos un gemelo. Aunque las consultas que devuelven solo relaciones son posibles en Azure Digital Twins, solo se pueden ver en Azure Digital Twins Explorer mediante el [panel Output](#accessibility-and-advanced-settings) (Salida).
 
 ### <a name="overlay-query-results"></a>Superposición de los resultados de la consulta
 
@@ -99,19 +99,19 @@ Ejecute una consulta mediante [Query Explorer](#query-your-digital-twin-graph) (
 
 #### <a name="view-twin-and-relationship-properties"></a>Visualización de las propiedades de gemelos y relaciones
 
-Para ver los valores de propiedad de un gemelo o una relación, seleccione el gemelo o la relación en el panel **Twin Graph** (Grafo de gemelos) y use el botón **Toggle property inspector** (Alternar inspector de propiedades) para expandir el panel **Properties** (Propiedades). Este panel mostrará todas las propiedades asociadas al elemento, junto con sus valores. También incluye los valores predeterminados de las propiedades que aún no se han establecido.
+Para ver los valores de propiedad de un gemelo o una relación, seleccione el gemelo o la relación en el panel **Twin Graph** (Grafo de gemelos) y use el botón **Toggle property inspector** (Alternar inspector de propiedades) para expandir el panel **Twin Properties** (Propiedades de gemelos) o **Relationship Properties** (Propiedades de relación) respectivamente. Este panel mostrará todas las propiedades asociadas al elemento, junto con sus valores. También incluye los valores predeterminados de las propiedades que aún no se han establecido.
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png" alt-text="Captura de pantalla del panel Twin Graph (Grafo de gemelos) de Azure Digital Twins Explorer. El gemelo FactoryA está seleccionado y el panel Properties (Propiedades) está expandido, mostrando las propiedades del gemelo." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png" alt-text="Captura de pantalla del panel Twin Graph (Grafo de gemelos) de Azure Digital Twins Explorer. El gemelo FactoryA está seleccionado y el panel Twin Properties (Propiedades de gemelos) está expandido, y se muestran las propiedades del gemelo." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png":::
 
-Las propiedades suelen aparecer con texto blanco, pero también pueden aparecer con los colores siguientes para indicar información adicional:
+El panel Twin Properties (Propiedades de gemelos) mostrará mensajes de error si el gemelo o algunas de sus propiedades ya no coinciden con su modelo. Si no se encuentra el modelo del gemelo o si una propiedad no forma parte de la definición del modelo que el gemelo usa, es posible que vea mensajes de error como los siguientes:
 
-* **Texto rojo para el modelo**: indica que no se encuentra el modelo para el gemelo. Esto puede ocurrir si se ha eliminado el modelo desde que se creó el gemelo.
-
-    :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/properties-color-red.png" alt-text="Captura de pantalla del panel Properties (Propiedades) de Azure Digital Twins Explorer que muestra las propiedades de un gemelo de ejemplo. El campo $model y su valor se muestran con texto rojo." lightbox="media/how-to-use-azure-digital-twins-explorer/properties-color-red.png":::
-
-* **Texto amarillo para la propiedad**: indica que la propiedad no forma parte de la definición del modelo que usa el gemelo. Esto puede ocurrir si el modelo del gemelo se ha reemplazado o cambiado desde que se creó la propiedad y esta ya no existe en la versión más reciente del modelo. **Los gemelos con propiedades obsoletas no se pueden actualizar, a menos que la actualización también corrija o quite las propiedades obsoletas.**
-
-    :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/properties-color-yellow.png" alt-text="Captura de pantalla del panel Properties (Propiedades) de Azure Digital Twins Explorer que muestra las propiedades de un gemelo de ejemplo. Se muestran varios nombres de propiedad con texto amarillo." lightbox="media/how-to-use-azure-digital-twins-explorer/properties-color-yellow.png":::
+:::row:::
+    :::column:::
+        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/properties-errors.png" alt-text="Captura de pantalla del panel Twin Properties (Propiedades de gemelos) de Azure Digital Twins Explorer, en la que se muestran dos mensajes de error. Un error indica que faltan modelos y el otro indica que a las propiedades les falta un modelo." lightbox="media/how-to-use-azure-digital-twins-explorer/properties-errors.png":::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
 
 #### <a name="view-a-twins-relationships"></a>Visualización de las relaciones de un gemelo
 
@@ -125,9 +125,9 @@ Para ello, haga clic con el botón derecho en un gemelo del grafo y elija **Get 
 
 Para reorganizar los gemelos en distintas configuraciones, haga clic en ellos y arrástrelos alrededor de la pantalla Twin Graph (Grafo de gemelos).
 
-También puede aplicar uno de varios algoritmos de diseño al grafo con las opciones del menú **Run Layout** (Ejecutar diseño). 
+También puede aplicar uno de varios algoritmos de diseño al grafo con las opciones del menú **Choose Layout** (Elegir diseño). 
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-layout.png" alt-text="Captura de pantalla del panel Twin Graph (Grafo de gemelos) de Azure Digital Twins Explorer. El botón Run Layout (Ejecutar diseño) está resaltado y muestra un menú con las opciones de diseño Cola, Dagre, fCoSE y Klay." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-layout.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-layout.png" alt-text="Captura de pantalla del panel Twin Graph (Grafo de gemelos) de Azure Digital Twins Explorer. El botón Choose Layout (Ejecutar diseño) está resaltado y muestra un menú con las opciones de diseño Cola, Dagre, fCoSE y Klay." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-layout.png":::
 
 ### <a name="control-twin-graph-expansion"></a>Control de la expansión del grafo de gemelos
 
@@ -137,15 +137,15 @@ Para establecer el número de niveles que se expandirán, use la opción **Expan
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-expansion-level.png" alt-text="Captura de pantalla del panel Twin Graph (Grafo de gemelos) de Azure Digital Twins Explorer. El botón Expansion Level (Nivel de expansión) está resaltado." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-expansion-level.png":::
 
-Para indicar qué tipos de relaciones se deben seguir al expandir, use el botón **Expansion Mode** (Modo de expansión). Esta opción le permite seleccionar entre relaciones entrantes, salientes o entrantes y salientes.
+Para indicar qué tipos de relaciones se deben seguir al expandir, use el botón **Expansion Direction** (Dirección de expansión). Esta opción le permite seleccionar entre relaciones entrantes, salientes o entrantes y salientes.
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-expansion-mode.png" alt-text="Captura de pantalla del panel Twin Graph (Grafo de gemelos) de Azure Digital Twins Explorer. El botón Expansion Modo (Modo de expansión) está resaltado y muestra las opciones de entrada, salida y entrada y salida." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-expansion-mode.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-expansion-direction.png" alt-text="Captura de pantalla del panel Twin Graph (Grafo de gemelos) de Azure Digital Twins Explorer. El botón Expansion Direction (Dirección de expansión) está resaltado y muestra las opciones de entrada, salida y entrada y salida." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-expansion-direction.png":::
 
 ### <a name="show-and-hide-twin-graph-elements"></a>Mostrar y ocultar elementos del grafo de gemelos
 
 Puede alternar la opción para ocultar gemelos o relaciones en la vista del grafo. 
 
-Para ocultar un gemelo o una relación, haga clic con el botón derecho en el elemento en la ventana **Twin Graph** (Grafo de gemelos). Se mostrará un menú con una opción para ocultar el elemento u otros elementos relacionados.
+Para ocultar un gemelo o una relación, haga clic con el botón derecho en el elemento en la ventana **Twin Graph** (Grafo de gemelos). Se mostrará un menú con las opciones para ocultar el elemento u otros elementos relacionados.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-hide.png" alt-text="Captura de pantalla del panel Twin Graph (Grafo de gemelos) de Azure Digital Twins Explorer. El gemelo FactoryA está seleccionado y hay un menú que contiene opciones para ocultar la selección, ocultar la selección y los elementos secundarios, ocultar todos los demás y ocultar elementos no secundarios." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-hide.png":::
 
@@ -170,6 +170,7 @@ También puede resaltar los gemelos y los elementos que aparecen en el grafo por
 Azure Digital Twins Explorer proporciona varias maneras de administrar los [gemelos](concepts-twins-graph.md#digital-twins) y las [relaciones](concepts-twins-graph.md#relationships-a-graph-of-digital-twins) de la instancia.
 
 En esta sección se describe cómo se llevan a cabo las siguientes actividades de administración:
+* [Visualización de la lista plana de gemelos y relaciones](#view-flat-list-of-twins-and-relationships)
 * [Creación de gemelos](#create-twins), con o sin propiedades iniciales
 * [Creación de relaciones](#create-relationships) entre gemelos
 * [Edición de gemelos y relaciones](#edit-twins-and-relationships)
@@ -177,15 +178,21 @@ En esta sección se describe cómo se llevan a cabo las siguientes actividades d
 
 Para obtener información sobre la experiencia de visualización de gemelos y relaciones, consulte [Exploración del panel Twin Graph (Grafo de gemelos)](#explore-the-twin-graph).
 
+### <a name="view-flat-list-of-twins-and-relationships"></a>Visualización de la lista plana de gemelos y relaciones
+
+El panel **Twins** (Gemelos) muestra una lista plana de los gemelos y sus relaciones asociadas. Puede buscar gemelos por nombre y expandirlos para obtener los detalles sobre sus relaciones entrantes y salientes.
+
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twins-panel.png" alt-text="Captura de pantalla del panel Twins (Gemelos) de Azure Digital Twins Explorer Twins. Se resalta un gemelo y se muestran sus relaciones." lightbox="media/how-to-use-azure-digital-twins-explorer/twins-panel.png":::
+
 ### <a name="create-twins"></a>Creación de gemelos
 
 Puede crear un nuevo gemelo digital a partir de su definición de modelo en el panel **Models** (Modelos).
 
-Para crear un gemelo a partir de un modelo, busque ese modelo en la lista y elija el icono **Create a Twin** (Crear un gemelo) junto al nombre del modelo. Se le pedirá que escriba un **nombre** para el nuevo gemelo, que debe ser único. A continuación, guarde el gemelo; esta acción lo agregará al grafo.
+Para crear un gemelo a partir de un modelo, busque ese modelo en la lista y elija los puntos del menú junto al nombre del modelo. Después, seleccione **Create a Twin** (Crear gemelo). Se le pedirá que escriba un **nombre** para el nuevo gemelo, que debe ser único. A continuación, guarde el gemelo; esta acción lo agregará al grafo.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-create-a-twin.png" alt-text="Captura de pantalla del panel Models (Modelos) de Azure Digital Twins Explorer. Está resaltado el icono Create a Twin (Crear un gemelo) para un único modelo." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-create-a-twin.png":::
+        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-create-a-twin.png" alt-text="Captura de pantalla del panel Models (Modelos) de Azure Digital Twins Explorer. Los puntos del menú de un solo modelo están resaltados y la opción del menú para crear un gemelo también está resaltada." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-create-a-twin.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -197,7 +204,7 @@ Para agregar valores de propiedad al gemelo, consulte [Edición de gemelos y rel
 
 Para crear una relación entre dos gemelos, empiece por seleccionar el gemelo de origen de la relación en la ventana **Twin Graph** (Grafo de gemelos). A continuación, mantenga presionada la tecla CTRL/CMD o MAYÚS mientras selecciona un segundo gemelo como destino de la relación.
 
-Una vez seleccionados simultáneamente los dos gemelos, haga clic con el botón derecho en cualquiera de ellos. Se mostrará un menú con la opción **Add relationships** (Agregar relaciones) entre ellos.
+Una vez seleccionados simultáneamente los dos gemelos, haga clic con el botón derecho en el gemelo de destino. Se mostrará un menú con la opción **Add relationships** (Agregar relaciones) entre ellos.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-add-relationship.png" alt-text="Captura de pantalla del panel Twin Graph (Grafo de gemelos) de Azure Digital Twins Explorer. Los gemelos FactoryA y Consumer están seleccionados y un menú muestra la opción Add relationships (Agregar relaciones)." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-add-relationship.png":::
 
@@ -205,11 +212,11 @@ Se mostrará el cuadro de diálogo **Create Relationship** (Crear relación), qu
 
 ### <a name="edit-twins-and-relationships"></a>Edición de gemelos y relaciones
 
-Para ver los valores de propiedad de un gemelo o una relación, seleccione el elemento en el panel **Twin Graph** (Grafo de gemelos) y use el botón **Toggle property inspector** (Alternar inspector de propiedades) para expandir el panel **Properties** (Propiedades).
+Para ver los valores de propiedad de un gemelo o una relación, seleccione el elemento del panel **Twin Graph** (Grafo de gemelos) y use el botón **Toggle property inspector** (Alternar inspector de propiedades) para expandir el panel **Twin Properties** (Propiedades de gemelos) o **Relationship Properties** (Propiedades de relación) respectivamente.
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png" alt-text="Captura de pantalla del panel Twin Graph (Grafo de gemelos) de Azure Digital Twins Explorer. El gemelo FactoryA está seleccionado y el panel Properties (Propiedades) está expandido, mostrando las propiedades del gemelo." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png" alt-text="Captura de pantalla del panel Twin Graph (Grafo de gemelos) de Azure Digital Twins Explorer. El gemelo FactoryA está seleccionado y el panel Twin Properties (Propiedades de gemelos) está expandido, y se muestran las propiedades del gemelo." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png":::
 
-Puede usar este panel para editar directamente las propiedades que se pueden modificar. Actualice sus valores en línea y haga clic en el botón **Patch twin** (Revisar gemelo) (guardar) de la parte superior del panel para guardar los cambios. Cuando se guarda la actualización, la pantalla muestra una ventana modal con la operación JSON de revisión aplicada por la [API de actualización](/rest/api/azure-digitaltwins/).
+Puede usar este panel para editar directamente las propiedades que se pueden modificar. Actualice sus valores en línea y haga clic en el botón **Save changes** (Guardar cambios) de la parte superior del panel para guardarlos. Cuando se guarda la actualización, la pantalla muestra una ventana modal con la operación JSON de revisión aplicada por la [API de actualización](/rest/api/azure-digitaltwins/).
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties-save.png" alt-text="Captura de pantalla del panel Twin Graph (Grafo de gemelos) de Azure Digital Twins Explorer. El centro de la pantalla muestra un modal de información de revisión con el código JSON de revisión." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties-save.png":::
 
@@ -248,19 +255,19 @@ Puede usar el panel **Model Graph** (Grafo de modelos) para ver una representaci
 
 #### <a name="view-model-definition"></a>Visualización de la definición del modelo
 
-Para ver la definición completa de un modelo, busque ese modelo en el panel **Models** (Modelos) y elija el icono **View Model** (Ver modelo) situado junto al nombre del modelo. Se mostrará un modal **Model Information** (Información del modelo) con la definición de DTDL sin formato del modelo.
+Para ver la definición completa de un modelo, busque ese modelo en el panel **Models** (Modelos) y seleccione los puntos del menú situados junto al nombre del modelo. A continuación, seleccione **View Model** (Vista del modelo). Se mostrará un modal **Model Information** (Información del modelo) con la definición de DTDL sin formato del modelo.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-view.png" alt-text="Captura de pantalla del panel Models (Modelos) de Azure Digital Twins Explorer. Está resaltado el icono View Model (Ver modelo) de un único modelo." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-view.png":::
+        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-view.png" alt-text="Captura de pantalla del panel Models (Modelos) de Azure Digital Twins Explorer. Los puntos del menú de un solo modelo están resaltados y la opción del menú para ver el modelo también está resaltada." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-view.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
 :::row-end:::
 
-También puede ver la definición completa de un modelo seleccionándolo en el panel **Model Graph** (Grafo de modelos) y usando el botón **Toggle model details** (Alternar detalles del modelo) para expandir el panel **MODEL DETAIL** (DETALLES DEL MODELO). Este panel también mostrará el código DTDL completo del modelo.
+También puede ver la definición completa de un modelo al seleccionarlo en el panel **Model Graph** (Grafo de modelos) y con el botón **Toggle model details** (Alternar detalles del modelo) para expandir el panel **Model Details** (Detalles del modelo). Este panel también mostrará el código DTDL completo del modelo.
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-highlight-graph-details.png" alt-text="Captura de pantalla del panel Model Graph (Grafo de modelos) de Azure Digital Twins Explorer. Está seleccionado el modelo Floor y el panel MODEL DETAIL (DETALLES DEL MODELO) está expandido, mostrando el código DTDL del modelo." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-highlight-graph-details.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-highlight-graph-details.png" alt-text="Captura de pantalla del panel Model Graph (Grafo de modelos) de Azure Digital Twins Explorer. Está seleccionado el modelo Floor y el panel Model Details (Detalles del modelo) está expandido, y se muestra el código DTDL del modelo." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-highlight-graph-details.png":::
 
 ### <a name="edit-model-graph-layout"></a>Edición del diseño del grafo de modelos
 
@@ -291,11 +298,11 @@ Puede cargar imágenes personalizadas para representar diferentes modelos en las
 >[!NOTE]
 >Estas imágenes se guardan en el almacenamiento del explorador local. Esto significa que no estarán disponibles en otros exploradores distintos de aquel en el que las guardó y que permanecerán en el almacenamiento del explorador indefinidamente hasta que se borre el almacenamiento local.
 
-Para cargar una imagen para un único modelo, busque ese modelo en el panel **Models** (Modelos) y elija el icono **Upload Model Image** (Cargar imagen de modelo) junto al nombre del modelo. En el cuadro de selección de archivos que aparece, vaya en la máquina al archivo de imagen que desea cargar para ese modelo. Elija **Open** (Abrir) para cargarlo.
+Para cargar una imagen para un único modelo, busque ese modelo en el panel **Models** (Modelos) y seleccione los puntos del menú situados junto al nombre del modelo. A continuación, seleccione **Upload Model Image** (Cargar imagen del modelo). En el cuadro de selección de archivos que aparece, vaya en la máquina al archivo de imagen que desea cargar para ese modelo. Elija **Open** (Abrir) para cargarlo.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-one-image.png" alt-text="Captura de pantalla del panel Models (Modelos) de Azure Digital Twins Explorer. Está resaltado el icono Upload Model Image (Cargar imagen de modelo) de un único modelo." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-one-image.png":::
+        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-one-image.png" alt-text="Captura de pantalla del panel Models (Modelos) de Azure Digital Twins Explorer. Los puntos del menú de un solo modelo están resaltados y la opción del menú para cargar la imagen del modelo también está resaltada." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-one-image.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -339,7 +346,7 @@ Para obtener información sobre la experiencia de visualización de modelos, con
 
 Puede cargar modelos de la máquina seleccionándolos individualmente o cargando una carpeta completa de modelos a la vez.
 
-Para cargar uno o varios modelos seleccionados individualmente, seleccione el icono **Upload a model** (Cargar un modelo) que muestra una flecha que apunta hacia una nube.
+Para cargar uno o varios modelos seleccionados individualmente, seleccione el icono **Upload a model** (Cargar un modelo) que muestra una flecha hacia arriba.
 
 :::row:::
     :::column:::
@@ -370,11 +377,11 @@ En el cuadro de selección de archivos que aparece, vaya en la máquina a una ca
 
 Puede usar el panel Models (Modelos) para eliminar modelos individuales o todos los modelos de la instancia a la vez.
 
-Para eliminar un único modelo, busque ese modelo en la lista y elija el icono **Delete Model** (Eliminar modelo) junto al nombre del modelo.
+Para eliminar un solo modelo, búsquelo en la lista y seleccione los puntos del menú situados junto al nombre del modelo. A continuación, seleccione **Delete Model** (Eliminar modelo).
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-delete-one.png" alt-text="Captura de pantalla del panel Models (Modelos) de Azure Digital Twins Explorer. Está resaltado el icono Delete Model (Eliminar modelo) de un único modelo." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-delete-one.png":::
+        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-delete-one.png" alt-text="Captura de pantalla del panel Models (Modelos) de Azure Digital Twins Explorer. Los puntos del menú de un solo modelo están resaltados y la opción del menú para eliminar el modelo también está resaltada." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-delete-one.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -394,7 +401,7 @@ Para eliminar todos los modelos de la instancia a la vez, elija el icono **Delet
 
 Al abrir Azure Digital Twins Explorer, el panel Models (Modelos) debe mostrar automáticamente todos los modelos disponibles en el entorno. 
 
-Sin embargo, puede actualizar manualmente el panel en cualquier momento para volver a cargar la lista de todos los modelos de la instancia de Azure Digital Twins. Para ello, seleccione el icono **Refresh models** (Actualizar modelos) que tiene una flecha que apunta hacia abajo desde una nube. 
+Sin embargo, puede actualizar manualmente el panel en cualquier momento para volver a cargar la lista de todos los modelos de la instancia de Azure Digital Twins. Para ello, seleccione el icono **Refresh models** (Actualizar modelos). 
 
 :::row:::
     :::column:::
@@ -506,20 +513,26 @@ Este es un ejemplo del parámetro de una consulta para seleccionar con **SELECT 
 
 Después puede compartir la URL completa.
 
-## <a name="advanced-settings"></a>Configuración avanzada
+## <a name="accessibility-and-advanced-settings"></a>Accesibilidad y configuración avanzada
 
-Puede habilitar varias opciones de configuración avanzada para Azure Digital Twins Explorer.
+Puede habilitar varias opciones de configuración avanzadas en Azure Digital Twins Explorer para personalizar su experiencia o hacerla más accesible.
 
-Al hacer clic en el engranaje de configuración de la esquina superior derecha, se accede a la configuración de las siguientes características avanzadas:
-* **Eager Loading** (Carga diligente): *se accede desde el engranaje **Settings** (Configuración) de la barra de herramientas superior.* Cuando una consulta devuelve gemelos que tienen relaciones con otros gemelos que **no** están incluidos en los resultados de la consulta, esta característica cargará los gemelos "ausentes" antes de representar el grafo.
-* **Caching** (Almacenamiento en caché): *se accede desde el engranaje **Settings** (Configuración) de la barra de herramientas superior.* Cuando esta característica está habilitada, Azure Digital Twins Explorer mantiene una caché local de relaciones y modelos en memoria para mejorar el rendimiento de las consultas. Estas memorias caché se borran con cualquier operación de escritura en los elementos correspondientes, así como con la actualización del explorador.
-* **Console** (Consola): *se accede desde el engranaje **Settings** (Configuración) de la barra de herramientas superior.* Esta característica permite mostrar una ventana de consola, donde se pueden usar funciones de shell sencillas para trabajar con el grafo.
-* **Output** (Salida): *se accede desde el engranaje **Settings** (Configuración) de la barra de herramientas superior.* Esta característica permite mostrar una ventana de salida, que incluye un seguimiento de diagnóstico de las operaciones.
-* **Personalizar el diseño del panel**: puede editar la posición de los paneles que conforman Azure Digital Twins Explorer (Query Explorer, Models, Twin Graph, Model Graph [Explorador de consultas, Modelos, Grafo de gemelos, Grafo de modelos]). Para mover un panel a otra ubicación, haga clic y mantenga presionado el nombre del panel y arrástrelo a la nueva posición deseada.
+Puede usar el icono **Métodos abreviados de teclado** de la barra de herramientas superior derecha para ver una lista de métodos abreviados de teclado que se pueden usar para navegar por Azure Digital Twins Explorer.
 
-    :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/panels.png" alt-text="Captura de pantalla de Azure Digital Twins Explorer. Están resaltados los nombres de los paneles Query Explorer (Explorador de consultas), Models (Modelos), Twin Graph (Grafo de gemelos) y Model Graph (Grafo de modelos)." lightbox="media/how-to-use-azure-digital-twins-explorer/panels.png":::
+ :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/keyboard-shortcuts.png" alt-text="Captura de pantalla de Azure Digital Twins Explorer. El icono Métodos abreviados de teclado está resaltado en la barra de herramientas superior." lightbox="media/how-to-use-azure-digital-twins-explorer/keyboard-shortcuts.png":::
 
-    Las posiciones del panel se restablecerán tras la actualización de la ventana del explorador.
+Hay varias características avanzadas a las que se puede acceder en el engranaje de Configuración de la barra de herramientas superior derecha:
+* **Carga diligente**: cuando una consulta devuelve gemelos que tienen relaciones con otros gemelos que **no** están incluidos en los resultados de la consulta, esta característica cargará los gemelos "ausentes" antes de representar el grafo.
+* **Almacenamiento en caché**: cuando esta característica está habilitada, Azure Digital Twins Explorer mantiene una caché local de relaciones y modelos en la memoria para mejorar el rendimiento de las consultas. Estas memorias caché se borran con cualquier operación de escritura en los elementos correspondientes, así como con la actualización del explorador.
+* **Consola**: esta característica permite mostrar una ventana de consola, donde se pueden usar funciones de shell sencillas para trabajar con el grafo.
+* **Salida**: esta característica permite mostrar una ventana de salida, que incluye un seguimiento de diagnóstico de las operaciones.
+* **Contraste alto**: esta característica cambia los colores de Azure Digital Twins Explorer, para que aparezcan con mayor contraste.
+
+Puede **personalizar el diseño del panel**: mediante la edición de la posición de los paneles que conforman Azure Digital Twins Explorer (Query Explorer, Twins, Models, Twin Graph, Model Graph [Explorador de consultas, Gemelos, Modelos, Grafo de gemelos, Grafo de modelos]). Para mover un panel a otra ubicación, haga clic y mantenga presionado el nombre del panel y arrástrelo a la nueva posición deseada.
+
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/panels.png" alt-text="Captura de pantalla de Azure Digital Twins Explorer. Están resaltados los nombres de los paneles Query Explorer (Explorador de consultas), Models (Modelos), Twin Graph (Grafo de gemelos) y Model Graph (Grafo de modelos)." lightbox="media/how-to-use-azure-digital-twins-explorer/panels.png":::
+
+Las posiciones del panel se restablecerán tras la actualización de la ventana del explorador.
 
 ## <a name="next-steps"></a>Pasos siguientes 
 

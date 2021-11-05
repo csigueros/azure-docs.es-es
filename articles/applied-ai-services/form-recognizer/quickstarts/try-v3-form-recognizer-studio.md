@@ -9,12 +9,13 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 09/14/2021
 ms.author: sajagtap
-ms.openlocfilehash: bb1c2ee770380b5f8689b1dd8f25712293a0bcb2
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: a14cd140d2bb0d2768c85fa2addca2140ccb1ffa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130220230"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131026740"
 ---
 # <a name="get-started-form-recognizer-studio--preview"></a>Introducción: Form Recognizer Studio | Versión preliminar
 
@@ -106,6 +107,14 @@ En la vista Diseño:
 
 ## <a name="prebuilt-models"></a>Modelos creados previamente
 
+Hay varios modelos creados precompilados entre los que elegir, cada uno de los cuales tiene su propio conjunto de campos admitidos. El modelo que se va a usar para la operación de análisis depende del tipo de documento que se va a analizar. Los modelos precompilados admitidos actualmente por el servicio Form Recognizer son los siguientes:
+
+* [🆕 **Documento general**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document): análisis y extracción de texto, tablas, estructura, pares clave-valor y entidades con nombre.
+* [**Factura**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice): extrae texto, marcas de selección, tablas, pares clave-valor e información importante de las facturas.
+* [**Recibo**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt): extrae texto e información clave de los recibos.
+* [**Documento de identificación**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument): extrae texto e información clave de permisos de conducir y pasaportes internacionales.
+* [**Tarjeta de presentación**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard): extrae texto e información importante de las tarjetas de presentación.
+
 En la vista pregenerada:
 
 1. En la página principal de Studio, seleccione uno de los modelos precompilados. En este ejemplo, se usa el modelo de factura.
@@ -126,7 +135,7 @@ En la vista pregenerada:
 
 Para crear modelos personalizados, empiece por configurar el proyecto:
 
-1. En la página principal de Studio, seleccione el proyecto de formulario personalizado para abrir la página principal del formulario personalizado.
+1. En la página principal de Studio, seleccione el [proyecto de formulario personalizado](https://formrecognizer.appliedai.azure.com/studio/customform/projects) para abrir la página principal del formulario personalizado.
 
 1. Use el comando "Crear un proyecto" para iniciar el asistente para la configuración del nuevo proyecto.
 
@@ -142,7 +151,7 @@ Después del paso de creación del proyecto, en la fase del modelo personalizado
 
 1. En la vista de etiquetado, defina las etiquetas y sus tipos que le interesa extraer.
 
-1. Seleccione el texto del documento y haga clic en la etiqueta en la lista desplegable o en el panel de etiquetas.
+1. Seleccione el texto del documento y la etiqueta de la lista desplegable o el panel etiquetas.
 
 1. Etiquete cuatro documentos más para tener al menos cinco documentos etiquetados.
 
@@ -180,7 +189,7 @@ Use tablas dinámicas para extraer el recuento variable de valores (filas) para 
 
 1. Agregue el número de columnas (campos) y filas (para datos) que necesita.
 
-1. Seleccione el texto de la página y, a continuación, haga clic en la celda que se asignará al texto. Repita el procedimiento para todas las filas y columnas de todas las páginas de todos los documentos.
+1. Seleccione el texto de la página y, a continuación, elija la celda para asignar al texto. Repita el procedimiento para todas las filas y columnas de todas las páginas de todos los documentos.
 
 :::image border="true" type="content" source="../media/quickstarts/custom-tables-dynamic.gif" alt-text="Ejemplo de etiquetado como tabla dinámica de Form Recognizer":::
 
@@ -192,7 +201,7 @@ Use tablas fijas para extraer una colección específica de valores para un conj
 
 1. Agregue el número de columnas y filas que necesita para los dos conjuntos de campos.
 
-1. Seleccione el texto de la página y, a continuación, haga clic en la celda para asignarla al texto. Repita el procedimiento para otros documentos.
+1. Seleccione el texto de la página y, a continuación, elija la celda para asignar al texto. Repita el procedimiento para otros documentos.
 
 :::image border="true" type="content" source="../media/quickstarts/custom-tables-fixed.gif" alt-text="Ejemplo de etiquetado como tabla fija de Form Recognizer":::
 
@@ -204,7 +213,7 @@ Para etiquetar para la detección de firmas:
 
 1. Use el comando Región para crear una región rectangular en la ubicación esperada de la firma.
 
-1. Seleccione la región dibujada y haga clic en la etiqueta de tipo firma para asignarla a la región dibujada. Repita el procedimiento para otros documentos.
+1. Seleccione la región dibujada y elija la etiqueta Tipo de firma para asignarla a la región dibujada. Repita el procedimiento para otros documentos.
 
 :::image border="true" type="content" source="../media/quickstarts/custom-signature.gif" alt-text="Ejemplo de etiquetado para la detección de firmas de Form Recognizer":::
 

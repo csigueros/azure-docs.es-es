@@ -2,14 +2,14 @@
 title: Exportación de una parte de un vídeo grabado de Azure Video Analyzer a un archivo MP4
 description: En este tutorial, aprenderá a exportar una parte de un vídeo grabado de Video Analyzer en formato MP4 que se almacena como un vídeo de Video Analyzer que se puede descargar y usar fuera del ecosistema de cuentas de Video Analyzer.
 ms.topic: tutorial
-ms.date: 10/18/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 74b46b6c46e3ae6cb6ae9f4567b20bcee3e37ebe
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 1da3d7b0a201f50ae2b3ed7e429cfb7673010cb6
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091365"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131552931"
 ---
 # <a name="tutorial-export-portion-of-recorded-video-as-an-mp4-file"></a>Tutorial: Exportación de una parte de un vídeo grabado como un archivo MP4
 

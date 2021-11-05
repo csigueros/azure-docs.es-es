@@ -8,15 +8,15 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 06/18/2021
+ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q1
-ms.openlocfilehash: d6a50982b546ae5d4e615c2e3cfc2b2dcd955a0f
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.custom: devx-track-python, contperf-fy21q1, ignite-fall-2021
+ms.openlocfilehash: 3c3d33fc783c3e499ab8fcb3794c929cf1359dcb
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129713254"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131553982"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>Configuración de destinos de proceso para el entrenamiento y la implementación de modelos
 
@@ -347,7 +347,7 @@ Las instancias de Azure Container Instances (ACI) se crean dinámicamente al imp
 
 ## <a name="kubernetes-preview"></a><a id="kubernetes"></a>Kubernetes (versión preliminar)
 
-Azure Machine Learning proporciona las siguientes opciones para adjuntar sus propios clústeres de Kubernetes para el entrenamiento:
+Azure Machine Learning proporciona las siguientes opciones para asociar sus propios clústeres de Kubernetes para el entrenamiento y la inferencia:
 
 * [Azure Kubernetes Service](../aks/intro-kubernetes.md). Azure Kubernetes Service proporciona un clúster gestionado en Azure.
 * [Azure Arc Kubernetes](../azure-arc/kubernetes/overview.md). Use clústeres de Kubernetes habilitados para Azure Arc si el clúster está hospedado fuera de Azure.

@@ -7,14 +7,14 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 09/24/2021
-ms.custom: data4ml
-ms.openlocfilehash: b8681974510b6d3fbee74248aab95b33de443109
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.date: 10/21/2021
+ms.custom: data4ml, ignite-fall-2021
+ms.openlocfilehash: b1fc133b02c667ae46d543da3fe020d116d6eb54
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130003825"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068900"
 ---
 # <a name="create-an-image-labeling-project-and-export-labels"></a>Creación de un proyecto de etiquetado de imágenes y exportación de etiquetas
 
@@ -127,9 +127,12 @@ En el caso de los rectángulos de selección, estas son algunas preguntas import
 
 La página **Etiquetado asistido por ML** permite desencadenar modelos de Machine Learning automáticos para acelerar la tarea de etiquetado. Las imágenes médicas (".dcm") no se incluyen en el etiquetado asistido.
 
-Al principio del proyecto de etiquetado, los elementos se presentan en orden aleatorio para reducir el posible sesgo. Sin embargo, los sesgos presentes en el conjunto de datos se reflejarán en el modelo entrenado. Por ejemplo, si el 80 % de los elementos son de una sola clase, aproximadamente el 80 % de los datos usados para entrenar el modelo serán de esa clase. Este entrenamiento no incluye el aprendizaje activo.
+Al principio del proyecto de etiquetado, los elementos se presentan en orden aleatorio para reducir el posible sesgo. Sin embargo, los sesgos presentes en el conjunto de datos se reflejarán en el modelo entrenado. Por ejemplo, si el 80 % de los elementos son de una sola clase, aproximadamente el 80 % de los datos usados para entrenar el modelo serán de esa clase.
 
-Seleccione *Habilitar el etiquetado con asistencia de ML* y especifique una GPU para habilitar el etiquetado con asistencia, que consta de dos fases:
+Seleccione *Habilitar el etiquetado con asistencia de ML* y especifique una GPU para habilitar el etiquetado con asistencia. Si no tiene uno en el área de trabajo, se creará automáticamente un clúster de GPU y se agregará al área de trabajo.   El clúster se crea con un mínimo de 0 nodos, lo que significa que no cuesta nada cuando no está en uso.
+
+
+El etiquetado asistido por ML consta de dos fases:
 
 * Agrupación en clústeres
 * Etiquetado previo

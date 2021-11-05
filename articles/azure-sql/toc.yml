@@ -513,7 +513,7 @@
                   href: /sql/azure-data-studio/quickstart-sql-database?toc=%2Fazure%2Fazure-sql%2Ftoc.json
                 - name: SSMS
                   href: database/connect-query-ssms.md
-                - name: Azure portal
+                - name: Azure Portal
                   href: database/connect-query-portal.md
                 - name: Código de VS
                   href: database/connect-query-vscode.md
@@ -841,6 +841,8 @@
           href: managed-instance/transact-sql-tsql-differences-sql-server.md
         - name: Replicación transaccional
           href: managed-instance/replication-transactional-overview.md
+        - name: "Característica de vínculo para SQL\_MI"
+          href: managed-instance/link-feature.md
         - name: Operaciones de administración
           items:
             - name: Información general
@@ -1047,19 +1049,23 @@
               href: managed-instance/timezones-overview.md
             - name: Configuración de los tipos de conexión
               href: managed-instance/connection-types-overview.md
-            - name: Creación de alertas en una instancia administrada
+            - name: "Creación de alertas en SQL\_MI"
               href: managed-instance/alerts-create.md
             - name: Configuración de la detección de amenazas
               href: managed-instance/threat-detection-configure.md
         - name: Configuración de las redes
           items:
-            - name: Determinación del tamaño de la subred de Instancia administrada
+            - name: "Determinación del tamaño de SQL\_MI"
               href: managed-instance/vnet-subnet-determine-size.md
-            - name: Creación de una nueva red virtual y una subred para Instancia administrada
+            - name: "Creación de una red virtual y una subred para SQL\_MI"
               href: managed-instance/virtual-network-subnet-create-arm-template.md
-            - name: Configuración de una red virtual y una subred ya existentes para Instancia administrada
+            - name: "Configuración de la red virtual y la subred existentes para SQL\_MI"
               href: managed-instance/vnet-existing-add-subnet.md
-            - name: Eliminación de subred después de eliminar una instancia administrada
+            - name: "Configuración de directivas de punto de conexión de servicio para SQL\_MI"
+              href: managed-instance/service-endpoint-policies-configure.md
+            - name: "Transferir SQL\_MI a otra subred"
+              href: managed-instance/vnet-subnet-move-instance.md
+            - name: "Eliminación de una subred después de eliminar SQL\_MI"
               href: managed-instance/virtual-cluster-delete.md
             - name: Configuración de DNS personalizado
               href: managed-instance/custom-dns-configure.md
@@ -1073,7 +1079,7 @@
               href: managed-instance/management-endpoint-verify-built-in-firewall.md
         - name: Migrar
           items:
-            - name: "Guía para la migración de SQL\_Server a Azure SQL Managed Instance"
+            - name: "Migración de SQL\_Server a la guía de SQL\_MI"
               href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
             - name: Migración de bases de datos mediante Log Replay Service
               href: managed-instance/log-replay-service-migrate.md
@@ -1101,14 +1107,14 @@
   items:
     - name: Documentación
       href: virtual-machines/index.yml
+    - name: Novedades
+      href: virtual-machines/windows/doc-changes-updates-release-notes-whats-new.md
     - name: Windows
       items:
         - name: Información general
           items:
             - name: ¿Qué es una VM con SQL Server?
               href: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
-            - name: Novedades
-              href: virtual-machines/windows/doc-changes-updates-release-notes-whats-new.md
         - name: Guías de inicio rápido
           items:
             - name: Portal
@@ -1187,6 +1193,8 @@
                   href: virtual-machines/windows/storage-configuration.md
                 - name: Aplicación de revisiones automatizada
                   href: virtual-machines/windows/automated-patching.md
+                - name: Evaluación de SQL
+                  href: virtual-machines/windows/sql-assessment-for-sql-vm.md
                 - name: Integración de Azure Key Vault
                   href: virtual-machines/windows/azure-key-vault-integration-configure.md
                 - name: Migración del almacenamiento a UltraSSD
@@ -1232,7 +1240,7 @@
                           href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
                         - name: Configuración manual
                           items:
-                            - name: Requisitos previos
+                            - name: Prerrequisitos
                               href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
                             - name: Tutorial
                               href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
@@ -1315,6 +1323,14 @@
           items:
             - name: 'Creación de máquinas virtuales de SQL: Portal'
               href: virtual-machines/linux/sql-vm-create-portal-quickstart.md
+        - name: Conceptos
+          items:
+            - name: Extensión del agente de IaaS de SQL
+              href: virtual-machines/linux/sql-server-iaas-agent-extension-linux.md
+        - name: Guías paso a paso
+          items:
+            - name: Registro mediante la extensión de IaaS de SQL
+              href: virtual-machines/linux/sql-iaas-agent-extension-register-vm-linux.md
         - name: Tutoriales
           items:
             - name: Configuración del grupo de disponibilidad de máquinas virtuales con Red Hat Enterprise Linux de Azure con STONITH

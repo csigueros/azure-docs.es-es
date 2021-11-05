@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 08/19/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 77e6704808cf54f84f0261c07236bfa27d17a1f6
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.openlocfilehash: 594c8f48a51b386c687feda5d46a2423dd4e973b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122868765"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131064038"
 ---
 # <a name="monitor-app-lifecycle-events-using-azure-activity-log-and-azure-service-health"></a>Supervisión de eventos del ciclo de vida de la aplicación mediante el registro de actividad de Azure y Azure Service Health
 
@@ -23,7 +23,7 @@ Azure Spring Cloud proporciona herramientas integradas para supervisar el estado
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-- Una instancia de servicio Azure Spring Cloud implementada y al menos una aplicación ya creada en la instancia de servicio. Para obtener más información, consulte [Inicio rápido: implementación de la primera aplicación de Azure Spring Cloud](quickstart.md). 
+- Una instancia de servicio Azure Spring Cloud implementada y al menos una aplicación ya creada en la instancia de servicio. Para obtener más información, consulte [Inicio rápido: Implementación de la primera aplicación Spring Boot en Azure Spring Cloud](quickstart.md). 
 
 ## <a name="monitor-app-lifecycle-events-triggered-by-users-in-azure-activity-logs"></a>Supervisión de los eventos del ciclo de vida de la aplicación desencadenados por los usuarios en los registros de actividad de Azure
 
@@ -63,6 +63,9 @@ La aplicación se puede reiniciar durante el mantenimiento de la plataforma. Pue
 Cuando se produce el mantenimiento de la plataforma, la instancia de Azure Spring Cloud también mostrará un estado de **Degradado**. Si es necesario reiniciar durante el mantenimiento de la plataforma, Azure Spring Cloud realizará una actualización gradual para actualizar incrementalmente las aplicaciones. Las actualizaciones graduales están diseñadas para actualizar las cargas de trabajo sin tiempo de inactividad. Puede encontrar el estado más reciente en la página del historial de estado.
 
 :::image type="content" source="media/monitor-app-lifecycle-events/planned-maintenance-in-progress.png" lightbox="media/monitor-app-lifecycle-events/planned-maintenance-in-progress.png" alt-text="Captura de pantalla de un registro de ejemplo para el mantenimiento planeado en curso":::
+
+>[!NOTE]
+> Actualmente, Azure Spring Cloud realiza un mantenimiento planeado normal para actualizar la versión subyacente de Kubernetes cada 2-4 meses. Para obtener una escala de tiempo de mantenimiento detallada, compruebe las notificaciones en Azure Service Health página.
 
 ## <a name="set-up-alerts"></a>Configuración de alertas
 

@@ -4,12 +4,12 @@ description: Explicación de valores NULL frente a valores cero al exportar mét
 services: azure-monitor
 ms.topic: reference
 ms.date: 07/22/2020
-ms.openlocfilehash: 47b98fe46ac1f2a3e2f3f1a8078ad9ca6f867554
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 53c5aad7061afb0479e9678a188fe99779893fef
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102048852"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131017889"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Métricas de plataforma de Azure Monitor que pueden exportarse con la configuración de diagnóstico
 
@@ -17,11 +17,11 @@ De forma predeterminada, Azure Monitor proporciona [métricas de plataforma](../
 
 ## <a name="metrics-not-exportable-via-diagnostic-settings"></a>Métricas no exportables a través de la configuración de diagnóstico
 
-El contenido que solía estar en esta ubicación se ha migrado a [Métricas compatibles con Azure Monitor](./metrics-supported.md#exporting-platform-metrics-to-other-locations).
+Ve la columna "¿exportable?" de la [lista de métricas compatibles de Azure Monitor](./metrics-supported.md#exporting-platform-metrics-to-other-locations).
 
-Existen limitaciones al exportar las métricas a través de la configuración de diagnóstico. Todas las métricas se pueden exportar mediante la API REST. 
+Existen limitaciones al exportar las métricas a través de la configuración de diagnóstico. Sin embargo, todas las métricas se pueden exportar mediante la API REST.
 
-## <a name="exported-zero-vs-null-values"></a>Valores cero frente a valores NULL exportados 
+## <a name="exported-zero-vs-null-values"></a>Valores cero frente a valores NULL exportados
 
 Las métricas tienen un comportamiento diferente cuando se trabaja con valores 0 o NULL.  Algunas métricas indican 0 cuando no se obtienen datos, por ejemplo, las métricas de errores http. Otras métricas almacenan valores NULL cuando no se obtienen datos, ya que esta situación puede indicar que el recurso está sin conexión. Puede ver la diferencia al representar estas métricas con valores NULL que se muestran como [líneas discontinuas](metrics-troubleshoot.md#chart-shows-dashed-line). 
 

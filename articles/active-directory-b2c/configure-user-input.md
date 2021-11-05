@@ -8,17 +8,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/15/2021
+ms.date: 10/22/2021
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 9ebc40c8777a4b49f0bd6aaeccff4b2f82d4f7a4
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 042829ac525ed911f1a9ec984843931e8029b0a6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130064426"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131007474"
 ---
 #  <a name="add-user-attributes-and-customize-user-input-in-azure-active-directory-b2c"></a>Adición de atributos de usuario y personalización de entradas de usuario en Azure Active Directory B2C
 
@@ -37,6 +37,10 @@ En este artículo, recopilará un nuevo atributo durante el recorrido de registr
 
 ## <a name="add-user-attributes-your-user-flow"></a>Adición de atributos de usuario al flujo de usuario
 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. En **Servicios de Azure**, seleccione **Azure AD B2C**. O bien, use el cuadro de búsqueda para buscar y seleccionar **Azure AD B2C**.
 1. En el inquilino de Azure AD B2C, seleccione **Flujos de usuario**.
 1. Haga clic en la directiva (por ejemplo, "B2C_1_SignupSignin") para abrirla.
 1. Seleccione **Atributos de usuario** y, después, seleccione el atributo que desee (por ejemplo, "City"). 
@@ -112,7 +116,7 @@ Para proporcionar una lista establecida de valores para el atributo de ciudad:
 1. Haga clic en **Flujos de usuario** y seleccione la directiva (por ejemplo, "B2C_1_SignupSignin") para abrirla.
 1. Seleccione **Idiomas**.
 1. Seleccione el idioma al que quiere traducir.
-1. Seleccione **Página de registro de cuenta local**.
+1. En **Page-level-resources files** (Archivos de recursos de nivel de página), seleccione **Página de registro de cuenta local**.
 1. Seleccione el icono de carpeta y el archivo JSON para cargar. Este cambio se guarda en el flujo de usuario automáticamente.
 
 ## <a name="test-your-user-flow"></a>Prueba del flujo de usuario

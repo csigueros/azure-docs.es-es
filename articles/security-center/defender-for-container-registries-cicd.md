@@ -7,13 +7,12 @@ ms.date: 05/25/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 97fed8a7afce16a33497860cda70b12fc90bed2c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 044976ac6fb0e017c7cf9c5cff8bc7f6c31f3da2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131014906"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131428907"
 ---
 # <a name="identify-vulnerable-container-images-in-your-cicd-workflows"></a>Identificación de imágenes de contenedor vulnerables en los flujos de trabajo de CI/CD
 
@@ -53,7 +52,7 @@ Para habilitar exámenes de vulnerabilidades de imágenes en los flujos de traba
 
 ### <a name="step-1-enable-the-cicd-integration-in-defender-for-cloud"></a>Paso 1. Habilitación de la integración de CI/CD en Defender for Cloud
 
-1. En el menú Defender for Cloud, seleccione **Parámetros del entorno**.
+1. En el menú de Defender for Cloud, abra **Parámetros del entorno**.
 1. Seleccione la suscripción correspondiente.
 1. En la barra lateral de la página de configuración de esa suscripción, seleccione **Integraciones**.
 1. En el panel que aparece, seleccione una cuenta de Application Insights para insertar los resultados del examen de CI/CD del flujo de trabajo.
@@ -142,4 +141,4 @@ Para habilitar exámenes de vulnerabilidades de imágenes en los flujos de traba
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre [los planes de protección avanzados de Microsoft Defender](defender-for-cloud-introduction.md).
+Obtenga más información sobre [los planes de protección avanzados de Microsoft Defender](defender-for-cloud-introduction.md).

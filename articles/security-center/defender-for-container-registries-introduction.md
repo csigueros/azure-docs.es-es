@@ -7,13 +7,12 @@ ms.date: 10/04/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 19c15600e97439201a7eceb605d6cb23339a8dc5
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 627ac6bacbd9d6f1c3649229bd29bbcd27d3e93b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131056079"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131463836"
 ---
 # <a name="introduction-to-microsoft-defender-for-container-registries"></a>Introducción a Microsoft Defender para registros de contenedor
 
@@ -41,9 +40,9 @@ Defender para nube identifica registros de ACR basados en Azure Resource Manager
 
 **Microsoft Defender para registros de contenedor** incluye un detector de vulnerabilidades para examinar las imágenes de los registros de Azure Container Registry basados en Azure Resource Manager y proporciona una mayor visibilidad de las vulnerabilidades de las imágenes. El detector integrado lo proporciona el proveedor de análisis de vulnerabilidades líder del sector, Qualys.
 
-Cuando se encuentran problemas (por Qualys o Defender para la nube), se le notificará en el panel de protección de cargas de trabajo. Por cada vulnerabilidad, Defender para nube proporciona recomendaciones útiles, junto con una clasificación de gravedad e información sobre cómo corregir el problema. Para más información sobre las recomendaciones de Defender para nube para los contenedores, consulte la [lista de recomendaciones de referencia](recommendations-reference.md#recs-container).
+Cuando se encuentran problemas (por Qualys o Defender para la nube), se le notificará en el panel de protección de cargas de trabajo. Por cada vulnerabilidad, Defender para nube proporciona recomendaciones útiles, junto con una clasificación de gravedad e información sobre cómo corregir el problema. Para más información sobre las recomendaciones de Defender para la nube para los contenedores, consulte la [lista de recomendaciones de referencia](recommendations-reference.md#recs-container).
 
-Defender para nube filtra y clasifica los resultados del análisis. Cuando una imagen es correcta, Defender para nube la marca como tal. Defender para nube solo genera recomendaciones de seguridad para las imágenes que tienen incidencias sin resolver. Defender para nube proporciona detalles de cada vulnerabilidad detectada y una clasificación de gravedad. Asimismo, ofrece instrucciones sobre cómo corregir las vulnerabilidades específicas encontradas en cada imagen.
+Defender para la nube filtra y clasifica los resultados del análisis. Cuando una imagen es correcta, Defender para la nube la marca como tal. Defender para nube solo genera recomendaciones de seguridad para las imágenes que tienen incidencias sin resolver. Defender para nube proporciona detalles de cada vulnerabilidad detectada y una clasificación de gravedad. Asimismo, ofrece instrucciones sobre cómo corregir las vulnerabilidades específicas encontradas en cada imagen.
 
 Al enviar notificaciones solo cuando hay problemas, Defender para nube reduce las alertas informativas no deseadas.
 
@@ -83,7 +82,7 @@ A continuación se muestra un diagrama detallado de los componentes y las ventaj
 ### <a name="how-does-defender-for-cloud-scan-an-image"></a>¿Cómo analiza Defender para nube una imagen?
 Defender para nube extrae la imagen del registro y la ejecuta en un espacio aislado con el detector de Qualys. El detector extrae una lista de vulnerabilidades conocidas.
 
-Defender para nube filtra y clasifica los resultados del análisis. Cuando una imagen es correcta, Defender para nube la marca como tal. Defender para nube solo genera recomendaciones de seguridad para las imágenes que tienen incidencias sin resolver. Al enviar notificaciones solo cuando hay problemas, Defender para nube reduce las alertas informativas no deseadas.
+Defender para nube filtra y clasifica los resultados del análisis. Cuando una imagen es correcta, Defender para la nube la marca como tal. Defender para nube solo genera recomendaciones de seguridad para las imágenes que tienen incidencias sin resolver. Al enviar notificaciones solo cuando hay problemas, Defender para nube reduce las alertas informativas no deseadas.
 
 ### <a name="can-i-get-the-scan-results-via-rest-api"></a>¿Se pueden obtener los resultados del examen mediante la API REST?
 Sí. Los resultados se encuentran en [API REST de valoración secundaria](/rest/api/securitycenter/subassessments/list/). Asimismo, puede usar Azure Resource Graph (ARG), la API similar a Kusto para todos los recursos: una consulta puede recuperar un análisis específico.

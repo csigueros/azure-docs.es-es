@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 09/24/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cfa2c8b029a8c8267249907d3f67582a2a38c139
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 4344d8c12c139c428f44d417ccde2c5e950ed307
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129272109"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131477179"
 ---
 # <a name="update-azure-powershell-modules-in-automation"></a>Actualización de módulos de Azure PowerShell en Automation
 
@@ -39,8 +39,9 @@ Actualmente, la actualización de módulos de Azure solo está disponible median
 1. En  **Recursos compartidos**, seleccione  **Módulos**.
 1. Seleccione la opción de  **actualización de los módulos de Azure**.
 1. Seleccione el **módulo que se va a actualizar**. De forma predeterminada, se mostrará el módulo de Azure.  
-1. En la lista desplegable, seleccione la **versión del módulo**.
+1. En la lista desplegable, seleccione **Versión del módulo** y **Versión de Runtype**.
 1. Seleccione **Actualizar** para actualizar el módulo de Azure a la versión que ha seleccionado.
+   En la página **Módulos**, puede ver la lista tal como se muestra a continuación:
 
    :::image type="content" source="./media/automation-update-azure-modules/update-az-modules-portal.png" alt-text="Página de actualización de módulos de Azure con las selecciones":::
 

@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 07/01/2021
+ms.date: 09/24/2021
 ms.author: alkohli
-ms.openlocfilehash: c772d2722c90cefb99c9f2fdd111e2d654d11659
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: c6b9a5e808266133f1fa6698fb3016bf9a2b1861
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113279911"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131253093"
 ---
 El tamaño de la máquina virtual determina la cantidad de recursos de proceso (como memoria, CPU y GPU) que están disponibles para la máquina virtual. Debe crear máquinas virtuales con un tamaño adecuado para la carga de trabajo. Aunque todas las máquinas se ejecutarán en el mismo hardware, los tamaños de máquina tienen límites diferentes para el acceso al disco, lo que puede ayudarle a administrar el acceso total al disco en todas las máquinas virtuales. Si una carga de trabajo aumenta, también se puede cambiar el tamaño de una máquina virtual existente.
 
@@ -46,6 +46,7 @@ Se admiten las siguientes máquinas virtuales para la creación en un dispositiv
 
 Para obtener más información, vea [Series Dv2 y Dsv2](../articles/virtual-machines/dv2-dsv2-series.md#dv2-series).
 
+
 ### <a name="ncast4_v3-series-preview"></a>NCasT4_v3-series (versión preliminar)
 
 Estos tamaños se admiten en las máquinas virtuales de GPU incluidas en el dispositivo y están optimizados para aplicaciones con aceleración de GPU de proceso intensivo. Esta serie se centra en las cargas de trabajo de inferencia que incluyen la GPU Tesla T4 de NVIDIA.
@@ -75,3 +76,24 @@ Estas series están optimizadas para cargas de trabajo de cálculo y se ejecutan
 | **Standard_F16s**  | 16      | 32           | 64                  | 2000                           | 64000                               | 2300                             | 64              | 8         |
 
 Para obtener más información, vea [Serie Fsv2](../articles/virtual-machines/fsv2-series.md).
+
+### <a name="high-performance-network-vms"></a>Máquinas virtuales de red de alto rendimiento
+
+Las máquinas virtuales de red de alto rendimiento (HPN) están adaptadas a cargas de trabajo que requieren un rendimiento rápido e ininterrumpido mediante interfaces de red de alta velocidad. Debido a la naturaleza del emparejamiento lógico de núcleos, los tamaños de máquina virtual admitidos tienen el número de vCpu en múltiplos de 2.  
+
+#### <a name="hpn-dsv2-series"></a>HPN de la serie DSv2
+
+| Size              | vCPU  | Memoria (GiB)  | Almacenamiento temporal (GiB)  | Rendimiento de discos del SO máx. (IOPS)  | Rendimiento máximo de almacenamiento temporal (IOPS)  | Rendimiento de discos de datos máx. (IOPS)  | Discos de datos máx.  | Nº máx. NIC  |
+|-------------------|-------|---------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|
+| **Standard_DS2_v2_HPN**   | 2     | 7             | 14                  | 2000                           | 8000                                | 2300                             | 8               | 4         |
+| **Standard_DS3_v2_HPN**   | 4     | 14            | 28                  | 2000                           | 16000                               | 2300                             | 16              | 4         |
+| **Standard_DS4_v2_HPN**   | 8     | 28            | 56                  | 2000                           | 32000                               | 2300                             | 32              | 8         |
+
+#### <a name="hpn-f-series"></a>HPN de la serie F
+
+| Size           | vCPU  | Memoria: GiB  | Almacenamiento temporal (GiB)  | Rendimiento de discos del SO máx. (IOPS)  | Rendimiento máximo de almacenamiento temporal (IOPS)  | Rendimiento de discos de datos máx. (IOPS)  | Discos de datos máx.  | Nº máx. NIC  |
+|----------------|---------|--------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|
+| **Standard_F2s_HPN**   | 2       | 4            | 8                   | 2000                           | 8000                                | 2300                             | 8               | 4         |
+| **Standard_F4s_HPN**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 4         |
+| **Standard_F8s_HPN**   | 8       | 16           | 32                  | 2000                           | 32000                               | 2300                             | 32              | 8         |
+| **Standard_F16s_HPN**  | 16      | 32           | 64                  | 2000                           | 64000                               | 2300                             | 64              | 8         |

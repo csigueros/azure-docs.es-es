@@ -3,21 +3,21 @@ title: 'Introducción a Speaker Recognition: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Speaker Recognition proporciona algoritmos que comprueban e identifican a los hablantes por sus características de voz únicas mediante la biometría de la voz. Speaker Recognition se usa para responder a la pregunta "¿quién está hablando?". En este artículo encontrará información general sobre las ventajas y las funcionalidades del servicio Speaker Recognition.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.author: pafarley
+ms.author: eur
 ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 keywords: speaker recognition, reconocimiento del hablante, biometría de voz
-ms.openlocfilehash: 44772137d9b9e3366a2a04fded34fa81dafe8886
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 4096e04678c3ce0b10ac54a190f3074525469b54
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131058395"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131509464"
 ---
 # <a name="what-is-speaker-recognition"></a>¿Qué es Speaker Recognition?
 

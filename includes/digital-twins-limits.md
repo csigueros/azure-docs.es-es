@@ -3,14 +3,14 @@ author: baanders
 description: incluir archivo para límites de Azure Digital Twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 4/8/2021
+ms.date: 10/20/2021
 ms.author: baanders
-ms.openlocfilehash: fae919afc12afd5a6169dd119b57ae72ae7c14f0
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 9c64606f4816491da803d2c5116ff4ad248ec29a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114472884"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130287257"
 ---
 ### <a name="functional-limits"></a>Límites funcionales
 
@@ -22,11 +22,13 @@ En la tabla siguiente se enumeran los límites funcionales de Azure Digital Twin
 | Área | Capacidad | Límite predeterminado | ¿Ajustable? |
 | --- | --- | --- | --- |
 | Recurso de Azure | Número de instancias de Azure Digital Twins en una región por suscripción | 10 | Sí |
-| Gemelos digitales | Número de gemelos de una instancia de Azure Digital Twins | 200 000 | Sí |
+| Gemelos digitales | Número de gemelos de una instancia de Azure Digital Twins | 500.000 | Sí |
 | Gemelos digitales | Número de relaciones entrantes en un solo gemelo | 5\.000 | No |
 | Gemelos digitales | Número de relaciones de salida de un solo gemelo | 5\.000 | No |
 | Gemelos digitales | Tamaño máximo (del cuerpo JSON en una solicitud PUT o PATCH) de un solo gemelo | 32 KB | No |
 | Gemelos digitales | Tamaño máximo de carga de solicitud | 32 KB | No | 
+| Gemelos digitales | Tamaño máximo de un valor de propiedad de cadena (UTF-8) | 4 KB | No|
+| Gemelos digitales | Tamaño máximo de un nombre de propiedad | 1 KB | No| 
 | Enrutamiento | Número de puntos de conexión de una instancia de Azure Digital Twins | 6 | No |
 | Enrutamiento | Número de rutas de una instancia de Azure Digital Twins | 6 | Sí |
 | Modelos | Número de modelos de una instancia de Azure Digital Twins | 10 000 | Sí |

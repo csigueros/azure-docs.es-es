@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/18/2021
 ms.author: jianleishen
-ms.openlocfilehash: 4b21aa5d63f371749081d7bc71577c7d0f5a2d49
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3542ddd7a3276d0ba5b7aaac591f4d4ff936cd86
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124787686"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238970"
 ---
 # <a name="delimited-text-format-in-azure-data-factory-and-azure-synapse-analytics"></a>Formato de texto delimitado en Azure Data Factory y Azure Synapse Analytics
 
@@ -22,7 +22,21 @@ ms.locfileid: "124787686"
 
 Siga este artículo cuando quiera **analizar los archivos de texto delimitado o escribir los datos en formato de texto delimitado**. 
 
-El formato de texto delimitado se admite para los conectores siguientes: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [Sistema de archivos](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) y [SFTP](connector-sftp.md).
+El formato de texto delimitado se admite para los conectores siguientes: 
+
+- [Amazon S3](connector-amazon-simple-storage-service.md)
+- [Almacenamiento compatible con Amazon S3](connector-amazon-s3-compatible-storage.md)
+- [Azure Blob](connector-azure-blob-storage.md)
+- [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
+- [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
+- [Archivos de Azure](connector-azure-file-storage.md)
+- [Sistema de archivos](connector-file-system.md)
+- [FTP](connector-ftp.md)
+- [Google Cloud Storage](connector-google-cloud-storage.md)
+- [HDFS](connector-hdfs.md)
+- [HTTP](connector-http.md)
+- [Oracle Cloud Storage](connector-oracle-cloud-storage.md)
+- [SFTP](connector-sftp.md)
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 
@@ -143,7 +157,7 @@ En la sección ***\*sink\**** de la actividad de copia se admiten las siguientes
 
 ## <a name="mapping-data-flow-properties"></a>Propiedades de Asignación de instancias de Data Flow
 
-En los flujos de datos de asignación, puede leer y escribir en formato de texto delimitado en los siguientes almacenes de datos: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) y [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
+En los flujos de datos de asignación, puede leer y escribir en formato de texto delimitado en los siguientes almacenes de datos: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) y [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties), y puede leer el formato de texto delimitado de [Amazon S3](connector-amazon-simple-storage-service.md#mapping-data-flow-properties).
 
 ### <a name="source-properties"></a>Propiedades de origen
 
@@ -208,6 +222,21 @@ CSVSource sink(allowSchemaDrift: true,
     skipDuplicateMapInputs: true,
     skipDuplicateMapOutputs: true) ~> CSVSink
 ```
+
+## <a name="related-connectors-and-formats"></a>Conectores y formatos relacionados
+
+Estos son algunos conectores y formatos comunes relacionados con el formato de texto delimitado:
+
+- Azure Blob Storage (connector-azure-blob-storage.md)
+- Formato binario (format-binary.md)
+- Dataverse (connector-dynamics-crm-office-365.md)
+- Formato Delta (format-delta.md)
+- Formato Excel (format-excel.md)
+- Sistema de archivos (connector-file-system.md)
+- FTP (connector-ftp.md)
+- HTTP (connector-http.md)
+- Formato JSON (format-json.md)
+- Formato Parquet (format-parquet.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

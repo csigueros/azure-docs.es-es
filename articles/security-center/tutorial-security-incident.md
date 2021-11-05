@@ -9,13 +9,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: ac1a72efe9d71725e27162ee19fc3b8b02645023
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 7053bcc1e28eeb262dda8833ddf98806aae770b5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131014290"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131472112"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Tutorial: Evaluación de prioridades, investigación y respuesta a alertas de seguridad
 
@@ -107,7 +106,7 @@ Otras guías de inicio rápido y tutoriales de esta colección se basan en los v
 
 Si no tiene previsto continuar o desea deshabilitar cualquiera de estas características:
 
-1. En el menú de Defender for Cloud, seleccione **Environment settings** (Configuración del entorno).
+1. En el menú de Defender for Cloud, abra **Parámetros del entorno**.
 1. Seleccione la suscripción correspondiente.
 1. Seleccione **Defender plans** (Planes de Defender) y, después, **Enhanced security off** (Seguridad mejorada desactivada).
 
@@ -118,7 +117,7 @@ Si no tiene previsto continuar o desea deshabilitar cualquiera de estas caracter
     > [!NOTE]
     > Después de deshabilitar las características de seguridad mejoradas (tanto si deshabilita un plan único como todos los planes a la vez) la recopilación de datos podrá continuar durante un breve período de tiempo. 
 
-1. En el menú de Defender for Cloud, seleccione **Environment settings** (Configuración del entorno).
+1. En el menú de Defender for Cloud, abra **Parámetros del entorno**.
 1. Seleccione la suscripción correspondiente.
 1. Seleccione **Aprovisionamiento automático**.
 1. Deshabilite las extensiones pertinentes.

@@ -7,13 +7,12 @@ ms.date: 05/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 8fd35ef089ad581d596d2958191dd43816441841
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 8c5885b12c612a6a6171c90f73363d3c99c66211
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131056057"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131463817"
 ---
 # <a name="introduction-to-microsoft-defender-for-open-source-relational-databases"></a>Introducción a Microsoft Defender para bases de datos relacionales de código abierto
 

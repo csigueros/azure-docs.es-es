@@ -1,22 +1,25 @@
 ---
-title: Respuesta a las alertas de Azure Defender para Resource Manager
-description: Obtenga información sobre los pasos necesarios para responder a las alertas de Azure Defender para Resource Manager
+title: Respuesta a las alertas de Microsoft Defender para Resource Manager
+description: Obtenga información sobre los pasos necesarios para responder a las alertas de Microsoft Defender para Resource Manager.
 author: memildin
 ms.author: memildin
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 54790795aab8aac247e17198159130d7139dd38c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 7aa0dda56474b33175823cd2db331d136551760b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96754547"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131009707"
 ---
-# <a name="respond-to-azure-defender-for-resource-manager-alerts"></a>Respuesta a las alertas de Azure Defender para Resource Manager
+# <a name="respond-to-microsoft-defender-for-resource-manager-alerts"></a>Respuesta a las alertas de Microsoft Defender para Resource Manager
 
-Cuando reciba una alerta de Azure Defender para Resource Manager, se recomienda investigar y responder a la alerta, tal y como se describe a continuación. Azure Defender para Resource Manager protege todos los recursos conectados, por lo que, incluso si está familiarizado con la aplicación o el usuario que desencadenó la alerta, es importante comprobar la situación relativa a cada alerta.  
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+Cuando reciba una alerta de Microsoft Defender para Resource Manager, se recomienda investigar y responder a la alerta, tal y como se describe a continuación. Microsoft Defender para Resource Manager protege todos los recursos conectados, por lo que, incluso si está familiarizado con la aplicación o el usuario que desencadenó la alerta, es importante comprobar la situación relativa a cada alerta.  
 
 
 ## <a name="step-1-contact"></a>Paso 1. Contacto
@@ -36,7 +39,7 @@ Cuando reciba una alerta de Azure Defender para Resource Manager, se recomienda 
     - Quite los runbooks con los que no esté familiarizado de la cuenta de Automation en peligro
     - Revise los permisos de IAM de la suscripción y quite los permisos para las cuentas de usuario que resulten familiares
     - Revise todos los recursos de Azure en la suscripción y elimine los que no estén familiarizados
-    - Revise e investigue las alertas de seguridad de la suscripción en Azure Security Center
+    - Revise e investigue las alertas de seguridad de la suscripción en Microsoft Defender for Cloud.
     - Use registros de actividad de Azure para revisar todas las actividades realizadas en la suscripción e identifique las que sean sospechosas
 
 1. Corrija las máquinas virtuales que están en peligro
@@ -47,8 +50,8 @@ Cuando reciba una alerta de Azure Defender para Resource Manager, se recomienda 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta página se explica el proceso de respuesta a una alerta de Azure Defender para Resource Manager. Para obtener información relacionada, consulte las páginas siguientes:
+En esta página se explica el proceso de respuesta a una alerta de Microsoft Defender para Resource Manager. Para obtener información relacionada, consulte las páginas siguientes:
 
-- [Introducción a Azure Defender para Resource Manager](defender-for-resource-manager-introduction.md)
-- [Eliminación de alertas de Azure Defender](alerts-suppression-rules.md)
-- [Exportación continua de alertas y recomendaciones de seguridad](continuous-export.md)
+- [Introducción a Microsoft Defender para Resource Manager](defender-for-resource-manager-introduction.md)
+- [Eliminación de alertas de seguridad](alerts-suppression-rules.md)
+- [Exportación continua de datos de Defender for Cloud](continuous-export.md)

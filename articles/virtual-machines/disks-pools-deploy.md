@@ -4,15 +4,16 @@ description: Aprenda a implementar un grupo de discos de Azure.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/29/2021
+ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 72a25b6bc51732ac9b598cbcb6b45f9ac84fc21b
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 7230bf83f5ca203aa40cb043b3ea02d983ba7a4a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129351053"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131022199"
 ---
 # <a name="deploy-an-azure-disk-pool-preview"></a>Implementación de un grupo de discos de Azure (versión preliminar)
 
@@ -64,8 +65,9 @@ Para más información sobre la delegación de subred, consulte [Agregar o quita
 Para que un disco pueda usarse en un grupo de discos, debe cumplir los siguientes requisitos:
 
 - Se debe haber asignado al proveedor de recursos **StoragePool** un rol RBAC que contenga los permisos de **Lectura** y **Escritura** de todos los discos administrados del grupo de discos.
-- Debe ser un disco SSD prémium o Ultra en la misma zona de disponibilidad que el grupo de discos.
+- Debe ser un disco SSD Prémium, SSD Estándar o Ultra en la misma zona de disponibilidad que el grupo de discos.
     - En el caso de los discos Ultra, debe tener un tamaño de sector de disco de 512 bytes.
+- No se pueden configurar grupos de discos para que contengan discos SSD prémium/estándar y Ultra al mismo tiempo. Un grupo de discos configurado para discos Ultra solo puede contener discos Ultra. Del mismo modo, un grupo de discos configurado para discos SSD premium o estándar solo puede contener discos SSD premium y estándar.
 - Debe ser un disco compartido con un valor de maxShares de dos o más.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
@@ -98,10 +100,11 @@ Para obtener un rendimiento óptimo, implemente el grupo de discos en la misma z
 
 Para agregar un disco, debe cumplir los siguientes requisitos:
 
-- Debe ser un disco SSD prémium o Ultra en la misma zona de disponibilidad que el grupo de discos.
-    - Actualmente, solo puede agregar discos SSD prémium en el portal. Los discos Ultra deben agregarse con el módulo de Azure PowerShell o la CLI de Azure.
+- Debe ser un disco SSD Prémium, SSD Estándar o Ultra en la misma zona de disponibilidad que el grupo de discos.
+    - Actualmente, solo puede agregar discos SSD prémium y estándar en el portal. Los discos Ultra deben agregarse con el módulo de Azure PowerShell o la CLI de Azure.
     - En el caso de los discos Ultra, debe tener un tamaño de sector de disco de 512 bytes.
 - Debe ser un disco compartido con un valor de maxShares de dos o más.
+- No se pueden configurar grupos de discos para que contengan discos SSD prémium/estándar y Ultra al mismo tiempo. Un grupo de discos configurado para discos Ultra solo puede contener discos Ultra. Del mismo modo, un grupo de discos configurado para discos SSD premium o estándar solo puede contener discos SSD premium y estándar.
 - Debe conceder permisos de RBAC al proveedor de recursos del grupo de discos para administrar el disco que planea agregar.
 
 Si el disco cumple estos requisitos, puede agregarlo a un grupo de discos seleccionando **+Agregar disco** en el panel del grupo de discos.
@@ -113,7 +116,6 @@ Si el disco cumple estos requisitos, puede agregarlo a un grupo de discos selecc
 1. Seleccione el panel **iSCSI**.
 1. Seleccione **Habilitar iSCSI**.
 1. Escriba el nombre del destino iSCSI, el IQN de destino iSCSI se generará en función de este nombre.
-    - Si desea deshabilitar el destino iSCSI para un disco individual, seleccione **Deshabilitar** en **Estado** de un disco individual.
     - El modo ACL se establece en **Dinámico** de forma predeterminada. Para usar el grupo de discos como una solución de almacenamiento de Azure VMware Solution, el modo ACL debe establecerse en **Dinámico**.
 1. Seleccione **Revisar + crear**.
 
@@ -131,7 +133,7 @@ Reemplace las variables de este script por sus propias variables antes de ejecut
 
 ```azurepowershell
 # Install the required module for Disk Pool
-Install-Module -Name Az.DiskPool -RequiredVersion 0.1.1 -Repository PSGallery
+Install-Module -Name Az.DiskPool -RequiredVersion 0.3.0 -Repository PSGallery
 
 # Sign in to the Azure account and setup the variables
 $subscriptionID = "<yourSubID>"
@@ -155,7 +157,8 @@ $rpId = (Get-AzADServicePrincipal -SearchString "StoragePool Resource Provider")
 New-AzRoleAssignment -ObjectId $rpId -RoleDefinitionName "Virtual Machine Contributor" -Scope $scopeDef
 
 # Create a Disk Pool
-New-AzDiskPool -Name $diskPoolName -ResourceGroupName $resourceGroupName -Location $location -SubnetId $subnetId -AvailabilityZone $availabilityZone -SkuName Standard
+# If you want to create a disk pool configured for ultra disks, add -AdditionalCapability "DiskPool.Disk.Sku.UltraSSD_LRS" to the command
+New-AzDiskPool -Name $diskPoolName -ResourceGroupName $resourceGroupName -Location $location -SubnetId $subnetId -AvailabilityZone $availabilityZone -SkuName Standard_S1
 $diskpool = Get-AzDiskPool -ResourceGroupName $resourceGroupName -Name $DiskPoolName
 
 # Add disks to the Disk Pool
@@ -185,7 +188,7 @@ Reemplace las variables de este script por sus propias variables antes de ejecut
 # Add disk pool CLI extension
 az extension add -n diskpool
 
-#az extension add -s https://zuhdefault.blob.core.windows.net/cliext/diskpool-0.1.1-py3-none-any.whl
+#az extension add -s https://azcliprod.blob.core.windows.net/cli-extensions/diskpool-0.2.0-py3-none-any.whl
 
 #Select subscription
 az account set --subscription "<yourSubscription>"
@@ -210,13 +213,14 @@ storagePoolObjectId="${storagePoolObjectId#"}"
 
 az role assignment create --assignee-object-id $storagePoolObjectId --role "Virtual Machine Contributor" --resource-group $resourceGroupName
 
-#Create a disk pool 
+#Create a disk pool
+#To create a disk pool configured for ultra disks, add --additional-capabilities "DiskPool.Disk.Sku.UltraSSD_LRS" to your command
 az disk-pool create --name $diskPoolName \
 --resource-group $resourceGroupName \
 --location $location \
 --availability-zones $zone \
 --subnet-id $subnetId \
---sku name="Standard"
+--sku name="Standard_S1" \
 
 #Initialize an iSCSI target. You can have 1 iSCSI target per disk pool
 az disk-pool iscsi-target create --name $targetName \

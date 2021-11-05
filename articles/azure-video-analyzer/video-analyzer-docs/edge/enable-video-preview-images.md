@@ -2,14 +2,14 @@
 title: Habilitación de imágenes de vista previa
 description: En este artículo se explica cómo habilitar y acceder a imágenes de vista previa al grabar vídeo con Azure Video Analyzer
 ms.topic: how-to
-ms.date: 11/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: ed3ebeffb70b592c1a81e8ec7871a662f7b856bd
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: dd78a3753f61fe5615f15a41d1b1493556d0dafc
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131090924"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131559435"
 ---
 # <a name="enable-preview-images-when-recording-video"></a>Habilitación de imágenes de vista previa al grabar vídeo
 

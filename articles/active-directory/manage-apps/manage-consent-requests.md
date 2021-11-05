@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/25/2021
 ms.author: davidmu
 ms.reviewer: phsignor
-ms.openlocfilehash: 5de11c8f853d471ad616ff0a9df4d01acb896c3f
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: de4553fae64801ae029a01e218658e847d5acb03
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129619811"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131066945"
 ---
 # <a name="manage-consent-to-applications-and-evaluate-consent-requests-in-azure-active-directory"></a>Administración del consentimiento en las aplicaciones y evaluación de las solicitudes de consentimiento en Azure Active Directory
 
@@ -100,7 +100,7 @@ Consulte [Concesión del consentimiento del administrador para todo el inquilino
 
 ### <a name="granting-consent-on-behalf-of-a-specific-user"></a>Concesión de consentimiento en nombre de un usuario específico
 
-En lugar de conceder el consentimiento para toda la organización, un administrador también puede usar [Microsoft Graph API](/graph/use-the-api) para conceder consentimiento a los permisos delegados en nombre de un solo usuario. Para más información, consulte [Obtener acceso en nombre de un usuario](/graph/auth-v2-user).
+En lugar de conceder el consentimiento para toda la organización, un administrador también puede usar [Microsoft Graph API](/graph/use-the-api) para conceder consentimiento a los permisos delegados en nombre de un solo usuario. Para obtener un ejemplo detallado del uso de Microsoft Graph PowerShell, consulte [Concesión de consentimiento en nombre de un solo usuario mediante PowerShell](#grant-consent-on-behalf-of-a-single-user-using-powershell).
 
 ## <a name="limiting-user-access-to-applications"></a>Limitación del acceso de los usuarios a las aplicaciones
 
@@ -120,6 +120,88 @@ Para deshabilitar todas las operaciones de consentimiento de usuario futuras en 
 4. Seleccione **Aplicaciones empresariales** y después **Configuración de usuario** en la sección **Administrar**.
 :::image type="content" source="media/manage-consent-requests/disable-user-consent-operations.png" alt-text="Deshabilitación de las operaciones de consentimiento del usuario para todas las aplicaciones.":::
 5. Deshabilite todas las operaciones de consentimiento de usuario futuras; para ello, establezca la opción **Users can consent to apps accessing company data on their behalf** (Los usuarios pueden permitir que las aplicaciones accedan a los datos de la compañía en su nombre) en **No** y haga clic en el botón **Guardar**.
+
+## <a name="grant-consent-on-behalf-of-a-single-user-using-powershell"></a>Concesión de consentimiento en nombre de un solo usuario mediante PowerShell
+
+Cuando un usuario concede consentimiento en nombre propio, ocurre lo siguiente:
+
+1. Se crea una entidad de servicio para la aplicación cliente, si aún no existe. Una entidad de servicio es la instancia de una aplicación o un servicio, en el inquilino de Azure AD. El acceso concedido a la aplicación o servicio está asociado a este objeto de entidad de servicio.
+1. Para cada API a la que la aplicación requiere acceso, se crea una concesión de permisos delegados para los permisos que necesita la aplicación para esa API, para el acceso en nombre del usuario. Una concesión de permisos delegados autoriza a una aplicación a acceder a una API en nombre de un usuario, cuando ese usuario ha iniciado sesión.
+1. Al usuario se le asigna la aplicación cliente. La asignación de la aplicación al usuario garantiza que la aplicación aparezca en el portal de [Mis aplicaciones](my-apps-deployment-plan.md) de ese usuario, lo que le permite revisar y revocar el acceso concedido en su nombre.
+
+Para realizar manualmente los pasos equivalentes a la concesión de consentimiento a una aplicación en nombre de un usuario, necesitará los siguientes detalles:
+
+* El id. de aplicación de la aplicación a la que va a conceder consentimiento (la llamaremos "aplicación cliente").
+* Los permisos de API requeridos por la aplicación cliente. Deberá conocer el id. de la aplicación de la API y los id. de permiso o los valores de notificación.
+* El nombre de usuario o el id. de objeto del usuario en nombre del que se concederá acceso.
+
+En el ejemplo siguiente, usaremos [Microsoft Graph PowerShell](/graph/powershell/get-started) para realizar los tres pasos indicados anteriormente para conceder consentimiento en nombre de un solo usuario. En este ejemplo, la aplicación cliente será [Microsoft Graph Explorer](https://aka.ms/ge) y se concederá acceso a Microsoft Graph API.
+
+```powershell
+# The app for which consent is being granted. In this example, we're granting access
+# to Microsoft Graph Explorer, an application published by Microsoft.
+$clientAppId = "de8bc8b5-d9f9-48b1-a8ad-b748da725064" # Microsoft Graph Explorer
+
+# The API to which access will be granted. Microsoft Graph Explorer makes API 
+# requests to the Microsoft Graph API, so we'll use that here.
+$resourceAppId = "00000003-0000-0000-c000-000000000000" # Microsoft Graph API
+
+# The permissions to grant. Here we're including "openid", "profile", "User.Read"
+# and "offline_access" (for basic sign-in), as well as "User.ReadBasic.All" (for 
+# reading other users' basic profile).
+$permissions = @("openid", "profile", "offline_access", "User.Read", "User.ReadBasic.All")
+
+# The user on behalf of who access will be granted. The app will be able to access 
+# the API on behalf of this user.
+$userUpnOrId = "user@example.com"
+
+# Step 0. Connect to Microsoft Graph PowerShell. We need User.ReadBasic.All to get
+#    users' IDs, Application.ReadWrite.All to list and create service principals, 
+#    DelegatedPermissionGrant.ReadWrite.All to create delegated permission grants, 
+#    and AppRoleAssignment.ReadWrite.All to assign an app role.
+#    WARNING: These are high-privilege permissions!
+Connect-MgGraph -Scopes ("User.ReadBasic.All Application.ReadWrite.All " `
+                        + "DelegatedPermissionGrant.ReadWrite.All " `
+                        + "AppRoleAssignment.ReadWrite.All")
+
+# Step 1. Check if a service principal exists for the client application. 
+#     If one does not exist, create it.
+$clientSp = Get-MgServicePrincipal -Filter "appId eq '$($clientAppId)'"
+if (-not $clientSp) {
+   $clientSp = New-MgServicePrincipal -AppId $clientAppId
+}
+
+# Step 2. Create a delegated permission grant granting the client app access to the
+#     API, on behalf of the user. (This example assumes that an existing delegated 
+#     permission grant does not already exist, in which case it would be necessary 
+#     to update the existing grant, rather than create a new one.)
+$user = Get-MgUser -UserId $userUpnOrId
+$resourceSp = Get-MgServicePrincipal -Filter "appId eq '$($resourceAppId)'"
+$scopeToGrant = $permissions -join " "
+$grant = New-MgOauth2PermissionGrant -ResourceId $resourceSp.Id `
+                                     -Scope $scopeToGrant `
+                                     -ClientId $clientSp.Id `
+                                     -ConsentType "Principal" `
+                                     -PrincipalId $user.Id
+
+# Step 3. Assign the app to the user. This ensure the user can sign in if assignment
+#     is required, and ensures the app shows up under the user's My Apps.
+if ($clientSp.AppRoles | ? { $_.AllowedMemberTypes -contains "User" }) {
+    Write-Warning ("A default app role assignment cannot be created because the " `
+                 + "client application exposes user-assignable app roles. You must " `
+                 + "assign the user a specific app role for the app to be listed " `
+                 + "in the user's My Apps access panel.")
+} else {
+    # The app role ID 00000000-0000-0000-0000-000000000000 is the default app role
+    # indicating that the app is assigned to the user, but not for any specific 
+    # app role.
+    $assignment = New-MgServicePrincipalAppRoleAssignedTo `
+          -ServicePrincipalId $clientSp.Id `
+          -ResourceId $clientSp.Id `
+          -PrincipalId $user.Id `
+          -AppRoleId "00000000-0000-0000-0000-000000000000"
+}
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

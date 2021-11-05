@@ -1,39 +1,45 @@
 ---
-title: Registro y análisis de una base de datos de Azure Database for MySQL
-description: En este artículo se describe cómo registrar y digitalizar una base de datos de Azure MySQL en Azure Purview.
+title: Conexión y administración de Azure MySQL Database
+description: En esta guía se describe cómo conectarse a Azure MySQL Database en Azure Purview y usar las características de Purview para examinar y administrar el origen de Azure MySQL Database.
 author: evwhite
 ms.author: evwhite
 ms.service: purview
 ms.subservice: purview-data-map
-ms.topic: tutorial
-ms.date: 09/27/2021
-ms.openlocfilehash: 8f4a5480b76e03a57ff810c88a0a1660ae561071
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.topic: how-to
+ms.date: 11/02/2021
+ms.custom: template-how-to, ignite-fall-2021
+ms.openlocfilehash: bdb96c3e1de3062426b87fe702d7694890fca44f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129209874"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131015055"
 ---
-# <a name="register-and-scan-an-azure-mysql-database"></a>Registro y análisis de una base de datos de Azure Database for MySQL
+# <a name="connect-to-and-manage-azure-mysql-databases-in-azure-purview"></a>Conexión y administración de instancias de Azure MySQL Database en Azure Purview
 
-En este artículo se describe cómo registrar y examinar una base de datos de Azure Database for MySQL.
+En este artículo se describe cómo registrar una instancia de Azure MySQL Database y cómo autenticarse e interactuar con las instancias de Azure MySQL Database en Azure Purview. Para obtener más información sobre Azure Purview, consulte el [artículo de introducción](overview.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
-- **Exámenes completos e incrementales** para capturar metadatos y su clasificación de bases de datos de Azure Database for MySQL.
 
-- **Linaje** entre los recursos de datos de las actividades de copia y flujo de datos de ADF.
+|**Extracción de metadatos**|  **Examen completo**  |**Examen incremental**|**Examen con ámbito**|**Clasificación**|**Directiva de acceso**|**Lineage**|
+|---|---|---|---|---|---|---|
+| [Sí](#register) | [Sí](#scan)| [Sí*](#scan) | [Sí](#scan) | [Sí](#scan) | No | [Linaje de Data Factory](how-to-link-azure-data-factory.md) |
 
-### <a name="known-limitations"></a>Restricciones conocidas
-Purview solo admite la autenticación SQL para bases de datos de Azure Database for MySQL.
-
+\* Purview se basa en metadatos UPDATE_TIME de Azure Database for MySQL para los exámenes incrementales. En algunos casos, es posible que este campo no se conserve en la base de datos y se realice un examen completo. Para más información, vea [la tabla INFORMATION_SCHEMA TABLES](https://dev.mysql.com/doc/refman/5.7/en/information-schema-tables-table.html) para MySQL.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-1. Cree una cuenta de Purview si aún no tiene una.
+* Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-2. Acceso de red entre la cuenta de Purview y la base de datos de Azure Database for MySQL.
+* Un [recurso de Purview](create-catalog-portal.md) activo.
 
-### <a name="set-up-authentication-for-a-scan"></a>Configuración de la autenticación para un examen
+* Tendrá que ser administrador de orígenes de datos y lector de datos para poder registrar un origen y administrarlo en Purview Studio. Para obtener más información, consulte la [página Permisos de Azure Purview](catalog-permissions.md).
+
+## <a name="register"></a>Register
+
+En esta sección se describe cómo registrar una instancia de Azure MySQL Database en Azure Purview mediante [Purview Studio](https://web.purview.azure.com/).
+
+### <a name="authentication-for-registration"></a>Autenticación para registro
 
 En los pasos siguientes necesitará un **nombre de usuario** y una **contraseña**.
 
@@ -44,11 +50,11 @@ Siga las instrucciones del artículo [Creación de bases de datos y usuarios en 
 1. Seleccione **+ Generar/Importar** y escriba el **nombre** y el **valor** como la *contraseña* del inicio de sesión de Azure SQL Database.
 1. Seleccione **Crear** para completar la acción.
 1. Si el almacén de claves no está conectado todavía a Purview, necesitará [crear una conexión del almacén de claves](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
-1. Por último, [cree una credencial](manage-credentials.md#create-a-new-credential) de la autenticación de tipo SQL y utilice el **nombre de usuario** y la **contraseña** para configurar el examen.
+1. Por último, [cree una nueva credencial](manage-credentials.md#create-a-new-credential) del tipo Autenticación SQL y utilice el **nombre de usuario** y la **contraseña** para configurar el examen.
 
-## <a name="register-an-azure-mysql-database-data-source"></a>Registro de un origen de datos de una base de datos de Azure Database for MySQL
+### <a name="steps-to-register"></a>Pasos para registrarse
 
-Para registrar una nueva base de datos de Azure Database for MySQL en el catálogo de datos, haga lo siguiente:
+Para registrar una nueva instancia de Azure MySQL Database en el catálogo de datos, siga estos pasos:
 
 1. Vaya a la cuenta de Purview.
 
@@ -64,11 +70,15 @@ En la pantalla **Register sources (Azure MySQL Database)** (Registrar orígenes 
 
 1. Escriba el **nombre** del origen de datos. Este será el nombre para mostrar de este origen de datos en el catálogo.
 1. Seleccione **From Azure subscription** (Desde la suscripción de Azure) y la suscripción adecuada en el cuadro desplegable **Suscripción de Azure** y el servidor correspondiente en el cuadro desplegable **Nombre del servidor**.
-1. Seleccione **Registrar** para registrar el origen de datos. 
+1. Seleccione **Registrar** para registrar el origen de datos.
 
 :::image type="content" source="media/register-scan-azure-mysql/02-register-azure-mysql-name-connection.png" alt-text="Opciones de registro de orígenes" border="true":::
 
-## <a name="creating-and-running-a-scan"></a>Creación y ejecución de un examen
+## <a name="scan"></a>Examinar
+
+Siga los pasos que se indican a continuación para examinar la instancia de Azure MySQL Database para identificar los recursos y clasificar los datos de manera automática. Para obtener más información sobre el examen en general, consulte la [introducción a los exámenes y la ingesta](concept-scans-and-ingestion.md).
+
+### <a name="create-and-run-scan"></a>Creación y ejecución de un examen
 
 Para crear y ejecutar un nuevo examen, siga estos pasos:
 
@@ -100,11 +110,10 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
 
 [!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
-> [!NOTE]
-> * Al eliminar el examen, no se eliminan los recursos creados a partir de los anteriores exámenes de Azure Database for MySQL.
-> * El recurso no se volverá a actualizar con los cambios de esquema si ha cambiado la tabla de origen y se vuelve a examinar la tabla de origen después de editar la descripción en la pestaña de esquema de Purview.
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Examen del catálogo de datos de Azure Purview](how-to-browse-catalog.md)
-- [Búsqueda en el catálogo de datos de Azure Purview](how-to-search-catalog.md)
+Ahora que ha registrado el origen, siga las guías a continuación para obtener más información sobre Purview y sus datos.
+
+- [Información sobre datos en Azure Purview](concept-insights.md)
+- [Linaje en Azure Purview](catalog-lineage-user-guide.md)
+- [Búsqueda en Data Catalog](how-to-search-catalog.md)

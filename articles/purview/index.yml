@@ -9,12 +9,12 @@ metadata:
   author: whhender
   ms.author: whhender
   ms.date: 09/27/2021
-  ms.openlocfilehash: d5d523ea0473e6f4e292ca73d97b463e705a0b08
-  ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+  ms.openlocfilehash: 52e7f0fd5eb50e211bf35097c2b57ed31972740b
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/29/2021
-  ms.locfileid: "129214852"
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131023735"
 landingContent:
 - title: Acerca de Azure Purview
   linkLists:
@@ -132,6 +132,8 @@ landingContent:
       url: register-scan-google-bigquery-source.md
     - text: Examen de Amazon S3
       url: register-scan-amazon-s3.md
+    - text: Scan Amazon RDS
+      url: register-scan-amazon-rds.md
     - text: Examen de Oracle
       url: register-scan-oracle-source.md
     - text: Examen de base de datos de metastore de Hive

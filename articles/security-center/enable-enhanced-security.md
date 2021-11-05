@@ -7,13 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
 ms.date: 06/07/2021
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 44acbc3ace06af2e741b3daf5c6afe9a50a2efe0
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 689fe8336594e26c283a75b5f4dfb0026c73ef32
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030473"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441883"
 ---
 # <a name="quickstart-enable-enhanced-security-features"></a>Inicio rápido: Habilite las características de seguridad mejorada
 
@@ -71,11 +70,11 @@ Para habilitar todas las características de protección contra amenazas de Clou
 
 Si necesita deshabilitar las características de seguridad mejorada de una suscripción, el procedimiento es el mismo, pero hay que seleccionar **Seguridad mejorada desactivada**:
  
-1. En el menú de Defender for Cloud, seleccione **Environment settings** (Configuración del entorno).
+1. En el menú de Defender for Cloud, abra **Parámetros del entorno**.
 1. Seleccione la suscripción correspondiente.
-1. Seleccione **Defender plans** (Planes de Defender) y, después, **Enhanced security off**  (Seguridad mejorada desactivada).
+1. Seleccione **Defender plans** (Planes de Defender) y, después, **Enhanced security off** (Seguridad mejorada desactivada).
 
-    :::image type="content" source="./media/enable-enhanced-security/disable-plans.png" alt-text="Habilite o deshabilite las características de seguridad mejoradas de Defender for Cloud.":::
+    :::image type="content" source="./media/enable-enhanced-security/disable-plans.png" alt-text="Habilitación o deshabilitación de las características de seguridad mejoradas de Defender for Cloud.":::
 
 1. Seleccione **Guardar**.
 

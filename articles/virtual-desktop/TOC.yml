@@ -170,6 +170,8 @@
           href: start-virtual-machine-connect-faq.md
     - name: Establecimiento del modo de purga
       href: drain-mode.md
+    - name: Azure Virtual Desktop para Azure Stack HCI (versión preliminar)
+      href: azure-stack-hci.md
 - name: Conceptos
   items:
     - name: Recomendaciones de administración
@@ -228,6 +230,12 @@
           href: /security/benchmark/azure/baselines/virtual-desktop-security-baseline?context=/azure/virtual-desktop/context/context
         - name: Protección de la captura de pantalla
           href: screen-capture-protection.md
+    - name: Azure Virtual Desktop para Azure Stack HCI (versión preliminar)
+      items:
+        - name: Introducción (versión preliminar)
+          href: azure-stack-hci-overview.md
+        - name: Preguntas más frecuentes sobre Azure Stack HCI (versión preliminar)
+          href: azure-stack-hci-faq.yml
 - name: Solución de problemas
   items:
     - name: 'Información general sobre solución de problemas, comentarios y soporte técnico'

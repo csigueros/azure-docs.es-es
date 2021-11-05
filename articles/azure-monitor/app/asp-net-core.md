@@ -3,19 +3,22 @@ title: Azure Application Insights para aplicaciones de ASP.NET Core | Microsoft 
 description: Supervise la disponibilidad, el rendimiento y el uso de las aplicaciones web de ASP.NET Core.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 04/30/2020
-ms.openlocfilehash: f12385d5514d999785980622530861cd1f714ac3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 10/12/2021
+ms.openlocfilehash: 521cebd9117c1150e8c2abc2f5ff752e195a1808
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741327"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131070059"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights para aplicaciones de ASP.NET Core
 
 En este artículo se describe cómo habilitar Application Insights para una aplicación de [ASP.NET Core](/aspnet/core). Al completar las instrucciones de este artículo, Application Insights recopilará solicitudes, dependencias, excepciones, contadores de rendimiento, latidos y registros de la aplicación de ASP.NET Core.
 
 El ejemplo que vamos a usar aquí es una [aplicación de MVC](/aspnet/core/tutorials/first-mvc-app) que tiene como destino `netcoreapp3.0`. Estas instrucciones se pueden aplicar a todas las aplicaciones de ASP.NET Core. Si usa el [Servicio de trabajo](/aspnet/core/fundamentals/host/hosted-services#worker-service-template), siga las instrucciones que encontrará [aquí](./worker-service.md).
+
+> [!NOTE]
+> Hay disponible una [oferta de .NET basada en OpenTelemetry](opentelemetry-enable.md?tabs=net) en versión preliminar. [Más información](opentelemetry-overview.md).
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
@@ -488,7 +491,7 @@ Si está instalado el SDK en tiempo de compilación, como se muestra en este art
 
 ### <a name="can-i-enable-application-insights-monitoring-by-using-tools-like-azure-monitor-application-insights-agent-formerly-status-monitor-v2"></a>¿Puedo habilitar la supervisión de Application Insights mediante herramientas como el agente de Application Insights para Azure Monitor (anteriormente, Monitor de estado v2)?
 
-No, el [agente de Application Insights para Azure Monitor](./status-monitor-v2-overview.md) solo es compatible actualmente con ASP.NET 4.x.
+ Sí. A partir de [Application Insights Agent 2.0.0-beta1](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/2.0.0-beta1), se admiten aplicaciones ASP.NET Core hospedadas en IIS.
 
 ### <a name="if-i-run-my-application-in-linux-are-all-features-supported"></a>Si ejecuto mi aplicación en Linux, ¿se admiten todas las características?
 

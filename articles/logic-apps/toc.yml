@@ -75,6 +75,8 @@
           href: create-single-tenant-workflows-azure-portal.md
         - name: 'Creación de flujos de trabajo de un solo inquilino: Visual Studio Code'
           href: create-single-tenant-workflows-visual-studio-code.md
+        - name: Configuración del almacenamiento de SQL para flujos de trabajo de inquilino único
+          href: set-up-sql-db-storage-single-tenant-standard-workflows.md
         - name: Edición de la configuración de host y aplicación para aplicaciones lógicas en un solo inquilino
           href: edit-app-settings-host-settings.md
         - name: Creación de parámetros para flujos de trabajo de un solo inquilino
@@ -247,8 +249,6 @@
               href: logic-apps-enterprise-integration-liquid-transform.md
         - name: Solución de problemas B2B
           href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
-        - name: Creación de un plan de recuperación ante desastres
-          href: logic-apps-enterprise-integration-b2b-business-continuity.md
     - name: 'Conectores: Temas detallados'
       items:
         - name: AS2
@@ -257,6 +257,8 @@
           href: ../connectors/connectors-create-api-azureblobstorage.md
         - name: Azure Container Instances
           href: ../connectors/connectors-create-api-container-instances.md
+        - name: Azure Cosmos DB
+          href: ../connectors/connectors-create-api-cosmos-db.md
         - name: Azure Event Grid
           href: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md
         - name: Azure Event Hubs
@@ -267,7 +269,7 @@
           href: logic-apps-http-endpoint.md
         - name: Azure Service Bus
           href: ../connectors/connectors-create-api-servicebus.md
-        - name: "Azure\_SQL\_Database"
+        - name: Azure SQL Database
           href: ../connectors/connectors-create-api-sqlazure.md
         - name: Bing Search
           href: ../connectors/connectors-create-api-bingsearch.md
@@ -401,6 +403,12 @@
           href: monitor-b2b-messages-log-analytics.md
         - name: Creación de consultas de supervisión y seguimiento
           href: create-monitoring-tracking-queries.md
+    - name: Continuidad empresarial y recuperación ante desastres
+      items:
+        - name: Replicación de recursos de Azure para la continuidad empresarial y la recuperación ante desastres
+          href: create-replication-tasks-azure-resources.md
+        - name: Compilación de un plan de continuidad empresarial y recuperación ante desastres B2B
+          href: logic-apps-enterprise-integration-b2b-business-continuity.md
     - name: 'Ejemplos, escenarios y tutoriales'
       href: logic-apps-examples-and-scenarios.md
       items:
@@ -479,6 +487,6 @@
     - name: Twitter
       href: 'https://twitter.com/logicappsio'
     - name: Proporcionar comentarios sobre el producto
-      href: 'https://feedback.azure.com/forums/287593-logic-apps'
+      href: 'https://feedback.azure.com/d365community/forum/cb47c115-7926-ec11-b6e6-000d3a4f032c'
     - name: Actualizaciones del servicio
       href: 'https://azure.microsoft.com/updates/?product=logic-apps'

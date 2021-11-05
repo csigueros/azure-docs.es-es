@@ -4,13 +4,14 @@ description: QnA Maker tiene meta-límites para partes de la base de conocimient
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
-ms.date: 11/09/2020
-ms.openlocfilehash: 0d9e3d4c9ec9eab75ce5917e9ea20011653ff133
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: ac7741a6404f47e3cabdd9eff81f81c6ad39de36
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110790200"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131011986"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Límites de la base de conocimiento de QnA Maker
 
@@ -24,7 +25,7 @@ El número máximo de bases de conocimiento se basa en los [límites de plan de 
 |---|---|---|---|---|---|----|
 |Número máximo permitido de bases de conocimiento publicadas|2|14|49|199|199|2999|
 
- Por ejemplo, si el nivel tiene 15 índices permitidos, puede publicar 14 bases de conocimiento (1 índice por base de conocimiento publicada). El índice decimoquinto, `testkb`, se usa con todas las bases de conocimiento para creación y prueba.
+ Por ejemplo, si el nivel tiene 15 índices permitidos, puede publicar 14 bases de conocimiento (un índice por cada base de conocimiento publicada). El decimoquinto índice, `testkb`, se utiliza para todas las bases de conocimiento en lo relativo a autoría y prueba.
 
 ## <a name="extraction-limits"></a>Límites de extracción
 
@@ -51,9 +52,6 @@ Los nombres de archivo no pueden incluir los siguientes caracteres:
 
 El número máximo de archivos que se pueden extraer y tamaño máximo del archivo se basa en los **[límites del plan de tarifa de QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)** .
 
-> [!NOTE]
-> Respuesta personalizada a preguntas (versión preliminar) es un servicio gratuito sin límites en cuanto al número de orígenes que se pueden agregar. Su rendimiento está actualmente limitado a 10 transacciones por segundo tanto para las API de administración como para las de predicción.
-
 ### <a name="maximum-number-of-deep-links-from-url"></a>Número máximo de vínculos profundos de la dirección URL
 
 El número máximo de vínculos profundos que se pueden rastrear para la extracción de QnA desde una páginas URL es **20**.
@@ -62,29 +60,11 @@ El número máximo de vínculos profundos que se pueden rastrear para la extracc
 
 Los metadatos se presentan como un par clave-valor basado en texto, como `product:windows 10`. Se almacenan y se comparan en minúsculas. El número máximo de campos de metadatos se basa en los **[límites de los niveles de Azure Cognitive Search](../../search/search-limits-quotas-capacity.md)** .
 
-# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
-
 En el caso de la versión GA, puesto que el índice de prueba se comparte entre todos los KB, el límite se aplica a todos los KB del servicio QnA Maker.
 
 |**Nivel de Azure Cognitive Search** | **Gratis** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |Número máximo de metadatos por servicio QnA Maker (en todas las KB)|1,000|100*|1,000|1,000|1,000|1,000|
-
-# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
-
-Si elige tener KB de varios idiomas en un servicio, hay un índice de prueba dedicado por knowledge base. Por consiguiente, el límite se aplica por KB en el servicio QnA Maker.
-
-|**Nivel de Azure Cognitive Search** | **Gratis** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
-|---|---|---|---|---|---|----|
-|Número máximo de metadatos por servicio QnA Maker (por knowledge base)|1,000|100*|1,000|1,000|1,000|1,000|
-
-Si no elige la opción de tener KB en varios idiomas, los límites se aplican a todos los KB del servicio QnA Maker.
-
-|**Nivel de Azure Cognitive Search** | **Gratis** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
-|---|---|---|---|---|---|----|
-|Número máximo de metadatos por servicio QnA Maker (en todas las KB)|1,000|100*|1,000|1,000|1,000|1,000|
-
----
 
 ### <a name="by-name-and-value"></a>Por nombre y valor
 
@@ -92,7 +72,7 @@ La longitud y los caracteres aceptables para el nombre y el valor de los metadat
 
 |Elemento|Caracteres permitidos|Coincidencia de patrón regex|Número máximo de caracteres|
 |--|--|--|--|
-|Nombre (clave)|Permite<br>alfanuméricos (letras y dígitos)<br>`_` (subrayado)<br> No debe contener espacios.|`^[a-zA-Z0-9_]+$`|100|
+|Nombre (clave)|Permite<br>Caracteres alfanuméricos (letras y dígitos)<br>`_` (subrayado)<br> No debe contener espacios.|`^[a-zA-Z0-9_]+$`|100|
 |Value|Permite todo excepto<br>`:` (dos puntos)<br>`|` (barra vertical)<br>Solo se permite un valor.|`^[^:|]+$`|500|
 |||||
 
@@ -102,7 +82,7 @@ Límites generales del contenido de la base de conocimiento:
 * Longitud del texto de la pregunta: 1000 caracteres
 * Longitud del texto de la clave de los metadatos: 100 caracteres
 * Longitud del texto del valor de los metadatos: 500 caracteres
-* Caracteres admitidos para el nombre de metadatos: Alfabéticos, dígitos y `_`
+* Caracteres admitidos para el nombre de metadatos: alfabéticos, dígitos y `_`
 * Caracteres admitidos para el valor de metadatos: Todos excepto `:` y `|`
 * Longitud del nombre de archivo: 200
 * Formatos de archivo admitidos: ".tsv", ".pdf", ".txt", ".docx", ".xlsx".
@@ -132,7 +112,7 @@ Representan los límites para cada acción de actualización; es decir, al hacer
 
 Estos representan los límites cuando se usan archivos no estructurados para *crear KB* o llamar a la API CreateKnowledgeBase:
 * Longitud del archivo: extraeremos los primeros 32 000 caracteres.
-* 3 respuestas como máximo por archivo.
+* Máximo de tres respuestas por archivo.
 
 ## <a name="prebuilt-question-answering-limits"></a>Límites de respuesta a preguntas precompilados
 
@@ -143,10 +123,10 @@ Estos representan los límites cuando se usan archivos no estructurados para *cr
 Estos representan los límites cuando se usa la API precompilada para *generar respuesta* o llamar a la API GenerateAnswer:
 * Número de documentos: 5
 * Tamaño máximo de un solo documento: 5120 caracteres.
-* 3 respuestas como máximo por documento.
+* Máximo de tres respuestas por documento.
 
 > [!IMPORTANT]
-> La compatibilidad con archivos o contenido sin estructurar y la API precompilada solo está disponible en Respuesta personalizada a preguntas (versión preliminar)
+> Compatibilidad con archivos o contenidos no estructurados y solo está disponible en la respuesta a preguntas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
