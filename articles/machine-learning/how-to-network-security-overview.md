@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 09/29/2021
 ms.topic: how-to
 ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q4,FY21Q4-aml-seo-hack, security
-ms.openlocfilehash: c478744bc960a90d8d84d3e51bd1cd9d8bb3719e
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: ef84fea20ce59af11abf2f76de409f1363db94c9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129657880"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051085"
 ---
 <!-- # Virtual network isolation and privacy overview -->
 # <a name="secure-azure-machine-learning-workspace-resources-using-virtual-networks-vnets"></a>Protección de los recursos del área de trabajo de Azure Machine Learning con redes virtuales (VNet)
@@ -37,7 +37,7 @@ Proteja los entornos de proceso y los recursos del área de trabajo de Azure Mac
 
 En este artículo se da por hecho que está familiarizado con los siguientes temas:
 + [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)
-+ [Redes de IP](../virtual-network/public-ip-addresses.md)
++ [Redes de IP](../virtual-network/ip-services/public-ip-addresses.md)
 + [Área de trabajo de Azure Machine Learning con un punto de conexión privado](how-to-configure-private-link.md)
 + [Grupos de seguridad de red (NSG)](../virtual-network/network-security-groups-overview.md)
 + [Firewalls de red](../firewall/overview.md)
@@ -50,13 +50,15 @@ En la tabla siguiente se compara el modo en que los servicios acceden a diferent
 | Escenario | Área de trabajo |  Recursos asociados | Entrenamiento del entorno de proceso | Inferencia del entorno de proceso |
 |-|-|-|-|-|-|
 |**Sin red virtual**| Dirección IP pública | Dirección IP pública | Dirección IP pública | Dirección IP pública |
-|**Protección de recursos en una red virtual**| IP privada (punto de conexión privado) | IP pública (punto de conexión de servicio) <br> **- o -** <br> IP privada (punto de conexión privado) | Dirección IP pública | Dirección IP privada  | 
+|**Área de trabajo pública, todos los demás recursos de una red virtual** | Dirección IP pública | IP pública (punto de conexión de servicio) <br> **- o -** <br> IP privada (punto de conexión privado) | Dirección IP privada | Dirección IP privada  |
+|**Protección de recursos en una red virtual**| IP privada (punto de conexión privado) | IP pública (punto de conexión de servicio) <br> **- o -** <br> IP privada (punto de conexión privado) | Dirección IP privada | Dirección IP privada  | 
 
 * **Área de trabajo**: creación de un punto de conexión privado para su área de trabajo. El punto de conexión privado conecta el área de trabajo a la red virtual a través de varias direcciones IP privadas.
+    * **Acceso público**: opcionalmente, puede habilitar el acceso público para un área de trabajo protegida.
 * **Recurso asociado**: use puntos de conexión de servicio o puntos de conexión privados para conectarse a recursos del área de trabajo como Azure Storage o Azure Key Vault. En el caso de Azure Container Services, use un punto de conexión privado.
     * Los **puntos de conexión de servicio** proporcionan la identidad de la red virtual al servicio de Azure. Una vez que habilita puntos de conexión de servicio en su red virtual, puede agregar una regla de red virtual para proteger los recursos de los servicios de Azure en la red virtual. Los puntos de conexión de servicio usan direcciones IP públicas.
     * Los **puntos de conexión privados** son interfaces de red que le permiten conectarse de forma segura a un servicio con la tecnología de Azure Private Link. El punto de conexión privado usa una dirección IP privada de la red virtual, y coloca el servicio de manera eficaz en su red virtual.
-* **Acceso al proceso de entrenamiento**: acceda a destinos de proceso de entrenamiento como la instancia y los clústeres de proceso de Azure Machine Learning de forma segura con direcciones IP públicas. 
+* **Acceso al proceso de entrenamiento**: acceda a destinos de proceso de entrenamiento como la instancia y los clústeres de proceso de Azure Machine Learning con direcciones IP públicas (versión preliminar).
 * **Acceso al proceso de inferencia**: acceda a los clústeres de proceso de Azure Kubernetes Services (AKS) con direcciones IP privadas.
 
 
@@ -67,11 +69,31 @@ En las secciones siguientes se muestra cómo proteger el escenario de red descri
 1. Proteger el [**entorno de inferencia**](#secure-the-inferencing-environment).
 1. Opcional: [**habilitar la funcionalidad de Studio**](#optional-enable-studio-functionality).
 1. Configurar el [**firewall**](#configure-firewall-settings).
-1. Configurar la [resolución de nombres DNS](#custom-dns).
+1. Configuración de la [**resolución de nombres DNS**](#custom-dns).
+
+## <a name="public-workspace-and-secured-resources"></a>Área de trabajo pública y recursos protegidos
+
+Si quiere acceder al área de trabajo a través de la red pública de Internet y mantener todos los recursos asociados protegidos de una red virtual, siga estos pasos:
+
+1. Cree una instancia de [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md) que contendrá los recursos que usa el área de trabajo.
+1. Use __una__ de las siguientes opciones para crear un área de trabajo de acceso público:
+
+    * Cree un área de trabajo de Azure Machine Learning que __no__ use la red virtual. Para obtener más información, consulte [Administrar áreas de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
+    * Cree una [área de trabajo habilitada para Private Link](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) para habilitar la comunicación entre la red virtual y el área de trabajo. A continuación, [habilite el acceso público al área de trabajo](#optional-enable-public-access).
+
+1. Agregue los siguientes servicios a la red virtual _ya sea_ mediante un __punto de conexión de servicio__ o mediante un __punto de conexión privado__. También debe permitir que los servicios de confianza de Microsoft accedan a estos servicios:
+
+    | Servicio | Información de punto de conexión | Información sobre los servicios de confianza permitidos |
+    | ----- | ----- | ----- |
+    | __Azure Key Vault__| [Punto de conexión de servicio](../key-vault/general/overview-vnet-service-endpoints.md)</br>[Punto de conexión privado](../key-vault/general/private-link-service.md) | [Permite que los servicios de Microsoft de confianza omitan este firewall](how-to-secure-workspace-vnet.md#secure-azure-key-vault) |
+    | __Cuenta de Azure Storage__ | [Punto de conexión privado y de servicio](how-to-secure-workspace-vnet.md?tabs=se#secure-azure-storage-accounts)</br>[Punto de conexión privado](how-to-secure-workspace-vnet.md?tabs=pe#secure-azure-storage-accounts) | [Concesión de acceso a servicios de Azure de confianza](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
+    | __Azure Container Registry__ | [Punto de conexión privado](../container-registry/container-registry-private-link.md) | [Permitir servicios de confianza](../container-registry/allow-access-trusted-services.md) |
+
 ## <a name="secure-the-workspace-and-associated-resources"></a>Proteger el área de trabajo y los recursos asociados
 
 Realice los pasos siguientes para proteger el área de trabajo y los recursos asociados. Estos pasos permiten que los servicios se comuniquen en la red virtual.
 
+1. Cree una instancia de [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md) que contendrá el área de trabajo y otros recursos.
 1. Cree una [área de trabajo habilitada para Private Link](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) para habilitar la comunicación entre la red virtual y el área de trabajo.
 1. Agregue los siguientes servicios a la red virtual _ya sea_ mediante un __punto de conexión de servicio__ o mediante un __punto de conexión privado__. También debe permitir que los servicios de confianza de Microsoft accedan a estos servicios:
 
@@ -141,17 +163,18 @@ En el diagrama de red siguiente se muestra un área de trabajo de Azure Machine 
 ![Diagrama de arquitectura que muestra cómo conectar un clúster de AKS privado a la red virtual. El plano de control de AKS se coloca fuera de la red virtual del cliente.](./media/how-to-network-security-overview/secure-inferencing-environment.png)
 
 ### <a name="limitations"></a>Limitaciones
-- Los clústeres de AKS deben pertenecer a la misma red virtual que el área de trabajo y sus recursos asociados. 
+
+- El área de trabajo debe tener un punto de conexión privado en la misma red virtual que el clúster de AKS. Por ejemplo, cuando se usan varios puntos de conexión privados con el área de trabajo, un punto de conexión privado puede estar en la red virtual de AKS y otro en la red virtual que contiene los servicios de dependencia del área de trabajo.
 
 ## <a name="optional-enable-public-access"></a>Opcional: Habilitación del acceso público
 
 Puede proteger el área de trabajo detrás de una red virtual mediante un punto de conexión privado y seguir permitiendo el acceso a través de la red pública de Internet. La configuración inicial equivale a [proteger el área de trabajo y los recursos asociados](#secure-the-workspace-and-associated-resources). 
 
-Después de proteger el área de trabajo con un punto de conexión privado, [Habilitar el acceso público](how-to-configure-private-link.md#enable-public-access). Después de esto, puede tener acceso al área de trabajo desde la red pública de Internet y la red virtual.
+Después de proteger el área de trabajo con un punto de conexión privado, siga estos pasos para permitir que los clientes desarrollen de forma remota mediante el SDK o Estudio de Azure Machine Learning:
 
-### <a name="limitations"></a>Limitaciones
+1. [Habilite el acceso público](how-to-configure-private-link.md#enable-public-access) al área de trabajo.
+1. [Configure el firewall de Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#grant-access-from-an-internet-ip-range) para permitir la comunicación con la dirección IP de los clientes que se conectan a través de la red pública de Internet.
 
-- Si usa Estudio de Azure Machine Learning a través de la red pública de Internet, es posible que algunas características como el diseñador no tengan acceso a sus datos. Esto se produce cuando los datos se almacenan en un servicio protegido detrás de la red virtual. Por ejemplo, una cuenta de Azure Storage.
 ## <a name="optional-enable-studio-functionality"></a>Opcional: habilitación de la funcionalidad de Studio
 
 [Proteger el área de trabajo](#secure-the-workspace-and-associated-resources) > [Proteger el entorno de entrenamiento](#secure-the-training-environment) > [Proteger el entorno de inferencia](#secure-the-inferencing-environment) > **Habilitar la funcionalidad de Studio** > [Configurar el firewall](#configure-firewall-settings)

@@ -4,12 +4,12 @@ description: En este artículo se ofrece información general sobre el procesami
 ms.topic: article
 ms.date: 09/21/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5eb3bf6eef551fd13788f7659eb8becede8e250d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5cdfa306b19c528fd66c6566f54c5c7992a2462e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128666219"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046744"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Información general sobre el procesamiento de transacciones de Service Bus
 
@@ -82,8 +82,7 @@ Para más información sobre colas de Service Bus, consulte los siguientes artí
 
 * [Utilización de las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Encadenamiento de entidades de Service Bus con reenvío automático](service-bus-auto-forwarding.md)
-* [Ejemplo de reenvío automático](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AutoForward)
-* [Ejemplo de transacciones atómicas con Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions)
-* [Comparación de colas de Azure y colas de Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-
-
+* [Muestra de reenvío automático](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AutoForward) (biblioteca `Microsoft.ServiceBus.Messaging`)
+* [Muestra de transacciones atómicas con Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions) (biblioteca `Microsoft.ServiceBus.Messaging`)
+* [Muestra de trabajo con transacciones](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample06_Transactions.md) (biblioteca `Azure.Messaging.ServiceBus`)
+* [Colas de Azure Queue Storage y Service Bus comparadas](service-bus-azure-and-service-bus-queues-compared-contrasted.md)

@@ -7,12 +7,13 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 89714a766dfd4ddc2c952554ab12068121543044
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 54ae1665d34093fcb2ba44d0b5eb0f4f4a9bb0f7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130070781"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008486"
 ---
 # <a name="dcsv2-series"></a>Serie DCsv2
 
@@ -41,7 +42,7 @@ Entre los casos de uso confidencial de ejemplo se incluyen las bases de datos, l
 
 ## <a name="technical-specifications"></a>Especificaciones técnicas
 
-| Size             | Núcleos físicos | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Nº máx. de NIC / ancho de banda de red esperado (MBps) | Memoria EPC (MiB) |
+| Size             | Núcleos físicos | Memoria (GiB) | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Nº máx. de NIC / ancho de banda de red esperado (MBps) | Memoria EPC (MiB) |
 |------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|----------------------------------------------|---------------------|
 | Standard_DC1s_v2 | 1    | 4           | 50                     | 1              | 2000/16                                                                                               | 2   | 28                                      |
 | Standard_DC2s_v2 | 2    | 8           | 100                    | 2              | 4000/32                                                                                               | 2  | 56                                          |

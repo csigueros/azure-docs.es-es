@@ -8,12 +8,12 @@ metadata:
   ms.date: 06/15/2017
   ms.author: rogarana
   ms.subservice: disks
-  ms.openlocfilehash: 2e3e13f0db5b96d8d1cd8ca3eaa7b900dacb0d72
-  ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+  ms.openlocfilehash: f65f03a35d744b3131b89c2e973abd1cd6b7e3ef
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/07/2021
-  ms.locfileid: "113358318"
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131018514"
 title: Preguntas más frecuentes sobre los discos de máquina virtual de IaaS de Azure y los discos premium administrados y no administrados
 summary: En este artículo se responden algunas de las preguntas más frecuentes acerca de Azure Managed Disks y los discos SSD Premium de Azure.
 sections:
@@ -143,10 +143,6 @@ sections:
 
       [Las imágenes de generación 2](./generation-2.md) pueden utilizar la creación de particiones GPT en el disco del sistema operativo, así como en los discos de datos.
   - question: >
-      ¿Qué tipos de discos admiten instantáneas?
-    answer: >
-      SSD Premium, SSD estándar y HDD estándar admiten instantáneas. En estos tres tipos de discos, las instantáneas se admiten en todos los tamaños de disco (incluidos los discos de hasta 32 TiB). Los discos Ultra no admiten instantáneas.
-  - question: >
       ¿Qué son las reservas de discos de Azure?
     answer: >
       La reserva de discos es la opción de adquirir de antemano un año de almacenamiento en discos, lo que reduce los costos totales. Para más información sobre las reservas de discos de Azure, consulte nuestro artículo sobre el tema: [Aplicación del descuento por reserva a Azure Disk](../cost-management-billing/reservations/understand-disk-reservations.md)
@@ -163,6 +159,39 @@ sections:
       ¿Los discos SSD estándar admiten "Acuerdo de Nivel de Servicio de máquina virtual de instancia única"?
     answer: >
       Sí, todos los tipos de disco admiten SLA de VM de instancia única.
+- name: Instantáneas
+  questions:
+  - question: >
+      ¿Se puede copiar una instantánea incremental cifrada entre regiones?
+    answer: >
+      Sí.
+  - question: >
+      ¿Se pueden copiar varias instantáneas incrementales del mismo disco en paralelo de una región a otra?
+    answer: >
+      No, deben esperar a que finalice la copia anterior.
+  - question: >
+      ¿Se pueden copiar instantáneas incrementales de varios discos al mismo tiempo?
+    answer: >
+      Actualmente, sí.
+  - question: >
+      ¿Cómo se puede comprobar cuándo una instantánea incremental ha terminado de copiarse en otra región?
+    answer: >
+      Se puede verificar el estado de la copia comprobando la propiedad **completionPercent**. Una instantánea está lista cuando esta propiedad es 100.
+  - question: >
+      ¿Se pueden copiar instantáneas en un orden distinto del orden de creación que hay en otra región?
+    answer: >
+      No, en otras regiones las instantáneas se deben copiar en orden de creación.
+  - question: >
+      Si se elimina una instantánea incremental de origen antes de que se complete una copia entre regiones, ¿qué ocurre?
+    answer: >
+      Se producirá un error en la copia.
+  - question: >
+      ¿Están cifradas las imágenes e instantáneas administradas?
+    answer: "Sí. Todas las instantáneas e imágenes administradas se cifran automáticamente. \n"
+  - question: >
+      ¿Qué tipos de discos admiten instantáneas?
+    answer: >
+      SSD Premium, SSD estándar y HDD estándar admiten instantáneas. En estos tres tipos de discos, las instantáneas se admiten en todos los tamaños de disco (incluidos los discos de hasta 32 TiB). Los discos Ultra no admiten instantáneas.
 - name: Discos compartidos de Azure
   questions:
   - question: >
@@ -347,12 +376,9 @@ sections:
     answer: >
       Sí.
   - question: >
-      ¿Están cifradas las imágenes e instantáneas administradas?
-    answer: "Sí. Todas las instantáneas e imágenes administradas se cifran automáticamente. \n"
-  - question: >
       ¿Puedo convertir máquinas virtuales con discos no administrados que se encuentran en las cuentas de almacenamiento o que se hayan cifrado previamente en discos administrados?
     answer: >
-      Sí
+      Yes
   - question: >
       ¿Se cifrará también un VHD exportado de un disco administrado o de una instantánea?
     answer: >
@@ -456,11 +482,11 @@ sections:
     answer: >
       El tamaño de disco más grande que admite Azure Backup es de 32 TiB (4 TiB para discos cifrados). El tamaño de disco más grande que admite Azure Site Recovery es de 8 TiB. La compatibilidad con los discos de mayor tamaño de hasta 32 TiB aún no está disponible en Azure Site Recovery.
   - question: >
-      ¿Cuáles son los tamaños de máquina virtual recomendados para los tamaños de disco mayores (> 4TiB) para discos SSD estándar y HDD estándar con la finalidad de lograr niveles optimizados de ancho de banda e IOPS del disco?
+      ¿Cuáles son los tamaños de máquina virtual recomendados para los tamaños de disco mayores (>4 TiB) para discos SSD estándar y HDD estándar con la finalidad de lograr niveles optimizados de ancho de banda e IOPS del disco?
     answer: >
       Para lograr el rendimiento de disco de los tamaños de discos grandes SSD y HDD estándar (>4 TiB) más allá de 500 IOPS y 60 MiB/s, se recomienda implementar una nueva máquina virtual de uno de los siguientes tamaños para optimizar el rendimiento: Máquinas virtuales de la serie B, serie DSv2, serie Dsv3, serie ESv3, serie Fs, serie Fsv2, serie M, serie GS, serie NCv2, serie NCv3 o serie Ls. La asociación de discos de gran tamaño a máquinas virtuales existentes o máquinas virtuales que no usan los tamaños recomendados anteriores puede dar lugar a un rendimiento inferior.
   - question: >
-      ¿Cómo puedo actualizar mis discos (> 4 TiB) que se implementaron durante la versión preliminar de tamaños de disco mayores con el fin de obtener el mayor ancho de banda e IOPS con carácter general?
+      ¿Cómo puedo actualizar mis discos (>4 TiB) que se implementaron durante la versión preliminar de tamaños de disco mayores con el fin de obtener el mayor ancho de banda e IOPS con carácter general?
     answer: >
       Puede detener e iniciar la máquina virtual a la que está conectado el disco o bien desasociar y volver a asociar el disco. Los objetivos de rendimiento de los tamaños de disco mayores han aumentado para discos SSD Premium y estándar con carácter general.
   - question: >

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 08/16/2021
 ms.author: allensu
-ms.openlocfilehash: 024a523939e5f03cf01aec937a646f1159f6b79b
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 1911c3a97892a440d0819025c6f040732d03e6e7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130254653"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079556"
 ---
 # <a name="azure-load-balancer-portal-settings"></a>Configuración del portal para Azure Load Balancer
 
@@ -161,11 +161,11 @@ Si seleccionó **Crear nuevo** en la configuración del sondeo de estado de la r
 
 :::image type="content" source="./media/manage/add-health-probe.png" alt-text="Captura de pantalla de cómo se agrega un sondeo de estado." border="true":::
 
-En la pestaña **Reglas de entrada** de la página del portal de creación de equilibradores de carga, seleccione **+ Add a an inbound nat rule** (+ Agregar una regla NAT de entrada) para abrir la página de creación.
+En la pestaña **Reglas de entrada** de la página del portal de creación de equilibradores de carga, seleccione **+ Agregar una regla NAT de entrada** para abrir la página de creación.
 
-#### <a name="-add-a-an-inbound-nat-rule"></a>**+ Add a an inbound nat rule** (+ Agregar una regla NAT de entrada)
+#### <a name="-add-an-inbound-nat-rule"></a>**+ Agregar una regla NAT de entrada**
 
-La siguiente información se muestra en la página de creación **+ Add inbound NAT rule** (+ Agregar una regla NAT de entrada):
+La siguiente información se muestra en la página de creación **+ Agregar una regla NAT de entrada**:
 
 | Configuración | Detalles |
 | ---------- | ---------- |

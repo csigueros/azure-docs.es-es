@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/08/2021
 ms.author: pafarley
-ms.openlocfilehash: fa62d0e7c24c6a63c63f082333823b5e74a24cf0
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: d73f17d3e3eb8d5511dcb98c6a074a73120eaf06
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130132288"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080619"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparación de los datos para Habla personalizada
 
@@ -51,12 +52,13 @@ En esta tabla se enumeran los tipos de datos aceptados, cuándo se debe utilizar
 | [Audio](#audio-data-for-testing) | Sí<br>Se utiliza para la inspección visual | Más de cinco archivos de audio | No | N/D |
 | [Transcripciones de audio con etiqueta humana](#audio--human-labeled-transcript-data-for-trainingtesting) | Sí<br>Se utiliza para evaluar la precisión | De 0,5 a 5 horas de audio | Sí | De 1 a 20 horas de audio |
 | [Texto sin formato](#plain-text-data-for-training) | No | N/a | Sí | De 1 a 200 MB de texto relacionado |
+| [Texto estructurado](#structured-text-data-for-training-public-preview) (versión preliminar pública) | No | N/a | Sí | Hasta 20 clases con un máximo de 2000 elementos y hasta 50 000 frases de entrenamiento |
 | [Pronunciación](#pronunciation-data-for-training) | No | N/a | Sí | 1 KB - 1 MB de texto de pronunciación |
 
 Los archivos deben agruparse por tipo en un conjunto de datos y cargarse como archivo zip. Cada conjunto de datos solo puede contener un tipo de datos.
 
 > [!TIP]
-> Al entrenar un nuevo modelo, comience con texto sin formato. Estos datos mejorarán el reconocimiento de términos y frases especiales. El entrenamiento con texto es mucho más rápido que el entrenamiento con audio (minutos en comparación con días).
+> Al entrenar un nuevo modelo, comience con datos de texto sin formato o datos de texto estructurado. Estos datos mejorarán el reconocimiento de términos y frases especiales. El entrenamiento con texto es mucho más rápido que el entrenamiento con audio (minutos en comparación con días).
 
 > [!NOTE]
 > No todos los modelos base son compatibles con el entrenamiento con audio. Si un modelo base no es compatible, el Servicio de voz solo usará el texto de las transcripciones y omitirá el audio. Consulte la [compatibilidad con idiomas](language-support.md#speech-to-text) para obtener una lista de los modelos base que admiten el entrenamiento con datos de audio. Aunque un modelo base admita el entrenamiento con datos de audio, el servicio podría usar solo parte del audio. Aún así, usará todas las transcripciones.
@@ -66,6 +68,11 @@ Los archivos deben agruparse por tipo en un conjunto de datos y cargarse como ar
 > Si se encuentra con el problema que se describe en el párrafo anterior, puede reducir rápidamente el tiempo de entrenamiento reduciendo la cantidad de audio del conjunto de datos o eliminándolo por completo y dejando solo el texto. La ultima opción es muy recomendable si la suscripción del servicio Voz **no** está en una [región con hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para el entrenamiento.
 >
 > En regiones con hardware dedicado para el entrenamiento, el servicio Voz usará hasta 20 horas de audio para el entrenamiento. En otras regiones, solo usará hasta 8 horas.
+
+> [!NOTE]
+> El entrenamiento con texto estructurado solo se admite para estas configuraciones regionales: en-US, en-UK, en-IN, de-DE, fr-FR, fr-CA, es-ES, es-MX y debe usar el modelo base más reciente para ellas. 
+>
+> En el caso de las configuraciones regionales que no admiten el entrenamiento con texto estructurado, el servicio tomará las frases de entrenamiento que no hagan referencia a ninguna clase como parte del entrenamiento con datos de texto sin formato.
 
 ## <a name="upload-data"></a>Carga de datos
 
@@ -183,12 +190,79 @@ Además, querrá tener en cuenta las siguientes restricciones:
 * Se rechazarán los identificadores URI.
 * Para algunos idiomas (por ejemplo, japonés o coreano), importar grandes cantidades de datos de texto puede conllevar mucho tiempo o agotar el tiempo de espera. Considere la posibilidad de dividir los datos cargados en archivos de texto de hasta 20 000 líneas cada uno.
 
+## <a name="structured-text-data-for-training-public-preview"></a>Datos de texto estructurado para entrenamiento (versión preliminar pública)
+
+A menudo, las expresiones esperadas siguen un patrón determinado. Un patrón común es que las expresiones solo difieren en palabras o frases de una lista. Algunos ejemplos de esto podrían ser "Tengo una pregunta sobre `product`", donde `product` es una lista de posibles productos. O bien, "Hacer que ese `object` sea `color`", donde `object` es una lista de formas geométricas y `color` es una lista de colores. Para simplificar la creación de datos de entrenamiento y habilitar un mejor modelado dentro del modelo de lenguaje personalizado, puede usar un texto estructurado en formato Markdown para definir listas de elementos y, después, hacer referencia a ellos dentro de las expresiones de entrenamiento. Además, el formato Markdown también admite la especificación de la pronunciación fonética de las palabras. El formato Markdown comparte su formato con el Markdown _.lu_ que se usa para entrenar modelos de reconocimiento del lenguaje, en particular entidades de lista y expresiones de ejemplo. Consulte la documentación del <a href="https://docs.microsoft.com/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0" target="_blank">formato de archivo .lu</a> para obtener más información sobre el Markdown _.lu_ completo. 
+
+Este es un ejemplo del formato Markdown:
+
+```markdown
+// This is a comment
+
+// Here are three separate lists of items that can be referenced in an example sentence. You can have up to 20 of these
+@ list food =
+- pizza
+- burger
+- ice cream
+- soda
+
+@ list pet =
+- cat
+- dog
+
+@ list sports =
+- soccer
+- tennis
+- cricket
+- basketball
+- baseball
+- football
+
+// This is a list of phonetic pronunciations. 
+// This adjusts the pronunciation of every instance of these word in both a list or example training sentences 
+@ speech:phoneticlexicon
+- cat/k ae t
+- cat/f i l ai n
+
+// Here are example training sentences. They are grouped into two sections to help organize the example training sentences.
+// You can refer to one of the lists we declared above by using {@listname} and you can refer to multiple lists in the same training sentence
+// A training sentence does not have to refer to a list.
+# SomeTrainingSentence
+- you can include sentences without a class reference
+- what {@pet} do you have
+- I like eating {@food} and playing {@sports}
+- my {@pet} likes {@food}
+
+# SomeMoreSentence
+- you can include more sentences without a class reference
+- or more sentences that have a class reference like {@pet} 
+```
+
+Al igual que el texto sin formato, el entrenamiento con texto estructurado normalmente tarda unos minutos. Además, las oraciones y listas de ejemplo deben reflejar el tipo de entrada hablada que se espera en producción.
+Para las entradas de pronunciación, vea la descripción del [ Conjunto de segmentos acústicos universal](phone-sets.md).
+
+En la tabla siguiente se especifican los límites y otras propiedades para el formato Markdown:
+
+| Propiedad | Value |
+|----------|-------|
+| Codificación de texto | BOM UTF-8 |
+| Tamaño de archivo máximo | 200 MB |
+| Número máximo de oraciones de ejemplo | 50.000 |
+| Número máximo de clases de lista | 10 |
+| Número máximo de elementos de una clase de lista | 4\.000 |
+| Número máximo de entradas speech:phoneticlexicon | 15000 |
+| Número máximo de pronunciaciones por palabra | 2 |
+
+
 ## <a name="pronunciation-data-for-training"></a>Datos de pronunciación para entrenamiento
 
 Si hay términos poco comunes sin pronunciaciones estándar que los usuarios van a encontrar o utilizar, puede proporcionar un archivo de pronunciación personalizado para mejorar el reconocimiento. Para obtener una lista de idiomas que admiten la pronunciación personalizada, vea **Pronunciación** en la columna **Personalizaciones** de la [tabla de conversión de voz en texto](language-support.md#speech-to-text).
 
 > [!IMPORTANT]
 > No se recomienda utilizar archivos de pronunciación personalizados para modificar la pronunciación de palabras comunes.
+
+> [!NOTE]
+> No se puede combinar este tipo de archivo de pronunciación con datos de entrenamiento de texto estructurado. Para los datos de texto estructurado, use la funcionalidad de pronunciación fonética que se incluye en el formato Markdown de texto estructurado.
 
 Proporcione las pronunciaciones en un único archivo de texto. Esto incluye ejemplos de una expresión hablada y una pronunciación personalizada para cada uno:
 

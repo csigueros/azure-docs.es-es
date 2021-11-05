@@ -3,12 +3,12 @@ title: Uso de puntos de conexión privados para integrar Azure Functions con una
 description: En este tutorial se explica cómo conectar una función a una red virtual de Azure y cómo bloquearla con puntos de conexión privados.
 ms.topic: article
 ms.date: 2/22/2021
-ms.openlocfilehash: ee6fb79176b0188533725347c3b47369ce050706
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 8eaf46cdab44fcf4ebdb69564cd05f07f8f88f1b
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130252984"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131850040"
 ---
 # <a name="tutorial-integrate-azure-functions-with-an-azure-virtual-network-by-using-private-endpoints"></a>Tutorial: Integración de Azure Functions con una red virtual de Azure mediante puntos de conexión privados
 
@@ -314,8 +314,6 @@ Para usar la aplicación de funciones con redes virtuales, debe unirla a una sub
 
 1. Para usar la aplicación de funciones con redes virtuales, actualice la configuración de la aplicación que se muestra en la tabla siguiente. Para agregar o editar una configuración, seleccione **+ Nueva configuración de la aplicación** o el icono **Editar** en la columna situada más a la derecha de la tabla de configuración de la aplicación. Cuando termine, seleccione **Save** (Guardar).
 
-    :::image type="content" source="./media/functions-create-vnet/10-configure-app-settings.png" alt-text="Captura de pantalla sobre cómo configurar las opciones de la aplicación de funciones para puntos de conexión privados.":::
-
     | Configuración      | Valor sugerido  | Descripción      |
     | ------------ | ---------------- | ---------------- |
     | **AzureWebJobsStorage** | mysecurestorageConnectionString | La cadena de conexión de la cuenta de almacenamiento que ha creado. Esta cadena de conexión de almacenamiento proviene de la sección [Obtención de la cadena de conexión de la cuenta de almacenamiento](#get-the-storage-account-connection-string). Esta configuración permite que la aplicación de funciones utilice la cuenta de almacenamiento segura para las operaciones habituales en tiempo de ejecución. | 
@@ -358,7 +356,7 @@ Para usar la aplicación de funciones con redes virtuales, debe unirla a una sub
 
 1. La implementación inicial debería tardar unos minutos. Cuando la aplicación se implementa correctamente, en la pestaña **Registros**, verá un mensaje de estado **correcto (activo)** . Si es necesario, actualice la página.
 
-Felicidades. Implementó correctamente la aplicación de funciones de ejemplo.
+¡Enhorabuena! Implementó correctamente la aplicación de funciones de ejemplo.
 
 ## <a name="lock-down-your-function-app"></a>Bloqueo de la aplicación de funciones
 
@@ -414,7 +412,7 @@ A continuación, se muestra una forma alternativa de supervisar la función medi
 
     :::image type="content" source="./media/functions-create-vnet/18-hello-world.png" alt-text="Captura de pantalla sobre cómo ver mensajes mediante Live Metrics para las aplicaciones de funciones.":::
 
-Felicidades. Probó correctamente la configuración de la aplicación de funciones con puntos de conexión privados.
+¡Enhorabuena! Probó correctamente la configuración de la aplicación de funciones con puntos de conexión privados.
 
 ## <a name="understand-private-dns-zones"></a>Descripción de las zonas DNS privadas
 Usó un punto de conexión privado para conectarse a los recursos de Azure. Está estableciendo una conexión a una dirección IP privada en lugar del punto de conexión público. Los servicios de Azure existentes están configurados para usar un DNS existente para conectarse al punto de conexión público. Debe reemplazar la configuración de DNS para conectarse al punto de conexión privado.

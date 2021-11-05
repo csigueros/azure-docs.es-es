@@ -4,16 +4,16 @@ description: Obtenga información sobre cómo usar Azure Resource Manager para c
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 10/22/2021
 author: swinarko
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3825639ce9ffdf568fdb6500b1826a006b035c72
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 322a2277169b53a9c49d496524789636a709af2a
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129219408"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131852643"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-an-integration-runtime"></a>Uso de una plantilla de Azure Resource Manager para crear un entorno de ejecución de integración
 

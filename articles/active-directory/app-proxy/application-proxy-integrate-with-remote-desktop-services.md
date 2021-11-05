@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/12/2021
 ms.author: kenwith
 ms.reviewer: ashishj
-ms.openlocfilehash: ed708ab2f796008dcd98a9e395dffaa7645690b2
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: b178c5370326bcb4dad2eefefbea0d6eb3cde662
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129989368"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063411"
 ---
 # <a name="publish-remote-desktop-with-azure-active-directory-application-proxy"></a>Publicación de Escritorio Remoto con el Proxy de aplicación de Azure Active Directory
 

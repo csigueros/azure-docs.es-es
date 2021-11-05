@@ -7,12 +7,13 @@ ms.service: purview
 ms.subservice: purview-insights
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 06a48cd4f1a0aa0d95f1c4b5fa0faf4d7ada2ab3
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 1fd89f44552e8a986e4ccffb55836c0d4db3d8d2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130238048"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131015036"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Conclusiones de la etiqueta de confidencialidad sobre los datos de Azure Purview
 
@@ -21,7 +22,7 @@ En esta guía paso a paso se describe cómo acceder a conclusiones de seguridad 
 > [!IMPORTANT]
 > Las conclusiones de la etiqueta de confidencialidad de Azure Purview se encuentran actualmente en VERSIÓN PRELIMINAR. Los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
-Los orígenes de datos compatibles incluyen: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, Azure SQL Database, Azure SQL Managed Instance y cubos de Amazon S3
+Entre los orígenes de datos admitidos se incluyen los siguientes: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, Azure SQL Database, Azure SQL Managed Instance, cubos de Amazon S3, bases de datos de Amazon RDS (versión preliminar pública).
 
 En esta guía paso a paso, aprenderá a:
 

@@ -6,21 +6,16 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: quickstart
-ms.date: 09/27/2021
+ms.date: 11/04/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 47db60e99048d5be58eb1aae6707caa6ae9c4d6e
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 5dff616c6fa7ee8e72a932da281935f77db19010
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129218824"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131853707"
 ---
 # <a name="quickstart-create-a-collection-and-assign-permissions-in-purview"></a>Inicio rápido: Creación de una colección y asignación de permisos en Purview
-
-> [!NOTE]
-> En este momento, este inicio rápido solo se aplica a las instancias de Azure Purview creadas el 18 de agosto de 2021 o después. Las instancias creadas antes del 18 de agosto pueden crear colecciones, pero no administran permisos a través de esas colecciones. Para obtener información sobre cómo crear una colección para una instancia de Purview creada antes del 18 de agosto, consulte nuestra [**guía de colecciones heredada**](#legacy-collection-guide) en la parte inferior de la página.
-> 
-> Todas las cuentas heredadas se actualizarán automáticamente en las próximas semanas. Recibirá una notificación por correo electrónico cuando se actualice la cuenta de Purview. Para más información sobre los cambios que se producirán al actualizar la cuenta, consulte nuestra [guía de cuentas actualizadas](concept-account-upgrade.md).
 
 Las colecciones son la herramienta de Azure Purview para administrar la propiedad y el control de acceso entre recursos, orígenes e información. También organizan los orígenes y recursos en categorías que se personalizan para que coincidan con la experiencia de administración con los datos. Esta guía le guiará por el proceso de configuración de su primera colección y el administrador de recopilación a fin de preparar el entorno de Purview para su organización.
 
@@ -96,25 +91,6 @@ Todos los roles asignados se aplican a orígenes, recursos y otros objetos dentr
     :::image type="content" source="./media/quickstart-create-collection/edit-role-assignments.png" alt-text="Captura de pantalla de la ventana de la colección de Purview Studio, con la lista desplegable Asignaciones de roles seleccionada." border="true":::
 
 1. Escriba en el cuadro de texto los usuarios que quiere agregar al miembro del rol fin de buscarlos. Haga clic en **Aceptar** para guardar el cambio.
-
-## <a name="legacy-collection-guide"></a>Guía de la colección heredada
-
-> [!NOTE]
-> Esta guía de la colección heredada es solo para las instancias de Purview creadas antes del 18 de agosto de 2021. Las instancias creadas después de ese tiempo deben seguir la guía anterior.
-
-### <a name="create-a-legacy-collection"></a>Creación de una colección heredada
-
-1. Seleccione Mapa de datos en el panel izquierdo para abrir el mapa de datos. Con la vista de mapa, puede ver las colecciones y los orígenes enumerados en ellas.
-
-    :::image type="content" source="./media/quickstart-create-collection/legacy-collection-view.png" alt-text="Captura de pantalla de la ventana de Purview Studio, abierta en el Mapa de datos." border="true":::
-
-1. Seleccione **+ Nueva colección**.
-
-    :::image type="content" source="./media/quickstart-create-collection/legacy-collection-create.png" alt-text="Captura de pantalla de la ventana de Purview Studio, abierta en el Mapa de datos, con la opción + Nueva colección resaltada." border="true":::
-
-1. Asigne un nombre a la colección y seleccione un elemento primario o "Ninguno". Seleccione **Crear**. La información de la colección se reflejará en el mapa de datos.
-
-    :::image type="content" source="./media/quickstart-create-collection/legacy-collection-name.png" alt-text="Captura de pantalla del menú emergente de la nueva colección de Purview Studio." border="true":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,18 +1,18 @@
 ---
 title: Administración y supervisión de IoT Central desde Azure Portal | Microsoft Docs
-description: En este artículo se describe cómo crear administrar y supervisar las aplicaciones de IoT Central desde Azure Portal.
+description: En este artículo se describe cómo crear administrar y supervisar las aplicaciones de IoT Central y habilitar las identidades administradas desde Azure Portal.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 07/06/2021
 ms.topic: how-to
-ms.openlocfilehash: 57486312b380fc18cfdb399343535e5e12245bff
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 2d8ab101b39412d9345fa470d3b6584036990581
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129091598"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084974"
 ---
 # <a name="manage-and-monitor-iot-central-from-the-azure-portal"></a>Administración y supervisión de IoT Central desde Azure Portal
 
@@ -71,6 +71,25 @@ Para mover la aplicación a otro grupo de recursos, seleccione **Cambiar** al la
 Para mover la aplicación a otra suscripción, seleccione **Cambiar** al lado de la suscripción. En la página **Mover recursos**, elija la suscripción a la que le gustaría mover esta aplicación:
 
 ![Portal de administración: administración de recursos](media/howto-manage-iot-central-from-portal/highlight-subscription.png)
+
+## <a name="configure-a-managed-identity"></a>Configuración de una identidad administrada
+
+Al configurar una exportación de datos en la aplicación de IoT Central, puede optar por configurar la conexión al destino con una *cadena de conexión* o una [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md). El uso de una identidad administrada es más seguro porque no es necesario almacenar las credenciales del destino en la aplicación de IoT Central. Actualmente, IoT Central usa [identidades administradas asignadas por el sistema](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). Para crear la identidad administrada para la aplicación, use Azure Portal o la API de REST.
+
+> [!NOTE]
+> Solo puede agregar una identidad administrada a una aplicación de IoT Central que se creó en una región. Todas las aplicaciones nuevas se crean en una región. Para más información, consulte [Actualizaciones](https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-august-2021/).
+
+Al configurar una identidad administrada, la configuración incluye un *ámbito* y un *rol*:
+
+* El ámbito define dónde puede usar la identidad administrada. Por ejemplo, puede usar un grupo de recursos de Azure como ámbito. En este caso, tanto la aplicación de IoT Central como el destino deben estar en el mismo grupo de recursos.
+* El rol define qué permisos se conceden a la aplicación de IoT Central en el servicio de destino. Por ejemplo, para que la aplicación de IoT Central envíe datos a un centro de eventos, la identidad administrada necesita la asignación de rol **emisor de datos de Azure Event Hubs**.
+
+[!INCLUDE [iot-central-managed-identity](../../../includes/iot-central-managed-identity.md)]
+
+Puede configurar asignaciones de roles en Azure Portal o usar la CLI de Azure:
+
+* Para obtener más información sobre cómo configurar las asignaciones de roles en Azure Portal para destinos específicos, consulte [Exportación de datos de IoT a destinos en la nube mediante la exportación de datos](howto-export-data.md).
+* Para obtener más información sobre cómo configurar las asignaciones de roles mediante la CLI de Azure, consulte [Administración de IoT Central desde la CLI de Azure o PowerShell](howto-manage-iot-central-from-cli.md).
 
 ## <a name="monitor-application-health"></a>Supervisión del estado de la aplicación
 

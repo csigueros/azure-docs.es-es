@@ -3,12 +3,12 @@ title: Matriz de compatibilidad para la recuperación ante desastres física o d
 description: Resume la compatibilidad de la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure mediante Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/02/2021
-ms.openlocfilehash: 084e0b9b0b42bbe2ba3632d54811e738197899f3
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 869229cb3b5caa9e676e08e7c2957f71b968d856
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131441483"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131841741"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure.
 
@@ -292,6 +292,7 @@ Opción de transferencia segura | Sí
 Servicio Import/Export | No
 Firewalls de Azure Storage para redes virtuales | Sí.<br/> Configurados en la cuenta de almacenamiento o la cuenta de almacenamiento en caché de destino (se usa para almacenar los datos de replicación).
 Cuentas de almacenamiento de uso general v2 (capas de acceso frecuente y esporádico) | Sí (los costos de transacción son sustancialmente más elevados para V2 en comparación con V1)
+Eliminación temporal | No se admite.
 
 ## <a name="azure-compute"></a>Azure Compute
 

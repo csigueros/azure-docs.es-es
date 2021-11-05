@@ -4,12 +4,12 @@ description: Obtenga información sobre los conceptos y las técnicas de Azure F
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 9/02/2021
-ms.openlocfilehash: b29ae41d85d243e64fea777dcb0cf9ee5ccff581
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 94760d7029c74cb5669a1275c4d670f1b89b6c12
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130137375"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131048786"
 ---
 # <a name="azure-functions-developer-guide"></a>Guía para desarrolladores de Azure Functions
 En Azure Functions, determinadas funciones comparten algunos componentes y conceptos técnicos básicos, independientemente del idioma o el enlace que use. Antes de ir a detalles de aprendizaje específicos de un idioma o un enlace determinados, asegúrese de leer al completo esta información general que se aplica a todos ellos.
@@ -103,13 +103,13 @@ El proveedor de configuración predeterminado utiliza variables de entorno. Esta
 
 Cuando el nombre de la conexión se resuelve en un solo valor exacto, el tiempo de ejecución identifica el valor como una _cadena de conexión_, que normalmente incluye un secreto. Los detalles de una cadena de conexión se definen mediante el servicio al que quiere conectarse.
 
-Sin embargo, un nombre de conexión también puede hacer referencia a una colección de varios elementos de configuración. Las variables de entorno se pueden tratar como una colección mediante un prefijo compartido que termina en doble carácter de subrayado `__`. A continuación, se puede hacer referencia al grupo. Para ello, establezca el nombre de la conexión en este prefijo.
+Sin embargo, un nombre de conexión también puede hacer referencia a una colección de varios elementos de configuración, útil para configurar las [conexiones basadas en identidades](#configure-an-identity-based-connection). Las variables de entorno se pueden tratar como una colección mediante un prefijo compartido que termina en doble carácter de subrayado `__`. A continuación, se puede hacer referencia al grupo. Para ello, establezca el nombre de la conexión en este prefijo.
 
 Por ejemplo, la propiedad `connection` de una definición de desencadenador de blob de Azure podría ser "Storage1". Siempre que no haya ningún valor de cadena único configurado por una variable de entorno denominada "Storage1", se podría usar una variable de entorno denominada `Storage1__blobServiceUri` para informar a la propiedad `blobServiceUri` de la conexión. Las propiedades de conexión son diferentes para cada servicio. Consulte la documentación del componente que utiliza la conexión.
 
 ### <a name="configure-an-identity-based-connection"></a>Configuración de una conexión basada en identidades
 
-Algunas conexiones de Azure Functions pueden estar configuradas para usar una identidad en lugar de un secreto. La compatibilidad depende de la extensión que utiliza la conexión. En algunos casos, es posible que aún se necesite una cadena de conexión en Functions aunque el servicio al que se está conectando admita conexiones basadas en identidades.
+Algunas conexiones de Azure Functions pueden estar configuradas para usar una identidad en lugar de un secreto. La compatibilidad depende de la extensión que utiliza la conexión. En algunos casos, es posible que aún se necesite una cadena de conexión en Functions aunque el servicio al que se está conectando admita conexiones basadas en identidades. Para obtener un tutorial sobre cómo configurar las aplicaciones de funciones con identidades administradas, consulte el tutorial [Creación de una aplicación de funciones con conexiones basadas en identidades](./functions-identity-based-connections-tutorial.md).
 
 Las conexiones basadas en identidades son compatibles con los siguientes componentes:
 
@@ -168,6 +168,9 @@ Es posible que se admitan opciones adicionales para un tipo de conexión determi
 
 ##### <a name="local-development-with-identity-based-connections"></a>Desarrollo local con conexiones basadas en identidades
 
+> [!NOTE]
+> El desarrollo local con conexiones basadas en identidades requiere versiones actualizadas de [Azure Functions Core Tools](./functions-run-local.md). Puede comprobar qué versión tiene instalada actualmente mediante el comando `func -v`. Para Functions v3, use la versión `3.0.3904` o posterior. Para Functions v4, use la versión `4.0.3904` o posterior. 
+
 Cuando se ejecuta localmente, la configuración anterior indica al tiempo de ejecución que use la identidad del desarrollador local. La conexión intentará obtener un token de las siguientes ubicaciones, en orden:
 
 - Una caché local compartida entre las aplicaciones de Microsoft
@@ -207,8 +210,8 @@ Ejemplo de las propiedades `local.settings.json` requeridas para la conexión ba
 De forma predeterminada, Azure Functions usa la conexión "AzureWebJobsStorage" para comportamientos básicos, como la coordinación de la ejecución de singleton de los desencadenadores de temporizador y el almacenamiento de claves de aplicación predeterminado. También puede configurarse para aprovechar una identidad.
 
 > [!CAUTION]
-> Otros componentes de Functions dependen de "AzureWebJobsStorage" para los comportamientos predeterminados. No debe moverlo a una conexión basada en identidades si usa versiones anteriores de extensiones que no admiten este tipo de conexión, incluidos desencadenadores y enlaces para blobs de Azure y Event Hubs.
-> 
+> Otros componentes de Functions dependen de "AzureWebJobsStorage" para los comportamientos predeterminados. No debe moverlo a una conexión basada en identidades si usa versiones anteriores de extensiones que no admiten este tipo de conexión, incluidos desencadenadores y enlaces para blobs de Azure y Event Hubs. De forma similar, `AzureWebJobsStorage` se usa para los artefactos de implementación cuando se usa la compilación del lado servidor en Consumo para Linux y, si se habilita, deberá implementar a través de [un paquete de implementación externo](/run-functions-from-deployment-package).
+>
 > Además, algunas aplicaciones reutilizan "AzureWebJobsStorage" para las conexiones de almacenamiento en sus desencadenadores, enlaces o código de función. Asegúrese de que todos los usos de "AzureWebJobsStorage" pueden utilizar el formato de conexión basado en identidades antes de cambiar esta conexión de una cadena de conexión.
 
 Para usar una conexión basada en identidades para "AzureWebJobsStorage", configure las siguientes opciones de la aplicación:

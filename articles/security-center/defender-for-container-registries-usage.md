@@ -1,26 +1,29 @@
 ---
-title: Uso de Azure Defender para registros de contenedor
-description: Obtenga información sobre el uso de Azure Defender para registros de contenedor para examinar imágenes de Linux en los registros hospedados en Linux.
+title: Procedimientos a fin de usar Microsoft Defender para registros de contenedor
+description: Obtenga información sobre el uso de Microsoft Defender para registros de contenedor a fin de examinar imágenes de Linux en los registros hospedados en Linux.
 author: memildin
 ms.author: memildin
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 195e47ce7165a02c5bb7126521432d448e2199a9
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 9925fcb9f6a4d4284c7c6784a45e896ea825abc0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112238812"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056098"
 ---
-# <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Uso de Azure Defender para registros de contenedor para examinar las imágenes en busca de vulnerabilidades
+# <a name="use-microsoft-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Uso de Microsoft Defender para registros de contenedor a fin de examinar las imágenes en busca de vulnerabilidades
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 En esta página se explica cómo usar el analizador de vulnerabilidades integrado para examinar las imágenes de contenedor almacenadas en la instancia de Azure Container Registry basada en Azure Resource Manager.
 
-Cuando **Azure Defender para registros de contenedor** está habilitado, cualquier imagen que inserte en el registro se examinará de inmediato. Además, también se analizan las imágenes extraídas en los últimos 30 días. 
+Cuando **Microsoft Defender para registros de contenedor** está habilitado, cualquier imagen que inserte en el registro se examinará de inmediato. Además, también se analizan las imágenes extraídas en los últimos 30 días. 
 
-Cuando en detector notifica vulnerabilidades a Security Center, este presenta los resultados y la información relacionada como recomendaciones. Además, los resultados incluyen información relacionada, como pasos de corrección, CVE pertinentes, puntuaciones de CVSS, etc. Se pueden ver las vulnerabilidades identificadas para una o varias suscripciones, o para un registro específico.
+Cuando el escáner notifica vulnerabilidades a Defender for Cloud, este último presenta los resultados y la información relacionada como recomendaciones. Además, los resultados incluyen información relacionada, como pasos de corrección, CVE pertinentes, puntuaciones de CVSS, etc. Se pueden ver las vulnerabilidades identificadas para una o varias suscripciones, o para un registro específico.
 
 > [!TIP]
 > También puede examinar las imágenes de contenedor en busca de vulnerabilidades a medida que las imágenes se integran en los flujos de trabajo de CI/CD de GitHub. Obtenga más información en [Identificación de imágenes de contenedor vulnerables en los flujos de trabajo de CI/CD](defender-for-container-registries-cicd.md).
@@ -30,24 +33,24 @@ Cuando en detector notifica vulnerabilidades a Security Center, este presenta lo
 
 Para habilitar exámenes de vulnerabilidades de las imágenes almacenadas en la instancia de Azure Container Registry basada en Azure Resource Manager:
 
-1. Habilite **Azure Defender para registros de contenedor** para su suscripción. Security Center ya está listo para examinar imágenes en los registros.
+1. Habilite **Microsoft Defender para registros de contenedor** para su suscripción. Defender for Cloud ya está listo para examinar imágenes en los registros.
 
     >[!NOTE]
     > Esta característica se cobra por imagen.
 
 1. Los recorridos de imagen se desencadenan en cada una de las inserciones o importaciones, y si la imagen se ha extraído en los últimos 30 días. 
 
-    Cuando finaliza el examen (al cabo de 2 minutos aproximadamente, aunque puede tardar hasta 15 minutos), los resultados están disponibles en recomendaciones de Security Center.
+    Cuando finaliza el examen (al cabo de 2 minutos aproximadamente, aunque puede tardar hasta 15 minutos), los resultados están disponibles como recomendaciones de Defender for Cloud.
 
 1. [Vea y corrija los resultados tal y como se explica a continuación](#view-and-remediate-findings).
 
 ## <a name="identify-vulnerabilities-in-images-in-other-container-registries"></a>Identificación de vulnerabilidades en imágenes en otros registros de contenedor 
 
-1. Use las herramientas de ACR para incorporar imágenes al registro desde Docker Hub o Microsoft Container Registry.  Una vez finalizada la importación, Azure Defender examina las imágenes importadas. 
+1. Use las herramientas de ACR para incorporar imágenes al registro desde Docker Hub o Microsoft Container Registry.  Una vez completada la importación, la solución de evaluación de vulnerabilidades integrada examina las imágenes importadas.
 
     Obtenga más información en [Importación de imágenes de contenedor en un registro de contenedor](../container-registry/container-registry-import-images.md).
 
-    Cuando finaliza el examen (al cabo de 2 minutos aproximadamente, aunque puede tardar hasta 15 minutos), los resultados están disponibles en recomendaciones de Security Center.
+    Cuando finaliza el examen (al cabo de 2 minutos aproximadamente, aunque puede tardar hasta 15 minutos), los resultados están disponibles como recomendaciones de Defender for Cloud.
 
 1. [Vea y corrija los resultados tal y como se explica a continuación](#view-and-remediate-findings).
 
@@ -149,5 +152,4 @@ Para crear una regla:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Más información sobre Azure Defender](azure-defender.md)
+Obtenga más información sobre [los planes de protección avanzados de Microsoft Defender](defender-for-cloud-introduction.md).

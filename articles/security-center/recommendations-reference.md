@@ -1,28 +1,30 @@
 ---
-title: Tabla de referencia para todas las recomendaciones de Azure Security Center
-description: En este artículo se enumeran recomendaciones de seguridad de Azure Security Center que ayudan a proteger los recursos.
+title: Tabla de referencia de todas las recomendaciones de Microsoft Defender for Cloud
+description: En este artículo se muestra una lista de las recomendaciones de seguridad de Microsoft Defender for Cloud que permiten proteger los recursos.
 author: memildin
 ms.service: security-center
 ms.topic: reference
 ms.date: 09/05/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: a1fd045bebf4a5821d9f411f409d301b5d2c453d
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 34f970884c97105a3831734cf672376e17f43a98
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123536926"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131014474"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Guía de referencia sobre las recomendaciones de seguridad
 
-En este artículo se enumeran las recomendaciones que puede ver en Azure Security Center. Las recomendaciones que se muestran en su entorno dependen de los recursos que se van a proteger y de la configuración personalizada.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Las recomendaciones de Security Center se basan en [Azure Security Benchmark](../security/benchmarks/introduction.md). Azure Security Benchmark es el conjunto de directrices específico de Azure creado por Microsoft para ofrecer los procedimientos recomendados de seguridad y cumplimiento basados en marcos de cumplimiento comunes. Esta prueba comparativa, que cuenta con un amplísimo respaldo, se basa en los controles del [Centro de seguridad de Internet (CIS)](https://www.cisecurity.org/benchmark/azure/) y del [Instituto Nacional de Normas y Tecnología (NIST)](https://www.nist.gov/), con un enfoque en seguridad centrada en la nube.
+En este artículo se muestra una lista de las recomendaciones que puede ver en Microsoft Defender for Cloud. Las recomendaciones que se muestran en su entorno dependen de los recursos que se van a proteger y de la configuración personalizada.
 
-Para obtener información acerca de cómo responder a estas recomendaciones, consulte [Recomendaciones de corrección en Azure Security Center](security-center-remediate-recommendations.md).
+Las recomendaciones de Defender for Cloud se basan en [Azure Security Benchmark](../security/benchmarks/introduction.md). Azure Security Benchmark es el conjunto de directrices específico de Azure creado por Microsoft para ofrecer los procedimientos recomendados de seguridad y cumplimiento basados en marcos de cumplimiento comunes. Este punto de referencia, que cuenta con un amplísimo respaldo, se basa en los controles del [Centro de seguridad de Internet (CIS)](https://www.cisecurity.org/benchmark/azure/) y del [Instituto Nacional de Normas y Tecnología (NIST)](https://www.nist.gov/), con un enfoque en seguridad centrada en la nube.
 
-La puntuación de seguridad se basa en el número de recomendaciones de Security Center que se han completado. Para decidir qué recomendaciones se resuelven en primer lugar, examine la gravedad de cada una de ellas y su posible impacto en la puntuación de seguridad.
+Para obtener información sobre cómo responder a estas recomendaciones, vea [Recomendaciones de corrección en Microsoft Defender for Cloud](implement-security-recommendations.md).
+
+La puntuación de seguridad se basa en el número de recomendaciones de Defender for Cloud que se han completado. Para decidir qué recomendaciones se resuelven en primer lugar, examine la gravedad de cada una de ellas y su posible impacto en la puntuación de seguridad.
 
 > [!TIP]
 > Si la descripción de una recomendación indica "No hay ninguna directiva relacionada", suele deberse a que esta recomendación depende de una recomendación distinta y de _su_ directiva. Por ejemplo, la recomendación "Los errores de estado de Endpoint Protection deberían corregirse..." se basa en la recomendación que comprueba si una solución de Endpoint Protection está incluso _instalada_ ("La solución de Endpoint Protection debe estar instalada..."). La recomendación subyacente _tiene_ una directiva.
@@ -73,4 +75,4 @@ La puntuación de seguridad se basa en el número de recomendaciones de Security
 Para obtener más información sobre las recomendaciones, consulte:
 
 - [¿Qué son las directivas de seguridad, las iniciativas y las recomendaciones?](security-policy-concept.md)
-- [Examen de las recomendaciones de seguridad](security-center-recommendations.md)
+- [Examen de las recomendaciones de seguridad](review-security-recommendations.md)

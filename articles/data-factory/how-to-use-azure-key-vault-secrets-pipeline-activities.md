@@ -6,13 +6,13 @@ ms.author: abnarain
 ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 10/31/2019
-ms.openlocfilehash: b94ceb3bc190f57e3e5190e89e1018fc8a6e77f6
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/22/2021
+ms.openlocfilehash: 09a2c057cbefefc02e40d326eea094e37b092cc5
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124831152"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851161"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Uso de secretos de Azure Key Vault en actividades de canalización
 

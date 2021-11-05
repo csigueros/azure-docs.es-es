@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/13/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: e4be8f3bac712136fc2cbfea5a6a6febbd81e0e1
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: deac46666be5c77d48597d2e75838c167040badf
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129991097"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059535"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment-in-azure-active-directory"></a>Planeamiento de una implementación de aprovisionamiento automático de usuarios en Azure Active Directory
 
@@ -99,7 +99,7 @@ En este ejemplo, los usuarios y los grupos se crean en una base de datos de recu
 
 En este ejemplo, la creación de usuarios se produce en Azure AD y el servicio de aprovisionamiento de Azure AD administra el aprovisionamiento automático de usuarios en las aplicaciones de destino (SaaS).
 
-![Diagrama que muestra el proceso de creación de usuarios o grupos desde una aplicación de RR. HH. local a través del servicio de aprovisionamiento de Azure AD a las aplicaciones SaaS de destino.](./media/plan-auto-user-provisioning/cloudprovisioning.png)
+![Diagrama que muestra el proceso de creación de usuarios o grupos desde una aplicación de RR. HH. local a través del servicio de aprovisionamiento de Azure AD a las aplicaciones SAAS de destino.](./media/plan-auto-user-provisioning/cloudprovisioning.png)
 
 **Descripción del flujo de trabajo:**
 
@@ -318,7 +318,7 @@ Consulte los vínculos siguientes para solucionar los problemas que pueden surgi
 
 #### <a name="resources"></a>Recursos
 
-* [Proporcionar comentarios sobre el producto](https://feedback.azure.com/forums/169401-azure-active-directory)
+* [Proporcionar comentarios sobre el producto](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)
 
 * [Manténgase al día con las novedades de Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
 

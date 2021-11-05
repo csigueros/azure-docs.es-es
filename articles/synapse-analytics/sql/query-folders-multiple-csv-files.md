@@ -9,12 +9,13 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: a91ca96e69ae5408a3232513eea3ba1443c97064
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 960c13baea77fc8a6b900a5e68828af0377b0087
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123253604"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131018609"
 ---
 # <a name="query-folders-and-multiple-files"></a>Consulta de carpetas y varios archivos  
 
@@ -66,6 +67,34 @@ SELECT
     SUM(fare_amount) AS fare_total
 FROM OPENROWSET(
         BULK 'csv/taxi/yellow_tripdata_2017-*.csv',
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
+        FIRSTROW = 2
+    )
+    WITH (
+        payment_type INT 10,
+        fare_amount FLOAT 11
+    ) AS nyc
+GROUP BY payment_type
+ORDER BY payment_type;
+```
+
+> [!NOTE]
+> Todos los archivos a los que se tiene acceso con la función OPENROWSET única deben tener la misma estructura (es decir, el número de columnas y sus tipos de datos).
+
+### <a name="read-subset-of-files-in-folder-using-multiple-file-paths"></a>Lectura de subconjunto de archivos en una carpeta mediante varias rutas de acceso de archivo
+
+En el ejemplo siguiente se leen los archivos de datos de NYC Yellow Taxi de 2017 de la carpeta *csv/taxi* mediante dos rutas de acceso de archivo, la primera con una ruta de acceso completa al archivo que contiene datos del mes de enero y la segunda con un carácter comodín que lee los meses de noviembre y diciembre, y que devuelve el importe total de la tarifa por tipo de pago.
+
+```sql
+SELECT 
+    payment_type,  
+    SUM(fare_amount) AS fare_total
+FROM OPENROWSET(
+        BULK (
+            'csv/taxi/yellow_tripdata_2017-01.csv',
+            'csv/taxi/yellow_tripdata_2017-1*.csv'
+        ),
         DATA_SOURCE = 'sqlondemanddemo',
         FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIRSTROW = 2

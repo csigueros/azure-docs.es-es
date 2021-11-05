@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 05/11/2021
+ms.date: 11/02/2021
 ms.author: lajanuar
-ms.custom: cog-serv-seo-aug-2020
+ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 keywords: procesamiento de documentos
-ms.openlocfilehash: 23f525449edfa8d37a7bd8e3ebeff1fb9cdff601
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 61654777f94b44b2fca0d2976ea6fd4470987a62
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130224505"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131021722"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -24,7 +24,7 @@ ms.locfileid: "130224505"
 <!-- markdownlint-disable MD034 -->
 # <a name="train-a-custom-model-using-the-sample-labeling-tool"></a>Entrenamiento de un modelo personalizado mediante la herramienta de etiquetado de ejemplo
 
-En este artículo, usará la API REST de Form Recognizer con la herramienta de etiquetado de ejemplo para entrenar un modelo personalizado de procesamiento de documentos con datos etiquetados manualmente. 
+En este artículo, se usará la API REST de Form Recognizer con la herramienta de etiquetado de ejemplo para entrenar un modelo personalizado de procesamiento de documentos con datos etiquetados manualmente. 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
@@ -55,20 +55,20 @@ Necesitará una suscripción de Azure ([cree una gratis](https://azure.microsoft
 
 > [!NOTE]
 >
-> Si los datos de almacenamiento están detrás de una red virtual o un firewall, tiene que implementar la **herramienta de etiquetado de ejemplo de Form Recognizer** detrás de la red virtual o el firewall, y conceder acceso mediante la creación de una [identidad administrada asignada por el sistema](managed-identity-byos.md "La identidad administrada de Azure es una entidad de servicio que crea una identidad de Azure Active Directory y permisos específicos para los recursos administrados de Azure.").
+> Si los datos de almacenamiento están detrás de una red virtual o un firewall, tiene que implementar la **herramienta de etiquetado de ejemplo de Form Recognizer** detrás de la red virtual o el firewall, y conceder acceso creando una [identidad administrada asignada por el sistema](managed-identity-byos.md "La identidad administrada de Azure es una entidad de servicio que crea una identidad de Azure Active Directory y permisos específicos para los recursos administrados de Azure.").
 
 Usará el motor de Docker para ejecutar la herramienta de etiquetado de ejemplo. Siga estos pasos para configurar el contenedor de Docker. Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).
 
 > [!TIP]
 > OCR Form Labeling Tool también está disponible como proyecto de código abierto en GitHub. La herramienta es una aplicación web en TypeScript compilada mediante React + Redux. Para más información o para realizar una contribución, consulte el repositorio [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application). Para probar la herramienta en línea, vaya al [sitio web de la herramienta de etiquetado de ejemplo de Form Recognizer](https://fott-2-1.azurewebsites.net/).
 
-1. En primer lugar, instale Docker en un equipo host. En esta guía se muestra cómo usar el equipo local como un host. Si desea usar un servicio de hospedaje de Docker en Azure, consulte la guía paso a paso [Implementación de la herramienta de etiquetado de ejemplo](deploy-label-tool.md).
+1. En primer lugar, instale Docker en un equipo host. En esta guía se muestra cómo usar el equipo local como un host. Si quiere usar un servicio de hospedaje de Docker en Azure, vea la guía paso a paso [Implementación de la herramienta de etiquetado de ejemplo](deploy-label-tool.md).
 
    El equipo host debe cumplir los siguientes requisitos de hardware:
 
     | Contenedor | Mínima | Recomendado|
     |:--|:--|:--|
-    |Herramienta de etiquetado de ejemplo|2 núcleos, 4 GB de memoria|4 núcleos, 8 GB de memoria|
+    |Herramienta de etiquetado de muestras|2 núcleos, 4 GB de memoria|4 núcleos, 8 GB de memoria|
 
     Instale Docker en la máquina siguiendo las instrucciones adecuadas para su sistema operativo:
 
@@ -112,7 +112,7 @@ Habilite CORS en la cuenta de almacenamiento. Seleccione la cuenta de almacenami
 
 ## <a name="connect-to-the-sample-labeling-tool"></a>Conexión a la herramienta de etiquetado de ejemplo
 
- La herramienta de etiquetado de ejemplo se conecta a un origen (los formularios originales que cargó) y a un destino (las etiquetas creadas y los datos de salida).
+ La herramienta de etiquetado de ejemplo se conecta a un origen (los formularios originales cargados) y a un destino (las etiquetas creadas y los datos de salida).
 
 Las conexiones se pueden configurar y compartir entre proyectos. Usan un modelo extensible de proveedores, por lo que puede agregar fácilmente nuevos proveedores de origen y destino.
 
@@ -308,7 +308,7 @@ Por último, vaya a la página principal (icono de la casa) y seleccione **Open 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha aprendido a utilizar la herramienta de etiquetado de ejemplo de Form Recognizer para entrenar un modelo con datos etiquetados manualmente. Si quiere crear su propia utilidad para etiquetar los datos de entrenamiento, use las API de REST que se ocupan del entrenamiento con datos etiquetados.
+En este inicio rápido, ha descubierto cómo utilizar la herramienta de etiquetado de ejemplo de Form Recognizer para entrenar un modelo con datos etiquetados manualmente. Si quiere crear su propia utilidad para etiquetar los datos de entrenamiento, use las API de REST que se ocupan del entrenamiento con datos etiquetados.
 
 > [!div class="nextstepaction"]
 > [Entrenamiento con etiquetas mediante Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)

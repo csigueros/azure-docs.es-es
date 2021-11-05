@@ -3,22 +3,23 @@ title: 'Grabación de vídeo continua desde el perímetro: Azure Video Analyzer'
 description: Grabación de vídeo continua (CVR) hace referencia al proceso de grabación continua desde un origen de vídeo en directo. En este tema se explica qué es CVR y cómo se usa con Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: a7909fab420302fe8246e8f1ce2cd050d1f854f8
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.date: 11/01/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 830727c530d71e3700799ae296af6a124010a921
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114603987"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131031183"
 ---
 # <a name="continuous-video-recording"></a>Grabación de vídeo continua    
 
-Grabación de vídeo continua (CVR) hace referencia al proceso de grabación continua del vídeo desde un origen de vídeo. Azure Video Analyzer admite la grabación de vídeo continua, de forma ininterrumpida, de una cámara de videovigilancia a través de una [topología de canalización](pipeline.md) de procesamiento de vídeo que se compone de un nodo de origen RTSP y un nodo receptor de vídeo. El diagrama siguiente muestra una representación gráfica de esa canalización. La representación JSON de la topología se encuentra en este [documento](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-video-sink/topology.json). Puede usar esa topología para crear grabaciones arbitrariamente largas (contenido correspondientes a varios años), que se pueden examinar en función de la hora UTC.  
+Grabación de vídeo continua (CVR) hace referencia al proceso de grabación continua del vídeo desde un origen de vídeo. Azure Video Analyzer admite la grabación de vídeo continua, de forma ininterrumpida, de una cámara de videovigilancia a través de una [topología de canalización](pipeline.md) de procesamiento de vídeo que se compone de un nodo de origen RTSP y un nodo receptor de vídeo. El diagrama siguiente muestra una representación gráfica de esa canalización. La representación JSON de la topología se encuentra en este [documento](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-video-sink/topology.json). Puede usar esta topología para crear grabaciones arbitrariamente largas (años de contenido). Las marcas de tiempo de las grabaciones se almacenan en formato UTC.  
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/continuous-video-recording/continuous-video-recording-overview.svg" alt-text="Grabación de vídeo continua":::
 
-Una instancia de la topología de canalización descrita anteriormente se puede ejecutar en un dispositivo perimetral, con el receptor de vídeo grabando en un [recurso de vídeo](terminology.md#video)de Video Analyzer. El vídeo se grabará durante todo el tiempo que la canalización permanezca en estado activado. Al grabarse como un recurso de vídeo, para reproducirlo se pueden usar las funcionalidades de streaming de Video Analyzer. Para más información, consulte [Reproducción de grabaciones de vídeo](playback-recordings-how-to.md).
+Una instancia de la topología de canalización descrita anteriormente se puede ejecutar en un dispositivo perimetral en el servicio Video Analyzer, con el receptor de vídeo grabando en un [recurso de vídeo](terminology.md#video). El vídeo se grabará durante todo el tiempo que la canalización permanezca en estado activado. El vídeo grabado se puede reproducir mediante las funcionalidades de streaming de Video Analyzer. Para más información, consulte [Reproducción de grabaciones de vídeo](playback-recordings-how-to.md).
 
 ## <a name="suggested-pre-reading"></a>Sugerencias antes de la lectura  
 
@@ -29,7 +30,7 @@ Es aconsejable leer los siguientes artículos antes de continuar.
  
 ## <a name="resilient-recording"></a>Grabación resistente
 
-Video Analyzer admite el funcionamiento en condiciones en las que el dispositivo perimetral puede perder ocasionalmente la conectividad con la nube o experimentar una reducción del ancho de banda disponible. Para tener todo esto en cuenta, el vídeo del origen se registra localmente en una caché y se sincroniza automáticamente con el recurso de vídeo de forma periódica. Si examina la [topología de canalización](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-video-sink/topology.json), observará que tiene definidas las siguientes propiedades:
+El módulo perimetral Video Analyzer admite el funcionamiento en condiciones en las que el dispositivo perimetral puede perder ocasionalmente la conectividad con la nube o experimentar una reducción del ancho de banda disponible. Para tener todo esto en cuenta, el vídeo del origen se registra localmente en una caché y se sincroniza automáticamente con el recurso de vídeo de forma periódica. Si examina la [topología de canalización](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-video-sink/topology.json), observará que tiene definidas las siguientes propiedades:
 
 ```
 "segmentLength": "PT30S",
@@ -47,12 +48,11 @@ También pueden producirse deficiencias en las grabaciones, por ejemplo, si rein
 
 ## <a name="segmented-recording"></a>Grabación segmentada  
 
-La propiedad `segmentLength` que se muestra anteriormente le ayudará a controlar el costo de las transacciones de escritura asociado a la escritura de datos en la cuenta de almacenamiento en la que se registra el recurso de vídeo. Por ejemplo, si aumenta el período de carga de 30 segundos a 5 minutos, el número de transacciones de almacenamiento se reducirá 10 veces (5 * 60/30).
+La propiedad `segmentLength` que se muestra anteriormente le ayudará a controlar el costo de las transacciones de escritura asociado a la escritura de datos en la cuenta de almacenamiento en la que se registra el recurso de vídeo. Por ejemplo, si aumenta el valor de 30 segundos a 5 minutos, el número de transacciones de almacenamiento se reducirá 10 veces (5 * 60/30).
 
-La propiedad `segmentLength` garantiza que el módulo perimetral cargará vídeo como máximo una vez cada `segmentLength` segundos. Esta propiedad tiene un valor mínimo de 30 segundos (también el valor predeterminado) y se puede aumentar en incrementos de 30 segundos hasta un máximo de 5 minutos.
+La propiedad `segmentLength` garantiza que el vídeo se escribe en la cuenta de almacenamiento como máximo una vez cada `segmentLength` segundos. Esta propiedad tiene un valor mínimo de 30 segundos (también el valor predeterminado) y se puede aumentar en incrementos de 30 segundos hasta un máximo de 5 minutos.
 
-> [!NOTE]
-> Consulte el artículo [Reproducción de grabaciones de vídeo](playback-recordings-how-to.md) para ver el efecto que `segmentLength` tiene en la reproducción.
+Esta propiedad se aplica tanto al módulo perimetral de Video Analyzer como al servicio Video Analyzer. Consulte el artículo [Reproducción de grabaciones de vídeo](playback-recordings-how-to.md) para ver el efecto que `segmentLength` tiene en la reproducción.
 
 ## <a name="see-also"></a>Consulte también
 
@@ -61,12 +61,4 @@ La propiedad `segmentLength` garantiza que el módulo perimetral cargará vídeo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Tutorial: grabación continua de vídeo](use-continuous-video-recording.md) 
-
-<!-- links 
-[pipeline-cvr-json]: https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset
-[terminology-video]: terminology.md#video
-[concept-pipeline]: pipeline.md
-[concept-video-playback]: playback-recordings-how-to.md
-[concept-recording]: video-recording-concept.md
--->
+[Tutorial: grabación continua de vídeo](edge/use-continuous-video-recording.md) 

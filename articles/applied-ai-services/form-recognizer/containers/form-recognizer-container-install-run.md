@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 07/01/2021
 ms.author: lajanuar
 keywords: entorno local, Docker, contenedor, identificar
-ms.openlocfilehash: 1fb19ef8f7b4855107d089e6b0ce21673ce5b841
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: bdd04a42ba97721d5d5dafd23f9e8e7b5b661f4b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129057348"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131027006"
 ---
 # <a name="install-and-run-form-recognizer-v21-preview-containers"></a>Instalación y ejecución de contenedores de la versión preliminar de Form Recognizer v2.1
 
@@ -71,7 +72,7 @@ En la tabla siguiente se enumeran los contenedores de compatibilidad adicionales
 
 | Contenedor de características | Compatibilidad con contenedores |
 |---------|-----------|
-| **Diseño** | None |
+| **Diseño** | Ninguno |
 | **Tarjeta de presentación** | **Lectura de Computer Vision**|
 | **Documento de identificación** | **Lectura de Computer Vision** |
 | **Factura**   | **Diseño** |
@@ -430,7 +431,7 @@ http {
 
 * Reúna un conjunto de al menos seis formularios del mismo tipo. Usará estos datos para entrenar el modelo y probar un formulario. Puede usar un [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451) (descargue y extraiga *sample_data.zip*). Descargue los archivos de entrenamiento en la carpeta **compartida** que creó anteriormente.
 
-* Si desea etiquetar los datos, descargue la herramienta [Form Recognizer de etiquetado de ejemplo para Windows](https://github.com/microsoft/OCR-Form-Tools/releases/tag/v2.1-ga). La descarga importará el archivo .exe de la herramienta de etiquetado que usará para etiquetar los datos presentes en el sistema de archivos local. Puede omitir las advertencias que se producen durante el proceso de descarga.
+* Si quiere etiquetar los datos, descargue la herramienta [Form Recognizer de etiquetado de ejemplo para Windows](https://github.com/microsoft/OCR-Form-Tools/releases/tag/v2.1-ga). La descarga importará el archivo .exe de la herramienta de etiquetado que usará para etiquetar los datos presentes en el sistema de archivos local. Puede omitir las advertencias que se producen durante el proceso de descarga.
 
 #### <a name="create-a-new-sample-labeling-tool-project"></a>Creación de un nuevo proyecto de herramienta de etiquetado de ejemplo
 

@@ -1,37 +1,40 @@
 ---
-title: Puntuación de seguridad de Azure Security Center
-description: Descripción de Puntuación de seguridad de Azure Security Center y sus controles de seguridad
+title: Puntuación segura en Microsoft Defender for Cloud
+description: Descripción de la puntuación de seguridad de Microsoft Defender for Cloud y sus controles de seguridad
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: article
 ms.date: 09/01/2021
 ms.author: memildin
-ms.openlocfilehash: 4bfacebc9961cdbac89252783f47267002a69a66
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 6cc1cf4aac9b8f363770495d976ad65b6ff79b49
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128597253"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131014342"
 ---
-# <a name="secure-score-in-azure-security-center"></a>Puntuación de seguridad de Azure Security Center
+# <a name="secure-score-in-microsoft-defender-for-cloud"></a>Puntuación segura en Microsoft Defender for Cloud
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 ## <a name="introduction-to-secure-score"></a>Introducción a Puntuación de seguridad
 
-Azure Security Center tiene dos objetivos principales: 
+Microsoft Defender for Cloud tiene dos objetivos principales: 
 
 - ayudarle a entender su situación de seguridad actual
 - ayudarle a mejorar la seguridad de forma eficaz
 
-La característica principal de Security Center que le ayuda a conseguir estos objetivos es la **puntuación de seguridad**.
+La característica principal de Defender for Cloud que le ayudará a conseguir estos objetivos es la **puntuación de seguridad**.
 
-Security Center evalúa continuamente los recursos, suscripciones y la organización en busca de problemas de seguridad. A continuación, agrega todos los resultados a una sola puntuación para que pueda conocer de un vistazo la situación de la seguridad actual: cuanto mayor sea la puntuación, menor será el nivel de riesgo identificado.
+Defender for Cloud evalúa continuamente los recursos, suscripciones y la organización en busca de problemas de seguridad. A continuación, agrega todos los resultados a una sola puntuación para que pueda conocer de un vistazo la situación de la seguridad actual: cuanto mayor sea la puntuación, menor será el nivel de riesgo identificado.
 
 La puntuación de seguridad se muestra en las páginas de Azure Portal como un valor de porcentaje, pero los valores subyacentes también se presentan claramente:
 
 :::image type="content" source="./media/secure-score-security-controls/single-secure-score-via-ui.png" alt-text="Puntuación de seguridad general como se muestra en el portal.":::
 
-Para aumentar la seguridad, revise la página de recomendaciones de Security Center en busca de las acciones pendientes necesarias para aumentar la puntuación. Cada recomendación incluye instrucciones para ayudarle a corregir el problema específico.
+Para aumentar la seguridad, revise la página de recomendaciones de Defender for Cloud en busca de las acciones pendientes necesarias para aumentar la puntuación. Cada recomendación incluye instrucciones para ayudarle a corregir el problema específico.
 
 Las recomendaciones se agrupan en **controles de seguridad**. Cada control es un grupo lógico de recomendaciones de seguridad relacionadas y refleja las superficies de ataque vulnerables. La puntuación solo mejora cuando corrige *todas* las recomendaciones para un solo recurso de un control. Para ver cómo protege su organización cada todas y cada una de las superficies expuesta a ataques, revise las puntuaciones de cada control de seguridad.
 
@@ -41,9 +44,9 @@ Para más información, consulte [Cálculo de la puntuación de seguridad](secur
 
 La contribución de cada control de seguridad en la puntuación de seguridad total aparece con claridad en la página de recomendaciones.
 
-:::image type="content" source="./media/secure-score-security-controls/security-controls.png" alt-text="Controles de Azure Security Center y su impacto en la puntuación segura" lightbox="./media/secure-score-security-controls/security-controls.png":::
+:::image type="content" source="./media/secure-score-security-controls/security-controls.png" alt-text="Controles de seguridad de Microsoft Defender for Cloud y su impacto en la puntuación segura" lightbox="./media/secure-score-security-controls/security-controls.png":::
 
-Para obtener todos los puntos posibles de un control de seguridad, todos sus recursos deben cumplir todas las recomendaciones de seguridad de dicho control. Por ejemplo, Security Center tiene varias recomendaciones sobre cómo proteger los puertos de administración. Deberá corregirlas todas para que la puntuación de seguridad mejore.
+Para obtener todos los puntos posibles de un control de seguridad, todos sus recursos deben cumplir todas las recomendaciones de seguridad de dicho control. Por ejemplo, Defender for Cloud tiene varias recomendaciones sobre cómo proteger los puertos de administración. Deberá corregirlas todas para que la puntuación de seguridad mejore.
 
 ### <a name="example-scores-for-a-control"></a>Puntuaciones de ejemplo para un control
 
@@ -69,7 +72,7 @@ En este ejemplo:
 |-|-|
 |**Puntuación actual del control de seguridad**|<br>![Ecuación para calcular la puntuación de un control de seguridad.](media/secure-score-security-controls/secure-score-equation-single-control.png)<br><br>Cada control de seguridad individual contribuye a la puntuación de seguridad. Cada recurso afectado por una recomendación dentro del control contribuye a la puntuación actual de este. La puntuación actual de cada control es una medida del estado de los recursos que están *dentro* del control.<br>![Información sobre herramientas que muestra los valores usados al calcular la puntuación actual del control de seguridad](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>En este ejemplo, la puntuación máxima de 6 se divide entre 78, ya que esta es la suma de los recursos correctos e incorrectos.<br>6 / 78 = 0,0769<br>La multiplicación de esa cifra por el número de recursos correctos (4) da como resultado la puntuación actual:<br>0.0769 * 4 = **0.31**<br><br>|
 |**Puntuación segura**<br>Suscripción única|<br>![Ecuación para calcular la puntuación de seguridad de una suscripción](media/secure-score-security-controls/secure-score-equation-single-sub.png)<br><br>![Puntuación de seguridad de una suscripción única con todos los controles habilitados](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>En este ejemplo, hay una suscripción única con todos los controles de seguridad disponibles (una puntuación máxima posible de 60 puntos). La puntuación muestra 28 puntos de los 60 posibles y los 32 puntos restantes se reflejan en las cifras de "Posible aumento de puntuación" de los controles de seguridad.<br>![Lista de controles y posible aumento de puntuación](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
-|**Puntuación segura**<br>Varias suscripciones|<br>![Ecuación para calcular la puntuación de seguridad de varias suscripciones.](media/secure-score-security-controls/secure-score-equation-multiple-subs.png)<br><br>Al calcular la puntuación combinada para varias suscripciones, Security Center incluye una *ponderación* para cada suscripción. Las ponderaciones relativas de las suscripciones se determinan mediante Security Center en función de factores como el número de recursos.<br>La puntuación actual de cada suscripción se calcula de la misma manera que para una sola suscripción, pero la ponderación se aplica como se muestra en la ecuación.<br>Cuando se ven varias suscripciones, la puntuación de seguridad evalúa todos los recursos de todas las directivas habilitadas y agrupa su impacto combinado en la puntuación máxima de cada control de seguridad.<br>![Puntuación de seguridad de varias suscripciones con todos los controles habilitados](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>La puntuación combinada **no** es un promedio; en vez de eso, es la posición evaluada del estado de todos los recursos de todas las suscripciones.<br>También en este caso, si va a la página de recomendaciones y suma los puntos posibles disponibles, observará que esta es la diferencia entre la puntuación actual (24) y la puntuación máxima disponible (60).|
+|**Puntuación segura**<br>Varias suscripciones|<br>![Ecuación para calcular la puntuación de seguridad de varias suscripciones.](media/secure-score-security-controls/secure-score-equation-multiple-subs.png)<br><br>Al calcular la puntuación combinada para varias suscripciones, Defender for Cloud incluye una *ponderación* para cada suscripción. Las ponderaciones relativas de las suscripciones se determinan mediante Defender for Cloud en función de factores como el número de recursos.<br>La puntuación actual de cada suscripción se calcula de la misma manera que para una sola suscripción, pero la ponderación se aplica como se muestra en la ecuación.<br>Cuando se ven varias suscripciones, la puntuación de seguridad evalúa todos los recursos de todas las directivas habilitadas y agrupa su impacto combinado en la puntuación máxima de cada control de seguridad.<br>![Puntuación de seguridad de varias suscripciones con todos los controles habilitados](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>La puntuación combinada **no** es un promedio; en vez de eso, es la posición evaluada del estado de todos los recursos de todas las suscripciones.<br>También en este caso, si va a la página de recomendaciones y suma los puntos posibles disponibles, observará que esta es la diferencia entre la puntuación actual (24) y la puntuación máxima disponible (60).|
 
 
 ### <a name="which-recommendations-are-included-in-the-secure-score-calculations"></a>¿Qué recomendaciones se incluyen en los cálculos de la puntuación de seguridad?
@@ -84,22 +87,22 @@ Un ejemplo de una recomendación en versión preliminar:
 
 ## <a name="improve-your-secure-score"></a>Mejora de su puntuación de seguridad
 
-Para mejorar la puntuación de seguridad, corrija las recomendaciones de seguridad de la lista de recomendaciones. Puede corregir cada recomendación manualmente para cada recurso o bien usar la opción **Corregir** (cuando esté disponible) para resolver rápidamente un problema en varios recursos. Para más información, consulte [Corrección de recomendaciones](security-center-remediate-recommendations.md).
+Para mejorar la puntuación de seguridad, corrija las recomendaciones de seguridad de la lista de recomendaciones. Puede corregir cada recomendación manualmente para cada recurso o bien usar la opción **Corregir** (cuando esté disponible) para resolver rápidamente un problema en varios recursos. Para más información, consulte [Corrección de recomendaciones](implement-security-recommendations.md).
 
 Otra forma de mejorar la puntuación y de asegurarse de que los usuarios no creen recursos que afecten negativamente a la puntuación es configurar las opciones de aplicar y denegar en las recomendaciones pertinentes. Más información en [Evitar errores de configuración con Aplicar/Denegar](prevent-misconfigurations.md).
 
 ## <a name="security-controls-and-their-recommendations"></a>Controles de seguridad y sus recomendaciones
 
-En la tabla siguiente se enumeran los controles de seguridad de Azure Security Center. Para cada control, puede ver el número máximo de puntos que puede sumar a la puntuación de seguridad si corrige *todas* las recomendaciones enumeradas en el control, para *todos* los recursos. 
+En la tabla siguiente se enumeran los controles de seguridad de Microsoft Defender for Cloud. Para cada control, puede ver el número máximo de puntos que puede sumar a la puntuación de seguridad si corrige *todas* las recomendaciones enumeradas en el control, para *todos* los recursos. 
 
-El conjunto de recomendaciones de seguridad proporcionadas con Security Center se adapta a los recursos disponibles en el entorno de cada organización. Las recomendaciones se pueden personalizar aún más [deshabilitando directivas](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations) y [excluyendo recursos específicos de una recomendación](exempt-resource.md). 
+El conjunto de recomendaciones de seguridad proporcionadas con Defender for Cloud se adapta a los recursos disponibles en el entorno de cada organización. Las recomendaciones se pueden personalizar aún más [deshabilitando directivas](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations) y [excluyendo recursos específicos de una recomendación](exempt-resource.md). 
  
 Se recomienda que cada organización revise cuidadosamente sus iniciativas de Azure Policy asignadas. 
 
 > [!TIP]
 > Para obtener información detallada sobre cómo revisar y editar iniciativas, vea [Trabajo con directivas de seguridad](tutorial-security-policy.md). 
 
-Aunque la iniciativa de seguridad predeterminada de Security Center se basa en los estándares y procedimientos recomendados del sector, hay escenarios en los que es posible que las recomendaciones integradas que se indican a continuación no se ajusten completamente a su organización. Por lo tanto, a veces será necesario ajustar la iniciativa predeterminada, sin comprometer la seguridad, para asegurarse de que está alineada con las directivas propias de su organización, así como con estándares del sector, estándares normativos y pruebas comparativas que tiene la obligación de cumplir.<br><br>
+Aunque la iniciativa de seguridad predeterminada de Defender for Cloud se basa en los estándares y procedimientos recomendados del sector, hay escenarios en los que es posible que las recomendaciones integradas que se indican a continuación no se ajusten completamente a su organización. Por lo tanto, a veces será necesario ajustar la iniciativa predeterminada, sin comprometer la seguridad, para asegurarse de que está alineada con las directivas propias de su organización, así como con estándares del sector, estándares normativos y pruebas comparativas que tiene la obligación de cumplir.<br><br>
 
 [!INCLUDE [security-center-controls-and-recommendations](../../includes/asc/security-control-recommendations.md)]
 
@@ -125,6 +128,6 @@ En este artículo se describe la puntuación de seguridad y los controles de seg
 
 Para obtener material relacionado, consulte los siguientes artículos:
 
-- [Más información sobre los distintos elementos de una recomendación](security-center-recommendations.md)
-- [Recomendaciones de corrección](security-center-remediate-recommendations.md)
+- [Más información sobre los distintos elementos de una recomendación](review-security-recommendations.md)
+- [Recomendaciones de corrección](implement-security-recommendations.md)
 - [Ver las herramientas basadas en GitHub para trabajar mediante programación con la puntuación de seguridad](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)

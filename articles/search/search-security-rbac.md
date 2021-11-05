@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2021
-ms.openlocfilehash: ceb65226c30d6ee9768388bb18807dd7cf6d6f85
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 5318ee205c66757409b9e0ffd8de864bcb69689a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130070591"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131064988"
 ---
 # <a name="use-role-based-authorization-in-azure-cognitive-search"></a>Uso de la autorización basada en roles en Azure Cognitive Search
 
@@ -21,10 +21,10 @@ Azure proporciona un [sistema de autorización de control de acceso basado en ro
 
 + Use roles disponibles con carácter general para la administración de servicios.
 
-+ Use nuevos roles de versión preliminar para la administración de contenido (creación y administración de índices y otros objetos de nivel superior), [**disponibles mediante solicitud**](https://aka.ms/azure-cognitive-search/rbac-preview).
++ Use nuevos roles en versión preliminar para la administración de contenido (creación y administración de índices y otros objetos de nivel superior), [**disponibles en versión preliminar**](#step-1-preview-sign-up).
 
 > [!NOTE]
-> Colaborador de servicio de búsqueda es un rol "disponible con carácter general", con funcionalidades en "versión preliminar". Es el único rol que admite un verdadero híbrido de tareas de administración de contenido y servicios, por lo que permite todas las operaciones en un servicio de búsqueda determinado. Para tener acceso a las funcionalidades en versión preliminar de la administración de contenido en este rol, [**regístrese para obtener dicha versión**](https://aka.ms/azure-cognitive-search/rbac-preview).
+> Colaborador de servicio de búsqueda es un rol "disponible con carácter general", con funcionalidades en "versión preliminar". Es el único rol que admite un verdadero híbrido de tareas de administración de contenido y servicios, por lo que permite todas las operaciones en un servicio de búsqueda determinado. Para tener acceso a las funcionalidades en versión preliminar de la administración de contenido en este rol, [**regístrese para obtener dicha versión**](#step-1-preview-sign-up).
 
 Algunos escenarios de RBAC **no** se admiten o no se tratan en este artículo:
 
@@ -47,7 +47,7 @@ No hay ninguna restricción regional, de nivel o de precios para usar RBAC en Az
 | [Propietario](../role-based-access-control/built-in-roles.md#owner) | Operaciones de servicio (disponible con carácter general) | Acceso total al recurso de búsqueda, incluida la capacidad de asignar roles de Azure. Los administradores de suscripciones son miembros de manera predeterminada. |
 | [Colaborador](../role-based-access-control/built-in-roles.md#contributor) | Operaciones de servicio (disponible con carácter general) | El mismo nivel de acceso que Propietario, menos la capacidad de asignar roles o cambiar opciones de autorización. |
 | [Lector](../role-based-access-control/built-in-roles.md#reader) | Operaciones de servicio (disponible con carácter general) | Acceso limitado a la información parcial del servicio. En el portal, el rol Lector puede acceder a la información de la página Información general del servicio, en la sección Essentials y en la pestaña Supervisión. Todas las demás pestañas y páginas están fuera de los límites. </br></br>Este rol tiene acceso a la información del servicio: grupo de recursos, estado del servicio, ubicación, nombre e identificador de la suscripción, etiquetas, dirección URL, plan de tarifa, réplicas, particiones y unidades de búsqueda. </br></br>Este rol también tiene acceso a las métricas del servicio: latencia de búsqueda, porcentaje de solicitudes limitadas y promedio de consultas por segundo. </br></br>No hay acceso a las claves de API, las asignaciones de roles, el contenido (índices o asignaciones de sinónimos) ni las métricas de contenido (almacenamiento consumido, número de objetos). |
-| [Colaborador del servicio Search](../role-based-access-control/built-in-roles.md#search-service-contributor) | Operaciones de servicio (disponible con carácter general) y objetos de nivel superior (versión preliminar) | Este rol es una combinación de Colaborador en el nivel de servicio, pero con acceso total a todas las acciones con índices, mapas de sinónimos, indexadores, orígenes de datos y conjuntos de aptitudes a través de [`Microsoft.Search/searchServices/*`](/azure/role-based-access-control/resource-provider-operations#microsoftsearch). Este rol está pensado para administradores de servicios de búsqueda que necesitan administrar por completo el servicio. </br></br>Al igual que Colaborador, los miembros de este rol no pueden realizar ni administrar asignaciones de roles ni cambiar opciones de autorización. |
+| [Colaborador del servicio Search](../role-based-access-control/built-in-roles.md#search-service-contributor) | Operaciones de servicio (disponible con carácter general) y objetos de nivel superior (versión preliminar) | Este rol es una combinación de Colaborador en el nivel de servicio, pero con acceso total a todas las acciones con índices, mapas de sinónimos, indexadores, orígenes de datos y conjuntos de aptitudes a través de [`Microsoft.Search/searchServices/*`](../role-based-access-control/resource-provider-operations.md#microsoftsearch). Este rol está pensado para administradores de servicios de búsqueda que necesitan administrar por completo el servicio. </br></br>Al igual que Colaborador, los miembros de este rol no pueden realizar ni administrar asignaciones de roles ni cambiar opciones de autorización. |
 | [Colaborador de datos de índice de búsqueda](../role-based-access-control/built-in-roles.md#search-index-data-contributor) | Colección de documentos (versión preliminar) | Proporciona acceso completo al contenido en todos los índices del servicio de búsqueda. Este rol está pensado para desarrolladores o propietarios de índices que necesitan importar, actualizar o consultar la colección de documentos de un índice. |
 | [Lector de datos de índice de búsqueda](../role-based-access-control/built-in-roles.md#search-index-data-reader) | Colección de documentos (versión preliminar) | Proporciona acceso de solo lectura a los índices de búsqueda en el servicio de búsqueda. Este rol está pensado para aplicaciones y usuarios que ejecutan consultas. |
 
@@ -62,11 +62,18 @@ Omita este paso si usa roles disponibles con carácter general (Propietario, Col
 
 Los nuevos roles en versión preliminar integrados proporcionan un conjunto granular de permisos sobre el contenido en el servicio de búsqueda. Aunque los roles integrados siempre están visibles en Azure Portal, es necesaria la inscripción en el servicio para que estén operativos.
 
-Para inscribirse en el programa en versión preliminar, haga lo siguiente:
+Para agregar la suscripción a la versión preliminar, haga lo siguiente:
 
-+ Rellene [este formulario](https://aka.ms/azure-cognitive-search/rbac-preview).
+1. Vaya a la página **Suscripciones** de [Azure Portal](https://portal.azure.com/).
+1. Seleccione la suscripción que quiere usar.
+1. En el lado izquierdo de la página de suscripción, seleccione **Características en vista previa**.
+1. Use la barra de búsqueda o los filtros para buscar y seleccionar el **Control de acceso basado en roles (versión preliminar)**
+1. Seleccione **Registrar** para agregar la característica a la suscripción.
 
-Las solicitudes de inscripción pueden tardar hasta dos días laborables en procesarse. Recibirá un correo electrónico cuando el servicio esté listo.
+![registro para el rbac en afec](media/search-howto-aad/rbac-signup-afec.png)
+
+Para más información sobre cómo agregar características en vista previa, consulte [Configuración de las características en vista previa en la suscripción de Azure](../azure-resource-manager/management/preview-features.md?tabs=azure-portal).
+
 
 ## <a name="step-2-preview-configuration"></a>Paso 2: Configuración de la versión preliminar
 
@@ -218,7 +225,7 @@ Recuerde que solo puede establecer el ámbito del acceso a recursos de nivel sup
 
   :::image type="content" source="media/search-security-rbac/rest-authorization-header.png" alt-text="Captura de pantalla de una solicitud HTTP con un encabezado &quot;Authorization&quot;" border="true":::
 
-Para obtener más información sobre cómo adquirir un token para un entorno específico, consulte [Bibliotecas de autenticación de la Plataforma de identidad de Microsoft](/azure/active-directory/develop/reference-v2-libraries).
+Para obtener más información sobre cómo adquirir un token para un entorno específico, consulte [Bibliotecas de autenticación de la Plataforma de identidad de Microsoft](../active-directory/develop/reference-v2-libraries.md).
 
 ### <a name="net-sdk"></a>[**SDK de .NET**](#tab/test-dotnet)
 

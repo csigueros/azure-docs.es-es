@@ -8,16 +8,18 @@ ms.assetid: 1721d0da-c91e-4c96-82de-5c7458df566b
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.date: 06/24/2021
-ms.openlocfilehash: 9a72ec356161646df093bb6ca054f84ea0cfe6da
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 172eaeae01f75ccebd20725f932dd2ad3f9eb39c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128563084"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131009266"
 ---
 # <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Uso de cuadernos de Jupyter para buscar amenazas de seguridad
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -27,8 +29,8 @@ Esta misma API está disponible también para herramientas externas, como los cu
 
 Por ejemplo, use cuadernos para:
 
-- **Realizar análisis** que no están integrados en Azure Sentinel, como algunas características de aprendizaje automático de Python
-- **Crear visualizaciones de datos** que no están integradas en Azure Sentinel, como escalas de tiempo personalizadas y árboles de proceso
+- **Realizar análisis** que no se incluyan de forma preestablecida en Azure Sentinel, como algunas características de aprendizaje automático de Python.
+- **Crear visualizaciones de datos** que no se incluyan de forma preestablecida en Azure Sentinel, como escalas de tiempo personalizadas y árboles de proceso.
 - **Integrar orígenes de datos** fuera de Azure Sentinel, como un conjunto de datos local.
 
 Hemos integrado la experiencia de Jupyter en Azure Portal, lo que facilita el proceso para crear y ejecutar cuadernos para analizar los datos. La biblioteca *Kqlmagic* actúa como el elemento aglutinador que permite realizar consultas [KQL](https://kusto.azurewebsites.net/docs/kusto/query/index.html) desde Azure Sentinel y ejecutarlas directamente en un cuaderno.
@@ -48,7 +50,7 @@ Los cuadernos constan de dos componentes:
 - **La interfaz basada en explorador** donde se escriben y ejecutan las consultas y el código, y donde se muestran los resultados de la ejecución.
 - **Un *kernel***, responsable de analizar y ejecutar el código en sí.
 
-El kernel del cuaderno de Azure Sentinel se ejecuta en una máquina virtual (VM) de Azure. Existen varias opciones de licencia para aprovechar máquinas virtuales más eficaces si los cuadernos incluyen modelos de Machine Learning complejos.
+El kernel del cuaderno de Azure Sentinel se ejecuta en una máquina virtual (VM) de Azure. Existen varias opciones de licencia para usar máquinas virtuales más eficaces si los cuadernos incluyen modelos de aprendizaje automático complejos.
 
 Los cuadernos de Azure Sentinel usan muchas bibliotecas de Python conocidas, como *pandas*, *matplotlib* y *bokeh*, entre otras. Existen otros muchos paquetes de Python que se pueden elegir, que cubren áreas como las siguientes:
 
@@ -64,8 +66,8 @@ En los cuadernos de Azure Sentinel se usa un paquete de Python denominado [MSTIC
 Las herramientas de MSTICPy están diseñadas expresamente para facilitar la creación de cuadernos que se puedan usar en búsquedas e investigaciones, y estamos trabajando activamente en nuevas características y mejoras. Para más información, consulte:
 
 - [Documentación de las herramientas de seguridad de MSTIC Jupyter y Python](https://msticpy.readthedocs.io/)
-- [Tutorial: Introducción a los cuadernos de Jupyter y MSTICPy en Azure Sentinel](notebook-get-started.md)
-- [Configuraciones avanzadas para cuadernos de Jupyter y MSTICPy en Azure Sentinel](notebooks-msticpy-advanced.md)
+- [Tutorial: Introducción a los cuadernos de Jupyter Notebook y MSTICPy en Azure Sentinel](notebook-get-started.md)
+- [Configuraciones avanzadas para cuadernos de Jupyter Notebook y MSTICPy en Azure Sentinel](notebooks-msticpy-advanced.md)
 
 El [repositorio de la comunidad GitHub de Azure Sentinel](https://github.com/Azure/Azure-Sentinel-Notebooks/) es la ubicación de los futuros cuadernos de Azure Sentinel creados por Microsoft o procedentes de contribuciones de la comunidad.
 
@@ -139,7 +141,7 @@ Una vez creada el área de trabajo de AML, empiece a iniciar los cuadernos en el
 
     Cuando haya encontrado el cuaderno que desea usar, seleccione **Guardar cuaderno** para clonarlo en su propia área de trabajo.
 
-    Edite el nombre según sea necesario. Si el cuaderno ya existe en el área de trabajo, tendrá la opción de sobrescribir el cuaderno existente o crear uno.
+    Edite el nombre según sea necesario. Si el cuaderno ya existe en el área de trabajo, puede sobrescribir el cuaderno existente o crear uno.
 
     :::image type="content" source="media/notebooks/save-notebook.png" alt-text="Guarde un cuaderno para clonarlo en su propia área de trabajo":::.
 
@@ -165,7 +167,7 @@ Una vez creada el área de trabajo de AML, empiece a iniciar los cuadernos en el
 
     Para más información, vea [Métodos abreviados del modo de comando](../machine-learning/how-to-run-jupyter-notebooks.md).
 
-1. Si el cuaderno se bloquea o quiere volver a empezar, puede reiniciar el kernel y volver a ejecutar las celdas del cuaderno desde el principio. Seleccione **Kernel operations** > **Restart kernel** (Operaciones de kernel>Reiniciar kernel). Por ejemplo:
+1. Si el cuaderno no responde o quiere volver a empezar, puede reiniciar el kernel y volver a ejecutar las celdas del cuaderno desde el principio. Seleccione **Kernel operations** > **Restart kernel** (Operaciones de kernel>Reiniciar kernel). Por ejemplo:
 
     :::image type="content" source="media/notebooks/sentinel-notebooks-restart-kernel.png" alt-text="Reinicie un kernel de cuaderno":::.
 
@@ -246,7 +248,6 @@ Al almacenar los cuadernos de Azure Sentinel en el área de trabajo de Azure Mac
     !cd azure-sentinel-nb && git pull
     ```
 
-
 ## <a name="troubleshooting"></a>Solución de problemas
 
 Normalmente, un cuaderno crea o se adjunta a un kernel sin problemas y no es necesario realizar ningún cambio manual. Si se producen errores o el cuaderno no parece estar en ejecución, es posible que tenga que comprobar la versión y el estado del kernel.
@@ -306,7 +307,7 @@ If the *Runtime dependency of PyGObject is missing* error appears when you load 
     qry_prov = QueryProvider("AzureSentinel")
     ```
 
-    Se muestra una advertencia similar a la siguiente, que indica que falta una dependencia de Python (`pygobject`):
+    Se muestra una advertencia similar a la del mensaje siguiente, que indica que falta una dependencia de Python (`pygobject`):
 
     ```output
     Runtime dependency of PyGObject is missing.
@@ -322,7 +323,7 @@ If the *Runtime dependency of PyGObject is missing* error appears when you load 
     ModuleNotFoundError: No module named 'gi'
     ```
 
-1. Use el script [aml-compute-setup.sh](https://github.com/Azure/Azure-Sentinel-Notebooks/master/HowTos/aml-compute-setup.sh), ubicado en el repositorio Azure Sentinel Notebooks de GitHub, para instalar automáticamente `pygobject` en todos los cuadernos y entornos de Anaconda en la instancia de Proceso.
+1. Use el script [aml-compute-setup.sh](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/HowTos/aml-compute-setup.sh), ubicado en el repositorio Azure Sentinel Notebooks de GitHub, para instalar automáticamente `pygobject` en todos los cuadernos y entornos de Anaconda en la instancia de Proceso.
 
 > [!TIP]
 > También puede corregir esta advertencia si ejecuta el código siguiente desde un cuaderno:
@@ -335,7 +336,9 @@ If the *Runtime dependency of PyGObject is missing* error appears when you load 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Los cuadernos compartidos del [repositorio de GitHub de Azure Sentinel](https://github.com/Azure/Azure-Sentinel-Notebooks) están diseñados como herramientas útiles, ilustraciones y ejemplos de código que puede usar al desarrollar sus propios cuadernos.
+Integre la experiencia del cuaderno con el análisis de macrodatos en Azure Synapse. Para obtener más información, vea [Integración de cuadernos con Azure Synapse (versión preliminar pública)](notebooks-with-synapse.md).
+
+Otros cuadernos compartidos del [repositorio de GitHub de Azure Sentinel](https://github.com/Azure/Azure-Sentinel-Notebooks) están diseñados como herramientas útiles, ilustraciones y ejemplos de código que puede usar al desarrollar sus propios cuadernos.
 
 Agradecemos cualquier comentario, sugerencias, peticiones de características, contribuciones de cuadernos, informes de errores o mejoras y adiciones a cuadernos ya existentes. Vaya a la [comunidad GitHub de Azure Sentinel](https://github.com/Azure/Azure-Sentinel) para abrir una incidencia, crear una bifurcación y cargar una contribución.
 
@@ -352,7 +355,7 @@ Agradecemos cualquier comentario, sugerencias, peticiones de características, c
 
 Para más información, consulte:
 
-  - [Tutorial: Introducción a los cuadernos de Jupyter y MSTICPy en Azure Sentinel](notebook-get-started.md)
+- [Tutorial: Introducción a los cuadernos de Jupyter Notebook y MSTICPy en Azure Sentinel](notebook-get-started.md)
 - [Tutorial: Introducción a los cuadernos de Azure Sentinel](https://www.youtube.com/results?search_query=azazure+sentinel+notebooks) (Vídeo)
 - [Tutorial: Edición y ejecución de cuadernos de Jupyter sin salir de Estudio de Azure Machine Learning](https://www.youtube.com/watch?v=AAj-Fz0uCNk) (Vídeo)
 - [Seminario web: Aspectos básicos de los cuadernos de Azure Sentinel](https://www.youtube.com/watch?v=rewdNeX6H94)

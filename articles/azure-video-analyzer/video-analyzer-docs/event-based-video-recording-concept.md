@@ -2,14 +2,14 @@
 title: 'Grabación de vídeo basada en eventos de Azure Video Analyzer: Azure'
 description: La grabación de vídeo basada en eventos (EVR) hace referencia al proceso de grabación de vídeo desencadenado por un evento. El evento en cuestión podría originarse debido al procesamiento de la propia señal de vídeo (por ejemplo, cuando se detecta movimiento) o podría proceder de un origen independiente (por ejemplo, un sensor de puerta indica que se ha abierto la puerta). En este artículo se describen algunos casos de uso relacionados con la grabación de vídeo basada en eventos.
 ms.topic: conceptual
-ms.date: 11/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 4d6c7a45d9da0824578bd3640c53ee5d6b4ea23f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 721e86c43dc0268eaca3fb83b7b2784249f6010e
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131039098"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131844570"
 ---
 # <a name="event-based-video-recording"></a>Grabación de vídeo basada en eventos  
 

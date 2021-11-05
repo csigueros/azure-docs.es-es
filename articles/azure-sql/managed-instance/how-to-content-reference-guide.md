@@ -5,18 +5,18 @@ description: Guía de referencia de contenido que le enseña a configurar y admi
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: deployment-configuration
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, ignite-fall-2021
 ms.devlang: ''
 ms.topic: guide
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 04/16/2019
-ms.openlocfilehash: 2b64353da7de0b7f7d29502695c9d7ea22d6a19f
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 86511b0cb494ecd5cb9f60fb8aa825a11fe48065
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130244687"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045641"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Referencia de contenido de Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -36,7 +36,8 @@ En este artículo puede encontrar una referencia de contenido a varias guías, s
 
 - [Determinación del tamaño de la subred](vnet-subnet-determine-size.md) puesto que no se puede cambiar el tamaño de la subred después de implementar Instancia administrada de SQL, debe calcular qué intervalo de direcciones IP se necesita según el número y los tipos de instancias administradas que planee implementar en la subred. 
 - [Creación de una red virtual y una subred](virtual-network-subnet-create-arm-template.md): configure la red virtual y la subred según los [requisitos de red](connectivity-architecture-overview.md#network-requirements). 
-- [Configuración de una red virtual y una subred existentes](vnet-existing-add-subnet.md): compruebe los requisitos de red y configure la red virtual y la subred existentes para implementar Instancia administrada de SQL. 
+- [Configuración de una red virtual y una subred existentes](vnet-existing-add-subnet.md): compruebe los requisitos de red y configure la red virtual y la subred existentes para implementar Instancia administrada de SQL.
+- [Configuración de directivas de punto de conexión de servicio para Azure Storage (versión preliminar)](service-endpoint-policies-configure.md): proteja la subred contra la filtración de datos errónea o malintencionada en cuentas de Azure Storage no autorizadas.
 - [Configuración de DNS personalizado](custom-dns-configure.md): configure un DNS personalizado para conceder acceso a recursos externos a dominios personalizados desde Instancia administrada de SQL a través de un servidor vinculado de perfiles de correo de base de datos. 
 - [Sincronización de la configuración de red](azure-app-sync-network-configuration.md): actualice el plan de configuración de red si no puede establecer una conexión después de [integrar la aplicación con una red virtual de Azure](../../app-service/overview-vnet-integration.md).
 - [Búsqueda de la dirección IP del punto de conexión de administración](management-endpoint-find-ip-address.md): determine el punto de conexión público que usa Instancia administrada de SQL con fines de administración. 

@@ -7,12 +7,12 @@ ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 03/24/2021
 tags: connectors
-ms.openlocfilehash: 2e06616914f1e78a71a540fbd64021c0e1bfcbab
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 9901caefe7d50b1042ea5c621bb064efc8c3eb0b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785980"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045280"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatización de flujos de trabajo en una base de datos SQL mediante Azure Logic Apps
 
@@ -22,7 +22,7 @@ Puede crear aplicaciones lógicas que se ejecutan cuando las desencadenan evento
 
 Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) e [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para información técnica específica del conector, así como sobre las limitaciones y los problemas conocidos, consulte la [página de referencia sobre el conector de SQL Server](/connectors/sql/).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 
@@ -78,6 +78,7 @@ La primera vez que agregue un [desencadenador SQL](#add-sql-trigger) o una [acci
    |----------------|-------------|
    | [**Azure AD integrado**](../azure-sql/database/authentication-aad-overview.md) | - Admite el conector de SQL Server tanto si es ISE como si no. <p><p>- Requiere una identidad válida en Azure Active Directory (Azure AD) que tenga acceso a la base de datos. <p>Para más información, consulte los temas siguientes: <p>- [Información general sobre la seguridad de Azure SQL: autenticación](../azure-sql/database/security-overview.md#authentication) <br>- [Autorización del acceso de bases de datos a Azure SQL: autenticación y autorización](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL: Autenticación integrada de Azure AD](../azure-sql/database/authentication-aad-overview.md) |
    | [**Autenticación de SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Admite el conector de SQL Server tanto si es ISE como si no. <p><p>- Requiere un nombre de usuario y una contraseña segura válidos que se creen y almacenen en la base de datos. <p>Para más información, consulte los temas siguientes: <p>- [Información general sobre la seguridad de Azure SQL: autenticación](../azure-sql/database/security-overview.md#authentication) <br>- [Autorización del acceso de bases de datos a Azure SQL: autenticación y autorización](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
+   | **Identidad administrada** | - Admite el conector de SQL Server tanto si es ISE como si no. <p><p>- Requiere una identidad administrada válida que tenga [acceso a la base de datos](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md), acceso al rol **colaborador de base de datos de SQL** al recurso de SQL Server y acceso de **colaborador** al grupo de recursos que incluye el recurso SQL Server. <p>Para obtener más información, consulte [SQL: Roles de nivel de servidor](/sql/relational-databases/security/authentication-access/server-level-roles).
    |||
 
    Este ejemplo continúa con **Azure AD integrado**:
