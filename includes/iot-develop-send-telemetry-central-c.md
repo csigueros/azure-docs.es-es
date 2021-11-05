@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 09/10/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 7f02dba36ceee1d3acba9f359f26fc3bbe7aa1ae
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: da7d554e695b70bab01e738c46ad3c977abcc3f9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131861072"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131032835"
 ---
 [![Examinar el código](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/pnp)
 
@@ -56,7 +56,7 @@ Para completar este inicio rápido en Windows, instale Visual Studio 2019 y ag
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
-## <a name="run-the-device-sample"></a>Ejecución del ejemplo de dispositivo
+## <a name="run-a-device"></a>Ejecución de un dispositivo
 En esta sección, configurará el entorno local, instalará el SDK de dispositivo de Azure IoT para C y ejecutará un ejemplo que crea un controlador de temperatura.
 
 ### <a name="configure-your-environment"></a>Configurar su entorno

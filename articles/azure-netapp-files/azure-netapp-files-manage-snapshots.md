@@ -12,21 +12,22 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/12/2021
+ms.date: 10/25/2021
 ms.author: b-juche
-ms.openlocfilehash: 2a17ed67830dfcfc3f1c5c3cbd6cc06ceedc8028
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c6bbc11fc77de516d2e163d1463444f2a3c0210e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128614189"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069945"
 ---
 # <a name="create-an-on-demand-snapshot-for-a-volume"></a>Creación de una instantánea a petición para un volumen
 
 Azure NetApp Files admite la creación de [instantáneas](snapshots-introduction.md) a petición y el uso de directivas de instantáneas para programar la creación automática de instantáneas. También puede restaurar una [instantánea en un nuevo volumen](snapshots-restore-new-volume.md), [restaurar un único archivo mediante un cliente](snapshots-restore-file-client.md) o [revertir un volumen existente mediante una instantánea](snapshots-revert-volume.md). En este artículo se explica cómo crear una instantánea a petición para un volumen. 
 
 > [!NOTE] 
-> Para conocer las consideraciones sobre la administración de instantáneas en la replicación entre regiones, consulte [Requisitos y consideraciones del uso de la replicación entre regiones](cross-region-replication-requirements-considerations.md).
+> * Para conocer las consideraciones sobre la administración de instantáneas en la replicación entre regiones, consulte [Requisitos y consideraciones del uso de la replicación entre regiones](cross-region-replication-requirements-considerations.md).
+> * Puede usar la herramienta Azure Application Consistent Snapshot (AzAcSnap) para habilitar la protección de datos para bases de datos de terceros. Para más información, consulte la [herramienta Azure Application Consistent Snapshot](azacsnap-introduction.md).
  
 ## <a name="steps"></a>Pasos
 

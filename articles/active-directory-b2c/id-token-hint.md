@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/16/2021
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 557977f3de6e59ff592af65b6ff0357cdc4bfa5d
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 8868c506ab80a2ece97882e080caa5abb5642c24
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130036935"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131007265"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de sugerencias de token de id. en una directiva personalizada de Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ Azure AD B2C permite a las aplicaciones de usuario de confianza enviar un toke
 
 ## <a name="use-cases"></a>Casos de uso
 
-Puede usar esta solución para enviar datos a Azure AD B2C, encapsulados en un único token JWT. La [solución de registro con una invitación por correo electrónico](https://github.com/azure-ad-b2c/samples/blob/master/policies/invite/README.md), donde el administrador del sistema puede enviar una invitación firmada a los usuarios, se basa en id_token_hint. Solo los usuarios con acceso al correo electrónico de la invitación pueden crear la cuenta en el directorio.
+Puede usar esta solución para enviar datos a Azure AD B2C, encapsulados en un único token JWT. La [solución `Signup with email invitation`](https://github.com/azure-ad-b2c/samples/blob/master/policies/invite/README.md), donde el administrador del sistema puede enviar una invitación firmada a los usuarios, se basa en id_token_hint. Solo los usuarios con acceso al correo electrónico de la invitación pueden crear la cuenta en el directorio.
 
 ## <a name="token-signing-approach"></a>Enfoque de firma de token
 
@@ -41,7 +41,7 @@ id_token_hint debe ser un token JWT válido. En la siguiente tabla se enumeran l
 | Fecha de expiración | `exp` | `1600087315` | La hora en que el token deja de ser válido, que se representa en tiempo de época. Azure AD B2C comprueba este valor y rechaza el token si ha expirado.|
 | No antes de | `nbf` | `1599482515` | Hora a la que el token pasa a ser válido, representada en tiempo de época. Suele ser la misma hora a la que se emitió el token. Azure AD B2C comprueba este valor y rechaza el token si su duración no es válida. |
 
- El siguiente es un ejemplo de un token de id. válido:
+El siguiente es un ejemplo de un token de id. válido:
 
 ```json
 {
@@ -104,7 +104,6 @@ Cuando se usa una clave simétrica, el elemento **CryptographicKeys** contiene e
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | client_secret | Sí | La clave criptográfica que se usa para validar la firma del token JWT.|
-
 
 ## <a name="how-to-guide"></a>Guía paso a paso
 
@@ -188,7 +187,7 @@ El emisor del token debe proporcionar los puntos de conexión siguientes:
 * `/.well-known/openid-configuration`: un punto de conexión de configuración conocido con la información pertinente sobre el token, como el nombre del emisor del token y el vínculo al punto de conexión JWK. 
 * `/.well-known/keys`: el punto de conexión de la clave web de JSON (JWK) con la clave pública que se usa para firmar la clave (con la parte de la clave privada del certificado).
 
-Vea el ejemplo de controlador MVC de .NET [TokenMetadataController.cs](https://github.com/azure-ad-b2c/id-token-builder/blob/master/source-code/B2CIdTokenBuilder/Controllers/TokenMetadataController.cs).
+Consulte el ejemplo de controlador de MVC de .NET [`TokenMetadataController.cs`](https://github.com/azure-ad-b2c/id-token-builder/blob/master/source-code/B2CIdTokenBuilder/Controllers/TokenMetadataController.cs).
 
 #### <a name="step-1-prepare-a-self-signed-certificate"></a>Paso 1. Preparación de un certificado autofirmado
 
@@ -196,7 +195,7 @@ Si aún no tiene un certificado, puede usar un certificado autofirmado para esta
 
 Ejecute este comando de PowerShell para generar un certificado autofirmado. Modifique el argumento `-Subject` según corresponda para su aplicación y el nombre del inquilino de Azure AD B2C. También puede ajustar la fecha de `-NotAfter` para especificar una expiración diferente para el certificado.
 
-```PowerShell
+```powershell
 New-SelfSignedCertificate `
     -KeyExportPolicy Exportable `
     -Subject "CN=yourappname.yourtenant.onmicrosoft.com" `
@@ -210,7 +209,7 @@ New-SelfSignedCertificate `
 
 #### <a name="step-2-add-the-id-token-hint-technical-profile"></a>Paso 2. Adición del perfil técnico de sugerencias de token de id. 
 
-El siguiente perfil técnico valida el token y extrae las notificaciones. Cambie el URI de metadatos al punto de conexión de configuración conocido del emisor del token.  
+El siguiente perfil técnico valida el token y extrae las notificaciones. Cambie el URI de metadatos al punto de conexión de configuración conocido del emisor del token.
 
 ```xml
 <ClaimsProvider>
@@ -253,24 +252,25 @@ En ambos enfoques, simétrico y asimétrico, se llama al perfil técnico `id_tok
     <OrchestrationStep Order="1" Type="GetClaims" CpimIssuerTechnicalProfileReferenceId="IdTokenHint_ExtractClaims" />
     ``` 
 1. En la directiva de usuario de confianza, repita las mismas notificaciones de entrada que configuró en el perfil técnico IdTokenHint_ExtractClaims. Por ejemplo:
+
     ```xml
-   <RelyingParty>
-     <DefaultUserJourney ReferenceId="SignUp" />
-     <TechnicalProfile Id="PolicyProfile">
-       <DisplayName>PolicyProfile</DisplayName>
-       <Protocol Name="OpenIdConnect" />
-       <InputClaims>
-         <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="userId" />
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="SignUp" />
+      <TechnicalProfile Id="PolicyProfile">
+        <DisplayName>PolicyProfile</DisplayName>
+        <Protocol Name="OpenIdConnect" />
+        <InputClaims>
+          <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="userId" />
         </InputClaims>
-       <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="displayName" />
-        <OutputClaim ClaimTypeReferenceId="givenName" />
-        <OutputClaim ClaimTypeReferenceId="surname" />
-        <OutputClaim ClaimTypeReferenceId="email" />
-        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-        <OutputClaim ClaimTypeReferenceId="identityProvider" />
-       </OutputClaims>
-       <SubjectNamingInfo ClaimType="sub" />
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="displayName" />
+          <OutputClaim ClaimTypeReferenceId="givenName" />
+          <OutputClaim ClaimTypeReferenceId="surname" />
+          <OutputClaim ClaimTypeReferenceId="email" />
+          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+          <OutputClaim ClaimTypeReferenceId="identityProvider" />
+        </OutputClaims>
+        <SubjectNamingInfo ClaimType="sub" />
       </TechnicalProfile>
     </RelyingParty>
     ```
