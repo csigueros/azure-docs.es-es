@@ -6,12 +6,12 @@ ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021
-ms.openlocfilehash: 432e65d3d2f3dc3d4bc71157f165311e7fad87e9
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: d55c178456336c5a1c81845ae3eee611e8d9ee33
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131476668"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131093335"
 ---
 # <a name="precise-answering"></a>Respuestas precisas
 
@@ -38,3 +38,7 @@ El servicio también devuelve la puntuación de confianza de la respuesta precis
 ## <a name="deploying-a-bot"></a>Implementación de un bot
 
 Cuando se publica un bot, se obtiene de forma predeterminada la experiencia habilitada de la respuesta precisa en la aplicación, donde verá una respuesta corta junto con el pasaje de la respuesta. Consulte la referencia de API de la API REST para ver cómo usar la respuesta precisa (denominada AnswerSpan) en la respuesta. El usuario tiene la flexibilidad de elegir otras experiencias mediante la actualización de la plantilla a través del servicio de aplicaciones de bots.
+
+## <a name="language-support"></a>Compatibilidad con idiomas
+
+Actualmente, la característica de respuesta precisa solo se admite en inglés.
