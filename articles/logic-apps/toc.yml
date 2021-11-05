@@ -257,7 +257,7 @@
           href: ../connectors/connectors-create-api-azureblobstorage.md
         - name: Azure Container Instances
           href: ../connectors/connectors-create-api-container-instances.md
-        - name: Azure Cosmos DB
+        - name: "Azure Cosmos\_DB"
           href: ../connectors/connectors-create-api-cosmos-db.md
         - name: Azure Event Grid
           href: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md
@@ -487,6 +487,6 @@
     - name: Twitter
       href: 'https://twitter.com/logicappsio'
     - name: Proporcionar comentarios sobre el producto
-      href: 'https://feedback.azure.com/d365community/forum/cb47c115-7926-ec11-b6e6-000d3a4f032c'
+      href: 'https://feedback.azure.com/forums/287593-logic-apps'
     - name: Actualizaciones del servicio
       href: 'https://azure.microsoft.com/updates/?product=logic-apps'

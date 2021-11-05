@@ -9,19 +9,19 @@ ms.topic: include
 ms.date: 11/02/2021
 ms.author: lajanuar
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 504cc328d7336c829c30222f0ff95c11291c1955
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 8420373d452cdcb6a1add4d45fc990af1690ef29
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131253977"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131521083"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
 
-[Documentación de referencia](/java/api/overview/azure/ai-formrecognizer-readme) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [Paquete (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [Ejemplos](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
+[Documentación de referencia](/java/api/overview/azure/ai-formrecognizer-readme) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_3.1.1/sdk/formrecognizer/azure-ai-formrecognizer/src) | [Paquete (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [Ejemplos](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_3.1.1/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -130,7 +130,7 @@ Con Form Recognizer, puede crear dos tipos de cliente diferentes. El primero, `F
 `FormTrainingClient` proporciona operaciones para:
 
 * El entrenamiento de modelos personalizados para analizar todos los campos y los valores que se encuentren en los formularios personalizados.  Se devuelve un `CustomFormModel` que indica los tipos de formulario que el modelo analizará y los campos que se extraerán para cada tipo de formulario.
-* El entrenamiento de modelos personalizados para analizar los campos y los valores concretos que especifique mediante la etiqueta de los formularios personalizados.  Se devuelve un elemento `CustomFormModel` que indica los campos que va a extraer el modelo y la precisión estimada para cada campo.
+* El entrenamiento de modelos personalizados para analizar los campos y los valores concretos que especifique mediante la etiqueta de los formularios personalizados.  Se devuelve un elemento `CustomFormModel` que indica los campos que va a extraer el modelo y la precisión estimada de cada campo.
 * La administración de los modelos creados en una cuenta.
 * La copia de un modelo personalizado entre recursos de Form Recognizer.
 
@@ -270,7 +270,7 @@ The model found field 'field-6' with label: VAT ID
 
 ### <a name="train-a-model-with-labels"></a>Entrenamiento de un modelo con etiquetas
 
-También puede entrenar modelos personalizados mediante el etiquetado manual de los documentos de entrenamiento. En algunos escenarios, el entrenamiento con etiquetas conduce a un mejor rendimiento. Para realizar el entrenamiento con etiquetas, debe disponer de archivos de información de etiquetas especiales ( *\<filename\>.pdf.labels.json*) en el contenedor de almacenamiento de blobs junto con los documentos de entrenamiento. La [herramienta de etiquetado de ejemplo de Form Recognizer](../../label-tool.md) proporciona una interfaz de usuario para ayudarle a crear estos archivos de etiqueta. Cuando los tenga, puede llamar al método **beginTraining** con el parámetro *useTrainingLabels* establecido en `true`.
+También puede entrenar modelos personalizados mediante el etiquetado manual de los documentos de entrenamiento. En algunos escenarios, el entrenamiento con etiquetas conduce a un mejor rendimiento. Para realizar el entrenamiento con etiquetas, debe disponer de archivos de información de etiquetas especiales ( *\<filename\>.pdf.labels.json*) en el contenedor de almacenamiento de blobs junto con los documentos de entrenamiento. La [herramienta de etiquetado de ejemplo de Form Recognizer](../../label-tool.md) proporciona una interfaz de usuario para ayudar a crear estos archivos de etiquetas. Cuando los tenga, puede llamar al método **beginTraining** con el parámetro *useTrainingLabels* establecido en `true`.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_trainlabels_call)]
 
@@ -426,4 +426,4 @@ En este inicio rápido, se ha usado la biblioteca cliente de Java para Form Reco
 > [Creación de un conjunto de datos de aprendizaje](../../build-training-data-set.md)
 
 * [¿Qué es Form Recognizer?](../../overview.md)
-* El código de ejemplo de esta guía (y más) se puede encontrar en [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples).
+* El código de ejemplo de esta guía (y más) se puede encontrar en [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_3.1.1/sdk/formrecognizer/azure-ai-formrecognizer/src/samples).

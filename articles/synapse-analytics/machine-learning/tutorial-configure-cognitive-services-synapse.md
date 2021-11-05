@@ -10,12 +10,12 @@ ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 04d9b7ab0255212ed1b753d0bf6f31abfe1db03d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d72db64026ff3d4d4cee759b34047662248737a6
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131019007"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131845140"
 ---
 # <a name="quickstart-configure-prerequisites-for-using-cognitive-services-in-azure-synapse-analytics"></a>Inicio rápido: Configuración de los requisitos previos para usar Cognitive Services en Azure Synapse Analytics
 
@@ -75,7 +75,7 @@ Puede crear un recurso de [Voz](https://ms.portal.azure.com/#create/Microsoft.Co
 ## <a name="create-a-key-vault-and-configure-secrets-and-access"></a>Creación de un almacén de claves y configuración de los secretos y el acceso
 
 1. Cree un [almacén de claves](https://ms.portal.azure.com/#create/Microsoft.KeyVault) en Azure Portal.
-2. Vaya a **Key Vault** > **Directivas de acceso** y conceda permisos de [identidad administrada del área de trabajo de Azure Synapse](../security/synapse-workspace-managed-identity.md) para leer secretos de Azure Key Vault.
+2. Vaya a **Key Vault** > **Directivas de acceso** y conceda permisos de [identidad administrada del área de trabajo de Azure Synapse](../../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics) para leer secretos de Azure Key Vault.
 
    > [!NOTE]
    > Asegúrese de que se guardan los cambios en la directiva. Este paso es fácil de pasar por alto.

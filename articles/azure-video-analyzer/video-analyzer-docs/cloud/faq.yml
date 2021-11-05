@@ -4,13 +4,13 @@ metadata:
   description: En este artículo se responden las preguntas más frecuentes sobre Azure Video Analyzer.
   ms.service: azure-video-analyzer
   ms.topic: conceptual
-  ms.date: 10/21/2021
-  ms.openlocfilehash: 89350ab9e102f9c937fea005977a46ba2f3a4c9e
-  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.date: 11/04/2021
+  ms.openlocfilehash: cc09610dec51c63bc825dff97249689061a44e4a
+  ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/02/2021
-  ms.locfileid: "131091360"
+  ms.lasthandoff: 11/04/2021
+  ms.locfileid: "131563651"
 title: Preguntas frecuentes acerca de Azure Video Analyzer
 summary: En este artículo se responden las preguntas más frecuentes sobre Azure Video Analyzer.
 sections:

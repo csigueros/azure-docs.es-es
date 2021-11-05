@@ -5,15 +5,15 @@ services: azure-resource-manager
 author: memildin
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.custom: subject-armqs, ignite-fall-2021
+ms.custom: subject-armqs
 ms.author: memildin
 ms.date: 08/20/2020
-ms.openlocfilehash: 9fa7ae478352846e2f2c256988fb6109f9ae25a7
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 18d5dcfa0559bbf94da14fdca975da568d011da2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131047765"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131472264"
 ---
 # <a name="quickstart-create-an-automatic-response-to-a-specific-security-alert-using-an-arm-template"></a>Inicio rápido: Creación de una respuesta automática a una alerta de seguridad concreta mediante una plantilla de Resource Manager
 
