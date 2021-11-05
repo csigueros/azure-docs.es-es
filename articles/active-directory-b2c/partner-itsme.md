@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/20/2021
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 4d33746fb39d54fdeb9ed6a6754f22aea14a2a7c
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 73802a0d429d2eb71ec24be8b18d635eb5c2f003
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130035911"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131044577"
 ---
 # <a name="configure-itsme-openid-connect-oidc-with-azure-active-directory-b2c"></a>Configuración de itsme OpenID Connect (OIDC) con Azure Active Directory B2C
 
@@ -78,7 +78,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 1. Seleccione **Proveedores de identidades** y luego **Nuevo proveedor de OpenID Connect**.
 1. Rellene el formulario con la siguiente información:
 
-   |Propiedad | Value |
+   |Propiedad | Valor |
    |------------ |------- |
    | Nombre | itsme |
    | URL de metadatos | `https://oidc.<environment>.itsme.services/clientsecret-oidc/csapi/v0.1/.well-known/openid-configuration` <br>donde `<environment>` es `e2e` (entorno de prueba) o `prd` (producción)  |
