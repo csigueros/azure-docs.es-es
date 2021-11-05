@@ -4,14 +4,14 @@ ms.service: machine-learning
 ms.topic: include
 ms.date: 09/23/2021
 ms.author: sdgilley
-ms.openlocfilehash: 2a1c7c65721483e851a7686c38736f0664b965ad
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 1c1ab85b6da016b966bab7c66cd2a22f257d27d1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129367576"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068418"
 ---
-Si planea agregar nuevos archivos al conjunto de datos, utilice la actualización incremental para agregar estos archivos al proyecto.   Cuando la opción de **actualización incremental**  está habilitada, se comprueba periódicamente si hay nuevas imágenes el conjunto de datos que puedan agregarse a un proyecto en función de la tasa de finalización de la etiqueta.   La comprobación de los nuevos datos se detiene cuando el proyecto alcanza el número máximo de 500 000 archivos.
+Si planea agregar nuevos archivos al conjunto de datos, utilice la actualización incremental para agregar estos archivos al proyecto.   Cuando se habilita la **actualización incremental**, el conjunto de datos se comprueba periódicamente para agregar nuevos archivos a un proyecto, en función de la tasa de finalización del etiquetado.   La comprobación de los nuevos datos se detiene cuando el proyecto alcanza el número máximo de 500 000 archivos.
 
 Para agregar más archivos al proyecto, use el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para cargarlas en la carpeta adecuada del almacenamiento de blobs. 
 

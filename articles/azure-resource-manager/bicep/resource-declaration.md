@@ -4,35 +4,67 @@ description: Se describe cómo declarar recursos para implementar en Bicep.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 10/07/2021
-ms.openlocfilehash: 4b3b355016057af00c361a118aed2728948768dd
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.date: 10/25/2021
+ms.openlocfilehash: 28f61a3fb3a40cb4db0a06f3c59fe6b07ec7d5bc
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129659628"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131074220"
 ---
 # <a name="resource-declaration-in-bicep"></a>Declaración de recursos en Bicep
 
-Para implementar un recurso a través de un archivo de Bicep, agregue una declaración de recurso usando la palabra clave `resource`.
+En este artículo se describe la sintaxis que se usa para agregar un recurso al archivo Bicep.
 
-## <a name="set-resource-type-and-version"></a>Definición del tipo de recurso y versión
+## <a name="declaration"></a>Declaración
 
-Al agregar un recurso al archivo de Bicep, empiece por establecer el tipo de recurso y la versión de la API. Estos valores determinan las demás propiedades que están disponibles para el recurso.
-
-En el ejemplo siguiente se muestra cómo establecer el tipo de recurso y la versión de la API para una cuenta de almacenamiento. En el ejemplo no se muestra la declaración de recursos completa.
+Agregue una declaración de recursos mediante la palabra clave `resource`. Establezca un nombre simbólico para el recurso. El nombre simbólico no es lo mismo que el nombre del recurso. El nombre simbólico se usa para hacer referencia al recurso en otras partes del archivo de Bicep.
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+resource <symbolic-name> '<full-type-name>@<api-version>' = {
+  <resource-properties>
+}
+```
+
+Por lo tanto, una declaración de una cuenta de almacenamiento puede comenzar por:
+
+```bicep
+resource stg 'Microsoft.Storage/storageAccounts@2021-04-01' = {
   ...
 }
 ```
 
-Establezca un nombre simbólico para el recurso. En el ejemplo anterior, el nombre simbólico es `stg`.  El nombre simbólico no es lo mismo que el nombre del recurso. El nombre simbólico se usa para hacer referencia al recurso en otras partes del archivo de Bicep. Los nombres simbólicos distinguen mayúsculas de minúsculas.  Pueden contener letras, números y _, pero no pueden empezar con un número.
+Los nombres simbólicos distinguen mayúsculas de minúsculas.  Pueden contener letras, números y _, pero no pueden empezar con un número.
 
-Bicep no admite `apiProfile`, que está disponible en [código JSON de plantillas de Azure Resource Manager (plantillas de ARM)](../templates/syntax.md).
+Para ver los tipos de recursos y la versión disponibles, consulte [Referencia de recursos de Bicep](/azure/templates/). Bicep no admite `apiProfile`, que está disponible en [código JSON de plantillas de Azure Resource Manager (plantillas de ARM)](../templates/syntax.md).
 
-## <a name="set-resource-name"></a>Definición del nombre del recurso
+Para implementar un recurso de forma condicional, use la sintaxis `if`. Para obtener más información, consulte [Implementación condicional en Bicep](conditional-resource-deployment.md).
+
+```bicep
+resource <symbolic-name> '<full-type-name>@<api-version>' = if (condition) {
+  <resource-properties>
+}
+```
+
+Para implementar más de una instancia de un recurso, use la sintaxis `for`. Para obtener más información, consulte [Bucles iterativos en Bicep](loops.md).
+
+```bicep
+resource <symbolic-name> '<full-type-name>@<api-version>' = [for <item> in <collection>: {
+  <properties-to-repeat>
+}]
+```
+
+También puede usar la sintaxis `for` en las propiedades del recurso para crear una matriz.
+
+```bicep
+resource <symbolic-name> '<full-type-name>@<api-version>' = {
+  properties: {
+    <array-property>: [for <item> in <collection>: <value-to-repeat>]
+  }
+}
+```
+
+## <a name="resource-name"></a>Nombre del recurso
 
 Cada recurso tiene un nombre. Al establecer el nombre del recurso, preste atención a las [reglas y restricciones de los nombres de los recursos](../management/resource-name-rules.md).
 
@@ -56,7 +88,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 }
 ```
 
-## <a name="set-location"></a>Establezca una ubicación
+## <a name="location"></a>Location
 
 Muchos recursos requieren una ubicación. Puede determinar si el recurso necesita una ubicación a través de IntelliSense o de la [referencia de plantillas](/azure/templates/). En el ejemplo siguiente se agrega un parámetro de ubicación que se usa para la cuenta de almacenamiento.
 
@@ -100,11 +132,11 @@ az provider show \
 
 ---
 
-## <a name="set-tags"></a>Definición de etiquetas
+## <a name="tags"></a>Etiquetas
 
 Puede aplicar etiquetas a un recurso durante la implementación. Las etiquetas le ayudan a organizar de forma lógica los recursos implementados. Para ver ejemplos de las diferentes maneras de especificar las etiquetas, consulte [Etiquetas de plantillas de ARM](../management/tag-resources.md#arm-templates).
 
-## <a name="set-managed-identities-for-azure-resources"></a>Establecimiento de identidades administradas para recursos de Azure
+## <a name="managed-identities-for-azure-resources"></a>Identidades administradas de recursos de Azure
 
 Algunos recursos admiten [identidades administradas para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md). Dichos recursos tienen un objeto de identidad en el nivel raíz de la declaración de recursos.
 
@@ -138,11 +170,11 @@ resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = {
   }
 ```
 
-## <a name="set-resource-specific-properties"></a>Definición de propiedades específicas de recursos
+## <a name="resource-specific-properties"></a>Propiedades específicas de recursos
 
 Las propiedades anteriores son genéricas para la mayoría de los tipos de recursos. Después de establecer esos valores, tiene que establecer las propiedades que son específicas del tipo de recurso que va a implementar.
 
-Use IntelliSense o la [referencia de plantillas](/azure/templates/) para decidir qué propiedades están disponibles y cuáles son obligatorias. En el ejemplo siguiente se establecen las propiedades restantes para una cuenta de almacenamiento.
+Use IntelliSense o la [referencia de recursos de Bicep](/azure/templates/) para determinar qué propiedades están disponibles y cuáles son obligatorias. En el ejemplo siguiente se establecen las propiedades restantes para una cuenta de almacenamiento.
 
 ```bicep
 resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
@@ -159,7 +191,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 }
 ```
 
-## <a name="set-resource-dependencies"></a>Establecimiento de dependencias de recursos
+## <a name="dependencies"></a>Dependencias
 
 Al implementar recursos, es posible que tenga que asegurarse de que existen algunos recursos antes de crear otros. Por ejemplo, necesitará un servidor SQL lógico para poder implementar una base de datos. Establezca esta relación marcando un recurso como dependiente de otro recurso. El orden de implementación de los recursos puede verse afectado por dos factores: [dependencia implícita](#implicit-dependency) y [dependencia explícita](#explicit-dependency).
 
@@ -233,7 +265,7 @@ Visual Studio Code proporciona una herramienta para visualizar las dependencias.
 
 :::image type="content" source="./media/resource-declaration/bicep-resource-visualizer.png" alt-text="Captura de pantalla del visualizador de recursos de Bicep de Visual Studio Code":::
 
-## <a name="reference-existing-resources"></a>Referencia a recursos existentes
+## <a name="existing-resources"></a>Recursos existentes
 
 Para hacer referencia a un recurso que esté fuera del archivo de Bicep actual, use la palabra clave `existing` en una declaración de recurso.
 
@@ -257,6 +289,8 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
 
 output blobEndpoint string = stg.properties.primaryEndpoints.blob
 ```
+
+Si intenta hacer referencia a un recurso que no existe, se produce el error `NotFound` y se produce un error en la implementación.
 
 Para obtener más información sobre cómo establecer el ámbito, consulte [Funciones de ámbito para Bicep](bicep-functions-scope.md).
 

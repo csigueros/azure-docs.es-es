@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/15/2021
 ms.author: thweiss
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d22b299cca557774ed47ecf6d8309f780f32fee8
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 2a052b7137ac29fae6203c10d3951c60bcbf4bcd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130133070"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131041049"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configuración de claves administradas por el cliente para una cuenta de Azure Cosmos con Azure Key Vault
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -363,7 +363,7 @@ Al usar claves administradas por el cliente, las [Unidades de solicitud](./reque
 | Tipo de operación | Aumento de las Unidades de solicitud |
 |---|---|
 | Lecturas de punto (captura de elementos por su identificador) | + 5 % por operación |
-| Cualquier operación de escritura | + 6 % por operación<br/>aprox. + 0,06 RU por propiedad indexada |
+| Cualquier operación de escritura | + 6 % por operación <br/> Aproximadamente + 0,06 RU por propiedad indexada |
 | Consultas, lectura de la fuente de cambios o fuente de conflictos | + 15 % por operación |
 
 ### <a name="what-data-gets-encrypted-with-the-customer-managed-keys"></a>¿Qué datos se cifran con las claves administradas por el cliente?

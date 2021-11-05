@@ -7,23 +7,23 @@ ms.topic: include
 ms.date: 08/03/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 5ce239a821a4e18c931c971a54e6a2832cd08dff
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: d1d68f43f380f0cf85ece7a015ef44974c145e05
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129094055"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131077543"
 ---
 [![Examinar el código](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/pnp)
 
-En este artículo de inicio rápido, se explica un flujo de trabajo básico de desarrollo de aplicaciones de Azure IoT. Vamos a utilizar la CLI de Azure y el explorador de IoT para crear un centro de Azure IoT y un dispositivo. A continuación, utilizaremos un ejemplo de un SDK de dispositivo IoT de Azure para ejecutar un controlador de temperatura simulado, conectarlo de forma segura al centro y enviar datos de telemetría.
+En este artículo de inicio rápido, se explica un flujo de trabajo básico de desarrollo de aplicaciones de Azure IoT. Va a utilizar la CLI de Azure e IoT Explorer para crear un centro de Azure IoT y un dispositivo. A continuación, utilizaremos un ejemplo de un SDK de dispositivo IoT de Azure para ejecutar un controlador de temperatura, conectarlo de forma segura al centro y enviar datos de telemetría. La aplicación de ejemplo del controlador de temperatura se ejecuta en la máquina local y genera datos del sensor simulados para enviarlos a IoT Hub.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 Este inicio rápido se ejecuta en Windows, Linux y Raspberry Pi. Se ha probado en las siguientes versiones de sistema operativo y dispositivo:
 
 - Windows 10
-- Ubuntu 20.04 LTS que se ejecuta en Subsistema de Windows para Linux (WSL)
-- Raspberry Pi SO versión 10 (Raspian) que se ejecuta en un Raspberry Pi 3 modelo B+
+- Ubuntu 20.04 LTS
+- Raspberry Pi SO versión 10 (Raspian) que se ejecuta en un Raspberry Pi 3 modelo B+
 
 Instale los siguientes requisitos previos en la máquina de desarrollo, excepto donde se indique para Raspberry Pi:
 
@@ -37,8 +37,8 @@ Instale los siguientes requisitos previos en la máquina de desarrollo, excepto 
 
 [!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
 
-## <a name="run-a-simulated-device"></a>Ejecución de un dispositivo simulado
-En esta sección, usará el SDK para Python para enviar mensajes desde un dispositivo simulado al centro de IoT. Ejecutará un ejemplo que implementa un controlador de temperatura con dos sensores de termostato.
+## <a name="run-a-device"></a>Ejecución de un dispositivo
+En esta sección, usará el SDK para Python para enviar mensajes desde un dispositivo al centro de IoT. Ejecutará un ejemplo que implementa un controlador de temperatura con dos sensores de termostato.
 
 1. Abra una consola nueva como el símbolo del sistema de Windows, PowerShell o Bash. En los pasos siguientes, usará esta consola para instalar el SDK para Python y trabajar con el código de ejemplo de Python.
 
@@ -68,7 +68,7 @@ En esta sección, usará el SDK para Python para enviar mensajes desde un dispos
     ```console
     pip3 install azure-iot-device
     ```
-1. Establezca las siguientes variables de entorno para que el dispositivo simulado se pueda conectar a Azure IoT.
+1. Establezca las siguientes variables de entorno para que el dispositivo se pueda conectar a Azure IoT.
     * Establezca una variable de entorno llamada `IOTHUB_DEVICE_CONNECTION_STRING`. Como valor de la variable, use la cadena de conexión del dispositivo que ha guardado en la sección anterior.
     * Establezca una variable de entorno llamada `IOTHUB_DEVICE_SECURITY_TYPE`. Para la variable, use el valor de cadena literal `connectionString`.
 
@@ -130,7 +130,7 @@ Para leer la telemetría que envían los componentes individuales del dispositiv
 
 Para ver la telemetría del dispositivo con la CLI de Azure:
 
-1. Ejecute el comando [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) para supervisar los eventos enviados desde el dispositivo simulado al centro de IoT. Use los nombres que creó anteriormente en Azure IoT para el dispositivo IoT Hub.
+1. Ejecute el comando [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) para supervisar los eventos enviados desde el dispositivo al centro de IoT. Use los nombres que creó anteriormente en Azure IoT para el dispositivo IoT Hub.
 
     ```azurecli
     az iot hub monitor-events --output table --device-id mydevice --hub-name {YourIoTHubName}

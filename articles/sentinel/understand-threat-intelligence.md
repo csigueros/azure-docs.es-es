@@ -3,7 +3,7 @@ title: Información sobre la inteligencia sobre amenazas en Azure Sentinel | Mi
 description: Comprenda cómo las fuentes de inteligencia sobre amenazas se conectan, administran y usan en Azure Sentinel para analizar datos, detectar amenazas y enriquecer alertas.
 services: sentinel
 documentationcenter: na
-author: yelevin
+author: batamig
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2021
-ms.author: yelevin
-ms.openlocfilehash: 6ab9ecbe3b67ec933604ab1d8f6efdc7dbd8a5af
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 10/19/2021
+ms.author: bagol
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 9b8bafe6cbfb9f2351bcf3e8004fbed2a08e61b0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737524"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131055072"
 ---
 # <a name="understand-threat-intelligence-in-azure-sentinel"></a>Descripción de la inteligencia sobre amenazas en Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 ## <a name="introduction-to-threat-intelligence"></a>Presentación de la inteligencia sobre amenazas
 
@@ -29,26 +32,33 @@ ms.locfileid: "121737524"
 
 La inteligencia sobre ciberamenazas (CTI) es información que describe posibles amenazas o amenazas existentes conocidas a sistemas y usuarios. Este tipo de información tiene muchas formas, desde informes escritos que detallan las motivaciones, infraestructura y técnicas de un actor de amenaza determinado hasta observaciones específicas de direcciones IP, dominios y códigos hash de archivo asociados a ciberamenazas. Las organizaciones usan CTI para proporcionar contexto esencial a actividades inusuales, de modo que el personal de seguridad pueda tomar medidas rápidamente para proteger a sus usuarios y recursos. CTI puede proceder de muchos lugares, por ejemplo, fuentes de distribución de datos de código abierto, comunidades de uso compartido de inteligencia sobre amenazas e inteligencia local recopilada durante las investigaciones de seguridad realizadas dentro de una organización.
 
-Dentro de una solución de administración de eventos e información de seguridad (SIEM) como Azure Sentinel, la forma de CTI más usada son los indicadores de amenazas, a los que se suele hacer referencia como indicadores de riesgo o IoC. Los indicadores de amenazas son datos que asocian artefactos observados como direcciones URL, códigos hash de archivo o direcciones IP con actividad de amenazas conocida como suplantación de identidad (phishing), redes de robots (botnet) o malware. Esta forma de inteligencia sobre amenazas suele llamarse inteligencia sobre amenazas táctica, ya que puede aplicarse a productos de seguridad y automatización a gran escala para proteger y detectar posibles amenazas a una organización. En Azure Sentinel, puede usar indicadores de amenazas para ayudar a detectar actividad malintencionada observada en el entorno y proporcionar contexto a investigadores de seguridad para ayudar a tomar decisiones de respuesta.
+Dentro de una solución de administración de eventos e información de seguridad (SIEM) como Azure Sentinel, la forma de CTI más usada son los indicadores de amenazas, a los que se suele hacer referencia como indicadores de riesgo o IoC. Los indicadores de amenazas son datos que asocian artefactos observados como direcciones URL, códigos hash de archivo o direcciones IP con actividad de amenazas conocida como suplantación de identidad (phishing), redes de robots (botnet) o malware. Esta forma de inteligencia sobre amenazas suele llamarse *inteligencia sobre amenazas táctica*, ya que puede aplicarse a productos de seguridad y automatización a gran escala para proteger y detectar posibles amenazas a una organización. En Azure Sentinel, puede usar indicadores de amenazas para ayudar a detectar actividad malintencionada observada en el entorno y proporcionar contexto a investigadores de seguridad para ayudar a tomar decisiones de respuesta.
 
-Puede integrar la inteligencia sobre amenazas (TI) en Azure Sentinel a través de las actividades siguientes:
+Integra la inteligencia sobre amenazas (TI) en Azure Sentinel a través de las actividades siguientes:
 
 - **Importe inteligencia sobre amenazas** en Azure Sentinel habilitando **conectores de datos** en varias [plataformas](connect-threat-intelligence-tip.md) de TI y [fuentes](connect-threat-intelligence-taxii.md).
+
 - **Vea y administre** la inteligencia sobre amenazas importada en **Registros** y en la nueva hoja **Inteligencia sobre amenazas** de Azure Sentinel.
+
 - **Detecte las amenazas** y genere alertas e incidentes de seguridad utilizando las plantillas de reglas incorporadas de **Análisis** basadas en la inteligencia de amenazas importada.
+
 - **Visualice información clave** sobre la inteligencia de amenazas importada en Azure Sentinel con el **libro de trabajo de inteligencia sobre amenazas**.
 
-Inteligencia sobre amenazas también proporciona contexto útil dentro de otras experiencias de Azure Sentinel como **Búsqueda** y **Notebooks** y, aunque no se trata en este artículo, se hace mención a estas experiencias en [esta excelente entrada de blog de Ian Hellen sobre los cuadernos de Jupyter Notebook en Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239), que trata el uso de CTI en Notebooks.
+Microsoft enriquece todos los indicadores de inteligencia sobre amenazas importados con [datos de GeoLocation y WhoIs](#view-your-geolocation-and-whois-data-enrichments-public-preview), que se muestran junto con otros detalles del indicador.
+
+> [!TIP]
+> Inteligencia sobre amenazas también proporciona un contexto útil dentro de otras experiencias de Azure Sentinel, como la **búsqueda** y los **cuadernos**. Para obtener más información, vea [Uso de Jupyter Notebook en Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239) y [Tutorial: Introducción a los cuadernos de Jupyter y MSTICPy en Azure Sentinel](notebook-get-started.md).
+>
 
 ## <a name="import-threat-intelligence-with-data-connectors"></a>Importación de inteligencia sobre amenazas con conectores de datos
 
-Al igual que todos los demás datos de eventos en Azure Sentinel, los indicadores de amenazas se importan mediante conectores de datos. Hay dos conectores de datos en Azure Sentinel proporcionados de forma específica para los indicadores de amenazas, **Inteligencia sobre amenazas: TAXII**, para las fuentes STIX/TAXII estándar sel sector, y **Plataformas de inteligencia sobre amenazas**, para las fuentes TI integradas y seleccionadas. Puede usar el conector de datos solo o ambos conectores juntos, dependiendo del origen de los indicadores de amenazas en la organización. 
+Al igual que todos los demás datos de eventos en Azure Sentinel, los indicadores de amenazas se importan mediante conectores de datos. Hay dos conectores de datos en Azure Sentinel proporcionados de forma específica para los indicadores de amenazas, **Inteligencia sobre amenazas: TAXII**, para las fuentes STIX/TAXII estándar sel sector, y **Plataformas de inteligencia sobre amenazas**, para las fuentes TI integradas y seleccionadas. Puede usar el conector de datos solo o ambos conectores juntos, dependiendo del origen de los indicadores de amenazas en la organización.
 
 Consulte este catálogo de [integraciones de la inteligencia sobre amenazas](threat-intelligence-integration.md) disponibles con Azure Sentinel.
 
-### <a name="adding-threat-indicators-to-azure-sentinel-with-the-threat-intelligence-platforms-data-connector"></a>Incorporación de indicadores de amenazas a Azure Sentinel con el conector de datos Plataformas de inteligencia sobre amenazas
+### <a name="add-threat-indicators-to-azure-sentinel-with-the-threat-intelligence-platforms-data-connector"></a>Incorporación de indicadores de amenazas a Azure Sentinel con el conector de datos Plataformas de inteligencia sobre amenazas
 
-Muchas organizaciones usan soluciones de la plataforma de inteligencia sobre amenazas (TIP) para agregar fuentes de indicadores de amenazas desde diferentes orígenes, mantener los datos dentro de la plataforma y, a continuación, elegir qué indicadores de amenazas se aplicarán a diferentes soluciones de seguridad como dispositivos de red, soluciones de EDR/XDR o SIEM como Azure Sentinel. Si su organización usa una [solución TIP integrada](connect-threat-intelligence-tip.md), el **conector de datos de plataformas de inteligencia sobre amenazas** permite usar estas soluciones para importar indicadores de amenazas en Azure Sentinel. 
+Muchas organizaciones usan soluciones de la plataforma de inteligencia sobre amenazas (TIP) para agregar fuentes de indicadores de amenazas desde diferentes orígenes, mantener los datos dentro de la plataforma y, a continuación, elegir qué indicadores de amenazas se aplicarán a diferentes soluciones de seguridad como dispositivos de red, soluciones de EDR/XDR o SIEM como Azure Sentinel. Si su organización usa una [solución TIP integrada](connect-threat-intelligence-tip.md), el **conector de datos de plataformas de inteligencia sobre amenazas** permite usar estas soluciones para importar indicadores de amenazas en Azure Sentinel.
 
 Como el conector de datos TIP trabaja con la [API tiIndicators de Microsoft Graph Security](/graph/api/resources/tiindicator) para lograrlo, cualquier plataforma de inteligencia sobre amenazas personalizada puede usar el conector para aprovechar las ventajas de la API tiIndicators para enviar indicadores a Azure Sentinel (y a otras soluciones de seguridad de Microsoft como Microsoft 365 Defender).
 
@@ -56,7 +66,7 @@ Como el conector de datos TIP trabaja con la [API tiIndicators de Microsoft Grap
 
 Para obtener más información sobre las soluciones TIP integradas con Azure Sentinel, consulte [Productos de la plataforma de inteligencia sobre amenazas integrada](threat-intelligence-integration.md#integrated-threat-intelligence-platform-products).
 
-Estos son los pasos principales que debe seguir para importar indicadores de amenazas a Azure Sentinel desde la solución TIP integrada o de inteligencia sobre amenazas personalizada:
+**Para importar indicadores de amenazas a Azure Sentinel desde su TIP integrada o plataforma de inteligencia sobre amenazas personalizada**:
 
 1. Obtenga un **identificador de la aplicación** y un **secreto de cliente** en Azure Active Directory
 
@@ -64,22 +74,21 @@ Estos son los pasos principales que debe seguir para importar indicadores de ame
 
 1. Habilite el conector de datos Plataformas de inteligencia sobre amenazas en Azure Sentinel
 
-Para obtener una vista detallada de cada uno de estos pasos, consulte [Conexión de la plataforma de inteligencia sobre amenazas a Azure Sentinel](connect-threat-intelligence-tip.md).
+Para más información, consulte [Conexión de la plataforma de inteligencia sobre amenazas a Azure Sentinel](connect-threat-intelligence-tip.md).
 
-
-### <a name="adding-threat-indicators-to-azure-sentinel-with-the-threat-intelligence---taxii-data-connector"></a>Incorporación de indicadores de amenazas a Azure Sentinel con el conector de datos Inteligencia sobre amenazas: TAXII
+### <a name="add-threat-indicators-to-azure-sentinel-with-the-threat-intelligence---taxii-data-connector"></a>Incorporación de indicadores de amenazas a Azure Sentinel con el conector de datos Inteligencia sobre amenazas: TAXII
 
 El estándar del sector más ampliamente adoptado para la transmisión de la inteligencia sobre amenazas es una [combinación del formato de datos STIX y el protocolo TAXII](https://oasis-open.github.io/cti-documentation/). Si la organización obtiene indicadores de amenazas de soluciones que admiten la versión de STIX/TAXII actual (2.0 o 2.1), puede usar el conector de datos **Inteligencia sobre amenazas: TAXII** para traer los indicadores de amenazas a Azure Sentinel. El conector de datos Inteligencia sobre amenazas: TAXII habilita un cliente de TAXII integrado en Azure Sentinel para importar la inteligencia sobre amenazas desde servidores TAXII 2.x.
 
 :::image type="content" source="media/understand-threat-intelligence/threat-intel-taxii-import-path.png" alt-text="Ruta de acceso de importación de TAXII":::
- 
-Siga estos pasos para importar indicadores de amenazas con formato STIX a Azure Sentinel desde un servidor TAXII:
+
+**Para importar indicadores de amenazas con formato STIX a Azure Sentinel desde un servidor TAXII**:
 
 1. Obtenga el identificador de colección y raíz de API del servidor TAXII
 
 1. Habilite el conector de datos Inteligencia sobre amenazas: TAXII en Azure Sentinel
 
-Para obtener una vista detallada de cada uno de estos pasos, consulte [Conexión de Azure Sentinel a las fuentes de inteligencia sobre amenazas STIX/TAXII](connect-threat-intelligence-taxii.md).
+Para más información, consulte [Conexión de Azure Sentinel a las fuentes de inteligencia sobre amenazas STIX/TAXII](connect-threat-intelligence-taxii.md).
 
 ## <a name="view-and-manage-your-threat-indicators"></a>Visualización y administración de los indicadores de amenazas
 
@@ -97,6 +106,14 @@ El etiquetado de indicadores de amenazas es una forma sencilla de agruparlos par
 
 Para obtener más información sobre cómo ver y administrar los indicadores de amenazas, consulte [Trabajo con los indicadores de amenazas en Azure Sentinel](work-with-threat-indicators.md#view-your-threat-indicators-in-azure-sentinel).
 
+### <a name="view-your-geolocation-and-whois-data-enrichments-public-preview"></a>Visualización de los enriquecimientos de datos de GeoLocation y WhoIs (versión preliminar pública)
+
+Microsoft enriquece cada indicador con datos adicionales de GeoLocation y WhoIs, que proporcionan más contexto para las investigaciones en las que se encuentra el indicador de compromiso (IOC) seleccionado.
+
+Puede ver los datos de geolocalización y WHOIS en el panel **Inteligencia sobre amenazas** para cada indicador de riesgo que haya importado en Azure Sentinel.
+
+Por ejemplo, use datos de geolocalización para encontrar información como *Organización* o *País* para el indicador, y datos WHOIS para encontrar información como *Registrador* y *Creación de registros*.
+
 ## <a name="detect-threats-with-threat-indicator-based-analytics"></a>Detección de amenazas con análisis basados en indicadores de amenazas
 
 El caso de uso más importante para los indicadores de amenazas en soluciones SIEM como Azure Sentinel es la activación de reglas de análisis de detección de amenazas. Estas reglas basadas en indicadores comparan eventos sin formato de los orígenes de datos con sus indicadores de amenazas para detectar amenazas de seguridad en la organización. En **Análisis** de Azure Sentinel, crea reglas de análisis que se ejecutan de forma programada y genera alertas de seguridad. Las reglas están controladas mediante consultas, junto con configuraciones que determinan con qué frecuencia debe ejecutarse la regla, qué clase de resultados de consulta deben generar alertas de seguridad e incidentes, y qué automatizaciones deben desencadenarse como respuesta.
@@ -113,13 +130,14 @@ Para obtener más información sobre usar los indicadores de amenazas, consulte 
 
 ## <a name="workbooks-provide-insights-about-your-threat-intelligence"></a>Los libros proporcionan información sobre la inteligencia sobre amenazas
 
-Los libros proporcionan paneles interactivos eficaces que proporcionan información sobre todos los aspectos de Azure Sentinel, y la inteligencia sobre amenazas no es una excepción. Puede usar el **libro de inteligencia sobre amenazas** integrado para visualizar información clave sobre la inteligencia sobre amenazas, y puede personalizar fácilmente los libros según sus necesidades empresariales. Incluso puede crear nuevos paneles que combinen muchos orígenes de datos diferentes para que pueda visualizar los datos de maneras únicas. Dado que los libros de Azure Sentinel se basan en los libros de Azure Monitor, ya hay una amplia documentación disponible y muchas más plantillas. Un buen punto de partida es este artículo sobre cómo [crear informes interactivos con los libros de Azure Monitor](../azure-monitor/visualize/workbooks-overview.md). 
+Los libros proporcionan paneles interactivos eficaces que proporcionan información sobre todos los aspectos de Azure Sentinel, y la inteligencia sobre amenazas no es una excepción. Puede usar el **libro de inteligencia sobre amenazas** integrado para visualizar información clave sobre la inteligencia sobre amenazas, y puede personalizar fácilmente los libros según sus necesidades empresariales. Incluso puede crear nuevos paneles que combinen muchos orígenes de datos diferentes para que pueda visualizar los datos de maneras únicas. Dado que los libros de Azure Sentinel se basan en los libros de Azure Monitor, ya hay una amplia documentación disponible y muchas más plantillas. Un buen punto de partida es este artículo sobre cómo [crear informes interactivos con los libros de Azure Monitor](../azure-monitor/visualize/workbooks-overview.md).
 
 También hay una completa comunidad de [libros de Azure Monitor en GitHub](https://github.com/microsoft/Application-Insights-Workbooks) donde puede descargar plantillas adicionales y aportar sus propias plantillas.
 
 Para obtener más información sobre el uso y la personalización del libro de inteligencia sobre amenazas, consulte [Trabajo con los indicadores de amenazas en Azure Sentinel](work-with-threat-indicators.md#workbooks-provide-insights-about-your-threat-intelligence).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 En este documento, ha aprendido acerca de las funcionalidades de inteligencia sobre amenazas de Azure Sentinel, incluida la hoja Inteligencia sobre amenazas. Para obtener instrucciones prácticas sobre el uso de las funcionalidades de inteligencia sobre amenazas de Azure Sentinel, consulte los siguientes artículos:
 
 - Conexión de Azure Sentinel a las [fuentes de inteligencia sobre amenazas STIX/TAXII](./connect-threat-intelligence-taxii.md).

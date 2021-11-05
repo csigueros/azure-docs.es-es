@@ -2,20 +2,20 @@
 author: memildin
 ms.author: memildin
 manager: rkarlin
-ms.date: 04/07/2021
+ms.date: 10/18/2021
 ms.topic: include
-ms.openlocfilehash: 0d0a5faa2941e429fab1d6250ef443257024a616
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 29b61cddc9fba4475b06d53303bf46145b17412b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129725570"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131010129"
 ---
-Azure Defender proporciona protección contra amenazas en tiempo real para los entornos en contenedores y genera alertas de actividades sospechosas. Puede usar esta información para corregir problemas de seguridad y mejorar la seguridad de los contenedores rápidamente.
+Defender for Cloud proporciona protección contra amenazas en tiempo real para los entornos en contenedores y genera alertas de actividades sospechosas. Puede usar esta información para corregir problemas de seguridad y mejorar la seguridad de los contenedores rápidamente.
 
-Azure Defender proporciona protección contra amenazas en diferentes niveles: 
+Defender for Cloud proporciona protección contra amenazas en diferentes niveles: 
 
-* **Nivel de host (proporcionado por Azure Defender para servidores)** : con el mismo agente de Log Analytics que Security Center usa en otras máquinas virtuales, Azure Defender supervisa los nodos de Kubernetes en Linux en busca de actividades sospechosas, como la detección de shell web y la vinculación con direcciones IP sospechosas conocidas. El agente también supervisa análisis específicos de contenedores, como la creación de contenedores con privilegios, las actividades sospechosas de acceso a los servidores de API y los servidores de Secure Shell (SSH) que se ejecutan dentro de un contenedor de Docker.
+* **Nivel de host (proporcionado por Microsoft Defender para servidores)** : con el mismo agente de Log Analytics que Defender for Cloud usa en otras máquinas virtuales, Microsoft Defender para servidores supervisa los nodos de Kubernetes en Linux en busca de actividades sospechosas, como la detección de shell web y la vinculación con direcciones IP sospechosas conocidas. El agente también supervisa análisis específicos de contenedores, como la creación de contenedores con privilegios, las actividades sospechosas de acceso a los servidores de API y los servidores de Secure Shell (SSH) que se ejecutan dentro de un contenedor de Docker.
 
     Si decide no instalar los agentes en los hosts, solo recibirá un subconjunto de las ventajas de la protección contra amenazas y las alertas de seguridad. Aún así, seguirá recibiendo alertas relacionadas con el análisis de redes y las comunicaciones con servidores malintencionados.
 
@@ -25,12 +25,12 @@ Azure Defender proporciona protección contra amenazas en diferentes niveles:
     Para obtener una lista de las alertas de nivel de host, consulte la [Tabla de referencia de alertas](../articles/security-center/alerts-reference.md#alerts-containerhost).
 
 
-* **Nivel de clúster (proporcionado por Azure Defender para Kubernetes)** : en el nivel de clúster, la protección contra amenazas consiste en analizar los registros de auditoría de Kubernetes. Para habilitar esta supervisión **sin agente**, habilite Azure Defender. Si su clúster es local o reside en otro proveedor de nube, utilice [Kubernetes habilitado para Azure Arc y la extensión de Azure Defender](../articles/security-center/defender-for-kubernetes-azure-arc.md).
+* **Nivel de clúster (proporcionado por Microsoft Defender para Kubernetes)** : en el nivel de clúster, la protección contra amenazas consiste en analizar los registros de auditoría de Kubernetes. Para habilitar esta supervisión **sin agente**, habilite las características de seguridad mejoradas. Si su clúster es local o reside en otro proveedor de nube, utilice [Kubernetes habilitado para Azure Arc y la extensión de Microsoft Defender](../articles/security-center/defender-for-kubernetes-azure-arc.md).
 
-    Para generar alertas en este nivel, Azure Defender supervisa los registros de los clústeres. Entre los ejemplos de eventos en este nivel se incluyen los paneles de Kubernetes expuestos y la creación de roles con privilegios elevados y de montajes confidenciales.
+    Para generar alertas en este nivel, Defender for Cloud supervisa los registros de los clústeres. Entre los ejemplos de eventos en este nivel se incluyen los paneles de Kubernetes expuestos y la creación de roles con privilegios elevados y de montajes confidenciales.
 
     >[!NOTE]
-    > Azure Defender genera alertas de seguridad para las acciones e implementaciones que se producen después de habilitar el plan de Defender para Kubernetes en la suscripción. 
+    > Defender for Cloud genera alertas de seguridad para las acciones e implementaciones que se producen después de habilitar el plan de Defender para Kubernetes en la suscripción. 
 
     Para obtener una lista de las alertas del nivel de clúster de AKS, consulte la [tabla de referencia de alertas](../articles/security-center/alerts-reference.md#alerts-k8scluster).
 

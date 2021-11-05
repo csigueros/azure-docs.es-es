@@ -9,12 +9,12 @@ ms.subservice: iot-edge
 ms.date: 05/10/2021
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6263a58aebcb7e6eb9d50d18e63257a3deb2cff5
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: f4402cac05520e8e3dd76b8894335d314ec87d64
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112416549"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080030"
 ---
 # <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>Tutorial: Publicación de eventos y suscripción a ellos en la nube
 
@@ -61,7 +61,7 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 En la nueva función, seleccione **Obtener la dirección URL de la función** en la parte superior derecha, seleccione el valor predeterminado (**Clave de función**) y, después, seleccione **Copiar**. Usará el valor de dirección URL de la función más adelante en el tutorial.
 
 > [!NOTE]
-> Consulte la documentación de [Azure Functions](../../azure-functions/functions-overview.md) para ver más ejemplos y tutoriales sobre cómo reaccionar a los eventos mediante desencadenadores de eventos EventGrid.
+> Consulte la documentación de [Azure Functions](../../azure-functions/functions-overview.md) para ver más ejemplos y tutoriales sobre cómo reaccionar a los eventos y el uso de desencadenadores de eventos EventGrid.
 
 ## <a name="create-a-topic"></a>de un tema
 

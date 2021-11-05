@@ -1,38 +1,38 @@
 ### YamlMime:Landing
-title: Documentación de Azure Security Center
-summary: Azure Security Center proporciona administración unificada de la seguridad y protección avanzada contra amenazas para cargas de trabajo en la nube híbrida.
+title: Documentación de Microsoft Defender for Cloud
+summary: Microsoft Defender for Cloud proporciona características unificadas de administración para la seguridad y protección contra amenazas en todas las cargas de trabajo en la nube híbrida.
 metadata:
-  title: Documentación de Azure Security Center
-  description: Con nuestros inicios rápidos y tutoriales puede empezar a usar Security Center, aprenda a proteger las cargas de trabajo a limitar los riesgos y a detectar ataques (y responder a ellos).
+  title: Documentación de Microsoft Defender for Cloud
+  description: Con nuestros inicios rápidos y tutoriales puede empezar a usar Defender for Cloud, aprender a proteger las cargas de trabajo, a limitar los riesgos y a detectar ataques (y responder a ellos).
   services: security-center
   ms.service: security-center
   ms.topic: landing-page
   ms.collection: collection
   author: memildin
   ms.author: memildin
-  ms.date: 05/12/2021
-  ms.openlocfilehash: e8f2db04945768b1c89eb09f02f6c248053dedaa
-  ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+  ms.date: 10/21/2021
+  ms.openlocfilehash: 5ab94b1a0cf16df2475d073e62ee7877b97c28e2
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/04/2021
-  ms.locfileid: "129425114"
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131009650"
 landingContent:
-- title: Acerca de Security Center
+- title: Acerca de Defender for Cloud
   linkLists:
   - linkListType: overview
     links:
-    - text: ¿Cuáles son las principales funcionalidades de Security Center?
-      url: security-center-introduction.md
-    - text: ¿Cuáles son las principales funcionalidades de Azure Defender?
-      url: azure-defender.md
+    - text: ¿Cuáles son las principales funcionalidades de Defender for Cloud?
+      url: defender-for-cloud-introduction.md
     - text: ¿Qué versiones de Windows Server y Linux se admiten?
       url: security-center-os-coverage.md
+    - text: ¿Cómo empiezo con Defender for Cloud?
+      url: get-started.md
 - title: Mantenerse al día
   linkLists:
   - linkListType: whats-new
     links:
-    - text: Notas de la versión de Security Center
+    - text: Notas de la versión de Defender for Cloud
       url: release-notes.md
     - text: Aplicación de líneas base de seguridad de Azure a máquinas
       url: apply-security-baseline.md
@@ -40,20 +40,20 @@ landingContent:
       url: custom-dashboards-azure-workbooks.md
     - text: Protección de clústeres de Kubernetes híbridos y de varias nubes
       url: defender-for-kubernetes-azure-arc.md
-    - text: Azure Defender para bases de datos relacionales de código abierto
+    - text: Microsoft Defender para bases de datos relacionales de código abierto
       url: defender-for-databases-introduction.md
 - title: Introducción
   linkLists:
   - linkListType: get-started
     links:
-    - text: Habilitación de Security Center en las suscripciones
-      url: security-center-get-started.md
-    - text: Habilitación de Azure Defender
-      url: enable-azure-defender.md
+    - text: Habilitación de Defender for Cloud en las suscripciones
+      url: get-started.md
+    - text: Habilitación de las características de seguridad mejoradas
+      url: enable-enhanced-security.md
     - text: Configuración del aprovisionamiento automático
-      url: security-center-enable-data-collection.md
+      url: enable-data-collection.md
     - text: Configuración de notificaciones de correo electrónico
-      url: security-center-provide-security-contact-details.md
+      url: configure-email-notifications.md
     - text: Conexión de máquinas que no son de Azure
       url: quickstart-onboard-machines.md
 - title: Mejora de su puntuación de seguridad
@@ -63,7 +63,7 @@ landingContent:
     - text: Información acerca de la puntuación de seguridad
       url: secure-score-security-controls.md
     - text: Corrección de recomendaciones sobre seguridad
-      url: security-center-remediate-recommendations.md
+      url: implement-security-recommendations.md
     - text: Exclusión de un recurso de una recomendación
       url: exempt-resource.md
     - text: Seguimiento de las puntuaciones a lo largo del tiempo
@@ -73,10 +73,10 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Administración del acceso Just-In-Time
-      url: security-center-just-in-time.md
+      url: just-in-time-access-usage.md
     - text: Configuración de controles de aplicaciones adaptables
-      url: security-center-adaptive-application.md
+      url: adaptive-application-controls.md
     - text: Implementación de la protección de red adaptable
-      url: security-center-adaptive-network-hardening.md
-    - text: Uso del panel de Azure Defender
-      url: azure-defender-dashboard.md
+      url: adaptive-network-hardening.md
+    - text: Uso de las protecciones de carga de trabajo
+      url: workload-protections-dashboard.md

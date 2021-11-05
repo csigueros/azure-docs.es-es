@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/16/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: c6396eab9cb7a2224d660e0e034f8592a879510d
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 408f55592ee7a192172c85e7a417db0b277f0f46
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122688463"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054521"
 ---
 # <a name="scaling-hpc-applications"></a>Escalado de aplicaciones de HPC
 
@@ -91,14 +91,14 @@ $ gfortran [gFortran flags]
 ```
    
 ### <a name="pgi-compiler"></a>Compilador PGI
-Está confirmado que PGI Community Edition, versión 17 funciona con AMD EPYC. Una versión compilada por PGI de STREAM entrega todo el ancho de banda de la memoria de la plataforma. La más reciente Community Edition 18.10 (noviembre de 2018) también debería funcionar correctamente. A continuación encontrará una CLI de ejemplo para realizar una compilación óptima con el compilador Intel:
+Se confirma que Community Edition 17 de PGI funciona con AMD EPYC. Una versión compilada por PGI de STREAM entrega todo el ancho de banda de la memoria de la plataforma. La más reciente Community Edition 18.10 (noviembre de 2018) también debería funcionar correctamente. A continuación encontrará una CLI de ejemplo para realizar una compilación óptima con el compilador Intel:
 
 ```bash
 pgcc $(OPTIMIZATIONS_PGI) $(STACK) -DSTREAM_ARRAY_SIZE=800000000 stream.c -o stream.pgi
 ```
 
 ### <a name="intel-compiler"></a>Compilador Intel
-Está confirmado que la versión 18 del compilador Intel funciona con AMD EPYC. A continuación encontrará una CLI de ejemplo para realizar una compilación óptima con el compilador Intel.
+Se confirma que Intel Compiler 18 funciona con AMD EPYC. A continuación encontrará una CLI de ejemplo para realizar una compilación óptima con el compilador Intel.
 
 ```bash
 icc -o stream.intel stream.c -DSTATIC -DSTREAM_ARRAY_SIZE=800000000 -mcmodel=large -shared-intel -Ofast –qopenmp

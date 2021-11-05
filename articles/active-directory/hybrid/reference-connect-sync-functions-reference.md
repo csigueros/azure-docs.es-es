@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7454733233f1fd487d774d52a6f46187354ae05c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d297e7254728debc33b65fe226028fe108426fc9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98246713"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057483"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Sincronización de Azure AD Connect: Referencia de funciones
 En Azure AD Connect, las funciones se usan para manipular un valor de atributo durante la sincronización.  
@@ -1168,7 +1168,7 @@ El formato es {source1}:{target1},{source2}:{target2},{sourceN},{targetN} donde 
 **Observaciones**:
 
 * La función toma cada aparición de los orígenes definidos y los reemplaza por los destinos.
-* El origen debe ser exactamente un carácter (unicode).
+* El origen debe ser exactamente un carácter (Unicode).
 * El origen no puede estar vacío ni puede tener más de un carácter (error de análisis).
 * El destino puede tener varios caracteres: por ejemplo, ö:oe, β:ss.
 * El destino puede estar vacío, lo que indica que el carácter debe quitarse.

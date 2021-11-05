@@ -64,9 +64,8 @@ items:
                 href: quickstart-create-workspace-powershell.md
                 displayName: quickstart
               - name: Plantilla ARM
-                displayname: Resource Manager
                 href: quickstart-deployment-template-workspaces.md
-            displayName: quickstart
+                displayName: quickstart
           - name: Vinculación de un área de trabajo de Power BI
             href: quickstart-power-bi.md
             displayName: quickstart
@@ -78,7 +77,6 @@ items:
             displayName: quickstart
           - name: Soluciones de socios
             href: ./partner/browse-partners.md
-        '-name': null
       - name: Conceptos
         items:
           - name: Administración de metadatos compartidos
@@ -97,7 +95,7 @@ items:
                     href: ./spark/apache-spark-development-using-notebooks.md
                   - name: Script de SQL
                     href: ./sql/author-sql-script.md
-                    displayname: author
+                    displayName: author
                   - name: Data Flow
                     href: concepts-data-flow-overview.md
           - name: Programación de mantenimiento
@@ -122,7 +120,7 @@ items:
                     href: ./security/connectivity-settings.md
                   - name: Red virtual administrada del área de trabajo de Synapse
                     href: ./security/synapse-workspace-managed-vnet.md
-                    displayname: vnet
+                    displayName: vnet
                   - name: Puntos de conexión privados administrados del área de trabajo de Synapse
                     href: ./security/synapse-workspace-managed-private-endpoints.md
                   - name: Protección de filtración de datos del área de trabajo de Synapse
@@ -135,7 +133,7 @@ items:
                 items:
                   - name: Azure Active Directory
                     href: ./sql/active-directory-authentication.md
-                    displayname: authentication
+                    displayName: authentication
                   - name: Multi-Factor Authentication
                     href: ./sql/mfa-authentication.md
                   - name: Autorización de SQL
@@ -154,6 +152,10 @@ items:
                     href: ./security/synapse-workspace-understand-what-role-you-need.md
                   - name: Identidad administrada del área de trabajo de Synapse
                     href: ./security/synapse-workspace-managed-identity.md
+                  - name: Identidad administrada asignada por el sistema y por el usuario
+                    href: ../data-factory/data-factory-service-identity.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json&tabs=synapse-analytics
+                  - name: Credenciales para la identidad administrada asignada por el usuario
+                    href: ../data-factory/credentials.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json&tabs=synapse-analytics
       - name: Guías paso a paso
         items:
           - name: Administración y supervisión
@@ -172,7 +174,7 @@ items:
                     href: ./security/how-to-manage-synapse-rbac-role-assignments.md
                   - name: Configuración de permisos para la identidad administrada del área de trabajo de Azure Synapse
                     href: security/how-to-grant-workspace-managed-identity-permissions.md
-                    displayname: grant
+                    displayName: grant
               - name: Protección contra la filtración de datos
                 items:
                   - name: Creación y administración un área de trabajo con protección de filtración de datos
@@ -183,7 +185,7 @@ items:
                     href: security/how-to-create-managed-private-endpoints.md
                   - name: Conexión al área de trabajo de Azure Synapse con puntos de conexión privados
                     href: security/how-to-connect-to-workspace-with-private-links.md
-                    displayname: links
+                    displayName: links
                   - name: Aprovisionamiento y protección de un servicio vinculado con una red virtual administrada
                     href: ./data-integration/linked-service.md
                   - name: Conexión al área de trabajo de Synapse desde una red restringida
@@ -194,7 +196,7 @@ items:
                 href: troubleshoot/troubleshoot-synapse-studio.md
               - name: Solución de problemas de conectividad de Synapse Studio
                 href: troubleshoot/troubleshoot-synapse-studio-powershell.md
-                displayname: powershell
+                displayName: powershell
               - name: Solución de problemas de conectividad entre Synapse Studio y el almacenamiento
                 href: troubleshoot/troubleshoot-synapse-studio-and-storage-connectivity.md
               - name: Solución de problemas de áreas de trabajo creadas por SDK
@@ -203,6 +205,31 @@ items:
                 href: troubleshoot/reading-utf8-text.md
           - name: Desplazamiento de un área de trabajo a una nueva región
             href: how-to-move-workspace-from-one-region-to-another.md
+  - name: Plantillas de bases de datos
+    items:
+      - name: Información general
+        items:
+          - name: Introducción a las plantillas de base de datos
+            href: database-designer/overview-database-templates.md
+            displayName: overview
+      - name: Guías de inicio rápido
+        items:
+          - name: Creación de una base de datos de lago
+            href: database-designer/quick-start-create-lake-database.md
+      - name: Conceptos
+        items:
+          - name: Plantillas de bases de datos
+            href: database-designer/concepts-database-templates.md
+          - name: Base de datos de lago
+            href: database-designer/concepts-lake-database.md
+      - name: Guías paso a paso
+        items:
+          - name: Creación de una base de datos de lago vacía
+            href: database-designer/create-empty-lake-database.md
+          - name: Creación de una base de datos de lago a partir de una plantilla de base de datos
+            href: database-designer/create-lake-database-from-lake-database-templates.md
+          - name: Modificación de una base de datos de lago
+            href: database-designer/modify-lake-database.md
   - name: Guías de migración
     items:
       - name: Migración a un grupo de SQL dedicado
@@ -216,10 +243,10 @@ items:
             displayName: overview
           - name: Grupo de SQL sin servidor
             href: sql/on-demand-workspace-overview.md
-            displayname: overview
+            displayName: overview
           - name: Grupo de SQL dedicado
             href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md?context=/azure/synapse-analytics/context/context
-            displayname: overview
+            displayName: overview
           - name: Introducción a las características
             href: sql/overview-features.md
           - name: Modelos de consumo de recursos
@@ -242,13 +269,13 @@ items:
             items:
               - name: Instrucción COPY
                 href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql.md?context=/azure/synapse-analytics/context/context
-                displayname: 'bulk, load'
+                displayName: 'bulk, load'
               - name: Ejemplos de instrucción COPY
                 href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples.md?context=/azure/synapse-analytics/context/context
-                displayname: 'bulk, load'
+                displayName: 'bulk, load'
               - name: Synapse Studio
                 href: quickstart-load-studio-sql-pool.md
-                displayname: sql pool
+                displayName: sql pool
           - name: Administración de cargas de trabajo
             items:
               - name: Creación de clasificador de carga de trabajo
@@ -296,18 +323,18 @@ items:
               - name: Vista materializada
                 items:
                   - name: Guía para el ajuste del rendimiento
-                    displayname: 'materialized, view,'
+                    displayName: 'materialized, view,'
                     href: sql/develop-materialized-view-performance-tuning.md
                   - name: Crear
                     href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql?context=/azure/synapse-analytics/context/context
-                    displayname: 'materialized, view'
+                    displayName: 'materialized, view'
                   - name: Modificar
                     href: /sql/t-sql/statements/alter-materialized-view-transact-sql?context=/azure/synapse-analytics/context/context
-                    displayname: 'materialized, view'
+                    displayName: 'materialized, view'
               - name: Índice de almacén de columnas agrupado ordenado
                 items:
                   - name: Guía para el ajuste del rendimiento
-                    displayname: 'CCI, clustered, column, store'
+                    displayName: 'CCI, clustered, column, store'
                     href: ./sql-data-warehouse/performance-tuning-ordered-CCI.md
               - name: Reglas de almacenamiento en caché
                 items:
@@ -364,7 +391,7 @@ items:
                       - name: Transacciones de grupos de SQL dedicados
                         href: sql/develop-transactions.md
                       - name: Transacciones recomendadas para grupos de SQL dedicados
-                        displayname: 'Transaction, best, practices'
+                        displayName: 'Transaction, best, practices'
                         href: sql/develop-transaction-best-practices.md
                   - name: Esquemas definidos por el usuario
                     href: sql/develop-user-defined-schemas.md
@@ -412,12 +439,12 @@ items:
                     href: ../azure-sql/database/transparent-data-encryption-tde-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
                   - name: Cifrado de datos transparente con Bring Your Own Key
                     href: ../azure-sql/database/transparent-data-encryption-byok-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
-                    displayname: 'transparent, data, encryption'
+                    displayName: 'transparent, data, encryption'
           - name: Administración de cargas de trabajo
             items:
               - name: Información general
                 href: ./sql-data-warehouse/sql-data-warehouse-workload-management.md?context=/azure/synapse-analytics/context/context
-                displayname: 'workload, management'
+                displayName: 'workload, management'
               - name: Clasificación de la carga de trabajo
                 href: ./sql-data-warehouse/sql-data-warehouse-workload-classification.md?context=/azure/synapse-analytics/context/context
               - name: Importancia de la carga de trabajo
@@ -428,10 +455,10 @@ items:
                 href: ./sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor.md?context=/azure/synapse-analytics/context/context
               - name: Límites de memoria y simultaneidad
                 href: ./sql-data-warehouse/memory-concurrency-limits.md?context=/azure/synapse-analytics/context/context
-                displayname: 'workload, management'
+                displayName: 'workload, management'
               - name: Clases de recursos
                 href: ./sql-data-warehouse/resource-classes-for-workload-management.md?context=/azure/synapse-analytics/context/context
-                displayname: 'workload, management'
+                displayName: 'workload, management'
       - name: Guías paso a paso
         items:
           - name: Copia de seguridad y restauración
@@ -478,13 +505,13 @@ items:
                     href: /azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
                   - name: SSIS
                     href: /sql/integration-services/load-data-to-sql-data-warehouse
-                    displayname: 'integration, services'
+                    displayName: 'integration, services'
                   - name: Datos de taxi de Nueva York
                     href: ./sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?context=/azure/synapse-analytics/context/context
-                    displayname: 'load, blob'
+                    displayName: 'load, blob'
                   - name: Datos públicos de Contoso
                     href: ./sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md?context=/azure/synapse-analytics/context/context
-                    displayname: 'load, blob'
+                    displayName: 'load, blob'
                   - name: Carga de WideWorldImporters
                     href: ./sql-data-warehouse/load-data-wideworldimportersdw.md?context=/azure/synapse-analytics/context/context
                   - name: Con la actividad de copia
@@ -503,7 +530,7 @@ items:
             items:
               - name: Información general
                 href: sql/query-data-storage.md
-                displayname: query
+                displayName: query
               - name: Consulta de archivo CSV
                 href: sql/query-single-csv-file.md
               - name: Consulta de archivos de Parquet
@@ -512,11 +539,11 @@ items:
                 href: sql/query-json-files.md
               - name: Consulta de tipos anidados
                 href: sql/query-parquet-nested-types.md
-              - name: Consulta de Delta Lake (versión preliminar)
+              - name: Consulta de Delta Lake
                 href: sql/query-delta-lake-format.md
               - name: Consulta de carpetas y varios archivos
                 href: sql/query-folders-multiple-csv-files.md
-                displayname: csv
+                displayName: csv
               - name: Consulta de archivos con particiones mediante metadatos de archivos
                 href: sql/query-specific-files.md
               - name: Creación y uso de vistas
@@ -553,6 +580,32 @@ items:
                 href: ../azure-sql/database/connect-query-python.md?context=/azure/synapse-analytics/context/context
               - name: Consulta con sqlcmd
                 href: sql/get-started-connect-sqlcmd.md
+  - name: Data Explorer
+    items:
+      - name: Información general
+        items:
+          - name: Introducción a Data Explorer
+            href: data-explorer/data-explorer-overview.md
+          - name: Comparación con Azure Data Explorer
+            href: data-explorer/data-explorer-compare.md
+      - name: Guías de inicio rápido
+        items:
+          - name: Creación de un grupo de Data Explorer con Azure Portal
+            href: data-explorer/data-explorer-create-pool-portal.md
+          - name: Creación de un grupo de Data Explorer con Synapse Studio
+            href: data-explorer/data-explorer-create-pool-studio.md
+          - name: Supervisión y diagnóstico de grupos
+            href: data-explorer/data-explorer-monitor-pools.md
+      - name: Lenguaje de consulta Kusto
+        href: data-explorer/kusto-query-language/toc.yml
+      - name: Comandos de administración
+        href: data-explorer/management/toc.yml
+      - name: Referencia
+        items:
+          - name: API
+            href: data-explorer/api/toc.yml
+          - name: Biblioteca de funciones
+            href: data-explorer/functions-library/toc.yml
   - name: Spark de Apache
     items:
       - name: Información general
@@ -573,6 +626,12 @@ items:
             href: ./spark/apache-spark-data-visualization-tutorial.md
           - name: "Análisis de datos con Apache Spark y Power\_BI"
             href: ./spark/apache-spark-to-power-bi.md
+          - name: Lectura y escritura de ADLS con Pandas
+            displayName: 'data prep, data preparation'
+            href: ./spark/tutorial-use-pandas-spark-pool.md
+          - name: Lectura y escritura de ADLS con especificación del sistema de archivos
+            displayName: 'data prep, data preparation, fsspec'
+            href: ./spark/tutorial-spark-pool-filesystem-spec.md
           - name: Creación de modelos de Machine Learning
             href: ./spark/apache-spark-machine-learning-mllib-notebook.md
           - name: Envío de definiciones de trabajos de Spark
@@ -1238,7 +1297,7 @@ items:
                 href: ../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
   - name: Machine Learning
     items:
-      - name: Introducción
+      - name: Información general
         items:
           - name: ¿Qué es el aprendizaje automático en Azure Synapse?
             href: machine-learning/what-is-machine-learning.md
@@ -1246,6 +1305,8 @@ items:
         items:
           - name: Uso de un cuaderno de ejemplo desde la galería
             href: machine-learning/quickstart-gallery-sample-notebook.md
+          - name: Uso de la solución Retail AI
+            href: machine-learning/quickstart-industry-ai-solutions.md
           - name: Creación de un servicio vinculado
             items:
               - name: Azure Machine Learning
@@ -1262,9 +1323,6 @@ items:
         items:
           - name: Preparación y acceso a datos
             items:
-              - name: Lectura y escritura de ADLS con especificación del sistema de archivos
-                displayName: 'data prep, data preparation'
-                href: ./machine-learning/tutorial-spark-pool-filesystem-spec.md
               - name: Visualización de data con Apache Spark
                 displayName: 'data prep, data preparation, visualization'
                 href: ./spark/apache-spark-data-visualization-tutorial.md
@@ -1286,6 +1344,9 @@ items:
               - name: Uso del Asistente para puntuación para los grupos de SQL dedicados
                 displayName: score model
                 href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
+              - name: Puntuación PREDICT en Synapse Spark mediante el modelo registrado en AML o ADLS
+                displayName: 'predict score, Synapse spark, model registered in AML or ADLS'
+                href: ./machine-learning/tutorial-score-model-predict-spark-pool.md
               - name: Con Cognitive Services
                 items:
                   - name: Información general
@@ -1297,6 +1358,18 @@ items:
                   - name: Asistente de detección de anomalías
                     displayName: 'cognitive services, score model'
                     href: ./machine-learning/tutorial-cognitive-services-anomaly.md
+                  - name: Text Analytics con Apache Spark (MMLSpark)
+                    displayName: 'cognitive services, score model, applications'
+                    href: ./machine-learning/tutorial-text-analytics-use-mmlspark.md
+                  - name: Computer Vision con Apache Spark (MMLSpark)
+                    displayName: 'cognitive services, score model, applications'
+                    href: ./machine-learning/tutorial-computer-vision-use-mmlspark.md
+                  - name: Form Recognizer con Apache Spark (MMLSpark)
+                    displayName: 'cognitive services, score model, applications'
+                    href: ./machine-learning/tutorial-form-recognizer-use-mmlspark.md
+                  - name: Translator con Apache Spark (MMLSpark)
+                    displayName: 'cognitive services, score model, applications'
+                    href: ./machine-learning/tutorial-translator-use-mmlspark.md
                   - name: Con Apache Spark (MMLSpark)
                     displayName: 'cognitive services, score model, applications'
                     href: ./machine-learning/tutorial-build-applications-use-mmlspark.md
@@ -1354,7 +1427,7 @@ items:
       - name: Página de preguntas y respuestas de Microsoft
         href: /answers/topics/azure-synapse-analytics.html
       - name: Solicitudes de características
-        href: 'https://feedback.azure.com/forums/307516-sql-data-warehouse/'
+        href: 'https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8'
       - name: Precios
         href: 'https://azure.microsoft.com/pricing/details/synapse-analytics/'
       - name: Calculadora de precios

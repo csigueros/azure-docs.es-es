@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 10/26/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9a48cf9d6912fae91cd789ae16bb68e1d95a4a9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 442a2e4d5f88d9716b6cc197c503888edb314040
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128585434"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049983"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Funcionamiento del inicio de sesión único en recursos locales de dispositivos unidos a Azure AD
 
@@ -34,7 +34,7 @@ Con un dispositivo unido a Azure AD, los usuarios ya tienen una experiencia de i
 
 Los dispositivos unidos a Azure AD no tienen ningún conocimiento acerca del entorno de AD porque no están unidos a él. Sin embargo, puede proporcionar información adicional acerca de su instancia de AD local a estos dispositivos con Azure AD Connect.
 
-Si tiene un entorno híbrido, tanto con Azure AD como con AD local, es probable que tenga ya implementado Azure AD Connect para sincronizar la información de identidad local con la de la nube. Como parte del proceso de sincronización, Azure AD Connect sincroniza la información del usuario y el dominio locales con Azure AD. Cuando un usuario inicia sesión en un dispositivo de Azure AD en un entorno híbrido:
+Si tiene un entorno híbrido, tanto con Azure AD como con AD local, es probable que tenga ya implementado Azure AD Connect o Azure AD Connect Cloud Sync para sincronizar la información de identidad local con la de la nube. Como parte del proceso de sincronización, la información del usuario y el dominio locales se sincronizan con Azure AD. Cuando un usuario inicia sesión en un dispositivo de Azure AD en un entorno híbrido:
 
 1. Azure AD envía los detalles del dominio local del usuario de nuevo al dispositivo, junto con el [token de actualización principal](concept-primary-refresh-token.md)
 1. El servicio de autoridad de seguridad local (LSA) permite la autenticación Kerberos y NTLM en el dispositivo.

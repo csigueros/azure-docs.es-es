@@ -3,17 +3,17 @@ title: Funciones de PowerShell para Azure IoT Edge para Linux en Windows | Micro
 description: Información de referencia de funciones de PowerShell para Azure IoT Edge para Linux en Windows para implementar, aprovisionar y obtener el estado de máquinas virtuales de IoT Edge para Linux en Windows.
 author: v-tcassi
 ms.author: fcabrera
-ms.date: 06/18/2021
+ms.date: 10/15/2021
 ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: cfa116f91978ea5f9bc076c7d666a0428f3b6c72
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 9038f8b99728b2808cb1d4cf6b23a7673fa5d92e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130259193"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131085912"
 ---
 # <a name="powershell-functions-for-iot-edge-for-linux-on-windows"></a>Funciones de PowerShell para IoT Edge para Linux en Windows
 
@@ -49,13 +49,13 @@ Si no tiene la carpeta **AzureEflow** en el directorio de PowerShell, siga estos
    Set-ExecutionPolicy -ExecutionPolicy AllSigned -Force
    ```
 
-## <a name="connect-eflowvm"></a>Connect-EflowVM
+## <a name="connect-eflowvm"></a>Connect-EflowVm
 
-El comando **Connect-EflowVM** se conecta a la máquina virtual mediante SSH. La única cuenta que se permite a SSH en la máquina virtual es la del usuario que la creó.
+El comando **Connect-EflowVm** se conecta a la máquina virtual mediante SSH. La única cuenta que se permite a SSH en la máquina virtual es la del usuario que la creó.
 
 Este comando solo funciona en una sesión de PowerShell que se ejecuta en el dispositivo host. No funcionará al usar Windows Admin Center o PowerShell ISE.
 
-Para obtener más información, use el comando `Get-Help Connect-EflowVM -full`.
+Para obtener más información, use el comando `Get-Help Connect-EflowVm -full`.
 
 ## <a name="copy-eflowvmfile"></a>Copy-EflowVmFile
 
@@ -73,7 +73,7 @@ Para obtener más información, use el comando `Get-Help Copy-EflowVMFile -full`
 
 ## <a name="deploy-eflow"></a>Deploy-Eflow
 
-El comando **Deploy-Eflow** es el método de implementación principal. El comando de implementación crea la máquina virtual, aprovisiona archivos e implementa el módulo de agente de IoT Edge. Aunque ninguno de los parámetros es obligatorio, se pueden usar para aprovisionar el dispositivo IoT Edge durante la implementación y para modificar la configuración de la máquina virtual durante la creación.
+El comando **Deploy-Eflow** es el método de implementación principal. El comando de implementación crea la máquina virtual, aprovisiona archivos e implementa el módulo de agente de IoT Edge. Aunque no se requiere ninguno de los parámetros, se pueden usar para modificar la configuración de la máquina virtual durante la creación.
 
 | Parámetro | Valores aceptados | Comentarios |
 | --------- | --------------- | -------- |
@@ -103,7 +103,6 @@ El comando **Get-EflowHostConfiguration** devuelve la configuración del host. E
 * GpuInfo
 
 Para obtener más información, use el comando `Get-Help Get-EflowHostConfiguration -full`.
-
 
 ## <a name="get-eflowlogs"></a>Get-EflowLogs
 
@@ -140,7 +139,7 @@ El comando **Get-EflowVmFeature** devuelve el estado de la habilitación de las 
 
 | Parámetro | Valores aceptados | Comentarios |
 | --------- | --------------- | -------- |
-| feature | **DpsTpm** | Nombre de la característica que se va a alternar. |
+| feature | **DpsTpm** | Nombre de la característica que se va a consultar. |
 
 Para obtener más información, use el comando `Get-Help Get-EflowVmFeature -full`.
 
@@ -156,17 +155,14 @@ El comando **Get-EflowVmTelemetryOption** muestra el estado de la telemetría (*
 
 Para obtener más información, use el comando `Get-Help Get-EflowVmTelemetryOption -full`.
 
-
 ## <a name="get-eflowvmtpmprovisioninginfo"></a>Get-EflowVmTpmProvisioningInfo
 
 El comando **Get-EflowVmTpmProvisioningInfo** devuelve la información de aprovisionamiento de TPM. Este comando no toma parámetros. Devuelve un objeto que contiene dos propiedades:
 
 * Clave de aprobación
-* Id. de registro 
+* Id. de registro
 
 Para obtener más información, use el comando `Get-Help Get-EflowVmTpmProvisioningInfo -full`.
-
-
 
 ## <a name="invoke-eflowvmcommand"></a>Invoke-EflowVmCommand
 
@@ -205,7 +201,7 @@ El comando **Set-EflowVM** actualiza la configuración de la máquina virtual co
 
 | Parámetro | Valores aceptados | Comentarios |
 | --------- | --------------- | -------- |
-| cpuCount | Valor entero entre 1 y los núcleos de GPU del dispositivo | Número de núcleos de CPU para la VM. |
+| cpuCount | Valor entero entre 1 y el número de núcleos de CPU del dispositivo | Número de núcleos de CPU para la VM. |
 | memoryInMB | Valor entero entre 1024 y la cantidad máxima de memoria libre del dispositivo | Memoria asignada para la VM. |
 | gpuName | Nombre de dispositivo GPU |  Nombre del dispositivo GPU que se va a usar para el tránsito. |
 | gpuPassthroughType | **DirectDeviceAssignment**, **ParaVirtualization** o ninguno (sin tránsito) |  Tipo de tránsito de GPU |

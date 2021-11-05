@@ -4,16 +4,16 @@ description: Obtenga información sobre cómo crear un recurso compartido de arc
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/01/2021
+ms.date: 10/25/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 2b1e7f17445fe2b24b19acf4669637ef4c47c196
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f146d51cdd43b8c4a52285476e47d0c6237efe0f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728502"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046610"
 ---
 # <a name="how-to-create-an-nfs-share-preview"></a>Procedimiento para crear un recurso compartido de NFS (versión preliminar)
 Los recursos compartidos de archivos de Azure son recursos compartidos de archivos totalmente administrados en la nube. En este artículo se trata la creación de un recurso compartido de archivos que usa el protocolo NFS (versión preliminar).
@@ -111,7 +111,7 @@ Actualmente, los recursos compartidos de NFS 4.1 solo están disponibles como r
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Para crear una cuenta de almacenamiento de FileStorage, vaya a Azure Portal.
 
-1. En Azure Portal, seleccione **Cuentas de almacenamiento** en el menú de la izquierda.
+1. En [Azure Portal](https://portal.azure.com/), seleccione **Cuentas de almacenamiento** en el menú de la izquierda.
 
     ![Página principal de Azure Portal con la selección de la cuenta de almacenamiento.](media/storage-how-to-create-premium-fileshare/azure-portal-storage-accounts.png)
 
@@ -164,6 +164,32 @@ az storage account create \
     --location $location \
     --sku Premium_LRS \
     --kind FileStorage
+```
+---
+
+## <a name="disable-secure-transfer"></a>Deshabilitación de la transferencia segura
+
+No puede montar un recurso compartido de archivos NFS a menos que deshabilite la transferencia segura.
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1. Vaya a la cuenta de almacenamiento que ha creado.
+1. Seleccione **Configuración**.
+1. Seleccione **Deshabilitado** para **Se requiere transferencia segura**.
+1. Seleccione **Guardar**.
+
+    :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png" alt-text="Captura de la pantalla de configuración de la cuenta de almacenamiento con la transferencia segura deshabilitada." lightbox="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png":::
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Set-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}" -EnableHttpsTrafficOnly $False
+```
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+```azurecli
+az storage account update -g {ResourceGroupName} -n {StorageAccountName} --https-only false
 ```
 ---
 

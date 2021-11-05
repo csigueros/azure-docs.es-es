@@ -1,39 +1,42 @@
 ---
 title: Trabajo con directivas de seguridad | Microsoft Docs
-description: En este artículo se describe cómo trabajar con directivas de seguridad en Azure Security Center.
+description: Aprenda a trabajar con directivas de seguridad en Microsoft Defender for Cloud.
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.author: memildin
-ms.openlocfilehash: b7c8003bd40df21fb749fcb576afeaec5dacead9
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 600d2bd187d3814d994893285ba19457bdfb2339
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112236848"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131009498"
 ---
 # <a name="manage-security-policies"></a>Administrar directivas de seguridad
 
-En este artículo se explica cómo configurar directivas de seguridad y cómo visualizarlas en Security Center. 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+En esta página se explica cómo se configuran las directivas de seguridad y cómo visualizarlas en Microsoft Defender for Cloud. 
 
 Para comprender las relaciones entre iniciativas, directivas y recomendaciones, consulte [¿Qué son las directivas de seguridad, las iniciativas y las recomendaciones?](security-policy-concept.md)
 
 ## <a name="who-can-edit-security-policies"></a>¿Quién puede editar directivas de seguridad?
 
-Security Center usa el control de acceso basado en roles de Azure (Azure RBAC), que proporciona roles integrados que puede asignar a usuarios, grupos y servicios de Azure. Cuando un usuario abre Security Center, solo ve la información relacionada con los recursos a los que puede tener acceso. Esto significa que a los usuarios se les asigna el rol de *propietario*, *colaborador* o *lector* para la suscripción del recurso. También hay dos roles de Security Center específicos:
+Defender for Cloud usa el control de acceso basado en roles de Azure (Azure RBAC), que proporciona roles integrados que puede asignar a usuarios, grupos y servicios de Azure. Cuando un usuario abre Defender for Cloud, solo ve la información relacionada con los recursos a los que puede tener acceso. Esto significa que a los usuarios se les asigna el rol de *propietario*, *colaborador* o *lector* para la suscripción del recurso. También hay dos roles específicos de Defender for Cloud:
 
-- **Lector de seguridad**: tiene derechos para ver elementos de Security Center como recomendaciones, alertas, directiva y estado. No se pueden realizar cambios.
+- **Lector de seguridad**: tiene derechos para ver elementos de Defender for Cloud como recomendaciones, alertas, directiva y estado. No se pueden realizar cambios.
 - **Administrador de seguridad**: tiene los mismos derechos de visualización que el *lector de seguridad*. También se puede actualizar la directiva de seguridad y descartar alertas.
 
 Puede editar directivas de seguridad mediante el portal de Azure Policy, la API REST o con Windows PowerShell.
 
 ## <a name="manage-your-security-policies"></a>Administración de las directivas de seguridad
 
-Para ver las directivas de seguridad de Security Center:
+Para ver las directivas de seguridad en Defender for Cloud:
 
-1. En el panel de **Security Center**, seleccione **Directiva de seguridad**.
+1. En el menú **Defender for Cloud,** seleccione **Directiva de seguridad**.
 
     :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="Página de administración de directivas":::
 
@@ -43,7 +46,7 @@ Para ver las directivas de seguridad de Security Center:
 
 1. Aparecerá la página de directiva de seguridad de la suscripción o el grupo de administración. Esta muestra las directivas disponibles y asignadas.
 
-    :::image type="content" source="./media/tutorial-security-policy/security-policy-page.png" alt-text="Página de directiva de seguridad de Security Center" lightbox="./media/tutorial-security-policy/security-policy-page.png":::
+    :::image type="content" source="./media/tutorial-security-policy/security-policy-page.png" alt-text="Página de directiva de seguridad de Defender for Cloud" lightbox="./media/tutorial-security-policy/security-policy-page.png":::
 
     > [!NOTE]
     > Si hay una etiqueta "MG Inherited" junto a la directiva predeterminada, significa que la directiva se ha asignado a un grupo de administración y que la ha heredado la suscripción que está viendo.
@@ -74,20 +77,20 @@ Para ver las directivas de seguridad de Security Center:
 
 Si su iniciativa de seguridad desencadena una recomendación que no es relevante para su entorno, puede evitar que esa recomendación vuelva a aparecer. Para deshabilitar una recomendación, deshabilite la directiva específica que la genera.
 
-La recomendación que desea deshabilitar seguirá apareciendo si es necesaria para un cumplimiento normativo aplicado con las herramientas de cumplimiento normativo de Security Center. Incluso si ha deshabilitado una directiva en la iniciativa integrada, una directiva en la iniciativa del cumplimiento normativo seguirá desencadenando la recomendación si hace falta para el cumplimiento. No puede deshabilitar directivas de iniciativas de cumplimiento normativo.
+La recomendación que desea deshabilitar seguirá apareciendo si es necesaria para un cumplimiento normativo aplicado con las herramientas de cumplimiento normativo de Defender for Cloud. Incluso si ha deshabilitado una directiva en la iniciativa integrada, una directiva en la iniciativa del cumplimiento normativo seguirá desencadenando la recomendación si hace falta para el cumplimiento. No puede deshabilitar directivas de iniciativas de cumplimiento normativo.
 
-Para más información sobre las recomendaciones, consulte [Administración de las recomendaciones de seguridad](security-center-recommendations.md).
+Para más información sobre las recomendaciones, consulte [Administración de las recomendaciones de seguridad](review-security-recommendations.md).
 
-1. En Security Center, en la sección **Directiva y cumplimiento**, seleccione **Directiva de seguridad**.
+1. En el menú Defender for Cloud, seleccione **Directiva de seguridad**.
 
-    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Inicio del proceso de administración de directivas en Azure Security Center":::
+    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Inicio del proceso de administración de directivas en Microsoft Defender for Cloud.":::
 
 1. Seleccione el grupo de administración o de suscripción para el que quiere deshabilitar la recomendación (y la directiva).
 
    > [!NOTE]
    > Recuerde que un grupo de administración aplica sus directivas a sus suscripciones. Por lo tanto, si deshabilita la directiva de una suscripción y la suscripción pertenece a un grupo de administración que todavía usa la misma directiva, seguirá recibiendo las recomendaciones de la directiva. La directiva se seguirá aplicando desde el nivel de administración y las recomendaciones se seguirán generando.
 
-1. En las secciones **Directiva predeterminada del centro de seguridad**, **Estándares normativos y del sector** o **Sus iniciativas personalizadas**, seleccione la iniciativa pertinente que contenga la directiva que desea deshabilitar.
+1. En las secciones **Directiva predeterminada**, **Estándares normativos y del sector** o **Sus iniciativas personalizadas**, seleccione la iniciativa pertinente que contenga la directiva que desea deshabilitar.
 
 1. Abra la sección **Parámetros** y busque la directiva que invoca la recomendación que quiere deshabilitar.
 
@@ -107,13 +110,13 @@ Es posible que algunas directivas de las iniciativas están deshabilitadas de fo
 
 Para habilitar una directiva deshabilitada y asegurarse de que se evalúa para los recursos:
 
-1. En Security Center, en la sección **Directiva y cumplimiento**, seleccione **Directiva de seguridad**.
+1. En el menú Defender for Cloud, seleccione **Directiva de seguridad**.
 
-    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Inicio del proceso de administración de directivas en Azure Security Center":::
+    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Inicio del proceso de administración de directivas en Microsoft Defender for Cloud.":::
 
 1. Seleccione el grupo de administración o de suscripción para el que quiere habilitar la recomendación (y la directiva).
 
-1. En las secciones **Directiva predeterminada del centro de seguridad**, **Estándares normativos y del sector** o **Sus iniciativas personalizadas**, seleccione la iniciativa pertinente que contenga la directiva que desea habilitar.
+1. En las secciones **Directiva predeterminada**, **Estándares normativos y del sector** o **Sus iniciativas personalizadas**, seleccione la iniciativa pertinente que contenga la directiva que desea habilitar.
 
 1. Abra la sección **Parámetros** y busque la directiva que invoca la recomendación que quiere deshabilitar.
 
@@ -131,4 +134,4 @@ En esta página se explicaron las directivas de seguridad. Para obtener informac
 - [Obtenga información sobre cómo establecer directivas con PowerShell](../governance/policy/assign-policy-powershell.md).
 - [Obtenga información sobre cómo editar una directiva de seguridad en Azure Policy](../governance/policy/tutorials/create-and-manage.md).
 - [Obtenga información sobre cómo establecer una directiva en varias suscripciones o grupos de administración con Azure Policy](../governance/policy/overview.md).
-- [Obtenga información sobre cómo habilitar Security Center en todas las suscripciones de un grupo de administración](onboard-management-group.md).
+- [Obtenga información sobre cómo habilitar Defender for Cloud en todas las suscripciones de un grupo de administración](onboard-management-group.md)

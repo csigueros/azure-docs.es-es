@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 01/12/2021
 author: palma21
-ms.openlocfilehash: e5f71566d3e31858a60f805bf45fe95793dd9b20
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3c5dbbb41f75e3b1d2646c00019843d9a08805db
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110094265"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058661"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Control del tráfico de salida de los nodos de clúster en Azure Kubernetes Service (AKS)
 
@@ -208,6 +208,26 @@ Los clústeres de AKS que tienen habilitado Azure Policy necesitan las reglas de
 |-----------------------------------------------|-----------|----------|
 | **`data.policy.azure.us`** | **`HTTPS:443`** | Esta dirección se usa para extraer las directivas de Kubernetes y para notificar el estado de cumplimiento del clúster en el servicio de directivas. |
 | **`store.policy.azure.us`** | **`HTTPS:443`** | Esta dirección se usa para extraer los artefactos de Gatekeeper de las directivas integradas. |
+
+## <a name="cluster-extensions"></a>Extensiones de clúster
+
+### <a name="required-fqdn--application-rules"></a>Reglas de aplicación o FQDN obligatorias
+
+Las siguientes reglas de aplicación o FQDN son necesarias para usar extensiones de clúster en clústeres de AKS.
+
+| FQDN | Port | Uso |
+|-----------------------------------------------|-----------|----------|
+| **`<region>.dp.kubernetesconfiguration.azure.com`** | **`HTTPS:443`** | Esta dirección se usa para capturar información de configuración del servicio Extensiones de clúster e informar del estado de la extensión al servicio.|
+| **`mcr.microsoft.com, *.data.mcr.microsoft.com`** | **`HTTPS:443`** | Esta dirección es necesaria para extraer imágenes de contenedor para instalar agentes de extensión de clúster en el clúster de AKS.|
+
+#### <a name="azure-us-government-required-fqdn--application-rules"></a>Reglas de aplicación o FQDN obligatorios para Azure US Government
+
+Las siguientes reglas de aplicación o FQDN son necesarias para usar extensiones de clúster en clústeres de AKS.
+
+| FQDN | Port | Uso |
+|-----------------------------------------------|-----------|----------|
+| **`<region>.dp.kubernetesconfiguration.azure.us`** | **`HTTPS:443`** | Esta dirección se usa para capturar información de configuración del servicio Extensiones de clúster e informar del estado de la extensión al servicio. |
+| **`mcr.microsoft.com, *.data.mcr.microsoft.com`** | **`HTTPS:443`** | Esta dirección es necesaria para extraer imágenes de contenedor para instalar agentes de extensión de clúster en el clúster de AKS.|
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>Restricción del tráfico de salida mediante el firewall de Azure
 

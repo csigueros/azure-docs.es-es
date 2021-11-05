@@ -6,32 +6,26 @@ documentationcenter: ''
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 07/07/2021
+ms.date: 10/25/2021
 ms.author: danlep
-ms.openlocfilehash: c70e72550b88850b6b30c8f96f7f2dc4a460b222
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: bf95131892703fcb7ce8c31c68f7b1da6dca1dee
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128678960"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131031753"
 ---
 # <a name="api-management-policy-expressions"></a>Expresiones de las directivas de API Management
-En este artículo se describe la sintaxis de expresiones de directiva en C# 7. Cada expresión tiene acceso a la variable de [contexto](api-management-policy-expressions.md#ContextVariables) proporcionada de forma implícita y a un [subconjunto](api-management-policy-expressions.md#CLRTypes) permitido de tipos de .NET Framework.
-
-Para obtener más información:
-
-- Vea cómo proporcionar información de contexto al servicio back-end. Use las directivas [Establecer el parámetro de cadena de consulta](api-management-transformation-policies.md#SetQueryStringParameter) y [Establecer encabezado HTTP](api-management-transformation-policies.md#SetHTTPheader) para proporcionar esta información.
-- Vea cómo utilizar la directiva de [validación de JWT](api-management-access-restriction-policies.md#ValidateJWT) para preautorizar el acceso a operaciones según notificaciones de token.
-- Vea la forma de usar un seguimiento de [API Inspector](./api-management-howto-api-inspector.md) para detectar cómo se evalúan las directivas y los resultados de esas evaluaciones.
-- Vea cómo usar expresiones con las directivas [Obtener de caché](api-management-caching-policies.md#GetFromCache) y [Almacenar en caché](api-management-caching-policies.md#StoreToCache) para configurar el almacenamiento en caché de la respuesta de API Management. Defina una duración que coincida con el almacenamiento en caché de la respuesta del servicio back-end especificado por la directiva `Cache-Control` del servicio back-end.
-- Vea cómo realizar el filtrado de contenido. Quite elementos de datos de la respuesta recibida desde el servicio back-end mediante las directivas [Flujo de control](api-management-advanced-policies.md#choose) y [Establecer cuerpo](api-management-transformation-policies.md#SetBody).
-- Para descargar las declaraciones de directiva, vaya a [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies) en el repositorio de GitHub.
-
+En este artículo se describe la sintaxis de expresiones de directiva en C# 7. Cada expresión tiene acceso a:
+* La variable de [contexto](api-management-policy-expressions.md#ContextVariables) proporcionada implícitamente.
+* Un [subconjunto](api-management-policy-expressions.md#CLRTypes) permitido de tipos de .NET Framework.
 
 ## <a name="syntax"></a><a name="Syntax"></a> Sintaxis
-Las expresiones de declaración única se incluyen en `@(expression)`, donde `expression` es una instrucción de expresión bien formada de C#.
-
-Las expresiones de múltiples declaraciones se incluyen en `@{expression}`. Todas las rutas de código de las expresiones de múltiples declaraciones deben terminar con una declaración `return`.
+* **Expresiones de instrucción única:**
+    * Se incluyen en `@(expression)`, donde `expression` es una instrucción de expresión bien formada de C#.
+* **Expresiones con varias instrucciones:** 
+    * Se incluyen en `@{expression}`. 
+    * Todas las rutas de código de las expresiones de múltiples declaraciones deben terminar con una declaración `return`.
 
 ## <a name="examples"></a><a name="PolicyExpressionsExamples"></a> Ejemplos
 
@@ -61,13 +55,13 @@ Las expresiones de múltiples declaraciones se incluyen en `@{expression}`. Toda
 ```
 
 ## <a name="usage"></a><a name="PolicyExpressionsUsage"></a>Uso
-Las expresiones pueden utilizarse como valores de atributos o valores de texto en cualquier [directiva](api-management-policies.md) de API Management, a menos que la referencia de la directiva especifique lo contrario.
+A menos que la referencia de la directiva especifique lo contrario, las expresiones pueden utilizarse como valores de atributos o valores de texto en cualquier [directiva](api-management-policies.md) de API Management.
 
 > [!IMPORTANT]
-> Al utilizar expresiones de directiva, solo hay una verificación limitada de estas cuando se define la directiva. La puerta de enlace ejecuta las expresiones en tiempo de ejecución, y las excepciones generadas por las expresiones de directiva generan un error en tiempo de ejecución.
+> Cuando se define la directiva, las expresiones de la directiva solo tienen una comprobación limitada. La puerta de enlace ejecuta las expresiones en tiempo de ejecución. Las excepciones generadas por las expresiones de la directiva generan un error en tiempo de ejecución.
 
 ## <a name="net-framework-types-allowed-in-policy-expressions"></a><a name="CLRTypes"></a>Tipos de .NET framework que se permiten en expresiones de directiva
-En la tabla siguiente se enumeran los tipos de .NET Framework que se permiten en las expresiones de directiva y sus miembros.
+En la tabla siguiente se enumeran los tipos de .NET Framework y los miembros que se permiten en las expresiones de directiva.
 
 |Tipo|Miembros compatibles|
 |--------------|-----------------------|
@@ -202,7 +196,9 @@ En la tabla siguiente se enumeran los tipos de .NET Framework que se permiten en
 |System.Xml.XmlNodeType|All|
 
 ## <a name="context-variable"></a><a name="ContextVariables"></a> Variable de contexto
-Una variable denominada `context` está disponible implícitamente en todas las [expresiones](api-management-policy-expressions.md#Syntax) de directiva. Sus miembros proporcionan información relativa a `\request`. Todos los miembros de `context` son de solo lectura.
+La variable `context` está disponible implícitamente en todas las [expresiones](api-management-policy-expressions.md#Syntax) de la directiva. Sus miembros:
+* Proporcionan información relevante para la [solicitud](#ref-context-request) y [respuesta](#ref-context-response) de la API y las propiedades relacionadas. 
+* Son todos de solo lectura.
 
 |Variable de contexto|Métodos, propiedades y valores de parámetro admitidos|
 |----------------------|-------------------------------------------------------|
@@ -220,7 +216,7 @@ Una variable denominada `context` está disponible implícitamente en todas las 
 |<a id="ref-context-user"></a>context.User|Email: cadena<br /><br /> FirstName: cadena<br /><br /> Groups: IEnumerable<[IGroup](#ref-igroup)\><br /><br /> Id: cadena<br /><br /> Identities: IEnumerable<[IUserIdentity](#ref-iuseridentity)\><br /><br /> LastName: cadena<br /><br /> Note: cadena<br /><br /> RegistrationDate: DateTime|
 |<a id="ref-iapi"></a>IApi|Id: cadena<br /><br /> Name: cadena<br /><br /> Path: cadena<br /><br /> Protocols: IEnumerable<cadena\><br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> SubscriptionKeyParameterNames: [ISubscriptionKeyParameterNames](#ref-isubscriptionkeyparameternames)|
 |<a id="ref-igroup"></a>IGroup|Id: cadena<br /><br /> Name: cadena|
-|<a id="ref-imessagebody"></a>IMessageBody|As<T\>(preserveContent: bool = false): Donde T: string, byte[],JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> Los métodos `context.Request.Body.As<T>` y `context.Response.Body.As<T>` se usan para leer los cuerpos de un mensaje de respuesta y solicitud en un tipo `T` especificado. De forma predeterminada, el método usa la secuencia de cuerpo del mensaje original y lo presenta como no disponible tras la devolución. Para evitar este resultado haciendo que el método procese una copia de la secuencia del cuerpo, establezca el parámetro `preserveContent` en `true`, como en [este ejemplo](api-management-transformation-policies.md#SetBody).|
+|<a id="ref-imessagebody"></a>IMessageBody|As<T\>(preserveContent: bool = false): Donde T: string, byte[],JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> Los métodos `context.Request.Body.As<T>` y `context.Response.Body.As<T>` se usan para leer el cuerpo de un mensaje de respuesta y solicitud en el tipo `T` especificado. De forma predeterminada, el método:<br /><ul><li>Usa la secuencia del cuerpo del mensaje original.</li><li>La representa como no disponible después de que vuelva.</li></ul> <br />Para evitar este resultado haciendo que el método trabaje en una copia de la secuencia del cuerpo, establezca el parámetro `preserveContent` en `true`, como en [este ejemplo](api-management-transformation-policies.md#SetBody).|
 |<a id="ref-iurl"></a>IUrl|Host: cadena<br /><br /> Path: cadena<br /><br /> Port: int<br /><br /> [Consultar](#ref-iurl-query) IReadOnlyDictionary<cadena, cadena[]><br /><br /> QueryString: cadena<br /><br /> Scheme: cadena|
 |<a id="ref-iuseridentity"></a>IUserIdentity|Id: cadena<br /><br /> Provider: cadena|
 |<a id="ref-isubscriptionkeyparameternames"></a>ISubscriptionKeyParameterNames|Header: cadena<br /><br /> Query: cadena|
@@ -250,3 +246,13 @@ Para obtener más información sobre cómo trabajar con directivas, consulte:
 + [API de transformación](transform-api.md)
 + En la [Referencia de directivas](./api-management-policies.md) se muestra una lista completa de declaraciones de directivas y su configuración
 + [Ejemplos de directivas](./policy-reference.md)
+
+Para obtener más información:
+
+- Vea cómo proporcionar información de contexto al servicio back-end. Use las directivas [Establecer el parámetro de cadena de consulta](api-management-transformation-policies.md#SetQueryStringParameter) y [Establecer encabezado HTTP](api-management-transformation-policies.md#SetHTTPheader) para proporcionar esta información.
+- Vea cómo utilizar la directiva de [validación de JWT](api-management-access-restriction-policies.md#ValidateJWT) para preautorizar el acceso a operaciones según notificaciones de token.
+- Vea la forma de usar un seguimiento de [API Inspector](./api-management-howto-api-inspector.md) para detectar cómo se evalúan las directivas y los resultados de esas evaluaciones.
+- Vea cómo usar expresiones con las directivas [Obtener de caché](api-management-caching-policies.md#GetFromCache) y [Almacenar en caché](api-management-caching-policies.md#StoreToCache) para configurar el almacenamiento en caché de la respuesta de API Management. Defina una duración que coincida con el almacenamiento en caché de la respuesta del servicio back-end especificado por la directiva `Cache-Control` del servicio back-end.
+- Vea cómo realizar el filtrado de contenido. Quite elementos de datos de la respuesta recibida desde el servicio back-end mediante las directivas [Flujo de control](api-management-advanced-policies.md#choose) y [Establecer cuerpo](api-management-transformation-policies.md#SetBody).
+- Para descargar las declaraciones de directiva, vaya a [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies) en el repositorio de GitHub.
+

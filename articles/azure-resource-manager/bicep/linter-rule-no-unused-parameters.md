@@ -3,12 +3,12 @@ title: 'Regla de linter: sin parámetros no utilizados'
 description: 'Regla de linter: sin parámetros no utilizados'
 ms.topic: conceptual
 ms.date: 10/14/2021
-ms.openlocfilehash: d02d13c44fd6cc6a174f629c8f3e32777bd643af
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 2e9c602a28b2ba19d8c0a38b1bba3ecc521e6d77
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130161549"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131017851"
 ---
 # <a name="linter-rule---no-unused-parameters"></a>Regla de linter: sin parámetros no utilizados
 
@@ -24,4 +24,4 @@ Para reducir la confusión en la plantilla, elimine los parámetros definidos, p
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información acerca de linter, consulte [Uso de Bicep linter](./linter.md).
+Para obtener más información acerca de linter, consulte [Uso de linter de Bicep](./linter.md).

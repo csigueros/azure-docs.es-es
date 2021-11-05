@@ -13,12 +13,12 @@ ms.date: 07/20/2021
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 77d564cb54910391b0a0eb9f2492bfa74a044512
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: f4ef55cd1a780612647e5e39eb13eed84fdead42
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129619035"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131032176"
 ---
 # <a name="customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales
 
@@ -141,7 +141,7 @@ Puede utilizar las siguientes funciones para transformar notificaciones.
 | **IfEmpty()** | Genera un atributo o una constante si la entrada es nula o está vacía.<br/>Por ejemplo, si quiere generar un atributo almacenado en un extensionattribute si el Id. de empleado de un usuario determinado está vacío. Para ello, configuraría los siguientes valores:<br/>Parámetro 1 (entrada): user.employeeid<br/>Parámetro 2 (salida): user.extensionattribute1<br/>Parámetro 3 (salida si no hay ninguna coincidencia): user.employeeid |
 | **IfNotEmpty()** | Genera un atributo o una constante si la entrada no es nula ni está vacía.<br/>Por ejemplo, si quiere generar un atributo almacenado en un extensionattribute si el Id. de empleado para un usuario determinado no está vacío. Para ello, configuraría los siguientes valores:<br/>Parámetro 1 (entrada): user.employeeid<br/>Parámetro 2 (salida): user.extensionattribute1 |
 
-Si necesita transformaciones adicionales, envíe su idea al [foro de comentarios de Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160599), en la categoría *Aplicación SaaS*.
+Si necesita transformaciones adicionales, envíe su idea al [foro de comentarios de Azure AD](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789), en la categoría *Aplicación SaaS*.
 
 ## <a name="add-the-upn-claim-to-saml-tokens"></a>Adhesión de notificaciones de UPN a tokens SAML
 

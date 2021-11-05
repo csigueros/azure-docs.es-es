@@ -9,14 +9,15 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: c9f738f95e11ab29fc5163b69812037410e79e8a
-ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: db7a9c7151c93142db9834fc0607f1786bc89aae
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114361144"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131074800"
 ---
-# <a name="tutorial-sentiment-analysis-with-cognitive-services-preview"></a>Tutorial: Análisis de sentimiento con Cognitive Services (versión preliminar)
+# <a name="tutorial-sentiment-analysis-with-cognitive-services"></a>Tutorial: Análisis de sentimiento con Cognitive Services
 
 En este tutorial, aprenderá a enriquecer fácilmente los datos de Azure Synapse Analytics con [Azure Cognitive Services](../../cognitive-services/index.yml). Además, utilizará las funcionalidades de [Text Analytics](../../cognitive-services/text-analytics/index.yml) para realizar análisis de sentimientos. 
 
@@ -73,40 +74,30 @@ En este tutorial, es necesario tener una tabla de Spark.
 
    ![Captura de pantalla en la que se muestran las opciones que abren el Asistente para puntuación.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00d.png)
 
-2. Aparecerá un panel de configuración y se le pedirá que seleccione un modelo de Cognitive Services. Seleccione **Text analytics - Sentiment Analysis** (Text Analytics: Análisis de sentimiento).
+2. Aparecerá un panel de configuración y se le pedirá que seleccione un modelo de Cognitive Services. Seleccione **Análisis de sentimiento**.
 
-   ![Captura de pantalla en la que se muestra la selección de un modelo de Cognitive Services.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00e.png)
-
-## <a name="provide-authentication-details"></a>Proporcionar detalles de autenticación
-
-Para poder autenticarse en Cognitive Services, es necesario hacer referencia al secreto del almacén de claves. Los datos de entrada de las siguientes opciones dependen de los [requisitos previos](tutorial-configure-cognitive-services-synapse.md) que deberían haberse completado previamente.
-
-- **Suscripción de Azure**: seleccione la suscripción de Azure a la que pertenece el almacén de claves.
-- **Cuenta de Cognitive Services**: especifique el recurso de Text Analytics al que se va a conectar.
-- **Azure Key Vault linked service** (Servicio vinculado de Azure Key Vault): en los requisitos previos, creó un servicio vinculado al recurso de Text Analytics. Selecciónelo aquí.
-- **Nombre del secreto**: especifique el nombre del secreto del almacén de claves que contiene la clave con la que va a autenticarse en el recurso de Cognitive Services.
-
-![Captura de pantalla en la que se muestran los datos de autenticación del almacén de claves.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00f.png)
+   ![Captura de pantalla en la que se muestra la selección de un modelo de Cognitive Services.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-choose.png)
 
 ## <a name="configure-sentiment-analysis"></a>Configuración del análisis de sentimiento
 
 A continuación, configure el análisis de sentimiento. Seleccione lo siguiente:
+- **Servicio vinculado de Azure Cognitive Services**:como parte de los pasos de requisitos previos, ha creado un servicio vinculado a su instancia de [Cognitive Services](tutorial-configure-cognitive-services-synapse.md). Selecciónelo aquí.
 - **Idioma**: seleccione **Inglés** como idioma del texto en el que desea realizar el análisis de sentimiento.
 - **Columna de texto**: Seleccione **comment (string)** [comentario (string)] como la columna de texto del conjunto de datos que desea analizar para determinar el sentimiento.
 
 Cuando haya terminado, seleccione **Open notebook** (Abrir cuaderno). Esto generará un cuaderno con el código de PySpark que realiza el análisis de sentimiento con Azure Cognitive Services.
 
-![Captura de pantalla en la que se muestran las opciones seleccionadas para configurar el análisis de sentimiento.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00g.png)
+![Captura de pantalla en la que se muestran las opciones seleccionadas para configurar el análisis de sentimiento.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-config.png)
 
 ## <a name="run-the-notebook"></a>Ejecución del cuaderno
 
-El cuaderno que acaba de abrir utiliza la [biblioteca mmlspark](https://github.com/Azure/mmlspark) para conectarse a Cognitive Services. Gracias a los datos de Azure Key Vault proporcionados, podrá hacer referencia a los secretos con seguridad desde aquí sin revelarlos.
+El cuaderno que acaba de abrir utiliza la [biblioteca MMLSpark](https://github.com/microsoft/SynapseML) para conectarse a Cognitive Services. El servicio vinculado de Azure Cognitive Services que proporcionó le permite hacer referencia de forma segura a su servicio cognitivo desde esta experiencia sin revelar secretos.
 
-Ahora puede ejecutar todas las celdas para enriquecer los datos con sentimientos. Seleccione **Run all** (Ejecutar todas). 
+ Ahora puede ejecutar todas las celdas para enriquecer los datos con sentimientos. Seleccione **Run all** (Ejecutar todas). 
 
 Los sentimientos que se devuelven pueden ser **positivos**, **negativos**, **neutros** o **mixtos**. También se indicará la probabilidad de cada sentimiento. [Descubra más información sobre el análisis de sentimiento en Cognitive Services](../../cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md).
 
-![Captura de pantalla en la que se muestra el análisis de sentimiento.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00h.png)
+![Captura de pantalla en la que se muestra el análisis de sentimiento.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-notebook.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Tutorial: Detección de anomalías con Azure Cognitive Services](tutorial-cognitive-services-anomaly.md)

@@ -13,12 +13,12 @@ ms.date: 10/12/2020
 ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.reviewer: miccohen
-ms.openlocfilehash: 068fe4e98b3beb3f365cd16070fd134fda7c48b9
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 0af9ea42dbe47ab9c0e62ad13e055164c3ec2464
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129617746"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058202"
 ---
 # <a name="integrate-f5-big-ip-for-password-less-vpn-with-azure-active-directory"></a>Integración de F5 BIG-IP para VPN sin contraseña con Azure Active Directory
 

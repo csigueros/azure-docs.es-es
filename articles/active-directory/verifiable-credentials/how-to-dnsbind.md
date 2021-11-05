@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: d1a74d0019c931c8d52dccdc14ddd11a5ed7a1f3
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: c0449ce5682460e683772b5f33442efa0b979998
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130006876"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049128"
 ---
 # <a name="link-your-domain-to-your-decentralized-identifier-did-preview"></a>Vinculación del dominio al identificador descentralizado (DID) (versión preliminar)
 
@@ -48,16 +48,17 @@ Un vínculo entre un dominio y un DID se crea mediante la implementación de un 
 1. Azure AD usa la información de dominio que se proporciona durante la configuración de la organización para escribir un punto de conexión de servicio en el documento DID. Todas las partes que interactúan con el DID pueden ver el dominio con el que el DID declara estar asociado.  
 
     ```json
-        "service": [
-          {
-            "id": "#linkeddomains",
-            "type": "LinkedDomains",
-            "serviceEndpoint": {
-              "origins": [
-                "https://www.contoso.com/"
-              ]
-            }
-          }
+    "service": [
+      {
+        "id": "#linkeddomains",
+        "type": "LinkedDomains",
+        "serviceEndpoint": {
+          "origins": [
+            "https://www.contoso.com/"
+          ]
+        }
+      }
+    ]
     ```
 
 2. El servicio de credenciales verificables de Azure AD genera un recurso de configuración conocida compatible que se puede hospedar en el dominio. El archivo de configuración incluye una credencial verificable que se emite automáticamente con credentialType "DomainLinkageCredential" firmada con el DID que tiene el origen de su dominio. Este es un ejemplo del documento de configuración que se almacena en la dirección URL del dominio raíz.
@@ -118,7 +119,7 @@ Si no se cumple alguno de los puntos anteriores, Microsoft Authenticator mostrar
 
    ![Descarga de la configuración conocida](media/how-to-dnsbind/verify-download.png) 
 
-3. Copie el JWT, abra [jwt.ms](https://www.jwt.ms) y valide que el dominio es correcto.
+3. Copie el valor linked_did (JWT), abra [https://jwt.ms/](https://www.jwt.ms), pegue el JWT y valide que el dominio sea correcto.
 
 4. Copie el DID y abra el [explorador de red ION](https://identity.foundation/ion/explorer) para comprobar que se incluye el mismo dominio en el documento DID. 
 

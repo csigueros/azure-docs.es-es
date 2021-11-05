@@ -1,23 +1,23 @@
 ---
-title: Expansión de la unidad de sistema operativo de una máquina virtual de Windows en Azure
-description: Expanda el tamaño de la unidad de sistema operativo de una máquina virtual con Azure PowerShell en el modelo de implementación de Resource Manager.
+title: Expansión de discos duros virtuales conectados a una máquina virtual de Windows Azure
+description: Expanda el tamaño del disco duro virtual conectado a una máquina virtual con Azure PowerShell en el modelo de implementación de Resource Manager.
 author: kirpasingh
 manager: roshar
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 11/02/2021
 ms.author: kirpas
 ms.subservice: disks
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fbc7a6df9dfdd50315176db343c6c94aaefbba12
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.custom: devx-track-azurepowershell, ignite-fall-2021
+ms.openlocfilehash: 4588627fdfe64c4ba005b6b3c7defadd5994e3d6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122692484"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046572"
 ---
-# <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Cómo ampliar la unidad de sistema operativo de una máquina virtual
+# <a name="how-to-expand-virtual-hard-disks-attached-to-a-windows-virtual-machine"></a>Cómo expandir discos duros virtuales conectados a una máquina virtual de Windows
 
 **Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles 
 
@@ -33,23 +33,51 @@ Cuando se crea una nueva máquina virtual (VM) en un grupo de recursos mediante 
 > 
 > Después de expandir los discos, necesita [expandir el volumen dentro del sistema operativo](#expand-the-volume-within-the-os) para aprovechar el disco más grande.
 
+## <a name="resize-without-downtime-preview"></a>Cambio de tamaño sin tiempo de inactividad (versión preliminar)
+
+Ahora puede cambiar el tamaño de los discos administrados sin desasignar la máquina virtual.
+
+La versión preliminar del cambio tiene las limitaciones siguientes:
+
+- Actualmente, solo está disponible en la región Centro-oeste de EE. UU.
+
+- Solo se admite para discos de datos.
+- Los discos con una capacidad inferior a 4 TiB no se pueden ampliar a 4 TiB o más sin tiempo de inactividad.
+    - Una vez que haya aumentado el tamaño de un disco a 4 TiB o más, se puede ampliar sin tiempo de inactividad.
+- Debe instalar y usar la [versión más reciente de CLI de Azure](/cli/azure/install-azure-cli), el [módulo Azure PowerShell más reciente](/powershell/azure/install-az-ps), Azure Portal si se accede a través de [https://aka.ms/iaasexp/DiskLiveResize](https://aka.ms/iaasexp/DiskLiveResize) o una plantilla de Azure Resource Manager con una versión de API que sea 2021-04-01 o posterior.
+
+Para registrar la característica, utilice el comando siguiente:
+
+```azurepowershell
+Register-AzProviderFeature -FeatureName "LiveResize" -ProviderNamespace "Microsoft.Compute"
+```
+
+Puede que el proceso de registro tarde unos minutos en completarse. Para confirmar que se ha registrado, use el comando siguiente:
+
+```azurepowershell
+Register-AzProviderFeature -FeatureName "LiveResize" -ProviderNamespace "Microsoft.Compute"
+```
+
 ## <a name="resize-a-managed-disk-in-the-azure-portal"></a>Cambio de tamaño de un disco administrado en Azure Portal
 
-1. En [Azure Portal](https://portal.azure.com), navegue a la máquina virtual para la que quiere expandir el disco. Seleccione **Detener** para detener o desasignar la máquina virtual.
-2. Cuando la máquina virtual esté detenida, en **Configuración** del menú de la izquierda, seleccione **Discos**.
+> [!IMPORTANT]
+> Si ha habilitado **LiveResize** y el disco cumple los requisitos de [Cambio de tamaño sin tiempo de inactividad (versión preliminar)](#resize-without-downtime-preview), puede omitir los pasos 1 y 3. Para cambiar el tamaño de un disco sin tiempo de inactividad Azure Portal, debe usar el vínculo siguiente: [https://aka.ms/iaasexp/DiskLiveResize](https://aka.ms/iaasexp/DiskLiveResize)
+
+1. En [Azure Portal](https://aka.ms/iaasexp/DiskLiveResize), navegue a la máquina virtual para la que quiere expandir el disco. Seleccione **Detener** para detener o desasignar la máquina virtual.
+1. En el menú de la izquierda, en **Configuración**, seleccione **Discos**.
 
     :::image type="content" source="./media/expand-os-disk/select-disks.png" alt-text="Captura de pantalla que muestra la opción Discos seleccionada en la sección Configuración del menú.":::
 
  
-3. En **Nombre del disco**, seleccione el disco cuyo tamaño quiere cambiar.
+1. En **Nombre del disco**, seleccione el disco cuyo tamaño quiere cambiar.
 
     :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Captura de pantalla que muestra el panel Discos con un nombre de disco seleccionado.":::
 
-4. En el menú de la izquierda, en **Configuración**, seleccione **Size + performance** (Tamaño y rendimiento).
+1. En el menú de la izquierda, en **Configuración**, seleccione **Size + performance** (Tamaño y rendimiento).
 
     :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Captura de pantalla que muestra la opción Size and performance (Tamaño y rendimiento) seleccionada en la sección Configuración del menú.":::
 
-5. En **Size + performance** (Tamaño y rendimiento), seleccione el tamaño de disco que quiera.
+1. En **Size + performance** (Tamaño y rendimiento), seleccione el tamaño de disco que quiera.
    
    > [!WARNING]
    > El nuevo tamaño debe ser mayor que el tamaño de disco existente. El máximo permitido es 4095 GB para los discos del sistema operativo. (El blob de VHD se puede expandir más, pero el sistema operativo solo usa los primeros 4095 GB de espacio).
@@ -57,7 +85,7 @@ Cuando se crea una nueva máquina virtual (VM) en un grupo de recursos mediante 
 
     :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Captura de pantalla que muestra el panel Size and performance (Tamaño y rendimiento) con el tamaño de disco seleccionado.":::
 
-6. Seleccione **Cambiar tamaño** en la parte inferior de la página.
+1. Seleccione **Cambiar tamaño** en la parte inferior de la página.
 
     :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Captura de pantalla que muestra el panel Size and performance (Tamaño y rendimiento) con el botón Cambiar tamaño seleccionado.":::
 
@@ -73,26 +101,29 @@ Abra la ventana de PowerShell o PowerShell ISE en el modo administrativo y siga 
     Select-AzSubscription –SubscriptionName 'my-subscription-name'
     ```
 
-2. Establezca el nombre del grupo de recursos y el nombre de la máquina virtual:
+1. Establezca el nombre del grupo de recursos y el nombre de la máquina virtual:
    
     ```powershell
     $rgName = 'my-resource-group-name'
     $vmName = 'my-vm-name'
     ```
 
-3. Obtenga una referencia a la máquina virtual:
+1. Obtenga una referencia a la máquina virtual:
    
     ```powershell
     $vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName
     ```
 
-4. Detenga la máquina virtual antes de cambiar el tamaño del disco:
+    > [!IMPORTANT]
+    > Si ha habilitado **LiveResize** y el disco cumple los requisitos de [Cambio de tamaño sin tiempo de inactividad (versión preliminar)](#resize-without-downtime-preview), puede omitir los pasos 4 y 6.
+
+1. Detenga la máquina virtual antes de cambiar el tamaño del disco:
    
     ```powershell
     Stop-AzVM -ResourceGroupName $rgName -Name $vmName
     ```
 
-5. Obtenga una referencia al disco del sistema operativo administrado. Configure el tamaño del disco del sistema operativo en el valor deseado y actualice el disco:
+1. Obtenga una referencia al disco del sistema operativo administrado. Configure el tamaño del disco del sistema operativo en el valor deseado y actualice el disco:
    
     ```powershell
     $disk= Get-AzDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.OsDisk.Name
@@ -103,7 +134,7 @@ Abra la ventana de PowerShell o PowerShell ISE en el modo administrativo y siga 
     > El nuevo tamaño debe ser mayor que el tamaño de disco existente. El máximo permitido es 4095 GB para los discos del sistema operativo. (El blob de VHD se puede expandir más, pero el sistema operativo solo usa los primeros 4095 GB de espacio).
     > 
          
-6. La actualización de la máquina virtual puede tardar unos segundos. Cuando el comando acabe de ejecutarse, reinicie la máquina virtual:
+1. La actualización de la máquina virtual puede tardar unos segundos. Cuando el comando acabe de ejecutarse, reinicie la máquina virtual:
    
     ```powershell
     Start-AzVM -ResourceGroupName $rgName -Name $vmName
@@ -122,26 +153,26 @@ Abra la ventana de PowerShell o PowerShell ISE en el modo administrativo y siga 
     Select-AzSubscription –SubscriptionName 'my-subscription-name'
     ```
 
-2. Establezca el nombre del grupo de recursos y de la máquina virtual:
+1. Establezca el nombre del grupo de recursos y de la máquina virtual:
    
     ```powershell
     $rgName = 'my-resource-group-name'
     $vmName = 'my-vm-name'
     ```
 
-3. Obtenga una referencia a la máquina virtual:
+1. Obtenga una referencia a la máquina virtual:
    
     ```powershell
     $vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName
     ```
 
-4. Detenga la máquina virtual antes de cambiar el tamaño del disco:
+1. Detenga la máquina virtual antes de cambiar el tamaño del disco:
    
     ```powershell
     Stop-AzVM -ResourceGroupName $rgName -Name $vmName
     ```
 
-5. Configure el tamaño del disco del sistema operativo no administrado en el valor deseado y actualice la máquina virtual:
+1. Configure el tamaño del disco del sistema operativo no administrado en el valor deseado y actualice la máquina virtual:
    
     ```powershell
     $vm.StorageProfile.OSDisk.DiskSizeGB = 1023
@@ -153,7 +184,7 @@ Abra la ventana de PowerShell o PowerShell ISE en el modo administrativo y siga 
     > 
     > 
    
-6. La actualización de la máquina virtual puede tardar unos segundos. Cuando el comando acabe de ejecutarse, reinicie la máquina virtual:
+1. La actualización de la máquina virtual puede tardar unos segundos. Cuando el comando acabe de ejecutarse, reinicie la máquina virtual:
    
     ```powershell
     Start-AzVM -ResourceGroupName $rgName -Name $vmName
@@ -232,13 +263,13 @@ Una vez expandido el disco para la máquina virtual, deberá entrar en el sistem
 
 1. Abra una conexión RDP a la máquina virtual.
 
-2. Abra un símbolo del sistema y escriba **diskpart**.
+1. Abra un símbolo del sistema y escriba **diskpart**.
 
-3. En el símbolo del sistema **DISKPART**, escriba `list volume`. Tome nota del volumen que desea extender.
+1. En el símbolo del sistema **DISKPART**, escriba `list volume`. Tome nota del volumen que desea extender.
 
-4. En el símbolo del sistema **DISKPART**, escriba `select volume <volumenumber>`. Este comando selecciona el volumen *númeroDeVolumen* que desea extender en el espacio vacío contiguo del mismo disco.
+1. En el símbolo del sistema **DISKPART**, escriba `select volume <volumenumber>`. Este comando selecciona el volumen *númeroDeVolumen* que desea extender en el espacio vacío contiguo del mismo disco.
 
-5. En el símbolo del sistema **DISKPART**, escriba `extend [size=<size>]`. Este comando extiende el volumen seleccionado por *tamaño* en megabytes (MB).
+1. En el símbolo del sistema **DISKPART**, escriba `extend [size=<size>]`. Este comando extiende el volumen seleccionado por *tamaño* en megabytes (MB).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

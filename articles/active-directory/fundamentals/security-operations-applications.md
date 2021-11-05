@@ -12,12 +12,12 @@ ms.date: 07/15/2021
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfe41b61a21aea87a35446f1b5c7052f62595b29
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 1a139ffb47ad9f92cdb275191fc3eb983523c72a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130046627"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046339"
 ---
 # <a name="azure-active-directory-security-operations-guide-for-applications"></a>Guía de operaciones de seguridad de Azure Active Directory para aplicaciones
 

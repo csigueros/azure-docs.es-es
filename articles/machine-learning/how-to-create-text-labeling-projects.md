@@ -7,18 +7,18 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 09/24/2021
-ms.custom: data4ml
-ms.openlocfilehash: e4d227cf215ab5d37af8a25e6e44e811f739f25b
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.date: 10/21/2021
+ms.custom: data4ml, ignite-fall-2021
+ms.openlocfilehash: 1aa49d52c11f430affb6b9deea14a4160806f06c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129423716"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068419"
 ---
 # <a name="create-a-text-labeling-project-and-export-labels-preview"></a>Creación de un proyecto de etiquetado de texto y exportación de etiquetas (versión preliminar)
 
-Aprenda a crear y ejecutar proyectos de etiquetado de datos para etiquetar datos de texto en Azure Machine Learning.  Especifique una o varias etiquetas que se aplicarán a cada fragmento de texto.
+Aprenda a crear y ejecutar proyectos de etiquetado de datos para etiquetar datos de texto en Azure Machine Learning.  Especifique una sola etiqueta o varias etiquetas que se aplicarán a cada elemento de texto.
 
 También puede usar la herramienta de etiquetado de datos para [crear un proyecto de etiquetado de imágenes](how-to-create-image-labeling-projects.md).
 
@@ -63,7 +63,7 @@ Los datos de texto pueden ser archivos ".txt" o ".csv".
 
 1. Seleccione **Siguiente** cuando esté listo para continuar.
 
-## <a name="add-workforce-optional"></a>Incorporación de recursos (opcional)
+## <a name="add-workforce-optional"></a>Agregar recursos (opcional)
 
 [!INCLUDE [outsource](../../includes/machine-learning-data-labeling-outsource.md)]
 
@@ -130,6 +130,34 @@ Para cargar los datos directamente:
 >[!NOTE]
 > Recuerde que los etiquetadores podrán seleccionar las 9 primeras etiquetas usando las claves numéricas de 1 a 9.
 
+## <a name="use-ml-assisted-data-labeling"></a>Uso del etiquetado de datos asistido por Machine Learning
+
+La página **Etiquetado asistido por ML** permite desencadenar modelos de Machine Learning automáticos para acelerar la tarea de etiquetado. El etiquetado asistido por ML está disponible para las entradas de datos de texto de archivos (.txt) y tabulares (.csv).
+
+Para usar el **etiquetado asistido por ML**:
+
+* Seleccione la opción de **habilitar el etiquetado asistido por ML**.
+* Seleccione el **lenguaje del conjunto de datos** para el proyecto. Todos los idiomas admitidos por la [clase TextDNNLanguages](/python/api/azureml-automl-core/azureml.automl.core.constants.textdnnlanguages?view=azure-ml-py&preserve-view=true) están presentes en esta lista.
+* Especifique un destino de proceso que se usará. Si no tiene uno en el área de trabajo, se creará automáticamente un clúster de proceso y se agregará al área de trabajo.   El clúster se crea con un mínimo de 0 nodos, lo que significa que no cuesta nada cuando no está en uso.
+
+### <a name="how-does-ml-assisted-labeling-work"></a>¿Cómo funciona el etiquetado asistido por ML?
+
+Al principio del proyecto de etiquetado, los elementos se presentan en orden aleatorio para reducir el posible sesgo. Sin embargo, los sesgos presentes en el conjunto de datos se reflejarán en el modelo entrenado. Por ejemplo, si el 80 % de los elementos son de una sola clase, aproximadamente el 80 % de los datos usados para entrenar el modelo serán de esa clase. 
+
+Para entrenar el modelo DNN de texto utilizado por ML, el texto de entrada por ejemplo de entrenamiento se limitará aproximadamente a las primeras 128 palabras del documento.  Para la entrada tabular, todas las columnas de texto se concatenan primero antes de aplicar este límite. Se trata de un límite práctico impuesto para permitir que el entrenamiento del modelo se complete de forma oportuna. El texto real de un documento (para la entrada de archivo) o el conjunto de columnas de texto (para la entrada tabular) puede superar las 128 palabras.  El límite solo pertenece a lo que el modelo aprovecha internamente durante el proceso de entrenamiento.
+
+El número exacto de elementos etiquetados necesarios para iniciar el etiquetado asistido no es un número fijo. Esto puede variar significativamente de un proyecto de etiquetado a otro, en función de muchos factores, incluido el número de clases de etiquetas y la distribución de etiquetas.
+
+Como las etiquetas finales se siguen basando en la entrada del etiquetador, a veces esta tecnología se denomina etiquetado *con intervención humana*.
+
+> [!NOTE]
+> El etiquetado de datos asistido por ML no es compatible con las cuentas de almacenamiento predeterminadas que están protegidas en una [red virtual](how-to-network-security-overview.md). Debe usar una cuenta de almacenamiento no predeterminada para el etiquetado de datos asistidos mediante ML. La cuenta de almacenamiento no predeterminada se puede proteger en la red virtual.
+
+### <a name="pre-labeling"></a>Etiquetado previo
+
+Después de enviar suficientes etiquetas para el entrenamiento, el modelo entrenado se usa para predecir etiquetas. Ahora el etiquetador ve las páginas que contienen las etiquetas predichas ya presentes en cada elemento. La tarea siguiente consiste en revisar estas predicciones y corregir cualquier elemento que se haya etiquetado incorrectamente antes de enviar la página.  
+
+Una vez que se ha entrenado un modelo de Machine Learning en los datos etiquetados manualmente, el modelo se evalúa en un conjunto de prueba de elementos etiquetados manualmente para determinar su precisión en distintos umbrales de confianza. Este proceso de evaluación se usa para determinar un umbral de confianza por encima del cual el modelo es lo suficientemente preciso como para mostrar las etiquetas previas. A continuación, el modelo se evalúa con datos sin etiquetar. Los elementos con predicciones más confiables que este umbral se usan para la etiquetado previo.
 
 ## <a name="initialize-the-text-labeling-project"></a>Inicialización del proyecto de etiquetado de texto
 
@@ -149,7 +177,7 @@ En la pestaña **Panel** se muestra el progreso de la tarea de etiquetado.
 
 En el gráfico de progreso se muestran cuántos elementos se han etiquetado, omitido, precisan de revisión o están pendientes.  Mantenga el puntero sobre el gráfico para ver el número de elementos de cada sección.
 
-En la sección central se muestra la cola de tareas que todavía se deben asignar. 
+En la sección central se muestra la cola de tareas que todavía se deben asignar. Si el etiquetado asistido por ML está activado, también verá el número de elementos etiquetados previamente.
 
 
 En el lado derecho, se muestra una distribución de las etiquetas de las tareas que se han completado.  Recuerde que en algunos tipos de proyecto, un elemento puede tener varias etiquetas, en cuyo caso, el número total de etiquetas puede ser mayor que el número total de elementos.
@@ -197,4 +225,3 @@ Acceda al conjunto de datos exportado de Azure Machine Learning en la sección *
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Etiquetado de texto](how-to-label-data.md#label-text)
-

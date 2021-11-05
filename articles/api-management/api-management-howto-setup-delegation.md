@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2021
 ms.author: danlep
-ms.openlocfilehash: a642206389c5c92209a8d47e7a72992296b46428
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: dbb948e45473bf091cb2d69e82ad2adf5fcfe8a2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128603626"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058642"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Delegación de registros de usuario y suscripciones a producto
 
@@ -153,7 +153,7 @@ Pasos recomendados para crear un nuevo punto de conexión de delegación que se 
 
 Estos ejemplos de código enseñan cómo:
 
-* Tomar la *clave de validación de delegación*, que se establece en la pantalla de **delegación** del portal del publicador.
+* Tomar la *clave de validación de delegación*, que se establece en la pantalla de **delegación** de Azure Portal.
 * Crear un HMAC que valida la firma, probando la validez del valor de returnUrl que se pasó.
 
 Con una ligera modificación, puede utilizar el mismo código para el **productId** y el **userId**.

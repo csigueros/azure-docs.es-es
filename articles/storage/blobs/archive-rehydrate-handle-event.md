@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/11/2021
+ms.date: 10/25/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 06239708293be94f13c62cab7004c7a57d00eea1
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 2385bfead10efc82e0a1f3c8f0f02f1cd8d9f2f4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129275513"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131019274"
 ---
 # <a name="run-an-azure-function-in-response-to-a-blob-rehydration-event"></a>Ejecución de una función de Azure en respuesta a un evento de rehidratación de blobs
 
@@ -253,7 +253,7 @@ Siempre que realice cambios en el código de la función de Azure, debe publicar
 
 Ahora tiene una aplicación de funciones que contiene una función de Azure que se puede ejecutar en respuesta a un evento. El siguiente paso consiste en crear una suscripción a eventos desde la cuenta de almacenamiento. La suscripción a eventos configura la cuenta de almacenamiento para publicar un evento a través de Event Grid en respuesta a una operación en un blob de la cuenta de almacenamiento. Event Grid envía el evento al punto de conexión del controlador de eventos que ha especificado. En este caso, el controlador de eventos es la función de Azure que creó en la sección anterior.
 
-Al crear la suscripción a eventos, puede filtrar qué eventos se envían al controlador de eventos. Los eventos que se van a capturar al rehidratar un blob desde el nivel de archivo son **Microsoft.Storage.BlobTierChanged**, correspondiente a una operación [Establecer nivel de blob](/rest/api/storageservices/set-blob-tier) y a eventos de **Microsoft.Storage.BlobCreated**, correspondientes a una operación [Copiar Blob](/rest/api/storageservices/copy-blob) o [Copiar Blob desde URL](/rest/api/storageservices/copy-blob-from-url). En función de su escenario, es posible que desee controlar solo uno de estos eventos.
+Al crear la suscripción a eventos, puede filtrar qué eventos se envían al controlador de eventos. Los eventos que se van a capturar al rehidratar un blob desde el nivel de archivo son **Microsoft.Storage.BlobTierChanged**, correspondiente a una operación [Establecer nivel de blob](/rest/api/storageservices/set-blob-tier) y a eventos de **Microsoft.Storage.BlobCreated**, correspondientes a una operación [Copiar Blob](/rest/api/storageservices/copy-blob). En función de su escenario, es posible que desee controlar solo uno de estos eventos.
 
 Al crear una suscripción a eventos, siga los siguientes pasos:
 

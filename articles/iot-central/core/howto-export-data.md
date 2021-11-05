@@ -4,16 +4,16 @@ description: Cómo usar la nueva exportación de datos para exportar los datos d
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/04/2021
+ms.date: 10/20/2021
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
-ms.openlocfilehash: 4006a144dfba6a0332c69d160943294b3447ae7f
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: 3161fefd2b164ad9fbe61fd4f1f322b831985589
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129153584"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131070433"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exportación de datos de IoT a destinos en la nube mediante la característica de exportación de datos
 
@@ -45,11 +45,24 @@ El destino de exportación debe existir antes de configurar la exportación de d
 - Azure Blob Storage
 - webhook
 
+### <a name="connection-options"></a>Opciones de conexión
+
+Para los destinos de servicio de Azure, puede configurar la conexión con una *cadena de conexión* o una [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md). El uso de una identidad administrada es más seguro porque no es necesario almacenar las credenciales del destino en la aplicación de IoT Central. Actualmente, IoT Central usa [identidades administradas asignadas por el sistema](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
+
+Al configurar una identidad administrada, la configuración incluye un *ámbito* y un *rol*:
+
+- El ámbito define dónde puede usar la identidad administrada. Por ejemplo, puede usar un grupo de recursos de Azure como ámbito. En este caso, tanto la aplicación de IoT Central como el destino deben estar en el mismo grupo de recursos.
+- El rol define qué permisos se conceden a la aplicación de IoT Central en el servicio de destino. Por ejemplo, para que la aplicación de IoT Central envíe datos a un centro de eventos, la identidad administrada necesita la asignación de rol **emisor de datos de Azure Event Hubs**.
+
+En este artículo se muestra cómo crear una identidad administrada en Azure Portal. También puede usar la CLI de Azure para crear una identidad administrada. Para más información, consulte [Asignación de un acceso de identidades administradas a un recurso mediante la CLI de Azure](../../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+
 ### <a name="create-an-event-hubs-destination"></a>Creación de un destino de Event Hubs
+
+# <a name="connection-string"></a>[Cadena de conexión](#tab/connection-string)
 
 Si no tiene un espacio de nombres existente de Event Hubs al que exportar, siga estos pasos:
 
-1. Cree un [espacio de nombres de Event Hubs en Azure Portal](https://ms.portal.azure.com/#create/Microsoft.EventHub). Puede encontrar más información en los [documentos de Azure Event Hubs](../../event-hubs/event-hubs-create.md).
+1. Cree un [espacio de nombres de Event Hubs en Azure Portal](https://portal.azure.com/#create/Microsoft.EventHub). Puede encontrar más información en los [documentos de Azure Event Hubs](../../event-hubs/event-hubs-create.md).
 
 1. Cree un centro de eventos en el espacio de nombres de Event Hubs Vaya al espacio de nombres y seleccione **+ Centro de eventos** en la parte superior para crear una instancia de centro de eventos.
 
@@ -64,12 +77,43 @@ Si no tiene un espacio de nombres existente de Event Hubs al que exportar, siga 
         2. En **Configuración**, seleccione **Directivas de acceso compartido**.
         3. Cree una nueva clave o elija una clave existente que tenga permisos de **envío**.
         4. Copie la cadena de conexión principal o la secundaria.
-        
+
+# <a name="managed-identity"></a>[Identidad administrada](#tab/managed-identity)
+
+Si no tiene un espacio de nombres existente de Event Hubs al que exportar, siga estos pasos:
+
+1. Cree un [espacio de nombres de Event Hubs en Azure Portal](https://portal.azure.com/#create/Microsoft.EventHub). Puede encontrar más información en los [documentos de Azure Event Hubs](../../event-hubs/event-hubs-create.md).
+
+1. Cree un centro de eventos en el espacio de nombres de Event Hubs Vaya al espacio de nombres y seleccione **+ Centro de eventos** en la parte superior para crear una instancia de centro de eventos.
+
+[!INCLUDE [iot-central-managed-identity](../../../includes/iot-central-managed-identity.md)]
+
+Para configurar los permisos:
+
+1. En la página **Agregar asignación de roles**, seleccione el ámbito y la suscripción que desea usar.
+
+    > [!TIP]
+    > Si la aplicación de IoT Central y el centro de eventos están en el mismo grupo de recursos, puede elegir **Grupo de recursos** como ámbito y, a continuación, seleccionar el grupo de recursos.
+
+1. Seleccione **Emisor de datos de Azure Event Hubs** como **Rol**.
+
+1. Seleccione **Guardar**. La identidad administrada de la aplicación de IoT Central está configurada.
+
+Para proteger aún más el centro de eventos y permitir solo el acceso desde servicios de confianza con identidades administradas, consulte:
+
+- [Permiso para acceder a los espacios de nombres de Azure Event Hubs a través de puntos de conexión privados](../../event-hubs/private-link-service.md)
+- [Servicios de Microsoft de confianza](../../event-hubs/private-link-service.md#trusted-microsoft-services)
+- [Permitir el acceso al espacio de nombres de Event Hubs desde redes virtuales específicas](../../event-hubs/event-hubs-service-endpoints.md)
+
+---
+
 ### <a name="create-a-service-bus-queue-or-topic-destination"></a>Creación de una cola o un tema de Service Bus como destino
+
+# <a name="connection-string"></a>[Cadena de conexión](#tab/connection-string)
 
 Si no tiene un espacio de nombres existente de Service Bus al que exportar, siga estos pasos:
 
-1. Cree un [nuevo espacio de nombres de Service Bus en Azure Portal](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5). Puede encontrar más información en los [documentos de Azure Service Bus](../../service-bus-messaging/service-bus-create-namespace-portal.md).
+1. Cree un [nuevo espacio de nombres de Service Bus en Azure Portal](https://portal.azure.com/#create/Microsoft.ServiceBus.1.0.5). Puede encontrar más información en los [documentos de Azure Service Bus](../../service-bus-messaging/service-bus-create-namespace-portal.md).
 
 1. Para crear una cola o tema como destino de exportación, vaya al espacio de nombres de Service Bus y seleccione **+ Cola** o **+ Tema**.
 
@@ -85,11 +129,42 @@ Si no tiene un espacio de nombres existente de Service Bus al que exportar, siga
         3. Cree una nueva clave o elija una clave existente que tenga permisos de **envío**.
         4. Copie la cadena de conexión principal o la secundaria.
 
+# <a name="managed-identity"></a>[Identidad administrada](#tab/managed-identity)
+
+Si no tiene un espacio de nombres existente de Service Bus al que exportar, siga estos pasos:
+
+1. Cree un [nuevo espacio de nombres de Service Bus en Azure Portal](https://portal.azure.com/#create/Microsoft.ServiceBus.1.0.5). Puede encontrar más información en los [documentos de Azure Service Bus](../../service-bus-messaging/service-bus-create-namespace-portal.md).
+
+1. Para crear una cola o tema como destino de exportación, vaya al espacio de nombres de Service Bus y seleccione **+ Cola** o **+ Tema**.
+
+[!INCLUDE [iot-central-managed-identity](../../../includes/iot-central-managed-identity.md)]
+
+Para configurar los permisos:
+
+1. En la página **Agregar asignación de roles**, seleccione el ámbito y la suscripción que desea usar.
+
+    > [!TIP]
+    > Si la aplicación de IoT Central y la cola o el tema están en el mismo grupo de recursos, puede elegir **Grupo de recursos** como ámbito y, a continuación, seleccionar el grupo de recursos.
+
+1. Seleccione **Emisor de datos de Azure Service Bus** como **Rol**.
+
+1. Seleccione **Guardar**. La identidad administrada de la aplicación de IoT Central está configurada.
+
+Para proteger aún más la cola o el tema y permitir solo el acceso desde servicios de confianza con identidades administradas, consulte:
+
+- [Permiso para acceder a los espacios de nombres de Azure Service Bus a través de puntos de conexión privados](../../service-bus-messaging/private-link-service.md)
+- [Servicios de Microsoft de confianza](../../service-bus-messaging/private-link-service.md#trusted-microsoft-services)
+- [Permitir el acceso al espacio de nombres de Azure Service Bus desde redes virtuales específicas](../../service-bus-messaging/service-bus-service-endpoints.md)
+
+---
+
 ### <a name="create-an-azure-blob-storage-destination"></a>Creación de una instancia de Azure Blob Storage como destino
+
+# <a name="connection-string"></a>[Cadena de conexión](#tab/connection-string)
 
 Si no tiene una cuenta existente de Azure Storage a la que exportar, siga estos pasos:
 
-1. Cree una [cuenta de almacenamiento en Azure Portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Puede obtener más información sobre cómo crear nuevas [cuentas de almacenamiento de Azure Blob ](../../storage/blobs/storage-quickstart-blobs-portal.md) o [cuentas de almacenamiento de Azure Data Lake Storage v2](../../storage/common/storage-account-create.md). La exportación de datos solo puede escribir datos en cuentas de almacenamiento que admiten blobs en bloques. En la lista siguiente se muestran los tipos de cuenta de almacenamiento compatibles conocidos:
+1. Cree una [cuenta de almacenamiento en Azure Portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Puede obtener más información sobre cómo crear nuevas [cuentas de almacenamiento de Azure Blob ](../../storage/blobs/storage-quickstart-blobs-portal.md) o [cuentas de almacenamiento de Azure Data Lake Storage v2](../../storage/common/storage-account-create.md). La exportación de datos solo puede escribir datos en cuentas de almacenamiento que admiten blobs en bloques. En la lista siguiente se muestran los tipos de cuenta de almacenamiento compatibles conocidos:
 
     |Nivel de rendimiento|Tipo de cuenta|
     |-|-|
@@ -102,6 +177,42 @@ Si no tiene una cuenta existente de Azure Storage a la que exportar, siga estos 
 
 1. Genere una cadena de conexión para la cuenta de almacenamiento en **Configuración > Claves de acceso**. Copie una de las dos cadenas de conexión.
 
+# <a name="managed-identity"></a>[Identidad administrada](#tab/managed-identity)
+
+Si no tiene una cuenta existente de Azure Storage a la que exportar, siga estos pasos:
+
+1. Cree una [cuenta de almacenamiento en Azure Portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Puede obtener más información sobre cómo crear nuevas [cuentas de almacenamiento de Azure Blob ](../../storage/blobs/storage-quickstart-blobs-portal.md) o [cuentas de almacenamiento de Azure Data Lake Storage v2](../../storage/common/storage-account-create.md). La exportación de datos solo puede escribir datos en cuentas de almacenamiento que admiten blobs en bloques. En la lista siguiente se muestran los tipos de cuenta de almacenamiento compatibles conocidos:
+
+    |Nivel de rendimiento|Tipo de cuenta|
+    |-|-|
+    |Estándar|Uso general V2|
+    |Estándar|Uso general V1|
+    |Estándar|Blob Storage|
+    |Premium|Almacenamiento de blob en bloques|
+
+1. Para crear un contenedor en su cuenta de almacenamiento, vaya a su cuenta de almacenamiento. En **Blob Service** seleccione **Examinar blobs**. Seleccione **+ Contenedor** en la parte superior para crear un contenedor.
+
+[!INCLUDE [iot-central-managed-identity](../../../includes/iot-central-managed-identity.md)]
+
+Para configurar los permisos:
+
+1. En la página **Agregar asignación de roles**, seleccione la suscripción que desea usar y **Almacenamiento** como ámbito. A continuación, seleccione la cuenta de almacenamiento como recurso.
+
+1. Seleccione **Colaborador de datos de blobs de almacenamiento** como **Rol**.
+
+1. Seleccione **Guardar**. La identidad administrada de la aplicación de IoT Central está configurada.
+
+    > [!TIP]
+    > Esta asignación de roles no está visible en la lista de la página **Asignaciones de roles de Azure**.
+
+Para proteger aún más el contenedor de blobs y permitir solo el acceso desde servicios de confianza con identidades administradas, consulte:
+
+- [Uso de puntos de conexión privados para Azure Storage](../../storage/common/storage-private-endpoints.md)
+- [Autorización del acceso a datos de blobs con identidades administradas para recursos de Azure](../../storage/blobs/authorize-managed-identity.md)
+- [Configuración de redes virtuales y firewalls de Azure Storage](../../storage/common/storage-network-security.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json)
+
+---
+
 ### <a name="create-a-webhook-endpoint"></a>Creación de un punto de conexión de webhook
 
 Puede exportar los datos a un punto de conexión de webhook HTTP disponible públicamente. Puede crear un punto de conexión de webhook de prueba mediante [RequestBin](https://requestbin.net/). RequestBin limita las solicitudes cuando se alcanza el límite:
@@ -111,63 +222,55 @@ Puede exportar los datos a un punto de conexión de webhook HTTP disponible púb
 
 ## <a name="set-up-data-export"></a>Configuración de la exportación de datos
 
-Ahora que tiene un destino al que exportar los datos, configure la exportación de datos en su aplicación de IoT Central:
+# <a name="connection-string"></a>[Cadena de conexión](#tab/connection-string)
 
-1. Inicie sesión en su aplicación de IoT Central.
+[!INCLUDE [iot-central-create-export](../../../includes/iot-central-create-export.md)]
 
-1. En el panel izquierdo, seleccione **Exportación de datos**.
-
-    > [!Tip]
-    > Si no ve **Exportación de datos** en el panel izquierdo, no tiene permisos para configurar la exportación de datos en la aplicación. Hable con un administrador para configurar la exportación de datos.
-
-1. Seleccione **+ New export** (+ Nueva exportación).
-
-1. Escriba un nombre para mostrar para la nueva exportación y asegúrese de que la exportación de datos está **habilitada**.
-
-1. Elija el tipo de datos para exportar. En la tabla siguiente se enumeran los tipos de exportación de datos compatibles:
-
-    | Tipo de datos | Descripción | Formato de datos |
-    | :------------- | :---------- | :----------- |
-    |  Telemetría | Exporte los mensajes de telemetría de los dispositivos casi en tiempo real. Cada mensaje exportado contiene todo el contenido del mensaje del dispositivo original, normalizado.   |  [Formato del mensaje de telemetría](#telemetry-format)   |
-    | Cambios de la propiedad | Exporte los cambios de las propiedades de dispositivos y la nube casi en tiempo real. En el caso de las propiedades de dispositivo de solo lectura, se exportan los cambios realizados en los valores notificados. En el caso de las propiedades de lectura y escritura, se exportan los valores notificados y deseados. | [Formato de los mensajes de cambio de propiedad](#property-changes-format) |
-    | Conectividad de dispositivos | Exporte eventos de dispositivos conectados y desconectados. | [Formato de mensaje de conectividad del dispositivo](#device-connectivity-changes-format) |
-    | Ciclo de vida del dispositivo | Exporte los eventos registrados, eliminados, aprovisionados, habilitados, deshabilitados, displayNameChanged y deviceTemplateChanged. | [Formato de los mensajes de cambios del ciclo de vida de dispositivo](#device-lifecycle-changes-format) |
-    | Ciclo de vida de plantillas de dispositivo | Exporte los cambios de plantilla de dispositivo publicados, incluidos los creados, actualizados y eliminados. | [Formato de los mensajes de cambios del ciclo de vida de plantilla de dispositivo](#device-template-lifecycle-changes-format) | 
-
-1. Opcionalmente, agregue filtros para reducir la cantidad de datos exportados. Hay diferentes tipos de filtros disponibles para cada tipo de exportación de datos: <a name="DataExportFilters"></a>
-    
-    | Tipo de datos | Filtros disponibles| 
-    |--------------|------------------|
-    |Telemetría|<ul><li>Filtrar por nombre de dispositivo, id. de dispositivo, plantilla de dispositivo y si el dispositivo está simulado</li><li>Filtrar el flujo para que solo contenga la telemetría que cumpla las condiciones de filtro</li><li>Filtrar el flujo para que solo contenga la telemetría de dispositivos con propiedades que coincidan con las condiciones de filtro</li><li>Filtrar el flujo para que solo contenga la telemetría que tenga *propiedades de mensaje* que cumplan la condición de filtro. Las *propiedades de mensaje* (también denominadas *propiedades de aplicación*) se envían en un contenedor de pares de clave-valor en cada mensaje de telemetría enviado opcionalmente por los dispositivos que usan los SDK de dispositivo. Para crear un filtro de propiedad de mensaje, escriba la clave de la propiedad de mensaje que busca y especifique una condición. Solo se exportarán los mensajes de telemetría con propiedades que coincidan con la condición de filtro especificada. [Obtenga más información sobre las propiedades de aplicaciones en la documentación de IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md). </li></ul>|
-    |Cambios de la propiedad|<ul><li>Filtrar por nombre de dispositivo, id. de dispositivo, plantilla de dispositivo y si el dispositivo está simulado</li><li>Filtrar el flujo para que contenga solo los cambios de propiedad que cumplan las condiciones de filtro</li></ul>|
-    |Conectividad de dispositivos|<ul><li>Filtrar por nombre de dispositivo, identificador de dispositivo, plantilla de dispositivo y si el dispositivo es simulado</li><li>Filtrar el flujo para que solo contenga los cambios de dispositivos con propiedades que coincidan con las condiciones de filtro</li></ul>|
-    |Ciclo de vida del dispositivo|<ul><li>Filtrar por nombre de dispositivo, id. de dispositivo, plantilla de dispositivo y si el dispositivo está aprovisionado, habilitado o simulado</li><li>Filtrar el flujo para que solo contenga los cambios de dispositivos con propiedades que coincidan con las condiciones de filtro</li></ul>|
-    |Ciclo de vida de plantillas de dispositivo|<ul><li>Filtrar por plantilla de dispositivo</li></ul>|
-    
-1. Opcionalmente, puede enriquecer los mensajes exportados con metadatos adicionales de pares clave-valor. Están disponibles los enriquecimientos siguientes para los tipos de exportación de datos de telemetría, cambios de propiedad, conectividad de dispositivo y ciclo de vida de dispositivo: <a name="DataExportEnrichmnents"></a>
-    - **Cadena personalizada**: agrega una cadena estática personalizada a cada mensaje. Escriba cualquier clave y especifique cualquier valor de cadena.
-    - **Propiedad**, que agrega a cada mensaje:
-       - Metadatos del dispositivo, como el nombre del dispositivo, el nombre de la plantilla de dispositivo, si está habilitado, las organizaciones, si está aprovisionado y si es simulado.
-       - La propiedad notificada de dispositivo actual o el valor de propiedad de la nube a cada mensaje. Si el mensaje exportado procede de un dispositivo que no tiene la propiedad especificada, no obtendrá el enriquecimiento.
+Configure el destino:
 
 1. Agregue un destino nuevo o uno que ya haya creado. Seleccione el vínculo **Create a new one** (Crear uno nuevo) y agregue la siguiente información:
 
     - **Destination name** (Nombre del destino): el nombre para mostrar del destino en IoT Central.
     - **Tipo de destino**: elija el tipo de destino. Si todavía no ha configurado el destino de exportación, consulte [Configuración del destino de exportación](#set-up-export-destination).
+    - **Autorización**: seleccione **Cadena de conexión**.
     - En el caso de Azure Event Hubs o la cola o el tema de Azure Service Bus, pegue la cadena de conexión del recurso y escriba el nombre (distingue mayúsculas de minúsculas) del centro de eventos, la cola o el tema, si es necesario.
     - En Azure Blob Storage, pegue la cadena de conexión del recurso y, si es necesario, escriba el nombre del contenedor (distingue mayúsculas de minúsculas).
     - Si se trata de un webhook, pegue la dirección URL de devolución de llamada para el punto de conexión de webhook. Opcionalmente, puede configurar la autorización de webhook (OAuth 2.0 y el token de autorización) y agregar encabezados personalizados. 
-        - En OAuth 2.0, solo se admite el flujo de credenciales de cliente. Cuando el destino se guarde, IoT Central se comunicará con el proveedor de OAuth para recuperar un token de autorización. Este token se adjuntará al encabezado "Authorization" para cada mensaje enviado a este destino.
-        - Para el token de autorización, puede especificar un valor de token que se adjunte directamente al encabezado "Authorization" para cada mensaje enviado a este destino.
+        - En OAuth 2.0, solo se admite el flujo de credenciales de cliente. Cuando el destino se guarde, IoT Central se comunicará con el proveedor de OAuth para recuperar un token de autorización. Este token se adjuntará al encabezado `Authorization` para cada mensaje enviado a este destino.
+        - Para el token de autorización, puede especificar un valor de token que se adjunte directamente al encabezado `Authorization` para cada mensaje enviado a este destino.
     - Seleccione **Crear**.
 
 1. Seleccione **+ Destino** y elija un destino en el menú desplegable. Puede agregar hasta cinco destinos a una única exportación.
 
 1. Cuando haya terminado de configurar la exportación, seleccione **Guardar**. Transcurridos unos minutos, los datos aparecen en sus destinos.
 
+# <a name="managed-identity"></a>[Identidad administrada](#tab/managed-identity)
+
+[!INCLUDE [iot-central-create-export](../../../includes/iot-central-create-export.md)]
+
+Configure el destino:
+
+1. Agregue un destino nuevo o uno que ya haya creado. Seleccione el vínculo **Create a new one** (Crear uno nuevo) y agregue la siguiente información:
+
+    - **Destination name** (Nombre del destino): el nombre para mostrar del destino en IoT Central.
+    - **Tipo de destino**: elija el tipo de destino. Si todavía no ha configurado el destino de exportación, consulte [Configuración del destino de exportación](#set-up-export-destination).
+    - **Autorización**: seleccione **Identidad administrada asignada por el sistema**.
+    - Para la cola o el tema de Azure Event Hubs y Azure Service Bus, escriba el nombre de host del recurso. A continuación, escriba el nombre del centro de eventos, la cola o el tema distinguiendo mayúsculas de minúsculas. Un nombre de host tiene el aspecto siguiente: `contoso-waste.servicebus.windows.net`.
+    - En Azure Blob Storage, escriba el URI del punto de conexión de la cuenta de almacenamiento y el nombre del contenedor distinguiendo mayúsculas de minúsculas. Un URI de punto de conexión tiene el siguiente aspecto: `https://contosowaste.blob.core.windows.net`.
+    - Si se trata de un webhook, pegue la dirección URL de devolución de llamada para el punto de conexión de webhook. Opcionalmente, puede configurar la autorización de webhook (OAuth 2.0 y el token de autorización) y agregar encabezados personalizados.
+        - En OAuth 2.0, solo se admite el flujo de credenciales de cliente. Cuando el destino se guarde, IoT Central se comunicará con el proveedor de OAuth para recuperar un token de autorización. Este token se adjuntará al encabezado `Authorization` para cada mensaje enviado a este destino.
+        - Para el token de autorización, puede especificar un valor de token que se adjunte directamente al encabezado `Authorization` para cada mensaje enviado a este destino.
+    - Seleccione **Crear**.
+
+1. Seleccione **+ Destino** y elija un destino en el menú desplegable. Puede agregar hasta cinco destinos a una única exportación.
+
+1. Cuando haya terminado de configurar la exportación, seleccione **Guardar**. Transcurridos unos minutos, los datos aparecen en sus destinos.
+
+---
+
 ## <a name="monitor-your-export"></a>Supervisión de la exportación
 
-Además de ver el estado de las exportaciones en IoT Central, puede usar [Azure Monitor](../../azure-monitor/overview.md) para ver la cantidad de datos que está exportando y los errores de exportación. Puede acceder a las métricas de estado de dispositivos y de exportación en los gráficos de Azure Portal, con una API de REST o con consultas en PowerShell o la CLI de Azure. Actualmente, puede supervisar las siguientes métricas de exportación de datos en Azure Monitor:
+Puede comprobar el estado de las exportaciones en IoT Central. También puede usar [Azure Monitor](../../azure-monitor/overview.md) para ver cuántos datos está exportando y los errores de exportación. Puede acceder a las métricas de estado de dispositivos y de exportación en los gráficos de Azure Portal, con una API de REST o con consultas en PowerShell o la CLI de Azure. Actualmente, puede supervisar las siguientes métricas de exportación de datos en Azure Monitor:
 
 - Número de mensajes entrantes para exportar antes de que se apliquen los filtros
 - Número de mensajes que pasan a través de filtros
@@ -210,7 +313,7 @@ Cada mensaje exportado contiene un formato normalizado del mensaje completo que 
 - `enrichments`: cualquier enriquecimiento configurado en la exportación.
 - `module`: el módulo IoT Edge que envió este mensaje. Este campo solo aparece si el mensaje provino de un módulo IoT Edge.
 - `component`: el componente que envió este mensaje. Este campo solo aparece si las funcionalidades enviadas en el mensaje se modelaron como un componente en la plantilla de dispositivo.
-- `messageProperties`: propiedades adicionales que el dispositivo envió con el mensaje. A veces, estas propiedades se denominan *propiedades de la aplicación*. [Puede encontrar más información en la documentación de IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md).
+- `messageProperties`: más propiedades que el dispositivo envió con el mensaje. A veces, estas propiedades se denominan *propiedades de la aplicación*. [Puede encontrar más información en la documentación de IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 En el caso de Event Hubs y Service Bus, IoT Central exporta un mensaje nuevo rápidamente después de recibir el mensaje de un dispositivo. En las propiedades de usuario (también conocidas como propiedades de la aplicación) de cada mensaje, `iotcentral-device-id`, `iotcentral-application-id` e `iotcentral-message-source` se incluyen automáticamente.
 
@@ -248,6 +351,7 @@ En el ejemplo siguiente se muestra un mensaje de telemetría exportado:
     }
 }
 ```
+
 ### <a name="message-properties"></a>Propiedades del mensaje
 
 Los mensajes de telemetría tienen propiedades de metadatos además de la carga de telemetría. El fragmento de código anterior muestra ejemplos de mensajes del sistema, como `deviceId` y `enqueuedTime`. Para obtener más información sobre las propiedades del mensaje del sistema, consulte [Propiedades del sistema de los mensajes de IoT Hub D2C](../../iot-hub/iot-hub-devguide-messages-construct.md#system-properties-of-d2c-iot-hub-messages).
@@ -387,9 +491,10 @@ En el ejemplo siguiente, se muestra un mensaje de cambio de propiedad exportado 
     }
 }
 ```
+
 ## <a name="device-connectivity-changes-format"></a>Formato de los cambios de conectividad de dispositivos
 
-Cada mensaje o registro representa un evento de conectividad detectado por un único dispositivo. La información del mensaje exportado incluye:
+Cada mensaje o registro representa un evento de conectividad de un único dispositivo. La información del mensaje exportado incluye:
 
 - `applicationId`: el identificador de la aplicación IoT Central.
 - `messageSource`: el origen del mensaje (`deviceConnectivity`).
@@ -421,6 +526,7 @@ En el ejemplo siguiente, se muestra un mensaje sobre la conectividad del disposi
 }
 
 ```
+
 ## <a name="device-lifecycle-changes-format"></a>Formato de los cambios de ciclo de vida de dispositivo
 
 Cada mensaje o registro representa un cambio en un único dispositivo. La información del mensaje exportado incluye:
@@ -497,7 +603,7 @@ En la siguiente tabla se observan las diferencias entre la [exportación de dato
 | Características enriquecidas | None | Enriquecer con una cadena personalizada o un valor de propiedad en el dispositivo |
 | Destinations | Azure Event Hubs, colas y temas de Azure Service Bus, Azure Blob Storage | Igual que para los webhooks y la exportación de datos heredada|
 | Versiones de aplicación admitidas | V2, V3 | Solo v3 |
-| Límites destacados | 5 exportaciones por aplicación, 1 destino por exportación | 10 conexiones de exportaciones y destinos por aplicación |
+| Límites destacados | Cinco exportaciones por aplicación, un destino por exportación | 10 conexiones de exportaciones y destinos por aplicación |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

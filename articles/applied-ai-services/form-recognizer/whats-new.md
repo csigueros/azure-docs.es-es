@@ -9,18 +9,19 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 10/07/2021
 ms.author: lajanuar
-ms.openlocfilehash: 8d118d72b267cc42780f198a1fb0dc63f0f0d965
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 685a5f6a7eec89f966e165179db7417f7d848d9b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130233608"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131026607"
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
 # <a name="whats-new-in-azure-form-recognizer"></a>Novedades en Azure Form Recognizer
 
-El servicio Form Recognizer se actualiza de forma continuada. Marque esta página para mantenerse al día con las notas de la versión, las mejoras de características y las actualizaciones de documentación.
+El servicio Form Recognizer se actualiza de forma continuada. Marque esta página para mantenerse al día con las notas de la versión, las mejoras de características y las actualizaciones de la documentación.
 
 ## <a name="october-2021"></a>Octubre de 2021
 
@@ -63,7 +64,7 @@ Comience con la nueva [API de REST](https://westus2.dev.cognitive.microsoft.com/
 
     ### <a name="charts"></a>Gráficos
 
-    :::image type="content" source="media/portal-metrics-charts.png" alt-text="Captura de pantalla que muestra un gráfico de métricas de ejemplo en Azure Portal.":::
+    :::image type="content" source="media/portal-metrics-charts.png" alt-text="Captura de pantalla que muestra un gráfico de métricas de ejemplo en Azure Portal":::
 
 *  Actualización del modelo de **documento de identificador**: los nombres especificados, incluido un sufijo, con o sin un punto (punto final), se procesan correctamente:
 
@@ -455,7 +456,7 @@ Paquete pip, versión 3.1.0b4
 * **Mejoras en la calidad**: mejoras en la extracción, lo que incluye mejoras en la extracción de dígitos individuales.
 * **Nueva característica para realizar pruebas en las herramientas de etiquetado y de ejemplo de Form Recognizer**: mediante la herramienta de etiquetado de ejemplo de Form Recognizer se pueden probar los modelos de factura, recibo y tarjeta de presentación precompilados y la API Layout. Vea cómo se extraen los datos sin escribir código.
 
-  [**Pruebe la herramienta de etiquetado de ejemplo de Form Recognizer.**](https://fott-2-1.azurewebsites.net)
+  [**Probar la herramienta de etiquetado de ejemplo de Form Recognizer**](https://fott-2-1.azurewebsites.net)
 
   ![Captura de pantalla: herramienta de etiquetado de ejemplo](./media/ui-preview.jpg)
 

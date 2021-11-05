@@ -5,21 +5,21 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/16/2021
-ms.openlocfilehash: 83800e088599bca0023d734bba52b6ed3207f0a3
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.date: 11/02/2021
+ms.openlocfilehash: 305f23d802324f5d974caaaf49afc072ff9d54f6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122515345"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131071028"
 ---
 # <a name="built-in-triggers-and-actions-in-azure-logic-apps"></a>Desencadenadores y acciones integrados en Azure Logic Apps
 
 Los [desencadenadores y las acciones integrados](apis-list.md) proporcionan [maneras de controlar la programación y la estructura del flujo de trabajo](#control-workflow), [ejecutar su propio código](#run-code-from-workflows), [administrar o manipular datos](#manage-or-manipulate-data) y completar otras tareas en los flujos de trabajo. A diferencia de los [conectores administrados](managed.md), muchas operaciones integradas no están vinculadas a un servicio, sistema o protocolo específicos. Por ejemplo, puede iniciar casi cualquier flujo de trabajo según una programación mediante el desencadenador Periodicidad. O bien, puede hacer que el flujo de trabajo espere hasta que se llame mediante el desencadenador Solicitud. Todas las operaciones integradas se ejecutan de forma nativa en Azure Logic Apps, y la mayoría no requieren la creación de una conexión para usarlas.
 
-Para un número menor de servicios, sistemas y protocolos, Azure Logic Apps proporciona operaciones integradas, como Azure App Service, Azure Functions o Azure API Management, y de llamada a otros flujos de trabajo de aplicaciones lógicas de Azure Logic Apps. El número y el intervalo disponibles varían en función de si se crea un recurso de aplicación lógica basado en el plan de consumo que se ejecute en Azure Logic Apps multiinquilino o un recurso de aplicación lógica basado en planes estándar que se ejecute en Azure Logic Apps de un solo inquilino. Para más información, revise [Entorno de servicio de integración (ISE): inquilino único o multiinquilino](../logic-apps/single-tenant-overview-compare.md). En cambio, en la mayoría de los casos, la versión integrada proporciona un mejor rendimiento, funcionalidades y precios, entre otras cosas.
+Para un número menor de servicios, sistemas y protocolos, Azure Logic Apps proporciona operaciones integradas, como Azure API Management, Azure App Service, Azure Functions, y de llamada a otros flujos de trabajo de aplicaciones lógicas de Azure Logic Apps. El número y el intervalo disponibles varían en función de si se crea un recurso de aplicación lógica basado en el plan de consumo que se ejecute en Azure Logic Apps multiinquilino o un recurso de aplicación lógica basado en planes estándar que se ejecute en Azure Logic Apps de un solo inquilino. Para más información, revise [Entorno de servicio de integración (ISE): inquilino único o multiinquilino](../logic-apps/single-tenant-overview-compare.md). En cambio, en la mayoría de los casos, la versión integrada proporciona un mejor rendimiento, funcionalidades y precios, entre otras cosas.
 
-Por ejemplo, si crea una aplicación lógica de un solo inquilino, tanto las operaciones integradas como las [operaciones de conector administrado](managed.md) están disponibles para algunos servicios, en concreto, Azure Service Bus, Azure Event Hubs, SQL Server, DB2 y MQ. En algunos casos, una operación integrada solo está disponible en un entorno, por ejemplo, el archivo plano solo está disponible actualmente en entornos multiinquilino, mientras que el archivo host de IBM solo está disponible en entornos de un solo inquilino. En cambio, en la mayoría de los casos, la versión integrada proporciona un mejor rendimiento, funcionalidades y precios, entre otras cosas.
+Por ejemplo, si crea una aplicación lógica de un solo inquilino, tanto las operaciones integradas como las [operaciones de conector administrado](managed.md) están disponibles para algunos servicios, en concreto, Azure Blob, Azure Event Hubs, Azure Cosmos DB, Azure Service Bus, DB2, MQ y SQL Server. En algunos casos, algunas operaciones integradas solo están disponibles para un tipo de recurso de aplicación lógica. Por ejemplo, las operaciones de Batch solo están disponibles actualmente para flujos de trabajo de aplicación lógica de consumo. En cambio, en la mayoría de los casos, la versión integrada proporciona un mejor rendimiento, funcionalidades y precios, entre otras cosas.
 
 En la siguiente lista solo se describen algunas de las tareas que puede realizar con [desencadenadores y acciones integrados](#general-built-in-triggers-and-actions):
 
@@ -85,8 +85,7 @@ Azure Logic Apps proporciona los siguientes desencadenadores y acciones integrad
         [**Respuesta:**][http-request-doc] permite responder a una solicitud que recibe el desencadenador denominado **Cuando se recibe una solicitud HTTP** en el mismo flujo de trabajo.
     :::column-end:::
     :::column:::
-        [![Icono de lotes][batch-icon]][batch-doc]
-        \
+        [![Icono de lotes][batch-icon]][batch-doc]<br>(*Solo aplicación lógica de consumo*)     \
         \
         [**Batch**][batch-doc]
         \
@@ -95,6 +94,24 @@ Azure Logic Apps proporciona los siguientes desencadenadores y acciones integrad
         \
         \
         [**Enviar mensajes al lote:**][batch-doc] permite llamar a un flujo de trabajo existente que se inicia actualmente con un **desencadenador de mensajes de Batch**.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Icono de STFP-SSH][sftp-ssh-icon]][sftp-ssh-doc]
+        \
+        \
+        [**STFP-SSH**][sftp-ssh-doc]<br>(*Solo aplicación lógica estándar*)     \
+        \
+        Conéctese a servidores SFTP accesibles desde internet mediante SSH para trabajar con archivos y carpetas.
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+    :::column:::
     :::column-end:::
 :::row-end:::
 
@@ -125,6 +142,33 @@ Azure Logic Apps proporciona las siguientes acciones integradas para los servici
         Cuando Swagger se incluye, los desencadenadores y las acciones que hayan definido las aplicaciones aparecen como cualquier otro desencadenador y acción de primera clase en Azure Logic Apps.
     :::column-end:::
     :::column:::
+        [![Icono de blob de Azure][azure-blob-storage-icon]][azure-app-services-doc]
+        \
+        \
+        [**Blob de Azure**][azure-blob-storage-doc]<br>(*Solo aplicación lógica estándar*)     \
+        \
+        Conéctese a su cuenta de Azure Storage para crear y administrar el contenido de los blobs.
+    :::column-end:::
+    :::column:::
+        [![Icono de Azure Cosmos DB][azure-cosmos-db-icon]][azure-cosmos-db-doc]
+        \
+        \
+        [**Azure Cosmos DB**][azure-cosmos-db-doc]<br>(*Solo aplicación lógica estándar*)     \
+        \
+        Conectar a Azure Cosmos DB para que pueda acceder a los documentos de Azure Cosmos DB y administrarlos.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Icono de Azure Functions][azure-functions-icon]][azure-functions-doc]
+        \
+        \
+        [**Azure Functions**][azure-functions-doc]
+        \
+        \
+        Llame a las [funciones hospedadas en Azure](../azure-functions/functions-overview.md) para ejecutar sus propios *fragmentos de código* (C# o Node.js) en el flujo de trabajo.
+    :::column-end:::
+    :::column:::
         [![Icono de Azure Logic Apps][azure-logic-apps-icon]][nested-logic-app-doc]
         \
         \
@@ -134,12 +178,48 @@ Azure Logic Apps proporciona las siguientes acciones integradas para los servici
         Llame a otros flujos de trabajo que comiencen con el desencadenador se solicitud denominado **Cuando se recibe una solicitud HTTP**.
     :::column-end:::
     :::column:::
+        [![Icono de Azure Service Bus][azure-service-bus-icon]][azure-service-bus-doc]
+        \
+        \
+        [**Azure Service Bus**][azure-service-bus-doc]<br>(*Solo aplicación lógica estándar*)     \
+        \
+        Administre mensajes asincrónicos, colas, sesiones, temas y suscripciones a temas.
+    :::column-end:::
+    :::column:::
+        [![Icono de IBM DB2][ibm-db2-icon]][ibm-db2-doc]
+        \
+        \
+        [**DB2**][ibm-db2-doc]<br>(*Solo aplicación lógica estándar*)     \
+        \
+        Conectar con una instancia de IBM DB2 en la nube o local. Actualizar una fila, obtener una tabla, etc.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Icono de Azure Event Hubs][azure-event-hubs-icon]][azure-event-hubs-doc]
+        \
+        \
+        [**Event Hubs**][azure-event-hubs-doc]<br>(*Solo aplicación lógica estándar*)     \
+        \
+        Consuma y publique eventos en un centro de eventos. Por ejemplo, obtenga una salida de su aplicación lógica con Event Hubs y enviarla luego a un proveedor de análisis en tiempo real.
+    :::column-end:::
+    :::column:::
+        [![Icono de IBM MQ][ibm-mq-icon]][ibm-mq-doc]
+        \
+        \
+        [**MQ**][ibm-mq-doc]<br>(*Solo aplicación lógica estándar*)     \
+        \
+        Conectarse a IBM MQ local o en Azure y enviar y recibir mensajes.
+    :::column-end:::
+    :::column:::
         [![Icono de SQL Server][sql-server-icon]][sql-server-doc]
         \
         \
-        [**SQL Server**][sql-server-doc] <br>(*Solo inquilino único*)     \
+        [**SQL Server**][sql-server-doc]<br>(*Solo aplicación lógica estándar*)     \
         \
         Conéctese a SQL Server en el entorno local o a una base de datos de Azure SQL Database en la nube para poder administrar los registros, ejecutar procedimientos almacenados o realizar consultas. <p>**Nota**: Azure Logic Apps de un solo inquilino proporciona operaciones de conectores SQL integrados y administrados, mientras que Azure Logic Apps multiinquilino proporciona solo operaciones de conectores administrados. <p>Para más información, consulte [Comparación de las opciones de un solo inquilino, multiinquilino y entorno del servicio de integración para Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md).
+    :::column-end:::
+    :::column:::
     :::column-end:::
 :::row-end:::
 
@@ -344,7 +424,7 @@ Azure Logic Apps proporciona las siguientes acciones integradas, que requieren u
         [![Icono de descodificación de archivo plano][flat-file-decode-icon]][flat-file-decode-doc]
         \
         \
-        [**Flat file decoding**<br>(*solo multiinquilino*)][flat-file-decode-doc]
+        [**Descodificación de archivos planos**][flat-file-decode-doc]
         \
         \
         Codifique los archivos XML antes de enviar el contenido a un socio comercial.
@@ -353,7 +433,7 @@ Azure Logic Apps proporciona las siguientes acciones integradas, que requieren u
         [![Icono de codificación de archivo plano][flat-file-encode-icon]][flat-file-encode-doc]
         \
         \
-        [**Flat file encoding**<br>(*solo multiinquilino*)][flat-file-encode-doc]
+        [**Codificación de archivos planos**][flat-file-encode-doc]
         \
         \
         Descodifique los archivos XML al recibir el contenido de un socio comercial.
@@ -409,8 +489,11 @@ Azure Logic Apps proporciona las siguientes acciones integradas, que requieren u
 [azure-api-management-icon]: ./media/apis-list/azure-api-management.png
 [azure-app-services-icon]: ./media/apis-list/azure-app-services.png
 [azure-blob-storage-icon]: ./media/apis-list/azure-blob-storage.png
+[azure-cosmos-db-icon]: ./media/apis-list/azure-cosmos-db.png
+[azure-event-hubs-icon]: ./media/apis-list/azure-event-hubs.png
 [azure-functions-icon]: ./media/apis-list/azure-functions.png
 [azure-logic-apps-icon]: ./media/apis-list/azure-logic-apps.png
+[azure-service-bus-icon]: ./media/apis-list/azure-service-bus.png
 [batch-icon]: ./media/apis-list/batch.png
 [condition-icon]: ./media/apis-list/condition.png
 [data-operations-icon]: ./media/apis-list/data-operations.png
@@ -421,9 +504,12 @@ Azure Logic Apps proporciona las siguientes acciones integradas, que requieren u
 [http-response-icon]: ./media/apis-list/response.png
 [http-swagger-icon]: ./media/apis-list/http-swagger.png
 [http-webhook-icon]: ./media/apis-list/http-webhook.png
+[ibm-db2-icon]: ./media/apis-list/ibm-db2.png
+[ibm-mq-icon]: ./media/apis-list/ibm-mq.png
 [inline-code-icon]: ./media/apis-list/inline-code.png
 [schedule-icon]: ./media/apis-list/recurrence.png
 [scope-icon]: ./media/apis-list/scope.png
+[sftp-ssh-icon]: ./media/apis-list/sftp.png
 [sql-server-icon]: ./media/apis-list/sql.png
 [switch-icon]: ./media/apis-list/switch.png
 [terminate-icon]: ./media/apis-list/terminate.png
@@ -442,7 +528,10 @@ Azure Logic Apps proporciona las siguientes acciones integradas, que requieren u
 [azure-api-management-doc]: ../api-management/get-started-create-service-instance.md "Creación de una instancia del servicio Azure API Management para administrar y publicar sus API"
 [azure-app-services-doc]: ../logic-apps/logic-apps-custom-api-host-deploy-call.md "Integrar aplicaciones lógicas con App Service API Apps"
 [azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Creación y administración de blobs en Azure Blob Storage con Azure Logic Apps"
+[azure-cosmos-db-doc]: ./connectors-create-api-cosmos-db.md "Conectar a Azure Cosmos DB para que pueda acceder a los documentos de Azure Cosmos DB y administrarlos"
+[azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Conectarse a Azure Event Hubs para recibir y enviar eventos entre aplicaciones lógicas y Event Hubs"
 [azure-functions-doc]: ../logic-apps/logic-apps-azure-functions.md "Integración de aplicaciones lógicas con Azure Functions"
+[azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Administración de mensajes de Service Bus, temas y suscripciones a temas"
 [batch-doc]: ../logic-apps/logic-apps-batch-process-send-receive-messages.md "Procesamiento de mensajes en grupos o lotes"
 [condition-doc]: ../logic-apps/logic-apps-control-flow-conditional-statement.md "Evaluar una condición y ejecutar acciones diferentes según si la condición es true o false"
 [data-operations-doc]: ../logic-apps/logic-apps-perform-data-operations.md "Realizar operaciones de datos como el filtrado de matrices o la creación de tablas CSV y HTML"
@@ -452,6 +541,8 @@ Azure Logic Apps proporciona las siguientes acciones integradas, que requieren u
 [http-response-doc]: ./connectors-native-reqres.md "Responder a solicitudes HTTP desde las aplicaciones lógicas"
 [http-swagger-doc]: ./connectors-native-http-swagger.md "Llamar a puntos de conexión REST desde las aplicaciones lógicas"
 [http-webhook-doc]: ./connectors-native-webhook.md "Esperar eventos específicos de los puntos de conexión HTTP o HTTPS"
+[ibm-db2-doc]: ./connectors-create-api-db2.md "Conectar con una instancia de IBM DB2 en la nube o local. Actualizar una fila, obtener una tabla, etc."
+[ibm-mq-doc]: ./connectors-create-api-mq.md "Conectarse a IBM MQ local o en Azure y enviar y recibir mensajes"
 [inline-code-doc]: ../logic-apps/logic-apps-add-run-inline-code.md "Agregar y ejecutar fragmentos de código JavaScript de las aplicaciones lógicas"
 [nested-logic-app-doc]: ../logic-apps/logic-apps-http-endpoint.md "Integrar aplicaciones lógicas con flujos de trabajo anidados"
 [query-doc]: ../logic-apps/logic-apps-perform-data-operations.md#filter-array-action "Seleccionar y filtrar matrices con la acción Consulta"
@@ -461,6 +552,7 @@ Azure Logic Apps proporciona las siguientes acciones integradas, que requieren u
 [schedule-recurrence-doc]:  ./connectors-native-recurrence.md "Ejecutar aplicaciones lógicas según una programación periódica"
 [schedule-sliding-window-doc]: ./connectors-native-sliding-window.md "Ejecutar aplicaciones lógicas que necesitan manipular datos en fragmentos contiguos"
 [scope-doc]: ../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md "Organizar las acciones en grupos, que obtienen su propio estado después de que las acciones del grupo terminen de ejecutarse"
+[sftp-ssh-doc]: ./connectors-sftp-ssh.md "Conectarse con su cuenta SFTP mediante SSH. Cargar, obtener y eliminar archivos, entre otras operaciones."
 [sql-server-doc]: ./connectors-create-api-sqlazure.md "Conectar con Azure SQL Database o SQL Server. Crear, actualizar, obtener y eliminar entradas en una tabla de base de datos SQL"
 [switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "Organizar las acciones en los casos, a los que se asignan valores únicos. Ejecutar solo el caso cuyo valor asignado coincida con el resultado de una expresión, objeto o token. Si no hay coincidencias, ejecutar el caso predeterminado"
 [terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "Detener o cancelar un flujo de trabajo que se está ejecutando activamente para la aplicación lógica"

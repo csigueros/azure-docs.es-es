@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: pafarley
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-fall-2021
 zone_pivot_groups: keyword-quickstart
-ms.openlocfilehash: 8cf0da3ca3787580513d818a2c0ebca5a07829b6
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 6604bdfc155d3369c1e17a92d928cc46d7f36cf5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123541106"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056763"
 ---
 # <a name="get-started-with-custom-keyword"></a>Introducción a Palabra clave personalizada
 
@@ -55,7 +55,7 @@ Antes de que pueda usar una palabra clave personalizada, deberá crear una palab
 
 1. El portal creará pronunciaciones candidatas para la palabra clave. Para escuchar a cada candidato, haga clic en los botones de reproducción y desactive las pronunciaciones que sean incorrectas. Una vez que solo las pronunciaciones correctas estén marcadas como activas, haga clic en **Entrenar** para empezar a generar el modelo de palabra clave. 
 
-    ![Captura de pantalla que muestra dónde se eligen las pronunciaciones correctas.](media/custom-keyword/custom-kws-portal-choose-prons.png)
+    ![Captura de pantalla que muestra dónde elegir las pronunciaciones correctas](media/custom-keyword/custom-kws-portal-choose-prons.png)
 
 1. El modelo puede tardar hasta treinta minutos en generarse. La lista de palabras clave cambiará de **Procesando** a **Correcto** cuando el modelo esté completo. Luego puede descargar el archivo.
 

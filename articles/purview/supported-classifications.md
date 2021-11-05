@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: reference
 ms.date: 09/27/2021
-ms.openlocfilehash: edd43fc34a1b94c3d389670c7417ea9123d1586f
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: e3018a1b9d94ca1f750bf8d17b1ea6ba028ad07f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129214738"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056155"
 ---
 # <a name="supported-classifications-in-azure-purview"></a>Clasificaciones admitidas en Azure Purview
 
@@ -43,13 +43,16 @@ El filtro de Bloom de tipo Person se ha preparado con los dos conjuntos de datos
 - [Datos del censo de 2010de EE. UU. para los apellidos (entradas 162-K)](https://www.census.gov/topics/population/genealogy/data/2010_surnames.html)
 - [Nombres de bebé populares (de SSN), teniendo en cuenta todos los años de 1880 a 2019 (entradas 98-K)](https://www.ssa.gov/oact/babynames/limits.html)
 
+> [!NOTE]
+> Azure Purview clasifica las columnas solo cuando los datos contienen nombres y apellidos. Azure Purview no clasifica las columnas que contienen nombres completos.
+
 ## <a name="regex-classifications"></a>Clasificaciones RegEx
 
 ## <a name="aba-routing-number"></a>Número de ruta de ABA
 
 ### <a name="format"></a>Formato
 
-Nueve dígitos que pueden estar en un patrón con formato o sin formato
+Nueve dígitos que pueden estar en un patrón con formato o sin formato.
 
 ### <a name="pattern"></a>Patrón
 

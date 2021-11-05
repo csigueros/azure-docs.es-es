@@ -9,12 +9,12 @@ ms.subservice: v1
 ms.topic: conceptual
 ms.date: 10/22/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 31c8d885f5139f26cf2fb72ea0ceb0624c8945bf
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 44bbb2e9d5a599aad3e8f705dcc3ba4602e262ca
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130264377"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073289"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Supervisión y administración de canalizaciones de Azure Data Factory mediante Azure Portal y PowerShell
 > [!div class="op_single_selector"]
@@ -214,19 +214,22 @@ Si falla la ejecución de actividad en una canalización, el conjunto de datos g
    :::image type="content" source="./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png" alt-text="Hoja Detalles de ejecución de actividad con errores":::     
 
 #### <a name="use-powershell-to-debug-an-error"></a>Uso de PowerShell para depurar un error
+
 1. Inicie **PowerShell**.
-2. Ejecute el comando **Get-AzDataFactorySlice** para ver los segmentos y sus estados. Debería ver un segmento con el estado: **Error**.        
+2. Ejecute el comando **Get-AzDataFactorySlice** para ver los segmentos y sus estados. Debería ver un segmento con el estado: **Error**.
 
-    ```powershell   
+    ```powershell
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
-    ```   
-   Por ejemplo:
+    ```
 
-    ```powershell   
+    Por ejemplo:
+
+    ```powershell
     Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
     ```
 
    Reemplace **StartDateTime** por la hora de inicio de la canalización. 
+
 3. Ahora, ejecute el cmdlet **Get-AzDataFactoryRun** para obtener detalles sobre la ejecución de actividad para el segmento.
 
     ```powershell   
@@ -236,14 +239,15 @@ Si falla la ejecución de actividad en una canalización, el conjunto de datos g
 
     Por ejemplo:
 
-    ```powershell   
+    ```powershell
     Get-AzDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
     ```
 
     El valor de StartDateTime es la hora de inicio del segmento con error o con problemas que anotó en el paso anterior. La fecha y hora debe ir encerrada entre comillas dobles.
+
 4. Debería ver una salida con detalles sobre el error similar a la siguiente:
 
-    ```   
+    ```output
     Id                      : 841b77c9-d56c-48d1-99a3-8c16c3e77d39
     ResourceGroupName       : ADF
     DataFactoryName         : LogProcessingFactory3
@@ -265,6 +269,7 @@ Si falla la ejecución de actividad en una canalización, el conjunto de datos g
     PipelineName            : EnrichGameLogsPipeline
     Type                    :
     ```
+
 5. Puede ejecutar el cmdlet **Save-AzDataFactoryLog** con el valor de identificador que ve en la salida y descargar los archivos de registro mediante la opción **-DownloadLogsoption** del cmdlet.
 
     ```powershell

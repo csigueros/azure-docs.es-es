@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c84c121788d3af6279ac2ef1ef4c149f803bf308
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 081451297e35eb76ebd8d5eecf8ea1833e91007a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130245576"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131052358"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>¿Cuáles son las novedades de Azure Active Directory?
 
@@ -149,8 +149,6 @@ Ahora, puede automatizar la creación, actualización y eliminación de cuentas 
 Para más información acerca de cómo proteger mejor una organización mediante el aprovisionamiento automatizado de cuentas de usuario, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../manage-apps/user-provisioning.md).
  
 ---
- 
-[1585267](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1585267&triage=true&fullScreen=false&_a=edit)
 
 ### <a name="new-federated-apps-available-in-azure-ad-application-gallery---september-2021"></a>Nuevas aplicaciones federadas disponibles en la galería de aplicaciones de Azure AD, septiembre de 2021
 
@@ -165,7 +163,6 @@ En septiembre de 2021 se han agregado las siguientes 44 aplicaciones nuevas a
 También puede consultar la documentación de todas ellas aquí: https://aka.ms/AppsTutorial.
 
 Para incluir su aplicación en la galería de aplicaciones de Azure AD, lea los detalles aquí: https://aka.ms/AzureADAppRequest.
-
 
 ---
 
@@ -290,7 +287,7 @@ Para más información acerca de cómo proteger mejor una organización mediante
  
 ---
 
-### <a name="multi-factor-mfa-fraud-report--new-audit-event"></a>Informe de fraude multifactor (MFA): nuevo evento de auditoría
+### <a name="multifactor-mfa-fraud-report--new-audit-event"></a>Informe de fraude multifactor (MFA): nuevo evento de auditoría
 
 **Tipo:** Característica modificada  
 **Categoría del servicio:** MFA  
@@ -607,7 +604,7 @@ En el caso de los informes de usuarios de riesgo, inicios de sesión de riesgo y
 **Categoría del servicio:** Revisiones de acceso  
 **Funcionalidad del producto:** Identity Governance
  
-Ahora los propietarios de grupos de Azure AD pueden crear y administrar revisiones de acceso de Azure AD en sus grupos. Esta capacidad la pueden habilitar los administradores de inquilinos mediante la configuración de revisiones de acceso de Azure AD y está deshabilitada de manera predeterminada. [Más información](../governance/create-access-review.md#allow--group-owners-to-create-and-manage-access-reviews-preview).
+Ahora los propietarios de grupos de Azure AD pueden crear y administrar revisiones de acceso de Azure AD en sus grupos. Esta capacidad la pueden habilitar los administradores de inquilinos mediante la configuración de revisiones de acceso de Azure AD y está deshabilitada de manera predeterminada. [Más información](../governance/create-access-review.md#allow-group-owners-to-create-and-manage-access-reviews-of-their-groups-preview).
  
 ---
 

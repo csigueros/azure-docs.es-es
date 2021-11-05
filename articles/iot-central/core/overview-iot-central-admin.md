@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 4ff2ea374768189881c9e1ff28511bc403dd6306
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: b91a9c451c0160523029cd8688dfa9a91f433b37
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122015560"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131085931"
 ---
 # <a name="iot-central-administrator-guide"></a>Guía del administrador de IoT Central
 
@@ -22,6 +22,7 @@ Una aplicación IoT Central le permite supervisar y administrar millones de disp
 En IoT Central, un administrador:
 
 - Administra usuarios y roles en la aplicación.
+- Crea y administra organizaciones.
 - Administra la seguridad como la autenticación de dispositivos.
 - Configuración de la aplicación.
 - Actualiza las aplicaciones.
@@ -34,6 +35,12 @@ IoT Central usa un sistema de control de acceso basado en roles para administrar
 
 Para más información, consulte [Administrar usuarios y roles en la aplicación de IoT Central](howto-manage-users-roles.md).
 
+## <a name="organizations"></a>Las organizaciones
+
+Las organizaciones permiten definir una jerarquía que se usa para administrar qué usuarios pueden ver qué dispositivos de la aplicación de IoT Central. El rol del usuario determina sus permisos en los dispositivos que ven y las experiencias a las que pueden acceder.
+
+Para más información, consulte [Creación de una organización de Azure IoT Central](howto-create-organizations.md).
+
 ## <a name="application-security"></a>Seguridad de las aplicaciones
 
 Los dispositivos que se conectan a la aplicación IoT Central suelen usar certificados X.509 o firmas de acceso compartido (SAS) como credenciales. El administrador administra los certificados de grupo o las claves de las que se derivan las credenciales del dispositivo.
@@ -41,6 +48,12 @@ Los dispositivos que se conectan a la aplicación IoT Central suelen usar certif
 Para obtener más información, consulte [inscripción de grupos X.509](concepts-get-connected.md#x509-group-enrollment), [inscripción de grupos SAS](concepts-get-connected.md#sas-group-enrollment)y [Cómo poner en funcionamiento los certificados de dispositivo X.509](how-to-roll-x509-certificates.md).
 
 Además, el administrador puede crear y administrar los tokens de API que utiliza una aplicación cliente para autenticarse con la aplicación IoT Central. Las aplicaciones cliente usan la API de REST para interactuar con IoT Central.
+
+Para las exportaciones de datos, el administrador puede configurar [identidades administradas](../../active-directory/managed-identities-azure-resources/overview.md) para proteger las conexiones a los [destinos de exportación](howto-export-data.md). Para obtener más información, consulte:
+
+- [Configuración de una identidad administrada (Azure Portal)](howto-manage-iot-central-from-portal.md#configure-a-managed-identity)
+- [Configuración de una identidad administrada (API de REST)](howto-manage-iot-central-with-rest-api.md)
+- [Configuración de una identidad administrada (CLI de Azure)](howto-manage-iot-central-from-cli.md#configure-a-managed-identity)
 
 ## <a name="configure-an-application"></a>Configuración de una aplicación
 

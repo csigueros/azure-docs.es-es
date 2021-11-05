@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/02/2020
-ms.openlocfilehash: 7efbb49565027ed7b982d37e99a27e1d66c59bf5
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.date: 10/25/2021
+ms.openlocfilehash: 6a0b7494d5ce33527640c144faf8630d523ab941
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129728102"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131061378"
 ---
 # <a name="add-technical-details-for-a-saas-offer"></a>Adición de detalles técnicos de una oferta de SaaS
 
@@ -24,12 +24,12 @@ En este artículo se describe cómo especificar detalles técnicos que ayuden al
 
 ## <a name="technical-configuration"></a>Configuración técnica
 
-En la pestaña **Configuración técnica**, definirá los detalles técnicos que usa el marketplace comercial para comunicarse con la solución o la aplicación SaaS. 
+En la pestaña **Configuración técnica**, definirá los detalles técnicos que usa el marketplace comercial para comunicarse con la solución o la aplicación SaaS.
 
 - **URL de la página de aterrizaje** (obligatorio): defina la dirección URL del sitio de SaaS (por ejemplo: `https://contoso.com/signup`) en la que los clientes finales aterrizarán después de adquirir la oferta del marketplace comercial y de desencadenar el proceso de configuración a partir de la suscripción de SaaS recién creada.
 
   > [!IMPORTANT]
-  > La página de aterrizaje estará en funcionamiento de forma ininterrumpida. Esta es la única vía por la que se le notificarán nuevas compras de las ofertas de SaaS realizadas en el marketplace comercial o las solicitudes de configuración de una suscripción activa a una oferta.
+  > La página de aterrizaje estará en funcionamiento de forma ininterrumpida. Esta es la única vía por la que se le notificarán nuevas compras de las ofertas de SaaS realizadas en el marketplace comercial o las solicitudes de configuración de una suscripción activa a una oferta. No incluya el carácter de almohadilla (#) en la dirección URL de la página de aterrizaje. De lo contrario, los clientes no podrán acceder a la página de aterrizaje.
 
 - **Webhook de conexión** (obligatorio): para todos los eventos asincrónicos que Microsoft necesita enviarle (por ejemplo, si la suscripción a SaaS se ha cancelado), se le exige que [proporcione una dirección URL de webhook de conexión](./partner-center-portal/pc-saas-fulfillment-api-v2.md#implementing-a-webhook-on-the-saas-service). Se llamará a esta dirección URL para notificarle el evento.
 

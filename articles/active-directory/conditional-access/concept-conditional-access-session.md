@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/13/2021
+ms.date: 10/25/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ad562e46b88772cd38e3e3d39920e7fdcf29d23
-ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.openlocfilehash: e33f2c7393a9c7b91dcd6fd9188bd9a89f190215
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130137330"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131050737"
 ---
 # <a name="conditional-access-session"></a>Acceso condicional: Sesión
 
@@ -52,7 +52,7 @@ Para obtener más información, consulte el artículo [Implementación del Contr
 
 La frecuencia de inicio de sesión define el período de tiempo antes de que se pida a un usuario que vuelva a iniciar sesión cuando intenta acceder a un recurso.
 
-La configuración de la frecuencia de inicio de sesión funciona con aplicaciones que han implementado los protocolos OAUTH2 o OIDC de acuerdo con los estándares. La mayoría de aplicaciones nativas de Microsoft para Windows, Mac y dispositivos móviles que incluyen las aplicaciones web siguientes cumplen con la configuración.
+La configuración de la frecuencia de inicio de sesión funciona con aplicaciones que han implementado los protocolos OAUTH2 o OIDC de acuerdo con los estándares. La mayoría de aplicaciones nativas de Microsoft para Windows, Mac y dispositivos móviles que incluyen las aplicaciones web siguientes siguen la configuración.
 
 - Word, Excel y PowerPoint Online
 - OneNote Online
@@ -71,6 +71,23 @@ Para más información, consulte el artículo [Configuración de la administraci
 Una sesión persistente del explorador permite a los usuarios permanecer conectados después de cerrar y volver a abrir la ventana del explorador.
 
 Para más información, consulte el artículo [Configuración de la administración de las sesiones de autenticación con el acceso condicional](howto-conditional-access-session-lifetime.md#persistence-of-browsing-sessions).
+
+## <a name="customize-continuous-access-evaluation"></a>Personalización de la evaluación continua de acceso
+
+[La evaluación continua de acceso](concept-continuous-access-evaluation.md) se habilita automáticamente como parte de las directivas de acceso condicional de una organización. Para las organizaciones que deseen deshabilitar o aplicar estrictamente la evaluación continua de acceso, esta configuración es ahora una opción en el control de sesión dentro del acceso condicional. El ámbito de las directivas de evaluación continua de acceso pueden ser todos los usuarios o usuarios y grupos específicos. Los administradores pueden hacer las siguientes selecciones al crear una nueva directiva o al editar una directiva de acceso condicional existente.
+
+- **Deshabilitar** se logra cuando están seleccionadas **todas las aplicaciones en la nube**, ninguna condición está seleccionada y **Deshabilitar** está seleccionada en **Session** (Sesión) > **Customize continuous access evaluation** (Personalizar evaluación continua de acceso) en una directiva de acceso condicional.
+- **El cumplimiento estricto** significa que cualquier evento y directiva críticos se aplicará en tiempo real. Todos los servicios compatibles con CAE siempre obtienen tokens CAE, independientemente de lo que el cliente o el usuario pueda solicitar o hacer. Hay dos escenarios en los que CAE no entra en juego cuando el modo de cumplimiento estricto está activado:
+   - Los clientes no compatibles con CAE no deben obtener un token normal para los servicios compatibles con CAE.
+   - Rechácelo cuando la dirección IP que el proveedor de recursos ve no se encuentra en el intervalo permitido.
+
+:::image type="content" source="media/concept-conditional-access-session/continuous-access-evaluation-session-controls.png" alt-text="Configuración de CAE en una nueva directiva de acceso condicional en Azure Portal." lightbox="media/concept-conditional-access-session/continuous-access-evaluation-session-controls.png":::
+
+## <a name="disable-resilience-defaults-preview"></a>Deshabilitación de valores predeterminados de resistencia (versión preliminar)
+
+Durante una interrupción, Azure AD ampliará el acceso a las sesiones existentes y aplicará directivas de acceso condicional. Si no se puede evaluar una directiva, la configuración de resistencia determina el acceso. 
+
+Si los valores predeterminados de resistencia están deshabilitados, se deniega el acceso una vez que expiran las sesiones existentes. Para obtener más información, vea el artículo [Acceso condicional: valores predeterminados de resistencia](resilience-defaults.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,12 +10,12 @@ ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: d9b6695824b5fc19d2cd2ee40aec929a372750f2
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: ce62577dd73d6c6318c5358e4cff3ada4f4bc0a5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124812038"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068874"
 ---
 # <a name="linked-services-in-azure-data-factory-and-azure-synapse-analytics"></a>Servicios vinculados en Azure Data Factory y Azure Synapse Analytics
 
@@ -109,7 +109,9 @@ Consulte [Entornos de proceso compatibles](compute-linked-services.md) para obte
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el siguiente tutorial para obtener instrucciones paso a paso sobre cómo crear canalizaciones y conjuntos de datos con una de estas herramientas o SDK.
+- [Aprenda a usar credenciales de una identidad administrada asignada por el usuario en un servicio vinculado](credentials.md).
+
+Vea los siguientes tutoriales para obtener instrucciones paso a paso sobre cómo crear canalizaciones y conjuntos de datos con una de estas herramientas o SDK.
 
 - [Inicio rápido:Crear una factoría de datos mediante .NET](quickstart-create-data-factory-dot-net.md)
 - [Inicio rápido: Crear una factoría de datos mediante PowerShell](quickstart-create-data-factory-powershell.md)

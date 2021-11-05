@@ -4,21 +4,17 @@ description: Obtenga información sobre cuáles son las reglas de red de salida 
 author: christopheranderson
 ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
-ms.date: 05/21/2021
+ms.date: 11/02/2021
 ms.author: chrande
-ms.openlocfilehash: fc96e4a09a24348ab8344733c8059925af209b39
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 6d52f1c72765b3e7d3b7dd171c53c84e85138a20
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124767154"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131005240"
 ---
 # <a name="required-outbound-network-rules"></a>Reglas de red de salida necesarias
-
-> [!IMPORTANT]
-> Azure Managed Instance for Apache Cassandra se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 El servicio Azure Managed Instance for Apache Cassandra requiere ciertas reglas de red para administrar correctamente el servicio. Asegúrese de que tiene expuestas las reglas adecuadas para mantener el servicio seguro y evitar problemas operativos.
 
@@ -33,13 +29,21 @@ Si usa Azure Firewall para restringir el acceso saliente, se recomienda encareci
 | EventHub | HTTPS | 443 | Necesario para reenviar registros a Azure. |
 | AzureMonitor | HTTPS | 443 | Necesario para reenviar métricas a Azure. |
 | AzureActiveDirectory| HTTPS | 443 | Obligatorio para autenticación de Azure Active Directory.|
-| GuestandHybridManagement | HTTPS | 443 |  Necesario para recopilar información sobre los nodos de Cassandra y administrarlos (por ejemplo, reiniciar). |
+| AzureResourceManager| HTTPS | 443 | Necesario para recopilar información sobre los nodos de Cassandra y administrarlos (por ejemplo, reiniciar).|
+| AzureFrontDoor.Firstparty| HTTPS | 443 | Necesario para las operaciones de registro.|
+| GuestAndHybridManagement | HTTPS | 443 |  Necesario para recopilar información sobre los nodos de Cassandra y administrarlos (por ejemplo, reiniciar). |
 | ApiManagement  | HTTPS | 443 | Necesario para recopilar información sobre los nodos de Cassandra y administrarlos (por ejemplo, reiniciar). |
-| Almacenamiento.\<Region\>  | HTTPS | 443 | Necesario para proteger la comunicación entre los nodos y Azure Storage, para la comunicación y configuración del plano de control. **Necesita una entrada para cada región en la que haya implementado un centro de datos.** |
+
+> [!NOTE]
+> Además de lo anterior, también deberá agregar los siguientes prefijos de dirección, ya que no existe una etiqueta de servicio para el servicio correspondiente: 104.40.0.0/13 13.104.0.0/14 40.64.0.0/10
+
+## <a name="user-defined-routes"></a>Rutas definidas por el usuario
+
+Si usa un firewall de terceros para restringir el acceso saliente, se recomienda encarecidamente configurar [rutas definidas por el usuario (UDR)](../virtual-network/virtual-networks-udr-overview.md#user-defined) para prefijos de dirección de Microsoft, en lugar de intentar permitir la conectividad a través de su propio firewall. Consulte [script de Bash](https://github.com/Azure-Samples/cassandra-managed-instance-tools/blob/main/configureUDR.sh) de muestra para agregar los prefijos de dirección necesarios en rutas definidas por el usuario.
 
 ## <a name="azure-global-required-network-rules"></a>Reglas de red obligatorias globales de Azure
 
-Si no usa Azure Firewall, las reglas de red y las dependencias de direcciones IP necesarias son:
+Las reglas de red obligatorias y las dependencias de dirección IP son las siguientes:
 
 | Punto de conexión de destino                                                             | Protocolo | Port    | Uso  |
 |----------------------------------------------------------------------------------|----------|---------|------|

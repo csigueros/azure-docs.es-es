@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeb1d3bac4cb1ca6bc5849ba743c83922f0283cc
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: dcd5f888622b1ce054f5fbb30db7b668f6501c70
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128620984"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049907"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referencia de la configuración de movilidad de Windows 10
 
@@ -102,7 +102,7 @@ Las configuraciones que no se movilizan o sincronizan no pertenecerán a ningún
 | **Explorador Microsoft Edge**: direcciones URL escritas <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
 | **Explorador Microsoft Edge**: configuración de la barra de favoritos <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
 | **Explorador Microsoft Edge**: mostrar el botón inicio <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Explorador Microsoft Edge**: bloquear elementos emergentes <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Explorador Microsoft Edge**: bloquear ventanas emergentes <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
 | **Explorador Microsoft Edge**: preguntarme qué hacer en cada descarga <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
 | **Explorador Microsoft Edge**: ofrecer guardar contraseñas <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
 | **Explorador Microsoft Edge**: enviar solicitudes de no seguimiento <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |

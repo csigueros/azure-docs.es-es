@@ -1,17 +1,18 @@
 ---
-title: Uso de la extensión de Visual Studio Code de Azure Video Analyzer
-description: En este artículo de referencia se explica cómo usar los distintos elementos de las funcionalidades en la extensión de Visual Studio Code de Azure Video Analyzer.
+title: Extensión de Visual Studio Code para Azure Video Analyzer
+description: En este artículo de referencia se explica cómo usar los distintos elementos de las funcionalidades en la extensión de Visual Studio Code para Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: reference
-ms.date: 06/01/2021
-ms.openlocfilehash: cec3b6549b854cf321390b7598d36b5a4b12378b
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.date: 11/01/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 0e69938b340d88a4e0002aaf9155d42ad0899189
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114604332"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073650"
 ---
-# <a name="use-azure-video-analyzer-visual-studio-code-extension"></a>Uso de la extensión de Visual Studio Code de Azure Video Analyzer
+# <a name="visual-studio-code-extension-for-azure-video-analyzer"></a>Extensión de Visual Studio Code para Azure Video Analyzer
 
 Azure Video Analyzer es una plataforma para facilitar la creación de programas de análisis de vídeo y la extensión de Visual Studio Code asociada es una herramienta para facilitar el aprendizaje de esa plataforma.  Este artículo es una referencia a los distintos elementos de funcionalidad que ofrece la extensión.  Trata los conceptos básicos de:
 
@@ -19,7 +20,7 @@ Azure Video Analyzer es una plataforma para facilitar la creación de programas 
 * Canalizaciones en directo: creación, activación, desactivación, eliminación y visualización del archivo JSON
 * Edición de una topología de canalización: módulos, parámetros, variables del sistema, conexiones y validación
 
-Si no ha configurado la extensión para conectarse al dispositivo perimetral, siga el inicio rápido que utiliza la [ extensión de Visual Studio Code de Azure Video Analyzer](./create-pipeline-vs-code-extension.md).
+Si no ha configurado la extensión para conectarse al dispositivo perimetral, siga os pasos de [Uso de la extensión de Visual Studio Code para Azure Video Analyzer](./edge/use-visual-studio-code-extension.md).
 
 ## <a name="managing-pipelines-topology"></a>Administración de topologías de canalizaciones
 
@@ -47,7 +48,7 @@ Si desea ver el código JSON subyacente de una canalización en directo existent
 
 ## <a name="editing-a-topology"></a>Edición de una topología 
 
-Las topologías de canalización se construyen a partir de una variedad de piezas.  Puede obtener información sobre estas piezas en el documento de concepto [Canalizaciones](./pipeline.md). Esta sección trata sobre las partes de la interfaz que le ayudan a crear o editar una topología.
+Las topologías de canalización se construyen a partir de una variedad de piezas. Puede obtener información sobre estas piezas en el documento de concepto [Canalizaciones](pipeline.md). Esta sección trata sobre las partes de la interfaz que le ayudan a crear o editar una topología.
 
 ### <a name="modules"></a>Módulos
 
@@ -81,4 +82,4 @@ Al crear una serie de canalizaciones en directo, es probable que haya casos en l
 
 Al crear una topología, deberá conectar los distintos módulos.  Esto se lleva a cabo con conexiones.  Desde el círculo del borde de un módulo, arrastre hasta el círculo del módulo siguiente al que desea que fluyan los datos.  Esto genera una conexión.
 
-De manera predeterminada, las conexiones envían todos los datos de un módulo a otro.  Si solo desea enviar determinados tipos de datos, puede hacer clic con el botón izquierdo en la conexión y editar los tipos de salida que se envían.  Los tipos de datos seleccionables incluyen vídeo, audio y aplicación.
+De manera predeterminada, las conexiones envían los datos de vídeo de un módulo a otro. Si solo quiere enviar datos de audio o datos de aplicación, puede hacer clic en la conexión y editar los tipos de salida. Los tipos de datos seleccionables incluyen vídeo, audio y aplicación. SI no selecciona ningún tipo de salida, se enviarán todos los datos aplicables desde el nodo remitente.

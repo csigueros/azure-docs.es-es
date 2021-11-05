@@ -9,12 +9,12 @@ author: nabhishek
 ms.author: abnarain
 ms.date: 09/09/2021
 ms.custom: devx-track-azurepowershell, synapse
-ms.openlocfilehash: c6e2491c5c57ca8ebbde287f58fad6d6429b5ee4
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 2b52a22123a6ac0e4a8405f2413b11b6367eeff0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129236735"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131070933"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory-and-synapse-pipelines"></a>Entornos de proceso compatibles con canalizaciones de Azure Data Factory y Synapse
 
@@ -28,7 +28,7 @@ En la tabla siguiente se proporciona una lista de entornos de proceso admitidos 
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [Clúster de HDInsight a petición](#azure-hdinsight-on-demand-linked-service) o [clúster HDInsight propio](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [Personalizada](transform-data-using-dotnet-custom-activity.md)     |
-| [ML Studio (clásico)](#azure-machine-learning-studio-classic-linked-service) | [Actividades de ML Studio (clásico): ejecución de lotes y recurso de actualización](transform-data-using-machine-learning.md) |
+| [ML Studio (clásico)](#machine-learning-studio-classic-linked-service) | [Actividades de ML Studio (clásico): ejecución de lotes y recurso de actualización](transform-data-using-machine-learning.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Ejecución de canalización de Azure Machine Learning](transform-data-machine-learning-service.md) |
 | [Análisis con Azure Data Lake](#azure-data-lake-analytics-linked-service) | [U-SQL de análisis con Data Lake](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [Azure Synapse Analytics](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Procedimiento almacenado](transform-data-using-stored-procedure.md) |
@@ -369,8 +369,8 @@ Consulte los artículos siguientes si no está familiarizado con el servicio Azu
 | linkedServiceName | Nombre del servicio vinculado de Azure Storage asociado a este servicio vinculado de Azure Batch. Este servicio vinculado se usa para los archivos de almacenamiento provisional necesarios para ejecutar la actividad. | Sí      |
 | connectVia        | Integration Runtime que se utilizará para enviar las actividades a este servicio vinculado. Puede usar Azure Integration Runtime o Integration Runtime autohospedado. Si no se especifica, se usará Azure Integration Runtime. | No       |
 
-## <a name="azure-machine-learning-studio-classic-linked-service"></a>Servicio vinculado de Azure Machine Learning Studio (clásico)
-Un servicio vinculado de Azure Machine Learning Studio (clásico) se crea para registrar un punto de conexión de puntuación por lotes de Machine Learning Studio (clásico) en una factoría de datos o un área de trabajo de Synapse.
+## <a name="machine-learning-studio-classic-linked-service"></a>Servicio vinculado de Machine Learning Studio (clásico)
+Un servicio vinculado de Machine Learning Studio (clásico) se crea para registrar un punto de conexión de puntuación por lotes de Machine Learning Studio (clásico) en una factoría de datos o un área de trabajo de Synapse.
 
 ### <a name="example"></a>Ejemplo
 

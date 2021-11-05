@@ -9,13 +9,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/18/2018
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1d0a46016c054e698f144b2eb058f8019f31183c
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.custom: devx-track-azurepowershell, ignite-fall-2021
+ms.openlocfilehash: 79568dc04d8c5bce95eaa15d207f7caecfff2f5d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110696001"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080828"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Guía de inicio rápido de PowerShell en Azure Cloud Shell
 
@@ -112,11 +112,11 @@ Puede usar `Enter-AzVM` para iniciar sesión de manera interactiva en una máqui
   PS Azure:\> Enter-AzVM -Name MyVM1 -ResourceGroupName MyResourceGroup -Credential (Get-Credential)
   ```
 
-También puede navegar primero al directorio `VirtualMachines` y ejecute `Enter-AzVM` de la siguiente manera
+También puede navegar primero al directorio `VirtualMachines` y ejecutar `Enter-AzVM` de la siguiente manera:
 
-  ```azurepowershell-interactive
- PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzVM -Credential (Get-Credential)
- ```
+```azurepowershell-interactive
+PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzVM -Credential (Get-Credential)
+```
 
 ### <a name="discover-webapps"></a>Detección de WebApps
 
@@ -242,9 +242,9 @@ Para clonar un repositorio Git en Cloud Shell, debe crear un [token de acceso pe
 
 Escriba `exit` para finalizar la sesión.
 
-[bashqs]:quickstart.md
-[gallery]:https://www.powershellgallery.com/
-[customex]:https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript
+[bashqs]: quickstart.md
+[gallery]: https://www.powershellgallery.com/
+[customex]: /azure/virtual-machines/extensions/custom-script-windows
 [profile]: /powershell/module/microsoft.powershell.core/about/about_profiles
 [azmount]: ../storage/files/storage-how-to-use-files-windows.md
 [githubtoken]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/

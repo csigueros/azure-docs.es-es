@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
-  title: 'Preguntas frecuentes sobre Azure Security Center: preguntas sobre permisos'
-  description: Estas preguntas más frecuentes responden a cuestiones sobre permisos de Azure Security Center, un producto que ayuda a evitar, detectar y responder a amenazas.
+  title: 'Preguntas más frecuentes sobre Microsoft Defender for Cloud: preguntas sobre permisos'
+  description: Estas preguntas más frecuentes responden a cuestiones sobre permisos de Microsoft Defender for Cloud, un producto que ayuda a evitar, detectar y responder a amenazas.
   services: security-center
   documentationcenter: na
   author: memildin
@@ -14,29 +14,29 @@ metadata:
   ms.workload: na
   ms.date: 02/25/2020
   ms.author: memildin
-  ms.openlocfilehash: ddd0b31834f6feda543e1f2c141155ea6754a37c
-  ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+  ms.openlocfilehash: ca80ae2bfeeb896baca297e88f95298c1b54c027
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/07/2021
-  ms.locfileid: "111907931"
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131084131"
 title: Permisos
 summary: ''
 sections:
 - name: Omitido
   questions:
-  - question: ¿Cómo funcionan los permisos en Azure Security Center?
+  - question: ¿Cómo funcionan los permisos en Microsoft Defender for Cloud?
     answer: >
-      Azure Security Center usa el [control de acceso basado en rol de Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md), que proporciona [roles integrados](../role-based-access-control/built-in-roles.md) que se pueden asignar a usuarios, grupos y servicios en Azure.
+      Microsoft Defender for Cloud usa el [control de acceso basado en rol de Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md), que proporciona [roles integrados](../role-based-access-control/built-in-roles.md) que se pueden asignar a usuarios, grupos y servicios en Azure.
 
 
-      Security Center evalúa la configuración de los recursos para identificar problemas de seguridad y vulnerabilidades. En Security Center, solo se muestra información relacionada con un recurso cuando tiene asignado el rol de Propietario, Colaborador o Lector a la suscripción o grupo de recursos al que pertenece un recurso.
+      Defender for Cloud evalúa la configuración de los recursos para identificar problemas de seguridad y vulnerabilidades. En Defender for Cloud, solo se muestra información relacionada con un recurso cuando tiene asignado el rol de Propietario, Colaborador o Lector a la suscripción o grupo de recursos al que pertenece un recurso.
 
 
-      Consulte [Permisos en Azure Security Center](security-center-permissions.md) para más información sobre los roles y las acciones permitidas en Security Center.
+      Consulte [Permisos en Microsoft Defender for Cloud](permissions.md) para obtener más información sobre los roles y las acciones permitidas en Defender for Cloud.
   - question: ¿Quién puede modificar una directiva de seguridad?
     answer: >-
       Para modificar una directiva de seguridad, debe ser administrador de seguridad o propietario/colaborador de esa suscripción.
 
 
-      Para obtener información sobre cómo configurar una directiva de seguridad, consulte [Establecimiento de directivas de seguridad en el Centro de seguridad de Azure](tutorial-security-policy.md).
+      Para obtener información sobre cómo configurar una directiva de seguridad, consulte [Establecimiento de directivas de seguridad en Microsoft Defender for Cloud](tutorial-security-policy.md).

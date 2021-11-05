@@ -6,23 +6,23 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 07/13/2021
+ms.date: 08/30/2021
 ms.author: cherylmc
-ms.openlocfilehash: 8a2c35f2ef4dafe9024deab1c26116c0ca20e01e
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: f88ab798618608b8dbb0e27fb772a82a5199a889
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733311"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080866"
 ---
-# <a name="upgrade-a-sku-preview"></a>Actualización de una SKU (versión preliminar)
+# <a name="upgrade-a-sku"></a>Actualización de un SKU
 
-Este artículo le ayuda a actualizar del nivel básico al estándar (SKU). Una vez que actualice, no puede volver a la SKU básica sin eliminar y volver a configurar Bastion. En la versión preliminar, esta opción solo se puede configurar en Azure Portal. Para más información sobre el escalado de host, consulte [Valores de configuración: SKU](configuration-settings.md#skus). 
+Este artículo le ayuda a actualizar del nivel básico al estándar (SKU). Una vez que actualice, no puede volver a la SKU básica sin eliminar y volver a configurar Bastion. Actualmente, esta opción solo se puede configurar en Azure Portal. Para más información sobre el escalado de host, consulte [Valores de configuración: SKU](configuration-settings.md#skus). 
 
 ## <a name="configuration-steps"></a>Pasos de configuración
 
-[!INCLUDE [Azure Bastion preview portal](../../includes/bastion-preview-portal-note.md)]
-
+1. Inicie sesión en [Azure Portal](https://ms.portal.azure.com).
 1. En Azure Portal, vaya al host bastión.
 1. En la página **Configuración**, en **Nivel**, seleccione **Estándar** en el menú desplegable.
 

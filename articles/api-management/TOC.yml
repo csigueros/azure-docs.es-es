@@ -110,6 +110,8 @@
           href: restify-soap-api.md
         - name: Importación de WebSocket API
           href: websocket-api.md
+        - name: Importación de GraphQL API
+          href: graphql-api.md
         - name: Importación de una instancia de Web App
           href: import-app-service-as-api.md
         - name: Importación de una instancia de Function App
@@ -290,6 +292,8 @@
           href: api-management-dapr-policies.md
         - name: Directivas de validación
           href: validation-policies.md
+        - name: Directivas de validación de GraphQL
+          href: graphql-validation-policies.md
     - name: Administración en producción
       items:
         - name: Exportación de API a Power Platform

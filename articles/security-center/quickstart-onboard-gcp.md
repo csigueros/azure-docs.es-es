@@ -1,35 +1,38 @@
 ---
-title: Conexión de la cuentas de GCP a Azure Security Center
-description: Supervisión de los recursos de GCP desde Azure Security Center
+title: Conexión de la cuenta de GCP a Microsoft Defender for Cloud
+description: Supervisión de los recursos de GCP desde Microsoft Defender for Cloud
 author: memildin
 ms.author: memildin
 ms.date: 02/08/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 087a9d39cf3e5d361a8a2ea33f330aef727ea7b9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 1b7d5e5a418fd776197cdbc6108fc4871668292c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741982"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131064817"
 ---
-#  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Conexión de las cuentas de GCP a Azure Security Center
+#  <a name="connect-your-gcp-accounts-to-microsoft-defender-for-cloud"></a>Conexión de cuentas de GCP a Microsoft Defender for Cloud
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Las cargas de trabajo de nube abarcan normalmente varias plataformas de nube, por lo que los servicios de seguridad de la nube deben hacer lo mismo.
 
-Azure Security Center protege las cargas de trabajo de Azure, Amazon Web Services (AWS) y Google Cloud Platform (GCP).
+Microsoft Defender for Cloud protege las cargas de trabajo de Azure, Amazon Web Services (AWS) y Google Cloud Platform (GCP).
 
-Al incorporar las cuentas de GCP a Security Center, se integran el centro de comandos de seguridad GCP y Azure Security Center. Por lo tanto, Security Center ofrece visibilidad y protección en ambos entornos de nube para proporcionar:
+La incorporación de las cuentas de GCP a Defender for Cloud integra el centro de comandos de seguridad de GCP y Microsoft Defender for Cloud. Por lo tanto, Defender for Cloud ofrece visibilidad y protección en ambos entornos de nube para proporcionar:
 
 - Detección de errores de configuración de seguridad
-- Una sola vista que muestra recomendaciones de Security Center y resultados del centro de comandos de seguridad GCP
-- Incorporación de los recursos de GCP a los cálculos de puntuación segura de Security Center
-- Integración de recomendaciones del centro de comandos de seguridad GCP basadas en el estándar CIS en el panel de cumplimiento de normativas de Security Center
+- Una sola vista que muestra recomendaciones de Defender for Cloud y resultados del centro de comandos de seguridad de GCP
+- Incorporación de los recursos de GCP a los cálculos de puntuación segura de Cloud
+- Integración de recomendaciones del centro de comandos de seguridad de GCP basadas en el estándar CIS en el panel de cumplimiento de normativas de Defender for Cloud
 
-En la captura de pantalla siguiente puede ver que se muestran proyectos de GCP en el panel de información general de Security Center.
+En la captura de pantalla siguiente puede ver que se muestran proyectos de GCP en el panel de información general de Defender for Cloud.
 
-:::image type="content" source="./media/quickstart-onboard-gcp/gcp-account-in-overview.png" alt-text="3 proyectos de GCP mostrados en el panel de información general de Security Center" lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
+:::image type="content" source="./media/quickstart-onboard-gcp/gcp-account-in-overview.png" alt-text="Tres proyectos de GCP enumerados en el panel de información general de Defender for Cloud" lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
 
 
 ## <a name="availability"></a>Disponibilidad
@@ -37,21 +40,21 @@ En la captura de pantalla siguiente puede ver que se muestran proyectos de GCP e
 |Aspecto|Detalles|
 |----|:----|
 |Estado de la versión:|Disponibilidad general (GA)|
-|Precios:|Requiere [Azure Defender para servidores](defender-for-servers-introduction.md).|
+|Precios:|Requiere [Microsoft Defender para servidores](defender-for-servers-introduction.md).|
 |Roles y permisos necesarios:|**propietario** o **colaborador** en la suscripción de Azure en cuestión|
 |Nubes:|:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/no-icon.png"::: Nacionales o soberanas (Azure Government y Azure China 21Vianet)|
 |||
 
 ## <a name="connect-your-gcp-account"></a>Conexión de una cuenta de GCP
 
-Cree un conector para cada organización que desee supervisar desde Security Center.
+Cree un conector para cada organización que desee supervisar desde Defender for Cloud.
 
 Al conectar las cuentas de GCP a suscripciones de Azure específicas, tenga en cuenta la [jerarquía de recursos de Google Cloud](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#resource-hierarchy-detail) y estas directrices:
 
-- Puede conectar las cuentas de GCP a ASC en el nivel de la *organización*.
+- Puede conectar las cuentas de GCP a Defender for Cloud en el nivel de la *organización*.
 - Puede conectar varias organizaciones a una suscripción de Azure.
 - Puede conectar varias organizaciones a varias suscripciones de Azure.
-- Al conectar una organización, se agregan todos los *proyectos* de esa organización a Security Center.
+- Al conectar una organización, todos los *proyectos* de esa organización se agregan a Defender for Cloud.
 
 Siga los pasos que se indican a continuación para crear su conector de nube de GCP. 
 
@@ -70,7 +73,7 @@ La primera vez que se habilita el análisis del estado de seguridad, los datos p
 
 ### <a name="step-2-enable-gcp-security-command-center-api"></a>Paso 2. Habilitar la API del centro de comandos de seguridad GCP
 
-1. En la **biblioteca de API de la consola en la nube** de Google, seleccione los proyectos de la organización que desea conectar a Azure Security Center.
+1. En la **biblioteca de API de la consola en la nube** de Google, seleccione los proyectos de la organización que desea conectar a Microsoft Defender for Cloud.
 1. En la biblioteca de API, busque y seleccione la **API del centro de comandos de seguridad**.
 1. En la página de la API, seleccione **HABILITAR**.
 
@@ -87,14 +90,14 @@ Obtenga más información sobre la [API del centro de comandos de seguridad](htt
 1. En el **menú de navegación**, en las opciones **IAM y administrador**, seleccione **Cuentas de servicio**.
 1. Seleccione **CREACIÓN DE LA CUENTA DE SERVICIO**.
 1. Especifique un nombre de cuenta y seleccione **Crear**.
-1. Especifique el **Rol** como **Visor del administrador de Security Center** y seleccione **Continuar**.
+1. Especifique el **rol** como **Visor del administrador de Defender for Cloud** y seleccione **Continuar**.
 1. La sección sobre la **concesión a los usuarios de acceso a esta cuenta de servicio** es opcional. Seleccione **Listo**.
 1. Copie el **valor Correo electrónico** de la cuenta de servicio creada y guárdelo para usarlo posteriormente.
 1. En el **menú de navegación**, en las opciones **IAM y administrador**, seleccione **IAM**.
     1. Cambie al nivel de organización.
     1. Seleccione **AGREGAR**.
     1. En el campo **Nuevos miembros**, pegue el **valor Correo electrónico** que copió anteriormente.
-    1. Especifique el rol como **Visor del administrador de Security Center** y, a continuación, seleccione **Guardar**.
+    1. Especifique el rol como **Visor del administrador de Defender for Cloud** y, a continuación, seleccione **Guardar**.
         :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="Establecimiento de los permisos de GCP pertinentes.":::
 
 
@@ -107,8 +110,8 @@ Obtenga más información sobre la [API del centro de comandos de seguridad](htt
 1. Guarde este archivo JSON para su uso posterior.
 
 
-### <a name="step-5-connect-gcp-to-security-center"></a>Paso 5. Conectar GCP a Security Center
-1. En el menú de Security Center, seleccione **Conectores de nube**.
+### <a name="step-5-connect-gcp-to-defender-for-cloud"></a>Paso 5. Conectar GCP a Defender for Cloud
+1. En el menú de Defender for Cloud, seleccione **Conectores de nube**.
 1. Seleccione Agregar cuenta de GCP.
 1. En la página Incorporación, haga lo siguiente y, a continuación, seleccione **Siguiente**.
     1. Valide la suscripción elegida.
@@ -121,35 +124,35 @@ Obtenga más información sobre la [API del centro de comandos de seguridad](htt
 
 Cuando el conector se ha creado correctamente y el centro de comandos de seguridad GCP se ha configurado correctamente:
 
-- El estándar CIS de GCP se mostrará en el panel de cumplimiento de normativas de Security Center.
-- Las recomendaciones de seguridad para sus recursos de GCP aparecerán en el portal de Security Center y en el panel de cumplimiento de normativas entre 5 y 10 minutos después de que finalice la incorporación:   :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resources-in-recommendations.png" alt-text="Recursos y recomendaciones de GCP en la página de recomendaciones de Security Center":::
+- El estándar CIS de GCP se mostrará en el panel de cumplimiento de normativas de Defender for Cloud.
+- Las recomendaciones de seguridad para los recursos de GCP aparecerán en el portal de Defender for Cloud y en el panel de cumplimiento normativo de 5 a 10 minutos después de que se complete la incorporación: :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resources-in-recommendations.png" alt-text="Recursos y recomendaciones de GCP en la página de recomendaciones de Defender for Cloud":::.
 
 
 ## <a name="monitoring-your-gcp-resources"></a>Supervisión de los recursos de GCP
 
-Como se mostró anteriormente, en la página de recomendaciones de seguridad de Azure Security Center aparecen los recursos de GCP junto con los recursos de Azure y AWS, lo que ofrece una verdadera vista multinube.
+Como se mostró anteriormente, en la página de recomendaciones de seguridad de Microsoft Defender for Cloud aparecen los recursos de GCP junto con los recursos de Azure y AWS, lo que ofrece una verdadera vista multinube.
 
-Para ver todas las recomendaciones activas de los recursos por tipo de recurso, use la página de inventario de recursos de Security Center y filtre por el tipo de recurso de GCP que le interesa:
+Para ver todas las recomendaciones activas de los recursos por tipo de recurso, use la página de inventario de recursos de Defender for Cloud y filtre por el tipo de recurso de GCP que le interesa:
 
 :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="Filtro de tipo de recurso de la página de inventario de recursos que muestra las opciones de GCP"::: 
 
 
-## <a name="faq---connecting-gcp-accounts-to-azure-security-center"></a>Preguntas más frecuentes: conexión de las cuentas de GCP a Azure Security Center
+## <a name="faq---connecting-gcp-accounts-to-microsoft-defender-for-cloud"></a>Preguntas más frecuentes: Conexión de cuentas de GCP a Microsoft Defender for Cloud
 
-### <a name="can-i-connect-multiple-gcp-organizations-to-security-center"></a>¿Puedo conectar varias organizaciones de GCP a Security Center?
-Sí. El conector GCP de Security Center conecta los recursos de Google Cloud al nivel de *organización*. 
+### <a name="can-i-connect-multiple-gcp-organizations-to-defender-for-cloud"></a>¿Puedo conectar varias organizaciones de GCP a Defender for Cloud?
+Sí. El conector GCP de Defender for Cloud conecta los recursos de Google Cloud al nivel de *organización*. 
 
-Cree un conector para cada organización de GCP que desee supervisar desde Security Center. Al conectar una organización, se agregan todos los proyectos de esa organización a Security Center.
+Cree un conector para cada organización de GCP que desee supervisar desde Defender for Cloud. Al conectar una organización, todos los proyectos de esa organización se agregan a Defender for Cloud.
 
 Aprenda sobre la jerarquía de recursos de Google Cloud en los [documentos en línea de Google](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy).
 
 
-### <a name="is-there-an-api-for-connecting-my-gcp-resources-to-security-center"></a>¿Hay una API para conectar mis recursos de GCP a Security Center?
-Sí. Para crear, editar o eliminar conectores en la nube en Security Center con una API REST, consulte los detalles de [Connectors API](/rest/api/securitycenter/connectors).
+### <a name="is-there-an-api-for-connecting-my-gcp-resources-to-defender-for-cloud"></a>¿Hay una API para conectar mis recursos de GCP a Defender for Cloud?
+Sí. Para crear, editar o eliminar conectores de nube de Defender for Cloud con una API REST, consulte los detalles de la [API de conectores](/rest/api/securitycenter/connectors).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-La conexión de la cuenta de GCP forma parte de la experiencia multinube disponible en Azure Security Center. Para información relacionada, consulte la página siguiente:
+La conexión de la cuenta de GCP forma parte de la experiencia multinube disponible en Microsoft Defender for Cloud. Para información relacionada, consulte la página siguiente:
 
-- [Conexión de las cuentas de AWS a Azure Security Center](quickstart-onboard-aws.md)
+- [Conexión de cuentas de AWS a Microsoft Defender for Cloud](quickstart-onboard-aws.md)
 - [Jerarquía de recursos de Google Cloud](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy): aprenda sobre la jerarquía de recursos de Google Cloud en los documentos en línea de Google.

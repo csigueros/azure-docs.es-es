@@ -4,22 +4,21 @@ description: Obtenga información sobre los asociados que ofrecen sus funciones 
 author: prmitt
 ms.service: network-function-manager
 ms.topic: article
-ms.date: 06/30/2021
+ms.date: 11/02/2021
 ms.author: prmitt
-ms.openlocfilehash: 5186d16d36503ad5f057424b6251ee8be109b958
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: f2fdd216b15bba15f65b4fe8547e2bfc2b729348
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130258494"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024057"
 ---
-# <a name="network-function-manager-partners-preview"></a>Asociados de Network Function Manager (versión preliminar)
+# <a name="network-function-manager-partners"></a>Asociados de Network Function Manager
 
-Tenemos un ecosistema creciente de asociados que ofrecen su función de red como aplicaciones administradas para su uso con este servicio. 
+Tenemos un ecosistema creciente de asociados que ofrecen su función de red como aplicaciones administradas para su uso con este servicio.
 
 ## <a name="devices-and-configuration-links"></a><a name="devices"></a>Dispositivos y vínculos de configuración
-
-Para la versión preliminar, estas SKU están disponibles actualmente.
 
 |Función |Category|Vínculo|
 | ---  | --- | --- |

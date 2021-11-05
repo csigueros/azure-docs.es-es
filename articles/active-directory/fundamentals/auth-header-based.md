@@ -13,16 +13,16 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72651ac47ebf3f67a8ee3aae9f71a533ded53a83
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 99cf28c88b3c94fad5e9abe7eaee1e11bcfacbe6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111954966"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131052377"
 ---
 # <a name="header-based-authentication-with-azure-active-directory"></a>Autenticación basada en encabezados con Azure Active Directory
 
-Las aplicaciones heredadas suelen usar la autenticación basada en encabezados. En este escenario, un usuario (o remitente del mensaje) se autentica en una solución de identidad intermediaria. La solución intermediario autentica al usuario y propaga los encabezados del Protocolo de transferencia de hipertexto (HTTP) necesarios al servicio web de destino. Azure Active Directory (AD) admite este patrón a través del servicio Application Proxy y las integraciones con otras soluciones de controlador de red. 
+Las aplicaciones heredadas suelen usar la autenticación basada en encabezados. En este escenario, un usuario (o remitente del mensaje) se autentica en una solución de identidad intermediaria. La solución intermediario autentica al usuario y propaga los encabezados del Protocolo de transferencia de hipertexto (HTTP) necesarios al servicio web de destino. Azure Active Directory (AD) admite este patrón a través del servicio Application Proxy y las integraciones con otras soluciones de controlador de red.
 
 En nuestra solución, Application Proxy proporciona acceso remoto a la aplicación, autentica al usuario y pasa los encabezados exigidos por la aplicación. 
 

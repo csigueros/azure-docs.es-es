@@ -12,16 +12,13 @@ ms.topic: conceptual
 ms.date: 06/25/2021
 ms.author: hirsin
 ms.reviewer: hirsin
-ms.custom:
-- aaddev
-- identityplatformtop40
-- fasttrack-edit
-ms.openlocfilehash: a6c2b3bb09160d60cfd03311329666d6e2b80487
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.custom: aaddev, identityplatformtop40, fasttrack-edit
+ms.openlocfilehash: fb20ed3a3a09c7bef7495d439ad2856f646e8a51
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129657918"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067199"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Tokens de id. de la plataforma de identidad de Microsoft
 
@@ -81,7 +78,7 @@ En esta lista se muestran las notificaciones que se encuentran en la mayoría de
 |`iat` |  entero, una marca de tiempo de UNIX | La notificación "iat" (emitido a las) indica cuándo se produjo la autenticación de este token.  |
 |`idp`|Cadena, normalmente un identificador URI de STS | Registra el proveedor de identidades que autenticó al firmante del token. Este valor es idéntico al valor de la notificación del emisor, a menos que la cuenta de usuario no esté en el mismo inquilino que el emisor: los invitados, por ejemplo. Si la notificación no está presente, significa que el valor de `iss` se puede usar en su lugar.  Para las cuentas personales que se usan en un contexto de la organización (por ejemplo, una cuenta personal invitada a un inquilino de Azure AD), la notificación `idp` puede ser "live.com" o un identificador URI de STS que contenga al inquilino de la cuenta Microsoft `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 |`nbf` |  entero, una marca de tiempo de UNIX | La notificación "nbf" (no antes de) identifica la hora antes de la cual no debe ser aceptado el token JWT para su procesamiento.|
-|`exp` |  entero, una marca de tiempo de UNIX | La notificación "exp" (fecha de expiración) identifica la hora de expiración en la que o después de la que el token JWT no debe ser aceptado para su procesamiento.  Es importante tener en cuenta que, en determinadas circunstancias, un recurso puede rechazar el token antes de este tiempo. Por ejemplo, si se requiere un cambio en la autenticación o se detecta una revocación de tokens. |
+|`exp` |  entero, una marca de tiempo de UNIX | La notificación "exp" (fecha de expiración) identifica la hora de expiración en la que o después de la que el token JWT **no debe** ser aceptado para su procesamiento.  Es importante tener en cuenta que, en determinadas circunstancias, un recurso puede rechazar el token antes de este tiempo. Por ejemplo, si se requiere un cambio en la autenticación o se detecta una revocación de tokens. |
 | `c_hash`| String |El hash de código se incluye en los tokens de identificador solo cuando se emite el token de identificador con un código de autorización de OAuth 2.0. Se puede usar para validar la autenticidad de un código de autorización. Para comprender cómo realizar esta validación, consulte la [especificación OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#HybridIDToken). |
 |`at_hash`| String |El hash de token de acceso se incluye en los tokens de identificador solo cuando el token de identificador se emite desde el punto de conexión `/authorize` con un token de acceso de OAuth 2.0. Se puede usar para validar la autenticidad de un token de acceso. Para comprender cómo realizar esta validación, consulte la [especificación OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#HybridIDToken). Esto no se devuelve en tokens de identificador desde el punto de conexión de `/token`. |
 |`aio` | Cadena opaca | Una notificación interna usada por Azure AD para registrar los datos para la reutilización de tokens. Se debe omitir.|

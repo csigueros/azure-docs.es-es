@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/23/2021
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 16def8c00db3702a77e261b71841aa7d2d3c3728
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 029202fa236f5a7be2e3b3cbc650f2e54a4d1015
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128655512"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131085761"
 ---
 # <a name="manage-azure-machine-learning-workspaces-using-azure-cli"></a>Administración de áreas de trabajo de Azure Machine Learning usando la CLI de Azure
 
@@ -248,7 +248,7 @@ En los siguientes comandos de la CLI se proporcionan ejemplos para crear un áre
 
 # <a name="10-cli"></a>[CLI 1.0](#tab/vnetpleconfigurationsv1cli)
 
-Use el parámetro `--cmk-keyvault` para especificar el almacén de Azure Key Vault que contiene la clave y `--resource-cmk-uri` para especificar la dirección URL de la clave en el almacén.
+Use el parámetro `--cmk-keyvault` para especificar el almacén de Azure Key Vault que contiene la clave y `--resource-cmk-uri` para especificar el id. y el uri del recurso de la clave en el almacén.
 
 Para [limitar los datos que Microsoft recopila](./concept-data-encryption.md#encryption-at-rest) sobre su área de trabajo, puede especificar además el parámetro `--hbi-workspace`. 
 
@@ -346,6 +346,8 @@ Para obtener más información sobre el comando sync-keys, consulte [az ml works
 
 ### <a name="delete-a-workspace"></a>Eliminar un área de trabajo
 
+[!INCLUDE [machine-learning-delete-workspace](../../includes/machine-learning-delete-workspace.md)]
+
 Use el siguiente comando para eliminar un área de trabajo cuando ya no es necesaria:
 
 ```azurecli-interactive
@@ -362,6 +364,8 @@ az group delete -g <resource-group-name>
 ```
 
 Para obtener más información, consulte la documentación de [az ml workspace delete](/cli/azure/ml/workspace#az_ml_workspace_delete).
+
+Si eliminó el área de trabajo por error, podrá recuperar los cuadernos. Consulte [esta documentación](/azure/machine-learning/how-to-high-availability-machine-learning#workspace-deletion).
 
 ## <a name="troubleshooting"></a>Solución de problemas
 

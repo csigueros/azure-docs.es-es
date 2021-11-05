@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/02/2021
 ms.author: miag
-ms.openlocfilehash: 15cde0a434df9ac06e69bf0c589cdcab8a03d2dc
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: b6f050c99d57e077e9e60aeb70d0acb11d200adb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129712401"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131072783"
 ---
 # <a name="iot-hub-support-for-managed-identities"></a>Compatibilidad de IoT Hub con identidades administradas 
 
@@ -21,6 +21,7 @@ Las identidades administradas proporcionan a los servicios de Azure una identida
 En IoT Hub, las identidades administradas se pueden usar para la conectividad de salida de IoT Hub a otros servicios de Azure para las características como el [enrutamiento de mensajes](iot-hub-devguide-messages-d2c.md), la [carga de archivos](iot-hub-devguide-file-upload.md) y la [importación o exportación masivas de dispositivos](iot-hub-bulk-identity-mgmt.md). En este artículo, aprenderá a usar identidades administradas asignadas por el sistema y asignadas por el usuario en IoT Hub para distintas funcionalidades.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 - Lea la documentación de [identidades administradas para recursos de Azure](./../active-directory/managed-identities-azure-resources/overview.md) para comprender las diferencias entre las identidades administradas asignadas por el sistema y por el usuario.
 
 - Si no tiene un centro de IoT, [cree uno](iot-hub-create-through-portal.md) antes de continuar.
@@ -28,12 +29,13 @@ En IoT Hub, las identidades administradas se pueden usar para la conectividad de
 ## <a name="system-assigned-managed-identity"></a>Identidad administrada asignada por el sistema
 
 ### <a name="add-and-remove-a-system-assigned-managed-identity-in-azure-portal"></a>Adición y eliminación de una identidad administrada asignada por el sistema en Azure Portal
-1.  Inicie sesión en Azure Portal y vaya al centro de IoT que quiera.
-2.  Vaya a **Identidad** en el portal de IoT Hub.
-3.  En la pestaña **System-assigned** (Asignada por el sistema), seleccione **Activar** y haga clic en **Guardar**.
-4.  Para quitar la identidad administrada asignada por el sistema de un centro de IoT, seleccione **Desactivar** y haga clic en **Guardar**.
 
-    :::image type="content" source="./media/iot-hub-managed-identity/system-assigned.png" alt-text="Captura de pantalla que muestra dónde activar la identidad administrada asignada por el sistema para un centro de IoT":::        
+1. Inicie sesión en Azure Portal y vaya al centro de IoT que quiera.
+2. Vaya a **Identidad** en el portal de IoT Hub.
+3. En la pestaña **System-assigned** (Asignada por el sistema), seleccione **Activar** y haga clic en **Guardar**.
+4. Para quitar la identidad administrada asignada por el sistema de un centro de IoT, seleccione **Desactivar** y haga clic en **Guardar**.
+
+    :::image type="content" source="./media/iot-hub-managed-identity/system-assigned.png" alt-text="Captura de pantalla que muestra dónde activar la identidad administrada asignada por el sistema para un centro de IoT.":::
 
 ### <a name="enable-system-assigned-managed-identity-at-hub-creation-time-using-arm-template"></a>Habilitación de la identidad administrada asignada por el sistema en el momento de la creación del centro con la plantilla de ARM
 
@@ -117,14 +119,17 @@ Una vez creado el recurso, puede recuperar la identidad asignada por el sistema 
 ```azurecli-interactive
 az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resource-name> --resource-group <resource-group-name>
 ```
-## <a name="user-assigned-managed-identity"></a>Identidad administrada asignada por el usuario 
-En esta sección, aprenderá a agregar y quitar una identidad administrada asignada por el usuario desde un centro de IoT mediante Azure Portal.
-1.  En primer lugar, debe crear una identidad administrada asignada por el usuario como un recurso independiente. Para hacerlo, puede seguir las instrucciones de [Creación de una identidad administrada asignada por el usuario](./../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity).
-2.  Vaya al centro de IoT y navegue hasta **Identidad** en el portal de IoT Hub.
-3.  En la pestaña **User-Assigned** (Asignada por el usuario), haga clic en **Associate a user-assigned managed identity** (Asociar una identidad administrada por el usuario). Elija la identidad administrada asignada por el usuario que desea agregar al centro y, a continuación, haga clic en **Seleccionar**. 
-4.  Puede quitar una identidad asignada por el usuario de un centro de IoT. Elija la identidad asignada por el usuario que quiera quitar y haga clic en el botón **Quitar**. Tenga en cuenta que solo la quita del centro de IoT y no se elimina la identidad asignada por el usuario como recurso. Para eliminar la identidad asignada por el usuario como recurso, siga las instrucciones de [Eliminación de una identidad administrada asignada por el usuario](./../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#delete-a-user-assigned-managed-identity).
 
-    :::image type="content" source="./media/iot-hub-managed-identity/user-assigned.png" alt-text="Captura de pantalla que muestra cómo agregar una identidad administrada asignada por el usuario para un centro de IoT":::        
+## <a name="user-assigned-managed-identity"></a>Identidad administrada asignada por el usuario
+
+En esta sección, aprenderá a agregar y quitar una identidad administrada asignada por el usuario desde un centro de IoT mediante Azure Portal.
+
+1. En primer lugar, debe crear una identidad administrada asignada por el usuario como un recurso independiente. Para hacerlo, puede seguir las instrucciones de [Creación de una identidad administrada asignada por el usuario](./../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity).
+2. Vaya al centro de IoT y navegue hasta **Identidad** en el portal de IoT Hub.
+3. En la pestaña **User-Assigned** (Asignada por el usuario), haga clic en **Associate a user-assigned managed identity** (Asociar una identidad administrada por el usuario). Elija la identidad administrada asignada por el usuario que desea agregar al centro y, a continuación, haga clic en **Seleccionar**. 
+4. Puede quitar una identidad asignada por el usuario de un centro de IoT. Elija la identidad asignada por el usuario que quiera quitar y haga clic en el botón **Quitar**. Tenga en cuenta que solo la quita del centro de IoT y no se elimina la identidad asignada por el usuario como recurso. Para eliminar la identidad asignada por el usuario como recurso, siga las instrucciones de [Eliminación de una identidad administrada asignada por el usuario](./../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#delete-a-user-assigned-managed-identity).
+
+    :::image type="content" source="./media/iot-hub-managed-identity/user-assigned.png" alt-text="Captura de pantalla que muestra cómo agregar una identidad administrada asignada por el usuario para un centro de IoT.":::
 
 ### <a name="enable-user-assigned-managed-identity-at-hub-creation-time-using-arm-template"></a>Habilitación de la identidad administrada asignada por el usuario en el momento de la creación del centro con la plantilla de ARM
 
@@ -241,11 +246,11 @@ En esta sección, se usa el [enrutamiento de mensajes](iot-hub-devguide-messages
 
 3. Para la asignada por el usuario, elija **Identidad administrada asignada por el usuario** en **Asignar acceso a**. Seleccione la suscripción y la identidad administrada asignada por el usuario en la lista desplegable. Haga clic en el botón **Save** (Guardar).
 
-    :::image type="content" source="./media/iot-hub-managed-identity/eventhub-iam-user-assigned.png" alt-text="Enrutamiento de mensajes de IoT Hub con identidad asignada por el usuario":::
+    :::image type="content" source="./media/iot-hub-managed-identity/eventhub-iam-user-assigned.png" alt-text="Captura de pantalla que muestra el enrutamiento de mensajes con el usuario asignado.":::
 
 4. En el caso de la asignada por el sistema, en **Asignar acceso a**, elija **User, group, or service principal** (Usuario, grupo o entidad de servicio) y seleccione el nombre del recurso del centro de IoT en la lista desplegable. Haga clic en **Save**(Guardar).
 
-    :::image type="content" source="./media/iot-hub-managed-identity/eventhub-iam-system-assigned.png" alt-text="Enrutamiento de mensajes de IoT Hub con identidad asignada por el sistema":::
+    :::image type="content" source="./media/iot-hub-managed-identity/eventhub-iam-system-assigned.png" alt-text="Captura de pantalla que muestra el enrutamiento de mensajes con el sistema asignado.":::
 
     Si necesita restringir la conectividad al punto de conexión personalizado a través de una red virtual, debe activar la excepción de primera entidad de confianza de Microsoft para proporcionar a su centro de IoT acceso al punto de conexión específico. Por ejemplo, si agrega un punto de conexión personalizado del centro de eventos, vaya a la pestaña **Firewalls y redes virtuales** del centro de eventos y habilite la opción **Allow access from selected networks** (Permitir el acceso desde redes seleccionadas). En la lista **Excepciones**, active la casilla situada junto a **Allow trusted Microsoft services to access event hubs** (Permitir que los servicios de Microsoft de confianza accedan a esta instancia de Event Hubs). Haga clic en el botón **Save** (Guardar). Esto también se aplica a la cuenta de almacenamiento y a Service Bus. Obtenga información sobre la [compatibilidad de Azure IoT Hub con redes virtuales](./virtual-network-support.md).
 
@@ -256,12 +261,11 @@ En esta sección, se usa el [enrutamiento de mensajes](iot-hub-devguide-messages
 
 6. En la parte inferior de la página, elija el **Tipo de autenticación** que prefiera. En esta sección, usaremos **User-Assigned** (Asignada por el usuario) como en el ejemplo. En la lista desplegable, seleccione la identidad administrada asignada por el usuario preferida y, a continuación, haga clic en **Crear**.
 
-    :::image type="content" source="./media/iot-hub-managed-identity/eventhub-routing-endpoint.png" alt-text="Centro de eventos de IoT Hub con identidad asignada por el usuario":::
+    :::image type="content" source="./media/iot-hub-managed-identity/eventhub-routing-endpoint.png" alt-text="Captura de pantalla que muestra el centro de eventos con el usuario asignado.":::
 
-7. Punto de conexión personalizado creado correctamente. 
-8. Después de la creación, todavía puede cambiar el tipo de autenticación. Seleccione el punto de conexión personalizado para el que quiera cambiar el tipo de autenticación y, a continuación, haga clic en **Change authentication type** (Cambiar tipo de autenticación).
+7. Punto de conexión personalizado creado correctamente.
 
-    :::image type="content" source="./media/iot-hub-managed-identity/change-authentication-type.png" alt-text="Tipo de autenticación de IoT Hub":::
+8. Después de la creación, todavía puede cambiar el tipo de autenticación. Seleccione **Message routing** (Enrutamiento de mensajes) en el panel de navegación izquierdo y, después, **Custom endpoints** (Puntos de conexión personalizados). Seleccione el punto de conexión personalizado para el que quiera cambiar el tipo de autenticación y, a continuación, haga clic en **Change authentication type** (Cambiar tipo de autenticación).
 
 9. Elija el nuevo tipo de autenticación que se debe actualizar para este punto de conexión y haga clic en **Guardar**.
 
@@ -281,7 +285,7 @@ La característica de [carga de archivos](iot-hub-devguide-file-upload.md) de Io
 5. En la página de recursos del centro de IoT, vaya a la pestaña **Carga de archivo**.
 6. En la página que se muestra, seleccione el contenedor que quiere usar en Blob Storage, y configure las opciones **Configuración de notificación de archivos, TTL de SAS, TTL predeterminado y Número máximo de entregas**. Elija el tipo de autenticación preferido y haga clic en **Guardar**. Si recibe un error en este paso, establezca de forma temporal la cuenta de almacenamiento para permitir el acceso desde **Todas las redes** y, a continuación, vuelva a intentarlo. Puede configurar el firewall en la cuenta de almacenamiento una vez completada la configuración de carga de archivos.
 
-    :::image type="content" source="./media/iot-hub-managed-identity/file-upload.png" alt-text="Carga de archivos de IoT Hub con msi":::
+    :::image type="content" source="./media/iot-hub-managed-identity/file-upload.png" alt-text="Captura de pantalla que muestra la carga de archivos con msi.":::
 
     > [!NOTE]
     > En el escenario de carga de archivos, tanto el centro como el dispositivo deben conectarse con la cuenta de almacenamiento. Los pasos anteriores sirven para conectar el centro de IoT a la cuenta de almacenamiento con el tipo de autenticación deseado. Todavía debe conectar el dispositivo al almacenamiento mediante el URI de SAS. Actualmente, el URI de SAS se genera mediante la cadena de conexión. Pronto se agregará compatibilidad para generar el URI de SAS con la identidad administrada. Siga los pasos descritos en [Carga de archivos](iot-hub-devguide-file-upload.md).

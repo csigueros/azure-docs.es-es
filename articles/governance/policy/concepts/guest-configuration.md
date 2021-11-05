@@ -3,19 +3,17 @@ title: Descripción de la característica de configuración de invitado de Azure
 description: Obtenga información sobre la forma en que Azure Policy usa la característica de configuración de invitado para auditar o configurar valores dentro de las máquinas virtuales.
 ms.date: 07/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: d562842da341394247a02516c08b062ee12a01cc
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 6a40469b6cd391672ba953bac37402285ac4a097
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130042643"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040423"
 ---
 # <a name="understand-the-guest-configuration-feature-of-azure-policy"></a>Descripción de la característica de configuración de invitado de Azure Policy
 
 La característica de configuración de invitado de Azure Policy proporciona funcionalidad nativa para auditar o configurar las opciones del sistema operativo como código, tanto para las máquinas que se ejecutan en Azure como para las [máquinas híbridas habilitadas para Arc](../../../azure-arc/servers/overview.md).
 La característica se puede usar directamente para cada máquina o a gran escala orquestada por Azure Policy.
-
-Las configuraciones son distintas de las definiciones de directiva. La configuración de invitado usa Azure Policy para asignar dinámicamente configuraciones a las máquinas. También puede asignar configuraciones a las máquinas de forma [manual](/guest-configuration-assignments.md#manually-creating-guest-configuration-assignments) o mediante otros servicios de Azure como [Automanage](../../../automanage/automanage-virtual-machines.md).
 
 Los recursos de configuración de Azure están diseñados como un [recurso de extensión](../../../azure-resource-manager/management/extension-resource-types.md).
 Puede imaginar cada configuración como un conjunto adicional de propiedades para la máquina. Las configuraciones pueden incluir valores como:
@@ -24,9 +22,18 @@ Puede imaginar cada configuración como un conjunto adicional de propiedades par
 - Configuración de la aplicación o presencia
 - Configuración del entorno
 
-Los resultados de cada configuración se pueden ver en la [página Asignaciones de invitado](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) o, si la configuración está orquestada por una asignación de Azure Policy, mediante un clic en el vínculo "Último recurso evaluado" de la [página "Detalles de cumplimiento"](../how-to/determine-non-compliance.md#view-configuration-assignment-details-at-scale).
+Las configuraciones son distintas de las definiciones de directiva. La configuración de invitado usa Azure Policy para asignar dinámicamente configuraciones a las máquinas. También puede asignar configuraciones a las máquinas de forma [manual](guest-configuration-assignments.md#manually-creating-guest-configuration-assignments) o mediante otros servicios de Azure como [Automanage](../../../automanage/automanage-virtual-machines.md).
 
-[Hay disponible un tutorial de vídeo de este documento](https://youtu.be/t9L8COY-BkM).
+En la tabla siguiente se proporcionan ejemplos de cada escenario.
+
+| Tipo | Descripción | Caso de ejemplo |
+| - | - | - |
+| [Administración de configuración](guest-configuration-assignments.md) | Quiere una representación completa de un servidor, como código en el control de código fuente. La implementación debe incluir las propiedades del servidor (tamaño, red, almacenamiento) y la configuración del sistema operativo y la configuración de la aplicación. | "Esta máquina debe ser un servidor web configurado para hospedar mi sitio web." |
+| [Cumplimiento normativo](../assign-policy-portal.md) | Quiere auditar o implementar la configuración en todas las máquinas del ámbito de forma reactiva en las máquinas existentes o de forma proactiva en las nuevas máquinas a medida que se implementan. | "Todas las máquinas deben usar TLS 1.2. Audite las máquinas existentes para poder liberar el cambio cuando sea necesario, de forma controlada, a escala. En el caso de las nuevas máquinas, aplique la configuración cuando se implementen." |
+
+Los resultados de cada valor de la configuración se pueden ver en la [página Asignaciones de invitado](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) o, si la configuración está orquestada por una asignación de Azure Policy, mediante un clic en el vínculo "Último recurso evaluado" de la [página "Detalles de cumplimiento"](../how-to/determine-non-compliance.md#view-configuration-assignment-details-at-scale).
+
+[Hay disponible un tutorial de vídeo de este documento](https://youtu.be/t9L8COY-BkM). (actualización disponible próximamente)
 
 ## <a name="enable-guest-configuration"></a>Habilitación de la configuración de invitado
 

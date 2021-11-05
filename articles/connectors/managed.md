@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 05/16/2021
-ms.openlocfilehash: 609a0edaa15c9ce9d71655bbb358168806202ea9
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: 4f0bb89992f76e7a8eb9311d733a3b791b73114a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129400598"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131086609"
 ---
 # <a name="managed-connectors-in-azure-logic-apps"></a>Conectores administrados en Azure Logic Apps
 
@@ -558,14 +558,14 @@ Para más información, consulte los temas siguientes:
 <!--Managed connector doc links-->
 [azure-automation-doc]: /connectors/azureautomation/ "Creación y administración de trabajos de Automation para su infraestructura local y en la nube"
 [azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Administrar archivos del contenedor de blobs con el conector de Azure Blob Storage"
-[azure-cosmos-db-doc]: /connectors/documentdb/ "Conectarse a Azure Cosmos DB para tener acceso a documentos y procedimientos almacenados"
+[azure-cosmos-db-doc]: ./connectors-create-api-cosmos-db.md "Conectar a Azure Cosmos DB para que pueda acceder a los documentos de Azure Cosmos DB y administrarlos"
 [azure-event-grid-doc]: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md "Supervisar los eventos publicados por Event Grid, por ejemplo, cuando hay cambios en los recursos de Azure o de terceros"
 [azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Conectarse a Azure Event Hubs para recibir y enviar eventos entre aplicaciones lógicas y Event Hubs"
 [azure-file-storage-doc]: /connectors/azurefile/ "Conectarse a su cuenta de Azure Storage para crear, actualizar, obtener y eliminar archivos"
 [azure-key-vault-doc]: /connectors/keyvault/ "Conexión a la instancia de Azure Key Vault para administrar sus secretos y claves"
 [azure-monitor-logs-doc]: /connectors/azuremonitorlogs/ "Ejecución de consultas en los registros de Azure Monitor de las áreas de trabajo de Log Analytics y los componentes de Application Insights"
 [azure-queues-doc]: /connectors/azurequeues/ "Conectarse a su cuenta de Azure Storage para crear y administrar colas y mensajes"
-[azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Envío de mensajes desde los temas y las colas de Service Bus y recepción de mensajes desde suscripciones y colas de Service Bus"
+[azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Administrar mensajes de Service Bus, temas y suscripciones a temas"
 [azure-sql-data-warehouse-doc]: /connectors/sqldw/ "Conectarse a Azure Synapse Analytics para visualizar los datos"
 [azure-table-storage-doc]: /connectors/azuretables/ "Conectarse a su cuenta de Azure Storage para crear, actualizar y consultar tablas y más"
 [biztalk-server-doc]: /connectors/biztalk/ "Conectarse a su instancia de BizTalk Server para ejecutar aplicaciones basadas en BizTalk en paralelo con Azure Logic Apps"

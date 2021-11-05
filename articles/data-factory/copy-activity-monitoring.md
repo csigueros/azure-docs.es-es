@@ -9,18 +9,18 @@ ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: ed65bb5bcde37bf4ad18d9650697d51640ac1e4a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 14607231fd68cf78f33a21abdb26dd68e2ef6871
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124767591"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131062195"
 ---
 # <a name="monitor-copy-activity"></a>Supervisión de actividad de copia
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se describe cómo supervisar la ejecución de la actividad de copia en las canalizaciones de Azure Data Factory y Synapse. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
+En este artículo se describe cómo supervisar la ejecución de la actividad de copia en las canalizaciones de Azure Data Factory y Synapse. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.  También puede supervisar las actividades de copia generadas con la [Herramienta de copia de datos](copy-data-tool.md), así como [eliminar actividades](delete-activity.md) de la misma forma.
 
 ## <a name="monitor-visually"></a>Supervisión visual
 

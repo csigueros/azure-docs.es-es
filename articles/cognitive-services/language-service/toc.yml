@@ -1,0 +1,739 @@
+items:
+  - name: Documentación de Azure Cognitive Service para lenguaje
+    href: index.yml
+  - name: Información general
+    expanded: true
+    items:
+      - name: ¿Qué es Azure Cognitive Service for Language?
+        href: overview.md
+      - name: Novedades
+        href: whats-new.md
+      - name: Precios
+        href: 'https://aka.ms/unifiedLanguagePricing'
+      - name: Inicio rápido de Language Studio
+        href: language-studio.md
+  - name: Uso responsable de la inteligencia artificial
+    items:
+      - name: Nota de transparencia para Azure Cognitive Service for Language
+        href: /legal/cognitive-services/language-service/transparency-note?context=/azure/cognitive-services/language-service/context/context
+        displayName: 'Transparency note for language service, Language service Transparency, Responsible AI, Responsible use of AI'
+      - name: Integración y uso responsable
+        href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+        displayName: 'Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use'
+      - name: 'Datos, privacidad y seguridad'
+        href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
+        displayName: 'Data privacy, logging, data retention'
+  - name: Clasificación de texto personalizada (versión preliminar)
+    items:
+      - name: Información general
+        href: custom-classification/overview.md
+      - name: Inicio rápido
+        href: custom-classification/quickstart.md
+      - name: Compatibilidad con idiomas
+        href: custom-classification/language-support.md
+      - name: Preguntas más frecuentes
+        href: custom-classification/faq.md
+      - name: Guías paso a paso
+        items:
+          - name: Crear proyectos
+            href: custom-classification/how-to/create-project.md
+          - name: Selección de datos y diseño de esquemas
+            href: custom-classification/how-to/design-schema.md
+            displayName: Best practices
+          - name: Etiquetado de datos
+            href: custom-classification/how-to/tag-data.md
+          - name: Entrenamiento de un modelo
+            href: custom-classification/how-to/train-model.md
+          - name: Visualización de la evaluación del modelo
+            href: custom-classification/how-to/view-model-evaluation.md
+          - name: Mejora de un modelo
+            href: custom-classification/how-to/improve-model.md
+          - name: Implementación de un modelo y llamada a la API en tiempo de ejecución para clasificar texto
+            href: custom-classification/how-to/call-api.md
+      - name: Conceptos
+        items:
+          - name: Métricas de evaluación
+            href: custom-classification/concepts/evaluation.md
+          - name: Formatos de etiqueta de datos aceptados
+            href: custom-classification/concepts/data-formats.md
+            displayName: Data representation
+      - name: Referencia
+        items:
+          - name: Glosario
+            href: custom-classification/glossary.md
+            displayName: 'Model, Project, Class'
+          - name: Límites de servicio
+            href: custom-classification/service-limits.md
+          - name: API de REST (v3.2-preview.2)
+            items:
+              - name: Authoring API
+                href: 'https://go.microsoft.com/fwlink/?linkid=2176818'
+              - name: API de predicción en tiempo de ejecución
+                href: 'https://go.microsoft.com/fwlink/?linkid=2173145'
+  - name: Reconocimiento de entidades con nombre (NER) personalizado (versión preliminar)
+    items:
+      - name: Información general
+        href: custom-named-entity-recognition/overview.md
+      - name: Inicio rápido
+        href: custom-named-entity-recognition/quickstart.md
+      - name: Compatibilidad con idiomas
+        href: custom-named-entity-recognition/language-support.md
+      - name: Preguntas más frecuentes
+        href: custom-named-entity-recognition/faq.md
+      - name: Guías paso a paso
+        items:
+          - name: Crear proyectos
+            href: custom-named-entity-recognition/how-to/create-project.md
+          - name: Selección de datos y diseño de esquemas
+            href: custom-named-entity-recognition/how-to/design-schema.md
+          - name: Etiquetado de datos
+            href: custom-named-entity-recognition/how-to/tag-data.md
+          - name: Entrenamiento de un modelo
+            href: custom-named-entity-recognition/how-to/train-model.md
+          - name: Visualización de la evaluación del modelo
+            href: custom-named-entity-recognition/how-to/view-model-evaluation.md
+          - name: Mejora de un modelo
+            href: custom-named-entity-recognition/how-to/improve-model.md
+          - name: Implementación de un modelo y llamada a la API en tiempo de ejecución para extraer entidades
+            href: custom-named-entity-recognition/how-to/call-api.md
+      - name: Tutoriales
+        items:
+          - name: Enriquecimiento de un índice de Cognitive Search con entidades personalizadas
+            href: custom-named-entity-recognition/tutorials/cognitive-search.md
+      - name: Conceptos
+        items:
+          - name: Métricas de evaluación
+            href: custom-named-entity-recognition/concepts/evaluation-metrics.md
+          - name: Formatos de etiqueta de datos aceptados
+            href: custom-named-entity-recognition/concepts/data-formats.md
+      - name: Referencia
+        items:
+          - name: Glosario
+            href: custom-named-entity-recognition/glossary.md
+          - name: Límites de servicio
+            href: custom-named-entity-recognition/service-limits.md
+          - name: API de REST (v3.2-preview.2)
+            items:
+              - name: Authoring API
+                href: 'https://go.microsoft.com/fwlink/?linkid=2176711'
+              - name: API de predicción en tiempo de ejecución
+                href: 'https://go.microsoft.com/fwlink/?linkid=2173145'
+  - name: Reconocimiento del lenguaje conversacional (versión preliminar)
+    items:
+      - name: Información general
+        href: conversational-language-understanding/overview.md
+      - name: Inicio rápido
+        href: conversational-language-understanding/quickstart.md
+      - name: Compatibilidad con idiomas
+        href: conversational-language-understanding/language-support.md
+      - name: Preguntas más frecuentes
+        href: conversational-language-understanding/faq.md
+      - name: Guías paso a paso
+        items:
+          - name: Crear proyectos
+            href: conversational-language-understanding/how-to/create-project.md
+          - name: Compilación de un esquema
+            href: conversational-language-understanding/how-to/build-schema.md
+          - name: Etiquetado de expresiones
+            href: conversational-language-understanding/how-to/tag-utterances.md
+          - name: Entrenamiento de un modelo
+            href: conversational-language-understanding/how-to/train-model.md
+          - name: Visualización de la evaluación y puntuación del modelo
+            href: custom-named-entity-recognition/how-to/view-model-evaluation.md
+          - name: Implementación de un modelo y consulta de la API en tiempo de ejecución
+            href: conversational-language-understanding/how-to/deploy-query-model.md
+      - name: Conceptos
+        items:
+          - name: Compatibilidad con versiones anteriores
+            href: conversational-language-understanding/concepts/backwards-compatibility.md
+          - name: Componentes de la entidad
+            href: conversational-language-understanding/concepts/entity-components.md
+          - name: Métricas de evaluación
+            href: conversational-language-understanding/concepts/evaluation-metrics.md
+          - name: Uso de varios lenguajes
+            href: conversational-language-understanding/concepts/multiple-languages.md
+      - name: Referencia
+        items:
+          - name: Referencia de componentes creados previamente
+            href: conversational-language-understanding/prebuilt-component-reference.md
+          - name: Límites de servicio
+            href: conversational-language-understanding/service-limits.md
+          - name: Prediction API
+            items:
+              - name: API DE REST
+                items:
+                  - name: v3.2-preview.2
+                    href: 'https://go.microsoft.com/fwlink/?linkid=2173145'
+  - name: Vinculación de entidad
+    items:
+      - name: Información general
+        href: entity-linking/overview.md
+      - name: Inicio rápido
+        href: entity-linking/quickstart.md
+      - name: Compatibilidad con idiomas
+        href: entity-linking/language-support.md
+      - name: Uso responsable de la inteligencia artificial
+        items:
+          - name: Nota de transparencia para la vinculación de entidades
+            href: /legal/cognitive-services/language-service/transparency-note-entity-linking?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Transparency note for entity linking, entity linking transparency, Responsible AI, Responsible use of AI'
+          - name: Integración y uso responsable
+            href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use'
+          - name: 'Datos, privacidad y seguridad'
+            href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Data privacy, logging, data retention'
+      - name: Guías paso a paso
+        items:
+          - name: Llamada a la API
+            href: entity-linking/how-to/call-api.md
+      - name: Referencia
+        items:
+          - name: API DE REST
+            items:
+              - name: v3.2-preview.2
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/EntitiesLinking'
+              - name: v3.1
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesLinking'
+          - name: SDK
+            items:
+              - name: v3.2-preview.2
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+              - name: v3.1
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
+  - name: Detección de idiomas
+    items:
+      - name: Información general
+        href: language-detection/overview.md
+      - name: Inicio rápido
+        href: language-detection/quickstart.md
+      - name: Compatibilidad con idiomas
+        href: language-detection/language-support.md
+      - name: Uso responsable de la inteligencia artificial
+        items:
+          - name: Nota de transparencia para la detección de idioma
+            href: /legal/cognitive-services/language-service/transparency-note-language-detection?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Transparency note for language detection, language detection transparency, Responsible AI, Responsible use of AI'
+          - name: Integración y uso responsable
+            href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use'
+          - name: 'Datos, privacidad y seguridad'
+            href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Data privacy, logging, data retention'
+      - name: Guías paso a paso
+        items:
+          - name: Llamada a la API
+            href: language-detection/how-to/call-api.md
+          - name: Uso de contenedores
+            items:
+              - name: Uso de contenedores de Docker
+                href: language-detection/how-to/use-containers.md
+              - name: Configuración de contenedores
+                href: concepts/configure-containers.md
+              - name: Uso de instancias de contenedores
+                href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
+              - name: Documentación de contenedores de Cognitive Services
+                href: ../containers/index.yml
+      - name: Referencia
+        items:
+          - name: API DE REST
+            items:
+              - name: v3.2-preview.2
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Languages'
+              - name: v3.1
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Languages'
+          - name: SDK
+            items:
+              - name: v3.2-preview.2
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+              - name: v3.1
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
+  - name: Extracción de la frase clave
+    items:
+      - name: Información general
+        href: key-phrase-extraction/overview.md
+      - name: Inicio rápido
+        href: key-phrase-extraction/quickstart.md
+      - name: Compatibilidad con idiomas
+        href: key-phrase-extraction/language-support.md
+      - name: Uso responsable de la inteligencia artificial
+        items:
+          - name: Nota de transparencia para la detección de frases clave
+            href: /legal/cognitive-services/language-service/transparency-note-key-phrase-detection?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Transparency note for key phrase detection, key phrase detection transparency, Responsible AI, Responsible use of AI'
+          - name: Integración y uso responsable
+            href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use'
+          - name: 'Datos, privacidad y seguridad'
+            href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Data privacy, logging, data retention'
+      - name: Guías paso a paso
+        items:
+          - name: Análisis de frases clave de llamada
+            href: key-phrase-extraction/how-to/call-api.md
+          - name: Uso de contenedores
+            items:
+              - name: Uso de contenedores de Docker
+                href: key-phrase-extraction/how-to/use-containers.md
+              - name: Configuración de contenedores
+                href: concepts/configure-containers.md
+              - name: Uso de instancias de contenedores
+                href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
+              - name: Documentación de contenedores de Cognitive Services
+                href: ../containers/index.yml
+      - name: Tutoriales
+        items:
+          - name: Integración de Power BI
+            href: key-phrase-extraction/tutorials/integrate-power-bi.md
+      - name: Referencia
+        items:
+          - name: API DE REST
+            items:
+              - name: v3.2-preview.2
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/KeyPhrases'
+              - name: v3.1
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/KeyPhrases'
+          - name: SDK
+            items:
+              - name: v3.2-preview.2
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+              - name: v3.1
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
+  - name: Reconocimiento de entidades con nombre (NER)
+    items:
+      - name: Información general
+        href: named-entity-recognition/overview.md
+      - name: Inicio rápido
+        href: named-entity-recognition/quickstart.md
+      - name: Compatibilidad con idiomas
+        href: named-entity-recognition/language-support.md
+      - name: Uso responsable de la inteligencia artificial
+        items:
+          - name: Nota de transparencia para NER
+            href: /legal/cognitive-services/language-service/transparency-note-named-entity-recognition?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Transparency note for NER, Named Entity Recognition transparency, Responsible AI, Responsible use of AI'
+          - name: Integración y uso responsable
+            href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use'
+          - name: 'Datos, privacidad y seguridad'
+            href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Data privacy, logging, data retention'
+      - name: Guías paso a paso
+        items:
+          - name: Llamada a NER
+            href: named-entity-recognition/how-to-call.md
+      - name: Conceptos
+        items:
+          - name: Categorías de entidades reconocidas
+            href: named-entity-recognition/concepts/named-entity-categories.md
+      - name: Tutoriales
+        items:
+          - name: Extracción de información en Excel con Power Automate
+            href: named-entity-recognition/tutorials/extract-excel-information.md
+      - name: Referencia
+        items:
+          - name: API DE REST
+            items:
+              - name: v3.2-preview.2
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/EntitiesRecognitionGeneral'
+              - name: v3.1
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesRecognitionGeneral'
+          - name: SDK
+            items:
+              - name: v3.2-preview.2
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+              - name: v3.1
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
+  - name: Detección de información de identificación personal
+    items:
+      - name: Información general
+        href: personally-identifiable-information/overview.md
+      - name: Inicio rápido
+        href: personally-identifiable-information/quickstart.md
+      - name: Compatibilidad con idiomas
+        href: personally-identifiable-information/language-support.md
+      - name: Uso responsable de la inteligencia artificial
+        items:
+          - name: Nota de transparencia para DCP
+            href: /legal/cognitive-services/language-service/transparency-note-personally-identifiable-information?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Transparency note for PII, Personally Identifiable Information transparency, Responsible AI, Responsible use of AI'
+          - name: Integración y uso responsable
+            href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use'
+          - name: 'Datos, privacidad y seguridad'
+            href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Data privacy, logging, data retention'
+      - name: Guías paso a paso
+        items:
+          - name: Llamada a PII
+            href: personally-identifiable-information/how-to-call.md
+      - name: Conceptos
+        items:
+          - name: Categorías de entidades reconocidas
+            href: personally-identifiable-information/concepts/entity-categories.md
+      - name: Referencia
+        items:
+          - name: API DE REST
+            items:
+              - name: v3.2-preview.2
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/EntitiesRecognitionPii'
+              - name: v3.1
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesRecognitionPii'
+          - name: SDK
+            items:
+              - name: v3.2-preview.2
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+              - name: v3.1
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
+  - name: Respuesta a preguntas
+    items:
+      - name: Información general
+        href: question-answering/overview.md
+      - name: Inicio rápido
+        href: question-answering/quickstart/sdk.md
+      - name: Compatibilidad con idiomas
+        href: question-answering/language-support.md
+      - name: Uso responsable de la inteligencia artificial
+        items:
+          - name: Nota de transparencia para la respuesta a preguntas
+            href: /legal/cognitive-services/language-service/transparency-note-question-answering?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Transparency note for question answering, question answering transparency, Responsible AI, Responsible use of AI'
+          - name: Integración y uso responsable
+            href: /legal/cognitive-services/language-service/guidance-integration-responsible-use-question-answering?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use'
+          - name: 'Datos, privacidad y seguridad'
+            href: /legal/cognitive-services/language-service/data-privacy-security-question-answering?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Data privacy, logging, data retention'
+      - name: Guías paso a paso
+        items:
+          - name: Migración desde QnA Maker
+            href: question-answering/how-to/migrate-qnamaker.md
+          - name: Introducción a la respuesta a preguntas
+            href: question-answering/how-to/create-test-deploy.md
+          - name: Cifrado de datos en reposo
+            href: question-answering/how-to/encrypt-data-at-rest.md
+          - name: Migración de la base de conocimiento
+            href: question-answering/how-to/migrate-knowledge-base.md
+          - name: Adición de charla
+            href: question-answering/how-to/chit-chat.md
+          - name: Cambio de la respuesta predeterminada
+            href: question-answering/how-to/change-default-answer.md
+          - name: Configure resources
+            href: question-answering/how-to/configure-resources.md
+          - name: Análisis
+            href: question-answering/how-to/analytics.md
+          - name: Administración de una base de conocimiento
+            href: question-answering/how-to/manage-knowledge-base.md
+          - name: Filtrar respuestas
+            href: ../qnamaker/how-to/query-knowledge-base-with-metadata.md?context=/azure/cognitive-services/language-service/context/context
+          - name: Aislamiento de red y puntos de conexión privados
+            href: question-answering/how-to/network-isolation.md
+      - name: Conceptos
+        items:
+          - name: Planeamiento de recursos
+            href: question-answering/concepts/azure-resources.md
+          - name: Respuestas precisas
+            href: question-answering/concepts/precise-answering.md
+          - name: Puntuación de confianza
+            href: question-answering/concepts/confidence-score.md
+          - name: Procedimientos recomendados
+            href: question-answering/concepts/best-practices.md
+      - name: Tutoriales
+        items:
+          - name: Creación de un bot de preguntas frecuentes
+            href: question-answering/tutorials/bot-service.md
+          - name: Conversaciones guiadas
+            href: question-answering/tutorials/guided-conversations.md
+          - name: Aprendizaje activo
+            href: question-answering/tutorials/active-learning.md
+          - name: Utilizar sinónimos
+            href: question-answering/tutorials/adding-synonyms.md
+          - name: Varios idiomas
+            href: question-answering/tutorials/multiple-languages.md
+          - name: Varios dominios
+            href: question-answering/tutorials/multiple-domains.md
+  - name: Análisis de sentimiento y minería de opiniones
+    items:
+      - name: Información general
+        href: sentiment-opinion-mining/overview.md
+      - name: Inicio rápido
+        href: sentiment-opinion-mining/quickstart.md
+      - name: Compatibilidad con idiomas
+        href: sentiment-opinion-mining/language-support.md
+      - name: Uso responsable de la inteligencia artificial
+        items:
+          - name: Nota de transparencia para el análisis de sentimiento y la minería de opiniones
+            href: /legal/cognitive-services/language-service/transparency-note-sentiment-analysis?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Transparency note for sentiment analysis, opinion mining transparency, Responsible AI, Responsible use of AI'
+          - name: Integración y uso responsable
+            href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use'
+          - name: 'Datos, privacidad y seguridad'
+            href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Data privacy, logging, data retention'
+      - name: Guías paso a paso
+        items:
+          - name: Llamada a análisis de sentimiento y minería de opiniones
+            href: sentiment-opinion-mining/how-to/call-api.md
+          - name: Uso de contenedores
+            items:
+              - name: Uso de contenedores de Docker
+                href: sentiment-opinion-mining/how-to/use-containers.md
+              - name: Configuración de contenedores
+                href: concepts/configure-containers.md
+              - name: Uso de instancias de contenedores
+                href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
+              - name: Documentación de contenedores de Cognitive Services
+                href: ../containers/index.yml
+      - name: Tutoriales
+        items:
+          - name: Análisis de sentimiento sobre los datos de streaming con Azure Databricks
+            href: /databricks/scenarios/databricks-sentiment-analysis-cognitive-services?context=/azure/cognitive-services/language-service/context/context
+          - name: 'Uso de Flask para traducir texto, analizar opiniones y sintetizar voz'
+            href: /translator/tutorial-build-flask-app-translation-synthesis?context=/azure/cognitive-services/language-service/context/context
+      - name: Referencia
+        items:
+          - name: API DE REST
+            items:
+              - name: v3.2-preview.2
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Sentiment'
+              - name: v3.1
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Sentiment'
+          - name: SDK
+            items:
+              - name: v3.2-preview.2
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+              - name: v3.1
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
+  - name: Text Analytics for Health
+    items:
+      - name: Información general
+        href: text-analytics-for-health/overview.md
+      - name: Inicio rápido
+        href: text-analytics-for-health/quickstart.md
+      - name: Compatibilidad con idiomas
+        href: text-analytics-for-health/language-support.md
+      - name: Uso responsable de la inteligencia artificial
+        items:
+          - name: Nota de transparencia para Text Analytics para el estado
+            href: /legal/cognitive-services/language-service/transparency-note-health?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Transparency note for Text Analytics health, Text Analytics for health transparency, Responsible AI, Responsible use of AI'
+          - name: Integración y uso responsable
+            href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use'
+          - name: 'Datos, privacidad y seguridad'
+            href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Data privacy, logging, data retention'
+      - name: Guías paso a paso
+        items:
+          - name: Llamada a la API
+            href: text-analytics-for-health/how-to/call-api.md
+          - name: Uso de contenedores
+            items:
+              - name: Uso de contenedores de Docker
+                href: text-analytics-for-health/how-to/use-containers.md
+              - name: Configuración de contenedores de Docker
+                href: text-analytics-for-health/how-to/configure-containers.md
+              - name: Uso de instancias de contenedores
+                href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
+              - name: Documentación de contenedores de Cognitive Services
+                href: ../containers/index.yml
+      - name: Conceptos
+        items:
+          - name: Categorías de entidades reconocidas
+            href: text-analytics-for-health/concepts/health-entity-categories.md
+          - name: Extracción de relaciones
+            href: text-analytics-for-health/concepts/relation-extraction.md
+          - name: Detección de aserciones
+            href: text-analytics-for-health/concepts/assertion-detection.md
+      - name: Referencia
+        items:
+          - name: API DE REST
+            items:
+              - name: v3.2-preview.2
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Health'
+              - name: v3.1
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Health'
+          - name: SDK
+            items:
+              - name: v3.2-preview.2
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+              - name: v3.1
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
+  - name: Resumen de texto (versión preliminar)
+    items:
+      - name: Información general
+        href: text-summarization/overview.md
+      - name: Inicio rápido
+        href: text-summarization/quickstart.md
+      - name: Compatibilidad con idiomas
+        href: text-summarization/language-support.md
+      - name: Uso responsable de la inteligencia artificial
+        items:
+          - name: Nota de transparencia para el resumen de texto
+            href: /legal/cognitive-services/language-service/transparency-note-extractive-summarization?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Transparency note for text summarization, text summarization transparency, Responsible AI, Responsible use of AI'
+          - name: Integración y uso responsable
+            href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use'
+          - name: 'Datos, privacidad y seguridad'
+            href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Data privacy, logging, data retention'
+      - name: Guías paso a paso
+        items:
+          - name: Llamada a la API de resumen de texto
+            href: text-summarization/how-to/call-api.md
+      - name: Referencia
+        items:
+          - name: API DE REST
+            items:
+              - name: v3.2-preview.2
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Analyze'
+          - name: SDK
+            items:
+              - name: v3.2-preview.2
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+  - name: Conceptos
+    items:
+      - name: Compatibilidad con emojis y varios idiomas
+        href: concepts/multilingual-emoji-support.md
+      - name: 'Migración desde LUIS, QnA Maker y Text Analytics'
+        href: concepts/migrate.md
+  - name: Tutoriales
+    items:
+      - name: Uso de Cognitive Services en aplicaciones de lienzo
+        href: /powerapps/maker/canvas-apps/cognitive-services-api?context=/azure/cognitive-services/language-service/context/context
+      - name: Uso de Azure Kubernetes Service
+        href: tutorials/use-kubernetes-service.md
+  - name: Adecuado para empresas
+    items:
+      - name: Regiones admitidas
+        href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+      - name: Cumplimiento y certificación
+        href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+  - name: Recursos
+    items:
+      - name: Opciones de ayuda y soporte técnico
+        href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/language-service/context/context
+      - name: Migración desde Text Analytics v2
+        href: concepts/migrate-from-text-analytics-v2.md

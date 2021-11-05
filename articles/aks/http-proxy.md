@@ -6,12 +6,12 @@ author: nickomang
 ms.topic: article
 ms.date: 09/09/2021
 ms.author: nickoman
-ms.openlocfilehash: 43ee8a41ad6c487f5998760396b05a3ec56206d7
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 871a2f97ab8b95cca46fea91f5613cb489cb19a3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130004756"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131066926"
 ---
 # <a name="http-proxy-support-in-azure-kubernetes-service-preview"></a>Compatibilidad del proxy HTTP en Azure Kubernetes Service (versión preliminar)
 
@@ -40,6 +40,17 @@ De manera predeterminada, *httpProxy*, *httpsProxy* y *trustedCa* no tienen ning
 * Suscripción a Azure. Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita](https://azure.microsoft.com/free).
 * [La CLI de Azure instalada](/cli/azure/install-azure-cli).
 
+### <a name="install-the-aks-preview-azure-cli"></a>Instalación de la CLI de Azure `aks-preview`
+
+También se necesita la versión 0.5.25 o posterior de la extensión *aks-preview* de CLI de Azure. Instale la extensión de la CLI de Azure *aks-preview* mediante el comando [az extension add][az-extension-add]. También puede instalar las actualizaciones disponibles mediante el comando [az extension update][az-extension-update].
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
 ### <a name="register-the-httpproxyconfigpreview-preview-feature"></a>Registro de la característica en vista previa (GB) `HTTPProxyConfigPreview`
 
 Para usar la característica, también debe habilitar la marca de característica `HTTPProxyConfigPreview` en la suscripción.
@@ -64,19 +75,17 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="configuring-an-http-proxy-using-azure-cli"></a>Configuración de un proxy HTTP mediante la CLI de Azure 
 
-El uso de AKS con un proxy HTTP se realiza durante la creación del clúster, mediante el comando [az aks create][az-aks-create] y pasando la configuración como un archivo JSON o YAML.
+El uso de AKS con un proxy HTTP se hace durante la creación del clúster, mediante el comando [az aks create][az-aks-create] y al pasar la configuración como un archivo JSON.
 
 El esquema del archivo de configuración tiene el siguiente aspecto:
 
 ```json
-"httpProxyConfig": {
-    "httpProxy": "string",
-    "httpsProxy": "string",
-    "noProxy": [
-        "string"
-    ],
-    "trustedCa&quot;: &quot;string"
-}
+"httpProxy": "string",
+"httpsProxy": "string",
+"noProxy": [
+    "string"
+],
+"trustedCa&quot;: &quot;string"
 ```
 
 `httpProxy`: dirección URL de proxy que se usará para crear conexiones HTTP fuera del clúster. El esquema de dirección URL debe ser `http`.
@@ -87,15 +96,13 @@ El esquema del archivo de configuración tiene el siguiente aspecto:
 Entrada de ejemplo: tenga en cuenta que el certificado de entidad de certificación debe ser la cadena codificada en Base64 del contenido del certificado de formato PEM.
 
 ```json
-"httpProxyConfig": { 
-     "httpProxy": "http://myproxy.server.com:8080/", 
-     "httpsProxy": "https://myproxy.server.com:8080/", 
-     "noProxy": [
-         "localhost",
-         "127.0.0.1"
-     ],
-     "trustedCA": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUgvVENDQmVXZ0F3SUJB...b3Rpbk15RGszaWFyCkYxMFlscWNPbWVYMXVGbUtiZGkvWG9yR2xrQ29NRjNURHg4cm1wOURCaUIvCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0="
-}
+"httpProxy": "http://myproxy.server.com:8080/", 
+"httpsProxy": "https://myproxy.server.com:8080/", 
+"noProxy": [
+   "localhost",
+   "127.0.0.1"
+],
+"trustedCA": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUgvVENDQmVXZ0F3SUJB...b3Rpbk15RGszaWFyCkYxMFlscWNPbWVYMXVGbUtiZGkvWG9yR2xrQ29NRjNURHg4cm1wOURCaUIvCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0="
 ```
 
 Cree un archivo y proporcione valores para *httpProxy*, *httpsProxy* y *noProxy*. Si el entorno lo requiere, proporcione también un valor para *trustedCa*. A continuación, para implementar un clúster, pase el nombre del archivo a través de la marca `http-proxy-config`.
@@ -147,3 +154,5 @@ az aks update -n $clusterName -g $resourceGroup --http-proxy-config aks-proxy-co
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az-extension-update

@@ -6,58 +6,21 @@ ms.topic: article
 ms.date: 8/26/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
-ms.openlocfilehash: f5680d21abe1f4dffb163b6e0b16fd836e6a3fc2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7945df58db31ad7dbd9c162366596756f62b3475
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128699797"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131066755"
 ---
 # <a name="deploy-the-open-service-mesh-aks-add-on-using-azure-cli"></a>Implementación del complemento Open Service Mesh de AKS mediante la CLI de Azure
 
 En este artículo se explica cómo implementar el complemento OSM en AKS.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
 ## <a name="prerequisites"></a>Requisitos previos
 
 - CLI de Azure, versión 2.20.0 o posterior
-- Extensión `aks-preview`, versión 0.5.5 o posterior
-- Versión v 0.9.1 o posterior de OSM
-
-## <a name="install-the-aks-preview-extension"></a>Instalación de la extensión aks-preview
-
-Necesitará la versión 0.5.24 o posterior de la extensión de la CLI de Azure _aks-preview_. Instale la extensión de la CLI de Azure _aks-preview_ mediante el comando [az extension add][az-extension-add]. También puede instalar las actualizaciones disponibles mediante el comando [az extension update][az-extension-update].
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-## <a name="register-the-aks-openservicemesh-preview-feature"></a>Registro de la característica en vista previa (GB) `AKS-OpenServiceMesh`
-
-Para crear un clúster de AKS que use el complemento Open Service Mesh, debe habilitar la marca de características `AKS-OpenServiceMesh` en su suscripción.
-
-Registre la marca de la característica `AKS-OpenServiceMesh` con el comando [az feature register][az-feature-register], como se muestra en el siguiente ejemplo:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "AKS-OpenServiceMesh"
-```
-
-Tarda unos minutos en que el estado muestre _Registrado_. Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-OpenServiceMesh')].{Name:name,State:properties.state}"
-```
-
-Cuando haya terminado, actualice el registro del proveedor de recursos _Microsoft.ContainerService_ con el comando [az provider register][az-provider-register]:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+- Versión v 0.11.1 o posterior de OSM
 
 ## <a name="install-open-service-mesh-osm-azure-kubernetes-service-aks-add-on-for-a-new-aks-cluster"></a>Instalación del complemento Open Service Mesh (OSM) de Azure Kubernetes Service (AKS) para un nuevo clúster de AKS
 
@@ -97,6 +60,9 @@ En un escenario de clúster de AKS existente, habilitará el complemento OSM en 
 ### <a name="enable-the-osm-add-on-to-existing-aks-cluster"></a>Habilitación del complemento OSM en el clúster de AKS existente
 
 Para habilitar el complemento OSM de AKS, deberá ejecutar el comando `az aks enable-addons --addons` pasando el parámetro `open-service-mesh`.
+
+> [!NOTE]
+> Para que la implementación del complemento de OSM se haga correctamente, solo se debe implementar una instancia de malla de OSM en el clúster. Si tiene otras instancias de malla de OSM en el clúster, desinstálelas antes de ejecutar el comando `enable-addons`.
 
 ```azurecli-interactive
 az aks enable-addons --addons open-service-mesh -g <my-osm-aks-cluster-rg> -n <my-osm-aks-cluster-name>
@@ -199,6 +165,14 @@ Observe que **enablePermissiveTrafficPolicyMode** está configurado en **true**.
 
 ```OSM Permissive Mode to True
 kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"traffic":{"enablePermissiveTrafficPolicyMode":true}}}' --type=merge
+```
+
+## <a name="disable-open-service-mesh-osm-add-on-for-your-aks-cluster"></a>Deshabilitación del complemento Open Service Mesh (OSM) para el clúster de AKS
+
+Para deshabilitar el complemento de OSM, ejecute el comando siguiente:
+
+```azurecli-interactive
+az aks disable-addons -n <AKS-cluster-name> -g <AKS-resource-group-name> -a open-service-mesh
 ```
 
 <!-- Links -->

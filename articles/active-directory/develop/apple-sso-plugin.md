@@ -13,16 +13,16 @@ ms.date: 08/10/2021
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: e03b288934ce01a25a8ee7b4ad3569af6507b8a6
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7fbe4e45e48d3416f530b6845faf702959f92463
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124734766"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067344"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Complemento Microsoft Enterprise SSO para dispositivos Apple (versión preliminar)
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > Esta característica [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 El *complemento Microsoft Enterprise SSO para dispositivos Apple* proporciona cuentas de inicio de sesión único (SSO) para Azure Active Directory (Azure AD) en macOS, iOS y iPadOS para todas las aplicaciones que admiten la característica de [inicio de sesión único empresarial](https://developer.apple.com/documentation/authenticationservices) de Apple. El complemento proporciona SSO para las aplicaciones antiguas de las que puede depender su empresa, pero que aún no admiten las bibliotecas o protocolos de identidad más recientes. Microsoft ha trabajado estrechamente con Apple para desarrollar este complemento con el fin de aumentar la facilidad de uso de su aplicación y ofrecer la máxima protección disponible.
@@ -52,12 +52,12 @@ Para usar el complemento Microsoft Enterprise SSO en dispositivos Apple:
 - El dispositivo debe *inscribirse en MDM*, por ejemplo, por medio de Microsoft Intune.
 - Se debe *insertar en el dispositivo* la configuración para habilitar el complemento Enterprise SSO. Apple requiere esta restricción de seguridad.
 
-### <a name="ios-requirements"></a>Requisitos de iOS:
+### <a name="ios-requirements"></a>Requisitos de iOS
 - iOS 13.0 o posterior debe estar instalado en el dispositivo.
 - Debe instalarse una aplicación de Microsoft que proporcione el complemento Microsoft Enterprise SSO para dispositivos de Apple en el dispositivo. En el caso de la versión preliminar pública, estas aplicaciones se refieren a la [aplicación Microsoft Authenticator](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc).
 
 
-### <a name="macos-requirements"></a>Requisitos de macOS:
+### <a name="macos-requirements"></a>Requisitos de macOS
 - macOS 10.15 o una versión posterior debe estar instalado en el dispositivo. 
 - Debe instalarse una aplicación de Microsoft que proporcione el complemento Microsoft Enterprise SSO para dispositivos de Apple en el dispositivo. En el caso de la versión preliminar pública, estas aplicaciones incluyen la [aplicación Portal de empresa de Intune](/mem/intune/user-help/enroll-your-device-in-intune-macos-cp).
 
@@ -171,7 +171,7 @@ Pruebe esta configuración solo con aplicaciones que tengan errores de inicio de
 
 #### <a name="summary-of-keys"></a>Resumen de claves
 
-| Clave | Tipo | Value |
+| Clave | Tipo | Valor |
 |--|--|--|
 | `Enable_SSO_On_All_ManagedApps` | Entero | `1` para habilitar el inicio de sesión único para todas las aplicaciones administradas, `0` para deshabilitar el inicio de sesión único para todas las aplicaciones administradas. |
 | `AppAllowList` | String<br/>*(lista delimitada por comas)* | Identificadores de agrupación de las aplicaciones que pueden participar en el inicio de sesión único. |
@@ -183,21 +183,21 @@ Pruebe esta configuración solo con aplicaciones que tengan errores de inicio de
 
 - *Escenario*: Quiero habilitar el inicio de sesión único para la mayoría de las aplicaciones administradas, pero no para todas ellas.
 
-    | Clave | Value |
+    | Clave | Valor |
     | -------- | ----------------- |
     | `Enable_SSO_On_All_ManagedApps` | `1` |
     | `AppBlockList` | Identificadores de agrupación (lista delimitada por comas) de las aplicaciones que quiere evitar que participen en el inicio de sesión único. |
 
 - *Escenario*: Quiero deshabilitar el inicio de sesión único para Safari, que está habilitado de manera predeterminada, pero habilitar el inicio de sesión único para todas las aplicaciones administradas.
 
-    | Clave | Value |
+    | Clave | Valor |
     | -------- | ----------------- |
     | `Enable_SSO_On_All_ManagedApps` | `1` |
-    | `AppBlockList` | Identificadores de agrupación (lista delimitada por comas) de las aplicaciones de Safari que quiere evitar que participen en el inicio de sesión único.<br/><li>Para iOS: `com.apple.mobilesafari`, `com.apple.SafariViewService`<br/><li>Para macOS: `com.apple.Safari` |
+    | `AppBlockList` | Identificadores de agrupación (lista delimitada por comas) de las aplicaciones de Safari que quiere evitar que participen en el inicio de sesión único.<ul><li>Para iOS: `com.apple.mobilesafari`, `com.apple.SafariViewService`</li><li>Para macOS: `com.apple.Safari`</li></ul> |
 
 - *Escenario*: Quiero habilitar el inicio de sesión único en todas las aplicaciones administradas y en algunas aplicaciones no administradas, pero deshabilitar el inicio de sesión único para algunas otras aplicaciones.
 
-    | Clave | Value |
+    | Clave | Valor |
     | -------- | ----------------- |
     | `Enable_SSO_On_All_ManagedApps` | `1` |
     | `AppAllowList` | Identificadores de agrupación (lista delimitada por comas) de las aplicaciones en las que quiere habilitar la participación en el inicio de sesión único. |
@@ -251,15 +251,23 @@ Se recomienda mantener esta marca deshabilitada porque reduce el número de vece
 
 #### <a name="disable-oauth-2-application-prompts"></a>Deshabilitación de los avisos de aplicaciones OAuth 2
 
-El complemento Microsoft Enterprise SSO proporciona inicio de sesión único mediante la anexión de credenciales compartidas a las solicitudes de red que proceden de aplicaciones permitidas. Sin embargo, algunas aplicaciones OAuth 2 pueden exigir incorrectamente los mensajes del usuario final en la capa del protocolo. Si surge este problema, también verá que las credenciales compartidas se omiten para esas aplicaciones. Se pedirá al usuario que inicie sesión aunque el complemento Microsoft Enterprise SSO funcione para otras aplicaciones.  
+Si una aplicación solicita a los usuarios que inicien sesión aunque el complemento Microsoft Enterprise SSO funcione para otras aplicaciones del dispositivo, es posible que la aplicación omita el inicio de sesión único en el nivel de protocolo.  Estas aplicaciones también omiten las credenciales compartidas, porque el complemento proporciona el inicio de sesión único anexando las credenciales a las solicitudes de red realizadas por las aplicaciones permitidas.
 
-Al habilitar la marca `disable_explicit_app_prompt`, se restringe la posibilidad de que las aplicaciones web y nativas fuercen un aviso al usuario final en la capa del protocolo y omitan el inicio de sesión único. Para habilitar la marca, use estos parámetros:
+Estos parámetros especifican si la extensión SSO debe impedir que las aplicaciones nativas y web omitan el inicio de sesión único en la capa de protocolo y fuercen la aparición de un mensaje de inicio de sesión para el usuario.
+
+Para una experiencia de SSO coherente en todas las aplicaciones del dispositivo, se recomienda habilitar una de estas opciones, que están deshabilitadas de forma predeterminada.
+  
+Deshabilitar la solicitud de la aplicación y mostrar el selector de cuenta:
 
 - **Clave**: `disable_explicit_app_prompt`
 - **Tipo**: `Integer`
 - **Valor**: 1 o 0
+  
+Deshabilitar la solicitud de la aplicación y seleccionar una cuenta de la lista de cuentas de SSO que coincidan automáticamente:
+- **Clave**: `disable_explicit_app_prompt_and_autologin`
+- **Tipo**: `Integer`
+- **Valor**: 1 o 0
 
-Se recomienda habilitar esta marca para obtener una experiencia uniforme entre todas las aplicaciones. De forma predeterminada, está deshabilitada. 
 
 #### <a name="use-intune-for-simplified-configuration"></a>Uso de Intune para la configuración simplificada
 

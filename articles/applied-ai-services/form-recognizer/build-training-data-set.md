@@ -7,14 +7,15 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 07/27/2021
+ms.date: 11/02/2021
 ms.author: lajanuar
-ms.openlocfilehash: 397f3c05d42837ffb5e9bb4fdb465a4aee352fbd
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 640cad589343a90912dfe0dba615f1df6baaa6b2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130233684"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131027705"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Creación de un conjunto de datos de aprendizaje para un modelo personalizado
 
@@ -72,7 +73,7 @@ Si agrega el contenido siguiente al cuerpo de la solicitud, la API se entrenará
 
 Ahora que aprendió a crear un conjunto de datos de aprendizaje, siga un inicio rápido para entrenar a un modelo personalizado de Form Recognizer y empezar a usarlo en los formularios.
 
-* [Entrenamiento de un modelo y extracción de datos de formularios mediante la biblioteca cliente o la API de REST](./quickstarts/try-sdk-rest-api.md)
+* [Entrenamiento de un modelo y extracción de datos de formularios mediante la biblioteca cliente o la API de REST](quickstarts/try-sdk-rest-api.md)
 * [Entrenamiento con etiquetas mediante la herramienta de etiquetado de ejemplo](label-tool.md)
 
 ## <a name="see-also"></a>Consulte también

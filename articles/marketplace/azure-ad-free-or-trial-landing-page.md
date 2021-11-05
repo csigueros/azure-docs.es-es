@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/04/2020
-ms.openlocfilehash: e7cee47e90e6484a4258ba82e47af03725c41d34
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 10/25/2021
+ms.openlocfilehash: 8e73947a45f06420cf94119892b19e77802f65bb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102559297"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056478"
 ---
 # <a name="build-the-landing-page-for-your-free-or-trial-saas-offer-in-the-commercial-marketplace"></a>Creación de la página de aterrizaje de su oferta de SaaS gratuita o de evaluación en el marketplace comercial
 
@@ -43,7 +43,9 @@ Las siguientes secciones de este artículo le guiarán en el proceso de creació
 
 ## <a name="create-an-azure-ad-app-registration"></a>Creación de un registro de aplicación de Azure AD
 
-El marketplace comercial está totalmente integrado con Azure AD. Los usuarios llegan al marketplace autenticados con una [cuenta de Azure AD o una cuenta de Microsoft (MSA)](../active-directory/fundamentals/active-directory-whatis.md#terminology). Después de adquirir una evaluación gratuita o una subscripción gratuita a través de la oferta únicamente de anuncio, el usuario va del marketplace comercial a la dirección URL de la página de aterrizaje para activar y administrar su suscripción a la aplicación de SaaS. Debe permitir que el usuario inicie sesión en la aplicación con el SSO de Azure AD. La dirección URL de la página de aterrizaje se especifica en la página [Configuración técnica](plan-saas-offer.md#technical-information) de la oferta.
+El marketplace comercial está totalmente integrado con Azure AD. Los usuarios llegan al marketplace autenticados con una [cuenta de Azure AD o una cuenta de Microsoft (MSA)](../active-directory/fundamentals/active-directory-whatis.md#terminology). Después de adquirir una evaluación gratuita o una subscripción gratuita a través de la oferta únicamente de anuncio, el usuario va del marketplace comercial a la dirección URL de la página de aterrizaje para activar y administrar su suscripción a la aplicación de SaaS. Debe permitir que el usuario inicie sesión en la aplicación con el SSO de Azure AD. (La dirección URL de la página de aterrizaje se especifica en la página [Configuración técnica](plan-saas-offer.md#technical-information) de la oferta.)
+
+[!INCLUDE [pound-sign-note](./includes/pound-sign-note.md)]
 
 El primer paso para usar la identidad es asegurarse de que la página de aterrizaje esté registrada como aplicación de Azure AD. Registrar la aplicación le permite usar Azure AD para autenticar usuarios y solicitar acceso a recursos de usuarios. Se puede considerar la definición de la aplicación, lo que permite que el servicio sepa cómo emitir tokens para la aplicación en función de la configuración de la aplicación.
 

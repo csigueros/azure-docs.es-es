@@ -3,13 +3,14 @@ title: Grabación de vídeo para su reproducción con Azure Video Analyzer
 description: En este artículo se describe la grabación de vídeo para su reproducción con Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 4c5d0121df90791d8eb77782fb6d949548a0185e
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.date: 09/30/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 94ac0847b4cb4783ad16044514960b88c67d2a03
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114604346"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073726"
 ---
 # <a name="record-video-for-playback"></a>Grabación de vídeo para reproducción
 
@@ -17,8 +18,7 @@ En el contexto de un sistema de administración de vídeo para cámaras CCTV, la
 
 ## <a name="continuous-video-recording"></a>Grabación de vídeo continua
 
-La grabación de vídeo continua (CVR) consiste en grabar de forma continua todo el vídeo que se captura a través de un origen de vídeo. La CVR garantiza la disponibilidad de la duración de vídeo deseada (según la **[directiva de grabación](#recording-policy))** para su posterior análisis o auditoría.
-
+La grabación de vídeo continua (CVR) consiste en grabar de forma continua todo el vídeo que se captura a través de un origen de vídeo. La CVR garantiza la disponibilidad de la duración de vídeo deseada (según la **[directiva de retención](#retention-policy))** para su posterior análisis o auditoría.
 
 ## <a name="event-based-video-recording"></a>Grabación de vídeo basada en eventos
 
@@ -28,9 +28,9 @@ La grabación de vídeo basada en eventos (EVR) hace referencia al proceso de gr
 
 La opción de usar CVR o EVR depende de los objetivos empresariales. Azure Video Analyzer (AVA) proporciona funciones de plataforma tanto para CVR como para EVR. Puede obtener más información en los artículos de escenarios de **[CVR](continuous-video-recording.md)** y **[EVR](event-based-video-recording-concept.md)** .
 
-## <a name="recording-policy"></a>Directiva de grabación
+## <a name="retention-policy"></a>Directiva de retención
 
-La directiva de grabación hace referencia a las directivas que dictan la longitud o la duración de la grabación de vídeo que se conserva. Las directivas de grabación permiten equilibrar el costo del almacenamiento con los requisitos empresariales. En el caso de la CVR, la directiva de grabación define durante cuántos días se debe almacenar el vídeo (por ejemplo, los últimos siete días). Puede obtener más información en el artículo de escenarios de **[CVR](continuous-video-recording.md)** .
+La directiva de retención hace referencia a las directivas que dictan la longitud o la duración de la grabación de vídeo que se conserva. Las directivas de retención permiten equilibrar el costo del almacenamiento con los requisitos empresariales. En un escenario de CVR, la directiva de retención define durante cuántos días se debe almacenar el vídeo (por ejemplo, los últimos siete días). Puede obtener más información al respecto en el artículo **[Administración de directivas de retención](manage-retention-policy.md)** .
 
 ## <a name="next-steps"></a>Pasos siguientes
 

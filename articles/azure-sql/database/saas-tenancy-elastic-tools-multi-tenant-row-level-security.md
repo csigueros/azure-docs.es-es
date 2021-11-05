@@ -1,7 +1,6 @@
 ---
 title: Aplicaciones multiinquilino con RLS y herramientas de bases de datos elásticas
 description: Use herramientas de bases de datos elásticas con seguridad de nivel de fila para crear una aplicación con una capa de datos altamente escalable.
-services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
@@ -11,12 +10,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: mathoma
 ms.date: 12/18/2018
-ms.openlocfilehash: 5ea87afa5b66701a3d28f98a446c9307ccac0fc4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b7bc3f44b5b794ece77296d84b4d21cf12a57eb3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738465"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063012"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicaciones de múltiples inquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +36,7 @@ El objetivo es usar las API de [enrutamiento dependiente de los datos](elastic-s
 
 ## <a name="download-the-sample-project"></a>Descarga del proyecto de ejemplo
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 - Uso de Visual Studio (2012 o posterior)
 - Creación de tres bases de datos en Azure SQL Database
@@ -239,7 +238,7 @@ CREATE FUNCTION rls.fn_tenantAccessPredicate(@TenantId int)
     WITH SCHEMABINDING
 AS
     RETURN SELECT 1 AS fn_accessResult
-        -- Use the user in your application’s connection string.
+        -- Use the user in your application's connection string.
         -- Here we use 'dbo' only for demo purposes!
         WHERE DATABASE_PRINCIPAL_ID() = DATABASE_PRINCIPAL_ID('dbo')
         AND CAST(SESSION_CONTEXT(N'TenantId') AS int) = @TenantId;
@@ -358,7 +357,7 @@ Las herramientas de base de datos elásticas y la seguridad de nivel de fila pue
 
 ## <a name="questions-and-feature-requests"></a>Preguntas y solicitudes de características
 
-Si tiene alguna pregunta, póngase en contacto con nosotros en la [Página de preguntas y respuestas de Microsoft sobre SQL Database](/answers/topics/azure-sql-database.html). Y agregue todas las solicitudes de característica al [foro de comentarios de SQL Database](https://feedback.azure.com/forums/217321-sql-database/).
+Si tiene alguna pregunta, póngase en contacto con nosotros en la [Página de preguntas y respuestas de Microsoft sobre SQL Database](/answers/topics/azure-sql-database.html). Y agregue todas las solicitudes de característica al [foro de comentarios de SQL Database](https://feedback.azure.com/d365community/forum/04fe6ee0-3b25-ec11-b6e6-000d3a4f0da0).
 
 <!--Image references-->
 [1]: ./media/saas-tenancy-elastic-tools-multi-tenant-row-level-security/blogging-app.png
