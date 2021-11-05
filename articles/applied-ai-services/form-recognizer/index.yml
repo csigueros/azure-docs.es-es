@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Documentación de Azure Form Recognizer
-summary: Azure Form Recognizer forma parte de Azure Applied AI Services y utiliza la tecnología de aprendizaje automático para identificar y extraer tanto pares clave-valor como datos de tablas de documentos de formulario. A continuación, genera datos estructurados que incluyen las relaciones del fichero original. El aprendizaje sin supervisión permite que el modelo conozca tanto el diseño como los datos de los campos sin necesidad de un etiquetado manual de los datos o de una codificación intensiva. El aprendizaje supervisado también se puede realizar con datos etiquetados de forma manual. Los modelos entrenados con datos etiquetados no solo funcionan mejor, sino que también pueden trabajar con documentos más complicados.
+summary: Azure Form Recognizer es un servicio de Azure Applied AI Service basado en la nube que usa modelos de aprendizaje automático para extraer y analizar campos de formulario, texto y tablas de los documentos. Form Recognizer analiza los formularios y documentos, extrae texto y datos, asigna relaciones de campo como pares clave-valor y devuelve una salida JSON estructurada. Obtendrá rápidamente resultados precisos a la medida de su contenido específico sin necesidad de una intervención manual excesiva o una amplia experiencia en ciencia de datos. Use Form Recognizer para automatizar el procesamiento de datos en aplicaciones y flujos de trabajo, mejorar las estrategias basadas en datos y enriquecer las funcionalidades de búsqueda de documentos.
 metadata:
   title: 'Documentación de Form Recognizer: inicios rápidos, tutoriales, referencia de API (Azure Applied AI Services) | Microsoft Docs'
-  description: Azure Form Recognizer forma parte de Azure Applied AI Services y utiliza la tecnología de aprendizaje automático para identificar y extraer tanto pares clave-valor como datos de tablas de documentos de formulario. A continuación, genera datos estructurados que incluyen las relaciones del fichero original. El aprendizaje sin supervisión permite que el modelo conozca tanto el diseño como los datos de los campos sin necesidad de un etiquetado manual de los datos o de una codificación intensiva. El aprendizaje supervisado también se puede realizar con datos etiquetados manualmente. Los modelos entrenados con datos etiquetados no solo pueden funcionar mejor, sino que también pueden trabajar con documentos más complicados.
+  description: Azure Form Recognizer es un servicio de Azure Applied AI Service basado en la nube que usa modelos de aprendizaje automático para extraer y analizar campos de formulario, texto y tablas de los documentos. Form Recognizer analiza los formularios y documentos, extrae texto y datos, asigna relaciones de campo como pares clave-valor y devuelve una salida JSON estructurada. Obtendrá rápidamente resultados precisos a la medida de su contenido específico sin necesidad de una intervención manual excesiva o una amplia experiencia en ciencia de datos. Use Form Recognizer para automatizar el procesamiento de datos en aplicaciones y flujos de trabajo, mejorar las estrategias basadas en datos y enriquecer las funcionalidades de búsqueda de documentos.
   ms.service: applied-ai-services
   ms.subservice: forms-recognizer
   ms.topic: landing-page
   author: laujan
   ms.author: lajanuar
-  ms.date: 09/05/2019
-  ms.openlocfilehash: 78c647e9105ec6b8ae4ed622f04f31c285e598aa
-  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+  ms.date: 11/02/2021
+  ms.openlocfilehash: 908a5f3254c99da37aaabd895504f876bd5a7ace
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/22/2021
-  ms.locfileid: "130220177"
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131026930"
 landingContent:
 - title: Acerca de Azure Form Recognizer
   linkLists:
@@ -23,207 +23,253 @@ landingContent:
     links:
     - text: ¿Qué es Azure Form Recognizer?
       url: overview.md
-    - text: ¿Qué es Azure Applied AI Services?
-      url: ../../applied-ai-services/index.yml
   - linkListType: whats-new
     links:
     - text: Novedades en Azure Form Recognizer
       url: whats-new.md
+  - linkListType: reference
+    links:
+    - text: Compatibilidad con idiomas
+      url: language-support.md
+    - text: Privacidad, conformidad y seguridad de los datos
+      url: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
+    - text: Ayuda y soporte técnico
+      url: ../../cognitive-services/cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
+- title: Ver características de Form Recognizer
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: "\U0001F195 Modelo de documento general (versión preliminar)"
+      url: concept-general-document.md
+    - text: Modelo de diseño
+      url: concept-layout.md
+    - text: Modelo personalizado
+      url: concept-custom.md
+    - text: Modelo de factura
+      url: concept-invoice.md
+    - text: Modelo de recibo
+      url: concept-receipt.md
+    - text: Modelo de documentación de id.
+      url: concept-id-document.md
+    - text: Modelo de tarjeta de presentación
+      url: concept-business-card.md
+- title: Explorar las opciones de desarrollo
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: "\U0001F195 Form Recognizer Studio (versión preliminar)"
+      url: concept-form-recognizer-studio.md
+    - text: Herramienta de etiquetado de muestras de Form Recognizer
+      url: quickstarts/try-sample-label-tool.md
+    - text: API DE REST
+      url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api
+    - text: SDK DE C#
+      url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-csharp
+    - text: SDK de Java
+      url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-java
+    - text: SDK de JavaScript
+      url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-javascript
+    - text: SDK de Python
+      url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-python
   - linkListType: video
     links:
     - text: Extracción de datos de documentos y formularios con OCR y Form Recognizer
       url: https://channel9.msdn.com/Shows/AI-Show/Extracting-Data-From-Documents-and-Forms-with-OCR-and-Form-Recognizer
     - text: Automatización de procesos con tecnología de inteligencia artificial
       url: https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
-    - text: Características y actualizaciones más novedosas
-      url: https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Form-Recognizer
-- title: Extracción del diseño y la estructura de los documentos
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Layout
-      url: concept-layout.md?
-  - linkListType: quickstart
-    links:
-    - text: Uso del SDK de .NET
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-csharp&tabs=preview%2cv2-1#analyze-layout
-    - text: Uso del SDK de Python
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-python&tabs=preview%2cv2-1#analyze-layout
-    - text: Uso del SDK de Java
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-java&tabs=preview%2cv2-1#analyze-layout
-    - text: Uso del SDK de JavaScript
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-javascript&tabs=preview%2cv2-1#analyze-layout
-    - text: Uso de la API REST (cURL)
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api&tabs=preview%2cv2-1#analyze-layout
-  - linkListType: get-started
-    links:
-    - text: Prueba de Form Recognizer (diseño)
-      url: https://fott-2-1.azurewebsites.net/layout-analyze
-- title: Extracción de datos de las confirmaciones
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Receipts
-      url: ./concept-receipt.md
-  - linkListType: quickstart
-    links:
-    - text: Uso del SDK de .NET
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-csharp&tabs=preview%2cv2-1#analyze-receipts
-    - text: Uso del SDK de Python
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-python&tabs=preview%2cv2-1#analyze-receipts
-    - text: Uso del SDK de Java
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-java&tabs=preview%2cv2-1#analyze-receipts
-    - text: Uso del SDK de JavaScript
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-javascript&tabs=preview%2cv2-1#analyze-receipts
-    - text: Uso de la API REST (cURL)
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api&tabs=preview%2cv2-1#analyze-receipts
-  - linkListType: get-started
-    links:
-    - text: Prueba de Form Recognizer (analizar recibo)
-      url: https://fott-2-1.azurewebsites.net/prebuilts-analyze
-- title: Extracción de datos de tarjetas de presentación
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Tarjetas de presentación
-      url: ./concept-business-card.md
-  - linkListType: quickstart
-    links:
-    - text: Uso del SDK de .NET
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-csharp&tabs=preview%2cv2-1#analyze-business-cards
-    - text: Uso del SDK de Python
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-python&tabs=preview%2cv2-1#analyze-business-cards
-    - text: Uso del SDK de Java
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-python&tabs=preview%2cv2-1#analyze-business-cards
-    - text: Uso del SDK de JavaScript
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-javascript&tabs=preview%2cv2-1#analyze-business-cards
-    - text: Uso de la API REST (cURL)
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api&tabs=preview%2cv2-1#analyze-business-cards
-  - linkListType: get-started
-    links:
-    - text: Prueba de Form Recognizer (analizar tarjeta de presentación)
-      url: https://fott-2-1.azurewebsites.net/prebuilts-analyze
-- title: Extracción de datos de facturas
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Facturas
-      url: ./concept-invoice.md
-  - linkListType: quickstart
-    links:
-    - text: Uso del SDK de .NET
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-csharp&tabs=preview%2cv2-1#analyze-invoices
-    - text: Uso del SDK de Python
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-python&tabs=preview%2cv2-1#analyze-invoices
-    - text: Uso del SDK de Java
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-java&tabs=preview%2cv2-1#analyze-invoices
-    - text: Uso del SDK de JavaScript
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-javascript&tabs=preview%2cv2-1#analyze-invoices
-    - text: Uso de la API REST (cURL)
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api&tabs=preview%2cv2-1#analyze-invoices
-  - linkListType: get-started
-    links:
-    - text: Prueba de Form Recognizer (analizar factura)
-      url: https://fott-2-1.azurewebsites.net/prebuilts-analyze
-- title: Extracción de datos de documentos de identificación
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Documentos de identificación
-      url: ./concept-id-document.md
-  - linkListType: quickstart
-    links:
-    - text: Uso del SDK de .NET
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-csharp&tabs=preview%2cv2-1#analyze-identity-id-documents
-    - text: Uso del SDK de Python
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-python&tabs=preview%2cv2-1#analyze-identity-id-documents
-    - text: Uso del SDK de Java
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-java&tabs=preview%2cv2-1#analyze-identity-id-documents
-    - text: Uso del SDK de JavaScript
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-javascript&tabs=preview%2cv2-1#analyze-identity-id-documents
-    - text: Uso de la API REST (cURL)
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api&tabs=preview%2cv2-1#analyze-identity-id-documents
-  - linkListType: get-started
-    links:
-    - text: Prueba de Form Recognizer (analizar identificador)
-      url: https://fott-2-1.azurewebsites.net/prebuilts-analyze
-- title: Comunidad tecnológica de Microsoft
-  linkLists:
-  - linkListType: reference
-    links:
-    - text: Extracción de datos de archivos PDF con o sin código
-      url: https://techcommunity.microsoft.com/t5/azure-ai/extract-data-from-pdfs-using-form-recognizer-with-code-or/ba-p/2214299
-    - text: Lectura en más idiomas, procesamiento de identificadores y facturas, entrenamiento en tablas, etc.
-      url: https://techcommunity.microsoft.com/t5/azure-ai/form-recognizer-now-reads-more-languages-processes-ids-and/ba-p/2179428
-    - text: Compilación de aplicaciones de finanzas personales mediante Form Recognizer
-      url: https://techcommunity.microsoft.com/t5/azure-ai/how-to-build-a-personal-finance-app-using-azure/ba-p/2088995
-    - text: Extracción mejorada de tablas de documentos
-      url: https://techcommunity.microsoft.com/t5/azure-ai/enhanced-table-extraction-from-documents-with-form-recognizer/ba-p/2058011
-    - text: Uso de un enfoque basado en metadatos para extraer pares clave-valor
-      url: https://techcommunity.microsoft.com/t5/azure-ai/meta-data-driven-key-value-pairs-extraction-with-azure-form/ba-p/1942595
-    - text: Aceleración de la extracción de texto, datos y estructura de documentos
-      url: https://techcommunity.microsoft.com/t5/azure-ai/accelerate-extraction-of-text-data-and-structure-from-your/ba-p/1507365
-    - text: Automatización del procesamiento de formularios para mejorar la productividad
-      url: https://techcommunity.microsoft.com/t5/azure-ai/get-started-with-automating-form-processing-to-enable/ba-p/1387305
-- title: Entrenamiento de un modelo personalizado y extracción de datos
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Uso del SDK de .NET
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-csharp&tabs=preview%2cv2-1#train-a-custom-model
-    - text: Uso del SDK de Python
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-python&tabs=preview%2cv2-1#train-a-custom-model
-    - text: Uso del SDK de Java
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-java&tabs=preview%2cv2-1#train-a-custom-model
-    - text: Uso del SDK de JavaScript
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-javascript&tabs=preview%2cv2-1#train-a-custom-model
-    - text: Uso de la API REST (cURL)
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api&tabs=preview%2cv2-1#train-a-custom-model
-  - linkListType: get-started
-    links:
-    - text: Try Form Recognizer (entrenar un modelo)
-      url: https://fott-2-1.azurewebsites.net/
-- title: Análisis de formularios con un modelo personalizado
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Uso del SDK de .NET
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-csharp&tabs=preview%2cv2-1#analyze-forms-with-a-custom-model
-    - text: Uso del SDK de Python
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-python&tabs=preview%2cv2-1#analyze-forms-with-a-custom-model
-    - text: Uso del SDK de Java
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-java&tabs=preview%2cv2-1#analyze-forms-with-a-custom-model
-    - text: Uso del SDK de JavaScript
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-javascript&tabs=preview%2cv2-1#analyze-forms-with-a-custom-model
-    - text: Uso de la API REST (cURL)
-      url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api&tabs=preview%2cv2-1#analyze-forms-with-a-custom-model
-  - linkListType: get-started
-    links:
-    - text: Prueba de Form Recognizer (analizar un formulario personalizado)
-      url: https://fott-2-1.azurewebsites.net/
-- title: Primeros pasos con la herramienta de etiquetado
+- title: Pruebe la herramienta de etiquetado de ejemplo
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Uso de la herramienta de etiquetado
-      url: label-tool.md
-- title: API REST y bibliotecas de cliente
-  linkLists:
-  - linkListType: reference
+    - text: Implementación de la herramienta de etiquetado de ejemplo
+      url: deploy-label-tool.md
+  - linkListType: get-started
     links:
-    - text: Azure Form Recognizer API v2.1
-      url: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm
+    - text: Introducción
+      url: quickstarts/try-sample-label-tool.md
+    - text: Uso del modelo de diseño
+      url: concept-layout.md#sample-labeling-tool
+    - text: Uso del modelo de factura
+      url: concept-invoice.md#sample-labeling-tool
+    - text: Uso del modelo de recibo
+      url: concept-receipt.md#sample-labeling-tool
+    - text: Uso del modelo de documento de identificación
+      url: concept-id-document.md#sample-labeling-tool
+    - text: Uso del modelo de tarjeta de presentación
+      url: concept-business-card.md#sample-labeling-tool
+    - text: Uso del modelo personalizado
+      url: concept-custom.md#sample-labeling-tool
+- title: "\U0001F195 Probar Form Recognizer Studio"
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Información general de Studio | Versión preliminar
+      url: concept-form-recognizer-studio.md
+  - linkListType: get-started
+    links:
+    - text: Uso del modelo de documento general (versión preliminar)
+      url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+    - text: Uso del modelo de diseño
+      url: quickstarts/try-v3-form-recognizer-studio.md#layout
+    - text: Uso del modelo personalizado
+      url: quickstarts/try-v3-form-recognizer-studio.md#custom-model-basics
+    - text: Uso del modelo de factura
+      url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+    - text: Uso del modelo de recibo
+      url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+    - text: Uso del modelo de documento de identificación
+      url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+    - text: Uso del modelo de tarjeta de presentación
+      url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+- title: "\U0001F195 Probar el modelo de documento general"
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Información general del modelo | Versión preliminar
+      url: concept-general-document.md
+  - linkListType: get-started
+    links:
     - text: .NET SDK
-      url: /dotnet/api/overview/azure/ai.formrecognizer-readme
+      url: quickstarts/try-v3-csharp-sdk.md#try-it-general-document-model
     - text: SDK de Python
-      url: /python/api/azure-ai-formrecognizer/
+      url: quickstarts/try-v3-python-sdk.md#try-it-general-document-model
     - text: SDK de Java
-      url: /java/api/overview/azure/ai-formrecognizer-readme
+      url: quickstarts/try-v3-java-sdk.md#try-it-general-document-model
     - text: SDK de JavaScript
-      url: /javascript/api/overview/azure/ai-form-recognizer-readme
-- title: Ayuda y comentarios
+      url: quickstarts/try-v3-javascript-sdk.md#try-it-general-document-model
+    - text: API de REST (cURL)
+      url: quickstarts/try-v3-rest-api.md#try-it-general-document-model
+    - text: Form Recognizer Studio
+      url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+- title: Probar el modelo de diseño
   linkLists:
-  - linkListType: reference
+  - linkListType: overview
     links:
-    - text: Opciones de ayuda y soporte técnico
-      url: ../../cognitive-services/cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
+    - text: Introducción al modelo
+      url: concept-layout.md
+  - linkListType: get-started
+    links:
+    - text: .NET SDK
+      url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-layout
+    - text: SDK de Python
+      url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-layout
+    - text: SDK de Java
+      url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-layout
+    - text: SDK de JavaScript
+      url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-layout
+    - text: API de REST (cURL)
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-layout
+    - text: Form Recognizer Studio
+      url: quickstarts/try-v3-form-recognizer-studio.md#layout
+    - text: Herramienta de etiquetado de muestras
+      url: concept-layout.md#sample-labeling-tool
+- title: Probar el modelo personalizado
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Introducción al modelo
+      url: concept-custom.md
+  - linkListType: get-started
+    links:
+    - text: Uso del SDK de .NET
+      url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+    - text: Uso del SDK de Python
+      url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+    - text: Uso del SDK de Java
+      url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+    - text: Uso del SDK de JavaScript
+      url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+    - text: Uso de la API REST (cURL)
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+    - text: Form Recognizer Studio
+      url: quickstarts/try-v3-form-recognizer-studio.md#custom-model-basics
+    - text: Herramienta de etiquetado de muestras
+      url: concept-custom.md#sample-labeling-tool
+- title: Probar el modelo de factura
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Introducción al modelo
+      url: concept-invoice.md
+  - linkListType: get-started
+    links:
+    - text: .NET SDK
+      url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-invoices
+    - text: SDK de Python
+      url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-invoices
+    - text: SDK de Java
+      url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-invoices
+    - text: SDK de JavaScript
+      url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-invoices
+    - text: API de REST (cURL)
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-invoices
+    - text: Form Recognizer Studio
+      url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+    - text: Herramienta de etiquetado de muestras
+      url: concept-business-card.md#sample-labeling-tool
+- title: Probar el modelo de recibo
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Introducción al modelo
+      url: concept-receipt.md
+  - linkListType: get-started
+    links:
+    - text: .NET SDK
+      url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-receipts
+    - text: SDK de Python
+      url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-receipts
+    - text: SDK de Java
+      url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-receipts
+    - text: SDK de JavaScript
+      url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-receipts
+    - text: API de REST (cURL)
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-receipts
+    - text: Form Recognizer Studio
+      url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+    - text: Herramienta de etiquetado de muestras
+      url: concept-receipt.md#sample-labeling-tool
+- title: Probar el modelo de documentos de identificación
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Introducción al modelo
+      url: concept-id-document.md
+  - linkListType: get-started
+    links:
+    - text: .NET SDK
+      url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-identity-documents
+    - text: SDK de Python
+      url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-identity-documents
+    - text: SDK de Java
+      url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-identity-documents
+    - text: SDK de JavaScript
+      url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-identity-documents
+    - text: API de REST (cURL)
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-identity-documents
+    - text: Form Recognizer Studio
+      url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+    - text: Herramienta de etiquetado de muestras
+      url: concept-id-document.md#sample-labeling-tool
+- title: Probar el modelo de tarjeta de presentación
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Introducción al modelo
+      url: concept-business-card.md
+  - linkListType: get-started
+    links:
+    - text: .NET SDK
+      url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-business-cards
+    - text: SDK de Python
+      url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-business-cards
+    - text: SDK de Java
+      url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-business-cards
+    - text: SDK de JavaScript
+      url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-business-cards
+    - text: API de REST (cURL)
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-business-cards
+    - text: Form Recognizer Studio
+      url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+    - text: Herramienta de etiquetado de muestras
+      url: concept-business-card.md#sample-labeling-tool
