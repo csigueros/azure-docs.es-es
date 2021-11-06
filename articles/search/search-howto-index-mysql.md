@@ -2,18 +2,19 @@
 title: Indexación de datos de Azure MySQL (versión preliminar)
 titleSuffix: Azure Cognitive Search
 description: Configure un indexador de búsqueda para indexar los datos almacenados en Azure MySQL para la búsqueda de texto completo en Azure Cognitive Search.
-author: nitinme
-ms.author: nitinme
+author: gmndrg
+ms.author: gimondra
+manager: nitinme
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/17/2021
-ms.openlocfilehash: 1177f2c3dcddc286d7eb8e5caefe06d98dfe001d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: aaf8597887eb7d5f7f416fc2c9aa8731b5b8ce1e
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131076061"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131892995"
 ---
 # <a name="index-data-from-azure-mysql"></a>Indexación de datos de Azure MySQL
 

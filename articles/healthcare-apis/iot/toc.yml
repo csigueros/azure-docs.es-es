@@ -17,8 +17,14 @@ items:
   - name: Conceptos
     expanded: true
     items:
-      - name: Flujo de datos de IoT
+      - name: Flujo de datos del conector de IoT
         href: iot-data-flow.md
+      - name: Conector de IoT y Azure Machine Learning Service
+        href: iot-connector-machine-learning.md
+      - name: Conector de IoT y Microsoft Power BI
+        href: iot-connector-power-bi.md
+      - name: Conector de IoT y Microsoft Teams
+        href: iot-connector-teams.md
   - name: Guías paso a paso
     expanded: true
     items:
@@ -28,7 +34,7 @@ items:
         href: how-to-use-device-mapping-iot.md
       - name: Uso de asignaciones de destino de FHIR
         href: how-to-use-fhir-mapping-iot.md
-      - name: Exportación de métricas del conector de IoT mediante la configuración de diagnóstico
+      - name: Exportación de métricas del conector de IoT a través de la configuración de diagnóstico
         href: iot-metrics-diagnostics-export.md
   - name: Recursos
     expanded: true

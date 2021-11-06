@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: b6e78329c4f45baffd779202ebfa37da3c6cf7c9
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 856845022e63a96b9e5d56d1e869dec55a2511be
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113105442"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131892179"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Personalización de un punto de conexión HTTP en Azure Functions
 
@@ -39,7 +39,7 @@ De forma predeterminada, la función de desencadenador HTTP está configurada pa
 
     | Campo | Valor de ejemplo | Descripción |
     |---|---|---|
-    | Plantilla de ruta | /hello | Determina qué ruta se utiliza para invocar esta función. |
+    | Plantilla de ruta | hello | Determina qué ruta se utiliza para invocar esta función. |
     | Nivel de autorización | Anónimas | Opcional: Hace que la función sea accesible sin una clave de API |
     | Métodos HTTP seleccionados | GET | Permite que solo se usen los métodos HTTP seleccionados para invocar esta función. |
 

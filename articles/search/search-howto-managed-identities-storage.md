@@ -2,17 +2,18 @@
 title: Configuración de una conexión a una cuenta de almacenamiento mediante una identidad administrada
 titleSuffix: Azure Cognitive Search
 description: Aprenda a configurar una conexión de indexador a una cuenta de Azure Storage mediante una identidad administrada
-author: nitinme
-ms.author: nitinme
+author: gmndrg
+ms.author: gimondra
+manager: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/01/2021
-ms.openlocfilehash: 20669c08b00e75ed7e1ec87b67f3f12269512e3b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d714c4cd1b507a8722bb6407fb991a2b158b72e6
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131056136"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131894381"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Configuración de una conexión a una cuenta de Azure Storage mediante una identidad administrada
 

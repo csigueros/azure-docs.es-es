@@ -3,12 +3,12 @@ title: Referencia de variables de entorno y configuración de la aplicación
 description: Describe las variables de entorno que se usan habitualmente y cuáles se pueden modificar con la configuración de la aplicación.
 ms.topic: article
 ms.date: 06/14/2021
-ms.openlocfilehash: d945b34eb4803da8d94f4cdcfc8a998212e24afa
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: ae0f67ae935d31fc242350761e80e5d073a7273a
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130224363"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131892066"
 ---
 # <a name="environment-variables-and-app-settings-in-azure-app-service"></a>Variables de entorno y configuración de la aplicación en Azure App Service
 
@@ -168,7 +168,7 @@ En esta sección, se muestra la configuración en tiempo de ejecución que se pu
 | `WEBSITE_JAVA_WAR_FILE_NAME` | Archivo .war que se va a utilizar. Anexe .war si la cadena no termina en .war. El valor predeterminado es app.war. ||
 | `JAVA_ARGS` | Opciones de Java requeridas por distintos servidores web de Java. De manera predeterminada, su valor es `-noverify -Djava.net.preferIPv4Stack=true`. ||
 | `JAVA_WEBSERVER_PORT_ENVIRONMENT_VARIABLES` | Variables de entorno usadas por marcos web de Java populares para el puerto del servidor. Algunos marcos incluidos son: Spring, Micronaut, Grails, MicroProfile Thorntail, Helidon, Ratpack y Quarkus ||
-| `JAVA_TMP_DIR` | Se ha agregado a los argumentos de Java como `-Dsite.tempdir`. Su valor predeterminado es `TEMP`. ||
+| `JAVA_TMP_DIR` | Se ha agregado a los argumentos de Java como `-Dsite.tempdir`. Tiene como valor predeterminado `TEMP`. ||
 | `WEBSITE_SKIP_LOCAL_COPY` | De manera predeterminada, el archivo app.jar implementado se copia desde `/home/site/wwwroot` en una ubicación local. Para deshabilitar este comportamiento y cargar el archivo app.jar directamente desde `/home/site/wwwroot`, establezca esta variable en `1` o `true`. Esta configuración no tiene ningún efecto si la memoria caché local está habilitada. | |
 | `TOMCAT_USE_STARTUP_BAT` | Solo aplicaciones Windows nativas. De manera predeterminada, el servidor Tomcat se inicia con su archivo `startup.bat`. Para iniciar con el archivo `catalina.bat`, establezca el valor en `0` o `False`. | `%LOCAL_EXPANDED%\tomcat` |
 | `CATALINA_OPTS` | En el caso de las aplicaciones de Tomcat, las variables de entorno se pasan en el comando `java`. Puede contener variables del sistema. | |
@@ -435,7 +435,7 @@ Las siguientes variables de entorno están relacionadas con las [conexiones híb
 |-|-|
 | `WEBSITE_RELAYS` | Solo lectura. Datos necesarios para configurar la conexión híbrida, incluidos los puntos de conexión y los datos de Service Bus. |
 | `WEBSITE_REWRITE_TABLE` | Solo lectura. Se usa en tiempo de ejecución para realizar las búsquedas y reescribir las conexiones correctamente. | 
-| `WEBSITE_VNET_ROUTE_ALL` | De manera predeterminada, si usa la [integración de red virtual regional](./overview-vnet-integration.md#regional-vnet-integration), la aplicación solo enruta el tráfico RFC1918 a la red virtual. Establezca el valor en `1` para enrutar todo el tráfico saliente a la red virtual y que esté sujeto a los mismos NSG y UDR. Esta configuración le permite acceder a puntos de conexión que no son RFC1918 mediante la red virtual, proteger todo el tráfico saliente que sale de la aplicación y forzar la tunelización de todo el tráfico saliente a un dispositivo de red de su elección. |
+| `WEBSITE_VNET_ROUTE_ALL` | De manera predeterminada, si usa la [integración de red virtual regional](./overview-vnet-integration.md#regional-virtual-network-integration), la aplicación solo enruta el tráfico RFC1918 a la red virtual. Establezca el valor en `1` para enrutar todo el tráfico saliente a la red virtual y que esté sujeto a los mismos NSG y UDR. Esta configuración le permite acceder a puntos de conexión que no son RFC1918 mediante la red virtual, proteger todo el tráfico saliente que sale de la aplicación y forzar la tunelización de todo el tráfico saliente a un dispositivo de red de su elección. |
 | `WEBSITE_PRIVATE_IP` | Solo lectura. Dirección IP asociada a la aplicación cuando [se integra con una red virtual](./overview-vnet-integration.md). En el caso de la integración con red virtual regional, el valor es una dirección IP del intervalo de direcciones de la subred delegada y, en el de la integración con red virtual con requisito de puerta de enlace, el valor es una dirección IP del intervalo de direcciones del grupo de direcciones de punto a sitio configurado en la puerta de enlace de red virtual. La aplicación utiliza esta dirección IP para conectarse a los recursos mediante la red virtual. Además, puede cambiar dentro del intervalo de direcciones descrito. |
 | `WEBSITE_PRIVATE_PORTS` | Solo lectura. En la integración con red virtual, muestra qué puertos puede usar la aplicación para comunicarse con otros nodos. |
 

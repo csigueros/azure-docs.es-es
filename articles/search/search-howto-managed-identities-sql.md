@@ -2,17 +2,18 @@
 title: Configuración de una conexión a Azure SQL Database mediante una identidad administrada
 titleSuffix: Azure Cognitive Search
 description: Aprenda a configurar una conexión de indexador a Azure SQL Database mediante una identidad administrada.
-author: nitinme
-ms.author: nitinme
+author: gmndrg
+ms.author: gimondra
+manager: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/02/2021
-ms.openlocfilehash: 1b8386cac5c17f775f6719bdf8ab67243731179b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 1a975d8eeebe86bbdf09870ab6c450727bdd545b
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131037689"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131894414"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity"></a>Configuración de una conexión de indexador a Azure SQL Database mediante una identidad administrada
 

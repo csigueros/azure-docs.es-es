@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 3de81d40065a37f3d8443594621a2dec99120017
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 6c5fe92da4eb891ab1d5b264ff1585730352db36
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131578943"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131894172"
 ---
 # <a name="secure-an-app-in-azure-container-apps-preview"></a>Seguridad de una aplicación en la versión preliminar de Azure Container Apps
 
@@ -83,7 +83,7 @@ Los secretos se definen mediante el parámetro `--secrets`.
 - El parámetro acepta un conjunto delimitado por comas de pares nombre-valor.
 - Cada par está delimitado por el signo igual (`=`).
 
-```powershell
+```azurecli
 az containerapp create `
   --resource-group "my-resource-group" `
   --name queuereader `
@@ -134,7 +134,7 @@ Aquí, la variable de entorno denominada `connection-string` obtiene su valor de
 
 En este ejemplo, creará una aplicación con un secreto al que se hace referencia en una variable de entorno mediante la CLI de Azure.
 
-```powershell
+```azurecli
 az containerapp create `
   --resource-group "my-resource-group" `
   --name myQueueApp `

@@ -2,17 +2,18 @@
 title: Configuración de una conexión a un origen de datos mediante una identidad administrada
 titleSuffix: Azure Cognitive Search
 description: Obtenga información sobre cómo configurar una conexión de indexador a un origen de datos mediante una identidad administrada.
-author: nitinme
-ms.author: nitinme
+author: gmndrg
+ms.author: gimondra
+manager: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/02/2021
-ms.openlocfilehash: ff0ea838df98ba175fd0f3eb843bb148d98b70a1
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 6c038b7bac8d0791aafcda0010adeae138489ceb
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131010581"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131893792"
 ---
 # <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity"></a>Configuración de una conexión de indexador a un origen de datos mediante una identidad administrada
 

@@ -95,6 +95,8 @@
                   href: ../../logic-apps/move-logic-app-resources.md?toc=/azure/azure-resource-manager/management/toc.json
                 - name: Configuración de control de mantenimiento
                   href: ../../virtual-machines/move-region-maintenance-configuration.md?toc=/azure/azure-resource-manager/management/toc.json
+                - name: Azure Cache for Redis
+                  href: ../../azure-cache-for-redis/cache-moving-resources.md?toc=/azure/azure-resource-manager/management/toc.json
                 - name: Redes
                   items:
                     - name: Virtual network
@@ -133,7 +135,7 @@
           href: manage-private-link-access-rest.md
     - name: Administración de grupos de recursos
       items:
-        - name: Azure Portal
+        - name: Azure portal
           displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
           href: manage-resource-groups-portal.md
         - name: Azure CLI
@@ -144,7 +146,7 @@
           href: manage-resource-groups-powershell.md
     - name: Administrar recursos
       items:
-        - name: Azure Portal
+        - name: Azure portal
           displayName: 'open,delete,deploy,move,lock,tag,monitor'
           href: manage-resources-portal.md
         - name: Azure CLI

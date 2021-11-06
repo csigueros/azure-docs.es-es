@@ -1,6 +1,6 @@
 - name: Documentación de Azure Cache for Redis
   href: index.yml
-- name: Información general
+- name: Introducción
   items:
     - name: Acerca de Azure Cache for Redis
       href: cache-overview.md
@@ -156,6 +156,8 @@
           href: cache-administration.md#schedule-updates
         - name: Configuración del acceso a redis-cli.exe
           href: cache-how-to-redis-cli-tool.md
+        - name: Movimiento entre regiones
+          href: cache-moving-resources.md
         - name: Publicación de eventos de Azure Cache for Redis
           href: cache-event-grid.md
         - name: Eliminación de TLS 1.0 y 1.1

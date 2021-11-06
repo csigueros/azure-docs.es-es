@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: mathoma, bonova, vanto
 ms.date: 08/20/2021
-ms.openlocfilehash: a1cb62bce41ce0003628ce4223fe06e6587317f5
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: d4c86b555502d662e681fcb5904426a7a891883d
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130250507"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131893469"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Conexión de la aplicación a Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -143,7 +143,7 @@ Para solucionar problemas de conectividad, consulte la siguiente información:
 
 - Si usa el emparejamiento de red virtual, asegúrese de que ha seguido las instrucciones para configurar [Permitir tránsito de puerta de enlace y Usar puertas de enlace remotas](#connect-from-on-premises).
 
-- Si usa el emparejamiento de red virtual para conectar una aplicación hospedada por Azure App Service, y la red virtual de Instancia administrada de SQL tiene un intervalo de direcciones IP públicas, asegúrese de que la configuración de la aplicación hospedada permita que el tráfico saliente se enrute a redes con direcciones IP públicas. Siga las instrucciones que se indican en [Integración con red virtual regional](../../app-service/overview-vnet-integration.md#regional-vnet-integration).
+- Si usa el emparejamiento de red virtual para conectar una aplicación hospedada por Azure App Service, y la red virtual de Instancia administrada de SQL tiene un intervalo de direcciones IP públicas, asegúrese de que la configuración de la aplicación hospedada permita que el tráfico saliente se enrute a redes con direcciones IP públicas. Siga las instrucciones que se indican en [Integración con red virtual regional](../../app-service/overview-vnet-integration.md#regional-virtual-network-integration).
 
 ## <a name="required-versions-of-drivers-and-tools"></a>Versiones necesarias de los controladores y las herramientas
 
