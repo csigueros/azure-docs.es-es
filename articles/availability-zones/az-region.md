@@ -8,12 +8,12 @@ ms.date: 10/01/2021
 ms.author: rarco
 ms.reviewer: cynthn
 ms.custom: references_regions
-ms.openlocfilehash: 8fecd71f9b7d248e4452a708e0125f7d810ca7d1
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 58d483c56f27dd346c672f2ec2013dce934993ee
+ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/05/2021
-ms.locfileid: "131848788"
+ms.locfileid: "131866532"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Servicios de Azure compatibles con zonas de disponibilidad
 
@@ -35,7 +35,7 @@ Azure proporciona la superficie global más amplia de cualquier proveedor de nub
 | Este de EE. UU. | Este de Noruega | | Centro de Corea del Sur |
 | Este de EE. UU. 2 | Sur de Reino Unido 2 | | Sudeste de Asia |
 | Centro-sur de EE. UU. | Oeste de Europa | | Este de Asia |
-| US Gov - Virginia | Suecia* | | |
+| US Gov - Virginia | Suecia | | |
 | Oeste de EE. UU. 2 | | | |
 | Oeste de EE. UU. 3 | | | |
 

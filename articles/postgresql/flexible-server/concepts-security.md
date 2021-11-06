@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/01/2021
-ms.openlocfilehash: 8e474cd0ae6635034607a088aceee47a83c500de
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 26403d2de9fe0a4235dc1460f13adcd78e595e77
+ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129388781"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131867026"
 ---
 # <a name="security-in-azure-database-for-postgresql---flexible-server"></a>Seguridad en Azure Database for PostgreSQL: Servidor flexible
 
@@ -78,7 +78,7 @@ oid            | 24827
 
 ```
 
-El [registro de auditoría](../concepts-audit.md) también está disponible con la opción de servidor flexible para realizar un seguimiento de la actividad de las bases de datos. 
+El [registro de auditoría](concepts-audit.md) también está disponible con la opción de servidor flexible para realizar un seguimiento de la actividad de las bases de datos. 
 
 > [!NOTE]
 > La característica Servidor flexible de Azure Database for PostgreSQL actualmente no admite la [protección de Azure Defender](../../security-center/azure-defender.md). 
