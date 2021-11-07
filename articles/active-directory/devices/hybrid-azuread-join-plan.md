@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a782a2194b64fa82163c8c4df14e78de7e83a57f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a766415eab11a0486b4609d181e5f01dcf4ef2a6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128612555"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049698"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrucciones: Planeamiento de la implementación de la unión a Azure Active Directory híbrido
 
@@ -29,6 +29,10 @@ De forma similar a un usuario, un dispositivo es otra identidad principal que de
 Al traer sus dispositivos a Azure AD, está maximizando la productividad de los usuarios mediante un inicio de sesión único (SSO) en los recursos de nube y del entorno local. Al mismo tiempo, puede proteger el acceso a los recursos de nube y de entorno local con [acceso condicional](../conditional-access/overview.md).
 
 Si tiene un entorno local de Active Directory (AD) y quiere unir sus equipos unidos a un dominio AD a Azure AD, puede realizar una unión a Azure AD híbrido. En este artículo se proporcionan los pasos relacionados con la implementación de una unión a Azure AD híbrido en su entorno. 
+
+> [!TIP]
+> El acceso del inicio de sesión único a los recursos locales también está disponible para los dispositivos que están unidos a Azure AD. Para obtener más información, consulte [How SSO to on-premises resources works on Azure AD joined devices](azuread-join-sso.md) (Funcionamiento del inicio de sesión único a recursos locales en dispositivos unidos a Azure AD).
+>
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -63,6 +67,7 @@ La unión a Azure AD híbrido admite una amplia variedad de dispositivos Windows
 ### <a name="windows-current-devices"></a>Dispositivos de Windows actuales
 
 - Windows 10
+- Windows 11
 - Windows Server 2016
   - **Nota**: Los clientes de las nubes nacionales de Azure necesitan la versión 1803.
 - Windows Server 2019

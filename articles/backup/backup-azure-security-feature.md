@@ -4,12 +4,12 @@ description: Aprenda a usar las características de seguridad de Azure Backup pa
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 04/26/2021
-ms.openlocfilehash: 6cf2af6016df358243b36d47766eab38dacc5db4
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.openlocfilehash: 10a3420003197fc76f9baefbfd4c58c40a6dacfc
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108064204"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073669"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Características de seguridad para proteger copias de seguridad híbridas mediante Azure Backup
 
@@ -51,13 +51,13 @@ Si va a crear un almacén de Recovery Services, puede usar todas las caracterís
 5. En el menú desplegable **Have you configured Azure AD Multi-Factor Authentication?** (¿Ha configurado Multi-Factor Authentication de Azure AD?), seleccione un valor para confirmar que ha habilitado [Multi-Factor Authentication de Azure AD](../active-directory/authentication/concept-mfa-howitworks.md). Si está habilitado, se le pedirá que realice la autenticación desde otro dispositivo (por ejemplo, un teléfono móvil) al iniciar sesión en Azure Portal.
 
    Al realizar operaciones críticas en Backup, debe especificar un PIN de seguridad, disponible en Azure Portal. Al habilitar Multi-Factor Authentication de Azure AD, se agrega una capa de seguridad. Solo los usuarios autorizados con credenciales de Azure válidas y autenticados desde un segundo dispositivo pueden tener acceso a Azure Portal.
-6. Para guardar la configuración de seguridad, seleccione **Habilitar** y seleccione **Guardar**. Solo se puede seleccionar **Habilitar** después de seleccionar un valor en la lista **Have you configured Azure AD Multi-Factor Authentication?** (¿Ha configurado Multi-Factor Authentication de Azure AD?) del paso anterior.
+6. Para guardar la configuración de seguridad, seleccione **Habilitar** y seleccione **Guardar**.
 
     ![Captura de pantalla de configuración de seguridad](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
 ## <a name="recover-deleted-backup-data"></a>Recuperar datos de copia de seguridad eliminados
 
-La copia de seguridad conserva los datos de copia de seguridad eliminados durante 14 días adicionales y no los elimina inmediatamente si se realiza la operación de **Detener copia de seguridad con la eliminación de** datos de copia de seguridad. Para restaurar estos datos dentro del período de 14 días, siga los pasos que se muestran a continuación, según el entorno que tenga:
+Si la configuración de características de seguridad está habilitada, Azure Backup conserva los datos de copia de seguridad eliminados durante 14 días adicionales y no los elimina inmediatamente si se realiza la operación de **Detener copia de seguridad con la eliminación de datos de copia de seguridad**. Para restaurar estos datos dentro del período de 14 días, siga los pasos que se muestran a continuación, según el entorno que tenga:
 
 En el caso de los usuarios del **agente de Azure Recovery Services**:
 

@@ -9,12 +9,12 @@ ms.author: dashe
 ms.reviewer: sawinark
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: b7d6605f1a387a917c9d106078ead404842ea02c
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 5736e893242f1e24837132dc11b4b7607d22bbf9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130251934"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131086469"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Solución de problemas con la administración de SSIS Integration Runtime en Azure Data Factory
 
@@ -186,8 +186,14 @@ Al detener Azure-SSIS IR, se eliminarán todos los recursos de red creados en el
 
 ### <a name="publicipresourcegrouplockedduringupgrade"></a>PublicIPResourceGroupLockedDuringUpgrade
 
-Azure SSIS IR se actualizará automáticamente de forma periódica. Los nuevos nodos de IR se crean durante la actualización y los nodos antiguos se eliminan. Además, los recursos de red creados (por ejemplo, el equilibrador de carga y el grupo de seguridad de red) para los nodos antiguos se eliminan y los nuevos recursos de red se crean en la suscripción. Este error significa que no se pudieron eliminar los recursos de red de los nodos antiguos debido a un bloqueo de eliminación en el nivel de suscripción o grupo de recursos (que contiene la dirección IP pública estática). Quite el bloqueo de eliminación para que podamos limpiar los nodos antiguos y liberar la dirección IP pública estática para ellos. En caso contrario, no se podrá liberar la dirección IP pública estática y no podremos seguir actualizando la instancia de IR.
+Azure SSIS IR se actualizará automáticamente de forma periódica. Los nuevos nodos de IR se crean durante la actualización y los nodos antiguos se eliminan. Además, los recursos de red creados (por ejemplo, el equilibrador de carga y el grupo de seguridad de red) para los nodos antiguos se eliminan y los nuevos recursos de red se crean en la suscripción. Este error significa que no se pudieron eliminar los recursos de red de los nodos antiguos debido a un bloqueo de eliminación en el nivel de suscripción o grupo de recursos (que contiene la dirección IP pública estática). Quite el bloqueo de eliminación para poder limpiar los nodos antiguos y liberar la dirección IP pública estática para los nodos antiguos. En caso contrario, no se podrá liberar la dirección IP pública estática y no podremos seguir actualizando la instancia de IR.
 
 ### <a name="publicipnotusableduringupgrade"></a>PublicIPNotUsableDuringUpgrade
 
 Si quiere traer sus propias direcciones IP públicas estáticas, deben proporcionarse dos direcciones IP públicas. Una de ellas se usará para crear los nodos de IR inmediatamente y la otra se usará durante la actualización de la instancia de IR. Este error puede producirse cuando la otra dirección IP pública no se puede usar durante la actualización. Consulte [InvalidPublicIPSpecified](#InvalidPublicIPSpecified) para ver las posibles causas.
+
+## <a name="resource-management"></a>Administración de recursos
+
+### <a name="resource-tag-not-updated"></a>Etiqueta de recurso no actualizada
+
+Puede aplicar [etiquetas](../azure-resource-manager/management/tag-resources.md) a los recursos de Azure para organizarlos de forma lógica en una taxonomía. Mientras se ejecuta SSIS IR, los cambios en las etiquetas de la factoría de datos primaria de SSIS IR no se harán efectivos hasta que se reinicie SSIS IR.

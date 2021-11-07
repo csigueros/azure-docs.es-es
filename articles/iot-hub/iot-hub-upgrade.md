@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: robinsh
-ms.openlocfilehash: f306186fd079a32df68631055fcae6594d997d0d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: afd7a50a9c18299fb295d6ed978ce1b22bf90e9c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121742211"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131072586"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>Cómo actualizar IoT Hub
 
@@ -36,13 +36,9 @@ Estos ejemplos están diseñados para ayudarle a entender cómo ajustar IoT Hub 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) y vaya a IoT Hub.
 
-2. Seleccione **Precios y escala**.
-
-   ![Precios y escala](./media/iot-hub-upgrade/pricing-scale.png)
+2. Seleccione **Precios y escala** en el panel de navegación izquierdo.
 
 3. Para cambiar el nivel para su central, seleccione **Nivel de precios y de escala**. Elige el nuevo nivel y, a continuación, haga clic en **Seleccionar**.
-
-   ![Plan de tarifa y escalado](./media/iot-hub-upgrade/select-tier.png)
 
 4. Para cambiar el número de unidades en su central, escriba un nuevo valor en **Unidades de IoT Hub**.
 

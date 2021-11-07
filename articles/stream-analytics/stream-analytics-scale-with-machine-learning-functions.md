@@ -6,25 +6,25 @@ ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/15/2021
-ms.openlocfilehash: 1ee1411aba7724d76ed8626de9b8b038d02339dc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8d7c498f0052a3e0da024e8b4902579ab8a98fd0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103574261"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131083296"
 ---
-# <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Escalado del trabajo de Stream Analytics con funciones de Azure Machine Learning Studio (clásico)
+# <a name="scale-your-stream-analytics-job-with-machine-learning-studio-classic-functions"></a>Escalado del trabajo de Stream Analytics con funciones de Machine Learning Studio (clásico)
 
 > [!TIP]
-> Es muy recomendable usar las [UDF de Azure Machine Learning](machine-learning-udf.md) en lugar de las de Azure Machine Learning Studio (clásico) para mejorar el rendimiento y la confiabilidad.
+> Es muy recomendable usar las [UDF de Azure Machine Learning](machine-learning-udf.md) en lugar de las de Machine Learning Studio (clásico) para mejorar el rendimiento y la confiabilidad.
 
-En este artículo se describe cómo escalar de manera eficaz trabajos de Azure Stream Analytics que usan funciones de Azure Machine Learning Studio (clásico). Para más información sobre cómo escalar trabajos de Stream Analytics en general, consulte el artículo [Escalado de trabajos de Azure Stream Analytics para incrementar el rendimiento de procesamiento de flujo de datos](stream-analytics-scale-jobs.md).
+En este artículo se describe cómo escalar de manera eficaz trabajos de Azure Stream Analytics que usan funciones de Machine Learning Studio (clásico). Para más información sobre cómo escalar trabajos de Stream Analytics en general, consulte el artículo [Escalado de trabajos de Azure Stream Analytics para incrementar el rendimiento de procesamiento de flujo de datos](stream-analytics-scale-jobs.md).
 
 ## <a name="what-is-a-studio-classic-function-in-stream-analytics"></a>¿Qué es una función de Studio (clásico) en Stream Analytics?
 
 Una función de Machine Learning Studio (clásico) en Stream Analytics puede utilizarse como una llamada de función normal en el lenguaje de consulta de Stream Analytics. No obstante, en segundo plano, estas llamadas de función son en realidad solicitudes de servicio web de Studio (clásico).
 
-Puede mejorar el rendimiento de las solicitudes de servicio web de Studio (clásico) al agrupar en "lotes" varias filas en la misma llamada API de servicio web. Esta agrupación se denomina minilote. Para más información, consulte [Servicios web de Azure Machine Learning Studio (clásico)](../machine-learning/classic/consume-web-services.md). Compatibilidad de Studio (clásico) en Stream Analytics.
+Puede mejorar el rendimiento de las solicitudes de servicio web de Studio (clásico) al agrupar en "lotes" varias filas en la misma llamada API de servicio web. Esta agrupación se denomina minilote. Para más información, consulte [Servicios web de Machine Learning Studio (clásico)](../machine-learning/classic/consume-web-services.md). Compatibilidad de Studio (clásico) en Stream Analytics.
 
 ## <a name="configure-a-stream-analytics-job-with-studio-classic-functions"></a>Configuración de un trabajo de Stream Analytics con funciones de Studio (clásico)
 

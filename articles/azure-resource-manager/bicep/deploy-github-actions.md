@@ -6,12 +6,12 @@ ms.author: jgao
 ms.topic: conceptual
 ms.date: 09/02/2021
 ms.custom: github-actions-azure
-ms.openlocfilehash: df644fb081e6c15eb72e20a2a84af4b4c9386ba7
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 20830623514d98bd7dc1e0606cf0cf79bb0e86b4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123427038"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131087407"
 ---
 # <a name="deploy-bicep-files-by-using-github-actions"></a>Implementación de archivos de Bicep mediante Acciones de GitHub
 
@@ -158,4 +158,4 @@ Cuando el repositorio y el grupo de recursos ya no sean necesarios, limpie los r
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Módulo de aprendizaje: Compilación del primer flujo de trabajo de implementación de Bicep mediante Acciones de GitHub](/learn/modules/build-first-bicep-deployment-pipeline-using-github-actions/)
+> [Ruta de aprendizaje: Implementación de recursos de Azure mediante Bicep y Acciones de GitHub](/learn/paths/bicep-github-actions)

@@ -1,5 +1,5 @@
 ---
-title: Solución de problemas relacionados con la implementación de Azure Policy en Key Vault
+title: Solución de problemas relacionados con la implementación de directivas de Azure en Key Vault
 description: Solución de problemas relacionados con la implementación de Azure Policy en Key Vault
 author: sebansal
 ms.author: sebansal
@@ -7,14 +7,14 @@ ms.date: 08/17/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 8b6084f411ec948eb7655c5c7c6b54bf7d2e2c30
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 380077339920071fa56d385e6de8f7e7a9e84321
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129858988"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131072548"
 ---
-# <a name="troubleshooting-issues-with-implementing-azure-policy-on-key-vault"></a>Solución de problemas relacionados con la implementación de Azure Policy en Key Vault
+# <a name="troubleshoot-issues-with-implementing-azure-policy-on-key-vault"></a>Solución de problemas relacionados con la implementación de directivas de Azure en Key Vault
 
 En este artículo se explica cómo solucionar los errores generales que pueden producirse al configurar [Azure Policy para Key Vault](./azure-policy.md) y se sugieren formas de resolverlos.
 
@@ -33,7 +33,7 @@ Al habilitar el registro, se creará automáticamente un contenedor llamado **Az
 > 
 > 
 
-Los blobs individuales se almacenan como texto, con formato de blob JSON. Echemos un vistazo a una entrada de registro de ejemplo de una directiva de clave: las [claves deben tener establecida la fecha de expiración](azure-policy.md?tabs=keys#secrets-should-have-expiration-date-set-preview). Esta directiva evalúa todas las claves de los almacenes de claves y marca como no compatibles aquellas que no tienen establecida una fecha de expiración.
+Los blobs individuales se almacenan como texto, con formato de blob JSON. Echemos un vistazo a una entrada de registro de ejemplo de una directiva de clave: las [claves deben tener establecida la fecha de expiración](azure-policy.md?tabs=keys#secrets-should-have-expiration-date-set). Esta directiva evalúa todas las claves de los almacenes de claves y marca como no compatibles aquellas que no tienen establecida una fecha de expiración.
 
 ```json
 {
@@ -77,8 +77,14 @@ En la tabla siguiente se muestran los nombres y las descripciones de los campos:
 | **ObjectName** |Nombre del objeto. |
 | **ObjectType** |Tipo de objeto de almacén de claves, es decir, certificado, secreto o clave. |
 | **IsComplianceCheck** |True si la evaluación se produjo durante la auditoría nocturna; false si se produjo durante la creación o actualización de recursos. |
-| **Resultado** | Devuelve la evaluación de directiva. |
-| **ExpressionEvaluationDetails** | Detalles sobre el campo de evaluación, el valor de expresión. |
+| **AssignmentId** | Identificador de la asignación de directiva |
+| **AssignmentDisplayName** | Nombre descriptivo de la asignación de directiva |
+| **DefinitionId** | Identificador de la definición de directiva para la asignación |
+| **DefinitionDisplayName** | Nombre descriptivo de la definición de directiva para la asignación |
+| **Resultado** | Resultado de la evaluación de directivas |
+| **ExpressionEvaluationDetails** | Detalles sobre las evaluaciones realizadas durante la evaluación de directivas |
+| **ExpressionValue** | Valor real del campo especificado durante la evaluación de directivas |
+| **TargetValue** | Valor esperado del campo especificado |
 
 
 ### <a name="frequently-asked-questions"></a>Preguntas más frecuentes

@@ -4,13 +4,13 @@ description: Describe las funciones que se usarán en un archivo de Bicep para r
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/30/2021
-ms.openlocfilehash: 4cfbac80e9783dd9424a4b2ee63607fb6f2a7f17
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.date: 10/25/2021
+ms.openlocfilehash: a14019e3cdf595efe0a32a7021333aa5b4f6a6b1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129361901"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131087426"
 ---
 # <a name="resource-functions-for-bicep"></a>Funciones de recurso para Bicep
 
@@ -191,7 +191,7 @@ No es necesario un [calificador de espacio de nombres](bicep-functions.md#namesp
 
 Las funciones de lista se pueden usar en las propiedades de una definición de recursos. No use una función de lista que exponga información confidencial en la sección de salidas de un archivo de Bicep. Los valores de salida se almacenan en el historial de implementaciones y un usuario malintencionado podría recuperarlos.
 
-Cuando se usa con el [bucle de la propiedad](./loop-properties.md), puede usar las funciones de lista para `input` porque la expresión se asigna a la propiedad de recurso. No se pueden utilizar con `count` porque debe determinarse el recuento antes de resolver la función de lista.
+Cuando se usa con un [bucle iterativo](loops.md), puede usar las funciones de lista para `input` porque la expresión se asigna a la propiedad de recurso. No se pueden utilizar con `count` porque debe determinarse el recuento antes de resolver la función de lista.
 
 Si usa una función **list** con un recurso que se implementa de forma condicional, se puede evaluar la función incluso si el recurso no está implementado. Se genera un error si la función **list** hace referencia a un recurso que no existe. Use el [operador de expresión condicional **?:**](./operators-logical.md#conditional-expression--) para asegurarse de que la función solo se evalúa cuando se implementa el recurso.
 
@@ -522,8 +522,9 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
 output blobAddress string = stg.properties.primaryEndpoints.blob
 ```
 
-Para obtener más información, consulte [Recursos de referencia](./compare-template-syntax.md#reference-resources) y la [función de referencia de plantilla JSON](../templates/template-functions-resource.md#reference).
+Si intenta hacer referencia a un recurso que no existe, se produce el error `NotFound` y se produce un error en la implementación.
 
+Para obtener más información, consulte [Recursos de referencia](./compare-template-syntax.md#reference-resources) y la [función de referencia de plantilla JSON](../templates/template-functions-resource.md#reference).
 
 ## <a name="resourceid"></a>resourceId
 
@@ -675,4 +676,4 @@ resource myPolicyAssignment 'Microsoft.Authorization/policyAssignments@2019-09-0
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener valores de la implementación actual, consulte [Funciones con valores de implementación](./bicep-functions-deployment.md).
-* Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Implementación de varias instancias de recursos en Bicep](./loop-resources.md).
+* Para iterar un número especificado de veces al crear un tipo de recurso, consulte [Bucles iterativos en Bicep](loops.md).
