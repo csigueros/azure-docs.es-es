@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/3/2019
 ms.author: jeedes
-ms.openlocfilehash: 72490b729a244763cf5a3fa65a1e62128a5b28b2
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 46de9d29d79ee72ff19bb6bf465518176bb72d05
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113765291"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131988749"
 ---
 # <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Tutorial: Configuración de 4me para el aprovisionamiento automático de usuarios
 
@@ -34,6 +34,9 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 * Un inquilino de Azure AD
 * [Un inquilino de 4me](https://www.4me.com/trial/)
 * Una cuenta de usuario de 4me con permisos de administrador.
+
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
 
 ## <a name="add-4me-from-the-gallery"></a>Adición de 4me desde la galería
 

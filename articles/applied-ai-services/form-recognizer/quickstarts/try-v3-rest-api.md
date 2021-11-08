@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: lajanuar
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 097387d1a84aa02e6d81292a65404ca2e837ed98
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: c19e08dce4c2cfcae67555189b55d085b18eceb0
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131021003"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131988566"
 ---
 # <a name="quickstart-rest-api---preview"></a>Inicio rápido: API REST | Versión preliminar
 
@@ -122,7 +122,7 @@ https://{host}/formrecognizer/documentModels/{modelId}/analyzeResults/ **{result
 
 ### <a name="get-general-document-results"></a>Obtención de resultados generales del documento
 
-Tras la llamada a **[Analyze document](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-document:analyze?api-version=2021-09-30-preview&stringIndexType=textElements)** API, llame a **[Get analyze result](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-document/analyzeResults/{resultId}?api-version=2021-09-30-preview)** API para obtener el estado de la operación y los datos extraídos. Antes de ejecutar el comando, realice estos cambios:
+Tras la llamada a **[Analyze document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)** API, llame a **[Get analyze result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetAnalyzeDocumentResultw)** API para obtener el estado de la operación y los datos extraídos. Antes de ejecutar el comando, realice estos cambios:
 
 1. Reemplace `{endpoint}` por el punto de conexión que obtuvo con la suscripción de Form Recognizer.
 1. Reemplace `{subscription key}` con la clave de suscripción que copió en el paso anterior.

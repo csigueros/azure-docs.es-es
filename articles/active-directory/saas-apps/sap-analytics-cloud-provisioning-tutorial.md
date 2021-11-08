@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/13/2020
 ms.author: thwimmer
-ms.openlocfilehash: 84842b751c0e4351da13d26654147c9541af6973
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 18761305ced552ae8cade7aeb647836ab5666a3e
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128643405"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131989040"
 ---
 # <a name="tutorial-configure-sap-analytics-cloud-for-automatic-user-provisioning"></a>Tutorial: Configuración de SAP Analytics Cloud para el aprovisionamiento automático de usuarios
 
@@ -43,6 +43,10 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 * Un inquilino de SAP Analytics Cloud.
 * Una cuenta de usuario en la consola de administración de aprovisionamiento de identidades de SAP con permisos de administrador. Asegúrese de que tiene acceso a los sistemas proxy en la consola de administración de aprovisionamiento de identidades. Si no ve el icono **Proxy Systems** (Sistemas proxy), cree un incidente para el componente **BC-IAM-IPS** para solicitar acceso a este icono.
 * Un cliente de OAuth con las credenciales de cliente de concesión de autorización en la nube de SAP Analytics Cloud. Para saber cómo, consulte: [Administración de clientes de OAuth y proveedores de identidades de confianza](https://help.sap.com/viewer/00f68c2e08b941f081002fd3691d86a7/release/en-US/4f43b54398fc4acaa5efa32badfe3df6.html)
+
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
+
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Paso 1. Planeación de la implementación de aprovisionamiento
 

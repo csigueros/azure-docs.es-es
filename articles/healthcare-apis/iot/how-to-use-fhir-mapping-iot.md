@@ -4,29 +4,36 @@ description: En este artículo se describe cómo usar la plantilla de asignació
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
-ms.topic: conceptual
-ms.date: 10/26/2021
+ms.topic: how-to
+ms.date: 11/05/2021
 ms.author: jasteppe
-ms.openlocfilehash: 856355f2f511a9fecdce586e3b7ef4b176366f68
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 0839376e1f04acc525cd7b33cd281edd3e66ee56
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131468826"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131990364"
 ---
 # <a name="how-to-use-the-fhir-destination-mappings"></a>Uso de las asignaciones de destino de FHIR
 
 > [!IMPORTANT]
 > Azure Healthcare APIs se encuentra actualmente en VERSIÓN PRELIMINAR. Los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado con disponibilidad general.
 
-En este artículo se describe cómo configurar el conector de IoT mediante la asignación Recursos Rápidos de Interoperabilidad en Salud destino de Recursos Rápidos de Interoperabilidad en Salud (FHIR&#174;).
+En este artículo se describe cómo configurar el conector de IoT mediante las asignaciones de destino Recursos Rápidos de Interoperabilidad en Salud (FHIR&#174;).
 
 > [!TIP]
 > Consulte la herramienta [Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) del conector IoMT para editar, probar y solucionar problemas de las asignaciones de destino de dispositivos y FHIR del conector ioT. Exporte las asignaciones para cargar en el conector de IoT Azure Portal use con la versión [de código abierto](https://github.com/microsoft/iomt-fhir) del conector de IoT.
 
+A continuación se muestra un ejemplo conceptual de lo que sucede durante el proceso de normalización y transformación en el conector de IoT:
+
+:::image type="content" source="media/iot-data-normalization-high-level.png" alt-text="Ejemplo 1 del flujo de normalización de datos de IoT" lightbox="media/iot-data-normalization-high-level.png":::
+
 ## <a name="fhir-destination-mappings"></a>Asignaciones de destino de FHIR
 
-Una vez extraído el contenido del dispositivo en un modelo normalizado, los datos se recopilan y agrupan según el identificador de dispositivo, el tipo de medida y el período de tiempo. La salida de esta agrupación se envía para su conversión en un recurso FHIR (actualmente [Observation](https://www.hl7.org/fhir/observation.html) [Observación]). La plantilla de asignación de destino de FHIR controla cómo se asignan los datos a una observación de FHIR. ¿Debe crearse un recurso de observación para un momento o para un período de una hora? ¿Qué códigos se deben agregar al recurso de observación? ¿Se debe representar el valor como [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) o como una [cantidad](https://www.hl7.org/fhir/datatypes.html#Quantity)? Estos tipos de datos son todas las opciones que los controles de configuración de asignación de destino de FHIR.
+Una vez extraído el contenido del dispositivo en un modelo normalizado, los datos se recopilan y agrupan según el identificador de dispositivo, el tipo de medida y el período de tiempo. La salida de esta agrupación se envía para su conversión en un recurso FHIR (actualmente [Observation](https://www.hl7.org/fhir/observation.html) [Observación]). La plantilla de asignación de destino de FHIR controla cómo se asignan los datos a una observación de FHIR. ¿Debe crearse un recurso de observación para un momento o para un período de una hora? ¿Qué códigos se deben agregar al recurso de observación? ¿Debe representarse el valor [como SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) o [quantity](https://www.hl7.org/fhir/datatypes.html#Quantity)? Estos tipos de datos son todas las opciones que los controles de configuración de asignaciones de destino de FHIR.
+
+> [!NOTE]
+> Las asignaciones se almacenan en un almacenamiento de blobs subyacente y se cargan desde blobs por ejecución de proceso. Al actualizarse, se aplican inmediatamente. 
 
 ### <a name="codevaluefhirtemplate"></a>CodeValueFhirTemplate
 
@@ -266,7 +273,9 @@ Representa el tipo de datos [CodeableConcept](http://hl7.org/fhir/datatypes.html
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+En este artículo, ha aprendido a usar las asignaciones de destino de FHIR. Para obtener información sobre cómo usar asignaciones de dispositivos, consulte
+
 >[!div class="nextstepaction"]
->[Uso de la asignación de dispositivos](how-to-use-device-mapping-iot.md)
+>[Uso de asignaciones de dispositivos](how-to-use-device-mapping-iot.md)
 
 (FHIR&#174;) es una marca registrada [de HL7](https://hl7.org/fhir/) y se usa con el permiso HL7.

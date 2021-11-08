@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 06/25/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: b66ab52a65dd848997d8f13dde7bfba944ad520b
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 77722b2c83eee2c4b48ccb3cd6098cacfc37088b
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744402"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131988528"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Restricciones de cuenta y directivas de contraseñas en Azure Active Directory
 
@@ -69,30 +69,32 @@ Con una directiva de dos puertas, los administradores no tienen posibilidad de u
 Una directiva de dos puertas requiere dos elementos de los datos de autenticación, como una dirección de correo electrónico, una aplicación de autenticador o un número de teléfono. Se aplica una directiva de dos puertas en las siguientes circunstancias:
 
 * Todos los roles de administrador siguientes se ven afectados:
-  * Administrador del departamento de soporte técnico
-  * Administrador del soporte técnico del servicio
+  * Administrador de aplicaciones
+  * Administrador del servicio de proxy de la aplicación
+  * Administrador de autenticación
+  * Administrador local de dispositivo unido a Azure AD
   * Administrador de facturación
+  * Administrador de cumplimiento
+  * Administradores de dispositivo
+  * Cuentas de sincronización de directorios
+  * Escritores de directorios
+  * Administrador de Dynamics 365
+  * Administrador de Exchange
+  * Administrador global y administrador de la compañía
+  * Administrador del departamento de soporte técnico
+  * Administrador de Intune
+  * Administrador de buzones de correo
   * Soporte para asociados de nivel 1
   * Soporte para asociados de nivel 2
-  * Administrador de Exchange
-  * Administrador de buzones de correo
+  * Administrador de contraseñas
+  * Administrador de servicios de Power BI
+  * Administrador de autenticación con privilegios
+  * Administrador de roles con privilegios
+  * Administrador de SharePoint
+  * Administrador de seguridad
+  * Administrador del soporte técnico del servicio
   * Administrador de Skype Empresarial
   * Administrador de usuarios
-  * Escritores de directorios
-  * Administrador global y administrador de la compañía
-  * Administrador de SharePoint
-  * Administrador de cumplimiento
-  * Administrador de aplicaciones
-  * Administrador de seguridad
-  * Administrador de roles con privilegios
-  * Administrador de Intune
-  * Administrador local de dispositivo unido a Azure AD
-  * Administrador del servicio de proxy de la aplicación
-  * Administrador de Dynamics 365
-  * Administrador de servicios de Power BI
-  * Administrador de autenticación
-  * Administrador de contraseñas
-  * Administrador de autenticación con privilegios
 
 * Una vez transcurridos 30 días en una suscripción de prueba
 * Se ha configurado un dominio personalizado para el inquilino de Azure AD, como *contoso.com*; o
@@ -117,7 +119,7 @@ También puede usar cmdlets de PowerShell para quitar la configuración de no ex
 Esta guía se aplica a otros proveedores (como Intune y Microsoft 365) que también dependen de Azure AD para los servicios de identidad y directorio. La expiración de contraseñas es la única parte de la directiva que se puede cambiar.
 
 > [!NOTE]
-> De forma predeterminada, solo las contraseñas de cuentas de usuario que no se sincronizan a través de Azure AD Connect pueden configurarse para que no expiren. Para obtener más información sobre la sincronización de directorios, vea el artículo sobre cómo [conectar AD con Azure AD](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization#password-expiration-policy).
+> De forma predeterminada, solo las contraseñas de cuentas de usuario que no se sincronizan a través de Azure AD Connect pueden configurarse para que no expiren. Para obtener más información sobre la sincronización de directorios, vea el artículo sobre cómo [conectar AD con Azure AD](../hybrid/how-to-connect-password-hash-synchronization.md#password-expiration-policy).
 
 ### <a name="set-or-check-the-password-policies-by-using-powershell"></a>Establecer o comprobar directivas de contraseña mediante PowerShell
 
@@ -128,6 +130,7 @@ Una vez instalado el módulo, use los pasos a continuación para completar cada 
 ### <a name="check-the-expiration-policy-for-a-password"></a>Comprobación de la directiva de expiración de una contraseña
 
 1. Abra un símbolo del sistema de PowerShell y [conéctese con su inquilino de Azure AD](/powershell/module/azuread/connect-azuread#examples) mediante una cuenta de *administrador global* o *administrador de usuarios*.
+
 1. Ejecute uno de los siguientes comandos para un usuario individual o para todos los usuarios:
 
    * Para ver si la contraseña de un solo usuario está configurada para no expirar nunca, ejecute el siguiente cmdlet. Reemplace `<user ID>` por el id. del usuario que quiere comprobar, como *driley\@contoso.onmicrosoft.com*:
@@ -145,6 +148,7 @@ Una vez instalado el módulo, use los pasos a continuación para completar cada 
 ### <a name="set-a-password-to-expire"></a>Configuración de una contraseña para que caduque
 
 1. Abra un símbolo del sistema de PowerShell y [conéctese con su inquilino de Azure AD](/powershell/module/azuread/connect-azuread#examples) mediante una cuenta de *administrador global* o *administrador de usuarios*.
+
 1. Ejecute uno de los siguientes comandos para un usuario individual o para todos los usuarios:
 
    * Para establecer la contraseña de un usuario para que expire, ejecute el cmdlet siguiente. Reemplace `<user ID>` por el id. del usuario que quiere comprobar, como *driley\@contoso.onmicrosoft.com*.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2021
 ms.author: thwimmer
-ms.openlocfilehash: a2e42e274fb65c06744f838ba4a40b2dc6119d5d
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 662d848d9de2f2d219d24bb401c3cb628d6cea06
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323354"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131989477"
 ---
 # <a name="tutorial-configure-github-enterprise-managed-user-for-automatic-user-provisioning"></a>Tutorial: Configuración de GitHub Enterprise Managed User para el aprovisionamiento automático de usuarios
 
@@ -46,6 +46,9 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 * [Un inquilino de Azure AD](../develop/quickstart-create-new-tenant.md)
 * Una cuenta de usuario en Azure AD con [permiso](../roles/permissions-reference.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global).
 * GitHub Enterprise Managed User habilitado y configurado para iniciar sesión con el inicio de sesión único de SAML mediante su inquilino de Azure AD
+
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Paso 1. Planeación de la implementación de aprovisionamiento
 1. Obtenga información sobre [cómo funciona el servicio de aprovisionamiento](../app-provisioning/user-provisioning.md).

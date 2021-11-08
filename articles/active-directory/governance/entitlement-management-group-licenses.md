@@ -13,12 +13,12 @@ ms.subservice: compliance
 ms.date: 08/18/2021
 ms.author: sama
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcf38a949d15faa896f4ac673fc53814078a087e
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 7d9b2f8ae5d679bf6642cd4cc2872e53b1234f11
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130231770"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131989173"
 ---
 # <a name="tutorial-manage-the-lifecycle-of-your-group-based-licenses-in-azure-ad"></a>Tutorial: Administración del ciclo de vida de las licencias basadas en grupos en Azure AD
  
@@ -99,11 +99,11 @@ Para obtener más información, consulte [Requisitos de licencia](entitlement-ma
  
     En este escenario, quiere que todos los empleados revisen si todavía necesitan una licencia para Office cada año.
 
-    1.  En **Exigir revisiones de acceso**, seleccione **Sí**.
-    2.  Puede dejar el campo **Inicio** establecido en la fecha actual. Esta fecha indica cuándo se iniciará la revisión de acceso. Después de crear una revisión de acceso, no puede actualizar su fecha de inicio.
-    3.  En **Frecuencia de revisión**, seleccione **Anualmente**, ya que la revisión se realizará una vez al año. En el cuadro **Frecuencia de revisión**, se determina la frecuencia con la que se ejecuta la revisión de acceso.
-    4.  Especifique un valor para el campo **Duración (en días)** .  En el cuadro de duración, se indica cuántos días se ejecutará cada aparición de la serie de revisión de acceso.
-    5.  En **Revisores**, seleccione **Administrador**.
+    1. En **Exigir revisiones de acceso**, seleccione **Sí**.
+    2. Puede dejar el campo **Inicio** establecido en la fecha actual. Esta fecha indica cuándo se iniciará la revisión de acceso. Después de crear una revisión de acceso, no puede actualizar su fecha de inicio.
+    3. En **Frecuencia de revisión**, seleccione **Anualmente**, ya que la revisión se realizará una vez al año. En el cuadro **Frecuencia de revisión**, se determina la frecuencia con la que se ejecuta la revisión de acceso.
+    4. Especifique un valor para el campo **Duración (en días)** .  En el cuadro de duración, se indica cuántos días se ejecutará cada aparición de la serie de revisión de acceso.
+    5. En **Revisores**, seleccione **Administrador**.
 
 ## <a name="step-6-review-and-create-your-access-package"></a>Paso 6: Revisión y creación del paquete de acceso
 

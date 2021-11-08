@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: eur
 ms.custom: cog-serv-seo-aug-2020
 keywords: conversión de voz a texto, software de conversión de voz en texto
-ms.openlocfilehash: 78db7165e44eb53a6d34c9095f70185874d0d8ce
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 02e9a0d78aa8d904be2c9ade4ba419ea4fefd40f
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131509881"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131989439"
 ---
 # <a name="what-is-speech-to-text"></a>¿Qué es la conversión de voz a texto?
 
@@ -36,8 +36,6 @@ Esta documentación contiene los siguientes tipos de artículos:
 > [!NOTE]
 > Bing Speech se ha retirado el 15 de octubre de 2019. Si sus aplicaciones, herramientas o productos usan Bing Speech API, hemos creado guías para que le ayuden a migrar al servicio de voz.
 > - [Migración de Bing Speech al servicio de voz](how-to-migrate-from-bing-speech.md)
-
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 ## <a name="get-started"></a>Introducción
 

@@ -12,16 +12,14 @@ ms.date: 09/01/2020
 ms.author: eur
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: traducción de voz
-ms.openlocfilehash: 19332b801493359dc0cf8a8f1d5bab951b9be983
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 13d82c334504b2d396f10b1c80b99c0c264c9ea0
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131502756"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131988888"
 ---
 # <a name="what-is-speech-translation"></a>¿Qué es la traducción de voz?
-
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 En esta introducción, descubrirá las ventajas y funcionalidades del servicio de traducción de voz, un servicio que le permite agregar a las secuencias de audio traducciones de voz a voz y [de voz a texto en varios idiomas](language-support.md#speech-translation) y en tiempo real. Con el SDK de voz, sus aplicaciones, herramientas y los dispositivos tienen acceso a las transcripciones de origen y a las salidas de traducción del audio proporcionadas. A medida que se detecta la voz, se van devolviendo resultados provisionales de transcripción y traducción. Asimismo, los resultados finales pueden convertirse en voz sintetizada.
 

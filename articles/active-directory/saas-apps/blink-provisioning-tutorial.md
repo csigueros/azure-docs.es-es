@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: thwimmer
-ms.openlocfilehash: 65ab6560d8a48849fb078a5fb7c1685ae0c9aed6
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: d715a1e91ca07f27c1be243e930fe7fdb21df7f3
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113764751"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131988964"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>Tutorial: Configuración de Blink para el aprovisionamiento automático de usuarios
 
@@ -34,6 +34,9 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 * Un inquilino de Azure AD
 * [Un inquilino de Blink](https://joinblink.com/pricing)
 * Una cuenta de usuario de Blink con permisos de administrador.
+
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
 
 ## <a name="assigning-users-to-blink"></a>Asignación de usuarios a Blink
 

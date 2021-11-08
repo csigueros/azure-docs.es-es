@@ -30,7 +30,7 @@ items:
       - name: Seguridad
         items:
           - name: Línea base de seguridad de NAT de Virtual Network
-            href: nat-security-baseline.md
+            href: /security/benchmark/azure/baselines/virtual-network-nat-security-baseline
   - name: Instrucciones
     items:
       - name: Solución de problemas

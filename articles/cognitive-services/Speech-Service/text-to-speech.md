@@ -12,16 +12,14 @@ ms.date: 09/01/2020
 ms.author: eur
 ms.custom: cog-serv-seo-aug-2020
 keywords: texto a voz
-ms.openlocfilehash: a086ebf1d7e9da9f8394a6cdde411e5ee55a5f28
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: c3a4caa638debfa32fa6d571b473b2bf5bd0cf09
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131511053"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131990383"
 ---
 # <a name="what-is-neural-text-to-speech"></a>¿Qué es el texto a voz neuronal?
-
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 El texto a voz neuronal de Microsoft usa redes neuronales profundas para hacer que las voces de los equipos no se distingan prácticamente de las grabaciones de personas. Con su prosodia natural similar a la humana y la clara articulación de las palabras, el texto a voz neuronal ha reducido considerablemente la fatiga de la escucha que aparece cuando se interactúa con sistemas de inteligencia artificial.
 

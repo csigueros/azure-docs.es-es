@@ -23,18 +23,20 @@ items:
         href: iot-connector-machine-learning.md
       - name: Conector de IoT y Microsoft Power BI
         href: iot-connector-power-bi.md
-      - name: Conector de IoT y Microsoft Teams
+      - name: Conector de IoT y Microsoft Teams notificaciones
         href: iot-connector-teams.md
-  - name: Guías paso a paso
+  - name: Guías de procedimientos
     expanded: true
     items:
       - name: Recepción de datos del dispositivo mediante Azure IoT Hub
         href: device-data-through-iot-hub.md
       - name: Uso de asignaciones de dispositivos
         href: how-to-use-device-mapping-iot.md
+      - name: Uso de funciones personalizadas
+        href: iot-connector-custom-functions.md
       - name: Uso de asignaciones de destino de FHIR
         href: how-to-use-fhir-mapping-iot.md
-      - name: Exportación de métricas del conector de IoT a través de la configuración de diagnóstico
+      - name: Exportación de métricas del conector de IoT mediante la configuración de diagnóstico
         href: iot-metrics-diagnostics-export.md
   - name: Recursos
     expanded: true

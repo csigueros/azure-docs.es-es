@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: ae3b4687608c98dbb6d68002d95f4c68af223125
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 04f4d1c25fcd7a0072e8d72eb28c1cfac106166f
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113764201"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131988812"
 ---
 # <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Tutorial: Configuración de Comeet Recruiting Software para el aprovisionamiento automático de usuarios
 
@@ -35,6 +35,8 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 * [Un inquilino de Comeet Recruiting Software](https://www.comeet.co/)
 * Una cuenta de usuario en Comeet Recruiting Software con permisos de administrador.
 
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
 ## <a name="add-comeet-recruiting-software-from-the-gallery"></a>Adición de Comeet Recruiting Software desde la galería
 
 Antes de configurar Comeet Recruiting Software para el aprovisionamiento automático de usuarios con Azure AD, tendrá que agregarlo desde la Galería de aplicaciones de Azure AD a la lista de aplicaciones SaaS administradas.

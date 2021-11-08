@@ -6,14 +6,14 @@ author: ginalee-dotcom
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 10/21/2021
+ms.date: 11/05/2021
 ms.author: ginle
-ms.openlocfilehash: 6debd85f084a68cc96133cc7128f97beefa2dfcb
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 6ce51e4cf916baaa22d14e902872185901b4d5da
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130259382"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131988622"
 ---
 # <a name="frequently-asked-questions-about-azure-healthcare-apis-preview"></a>Preguntas más frecuentes sobre Azure Healthcare APIs (versión preliminar)
 
@@ -49,26 +49,26 @@ Consulte la página [Productos por región](https://azure.microsoft.com/global-i
 #### <a name="workspace-logical-container"></a>Área de trabajo (contenedor lógico):
 * 200 instancias por suscripción (no ajustable)
 
-#### <a name="dicom-server"></a>Servidor DICOM:
+#### <a name="dicom-service"></a>Servicio DICOM:
 * 800 instancias por suscripción (no ajustable)
 * 10 instancias DICOM por área de trabajo (no ajustable)
 
-#### <a name="fhir-server"></a>Servidor FHIR:
+#### <a name="fhir-service"></a>Servicio FHIR:
 * 25 instancias por suscripción (no ajustable)
 * 10 instancias de FHIR por área de trabajo (no ajustable)
 
 #### <a name="iot-connector"></a>Conector de IoT:
-* 25 conectores de IoT por suscripción (ajustables con una solicitud de soporte técnico de Azure)
-* 10 conectores de IoT por área de trabajo (ajustables con una solicitud de soporte técnico de Azure)
+* 25 conectores de IoT por suscripción (no ajustables)
+* 10 conectores de IoT por área de trabajo (no ajustables)
 * Un destino de FHIR* por conector de IoT (no ajustable)
 
-(* - FHIR Destination es un recurso secundario del conector de IoT)
+(* - El destino de FHIR es un recurso secundario del conector de IoT)
 
 ## <a name="more-frequently-asked-questions"></a>Preguntas más frecuentes
 [Preguntas más frecuentes sobre el servicio de FHIR Azure Healthcare APIs](./fhir/fhir-faq.md)
 
 [Preguntas más frecuentes sobre el servicio de DICOM Azure Healthcare APIs](./dicom/dicom-services-faqs.yml)
 
-[Preguntas más frecuentes sobre el conector de IoT de las API de Azure Healthcare](./iot/iot-connector-faqs.md)
+[Preguntas más frecuentes sobre el conector ioT de las API de Azure Healthcare](./iot/iot-connector-faqs.md)
 
-(FHIR&#174;) es una marca comercial registrada de [HL7](https://hl7.org/fhir/) y se usa con el permiso hl7.
+(FHIR&#174;) es una marca comercial registrada de [HL7](https://hl7.org/fhir/) y se usa con el permiso de HL7.

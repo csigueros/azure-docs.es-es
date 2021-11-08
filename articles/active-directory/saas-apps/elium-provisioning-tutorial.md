@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/19/2019
 ms.author: thwimmer
-ms.openlocfilehash: 6c97bd16978295b34e671a0af2598869f0218993
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: fd99228da135e8a0a2eb2c1413243537efe7efc8
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113767969"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131990440"
 ---
 # <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>Tutorial: Configuración de Elium para el aprovisionamiento automático de usuarios
 
@@ -34,6 +34,9 @@ En este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 * Un inquilino de Azure AD
 * [Un inquilino de Elium](https://www.elium.com/pricing/)
 * Una cuenta de usuario de Elium con permisos de administrador
+
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
 
 ## <a name="assigning-users-to-elium"></a>Asignación de usuarios a Elium
 

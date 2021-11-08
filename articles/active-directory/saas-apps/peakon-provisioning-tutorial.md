@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: thwimmer
-ms.openlocfilehash: 65416e8e0117f91d97374ae10fbc633d1783b823
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: e1fd9d3d00c083e448755176f42b2493999e604c
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113766521"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131989553"
 ---
 # <a name="tutorial-configure-peakon-for-automatic-user-provisioning"></a>Tutorial: Configurar Peakon para el aprovisionamiento automático de usuarios
 
@@ -33,6 +33,9 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 * Un inquilino de Azure AD.
 * [Un inquilino de Peakon](https://peakon.com/us/pricing/).
 * Una cuenta de usuario de Peakon con permisos de administrador.
+
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
 
 ## <a name="assigning-users-to-peakon"></a>Asignación de usuarios a Peakon
 
