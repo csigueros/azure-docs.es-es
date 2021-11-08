@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a crear y configurar almacenes de Rec
 ms.topic: conceptual
 ms.date: 08/06/2021
 ms.custom: references_regions
-ms.openlocfilehash: cbb1280b1ed78d82c312169f99a0d46f312fbd9d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: dde592064c5cd4f42bd8baf94854fa2f95f4945e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121722689"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131078282"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Creación y configuración de un almacén de Recovery Services
 
@@ -22,7 +22,7 @@ Azure Backup administra automáticamente el almacenamiento para el almacén. Deb
 > [!NOTE]
 > El cambio del **tipo de replicación de almacenamiento** (con redundancia local o con redundancia geográfica) para un almacén de Recovery Services se debe realizar antes de configurar las copias de seguridad en el almacén. Una vez que configure la copia de seguridad, se deshabilita la opción para modificar.
 >
->- Si todavía no ha configurado la copia de seguridad, [siga estos pasos](#set-storage-redundancy) para revisar y modificar la configuración.
+>- Si aún no ha configurado la copia de seguridad, realice los pasos siguientes para revisar y modificar la configuración.
 >- Si ya ha configurado la copia de seguridad y debe pasar de GRS a LRS, [revise estas soluciones alternativas](#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
 1. En el panel **Almacenes de Recovery Services**, seleccione un almacén nuevo. En la sección **Configuración**, seleccione **Propiedades**.
@@ -59,7 +59,7 @@ Al restaurar una máquina virtual, puede restaurar la máquina virtual o su disc
 
 Para elegir esta característica, seleccione la opción **Habilitar la restauración entre regiones** en el panel **Configuración de copia de seguridad**.
 
-Como este proceso se encuentra en el nivel de almacenamiento, hay [implicaciones de precios](https://azure.microsoft.com/pricing/details/backup/).
+Dado que este proceso se encuentra en el nivel de almacenamiento, hay [implicaciones de precios](https://azure.microsoft.com/pricing/details/backup/).
 
 >[!NOTE]
 >Antes de empezar:

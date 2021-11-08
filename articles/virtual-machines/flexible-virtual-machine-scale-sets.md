@@ -9,12 +9,12 @@ ms.subservice: flexible-scale-sets
 ms.date: 10/13/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
-ms.openlocfilehash: b5c52d2ab3b788a1f06edbc59d8dab05cc8285dd
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 56ba42b3aca7d48a62edd264a8ec867fcda5107c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130258000"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131074524"
 ---
 # <a name="flexible-orchestration-for-virtual-machine-scale-sets-in-azure"></a>Orquestación flexible para conjuntos de escalado de máquinas virtuales en Azure
 
@@ -98,6 +98,10 @@ El modo de orquestación flexible se puede usar con SKU de VM que admiten [actua
 az vm list-skus -l eastus --size standard_d2s_v3 --query "[].capabilities[].[name, value]" -o table
 ```
 
+> [!IMPORTANT]
+> El comportamiento de las redes variará en función de cómo elija crear las máquinas virtuales en el conjunto de escalado. Para más información, consulte el artículo sobre [conectividad de red ampliable](../virtual-machines/flexible-virtual-machine-scale-sets-migration-resources.md#create-scalable-network-connectivity).
+
+
 ## <a name="features"></a>Características
 En las tablas siguientes se enumeran las características del modo de orquestación flexible y los vínculos a la documentación adecuada.
 
@@ -120,7 +124,7 @@ En las tablas siguientes se enumeran las características del modo de orquestaci
 | Identidad administrada  | Solo con identidad asignada por el usuario  |
 | Agregar una máquina virtual existente al grupo o eliminarla de él  | No  |
 | Service Fabric  | No  |
-| Azure Kubernetes Service (AKS) / AKE / grupo de nodos k8s  | No  |
+| Azure Kubernetes Service (AKS)/AKE  | No  |
 | UserData  | Parcial, UserData se puede especificar para máquinas virtuales individuales |
 
 
@@ -155,7 +159,7 @@ En las tablas siguientes se enumeran las características del modo de orquestaci
 | Dominios de actualización | En desuso (el mantenimiento de la plataforma se realiza en los FD, de uno en uno). |
 | Realizar mantenimiento | Desencadenamiento del mantenimiento en cada instancia mediante la API de máquina virtual |
 
-### <a name="networking"></a>Funciones de red 
+### <a name="networking"></a>Redes 
 
 | Característica | Compatible con la orquestación flexible para conjuntos de escalado |
 |---|---|

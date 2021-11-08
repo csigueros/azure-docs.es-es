@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 09/06/2020
 ms.author: ajburnle
-ms.openlocfilehash: c976562224d4a0caca8921e46d8f8566800027ee
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: eef4702b7166dabb81cd2391d4acb8d8211b9648
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107532235"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051921"
 ---
 # <a name="use-azure-active-directory-azure-ad-identity-governance-to-review-and-remove-external-users-who-no-longer-have-resource-access"></a>Uso de Azure Active Directory (Azure AD) Identity Governance para revisar y eliminar usuarios externos que ya no tienen acceso a los recursos
 
@@ -29,7 +29,7 @@ En este artículo se describen las características y los métodos que le permit
 
 ## <a name="why-review-users-from-external-organizations-in-your-tenant"></a>¿Por qué revisar los usuarios de organizaciones externas del inquilino?
 
-En la mayoría de las organizaciones, los usuarios finales inician el proceso de invitar a socios comerciales y proveedores para colaborar. La necesidad de colaborar lleva a las organizaciones a proporcionar a los propietarios de los recursos y a los usuarios finales una manera de evaluar y atestar los usuarios externos con regularidad. A menudo, el proceso de incorporación de nuevos asociados de colaboración está planeado y se ha tenido en cuenta, pero hay muchas colaboraciones que no tienen una fecha de finalización clara y no siempre es obvio cuándo un usuario ya no necesita acceso. Además, la administración del ciclo de vida de las identidades impulsa a las empresas a mantener Azure AD limpio y eliminar a los usuarios que ya no necesitan tener acceso a los recursos de la organización. Mantener solo las referencias de identidad pertinentes para asociados y proveedores en el directorio ayuda a reducir el riesgo de los empleados de seleccionar y conceder acceso inadvertidamente a usuarios externos que se deberían haber eliminado. Este documento le guía con varias opciones que van desde sugerencias proactivas recomendadas hasta actividades reactivas y de limpieza para la gobernanza de las identidades externas.
+En la mayoría de las organizaciones, los usuarios finales inician el proceso de invitar a socios comerciales y proveedores para colaborar. La necesidad de colaborar lleva a las organizaciones a proporcionar a los propietarios de los recursos y a los usuarios finales una manera de evaluar y atestar los usuarios externos con regularidad. A menudo, el proceso de incorporación de nuevos asociados de colaboración está planeado y se ha tenido en cuenta, pero hay muchas colaboraciones que no tienen una fecha de finalización clara y no siempre es obvio cuándo un usuario ya no necesita acceso. Además, la administración del ciclo de vida de las identidades impulsa a las empresas a mantener Azure AD limpio y eliminar a los usuarios que ya no necesitan tener acceso a los recursos de la organización. Mantener solo las referencias de identidad pertinentes para asociados y proveedores en el directorio ayuda a reducir el riesgo de los empleados de seleccionar y conceder acceso inadvertidamente a usuarios externos que se deberían haber eliminado. Este documento le lleva por varias opciones que van desde sugerencias proactivas recomendadas hasta actividades reactivas y de limpieza para la gobernanza de las identidades externas.
 
 ## <a name="use-entitlement-management-to-grant-and-revoke-access"></a>Uso de la administración de derechos para conceder y revocar el acceso
 

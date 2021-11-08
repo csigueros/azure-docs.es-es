@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 10/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 6dccf76a99c183c9b3d148ee1c4574c560d877f3
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 01f1a0ca013dad76510df99b70a462b96bec07a6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129714803"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131078662"
 ---
-# <a name="data-residency-and-resiliency-for-azure-stack-edge-preview"></a>Residencia y resistencia de datos para Azure Stack Edge (versión preliminar)
+# <a name="data-residency-and-resiliency-for-azure-stack-edge"></a>Residencia y resistencia de datos en Azure Stack Edge 
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 

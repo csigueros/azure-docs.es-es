@@ -2,17 +2,18 @@
 title: Conexión del indizador a SQL Server en máquinas virtuales de Azure
 titleSuffix: Azure Cognitive Search
 description: Habilite conexiones cifradas y configure el firewall para permitir conexiones a SQL Server en una máquina virtual de Azure a partir de un indexador de Búsqueda cognitiva de Azure.
-author: markheff
-ms.author: maheff
+author: gmndrg
+ms.author: gimondra
+manager: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/19/2021
-ms.openlocfilehash: 11dbe95a63ce22602985cb7ff9b4db11f5e8f8dc
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: ec637058810e5e195569db6a568d5c794b3df1f4
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129856759"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131892711"
 ---
 # <a name="indexer-connections-to-sql-server-on-an-azure-virtual-machine"></a>Conexiones del indizador a SQL Server en una máquina virtual de Azure
 
@@ -89,7 +90,7 @@ Puede averiguar el intervalo de direcciones IP de la [etiqueta de servicio](../v
 
 Si usa el Azure Portal para crear un indizador, debe conceder acceso de entrada del portal a la máquina virtual SQL Azure. Una regla de entrada en el Firewall requiere que proporcione la dirección IP del portal.
 
-Para obtener la dirección IP del portal, haga ping `stamp2.ext.search.windows.net`, que es el dominio del administrador de tráfico. Se agotará el tiempo de espera de la solicitud, pero la dirección IP estará visible en el mensaje de estado. Por ejemplo, en el mensaje "Pinging azsyrie.northcentralus.cloudapp.azure.com [52.252.175.48]", la dirección IP es "52.252.175.48".
+Para obtener la dirección IP del portal, haga ping `stamp2.ext.search.windows.net`, que es el dominio del administrador de tráfico. Se agotará el tiempo de espera de la solicitud, pero la dirección IP estará visible en el mensaje de estado. Por ejemplo, en el mensaje "Pinging azsyrie.northcentralus.cloudapp.azure.com [52.252.175.48]" (Haciendo ping a azsyrie.northcentralus.cloudapp.azure.com [52.252.175.48]), la dirección IP es "52.252.175.48".
 
 > [!NOTE]
 > Los clústeres de diferentes regiones se conectan a diferentes administradores de tráfico. Independientemente del nombre de dominio, la dirección IP devuelta por ping es la correcta que se va a usar al definir una regla de Firewall de entrada para el Azure Portal en su región.

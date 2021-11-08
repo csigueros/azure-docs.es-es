@@ -3,12 +3,12 @@ title: Módulos de Bicep
 description: Describe cómo definir un módulo en un archivo de Bicep y cómo utilizar los ámbitos de módulo.
 ms.topic: conceptual
 ms.date: 10/15/2021
-ms.openlocfilehash: 21dc273e506f0c0f148e8a220ca4ea160c7423a8
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: a8a0b9c1eeeb56c12926774a78d45bb58e7d8437
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130074501"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131087388"
 ---
 # <a name="bicep-modules"></a>Módulos de Bicep
 
@@ -17,6 +17,10 @@ Bicep permite organizar las implementaciones en módulos. Un módulo es simpleme
 A fin de compartir módulos con otros miembros de su organización, [cree un registro privado](private-module-registry.md). Los módulos del registro solo están disponibles para los usuarios con los permisos correctos.
 
 Los módulos de Bicep se convierten en una sola plantilla de Azure Resource Manager con [plantillas anidadas](../templates/linked-templates.md#nested-template).
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Para más información sobre los módulos y para tener una guía práctica, consulte [Creación de archivos Bicep que admiten composición mediante módulos](/learn/modules/create-composable-bicep-files-using-modules/) en **Microsoft Learn**.
 
 ## <a name="definition-syntax"></a>Sintaxis de definición
 
@@ -49,17 +53,17 @@ A fin de **implementar un módulo de manera condicional**, agregue una expresió
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/conditional-definition.bicep" highlight="2" :::
 
-Para implementar **más de una instancia** de un módulo, agregue la expresión `for`. Para obtener más información, vea [Iteración de módulos en Bicep](loop-modules.md).
+Para implementar **más de una instancia** de un módulo, agregue la expresión `for`. Para más información, consulte [Bucles iterativos en Bicep](loops.md).
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/iterative-definition.bicep" highlight="3" :::
 
-Al igual que los recursos, los módulos se implementan en paralelo a menos que dependan de otros módulos o recursos. Por lo general, no es necesario establecer dependencias, ya que se determinan de manera implícita. Si necesita establecer una dependencia explícita, puede agregar `dependsOn` a la definición del módulo. Para obtener más información sobre las dependencias, vea [Establecer dependencias de recursos](resource-declaration.md#set-resource-dependencies).
+Al igual que los recursos, los módulos se implementan en paralelo a menos que dependan de otros módulos o recursos. Normalmente, no es necesario establecer dependencias, ya que se determinan implícitamente. Si necesita establecer una dependencia explícita, puede agregar `dependsOn` a la definición del módulo. Para más información sobre las dependencias, consulte [Dependencias de recursos](resource-declaration.md#dependencies).
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/dependsOn-definition.bicep" highlight="6-8" :::
 
 ## <a name="path-to-module"></a>Ruta de acceso al módulo
 
-El archivo del módulo puede ser un archivo local o uno externo en un registro de módulo de Bicep. A continuación, se muestra la sintaxis de ambas opciones.
+El archivo del módulo puede ser un archivo local o uno externo en un registro de módulo de Bicep. Ambas opciones se muestran a continuación.
 
 ### <a name="local-file"></a>Archivo local
 
@@ -71,7 +75,7 @@ Por ejemplo, para implementar un archivo que está un nivel más arriba del arch
 
 ### <a name="file-in-registry"></a>Archivo en el registro
 
-Si [publicó un módulo en un registro](bicep-cli.md#publish), puede crear un vínculo a ese módulo. Proporcione el nombre del registro de contenedor de Azure y una ruta de acceso al módulo. Especifique la ruta de acceso al módulo con la sintaxis siguiente:
+Si ha [publicado un módulo en un registro](bicep-cli.md#publish), puede crear un vínculo a ese módulo. Proporcione el nombre del registro de contenedor de Azure y una ruta de acceso al módulo. Especifique la ruta de acceso al módulo con la sintaxis siguiente:
 
 ```bicep
 module <symbolic-name> 'br:<registry-name>.azurecr.io/<file-path>:<tag>' = {

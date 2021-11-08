@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: 1fcdca5aaedb9d3b0e86e02e931eb7e38c16cc25
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 3337cf0eb5bfff686f9047d0f5ffea6dde670f3e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114731862"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131078206"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Implementación de Azure Application Insights Agent para servidores locales
 
@@ -71,6 +71,18 @@ Cada una de estas opciones se describe en las [instrucciones detalladas](status-
       ```Kusto
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
+
+
+## <a name="release-notes"></a>Notas de la versión
+
+### <a name="200-beta2"></a>2.0.0-beta2
+
+- Se ha actualizado ApplicationInsights .NET/SDK de .NET Core a 2.18.1-redfield.
+
+### <a name="200-beta1"></a>2.0.0-beta1
+
+- Se ha agregado la característica de instrumentación automática de ASP.NET Core.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

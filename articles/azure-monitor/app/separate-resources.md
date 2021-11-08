@@ -3,12 +3,12 @@ title: 'Diseño de la implementación de Application Insights: uno frente a much
 description: Este artículo trata sobre el envío directo de la telemetría a los diferentes recursos para los sellos de desarrollo, prueba y producción.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 9a60981e692a45dd3630073300b206289cfd2a30
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ffa3c0c6248fd34f91ec1756c3e7e5177134717e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102424672"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131078244"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>¿Cuántos recursos de Application Insights se deben implementar?
 
@@ -24,23 +24,23 @@ Cada recurso de Application Insights incluye métricas disponibles de serie. En 
 
 ### <a name="when-to-use-a-single-application-insights-resource"></a>Cuándo usar un único recurso de Application Insights
 
--   En componentes de aplicaciones que se han implementado juntos. Normalmente han sido desarrollados por un solo equipo, administrados por el mismo conjunto de usuarios de DevOps/ITOps.
--   Si tiene sentido agregar indicadores clave de rendimiento (KPI), como las duraciones de las respuestas, las tasas de error en el panel, etc., en todos ellos de forma predeterminada (puede optar por segmentar por nombre de rol en la experiencia del Explorador de métricas).
--   Si no hay necesidad de administrar el control de acceso basado en rol de Azure (Azure RBAC) de manera diferente entre los componentes de aplicaciones.
--   Si no necesita criterios de alerta de métricas diferentes entre los componentes.
--   Si no necesita administrar exportaciones continuas de forma distinta entre los componentes.
--   Si no necesita administrar facturaciones o cuotas de forma distinta entre los componentes.
--   Si es correcto tener una clave de API con el mismo acceso a los datos de todos los componentes. Diez claves de API son suficientes para las necesidades en todos ellos.
--   Si es correcto tener la misma detección inteligente y la misma configuración de integración de elementos de trabajo en todos los roles.
+- En componentes de aplicaciones que se han implementado juntos. Normalmente han sido desarrollados por un solo equipo, administrados por el mismo conjunto de usuarios de DevOps/ITOps.
+- Si tiene sentido agregar indicadores clave de rendimiento (KPI), como las duraciones de las respuestas, las tasas de error en el panel, etc., en todos ellos de forma predeterminada (puede optar por segmentar por nombre de rol en la experiencia del Explorador de métricas).
+- Si no hay necesidad de administrar el control de acceso basado en rol de Azure (Azure RBAC) de manera diferente entre los componentes de aplicaciones.
+- Si no necesita criterios de alerta de métricas que sean diferentes de unos componentes a otros.
+- Si no necesita administrar exportaciones continuas de forma distinta entre los componentes.
+- Si no necesita administrar facturaciones o cuotas de forma distinta entre los componentes.
+- Si es correcto tener una clave de API con el mismo acceso a los datos de todos los componentes. Diez claves de API son suficientes para las necesidades en todos ellos.
+- Si es correcto tener la misma detección inteligente y la misma configuración de integración de elementos de trabajo en todos los roles.
 
 > [!NOTE]
 > Si desea consolidar varios recursos de Application Insights, puede apuntar los componentes de aplicación existentes a un nuevo recurso de Application Insights consolidado. La telemetría almacenada en el recurso anterior no se transferirá al nuevo recurso, por lo que solo eliminará el recurso antiguo cuando tenga suficiente telemetría en el nuevo para la continuidad empresarial.
 
 ### <a name="other-things-to-keep-in-mind"></a>Otros aspectos que se deben tener en cuenta
 
--   Es posible que tenga que agregar código personalizado para asegurarse de que se establezcan valores significativos en el atributo [Cloud_RoleName](./app-map.md?tabs=net#set-or-override-cloud-role-name). Sin valores significativos establecidos para este atributo, *NINGUNA* de las experiencias del portal va a funcionar.
+- Es posible que tenga que agregar código personalizado para asegurarse de que se establezcan valores significativos en el atributo [Cloud_RoleName](./app-map.md?tabs=net#set-or-override-cloud-role-name). Sin valores significativos establecidos para este atributo, *NINGUNA* de las experiencias del portal va a funcionar.
 - En el caso de las aplicaciones de Service Fabric y los servicios en la nube clásicos, el SDK lee automáticamente del entorno de roles de Azure y los establece. En todos los demás tipos de aplicaciones, es probable que tenga que establecer esto de forma explícita.
--   La experiencia de Live Metrics no admite la división por nombre de rol.
+- La experiencia de Live Metrics no admite la división por nombre de rol.
 
 ## <a name="dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a> Copia de la clave de instrumentación
 
@@ -99,7 +99,7 @@ Hay diferentes métodos de establecer la propiedad de versión de la aplicación
 * Ajuste esa línea en un [inicializador de telemetría](../../azure-monitor/app/api-custom-events-metrics.md#defaults) para asegurarse de que todas las instancias de TelemetryClient se establecen de forma coherente.
 * [ASP.NET] Establezca la versión en `BuildInfo.config`. El módulo web recogerá la versión del nodo BuildLabel. Incluya este archivo en el proyecto y recuerde que establecer la propiedad Copiar siempre en el Explorador de soluciones.
 
-    ```XML
+    ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <DeploymentEvent xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
       <ProjectName>AppVersionExpt</ProjectName>
@@ -113,7 +113,7 @@ Hay diferentes métodos de establecer la propiedad de versión de la aplicación
     ```
 * [ASP.NET] Genere BuildInfo.config automáticamente en MSBuild. Para ello, agregue unas líneas a su archivo `.csproj`:
 
-    ```XML
+    ```xml
     <PropertyGroup>
       <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
     </PropertyGroup>
@@ -126,9 +126,9 @@ Hay diferentes métodos de establecer la propiedad de versión de la aplicación
     Para permitir que MSBuild genere números de versión, establezca la versión como `1.0.*` en AssemblyReference.cs.
 
 ## <a name="version-and-release-tracking"></a>Versión y seguimiento de versiones
-Para realizar el seguimiento de la versión de la aplicación, asegúrese de que `buildinfo.config` lo genera el proceso de Microsoft Build Engine. En el archivo `.csproj`, agregue lo siguiente:  
+Para realizar el seguimiento de la versión de la aplicación, asegúrese de que `buildinfo.config` lo genera el proceso de Microsoft Build Engine. En el archivo `.csproj`, agregue lo siguiente:
 
-```XML
+```xml
 <PropertyGroup>
   <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>
   <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
@@ -140,7 +140,8 @@ Cuando tenga la información de la compilación, el módulo web de Application I
 Tenga en cuenta, sin embargo, que el número de versión de la compilación solo lo genera Microsoft Build Engine, no la compilación de desarrollador de Visual Studio.
 
 ### <a name="release-annotations"></a>Anotaciones de la versión
-Si usa Azure DevOps, puede [obtener un marcador de anotación](../../azure-monitor/app/annotations.md) agregado a los gráficos, siempre que publique una nueva versión. 
+
+Si usa Azure DevOps, puede [obtener un marcador de anotación](../../azure-monitor/app/annotations.md) agregado a los gráficos, siempre que publique una nueva versión.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 10/15/2021
+ms.date: 10/26/2021
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019, contperf-fy21q4-portal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3667740745b5e81a1a1df6439610d8def2216c1
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: a2778e2e08c416837de78567fde5dbfb61d04804
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130073285"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067303"
 ---
 # <a name="email-one-time-passcode-authentication"></a>Autenticación con código de acceso de un solo uso por correo electrónico
 
@@ -28,7 +28,8 @@ Puede habilitar esta característica en cualquier momento en Azure Portal config
 ![Diagrama de información general del código de acceso de un solo uso por correo electrónico](media/one-time-passcode/email-otp.png)
 
 > [!IMPORTANT]
-> - **A partir del 1 de noviembre de 2021**, comenzaremos a implementar un cambio para activar la característica de código de acceso de un solo uso por correo electrónico para todos los inquilinos existentes y habilitarla de manera predeterminada para los nuevos inquilinos. Si no desea permitir que esta característica se active automáticamente, puede [deshabilitarla](one-time-passcode.md#disable-email-one-time-passcode).
+>
+> - **A partir del 1 de noviembre de 2021**, comenzaremos a implementar un cambio para activar la característica de código de acceso de un solo uso por correo electrónico para todos los inquilinos existentes y habilitarla de manera predeterminada para los nuevos inquilinos. Como parte de este cambio, Microsoft dejará de crear cuentas e inquilinos nuevos y no administrados ("virales") de Azure AD durante el canje de invitación de colaboración B2B. Para minimizar las interrupciones durante las vacaciones y los bloqueos de implementación, la mayoría de los inquilinos verán los cambios implementados en enero de 2022. Vamos a habilitar la característica de código de acceso de un solo uso por correo electrónico, ya que proporciona un método eficaz de autenticación de reserva para usuarios invitados. Sin embargo, si no quiere permitir que esta característica se active automáticamente, puede [deshabilitarla](one-time-passcode.md#disable-email-one-time-passcode).
 > - La configuración del código de acceso de un solo uso por correo electrónico en Azure Portal se ha movido de **Configuración de colaboración externa** a **All identity providers** (Todos los proveedores de identidades).
 
 > [!NOTE]
@@ -89,9 +90,9 @@ Se invita al usuario invitado teri@gmail.com a Fabrikam, que no tiene configurad
 
 5. Seleccione **Guardar**.
 
-## <a name="disable-email-one-time-passcode&quot;></a>Deshabilitación del código de acceso de un solo uso por correo electrónico
+## <a name="disable-email-one-time-passcode"></a>Deshabilitación del código de acceso de un solo uso por correo electrónico
 
-A partir del 1 de noviembre de 2021, comenzaremos a implementar un cambio para activar la característica de código de acceso de un solo uso por correo electrónico para todos los inquilinos existentes y habilitarla de manera predeterminada para los nuevos inquilinos.  En ese momento, Microsoft dejará de admitir el canje de invitaciones mediante la creación de inquilinos y cuentas de Azure AD no administradas (&quot;virales&quot; o &quot;Just-In-Time") para escenarios de colaboración B2B. Vamos a habilitar la característica de código de acceso de un solo uso por correo electrónico, ya que proporciona un método eficaz de autenticación de reserva para usuarios invitados. No obstante, puede deshabilitar esta característica si prefiere no utilizarla.
+A partir del 1 de noviembre de 2021, comenzaremos a implementar un cambio para activar la característica de código de acceso de un solo uso por correo electrónico para todos los inquilinos existentes y habilitarla de manera predeterminada para los nuevos inquilinos.  En ese momento, Microsoft dejará de admitir el canje de invitaciones mediante la creación de inquilinos y cuentas de Azure AD no administradas ("virales" o "Just-In-Time") para escenarios de colaboración B2B. Vamos a habilitar la característica de código de acceso de un solo uso por correo electrónico, ya que proporciona un método eficaz de autenticación de reserva para usuarios invitados. No obstante, puede deshabilitar esta característica si prefiere no utilizarla.
 
 > [!NOTE]
 >
@@ -157,6 +158,10 @@ Para más información sobre las limitaciones actuales, consulte [Nubes de Azure
 
 Debido a las programaciones de implementación, comenzaremos a implementar el cambio para habilitar el código de acceso de un solo uso por correo electrónico de manera predeterminada globalmente el 1 de noviembre de 2021. Hasta entonces, es posible que vea la opción "Automatically enable email one-time passcode for guests starting October 2021" (Habilitar automáticamente el código de acceso de un solo uso por correo electrónico para invitados a partir de octubre de 2021) seleccionada en la configuración del código de acceso de un solo uso por correo electrónico.
 
+**¿Qué ocurre con mis usuarios invitados existentes si se habilita el código de acceso de un solo uso de correo electrónico?**
+
+Los usuarios invitados existentes no se verán afectados si habilita el código de acceso de un solo uso de correo electrónico, ya que los usuarios existentes ya han pasado el punto de canje. La habilitación del código de un solo uso de correo electrónico solo afectará a las futuras actividades de canje en las que los nuevos usuarios invitados canjeen en el inquilino.
+
 **¿Cuál es la experiencia del usuario para los invitados durante el lanzamiento global?**
 
 Durante el lanzamiento global, la experiencia del usuario para los invitados depende de la configuración del código de acceso de un solo uso por correo electrónico y del escenario del invitado. 
@@ -173,20 +178,20 @@ Antes de implementar el cambio en su región, los invitados verán el comportami
 
   - Si un invitado tiene una cuenta existente de Azure AD no administrada, seguirá iniciando sesión con su cuenta de Azure AD no administrada.
   - Si un invitado canjeó previamente una invitación a su inquilino mediante una cuenta de Azure AD no administrada y restablece su estado de canje y lo vuelve a invitar, seguirá iniciando sesión con su cuenta de Azure AD no administrada.
-  - Si un invitado no tiene una cuenta existente de Azure AD no administrada, realizará el canje mediante un vínculo de código de acceso de un solo uso por correo electrónico, pero puede recibir un error de inicio de sesión si no se agrega a Azure Portal previamente.
+  - Si un invitado no tiene una cuenta existente de Azure AD no administrada, realizará el canje mediante una cuenta de Azure AD no administrada, pero puede recibir un error de inicio de sesión si no se agrega a Azure Portal previamente si el canje se realiza en un vínculo de aplicación directo.
 
 Después de implementar el cambio en su región, los invitados verán el comportamiento siguiente.
 
 - Con el código de acceso de un solo uso por correo electrónico habilitado:
 
-  - Si un invitado tiene una cuenta existente de Azure AD no administrada, usará el código de acceso de un solo uso por correo electrónico para canjear e iniciar sesión en el futuro.
+  - Si un invitado tiene una cuenta existente de Azure AD no administrada, seguirá iniciando sesión con su cuenta de Azure AD no administrada.
   - Si un invitado canjeó previamente una invitación a su inquilino mediante una cuenta de Azure AD no administrada y restablece su estado de canje y lo vuelve a invitar, usará el código de acceso de un solo uso por correo electrónico para canjear e iniciar sesión en el futuro.
   - Si un invitado no tiene una cuenta de Azure AD no administrada, usará el código de acceso de un solo uso por correo electrónico para canjear e iniciar sesión en el futuro.
 
 - Con el código de acceso de un solo uso por correo electrónico deshabilitado:
 
-  - Si un invitado tiene una cuenta existente de Azure AD no administrada, usará una cuenta de Microsoft para realizar el canje. Terminará con dos cuentas (la cuenta de Azure AD no administrada y la cuenta de Microsoft). Para evitar que esto suceda, le recomendamos encarecidamente que habilite el código de acceso de un solo uso por correo electrónico.
-  - Si un invitado canjeó previamente una invitación a su inquilino mediante una cuenta de Azure AD no administrada y restablece su estado de canje y lo vuelve a invitar, usará una cuenta de Microsoft para realizar el canje. Terminará con dos cuentas (la cuenta de Azure AD no administrada y la cuenta de Microsoft). Para evitar que esto suceda, le recomendamos encarecidamente que habilite el código de acceso de un solo uso por correo electrónico.
+  - Si un invitado tiene una cuenta existente de Azure AD no administrada, seguirá iniciando sesión con su cuenta de Azure AD no administrada.
+  - Si un invitado canjeó previamente una invitación a su inquilino mediante una cuenta de Azure AD no administrada y se restablece su estado de canje y se le vuelve a invitar, usará una cuenta Microsoft para realizar el canje y que avance el inicio de sesión.
   - Si un invitado no tiene una cuenta de Azure AD no administrada, usará una cuenta de Microsoft para canjear e iniciar sesión en el futuro.
 
 Para obtener más información sobre las diferentes rutas de canje, consulte [Canje de invitación de colaboración B2B](redemption-experience.md).

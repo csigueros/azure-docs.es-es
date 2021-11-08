@@ -9,14 +9,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/08/2021
+ms.date: 10/26/2021
 ms.author: radeltch
-ms.openlocfilehash: d2b65fa273a7901c5c40b1c31d0ef399936542cd
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 884c108f8730a378cbd276467562bfe49bfdf86f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129708636"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131074338"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Alta disponibilidad del sistema de escalabilidad horizontal de SAP HANA en Red Hat Enterprise Linux 
 
@@ -80,6 +80,7 @@ Antes de comenzar, consulte las siguientes notas y documentos de SAP:
   * [Referencia del complemento de alta disponibilidad](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
   * [Guía de redes de Red Hat Enterprise Linux](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide)
   * [Configuración de la replicación del sistema de escalabilidad horizontal de SAP HANA en un clúster de Pacemaker con sistemas de archivos HANA en recursos compartidos NFS](https://access.redhat.com/solutions/5423971)
+  * [Activo/activo (habilitado para lectura): Escalabilidad horizontal y replicación del sistema de la solución de alta disponibilidad de RHEL para SAP HANA](https://access.redhat.com/sites/default/files/attachments/v8_ha_solution_for_sap_hana_scale_out_system_replication_1.pdf)
 * Documentación de RHEL específica para Azure:
   * [Instalación de SAP HANA en Red Hat Enterprise Linux para su uso en Microsoft Azure](https://access.redhat.com/public-cloud/microsoft-azure)
   * [Solución Red Hat Enterprise Linux para la escalabilidad horizontal de SAP HANA y la replicación del sistema](https://access.redhat.com/solutions/4386601)
@@ -998,7 +999,7 @@ Incluya todas las máquinas virtuales, inclusive la que sirve para obtener la ma
        meta master-max="1" clone-node-max=1 interleave=true
       ```
       > [!IMPORTANT]
-      > Se recomienda como procedimiento recomendado que solo establezca AUTOMATED_REGISTER en **no** mientras realice pruebas de conmutación por error exhaustivas, para evitar que la instancia principal con errores se registre automáticamente como secundaria. Una vez que las pruebas de conmutación por error se hayan completado correctamente, establezca AUTOMATED_REGISTER en **yes**, de modo que, después de la toma de control, la replicación del sistema se pueda reanudar automáticamente. 
+      > Como procedimiento recomendado es aconsejable que establezca AUTOMATED_REGISTER en **false** mientras realiza pruebas de conmutación por error, con el fin de evitar que una instancia principal con errores se registre automáticamente como secundaria. Después de las pruebas, como procedimiento recomendado, establezca AUTOMATED_REGISTER en **true** para que, después de la adquisición, la replicación del sistema pueda reanudarse automáticamente. 
 
    4. Cree una dirección IP virtual y los recursos asociados.  
       ```bash
@@ -1038,6 +1039,125 @@ Incluya todas las máquinas virtuales, inclusive la que sirve para obtener la ma
    > [!NOTE]
    > Los tiempos de espera de la configuración anterior son solo ejemplos y puede ser necesario adaptarlos a la configuración específica de HANA. Por ejemplo, puede que necesite aumentar el tiempo de espera de inicio si la base de datos de SAP HANA tarda más en iniciarse.
   
+## <a name="configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster"></a>Configuración de la replicación del sistema de HANA activo/habilitado para lectura en el clúster de Pacemaker
+
+A partir de SAP HANA 2.0 SPS 01, SAP permite el uso de configuraciones activas/habilitadas para lectura para la replicación del sistema de SAP HANA, donde los sistemas secundarios de replicación del sistema de SAP HANA se pueden usar activamente para cargas de trabajo de lectura intensiva. Para admitir esta configuración en un clúster, se requiere una segunda dirección IP virtual que permita a los clientes tener acceso a la base de datos secundaria de SAP HANA habilitada para lectura. Para garantizar que se puede acceder al sitio de replicación secundario tras una adquisición, el clúster debe mover la dirección IP virtual con la base de datos secundaria del recurso SAPHana.
+
+En esta sección se describen los pasos adicionales necesarios para administrar la replicación del sistema activo/habilitado para lectura de escalabilidad horizontal de HANA en un clúster de Red Hat de alta disponibilidad con una segunda IP virtual.  
+
+Antes de continuar, asegúrese de que ha configurado completamente el clúster de alta disponibilidad de Red Hat que administra la base de datos de SAP HANA, como se describe en las secciones anteriores de la documentación.  
+
+![Alta disponibilidad de escalabilidad horizontal de SAP HANA con una base de datos secundaria habilitada para lectura](./media/sap-hana-high-availability-rhel/sap-hana-high-avalability-scale-out-hsr-rhel-read-enabled.png)
+
+### <a name="additional-setup-in-azure-load-balancer-for-activeread-enabled-setup"></a>Configuración adicional en Azure Load Balancer para la configuración activa/habilitada para lectura
+
+Para continuar con los pasos adicionales del aprovisionamiento de la segunda IP virtual, asegúrese de que ha configurado Azure Load Balancer como se describe en la sección [Implementación de equilibrador de carga de Azure](#deploy-azure-load-balancer).
+
+Para el equilibrador de carga **estándar**, siga los pasos adicionales que se indican a continuación en el mismo equilibrador de carga que creó en la sección anterior.
+
+1. Crear un segundo grupo de direcciones IP de front-end: 
+
+   1. Abra el equilibrador de carga, seleccione **frontend IP pool** (Grupo de direcciones IP de front-end) y haga clic en **Agregar**.
+   1. Escriba el nombre del segundo grupo de direcciones IP de front-end (por ejemplo, **hana-secondaryIP**).
+   1. Establezca **Asignación** en **Estática** y escriba la dirección IP (por ejemplo, **10.23.0.19**).
+   1. Seleccione **Aceptar**.
+   1. Una vez creado el nuevo grupo de direcciones IP de front-end, anote la dirección IP del grupo.
+
+1. A continuación, cree un sondeo de estado:
+
+   1. Abra el equilibrador de carga, seleccione **Sondeos de estado** y haga clic en **Agregar**.
+   1. Escriba el nombre del sondeo de estado nuevo (por ejemplo **hana-secondaryhp**).
+   1. Seleccione **TCP** como el protocolo y el puerto **62603**. Mantenga el valor de **Intervalo** en 5 y el valor de **Umbral incorrecto** en 2.
+   1. Seleccione **Aceptar**.
+
+1. Luego cree las reglas de equilibrio de carga:
+
+   1. Abra el equilibrador de carga, seleccione **Reglas de equilibrio de carga** y haga clic en **Agregar**.
+   1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, **hana-secondarylb**).
+   1. Seleccione la dirección IP de front-end, el grupo de back-end y el sondeo de estado que creó anteriormente (por ejemplo, **hana-secondaryIP**, **hana-backend** y **hana-secondaryhp**).
+   1. Seleccione **Puertos HA**.
+   1. Asegúrese de **habilitar la dirección IP flotante**.
+   1. Seleccione **Aceptar**.
+
+### <a name="configure-hana-activeread-enabled-system-replication"></a>Configuración de la replicación del sistema de HANA activo/habilitado para lectura
+
+Los pasos para configurar la replicación del sistema de HANA se describen en la sección [Configuración de la replicación del sistema de SAP HANA 2.0](#configure-sap-hana-20-system-replication). Si va a implementar un escenario secundario habilitado para lectura, mientras configura la replicación del sistema en el segundo nodo, ejecute el siguiente comando como **hanasid** adm:
+
+```
+sapcontrol -nr 03 -function StopWait 600 10 
+
+hdbnsutil -sr_register --remoteHost=hana-s1-db1 --remoteInstance=03 --replicationMode=sync --name=HANA_S2 --operationMode=logreplay_readaccess 
+```
+
+### <a name="adding-a-secondary-virtual-ip-address-resource-for-an-activeread-enabled-setup"></a>Adición de un recurso de dirección IP virtual secundaria para una configuración activa/habilitada para lectura
+
+La segunda IP virtual y las restricciones se pueden configurar con los comandos siguientes.
+Si la instancia secundaria está fuera de servicio, la IP virtual secundaria se cambiará a la principal.   
+
+```
+pcs property set maintenance-mode=true
+
+pcs resource create secvip_HN1_03 ocf:heartbeat:IPaddr2 ip="10.23.0.19"
+pcs resource create secnc_HN1_03 ocf:heartbeat:azure-lb port=62603
+pcs resource group add g_secip_HN1_03 secnc_HN1_03 secvip_HN1_03
+
+# RHEL 8.x: 
+pcs constraint location g_ip_HN1_03 rule score=500 role=master hana_hn1_roles eq "master1:master:worker:master" and hana_hn1_clone_state eq PROMOTED
+pcs constraint location g_secip_HN1_03 rule score=50  hana_hn1_roles eq 'master1:master:worker:master'
+pcs constraint order promote  SAPHana_HN1_HDB03-clone then start g_ip_HN1_03
+pcs constraint order start g_ip_HN1_03 then start g_secip_HN1_03
+pcs constraint colocation add g_secip_HN1_03 with Slave SAPHana_HN1_HDB03-clone 5
+
+# RHEL 7.x:
+pcs constraint location g_ip_HN1_03 rule score=500 role=master hana_hn1_roles eq "master1:master:worker:master" and hana_hn1_clone_state eq PROMOTED
+pcs constraint location g_secip_HN1_03 rule score=50  hana_hn1_roles eq 'master1:master:worker:master'
+pcs constraint order promote  msl_SAPHana_HN1_HDB03 then start g_ip_HN1_03
+pcs constraint order start g_ip_HN1_03 then start g_secip_HN1_03
+pcs constraint colocation add g_secip_HN1_03 with Slave msl_SAPHana_HN1_HDB03 5
+
+pcs property set maintenance-mode=false
+```
+Asegúrese de que el estado del clúster sea el correcto y de que se iniciaron todos los recursos. La segunda dirección IP virtual se ejecutará en el sitio secundario junto con el recurso secundario SAPHana.
+
+```
+# Example output from crm_mon
+#Online: [ hana-s-mm hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+#
+#Active resources:
+#
+#rsc_st_azure    (stonith:fence_azure_arm):      Started hana-s-mm
+#Clone Set: fs_hana_shared_s1-clone [fs_hana_shared_s1]
+#    Started: [ hana--s1-db1 hana-s1-db2 hana-s1-db3 ]
+#Clone Set: fs_hana_shared_s2-clone [fs_hana_shared_s2]
+#    Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+#Clone Set: hana_nfs_s1_active-clone [hana_nfs_s1_active]
+#    Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 ]
+#Clone Set: hana_nfs_s2_active-clone [hana_nfs_s2_active]
+#    Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+#Clone Set: SAPHanaTopology_HN1_HDB03-clone [SAPHanaTopology_HN1_HDB03]
+#    Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+#Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_HDB03]
+#    Masters: [ hana-s1-db1 ]
+#    Slaves: [ hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+#Resource Group: g_ip_HN1_03
+#    nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hana-s1-db1
+#    vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hana-s1-db1
+#Resource Group: g_secip_HN1_03
+#    secnc_HN1_03       (ocf::heartbeat:azure-lb):      Started hana-s2-db1
+#    secvip_HN1_03      (ocf::heartbeat:IPaddr2):       Started hana-s2-db1
+
+```
+
+En la siguiente sección puede encontrar el conjunto típico de pruebas de conmutación por error que se va a ejecutar.
+
+Tenga en cuenta el comportamiento de la segunda dirección IP virtual mientras prueba un clúster de HANA habilitado para lectura:
+
+- Cuando el recurso de clúster **SAPHana_HN1_HDB03** se mueve al sitio secundario (**S2**), la segunda IP virtual pasará al otro servidor sitio, es decir, a **hana-s1-db1**. Si ha configurado AUTOMATED_REGISTER = "false" y la replicación del sistema de HANA no se registra automáticamente, la segunda dirección IP virtual se ejecutará en **hana-s2-db1**.  
+
+- Al probar el bloqueo del servidor, los recursos de la segunda IP virtual (**secvip_HN1_03**) y el recurso de puerto de Azure Load Balancer (**secnc_HN1_03**) se ejecutarán en el servidor principal junto con los recursos de la IP virtual principal.  Mientras el servidor secundario está inactivo, las aplicaciones que están conectadas a la base de datos de HANA habilitada para lectura se conectarán a la base de datos de HANA principal. El comportamiento es el esperado: permite que funcionen las aplicaciones conectadas a la base de datos HANA habilitada para la lectura, mientras que un servidor secundario no está disponible.   
+  
+- Durante la conmutación por error y la reserva, se pueden interrumpir las conexiones existentes de las aplicaciones mediante la conexión de la segunda dirección IP virtual a la base de datos de HANA.  
+
 ## <a name="test-sap-hana-failover"></a>Prueba de la conmutación por error de SAP HANA 
 
 1. Antes de iniciar una prueba, compruebe el estado del clúster y de la replicación del sistema SAP HANA.  
@@ -1146,7 +1266,7 @@ Incluya todas las máquinas virtuales, inclusive la que sirve para obtener la ma
       sudo mount -o ro 10.23.1.7/HN1-shared-s1 /hana/shared
       ```
   
-   La máquina virtual de HANA, que perdió el acceso a `/hana/shared` debe reiniciarse o detenerse, en función de la configuración del clúster. Los recursos del clúster se migran al otro sitio de replicación del sistema HANA.  
+   La máquina virtual de HANA que perdió el acceso a `/hana/shared` debe reiniciarse o detenerse, en función de la configuración del clúster. Los recursos del clúster se migran al otro sitio de replicación del sistema HANA.  
          
    Si el clúster no se ha iniciado en la máquina virtual, que se ha reiniciado, inicie el clúster mediante la ejecución de: 
 

@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: cynthn
-ms.openlocfilehash: 4492eb9a346d89789f1527bf80b46a08cc74fe92
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 393706ca463d8a3cc6edaede2689feae3e867bfa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696093"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131074505"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Descarga de un VHD de Linux desde Azure
 
@@ -45,10 +45,10 @@ Tome una instantánea del disco para descargarla.
 5. En **Tipo de instantánea**, seleccione **Completo** o **Incremental**.
 6. Cuando haya terminado, seleccione **Revisar y crear**.
 
-La instantánea se creará en breve y, a continuación, se puede usar para descargar o crear otra máquina virtual.
+La instantánea se creará en breve y, entonces, se podrá usar para descargar o crear otra máquina virtual.
 
 > [!NOTE]
-> Si no detiene primero la máquina virtual, la instantánea no estará limpia. La instantánea estará en el mismo estado que si la máquina virtual se hubiera encendido o se bloqueara en el momento en que se realizó la instantánea.  Aunque normalmente es seguro, esto podría causar problemas si las aplicaciones que se ejecutan a la hora no son resistentes a bloqueos.
+> Si no detiene primero la máquina virtual, la instantánea no estará limpia. La instantánea estará en el mismo estado que si la máquina virtual se hubiera encendido o se bloqueara en el momento en que se realizó la instantánea. Aunque normalmente es seguro, podría causar problemas si las aplicaciones que se están ejecutando en ese momento no son resistentes a los bloqueos.
 >  
 > Este método solo se recomienda para las máquinas virtuales con un único disco del sistema operativo. Las VM con uno o varios discos de datos deben detenerse antes de la descarga o antes de crear una instantánea del disco del sistema operativo y de cada disco de datos.
 

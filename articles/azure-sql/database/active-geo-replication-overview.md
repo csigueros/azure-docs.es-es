@@ -1,6 +1,6 @@
 ---
 title: Replicación geográfica activa
-description: Use la replicación geográfica activa para crear bases de datos secundarias legibles de bases de datos individuales en Azure SQL Database en las mismas regiones del centro de datos o en otras diferentes.
+description: La replicación geográfica activa se usa para crear bases de datos secundarias legibles de bases de datos individuales en Azure SQL Database en las mismas regiones, o en otras.
 ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: sqldbrb=1
@@ -8,18 +8,20 @@ ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
 ms.reviewer: mathoma
-ms.date: 04/28/2021
-ms.openlocfilehash: 7b4f29ad732622529f391f6b50295138ad953634
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.date: 10/25/2021
+ms.openlocfilehash: 7738c6748c2f5a90d0e4aacbccf47f32484b5cf0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130161190"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131072225"
 ---
-# <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Creación y uso de la replicación geográfica activa: Azure SQL Database
+# <a name="active-geo-replication"></a>Replicación geográfica activa
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-La replicación geográfica activa es una característica de Azure SQL Database que permite crear bases de datos secundarias legibles de bases de datos individuales en un servidor en el mismo centro de datos (región) u otro diferente.
+La replicación geográfica activa es una característica que permite crear una base de datos secundaria legible que se sincroniza continuamente para una base de datos principal. La base de datos secundaria legible puede estar en la misma región de Azure que la principal o, lo que es más común, en otra región. Este tipo de bases de datos secundarias legibles también se conocen como geográficas secundarias o réplicas geográficas.
+
+La replicación geográfica activa se ha diseñado como solución de continuidad empresarial que permite realizar una recuperación rápida de bases de datos individuales si se produce un desastre a nivel regional o una interrupción a gran escala. Una vez configurada la replicación geográfica, puede iniciar una conmutación por error geográfica a una base de datos geográfica secundaria que se encuentre en otra región de Azure. La conmutación por error geográfica la inicia mediante programación la aplicación, o bien lo hace manualmente el usuario.
 
 > [!NOTE]
 > La replicación geográfica activa para Hiperescala de Azure SQL [ahora se encuentra en versión preliminar pública](https://aka.ms/hsgeodr). Entre las limitaciones actuales se incluyen: solo se admite una base de datos de replicación geográfica secundaria en la misma región o en otra diferente, actualmente no se admite la conmutación por error forzada ni planeada, no se admite la restauración de la base de datos a partir de una base de datos de replicación geográfica secundaria y tampoco se admite el uso de una base de datos de replicación geográfica secundaria como base de datos de origen para la copia de base de datos ni como base de datos de replicación geográfica principal para otra secundaria.
@@ -35,21 +37,15 @@ La replicación geográfica activa es una característica de Azure SQL Database 
 > [!NOTE]
 > Para migrar bases de datos SQL desde Azure Alemania mediante la replicación geográfica activa, consulte [Migración de bases de datos SQL mediante la replicación geográfica activa](../../germany/germany-migration-databases.md#migrate-sql-database-using-active-geo-replication).
 
-La replicación geográfica activa se ha diseñado como solución de continuidad empresarial que permite que la aplicación realice una rápida recuperación ante desastres de bases de datos individuales en el caso de que se produzca un desastre regional o una interrupción a gran escala. Si la replicación geográfica está habilitada, la aplicación puede iniciar la conmutación por error en una base de datos secundaria de otra región de Azure. Se admiten hasta cuatro bases de datos secundarias en las mismas o en otras regiones, y las secundarias también se pueden usar para las consultas de acceso de solo lectura. La aplicación o el usuario deben iniciar manualmente la conmutación por error. Después de la conmutación por error, el nuevo elemento principal tiene un punto de conexión diferente.
-
-> [!NOTE]
-> La replicación geográfica activa replica los cambios al transmitir el registro de transacciones de la base de datos. No está relacionada con la [replicación transaccional](/sql/relational-databases/replication/transactional/transactional-replication), que replica los cambios mediante la ejecución de comandos DML (INSERT, UPDATE, DELETE).
+Si la aplicación requiere un punto de conexión estable y compatibilidad automática con la conmutación por error geográfica, además de la replicación geográfica, use [grupos de conmutación por error automática](auto-failover-group-overview.md).
 
 En el siguiente diagrama se ilustra una configuración típica de una aplicación de nube con redundancia geográfica mediante la replicación geográfica activa.
 
-![replicación geográfica activa](./media/active-geo-replication-overview/geo-replication.png )
+![replicación geográfica activa](./media/active-geo-replication-overview/geo-replication.png)
 
-> [!IMPORTANT]
-> SQL Database también admite grupos de conmutación por error automática. Para más información, consulte cómo se usan los [grupos de conmutación por error automática](auto-failover-group-overview.md).
+Si por algún motivo se produce un error en la base de datos principal, puede iniciar una conmutación por error geográfica a cualquiera de las bases de datos secundarias. Cuando una base de datos secundaria se promociona al rol de principal, las restantes bases de datos secundarias se vinculan automáticamente a la nueva principal.
 
-Si, por cualquier motivo, se produce un error en la base de datos principal o, simplemente, debe desconectarse, puede iniciar la conmutación por error a cualquiera de las bases de datos secundarias. Cuando se activa la conmutación por error a una de las bases de datos secundarias, las demás bases de datos secundarias se vinculan automáticamente a la nueva base de datos principal.
-
-Con la replicación geográfica activa puede administrar la replicación y la conmutación por error de una base de datos individual o de un conjunto de bases de datos en un servidor o en un grupo elástico. Para ello, puede utilizar:
+Para administrar la replicación geográfica e iniciar una conmutación por error geográfica puede usar:
 
 - [Azure Portal](active-geo-replication-configure-portal.md)
 - [PowerShell: base de datos única](scripts/setup-geodr-and-failover-database-powershell.md)
@@ -57,226 +53,215 @@ Con la replicación geográfica activa puede administrar la replicación y la co
 - [Transact-SQL: base de datos única o grupo elástico](/sql/t-sql/statements/alter-database-azure-sql-database)
 - [API REST: base de datos única](/rest/api/sql/replicationlinks)
 
-La replicación geográfica activa aprovecha la tecnología de [Grupos de disponibilidad Always On](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) del motor de base de datos para replicar de forma asincrónica las transacciones confirmadas en la base de datos principal en una base de datos secundaria mediante aislamiento de instantáneas. Los grupos de conmutación por error automática proporcionan la semántica de grupo sobre la replicación geográfica activa, pero se usa el mismo mecanismo de replicación asincrónico. Mientras que, en cualquier momento dado, la base de datos secundaria puede ir ligeramente por detrás de la base de datos principal, se garantiza que los datos secundarios nunca tengan transacciones parciales. La redundancia entre regiones permite que las aplicaciones se recuperen rápidamente de la pérdida permanente de todo un centro de datos, o de partes de él, causada por desastres naturales, errores humanos catastróficos o actos malintencionados. Los datos específicos de RPO se encuentran en [Introducción a la continuidad empresarial](business-continuity-high-availability-disaster-recover-hadr-overview.md).
+La replicación geográfica activa aprovecha la tecnología de [grupos de disponibilidad Always On](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) para replicar de forma asincrónica el registro de transacciones generado en la réplica principal en todas las réplicas geográficas. Mientras que, en cualquier momento dado, una base de datos secundaria puede ir ligeramente por detrás de la base de datos principal, se garantiza que los datos de la base secundaria van a ser coherentes, desde un punto de vista transaccional. En otras palabras, los cambios realizados por transacciones no confirmadas no se ven. 
 
 > [!NOTE]
-> Si se produce un error de conexión entre dos regiones, intentamos volver a establecer las conexiones cada 10 segundos.
+> La replicación geográfica activa replica los cambios mediante la transmisión en secuencias del registro de transacciones de la base de datos desde la réplica principal a las secundarias. No está relacionada con la [replicación transaccional](/sql/relational-databases/replication/transactional/transactional-replication), que replica los cambios mediante la ejecución de comandos DML (INSERT, UPDATE, DELETE) en suscriptores.
 
-> [!IMPORTANT]
-> Para garantizar que un cambio importante en la base de datos principal se replique en una secundaria antes de la conmutación por error, puede forzar la sincronización para garantizar la replicación de cambios importantes (por ejemplo, las actualizaciones de contraseñas). La sincronización forzada afecta al rendimiento al bloquear el subproceso de llamada hasta que todas las transacciones confirmadas se replican. Para más información, consulte [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync). Para supervisar el retraso de replicación entre la base de datos principal y la base de datos secundaria geográficamente, consulte [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).
+La redundancia regional que proporciona la replicación geográfica permite a las aplicaciones se recuperen rápidamente de la pérdida permanente de toda una región de Azure, o de partes de ella, causada por desastres naturales, errores humanos catastróficos o actos malintencionados. El objetivo de punto de recuperación de la replicación geográfica se puede encontrar en [Introducción a la continuidad empresarial](business-continuity-high-availability-disaster-recover-hadr-overview.md).
 
-En la siguiente ilustración, se muestra un ejemplo de replicación geográfica activa configurada con una principal en la región centro-norte de EE. UU. y una secundaria en la región centro-sur de EE. UU.
+En la siguiente ilustración, se muestra un ejemplo de replicación geográfica activa configurada con una base de datos principal en la región Centro-norte de EE. UU. y una secundaria en la región Centro-sur de EE. UU.
 
 ![Relación de replicación geográfica](./media/active-geo-replication-overview/geo-replication-relationship.png)
 
-Debido a que las bases de datos secundarias son legibles, se pueden usar para descargar cargas de trabajo de solo lectura como trabajos de informes. Si usa la replicación geográfica activa, la base de datos secundaria se puede crear en la misma región que la base de datos primaria; sin embargo, esto no aumenta la resistencia de la aplicación ante errores catastróficos. Si usa grupos de conmutación por error automática, las bases de datos secundarias siempre se crean en otra región.
+Además de para la recuperación ante desastres, la replicación geográfica activa se puede usar en los siguientes escenarios:
 
-Además de para la recuperación ante desastres, la replicación geográfica activa se puede usar en los escenarios siguientes:
-
-- **Migración de base de datos**: puede usar la replicación geográfica activa para migrar una base de datos de un servidor a otro en línea con un tiempo de inactividad mínimo.
+- **Migración de bases de datos**: puede usar la replicación geográfica activa para migrar una base de datos de un servidor a otro con un tiempo de inactividad mínimo.
 - **Actualizaciones de aplicaciones**: puede crear una base de datos secundaria adicional como copia de conmutación por recuperación durante las actualizaciones de aplicaciones.
 
-Para lograr una verdadera continuidad empresarial, agregar redundancia de base de datos entre centros de datos es solo parte de la solución. Para recuperar una aplicación (un servicio) de un extremo a otro tras un error catastrófico, es necesario recuperar todos los componentes que constituyen el servicio y cualquier servicio dependiente. Algunos ejemplos de estos componentes son el software cliente (por ejemplo, un explorador con JavaScript personalizado), los front-end web, el almacenamiento y DNS. Es fundamental que todos los componentes sean resistentes a los mismos errores y que estén disponibles en el plazo del objetivo de tiempo de recuperación (RTO) de la aplicación. Por lo tanto, debe identificar todos los servicios dependientes y comprender las garantías y capacidades que ofrecen. A continuación, debe seguir los pasos adecuados para asegurarse de que el servicio funcione durante la conmutación por error de los servicios de los que depende. Para más información sobre el diseño de soluciones para la recuperación ante desastres, consulte [Diseño de soluciones de nube para la continuidad empresarial mediante la replicación geográfica activa](designing-cloud-solutions-for-disaster-recovery.md).
+Para lograr una continuidad empresarial completa, agregar redundancia regional de base de datos es solo una parte de la solución. Para recuperar una aplicación (un servicio) de un extremo a otro tras un error catastrófico, es necesario recuperar todos los componentes que constituyen el servicio y cualquier servicio dependiente. Algunos ejemplos de estos componentes son el software cliente (por ejemplo, un explorador con JavaScript personalizado), los front-end web, el almacenamiento y DNS. Es fundamental que todos los componentes sean resistentes a los mismos errores y que estén disponibles en el plazo del objetivo de tiempo de recuperación (RTO) de la aplicación. Por lo tanto, debe identificar todos los servicios dependientes y comprender las garantías y capacidades que ofrecen. A continuación, debe seguir los pasos adecuados para asegurarse de que el servicio funcione durante la conmutación por error de los servicios de los que depende. Para más información sobre el diseño de soluciones para la recuperación ante desastres, consulte [Diseño de soluciones de nube para la continuidad empresarial mediante la replicación geográfica activa](designing-cloud-solutions-for-disaster-recovery.md).
 
 ## <a name="active-geo-replication-terminology-and-capabilities"></a>Funcionalidades y terminología de la replicación geográfica activa
 
 - **Replicación asincrónica automática**
 
-  Solo se puede crear una base de datos secundaria mediante su adición a una existente. La base de datos secundaria se puede crear en cualquier servidor. Una vez creada, la base de datos secundaria se rellena con los datos copiados de la base de datos principal. Este proceso se conoce como propagación. Después de crear y propagar la base de datos secundaria, las actualizaciones de la base de datos principal se replican asincrónicamente en la base de datos secundaria de forma automática. La replicación asincrónica significa que las transacciones se confirman en la base de datos principal antes de replicarse en la secundaria.
+  Solo puede crear una base de datos geográfica secundaria para una base de datos existente. Esta base de datos se puede crear en cualquier servidor lógico, que no sea el servidor con la base de datos principal. Una vez creada, la réplica geográfica secundaria se rellena con los datos de la base de datos principal. Este proceso se conoce como propagación. Tras crear y propagar la base de datos secundaria geográfica, las actualizaciones de la base de datos principal se replican de forma automática y asincrónica en la réplica secundaria geográfica. La replicación asincrónica significa que las transacciones se confirman en la base de datos principal antes de replicarse.
 
-- **Bases de datos secundarias legibles**
+- **Réplicas geográficas secundarias legibles**
 
-  Una aplicación puede acceder a una base de datos secundaria para operaciones de solo lectura con las mismas entidades de seguridad que las usadas para tener acceso a la base de datos principal u otras diferentes. Las bases de datos secundarias funcionan en el modo de aislamiento de instantánea para asegurarse de que no se retrasa la replicación de las actualizaciones de la base de datos principal (reproducción de registro) por las consultas ejecutadas en la secundaria.
+  Una aplicación puede acceder a una réplica secundaria geográfica para ejecutar consultas de solo lectura con las mismas entidades de seguridad que se usan para acceder a la base de datos principal o con otras. Para más información, consulte [Uso de réplicas de solo lectura para descargar cargas de trabajo de consulta de solo lectura](read-scale-out.md).
 
-> [!NOTE]
-> La reproducción de registros se retrasa en la base de datos secundaria si hay actualizaciones del esquema en el servidor principal. Lo último requiere un bloqueo del esquema en la base de datos secundaria.
+   > [!IMPORTANT]
+   > Puede usar la replicación geográfica para crear réplicas secundarias en la misma región que la principal. Estas réplicas secundarias se pueden usar estas secundarias para satisfacer escenarios de escalado horizontal de lectura en la misma región. Sin embargo, una réplica secundaria en la misma región no proporciona resistencia adicional a errores catastróficos o interrupciones a gran escala y, por tanto, no es un destino de conmutación por error adecuado para fines de recuperación ante desastres. Tampoco garantiza el aislamiento de la zona de disponibilidad. Use la [configuración con redundancia de zona](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) de los niveles de servicio Crítico para la empresa o Prémium con o la [configuración con redundancia de zona](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) del nivel de servicio De uso general para lograr el aislamiento de la zona de disponibilidad.
+   >
 
-> [!IMPORTANT]
-> Puede usar la replicación geográfica para crear una base de datos secundaria en la misma región que la principal. Puede utilizar esta base de datos secundaria para equilibrar cargas de trabajo de solo lectura en la misma región. Sin embargo, una base de datos secundaria en la misma región no proporciona resistencia adicional a los errores y, por lo tanto, no es un objetivo de conmutación por error adecuado para la recuperación ante desastres. Tampoco garantiza el aislamiento de la zona de disponibilidad. Use el nivel de servicio Crítico para la empresa o Premium con [configuración con redundancia de zona](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) o un nivel de servicio De uso general con [configuración con redundancia de zona](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) para lograr el aislamiento de zona de disponibilidad.
->
+- **Conmutación por error geográfica planeada**
 
-- **Conmutación por error planeada**
+  La conmutación por error geográfica planeada cambia los roles de las bases de datos geográficas principales y secundarias después de completar la sincronización de datos completa. Una conmutación por error planeada no genera una pérdida de datos. La duración de la conmutación por error geográfica planeada depende del tamaño del registro de transacciones de la principal que debe sincronizarse con la base de datos geográfica secundaria. La conmutación por error geográfica planeada está diseñada para los siguientes escenarios:
 
-  La conmutación por error planeada cambia los roles de las bases de datos principales y secundarias una vez que se ha llevado a cabo la sincronización completa. Se trata de una operación en línea que no provoca pérdida de datos. La duración de la operación depende del tamaño del registro de transacciones en la base de datos principal que debe sincronizarse. La conmutación por error planeada está diseñada para los siguientes escenarios: (a) para realizar simulacros de recuperación ante desastres en producción cuando la pérdida de datos no es aceptable; (b) para reubicar la base de datos en una región diferente; y (c) para devolver la base de datos a la región primaria después de que se ha mitigado la interrupción (conmutación por recuperación).
+  - Realizar simulacros de recuperación ante desastres en producción cuando no es aceptable la pérdida de datos. 
+  - Reubicar la base de datos en otra región. 
+  - Devolver la base de datos a la región primaria después de que se ha solucionado la interrupción (conmutación por recuperación).
 
-- **Conmutación por error no planeada**
+- **Conmutación por error geográfica sin planificar**
 
-  La conmutación por error no planeada o forzada cambia inmediatamente el rol principal a la base de datos secundaria sin sincronización con la principal. Se perderán todas las transacciones confirmadas en la base de datos principal que no se hayan replicado en la secundaria. Esta operación está diseñada como método de recuperación durante las interrupciones cuando no se puede acceder a la principal, pero la disponibilidad de la base de datos debe restaurarse rápidamente. Cuando la base de datos principal original vuelve a estar en línea, se vuelve a conectar automáticamente y se convierte en una nueva base de datos secundaria. Todas las transacciones no sincronizadas antes de la conmutación por error se conservarán en el archivo de copia de seguridad, pero no se sincronizarán con la nueva base de datos principal para evitar conflictos. Estas transacciones tendrán que combinarse manualmente con la versión más reciente de la base de datos principal.
+  La conmutación por error geográfica no planeada, o forzada, cambia inmediatamente la base de datos geográfica secundaria al rol de principal sin sincronización con la principal. Se pierden todas las transacciones confirmadas en la base de datos principal que no se hayan replicado aún en la secundaria. Esta operación está diseñada como método de recuperación durante las interrupciones cuando no se puede acceder a la base de datos principal, pero la disponibilidad de la base de datos debe restaurarse rápidamente. Cuando la base de datos principal original esté de nuevo en línea, se volverá a conectar automáticamente, se volverá a inicializar mediante los datos principales actuales y se convertirá en una nueva base de datos geográfica secundaria.
 
-- **Varias bases de datos secundarias**
+  > [!IMPORTANT]
+  > Después de la conmutación por error geográfica planeada o no planeada, el punto de conexión de la nueva base de datos principal cambia, ya que la nueva base de datos principal se encuentra ahora en otro servidor lógico.
 
-  Pueden crearse hasta cuatro bases de datos secundarias por cada principal. Si solo hay una base de datos secundaria y se produce un error, la aplicación está expuesta a un mayor riesgo hasta que se crea una nueva base de datos secundaria. Si existen varias bases de datos secundarias, la aplicación sigue estando protegida incluso si se produce un error en una de ellas. También se pueden usar bases de datos secundarias adicionales para escalar horizontalmente las cargas de trabajo de solo lectura
+- **Varias bases de datos geográficas secundarias legibles**
 
-  > [!NOTE]
-  > Si usa la replicación geográfica activa para compilar una aplicación distribuida globalmente y necesita proporcionar acceso de solo lectura a los datos en más de cuatro regiones, puede crear una base de datos secundaria a partir de otra base de datos secundaria (este proceso se conoce como encadenamiento). De este modo, puede alcanzar una escala prácticamente ilimitada de replicación de la base de datos. Además, el encadenamiento disminuye la sobrecarga de la replicación desde la base de datos principal. El inconveniente es el mayor retraso de replicación en las últimas bases de datos secundarias.
+  Se pueden crear hasta cuatro bases de datos geográficas secundarias para una principal. Si solo hay una base de datos secundaria y se produce un error, la aplicación está expuesta a un mayor riesgo hasta que se crea otra. Si existen varias bases de datos secundarias, la aplicación sigue estando protegida aunque se produzca un error en una de ellas. También se pueden usar bases de datos secundarias adicionales para escalar horizontalmente cargas de trabajo de solo lectura.
+
+  > [!TIP]
+  > Si usa la replicación geográfica activa para compilar una aplicación distribuida globalmente y necesita proporcionar acceso de solo lectura a los datos en más de cuatro regiones, puede crear una base de datos secundaria a partir de otra base de datos secundaria (este proceso se conoce como encadenamiento) para crear réplicas geográficas adicionales. El retraso de la replicación en las réplicas geográficas encadenadas puede ser mayor que en las réplicas geográficas conectadas directamente a la base de datos principal. La configuración de topologías de replicación geográfica encadenada solo se admite mediante programación, no desde Azure Portal.
 
 - **Replicación geográfica de bases de datos en un grupo elástico**
 
-  Cada base de datos secundaria puede participar por separado en un grupo elástico o no estar en ningún grupo elástico. La opción de grupo de cada base de datos secundaria es independiente y no depende de la configuración de ninguna otra base de datos secundaria (ya sea principal o secundaria). Cada grupo elástico se encuentra dentro de una única región; por lo tanto, varias bases de datos secundarias de la misma topología nunca pueden compartir un grupo elástico.
+  Cada base de datos geográfica secundaria puede ser una base de datos única o una de un grupo elástico. La opción de un grupo elástico para cada base de datos geográfica secundaria es independiente, no depende de la configuración de ninguna otra réplica de la topología (principal o secundaria). Cada grupo elástico se encuentra dentro de un único servidor lógico. Dado que los nombres de base de datos de un servidor lógico deben ser únicos, varias bases de datos geográficas secundarias de la misma base de datos principal nunca pueden compartir un grupo elástico.
 
-- **Conmutación por error y conmutación por recuperación controladas por el usuario**
+- **Conmutación por error y conmutación por recuperación geográfica controladas por el usuario**
 
-  La aplicación o el usuario puede cambiar explícitamente una base de datos secundaria al rol principal en cualquier momento. Durante una interrupción real, debe utilizarse la opción "no planeada", que promueve inmediatamente una base de datos secundaria para que sea la principal. Cuando la base de datos principal que generó el error se recupera y vuelve a estar disponible, el sistema la marca automáticamente como secundaria y la pone al día con la nueva base de datos principal. Por la naturaleza asincrónica de la replicación, se puede perder una pequeña cantidad de datos durante las conmutaciones por error no planeadas antes de que se repliquen los cambios más recientes a la base de datos secundaria. Cuando una base de datos principal con varias secundarias conmuta por error, el sistema vuelve a configurar automáticamente las relaciones de replicación y vincula las bases de datos secundarias restantes a la principal recién promovida sin necesidad de que intervenga el usuario. Una vez que se mitiga la interrupción que causó la conmutación por error, sería conveniente devolver la aplicación a la región primaria. Para ello, se debe invocar el comando de conmutación por error con la opción "planeada".
+  Cualquier base de datos geográfica secundaria que haya finalizado la inicialización inicial se puede cambiar explícitamente al rol principal (conmutado por error) en cualquier momento por parte de la aplicación o el usuario. Durante una interrupción en la que no se pueda acceder a la base de datos principal, solo se puede usar una conmutación por error geográfica no planeada. Esto promueve inmediatamente una base de datos geográfica secundaria para que sea la nueva base de datos principal. Cuando se mitiga la interrupción, el sistema convierte automáticamente la base de datos principal recuperada en geográfica secundaria y la pone al día con la nueva principal. Dada la naturaleza asincrónica de la replicación geográfica, es posible que las transacciones recientes se pierdan durante las conmutaciones por error geográficas no planeadas si se produce un error en la principal antes de que estas transacciones se repliquen en una base de datos geográfica secundaria. Cuando una base de datos principal con varias bases de datos geográficas secundarias realiza una conmutación por error, el sistema vuelve a configurar automáticamente las relaciones de replicación y vincula las bases de datos geográficas secundarias restantes a la base de datos principal recién promovida sin necesidad de que intervenga el usuario. Tras la interrupción que ha provocado la mitigación de la conmutación por error geográfica, sería conveniente devolver la base de datos principal a su región original. Para ello, invoque una conmutación por error geográfica planeada.
 
-## <a name="preparing-secondary-database-for-failover"></a>Preparación de la base de datos secundaria para la conmutación por error
+## <a name="prepare-for-geo-failover"></a><a name="preparing-secondary-database-for-failover"></a> Preparación para la conmutación por error geográfica
 
-Para asegurarse de que la aplicación pueda acceder de inmediato a la nueva base de datos principal después de la conmutación por error, compruebe que los requisitos de autenticación de la base de datos y el servidor secundarios estén configurados correctamente. Para obtener más información, consulte [Administración de la seguridad de Azure SQL Database después de la recuperación ante desastres](active-geo-replication-security-configure.md). Para garantizar el cumplimiento después de la conmutación por error, asegúrese de que la directiva de retención de copias de seguridad de la base de datos secundaria coincide con la de la principal. Esta configuración no forma parte de la base de datos y no se replica. De forma predeterminada, la base de datos secundaria se configurará con un período de retención PITR predeterminado de siete días. Para más información, consulte [Copias de seguridad automatizadas de SQL Database](automated-backups-overview.md).
+Para asegurarse de que la aplicación puede acceder de inmediato a la nueva base de datos principal después de la conmutación por error geográfica, compruebe que tanto la autenticación como el acceso de red al servidor secundaria están configurados correctamente. Para obtener más información, consulte [Administración de la seguridad de Azure SQL Database después de la recuperación ante desastres](active-geo-replication-security-configure.md). Valide también que la directiva de retención de copia de seguridad de la base de datos secundaria coincide con la de la principal. Esta configuración no forma parte de la base de datos y no se replica desde la base de datos principal. De forma predeterminada, la base de datos geográfica secundaria se configura con un período de retención de restauración a un momento dado predeterminado de siete días. Para más información, consulte [Copias de seguridad automatizadas de SQL Database](automated-backups-overview.md).
 
 > [!IMPORTANT]
-> Si la base de datos es miembro de un grupo de conmutación por error, no puede iniciar su conmutación por error mediante el comando de conmutación por error de replicación geográfica. Use el comando de conmutación por error para el grupo. Si necesita realizar la conmutación por error de una base de datos individual, primero debe quitarla del grupo de conmutación por error. Consulte [grupos de conmutación por error](auto-failover-group-overview.md) para más información.
+> Si la base de datos es miembro de un grupo de conmutación por error, no puede iniciar su conmutación por error mediante el comando de conmutación por error de replicación geográfica. Use el comando de conmutación por error para el grupo. Si necesita realizar la conmutación por error de una base de datos individual, primero debe quitarla del grupo de conmutación por error. Para más información, consulte [Grupos de conmutación por error](auto-failover-group-overview.md).
 
-## <a name="configuring-secondary-database"></a>Configuración de una base de datos secundaria
+## <a name="configure-geo-secondary"></a><a name="configuring-secondary-database"></a>Configuración de una base de datos geográfica secundaria
 
-Es necesario que tanto la base de datos principal como las secundarias tengan el mismo nivel de servicio. También se recomienda encarecidamente que la base de datos secundaria se cree con la misma redundancia de almacenamiento de copia de seguridad y el mismo tamaño de proceso (unidades de transacción de base de datos o núcleos virtuales) que la principal. Si la base de datos principal está experimentando una carga de trabajo de escritura intensiva, es posible que una base de datos secundaria con un tamaño de proceso menor no pueda mantenerla. Provocará el retardo de la fase de puesta al día en la base de datos secundaria y una posible falta de disponibilidad. Para mitigar estos riesgos, una replicación geográfica activa limitará la velocidad de los registros de transacción de la base de datos principal si es necesario para permitir que sus secundarias se pongan al día.
+Es necesario que la base de datos principal y la geográfica secundaria tengan el mismo nivel de servicio. También se recomienda encarecidamente que la base de datos geográfica secundaria se cree con la misma redundancia de almacenamiento de copia de seguridad y el mismo tamaño de proceso (unidades de transacción de base de datos o núcleos virtuales) que la principal. Si la base de datos principal sufre una carga de trabajo de escritura intensiva, es posible que una base de datos geográfica secundaria con un tamaño de proceso menor no pueda mantenerla, lo que provocará un retraso de replicación en la base de datos geográfica secundaria y, finalmente, podría provocar la falta de disponibilidad de la base de datos geográfica secundaria. Para mitigar estos riesgos, una replicación geográfica activa reducirá (limitará) la velocidad de los registros de transacciones de la base de datos principal, en caso de que sea necesario para permitir que sus bases de datos secundarias se pongan al día.
 
-Otra consecuencia de una configuración de base de datos secundaria no equilibrada es que después de la conmutación por error, el rendimiento de la aplicación puede verse afectado debido a una capacidad de proceso insuficiente de la nueva base de datos principal. En ese caso, se deberá escalar verticalmente el objetivo del servicio de base de datos al nivel necesario, lo que puede tardar mucho tiempo y requerir un volumen considerable de recursos de proceso, así como una conmutación por error de [alta disponibilidad](high-availability-sla.md) al final del proceso de escalado vertical.
+Otra consecuencia de una configuración de una base de datos geográfica secundaria no equilibrada es que después de una conmutación por error, el rendimiento de la aplicación puede verse afectado por a una capacidad de proceso insuficiente de la nueva base de datos principal. En ese caso, se deberá escalar verticalmente la base de datos para tener suficientes recursos, lo que puede tardar mucho tiempo y requerirá una conmutación por error de [alta disponibilidad](high-availability-sla.md) al final del proceso de escalado vertical, lo que interrumpirá las cargas de trabajo de la aplicación.
 
-Si decide crear la base de datos secundaria con un tamaño de proceso más bajo, el gráfico de porcentaje de E/S de registro en Azure Portal proporciona un buen método para estimar el tamaño de proceso mínimo de la base de datos secundaria que es necesario para mantener la carga de replicación. Por ejemplo, si la base de datos principal es P6 (1000 DTU) y su porcentaje de escritura de registro es 50 %, la base de datos secundaria debe ser al menos P4 (500 DTU). Para recuperar datos históricos de E/S del registro, use la vista [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database). Para recuperar los datos de escritura de registro recientes con una granularidad mayor que refleje mejor los picos a corto plazo en la velocidad de registro, utilice la vista [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).
+Si decide crear la base de datos geográfica secundaria con un tamaño de proceso inferior, debe supervisar la tasa de E/S del registro en la base de datos principal a lo largo del tiempo. Esto le permite calcular el tamaño de proceso mínimo de la base de datos geográfica secundaria necesario para mantener la carga de replicación. Por ejemplo, si la base de datos principal es P6 (1000 DTU) y su E/S de registro es 50 % de forma sostenida, la base de datos geográfica secundaria debe ser, al menos, P4 (500 DTU). Para recuperar datos históricos de E/S del registro, use la vista [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database). Para recuperar los datos de E/S de registro recientes con una granularidad mayor que refleje mejor los picos a corto plazo, utilice la vista [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).
 
-La limitación de la velocidad del registro de transacciones en la base de datos principal debido a un tamaño de proceso inferior en una base de datos secundaria se envía mediante el tipo de espera HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO, visible en las vistas de bases de datos [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) y [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
+> [!TIP]
+> La limitación de la E/S del registro de transacciones en la base de datos principal debido a un tamaño de proceso inferior en una base de datos geográfica secundaria se envía mediante el tipo de espera HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO, que se puede ver en las vistas de bases de datos [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) y [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
+>
+> La E/S del registro de transacciones de la base de datos principal puede estar limitada por motivos no relacionados con el tamaño de proceso inferior de una base de datos geográfica secundaria. Este tipo de limitación puede producirse aunque la base de datos geográfica secundaria tenga el mismo tamaño de proceso que la principal, o un tamaño superior. Para más información, lo que incluye los tipos de espera para diferentes tipos de limitaciones de la E/S del registro, consulte [Gobernanza de la velocidad del registro de transacciones](resource-limits-logical-server.md#transaction-log-rate-governance).
 
-De forma predeterminada, la redundancia del almacenamiento de copia de seguridad de la base de datos secundaria es la misma que la de la base de datos principal. Si lo desea, puede configurar la base de datos secundaria con una redundancia de almacenamiento de copia de seguridad diferente. Las copias de seguridad siempre se realizan en la base de datos principal. Si la secundaria está configurada con una redundancia de almacenamiento de copia de seguridad diferente, después de la conmutación por error cuando la base de datos secundaria se promueve a principal, las copias de seguridad se facturarán según la redundancia de almacenamiento seleccionada en la nueva base de datos principal (anteriormente secundaria). 
-
-> [!NOTE]
-> La velocidad del registro de transacciones de la base de datos principal puede estar limitada por motivos no relacionados con el tamaño de proceso inferior de una base de datos secundaria. Este tipo de limitación puede producirse aunque la base de datos secundaria tenga el mismo tamaño de proceso que la principal o uno superior. Para obtener más información, incluidos los tipos de espera para diferentes tipos de limitaciones de velocidad de registro, vea [Gobernanza de la velocidad del registro de transacciones](resource-limits-logical-server.md#transaction-log-rate-governance).
-
-> [!NOTE]
-> La redundancia del almacenamiento de copia de seguridad configurable de Azure SQL Database solo está disponible actualmente en versión preliminar pública en la región Sur de Brasil y con carácter general en la región Sudeste de Asia de Azure. Cuando la base de datos de origen se crea con redundancia de almacenamiento de copia de seguridad local o de zona, no se admite la creación de una base de datos secundaria en otra región de Azure. 
-
-Para más información sobre los tamaños de proceso de SQL Database, consulte [¿Qué son los niveles de servicio de SQL Database?](purchasing-models.md)
+De forma predeterminada, la redundancia del almacenamiento de copia de seguridad de la base de datos geográfica secundaria es la misma que la de la base de datos principal. Puede configurar una base de datos geográfica secundaria con una redundancia de almacenamiento de copia de seguridad diferente. Las copias de seguridad siempre se realizan en la base de datos principal. Si la secundaria está configurada con una redundancia de almacenamiento de copia de seguridad diferente, después de una conmutación por error geográfica cuando la base de datos geográfica secundaria se promueve a la principal, las nuevas copias de seguridad se almacenarán y facturarán según el tipo de almacenamiento (RA-GRS, ZRS, LRS) seleccionado en la nueva base de datos principal (anteriormente secundaria). 
 
 ## <a name="cross-subscription-geo-replication"></a>Replicación geográfica entre suscripciones
 
-> [!NOTE]
-> No se admite la creación de una replicación geográfica en un servidor lógico en otro inquilino de Azure cuando la autenticación exclusiva de [Azure Active Directory](https://techcommunity.microsoft.com/t5/azure-sql/azure-active-directory-only-authentication-for-azure-sql/ba-p/2417673) para Azure SQL está activa (habilitada) en el servidor lógico principal o secundario.
-> [!NOTE]
-> Las operaciones de replicación geográfica entre suscripciones, incluida la configuración y la conmutación por error, solo se admiten por medio de comandos de SQL.
+Para crear una base de datos geográfica secundaria en una suscripción que no sea la suscripción de la principal (ya sea en el mismo inquilino de Azure Active Directory o no), siga los pasos de esta sección.
 
-Para configurar la replicación geográfica activa entre dos bases de datos que pertenecen a distintas suscripciones (ya sea en el mismo inquilino o en otro), debe seguir el procedimiento especial descrito en esta sección.  El procedimiento se basa en comandos SQL y requiere:
+1. Agregue la dirección IP de la máquina cliente que ejecuta los comandos T-SQL siguientes a los firewalls de servidor de **ambos** servidores, el principal y el secundario. Esa dirección IP se puede confirmar ejecutando la siguiente consulta mientras se está conectado al servidor principal desde la misma máquina cliente.
+  
+   ```sql
+   select client_net_address from sys.dm_exec_connections where session_id = @@SPID;
+   ``` 
 
-- La creación de un inicio de sesión con privilegios en ambos servidores.
-- La adición de la dirección IP a la lista de permitidos del cliente que realiza el cambio en ambos servidores (como la dirección IP del host que ejecuta SQL Server Management Studio).
+   Para más información, consulte [Configuración de un firewall](firewall-configure.md).
 
-El cliente que realiza los cambios necesita acceso de red al servidor principal. Aunque se debe agregar la misma dirección IP del cliente a la lista de permitidos en el servidor secundario, la conectividad de red con el servidor secundario no es estrictamente necesaria.
-
-### <a name="on-the-master-of-the-primary-server"></a>En la base de datos maestra del servidor principal
-
-1. Agregue la dirección IP a la lista de permitidos del cliente que realiza los cambios (para más información, consulte [Configuración del firewall](firewall-configure.md)).
-1. Cree un inicio de sesión dedicado para configurar la replicación geográfica activa (y ajuste las credenciales según sea necesario):
+2. En la base de datos maestra del servidor **principal**, cree un inicio de sesión de autenticación SQL dedicado a la configuración de la replicación geográfica activa. Ajuste el Id. de inicio de sesión y la contraseña según sea necesario.
 
    ```sql
-   create login geodrsetup with password = 'ComplexPassword01'
+   create login geodrsetup with password = 'ComplexPassword01';
    ```
 
-1. Cree un usuario correspondiente y asígnele el rol dbmanager:
-
-   ```sql
-   create user geodrsetup for login geodrsetup
-   alter role dbmanager add member geodrsetup
-   ```
-
-1. Anote el SID del nuevo inicio de sesión con esta consulta:
-
-   ```sql
-   select sid from sys.sql_logins where name = 'geodrsetup'
-   ```
-
-### <a name="on-the-source-database-on-the-primary-server"></a>En la base de datos de origen del servidor principal
-
-1. Cree un usuario para el mismo inicio de sesión:
-
-   ```sql
-   create user geodrsetup for login geodrsetup
-   ```
-
-1. Agregue el usuario al rol db_owner:
-
-   ```sql
-   alter role db_owner add member geodrsetup
-   ```
-
-### <a name="on-the-master-of-the-secondary-server"></a>En la base de datos maestra del servidor secundario
-
-1. Agregue la dirección IP del cliente a la lista de permitidas de las reglas del firewall para el servidor secundario. Valide que exactamente la misma dirección IP de cliente que se agregó al servidor principal se haya agregado al secundario. Este paso se tiene que realizar antes de ejecutar el comando ALTER DATABASE ADD SECONDARY para iniciar la replicación geográfica.
-
-1. Cree el mismo inicio de sesión que en el servidor principal, con el mismo nombre de usuario, contraseña y SID:
-
-   ```sql
-   create login geodrsetup with password = 'ComplexPassword01', sid=0x010600000000006400000000000000001C98F52B95D9C84BBBA8578FACE37C3E
-   ```
-
-1. Cree un usuario correspondiente y asígnele el rol dbmanager:
+3. En la misma base de datos, cree un usuario para el inicio de sesión y agréguélo al rol `dbmanager`:
 
    ```sql
    create user geodrsetup for login geodrsetup;
-   alter role dbmanager add member geodrsetup
+   alter role dbmanager add member geodrsetup;
    ```
 
-### <a name="on-the-master-of-the-primary-server"></a>En la base de datos maestra del servidor principal
-
-1. Inicie sesión en la base de datos maestra del servidor principal con el nuevo inicio de sesión.
-1. Cree una réplica secundaria de la base de datos de origen en el servidor secundario (ajuste el nombre de la base de datos y del servidor según sea necesario):
+4. Anote el valor del identificador de seguridad del nuevo inicio de sesión. Obtenga el valor del identificador de seguridad, para lo que debe usar la siguiente consulta.
 
    ```sql
-   alter database dbrep add secondary on server <servername>
+   select sid from sys.sql_logins where name = 'geodrsetup';
    ```
 
-Tras la configuración inicial, se pueden quitar los usuarios, los inicios de sesión y las reglas de firewall creados.
+5. Conéctese a la base de datos **principal** (no a la base de datos maestra) y cree un usuario para el mismo inicio de sesión.
 
-## <a name="keeping-credentials-and-firewall-rules-in-sync"></a>Mantenimiento de las credenciales y las reglas de firewall sincronizadas
+   ```sql
+   create user geodrsetup for login geodrsetup;
+   ```
 
-Se recomienda usar [reglas de firewall de direcciones IP de nivel de base de datos](firewall-configure.md) para las bases de datos con replicación geográfica. Así, estas reglas se pueden replicar con la base de datos para garantizar que todas las bases de datos secundarias tengan las mismas reglas de firewall que la principal. Este enfoque elimina la necesidad de que los clientes configuren y mantengan manualmente las reglas de firewall en los servidores que hospedan tanto la base de datos principal como las secundarias. Igualmente, la utilización de [usuarios de base de datos independiente](logins-create-manage.md) para el acceso a los datos garantiza que la base de datos principal y las secundarias tengan siempre las mismas credenciales de usuario. Por tanto, durante una conmutación por error, no hay interrupciones debidas a discrepancias en los inicios de sesión y las contraseñas. Con la adición de [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md), los clientes pueden administrar el acceso de usuarios a la base de datos principal y a las secundarias, por lo que ya no es necesario administrar credenciales en las bases de datos.
+6. En la misma base de datos, agregue el usuario al rol `db_owner`.
 
-## <a name="upgrading-or-downgrading-primary-database"></a>Actualización o degradación de una base de datos principal
+   ```sql
+   alter role db_owner add member geodrsetup;
+   ```
 
-Puede actualizar o degradar una base de datos principal a un tamaño de proceso diferente (en el mismo nivel de servicio, no entre De uso general y Crítico para la empresa) sin desconectar las bases de datos secundarias. Al actualizar, se recomienda que actualice la base de datos secundaria en primer lugar y, a continuación, la principal. Al degradar, invierta el orden: degrade primero la base de datos principal y, después, la secundaria. Cuando actualiza la base de datos a un nivel de servicio diferente, o la cambia a una versión anterior, se aplica esta recomendación.
+7. En la base de datos maestra del servidor **secundario**, cree el mismo inicio de sesión que en el servidor principal, para lo que debe usar el mismo nombre, contraseña e identificador de seguridad. Reemplace el valor hexadecimal del identificador de seguridad en el comando de ejemplo siguiente por el obtenido en el paso 4.
+
+   ```sql
+   create login geodrsetup with password = 'ComplexPassword01', sid=0x010600000000006400000000000000001C98F52B95D9C84BBBA8578FACE37C3E;
+   ```
+
+8. En la misma base de datos, cree un usuario para el inicio de sesión y agréguélo al rol `dbmanager`.
+
+   ```sql
+   create user geodrsetup for login geodrsetup;
+   alter role dbmanager add member geodrsetup;
+   ```
+
+9. Conéctese a la base de datos maestra en el servidor **principal** mediante el nuevo inicio de sesión `geodrsetup` e inicie la creación de la base de datos geográfica secundaria en el servidor secundario. Ajuste el nombre de la base de datos y el nombre del servidor secundario según sea necesario. Una vez ejecutado el comando, puede supervisar la creación de la base de datos geográfica secundaria. Para ello, debe consultar la vista [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) de la base de datos **principal** y la vista [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) en la base de datos maestra del servidor **principal**. El tiempo necesario para crear una base de datos geográfica secundaria depende del tamaño de la base de datos principal.
+
+   ```sql
+   alter database [dbrep] add secondary on server [servername];
+   ```
+
+10. Una vez creada correctamente la base de datos secundaria geográfica, se pueden quitar los usuarios, los inicios de sesión y las reglas de firewall que ha creado este procedimiento.
 
 > [!NOTE]
-> Si creó una base de datos secundaria como parte de la configuración del grupo de conmutación por error, no se recomienda que la degrade. De este modo, se garantiza que la capa de datos tiene la capacidad suficiente para procesar la carga de trabajo habitual una vez que se activa la conmutación por error.
+> Las operaciones de replicación geográfica entre suscripciones, incluidas la configuración y la conmutación por error geográfica, solo se admiten mediante comandos de SQL.
+> 
+> No se admite la creación de una base de datos geográfica secundaria en un servidor lógico en otro inquilino de Azure cuando la autenticación [exclusiva de Azure Active Directory](https://techcommunity.microsoft.com/t5/azure-sql/azure-active-directory-only-authentication-for-azure-sql/ba-p/2417673) para Azure SQL está activa (habilitada) en el servidor lógico principal o secundario.
+
+## <a name="keep-credentials-and-firewall-rules-in-sync"></a><a name="keeping-credentials-and-firewall-rules-in-sync"></a> Mantenimiento de las credenciales y las reglas de firewall sincronizadas
+
+Al usar el acceso de la red pública para conectarse a la base de datos, se recomienda usar [reglas de firewall de IP de nivel de base de datos](firewall-configure.md) para bases de datos con replicación geográfica. Estas reglas se replican con la base de datos, lo que garantiza que todas las bases de datos geográficas secundarias tienen las mismas reglas de firewall de IP que la principal. Este enfoque elimina la necesidad de que los clientes configuren y mantengan manualmente las reglas de firewall en los servidores que hospedan tanto la base de datos principal como las secundarias. Del mismo modo, la utilización de [usuarios de bases de datos independientes](logins-create-manage.md) para el acceso a datos garantiza que tanto la base de datos principal como las secundarias siempre tienen las mismas credenciales de autenticación. De esta forma, después de una conmutación por error geográfica, no hay interrupciones debido a errores de coincidencia de credenciales de autenticación.
+
+## <a name="scale-primary-database"></a><a name="upgrading-or-downgrading-primary-database"></a> Modificación de la escala de una base de datos principal
+
+Puede escalar verticalmente o reducir verticalmente la base de datos principal a un tamaño de proceso diferente (en el mismo nivel de servicio) sin desconectar las secundarias. Cuando se escala verticalmente, se recomienda escalar verticalmente primero la secundaria geográfica y, después, escalar verticalmente la principal. Al reducir verticalmente, invierta el orden: primero escale verticalmente la principal y, a continuación, escale verticalmente la secundaria.
+
+> [!NOTE]
+> Si creó una base de datos secundaria geográfica como parte de la configuración del grupo de conmutación por error, no se recomienda reducirla verticalmente. De este modo, se garantiza que la capa de datos tiene la capacidad suficiente para procesar la carga de trabajo habitual después de una conmutación por error.
 
 > [!IMPORTANT]
-> La base de datos principal de un grupo de conmutación por error no puede escalar a un nivel superior a menos que la base de datos secundaria se escale primero al nivel superior. Si intenta escalar la base de datos principal antes de escalar la base de datos secundaria, es posible que reciba el siguiente error:
+> La base de datos principal de un grupo de conmutación por error no puede escalar a un nivel de servicio (edición) superior, a menos que la base de datos secundaria se escale primero al nivel superior. Por ejemplo, si desea escalar verticalmente la base de datos principal de De uso general a Crítico para la empresa, primero debe escalar la base de datos geográfica secundaria a Crítico para la empresa. Si intenta escalar la base de datos principal o la geográfica secundaria de una forma tal que infrinja esta regla, recibirá el siguiente error:
 >
-> `Error message: The source database 'Primaryserver.DBName' cannot have higher edition than the target database 'Secondaryserver.DBName'. Upgrade the edition on the target before upgrading the source.`
+> `The source database 'Primaryserver.DBName' cannot have higher edition than the target database 'Secondaryserver.DBName'. Upgrade the edition on the target before upgrading the source.`
 >
 
-## <a name="preventing-the-loss-of-critical-data"></a>Evitar la pérdida de datos críticos
+## <a name="prevent-loss-of-critical-data"></a><a name="preventing-the-loss-of-critical-data"></a> Evitación la pérdida de datos críticos
 
-Debido a la elevada latencia de las redes de área extensa, la copia continua usa un mecanismo de replicación asincrónica. La replicación asincrónica hace inevitable la pérdida de cierta cantidad datos si se produce un error. Sin embargo, es posible que algunas aplicaciones exijan que no se pierdan datos. Para proteger estas actualizaciones críticas, un desarrollador de aplicaciones puede llamar al procedimiento del sistema [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) inmediatamente después de confirmar la transacción. La llamada a **sp_wait_for_database_copy_sync** bloquea el subproceso de llamada hasta que se transmite la última transacción confirmada en la base de datos secundaria. Sin embargo, no espera para que las transacciones transmitidas se reproduzcan y se confirmen en la base de datos secundaria. **sp_wait_for_database_copy_sync** está dirigida a un vínculo de copia continua específico. Cualquier usuario con derechos de conexión para la base de datos principal puede llamar a este procedimiento.
+Debido a la elevada latencia de las redes de área extensa, la replicación geográfica usa un mecanismo de replicación asincrónica. La replicación asincrónica hace que la posibilidad de perder datos sea inevitable si se produce un error en la principal. Para proteger las transacciones críticas contra la pérdida de datos, un desarrollador de aplicaciones puede llamar al procedimiento almacenado [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) inmediatamente después de confirmar la transacción. La llamada a `sp_wait_for_database_copy_sync` bloquea el subproceso de llamada hasta que se transmite y protege la última transacción confirmada en el registro de transacciones de la base de datos secundaria. Sin embargo, no espera a que las transacciones transmitidas se reproduzcan (vuelvan a hacerse) en la base de datos secundaria. `sp_wait_for_database_copy_sync` está limitado a un vínculo de replicación geográfica específico. Cualquier usuario con derechos de conexión para la base de datos principal puede llamar a este procedimiento.
 
 > [!NOTE]
-> **sp_wait_for_database_copy_sync** evita la pérdida de datos después de la conmutación por error, pero no garantiza la sincronización completa para el acceso de lectura. El retraso causado por una llamada al procedimiento **sp_wait_for_database_copy_sync** puede ser considerable y depende del tamaño del registro de transacciones en el momento de la llamada.
+> `sp_wait_for_database_copy_sync` evita la pérdida de datos después de la conmutación por error geográfica para transacciones específicas, pero no garantiza la sincronización completa para el acceso de lectura. El retraso provocado por una llamada al procedimiento `sp_wait_for_database_copy_sync` puede ser considerable y depende del tamaño del registro de transacciones que todavía no se transmiten en la principal en el momento de la llamada.
 
-## <a name="monitoring-geo-replication-lag"></a>Supervisión del retardo de la replicación geográfica
+## <a name="monitor-geo-replication-lag"></a><a name="monitoring-geo-replication-lag"></a>Supervisión del retardo de la replicación geográfica
 
-Para supervisar el retardo con respecto a RPO, utilice la columna *replication_lag_sec* de [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) en la base de datos principal. Muestra el retardo en segundos entre las transacciones confirmadas en la base de datos principal y las que persisten en la secundaria. Por ejemplo, si el valor del retardo es de 1 segundo, significa que si la base de datos principal se ve afectada por una interrupción en este momento y se inicia la conmutación por error, no se guardará 1 segundo de las transacciones más recientes.
+Para supervisar el retardo con respecto a RPO, utilice la columna *replication_lag_sec* de [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) en la base de datos principal. Muestra el retardo, en segundos, entre las transacciones confirmadas en la base de datos principal y las reforzadas en el registro de transacciones de la secundaria. Por ejemplo, si el retardo es de un segundo, significa que si la principal se ve afectada por una interrupción en este momento y se inicia una conmutación por error geográfica, se perderán las transacciones confirmadas en el último segundo.
 
-Para medir el retardo con respecto a los cambios en la base de datos principal que se han aplicado en la base de datos secundaria, es decir, que están disponibles para su lectura desde la base de datos secundaria, compare el tiempo de *last_commit* en la base de datos secundaria con el mismo valor en la base de datos principal.
+Para medir el retardo con respecto a los cambios en la base de datos principal que se han protegido en la base de datos geográfica secundaria, compare el tiempo de *last_commit* en la base de datos geográfica secundaria con el mismo valor en la principal.
 
-> [!NOTE]
-> A veces *replication_lag_sec* en la base de datos principal tiene un valor NULL, lo que significa que la base de datos principal no sabe actualmente lo lejos que está la secundaria.   Esto ocurre típicamente después de reiniciar el proceso y debería ser una condición temporal. Considere la posibilidad de alertar a la aplicación si *replication_lag_sec* devuelve NULL durante un período prolongado. Esto indicaría que la base de datos secundaria no puede comunicarse con la principal debido a un error de conectividad permanente. También hay condiciones que podrían hacer que la diferencia entre el tiempo de *last_commit* en la base de datos secundaria y en la base de datos principal sea mayor. Por ejemplo, si se realiza una confirmación en la base de datos principal después de un largo período sin cambios, la diferencia saltará a un valor grande antes de volver rápidamente a 0. Considéralo una condición de error cuando la diferencia entre estos dos valores permanece grande durante mucho tiempo.
+> [!TIP]
+> Si en la base de datos principal *replication_lag_sec* tiene el valor NULL, significa que la base de datos principal no sabe actualmente lo lejos que está una base de datos geográfica secundaria. Esto ocurre típicamente después de reiniciar el proceso y debería ser una condición temporal. Considere la posibilidad de enviar una alerta si *replication_lag_sec* devuelve NULL durante un período prolongado. Puede indicar que la base de datos geográfica secundaria no se puede comunicar con la principal debido a un error de conectividad.
+> 
+> También hay condiciones que podrían provocar que la diferencia entre el tiempo de *last_commit* en la base de datos geográfica secundaria y en la principal llegue a ser considerable. Por ejemplo, si se realiza una confirmación en la base de datos principal después de un largo período sin cambios, la diferencia saltará a un valor grande antes de volver rápidamente a cero. Considere la posibilidad de enviar una alerta si la diferencia entre estos dos valores permanece grande durante mucho tiempo.
 
-## <a name="programmatically-managing-active-geo-replication"></a>Administración mediante programación de la replicación geográfica activa
+## <a name="programmatically-manage-active-geo-replication"></a><a name="programmatically-managing-active-geo-replication"></a> Administración mediante programación de la replicación geográfica activa
 
-Como se dijo antes, la replicación geográfica activa también puede administrarse mediante programación con Azure PowerShell y la API REST. En las tablas siguientes se describe el conjunto de comandos disponibles. La replicación geográfica activa incluye un conjunto de API de Azure Resource Manager para la administración, en el que se incluyen la [API REST de Azure SQL Database](/rest/api/sql/) y los [cmdlets de Azure PowerShell](/powershell/azure/). Estas API requieren que se usen grupos de recursos y admiten el control de acceso basado en rol de Azure (Azure RBAC). Para más información sobre cómo implementar los roles de acceso, consulte [Control de acceso basado en roles de Azure (Azure RBAC)](../../role-based-access-control/overview.md).
+Como se dijo antes, la replicación geográfica activa también se puede administrar mediante programación con T-SQL, Azure PowerShell y API REST. En las tablas siguientes se describe el conjunto de comandos disponibles. La replicación geográfica activa incluye un conjunto de API de Azure Resource Manager para la administración, en el que se incluyen la [API REST de Azure SQL Database](/rest/api/sql/) y los [cmdlets de Azure PowerShell](/powershell/azure/). Estas API admiten el control de acceso basado en roles de Azure (Azure RBAC). Para más información sobre cómo implementar los roles de acceso, consulte [Control de acceso basado en roles de Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 
-### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL: Administración de la conmutación por error de bases de datos únicas y agrupadas
+### <a name="t-sql-manage-geo-failover-of-single-and-pooled-databases"></a><a name="t-sql-manage-failover-of-single-and-pooled-databases"></a> T-SQL: Administración de la conmutación por error geográfica de bases de datos únicas y agrupadas
 
 > [!IMPORTANT]
-> Estos comandos de Transact-SQL solo se aplican a la replicación geográfica activa, no a los grupos de conmutación por error. Por lo tanto, tampoco se aplican a las Instancias administradas de SQL, ya que solo admiten grupos de conmutación por error.
+> Estos comandos de T-SQL solo se aplican a la replicación geográfica activa, no a los grupos de conmutación por error. Por lo tanto, tampoco se aplican a Azure SQL Managed Instance, que solo admite grupos de conmutación por error.
 
 | Get-Help | Descripción |
 | --- | --- |
-| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |Se utiliza el argumento ADD SECONDARY ON SERVER a fin de crear una base de datos secundaria para una base de datos existente e iniciar la replicación de datos |
-| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |Se utiliza FAILOVER o FORCE_FAILOVER_ALLOW_DATA_LOSS para cambiar una base de datos de secundaria a principal e iniciar la conmutación por error. |
-| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |Se utiliza REMOVE SECONDARY ON SERVER para finalizar una replicación de datos entre una instancia de SQL Database y la base de datos secundaria especificada. |
+| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |El argumento **ADD SECONDARY ON SERVER** se usa para crear una base de datos secundaria para una base de datos existente e iniciar la replicación de datos. |
+| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |**FAILOVER** o **FORCE_FAILOVER_ALLOW_DATA_LOSS** se usan para cambiar una base de datos de secundaria a principal e iniciar la conmutación por error. |
+| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |**REMOVE SECONDARY ON SERVER** se usa para finalizar una replicación de datos entre una instancia de SQL Database y la base de datos secundaria especificada. |
 | [sys.geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Devuelve información sobre todos los vínculos de replicación existentes para cada base de datos en un servidor. |
 | [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Obtiene la hora de la última replicación, el retraso de la última replicación y otro tipo de información sobre el vínculo de replicación para una base de datos determinada. |
-| [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Muestra el estado de todas las operaciones de base de datos, incluido el estado de los vínculos de replicación. |
-| [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |Hace que la aplicación espere a que se repliquen todas las transacciones confirmadas y a que las reconozca la base de datos secundaria activa. |
+| [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Muestra el estado de todas las operaciones de base de datos, entre las que se incluyen los cambios en los vínculos de replicación. |
+| [sys.sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |Hace que la aplicación espere hasta que todas las transacciones confirmadas se refuercen en el registro de transacciones de una base de datos secundaria geográfica. |
 |  | |
 
-### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell: Administración de la conmutación por error de bases de datos únicas y agrupadas
+### <a name="powershell-manage-geo-failover-of-single-and-pooled-databases"></a><a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell: Administración de la conmutación por error geográfica de bases de datos únicas y agrupadas
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -288,13 +273,13 @@ Como se dijo antes, la replicación geográfica activa también puede administra
 | [New-AzSqlDatabaseSecondary](/powershell/module/az.sql/new-azsqldatabasesecondary) |Crea una base de datos secundaria para una base de datos existente e inicia la replicación de datos. |
 | [Set-AzSqlDatabaseSecondary](/powershell/module/az.sql/set-azsqldatabasesecondary) |Convierte una base de datos secundaria en principal para iniciar la conmutación por error. |
 | [Remove-AzSqlDatabaseSecondary](/powershell/module/az.sql/remove-azsqldatabasesecondary) |Finaliza una replicación de datos entre SQL Database y la base de datos secundaria especificada. |
-| [Get-AzSqlDatabaseReplicationLink](/powershell/module/az.sql/get-azsqldatabasereplicationlink) |Obtiene los vínculos de replicación geográfica entre una instancia de Azure SQL Database y un grupo de recursos o servidor SQL lógico. |
+| [Get-AzSqlDatabaseReplicationLink](/powershell/module/az.sql/get-azsqldatabasereplicationlink) |Obtiene los vínculos de replicación geográfica de una base de datos. |
 |  | |
 
-> [!IMPORTANT]
+> [!TIP]
 > Si desea scripts de ejemplo, consulte [Configuración y conmutación por error de una base de datos única mediante la replicación geográfica activa](scripts/setup-geodr-and-failover-database-powershell.md) y [Configuración y conmutación por error de una base de datos agrupada mediante la replicación geográfica activa](scripts/setup-geodr-and-failover-elastic-pool-powershell.md).
 
-### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>API REST: Administración de la conmutación por error de bases de datos únicas y agrupadas
+### <a name="rest-api-manage-geo-failover-of-single-and-pooled-databases"></a><a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>API REST: Administración de la conmutación por error geográfica de bases de datos únicas y agrupadas
 
 | API | Descripción |
 | --- | --- |
@@ -307,16 +292,13 @@ Como se dijo antes, la replicación geográfica activa también puede administra
 | [Eliminar vínculo de replicación](/rest/api/sql/replicationlinks/delete) | Elimina un vínculo de replicación de base de datos. No se puede realizar durante la conmutación por error. |
 |  | |
 
-
-
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para los scripts de ejemplo, vea:
-  - [Configuración y conmutación por error de una base de datos única mediante la replicación geográfica activa](scripts/setup-geodr-and-failover-database-powershell.md)
-  - [Configuración y conmutación por error de una base de datos agrupada mediante la replicación geográfica activa](scripts/setup-geodr-and-failover-elastic-pool-powershell.md)
+  - [Configuración y conmutación por error de una base de datos única mediante la replicación geográfica activa](scripts/setup-geodr-and-failover-database-powershell.md).
+  - [Configuración y conmutación por error de una base de datos agrupada mediante la replicación geográfica activa](scripts/setup-geodr-and-failover-elastic-pool-powershell.md).
 - SQL Database también admite grupos de conmutación por error automática. Para más información, consulte cómo se usan los [grupos de conmutación por error automática](auto-failover-group-overview.md).
-- Para obtener una descripción general y los escenarios de la continuidad empresarial, consulte [Continuidad empresarial con Base de datos SQL de Azure](business-continuity-high-availability-disaster-recover-hadr-overview.md)
+- Para obtener una descripción general y los escenarios de la continuidad empresarial, consulte [Información general sobre la continuidad empresarial](business-continuity-high-availability-disaster-recover-hadr-overview.md).
 - Para saber en qué consisten las copias de seguridad automatizadas de Azure SQL Database, consulte [Información general: copias de seguridad automatizadas de SQL Database](automated-backups-overview.md).
 - Si quiere saber cómo usar las copias de seguridad automatizadas para procesos de recuperación, consulte [Recuperación de una base de datos a partir de copias de seguridad iniciadas por un servicio](recovery-using-backups.md).
 - Para obtener información acerca de los requisitos de autenticación para un nuevo servidor principal y la base de datos, consulte [Administración de la seguridad de Azure SQL Database después de la recuperación ante desastres](active-geo-replication-security-configure.md).

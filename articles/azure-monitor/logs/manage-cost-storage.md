@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/17/2021
 ms.author: bwren
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1713d3091794ed95438a5e9d7944b3f5ee41f5ee
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 650ccc08d5cec7e037a6203f71ac8429f1bc2bf0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130131797"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079004"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Administrar el uso y los costos con los registros de Azure Monitor    
 
@@ -201,7 +201,7 @@ De manera predeterminada, dos tipos de datos (`Usage` y `AzureActivity`) se cons
 
 Los tipos de datos de los recursos de Application Insights basados en áreas de trabajo (`AppAvailabilityResults`, `AppBrowserTimings`, `AppDependencies`, `AppExceptions`, `AppEvents`, `AppMetrics`, `AppPageViews`, `AppPerformanceCounters`, `AppRequests`, `AppSystemEvents` y `AppTraces`) también se conservan durante 90 días sin ningún cargo de manera predeterminada. Su retención se puede ajustar mediante la funcionalidad de retención por tipo de datos. 
 
-La [API de purga](/rest/api/loganalytics/workspacepurge/purge) de Log Analytics no afecta a la facturación de la retención y está pensada para usarse en casos muy limitados. Para reducir la factura de retención, el período de retención se debe reducir para el área de trabajo o para tipos de datos específicos. 
+La [API de purga](/rest/api/loganalytics/workspacepurge/purge) de Log Analytics no afecta a la facturación de la retención y está pensada para usarse en casos muy limitados. Para reducir la factura de retención, el período de retención se debe reducir para el área de trabajo o para tipos de datos específicos. Más información sobre cómo administrar [datos personales almacenados en Log Analytics y Application Insights](./personal-data-mgmt.md).
 
 ### <a name="retention-by-data-type"></a>Retención por tipo de datos
 

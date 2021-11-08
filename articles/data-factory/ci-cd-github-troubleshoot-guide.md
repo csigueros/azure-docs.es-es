@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: ci-cd
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 09/09/2021
-ms.openlocfilehash: afba2903fc01a8f6e866f91074bdefa427dff7aa
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 10/25/2021
+ms.openlocfilehash: 1c73346cde1eb20f17973b65e43a8d1c4148b41c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129217991"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073251"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-azure-data-factory-and-synapse-analytics"></a>Solución de problemas de CI/CD, Azure DevOps y GitHub en Azure Data Factory y Synapse Analytics 
 
@@ -298,6 +298,29 @@ Hay varios escenarios que pueden desencadenar este comportamiento, todos ellos i
 #### <a name="resolution"></a>Solución
 
 Las nuevas ejecuciones de la canalización primaria comenzarán automáticamente a ejecutarse correctamente, por lo que normalmente no se necesita ninguna acción. Sin embargo, para evitar estos errores, los clientes deben tener en cuenta las dependencias al crear y planear implementaciones para evitar cambios importantes. 
+
+### <a name="cannot-parameterize-integration-run-time-in-linked-service"></a>No se puede parametrizar el tiempo de ejecución de integración en el servicio vinculado
+
+#### <a name="issue"></a>Problema
+Necesidad de parametrizar el tiempo de ejecución de integración del servicio vinculado
+
+#### <a name="cause"></a>Causa
+Esta característica no se admite. 
+
+#### <a name="resolution"></a>Resolución
+Debe seleccionar manualmente y establecer un entorno de ejecución de integración. También puede usar la API de PowerShell para cambiarlo.  Este cambio puede tener implicaciones posteriores. 
+
+### <a name="updatechange-integration-runtime-during-cicd"></a>Actualización o cambio del entorno de ejecución de integración durante las operaciones de CI/CD 
+ 
+#### <a name="issue"></a>Problema
+Cambio del nombre del entorno de ejecución de integración durante la implementación de CI/CD.  
+ 
+#### <a name="cause"></a>Causa
+No se admite la parametrización de una referencia de entidad (entorno de ejecución de integración en servicio vinculado, conjunto de datos en actividad, servicio vinculado en conjunto de datos).  Al cambiar el nombre del entorno de ejecución durante la implementación, el formato del recurso dependiente (recurso que hace referencia al entorno de ejecución de integración) será incorrecto y tendrá una referencia no válida.  
+ 
+#### <a name="resolution"></a>Resolución
+En Data Factory es necesario tener el mismo nombre y tipo de entorno de ejecución de integración en todas las fases de CI/CD. 
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

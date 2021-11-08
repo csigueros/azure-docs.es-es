@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw
-ms.openlocfilehash: bcac5ef0b3ba4a99ec2f670dae7ab252681f7542
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: fd77fbdc7e8a3a417c886280a52bdf3f27e559f1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691052"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131074410"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Implementación de OpenShift Container Platform 3.11 en Azure
 
@@ -282,7 +282,7 @@ Diferentes versiones pueden tener distintos parámetros; por ello, compruebe los
 | `domainName` | Nombre de dominio personalizado que se va a usar (si corresponde). Establecer en "none" si no se implementa un clúster totalmente privado. |  | None |
 | `masterClusterDnsType` | Tipo de dominio de la consola web de OpenShift. "default" usará la etiqueta DNS de la dirección IP pública de infraestructura maestra. "custom" permite definir su propio nombre. | default <br> custom | default |
 | `masterClusterDns` | Nombre DNS personalizado para tener acceso a la consola web de OpenShift si ha seleccionado "custom" para `masterClusterDnsType`. |  | console.contoso.com |
-| `routingSubDomainType` | Si se establece en "nipio", `routingSubDomain` usará nip.io.  Use "custom" si tiene su propio dominio y quiere utilizarlo para el enrutamiento. | nipio <br> custom | nipio |
+| `routingSubDomainType` | Si se establece en `nipio`, `routingSubDomain` usará `nip.io`.  Use "custom" si tiene su propio dominio y quiere utilizarlo para el enrutamiento. | `nipio` <br> custom | `nipio` |
 | `routingSubDomain` | Nombre DNS con carácter comodín que quiere usar para el enrutamiento si ha seleccionado "custom" para `routingSubDomainType`. |  | apps.contoso.com |
 | `virtualNetworkNewOrExisting` | Seleccione si quiere usar una red virtual existente o crear una nueva. | existing <br> nuevo | nuevo |
 | `virtualNetworkResourceGroupName` | Nombre del grupo de recursos para la nueva red virtual si ha seleccionado "new" para `virtualNetworkNewOrExisting`. |  | resourceGroup().name |

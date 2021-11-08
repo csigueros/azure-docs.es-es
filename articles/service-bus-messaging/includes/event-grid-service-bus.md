@@ -1,19 +1,19 @@
 ---
-title: Archivo de inclusión
+title: archivo de inclusión
 description: archivo de inclusión
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: include
-ms.date: 02/04/2021
+ms.date: 10/20/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 8115e79a0cf747fbf5980d717331883097012077
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: 491d8cb7cc11d0a904ad70fac8d54c9c6e16670d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112413008"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130287468"
 ---
 ## <a name="available-event-types"></a>Tipos de eventos disponibles
 
@@ -23,8 +23,8 @@ Service Bus emite los siguientes tipos de eventos:
 | ---------- | ----------- |
 | Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners | Este evento se genera si hay mensajes activos en una cola o suscripción y no hay receptores a la escucha. |
 | Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListeners | Este evento se genera si hay mensajes activos en una cola de mensajes fallidos y no hay receptores a la escucha. |
-| Microsoft.ServiceBus.ActiveMessagesAvailablePeriodicNotifications | Se genera periódicamente si hay mensajes activos en una cola o suscripción, aunque haya agentes de escucha activos en esa cola o suscripción específica. |
-| Microsoft.ServiceBus.DeadletterMessagesAvailablePeriodicNotifications | Se genera periódicamente si hay mensajes en la entidad fallida de una cola o suscripción, aunque haya clientes de escucha activos en la entidad fallida de esa cola o suscripción específica. | 
+| Microsoft.ServiceBus.ActiveMessagesAvailablePeriodicNotifications | Se genera cada 30 segundos si hay mensajes activos en una cola o suscripción, aunque haya clientes de escucha activos en esa cola o suscripción específica. También se genera cuando el recuento de mensajes activos pasa de 0 a un valor positivo para la cola o suscripción. |
+| Microsoft.ServiceBus.DeadletterMessagesAvailablePeriodicNotifications | Se genera cada 30 segundos si hay mensajes en la entidad de mensajes con problemas de entrega de una cola o suscripción, aunque haya clientes de escucha activos en la entidad de mensajes con problemas de entrega de esa cola o suscripción específica. También se genera cuando el recuento de mensajes con problemas de entrega pasa de 0 a un valor positivo para la entidad de mensajes con problemas de entrega de la cola o suscripción. | 
 
 ## <a name="example-event"></a>Evento de ejemplo
 

@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 5cc02d09efda462a2feaaa77ff74dff9dedd2041
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 79ff649d9710d4f114b7d8de85d275896f26a729
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121860808"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131003568"
 ---
 # <a name="azure-spring-cloud-faq"></a>Preguntas frecuentes de Azure Spring Cloud
 
@@ -35,6 +35,12 @@ La seguridad y la privacidad se encuentran entre las principales prioridades par
 * Azure Spring Cloud proporciona administración completa de certificados y TLS/SSL.
 * Las revisiones de seguridad críticas de los runtimes de OpenJDK y Spring Cloud se aplicarán a Azure Spring Cloud lo antes posible.
 
+### <a name="how-does-azure-spring-cloud-host-my-applications"></a>¿Cómo hospeda Azure Spring Cloud mis aplicaciones?
+
+Cada instancia de servicio de Azure Spring Cloud cuenta con el respaldo de un clúster de Kubernetes totalmente dedicado con varios nodos de trabajo. Azure Spring Cloud administra el clúster de Kubernetes subyacente de forma automática, lo que incluye la alta disponibilidad, la escalabilidad, la actualización de la versión de Kubernetes, etc.
+
+Azure Spring Cloud programa de forma inteligente las aplicaciones en los nodos de trabajo de Kubernetes subyacentes. Para proporcionar alta disponibilidad, Azure Spring Cloud aplicaciones con dos o más instancias en nodos diferentes.
+
 ### <a name="in-which-regions-is-azure-spring-cloud-available"></a>¿En qué regiones está disponible Azure Spring Cloud?
 
 Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro-sur de EE. UU., Centro-norte de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Oeste de Europa, Norte de Europa, Sur de Reino Unido, Sudeste Asiático, Este de Australia, Centro de Canadá, Norte de Emiratos Árabes Unidos, Centro de la India, Centro de Corea del Sur, Este de Asia, Japón Oriental, Norte de Sudáfrica y Este de China 2 (región de Mooncake). [Más información](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
@@ -49,13 +55,16 @@ Azure Spring Cloud tiene las limitaciones conocidas siguientes:
 
 * `spring.application.name` se sustituirá por el nombre de la aplicación que se usó para crear cada aplicación.
 * El valor predeterminado de `server.port` es el puerto 1025. Si se aplica cualquier otro valor, se invalidará. También debe respetar esta configuración y no especificar el puerto del servidor en el código.
-* Azure Portal y las plantillas de Azure Resource Manager no admiten la carga de paquetes de aplicación. Solo puede cargar paquetes de aplicación al implementar la aplicación a través de la CLI de Azure.
+* Azure Portal, las plantillas de Azure Resource Manager y Terraform no admiten la carga de paquetes de aplicación. Para cargar paquetes de aplicación, implemente la aplicación mediante la CLI de Azure, Azure DevOps, el complemento Maven para Azure Spring Cloud, Azure Toolkit for IntelliJ y la extensión Visual Studio Code para Azure Spring Cloud.
 
 ### <a name="what-pricing-tiers-are-available"></a>¿Qué planes de tarifa están disponibles?
 
 ¿Cuál debo usar y cuáles son los límites dentro de cada plan?
 
 * Azure Spring Cloud ofrece dos planes de tarifa: Básico y Estándar. El plan Básico está destinado a desarrollo y pruebas y a probar Azure Spring Cloud. El plan Estándar está optimizado para ejecutar el tráfico de producción de uso general. Consulte [Detalle de precios de Azure Spring Cloud](https://azure.microsoft.com/pricing/details/spring-cloud/) para obtener información sobre los límites y la comparación de niveles de las características.
+
+### <a name="whats-the-difference-between-service-binding-and-service-connector"></a>¿En qué se diferencian Service Binding y Service Connector?
+No estamos desarrollando activamente más funcionalidades para Service Binding en favor de la nueva solución de Azure denominada Service Connector. Por un lado, la nueva solución ofrece una experiencia de integración coherente entre los servicios de hospedaje de aplicaciones en Azure, como App Service. Por otro lado, cubre mejor sus necesidades empezando por admitir los 10 servicios de Azure de destino más usados, entre los que se incluyen MySQL, SQL DB, Cosmos DB, Postgres DB, Redis, Storage, etc. Service Connector se encuentra actualmente en versión preliminar pública y le invitamos a probar la nueva experiencia.
 
 ### <a name="how-can-i-provide-feedback-and-report-issues"></a>¿Cómo puedo realizar comentarios y notificar incidencias?
 
@@ -201,20 +210,23 @@ Sí. Para obtener más información, consulte [Inicio de la aplicación Spring C
 
 ### <a name="does-azure-spring-cloud-support-autoscaling-in-app-instances"></a>¿Admite Azure Spring Cloud la escalabilidad automática en instancias de aplicaciones?
 
-Sí.  Para obtener más información, vea [Configurar un dominio](./how-to-setup-autoscale.md).
+Sí. Para más información, consulte [Configuración de la escalabilidad automática para aplicaciones de microservicios](./how-to-setup-autoscale.md).
+
+### <a name="how-does-azure-spring-cloud-monitor-the-health-status-of-my-application"></a>¿Cómo supervisa Azure Spring Cloud el estado de mantenimiento de mi aplicación?
+
+Azure Spring Cloud sondea continuamente el puerto 1025 en busca de las aplicaciones del cliente. Estos sondeos determinan si el contenedor de aplicaciones está listo para empezar a aceptar tráfico y Azure Spring Cloud necesita reiniciar el contenedor de aplicaciones. Internamente, Azure Spring Cloud sondeos de disponibilidad y disponibilidad de Kubernetes para lograr la supervisión del estado.
+
+>[!NOTE]
+> Debido a estos sondeos, actualmente no se pueden iniciar aplicaciones en Azure Spring Cloud sin exponer el puerto 1025.
+
+### <a name="whether-and-when-will-my-application-be-restarted"></a>¿Se va a reiniciar mi aplicación?, ¿cuándo?
+
+Sí. Para más información, consulte [Supervisión de eventos del ciclo de vida de la aplicación mediante el registro de actividad de Azure y Azure Service Health](./monitor-app-lifecycle-events.md).
 
 ::: zone pivot="programming-language-java"
 ### <a name="what-are-the-best-practices-for-migrating-existing-spring-cloud-microservices-to-azure-spring-cloud"></a>¿Cuáles son los procedimientos recomendados para migrar los microservicios de Spring Cloud existentes a Azure Spring Cloud?
 
-Al migrar los microservicios de Spring Cloud existentes a Azure Spring Cloud, es una buena idea realizar los siguientes procedimientos recomendados:
-
-* Todas las dependencias de la aplicación deben resolverse.
-* Es preciso preparar las entradas de configuración, las variables de entorno y los parámetros de JVM para que pueda compararlos con los de la implementación en Azure Spring Cloud.
-* Si quiere usar el enlace de servicios, examine los servicios de Azure y asegúrese de que ha establecido los permisos de acceso adecuados.
-* Se recomienda quitar o deshabilitar todos los servicios insertados que podrían entrar en conflicto con los servicios administrados por Azure Spring Cloud, como nuestro servicio Service Discovery y Config Server, entre otros.
-* Se recomienda usar las bibliotecas de Pivotal Spring oficiales estables. Las versiones no oficiales, beta o bifurcadas de las bibliotecas de Pivotal Spring no tienen el soporte de un Acuerdo de Nivel de Servicio (SLA).
-
-Después de la migración, supervise las métricas de la CPU y RAM, y el tráfico de red para garantizar que las instancias de la aplicación se escalan adecuadamente.
+Para más información, consulte [Migración de aplicaciones de Spring Cloud a Azure Spring Cloud](/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud).
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"

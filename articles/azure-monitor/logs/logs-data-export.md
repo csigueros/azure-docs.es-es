@@ -6,12 +6,12 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 author: yossi-y
 ms.author: yossiy
 ms.date: 10/17/2021
-ms.openlocfilehash: 25d1d07edabdc8ee3d46175a51d8a20c5d9cc9eb
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: f5dc1ad57b745ee26f9edb1b9c31091a1aaec42c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130133180"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069983"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Exportación de datos del área de trabajo de Log Analytics en Azure Monitor (versión preliminar)
 La exportación de datos del área de trabajo de Log Analytics en Azure Monitor permite exportar continuamente los datos de las tablas seleccionadas del área de trabajo de Log Analytics en una cuenta de Azure Storage o Azure Event Hubs a medida que se recopilan. En este artículo se ofrecen detalles sobre esta característica y pasos para configurar la exportación de datos en las áreas de trabajo.
@@ -173,7 +173,8 @@ Los destinos de exportación de datos tienen límites y se deben supervisar para
     | namespaces-name | Métricas estándar del centro de eventos | Cuota de errores superada | Count | Entre el 1 % y el 5 % de la solicitud |
 
 1. Acciones de corrección de alertas
-   - Aumentar el número de unidades (TU o PU)
+   - Configure la característica de [inflado automático](../../event-hubs/event-hubs-auto-inflate.md) para escalar verticalmente y aumentar el número de unidades de procesamiento de forma automática y, de este modo, satisfacer las necesidades de uso.
+   - Comprobación del aumento de las unidades de procesamiento para dar cabida a la carga
    - Dividir tablas entre espacios de nombres adicionales
    - Usar los niveles "Premium" o "Dedicado" para obtener un mayor rendimiento
 
@@ -653,6 +654,10 @@ Las tablas admitidas se limitan actualmente a las que se especifican a continuac
 | ABSBotRequests |  |
 | ACSAuthIncomingOperations |  |
 | ACSBillingUsage |  |
+| ACRConnectedClientList |  |
+| ACRConnectedClientList |  |
+| ACSCallDiagnostics |  |
+| ACSCallSummary |  |
 | ACSChatIncomingOperations |  |
 | ACSSMSIncomingOperations |  |
 | ADAssessmentRecommendation |  |
@@ -674,7 +679,19 @@ Las tablas admitidas se limitan actualmente a las que se especifican a continuac
 | AegDeliveryFailureLogs |  |
 | AegPublishFailureLogs |  |
 | AEWAuditLogs |  |
+| AgriFoodApplicationAuditLogs |  |
+| AgriFoodApplicationAuditLogs |  |
+| AgriFoodFarmManagementLogs |  |
+| AgriFoodFarmManagementLogs |  |
+| AgriFoodFarmOperationLogs |  |
+| AgriFoodInsightLogs |  |
+| AgriFoodJobProcessedLogs |  |
+| AgriFoodModelInferenceLogs |  |
+| AgriFoodProviderAuthLogs |  |
+| AgriFoodSatelliteLogs |  |
+| AgriFoodWeatherLogs |  |
 | Alerta |  |
+| AlertEvidence |  |
 | AmlOnlineEndpointConsoleLog |  |
 | ApiManagementGatewayLogs |  |
 | AppCenterError |  |
@@ -685,6 +702,7 @@ Las tablas admitidas se limitan actualmente a las que se especifican a continuac
 | AppServiceFileAuditLogs |  |
 | AppServiceHTTPLogs |  |
 | AppServicePlatformLogs |  |
+| ATCExpressRouteCircuitIpfix |  |
 | AuditLogs |  |
 | AutoscaleEvaluationsLog |  |
 | AutoscaleScaleActionsLog |  |
@@ -704,9 +722,10 @@ Las tablas admitidas se limitan actualmente a las que se especifican a continuac
 | CDBPartitionKeyRUConsumption |  |
 | CDBPartitionKeyStatistics |  |
 | CDBQueryRuntimeStatistics |  |
+| CloudAppEvents |  |
 | CommonSecurityLog |  |
 | ComputerGroup |  |
-| ConfigurationData | Compatibilidad parcial: algunos de los datos se ingieren por medio de servicios internos que no se admiten para la exportación. Esta parte no está disponible en la exportación actualmente. |
+| ConfigurationData | Compatibilidad parcial: algunos de los datos se ingieren por medio de servicios internos que no se admiten en la exportación. Esta parte no está disponible en la exportación actualmente. |
 | ContainerImageInventory |  |
 | ContainerInventory |  |
 | ContainerLog |  |
@@ -747,9 +766,9 @@ Las tablas admitidas se limitan actualmente a las que se especifican a continuac
 | HDInsightHiveAndLLAPMetrics |  |
 | HDInsightHiveTezAppStats |  |
 | HDInsightJupyterNotebookEvents |  |
-| HDInsightKafkaLogs |  |
 | HDInsightKafkaMetrics |  |
 | HDInsightOozieLogs |  |
+| HDInsightRangerAuditLogs |  |
 | HDInsightSecurityLogs |  |
 | HDInsightSparkApplicationEvents |  |
 | HDInsightSparkBlockManagerEvents |  |
@@ -763,7 +782,7 @@ Las tablas admitidas se limitan actualmente a las que se especifican a continuac
 | HDInsightSparkTaskEvents |  |
 | Latido |  |
 | HuntingBookmark |  |
-| InsightsMetrics | Compatibilidad parcial: algunos de los datos se ingieren por medio de servicios internos que no se admiten para la exportación. Esta parte no está disponible en la exportación actualmente. |
+| InsightsMetrics | Compatibilidad parcial: algunos de los datos se ingieren por medio de servicios internos que no se admiten en la exportación. Esta parte no está disponible en la exportación actualmente. |
 | IntuneAuditLogs |  |
 | IntuneDevices |  |
 | IntuneOperationalLogs |  |
@@ -784,18 +803,18 @@ Las tablas admitidas se limitan actualmente a las que se especifican a continuac
 | NWConnectionMonitorPathResult |  |
 | NWConnectionMonitorTestResult |  |
 | OfficeActivity | Compatibilidad parcial en nubes de Administración Pública: algunos de los datos se ingieren mediante webhooks de O365 en LA. Esta parte no está disponible en la exportación actualmente. |
-| Operación | Compatibilidad parcial: algunos de los datos se ingieren por medio de servicios internos que no se admiten para la exportación. Esta parte no está disponible en la exportación actualmente. |
+| Operación | Compatibilidad parcial: algunos de los datos se ingieren por medio de servicios internos que no se admiten en la exportación. Esta parte no está disponible en la exportación actualmente. |
 | Perf | Compatibilidad parcial: actualmente solo se admiten los datos de rendimiento de Windows. En este momento, faltan los datos de rendimiento de Linux en la exportación. |
 | PowerBIDatasetsWorkspace |  |
+| HDInsightRangerAuditLogs |  |
 | PurviewScanStatusLogs |  |
 | SCCMAssessmentRecommendation |  |
 | SCOMAssessmentRecommendation |  |
 | SecurityAlert |  |
 | SecurityBaseline |  |
 | SecurityBaselineSummary |  |
-| SecurityCef |  |
 | SecurityDetection |  |
-| SecurityEvent | Compatibilidad parcial: los datos que llegan del agente de Log Analytics (MMA) o el agente de Azure Monitor (AMA) son totalmente compatibles con la exportación. Los datos que llegan a través del agente de Diagnostics Extension se recopilan a través del almacenamiento, mientras que esta ruta de acceso no se admite en la exportación.2 |
+| SecurityEvent | Compatibilidad parcial: los datos que llegan del agente de Log Analytics (MMA) o el agente de Azure Monitor (AMA) son totalmente compatibles con la exportación. Los datos que llegan a través del agente de Diagnostics Extension se recopilan a través del almacenamiento, mientras que esta ruta de acceso no se admite en la exportación. |
 | SecurityIncident |  |
 | SecurityIoTRawEvent |  |
 | SecurityNestedRecommendation |  |
@@ -822,9 +841,9 @@ Las tablas admitidas se limitan actualmente a las que se especifican a continuac
 | SynapseSqlPoolRequestSteps |  |
 | SynapseSqlPoolSqlRequests |  |
 | SynapseSqlPoolWaits |  |
-| syslog | Compatibilidad parcial: los datos que llegan del agente de Log Analytics (MMA) o el agente de Azure Monitor (AMA) son totalmente compatibles con la exportación. Los datos que llegan a través del agente de Diagnostics Extension se recopilan a través del almacenamiento, mientras que esta ruta de acceso no se admite en la exportación.2 |
+| syslog | Compatibilidad parcial: los datos que llegan del agente de Log Analytics (MMA) o el agente de Azure Monitor (AMA) son totalmente compatibles con la exportación. Los datos que llegan a través del agente de Diagnostics Extension se recopilan a través del almacenamiento, mientras que esta ruta de acceso no se admite en la exportación. |
 | ThreatIntelligenceIndicator |  |
-| Actualizar | Compatibilidad parcial: algunos de los datos se ingieren por medio de servicios internos que no se admiten para la exportación. Esta parte no está disponible en la exportación actualmente. |
+| Actualizar | Compatibilidad parcial: algunos de los datos se ingieren por medio de servicios internos que no se admiten en la exportación. Esta parte no está disponible en la exportación actualmente. |
 | UpdateRunProgress |  |
 | UpdateSummary |  |
 | Uso |  |
@@ -833,7 +852,7 @@ Las tablas admitidas se limitan actualmente a las que se especifican a continuac
 | Watchlist |  |
 | WindowsEvent |  |
 | WindowsFirewall |  |
-| WireData | Compatibilidad parcial: algunos de los datos se ingieren por medio de servicios internos que no se admiten para la exportación. Esta parte no está disponible en la exportación actualmente. |
+| WireData | Compatibilidad parcial: algunos de los datos se ingieren por medio de servicios internos que no se admiten en la exportación. Esta parte no está disponible en la exportación actualmente. |
 | WorkloadDiagnosticLogs |  |
 | WVDAgentHealthStatus |  |
 | WVDCheckpoints |  |

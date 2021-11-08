@@ -8,12 +8,12 @@ ms.date: 10/15/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.openlocfilehash: 88025243a379b18b5b24cb3c47caee4713b47585
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: c0713588eadebbd1d9376faec8e61cf5a88dfd1d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130131550"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068919"
 ---
 # <a name="join-a-teams-meeting"></a>Unión a una reunión de Teams
 
@@ -51,6 +51,7 @@ Microsoft le indicará a través de Azure Communication Services API que ha come
 
 - Un usuario BYOI puede unirse a una reunión de Teams programada para un canal de Teams y usar audio y vídeo, pero no podrá enviar ni recibir ningún mensaje de chat, ya que no es miembro del canal.
 - Al usar Microsoft Graph para [enumerar los participantes de una reunión de Teams](/graph/api/call-list-participants), los detalles de los usuarios de Communication Services no se incluyen actualmente.
+- Las presentaciones de PowerPoint no se representan para los usuarios de Communication Services.
 - Las reuniones de Teams admiten hasta 1000 participantes, pero Calling SDK de Azure Communication Services solo admite actualmente 350 participantes.
 - Con [Cloud Video Interop para Microsoft Teams](/microsoftteams/cloud-video-interop), algunos dispositivos han experimentado problemas cuando un usuario de Communication Services comparte su pantalla.
 - Características como levantar la mano, el modo de reunión y las salas de descanso solo están disponibles para los usuarios de Teams.
@@ -60,6 +61,6 @@ Microsoft le indicará a través de Azure Communication Services API que ha come
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Unirse a una reunión de Teams mediante una aplicación de llamada BYOI](../quickstarts/voice-video-calling/get-started-teams-interop.md)
-> [Unirse a una reunión de Teams mediante una aplicación de chat BYOI](../quickstarts/chat/meeting-interop.md)
+- [Unión a una reunión de Teams](../how-tos/calling-sdk/teams-interoperability.md)
+- [Inicio rápido: Unión de una aplicación de llamadas BYOI a una reunión de Teams](../quickstarts/voice-video-calling/get-started-teams-interop.md)
+- [Inicio rápido: Unión de una aplicación de chat BYOI a una reunión de Teams](../quickstarts/chat/meeting-interop.md)

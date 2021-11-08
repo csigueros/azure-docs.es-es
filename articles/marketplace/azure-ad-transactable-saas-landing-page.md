@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/02/2020
-ms.openlocfilehash: 4bfc29472373a53bcebb2ba59134d1f3702d4793
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 10/25/2021
+ms.openlocfilehash: 8a0e7ab7fad8b0da025f143ab2401e5740972ec7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102549879"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131078263"
 ---
 # <a name="build-the-landing-page-for-your-transactable-saas-offer-in-the-commercial-marketplace"></a>Creación de la página de aterrizaje de su oferta de SaaS comercializable en el marketplace comercial
 
@@ -46,7 +46,9 @@ Las siguientes secciones le guiarán en el proceso de creación de una página d
 
 ## <a name="create-an-azure-ad-app-registration"></a>Creación de un registro de aplicación de Azure AD
 
-El marketplace comercial está totalmente integrado con Azure AD. Los compradores llegan al marketplace autenticados con una [cuenta de Azure AD o una cuenta de Microsoft (MSA)](../active-directory/fundamentals/active-directory-whatis.md#terminology). Después de la compra, el comprador va del marketplace comercial a la dirección URL de la página de aterrizaje para activar y administrar su suscripción de su aplicación de SaaS. Debe permitir que el comprador inicie sesión en la aplicación con el SSO de Azure AD. La dirección URL de la página de aterrizaje se especifica en la página [Configuración técnica](plan-saas-offer.md#technical-information) de la oferta.
+El marketplace comercial está totalmente integrado con Azure AD. Los compradores llegan al marketplace autenticados con una [cuenta de Azure AD o una cuenta de Microsoft (MSA)](../active-directory/fundamentals/active-directory-whatis.md#terminology). Después de la compra, el comprador va del marketplace comercial a la dirección URL de la página de aterrizaje para activar y administrar su suscripción de su aplicación de SaaS. Debe permitir que el comprador inicie sesión en la aplicación con el SSO de Azure AD. (La dirección URL de la página de aterrizaje se especifica en la página [Configuración técnica](plan-saas-offer.md#technical-information) de la oferta.)
+
+[!INCLUDE [pound-sign-note](./includes/pound-sign-note.md)]
 
 El primer paso para usar la identidad es asegurarse de que la página de aterrizaje esté registrada como aplicación de Azure AD. Registrar la aplicación le permite usar Azure AD para autenticar usuarios y solicitar acceso a recursos de usuarios. Se puede considerar la definición de la aplicación, lo que permite que el servicio sepa cómo emitir tokens para la aplicación en función de la configuración de la aplicación.
 

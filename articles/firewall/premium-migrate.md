@@ -5,15 +5,15 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 09/13/2021
+ms.date: 11/02/2021
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 580dcb11ae04aaae78d2c15f24c2c08d1df6158d
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 1aeb31ff49389235d54950b76c68deb882e13797
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129061853"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131438500"
 ---
 # <a name="migrate-to-azure-firewall-premium"></a>Migración a Azure Firewall Prémium
 
@@ -34,6 +34,21 @@ El rendimiento del firewall puede ser inferior a 30 Gbps si tiene una o más fi
 ## <a name="downtime"></a>Tiempo de inactividad
 
 Migre el firewall durante un tiempo de mantenimiento planeado, ya que habrá cierto tiempo de inactividad durante la migración.
+
+## <a name="migrate-classic-rules-to-standard-policy"></a>Migración de reglas clásicas a una directiva estándar
+
+Durante el proceso de migración, es posible que tenga que migrar las reglas de firewall clásicas a una directiva estándar. Puede hacerlo mediante Azure Portal:
+
+1. En Azure Portal, seleccione el firewall estándar. En la página **Información general**, seleccione **Migrate to firewall policy** (Migrar a la directiva de firewall).
+
+   :::image type="content" source="media/premium-migrate/firewall-overview-migrate.png" alt-text="Migrate to firewall policy (Migrar a la directiva de firewall)":::
+
+1. En la página **Migrate to firewall policy** (Migrar a la directiva de firewall), seleccione **Revisar y crear**.
+1. Seleccione **Crear**.
+
+   La implementación tarda unos minutos en completarse.
+
+También puede migrar las reglas clásicas existentes de Azure Firewall mediante Azure PowerShell para crear directivas. Para más información, consulte [Migración de configuraciones de Azure Firewall a directivas de Azure Firewall con PowerShell](../firewall-manager/migrate-to-policy.md).
 
 ## <a name="migrate-an-existing-policy-using-azure-powershell"></a>Migrar una directiva existente con Azure PowerShell
 
@@ -169,45 +184,52 @@ TransformPolicyToPremium -Policy $policy
 
 ```
 
-## <a name="migrate-an-existing-standard-firewall-using-the-azure-portal"></a>Migración de un firewall estándar existente mediante Azure Portal
+## <a name="migrate-azure-firewall-using-stopstart"></a>Migración de Azure Firewall mediante Start/Stop
 
-En este ejemplo se muestra cómo usar Azure Portal para migrar un firewall estándar (reglas clásicas) a Azure Firewall Prémium con una directiva prémium.
+Si usa la SKU de Azure Firewall Estándar con la directiva de firewall, puede utilizar el método Allocate/Deallocate para migrar dicha SKU a Prémium. Este enfoque de migración se admite en los firewalls tanto de centro de conectividad de red virtual como de centro de conectividad seguro. Al migrar la implementación de un centro de conectividad seguro, conservará la dirección IP pública del firewall.
 
-1. En Azure Portal, seleccione el firewall estándar. En la página **Información general**, seleccione **Migrate to firewall policy** (Migrar a la directiva de firewall).
+El requisito mínimo de la versión de Azure PowerShell es 6.5.0. Para más información, consulte [Az 6.5.0](https://www.powershellgallery.com/packages/Az/6.5.0).
 
-   :::image type="content" source="media/premium-migrate/firewall-overview-migrate.png" alt-text="Migrate to firewall policy (Migrar a la directiva de firewall)":::
+ 
+### <a name="migrate-a-vnet-hub-firewall"></a>Migración de un firewall de centro de conectividad de red virtual
 
-1. En la página **Migrate to firewall policy** (Migrar a la directiva de firewall), seleccione **Revisar y crear**.
-1. Seleccione **Crear**.
+- Desasignar el firewall estándar 
 
-   La implementación tarda unos minutos en completarse.
-1. Use el [script de Azure PowerShell](#migrate-an-existing-policy-using-azure-powershell) `Transform-Policy.ps1` para transformar esta nueva directiva estándar en una directiva prémium.
-1. En el portal, seleccione su recurso de firewall estándar. 
-1. En **Automatización**, seleccione **Exportar plantilla**. Deje esta pestaña del explorador abierta. Volveremos a ella más adelante.
-   > [!TIP]
-   > Para no perder la plantilla, descárguela y guárdela en caso de que la pestaña del explorador se cierre o actualice.
-1. Abra una nueva pestaña del explorador, vaya a Azure Portal y abra el grupo de recursos que contiene el firewall.
-1. Elimine la instancia de firewall estándar existente.
+   ```azurepowershell
+   $azfw = Get-AzFirewall -Name "<firewall-name>" -ResourceGroupName "<resource-group-name>"
+   $azfw.Deallocate()
+   Set-AzFirewall -AzureFirewall $azfw
+   ```
 
-   Este procedimiento tarda unos minutos en completarse.
 
-1. Vuelva a la pestaña del explorador con la plantilla exportada.
-1. Seleccione **Implementar** y, en la página **Implementación personalizada**, seleccione **Editar plantilla**.
-1. Edite la plantilla de texto:
-   
-   1. En el recurso `Microsoft.Network/azureFirewalls`, en `Properties`, `sku`, cambie el valor de `tier` de "Estándar" a "Prémium".
-   1. En la plantilla `Parameters`, cambie `defaultValue` por `firewallPolicies_FirewallPolicy_,<your policy name>_externalid` en:
-      
-       `"/subscriptions/<subscription id>/resourceGroups/<your resource group>/providers/Microsoft.Network/firewallPolicies/FirewallPolicy_<your policy name>"`
+- Asignar el firewall prémium
 
-      a:
+   ```azurepowershell
+   $azfw = Get-AzFirewall -Name "<firewall-name>" -ResourceGroupName "<resource-group-name>"
+   $azfw.Sku.Tier="Premium"
+   $azfw.Allocate($vnet,$pip, $mgmtpip)
+   Set-AzFirewall -AzureFirewall $azfw
+   ```
 
-      `"/subscriptions/<subscription id>/resourceGroups/<your resource group>/providers/Microsoft.Network/firewallPolicies/FirewallPolicy_<your policy name>_premium"`
-1. Seleccione **Guardar**.
-1. Seleccione **Revisar + crear**.
-1. Seleccione **Crear**.
+### <a name="migrate-a-secure-hub-firewall"></a>Migración de un firewall de centro de conectividad seguro
 
-Cuando finalice la implementación, podrá configurar todas las nuevas características de Azure Firewall Premium.
+
+- Desasignar el firewall estándar
+
+   ```azurepowershell
+   $azfw = Get-AzFirewall -Name "<firewall-name>" -ResourceGroupName "<resource-group-name>"
+   $azfw.Deallocate()
+   Set-AzFirewall -AzureFirewall $azfw
+   ```
+
+- Asignar el firewall prémium
+
+   ```azurepowershell
+   $azfw = Get-AzFirewall -Name -Name "<firewall-name>" -ResourceGroupName "<resource-group-name>"
+   $azfw.Sku.Tier="Premium"
+   $azfw.Allocate($hub.id)
+   Set-AzFirewall -AzureFirewall $azfw
+   ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

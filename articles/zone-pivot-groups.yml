@@ -826,16 +826,28 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
-- id: app-service-ide
+- id: app-service-vscode-cli-portal
   title: Entorno de desarrollo
   prompt: Elección de un entorno de desarrollo
+  pivots:
+  - id: development-environment-vscode
+    title: Visual Studio Code
+  - id: development-environment-cli
+    title: Interfaz de la línea de comandos
+  - id: development-environment-azure-portal
+    title: Azure Portal
+- id: app-service-ide
+  title: Entorno de desarrollo
+  prompt: Elección de un entorno de implementación.
   pivots:
   - id: development-environment-vs
     title: Visual Studio
   - id: development-environment-vscode
     title: Visual Studio Code
   - id: development-environment-cli
-    title: Interfaz de la línea de comandos
+    title: Azure CLI
+  - id: development-environment-ps
+    title: Azure PowerShell
 - id: app-service-ide-oss
   title: Entorno de desarrollo
   prompt: Elección de un entorno de desarrollo
@@ -1126,6 +1138,14 @@ groups:
     title: En Azure Portal
   - id: rest-api
     title: Con las API REST
+- id: connect-aws-accounts
+  title: Conexión de la cuenta de AWS a una suscripción de Azure
+  prompt: ¿Cómo conectará su cuenta de AWS?
+  pivots:
+  - id: env-settings
+    title: Página Configuración del entorno
+  - id: classic-connector
+    title: Conector de nube clásico
 - id: client-operating-system-macos-and-linux-windows-powershell
   title: Sistema operativo/consola
   prompt: Elección de un sistema operativo y una consola
@@ -1299,7 +1319,7 @@ groups:
   prompt: Elegir una opción.
   pivots:
   - id: identity-mi-methods-azp
-    title: Azure Portal
+    title: Azure portal
   - id: identity-mi-methods-azcli
     title: Azure CLI
   - id: identity-mi-methods-powershell
@@ -1313,7 +1333,7 @@ groups:
   prompt: Elegir una opción.
   pivots:
   - id: identity-mi-methods-sub-azp
-    title: Azure Portal
+    title: Azure portal
   - id: identity-mi-methods-sub-azcli
     title: Azure CLI
   - id: identity-mi-methods-sub-powershell
@@ -1373,9 +1393,9 @@ groups:
   - id: client-portaltier
     title: Azure Portal
 metadata:
-  ms.openlocfilehash: 68d5906853d11b7309b716cc7f04c8e6be664c2b
-  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.openlocfilehash: 871fbc4fe1242f30d1fcb141e8be97be3cb02787
+  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/02/2021
-  ms.locfileid: "131046496"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131466359"

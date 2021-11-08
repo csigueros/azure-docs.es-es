@@ -7,16 +7,16 @@ ms.topic: include
 ms.date: 08/03/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 6c295a5148f4821e3bd395a95c5b98e298da5077
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ffe45b62cbd0d6d83ad58cd1f4aef82407b2735b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128610280"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131077515"
 ---
-[![Examinar el código](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/pnp-device-sample)
+[![Examinar el código](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples/pnp-device-sample)
 
-En este artículo de inicio rápido, se explica un flujo de trabajo básico de desarrollo de aplicaciones de Azure IoT. Vamos a utilizar la CLI de Azure y el explorador de IoT para crear un centro de Azure IoT y un dispositivo. A continuación, utilizaremos un ejemplo de un SDK de dispositivo IoT de Azure para ejecutar un controlador de temperatura simulado, conectarlo de forma segura al centro y enviar datos de telemetría.
+En este artículo de inicio rápido, se explica un flujo de trabajo básico de desarrollo de aplicaciones de Azure IoT. Va a utilizar la CLI de Azure e IoT Explorer para crear un centro de Azure IoT y un dispositivo. A continuación, utilizará un SDK de dispositivo IoT de Azure de ejemplo para ejecutar un controlador de temperatura, conectarlo de forma segura al centro y enviar la telemetría. La aplicación de ejemplo del controlador de temperatura se ejecuta en la máquina local y genera datos del sensor simulados para enviarlos a IoT Hub.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 - Si no tiene una suscripción de Azure, [cree una gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de comenzar.
@@ -30,8 +30,8 @@ En este artículo de inicio rápido, se explica un flujo de trabajo básico de d
 
 [!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
 
-## <a name="run-a-simulated-device"></a>Ejecución de un dispositivo simulado
-En esta sección, usará el SDK de Java para enviar mensajes desde un dispositivo simulado al centro de IoT. Ejecutará un ejemplo que implementa un controlador de temperatura con dos sensores de termostato.
+## <a name="run-a-device"></a>Ejecución de un dispositivo
+En esta sección, usará el SDK de Java para enviar mensajes desde un dispositivo hasta IoT Hub. Ejecutará un ejemplo que implementa un controlador de temperatura con dos sensores de termostato.
 
 ### <a name="configure-your-environment"></a>Configurar su entorno
 1. Abra una consola para instalar el SDK para dispositivos Java de Azure IoT y compile y ejecute el ejemplo de código. Usará esta consola en los pasos siguientes.
@@ -39,7 +39,7 @@ En esta sección, usará el SDK de Java para enviar mensajes desde un dispositiv
     > [!NOTE]
     > Si usa una instalación local de la CLI de Azure, es posible que ahora tenga dos ventanas de consola abiertas. Asegúrese de escribir los comandos de esta sección en la consola que acaba de abrir, no en la que ha estado usando para la CLI.
 
-1. Establezca las siguientes variables de entorno para que el dispositivo simulado se pueda conectar a Azure IoT.
+1. Establezca las siguientes variables de entorno para que el dispositivo se pueda conectar a Azure IoT.
     * Establezca una variable de entorno llamada `IOTHUB_DEVICE_CONNECTION_STRING`. Como valor de la variable, use la cadena de conexión del dispositivo que ha guardado en la sección anterior.
     * Establezca una variable de entorno llamada `IOTHUB_DEVICE_SECURITY_TYPE`. Para la variable, use el valor de cadena literal `connectionString`.
 
@@ -111,7 +111,7 @@ Para leer la telemetría que envían los componentes individuales del dispositiv
 
 Para ver la telemetría del dispositivo con la CLI de Azure:
 
-1. Ejecute el comando [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) para supervisar los eventos enviados desde el dispositivo simulado al centro de IoT. Use los nombres que creó anteriormente en Azure IoT para el dispositivo IoT Hub.
+1. Ejecute el comando [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) para supervisar los eventos enviados desde el dispositivo hasta el centro de IoT. Use los nombres que creó anteriormente en Azure IoT para el dispositivo IoT Hub.
 
     ```azurecli
     az iot hub monitor-events --output table --device-id mydevice --hub-name {YourIoTHubName}

@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: urosmil
 ms.author: urmilano
 ms.reviewer: mathoma
-ms.date: 09/05/2019
-ms.openlocfilehash: b84ff58517d413be884b81b6498f5b626ba02016
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 10/25/2021
+ms.openlocfilehash: 3812be11d53b8a9c70e871b88ee61c474312c872
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110697250"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131031392"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>¿Qué es un grupo de Instancia administrada de Azure SQL (versión preliminar)?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -82,7 +82,7 @@ Existen varias limitaciones de recursos con respecto a los grupos de instancias 
     - Un grupo de 8 núcleos virtuales admite hasta 200 bases de datos.
     - Un grupo de 16 núcleos virtuales admite hasta 400 bases de datos.
     - Un grupo de 24 núcleos virtuales y superior admite hasta 500 bases de datos.
-- No se puede establecer el administrador de AAD para las instancias implementadas dentro del grupo de instancias, por lo tanto, no se puede usar la autenticación de AAD.
+- La autenticación de Azure AD se puede usar después de crear o establecer una instancia administrada con la marca `-AssignIdentity`. Para más información, consulte [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) y [Set-AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance). Los usuarios pueden establecer entonces un administrador de Azure AD para la instancia siguiendo los pasos que se indican en [Aprovisionamiento de un administrador de Azure AD (SQL Managed Instance)](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance).
 
 La asignación de almacenamiento total y el número de bases de datos en todas las instancias tiene que ser inferior o igual que los límites expuestos por los grupos de instancias.
 
@@ -104,6 +104,7 @@ La versión preliminar pública tiene las limitaciones siguientes:
 - Todavía no está disponible la compatibilidad de Azure Portal con la creación y configuración de los grupos de instancias. Todas las operaciones en grupos de instancias se admiten solo a través de PowerShell. La implementación de instancia inicial en un grupo creado previamente también se admite solo a través de PowerShell. Una vez implementadas en un grupo, las instancias administradas se pueden actualizar con Azure Portal.
 - Las instancias administradas creadas fuera del grupo no se pueden mover a un grupo existente, y las instancias creadas dentro de un grupo no se pueden migrar fuera como instancia única o a otro grupo.
 - Los precios para instancia de [capacidad reservada](../database/reserved-capacity-overview.md) no están disponibles.
+- No se admiten grupos de conmutación por error con las instancias del grupo.
 
 ## <a name="sql-features-supported"></a>Características de SQL admitidas
 
