@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/17/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 0d5cceba40478759e36d08430dc2b2e4b30855f3
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 384cca216b8f262070c68a3af2e9697c8cef2a46
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091633"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131457190"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Comparación de las líneas de base mediante la supervisión de la integridad de los archivos (FIM)
 

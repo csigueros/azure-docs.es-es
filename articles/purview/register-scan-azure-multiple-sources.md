@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: aefb039e17ee75b92829feb9e2f0b06fb5bef99a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 49e6ca8cf0fc3121aba3c3216d2a1dd5936b56d7
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131076213"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131449533"
 ---
 # <a name="connect-to-and-manage-multiple-azure-sources-in-azure-purview"></a>Conectar y administrar varios orígenes de Azure en Azure Purview
 
@@ -114,7 +114,7 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
     - Si deja la opción como **Todos**, los recursos futuros de ese tipo también se examinarán en próximas ejecuciones de exámenes.
     - Si selecciona cuentas de almacenamiento o bases de datos SQL específicas, los recursos futuros de ese tipo creados en esta suscripción o grupo de recursos no se incluirán en los exámenes, a menos que el examen se edite de manera explícita en el futuro.
 
-1. Seleccione **Test connection** (Probar conexión). Esto probará primero el acceso para comprobar si ha aplicado el archivo MSI de Azure Purview como lector en la suscripción o el grupo de recursos. Si recibe un mensaje de error, siga [estas instrucciones](#prerequisites-for-registration) para resolverlo. A continuación, probará la autenticación y la conexión a cada uno de los orígenes seleccionados y generará un informe. El número de orígenes seleccionados afectará al tiempo que se tarda en generar este informe. La conexión de prueba probará primero la conectividad y el acceso en el nivel de suscripción, grupo de recursos o área de trabajo de Synapse. A continuación, probará el acceso y la conectividad a cada recurso individual y mostrará el resultado en el informe. Si se produce un error en algunos recursos, al mantener el puntero sobre el **icono X** se mostrará el mensaje de error detallado.
+1. Seleccione **Test connection** (Probar conexión). Esto probará primero el acceso para comprobar si ha aplicado el archivo MSI de Azure Purview como lector en la suscripción o el grupo de recursos. Si recibe un mensaje de error, siga [estas instrucciones](#prerequisites-for-registration) para resolverlo. A continuación, probará la autenticación y la conexión a cada uno de los orígenes seleccionados y generará un informe. El número de orígenes seleccionados afectará al tiempo que se tarda en generar este informe. Si se produce un error en algunos recursos, al mantener el puntero sobre el **icono X** se mostrará el mensaje de error detallado.
 
     :::image type="content" source="media/register-scan-azure-multiple-sources/test-connection.png" alt-text="Captura de pantalla que muestra el control deslizante de configuración del examen, con el botón Probar conexión resaltado.":::
     :::image type="content" source="media/register-scan-azure-multiple-sources/test-connection-report.png" alt-text="Captura de pantalla que muestra un ejemplo de informe de conexión de prueba, con algunas conexiones que pasan y otras con errores. Al mantener el puntero sobre una de las conexiones con errores se muestra un informe de errores detallado.":::

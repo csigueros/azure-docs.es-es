@@ -2,14 +2,14 @@
 title: 'Tutorial: Grabación continua de vídeo y reproducción: Azure Video Analyzer'
 description: En este tutorial aprenderá a usar Azure Video Analyzer para grabar vídeo de forma continua en la nube y reproducir esa grabación.
 ms.topic: tutorial
-ms.date: 09/27/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: c7fb6e35b3fa4f06734ab5aedb4c7b8df6d8ba27
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 6a86dac6b242139d406dd6513a70846c57fa1c05
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030973"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131559359"
 ---
 # <a name="tutorial-continuous-video-recording-and-playback"></a>Tutorial: Grabación continua de vídeo y reproducción
 

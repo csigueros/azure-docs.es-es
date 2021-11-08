@@ -7,13 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: overview
 ms.date: 10/21/2021
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 9435ba38ead8799a8628b0a888d074f2432ffd2e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 7cd13ebef2e548d9596823f829041e48c99e532e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093482"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441844"
 ---
 # <a name="microsoft-defender-for-clouds-enhanced-security-features"></a>Características de seguridad mejoradas de Microsoft Defender for Cloud
 
@@ -75,7 +74,7 @@ La oferta gratuita de Microsoft Defender for Cloud ofrece la puntuación segura
 ### <a name="how-do-i-enable-defender-for-clouds-enhanced-security-for-my-subscription"></a>¿Cómo puedo habilitar la seguridad mejorada de Defender for Cloud en la suscripción? 
 Puede usar cualquiera de los siguientes métodos para habilitar la seguridad mejorada en la suscripción: 
 
-| Método                                          | Instructions                                                                                                                                       |
+| Método                                          | Instrucciones                                                                                                                                       |
 |-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 | Páginas de Defender for Cloud de Azure Portal    | [Habilitación de protecciones mejoradas](enable-enhanced-security.md)                                                                                         |
 | API DE REST                                        | [API de precios](/rest/api/securitycenter/pricings)                                                                                                  |

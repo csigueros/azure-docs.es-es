@@ -2,14 +2,14 @@
 title: Implementación de Azure Video Analyzer en Azure Stack Edge
 description: En este artículo se describe cómo implementar Azure Video Analyzer en Azure Stack Edge.
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: a8aa2523303b64d47f7386ea23b714cce6c644b1
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b03935028fec1cce2ea5794abf95ecfa70ea2921
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131092959"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131554590"
 ---
 # <a name="deploy-azure-video-analyzer-on-azure-stack-edge"></a>Implementación de Azure Video Analyzer en Azure Stack Edge
 

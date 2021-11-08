@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: a57f13b9dc54c69e079e652be94f4b08b716a079
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+ms.openlocfilehash: 81803facdff8012ee01b6cca0c408755c81f5233
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112523067"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131853916"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Estado de los escenarios de migración que admite Azure Database Migration Service
 
@@ -45,10 +45,10 @@ En la siguiente tabla se muestra la compatibilidad de Azure Database Migration S
 | Destino  | Source | Soporte técnico | Estado |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Azure SQL DB** | SQL Server | ✔ | Disponibilidad general |
-|   | SQL de RDS | X |  |
+|   | SQL de RDS | ✔ | Disponibilidad general |
 |   | Oracle | X |  |
 | **Azure SQL DB MI** | SQL Server | ✔ | Disponibilidad general |
-|   | SQL de RDS | X |  |
+|   | SQL de RDS | ✔ | Disponibilidad general |
 |   | Oracle | X |   |
 | **Máquina virtual de Azure SQL** | SQL Server | ✔ | Disponibilidad general |
 |   | Oracle | X |   |
@@ -76,7 +76,7 @@ En la siguiente tabla se muestra la compatibilidad de Azure Database Migration S
 |   | SQL de RDS | X |  |
 |   | Oracle | X |  |
 | **Azure SQL DB MI** | SQL Server | ✔ | Disponibilidad general |
-|   | SQL de RDS | X |  |
+|   | SQL de RDS | ✔ | Disponibilidad general |
 |   | Oracle | X |  |
 | **Máquina virtual de Azure SQL** | SQL Server | X |   |
 |   | Oracle  | X |  |

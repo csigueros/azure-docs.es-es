@@ -1,23 +1,23 @@
 ---
-title: 'Configuración del comportamiento de la sesión: Azure Active Directory B2C | Microsoft Docs'
+title: 'Configuración del comportamiento de la sesión: Azure Active Directory B2C'
 description: Obtenga información sobre cómo configurar el comportamiento de la sesión en Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 10/05/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8c6e1e1e22f8d694a020174af15ee8f12c6838d7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 59d14afdbe6f4949f2761ddccb3a48a4770c3bd1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128594733"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131028184"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configuración del comportamiento de la sesión en Azure Active Directory B2C
 
@@ -63,7 +63,7 @@ Considere el caso siguiente:
 
 ### <a name="application-session"></a>Sesión de una aplicación
 
-Una aplicación web, móvil o de una sola página se puede proteger mediante el acceso de OAuth, los tokens de identificador o los tokens de SAML. Cuando un usuario intenta acceder a un recurso protegido en la aplicación, esta comprueba si hay una sesión activa en el lado de la aplicación. Si no hay ninguna sesión de aplicación o la sesión expiró, la aplicación llevará al usuario a la página de inicio de sesión de Azure AD B2C.
+Una aplicación web, móvil o de una sola página se puede proteger mediante un token de acceso de OAuth, un token de identificador o un token de SAML. Cuando un usuario intenta acceder a un recurso protegido en la aplicación, esta comprueba si hay una sesión activa en el lado de la aplicación. Si no hay ninguna sesión de aplicación o la sesión expiró, la aplicación llevará al usuario a la página de inicio de sesión de Azure AD B2C.
 
 La sesión de la aplicación puede ser una sesión basada en cookies almacenada en el nombre de dominio de la aplicación, como `https://contoso.com`. Las aplicaciones móviles pueden almacenar la sesión de forma distinta, aunque con una estrategia similar.
 
@@ -265,11 +265,13 @@ El cierre de sesión borrará el estado de inicio de sesión único del usuario 
 
 ::: zone pivot="b2c-custom-policy"
 
-### <a name="single-sign-out"></a>Cierre de sesión único 
+## <a name="single-sign-out"></a>Cierre de sesión único 
 
-Cuando redirige al usuario al punto de conexión de cierre de sesión de Azure AD B2C (para los protocolos OAuth2 y SAML), Azure AD B2C borra la sesión del usuario del explorador. Sin embargo, el usuario podría permanecer conectado a otras aplicaciones que usan Azure AD B2C para la autenticación. Para permitir que esas aplicaciones cierren la sesión del usuario de manera simultánea, Azure AD B2C envía una solicitud HTTP GET al elemento `LogoutUrl` registrado de todas las aplicaciones en las que tiene una sesión iniciada.
+Cuando redirige al usuario al [punto de conexión de cierre de sesión de Azure AD B2C](openid-connect.md#send-a-sign-out-request) (para OAuth2 y OpenID Connect) o envía una solicitud `LogoutRequest` (para SAML), Azure AD B2C borra la sesión del usuario del explorador. Sin embargo, el usuario podría permanecer conectado a otras aplicaciones que usan Azure AD B2C para la autenticación. Para cerrar la sesión del usuario de todas las aplicaciones que tienen una sesión activa, Azure AD B2C admite el *cierre de sesión único*, también conocido como *SLO (single log-out)* .
 
-Las aplicaciones deben responder a esta solicitud mediante la eliminación de la sesión que identifica al usuario y la devolución de una respuesta `200`. Si quiere admitir el inicio de sesión único en la aplicación, debe implementar un elemento `LogoutUrl` en el código de la aplicación. 
+Durante el cierre de sesión, Azure AD B2C envía simultáneamente una solicitud HTTP a la dirección URL de cierre de sesión registrada de todas las aplicaciones en las que el usuario ha iniciado sesión actualmente.
+
+### <a name="configure-your-custom-policy"></a>Configuración de la directiva personalizada
 
 Para admitir el cierre de sesión único, los perfiles técnicos del emisor de tokens para JWT y SAML deben especificar lo siguiente:
 
@@ -314,6 +316,29 @@ En el ejemplo siguiente se muestran emisores de tokens de JWT y SAML con el cier
   </TechnicalProfiles>
 </ClaimsProvider>
 ```
+
+### <a name="configure-your-application"></a>Configuración de la aplicación
+
+Para que una aplicación pueda participar en el cierre de sesión único:
+
+- En el caso de los [proveedores de servicios SAML](saml-service-provider.md), configure la aplicación con la [ubicación SingleLogoutService en su documento de metadatos de SAML](saml-service-provider.md#override-or-set-the-logout-url-optional). También puede configurar la URL `logoutUrl` de registro de la aplicación. Para más información, consulte el tema de [establecimiento de la dirección URL de cierre de sesión](saml-service-provider.md#override-or-set-the-logout-url-optional).
+- En el caso de las aplicaciones OpenID Connect u OAuth2, establezca el atributo `logoutUrl` del manifiesto de registro de la aplicación. Para configurar la dirección URL de cierre de sesión:
+    1. En el menú de Azure AD B2C, seleccione **Registros de aplicaciones**.
+    1. Seleccione su registro de aplicación.
+    1. En **Administrar**, seleccione **Autenticación**.
+    1. En **Front-channel logout URL** (Dirección URL de cierre de sesión del canal frontal), configure la dirección URL de cierre de sesión.
+
+### <a name="handling-single-sign-out-requests"></a>Control de solicitudes de cierre de sesión único
+
+Cuando Azure AD B2C recibe la solicitud de cierre de sesión, usa un iframe HTML de canal frontal para enviar una solicitud HTTP a la dirección URL de cierre de sesión registrada de cada aplicación participante en la que el usuario tiene una sesión iniciada actualmente. Tenga en cuenta que la aplicación que desencadena la solicitud de cierre de sesión no recibirá este mensaje de cierre de sesión. Las aplicaciones deben responder a la solicitud de cierre de sesión, para lo cual deben borrar la sesión de la aplicación que identifica al usuario.
+
+- En el caso de las aplicaciones OpenID Connect y OAuth2, Azure AD B2C envía una solicitud HTTP GET a la dirección URL de cierre de sesión registrada.
+- En el caso de las aplicaciones SAML, Azure AD B2C envía una solicitud de cierre de sesión de SAML a la dirección URL de cierre de sesión registrada.
+
+Cuando se haya notificado el cierre de sesión a todas las aplicaciones, Azure AD B2C realizará una de las siguientes acciones:
+
+- Para las aplicaciones OpenID Connect u OAuth2, se redirige al usuario al URI `post_logout_redirect_uri` solicitado, que incluye el parámetro `state` (opcional) especificado en la solicitud inicial. Por ejemplo, `https://contoso.com/logout?state=foo`.
+- En el caso de las aplicaciones SAML, se envía una respuesta de cierre de sesión de SAML a través de HTTP POST a la aplicación que envió inicialmente la solicitud de cierre de sesión.
 
 ::: zone-end
 

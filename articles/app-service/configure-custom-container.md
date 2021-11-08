@@ -5,12 +5,12 @@ ms.topic: how-to
 ms.date: 10/22/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: bfcd178a43e7a21ea6ef35d4462956bd49037e6f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 7e4d861418739660eb948e289af32d673a269b91
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131006874"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131435764"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Configuración de un contenedor de Linux personalizado para Azure App Service
 
@@ -126,10 +126,10 @@ Está todo listo, y la aplicación web ahora usará la identidad administrada pa
 
 ## <a name="use-an-image-from-a-network-protected-registry"></a>Uso de una imagen de un registro protegido por red
 
-Para conectarse a un registro dentro de una red virtual o en el entorno local, y para extraer de él, su aplicación tendrá que estar conectada a una red virtual utilizando la característica de integración de VNet. Esto también es necesario para Azure Container Registry con el punto de conexión privado. Cuando la red y la resolución DNS están configuradas, se habilita el enrutamiento de la extracción de imágenes a través de la VNet mediante el ajuste de la configuración de las aplicaciones `WEBISTE_PULL_IMAGE_OVER_VNET=true`:
+Para conectarse a un registro dentro de una red virtual o en el entorno local, y para extraer de él, su aplicación tendrá que estar conectada a una red virtual utilizando la característica de integración de VNet. Esto también es necesario para Azure Container Registry con el punto de conexión privado. Cuando la red y la resolución DNS están configuradas, se habilita el enrutamiento de la extracción de imágenes a través de la VNet mediante el ajuste de la configuración de las aplicaciones `WEBSITE_PULL_IMAGE_OVER_VNET=true`:
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBISTE_PULL_IMAGE_OVER_VNET=true
+az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITE_PULL_IMAGE_OVER_VNET=true
 ```
 
 ::: zone-end
@@ -261,7 +261,7 @@ Existen varias formas de acceder a los registros de Docker:
 - [En Azure Portal](#in-azure-portal)
 - [Desde la consola de Kudu](#from-the-kudu-console)
 - [Con la API de Kudu](#with-the-kudu-api)
-- [Envío de registros a Azure Monitor](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor-preview)
+- [Envío de registros a Azure Monitor](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor)
 
 ### <a name="in-azure-portal"></a>En Azure Portal
 

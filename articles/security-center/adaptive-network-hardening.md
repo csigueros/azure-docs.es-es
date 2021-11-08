@@ -7,13 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 05/26/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 2e28058742dfb262c3b8ef68bbc9f940a0d7117e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 54c3866ed631ac8b0243478fac36355c9d60e691
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093711"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131445395"
 ---
 # <a name="improve-your-network-security-posture-with-adaptive-network-hardening"></a>Mejora de la posición de seguridad de red con la protección de redes adaptativa
 
@@ -27,7 +26,7 @@ En esta página se explica cómo configurar y administrar la protección de red 
 |Aspecto|Detalles|
 |----|:----|
 |Estado de la versión:|Disponibilidad general (GA)|
-|Precios:|Requiere [Microsoft Defender para servidores](defender-for-servers-introduction.md)|
+|Precios:|Requiere [Microsoft Defender para servidores](defender-for-servers-introduction.md).|
 |Roles y permisos necesarios:|Permisos de escritura en los NSG de la máquina|
 |Nubes:|:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/no-icon.png"::: Nacionales o soberanas (Azure Government y Azure China 21Vianet)|
 |||

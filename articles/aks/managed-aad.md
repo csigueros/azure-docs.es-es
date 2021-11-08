@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 10/20/2021
 ms.author: miwithro
-ms.openlocfilehash: 488b5a6736e308abc78d53b3e9bdbf14af488ca3
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 03d6b2e101103607ec1c699ebdf814d6f41cdb76
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131067873"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131427406"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Integración de Azure Active Directory administrado por AKS
 
@@ -27,9 +27,8 @@ Obtenga más información sobre el flujo de integración de Azure AD en la [doc
 * No se puede deshabilitar la integración de Azure AD administrados por AKS.
 * No se admite cambiar un clúster integrado de Azure AD administrado por AKS por AAD heredado
 * Los clústeres sin RBAC de Kubernetes habilitado no se admiten para la integración de Azure AD administrado por AKS.
-* No se admite el cambio del inquilino de Azure AD asociado a la integración de Azure AD administrado por AKS.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * La versión 2.29.0 de la CLI de Azure, o cualquier versión posterior.
 * Kubectl con la versión [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181), como mínimo, o [kubelogin](https://github.com/Azure/kubelogin)

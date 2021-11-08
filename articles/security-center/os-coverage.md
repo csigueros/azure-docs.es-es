@@ -7,13 +7,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 03/31/2020
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: f3c8538ca327c031bed7ca0a17098af07fc5bfd9
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 4cf49562119503e7b0c54cb0691cbb520c6a0f9e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093698"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131428356"
 ---
 # <a name="supported-platforms"></a>Plataformas compatibles 
 
@@ -58,6 +57,6 @@ También se admite la protección para las máquinas virtuales que residan en Az
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre cómo [Defender for Cloud recopila datos mediante el agente de Log Analytics](enable-data-collection.md).
+- Obtenga información sobre cómo [Defender for Cloud recopila datos mediante el agente de Log Analytics](enable-data-collection.md).
 - Obtenga información sobre cómo [Defender for Cloud administra y protege los datos](data-security.md).
 - Obtenga información sobre cómo [planear y entender las consideraciones de diseño para adoptar Microsoft Defender for Cloud](security-center-planning-and-operations-guide.md).

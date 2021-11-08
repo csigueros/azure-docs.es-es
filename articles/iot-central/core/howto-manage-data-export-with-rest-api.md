@@ -7,12 +7,12 @@ ms.date: 10/18/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 0816cb3a7662b62804a1864f3c0579387ded7ca0
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: cb538b6c8777a9aeb1d02fe705a87831f7aaf5b9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093634"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131433788"
 ---
 # <a name="how-to-use-the-iot-central-rest-api-to-manage-data-exports"></a>Uso de la API REST de IoT Central para administrar las exportaciones de datos
 
@@ -33,7 +33,7 @@ Cada definición de exportación de datos puede enviar datos a uno o varios dest
 Use la siguiente solicitud para crear o actualizar una definición de destino:
 
 ```http
-PUT https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=1.0
+PUT https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=1.1-preview
 ```
 
 * destinationId: identificador único para el destino.
@@ -74,7 +74,7 @@ La respuesta a esta solicitud es similar al ejemplo siguiente:
 Use la siguiente solicitud para recuperar los detalles de un destino desde la aplicación:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=1.0
+GET https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=1.1-preview
 ```
 
 La respuesta a esta solicitud es similar al ejemplo siguiente:
@@ -95,7 +95,7 @@ La respuesta a esta solicitud es similar al ejemplo siguiente:
 Use la siguiente solicitud para recuperar una lista de destinos de la aplicación:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/dataExport/destinations?api-version=1.0
+GET https://{subdomain}.{baseDomain}/api/dataExport/destinations?api-version=1.1-preview
 ```
 
 La respuesta a esta solicitud es similar al ejemplo siguiente: 
@@ -130,7 +130,7 @@ La respuesta a esta solicitud es similar al ejemplo siguiente:
 ### <a name="patch-a-destination"></a>Revisión de un destino
 
 ```http
-PATCH https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=1.0
+PATCH https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=1.1-preview
 ```
 
 Puede usarlo para realizar una actualización incremental de una exportación. El cuerpo de la solicitud de ejemplo es similar al ejemplo siguiente, que actualiza `displayName` a un destino:
@@ -162,7 +162,7 @@ La respuesta a esta solicitud es similar al ejemplo siguiente:
 Use la siguiente solicitud para eliminar un destino:
 
 ```http
-DELETE https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=1.0
+DELETE https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=1.1-preview
 ```
 
 ### <a name="create-or-update-an-export-definition"></a>Creación o actualización de una definición de exportación
@@ -170,7 +170,7 @@ DELETE https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destination
 Use la siguiente solicitud para crear o actualizar una definición de exportación de datos:
 
 ```http
-PUT https://{subdomain}.{baseDomain}/api/dataExport/exports/{exportId}?api-version=1.0
+PUT https://{subdomain}.{baseDomain}/api/dataExport/exports/{exportId}?api-version=1.1-preview
 ```
 
 En el ejemplo siguiente se muestra un cuerpo de solicitud que crea una definición de exportación para la telemetría del dispositivo:
@@ -232,7 +232,7 @@ La respuesta a esta solicitud es similar al ejemplo siguiente:
 Use la siguiente solicitud para recuperar los detalles de una definición de exportación desde la aplicación:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/dataExport/exports/{exportId}?api-version=1.0
+GET https://{subdomain}.{baseDomain}/api/dataExport/exports/{exportId}?api-version=1.1-preview
 ```
 
 La respuesta a esta solicitud es similar al ejemplo siguiente:
@@ -253,7 +253,7 @@ La respuesta a esta solicitud es similar al ejemplo siguiente:
 Use la siguiente solicitud para recuperar una lista de definiciones de exportación de la aplicación:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/dataExport/exports?api-version=1.0
+GET https://{subdomain}.{baseDomain}/api/dataExport/exports?api-version=1.1-preview
 ```
 
 La respuesta a esta solicitud es similar al ejemplo siguiente: 
@@ -302,7 +302,7 @@ La respuesta a esta solicitud es similar al ejemplo siguiente:
 ### <a name="patch-an-export-definition"></a>Revisión de una definición de exportación
 
 ```http
-PATCH https://{subdomain}.{baseDomain}/dataExport/exports/{exportId}?api-version=1.0
+PATCH https://{subdomain}.{baseDomain}/dataExport/exports/{exportId}?api-version=1.1-preview
 ```
 
 Puede usarlo para realizar una actualización incremental de una exportación. El cuerpo de la solicitud de ejemplo es similar al ejemplo siguiente, que actualiza `enrichments` a una exportación:
@@ -352,7 +352,7 @@ La respuesta a esta solicitud es similar al ejemplo siguiente:
 Use la siguiente solicitud para eliminar una definición de exportación:
 
 ```http
-DELETE https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=1.0
+DELETE https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=1.1-preview
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

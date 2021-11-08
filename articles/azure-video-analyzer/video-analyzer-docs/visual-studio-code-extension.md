@@ -3,14 +3,14 @@ title: Extensión de Visual Studio Code para Azure Video Analyzer
 description: En este artículo de referencia se explica cómo usar los distintos elementos de las funcionalidades en la extensión de Visual Studio Code para Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: reference
-ms.date: 11/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 0e69938b340d88a4e0002aaf9155d42ad0899189
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 663f9289d6cc11a162c2325bc46381c1e2369193
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131073650"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563974"
 ---
 # <a name="visual-studio-code-extension-for-azure-video-analyzer"></a>Extensión de Visual Studio Code para Azure Video Analyzer
 

@@ -10,12 +10,12 @@ ms.date: 8/05/2021
 ms.author: ronytho
 ms.reviewer: jrasnick, wiassaf
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 3e90ab30e8eb916ef70248af32b7b95ff0a48428
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d80b12e807e6c6f0999927bc373fe64c1feb1b40
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131003549"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131846604"
 ---
 # <a name="how-to-set-up-access-control-for-your-azure-synapse-workspace"></a>Procedimiento para configurar el control de acceso para el área de trabajo de Azure Synapse 
 
@@ -129,7 +129,7 @@ En Azure Portal, cree un área de trabajo de Azure Synapse:
 
 ## <a name="step-4-grant-the-workspace-msi-access-to-the-default-storage-container"></a>PASO 4: Concesión de acceso a las identidades administradas para recursos de Azure del área de trabajo al contenedor de almacenamiento predeterminado
 
-Para ejecutar canalizaciones y realizar tareas del sistema, Azure Synapse necesita que las identidades de servicio administradas (MSI) por el área de trabajo tengan acceso a `container1` en la cuenta de ADLS Gen2 predeterminada. Para obtener más información, vea [Identidad administrada del área de trabajo de Azure Synapse](synapse-workspace-managed-identity.md).
+Para ejecutar canalizaciones y realizar tareas del sistema, Azure Synapse necesita que las identidades de servicio administradas (MSI) por el área de trabajo tengan acceso a `container1` en la cuenta de ADLS Gen2 predeterminada. Para obtener más información, vea [Identidad administrada del área de trabajo de Azure Synapse](../../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics).
 
 - Abra Azure Portal.
 - Busque la cuenta de almacenamiento, `storage1`, y, luego, `container1`.

@@ -4,16 +4,16 @@ description: Obtenga información sobre cómo crear un entorno de ejecución de 
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 10/27/2021
+ms.date: 10/22/2021
 author: swinarko
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bcbb939f35e7bb4fa1a3508f7403f990edd6e282
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 13c5a0d77e82e699c24f13fce3f27d0ddea7fc9e
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131038768"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851180"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-via-azure-portal"></a>Creación de un entorno de ejecución de integración de SSIS de Azure mediante Azure Portal 
 
@@ -274,7 +274,7 @@ En el panel **Connections** (Conexiones) del **centro de administración**, camb
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Creación de una instancia de Azure-SSIS IR mediante Azure PowerShell](create-azure-ssis-integration-runtime-powershell.md)
-- [Cree una instancia de Azure-SSIS IR mediante una plantilla de Azure Resource Manager](create-azure-ssis-integration-runtime-resource-manager-template.md).
+- [Cree una Azure-SSIS IR mediante una plantilla de Azure Resource Manager](create-azure-ssis-integration-runtime-resource-manager-template.md).
 - [Implemente y ejecute los paquetes SSIS en Azure-SSIS IR](create-azure-ssis-integration-runtime-deploy-packages.md).
 
 Para más información acerca de Azure-SSIS IR, consulte los siguientes artículos: 

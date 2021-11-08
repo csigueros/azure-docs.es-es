@@ -7,13 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 772055f91c10a4a2b58945ee314271e512be61bb
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 690a23d6daf1e0d324b336a52fd9d2ca322d3bbf
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131037447"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131475433"
 ---
 # <a name="prevent-misconfigurations-with-enforcedeny-recommendations"></a>Evitar errores de configuración con las recomendaciones Aplicar o Denegar
 

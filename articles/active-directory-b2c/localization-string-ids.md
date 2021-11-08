@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/10/2021
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: eab029ea4640199b6ed1086c85cdf59fe92f45c2
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 26c1287dba6dc88530ec268fe278d0fbfafba1ed
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131036416"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501008"
 ---
 # <a name="localization-string-ids"></a>Identificadores de cadenas de localización
 
@@ -94,7 +94,7 @@ En el ejemplo siguiente se localiza el proveedor de identidades de Facebook en �
 
 ### <a name="sign-up-or-sign-in-error-messages"></a>Mensajes de error al iniciar sesión o registrarse
 
-| id | Valor predeterminado |
+| ID | Valor predeterminado |
 | --- | ------------- |
 | **UserMessageIfInvalidPassword** | La contraseña es incorrecta. |
 | **UserMessageIfPasswordExpired**| La contraseña expiró.|
@@ -183,7 +183,7 @@ Los siguientes identificadores corresponden a una definición de contenido con u
 
 ### <a name="sign-up-and-self-asserted-pages-error-messages"></a>Mensajes de error en las páginas autoafirmadas y de registro
 
-| id | Valor predeterminado |
+| ID | Valor predeterminado |
 | --- | ------------- |
 | **UserMessageIfClaimsPrincipalAlreadyExists** | Ya existe un usuario con el identificador especificado. Elija otro. |
 | **UserMessageIfClaimNotVerified** | Reclamación no comprobada: {0} |
@@ -508,7 +508,7 @@ Estos son los identificadores de los mensajes de error de un [perfil técnico de
 
 Los siguientes son los identificadores de los mensajes de error de un [perfil técnico de contraseña única](one-time-password-technical-profile.md).
 
-| id | Valor predeterminado | Descripción |
+| ID | Valor predeterminado | Descripción |
 | --- | ------------- | ----------- |
 | UserMessageIfSessionDoesNotExist | No | Mensaje que se mostrará al usuario si la sesión de verificación de código ha expirado. Es posible que el código haya expirado o que nunca se haya generado para un identificador determinado. |
 | UserMessageIfMaxRetryAttempted | No | Mensaje que se mostrará al usuario si ha superado el número máximo de intentos de verificación permitidos. |
@@ -524,7 +524,7 @@ Los siguientes son los identificadores de los mensajes de error de un [perfil t�
   <LocalizedStrings>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</LocalizedString>
-    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxNumberOfCodeGenerated">You have exceeded the number of retries allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxNumberOfCodeGenerated">You have exceeded the number of code generation attempts allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>
    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
@@ -536,7 +536,7 @@ Los siguientes son los identificadores de los mensajes de error de un [perfil t�
 
 Los siguientes son los identificadores de los mensajes de error de transformaciones de notificaciones:
 
-| id | Transformación de notificaciones | Valor predeterminado |
+| ID | Transformación de notificaciones | Valor predeterminado |
 | --- | ------------- |------------- |
 |UserMessageIfClaimsTransformationBooleanValueIsNotEqual |[AssertBooleanClaimIsEqualToValue](boolean-transformations.md#assertbooleanclaimisequaltovalue) | Error de comparación de valores de notificación booleano para el tipo de notificación "inputClaim".|
 |DateTimeGreaterThan |[AssertDateTimeIsGreaterThan](date-transformations.md#assertdatetimeisgreaterthan) | Error al comparar el valor de la notificación: El operando izquierdo proporcionado es mayor que el derecho.|

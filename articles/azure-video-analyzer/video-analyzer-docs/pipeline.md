@@ -2,14 +2,14 @@
 title: Canalización de Azure Video Analyzer
 description: Una canalización de Azure Video Analyzer que permite ingerir, procesar y publicar vídeos en la nube y el entorno perimetral de Azure Video Analyzer. Una canalización consta de nodos que están conectados para lograr el flujo de datos deseado.
 ms.topic: conceptual
-ms.date: 10/31/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 53ac9631155d35972546f937d872d1f48b476b52
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 2e1eefc30140d56b1f4d7970e59f235d04799d67
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131073910"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131552551"
 ---
 # <a name="pipeline"></a>Canalización
 
@@ -156,7 +156,7 @@ En la tabla a continuación se describen las reglas actuales sobre qué nodos se
 | Origen de vídeo                           | Batch          |  Nube            |
 | Procesador de detección de movimiento             | Directo           |  Edge             |
 | Procesador de extensiones HTTP               | Directo           |  Edge             |
-| Procesador de extensiones gRPC               | Directo           |  Edge             |
+| Procesador de extensiones de gRPC               | Directo           |  Edge             |
 | Procesador de extensiones de Cognitive Services | Directo           |  Edge             |
 | Procesador de la puerta de señales                  | Directo           |  Edge             |
 | Procesador de seguimiento de objetos               | Directo           |  Edge             |

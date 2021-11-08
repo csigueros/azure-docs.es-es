@@ -3,12 +3,12 @@ author: robinsh
 ms.author: robinsh
 ms.topic: include
 ms.date: 07/07/2021
-ms.openlocfilehash: eacee8b325317e98cd05093b71a21889f9a933ed
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 090a7ae8e053b82e157d1e46e740d9b3911fef99
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739248"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131077612"
 ---
 ## <a name="add-a-consumer-group-to-your-iot-hub"></a>Adición de un grupo de consumidores a IoT Hub
 
@@ -18,8 +18,8 @@ Para agregar un grupo de consumidores a su centro de IoT, siga estos pasos:
 
 1. En [Azure Portal](https://portal.azure.com/), abra su centro de IoT.
 
-1. En el panel izquierdo, seleccione **Puntos de conexión integrados**. Escriba un nombre para el nuevo grupo de consumidores en el cuadro de texto de **Grupos de consumidores**. 
+1. En el panel izquierdo, seleccione **Puntos de conexión integrados**. Escriba un nombre para el nuevo grupo de consumidores en el cuadro de texto de **Grupos de consumidores**.
 
-   :::image type="content" source="./media/iot-hub-get-started-create-consumer-group/iot-hub-create-consumer-group-azure.png" alt-text="Creación de un grupo de consumidores para el IoT Hub":::
+   :::image type="content" source="./media/iot-hub-get-started-create-consumer-group/iot-hub-create-consumer-group-azure.png" alt-text="Captura de pantalla que muestra cómo crear un grupo de consumidores en el centro de IoT." border="true":::
 
 1. Haga clic en cualquier lugar fuera del cuadro de texto para guardar el grupo de consumidores.

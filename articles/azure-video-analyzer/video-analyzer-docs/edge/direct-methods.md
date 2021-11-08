@@ -2,14 +2,14 @@
 title: 'Uso de métodos directos en Azure Video Analyzer: Azure'
 description: El módulo perimetral de Azure Video Analyzer expone varios métodos directos que se describen en este tema.
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 8ccf325164705e9b375cb4fa1c32af2228dcbed5
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 39a1ddaeca42240e3f37f8e70679d5bd3d24957b
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131090928"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131556471"
 ---
 # <a name="azure-video-analyzer-direct-methods"></a>Métodos directos de Azure Video Analyzer
 
