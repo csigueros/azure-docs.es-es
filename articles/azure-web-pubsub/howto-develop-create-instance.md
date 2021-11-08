@@ -5,13 +5,13 @@ author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: quickstart
-ms.date: 03/17/2021
-ms.openlocfilehash: cb4fead9c56eed8496e1eaf15f47815b1726d6dd
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.date: 11/08/2021
+ms.openlocfilehash: 21a92c0e53a54450f82691a1e81a75a83e6d74ad
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122445810"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131998030"
 ---
 # <a name="quickstart-create-a-web-pubsub-instance-from-azure-portal"></a>Inicio rápido: Creación de una instancia de Web PubSub desde Azure Portal
 
@@ -31,6 +31,6 @@ En este inicio rápido se muestra cómo crear una instancia de Azure Web PubSub 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En las aplicaciones del mundo real, puede usar SDK en varios lenguajes para compilar su propia aplicación. También proporcionamos extensiones de función para que pueda compilar aplicaciones sin servidor fácilmente.
+En las aplicaciones del mundo real, puede usar SDK en varios lenguajes para compilar su propia aplicación. También proporcionamos extensiones de función para que pueda crear aplicaciones sin servidor fácilmente.
 
 [!INCLUDE [next step](includes/include-next-step.md)]

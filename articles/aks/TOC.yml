@@ -26,6 +26,8 @@
       items:
         - name: Desarrollo con Helm
           href: quickstart-helm.md
+        - name: Desarrollo con Dapr (versión preliminar)
+          href: quickstart-dapr.md
     - name: Suscripción a eventos de AKS con Event Grid (versión preliminar)
       href: quickstart-event-grid.md
 - name: Tutoriales
@@ -61,7 +63,7 @@
           href: ./security-controls-policy.md
     - name: Redes
       href: concepts-network.md
-    - name: Storage
+    - name: Almacenamiento
       href: concepts-storage.md
     - name: Escala
       href: concepts-scale.md
@@ -184,6 +186,8 @@
           href: availability-zones.md
         - name: Uso de grupos de nodos
           items:
+            - name: Instantánea de grupo de nodos
+              href: node-pool-snapshot.md
             - name: Uso de grupos de varios nodos
               href: use-multiple-node-pools.md
             - name: Uso del grupo de nodos de acceso puntual
@@ -270,6 +274,8 @@
               href: egress-outboundtype.md
             - name: "Uso de un equilibrador de carga básico y una dirección\_IP estática"
               href: egress.md
+            - name: NAT Gateway administrado (versión preliminar)
+              href: nat-gateway.md
         - name: Personalización de CoreDNS
           href: coredns-custom.md
     - name: Seguridad y autenticación
@@ -300,6 +306,8 @@
               href: managed-aad.md
             - name: "Integración de Azure\_AD (heredado)"
               href: azure-ad-integration-cli.md
+            - name: Habilitación de la integración de GMSA (versión preliminar)
+              href: use-group-managed-service-accounts.md
         - name: Uso de la autorización de Azure RBAC para Kubernetes
           href: manage-azure-rbac.md
         - name: Uso del acceso basado en rol de Kubernetes con integración de Azure AD
@@ -313,8 +321,16 @@
           href: azure-disk-customer-managed-keys.md
         - name: Habilitación del cifrado basado en host
           href: enable-host-encryption.md
-        - name: Controlador del almacén de secretos de CSI (versión preliminar)
-          href: csi-secrets-store-driver.md
+        - name: Controlador CSI del almacén de secretos
+          items:
+            - name: Configuración del controlador CSI del almacén de secretos
+              href: csi-secrets-store-driver.md
+            - name: Proporcionar acceso a Azure Key Vault
+              href: csi-secrets-store-identity-access.md
+            - name: Configuración de TLS para el controlador de entrada NGINX
+              href: csi-secrets-store-nginx-tls.md
+            - name: Solución de problemas
+              href: csi-secrets-store-troubleshooting.md
     - name: Supervisión y registro
       items:
         - name: Supervisión de AKS
@@ -365,14 +381,14 @@
           href: howto-deploy-java-liberty-app.md
         - name: Uso de Azure API Management
           href: ../api-management/api-management-kubernetes.md
-        - name: Uso de Dapr
+        - name: Uso de Dapr (versión preliminar)
           href: dapr.md
           maintainContext: true
     - name: Implementación de una malla de servicio
       items:
         - name: Acerca de las mallas de servicio
           href: servicemesh-about.md
-        - name: Complemento Open Service Mesh (versión preliminar) de AKS
+        - name: Complemento Open Service Mesh de AKS
           items:
             - name: Introducción a OSM
               href: open-service-mesh-about.md

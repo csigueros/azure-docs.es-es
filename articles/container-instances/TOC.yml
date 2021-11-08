@@ -78,6 +78,8 @@
           href: container-instances-encrypt-data.md
         - name: Implementación en hosts dedicados
           href: container-instances-dedicated-hosts.md
+        - name: Implementación en Availability Zones (versión preliminar)
+          href: availability-zones.md
         - name: Uso de un conector de Logic Apps
           href: ../connectors/connectors-create-api-container-instances.md?toc=/azure/container-instances/toc.json&bc=/azure/container-instances/breadcrumb/toc.json
     - name: Escenarios de contenedores

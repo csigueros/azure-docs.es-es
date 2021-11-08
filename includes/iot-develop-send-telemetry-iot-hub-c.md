@@ -7,16 +7,16 @@ ms.topic: include
 ms.date: 09/10/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 95e94f9d071465febf9877001d1096c448d55992
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a8d73103754d34156bd7609529a01ee38e5acf2b
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131077529"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131860706"
 ---
 [![Examinar el código](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/pnp)
 
-En este artículo de inicio rápido, se explica un flujo de trabajo básico de desarrollo de aplicaciones de Azure IoT. Va a utilizar la CLI de Azure e IoT Explorer para crear un centro de Azure IoT y un dispositivo. Luego, usará un SDK de dispositivo IoT de Azure de ejemplo para ejecutar un controlador de temperatura, conectarlo de forma segura al centro y enviar la telemetría. La aplicación de ejemplo del controlador de temperatura se ejecuta en la máquina local y genera datos del sensor simulados para enviarlos a IoT Hub.
+En este artículo de inicio rápido, se explica un flujo de trabajo básico de desarrollo de aplicaciones de Azure IoT. Va a utilizar la CLI de Azure e IoT Explorer para crear un centro de Azure IoT y un dispositivo. A continuación, utilizará un ejemplo de un SDK de dispositivo IoT de Azure para ejecutar un controlador de temperatura, conectarlo de forma segura al centro y enviar datos de telemetría. La aplicación de ejemplo del controlador de temperatura se ejecuta en la máquina local y genera datos del sensor simulados para enviarlos a IoT Hub.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 Este inicio rápido se ejecuta en Windows, Linux y Raspberry Pi. Se ha probado en las siguientes versiones de sistema operativo y dispositivo:
@@ -64,7 +64,7 @@ Para completar este inicio rápido en Windows, instale Visual Studio 2019 y ag
 
 [!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
 
-## <a name="run-a-device"></a>Ejecución de un dispositivo
+## <a name="run-the-device-sample"></a>Ejecución del ejemplo de dispositivo
 En esta sección, usará el SDK de C para enviar mensajes desde un dispositivo hasta IoT Hub. Ejecutará un ejemplo que implementa un controlador de temperatura con dos sensores de termostato.
 
 ### <a name="build-the-sample"></a>Compilación del ejemplo
@@ -155,7 +155,7 @@ Para leer la telemetría que envían los componentes individuales del dispositiv
 
 Para ver la telemetría del dispositivo con la CLI de Azure:
 
-1. Ejecute el comando [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) para supervisar los eventos enviados desde el dispositivo hasta el centro de IoT. Use los nombres que creó anteriormente en Azure IoT para el dispositivo IoT Hub.
+1. Ejecute el comando [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) para supervisar los eventos enviados desde el dispositivo al centro de IoT. Use los nombres que creó anteriormente en Azure IoT para el dispositivo IoT Hub.
 
     ```azurecli
     az iot hub monitor-events --output table --device-id mydevice --hub-name {YourIoTHubName}

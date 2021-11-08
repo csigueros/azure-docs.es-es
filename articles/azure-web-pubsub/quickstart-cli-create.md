@@ -5,13 +5,13 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: quickstart
-ms.date: 08/06/2021
-ms.openlocfilehash: ebe8f22c5a77da0a09b69926e6a4b881b823a513
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.date: 11/08/2021
+ms.openlocfilehash: 426b77d1e1a79c3a9818e028edcc79bcad5ef2ec
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122444288"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131998089"
 ---
 # <a name="quickstart-create-a-web-pubsub-instance-with-the-azure-cli"></a>Inicio rápido: Creación de una instancia de Web PubSub con la CLI de Azure
 
@@ -45,6 +45,6 @@ La [Interfaz de la línea de comandos (CLI) de Azure](/cli/azure) es un conjunto
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En las aplicaciones del mundo real, puede usar SDK en varios lenguajes para compilar su propia aplicación. También proporcionamos extensiones de función para que pueda compilar aplicaciones sin servidor fácilmente.
+En las aplicaciones del mundo real, puede usar SDK en varios lenguajes para compilar su propia aplicación. También proporcionamos extensiones de función para que pueda crear aplicaciones sin servidor fácilmente.
 
 [!INCLUDE [next step](includes/include-next-step.md)]

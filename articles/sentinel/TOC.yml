@@ -23,6 +23,8 @@
       href: notebook-get-started.md
     - name: Crear un informe de Power BI en Azure Sentinel
       href: powerbi.md
+    - name: Implementación y supervisión de honeytokens señuelo
+      href: monitor-key-vault-honeytokens.md
 - name: Conceptos
   items:
     - name: Requisitos previos de Azure Sentinel
@@ -135,7 +137,7 @@
             - name: "Microsoft\_365\_Defender"
               href: connect-microsoft-365-defender.md
             - name: Eventos de seguridad de Windows
-              href: connect-windows-security-events.md
+              href: data-connectors-reference.md#windows-security-events-via-ama
         - name: Instrucciones de conexión por tipo
           items:
             - name: 'Conectores de Azure, Windows y Microsoft'
@@ -316,6 +318,8 @@
               href: registry-event-normalization-schema.md
             - name: Esquema de normalización de una red heredada
               href: normalization-schema-v1.md
+        - name: Conjuntos de eventos de seguridad de Windows
+          href: windows-security-event-id-reference.md
     - name: Referencias de detección y análisis
       items:
         - name: Principales libros de Azure Sentinel

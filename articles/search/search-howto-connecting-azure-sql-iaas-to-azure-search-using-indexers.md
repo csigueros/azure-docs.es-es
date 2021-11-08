@@ -2,18 +2,17 @@
 title: Conexión del indizador a SQL Server en máquinas virtuales de Azure
 titleSuffix: Azure Cognitive Search
 description: Habilite conexiones cifradas y configure el firewall para permitir conexiones a SQL Server en una máquina virtual de Azure a partir de un indexador de Búsqueda cognitiva de Azure.
-author: gmndrg
-ms.author: gimondra
-manager: nitinme
+author: nitinme
+ms.author: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/19/2021
-ms.openlocfilehash: ec637058810e5e195569db6a568d5c794b3df1f4
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: d405b28acfcac8270b0e2ec4b3493f151108e4cf
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131892711"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131076118"
 ---
 # <a name="indexer-connections-to-sql-server-on-an-azure-virtual-machine"></a>Conexiones del indizador a SQL Server en una máquina virtual de Azure
 

@@ -8,6 +8,8 @@ items:
         href: overview.md
       - name: Novedades
         href: whats-new.md
+      - name: 'Migración desde LUIS, QnA Maker y Text Analytics'
+        href: concepts/migrate.md
       - name: Precios
         href: 'https://aka.ms/unifiedLanguagePricing'
       - name: Inicio rápido de Language Studio
@@ -67,9 +69,9 @@ items:
           - name: API de REST (v3.2-preview.2)
             items:
               - name: Authoring API
-                href: 'https://go.microsoft.com/fwlink/?linkid=2176818'
+                href: 'https://aka.ms/ct-authoring-swagger'
               - name: API de predicción en tiempo de ejecución
-                href: 'https://go.microsoft.com/fwlink/?linkid=2173145'
+                href: 'https://aka.ms/ct-runtime-swagger'
   - name: Reconocimiento de entidades con nombre (NER) personalizado (versión preliminar)
     items:
       - name: Información general
@@ -115,9 +117,9 @@ items:
           - name: API de REST (v3.2-preview.2)
             items:
               - name: Authoring API
-                href: 'https://go.microsoft.com/fwlink/?linkid=2176711'
+                href: 'https://aka.ms/ct-authoring-swagger'
               - name: API de predicción en tiempo de ejecución
-                href: 'https://go.microsoft.com/fwlink/?linkid=2173145'
+                href: 'https://aka.ms/ct-runtime-swagger'
   - name: Reconocimiento del lenguaje conversacional (versión preliminar)
     items:
       - name: Información general
@@ -138,8 +140,6 @@ items:
             href: conversational-language-understanding/how-to/tag-utterances.md
           - name: Entrenamiento de un modelo
             href: conversational-language-understanding/how-to/train-model.md
-          - name: Visualización de la evaluación y puntuación del modelo
-            href: custom-named-entity-recognition/how-to/view-model-evaluation.md
           - name: Implementación de un modelo y consulta de la API en tiempo de ejecución
             href: conversational-language-understanding/how-to/deploy-query-model.md
       - name: Conceptos
@@ -158,12 +158,10 @@ items:
             href: conversational-language-understanding/prebuilt-component-reference.md
           - name: Límites de servicio
             href: conversational-language-understanding/service-limits.md
-          - name: Prediction API
+          - name: API DE REST
             items:
-              - name: API DE REST
-                items:
-                  - name: v3.2-preview.2
-                    href: 'https://go.microsoft.com/fwlink/?linkid=2173145'
+              - name: Creación
+                href: 'https://aka.ms/clu-authoring-apis'
   - name: Vinculación de entidad
     items:
       - name: Información general
@@ -174,9 +172,6 @@ items:
         href: entity-linking/language-support.md
       - name: Uso responsable de la inteligencia artificial
         items:
-          - name: Nota de transparencia para la vinculación de entidades
-            href: /legal/cognitive-services/language-service/transparency-note-entity-linking?context=/azure/cognitive-services/language-service/context/context
-            displayName: 'Transparency note for entity linking, entity linking transparency, Responsible AI, Responsible use of AI'
           - name: Integración y uso responsable
             href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
             displayName: 'Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use'
@@ -290,9 +285,9 @@ items:
         href: key-phrase-extraction/language-support.md
       - name: Uso responsable de la inteligencia artificial
         items:
-          - name: Nota de transparencia para la detección de frases clave
-            href: /legal/cognitive-services/language-service/transparency-note-key-phrase-detection?context=/azure/cognitive-services/language-service/context/context
-            displayName: 'Transparency note for key phrase detection, key phrase detection transparency, Responsible AI, Responsible use of AI'
+          - name: Nota de transparencia para la extracción de frases clave
+            href: /legal/cognitive-services/language-service/transparency-note-key-phrase-extraction?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Transparency note for key phrase extraction, key phrase extraction transparency, Responsible AI, Responsible use of AI'
           - name: Integración y uso responsable
             href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
             displayName: 'Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use'
@@ -504,20 +499,26 @@ items:
             href: question-answering/how-to/analytics.md
           - name: Administración de una base de conocimiento
             href: question-answering/how-to/manage-knowledge-base.md
-          - name: Filtrar respuestas
-            href: ../qnamaker/how-to/query-knowledge-base-with-metadata.md?context=/azure/cognitive-services/language-service/context/context
           - name: Aislamiento de red y puntos de conexión privados
             href: question-answering/how-to/network-isolation.md
+          - name: Solución de problemas
+            href: question-answering/how-to/troubleshooting.md
       - name: Conceptos
         items:
+          - name: Ciclo de vida del desarrollo
+            href: question-answering/concepts/project-development-lifecycle.md
           - name: Planeamiento de recursos
             href: question-answering/concepts/azure-resources.md
+          - name: Planeamiento de aplicaciones
+            href: question-answering/concepts/plan.md
           - name: Respuestas precisas
             href: question-answering/concepts/precise-answering.md
           - name: Puntuación de confianza
             href: question-answering/concepts/confidence-score.md
           - name: Procedimientos recomendados
             href: question-answering/concepts/best-practices.md
+          - name: Límites
+            href: question-answering/concepts/limits.md
       - name: Tutoriales
         items:
           - name: Creación de un bot de preguntas frecuentes
@@ -717,8 +718,6 @@ items:
     items:
       - name: Compatibilidad con emojis y varios idiomas
         href: concepts/multilingual-emoji-support.md
-      - name: 'Migración desde LUIS, QnA Maker y Text Analytics'
-        href: concepts/migrate.md
   - name: Tutoriales
     items:
       - name: Uso de Cognitive Services en aplicaciones de lienzo

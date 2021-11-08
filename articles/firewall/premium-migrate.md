@@ -5,15 +5,15 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 10/26/2021
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1aeb31ff49389235d54950b76c68deb882e13797
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: a27f2432ec309f6ff9203921122ddd9f6b1860eb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131438500"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131086234"
 ---
 # <a name="migrate-to-azure-firewall-premium"></a>Migración a Azure Firewall Prémium
 
@@ -187,9 +187,6 @@ TransformPolicyToPremium -Policy $policy
 ## <a name="migrate-azure-firewall-using-stopstart"></a>Migración de Azure Firewall mediante Start/Stop
 
 Si usa la SKU de Azure Firewall Estándar con la directiva de firewall, puede utilizar el método Allocate/Deallocate para migrar dicha SKU a Prémium. Este enfoque de migración se admite en los firewalls tanto de centro de conectividad de red virtual como de centro de conectividad seguro. Al migrar la implementación de un centro de conectividad seguro, conservará la dirección IP pública del firewall.
-
-El requisito mínimo de la versión de Azure PowerShell es 6.5.0. Para más información, consulte [Az 6.5.0](https://www.powershellgallery.com/packages/Az/6.5.0).
-
  
 ### <a name="migrate-a-vnet-hub-firewall"></a>Migración de un firewall de centro de conectividad de red virtual
 
@@ -213,6 +210,7 @@ El requisito mínimo de la versión de Azure PowerShell es 6.5.0. Para más info
 
 ### <a name="migrate-a-secure-hub-firewall"></a>Migración de un firewall de centro de conectividad seguro
 
+El requisito mínimo de la versión de Azure PowerShell es 6.5.0. Para más información, consulte [Az 6.5.0](https://www.powershellgallery.com/packages/Az/6.5.0).
 
 - Desasignar el firewall estándar
 

@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 10/08/2021
+ms.date: 11/08/2021
 ms.author: memildin
-ms.openlocfilehash: 8d9fa0e724c20d0327d6b3907fee8e954deda41f
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: de36239b769434fb9d3a61c70f0f79ed922687db
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131453105"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997540"
 ---
 # <a name="configure-auto-provisioning-for-agents-and-extensions-from-microsoft-defender-for-cloud"></a>Configuración del aprovisionamiento automático para agentes y extensiones de Microsoft Defender for Cloud
 
@@ -29,7 +29,7 @@ Para empezar a trabajar con Defender for Cloud, necesita una suscripción a Mi
 |-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Estado de la versión:          | **Característica**: El aprovisionamiento automático está en fase de disponibilidad general (GA)<br>**Agente y extensiones**: el agente de Log Analytics para máquinas virtuales de Azure está disponible de forma general, Microsoft Dependency Agent está en versión preliminar, el complemento de directiva para Kubernetes está disponible de forma general, el agente de configuración de invitado está en versión preliminar.  |
 | Precios:                | Gratuito                                                                                                                                                                                                                         |
-| Destinos admitidos: | :::image type="icon" source="./media/icons/yes-icon.png"::: Máquinas de Azure<br>:::image type="icon" source="./media/icons/no-icon.png"::: Máquinas de Azure Arc<br>:::image type="icon" source="./media/icons/no-icon.png"::: Nodos de Kubernetes<br>:::image type="icon" source="./media/icons/no-icon.png"::: Virtual Machine Scale Sets |
+| Destinos admitidos: | :::image type="icon" source="./media/icons/yes-icon.png"::: Máquinas de Azure<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Máquinas de Azure Arc<br>:::image type="icon" source="./media/icons/no-icon.png"::: Nodos de Kubernetes<br>:::image type="icon" source="./media/icons/no-icon.png"::: Virtual Machine Scale Sets |
 | Nubes:                 | **Característica**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government, Azure China 21Vianet<br>**Agente y extensiones**:<br>El agente de Log Analytics para máquinas virtuales de Azure está disponible en todas las nubes, el complemento de directiva para Kubernetes está disponible en todas las nubes, el agente de la configuración de invitado solo está disponible en nubes comerciales.  |
 |                         |                                                                                                                                                                                                                              |
 

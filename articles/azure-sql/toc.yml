@@ -209,6 +209,8 @@
           items:
             - name: Identificación de problemas de rendimiento de las consultas
               href: identify-query-performance-issues.md
+            - name: Solución de problemas de rendimiento
+              href: database/intelligent-insights-troubleshoot-performance.md
             - name: Procesamiento por lotes para mejorar el rendimiento
               href: performance-improve-use-batching.md
             - name: Carga de datos con BCP
@@ -513,7 +515,7 @@
                   href: /sql/azure-data-studio/quickstart-sql-database?toc=%2Fazure%2Fazure-sql%2Ftoc.json
                 - name: SSMS
                   href: database/connect-query-ssms.md
-                - name: Azure Portal
+                - name: Azure portal
                   href: database/connect-query-portal.md
                 - name: Código de VS
                   href: database/connect-query-vscode.md
@@ -1240,7 +1242,7 @@
                           href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
                         - name: Configuración manual
                           items:
-                            - name: Prerrequisitos
+                            - name: Requisitos previos
                               href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
                             - name: Tutorial
                               href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
@@ -1450,6 +1452,8 @@
           href: database/troubleshoot-common-errors-issues.md
         - name: Problemas de conexión comunes
           href: database/troubleshoot-common-connectivity-issues.md
+        - name: Solución de errores de memoria insuficiente
+          href: database/troubleshoot-memory-errors-issues.md
         - name: El servicio de importación y exportación no funciona
           href: database/database-import-export-hang.md
         - name: Errores del registro de transacciones

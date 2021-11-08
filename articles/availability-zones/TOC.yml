@@ -1,7 +1,9 @@
 - name: Resistencia de Azure
   items:
     - name: Página de características de la resistencia de Azure
-      href: 'https://azure.microsoft.com/features/resiliency'
+      href: 'https://azure.microsoft.com/features/'
+    - name: Resistencia en Azure
+      href: overview.md
     - name: Diseño de aplicaciones resistentes de Azure
       href: /azure/architecture/framework/resiliency/app-design
 - name: Aspectos básicos de Availability Zones
@@ -97,21 +99,25 @@
           items:
             - name: "Creación de una instancia de Azure\_Active\_Directory Domain Services"
               href: ../active-directory-domain-services/tutorial-create-instance.md
-    - name: Documentación de Azure Orbital
-      items:
-        - name: ¿Qué es Azure Orbital?
-          href: ../networking/azure-orbital-overview.md
 - name: Recuperación ante desastres
   items:
+    - name: Administración de continuidad empresarial en Azure
+      href: business-continuity-management-program.md
+    - name: Replicación entre regiones en Azure
+      href: cross-region-replication-azure.md
     - name: Uso de Azure Site Recovery
       href: ../site-recovery/index.yml
-- name: Azure Backup
-  items:
     - name: Uso de Azure Backup
       href: ../backup/index.yml
+    - name: Marco de buena arquitectura de Microsoft Azure
+      href: /azure/architecture/framework/
 - name: Recursos
   items:
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Regiones de Azure
       href: 'https://azure.microsoft.com/regions/'
+- name: Documentación de Azure Orbital
+  items:
+    - name: ¿Qué es Azure Orbital?
+      href: ../networking/azure-orbital-overview.md

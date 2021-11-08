@@ -44,6 +44,8 @@ items:
             href: concept-guidelines-pricing.md
           - name: Procedimientos recomendados de implementación
             href: deployment-best-practices.md
+          - name: Procedimientos recomendados de linaje
+            href: concept-best-practices-lineage-azure-data-factory.md
           - name: Arquitectura de cuentas
             href: concept-best-practices-accounts.md
           - name: Arquitectura de colecciones
@@ -76,13 +78,9 @@ items:
         href: concept-insights.md
       - name: Cuentas de Azure Purview actualizadas
         href: concept-account-upgrade.md
-      - name: Directivas de acceso
-        href: concept-data-policies.md
-      - name: Acceso de autoservicio
-        href: concept-self-service.md
   - name: Guías paso a paso
     items:
-      - name: Creación y administración de colecciones de trabajos
+      - name: Administración de recopilaciones
         href: how-to-create-and-manage-collections.md
       - name: Administración de orígenes
         items:
@@ -143,12 +141,18 @@ items:
             href: register-scan-hive-metastore-source.md
           - name: Looker
             href: register-scan-looker-source.md
+          - name: MySQL
+            href: register-scan-mysql.md
           - name: SQL Server local
             href: register-scan-on-premises-sql-server.md
           - name: Oracle
             href: register-scan-oracle-source.md
+          - name: PostgreSQL
+            href: register-scan-postgresql.md
           - name: "Inquilino de Power\_BI: Azure Portal"
             href: register-scan-power-bi-tenant.md
+          - name: Salesforce
+            href: register-scan-salesforce.md
           - name: SAP ECC
             href: register-scan-sapecc-source.md
           - name: SAP S/4HANA

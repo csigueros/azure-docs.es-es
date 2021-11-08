@@ -175,7 +175,9 @@
           href: core/howto-export-data.md
         - name: Exportación de datos a destinos en la nube (heredados)
           href: core/howto-export-data-legacy.md
-        - name: Transformación de datos
+        - name: Transformación interna de datos para la exportación
+          href: core/howto-transform-data-internally.md
+        - name: Transformación externa de datos
           href: core/howto-transform-data.md
         - name: Uso de flujos de trabajo para integrarlos con otros servicios
           href: core/howto-configure-rules-advanced.md

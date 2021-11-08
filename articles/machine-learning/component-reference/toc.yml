@@ -1,0 +1,196 @@
+- name: Algoritmos y módulos del diseñador
+  href: component-reference.md
+- name: Entrada y salida de datos
+  items:
+    - name: Importar datos
+      href: import-data.md
+    - name: Introducción manual de datos
+      href: enter-data-manually.md
+    - name: Exportación de datos
+      href: export-data.md
+- name: Transformación de datos
+  items:
+    - name: Adición de columnas
+      href: add-columns.md
+    - name: Adición de filas
+      href: add-rows.md
+    - name: Aplicación de operación matemática
+      href: apply-math-operation.md
+    - name: Aplicación de transformaciones de SQL
+      href: apply-sql-transformation.md
+    - name: Limpiar datos que faltan
+      href: clean-missing-data.md
+    - name: Recorte de valores
+      href: clip-values.md
+    - name: Conversión a CSV
+      href: convert-to-csv.md
+    - name: Convertir conjunto de datos
+      href: convert-to-dataset.md
+    - name: Conversión en valores de indicador
+      href: convert-to-indicator-values.md
+    - name: Edición de metadatos
+      href: edit-metadata.md
+    - name: Agrupación de datos en intervalos
+      href: group-data-into-bins.md
+    - name: Combinación de datos
+      href: join-data.md
+    - name: Normalización de datos
+      href: normalize-data.md
+    - name: Partición y ejemplo
+      href: partition-and-sample.md
+    - name: Supresión de filas duplicadas
+      href: remove-duplicate-rows.md
+    - name: SMOTE
+      href: smote.md
+    - name: Seleccionar transformación de columnas
+      href: select-columns-transform.md
+    - name: Seleccionar columnas de conjunto de datos
+      href: select-columns-in-dataset.md
+    - name: Split Data (Dividir datos)
+      href: split-data.md
+- name: Selección de características
+  items:
+    - name: Selección de características basada en filtro
+      href: filter-based-feature-selection.md
+    - name: Importancia de la característica de permutación
+      href: permutation-feature-importance.md
+- name: Funciones estadísticas
+  items:
+    - name: Resumen de datos
+      href: summarize-data.md
+- name: Algoritmos de aprendizaje automático
+  items:
+    - name: Regresión
+      items:
+        - name: Regresión de árbol de decisión incrementado
+          href: boosted-decision-tree-regression.md
+        - name: Regresión de bosque de decisión
+          href: decision-forest-regression.md
+        - name: Regresión rápida de bosque por cuantiles
+          href: fast-forest-quantile-regression.md
+        - name: Regresión lineal
+          href: linear-regression.md
+        - name: Regresión de red neuronal
+          href: neural-network-regression.md
+        - name: Regresión de Poisson
+          href: poisson-regression.md
+    - name: Agrupación en clústeres
+      items:
+        - name: Agrupación en clústeres K-Means
+          href: k-means-clustering.md
+    - name: clasificación
+      items:
+        - name: Árbol de decisión ampliado multiclase
+          href: multiclass-boosted-decision-tree.md
+        - name: Bosque de decisión multiclase
+          href: multiclass-decision-forest.md
+        - name: Regresión logística multiclase
+          href: multiclass-logistic-regression.md
+        - name: Red neuronal multiclase
+          href: multiclass-neural-network.md
+        - name: Uno contra todos multiclase
+          href: one-vs-all-multiclass.md
+        - name: Uno contra One Multiclass
+          href: one-vs-one-multiclass.md
+        - name: Perceptrón promedio de dos clases
+          href: two-class-averaged-perceptron.md
+        - name: Two-Class Boosted Decision Tree (Árbol de decisión ampliado de dos clases).
+          href: two-class-boosted-decision-tree.md
+        - name: Bosque de decisión de dos clases
+          href: two-class-decision-forest.md
+        - name: Regresión logística de dos clases
+          href: two-class-logistic-regression.md
+        - name: Red neuronal de dos clases
+          href: two-class-neural-network.md
+        - name: Máquina de vectores compatible con dos clases
+          href: two-class-support-vector-machine.md
+- name: Entrenamiento del modelo
+  items:
+    - name: Entrenamiento del modelo de agrupación en clústeres
+      href: train-clustering-model.md
+    - name: Train Model (Entrenar modelo)
+      href: train-model.md
+    - name: Entrenamiento del modelo de PyTorch
+      href: train-pytorch-model.md
+    - name: Optimizar los hiperparámetros del modelo
+      href: tune-model-hyperparameters.md
+- name: Evaluación y puntuación del modelo
+  items:
+    - name: Aplicación de la transformación
+      href: apply-transformation.md
+    - name: Asignación de datos a clústeres
+      href: assign-data-to-clusters.md
+    - name: Modelo de validación cruzada
+      href: cross-validate-model.md
+    - name: Evaluate Model (Evaluar modelo)
+      href: evaluate-model.md
+    - name: Puntuación del modelo de imagen
+      href: score-image-model.md
+    - name: Puntuación de modelo
+      href: score-model.md
+- name: Lenguaje Python
+  items:
+    - name: Creación de modelo Python
+      href: create-python-model.md
+    - name: Ejecución de script de Python
+      href: execute-python-script.md
+- name: "Lenguaje\_R"
+  items:
+    - name: Ejecución script de R
+      href: execute-r-script.md
+- name: Análisis de texto
+  items:
+    - name: Conversión de palabra en vector
+      href: convert-word-to-vector.md
+    - name: Extracción de características de n-gramas a partir de texto
+      href: extract-n-gram-features-from-text.md
+    - name: Hash de características
+      href: feature-hashing.md
+    - name: preprocesamiento de texto
+      href: preprocess-text.md
+    - name: Asignación de Dirichlet latente
+      href: latent-dirichlet-allocation.md
+    - name: Puntuación del modelo de Vowpal Wabbit
+      href: score-vowpal-wabbit-model.md
+    - name: Entrenamiento del modelo de Vowpal Wabbit
+      href: train-vowpal-wabbit-model.md
+- name: Visión del equipo
+  items:
+    - name: Aplicación de transformación de imagen
+      href: apply-image-transformation.md
+    - name: Conversión al directorio de imagen
+      href: convert-to-image-directory.md
+    - name: Transformación de imagen init
+      href: init-image-transformation.md
+    - name: División de directorio de imagen
+      href: split-image-directory.md
+    - name: DenseNet
+      href: densenet.md
+    - name: ResNet
+      href: resnet.md
+- name: Recomendación
+  items:
+    - name: Evaluación del recomendador
+      href: evaluate-recommender.md
+    - name: Puntuación del recomendador SVD
+      href: score-svd-recommender.md
+    - name: Puntuación del recomendador ancho y profundo
+      href: score-wide-and-deep-recommender.md
+    - name: Entrenamiento del recomendador SVD
+      href: train-svd-recommender.md
+    - name: Entrenamiento del recomendador ancho y profundo
+      href: train-wide-and-deep-recommender.md
+- name: Detección de anomalías
+  items:
+    - name: Detección de anomalías basada en PCA
+      href: pca-based-anomaly-detection.md
+    - name: Entrenamiento de un modelo de detección de anomalías
+      href: train-anomaly-detection-model.md
+- name: Servicio web
+  items:
+    - name: Entrada/salida de servicio web
+      href: web-service-input-output.md
+- name: Errores de componentes y solución de problemas
+  href: designer-error-codes.md
+- name: Sintaxis de consulta de búsqueda de Graph
+  href: graph-search-syntax.md

@@ -42,12 +42,6 @@
           href: tutorial-1st-experiment-sdk-train.md
         - name: 3. Uso de sus propios datos
           href: tutorial-1st-experiment-bring-data.md
-    - name: "CLI\_(v2)"
-      items:
-        - name: "Entrenamiento de modelos con la CLI (versión\_2)"
-          href: how-to-train-cli.md
-        - name: Acceso a recursos con puntos de conexión administrados
-          href: tutorial-deploy-managed-endpoints-using-system-managed-identity.md
     - name: Cuadernos de Jupyter Notebook
       items:
         - name: Clasificación de imágenes (datos MNIST)
@@ -115,16 +109,14 @@
     - name: Cuadernos de Jupyter Notebook
       displayName: 'example, examples, server, jupyter, azure notebooks, python, notebook, github'
       href: samples-notebooks.md
-    - name: Repositorio de ejemplo
+    - name: Repositorio de ejemplos
       displayName: 'example, examples, jupyter, python, notebook, github'
       href: 'https://github.com/Azure/azureml-examples'
     - name: Ejemplos conjuntos de datos de Designer
-      displayName: 'example, examples, studio, pipelines, data sets, modules'
+      displayName: 'example, examples, studio, pipelines, data sets, modules, components'
       href: samples-designer.md
     - name: Ejemplos de MLOps de un extremo a otro
       href: 'https://github.com/microsoft/MLOps'
-    - name: Open Datasets (público)
-      href: ../open-datasets/samples.md?context=azure%2fmachine-learning%2fcontext%2fml-context
 - name: Conceptos
   items:
     - name: Entrenamiento de modelos
@@ -172,6 +164,8 @@
           href: concept-open-source.md
         - name: Canalizaciones de Machine Learning
           href: concept-ml-pipelines.md
+        - name: Componentes de Machine Learning
+          href: concept-component.md
         - name: MLflow
           href: concept-mlflow.md
         - name: Aprendizaje automático responsable
@@ -327,12 +321,12 @@
               href: how-to-create-attach-compute-studio.md
     - name: Configuración de un entorno
       items:
-        - name: "Instalación y configuración de la CLI\_(versión\_2)"
-          displayName: 'azurecli, mlops'
-          href: how-to-configure-cli.md
         - name: Configuración de entornos de desarrollo
           displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'
           href: how-to-configure-environment.md
+        - name: "Instalación y configuración de la CLI\_(versión\_2)"
+          displayName: 'azurecli, mlops'
+          href: how-to-configure-cli.md
         - name: Configuración del entorno de Studio
           items:
             - name: Administración de entornos en Studio
@@ -365,7 +359,7 @@
           displayName: github gitlab
           href: concept-train-model-git-integration.md
         - name: Solución de problemas de entornos
-          displayName: 'troubleshoot, envrionment, debug, image'
+          displayName: 'troubleshoot, environment, debug, image'
           href: how-to-troubleshoot-environments.md
     - name: Trabajar con datos
       items:
@@ -434,10 +428,6 @@
               href: how-to-export-delete-data.md
     - name: Entrenamiento de modelos
       items:
-        - name: "Entrenamiento con la CLI\_(versión\_2)"
-          href: how-to-train-cli.md
-        - name: Entrenamiento con la API REST
-          href: how-to-train-with-rest.md
         - name: Entrenamiento con la interfaz de usuario de creación de trabajos
           href: how-to-train-with-ui.md
         - name: Entrenamiento con el SDK de Python
@@ -493,14 +483,21 @@
             - name: Uso de Key Vault durante el entrenamiento
               displayName: secrets keyvault
               href: how-to-use-secrets-in-runs.md
+        - name: "Entrenamiento con la CLI\_(versión\_2)"
+          href: how-to-train-cli.md
+        - name: Entrenamiento con la API REST
+          href: how-to-train-with-rest.md
+        - name: Administración de entornos con la CLI (v2)
+          displayName: environment
+          href: how-to-manage-environments-v2.md
         - name: Interpretación y explicación de modelos
           displayName: interpretability
           items:
             - name: Interpretación de modelos de Machine Learning
-              displayName: 'SDK, interpret, explain, explanability, interpretability'
+              displayName: 'SDK, interpret, explain, explainability, interpretability'
               href: how-to-machine-learning-interpretability-aml.md
             - name: Explicación de modelos de Machine Learning automatizados
-              displayName: 'SDK, interpret, interpret, explain, explanability, interpretability, automated ML, automl, auto ml'
+              displayName: 'SDK, interpret, interpret, explain, explainability, interpretability, automated ML, automl, auto ml'
               href: how-to-machine-learning-interpretability-automl.md
         - name: Evaluación y mitigación de la equidad del modelo
           href: how-to-machine-learning-fairness-aml.md
@@ -552,20 +549,34 @@
               items:
                 - name: Implementación de un modelo de Machine Learning con un punto de conexión en línea
                   href: how-to-deploy-managed-online-endpoints.md
+                - name: Implementación de un modelo de MLflow con un punto de conexión en línea administrado
+                  href: how-to-deploy-mlflow-models-online-endpoints.md
                 - name: Implementación de un contenedor personalizado con un punto de conexión en línea administrado
                   href: how-to-deploy-custom-container.md
                 - name: Implementación segura para puntos de conexión en línea
                   href: how-to-safely-rollout-managed-endpoints.md
                 - name: Uso de puntos de conexión en línea administrados en Studio
                   href: how-to-use-managed-online-endpoint-studio.md
+                - name: Servicio de alto rendimiento con Triton
+                  href: how-to-deploy-with-triton.md
+                - name: Acceso al almacenamiento con un punto de conexión en línea administrado e identidad administrada
+                  href: how-to-access-resources-from-endpoints-managed-identities.md
                 - name: Visualización de los costos de los puntos de conexión en línea administrados
                   href: how-to-view-online-endpoints-costs.md
                 - name: Uso de REST para implementar modelos como puntos de conexión en línea administrados
                   href: how-to-deploy-with-rest.md
+                - name: Implementación de un modelo de ML automatizado con un punto de conexión en línea administrado
+                  href: how-to-deploy-automl-endpoint.md
+                - name: Escalabilidad automática de puntos de conexión administrados
+                  href: how-to-autoscale-endpoints.md
+                - name: Visualización de los costos de los puntos de conexión en línea administrados
+                  href: how-to-view-online-endpoints-costs.md
                 - name: Lista de SKU de máquina virtual de puntos de conexión en línea administrados
                   href: reference-managed-online-endpoints-vm-sku-list.md
                 - name: Supervisión de puntos de conexión en línea administrados
                   href: how-to-monitor-online-endpoints.md
+                - name: "Depuración local de puntos de conexión en línea administrados con VS\_Code"
+                  href: how-to-debug-managed-online-endpoints-visual-studio-code.md
                 - name: Solución de problemas de puntos de conexión en línea administrados
                   href: how-to-troubleshoot-online-endpoints.md
             - name: Batch
@@ -574,6 +585,8 @@
                   href: how-to-use-batch-endpoint.md
                 - name: Puntos de conexión de Batch en Studio
                   href: how-to-use-batch-endpoints-studio.md
+                - name: Uso de REST para implementar un modelo como un punto de conexión por lotes
+                  href: how-to-deploy-batch-with-rest.md
                 - name: Solución de problemas de puntos de conexión por lotes
                   href: how-to-troubleshoot-batch-endpoints.md
         - name: Destinos de implementación
@@ -626,10 +639,8 @@
               href: how-to-enable-data-collection.md
             - name: Supervisión con Application Insights
               href: how-to-enable-app-insights.md
-        - name: Servicio de alto rendimiento con Triton
-          href: how-to-deploy-with-triton.md
         - name: Implementación de un servicio de inferencia cifrada
-          displayName: 'homomorhic,encryption,deployment'
+          displayName: 'homomorphic,encryption,deployment'
           href: how-to-homomorphic-encryption-seal.md
         - name: Modelos de perfil
           displayName: profile resource requirement
@@ -660,6 +671,8 @@
           items:
             - name: Creación de canalizaciones de Machine Learning (Python)
               href: how-to-create-machine-learning-pipelines.md
+            - name: "Creación de canalizaciones de Machine Learning mediante componentes (CLI\_v2)"
+              href: how-to-create-component-pipelines-cli.md
             - name: Movimiento de datos a los pasos de canalización de Machine Learning (Python) y entre ellos
               href: how-to-move-data-in-out-of-pipelines.md
             - name: Uso de ML automatizado en canalizaciones de Machine Learning (Python)
@@ -717,11 +730,11 @@
           href: how-to-debug-parallel-run-step.md
 - name: Referencia
   items:
-    - name: API DE REST
-      href: /rest/api/azureml/
     - name: SDK de Python
       displayName: 'api, core, package, python, class'
       href: /python/api/overview/azure/ml/intro
+    - name: API DE REST
+      href: /rest/api/azureml/
     - name: "CLI\_(v2)"
       displayName: 'extension, command line, command-line, az, ci/cd, automate, automated'
       href: /cli/azure/ml/
@@ -729,19 +742,35 @@
       items:
         - name: Información general
           href: reference-yaml-overview.md
-        - name: Recursos
+        - name: Sintaxis básica
+          href: reference-yaml-core-syntax.md
+        - name: Área de trabajo
+          href: reference-yaml-workspace.md
+        - name: Entorno
+          href: reference-yaml-environment.md
+        - name: Dataset
+          href: reference-yaml-dataset.md
+        - name: Modelo
+          href: reference-yaml-model.md
+        - name: Proceso
           items:
-            - name: Área de trabajo
-              href: reference-yaml-workspace.md
-            - name: Proceso
-              href: reference-yaml-compute.md
-            - name: Entorno
-              href: reference-yaml-environment.md
-            - name: Dataset
-              href: reference-yaml-dataset.md
-            - name: Modelo
-              href: reference-yaml-model.md
-        - name: Almacenes de datos
+            - name: Clúster de proceso (AmlCompute)
+              href: reference-yaml-compute-aml.md
+            - name: Instancia de proceso
+              href: reference-yaml-compute-instance.md
+            - name: Máquina virtual conectada
+              href: reference-yaml-compute-vm.md
+        - name: Trabajo
+          items:
+            - name: Get-Help
+              href: reference-yaml-job-command.md
+            - name: Sweep
+              href: reference-yaml-job-sweep.md
+            - name: Canalización
+              href: reference-yaml-job-pipeline.md
+            - name: Componente
+              href: reference-yaml-job-component.md
+        - name: Almacén de datos
           items:
             - name: Blob de Azure
               href: reference-yaml-datastore-blob.md
@@ -751,28 +780,22 @@
               href: reference-yaml-datastore-data-lake-gen1.md
             - name: Azure Data Lake Gen2
               href: reference-yaml-datastore-data-lake-gen2.md
-        - name: Trabajos
-          items:
-            - name: Get-Help
-              href: reference-yaml-job-command.md
-            - name: Sweep
-              href: reference-yaml-job-sweep.md
-        - name: Puntos de conexión
+        - name: Punto de conexión
           items:
             - name: Administrado en línea (en tiempo real)
               href: reference-yaml-endpoint-managed-online.md
-            - name: Administrado por lotes
-              href: reference-yaml-endpoint-managed-batch.md
-            - name: Kubernetes (k8s) en línea
-              href: reference-yaml-endpoint-k8s-online.md
-        - name: Implementaciones
+            - name: Batch
+              href: reference-yaml-endpoint-batch.md
+        - name: Implementación
           items:
             - name: Administrado en línea (en tiempo real)
               href: reference-yaml-deployment-managed-online.md
-            - name: Administrado por lotes
-              href: reference-yaml-deployment-managed-batch.md
-            - name: Kubernetes (k8s) en línea
-              href: reference-yaml-deployment-k8s-online.md
+            - name: Batch
+              href: reference-yaml-deployment-batch.md
+        - name: Componente
+          items:
+            - name: Get-Help
+              href: reference-yaml-component-command.md
     - name: "CLI\_(v1)"
       displayName: 'extension, command line, command-line, az, ci/cd, automate, automated'
       href: reference-azure-machine-learning-cli.md
@@ -796,9 +819,12 @@
       href: /cli/azure/ml
 - name: Recursos
   items:
-    - name: Notas de la versión
+    - name: Notas de la versión del SDK de Python
       displayName: 'what''s, new, issues, bugs'
       href: azure-machine-learning-release-notes.md
+    - name: Notas de la versión de CLI (v2)
+      displayName: 'what''s, new, issues, bugs'
+      href: azure-machine-learning-release-notes-cli-v2.md
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Precios

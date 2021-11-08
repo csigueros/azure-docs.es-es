@@ -5,13 +5,13 @@ author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: how-to
-ms.date: 03/25/2021
-ms.openlocfilehash: 912de328332023e0e868a7ab0ac6088a2daeb33e
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.date: 11/08/2021
+ms.openlocfilehash: 56e467b392a40a7d9e5389aa31f41468db7730c9
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108167137"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997635"
 ---
 # <a name="configure-network-access-control-for-azure-web-pubsub-service"></a>Configuración del control del acceso de red para el servicio Azure Web PubSub
 

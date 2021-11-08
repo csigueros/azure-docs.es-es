@@ -406,7 +406,7 @@
               href: knowledge-store-projections-examples.md
             - name: Ejemplo de proyección
               href: knowledge-store-projection-example-long.md
-            - name: Visualización con el Explorador de Storage
+            - name: Visualización con Storage Browser
               href: knowledge-store-view-storage-explorer.md
             - name: Conexión con Power BI
               href: knowledge-store-connect-power-bi.md

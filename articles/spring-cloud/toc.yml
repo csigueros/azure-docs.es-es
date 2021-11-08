@@ -10,7 +10,7 @@
   items:
     - name: Inicio de la primera aplicación
       href: quickstart.md
-    - name: Compilación y ejecución de microservicios
+    - name: Compilación y ejecución de aplicaciones
       expanded: true
       items:
         - name: Introducción a la aplicación de ejemplo
@@ -96,6 +96,8 @@
           href: how-to-deploy-powershell.md
     - name: Administrar
       items:
+        - name: Inicio o detención de un servicio
+          href: how-to-start-stop-service.md
         - name: 'Inicio, detención y eliminación de una aplicación'
           href: how-to-start-stop-delete.md
         - name: Uso del almacenamiento persistente integrado

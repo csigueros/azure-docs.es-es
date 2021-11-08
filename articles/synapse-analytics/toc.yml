@@ -8,6 +8,8 @@ items:
       - name: ¿Qué es Azure Synapse?
         href: overview-what-is.md
         displayName: overview
+      - name: Novedades
+        href: whats-new.md
       - name: Terminología
         href: overview-terminology.md
       - name: Preguntas más frecuentes
@@ -24,28 +26,31 @@ items:
       - name: 2 Análisis mediante un grupo de SQL sin servidor
         href: get-started-analyze-sql-on-demand.md
         displayName: 'get, started'
-      - name: 3 Análisis mediante un grupo de Spark sin servidor
+      - name: "3\_Análisis mediante un grupo de Data Explorer"
+        href: get-started-analyze-data-explorer.md
+        displayName: 'get, started'
+      - name: "4\_Análisis mediante un grupo de Spark sin servidor"
         href: get-started-analyze-spark.md
         displayName: 'get, started'
-      - name: 4 Análisis mediante un grupo de SQL dedicado
+      - name: "5\_Análisis mediante un grupo de SQL dedicado"
         href: get-started-analyze-sql-pool.md
         displayName: 'get, started'
-      - name: 5 Análisis de los datos de una cuenta de almacenamiento
+      - name: "6\_Análisis de los datos de una cuenta de almacenamiento"
         href: get-started-analyze-storage.md
         displayName: 'get, started'
-      - name: 6 Integración con canalizaciones
+      - name: "7\_Integración con canalizaciones"
         href: get-started-pipelines.md
         displayName: 'get, started'
-      - name: 7 Visualización con Power BI
+      - name: "8\_Visualización con Power\_BI"
         href: get-started-visualize-power-bi.md
         displayName: 'get, started'
-      - name: 8 Supervisión
+      - name: "9\_Supervisión"
         href: get-started-monitor.md
         displayName: 'get, started'
-      - name: 9 Exploración del Centro de conocimientos
+      - name: "10\_ Exploración del Centro de conocimientos"
         href: get-started-knowledge-center.md
         displayName: 'get, started'
-      - name: 10 Incorporación de un administrador
+      - name: "11\_Incorporación de un administrador"
         href: get-started-add-admin.md
         displayName: 'get, started'
   - name: Área de trabajo
@@ -54,7 +59,7 @@ items:
         items:
           - name: Crear un área de trabajo
             items:
-              - name: Azure Portal
+              - name: Azure portal
                 href: quickstart-create-workspace.md
                 displayName: quickstart
               - name: Azure CLI
@@ -150,12 +155,10 @@ items:
                     href: ./security/synapse-workspace-synapse-rbac-roles.md
                   - name: Descripción de los roles de Synapse RBAC
                     href: ./security/synapse-workspace-understand-what-role-you-need.md
-                  - name: Identidad administrada del área de trabajo de Synapse
-                    href: ./security/synapse-workspace-managed-identity.md
                   - name: Identidad administrada asignada por el sistema y por el usuario
-                    href: ../data-factory/data-factory-service-identity.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json&tabs=synapse-analytics
+                    href: ../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context
                   - name: Credenciales para la identidad administrada asignada por el usuario
-                    href: ../data-factory/credentials.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json&tabs=synapse-analytics
+                    href: ../data-factory/credentials.md?context=/azure/synapse-analytics/context/context
       - name: Guías paso a paso
         items:
           - name: Administración y supervisión
@@ -588,12 +591,50 @@ items:
             href: data-explorer/data-explorer-overview.md
           - name: Comparación con Azure Data Explorer
             href: data-explorer/data-explorer-compare.md
+          - name: Ingesta de datos
+            items:
+              - name: Información general de ingesta de datos
+                href: data-explorer/ingest-data/data-explorer-ingest-data-overview.md
+              - name: Propiedades de la ingesta de datos
+                href: data-explorer/ingest-data/data-explorer-ingest-data-properties.md
+              - name: Formatos de ingesta de datos
+                href: data-explorer/ingest-data/data-explorer-ingest-data-supported-formats.md
       - name: Guías de inicio rápido
         items:
           - name: Creación de un grupo de Data Explorer con Azure Portal
             href: data-explorer/data-explorer-create-pool-portal.md
           - name: Creación de un grupo de Data Explorer con Synapse Studio
             href: data-explorer/data-explorer-create-pool-studio.md
+          - name: Ingerir datos
+            items:
+              - name: Información general
+                href: data-explorer/ingest-data/data-explorer-ingest-data-overview.md
+              - name: Ingesta con un solo clic
+                href: data-explorer/ingest-data/data-explorer-ingest-data-one-click.md
+              - name: Ingesta de streaming
+                href: data-explorer/ingest-data/data-explorer-ingest-data-streaming.md
+              - name: Centro de eventos
+                items:
+                  - name: Conexión de datos de Event Hub
+                    href: data-explorer/ingest-data/data-explorer-ingest-event-hub-overview.md
+                  - name: Azure portal
+                    href: data-explorer/ingest-data/data-explorer-ingest-event-hub-portal.md
+                  - name: Un solo clic
+                    href: data-explorer/ingest-data/data-explorer-ingest-event-hub-one-click.md
+                  - name: C#
+                    href: data-explorer/ingest-data/data-explorer-ingest-event-hub-csharp.md
+                  - name: Python
+                    href: data-explorer/ingest-data/data-explorer-ingest-event-hub-python.md
+                  - name: Plantilla del Administrador de recursos de Azure
+                    href: data-explorer/ingest-data/data-explorer-ingest-event-hub-resource-manager.md
+              - name: Event Grid
+                items:
+                  - name: Conexión de datos de Event Hub
+                    href: data-explorer/ingest-data/data-explorer-ingest-event-grid-overview.md
+                  - name: Azure portal
+                    href: data-explorer/ingest-data/data-explorer-ingest-event-grid-portal.md
+              - name: Ingesta de datos mediante canalizaciones
+                href: data-explorer/ingest-data/data-explorer-ingest-data-pipeline.md
           - name: Supervisión y diagnóstico de grupos
             href: data-explorer/data-explorer-monitor-pools.md
       - name: Lenguaje de consulta Kusto
@@ -1389,6 +1430,8 @@ items:
     items:
       - name: Planificación y administración de costos
         href: plan-manage-costs.md
+      - name: Examen de una carpeta ADLS Gen2 con listas de control de acceso
+        href: how-to-access-container-with-access-control-lists.md
   - name: Referencia
     items:
       - name: Azure CLI

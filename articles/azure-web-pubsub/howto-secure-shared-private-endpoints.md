@@ -5,14 +5,14 @@ description: Protección del tráfico de salida de Azure Web PubSub mediante pun
 author: ArchangelSDY
 ms.service: azure-web-pubsub
 ms.topic: article
-ms.date: 07/13/2021
+ms.date: 11/08/2021
 ms.author: dayshen
-ms.openlocfilehash: 00a9cf5c0eac035378248b03e316c6f211bfb52b
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 1314165f9d3d6f47c815e811aa129f8eaf54400f
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130239084"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997844"
 ---
 # <a name="secure-azure-web-pubsub-outbound-traffic-through-shared-private-endpoints"></a>Protección del tráfico de salida de Azure Web PubSub mediante puntos de conexión privados compartidos
 

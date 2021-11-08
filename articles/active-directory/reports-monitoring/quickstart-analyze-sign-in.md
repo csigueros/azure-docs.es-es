@@ -8,15 +8,15 @@ ms.topic: quickstart
 ms.date: 06/03/2021
 ms.author: markvi
 author: MarkusVi
-manager: mtillman
+manager: karenhoran
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: beaab0517c1bd0d3aa06cc31cf6c087896f7d52b
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: b998a502ba2c3edaae263e5ac1571239f84c3543
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111442183"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997350"
 ---
 # <a name="quickstart-analyze-sign-ins-with-the-azure-ad-sign-ins-log"></a>Inicio rápido: Análisis de los inicios de sesión con el registro de inicios de sesión de Azure AD 
 
@@ -27,7 +27,7 @@ Con la información del registro de inicios de sesión de Azure AD puede averig
 
 Para completar el escenario en este inicio rápido, necesita:
 
-- **Acceso a un inquilino de Azure AD**: si no tiene acceso a uno, consulte [Cree su cuenta gratuita de Azure hoy mismo](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- **Acceso a un inquilino de Azure AD**: si no tiene acceso a uno, consulte [Cree su cuenta de Azure gratuita hoy mismo](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - **Una cuenta de prueba denominada Isabella Simonsen**: si no sabe cómo crear una cuenta de prueba, consulte [Agregar usuarios basados en la nube](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 ## <a name="perform-a-failed-sign-in"></a>Creación de un inicio de sesión con errores
@@ -58,7 +58,7 @@ En esta sección se proporcionan los pasos para analizar un inicio de sesión co
 
     a. En la barra de herramientas, haga clic en **Agregar filtros**.
     
-    ![Incorporación de un filtro de usuario](./media/quickstart-analyze-sign-in/add-filters.png)   
+    ![Adición de un filtro de usuario](./media/quickstart-analyze-sign-in/add-filters.png)   
 
     b. En la lista **Elija un campo**, seleccione **Usuario** y, a continuación, haga clic **en Aplicar**.
 

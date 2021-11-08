@@ -738,9 +738,9 @@
   items:
     - name: Vídeos
       href: identity-videos.md
-    - name: Blog para desarrolladores de la plataforma de identidad de Microsoft
-      href: 'https://developer.microsoft.com/identity/blogs/'
-    - name: Blog de Azure AD
+    - name: "Plataforma de identidad de Microsoft: blog para desarrolladores de Microsoft\_365"
+      href: 'https://devblogs.microsoft.com/microsoft365dev/category/microsoft-identity-platform/'
+    - name: Blog de identidad de Azure Active Directory
       href: 'https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity'
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=security-identity'

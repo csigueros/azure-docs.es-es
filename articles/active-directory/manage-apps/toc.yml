@@ -136,6 +136,8 @@
       items:
         - name: "Protección del acceso híbrido con Azure\_AD"
           href: secure-hybrid-access.md
+        - name: Protección de las integraciones de asociados de acceso híbrido
+          href: secure-hybrid-access-integrations.md
         - name: Datawiza
           href: datawiza-with-azure-ad.md
         - name: F5

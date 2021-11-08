@@ -5,13 +5,13 @@ author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: overview
-ms.date: 04/26/2021
-ms.openlocfilehash: 3dcb151058d15088556bf8c4396c96a105ec6b86
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.date: 11/08/2021
+ms.openlocfilehash: 0c3bda42dd7dd95efb0875c7a3eb3f84cc64f578
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122445245"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131998029"
 ---
 # <a name="quickstart-connect-to-the-azure-web-pubsub-instance-from-the-browser"></a>Inicio rápido: Conexión a la instancia de Azure Web PubSub desde el explorador
 
@@ -27,6 +27,6 @@ En este artículo de inicio rápido, aprenderá los primeros pasos para ponerse 
 
 En este inicio rápido, vamos a utilizar el *generador de direcciones URL de cliente* para generar una dirección URL temporal para el cliente con la que vamos a conectarnos al servicio y a ver algunas ideas básicas sobre el servicio Web PubSub.
 
-En las aplicaciones del mundo real, puede usar SDK en diferentes lenguajes para compilar su propia aplicación. También proporcionamos extensiones de funciones para que pueda compilar aplicaciones sin servidor fácilmente.
+En las aplicaciones del mundo real, puede usar SDK en diferentes lenguajes para compilar su propia aplicación. También proporcionamos extensiones de función para que pueda crear aplicaciones sin servidor fácilmente.
 
 [!INCLUDE [next step](includes/include-next-step.md)]

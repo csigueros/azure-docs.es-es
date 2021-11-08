@@ -10,6 +10,8 @@ items:
         href: language-support.md
       - name: Precios
         href: 'https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/'
+      - name: Límites de servicio
+        href: service-limits.md
       - name: Novedades
         href: whats-new.md
   - name: Guías de inicio rápido
@@ -38,7 +40,7 @@ items:
     items:
       - name: "Migración a Form Recognizer\_v3.0 (versión preliminar)"
         href: v3-migration-guide.md
-      - name: Uso de los SDK y la API REST
+      - name: Uso de los SDK y la API REST (v2.1)
         href: how-to-guides/try-sdk-rest-api.md
       - name: Generación de tokens de SAS para contenedores de blobs de Azure
         href: generate-sas-tokens.md

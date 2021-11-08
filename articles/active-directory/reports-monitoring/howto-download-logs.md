@@ -4,7 +4,7 @@ description: Aprenda a descargar registros de actividad en Azure Active Director
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: karenhoran
 editor: ''
 ms.service: active-directory
 ms.topic: how-to
@@ -14,12 +14,12 @@ ms.date: 05/14/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e43e94b3d813df96befdc9bc2bf802a3da93bd5
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 1bbf95fe288bb81ac8a1580e56244bea11e52821
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110083825"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131995074"
 ---
 # <a name="how-to-download-logs-in-azure-active-directory"></a>Descarga de registros en Azure Active Directory
 

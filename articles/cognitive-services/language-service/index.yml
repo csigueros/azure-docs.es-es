@@ -11,7 +11,7 @@ metadata:
   manager: nitinme
   ms.service: speech-service
   ms.topic: hub-page
-  ms.date: 09/13/2021
+  ms.date: 11/02/2021
   ms.author: aahi
 highlightedContent:
   items:
@@ -30,6 +30,7 @@ highlightedContent:
 conceptualContent:
   items:
     - title: Extracción de información
+      summary: 'Use Natural Language Understanding (NLU) para extraer información de texto sin estructura. Por ejemplo, identifique frases clave o información de identificación personal (PII), resuma texto, reconozca y clasifique entidades con nombre, o personalice un modelo de extracción de entidades en el conjunto de dominios.'
       links:
         - itemType: overview
           text: Extracción de frases clave
@@ -49,35 +50,39 @@ conceptualContent:
         - itemType: overview
           text: Text Analytics for Health
           url: text-analytics-for-health/overview.md
+        - itemType: overview
+          text: Resumen de texto
+          url: text-summarization/overview.md
     - title: Clasificación de texto
+      summary: Use Natural Language Understanding (NLU) para detectar el idioma o clasificar la opinión del texto que tiene. También es posible clasificar los documentos de texto mediante la personalización de un modelo de clasificación sobre el conjunto de datos.
       links:
         - itemType: overview
           text: Análisis de opiniones y minería de texto para opiniones
           url: sentiment-opinion-mining/overview.md
         - itemType: overview
-          text: Detección de idioma
+          text: Detectar idioma
           url: language-detection/overview.md
         - itemType: overview
           text: Clasificación de texto personalizada
           url: custom-classification/overview.md
-    - title: Información sobre conversaciones y respuestas a preguntas
+    - title: Responder preguntas
+      summary: 'Con nuestras funcionalidades predefinidas puede responder a las preguntas que se realizan en textos sin estructura, o bien personalice los pares de preguntas y respuestas específicos del dominio sobre los datos que proporcione.'
+      links:
+        - itemType: overview
+          text: Respuesta a preguntas
+          url: question-answering/overview.md
+    - title: Comprensión de las conversaciones
+      summary: Cree su propio modelo de Language Understanding conversacional para clasificar expresiones conversacionales y extraer información detallada de ellas para cumplir los escenarios.
       links:
         - itemType: overview
           text: Reconocimiento del lenguaje conversacional
           url: conversational-language-understanding/overview.md
-        - itemType: overview
-          text: Respuesta a preguntas
-          url: question-answering/overview.md
     - title: Traducir texto
+      summary: Use la traducción automática neuronal basada en la nube para crear soluciones inteligentes en varios idiomas para las aplicaciones.
       links:
         - itemType: overview
           text: Uso de la traducción automática en texto
           url: ../translator/translator-overview.md
-    - title: Resumen de texto
-      links:
-        - itemType: overview
-          text: Resumen de texto
-          url: text-summarization/overview.md
 additionalContent:
   sections:
     - items:

@@ -4,7 +4,7 @@ description: Proporciona una solución para el problema de falta de datos en los
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.assetid: 7cbe4337-bb77-4ee0-b254-3e368be06db7
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f48c26a65314e2f23513fba155f07db3805a516
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a41d51c6cf5b723f4bbb7a94d0af87d5c3f67758
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93123071"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131995699"
 ---
 # <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>Solución de problemas: Faltan datos en los registros de actividad de Azure Active Directory 
 
@@ -43,7 +43,7 @@ Las acciones no aparecen inmediatamente en los registro de actividad. En la tabl
 | Auditoría de directorio | 2 minutos | 5 minutos |
 | Actividad de inicio de sesión | 2 minutos | 5 minutos |
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Espere entre 15 minutos y dos horas para ver si las acciones aparecen en el registro. Si no ve los registros incluso después de dos horas, [cree una incidencia de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) y la examinaremos.
 
@@ -64,7 +64,7 @@ Las acciones no aparecen inmediatamente en los registro de actividad. En la tabl
 | Auditoría de directorio | 2 minutos | 5 minutos |
 | Actividad de inicio de sesión 2 minutos | 5 minutos |
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Espere entre 15 minutos y dos horas para ver si las acciones aparecen en el registro. Si no ve los registros incluso después de dos horas, [cree una incidencia de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) y la examinaremos.
 
@@ -87,7 +87,7 @@ En función de su licencia, las acciones de Azure Active Directory almacenan los
 
 Para más información, consulte [Directivas de retención de informes de Azure Active Directory](reference-reports-data-retention.md).  
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Tiene dos opciones para conservar los datos durante más de 30 días. Puede usar las [API de generación de informes de Azure AD](concept-reporting-api.md) para recuperar los datos mediante programación y almacenarlos en una base de datos. Como alternativa, puede integrar los registros de auditoría en un sistema SIEM de terceros como Splunk o SumoLogic.
 
@@ -95,5 +95,5 @@ Tiene dos opciones para conservar los datos durante más de 30 días. Puede usar
 
 * [Directivas de retención de informes de Azure Active Directory](reference-reports-data-retention.md).
 * [Latencias de informes de Azure Active Directory](reference-reports-latencies.md).
-* [Preguntas más frecuentes sobre informes de Azure Active Directory](reports-faq.md).
+* [Preguntas más frecuentes sobre informes de Azure Active Directory](reports-faq.yml).
 

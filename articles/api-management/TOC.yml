@@ -1,6 +1,6 @@
 - name: Documentación de Azure API Management
   href: index.yml
-- name: Información general
+- name: Introducción
   items:
     - name: Acerca de API Management
       href: api-management-key-concepts.md
@@ -112,9 +112,11 @@
           href: websocket-api.md
         - name: Importación de GraphQL API
           href: graphql-api.md
-        - name: Importación de una instancia de Web App
+        - name: Importación de API web de App Service
           href: import-app-service-as-api.md
-        - name: Importación de una instancia de Function App
+        - name: Importación de API web de Container App
+          href: import-container-app-with-oas.md
+        - name: Importación de API web de Function App
           href: import-function-app-as-api.md
         - name: Importación de una aplicación lógica
           href: import-logic-app-as-api.md

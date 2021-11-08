@@ -2,14 +2,14 @@
 title: 'Implementación de Azure Video Analyzer en un dispositivo IoT Edge: Azure'
 description: En este artículo se enumeran los pasos que ayudarán a implementar Azure Video Analyzer en el dispositivo IoT Edge. Lo haría, por ejemplo, si tiene acceso a una máquina Linux local.
 ms.topic: how-to
-ms.date: 11/04/2021
+ms.date: 06/01/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 6bd045a6cbc1d85790119564a00783b74f759b97
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 4b2bb0cac613ec4b6a5bac1020e572c991a54a68
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131556604"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131092969"
 ---
 # <a name="deploy-azure-video-analyzer-to-an-iot-edge-device"></a>Implementación de Azure Video Analyzer en un dispositivo IoT Edge
 

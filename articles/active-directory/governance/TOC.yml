@@ -74,6 +74,8 @@
           items:
             - name: Creación de un catálogo de recursos
               href: entitlement-management-catalog-create.md
+            - name: Creación de una extensión personalizada (aplicaciones lógicas) para catálogos
+              href: entitlement-management-logic-apps-integration.md
             - name: Delegación en administradores de paquetes de acceso
               href: entitlement-management-delegate-managers.md
         - name: Administradores de paquetes de acceso y administradores de asignación de paquetes de acceso

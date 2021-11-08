@@ -5,13 +5,13 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 08/18/2021
-ms.openlocfilehash: a7adef1e705d14578cdec9bec7a947cc9be0db20
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.date: 11/08/2021
+ms.openlocfilehash: ec1a0bfcc883e9434c8c80264c574c3630e395b0
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122598331"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131995091"
 ---
 #  <a name="azure-web-pubsub-service-internals"></a>Elementos internos del servicio Azure Web PubSub
 
@@ -248,7 +248,7 @@ Por ahora, no se admiten [WebHook-Request-Rate](https://github.com/cloudevents/s
 - Autenticación simple que se proporciona a `code` a través de la dirección URL del webhook configurada.
 - Autenticación de AAD. 
    - Agregue un secreto de cliente en [Registros de aplicaciones] de AAD y proporcione el [secreto de cliente] a Azure Web PubSub a través del portal o la CLI.
-   - Proporcione la [Identidad](/azure/app-service/overview-managed-identity?tabs=dotnet) a Azure Web PubSub mediante el portal o la CLI.
+   - Proporcione la [Identidad](../app-service/overview-managed-identity.md?tabs=dotnet) a Azure Web PubSub mediante el portal o la CLI.
 
 <a name="connection_manager"></a>
 

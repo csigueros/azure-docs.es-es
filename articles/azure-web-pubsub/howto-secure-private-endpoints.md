@@ -5,13 +5,13 @@ author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: how-to
-ms.date: 03/23/2021
-ms.openlocfilehash: 58268750b1189552a31e2dc0b455bdd3eff4f5f0
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.date: 11/08/2021
+ms.openlocfilehash: c05112ec35197f8a17220b31e5032ae5d2469cf8
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108167105"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131995055"
 ---
 # <a name="use-private-endpoints-for-azure-web-pubsub-service"></a>Uso de puntos de conexión privados en el servicio Azure Web PubSub
 
@@ -67,7 +67,7 @@ Los registros de recursos DNS "foobar", cuando los resuelva un cliente en la red
 | Nombre                                                  | Tipo  | Value                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``foobar.webpubsub.azure.com``                        | CNAME | ``foobar.privatelink.webpubsub.azure.com``            |
-| ``foobar.privatelink.webpubsub.azure.com``            | Un     | 10.1.1.5                                              |
+| ``foobar.privatelink.webpubsub.azure.com``            | A     | 10.1.1.5                                              |
 
 Este enfoque permite el acceso al servicio Azure Web PubSub **mediante la misma cadena de conexión** para los clientes de la red virtual que hospeda los puntos de conexión privados y los clientes que están fuera de esta.
 

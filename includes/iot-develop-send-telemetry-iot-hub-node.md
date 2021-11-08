@@ -7,16 +7,16 @@ ms.topic: include
 ms.date: 09/17/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: aedfbb879b158c525ae435f3118c34cdd08ecd7d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d96e331727c1c4d306746c35565f759fcd12a4c8
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131077534"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131861100"
 ---
-[![Examinar el código](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/javascript/pnp)
+[![Examinar el código](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/javascript)
 
-En este artículo de inicio rápido, se explica un flujo de trabajo básico de desarrollo de aplicaciones de Azure IoT. Va a utilizar la CLI de Azure e IoT Explorer para crear un centro de Azure IoT y un dispositivo. Luego, usará un SDK de dispositivo IoT de Azure de ejemplo para ejecutar un controlador de temperatura, conectarlo de forma segura al centro y enviar la telemetría. La aplicación de ejemplo del controlador de temperatura se ejecuta en la máquina local y genera datos del sensor simulados para enviarlos a IoT Hub.
+En este artículo de inicio rápido, se explica un flujo de trabajo básico de desarrollo de aplicaciones de Azure IoT. Va a utilizar la CLI de Azure e IoT Explorer para crear un centro de Azure IoT y un dispositivo. A continuación, utilizará un ejemplo de un SDK de dispositivo IoT de Azure para ejecutar un controlador de temperatura, conectarlo de forma segura al centro y enviar datos de telemetría. La aplicación de ejemplo del controlador de temperatura se ejecuta en la máquina local y genera datos del sensor simulados para enviarlos a IoT Hub.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 Este inicio rápido se ejecuta en Windows, Linux y Raspberry Pi. Se ha probado en las siguientes versiones de sistema operativo y dispositivo:
@@ -37,7 +37,7 @@ Instale los siguientes requisitos previos en la máquina de desarrollo, excepto 
 
 [!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
 
-## <a name="run-a-device"></a>Ejecución de un dispositivo
+## <a name="run-the-device-sample"></a>Ejecución del ejemplo de dispositivo
 En esta sección, usará el SDK de Node.js para enviar mensajes desde un dispositivo hasta IoT Hub. Ejecutará un ejemplo que implementa un controlador de temperatura con dos sensores de termostato.
 
 1. Abra una consola nueva como el símbolo del sistema de Windows, PowerShell o Bash. En los pasos siguientes, se utilizará esta consola para instalar el SDK para Node.js y trabajar con el código de ejemplo de Node.js.
@@ -55,12 +55,12 @@ En esta sección, usará el SDK de Node.js para enviar mensajes desde un disposi
 
     **Windows**
     ```console
-    cd azure-iot-sdk-node\device\samples\javascript\pnp
+    cd azure-iot-sdk-node\device\samples\javascript
     ```
 
     **Sistema operativo Linux o Raspberry Pi**
     ```console
-    cd azure-iot-sdk-node/device/samples/javascript/pnp
+    cd azure-iot-sdk-node/device/samples/javascript
     ```
 
 1. Instale el SDK de Azure IoT para Node.js y las dependencias necesarias:
@@ -101,7 +101,7 @@ En esta sección, usará el SDK de Node.js para enviar mensajes desde un disposi
 1. Ejecute el siguiente código de ejemplo:
 
     ```console
-    node pnpTemperatureController.js
+    node pnp_temperature_controller.js
     ```
     > [!NOTE]
     > En este ejemplo de código se usa Azure IoT Plug and Play, que le permite integrar dispositivos inteligentes en sus soluciones sin ninguna configuración manual.  De forma predeterminada, la mayoría de los ejemplos de esta documentación usan IoT Plug and Play. Para más información sobre las ventajas de IoT Plug and Play y los casos para su uso o no, consulte [¿Qué es IoT Plug and Play?](../articles/iot-develop/overview-iot-plug-and-play.md)
@@ -133,7 +133,7 @@ Para leer la telemetría que envían los componentes individuales del dispositiv
 
 Para ver la telemetría del dispositivo con la CLI de Azure:
 
-1. Ejecute el comando [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) para supervisar los eventos enviados desde el dispositivo hasta el centro de IoT. Use los nombres que creó anteriormente en Azure IoT para el dispositivo IoT Hub.
+1. Ejecute el comando [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) para supervisar los eventos enviados desde el dispositivo al centro de IoT. Use los nombres que creó anteriormente en Azure IoT para el dispositivo IoT Hub.
 
     ```azurecli
     az iot hub monitor-events --output table --device-id mydevice --hub-name {YourIoTHubName}

@@ -4,7 +4,7 @@ description: Información general de los registros de información de inicio de 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: karenhoran
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.date: 06/23/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9455883bea37602e572a538862eaf5de9c17bbbc
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 209b9f66a9d7d8d004162e465c85311886b423fa
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128669424"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997217"
 ---
 # <a name="sign-in-logs-in-azure-active-directory---preview"></a>Registros de información de inicio de sesión en Azure Active Directory: versión preliminar
 
@@ -112,7 +112,7 @@ Cada pestaña de la página de inicios de sesión muestra las columnas predeterm
 
 
 
-### <a name="interactive-user-sign-ins&quot;></a>Inicios de sesión de usuario interactivos
+### <a name="interactive-user-sign-ins"></a>Inicios de sesión de usuario interactivos
 
 
 Los inicios de sesión de usuario interactivos son inicios de sesión en los que un usuario proporciona un factor de autenticación para Azure AD o interactúa directamente con Azure AD o una aplicación auxiliar, como la aplicación Microsoft Authenticator. Los factores que los usuarios proporcionan incluyen las contraseñas, las respuestas a los desafíos de MFA, los factores biométricos o los códigos QR que un usuario proporciona a Azure AD o a una aplicación auxiliar.
@@ -148,7 +148,7 @@ Además de los campos predeterminados, el registro de la información de inicio 
 
 Puede personalizar la vista de lista, haga clic en **Columnas** en la barra de herramientas.
 
-![Columnas de inicio de sesión de usuario interactivo](./media/concept-all-sign-ins/columns-interactive.png &quot;Columnas del inicio de sesión de usuario interactivo")
+![Columnas de inicio de sesión de usuario interactivo](./media/concept-all-sign-ins/columns-interactive.png "Columnas del inicio de sesión de usuario interactivo")
 
 
 

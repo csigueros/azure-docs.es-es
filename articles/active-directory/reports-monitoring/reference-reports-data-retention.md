@@ -4,7 +4,7 @@ description: Descubra durante cuánto tiempo Azure almacena los distintos tipos 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.date: 11/05/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b53333ff9d61e6ee5bbc98bb4756199ca07486d0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: dc9658cddb17bf948fe562d806916d20bd28ba31
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128630079"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131995376"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>¿Durante cuánto tiempo Azure AD almacena los datos de informes?
 
@@ -63,8 +63,8 @@ En el caso de las señales de seguridad, el proceso de recopilación se inicia c
 
 | Informe                 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--                 | :--                 |
-| Registros de auditoría             | 7 días        | 30 días             | 30 días             |
-| Inicios de sesión               | 7 días        | 30 días             | 30 días             |
+| Registros de auditoría             | Siete días        | 30 días             | 30 días             |
+| Inicios de sesión               | Siete días        | 30 días             | 30 días             |
 | Uso de MFA de Azure AD        | 30 días       | 30 días             | 30 días             |
 
 Puede conservar los datos de actividad de auditoría e inicio de sesión durante un tiempo mayor que el período de retención predeterminado que se ha descrito anteriormente si los enruta a una cuenta de almacenamiento de Azure con Azure Monitor. Para obtener más información, consulte [Archivado de registros de Azure AD en una cuenta de Azure Storage](quickstart-azure-monitor-route-logs-to-storage-account.md).
@@ -73,7 +73,7 @@ Puede conservar los datos de actividad de auditoría e inicio de sesión durante
 
 | Informe         | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--            | :--           | :--                 | :--                 |
-| Usuarios de riesgo    | ilimitado      | ilimitado            | ilimitado            |
+| Usuarios de riesgo    | Sin límite      | Sin límite            | Sin límite            |
 | Inicios de sesión no seguros | 7 días        | 30 días             | 90 días             |
 
 > [!NOTE]

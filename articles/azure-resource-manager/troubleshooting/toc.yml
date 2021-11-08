@@ -12,9 +12,15 @@
       href: quickstart-troubleshoot-bicep-deployment.md
 - name: Procedimientos
   items:
-    - name: Solución de problemas de implementaciones
+    - name: Búsqueda de códigos de error
+      href: find-error-code.md
+    - name: Habilitación del registro de depuración
+      href: enable-debug-logging.md
+    - name: Creación de una plantilla de solución de problemas
+      href: create-troubleshooting-template.md
+    - name: Búsqueda de solución por código de error
       items:
-        - name: Solución de errores de implementación
+        - name: Errores de implementación frecuentes
           href: common-deployment-errors.md
         - name: AccountNameInvalid
           href: error-storage-account-name.md

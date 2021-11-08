@@ -5,13 +5,13 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: how-to
-ms.date: 08/26/2021
-ms.openlocfilehash: 02e7afa9b8c454b3520db933d76149973b50c699
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.date: 11/08/2021
+ms.openlocfilehash: 895e79b649d23ec1330784a179f3f36b2f0f73ad
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129275171"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131996079"
 ---
 #  <a name="start-a-websocket-connection-to-azure-web-pubsub"></a>Inicio de una conexión de WebSocket a Azure Web PubSub
 
