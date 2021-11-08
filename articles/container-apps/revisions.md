@@ -1,19 +1,19 @@
 ---
 title: Revisiones en la versión preliminar de Azure Container Apps
 description: Descubra cómo se crean revisiones en Azure Container Apps.
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 8b77ae0e43078b17c83de43ebc516bfeab9c5c13
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 543d0465e4fe16aafa911d486d2099259ac8a769
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131579038"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132026660"
 ---
 # <a name="revisions-in-azure-container-apps-preview"></a>Revisiones en la versión preliminar de Azure Container Apps
 

@@ -1,19 +1,19 @@
 ---
 title: Contenedores en la versión preliminar de Azure Container Apps
 description: Información sobre cómo se administran y configuran los contenedores en Azure Container Apps
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 9fc40b46ce2fbe93d64013ea4e3e7b7e36ef7bf3
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: fdebbbae4cba1577b8f92e0f54821eb72737c2c3
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131576308"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132026778"
 ---
 # <a name="containers-in-azure-container-apps-preview"></a>Contenedores en la versión preliminar de Azure Container Apps
 
@@ -77,8 +77,8 @@ La cantidad total de CPU y memoria solicitada para todos los contenedores de una
 |---|---|
 | 0.5 | 1.0 |
 | 1.0 | 2.0 |
-| 1.5 | 3.0 |
-| 2.0 | 4,0 |
+| 1.5 | 3,0 |
+| 2,0 | 4,0 |
 
 - Todas las solicitudes de CPU de todos los contenedores deben coincidir con uno de los valores de la columna de vCPU.
 - Todas las solicitudes de memoria de todos los contenedores deben coincidir con el valor de memoria de la columna de memoria en la misma fila de la columna de CPU.

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 10/05/2021
-ms.openlocfilehash: 66c222c29e33fd99d37d334f34c1869135f1b580
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 01b16a8ac28f89f0bb59944bdb790a2fa6cc8e75
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129544559"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132028560"
 ---
 # <a name="tutorial-migrate-sql-server-to-sql-server-on-azure-virtual-machine-offline-using-azure-data-studio-with-dms-preview"></a>Tutorial: Migración sin conexión de SQL Server a SQL Server en una máquina virtual de Azure mediante Azure Data Studio con DMS (versión preliminar)
 
@@ -55,7 +55,6 @@ Para completar este tutorial, necesita:
     > [!IMPORTANT]
     > - Si los archivos de copia de seguridad de la base de datos se proporcionan en un recurso compartido de red SMB, [cree una cuenta de almacenamiento de Azure](../storage/common/storage-account-create.md) que permita al servicio DMS cargar los archivos de copia de seguridad de la base de datos.  Asegúrese de crear la cuenta Azure Storage en la misma región en la que se creó la instancia de Azure Database Migration Service.
     > - Azure Database Migration Service no se inicia copias de seguridad y en su lugar usa las copias de seguridad existentes, que puede que ya tenga como parte de su plan de recuperación ante desastres, para la migración.
-    > - Debe realizar las [copias de seguridad con la opción `WITH CHECKSUM`](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server). 
     > - Cada copia de seguridad se puede escribir en un archivo de copia de seguridad independiente o en varios archivos de copia de seguridad. Sin embargo, no se admite la anexación de varias copias de seguridad (es decir, el registro completo y de transacciones) en un único medio de copia de seguridad. 
     > - Use copias de seguridad comprimidas para reducir la probabilidad de problemas asociados a la migración de copias de seguridad de gran tamaño.
 * Asegurarse de que la cuenta de servicio que ejecuta la instancia de SQL Server de origen tenga permisos de lectura y escritura en el recurso compartido de red SMB que contiene los archivos de copia de seguridad de la base de datos.

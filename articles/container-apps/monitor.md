@@ -1,19 +1,19 @@
 ---
 title: Supervisión de una aplicación en la versión preliminar de Azure Container Apps
 description: Obtenga información sobre cómo se supervisan y registran las aplicaciones en Azure Container Apps.
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: b956fa5847cce3f5fe85e91ea8e3846c47eabde7
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: c9c324c90ad401d43be1e2d6768ea82121fc1ae8
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131894039"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132027849"
 ---
 # <a name="monitor-an-app-in-azure-container-apps-preview"></a>Supervisión de una aplicación en la versión preliminar de Azure Container Apps
 

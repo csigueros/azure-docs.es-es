@@ -3,12 +3,12 @@ title: 'Creación de una función de PowerShell con Visual Studio Code: Azure F
 description: Obtenga información sobre cómo crear una función de PowerShell y, a continuación, publicar el proyecto local en el hospedaje sin servidor de Azure Functions con la extensión de Azure Functions en Visual Studio Code.
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.openlocfilehash: 58a2b8a5fb386603361afa9fc26b4d323c487691
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 928174e1b40319ed26156f37a297547ebd938f76
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107862568"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132028651"
 ---
 # <a name="quickstart-create-a-powershell-function-in-azure-using-visual-studio-code"></a>Inicio rápido: Creación de una función de PowerShell en Azure mediante Visual Studio Code
 
@@ -71,7 +71,7 @@ Después de comprobar que la función se ejecuta correctamente en el equipo loca
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
-[!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
+[!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-powershell-project-vscode.md)]
 
 [!INCLUDE [functions-vs-code-run-remote](../../includes/functions-vs-code-run-remote.md)]
 

@@ -11,17 +11,17 @@ ms.topic: overview
 ms.date: 04/01/2021
 ms.author: barclayn
 ms.reviewer: ''
-ms.openlocfilehash: e87105a05cde1a32a89d3e4fd404ad222245dce0
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 4f210077fd5a2cc4155b9123b33f4638e63c1ee4
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129996520"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132026867"
 ---
 # <a name="introduction-to-azure-active-directory-verifiable-credentials-preview"></a>Introducción a Azure Active Directory Verifiable Credentials (versión preliminar)
 
 > [!IMPORTANT]
-> Azure Active Directory Verifiable Credentials se encuentra actualmente en versión preliminar pública.
+> Las credenciales verificables de Azure Active Directory son una característica que se encuentra actualmente en versión preliminar.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Tanto nuestra vida física como la digital cada vez están más vinculadas a las aplicaciones, los servicios y los dispositivos que usamos para acceder a un elevado número de experiencias. Esta transformación digital nos permite interactuar con cientos de empresas y miles de usuarios de maneras que antes eran inimaginables.
@@ -121,6 +121,6 @@ Los roles de este escenario son:
 
 Ahora que sabe lo que son las identidades descentralizadas y las credenciales verificables, pruébelas siguiendo nuestro artículo de introducción o cualquier otro de nuestros artículos en los que se proporcionen más detalles sobre los conceptos de credenciales verificables.
 
-- [Introducción a las credenciales verificables](get-started-verifiable-credentials.md)
+- [Introducción a las credenciales verificables](verifiable-credentials-configure-tenant.md)
 - [Personalización de credenciales](credential-design.md)
 - [Preguntas frecuentes sobre las credenciales verificables](verifiable-credentials-faq.md)

@@ -4,12 +4,12 @@ description: Aprenda a desarrollar funciones con Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: d03a4121394141b7b39ae441d7eb3cf653a0b374
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: ae47e03e2b72c94c5419744164cf9daa2182b7de
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129232154"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132027135"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guía de Azure Functions para desarrolladores de Java
 
@@ -154,6 +154,7 @@ En la tabla siguiente se muestran las versiones actuales de Java compatibles par
 
 | Versión de Functions | Versiones de Java (Windows) | Versiones de Java (Linux) |
 | ----- | ----- | --- |
+| 4.x | 11 <br/>8 | 11 <br/>8 |
 | 3.x | 11 <br/>8 | 11 <br/>8 |
 | 2.x | 8 | N/D |
 
@@ -214,7 +215,7 @@ Puede proporcionar argumentos adicionales en una configuración de la aplicació
 > [!IMPORTANT]  
 > En el plan de consumo, también debe agregar el valor WEBSITE_USE_PLACEHOLDER con un valor de 0 para que funcione la personalización. Esta configuración aumenta los tiempos de arranque en frío de las funciones Java.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 En [Azure Portal](https://portal.azure.com), utilice la pestaña [Configuración de la aplicación](functions-how-to-use-azure-function-app-settings.md#settings) para agregar la configuración `JAVA_OPTS`.
 

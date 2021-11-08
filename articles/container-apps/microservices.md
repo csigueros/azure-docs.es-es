@@ -1,19 +1,19 @@
 ---
 title: Microservicios con Azure Container Apps (versión preliminar)
 description: Información sobre cómo crear un microservicio en Azure Container Apps
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 99903809a7809db0164025df1de80f13262c8c2c
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 39d095f28c9f642815e5463975b9836e228d9c3a
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131577049"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132028750"
 ---
 # <a name="microservices-with-azure-containers-apps-preview"></a>Microservicios con Azure Container Apps (versión preliminar)
 

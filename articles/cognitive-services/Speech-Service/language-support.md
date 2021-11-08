@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: eur
 ms.custom: references_regions, ignite-fall-2021
-ms.openlocfilehash: da7d2acfe48d4d598e2bbbfddccb55e2a7d20241
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 67ac8e5cc3f7d555086ad6f643b82e8615168fa3
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131505372"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132028123"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Compatibilidad con idiomas y voces en el servicio de voz
 
@@ -163,44 +163,44 @@ Las voces neuronales se pueden usar para que las interacciones con los bots de c
 
 | Idioma | Configuración regional | Sexo | Nombre de voz | Compatibilidad de estilo |
 |---|---|---|---|---|
-| Afrikáans (Sudáfrica) | af-ZA | Female | `af-ZA-AdriNeural` <sup>Nuevo</sup>  | General |
-| Afrikáans (Sudáfrica) | af-ZA | Male | `af-ZA-WillemNeural` <sup>Nuevo</sup>  | General |
-| Amárico (Etiopía) | am-ET | Female | `am-ET-MekdesNeural` <sup>Nuevo</sup>  | General |
-| Amárico (Etiopía) | am-ET | Male | `am-ET-AmehaNeural` <sup>Nuevo</sup>  | General |
-| Árabe (Argelia) | ar-DZ | Female | `ar-DZ-AminaNeural` <sup>Nuevo</sup>  | General |
-| Árabe (Argelia) | ar-DZ | Male | `ar-DZ-IsmaelNeural` <sup>Nuevo</sup>  | General |
-| Árabe (Bahréin) | ar-BH | Female | `ar-BH-LailaNeural` <sup>Nuevo</sup>  | General |
-| Árabe (Bahréin) | ar-BH | Male | `ar-BH-AliNeural` <sup>Nuevo</sup>  | General |
+| Afrikáans (Sudáfrica) | `af-ZA` | Female | `af-ZA-AdriNeural` <sup>Nuevo</sup>  | General |
+| Afrikáans (Sudáfrica) | `af-ZA` | Male | `af-ZA-WillemNeural` <sup>Nuevo</sup>  | General |
+| Amárico (Etiopía) | `am-ET` | Female | `am-ET-MekdesNeural` <sup>Nuevo</sup>  | General |
+| Amárico (Etiopía) | `am-ET` | Male | `am-ET-AmehaNeural` <sup>Nuevo</sup>  | General |
+| Árabe (Argelia) | `ar-DZ` | Female | `ar-DZ-AminaNeural` <sup>Nuevo</sup>  | General |
+| Árabe (Argelia) | `ar-DZ` | Male | `ar-DZ-IsmaelNeural` <sup>Nuevo</sup>  | General |
+| Árabe (Bahréin) | `ar-BH` | Female | `ar-BH-LailaNeural` <sup>Nuevo</sup>  | General |
+| Árabe (Bahréin) | `ar-BH` | Male | `ar-BH-AliNeural` <sup>Nuevo</sup>  | General |
 | Árabe (Egipto) | `ar-EG` | Female | `ar-EG-SalmaNeural` | General |
 | Árabe (Egipto) | `ar-EG` | Male | `ar-EG-ShakirNeural` | General |
-| Árabe (Iraq) | ar-IQ | Female | `ar-IQ-RanaNeural` <sup>Nuevo</sup>  | General |
-| Árabe (Iraq) | ar-IQ | Male | `ar-IQ-BasselNeural` <sup>Nuevo</sup>  | General |
-| Árabe (Jordania) | ar-JO | Female | `ar-JO-Sana Neural` <sup>Nuevo</sup>  | General |
-| Árabe (Jordania) | ar-JO | Male | `ar-JO-Taim Neural` <sup>Nuevo</sup>  | General |
-| Árabe (Kuwait) | ar-KW | Female | `ar-KW-NouraNeural` <sup>Nuevo</sup>  | General |
-| Árabe (Kuwait) | ar-KW | Male | `ar-KW-FahedNeural` <sup>Nuevo</sup>  | General |
-| Árabe (Libia) | ar-LY | Female | `ar-LY-ImanNeural` <sup>Nuevo</sup>  | General |
-| Árabe (Libia) | ar-LY | Male | `ar-LY-OmarNeural` <sup>Nuevo</sup>  | General |
-| Árabe (Marruecos) | ar-MA | Female | `ar-MA-MounaNeural` <sup>Nuevo</sup>  | General |
-| Árabe (Marruecos) | ar-MA | Male | `ar-MA-JamalNeural` <sup>Nuevo</sup>  | General |
-| Árabe (Qatar) | ar-QA | Female | `ar-QA-AmalNeural` <sup>Nuevo</sup>  | General |
-| Árabe (Qatar) | ar-QA | Male | `ar-QA-MoazNeural` <sup>Nuevo</sup>  | General |
+| Árabe (Iraq) | `ar-IQ` | Female | `ar-IQ-RanaNeural` <sup>Nuevo</sup>  | General |
+| Árabe (Iraq) | `ar-IQ` | Male | `ar-IQ-BasselNeural` <sup>Nuevo</sup>  | General |
+| Árabe (Jordania) | `ar-JO` | Female | `ar-JO-Sana Neural` <sup>Nuevo</sup>  | General |
+| Árabe (Jordania) | `ar-JO` | Male | `ar-JO-Taim Neural` <sup>Nuevo</sup>  | General |
+| Árabe (Kuwait) | `ar-KW` | Female | `ar-KW-NouraNeural` <sup>Nuevo</sup>  | General |
+| Árabe (Kuwait) | `ar-KW` | Male | `ar-KW-FahedNeural` <sup>Nuevo</sup>  | General |
+| Árabe (Libia) | `ar-LY` | Female | `ar-LY-ImanNeural` <sup>Nuevo</sup>  | General |
+| Árabe (Libia) | `ar-LY` | Male | `ar-LY-OmarNeural` <sup>Nuevo</sup>  | General |
+| Árabe (Marruecos) | `ar-MA` | Female | `ar-MA-MounaNeural` <sup>Nuevo</sup>  | General |
+| Árabe (Marruecos) | `ar-MA` | Male | `ar-MA-JamalNeural` <sup>Nuevo</sup>  | General |
+| Árabe (Qatar) | `ar-QA` | Female | `ar-QA-AmalNeural` <sup>Nuevo</sup>  | General |
+| Árabe (Qatar) | `ar-QA` | Male | `ar-QA-MoazNeural` <sup>Nuevo</sup>  | General |
 | Árabe (Arabia Saudí) | `ar-SA` | Female | `ar-SA-ZariyahNeural` | General |
 | Árabe (Arabia Saudí) | `ar-SA` | Male | `ar-SA-HamedNeural` | General |
-| Árabe (Siria) | ar-SY | Female | `ar-SY-AmanyNeural` <sup>Nuevo</sup>  | General |
-| Árabe (Siria) | ar-SY | Male | `ar-SY-LaithNeural` <sup>Nuevo</sup>  | General |
-| Árabe (Túnez) | ar-TN | Female | `ar-TN-ReemNeural` <sup>Nuevo</sup>  | General |
-| Árabe (Túnez) | ar-TN | Male | `ar-TN-HediNeural` <sup>Nuevo</sup>  | General |
-| Árabe (Emiratos Árabes Unidos) | ar-AE | Female | `ar-AE-FatimaNeural` <sup>Nuevo</sup>  | General |
-| Árabe (Emiratos Árabes Unidos) | ar-AE | Male | `ar-AE-HamdanNeural` <sup>Nuevo</sup>  | General |
-| Árabe (Yemen) | ar-YE | Female | `ar-YE-MaryamNeural` <sup>Nuevo</sup>  | General |
-| Árabe (Yemen) | ar-YE | Male | `ar-YE-SalehNeural` <sup>Nuevo</sup>  | General |
-| Bengalí (Bangladesh) | bn-BD | Female | `bn-BD-NabanitaNeural` <sup>Nuevo</sup>  | General |
-| Bengalí (Bangladesh) | bn-BD | Male | `bn-BD-PradeepNeural` <sup>Nuevo</sup>  | General |
+| Árabe (Siria) | `ar-SY` | Female | `ar-SY-AmanyNeural` <sup>Nuevo</sup>  | General |
+| Árabe (Siria) | `ar-SY` | Male | `ar-SY-LaithNeural` <sup>Nuevo</sup>  | General |
+| Árabe (Túnez) | `ar-TN` | Female | `ar-TN-ReemNeural` <sup>Nuevo</sup>  | General |
+| Árabe (Túnez) | `ar-TN` | Male | `ar-TN-HediNeural` <sup>Nuevo</sup>  | General |
+| Árabe (Emiratos Árabes Unidos) | `ar-AE` | Female | `ar-AE-FatimaNeural` <sup>Nuevo</sup>  | General |
+| Árabe (Emiratos Árabes Unidos) | `ar-AE` | Male | `ar-AE-HamdanNeural` <sup>Nuevo</sup>  | General |
+| Árabe (Yemen) | `ar-YE` | Female | `ar-YE-MaryamNeural` <sup>Nuevo</sup>  | General |
+| Árabe (Yemen) | `ar-YE` | Male | `ar-YE-SalehNeural` <sup>Nuevo</sup>  | General |
+| Bengalí (Bangladesh) | `bn-BD` | Female | `bn-BD-NabanitaNeural` <sup>Nuevo</sup>  | General |
+| Bengalí (Bangladesh) | `bn-BD` | Male | `bn-BD-PradeepNeural` <sup>Nuevo</sup>  | General |
 | Búlgaro (Bulgaria) | `bg-BG` | Female | `bg-BG-KalinaNeural` | General |
 | Búlgaro (Bulgaria) | `bg-BG` | Male | `bg-BG-BorislavNeural` | General |
-| Birmano (Myanmar) | my-MM | Female | `my-MM-NilarNeural` <sup>Nuevo</sup>  | General |
-| Birmano (Myanmar) | my-MM | Male | `my-MM-ThihaNeural` <sup>Nuevo</sup>  | General |
+| Birmano (Myanmar) | `my-MM` | Female | `my-MM-NilarNeural` <sup>Nuevo</sup>  | General |
+| Birmano (Myanmar) | `my-MM` | Male | `my-MM-ThihaNeural` <sup>Nuevo</sup>  | General |
 | Catalán (España) | `ca-ES` | Female | `ca-ES-AlbaNeural` | General |
 | Catalán (España) | `ca-ES` | Female | `ca-ES-JoanaNeural` | General |
 | Catalán (España) | `ca-ES` | Male | `ca-ES-EnricNeural` | General |
@@ -240,20 +240,20 @@ Las voces neuronales se pueden usar para que las interacciones con los bots de c
 | Inglés (India) | `en-IN` | Male | `en-IN-PrabhatNeural` | General |
 | Inglés (Irlanda) | `en-IE` | Female | `en-IE-EmilyNeural` | General |
 | Inglés (Irlanda) | `en-IE` | Male | `en-IE-ConnorNeural` | General |
-| Inglés (Kenia) | en-KE | Female | `en-KE-AsiliaNeural` <sup>Nuevo</sup>  | General |
-| Inglés (Kenia) | en-KE | Male | `en-KE-ChilembaNeural` <sup>Nuevo</sup>  | General |
+| Inglés (Kenia) | `en-KE` | Female | `en-KE-AsiliaNeural` <sup>Nuevo</sup>  | General |
+| Inglés (Kenia) | `en-KE` | Male | `en-KE-ChilembaNeural` <sup>Nuevo</sup>  | General |
 | Inglés (Nueva Zelanda) | `en-NZ` | Female | `en-NZ-MollyNeural` | General |
 | Inglés (Nueva Zelanda) | `en-NZ` | Male | `en-NZ-MitchellNeural` | General |
-| Inglés (Nigeria) | en-NG | Female | `en-NG-EzinneNeural` <sup>Nuevo</sup>  | General |
-| Inglés (Nigeria) | en-NG | Male | `en-NG-AbeoNeural` <sup>Nuevo</sup>  | General |
+| Inglés (Nigeria) | `en-NG` | Female | `en-NG-EzinneNeural` <sup>Nuevo</sup>  | General |
+| Inglés (Nigeria) | `en-NG` | Male | `en-NG-AbeoNeural` <sup>Nuevo</sup>  | General |
 | Inglés (Filipinas) | `en-PH` | Female | `en-PH-RosaNeural` | General | 
 | Inglés (Filipinas) | `en-PH` | Male | `en-PH-JamesNeural` | General | 
 | Inglés (Singapur) | `en-SG` | Female | `en-SG-LunaNeural` | General |
 | Inglés (Singapur) | `en-SG` | Male | `en-SG-WayneNeural` | General |
 | Inglés (Sudáfrica) | `en-ZA` | Female | `en-ZA-LeahNeural` | General |
 | Inglés (Sudáfrica) | `en-ZA` | Male | `en-ZA-LukeNeural` | General |
-| Inglés (Tanzania) | en-TZ | Female | `en-TZ-ImaniNeural` <sup>Nuevo</sup>  | General |
-| Inglés (Tanzania) | en-TZ | Male | `en-TZ-ElimuNeural` <sup>Nuevo</sup>  | General |
+| Inglés (Tanzania) | `en-TZ` | Female | `en-TZ-ImaniNeural` <sup>Nuevo</sup>  | General |
+| Inglés (Tanzania) | `en-TZ` | Male | `en-TZ-ElimuNeural` <sup>Nuevo</sup>  | General |
 | Inglés (Reino Unido) | `en-GB` | Female | `en-GB-LibbyNeural` | General |
 | Inglés (Reino Unido) | `en-GB` | Female | `en-GB-MiaNeural`<sup>Se retirará el 30 de octubre; consulte la información que tiene a continuación.</sup> | General |
 | Inglés (Reino Unido) | `en-GB` | Female | `en-GB-SoniaNeural` | General |
@@ -275,8 +275,8 @@ Las voces neuronales se pueden usar para que las interacciones con los bots de c
 | Spanish (Traditional Sort) - Spain | `en-US` | Male | `en-US-JacobNeural` | General |
 | Estonio (Estonia) | `et-EE` | Female | `et-EE-AnuNeural` | General |
 | Estonio (Estonia) | `et-EE` | Male | `et-EE-KertNeural` | General |
-| Filipino (Filipinas) | fil-PH | Female | `fil-PH-BlessicaNeural` <sup>Nuevo</sup>  | General |
-| Filipino (Filipinas) | fil-PH | Male | `fil-PH-AngeloNeural` <sup>Nuevo</sup>  | General |
+| Filipino (Filipinas) | `fil-PH` | Female | `fil-PH-BlessicaNeural` <sup>Nuevo</sup>  | General |
+| Filipino (Filipinas) | `fil-PH` | Male | `fil-PH-AngeloNeural` <sup>Nuevo</sup>  | General |
 | Finés (Finlandia) | `fi-FI` | Female | `fi-FI-NooraNeural` | General |
 | Finés (Finlandia) | `fi-FI` | Female | `fi-FI-SelmaNeural` | General |
 | Finés (Finlandia) | `fi-FI` | Male | `fi-FI-HarriNeural` | General |
@@ -289,8 +289,8 @@ Las voces neuronales se pueden usar para que las interacciones con los bots de c
 | Francés (Francia) | `fr-FR` | Male | `fr-FR-HenriNeural` | General |
 | Francés (Suiza) | `fr-CH` | Female | `fr-CH-ArianeNeural` | General |
 | Francés (Suiza) | `fr-CH` | Male | `fr-CH-FabriceNeural` | General |
-| Gallego (España) | gl-ES | Female | `gl-ES-SabelaNeural` <sup>Nuevo</sup>  | General |
-| Gallego (España) | gl-ES | Male | `gl-ES-RoiNeural` <sup>Nuevo</sup>  | General |
+| Gallego (España) | `gl-ES` | Female | `gl-ES-SabelaNeural` <sup>Nuevo</sup>  | General |
+| Gallego (España) | `gl-ES` | Male | `gl-ES-RoiNeural` <sup>Nuevo</sup>  | General |
 | Alemán (Austria) | `de-AT` | Female | `de-AT-IngridNeural` | General |
 | Alemán (Austria) | `de-AT` | Male | `de-AT-JonasNeural` | General |
 | Alemán (Alemania) | `de-DE` | Female | `de-DE-KatjaNeural` | General |
@@ -316,10 +316,10 @@ Las voces neuronales se pueden usar para que las interacciones con los bots de c
 | Italiano (Italia) | `it-IT` | Male | `it-IT-DiegoNeural` | General |
 | Japonés (Japón) | `ja-JP` | Female | `ja-JP-NanamiNeural` | General |
 | Japonés (Japón) | `ja-JP` | Male | `ja-JP-KeitaNeural` | General |
-| Javanés (Indonesia) | jv-ID | Female | `jv-ID-SitiNeural` <sup>Nuevo</sup>  | General |
-| Javanés (Indonesia) | jv-ID | Male | `jv-ID-DimasNeural` <sup>Nuevo</sup>  | General |
-| Jemer (Camboya) | km-KH | Female | `km-KH-SreymomNeural` <sup>Nuevo</sup>  | General |
-| Jemer (Camboya) | km-KH | Male | `km-KH-PisethNeural` <sup>Nuevo</sup>  | General |
+| Javanés (Indonesia) | `jv-ID` | Female | `jv-ID-SitiNeural` <sup>Nuevo</sup>  | General |
+| Javanés (Indonesia) | `jv-ID` | Male | `jv-ID-DimasNeural` <sup>Nuevo</sup>  | General |
+| Jemer (Camboya) | `km-KH` | Female | `km-KH-SreymomNeural` <sup>Nuevo</sup>  | General |
+| Jemer (Camboya) | `km-KH` | Male | `km-KH-PisethNeural` <sup>Nuevo</sup>  | General |
 | Coreano (Corea) | `ko-KR` | Female | `ko-KR-SunHiNeural` | General |
 | Coreano (Corea) | `ko-KR` | Male | `ko-KR-InJoonNeural` | General |
 | Letón (Letonia) | `lv-LV` | Female | `lv-LV-EveritaNeural` | General |
@@ -335,8 +335,8 @@ Las voces neuronales se pueden usar para que las interacciones con los bots de c
 | Noruego (Bokmål, Noruega) | `nb-NO` | Female | `nb-NO-IselinNeural` | General |
 | Noruego (Bokmål, Noruega) | `nb-NO` | Female | `nb-NO-PernilleNeural` | General |
 | Noruego (Bokmål, Noruega) | `nb-NO` | Male | `nb-NO-FinnNeural` | General |
-| Persa (Irán) | fa-IR | Female | `fa-IR-DilaraNeural` <sup>Nuevo</sup>  | General |
-| Persa (Irán) | fa-IR | Male | `fa-IR-FaridNeural` <sup>Nuevo</sup>  | General |
+| Persa (Irán) | `fa-IR` | Female | `fa-IR-DilaraNeural` <sup>Nuevo</sup>  | General |
+| Persa (Irán) | `fa-IR` | Male | `fa-IR-FaridNeural` <sup>Nuevo</sup>  | General |
 | Polaco (Polonia) | `pl-PL` | Female | `pl-PL-AgnieszkaNeural` | General |
 | Polaco (Polonia) | `pl-PL` | Female | `pl-PL-ZofiaNeural` | General |
 | Polaco (Polonia) | `pl-PL` | Male | `pl-PL-MarekNeural` | General |
@@ -354,67 +354,67 @@ Las voces neuronales se pueden usar para que las interacciones con los bots de c
 | Eslovaco (Eslovaquia) | `sk-SK` | Male | `sk-SK-LukasNeural` | General |
 | Esloveno (Eslovenia) | `sl-SI` | Female | `sl-SI-PetraNeural` | General |
 | Esloveno (Eslovenia) | `sl-SI` | Male | `sl-SI-RokNeural` | General |
-| Somalí (Somalia) | so-SO | Female | `so-SO-UbaxNeural` <sup>Nuevo</sup>  | General |
-| Somalí (Somalia) | so-SO | Male | `so-SO-MuuseNeural` <sup>Nuevo</sup>  | General |
+| Somalí (Somalia) | `so-SO` | Female | `so-SO-UbaxNeural` <sup>Nuevo</sup>  | General |
+| Somalí (Somalia) | `so-SO`| Male | `so-SO-MuuseNeural` <sup>Nuevo</sup>  | General |
 | Español (Argentina) | `es-AR` | Female | `es-AR-ElenaNeural` | General |
 | Español (Argentina) | `es-AR` | Male | `es-AR-TomasNeural` | General |
-| Español (Bolivia) | es-BO | Female | `es-BO-SofiaNeural` <sup>Nuevo</sup>  | General |
-| Español (Bolivia) | es-BO | Male | `es-BO-MarceloNeural` <sup>Nuevo</sup>  | General |
-| Español (Chile) | es-CL | Female | `es-CL-CatalinaNeural` <sup>Nuevo</sup>  | General |
-| Español (Chile) | es-CL | Male | `es-CL-LorenzoNeural` <sup>Nuevo</sup>  | General |
+| Español (Bolivia) | `es-BO` | Female | `es-BO-SofiaNeural` <sup>Nuevo</sup>  | General |
+| Español (Bolivia) | `es-BO` | Male | `es-BO-MarceloNeural` <sup>Nuevo</sup>  | General |
+| Español (Chile) | `es-CL` | Female | `es-CL-CatalinaNeural` <sup>Nuevo</sup>  | General |
+| Español (Chile) | `es-CL` | Male | `es-CL-LorenzoNeural` <sup>Nuevo</sup>  | General |
 | Español (Colombia) | `es-CO` | Female | `es-CO-SalomeNeural` | General |
 | Español (Colombia) | `es-CO` | Male | `es-CO-GonzaloNeural` | General |
-| Español (Costa Rica) | es-CR | Female | `es-CR-MariaNeural` <sup>Nuevo</sup>  | General |
-| Español (Costa Rica) | es-CR | Male | `es-CR-JuanNeural` <sup>Nuevo</sup>  | General |
-| Español (Cuba) | es-CU | Female | `es-CU-BelkysNeural` <sup>Nuevo</sup>  | General |
-| Español (Cuba) | es-CU | Male | `es-CU-ManuelNeural` <sup>Nuevo</sup>  | General |
-| Español (República Dominicana) | es-DO | Female | `es-DO-RamonaNeural` <sup>Nuevo</sup>  | General |
-| Español (República Dominicana) | es-DO | Male | `es-DO-EmilioNeural` <sup>Nuevo</sup>  | General |
-| Español (Ecuador) | es-EC | Female | `es-EC-AndreaNeural` <sup>Nuevo</sup>  | General |
-| Español (Ecuador) | es-EC | Male | `es-EC-LuisNeural` <sup>Nuevo</sup>  | General |
-| Español (El Salvador) | es-SV | Female | `es-SV-LorenaNeural` <sup>Nuevo</sup>  | General |
-| Español (El Salvador) | es-SV | Male | `es-SV-RodrigoNeural` <sup>Nuevo</sup>  | General |
-| Español (Guinea Ecuatorial) | es-GQ | Female | `es-GQ-TeresaNeural` <sup>Nuevo</sup>  | General |
-| Español (Guinea Ecuatorial) | es-GQ | Male | `es-GQ-JavierNeural` <sup>Nuevo</sup>  | General |
-| Español (Guatemala) | es-GT | Female | `es-GT-MartaNeural` <sup>Nuevo</sup>  | General |
-| Español (Guatemala) | es-GT | Male | `es-GT-AndresNeural` <sup>Nuevo</sup>  | General |
-| Español (Honduras) | es-HN | Female | `es-HN-KarlaNeural` <sup>Nuevo</sup>  | General |
-| Español (Honduras) | es-HN | Male | `es-HN-CarlosNeural` <sup>Nuevo</sup>  | General |
+| Español (Costa Rica) | `es-CR` | Female | `es-CR-MariaNeural` <sup>Nuevo</sup>  | General |
+| Español (Costa Rica) | `es-CR` | Male | `es-CR-JuanNeural` <sup>Nuevo</sup>  | General |
+| Español (Cuba) | `es-CU` | Female | `es-CU-BelkysNeural` <sup>Nuevo</sup>  | General |
+| Español (Cuba) | `es-CU` | Male | `es-CU-ManuelNeural` <sup>Nuevo</sup>  | General |
+| Español (República Dominicana) | `es-DO` | Female | `es-DO-RamonaNeural` <sup>Nuevo</sup>  | General |
+| Español (República Dominicana) | `es-DO` | Male | `es-DO-EmilioNeural` <sup>Nuevo</sup>  | General |
+| Español (Ecuador) | `es-EC` | Female | `es-EC-AndreaNeural` <sup>Nuevo</sup>  | General |
+| Español (Ecuador) | `es-EC` | Male | `es-EC-LuisNeural` <sup>Nuevo</sup>  | General |
+| Español (El Salvador) | `es-SV` | Female | `es-SV-LorenaNeural` <sup>Nuevo</sup>  | General |
+| Español (El Salvador) | `es-SV` | Male | `es-SV-RodrigoNeural` <sup>Nuevo</sup>  | General |
+| Español (Guinea Ecuatorial) | `es-GQ` | Female | `es-GQ-TeresaNeural` <sup>Nuevo</sup>  | General |
+| Español (Guinea Ecuatorial) | `es-GQ` | Male | `es-GQ-JavierNeural` <sup>Nuevo</sup>  | General |
+| Español (Guatemala) | `es-GT` | Female | `es-GT-MartaNeural` <sup>Nuevo</sup>  | General |
+| Español (Guatemala) | `es-GT` | Male | `es-GT-AndresNeural` <sup>Nuevo</sup>  | General |
+| Español (Honduras) | `es-HN` | Female | `es-HN-KarlaNeural` <sup>Nuevo</sup>  | General |
+| Español (Honduras) | `es-HN` | Male | `es-HN-CarlosNeural` <sup>Nuevo</sup>  | General |
 | Español (México) | `es-MX` | Female | `es-MX-DaliaNeural` | General |
 | Español (México) | `es-MX` | Male | `es-MX-JorgeNeural` | General |
-| Español (Nicaragua) | es-NI | Female | `es-NI-YolandaNeural` <sup>Nuevo</sup>  | General |
-| Español (Nicaragua) | es-NI | Male | `es-NI-FedericoNeural` <sup>Nuevo</sup>  | General |
-| Español (Panamá) | es-PA | Female | `es-PA-MargaritaNeural` <sup>Nuevo</sup>  | General |
-| Español (Panamá) | es-PA | Male | `es-PA-RobertoNeural` <sup>Nuevo</sup>  | General |
-| Español (Paraguay) | es-PY | Female | `es-PY-TaniaNeural` <sup>Nuevo</sup>  | General |
-| Español (Paraguay) | es-PY | Male | `es-PY-MarioNeural` <sup>Nuevo</sup>  | General |
-| Español (Perú) | es-PE | Female | `es-PE-CamilaNeural` <sup>Nuevo</sup>  | General |
-| Español (Perú) | es-PE | Male | `es-PE-AlexNeural` <sup>Nuevo</sup>  | General |
-| Español (Puerto Rico) | es-PR | Female | `es-PR-Karina Neural` <sup>Nuevo</sup>  | General |
-| Español (Puerto Rico) | es-PR | Male | `es-PR-Victor Neural` <sup>Nuevo</sup>  | General |
+| Español (Nicaragua) | `es-NI` | Female | `es-NI-YolandaNeural` <sup>Nuevo</sup>  | General |
+| Español (Nicaragua) | `es-NI` | Male | `es-NI-FedericoNeural` <sup>Nuevo</sup>  | General |
+| Español (Panamá) | `es-PA` | Female | `es-PA-MargaritaNeural` <sup>Nuevo</sup>  | General |
+| Español (Panamá) | `es-PA` | Male | `es-PA-RobertoNeural` <sup>Nuevo</sup>  | General |
+| Español (Paraguay) | `es-PY` | Female | `es-PY-TaniaNeural` <sup>Nuevo</sup>  | General |
+| Español (Paraguay) | `es-PY` | Male | `es-PY-MarioNeural` <sup>Nuevo</sup>  | General |
+| Español (Perú) | `es-PE` | Female | `es-PE-CamilaNeural` <sup>Nuevo</sup>  | General |
+| Español (Perú) | `es-PE` | Male | `es-PE-AlexNeural` <sup>Nuevo</sup>  | General |
+| Español (Puerto Rico) | `es-PR` | Female | `es-PR-Karina Neural` <sup>Nuevo</sup>  | General |
+| Español (Puerto Rico) | `es-PR` | Male | `es-PR-Victor Neural` <sup>Nuevo</sup>  | General |
 | Español (España) | `es-ES` | Female | `es-ES-ElviraNeural` | General |
 | Español (España) | `es-ES` | Male | `es-ES-AlvaroNeural` | General |
-| Español (Uruguay) | es-UY | Female | `es-UY-ValentinaNeural` <sup>Nuevo</sup>  | General |
-| Español (Uruguay) | es-UY | Male | `es-UY-MateoNeural` <sup>Nuevo</sup>  | General |
+| Español (Uruguay) | `es-UY` | Female | `es-UY-ValentinaNeural` <sup>Nuevo</sup>  | General |
+| Español (Uruguay) | `es-UY` | Male | `es-UY-MateoNeural` <sup>Nuevo</sup>  | General |
 | Español (EE. UU.) | `es-US` | Female | `es-US-PalomaNeural` | General |
 | Español (EE. UU.) | `es-US` | Male | `es-US-AlonsoNeural` | General |
-| Español (Venezuela) | es-VE | Female | `es-VE-PaolaNeural` <sup>Nuevo</sup>  | General |
-| Español (Venezuela) | es-VE | Male | `es-VE-SebastianNeural` <sup>Nuevo</sup>  | General |
-| Sundanés (Indonesia) | su-ID | Female | `su-ID-TutiNeural` <sup>Nuevo</sup>  | General |
-| Sundanés (Indonesia) | su-ID | Male | `su-ID-JajangNeural` <sup>Nuevo</sup>  | General |
+| Español (Venezuela) | `es-VE` | Female | `es-VE-PaolaNeural` <sup>Nuevo</sup>  | General |
+| Español (Venezuela) | `es-VE` | Male | `es-VE-SebastianNeural` <sup>Nuevo</sup>  | General |
+| Sundanés (Indonesia) | `su-ID` | Female | `su-ID-TutiNeural` <sup>Nuevo</sup>  | General |
+| Sundanés (Indonesia) | `su-ID` | Male | `su-ID-JajangNeural` <sup>Nuevo</sup>  | General |
 | Swahili (Kenia) | `sw-KE` | Female | `sw-KE-ZuriNeural` | General |
 | Swahili (Kenia) | `sw-KE` | Male | `sw-KE-RafikiNeural` | General |
-| Swahili (Tanzania) | sw-TZ | Female | `sw-TZ-RehemaNeural` <sup>Nuevo</sup>  | General |
-| Swahili (Tanzania) | sw-TZ | Male | `sw-TZ-DaudiNeural` <sup>Nuevo</sup>  | General |
+| Swahili (Tanzania) | `sw-TZ` | Female | `sw-TZ-RehemaNeural` <sup>Nuevo</sup>  | General |
+| Swahili (Tanzania) | `sw-TZ` | Male | `sw-TZ-DaudiNeural` <sup>Nuevo</sup>  | General |
 | Sueco (Suecia) | `sv-SE` | Female | `sv-SE-HilleviNeural` | General |
 | Sueco (Suecia) | `sv-SE` | Female | `sv-SE-SofieNeural` | General |
 | Sueco (Suecia) | `sv-SE` | Male | `sv-SE-MattiasNeural` | General |
 | Tamil (India) | `ta-IN` | Female | `ta-IN-PallaviNeural` | General |
 | Tamil (India) | `ta-IN` | Male | `ta-IN-ValluvarNeural` | General |
-| Tamil (Singapur) | ta-SG | Female | `ta-SG-VenbaNeural` <sup>Nuevo</sup>  | General |
-| Tamil (Singapur) | ta-SG | Male | `ta-SG-AnbuNeural` <sup>Nuevo</sup>  | General |
-| Tamil (Sri Lanka) | ta-LK | Female | `ta-LK-SaranyaNeural` <sup>Nuevo</sup>  | General |
-| Tamil (Sri Lanka) | ta-LK | Male | `ta-LK-KumarNeural` <sup>Nuevo</sup>  | General |
+| Tamil (Singapur) | `ta-SG` | Female | `ta-SG-VenbaNeural` <sup>Nuevo</sup>  | General |
+| Tamil (Singapur) | `ta-SG` | Male | `ta-SG-AnbuNeural` <sup>Nuevo</sup>  | General |
+| Tamil (Sri Lanka) | `ta-LK` | Female | `ta-LK-SaranyaNeural` <sup>Nuevo</sup>  | General |
+| Tamil (Sri Lanka) | `ta-LK` | Male | `ta-LK-KumarNeural` <sup>Nuevo</sup>  | General |
 | Telugu (India) | `te-IN` | Female | `te-IN-ShrutiNeural` | General |
 | Telugu (India) | `te-IN` | Male | `te-IN-MohanNeural` | General |
 | Tailandés (Tailandia) | `th-TH` | Female | `th-TH-AcharaNeural` | General |
@@ -424,18 +424,18 @@ Las voces neuronales se pueden usar para que las interacciones con los bots de c
 | Turco (Turquía) | `tr-TR` | Male | `tr-TR-AhmetNeural` | General |
 | Ucraniano (Ucrania) | `uk-UA` | Female | `uk-UA-PolinaNeural` | General | 
 | Ucraniano (Ucrania) | `uk-UA` | Male | `uk-UA-OstapNeural` | General | 
-| Urdu (India) | ur-IN | Female | `ur-IN-GulNeural` <sup>Nuevo</sup>  | General |
-| Urdu (India) | ur-IN | Male | `ur-IN-SalmanNeural` <sup>Nuevo</sup>  | General |
+| Urdu (India) | `ur-IN` | Female | `ur-IN-GulNeural` <sup>Nuevo</sup>  | General |
+| Urdu (India) | `ur-IN` | Male | `ur-IN-SalmanNeural` <sup>Nuevo</sup>  | General |
 | Urdú (Pakistán) | `ur-PK` | Female | `ur-PK-UzmaNeural`  | General | 
 | Urdú (Pakistán) | `ur-PK` | Male | `ur-PK-AsadNeural` | General | 
-| Uzbeko (Uzbekistán) | uz-UZ | Female | `uz-UZ-MadinaNeural` <sup>Nuevo</sup>  | General |
-| Uzbeko (Uzbekistán) | uz-UZ | Male | `uz-UZ-SardorNeural` <sup>Nuevo</sup>  | General |
+| Uzbeko (Uzbekistán) | `uz-UZ` | Female | `uz-UZ-MadinaNeural` <sup>Nuevo</sup>  | General |
+| Uzbeko (Uzbekistán) | `uz-UZ` | Male | `uz-UZ-SardorNeural` <sup>Nuevo</sup>  | General |
 | Vietnamita (Vietnam) | `vi-VN` | Female | `vi-VN-HoaiMyNeural` | General |
 | Vietnamita (Vietnam) | `vi-VN` | Male | `vi-VN-NamMinhNeural` | General |
 | Galés (Reino Unido) | `cy-GB` | Female | `cy-GB-NiaNeural` | General | 
 | Galés (Reino Unido) | `cy-GB` | Male | `cy-GB-AledNeural` | General | 
-| Zulú (Sudáfrica) | zu-ZA | Female | `zu-ZA-ThandoNeural` <sup>Nuevo</sup>  | General |
-| Zulú (Sudáfrica) | zu-ZA | Male | `zu-ZA-ThembaNeural` <sup>Nuevo</sup>  | General |
+| Zulú (Sudáfrica) | `zu-ZA` | Female | `zu-ZA-ThandoNeural` <sup>Nuevo</sup>  | General |
+| Zulú (Sudáfrica) | `zu-ZA` | Male | `zu-ZA-ThembaNeural` <sup>Nuevo</sup>  | General |
 
 > [!IMPORTANT]
 > La voz `en-GB-MiaNeural` en inglés (Reino Unido) se retirará el **30 de octubre de 2021**. Todas las solicitudes de servicio a `en-GB-MiaNeural` se volverán a dirigir automáticamente a `en-GB-SoniaNeural` después del **30 de octubre de 2021**.
