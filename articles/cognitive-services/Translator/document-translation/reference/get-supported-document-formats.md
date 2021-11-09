@@ -3,19 +3,17 @@ title: Método de obtención de formatos de documento admitidos
 titleSuffix: Azure Cognitive Services
 description: El método de obtención de formatos de documentos admitidos devuelve una lista de los formatos de documentos admitidos.
 services: cognitive-services
-author: jann-skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/21/2021
-ms.author: v-jansk
-ms.openlocfilehash: 8100bca5d3628e571dc088de9d47a42e4035f109
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 24ae8fe4ab215f6037726c8c88680f96b47ad99b
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112583615"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132056727"
 ---
 # <a name="get-supported-document-formats"></a>Obtención de formatos de documento admitidos
 

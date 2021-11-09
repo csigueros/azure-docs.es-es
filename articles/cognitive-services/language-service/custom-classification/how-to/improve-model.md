@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
-ms.openlocfilehash: eae333dfd399e33063b2b18777c45ea2c1b89a54
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 73513e90f37a3d003351604d119612306ba66277
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091497"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132062745"
 ---
 # <a name="improve-model-performance"></a>Mejorar el rendimiento del modelo
 
@@ -32,7 +32,7 @@ Para mejorar opcionalmente un modelo, necesitará lo siguiente:
 * Se han revisado los [detalles de evaluación del modelo](view-model-evaluation.md) para determinar su rendimiento.
 * Se ha familiarizado con las [métricas de evaluación](../concepts/evaluation.md) que se usan para la evaluación.
 
-Consulte el [ciclo de vida de desarrollo de aplicaciones](../overview.md#application-development-lifecycle) para más información.
+Consulte el [ciclo de vida de desarrollo de aplicaciones](../overview.md#project-development-lifecycle) para más información.
 
 ## <a name="review-test-set-predictions"></a>Revisión de las predicciones del conjunto de pruebas
 

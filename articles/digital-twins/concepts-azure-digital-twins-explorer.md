@@ -1,22 +1,24 @@
 ---
 title: Azure Digital Twins Explorer
 titleSuffix: Azure Digital Twins
-description: Descripción de las funcionalidades y la finalidad de Azure Digital Twins Explorer
+description: Obtenga información sobre las capacidades y el propósito de Azure Digital Twins Explorer, y cuándo puede ser una herramienta útil para visualizar modelos digitales, gemelos y grafos.
 author: baanders
 ms.author: baanders
-ms.date: 8/24/2021
+ms.date: 10/29/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 8006a98f91434243a94d24f6f7154e5856321744
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: bbcc693123f84d5cf789f53c8961f648ce2e90bf
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123227069"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131504253"
 ---
 # <a name="azure-digital-twins-explorer-preview"></a>Azure Digital Twins Explorer (versión preliminar)
 
-**Azure Digital Twins Explorer** es una herramienta para desarrolladores que se emplea para visualizar e interactuar con los datos de la instancia de Azure Digital Twins, incluidos los [modelos](concepts-models.md) y el [grafo del gemelo](concepts-twins-graph.md). 
+Este artículo contiene información sobre **Azure Digital Twins Explorer**, incluidos sus casos de uso y una introducción a sus características. Para obtener pasos detallados sobre el uso de cada característica, consulte [Uso de Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md).
+
+Azure Digital Twins Explorer es una herramienta para desarrolladores que se emplea para visualizar e interactuar con los datos de la instancia de Azure Digital Twins, incluidos los [modelos](concepts-models.md) y el [grafo del gemelo](concepts-twins-graph.md). 
 
 >[!NOTE]
 >Esta herramienta se encuentra actualmente en **versión preliminar pública**.
@@ -26,8 +28,6 @@ Esta es una vista de la ventana del explorador, en la que se muestran los modelo
 :::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="Captura de pantalla de Azure Digital Twins Explorer que muestra modelos y gemelos de ejemplo." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
 
 La interfaz visual es una gran herramienta para explorar y comprender la forma de su grafo y conjunto de modelos. También permite realizar cambios puntuales en gemelos y relaciones individuales.
-
-Este artículo contiene más información sobre Azure Digital Twins Explorer como, por ejemplo, sus casos de uso y un resumen general de sus características. Para obtener pasos detallados sobre el uso de cada característica, consulte [Uso de Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md).
 
 ## <a name="when-to-use"></a>Cuándo se usa
 
@@ -46,10 +46,11 @@ El propósito principal del explorador es ayudarle a visualizar y comprender el 
 Azure Digital Twins Explorer se organiza en paneles, cada uno con un conjunto diferente de funcionalidades para explorar y administrar los modelos, gemelos y relaciones.
 
 Las secciones del explorador son las siguientes:
-* **Modelos:** agregue, quite y vea los detalles de los modelos desde una vista de lista.
-* **Grafo de modelos**: visualice los modelos y las formas en que están interconectados en forma de un grafo de modelos personalizable.
-* **Grafo de gemelos**: visualice los gemelos y las relaciones como un grafo de gemelos personalizable. Cree y elimine gemelos y relaciones, y vea o edite sus propiedades.
 * **Explorador de consultas**: ejecute consultas en el grafo de gemelos y vea los resultados visuales en el panel **Grafo de gemelos**.
+* **Modelos**: vea una lista de los modelos y realice acciones como agregar, quitar y ver detalles de un modelo.
+* **Gemelos**: vea una lista plana de los gemelos y sus relaciones asociadas.
+* **Grafo de gemelos**: visualice los gemelos y las relaciones como un grafo de gemelos personalizable. Cree y elimine gemelos y relaciones, y vea o edite sus propiedades.
+* **Grafo de modelos**: visualice los modelos y las formas en que están interconectados en forma de un grafo de modelos personalizable.
 
 :::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-panels.png" alt-text="Captura de pantalla de Azure Digital Twins Explorer, con un resaltado alrededor de cada uno de los paneles descritos anteriormente." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-panels.png":::
 

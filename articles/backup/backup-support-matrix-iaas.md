@@ -2,14 +2,14 @@
 title: Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 description: Proporciona un resumen de opciones de compatibilidad y limitaciones para realizar copias de seguridad de máquinas virtuales de Azure con el servicio Azure Backup.
 ms.topic: conceptual
-ms.date: 09/17/2021
+ms.date: 10/19/2021
 ms.custom: references_regions
-ms.openlocfilehash: 17cd2ca7d4b42e79d1b5012fa36e09a509fa28fe
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 50350c5fdb2904c0f562d79d1f9779d324da9108
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129090977"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131455005"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 
@@ -57,7 +57,7 @@ En la tabla siguiente se resumen los sistemas operativos compatibles para realiz
 
 **Escenario** | **SO compatible**
 --- | ---
-Copia de seguridad con la extensión del agente de máquina virtual de Azure | - Windows 10 Client (solo 64 bits) <br/><br/>- Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> - Windows Server 2012 (Datacenter/Standard) <br/><br/> - Windows Server 2008 R2 (RTM and SP1 Standard)  <br/><br/> - Windows Server 2008 (solo 64 bits)
+Copia de seguridad con la extensión del agente de máquina virtual de Azure | - Windows 10 Client (solo 64 bits) <br/><br/>- Windows Server 2022 (Datacenter/Datacenter Core/Standard)   <br/><br/>- Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> - Windows Server 2012 (Datacenter/Standard) <br/><br/> - Windows Server 2008 R2 (RTM and SP1 Standard)  <br/><br/> - Windows Server 2008 (solo 64 bits)
 Copia de seguridad con el agente de MARS | Sistemas operativos [compatibles](backup-support-matrix-mars-agent.md#supported-operating-systems).
 Copia de seguridad con DPM/MABS | Sistemas operativos compatibles para copia de seguridad con [MABS](backup-mabs-protection-matrix.md) y [DPM](/system-center/dpm/dpm-protection-matrix).
 
@@ -174,7 +174,7 @@ Tamaño del disco de datos | El tamaño de disco individual puede ser de hasta 3
 Tipo de almacenamiento | HDD estándar, SSD estándar y SSD Premium.
 Discos administrados | Compatible.
 Discos cifrados | Compatible.<br/><br/> Se puede realizar una copia de seguridad (con o sin la aplicación Azure AD) de las máquinas virtuales de Azure que tengan habilitado Azure Disk Encryption.<br/><br/> Las máquinas virtuales cifradas no se pueden recuperar a nivel de archivo o carpeta. Tiene que recuperar la máquina virtual completa.<br/><br/> Puede habilitar el cifrado en máquinas virtuales que ya estén protegidas con Azure Backup.
-Discos con el Acelerador de escritura habilitado | Actualmente, la máquina virtual de Azure con copia de seguridad de disco WA está en versión preliminar en todas las regiones públicas de Azure. <br><br> (Se supera la cuota y no se puede realizar ningún cambio adicional en la lista aprobada hasta que haya disponibilidad general). <br><br> Las instantáneas no incluyen instantáneas de disco WA para suscripciones no admitidas, ya que se excluirá el disco de WA. <br><br>**Importante** <br> Las máquinas virtuales con discos WA necesitan conectividad a Internet para realizar una copia de seguridad correcta (aunque esos discos se excluyan de la copia de seguridad).
+Discos con el Acelerador de escritura habilitado | Actualmente, la máquina virtual de Azure con copia de seguridad de disco WA está en versión preliminar en todas las regiones públicas de Azure. <br><br> Para inscribir la suscripción en WA Disk, escríbanos a [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com). <br><br> Las instantáneas no incluyen instantáneas de disco WA para suscripciones no admitidas, ya que se excluirá el disco de WA. <br><br>**Importante** <br> Las máquinas virtuales con discos WA necesitan conectividad a Internet para realizar una copia de seguridad correcta (aunque esos discos se excluyan de la copia de seguridad).
 Copia de seguridad y restauración de discos y máquinas virtuales desduplicados | Azure Backup no admite la desduplicación. Para más información, consulte este [artículo](./backup-support-matrix.md#disk-deduplication-support). <br/> <br/>  - Azure Backup no se desduplica entre máquinas virtuales en el almacén de Recovery Services <br/> <br/>  - Si hay máquinas virtuales en estado de desduplicación durante la restauración, los archivos no se pueden restaurar porque el almacén no entiende el formato. Sin embargo, puede realizar correctamente la restauración de una máquina virtual completa.
 Agregar disco a una máquina virtual protegida | Compatible.
 Cambiar tamaño de disco de una máquina virtual protegida | Compatible.

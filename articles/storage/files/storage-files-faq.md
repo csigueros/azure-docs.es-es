@@ -7,12 +7,12 @@ ms.date: 09/15/2021
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: f3ce223174bc92fefd9f31c53709665749eca112
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 717cafbfc3623e52b9d9a0d70e6a22c9e562616b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128627907"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471846"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Preguntas más frecuentes (P+F) sobre Azure Files
 [Azure Files](storage-files-introduction.md) le ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede obtener acceso mediante el protocolo [Bloque de mensajes del servidor (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) estándar y el [protocolo Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (versión preliminar). Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en máquinas con Windows Server mediante Azure File Sync para tener un acceso rápido cerca de donde se usan los datos.
@@ -21,7 +21,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
 1. La sección Comentarios de este artículo.
 2. [Página de preguntas y respuestas de Microsoft sobre Azure Storage](/answers/topics/azure-file-storage.html).
-3. [UserVoice de Azure Files](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
+3. [UserVoice de Azure Files](https://feedback.azure.com/d365community/forum/a8bb4a47-3525-ec11-b6e6-000d3a4f0f84?c=c860fa6b-3525-ec11-b6e6-000d3a4f0f84). 
 4. Soporte técnico de Microsoft. Para crear una solicitud de soporte técnico, en Azure Portal, vaya a la pestaña **Ayuda**, seleccione el botón **Ayuda y soporte técnico** y elija **Nueva solicitud de soporte técnico**.
 
 ## <a name="general"></a>General
@@ -84,7 +84,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
 * <a id="give-us-feedback"></a>
   **Me gustaría que se agregara una característica específica a Azure Files. ¿Pueden agregarla?**  
-    El equipo de Azure Files está interesado en conocer todos los comentarios que tenga sobre nuestro servicio. Vote en las solicitudes de características en [UserVoice de Azure Files](https://feedback.azure.com/forums/217298-storage/category/180670-files). Estamos deseando entusiasmarle con muchas características nuevas.
+    El equipo de Azure Files está interesado en conocer todos los comentarios que tenga sobre nuestro servicio. Vote en las solicitudes de características en [UserVoice de Azure Files](https://feedback.azure.com/d365community/forum/a8bb4a47-3525-ec11-b6e6-000d3a4f0f84?c=c860fa6b-3525-ec11-b6e6-000d3a4f0f84). Estamos deseando entusiasmarle con muchas características nuevas.
 
 ## <a name="azure-file-sync"></a>Azure File Sync
 
@@ -175,7 +175,7 @@ La sincronización inicial suele estar limitada por la velocidad de carga inicia
 
 * <a id="afs-os-support"></a>
    **¿Puedo usar Azure File Sync con Windows Server 2008 R2, Linux o un dispositivo de almacenamiento conectado a la red (NAS)?**  
-    En la actualidad, Azure File Sync solo admite Windows Server 2019 y Windows Server 2016 y Windows Server 2012 R2. En este momento, no tenemos otros planes para compartir, pero estamos dispuestos a admitir plataformas adicionales según la demanda de los clientes. Indíquenos a través de [UserVoice de Azure Files](https://feedback.azure.com/forums/217298-storage/category/180670-files) qué plataformas le gustaría que fueran compatibles.
+    En la actualidad, Azure File Sync solo admite Windows Server 2019 y Windows Server 2016 y Windows Server 2012 R2. En este momento, no tenemos otros planes para compartir, pero estamos dispuestos a admitir plataformas adicionales según la demanda de los clientes. Indíquenos a través de [UserVoice de Azure Files](https://feedback.azure.com/d365community/forum/a8bb4a47-3525-ec11-b6e6-000d3a4f0f84?c=c860fa6b-3525-ec11-b6e6-000d3a4f0f84) qué plataformas le gustaría que fueran compatibles.
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
    **¿Por qué los archivos en capas se encuentran fuera del espacio de nombres del punto de conexión de servidor?**  
@@ -345,7 +345,7 @@ La sincronización inicial suele estar limitada por la velocidad de carga inicia
     
        uso neto <letra de unidad/ruta de acceso compartido>/eliminar
 
-## <a name="network-file-system"></a>Network File System
+## <a name="network-file-system-nfs-v41"></a>Network File System (NFS v4.1)
 
 * <a id="when-to-use-nfs"></a>
  **¿Cuándo debo usar NFS en Azure Files?**
@@ -416,7 +416,7 @@ La sincronización inicial suele estar limitada por la velocidad de carga inicia
  **¿Puedo crear instantáneas de recurso compartido de archivos individuales?**  
     Las instantáneas de recurso compartido se crean en el nivel de recurso compartido de archivos. Puede restaurar archivos individuales desde la instantánea de recurso compartido de archivos, pero no puede crear instantáneas de recurso compartido de nivel de archivo. Aun así, si ha realizado una instantánea de recurso compartido de nivel de recurso compartido y quiere enumerar las instantáneas de recurso compartido en las que ha cambiado un archivo determinado, puede hacerlo en **Versiones anteriores** en un recurso compartido montado en Windows. 
     
-    Si necesita una característica de instantánea de archivos, indíquenoslo a través de [UserVoice de Azure Files](https://feedback.azure.com/forums/217298-storage/category/180670-files).
+    Si necesita una característica de instantánea de archivos, indíquenoslo a través de [UserVoice de Azure Files](https://feedback.azure.com/d365community/forum/a8bb4a47-3525-ec11-b6e6-000d3a4f0f84?c=c860fa6b-3525-ec11-b6e6-000d3a4f0f84).
 
 * <a id="encrypted-snapshots"></a>
  **¿Puedo crear instantáneas de recurso compartido a partir de un recurso compartido de archivos cifrados?**  

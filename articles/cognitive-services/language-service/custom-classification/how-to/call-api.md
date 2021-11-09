@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
-ms.openlocfilehash: 16779224c26e45abe4960463a958085275bb2bfb
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 9ba640d5d0177c812ad25a76353bd89f2e696d81
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091040"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132054721"
 ---
 # <a name="deploy-a-model-and-classify-text-using-the-runtime-api"></a>Implementación de un modelo y clasificación de texto mediante la API en tiempo de ejecución
 
@@ -30,7 +30,7 @@ Una vez que esté satisfecho con el modelo y haya realizado las mejoras necesari
 * Se han revisado los [detalles de evaluación del modelo](view-model-evaluation.md) para determinar el rendimiento del modelo.
 * (opcional) Se han [realizado mejoras](improve-model.md) en el modelo si su rendimiento no es satisfactorio. 
 
-Consulte el [ciclo de vida de desarrollo de aplicaciones](../overview.md#application-development-lifecycle) para más información.
+Consulte el [ciclo de vida de desarrollo de aplicaciones](../overview.md#project-development-lifecycle) para más información.
 
 ## <a name="deploy-your-model"></a>Implementación del modelo
 

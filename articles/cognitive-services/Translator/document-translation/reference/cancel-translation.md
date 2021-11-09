@@ -3,19 +3,17 @@ title: Método de cancelación de la traducción
 titleSuffix: Azure Cognitive Services
 description: El método de cancelación de la traducción cancela una operación que está en cola o cuyo procesamiento está en curso.
 services: cognitive-services
-author: jann-skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/20/2021
-ms.author: v-jansk
-ms.openlocfilehash: eb8411717d0229b13571284176da7ccc113cf828
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
+ms.openlocfilehash: 8bf718da42dbd29c864736209cf441b03f3c9e1b
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112540748"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132059267"
 ---
 # <a name="cancel-translation"></a>Cancelación de la traducción
 

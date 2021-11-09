@@ -2,18 +2,18 @@
 title: Propiedades de metadatos de contenido
 titleSuffix: Azure Cognitive Search
 description: Las propiedades de metadatos de los documentos pueden proporcionar contenido a los campos de un índice de búsqueda, o bien datos que informan del comportamiento de la indexación en tiempo de ejecución. En este artículo se enumeran las propiedades de metadatos que se admiten en Azure Cognitive Search.
+author: nitinme
 manager: nitinme
-author: MarkHeff
-ms.author: maheff
+ms.author: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/22/2021
-ms.openlocfilehash: d77a0b53d14705d73b83d25ffe3355925355fdf1
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: c6f02a50160d650f44e9793dbfa59e0dbf58ebbc
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111556629"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132055576"
 ---
 # <a name="content-metadata-properties-used-in-azure-cognitive-search"></a>Propiedades de metadatos de contenido usadas en Azure Cognitive Search
 

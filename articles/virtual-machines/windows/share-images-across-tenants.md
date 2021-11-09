@@ -1,6 +1,6 @@
 ---
 title: Compartir imágenes de la galería entre inquilinos de Azure
-description: Obtenga información sobre cómo compartir imágenes de máquina virtual entre inquilinos de Azure mediante Galerías de imágenes compartidas y PowerShell.
+description: Aprenda a compartir imágenes de máquina virtual entre inquilinos de Azure mediante instancias de Azure Compute Gallery y PowerShell.
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 07/15/2019
 ms.reviewer: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 50bea2cbd4d42855ecf621cb65f61b4565242a6f
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 029e926a7b3b2d932189d0c2b9aa046fabc30a28
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123450996"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131444571"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants-using-powershell"></a>Uso compartido de imágenes de VM de la galería entre inquilinos de Azure mediante la CLI de Azure y PowerShell
 
 **Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
-Las galerías de imágenes compartidas le permiten compartir las imágenes mediante Azure RBAC. Puede usar Azure RBAC para compartir imágenes dentro de su inquilino e incluso con personas de fuera de él. Para más información sobre esta opción de uso compartido simple, consulte [Compartir la galería](../share-gallery.md).
+Las instancias de Azure Compute Gallery permiten compartir imágenes mediante RBAC de Azure. Puede usar Azure RBAC para compartir imágenes dentro de su inquilino e incluso con personas de fuera de él. Para más información sobre esta opción de uso compartido simple, consulte [Compartir la galería](../share-gallery.md).
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 
@@ -51,7 +51,7 @@ $resourceGroup = "myResourceGroup"
 $location = "South Central US"
 $vmName = "myVMfromImage"
 
-# Set a variable for the image version in Tenant 1 using the full image ID of the shared image version
+# Set a variable for the image version in Tenant 1 using the full image ID of the image version
 $image = "/subscriptions/<Tenant 1 subscription>/resourceGroups/<Resource group>/providers/Microsoft.Compute/galleries/<Gallery>/images/<Image definition>/versions/<version>"
 
 # Create user object
@@ -74,7 +74,7 @@ $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $l
 $nic = New-AzNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 
-# Create a virtual machine configuration using the $image variable to specify the shared image
+# Create a virtual machine configuration using the $image variable to specify the image
 $vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D1_v2 | `
 Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
 Set-AzVMSourceImage -Id $image | `
@@ -86,4 +86,4 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Cree [recursos de la galería de imágenes compartidas](../image-version.md).
+Cree [recursos de Azure Compute Gallery](../image-version.md).

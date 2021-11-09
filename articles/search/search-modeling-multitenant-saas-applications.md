@@ -7,12 +7,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/06/2021
-ms.openlocfilehash: 7833dcf8fbe2b6460346310a4d094c7bb5d606c4
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 057c06b2d3b83b49448e2ec6edd0b1140a324375
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581588"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131422527"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Modelos de diseño para aplicaciones SaaS multiinquilino y Azure Cognitive Search
 
@@ -104,7 +104,7 @@ Azure Cognitive Search permite escalar tanto los índices individuales como aume
 
 Si el número total de índices crece demasiado para un único servicio, se debe aprovisionar otro servicio para acomodar a los nuevos inquilinos. Si se tienen que mover índices entre servicios de búsqueda a medida que se agregan nuevos servicios, los datos del índice se tienen que copiar manualmente de un índice a otro porque Azure Cognitive Search no permite que se mueva un índice.
 
-## <a name="model-2-once-service-per-tenant"></a>Modelo 2: un servicio por inquilino
+## <a name="model-2-one-service-per-tenant"></a>Modelo 2: un servicio por inquilino
 
 :::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png" alt-text="Una representación del modelo de servicio por inquilino" border="false":::
 

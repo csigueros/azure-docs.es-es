@@ -5,24 +5,23 @@ ms.service: sql-database
 ms.subservice: security
 ms.devlang: ''
 ms.topic: how-to
-author: JasonMAnderson
-ms.author: janders
+author: rothja
+ms.author: jroth
 ms.reviewer: vanto
-ms.date: 07/23/2021
-ms.custom: references_regions
-ms.openlocfilehash: 7684cc6ecff0d4e36fec0d7df54edd8602aa145f
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.date: 09/09/2021
+ms.openlocfilehash: 272138471499cbd62085301df8e518ea47a7ddc3
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114665501"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132058851"
 ---
 # <a name="verify-a-ledger-table-to-detect-tampering"></a>Comprobación de una tabla de libro de contabilidad para detectar alteraciones
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Actualmente, el libro de contabilidad de Azure SQL Database se encuentra en versión preliminar pública y está disponible en el Oeste de Europa, Sur de Brasil y Centro-oeste de EE. UU.
+> El libro de contabilidad de Azure SQL Database se encuentra actualmente en versión preliminar pública.
 
 En este artículo, comprobará la integridad de los datos de las tablas de libro de contabilidad de Azure SQL Database. Si ha activado **Enable automatic digest storage** (Habilitar el almacenamiento de resumen automático) al [crear la instancia de SQL Database](ledger-create-a-single-database-with-ledger-enabled.md), siga las instrucciones de Azure Portal para generar automáticamente el script de Transact-SQL (T-SQL) necesario para comprobar el libro de contabilidad de la base de datos en el [Editor de consultas](connect-query-portal.md). De lo contrario, siga las instrucciones de T-SQL mediante [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) o [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
 

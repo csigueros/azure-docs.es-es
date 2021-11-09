@@ -1,27 +1,26 @@
 ---
 title: Libro de contabilidad de base de datos
 description: En este artículo se proporciona información sobre las tablas de la base de datos del libro de contabilidad y las vistas asociadas en Azure SQL Database.
-ms.custom: references_regions
-ms.date: 07/23/2021
+ms.date: 09/09/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
-author: JasonMAnderson
-ms.author: janders
-ms.openlocfilehash: 85ae3c86c98f83499409e024431f83a54622d0f2
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+author: rothja
+ms.author: jroth
+ms.openlocfilehash: f5273208104853a276ae78e8debc685fa2a05c4d
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114665902"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132062213"
 ---
 # <a name="what-is-the-database-ledger"></a>¿Qué es el libro de contabilidad de base de datos?
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Actualmente, el libro de contabilidad de Azure SQL Database se encuentra en versión preliminar pública y está disponible en el Oeste de Europa, Sur de Brasil y Centro-oeste de EE. UU.
+> El libro de contabilidad de Azure SQL Database se encuentra actualmente en versión preliminar pública.
 
 El libro de contabilidad de base de datos forma parte de la característica del libro de contabilidad de Azure SQL Database. El libro de contabilidad de base de datos captura de forma incremental el estado de la base de datos a medida que evoluciona con el tiempo, mientras se producen actualizaciones en las tablas del libro de contabilidad. Usa de forma lógica la cadena de bloques y [estructuras de datos de un árbol de Merkle](/archive/msdn-magazine/2018/march/blockchain-blockchain-fundamentals). 
 

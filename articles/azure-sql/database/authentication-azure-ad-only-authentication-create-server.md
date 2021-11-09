@@ -8,20 +8,18 @@ ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/04/2021
-ms.openlocfilehash: 959175611f42c8c75da465044c7962c585d3728f
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.date: 11/02/2021
+ms.openlocfilehash: 1a1c93a47d85b13c1f2a8267539da4c72f166756
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129458685"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423762"
 ---
 # <a name="create-server-with-azure-ad-only-authentication-enabled-in-azure-sql"></a>Creación de un servidor con autenticación solo de Azure AD habilitada en Azure SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-> [!NOTE]
-> La característica **Autenticación solo de Azure AD** que se describe en este artículo se encuentra en **versión preliminar pública**. Para obtener información detallada sobre esta característica, consulte [Autenticación solo de Azure AD con Azure SQL ](authentication-azure-ad-only-authentication.md). La autenticación solo de Azure AD no está disponible actualmente para Azure Synapse Analytics.
 
 En esta guía paso a paso se describen los pasos para crear un [servidor lógico](logical-servers.md) para Azure SQL Database o [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) con la [autenticación solo de Azure AD](authentication-azure-ad-only-authentication.md) habilitada durante el aprovisionamiento. La autenticación solo de Azure AD impide que los usuarios se conecten al servidor o a la instancia administrada mediante la autenticación SQL y solo permite la conexión mediante autenticación de Azure AD.
 
@@ -128,7 +126,7 @@ El administrador de Azure AD de servidor será la cuenta que establezca para `<
 Reemplace los valores siguientes del ejemplo:
 
 - `<ResourceGroupName>`: nombre del grupo de recursos para el servidor lógico.
-- `<Location>`: ubicación del servidor, como `West US` o `Central US`.
+- `<Location>`: ubicación del servidor, como `West US` o `Central US`
 - `<ServerName>`: use un nombre de servidor lógico único.
 - `<AzureADAccount>`: puede ser un usuario o grupo de Azure AD. Por ejemplo, `DummyLogin`.
 
@@ -298,7 +296,27 @@ También se puede utilizar la siguiente plantilla. Use una [implementación pers
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Actualmente no se admite la administración ni la implementación de una instancia administrada con autenticación solo de Azure AD mediante Azure Portal. Puede implementar una instancia administrada con la autenticación solo de Azure AD mediante la CLI de Azure, PowerShell, API REST o con una plantilla de ARM.
+1. Vaya a la página [Seleccione una opción de implementación de SQL](https://portal.azure.com/#create/Microsoft.AzureSQL) en Azure Portal.
+
+1. Si aún no ha iniciado sesión en Azure Portal, hágalo cuando se le solicite.
+
+1. En **Instancias administradas de SQL**, deje **Tipo de recurso** establecido en **Instancia única** y seleccione **Crear**.
+
+1. Rellene la información obligatoria necesaria en la pestaña **Aspectos básicos**, en **Detalles del proyecto** y **Detalles de la instancia administrada**. Es un conjunto mínimo de información necesaria para aprovisionar una instancia administrada de SQL.
+
+   :::image type="content" source="media/authentication-azure-ad-only-authentication/azure-ad-only-managed-instance-create-basic.png" alt-text="Captura de pantalla de Azure Portal de la pestaña Aspectos básicos para crear la instancia administrada":::
+
+   Para obtener más información sobre las opciones de configuración, vea [Inicio rápido: Creación de una instancia administrada de Azure SQL](../managed-instance/instance-create-quickstart.md).
+
+1. En **Autenticación**, seleccione **Usar solo autenticación de Azure Active Directory (Azure AD)** como **Método de autenticación**.
+
+1. Seleccione **Establecer administrador**, lo que abre un menú para seleccionar una entidad de seguridad de Azure AD como administrador de Azure AD de la instancia administrada. Cuando haya terminado, use el botón **Seleccionar** para establecer el administrador.
+
+   :::image type="content" source="media/authentication-azure-ad-only-authentication/azure-ad-only-managed-instance-create-basic-choose-authentication.png" alt-text="Captura de pantalla de Azure Portal de la pestaña Aspectos básicos para crear la instancia administrada y selección de autenticación solo de Azure AD":::
+
+1. Puede dejar el resto de la configuración predeterminada. Para obtener más información sobre las opciones **Redes**, **Seguridad** u otras pestañas y valores, siga la guía del artículo [Inicio rápido:Creación de una instancia administrada de Azure SQL](../managed-instance/instance-create-quickstart.md).
+
+1. Cuando haya terminado de establecer la configuración, seleccione **Revisar y crear** para continuar. Seleccione **Crear** para iniciar el aprovisionamiento de la instancia administrada.
 
 # <a name="the-azure-cli"></a>[La CLI de Azure](#tab/azure-cli)
 
@@ -710,7 +728,6 @@ Una vez completada la implementación de la instancia administrada, es posible q
 
 ## <a name="limitations"></a>Limitaciones
 
-- Actualmente no se admite la creación de una instancia administrada mediante Azure Portal con la autenticación solo de Azure AD habilitada durante el aprovisionamiento.
 - Para restablecer la contraseña del administrador del servidor, la autenticación de solo Azure AD debe estar deshabilitada.
 - Si la autenticación de solo Azure AD está deshabilitada, debe crear un servidor con un administrador del servidor y una contraseña cuando use todas las API.
 

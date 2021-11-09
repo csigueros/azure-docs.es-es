@@ -3,16 +3,14 @@ title: Definiciones de directivas integradas para Kubernetes habilitado para Azu
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para Kubernetes habilitado para Azure Arc. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
 ms.date: 10/11/2021
 ms.service: azure-arc
-author: mlearned
-ms.author: mlearned
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 7a2f32b3c324d66a2f4334351f09bd7ade0483e5
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 11fa76fc10b75715452c4c3d475cdff04b35a96e
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129811331"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132056556"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-arc-enabled-kubernetes"></a>Definiciones de directivas integradas de Azure Policy para Kubernetes habilitado para Azure Arc
 

@@ -3,18 +3,18 @@ title: Asignar acceso a los datos de Cost Management
 description: Este artículo le guiará a través del proceso para asignar permisos a los datos de Cost Management para obtener varios ámbitos de acceso.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2021
+ms.date: 11/02/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
+ms.reviewer: sapnakeshari
 ms.custom: secdec18
-ms.openlocfilehash: dddb6292530687e75e4b5e697f4fc754d98040fb
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: d467fd2ac2ecb01d4a933573603360f5382d5efb
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129706244"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131457988"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Asignar acceso a los datos de Cost Management
 
@@ -47,6 +47,7 @@ Un usuario debe tener, como mínimo, acceso de lectura a uno o varios de los sig
 
 <sup>2</sup> La cuenta de inscripción también se denomina como Propietario de la cuenta.
 
+Los administradores de contratos Enterprise directos pueden asignar el ámbito de cuenta de facturación, departamento y cuenta de inscripción en [Azure Portal](https://portal.azure.com/). Para obtener más información, vea [Administración de Azure Portal para Contratos Enterprise directos](../manage/direct-ea-administration.md).
 
 ## <a name="other-azure-account-scopes"></a>Otros ámbitos de la cuenta de Azure
 
@@ -119,6 +120,8 @@ Para obtener acceso al ámbito del departamento es necesario tener acceso de adm
 7. Seleccione los departamentos a los que quiera otorgar el permiso administrativo de departamento.
 8. Seleccione **Add** (Agregar) para crear la cuenta.  
     ![escriba la información necesaria en el cuadro Agregar administrador de departamento](./media/assign-access-acm-data/add-depart-admin.png)
+    
+Los administradores de contratos Enterprise directos pueden asignar acceso de administrador de departamento en Azure Portal. Para obtener más información, vea [Adición de un administrador de departamento en Azure Portal](../manage/direct-ea-administration.md#add-a-department-administrator).
 
 ## <a name="assign-enrollment-account-scope-access"></a>Asignar acceso al ámbito de la cuenta de inscripción
 
@@ -136,10 +139,11 @@ Para obtener acceso al ámbito de la cuenta de inscripción es necesario tener a
 
 Después de completar los pasos anteriores, la cuenta de usuario se convierte en una cuenta de inscripción en Enterprise Portal y puede crear suscripciones. El usuario puede tener acceso a los datos de costo y uso para las suscripciones que crea.
 
+Los administradores de contratos Enterprise directos pueden asignar acceso de propietario de cuenta en Azure Portal. Para obtener más información, vea [Adición de un propietario de cuenta en Azure Portal](../manage/direct-ea-administration.md#add-an-account-and-account-owner).
+
 ## <a name="assign-management-group-scope-access"></a>Asignar el acceso al ámbito de grupo de administración
 
 El acceso para ver el ámbito de grupo de administración requiere al menos el permiso de lector de Cost Management (o lector). Puede configurar los permisos de un grupo de administración en Azure Portal. Debe tener al menos el permiso de acceso de usuario administrador (o propietario) para el grupo de Administrador de acceso de usuario (o Propietario) del grupo de administración para habilitar el acceso de otros usuarios. En el caso de las cuentas de Azure para EA, también debe haber habilitado la opción de configuración **PC: ver los cargos** en el portal de EA.
-
 
 - Asigne el rol Lector de Cost Management a un usuario del ámbito del grupo de administración.  
      Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).

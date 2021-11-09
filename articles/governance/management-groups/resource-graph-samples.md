@@ -1,15 +1,15 @@
 ---
 title: Consultas de ejemplo de Azure Resource Graph para grupos de administración
 description: Consultas de ejemplo de Azure Resource Graph para grupos de administración que muestran el uso de tipos de recursos y tablas para acceder a los detalles del grupo de administración.
-ms.date: 08/31/2021
+ms.date: 10/12/2021
 ms.topic: sample
 ms.custom: subject-resourcegraph-sample
-ms.openlocfilehash: cdb6c31b2c4adada2862766e11ee1c7907850417
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 1f02341fdea3ffbaf88da46bdb27df90774a27f9
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123305866"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132056824"
 ---
 # <a name="azure-resource-graph-sample-queries-for-management-groups"></a>Consultas de ejemplo de Azure Resource Graph para grupos de administración
 

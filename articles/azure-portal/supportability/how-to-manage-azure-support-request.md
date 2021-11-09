@@ -1,19 +1,21 @@
 ---
 title: Administración de una solicitud de soporte técnico de Azure
-description: Describe cómo ver solicitudes de soporte técnico, enviar mensajes, cambiar el nivel de gravedad de las solicitudes, compartir información de diagnóstico con el soporte técnico de Azure, volver a abrir una solicitud de soporte técnico cerrada y cargar archivos.
+description: Aprenda a ver solicitudes de soporte técnico y a enviar mensajes, cargar archivos y administrar opciones.
 tags: billing
 ms.topic: how-to
-ms.date: 09/30/2021
-ms.openlocfilehash: 8e7b074883fe2dcfb79913e54cf7180e26f29c2a
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.date: 11/02/2021
+ms.openlocfilehash: 361ab4b643dac6fb54fae8d236dfac38ee024701
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129353208"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131508351"
 ---
 # <a name="manage-an-azure-support-request"></a>Administración de una solicitud de soporte técnico de Azure
 
-Después de [crear una solicitud de soporte técnico de Azure](how-to-create-azure-support-request.md), puede administrarla en [Azure Portal](https://portal.azure.com), como se describe en este artículo. También puede crear y administrar solicitudes mediante programación con la [API REST de incidencia de soporte técnico de Azure](/rest/api/support) o con la [CLI de Azure](/cli/azure/azure-cli-support-request).
+Después de [crear una solicitud de soporte técnico de Azure](how-to-create-azure-support-request.md), puede administrarla en [Azure Portal](https://portal.azure.com). También puede crear y administrar solicitudes mediante programación con la [API REST de incidencia de soporte técnico de Azure](/rest/api/support) o con la [CLI de Azure](/cli/azure/azure-cli-support-request).
+
+Para administrar una solicitud de soporte técnico, debe tener el rol [Propietario](../../role-based-access-control/built-in-roles.md#owner), [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) o [Colaborador de solicitud de soporte técnico](../../role-based-access-control/built-in-roles.md#support-request-contributor) en el nivel de suscripción. Para administrar una solicitud de soporte técnico creada sin una suscripción, debe ser [Administrador](../../active-directory/roles/permissions-reference.md).
 
 ## <a name="view-support-requests"></a>Ver las solicitudes de soporte técnico
 
@@ -50,15 +52,15 @@ En esta página, puede buscar, filtrar y ordenar solicitudes de soporte técnico
 
         :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="No se puede seleccionar un nuevo nivel de gravedad":::
 
-## <a name="share-diagnostic-information-with-azure-support"></a>Compartir información de diagnóstico con el soporte técnico de Azure
+## <a name="allow-collection-of-advanced-diagnostic-information"></a>Permiso para la recopilación de información de diagnóstico avanzada
 
-Al crear una solicitud de soporte técnico, se puede seleccionar **Sí** o **No** en la sección **Compartir información de diagnóstico**. Esta opción determina si Soporte técnico de Azure puede recopilar [información de diagnóstico](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) como, por ejemplo, [archivos de registro](how-to-create-azure-support-request.md#advanced-diagnostic-information-logs), de los recursos de Azure que pueda ayudar a resolver el problema.
+Al crear una solicitud de soporte técnico se puede seleccionar **Sí** o **No** en la sección **Información de diagnóstico avanzada**. Esta opción determina si Soporte técnico de Azure puede recopilar [información de diagnóstico](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) como, por ejemplo, [archivos de registro](how-to-create-azure-support-request.md#advanced-diagnostic-information-logs), de los recursos de Azure que pueda ayudar a resolver el problema.
 
-Para cambiar la selección de **Compartir información de diagnóstico** una vez creada la solicitud:
+Para cambiar la selección de **Información de diagnóstico avanzada** una vez creada la solicitud:
 
 1. En la página **Todas las solicitudes de soporte técnico**, seleccione la solicitud.
 
-1. En la página **Solicitud de soporte técnico**, busque **Compartir información de diagnóstico** y, a continuación, seleccione **Cambiar**.
+1. En la página **Solicitud de soporte técnico**, busque **Información de diagnóstico avanzada** y seleccione **Cambiar**.
 
 1. Seleccione **Sí** o **No** y, a continuación, seleccione **Aceptar** para confirmar.
 
@@ -78,7 +80,7 @@ Puede usar la opción de carga de archivos para cargar archivos de diagnóstico 
 
 Siga estas directrices cuando use la opción de carga de archivos:
 
-- Para proteger su privacidad, no incluya ninguna información personal en su carga.
+- Para proteger su privacidad, no incluya información personal en la carga.
 - El nombre de archivo debe ser de 110 caracteres como máximo.
 - No se puede cargar más de un archivo.
 - Los archivos no pueden ser superiores a 4 MB.
@@ -117,7 +119,7 @@ Siga estas directrices cuando use la opción de carga de archivos:
 
 ## <a name="close-a-support-request"></a>Cierre de una solicitud de soporte técnico
 
-Para cerrar una solicitud de soporte técnico, [envíe un mensaje](#send-a-message) para pedir que se cierre la solicitud.
+Para cerrar una solicitud de soporte técnico, [envíe un mensaje](#send-a-message) e indique que quiere cerrar la solicitud.
 
 ## <a name="reopen-a-closed-request"></a>Volver a abrir una solicitud cerrada
 

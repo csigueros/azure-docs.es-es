@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
-ms.openlocfilehash: bcfa81dc4cf65252179ecb6411ce67f2ba9bdce7
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 390e5fabe5c23c3b258e898eab0691f88c1828c0
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093196"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132057183"
 ---
 # <a name="tag-text-data-for-training-your-model"></a>Etiquetado de datos de texto para el entrenamiento de un modelo 
 
@@ -28,13 +28,13 @@ Para poder etiquetar los datos, necesita lo siguiente:
 * [Un proyecto creado correctamente](create-project.md) con una cuenta de Azure Blob Storage configurada. 
 * Los datos del texto que se [ha cargado](create-project.md#prepare-training-data) en la cuenta de almacenamiento.
 
-Consulte el [ciclo de vida de desarrollo de aplicaciones](../overview.md#application-development-lifecycle) para más información.
+Consulte el [ciclo de vida de desarrollo de aplicaciones](../overview.md#project-development-lifecycle) para más información.
 
 <!--Tagging your data will let you [train your model](train-model.md), [evaluate it](train-model.md), and use it to [classify text](call-api.md).-->
 
 ## <a name="tag-your-data"></a>Etiquetado de los datos
 
-Después de cargar los datos de entrenamiento en la cuenta de almacenamiento de Azure, deberá etiquetarlos para que el modelo sepa las palabras que estarán asociadas a las clases que necesita. Al etiquetar datos en Language Studio (o etiquetarlos de forma manual), las etiquetas se almacenarán en [el formato JSON](../concepts/data-formats.md) que el modelo usará durante el entrenamiento. 
+Después de cargar los datos de entrenamiento en la cuenta de almacenamiento de Azure, tendrá que etiquetarlos para que el modelo sepa las palabras que estarán asociadas a las clases que necesita. Al etiquetar datos en Language Studio (o etiquetarlos de forma manual), las etiquetas se almacenarán en [el formato JSON](../concepts/data-formats.md) que el modelo usará durante el entrenamiento. 
 
 Al etiquetar los datos, tenga en cuenta lo siguiente:
 

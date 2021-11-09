@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/19/2021
 ms.author: msangapu
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: 37b876b177b7879c57255619d3f5e7e113a2a284
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 59e3d0f8e71de6333b3978dd9d40b51206a8a2a1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129278074"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131462355"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>Supervisión de instancias de App Service mediante la comprobación de estado
 
@@ -24,7 +24,7 @@ En este artículo se usa la comprobación de estado en Azure Portal para supervi
 
 - Cuando se proporciona una ruta de acceso en la aplicación, la comprobación de estado hace ping en esta ruta de acceso a todas las instancias de la aplicación App Service en intervalos de 1 minuto.
 - Si una instancia no responde con un código de estado entre 200 y 299 (inclusive) después de dos o más solicitudes, o no responde al ping, el sistema determina que su estado es incorrecto y lo quita.
-- Después de la eliminación, la comprobación de estado sigue haciendo ping a la instancia incorrecta. Si sigue respondiendo sin éxito, App Service reinicia la máquina virtual subyacente en un esfuerzo para devolver la instancia a un estado correcto.
+- Después de la eliminación, la comprobación de estado sigue haciendo ping a la instancia incorrecta. Si la instancia comienza a responder con un código de estado de mantenimiento (200-299), se devuelve al equilibrador de carga.
 - Si una instancia permanece en mal estado durante una hora, se reemplaza por una nueva.
 - Además, al escalar vertical u horizontalmente, App Service hace ping en la ruta de acceso de comprobación de estado para asegurarse de que las nuevas instancias están listas.
 
@@ -81,7 +81,7 @@ La solicitud de comprobación de estado se envía al sitio internamente, por lo 
 
 ### <a name="are-the-health-check-requests-sent-over-http-or-https"></a>¿Las solicitudes de comprobación de estado se envían mediante HTTP o HTTPS?
 
-Las solicitudes de comprobación de estado se envían mediante HTTPS cuando la opción [Solo HTTPS](configure-ssl-bindings.md#enforce-https) está habilitada en el sitio. De lo contrario, se envían mediante HTTP.
+En Windows App Service, las solicitudes de comprobación de estado se envían mediante HTTPS cuando la opción [Solo HTTPS](configure-ssl-bindings.md#enforce-https) está habilitada en el sitio. De lo contrario, se envían mediante HTTP. En Linux App Service, las solicitudes de comprobación de estado solo se envían a través de HTTP y no se pueden enviar a través de HTTP **S** en este momento.
 
 ### <a name="what-if-i-have-multiple-apps-on-the-same-app-service-plan"></a>¿Qué ocurre si tengo varias aplicaciones en el mismo plan de App Service?
 

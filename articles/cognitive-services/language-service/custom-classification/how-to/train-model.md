@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
-ms.openlocfilehash: 2671796484f062440734d710acf95718a9a31998
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 466ddd800c70c27787a0a8ebcd8c14a4392e6c2f
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091129"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132061946"
 ---
 # <a name="how-to-train-a-text-classification-model"></a>Entrenamiento de un modelo de clasificación de texto
 
@@ -31,7 +31,7 @@ Antes de entrenar el modelo, necesita:
 * Datos del texto que [se ha cargado](create-project.md#prepare-training-data) en la cuenta de almacenamiento.
 * [Datos etiquetados](tag-data.md)
 
-Consulte el [ciclo de vida de desarrollo de aplicaciones](../overview.md#application-development-lifecycle) para más información.
+Consulte el [ciclo de vida de desarrollo de aplicaciones](../overview.md#project-development-lifecycle) para más información.
 
 ## <a name="data-splits"></a>Divisiones de datos
 

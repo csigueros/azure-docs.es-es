@@ -5,24 +5,23 @@ ms.service: sql-database
 ms.subservice: security
 ms.devlang: ''
 ms.topic: quickstart
-author: JasonMAnderson
-ms.author: janders
+author: rothja
+ms.author: jroth
 ms.reviewer: vanto
-ms.date: 07/23/2021
-ms.custom: references_regions
-ms.openlocfilehash: ffde0d192888aea852eb4de73e24ce678c4a677a
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.date: 09/09/2021
+ms.openlocfilehash: 8538e725583aea6fe765a7afd6e0ac58f176b443
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114666681"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132063748"
 ---
 # <a name="quickstart-create-a-database-in-azure-sql-database-with-ledger-enabled"></a>Inicio rápido: Creación de una base de datos de Azure SQL Database con el libro de contabilidad habilitado
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Actualmente, el libro de contabilidad de Azure SQL Database se encuentra en versión preliminar pública y está disponible en el Oeste de Europa, Sur de Brasil y Centro-oeste de EE. UU.
+> El libro de contabilidad de Azure SQL Database se encuentra actualmente en versión preliminar pública.
 
 En este inicio rápido, creará una [base de datos de libro de contabilidad](ledger-overview.md#ledger-database) en Azure SQL Database y configurará el [almacenamiento de resumen automático con Azure Blob Storage](ledger-digest-management-and-database-verification.md#automatic-generation-and-storage-of-database-digests) mediante Azure Portal. Para más información sobre el libro de contabilidad, consulte [Libro de contabilidad de Azure SQL Database](ledger-overview.md).
 

@@ -6,19 +6,17 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: 8388df72352669eb81a22df392ca077f91d13cfb
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: 69aeb2e450a78ce6c3bdc7378d9d53edf3706720
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129754660"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131475699"
 ---
-# <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opciones de proceso y almacenamiento de Azure Database for MySQL: servidor flexible (versión preliminar)
+# <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server"></a>Opciones de proceso y almacenamiento de Azure Database for MySQL: servidor flexible
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-> [!IMPORTANT]
-> Actualmente, Azure Database for MySQL: servidor flexible se encuentra en versión preliminar pública.
 
 Puede crear un servidor flexible de Azure Database for MySQL en uno de los tres niveles de proceso diferentes: flexible, de uso general y optimizado para memoria. Los niveles de proceso se diferencian en la SKU de la máquina virtual subyacente que utiliza la serie B, la serie D y la serie E. La elección del tamaño y el nivel de proceso determina la memoria y los núcleos virtuales disponibles en el servidor. Se usa la misma tecnología de almacenamiento en todos los niveles de proceso. Todos los recursos se aprovisionan en el nivel de servidor MySQL. Un servidor puede tener una o varias bases de datos.
 
@@ -111,9 +109,7 @@ Recuerde que el almacenamiento una vez autoescalado verticalmente, no se puede r
 
 Azure Database for MySQL: el servidor flexible admite el aprovisionamiento de IOPS adicionales. Esta característica permite aprovisionar IOPS adicionales por encima del límite gratuito de IOPS. Con esta característica puede aumentar o disminuir el número de IOPS aprovisionadas en función de los requisitos de la carga de trabajo en cualquier momento. 
 
-El número mínimo de IOPS es de 360 en todos los tamaños de proceso y el máximo viene determinado por el tamaño de proceso seleccionado. En la versión preliminar, el número máximo de IOPS admitido es de 20 000.
-
-A continuación se muestra el número máximo de IOPS por tamaño de proceso: 
+El número mínimo de IOPS es de 360 en todos los tamaños de proceso y el máximo viene determinado por el tamaño de proceso seleccionado. A continuación se muestra el número máximo de IOPS por tamaño de proceso: 
 
 | Tamaño de proceso         | Número máximo de IOPS        | 
 |----------------------|---------------------|
@@ -143,7 +139,7 @@ El número máximo de IOPS depende del máximo de IOPS disponible por tamaño de
 > [!Important]
 > Las **IOPS complementarias** son iguales a MÍNIMO("rendimiento de disco no almacenado en caché máximo: IOPS/MBps" del tamaño de proceso, 300 + almacenamiento aprovisionado en GiB * 3)<br>
 > El **número mínimo de IOPS** es de 360 en todos los tamaños de proceso.<br>
-> El **número de IOPS máximo** viene determinado por el tamaño de proceso seleccionado. En la versión preliminar, el número máximo de IOPS admitido es de 20 000.
+> El **número de IOPS máximo** viene determinado por el tamaño de proceso seleccionado. 
 
 Puede supervisar el consumo de E/S en el Azure Portal (con Azure Monitor) mediante la métrica [Porcentaje de E/S](./concepts-monitoring.md). Si necesita más IOPS que el número máximo de IOPS basado en el proceso, debe escalar el proceso del servidor.
 

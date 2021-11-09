@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/26/2021
 ms.author: tisande
-ms.openlocfilehash: 8228c3cedf58b389b93a516c4a372a38b33c0e4d
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 4bb901d0c6c917b2efbaef486e97010a8ac27458
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123028545"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450179"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexación en Azure Cosmos DB: introducción
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -178,7 +178,7 @@ Siempre y cuando un predicado de filtro use un tipo de índice, el motor de cons
 
 * La consulta anterior primero filtrará las entradas en las que firstName = "Andrew" mediante el índice. Después, pasa todas las entradas firstName = "Andrew" a través de una canalización subsiguiente para evaluar el predicado de filtro CONTAINS.
 
-* Puede acelerar las consultas y evitar exámenes de todo el contenedor cuando emplee funciones que no usen el índice (por ejemplo, CONTAINS) mediante la incorporación de predicados de filtro adicionales que utilicen el índice. El orden de las cláusulas de filtro no es importante. El motor de consultas determinará qué predicados son más selectivos y ejecutará la consulta en consecuencia.
+* Puede acelerar las consultas y evitar exámenes de todo el contenedor cuando emplee funciones que no usen el índice (por ejemplo, CONTAINS) mediante la incorporación de predicados de filtro adicionales que utilicen el índice. El orden de las cláusulas de filtro no es importante. El motor de consultas averigua qué predicados son más selectivos y ejecuta la consulta en consecuencia.
 
 Para obtener información sobre cómo configurar los índices compuestos, consulte los [ejemplos de la directiva de indexación compuesta](how-to-manage-indexing-policy.md#composite-index).
 
@@ -394,4 +394,4 @@ Obtenga más información acerca de la indexación en los siguientes artículos:
 - [Cómo administrar la directiva de indexación](how-to-manage-indexing-policy.md)
 - ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Para ello, puede usar información sobre el clúster de bases de datos existente.
     - Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
-    - Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).
+    - Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).

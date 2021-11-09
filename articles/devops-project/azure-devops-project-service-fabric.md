@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Implementación de la aplicación de ASP.NET Core en Azure Service Fabric mediante Azure DevOps Starter'
 description: Azure DevOps Starter facilita la introducción a Azure. Con DevOps Projects puede implementar una aplicación ASP.NET Core en Azure Service Fabric en pocos pasos.
-ms.author: mlearned
+ms.author: gwallace
 ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
-author: mlearned
-ms.openlocfilehash: 078331c35c76a3cda97398b1a487933a3f0f5ab8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: georgewallace
+ms.openlocfilehash: fc2a86e9bf8105851f4fb9e5cfe444cd44f850d5
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102559314"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132061558"
 ---
 # <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-starter"></a>Tutorial: Implementación de la aplicación de ASP.NET Core en Azure Service Fabric mediante Azure DevOps Starter
 

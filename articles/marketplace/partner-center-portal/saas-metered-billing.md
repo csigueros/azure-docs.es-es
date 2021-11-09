@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/15/2021
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 104d8665a1a7754475e0bcad14546775335c389f
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 7021f75bb63e7cb7e7467cf7827a365d81b09bd6
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130131265"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132059626"
 ---
 # <a name="metered-billing-for-saas-using-the-commercial-marketplace-metering-service"></a>Facturación según uso mediante el servicio de medición de marketplace comercial
 
@@ -23,7 +23,7 @@ Con el servicio de medición de marketplace comercial, puede crear ofertas de so
 Para que una oferta de SaaS utilice la facturación según uso, primero tiene que:
 
 - Cumplir todos los requisitos de [una oferta de venta mediante Microsoft](../plan-saas-offer.md#listing-options), como se describe en [Creación de una oferta SaaS en marketplace comercial](../create-new-saas-offer.md).
-- Integrarse con las [API de suministro de SaaS](./pc-saas-fulfillment-api-v2.md) para que los clientes puedan aprovisionar y conectarse a su oferta.  
+- Integrarse con las [API de suministro de SaaS](./pc-saas-fulfillment-apis.md) para que los clientes puedan aprovisionar y conectarse a su oferta.  
 - Configurarse para el modelo de precios de **tarifa plana** al cobrar a los clientes por su servicio.  Las dimensiones son una extensión opcional del modelo de precios de tarifa plana. 
 
 Luego, la oferta SaaS se puede integrar con las [API del servicio de medición del marketplace comercial](../marketplace-metering-service-apis.md) para informar a Microsoft de los eventos que se pueden facturar.

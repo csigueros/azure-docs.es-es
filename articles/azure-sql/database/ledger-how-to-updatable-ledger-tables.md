@@ -1,27 +1,26 @@
 ---
 title: Creación y uso de tablas actualizables del libro de contabilidad
 description: Aprenda a crear y usar tablas actualizables del libro de contabilidad en Azure SQL Database.
-ms.custom: references_regions
-ms.date: 07/23/2021
+ms.date: 09/09/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: how-to
-author: JasonMAnderson
-ms.author: janders
-ms.openlocfilehash: e4027bcaba4e89e89bec2ffa45d50c94e9a07b12
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+author: rothja
+ms.author: jroth
+ms.openlocfilehash: 39d7373fc3106501588d98c2b2e0177e92dd6176
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739698"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132060572"
 ---
 # <a name="create-and-use-updatable-ledger-tables"></a>Creación y uso de tablas actualizables del libro de contabilidad
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Actualmente, el libro de contabilidad de Azure SQL Database se encuentra en versión preliminar pública y está disponible en el Oeste de Europa, Sur de Brasil y Centro-oeste de EE. UU.
+> El libro de contabilidad de Azure SQL Database se encuentra actualmente en versión preliminar pública.
 
 En este artículo se muestra cómo crear una [tabla de libro de contabilidad actualizable](ledger-updatable-ledger-tables.md) en Azure SQL Database. A continuación, insertará valores en la tabla actualizable del libro de contabilidad y, a continuación, hará actualizaciones en los datos. Por último, verá los resultados mediante la vista de libro de contabilidad. Para ello, usaremos un ejemplo de una aplicación bancaria que hace un seguimiento del saldo de la cuenta de los clientes del banco. Este ejemplo le proporcionará una visión práctica de la relación entre la tabla actualizable del libro de contabilidad y su vista de libro de contabilidad correspondiente.
 

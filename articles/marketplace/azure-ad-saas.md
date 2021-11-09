@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: 4638139b6cc57e18b11382341b291a13b6c558c0
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 224fda3a9f308bfb0b6683d58bbc6de3c2822259
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111540073"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132059324"
 ---
 # <a name="azure-ad-and-transactable-saas-offers-in-the-commercial-marketplace"></a>Azure AD y ofertas de SaaS comercializable en el marketplace comercial
 
@@ -53,7 +53,7 @@ En esta tabla se proporcionan los detalles de los pasos del proceso de administr
 | ------------ | ------------- | ------------- |
 | 1. El comprador inicia sesión en el marketplace comercial con su identificador de Azure y selecciona una oferta de SaaS. | No se requiere ninguna acción por parte del editor. | No aplicable |
 | 2. Después de la compra, el comprador selecciona **Configurar cuenta** en Azure Marketplace o **Configurar ahora** en AppSource, que dirige al comprador a la página de aterrizaje del anunciante para esta oferta. El comprador debe poder iniciar sesión en la aplicación SaaS del editor con el inicio de sesión único de Azure AD y solo se le debe solicitar el consentimiento mínimo que no requiera la aprobación del administrador de Azure AD. | Diseñe una [página de aterrizaje](azure-ad-transactable-saas-landing-page.md) para la oferta, de modo que reciba un usuario con su identidad de Azure AD o cuenta de Microsoft (MSA) y facilite el aprovisionamiento o la configuración adicional necesarios. | Obligatorio |
-| 3. El editor solicita los detalles de la compra a la API de cumplimiento de SaaS. | Mediante un [token de acceso](./partner-center-portal/pc-saas-registration.md) generado a partir del identificador de aplicación de la página de aterrizaje, [llama al punto de conexión de resolución](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) para recuperar los detalles de la compra. | Obligatorio |
+| 3. El editor solicita los detalles de la compra a la API de cumplimiento de SaaS. | Mediante un [token de acceso](./partner-center-portal/pc-saas-registration.md) generado a partir del identificador de aplicación de la página de aterrizaje, [llama al punto de conexión de resolución](./partner-center-portal/pc-saas-fulfillment-subscription-api.md#resolve-a-purchased-subscription) para recuperar los detalles de la compra. | Obligatorio |
 | 4. A través de Azure AD y de la API de Microsoft Graph, el editor recopila los detalles de la empresa y del usuario necesarios para aprovisionar al comprador en la aplicación de SaaS del editor.  | Descomponga el token de usuario de Azure AD para buscar el nombre y el correo electrónico, o [llame a la API de Microsoft Graph](/graph/use-the-api) y use permisos delegados para [recuperar información](/graph/api/user-get) sobre el usuario que ha iniciado sesión. | Obligatorio |
 ||||
 
@@ -67,7 +67,7 @@ En esta tabla se describen los detalles de los pasos del proceso de administraci
 
 | Paso del proceso | Acción del editor | Recomendado o requerido para los editores |
 | ------------ | ------------- | ------------- |
-| 5. El editor administra la suscripción a la aplicación de SaaS a través de la API de cumplimiento de SaaS. | Gestione los cambios de suscripción y otras tareas de administración a través de las [API de cumplimiento de SaaS](./partner-center-portal/pc-saas-fulfillment-api-v2.md).<br><br>Este paso requiere un token de acceso, como se describe en el paso 3 del proceso. | Obligatorio |
+| 5. El editor administra la suscripción a la aplicación de SaaS a través de la API de cumplimiento de SaaS. | Gestione los cambios de suscripción y otras tareas de administración a través de las [API de cumplimiento de SaaS](./partner-center-portal/pc-saas-fulfillment-apis.md).<br><br>Este paso requiere un token de acceso, como se describe en el paso 3 del proceso. | Obligatorio |
 | 6. Cuando se usan precios medidos, el editor emite eventos de uso a la API del servicio de medición. | Si su aplicación de SaaS incluye la facturación basada en el uso, envíe notificaciones de uso a través de las [API del servicio de medición de Marketplace](marketplace-metering-service-apis.md).<br><br>Este paso requiere un token de acceso, como se describe en el paso 3. | Necesario para la medición |
 ||||
 

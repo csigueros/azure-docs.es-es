@@ -3,19 +3,17 @@ title: Obtención del estado de los documentos
 titleSuffix: Azure Cognitive Services
 description: El método de obtención del estado de los documentos devuelve el estado de todos los documentos en una solicitud de traducción de documento por lote.
 services: cognitive-services
-author: jann-skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/21/2021
-ms.author: v-jansk
-ms.openlocfilehash: 355e692d6091cee443608c2239173c873bb8e1a5
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 4da15c603028524c0501819c0ecbc3884080ca6f
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110453551"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132053469"
 ---
 # <a name="get-documents-status"></a>Obtención del estado de los documentos
 

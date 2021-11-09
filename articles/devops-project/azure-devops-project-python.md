@@ -3,8 +3,8 @@ title: 'Inicio rápido: Creación de una canalización de CI/CD para Python con 
 description: DevOps Starter facilita empezar a usar Azure. En pocos y rápidos pasos le ayuda a iniciar una aplicación en el servicio de Azure de su elección.
 services: vsts
 documentationcenter: vs-devops-build
-author: mlearned
-ms.author: mlearned
+author: georgewallace
+ms.author: gwallace
 manager: gwallace
 ms.date: 03/24/2020
 ms.prod: devops
@@ -13,18 +13,18 @@ ms.topic: quickstart
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.custom: mvc, devx-track-python, mode-api
-ms.openlocfilehash: d2c739c78b4cbbc39cc41653972238f42f509708
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 3f6fda9367ba27acbd47fcb316541d1b3d50aafc
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131016480"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132061651"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-starter"></a>Creación de una canalización de CI/CD para Python con Azure DevOps Starter
 
 En este inicio rápido se usa la experiencia simplificada de Azure DevOps Starter para configurar una canalización de integración continua (CI) y entrega continua (CD) para una aplicación de Python en Azure Pipelines. Azure DevOps Starter se puede usar para configurar todo lo necesario para desarrollar, implementar y supervisar una aplicación. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
 - Una cuenta de [Azure DevOps](https://azure.microsoft.com/services/devops/) y una organización.

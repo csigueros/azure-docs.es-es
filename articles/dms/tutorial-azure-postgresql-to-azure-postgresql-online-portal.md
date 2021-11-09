@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.openlocfilehash: 0c3c4f4dbf7de3924b15d7c5394ae0e7d36b4e64
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 689c934d9d175b4e40c7f7d65b3b710bbe4a94fe
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131077807"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132059457"
 ---
 # <a name="tutorial-migrateupgrade-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>Tutorial: Migración/actualización de una instancia de Azure DB para PostgreSQL: servidor único en línea que usa DMS a través de Azure Portal
 
@@ -105,60 +105,9 @@ Para completar todos los objetos de base de datos como esquemas de tabla, índic
     ```
     psql -h mypgserver-source.postgres.database.azure.com  -U pguser@mypgserver-source -d dvdrental citus < dvdrentalSchema.sql
     ```
-
-4. Para extraer el script de clave externa que quiere eliminar y agregarlo en el destino (Azure Database for PostgreSQL), ejecute el siguiente script en PgAdmin o en psql.
-
-   > [!IMPORTANT]
-   > Las claves externas en el esquema provocarán un error en la carga inicial y la sincronización continua de la migración.
-
-    ```
-    SELECT Q.table_name
-        ,CONCAT('ALTER TABLE ','"', table_schema,'"', '.','"', table_name ,'"', STRING_AGG(DISTINCT CONCAT(' DROP CONSTRAINT ','"', foreignkey,'"'), ','), ';') as DropQuery
-            ,CONCAT('ALTER TABLE ','"', table_schema,'"', '.','"', table_name,'"', STRING_AGG(DISTINCT CONCAT(' ADD CONSTRAINT ','"', foreignkey,'"', ' FOREIGN KEY (','"', column_name,'"', ')', ' REFERENCES ','"', foreign_table_schema,'"', '.','"', foreign_table_name,'"', '(','"', foreign_column_name,'"', ')',' ON UPDATE ',update_rule,' ON DELETE ',delete_rule), ','), ';') as AddQuery
-    FROM
-        (SELECT
-        S.table_schema,
-        S.foreignkey,
-        S.table_name,
-        STRING_AGG(DISTINCT S.column_name, ',') AS column_name,
-        S.foreign_table_schema,
-        S.foreign_table_name,
-        STRING_AGG(DISTINCT S.foreign_column_name, ',') AS foreign_column_name,
-        S.update_rule,
-        S.delete_rule
-    FROM
-        (SELECT DISTINCT
-        tc.table_schema,
-        tc.constraint_name AS foreignkey,
-        tc.table_name,
-        kcu.column_name,
-        ccu.table_schema AS foreign_table_schema,
-        ccu.table_name AS foreign_table_name,
-        ccu.column_name AS foreign_column_name,
-        rc.update_rule AS update_rule,
-        rc.delete_rule AS delete_rule
-        FROM information_schema.table_constraints AS tc
-        JOIN information_schema.key_column_usage AS kcu ON tc.constraint_name = kcu.constraint_name AND tc.table_schema = kcu.table_schema
-        JOIN information_schema.constraint_column_usage AS ccu ON ccu.constraint_name = tc.constraint_name AND ccu.table_schema = tc.table_schema
-        JOIN information_schema.referential_constraints as rc ON rc.constraint_name = tc.constraint_name AND rc.constraint_schema = tc.table_schema
-    WHERE constraint_type = 'FOREIGN KEY'
-        ) S
-        GROUP BY S.table_schema, S.foreignkey, S.table_name, S.foreign_table_schema, S.foreign_table_name,S.update_rule,S.delete_rule
-        ) Q
-        GROUP BY Q.table_schema, Q.table_name;
-    ```
-
-5. Ejecute la clave externa que desea eliminar (que es la segunda columna) en el resultado de la consulta.
-
-6. Para deshabilitar los desencadenadores en la base de datos de destino, ejecute el siguiente script.
-
-   > [!IMPORTANT]
-   > Los desencadenadores (de inserción o de actualización) de los datos aplican la integridad de datos en el destino antes de que los datos se repliquen desde el origen. Como resultado, se recomienda deshabilitar los desencadenadores en todas las tablas **del destino** durante la migración y, cuando esta haya terminado, volver a habilitar los desencadenadores.
-
-    ```
-    SELECT DISTINCT CONCAT('ALTER TABLE ', event_object_schema, '.', event_object_table, ' DISABLE TRIGGER ', trigger_name, ';')
-    FROM information_schema.triggers
-    ```
+    
+   > [!NOTE]
+   > El servicio de migración controla internamente la habilitación o deshabilitación de claves externas y desencadenadores para garantizar una migración de datos confiable y sólida. Como resultado, no tiene que preocuparse por realizar modificaciones en el esquema de la base de datos de destino.
 
 [!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]
 
@@ -247,13 +196,13 @@ Después de crear el servicio, búsquelo en Azure Portal, ábralo y cree un proy
 
     ![Pantalla Resumen de la migración](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/dms-migration-summary.png)
 
-## <a name="run-the-migration&quot;></a>Ejecución de la migración
+## <a name="run-the-migration"></a>Ejecución de la migración
 
 * Seleccione **Ejecutar migración**.
 
 Aparecerá la ventana de actividad de migración y el **estado** de la actividad debería actualizarse para mostrar **Copia de seguridad en curso**. Puede encontrar el siguiente error al actualizar desde Azure DB for PostgreSQL 9.5 o 9.6:
 
-**Un escenario ha informado de un error desconocido. 28000: no pg_hba.conf entry for replication connection from host &quot;40.121.141.121&quot;, user &quot;sr&quot;** (no hay ninguna entrada pg_hba. conf para la conexión de replicación del host &quot;40.121.141.121&quot;, usuario &quot;sr").
+**Un escenario ha informado de un error desconocido. 28000: no pg_hba.conf entry for replication connection from host "40.121.141.121", user "sr"** (no hay ninguna entrada pg_hba. conf para la conexión de replicación del host "40.121.141.121", usuario "sr").
 
 Esto se debe a que PostgreSQL no tiene los privilegios adecuados para crear los artefactos de replicación lógica necesarios. Para habilitar los privilegios necesarios, puede hacer lo siguiente:
 

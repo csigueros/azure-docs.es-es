@@ -6,12 +6,12 @@ ms.service: azure
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: ae3f62141fdcdb1185f493eceeef7124fe11f869
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: baa926382763199d90ab56cb84f9f5b035741261
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121727854"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131468958"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guía de introducción para desarrolladores de Azure
 
@@ -109,7 +109,7 @@ Azure Spring Cloud es una plataforma de microservicios sin servidor que le permi
 
 > **Cuándo se debe usar:** Como servicio totalmente administrado, Azure Spring Cloud es una buena opción para minimizar los costes operativos asociados a la ejecución de microservicios basados en Spring Boot o Spring Cloud en Azure. 
 >
-> **Introducción:** [Implemente su primera aplicación de Azure Spring Cloud](../../spring-cloud/quickstart.md).
+> **Inicio rápido:** [Implementación de la primera aplicación Spring Boot en Azure Spring Cloud](../../spring-cloud/quickstart.md).
 
 
 ### <a name="enhance-your-applications-with-azure-services"></a>Mejore sus aplicaciones con los servicios de Azure
@@ -168,7 +168,7 @@ Azure proporciona varias maneras de utilizar contenedores en sus aplicaciones.
 
 Es fundamental saber no solo quién está usando las aplicaciones, sino también evitar el acceso no autorizado a los recursos. Azure proporciona varias maneras de autenticar los clientes de las aplicaciones.
 
-* **Azure Active Directory (Azure AD)** : el servicio de administración de acceso e identidades de Microsoft, basado en la nube y multiinquilino. Puede agregar inicio de sesión único (SSO) a sus aplicaciones mediante la integración con Azure AD. Para acceder a las propiedades del directorio, puede usar Graph API de Azure AD directamente o Microsoft Graph API. Puede integrar en Azure AD compatibilidad para el entorno de autorización OAuth2.0 y Open ID Connect mediante puntos de conexión HTTP/REST nativos y las bibliotecas de autenticación de Azure AD multiplataforma.
+* **Azure Active Directory (Azure AD)** : el servicio de administración de acceso e identidades de Microsoft, basado en la nube y multiinquilino. Puede agregar inicio de sesión único (SSO) a sus aplicaciones mediante la integración con Azure AD. Puede acceder a las propiedades del directorio mediante Microsoft Graph API. Puede integrar en Azure AD compatibilidad para el entorno de autorización OAuth2.0 y Open ID Connect mediante puntos de conexión HTTP/REST nativos y las bibliotecas de autenticación de Azure AD multiplataforma.
 
   > **Cuándo se debe usar**: cuando quiera proporcionar una experiencia SSO, trabajar con datos basados en Graph o autenticar usuarios basados en dominio.
   >

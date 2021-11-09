@@ -2,15 +2,13 @@
 title: Aplicaciones administradas con notificaciones
 description: Configure aplicaciones administradas con puntos de conexión de webhook para recibir notificaciones relativas a las operaciones de creación, actualización y eliminación, así como a los errores que se producen en las instancias de aplicaciones administradas.
 ms.topic: conceptual
-ms.author: ilahat
-author: ilahat
 ms.date: 11/01/2019
-ms.openlocfilehash: 229abeb71a580444525a314f648ee09452585336
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: ef87fc014b2870602aa05b758afaffdde046f659
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971933"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132060857"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>Aplicaciones administradas de Azure con notificaciones
 

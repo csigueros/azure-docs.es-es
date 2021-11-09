@@ -6,15 +6,15 @@ ms.author: mansha
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: tutorial
-ms.date: 12/03/2018
+ms.date: 11/08/2021
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 11bc5a7f0880930e5680289a013c68dd2d04ee6d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ac6aef98b06c485bc16777b130c39f9006e6ffff
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121788165"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132060610"
 ---
 # <a name="tutorial-query-azure-cosmos-db-gremlin-api-by-using-gremlin"></a>Tutorial: Consulta de Gremlin API de Azure Cosmos DB mediante Gremlin
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
@@ -26,7 +26,7 @@ En este artículo se tratan las tareas siguientes:
 > [!div class="checklist"]
 > * Consulta de datos con Gremlin
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para que estas consultas funcionen, debe tener una cuenta de Azure Cosmos DB, así como datos del gráfico en el contenedor. ¿No tiene nada de lo anterior? Complete el [inicio rápido en 5 minutos](create-graph-dotnet.md) o el [tutorial de desarrolladores](tutorial-query-graph.md) para crear una cuenta y rellenar la base de datos. Puede ejecutar las siguientes consultas en la [consola de Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) o en el controlador de Gremlin que prefiera.
 
@@ -51,7 +51,7 @@ g.V().hasLabel('person').has('age', gt(40))
 Puede proyectar determinadas propiedades en los resultados de la consulta mediante el paso `values`:
 
 ```
-g.V().hasLabel('person').values('firstName')
+g.V().hasLabel('person').values('name')
 ```
 
 ## <a name="find-related-edges-and-vertices"></a>Búsqueda de bordes y vértices relacionados

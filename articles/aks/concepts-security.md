@@ -2,16 +2,16 @@
 title: 'Conceptos: seguridad en Azure Kubernetes Service (AKS)'
 description: Obtenga información acerca de la seguridad en Azure Kubernetes Service (AKS), incluidos los secretos de Kubernetes, las directivas de red, y la comunicación con el maestro y los nodos.
 services: container-service
-author: mlearned
+author: georgewallace
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.author: mlearned
-ms.openlocfilehash: bf589591ae1c4f9fa3dca2b16cc5382def0740e7
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.author: gwallace
+ms.openlocfilehash: 8fb1e35055bae35fa850bec638f07877e6d75cb3
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121861207"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132058644"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceptos de seguridad de las aplicaciones y los clústeres en Azure Kubernetes Service (AKS)
 
@@ -60,7 +60,7 @@ Cuando se crea o se escala verticalmente un clúster de AKS, los nodos se implem
 #### <a name="linux-nodes"></a>Nodos de Linux
 Cada noche, los nodos Linux de AKS reciben las actualizaciones de seguridad a través de su canal de actualización de seguridad de distribución. Este comportamiento se configura automáticamente cuando se implementan los nodos en un clúster de AKS. Para minimizar las interrupciones y el posible impacto sobre las cargas de trabajo en ejecución, los nodos no se reinician automáticamente si lo requiere una revisión de seguridad o una actualización de kernel. Para más información sobre cómo controlar los inicios del nodo, consulte [Aplicación de actualizaciones de kernel y de seguridad en los nodos en AKS][aks-kured].
 
-Las actualizaciones nocturnas aplican actualizaciones de seguridad al sistema operativo en el nodo, pero la imagen de nodo que se usa para crear nodos para el clúster permanece sin cambios. Si se agrega un nuevo nodo de Linux al clúster, se usa la imagen original para crear el nodo. Este nuevo nodo recibirá todas las actualizaciones de seguridad y del kernel disponibles durante la comprobación automática cada noche, pero permanecerá sin revisiones hasta que se completen todas las comprobaciones y reinicios. Puede usar la actualización de la imagen de nodo para buscar y actualizar las imágenes de nodo que usa el clúster. Para más información sobre la actualización de imágenes de nodo, consulte [Actualización de la imagen de nodo de Azure Kubernetes Service (AKS)][node-image-upgrade].
+Las actualizaciones nocturnas aplican actualizaciones de seguridad al sistema operativo en el nodo, pero la imagen de nodo que se usa para crear nodos para el clúster permanece sin cambios. Si se agrega un nuevo nodo de Linux al clúster, se usa la imagen original para crear el nodo. Este nuevo nodo recibirá todas las actualizaciones de seguridad y del kernel que haya disponibles durante la comprobación automática cada noche, pero no se le aplicarán revisiones hasta que se completen todas las comprobaciones y los reinicios. Puede usar la actualización de la imagen de nodo para buscar y actualizar las imágenes de nodo que usa el clúster. Para más información sobre la actualización de imágenes de nodo, consulte [Actualización de la imagen de nodo de Azure Kubernetes Service (AKS)][node-image-upgrade].
 
 #### <a name="windows-server-nodes"></a>Nodos de Windows Server
 

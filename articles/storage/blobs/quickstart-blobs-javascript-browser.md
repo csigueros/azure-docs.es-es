@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: bea5af6656aacd18805627f471d7227c2d1077bd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4fdcb48783a586baffe9bdeeec74c4d0a055a3e7
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128616847"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132060990"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -73,10 +73,10 @@ En la tabla siguiente se describe cada opción de configuración de CORS y se ex
 
 |Configuración  |Value  | Descripción |
 |---------|---------|---------|
-| **ORÍGENES PERMITIDOS** | **\** _ | Acepta una lista delimitada por comas de dominios establecidos como orígenes aceptables. Establecer el valor en `_` permite el acceso de todos los dominios a la cuenta de almacenamiento. |
+| **ORÍGENES PERMITIDOS** | * | Acepta una lista delimitada por comas de dominios establecidos como orígenes aceptables. Establecer el valor en `*` permite el acceso de todos los dominios a la cuenta de almacenamiento. |
 | **MÉTODOS PERMITIDOS** | **DELETE**, **GET**, **HEAD**, **MERGE**, **POST**, **OPTIONS**, and **PUT** | Enumera los verbos HTTP permitidos para ejecutar en la cuenta de almacenamiento. Para los fines de esta guía de rápido, seleccione todas las opciones disponibles. |
-| **ENCABEZADOS PERMITIDOS** | **\** _ | Define una lista de encabezados de solicitud (incluidos los encabezados con prefijo) permitidos por la cuenta de almacenamiento. Establecer el valor en `_` permite el acceso de todos los encabezados. |
-| **ENCABEZADOS EXPUESTOS** | **\** _ | Enumera los encabezados de respuesta permitidos por la cuenta. Establecer el valor en `_` permite que la cuenta envíe cualquier encabezado. |
+| **ENCABEZADOS PERMITIDOS** | * | Define una lista de encabezados de solicitud (incluidos los encabezados con prefijo) permitidos por la cuenta de almacenamiento. Establecer el valor en `*` permite el acceso de todos los encabezados. |
+| **ENCABEZADOS EXPUESTOS** | * | Enumera los encabezados de respuesta permitidos por la cuenta. Establecer el valor en `*` permite que la cuenta envíe cualquier encabezado. |
 | **ANTIGÜEDAD MÁXIMA** | **86400** | La cantidad máxima de tiempo que el explorador almacena en caché la solicitud OPTIONS preparatoria en segundos. El valor *86400* permite que la memoria caché permanezca un día completo. |
 
 Después de rellenar los campos con los valores de esta tabla, haga clic en el botón **Guardar**.

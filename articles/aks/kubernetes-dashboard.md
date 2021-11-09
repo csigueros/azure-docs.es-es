@@ -2,16 +2,16 @@
 title: Administración de un clúster de Azure Kubernetes Service con el panel web
 description: Obtenga información sobre cómo usar el panel integrado de la interfaz de usuario web de Kubernetes para administrar un clúster de Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
+author: georgewallace
 ms.topic: article
 ms.date: 06/03/2020
-ms.author: mlearned
-ms.openlocfilehash: e7356319a875f3289531c24e5a053e745a543c0a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.author: gwallace
+ms.openlocfilehash: 64898c6e8782c0830439d35c023a3c90fa1ebe26
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124830139"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132053186"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Acceso al panel web de Kubernetes en Azure Kubernetes Service (AKS)
 

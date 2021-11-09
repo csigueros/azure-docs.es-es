@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 10/25/2021
-ms.openlocfilehash: 8a0e7ab7fad8b0da025f143ab2401e5740972ec7
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: cd03abdf01d11fa3b6de869a7d95feafff0ca393
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131078263"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132060365"
 ---
 # <a name="build-the-landing-page-for-your-transactable-saas-offer-in-the-commercial-marketplace"></a>Creación de la página de aterrizaje de su oferta de SaaS comercializable en el marketplace comercial
 
@@ -81,7 +81,7 @@ Esto permite que la solución funcione en escenarios que tengan en cuenta el pri
 
 ## <a name="resolve-the-marketplace-purchase-identification-token"></a>Resolución del token de identificación de la compra de Marketplace
 
-Cuando se envía al comprador a la página de aterrizaje, se agrega un token al parámetro de dirección URL. Este token es diferente del token emitido por Azure AD y del token de acceso que se usa para la autenticación entre servicios, y se usa como entrada para la llamada de resolución de la [API de cumplimiento de SaaS](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) para obtener los detalles de la suscripción. Como con todas las llamadas a las API de cumplimiento de SaaS, la solicitud de servicio a servicio se autenticará con un token de acceso que se basa en el usuario de identificador de la aplicación de Azure AD de la aplicación para la autenticación de servicio a servicio.
+Cuando se envía al comprador a la página de aterrizaje, se agrega un token al parámetro de dirección URL. Este token es diferente del token emitido por Azure AD y del token de acceso que se usa para la autenticación entre servicios, y se usa como entrada para la llamada de resolución de la [API de cumplimiento de SaaS](./partner-center-portal/pc-saas-fulfillment-subscription-api.md#resolve-a-purchased-subscription) para obtener los detalles de la suscripción. Como con todas las llamadas a las API de cumplimiento de SaaS, la solicitud de servicio a servicio se autenticará con un token de acceso que se basa en el usuario de identificador de la aplicación de Azure AD de la aplicación para la autenticación de servicio a servicio.
 
 > [!NOTE]
 > En la mayoría de los casos, es preferible hacer esta llamada desde una segunda aplicación de un único inquilino. Consulte [Uso de dos aplicaciones de Azure AD para mejorar la seguridad en producción](#use-two-azure-ad-apps-to-improve-security-in-production) más adelante en este artículo.
@@ -92,7 +92,7 @@ Para autenticar la aplicación con las API de cumplimiento de SaaS, necesita un 
 
 ### <a name="call-the-resolve-endpoint"></a>Llamada al punto de conexión de resolución
 
-Las API de cumplimiento de SaaS implementan el punto de conexión de [resolución](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) al que se puede llamar para confirmar la validez del token de Marketplace y devolver información acerca de la suscripción.
+Las API de cumplimiento de SaaS implementan el punto de conexión de [resolución](./partner-center-portal/pc-saas-fulfillment-subscription-api.md#resolve-a-purchased-subscription) al que se puede llamar para confirmar la validez del token de Marketplace y devolver información acerca de la suscripción.
 
 ## <a name="read-information-from-claims-encoded-in-the-id-token"></a>Lectura de la información de las notificaciones codificadas en el token de identificador
 

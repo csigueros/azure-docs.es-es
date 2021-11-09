@@ -1,27 +1,26 @@
 ---
 title: Acceso a los resúmenes almacenados en Azure Confidential Ledger
 description: Acceda a los resúmenes almacenados en Azure Confidential Ledger con el libro de contabilidad de Azure SQL Database.
-ms.custom: references_regions
-ms.date: 07/23/2021
+ms.date: 09/09/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: how-to
-author: JasonMAnderson
-ms.author: janders
-ms.openlocfilehash: 7a5253879daf3aaa9551b91a91c38135d29be10e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+author: rothja
+ms.author: jroth
+ms.openlocfilehash: f011494412b6f9cf1ac186f171b62fe82d02aaaa
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730362"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132061744"
 ---
 # <a name="access-the-digests-stored-in-confidential-ledger"></a>Acceso a los resúmenes almacenados en Confidential Ledger
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Actualmente, el libro de contabilidad de Azure SQL Database se encuentra en versión preliminar pública y está disponible en el Oeste de Europa, Sur de Brasil y Centro-oeste de EE. UU.
+> El libro de contabilidad de Azure SQL Database se encuentra actualmente en versión preliminar pública.
 
 En este artículo se muestra cómo acceder a un resumen de [libro de contabilidad de Azure SQL Database](ledger-overview.md) almacenado en [Azure Confidential Ledger](../../confidential-ledger/index.yml) para obtener garantías de integridad y seguridad de un extremo a otro. En este artículo se explica cómo obtener acceso a la información almacenada y comprobar su integridad.
 

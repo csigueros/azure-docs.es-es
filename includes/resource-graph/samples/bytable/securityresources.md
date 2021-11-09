@@ -1,16 +1,16 @@
 ---
-author: DCtheGeek
+author: georgewallace
 ms.service: resource-graph
 ms.topic: include
-ms.date: 09/03/2021
-ms.author: dacoulte
+ms.date: 10/12/2021
+ms.author: gwallace
 ms.custom: generated
-ms.openlocfilehash: 2be6f21943abca8cbef11326c70f1577fa130cf0
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: ac58d96461e6c03b45b1cdf5a990355ff1b7efb6
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123536033"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132058219"
 ---
 ### <a name="controls-secure-score-per-subscription"></a>Controla la puntuación segura por suscripción
 

@@ -2,17 +2,17 @@
 title: Protección de la seguridad en hosts de máquina virtual de AKS
 description: Más información sobre la protección de la seguridad en el sistema operativo de los hosts de máquina virtual de AKS
 services: container-service
-author: mlearned
+author: georgewallace
 ms.topic: article
 ms.date: 03/29/2021
-ms.author: mlearned
+ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: fbdfec42038f48eefb707c85e54c1788841dd42d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9c39d67fbf52295fd6b31d417c7780cf7e240304
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730743"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132055443"
 ---
 # <a name="security-hardening-for-aks-agent-node-host-os"></a>Protección de seguridad para el sistema operativo host del nodo del agente de AKS
 

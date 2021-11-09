@@ -3,19 +3,17 @@ title: Método de obtención de orígenes de almacenamiento admitidos
 titleSuffix: Azure Cognitive Services
 description: El método de obtención de orígenes de almacenamiento admitidos devuelve una lista de los orígenes de almacenamiento admitidos.
 services: cognitive-services
-author: jann-skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/21/2021
-ms.author: v-jansk
-ms.openlocfilehash: b0cd1c179de36147169239ab50785a9d93dfa5bb
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 4dae58196bda8978d503593241f3e74c9ef14c69
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110458765"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132056784"
 ---
 # <a name="get-supported-storage-sources"></a>Obtención de orígenes de almacenamiento admitidos
 

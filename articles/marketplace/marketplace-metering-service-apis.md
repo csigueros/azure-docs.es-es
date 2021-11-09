@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/15/2021
 author: saasguide
 ms.author: souchak
-ms.openlocfilehash: 84e55aa971eae4c67bc6ec2dcaa4618b55c8f737
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: f420934489c6e5e65b050ce30ded8fb922dfdfe8
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130134115"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132061369"
 ---
 # <a name="marketplace-metered-billing-apis"></a>API de facturación según uso de Marketplace
 
@@ -72,7 +72,7 @@ Solo se puede emitir un evento de uso durante cada hora de un día natural por r
 
 En los planes de aplicaciones administradas de Azure, `resourceId` es el valor de `resource group Id` de la aplicación administrada. Se puede encontrar un script de ejemplo de captura en [uso del token de identidades administradas por Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
-En el caso de las ofertas de SaaS, `resourceId` es el id. de suscripción de SaaS. Para obtener más información sobre las suscripciones de SaaS, consulte [lista de suscripciones](partner-center-portal/pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
+En el caso de las ofertas de SaaS, `resourceId` es el id. de suscripción de SaaS. Para obtener más información sobre las suscripciones de SaaS, consulte [lista de suscripciones](partner-center-portal/pc-saas-fulfillment-subscription-api.md#get-list-of-all-subscriptions).
 
 ### <a name="responses"></a>Respuestas
 
@@ -170,7 +170,7 @@ La API de eventos de uso por lotes permite emitir a la vez eventos de uso para m
 >[!NOTE]
 >En el cuerpo de la solicitud, el identificador de recurso tiene significados diferentes para la aplicación SaaS y para la aplicación administrada de Azure que emite medidor el personalizado. El identificador de recurso de la aplicación SaaS es `resourceID`. El identificador de recurso de los planes de aplicaciones administradas de Azure es `resourceUri`.
 
-En el caso de las ofertas de SaaS, `resourceId` es el id. de suscripción de SaaS. Para obtener más información sobre las suscripciones de SaaS, consulte [lista de suscripciones](partner-center-portal/pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
+En el caso de las ofertas de SaaS, `resourceId` es el id. de suscripción de SaaS. Para obtener más información sobre las suscripciones de SaaS, consulte [lista de suscripciones](partner-center-portal/pc-saas-fulfillment-subscription-api.md#get-list-of-all-subscriptions).
 
 *Ejemplo de cuerpo de solicitud para aplicaciones SaaS:*
 

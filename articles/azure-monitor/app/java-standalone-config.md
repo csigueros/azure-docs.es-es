@@ -3,15 +3,15 @@ title: 'Opciones de configuración: Application Insights de Azure Monitor para J
 description: Configuración de Application Insights de Azure Monitor para Java
 ms.topic: conceptual
 ms.date: 11/04/2020
-author: MS-jgol
 ms.custom: devx-track-java
-ms.author: jgol
-ms.openlocfilehash: 3ca38fbefccaf6529d78d1c5acce30c85d88bf7c
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+author: mattmccleary
+ms.author: mmcc
+ms.openlocfilehash: 31a7ed92f6fbdfc60753b91709738209acc38fc2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129616994"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131465485"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opciones de configuración: Application Insights de Azure Monitor para Java
 
@@ -39,14 +39,14 @@ Encontrará más detalles y opciones de configuración adicionales a continuaci�
 
 ## <a name="configuration-file-path"></a>Ruta del archivo de configuración
 
-De forma predeterminada, Application Insights Java 3.x espera que el archivo de configuración se denomine `applicationinsights.json` y que se encuentre en el mismo directorio que `applicationinsights-agent-3.2.0.jar`.
+De forma predeterminada, Application Insights Java 3.x espera que el archivo de configuración se denomine `applicationinsights.json` y que se encuentre en el mismo directorio que `applicationinsights-agent-3.2.2.jar`.
 
 Puede especificar la ruta de acceso a su propio archivo de configuración mediante
 
 * la variable de entorno `APPLICATIONINSIGHTS_CONFIGURATION_FILE`, o
 * la propiedad del sistema Java `applicationinsights.configuration.file`.
 
-Si especifica una ruta de acceso relativa, se resolverá de forma relativa al directorio en el que se encuentra `applicationinsights-agent-3.2.0.jar`.
+Si especifica una ruta de acceso relativa, se resolverá de forma relativa al directorio en el que se encuentra `applicationinsights-agent-3.2.2.jar`.
 
 ## <a name="connection-string"></a>Cadena de conexión
 
@@ -348,11 +348,16 @@ A partir de la versión 3.2.0, se pueden habilitar las siguientes instrumentaci
       },
       "springIntegration": {
         "enabled": true
-      }
+      },
+      "akka": { 
+        "enabled": true
+      },
     }
   }
 }
 ```
+> [!NOTE]
+> La instrumentación de Akka está disponible a partir de la versión 3.2.2
 
 ## <a name="heartbeat"></a>Latido
 
@@ -458,7 +463,7 @@ De forma predeterminada, Application Insights Java 3.x registra en el nivel `IN
 
 `level` puede ser uno de `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG` o `TRACE`.
 
-`path` incluye una ruta de acceso absoluta o relativa. Las rutas de acceso relativas se resuelven en el directorio donde se encuentra `applicationinsights-agent-3.2.0.jar`.
+`path` incluye una ruta de acceso absoluta o relativa. Las rutas de acceso relativas se resuelven en el directorio donde se encuentra `applicationinsights-agent-3.2.2.jar`.
 
 `maxSizeMb` es el tamaño máximo del archivo de registro antes de que se revierta.
 

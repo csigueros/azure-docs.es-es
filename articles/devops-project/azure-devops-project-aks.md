@@ -1,19 +1,19 @@
 ---
 title: Implementación de aplicaciones de ASP.NET Core en Azure Kubernetes Service con Azure DevOps Starter
 description: Azure DevOps Starter facilita la introducción a Azure. Con DevOps Starter, puede implementar una aplicación de ASP.NET Core con Azure Kubernetes Service (AKS) en pocos pasos.
-ms.author: mlearned
+ms.author: gwallace
 ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
-author: mlearned
-ms.openlocfilehash: 9ccf28f5431a92f71b1c18e609639d0abf309c06
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: georgewallace
+ms.openlocfilehash: 302508d1575dada30d2cee8f65381153ef22d55b
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100590854"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132053148"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-starter"></a>Implementación de aplicaciones de ASP.NET Core en Azure Kubernetes Service con Azure DevOps Starter
 
@@ -37,7 +37,7 @@ En este tutorial, aprenderá lo siguiente:
 > * Confirmación de los cambios en Git y su implementación automática en Azure
 > * Limpieza de recursos
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 

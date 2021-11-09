@@ -8,12 +8,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 09/27/2021
-ms.openlocfilehash: 7836792245a9618e2ac8168af697c0151f8e123b
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 21bb6df47c255da5ffc463d3d7f42e61da6de1cc
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129080776"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132063144"
 ---
 # <a name="how-to-test-and-publish-a-saas-offer-to-the-commercial-marketplace"></a>Prueba y publicación de una oferta de SaaS en el marketplace comercial
 
@@ -30,11 +30,11 @@ En este artículo se explica cómo usar el Centro de partners para enviar la ofe
 
 1. Inicie sesión en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2166002).
 
-1. En la página principal, seleccione el elemento **Ofertas de Marketplace**.
+1. En la página principal, seleccione el icono **Ofertas de Marketplace**.
 
-    [ ![Muestra el elemento Ofertas de Marketplace en la página principal del Centro de partners.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+    [ ![Se muestra el icono "Ofertas de Marketplace" en la página principal del Centro de partners.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
-1. En la página "Ofertas de Marketplace", seleccione la oferta que quiere publicar.
+1. En la página "Ofertas de Marketplace", seleccione la oferta que quiera publicar.
 1. En la esquina superior derecha del portal, seleccione **Revisar y publicar**.
 1. Asegúrese de que la columna de **Estado** de cada página indica **Completa**. Los tres estados posibles que se muestran son:
 
@@ -83,7 +83,7 @@ Siga estos pasos para obtener una versión preliminar de la oferta.
 
 1. Si su oferta de SaaS admite la [facturación de uso medido mediante el servicio de medición de marketplace comercial](./partner-center-portal/saas-metered-billing.md), revise y siga los procedimientos recomendados de prueba que se detallan en [API de facturación según uso de Marketplace](marketplace-metering-service-apis.md#development-and-testing-best-practices).
 
-1. Revise y siga las instrucciones de prueba que se indican en [API de suministro de SaaS v2 en el marketplace comercial de Microsoft](./partner-center-portal/pc-saas-fulfillment-api-v2.md#development-and-testing) para que la oferta se integre correctamente con las API antes de publicarla.
+1. Revise y siga las instrucciones de prueba que se indican en [API de suministro de SaaS v2 en el marketplace comercial de Microsoft](./partner-center-portal/pc-saas-fulfillment-webhook.md#development-and-testing) para que la oferta se integre correctamente con las API antes de publicarla.
 
 1. Si el paso de validación de la oferta generó advertencias, aparecerá un vínculo **Ver informe de validación** en la página **Información general de la oferta**. Asegúrese de revisar el informe y solucionar los problemas antes de seleccionar el botón **Publicar**. De lo contrario, probablemente se producirá un error en la certificación y se retrasará la publicación de la oferta.
 

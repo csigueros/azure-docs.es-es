@@ -1,27 +1,26 @@
 ---
 title: Eventos de auditoría de Azure SQL Database con tablas habilitadas para libro de contabilidad
 description: Introducción a las funcionalidades de auditoría del libro de contabilidad de Azure SQL Database
-ms.custom: references_regions
-ms.date: 07/23/2021
+ms.date: 09/09/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
-author: JasonMAnderson
-ms.author: janders
-ms.openlocfilehash: d032b311809449d35a017fdd053fb97447b8479c
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+author: rothja
+ms.author: jroth
+ms.openlocfilehash: 18e3c5ef5d9cb0316118e38f2ffb8dccc8c06fd7
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114666749"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132061875"
 ---
 # <a name="azure-sql-database-audit-events-with-ledger-enabled-tables"></a>Eventos de auditoría de Azure SQL Database con tablas habilitadas para libro de contabilidad
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Actualmente, el libro de contabilidad de Azure SQL Database se encuentra en versión preliminar pública y está disponible en el Oeste de Europa, Sur de Brasil y Centro-oeste de EE. UU.
+> El libro de contabilidad de Azure SQL Database se encuentra actualmente en versión preliminar pública.
 
 Al realizar actividades forenses con tablas habilitadas para libro de contabilidad, los datos se capturan en la vista de libro de contabilidad y en libro de contabilidad de base de datos. También se agregan otros id. de acción a los registros de auditoría SQL. En las tablas siguientes se describen estos nuevos eventos de registro de auditoría. Las condiciones que desencadenan los eventos van a continuación de cada tabla.
 

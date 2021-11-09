@@ -8,12 +8,12 @@ metadata:
   ms.date: 03/19/2021
   author: saasguide
   ms.author: souchak
-  ms.openlocfilehash: 4092ad53e67cc7ed526f66b4e5214a9bb9a1aeda
-  ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+  ms.openlocfilehash: b16e1b8e014e28b1ec02f93a23a48aa6df57dbde
+  ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/15/2021
-  ms.locfileid: "130043308"
+  ms.lasthandoff: 11/09/2021
+  ms.locfileid: "132056178"
 title: Preguntas comunes sobre las API de cumplimiento de SaaS
 summary: En este artículo se describen varios de los requisitos de integración de Marketplace comercial de Microsoft para permitir que los clientes de Azure se suscriban a las ofertas de SaaS.
 sections:
@@ -58,7 +58,7 @@ sections:
       ![Flujo de suscripción del cliente.](media/saas-metering-service-integration-flow-a.png)
 
 
-      Para más información sobre el contrato de la API para controlar los escenarios de transacción en el ciclo de vida de una oferta de SaaS, consulte [API de suministro de SaaS](pc-saas-fulfillment-api-v2.md).
+      Para más información sobre el contrato de la API para controlar los escenarios de transacción en el ciclo de vida de una oferta de SaaS, consulte [API de suministro de SaaS](pc-saas-fulfillment-apis.md).
   - question: >
       ¿Cómo se puede saber a qué oferta de SaaS se suscribe el usuario en Azure?
     answer: >

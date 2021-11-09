@@ -4,16 +4,14 @@ services: azure-arc
 ms.service: azure-arc
 ms.date: 05/21/2021
 ms.topic: article
-author: mlearned
-ms.author: mlearned
 description: Solución de problemas comunes con los clústeres de Kubernetes habilitado para Azure Arc.
 keywords: Kubernetes, Arc, Azure, containers
-ms.openlocfilehash: f6f29b30f3a62653c032b7aae40cac5afdcf96b9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: acbc8293f5aed737dba6ed3992fc59cac0a4fd55
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128546516"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132059248"
 ---
 # <a name="azure-arc-enabled-kubernetes-troubleshooting"></a>Solución de problemas de Kubernetes habilitado para Azure Arc
 

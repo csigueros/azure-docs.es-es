@@ -3,12 +3,12 @@ title: Lenguaje Bicep para implementar recursos de Azure
 description: Describe el lenguaje Bicep para implementar la infraestructura en Azure. Ofrece una experiencia de creación mejorada sobre el uso de JSON para desarrollar plantillas.
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: ace417bb8a71a277bbcb4ef178c6aaf24b97533b
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 565f849edafaa6c083a1e7d21bb67f8b3ab8453e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124831944"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131443497"
 ---
 # <a name="what-is-bicep"></a>¿Qué es Bicep?
 
@@ -109,6 +109,10 @@ Para satisfacer ese objetivo, es necesario trabajar con algunas API que están f
 Siguen funcionando exactamente como siempre lo han hecho. No es necesario hacer ningún cambio. Seguiremos admitiendo el lenguaje JSON subyacente para las plantillas de ARM. Los archivos de Bicep se compilan en JSON, y ese JSON se envía a Azure para su implementación.
 
 Cuando esté listo, puede [descompilar los archivos JSON en Bicep](./decompile.md).
+
+**¿Puedo usar Bicep para implementar en Azure Stack Hub?**
+
+Sí, puede usar Bicep para las implementaciones de Azure Stack Hub, pero tenga en cuenta que Bicep puede mostrar tipos que aún no están disponibles en Azure Stack Hub. Puede ver un conjunto de ejemplos en la [plantilla de inicio rápido de Azure Stack Hub del repositorio de GitHub](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/Bicep). 
 
 ## <a name="known-limitations"></a>Limitaciones conocidas
 

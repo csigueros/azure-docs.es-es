@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Implementación de una aplicación de ASP.NET en Azure Virtual Machines mediante Azure DevOps Starter'
 description: DevOps Starter facilita tanto que se empiece a usar Azure como que se implemente una aplicación de ASP.NET en máquinas virtuales de Azure en pocos pasos.
-ms.author: mlearned
+ms.author: gwallace
 manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
-author: mlearned
-ms.openlocfilehash: 3495d0bd2a446b6b3255887d9b4523eb5a70ac53
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: georgewallace
+ms.openlocfilehash: 9bf6b19722ac78d15c3a862b43976294dc75747c
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102557325"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132055745"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-to-azure-virtual-machines-by-using-azure-devops-starter"></a>Tutorial: Implementación de una aplicación de ASP.NET en Azure Virtual Machines mediante Azure DevOps Starter
 

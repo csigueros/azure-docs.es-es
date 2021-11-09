@@ -3,19 +3,17 @@ title: Obtención del estado de la traducción
 titleSuffix: Azure Cognitive Services
 description: El método de obtención del estado de la traducción devuelve el estado de una solicitud de traducción de documentos.
 services: cognitive-services
-author: jann-skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/21/2021
-ms.author: v-jansk
-ms.openlocfilehash: e6ec2289b272ae4c9d7d0c8eaca84b05d718908c
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f892f9d5e681b7895f7e3d9dc053a9abf0ff00e1
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110451147"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132061989"
 ---
 # <a name="get-translation-status"></a>Obtención del estado de la traducción
 

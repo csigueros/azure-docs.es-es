@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/26/2021
 ms.author: danlep
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9db002f50675c45a0eeb7bb7e213d0dc65b64ab8
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 00d00c8dc5419b524eb71172adfb5271905d668f
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130006629"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132057791"
 ---
 # <a name="secure-backend-services-using-client-certificate-authentication-in-azure-api-management"></a>Protección de servicios back-end con la autenticación de certificados de cliente en Azure API Management
 
@@ -79,7 +79,11 @@ Para agregar un certificado del almacén de claves a API Management:
     > La identidad necesita permisos para obtener y enumerar los certificados del almacén de claves. Si aún no ha configurado el acceso al almacén de claves, API Management se lo pedirá para poder configurar automáticamente la identidad con los permisos necesarios.
 1. Seleccione **Agregar**.
 
+
+
     :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-kv.png" alt-text="Adición de un certificado del almacén de claves":::
+    
+1. Seleccione **Guardar**.
 
 ## <a name="upload-a-certificate"></a>Carga de un certificado
 
@@ -95,6 +99,9 @@ Para cargar un certificado de cliente en API Management:
 
     :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-add.png" alt-text="Cargar un certificado de cliente":::
 
+
+1. Seleccione **Guardar**.
+
 Una vez cargado el certificado, se muestra en la ventana **Certificados**. Si tiene muchos certificados, tome nota de la huella digital del certificado deseado con el fin de configurar una API para realizar la [autenticación de puerta de enlace](#configure-an-api-to-use-client-certificate-for-gateway-authentication) con un certificado de cliente.
 
 > [!NOTE]
@@ -105,8 +112,8 @@ Una vez cargado el certificado, se muestra en la ventana **Certificados**. Si ti
 1. Vaya a la instancia de API Management en [Azure Portal](https://portal.azure.com).
 1. En **API**, seleccione **API**.
 1. Seleccione una API en la lista. 
-2. En la pestaña **Diseño**, seleccione el icono del editor en la sección **Back-end**.
-3. En **credenciales de puerta de enlace**, seleccione **Certificado de cliente** y seleccione el certificado en la lista desplegable.
+1. En la pestaña **Diseño**, seleccione el icono del editor en la sección **Back-end**.
+1. En **credenciales de puerta de enlace**, seleccione **Certificado de cliente** y seleccione el certificado en la lista desplegable.
 1. Seleccione **Guardar**.
 
     :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png" alt-text="Uso de un certificado de cliente para la autenticación de puerta de enlace":::

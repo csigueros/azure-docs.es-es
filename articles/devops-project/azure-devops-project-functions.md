@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Implementación de aplicaciones de ASP.NET en Azure Functions con Azure DevOps Starter'
 description: Azure DevOps Starter facilita la introducción a Azure. Con DevOps Starter puede implementar una aplicación de ASP.NET en Azure Functions en pocos pasos.
-ms.author: mlearned
+ms.author: gwallace
 ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
-author: mlearned
+author: georgewallace
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3277fefb5615fd492b2859b741ef8e6f991eaf23
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef4a33fee3b06155ef02f043d61fcac5646d6a20
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91355481"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132053450"
 ---
 # <a name="deploy-to-azure-functions-with-devops-starter"></a>Implementación en Azure Functions con DevOps Starter
 

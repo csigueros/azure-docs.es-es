@@ -3,7 +3,7 @@ title: 'Tutorial: Creación de una canalización de CI/CD para el código existe
 description: Azure DevOps Starter facilita la introducción a Azure. DevOps Projects le ayuda, con pocos pasos rápidos, a usar su propio código y repositorio de GitHub para iniciar una aplicación en un servicio de Azure.
 services: vsts
 documentationcenter: vs-devops-build
-ms.author: mlearned
+ms.author: gwallace
 ms.manager: gwallace
 ms.workload: web
 ms.prod: devops
@@ -11,14 +11,14 @@ ms.technology: devops-cicd
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/24/2020
-author: mlearned
+author: georgewallace
 ms.custom: mvc
-ms.openlocfilehash: c03ba657ac264b72d035f28956354398421ed2f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9600dcc2c9cbd150783ed1a14afb2b785ba5b054
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102566607"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132056347"
 ---
 # <a name="create-a-cicd-pipeline-for-github-repo-using-azure-devops-starter"></a>Creación de una canalización de CI/CD para el repositorio de GitHub con Azure DevOps Starter
 

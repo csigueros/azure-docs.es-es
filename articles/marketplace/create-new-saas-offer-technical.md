@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 10/25/2021
-ms.openlocfilehash: 6a0b7494d5ce33527640c144faf8630d523ab941
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 39e41febed0809486d2e6796284d86a0874c13f5
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131061378"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132059683"
 ---
 # <a name="add-technical-details-for-a-saas-offer"></a>Adición de detalles técnicos de una oferta de SaaS
 
@@ -31,7 +31,7 @@ En la pestaña **Configuración técnica**, definirá los detalles técnicos que
   > [!IMPORTANT]
   > La página de aterrizaje estará en funcionamiento de forma ininterrumpida. Esta es la única vía por la que se le notificarán nuevas compras de las ofertas de SaaS realizadas en el marketplace comercial o las solicitudes de configuración de una suscripción activa a una oferta. No incluya el carácter de almohadilla (#) en la dirección URL de la página de aterrizaje. De lo contrario, los clientes no podrán acceder a la página de aterrizaje.
 
-- **Webhook de conexión** (obligatorio): para todos los eventos asincrónicos que Microsoft necesita enviarle (por ejemplo, si la suscripción a SaaS se ha cancelado), se le exige que [proporcione una dirección URL de webhook de conexión](./partner-center-portal/pc-saas-fulfillment-api-v2.md#implementing-a-webhook-on-the-saas-service). Se llamará a esta dirección URL para notificarle el evento.
+- **Webhook de conexión** (obligatorio): para todos los eventos asincrónicos que Microsoft necesita enviarle (por ejemplo, si la suscripción a SaaS se ha cancelado), se le exige que [proporcione una dirección URL de webhook de conexión](./partner-center-portal/pc-saas-fulfillment-webhook.md). Se llamará a esta dirección URL para notificarle el evento.
 
   > [!IMPORTANT]
   > El webhook debe estar en funcionamiento de forma ininterrumpida, ya que esta es la única vía por la que se le notificarán las actualizaciones de las suscripciones de SaaS de sus clientes adquiridas a través del marketplace comercial.

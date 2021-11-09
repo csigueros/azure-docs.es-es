@@ -11,16 +11,16 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
-ms.openlocfilehash: 69846496c05716cc00ca782c979bc3c970537b0b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 220995b286824b2daf2eb79c6b0ec917c5549263
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131017636"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132061970"
 ---
 # <a name="how-to-prepare-data-and-define-a-schema"></a>Preparación de datos y definición de un esquema
 
-Para crear un modelo de clasificación personalizado, necesitará datos de calidad para entrenarlo. En este artículo se explica cómo debe abordar la selección y preparación de los datos, junto con la definición de un esquema. Un esquema define las clases en las que necesita que el modelo clasifique el texto en tiempo de ejecución y es el primer paso para desarrollar una [aplicación de clasificación personalizada](../overview.md#application-development-lifecycle).
+Para crear un modelo de clasificación personalizado, necesitará datos de calidad para entrenarlo. En este artículo se explica cómo debe abordar la selección y preparación de los datos, junto con la definición de un esquema. Un esquema define las clases en las que necesita que el modelo clasifique el texto en tiempo de ejecución y es el primer paso para desarrollar una [aplicación de clasificación personalizada](../overview.md#project-development-lifecycle).
 
 
 ## <a name="data-selection"></a>Selección de datos
