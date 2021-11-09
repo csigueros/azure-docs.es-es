@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/20/2020
 ms.author: allensu
-ms.openlocfilehash: 51bc4233393be6d914578581597e8cce9d0373b0
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 610d24576386b311bf5e4ef5a98c1c22a705aff0
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113439486"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131466416"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Solución de problemas de conectividad de Azure Virtual Network NAT
 
@@ -177,11 +177,9 @@ _**Solución:**_
 
 ### <a name="ipv6-coexistence"></a>Coexistencia de IPv6
 
-[Virtual Network NAT](nat-overview.md) admite los protocolos UDP y TCP de IPv4, y la implementación en una [subred con un prefijo IPv6 no es compatible](nat-overview.md#limitations).
+[Virtual Network NAT](nat-overview.md) admite los protocolos UDP y TCP de IPv4. NAT no se puede asociar a una dirección IP pública IPv6 ni a un prefijo IP público IPv6, aunque se puede implementar en una subred de pila dual.
 
-_**Solución:**_ Implemente la puerta de enlace NAT en una subred sin prefijo IPv6.
-
-Puede indicar el interés en funcionalidades adicionales mediante [UserVoice de Virtual Network NAT](https://aka.ms/natuservoice).
+_**Solución:**_ implemente la puerta de enlace NAT en una subred de pila dual.
 
 ### <a name="connection-doesnt-originate-from-nat-gateway-ips"></a>La conexión no parte de las direcciones IP de puerta de enlace NAT
 
@@ -200,4 +198,3 @@ Si sigue teniendo problemas, abra un caso de soporte técnico para solucionar el
 * Obtenga más información sobre [Virtual Network NAT](nat-overview.md).
 * Obtenga información sobre los [recursos de puerta de enlace de NAT](nat-gateway-resource.md)
 * Obtenga información acerca de las [métricas y alertas de los recursos de puerta de enlace NAT](nat-metrics.md).
-* [Indíquenos qué crear a continuación para Virtual Network NAT en UserVoice](https://aka.ms/natuservoice).

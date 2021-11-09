@@ -8,12 +8,12 @@ metadata:
   ms.date: 06/01/2020
   author: saasguide
   ms.author: souchak
-  ms.openlocfilehash: 0abeb7dd6573293a72e8b6aede6f5e281b553049
-  ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+  ms.openlocfilehash: 8666fdbb7618b1698d4480e187cfb4affdd49781
+  ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/05/2021
-  ms.locfileid: "129455311"
+  ms.lasthandoff: 11/09/2021
+  ms.locfileid: "132063182"
 title: Preguntas más frecuentes sobre las API del servicio de medición de Marketplace
 summary: Una vez que un usuario se suscriba a un servicio de SaaS, o a la aplicación de Azure con un plan de aplicaciones administradas, y facturación según uso, es posible hacer un seguimiento del consumo para cada dimensión de facturación que se utilice.  Si el consumo supera las cantidades establecidas para el período seleccionado por el cliente, el servicio emitirá eventos de uso a Microsoft.
 sections:
@@ -84,7 +84,7 @@ sections:
   - question: >
       ¿Se puede obtener una lista de todas las suscripciones de SaaS, incluidas las activas y las canceladas?
     answer: >
-      Sí, cuando se llama a la [GET Subscriptions List API](partner-center-portal/pc-saas-fulfillment-api-v2.md#subscription-apis), se incluye una lista de todas las suscripciones de SaaS. El campo de estado de la respuesta de cada suscripción de SaaS captura si la suscripción está activa o se ha cancelado.
+      Sí, cuando se llama a la [GET Subscriptions List API](./partner-center-portal/pc-saas-fulfillment-subscription-api.md#get-list-of-all-subscriptions), se incluye una lista de todas las suscripciones de SaaS. El campo de estado de la respuesta de cada suscripción de SaaS captura si la suscripción está activa o se ha cancelado.
   - question: >
       ¿Están conectadas las fechas de inicio y finalización del periodo de suscripción de SaaS y la emisión de uso por encima de límite?
     answer: "Los eventos de uso por encima del límite se pueden emitir en cualquier momento para la suscripción de SaaS existente con el estado *Subscribed*. Es responsabilidad del publicador emitir eventos de uso en función de la directiva definida en el plan de facturación. El uso por encima del límite debe calcularse en función de las fechas definidas en el plazo de la suscripción de SaaS. \n\nPor ejemplo, si el publicador define un plan de SaaS que incluye 1000 correos electrónicos por 100 $ en la tarifa plana mensual, cada correo electrónico por encima de 1000 se facturará a 1 $ a través de una dimensión personalizada.\n\nCuando el cliente compra y activa la suscripción el 6 de enero, el correo electrónico número 1000 incluido en la tarifa plana se contará a partir de este día. Por lo tanto, si hasta el 5 de febrero (final del primer mes de la suscripción) solo se envían 900 correos electrónicos, el cliente pagará la tarifa fija solo durante el primer mes de esta suscripción, y el publicador no emitirá eventos de uso por encima del límite entre el 6 de enero y el 5 de febrero. El 6 de febrero, la suscripción se renovará automáticamente y el recuento se iniciará de nuevo. Si el 15 de febrero el cliente llegó a 1000 correos electrónicos enviados, el resto de los correos electrónicos enviados hasta el 5 de marzo se cobrarán a la tarifa por encima del límite (1 $ por correo electrónico) en función de los eventos de uso por encima del límite emitidos por el publicador.\n"

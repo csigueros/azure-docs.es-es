@@ -4,13 +4,13 @@ description: Describe las funciones que se usarán en un archivo de Bicep para t
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 10/01/2021
-ms.openlocfilehash: e8691fd357b8f8cbde87309f4881fa7424f7f44e
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.date: 10/29/2021
+ms.openlocfilehash: a59be71415197242d636c577cff1c80b9f5fc639
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129389084"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131439887"
 ---
 # <a name="string-functions-for-bicep"></a>Funciones de cadena para Bicep
 
@@ -1031,7 +1031,7 @@ Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 |:--- |:--- |:--- |:--- |
 | stringToParse |Sí |string |La cadena original desde la que se extrae la subcadena. |
 | startIndex |No |int |La posición de carácter inicial basado en cero de la subcadena. |
-| length |No |int |El número de caracteres de la subcadena. Debe hacer referencia a una ubicación dentro de la cadena. Debe ser cero o mayor. |
+| length |No |int |El número de caracteres de la subcadena. Debe hacer referencia a una ubicación dentro de la cadena. Debe ser cero o mayor. Si se omite, se devuelve el resto de la cadena desde la posición inicial.|
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1258,7 +1258,7 @@ uniqueString(resourceGroup().id, deployment().name)
 En el ejemplo siguiente se muestra cómo crear un nombre único para una cuenta de almacenamiento basada en el grupo de recursos. Dentro del grupo de recursos, el nombre no es único si se crea de la misma manera.
 
 ```bicep
-resource mystorage 'Microsoft.Storage/storageAccounts@@2018-07-01' = {
+resource mystorage 'Microsoft.Storage/storageAccounts@2018-07-01' = {
   name: 'storage${uniqueString(resourceGroup().id)}'
   ...
 }
@@ -1423,5 +1423,5 @@ La salida del ejemplo anterior con el valor predeterminado es:
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Puede encontrar una descripción de las secciones de un archivo de Bicep en [Nociones sobre la estructura y la sintaxis de los archivos de Bicep](./file.md).
-* Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Implementación de varias instancias de recursos en Bicep](./loop-resources.md).
+* Para iterar un número especificado de veces al crear un tipo de recurso, vea [Bucles iterativos en Bicep](loops.md).
 * Para ver cómo implementar el archivo de Bicep que ha creado, consulte [Implementación de recursos con Bicep y Azure PowerShell](./deploy-powershell.md).

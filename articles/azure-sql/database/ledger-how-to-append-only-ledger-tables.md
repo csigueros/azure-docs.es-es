@@ -1,27 +1,26 @@
 ---
 title: Creación y uso de tablas de libro de contabilidad de solo anexión
 description: Aprenda a crear y usar tablas de libro de contabilidad de solo anexión en Azure SQL Database.
-ms.custom: references_regions
-ms.date: 07/23/2021
+ms.date: 09/09/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: how-to
-author: JasonMAnderson
-ms.author: janders
-ms.openlocfilehash: fede72baa7df89e821e496066090658bda2df80e
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+author: rothja
+ms.author: jroth
+ms.openlocfilehash: 09b9d4dceabff4b26c586b0035f4c8b8d4c2ba0a
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114665854"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132063577"
 ---
 # <a name="create-and-use-append-only-ledger-tables"></a>Creación y uso de tablas de libro de contabilidad de solo anexión
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Actualmente, el libro de contabilidad de Azure SQL Database se encuentra en versión preliminar pública y está disponible en el Oeste de Europa, Sur de Brasil y Centro-oeste de EE. UU.
+> El libro de contabilidad de Azure SQL Database se encuentra actualmente en versión preliminar pública.
 
 En este artículo se muestra cómo crear una [tabla de libro de contabilidad de solo anexión](ledger-append-only-ledger-tables.md) en Azure SQL Database. Luego, insertará valores en la tabla de libro de contabilidad de solo anexión e intentará realizar actualizaciones de los datos. Por último, verá los resultados mediante la vista de libro de contabilidad. Se usará un ejemplo de un sistema de acceso con clave de tarjeta de una instalación, que es un modelo de sistema de solo anexión. Este ejemplo le proporcionará una visión práctica de la relación entre la tabla de libro de contabilidad de solo anexión y su vista de libro de contabilidad correspondiente.
 

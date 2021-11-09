@@ -7,14 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, azla
 ms.topic: how-to
-ms.date: 09/13/2021
+ms.date: 11/01/2021
 tags: connectors
-ms.openlocfilehash: 46e0373b7c95b559dd6037d20f00324cd89209d7
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: a400c8e5ac118250afedd27f2f8e79b678546727
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130045888"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131438652"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Conexión a sistemas SAP desde Azure Logic Apps
 
@@ -324,7 +324,7 @@ Por último, cree nuevas conexiones que usen SNC en todas las aplicaciones lógi
 
    1. En **Nombre de asociado de SNC**, escriba el nombre de SNC del back-end. Por ejemplo, `p:CN=DV3, OU=LA, O=MS, C=US`.
 
-   1. En **Certificado SNC** escriba el certificado público del cliente SNC en formato codificado en base64. No incluya el encabezado o pie de página PEM.
+   1. En **Certificado SNC** escriba el certificado público del cliente SNC en formato codificado en base64. No incluya el encabezado o pie de página PEM. No especifique el certificado privado aquí, ya que PSE puede contener varios certificados privados, pero este parámetro **Certificado de SNC** identifica los certificados que se deben usar para esta conexión. Para obtener más información, revise la nota siguiente.
 
    1. Opcionalmente, escriba la configuración de SNC para **Mi nombre de SNC** y **Calidad de protección de SNC** según sea necesario.
 
@@ -350,8 +350,35 @@ Por último, cree nuevas conexiones que usen SNC en todas las aplicaciones lógi
 
    El conector detecta el cambio de PSE y actualiza su propia copia durante la siguiente solicitud de conexión.
 
+   Para convertir un archivo PSE binario al formato con codificación base64, siga estos pasos:
+   
+   1. Use un script de PowerShell, por ejemplo:
+
+      ```powershell
+      Param ([Parameter(Mandatory=$true)][string]$psePath, [string]$base64OutputPath)
+      $base64String = [convert]::ToBase64String((Get-Content -path $psePath -Encoding byte))
+      if ($base64OutputPath -eq $null)
+      {
+          Write-Output $base64String
+      }
+      else
+      {
+          Set-Content -Path $base64OutputPath -Value $base64String
+          Write-Output "Output written to $base64OutputPath"
+      } 
+      ```
+
+   1. Guarde el script como un archivo `pseConvert.ps1` e invoque al script, por ejemplo:
+
+      ```output
+      .\pseConvert.ps1 -psePath "C:\Temp\SECUDIR\request.pse" -base64OutputPath "connectionInput.txt"
+      Output written to connectionInput.txt 
+      ```
+
+      Si no se proporciona el parámetro de ruta de acceso de salida, la salida del script a la consola tiene saltos de línea. Quite los saltos de línea de la cadena con codificación base64 del parámetro de entrada de conexión.
+
    > [!NOTE]
-   > Si usa más de un certificado de cliente SNC para el ISE, debe proporcionar el mismo PSE para todas las conexiones. Puede establecer el parámetro de certificado público de cliente para especificar el certificado para cada conexión usada en el ISE.
+   > Si usa más de un certificado de cliente SNC para el ISE, debe proporcionar el mismo PSE para todas las conexiones. PSE debe contener el certificado privado de cliente de cada una de las conexiones. Debe establecer el parámetro de certificado público de cliente de modo que coincida con el certificado privado concreto de cada conexión usada en el ISE.
 
 1. Seleccione **Crear** para crear su conexión. Si los parámetros son correctos, se crea la conexión. Si hay un problema con los parámetros, el cuadro de diálogo de creación de la conexión muestra un mensaje de error.
 
@@ -1800,7 +1827,13 @@ Si experimenta un problema con IDoc duplicados que se envían a SAP desde el flu
 
 1. Para **Id. de transacción**, escriba de nuevo el nombre de la variable. Por ejemplo, `IDOCtransferID`.
 
-1. Opcionalmente, valide la desduplicación en el entorno de prueba. Repita la acción **\[IDOC] Send document to SAP** ([IDOC] Enviar documento a SAP) con el mismo **Id. de transacción** que usó en el paso anterior.
+1. Opcionalmente, valide la desduplicación en el entorno de prueba.
+
+    1. Repita la acción **\[IDOC] Send document to SAP** ([IDOC] Enviar documento a SAP) con el mismo **Id. de transacción** que usó en el paso anterior.
+    
+    1. Para validar qué número de IDoc se ha asignado después de cada llamada a la acción **\[IDOC] Send document to SAP** ([IDOC] Enviar documento a SAP), use la acción **\[IDOC] Get IDOC list for transaction** ([IDOC] Obtener lista de IDOC de la transacción) con los mismos **Id. de transacción** y dirección de **recepción**.
+    
+       Si se devuelve el mismo número de IDoc único de ambas llamadas, se ha desduplicado el IDoc.
 
    Cuando se envía el mismo IDoc dos veces, puede validar que SAP pueda identificar la duplicación de la llamada tRFC y resolver las dos llamadas a un solo mensaje entrante de IDoc.
 

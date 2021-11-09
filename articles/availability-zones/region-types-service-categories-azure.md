@@ -1,19 +1,19 @@
 ---
 title: Servicios de Azure
 description: Obtenga información sobre los tipos de región y las categorías de servicio de Azure.
-author: prsandhu
+author: mamccrea
 ms.service: azure
 ms.topic: conceptual
 ms.date: 10/01/2021
-ms.author: prsandhu
+ms.author: mamccrea
 ms.reviewer: cynthn
 ms.custom: references_regions
-ms.openlocfilehash: dc0adacbda491f7658056e7d313b9bdc923b43af
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 7a8159a10749e877c6502ef775071af6cc420f46
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129620944"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132059521"
 ---
 # <a name="azure-services"></a>Servicios de Azure
 

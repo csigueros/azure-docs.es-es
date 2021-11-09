@@ -3,20 +3,18 @@ title: Llamada a API Análisis de imágenes
 titleSuffix: Azure Cognitive Services
 description: Aprenda a llamar Image Analysis API y a configurar su comportamiento.
 services: cognitive-services
-author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
 ms.date: 09/09/2019
-ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: b7835185071d85b064c942da9f86f6848443dcd1
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 46334015d932f667e5bbb7a10153e9b70aaa0764
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124820222"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132058606"
 ---
 # <a name="call-the-image-analysis-api"></a>Llamada a API Análisis de imágenes
 

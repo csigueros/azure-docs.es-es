@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mingshen
 ms.author: mingshen
 ms.date: 07/05/2021
-ms.openlocfilehash: 6ea06820a9f66c831847808d9f6de9a6bf4803b1
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 71efd629463f53519d98458afaa449c7a7f46ffb
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130073969"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132062346"
 ---
 # <a name="plans-and-pricing-for-commercial-marketplace-offers"></a>Planes y precios de las ofertas del marketplace comercial
 
@@ -162,7 +162,7 @@ Una vez que un cliente selecciona una evaluación gratuita de un plan, no puede 
 > [!NOTE]
 > Una vez que un cliente empieza a pagar un plan, no puede obtener una evaluación gratuita de la misma oferta, aunque cambie a otro plan que admita evaluaciones gratuitas.
 
-Para obtener información sobre las suscripciones de clientes que actualmente participan en una evaluación gratuita, use la nueva propiedad de API `isFreeTrial`, que se marcará como true o false. Para más información, vea la [API para obtener suscripción de SaaS](./partner-center-portal/pc-saas-fulfillment-api-v2.md#get-subscription).
+Para obtener información sobre las suscripciones de clientes que actualmente participan en una evaluación gratuita, use la nueva propiedad de API `isFreeTrial`, que se marcará como true o false. Para más información, vea la [API para obtener suscripción de SaaS](./partner-center-portal/pc-saas-fulfillment-subscription-api.md#get-subscription).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

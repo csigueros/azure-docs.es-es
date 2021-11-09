@@ -1,14 +1,14 @@
 ---
 title: Administración de extensiones de VM con servidores habilitados para Azure Arc
 description: Los servidores habilitados para Azure Arc pueden administrar la implementación de extensiones de máquina virtual que proporcionan tareas de automatización y configuración posteriores a la implementación con VM que no son de Azure.
-ms.date: 09/30/2021
+ms.date: 10/28/2021
 ms.topic: conceptual
-ms.openlocfilehash: 83fb74673b5da94cc656b512886ce1ee5d772ac1
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: e652b7c520345ad56a28a718448ac520af8237e3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130064407"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131447367"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Administración de extensiones de máquina virtual con servidores habilitados para Azure Arc
 
@@ -22,10 +22,10 @@ Los servidores habilitados para Azure Arc permiten implementar, quitar y actual
 - [Plantillas de Azure Resource Manager](manage-vm-extensions-template.md)
 
 > [!NOTE]
-> Los servidores habilitados para Azure Arc no admiten la implementación y administración de extensiones de VM en máquinas virtuales de Azure. Para las máquinas virtuales de Azure, consulte el siguiente artículo de [información general sobre la extensión de máquina virtual](../../virtual-machines/extensions/overview.md).
+> Los servidores habilitados para Azure Arc no admiten la implementación y administración de extensiones de VM en máquinas virtuales de Azure. En el caso de las máquinas virtuales de Azure, consulte el siguiente artículo con [información general acerca de la extensión de máquina virtual](../../virtual-machines/extensions/overview.md).
 
 > [!NOTE]
-> Actualmente solo puede actualizar extensiones desde Azure Portal. Esta operación desde la CLI de Azure, Azure PowerShell o una plantilla de Azure Resource Manager no se admite en este momento.
+> Actualmente solo se pueden actualizar extensiones desde Azure Portal o la CLI de Azure. De momento no se permite realizar esta operación desde Azure PowerShell ni usar una plantilla de Azure Resource Manager.
 
 ## <a name="key-benefits"></a>Ventajas principales
 
@@ -92,7 +92,9 @@ No olvide revisar la documentación de cada extensión de máquina virtual a la 
 
 ### <a name="log-analytics-vm-extension"></a>Extensión de VM de Log Analytics
 
-La extensión de máquina virtual del agente de Log Analytics para Linux requiere que Python 2.x esté instalado en el equipo de destino.
+La extensión de máquina virtual del agente de Log Analytics para Linux requiere que Python 2.x esté instalado en el equipo de destino. 
+
+Antes de instalar la extensión, se recomienda revisar las [opciones de implementación del agente de análisis de registros](concept-log-analytics-extension-deployment.md) para entender los distintos métodos disponibles y cuál de ellos cumple sus requisitos.
 
 ### <a name="azure-key-vault-vm-extension"></a>Extensión de VM de Azure Key Vault
 

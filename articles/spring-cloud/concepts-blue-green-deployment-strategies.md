@@ -1,24 +1,24 @@
 ---
 title: Estrategias de implementación azul-verde en Azure Spring Cloud
 description: En este tema se explican dos enfoques para las implementaciones azul-verde en Azure Spring Cloud.
-author: yevster
-ms.author: yebronsh
+author: barbkess
+ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/12/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 3ed83d0bcc1998b63738eb586acaf83b3a281ee6
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
+ms.openlocfilehash: 194529a03a493ec22d22260576a678ab07401f4c
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109838796"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132056575"
 ---
 # <a name="blue-green-deployment-strategies-in-azure-spring-cloud"></a>Estrategias de implementación azul-verde en Azure Spring Cloud
 
 En este artículo se describe la compatibilidad con la implementación azul-verde en Azure Spring Cloud.
 
-Azure Spring Cloud (nivel Estándar y superior) permite dos implementaciones para cada aplicación, aunque solo una recibe el tráfico de producción. Este patrón se conoce normalmente como implementación azul-verde. La compatibilidad de Azure Spring Cloud con la implementación azul-verde, junto con una canalización de [entrega continua (CD)](/azure/devops/learn/what-is-continuous-delivery) y rigurosas pruebas automatizadas, permite implementaciones de aplicaciones ágiles con alta confianza.
+Azure Spring Cloud (nivel Estándar y superior) permite dos implementaciones para cada aplicación, aunque solo una recibe el tráfico de producción. Este patrón se conoce normalmente como implementación azul-verde. La compatibilidad de Azure Spring Cloud con la implementación azul-verde, junto con una canalización de [entrega continua (CD)](/devops/deliver/what-is-continuous-delivery) y rigurosas pruebas automatizadas, permite implementaciones de aplicaciones ágiles con alta confianza.
 
 ## <a name="alternating-deployments"></a>Implementaciones alternativas
 

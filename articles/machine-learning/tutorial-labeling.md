@@ -11,12 +11,12 @@ author: sdgilley
 ms.reviewer: ranku
 ms.date: 10/21/2021
 ms.custom: data4ml
-ms.openlocfilehash: a6e47fb02256056f104473769f3917a215ca789c
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 148b779e56b14652bfb8b9c4eaf0e68585203cf8
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131555806"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132061539"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Tutorial: Creación de un proyecto de etiquetado para la clasificación de imágenes con varias clases 
 
@@ -35,7 +35,7 @@ En este tutorial, se usarán imágenes de gatos y perros.  Puesto que cada image
 > * Etiquetar los datos.  Tanto usted como sus etiquetadores pueden realizar esta tarea.
 > * Finalizar el proyecto con la revisión y exportación de los datos.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/).
 
@@ -72,7 +72,7 @@ Los almacenes de datos de Azure Machine Learning se usan para guardar la informa
     Método de selección de cuentas | Seleccione **Especificar manualmente**.
     URL | `https://azureopendatastorage.blob.core.windows.net/openimagescontainer`
     Tipo de autenticación | Seleccione **Token de SAS**.
-    Clave de cuenta | `?sv=2019-02-02&ss=bfqt&srt=sco&sp=rl&se=2025-03-25T04:51:17Z&st=2020-03-24T20:51:17Z&spr=https&sig=7D7SdkQidGT6pURQ9R4SUzWGxZ%2BHlNPCstoSRRVg8OY%3D`
+    Clave de cuenta | `ZPlDx0bFHFEqwoy8/B/ZZg1YKi/+cIiPamOPUrRptWbvkO6d84n4loitnSMorv/AxrvE0s86cUr6rULWaSGA2A==`
 
 1. Seleccione **Crear** para crear el almacén de datos.
 

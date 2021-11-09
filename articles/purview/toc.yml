@@ -271,6 +271,8 @@ items:
         href: disaster-recovery.md
       - name: Supervisión con Azure Monitor
         href: how-to-monitor-with-azure-monitor.md
+      - name: Integración con los productos de seguridad de Azure
+        href: how-to-integrate-with-azure-security-products.md
       - name: Directivas de acceso del propietario de datos
         items:
           - name: Directiva de acceso a datos de Azure Storage
