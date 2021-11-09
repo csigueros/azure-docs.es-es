@@ -1,7 +1,7 @@
 ---
 title: Cómo llamar a la API REST de servicios de solicitudes (versión preliminar)
 titleSuffix: Azure Active Directory Verifiable Credentials
-description: Obtenga información sobre cómo emitir y comprobar credenciales mediante la API de REST del servicio de solicitudes.
+description: Aprenda a emitir y comprobar mediante la API de REST de solicitud de servicio
 documentationCenter: ''
 author: barclayn
 manager: karenh444
@@ -10,36 +10,34 @@ ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 10/08/2021
 ms.author: barclayn
-ms.openlocfilehash: 9b701589f7ee28cd3da8d4c028750459c53bb793
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 805ba2fc9a24536a940e4baf02e2934d26c10d75
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130216927"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131474029"
 ---
 # <a name="request-service-rest-api-preview"></a>API REST de servicios de solicitudes (versión preliminar)
 
-La API de REST del servicio de solicitudes de Azure Active Directory permite emitir y comprobar credenciales verificables mediante el servicio de credenciales verificables de Azure AD. En este artículo se muestra cómo empezar a usar la API de REST del servicio de solicitudes.
+Las credenciales verificables de Azure Active Directory (Azure AD) incluyen la API de REST de solicitud de servicio. Esta API le permite emitir y comprobar credenciales. En este artículo se muestra cómo empezar a usar la API de REST del servicio de solicitudes.
 
 > [!IMPORTANT]
-> Esta API está actualmente en versión preliminar pública (beta).
-> Esta versión preliminar se proporciona sin un contrato de nivel de servicio, por lo que ocasionalmente es posible que se produzcan cambios importantes o se deje de usar la API. Mientras esté en versión preliminar, no se recomienda la API para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
+> La API de REST de solicitud de servicio está actualmente en versión preliminar. Esta versión preliminar se proporciona sin ningún contrato de nivel de servicio, por lo que es posible que se produzcan cambios importantes o se deje de usar la API mientras está en versión preliminar. No se recomienda la versión preliminar de la API para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="api-access-token"></a>Token de acceso a la API
 
-Para que la aplicación acceda a la API de REST del servicio de solicitudes, debe incluir un token de acceso válido con los permisos necesarios. Los tokens de acceso emitidos por la Plataforma de identidad de Microsoft contienen información (ámbitos) que la API de REST del servicio de solicitudes usa para validar al autor de la llamada. Asegúrese de que el autor de la llamada tenga los permisos adecuados para realizar la operación que solicita.
+Para que la aplicación acceda a la API de REST del servicio de solicitudes, debe incluir un token de acceso válido con los permisos necesarios. Los tokens de acceso emitidos por la Plataforma de identidad de Microsoft contienen información (ámbitos) que la API de REST del servicio de solicitudes usa para validar al autor de la llamada. Un token de acceso garantiza que el autor de llamada tenga los permisos adecuados para realizar la operación que solicita.
 
-Para obtener un token de acceso, la aplicación debe estar registrada en la Plataforma de identidad de Microsoft y tener la autorización de un administrador para acceder a la API de REST del servicio de solicitudes. Si no ha registrado la aplicación *verifiable-credentials-app*, siga los pasos para [registrarla](verifiable-credentials-configure-tenant.md#step-3-register-an-application-in-azure-ad) y, a continuación, [genere un secreto de aplicación](verifiable-credentials-configure-issuer.md#configure-the-verifiable-credentials-app).
+Para obtener un token de acceso, la aplicación debe estar registrada en Plataforma de identidad de Microsoft y tener la autorización de un administrador para acceder a la API de REST de solicitud de servicio. Si no ha registrado la aplicación *verifiable-credentials-app*, vea [cómo registrar la aplicación](verifiable-credentials-configure-tenant.md#register-an-application-in-azure-ad) y luego [genere un secreto de aplicación](verifiable-credentials-configure-issuer.md#configure-the-verifiable-credentials-app).
 
 ### <a name="get-an-access-token"></a>Obtención de un token de acceso
 
-Use el [flujo de concesión de credenciales de cliente de OAuth 2.0](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) para adquirir el token de acceso mediante la Plataforma de identidad de Microsoft. Se recomienda usar una biblioteca OAuth de confianza. En este tutorial, usamos la biblioteca de autenticación de Microsoft [(MSAL)](../../active-directory/develop/msal-overview.md). MSAL es una biblioteca proporcionada por Microsoft que simplifica el proceso de agregar autenticación y autorización a su aplicación para llamar a una API web segura.
+Use el [flujo de concesión de credenciales de cliente de OAuth 2.0](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) para adquirir el token de acceso mediante Plataforma de identidad de Microsoft. Use una biblioteca de confianza para este fin. En este tutorial, usamos la biblioteca de autenticación de Microsoft [(MSAL)](../../active-directory/develop/msal-overview.md). MSAL simplifica la incorporación de autenticación y autorización a una aplicación que puede llamar a una API web segura.
 
 # <a name="http"></a>[HTTP](#tab/http)
 
 ```http
-Pleaes refer to to the Microsoft Authentication Library (MSAL) documentation for more information on how to acquire tokens via HTTP.
+Refer to to the Microsoft Authentication Library (MSAL) documentation for more information on how to acquire tokens via HTTP.
 ```
 
 # <a name="c"></a>[C#](#tab/csharp)
@@ -93,19 +91,18 @@ const result = await mainApp.msalCca.acquireTokenByClientCredential(mainApp.msal
 
 ---
 
-En el código anterior, proporcione los siguientes parámetros:
+En el código anterior, proporcione los parámetros siguientes:
 
 | Parámetro | Condición | Descripción |
 | --- | --- | --- |
-| Autoridad | Requerido | Inquilino del directorio en el que la aplicación tiene previsto funcionar. Por ejemplo, `https://login.microsoftonline.com/{your-tenant}`, reemplace `your-tenant` por el [Id. o nombre de su inquilino](../fundamentals/active-directory-how-to-find-tenant.md). |
-| Id. de cliente | Obligatorio | El identificador de la aplicación que está asignado a la aplicación. Puede encontrar esta información en el portal de Azure donde haya registrado la aplicación. |
+| Autoridad | Requerido | Inquilino del directorio en el que la aplicación tiene previsto funcionar. Por ejemplo: `https://login.microsoftonline.com/{your-tenant}`. (Remplace `your-tenant` por el [identificador o nombre de inquilino](../fundamentals/active-directory-how-to-find-tenant.md)). |
+| Id. de cliente | Obligatorio | El identificador de la aplicación que está asignado a la aplicación. Puede encontrar esta información en Azure Portal, donde ha registrado la aplicación. |
 | Secreto del cliente | Requerido | Secreto de cliente que ha generado para la aplicación.|
 | Ámbitos | Obligatorio | Se debe establecer en `bbb94529-53a3-4be5-a069-7eaf2712b826/.default`. |
 
+Para obtener más información sobre cómo obtener un token de acceso mediante la identidad de una aplicación de consola, vea alguno de los artículos siguientes: [C#](../develop/quickstart-v2-netcore-daemon.md), [Python](../develop/quickstart-v2-python-daemon.md), [Node.js](../develop/quickstart-v2-nodejs-console.md) o [Java](../develop/quickstart-v2-java-daemon.md).
 
-Si desea más información sobre cómo obtener un token de acceso usando la identidad de una aplicación de consola, consulte uno de los artículos con relación a [C#](../develop/quickstart-v2-netcore-daemon.md), [Python](../develop/quickstart-v2-python-daemon.md) ,[Node.js](../develop/quickstart-v2-nodejs-console.md) o [Java](../develop/quickstart-v2-java-daemon.md).
-
-También puede enviar una [solicitud de token de acceso con un certificado](../develop/v2-oauth2-client-creds-grant-flow.md) en lugar de un secreto de cliente.
+También puede [acceder a una solicitud de token con un certificado](../develop/v2-oauth2-client-creds-grant-flow.md) en lugar de un secreto de cliente.
 
 # <a name="http"></a>[HTTP](#tab/http)
 
@@ -180,13 +177,13 @@ const result = await mainApp.msalCca.acquireTokenByClientCredential(mainApp.msal
 
 Para emitir o comprobar una credencial verificable, siga estos pasos:
 
-1. Cree una solicitud HTTP POST para la API de REST del servicio de solicitudes. Reemplace `{tenantID}` por el **Id.** o el nombre de su inquilino.
+1. Cree una solicitud HTTP POST para la API de REST del servicio de solicitudes. Reemplace `{tenantID}` por el identificador o el nombre del inquilino.
 
     ```http
     POST https://beta.did.msidentity.com/v1.0/{tenantID}/verifiablecredentials/request
     ```
 
-1. Adjunte el token de acceso como token de portador al encabezado "Authorization" en una solicitud HTTP.
+1. Adjunte el token de acceso como token de portador al encabezado de autorización de una solicitud HTTP.
 
     ```http
     Authorization: Bearer <token>
@@ -194,13 +191,13 @@ Para emitir o comprobar una credencial verificable, siga estos pasos:
 
 1. Establezca el encabezado `Content-Type` en `Application/json`.
 
-1. Prepare y adjunte la carga de [emisión](issuance-request-api.md#issuance-request-payload) o [presentación](presentation-request-api.md#presentation-request-payload) al cuerpo de la solicitud.
+1. Prepare y adjunte la carga de la solicitud de [emisión](issuance-request-api.md#issuance-request-payload) o [presentación](presentation-request-api.md#presentation-request-payload) al cuerpo de la solicitud.
 
 1. Envíe la solicitud a la API de REST del servicio de solicitudes.
 
 ## <a name="issuance-request-example"></a>Ejemplo de solicitud de emisión
 
-En el siguiente ejemplo se muestra una solicitud de emisión de credenciales verificables. Para obtener más información sobre la carga, consulte [Especificación de emisión de la API de REST del servicio de solicitudes](issuance-request-api.md).
+En el siguiente ejemplo se muestra una solicitud de emisión de credenciales verificables. Para obtener más información sobre la carga, vea [Especificación de la emisión de la API de REST Request Service](issuance-request-api.md).
 
 ```http
 POST https://beta.did.msidentity.com/v1.0/contoso.onmicrosoft.com/verifiablecredentials/request
@@ -235,11 +232,14 @@ Authorization: Bearer  <token>
 }
 ```  
 
-Para obtener el código completo, consulte los ejemplos de código de [C#](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/AspNetCoreVerifiableCredentials/IssuerController.cs) y [Node.js](https://github.com/Azure-Samples/active-directory-verifiable-credentials-node/blob/main/1-node-api-idtokenhint/issuer.js).
+Para obtener el código completo, vea alguno de los siguientes ejemplos de código:
+
+- [C#](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/AspNetCoreVerifiableCredentials/IssuerController.cs)
+- [Node.js](https://github.com/Azure-Samples/active-directory-verifiable-credentials-node/blob/main/1-node-api-idtokenhint/issuer.js)
 
 ## <a name="presentation-request-example"></a>Ejemplo de solicitud de presentación
 
-En el siguiente ejemplo se muestra una solicitud de presentación de credenciales verificables. Para obtener más información sobre la carga, consulte [Especificación de presentación de la API de REST del servicio de solicitudes](presentation-request-api.md).
+En el siguiente ejemplo se muestra una solicitud de presentación de credenciales verificables. Para obtener más información sobre la carga, vea [Especificación de presentación de la API de REST del servicio de solicitudes](presentation-request-api.md).
 
 ```http
 POST https://beta.did.msidentity.com/v1.0/contoso.onmicrosoft.com/verifiablecredentials/request
@@ -274,24 +274,24 @@ Authorization: Bearer  <token>
 }
 ```
 
-Para obtener el código completo, consulte uno de los siguientes ejemplos de código:
+Para obtener el código completo, vea alguno de los siguientes ejemplos de código:
 
 - [C#](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/1-asp-net-core-api-idtokenhint/VerifierController.cs) 
-- [Node.js](https://github.com/Azure-Samples/active-directory-verifiable-credentials-node/blob/main/1-node-api-idtokenhint/verifier.js).
+- [Node.js](https://github.com/Azure-Samples/active-directory-verifiable-credentials-node/blob/main/1-node-api-idtokenhint/verifier.js)
 
 ## <a name="callback-events"></a>Eventos de devolución de llamada
 
-La carga de la solicitud contiene el punto de conexión de devolución de llamada de [emisión](issuance-request-api.md#callback-events) y de [presentación](presentation-request-api.md#callback-events). El punto de conexión forma parte de la aplicación web y debe estar disponible públicamente. El servicio de credenciales verificables de Azure AD llama a su punto de conexión para informar a la aplicación sobre determinados eventos. Por ejemplo, cuando un usuario digitaliza el código QR, usa el vínculo profundo de su aplicación autenticadora o finaliza el proceso de presentación.
+La carga de la solicitud contiene el punto de conexión de devolución de llamada de [emisión](issuance-request-api.md#callback-events) y de [presentación](presentation-request-api.md#callback-events). El punto de conexión forma parte de la aplicación web y debe estar disponible públicamente. Las credenciales verificables de Azure AD llaman al punto de conexión para avisar a la aplicación de determinados eventos. Por ejemplo, estos eventos pueden ser que un usuario digitalice el código QR, use el vínculo profundo de la aplicación de autenticación o finalice el proceso de presentación.
 
 En el siguiente diagrama se describen la llamada que realiza su aplicación a la API de REST del servicio de solicitudes y las devoluciones de llamada a la aplicación.
 
-![En el diagrama se describen la llamada a la API y los eventos de devolución de llamada.](media/get-started-request-api/callback-events.png)
+![Diagrama que describe la llamada a la API y los eventos de devolución de llamada.](media/get-started-request-api/callback-events.png)
 
-Configure el punto de conexión para escuchar las solicitudes HTTP POST entrantes. En el siguiente fragmento de código se muestra cómo gestionar la solicitud HTTP de devolución de llamada de emisión y actualizar la interfaz de usuario en consecuencia:
+Configure el punto de conexión para escuchar las solicitudes HTTP POST entrantes. En el siguiente fragmento de código se muestra cómo controlar la solicitud HTTP de devolución de llamada de emisión y cómo actualizar la interfaz de usuario en consecuencia:
 
 # <a name="http"></a>[HTTP](#tab/http)
 
-No aplicable. Elija uno de los lenguajes de programación anteriores.
+No aplicable. Elija alguno de los demás lenguajes de programación.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -359,7 +359,7 @@ Para obtener el código completo, consulte el código de [emisión](https://gith
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte los artículos siguientes:
+Más información sobre estas especificaciones:
 
 - [Especificación de API de emisión](issuance-request-api.md)
 - [Especificación de API de presentación](presentation-request-api.md)

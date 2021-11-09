@@ -1,17 +1,17 @@
 ---
 title: Creación de una configuración de diagnóstico para enviar los registros y las métricas de la plataforma a diferentes destinos
 description: Envíe métricas y registros a Azure Monitor, Azure Storage o Azure Event Hubs utilizando la misma configuración de diagnóstico.
-author: bwren
-ms.author: bwren
+author: rboucher
+ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 06/09/2021
-ms.openlocfilehash: 50eb92441c248884930e556551a92acb9e43661b
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.date: 11/02/2021
+ms.openlocfilehash: 39cb496d02ca77a65e4adff7aabf591b54e07ea4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130176413"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131459014"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Creación de una configuración de diagnóstico para enviar los registros y las métricas de la plataforma a diferentes destinos
 Los [registros de plataforma](./platform-logs-overview.md) de Azure, como los registros de recursos y los registros de actividad de Azure, proporcionan información de diagnóstico y auditoría detallada sobre los recursos de Azure y la plataforma de Azure de la que dependen. Las [métricas de plataforma](./data-platform-metrics.md) se recopilan de forma predeterminada y suelen almacenarse en la base de datos de métricas de Azure Monitor. En este artículo, se explica cómo crear y establecer la configuración de diagnóstico para enviar métricas y registros de plataforma a diferentes destinos.
@@ -47,6 +47,7 @@ Los registros y las métricas de plataforma se pueden enviar a los destinos de l
 | [Área de trabajo de Log Analytics](../logs/design-logs-deployment.md) | El envío de registros y métricas a un área de trabajo de Log Analytics le permite analizar con otros datos de supervisión recopilados por Azure Monitor mediante consultas de registro eficaces, junto con otras características de Azure Monitor, como las alertas y las visualizaciones. |
 | [Event Hubs](../../event-hubs/index.yml) | El envío de registros y métricas a Event Hubs permite transmitir datos a sistemas externos, como SIEM de terceros y otras soluciones de análisis de registros.  |
 | [Cuenta de Almacenamiento de Azure](../../storage/blobs/index.yml) | Archivar los registros y las métricas en una cuenta de almacenamiento de Azure resulta útil para realizar auditorías, análisis estáticos o copias de seguridad. En comparación con los registros de Azure Monitor y las áreas de trabajo de Log Analytics, Azure Storage es más económico y los registros se pueden mantener indefinidamente.  |
+| [Integraciones de asociados de Azure Monitor](/azure/partner-solutions/overview/)| Integraciones especializadas entre Azure Monitor y otras plataformas de supervisión que no son de Microsoft. |
 
 
 ### <a name="destination-requirements"></a>Requisitos de destino
@@ -123,12 +124,12 @@ Puede realizar configuraciones de diagnóstico en Azure Portal desde el menú de
         ![Enviar a Storage](media/diagnostic-settings/storage-settings-new.png)
 
         > [!TIP]
-        > Considere la posibilidad de establecer la directiva de retención en 0 y eliminar manualmente los datos de almacenamiento utilizando un trabajo programado para evitar posibles confusiones en el futuro.
+        > Considere la posibilidad de establecer la directiva de retención en 0 y usar la [directiva de ciclo de vida de Azure Storage](/azure/storage/blobs/lifecycle-management-policy-configure) o eliminar los datos del almacenamiento mediante un trabajo programado. Es probable que estas estrategias proporcionen un comportamiento más coherente. 
         >
-        > En primer lugar, si está usando el almacenamiento para archivar, querrá conservar los datos durante más de 365 días. En segundo lugar, si elige una directiva de retención que sea mayor que 0, la fecha de expiración se asociará a los registros cuando se almacenen. No se puede cambiar la fecha de los registros una vez almacenados.
-        >
-        > Si establece la directiva de retención de *WorkflowRuntime* en 180 días y 24 horas después la establece en 365 días, los registros almacenados durante las primeras 24 horas se eliminarán automáticamente a los 180 días, mientras que todos los registros posteriores de ese mismo tipo se eliminarán automáticamente después de 365 días. Aunque posteriormente se modifique la directiva de retención, los registros que se almacenaron durante las 24 primeras horas no se conservarán 365 días.
-
+        > En primer lugar, si está usando el almacenamiento para archivar, querrá conservar los datos durante más de 365 días. En segundo lugar, si elige una directiva de retención que sea mayor que 0, la fecha de expiración se asociará a los registros cuando se almacenen. No se puede cambiar la fecha de los registros una vez almacenados. Si establece la directiva de retención de *WorkflowRuntime* en 180 días y 24 horas después la establece en 365 días, los registros almacenados durante las primeras 24 horas se eliminarán automáticamente a los 180 días, mientras que todos los registros posteriores de ese mismo tipo se eliminarán automáticamente después de 365 días. Aunque posteriormente se modifique la directiva de retención, los registros que se almacenaron durante las 24 primeras horas no se conservarán 365 días.
+    
+     1. **Integración de asociados**: primero debe instalar una integración de asociados en la suscripción. Para obtener más información, vea [Integraciones de asociados de Azure Monitor](/azure/partner-solutions/overview/). 
+    
 6. Haga clic en **Save**(Guardar).
 
 Transcurridos unos instantes, la nueva configuración aparece en la lista de configuraciones para este recurso y los registros se transmiten a los destinos especificados en cuanto se generan nuevos datos de eventos. Pueden pasar hasta quince minutos desde que se emite un evento hasta que [aparece en un área de trabajo de Log Analytics](../logs/data-ingestion-time.md).

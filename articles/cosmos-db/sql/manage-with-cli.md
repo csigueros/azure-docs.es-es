@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/13/2021
 ms.author: mjbrown
-ms.openlocfilehash: c2b383a64699d6e4b497d8653e69f401886db21a
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 10e802c21fb4d1f3ba0f693dd663ab22330be696
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123114497"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131443383"
 ---
 # <a name="manage-azure-cosmos-core-sql-api-resources-using-azure-cli"></a>Administración de recursos de API de Azure Cosmos Core (SQL) mediante la CLI de Azure
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -71,7 +71,7 @@ Cree una cuenta de Azure Cosmos con dos regiones, agregue una región y quite ot
 > [!NOTE]
 > Este comando permite agregar y quitar regiones, pero no permite modificar las prioridades de conmutación por error ni desencadenar una conmutación por error manual. Consulte [Establecimiento de la prioridad de conmutación por error](#set-failover-priority) y [Desencadenamiento de una conmutación por error manual](#trigger-manual-failover).
 > [!TIP]
-> Cuando se agrega una nueva región, todos los datos deben replicarse por completo y estar confirmados en la nueva región antes de que la región se marque como disponible. La cantidad de tiempo que tarde esta operación dependerá de la cantidad de datos almacenados en la cuenta.
+> Cuando se agrega una nueva región, todos los datos deben replicarse por completo y estar confirmados en la nueva región antes de que la región se marque como disponible. La cantidad de tiempo que tarde esta operación dependerá de la cantidad de datos almacenados en la cuenta. Si hay una [operación asincrónica de escalado del rendimiento](../scaling-provisioned-throughput-best-practices.md#background-on-scaling-rus) en curso, la operación de escalado vertical del rendimiento se pausa y se reanuda automáticamente cuando se completa la operación de agregar o quitar región. 
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
@@ -143,6 +143,9 @@ az cosmosdb update --ids $accountId --enable-automatic-failover true
 
 > [!CAUTION]
 > Al cambiar una región con una prioridad = 0, se desencadenará una conmutación por error manual para una cuenta de Azure Cosmos. Los restantes cambios de prioridad no desencadenarán ninguna conmutación por error.
+
+> [!NOTE]
+> Si realiza una operación de conmutación por error manual mientras hay una [operación asincrónica de escalado del rendimiento](../scaling-provisioned-throughput-best-practices.md#background-on-scaling-rus) en curso, la operación de escalado vertical del rendimiento se pausa. Se reanuda automáticamente cuando se completa la operación de conmutación por error.
 
 ```azurecli-interactive
 # Assume region order is initially 'West US 2=0' 'East US 2=1' 'South Central US=2' for account

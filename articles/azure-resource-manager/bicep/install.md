@@ -2,14 +2,14 @@
 title: Configuración de entornos de desarrollo e implementación de Bicep
 description: Configuración de entornos de desarrollo e implementación de Bicep
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 10/20/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: db0fe243dea09a431adc47f064d87c5e9a2ee7a8
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 7f590c0d0954ca4e3ccc3f4d894f55892b01a6ae
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129363634"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131443516"
 ---
 # <a name="install-bicep-tools"></a>Instalación de herramientas de Bicep
 
@@ -31,6 +31,45 @@ Para crear archivos de Bicep, necesitará un buen editor de Bicep. Es recomendab
 Para comprobar que ha instalado la extensión, abra cualquier archivo con la extensión de archivo `.bicep`. Debería ver que el modo de lenguaje en la esquina inferior derecha cambia a **Bicep**.
 
 :::image type="content" source="./media/install/language-mode.png" alt-text="Modo de lenguaje de Bicep":::
+
+### <a name="troubleshoot"></a>Solucionar problemas
+
+Al instalar la extensión Bicep para Visual Studio Code, puede encontrarse con los siguientes mensajes de error:
+
+```error
+Failed to install .NET runtime v5.0
+```
+
+```error
+Failed to download .NET 5.0.x ....... Error!
+```
+
+Para solucionar el problema, puede instalar manualmente .NET desde el [sitio web de .NET](https://aka.ms/dotnet-core-download) y luego configurar Visual Studio Code para reutilizar una instalación existente de .NET. con la siguiente configuración:
+
+**Windows**
+
+```json
+"dotnetAcquisitionExtension.existingDotnetPath": [
+  {
+    "extensionId": "ms-azuretools.vscode-bicep",
+    "path": "C:\\Program Files\\dotnet\\dotnet.exe"
+  }
+]
+
+```
+
+**macOS**
+
+```json
+"dotnetAcquisitionExtension.existingDotnetPath": [
+  {
+    "extensionId": "ms-azuretools.vscode-bicep",
+    "path": "/usr/local/share/dotnet/dotnet"
+  }
+]
+```
+
+Vea [Configuración de área de trabajo y usuario](https://code.visualstudio.com/docs/getstarted/settings) para establecer la configuración de Visual Studio Code.
 
 ## <a name="deployment-environment"></a>Entorno de implementación
 

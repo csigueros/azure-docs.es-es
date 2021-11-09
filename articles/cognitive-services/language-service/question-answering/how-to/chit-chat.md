@@ -9,14 +9,14 @@ ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021
-ms.openlocfilehash: 2e46b7b877e3ce8e82782356339261ff5204bf26
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: c925fdf1b5b53f703d7c996110fe1b6b5f52cde8
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131090819"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131476592"
 ---
-# <a name="use-chitchat-with-a-knowledge-base"></a>Uso de charlas con una knowledge base
+# <a name="use-chitchat-with-a-project"></a>Uso de charlas con un proyecto
 
 La incorporación de charlas al bot lo hace más atractivo y conversacional. La característica de charla de la respuesta a preguntas personalizada permite agregar fácilmente un conjunto previamente rellenado de las principales charlas a la knowledge base (KB). Esto puede ser un punto de partida para la personalidad del bot y permite ahorrar el tiempo y el costo que supone escribirlas desde cero.
 

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 10/27/2021
 ms.author: pafarley
-ms.openlocfilehash: 94ca47e6114e4f8c3485f6072facd07c25e4b96a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be1e97aead471012e6d0e92931d670306cb1ddf4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "73647753"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458311"
 ---
 # <a name="label-images-faster-with-smart-labeler"></a>Etiquetado más rápido de imágenes con Smart Labeler
 
-En esta guía, aprenderá a usar Smart Labeler para generar etiquetas sugeridas para las imágenes. Esto le permite etiquetar un gran número de imágenes más rápidamente al entrenar un modelo de Custom Vision.
+En esta guía, aprenderá a usar Smart Labeler para generar etiquetas sugeridas para las imágenes. Esto permite etiquetar un gran número de imágenes más rápidamente al entrenar un modelo de Custom Vision.
 
 Al etiquetar las imágenes para un modelo de Custom Vision, el servicio utiliza la iteración entrenada más reciente del modelo para predecir las etiquetas de las imágenes sin etiquetar. Después, muestra estas predicciones como etiquetas sugeridas según el umbral de confianza seleccionado y la incertidumbre de la predicción. Después puede confirmar o cambiar las sugerencias y acelerar el proceso de etiquetado manual de las imágenes para el entrenamiento.
 

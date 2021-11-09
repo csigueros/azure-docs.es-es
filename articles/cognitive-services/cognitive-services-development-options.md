@@ -7,13 +7,13 @@ author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: c06cdae9bd7e2b0d3830cd57327253206970b3c6
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 10/28/2021
+ms.openlocfilehash: 1d6f882a52a66b478a34b0da129a53c502ccbbca
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131077940"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458235"
 ---
 # <a name="cognitive-services-development-options"></a>Opciones de desarrollo de Cognitive Services
 
@@ -95,7 +95,7 @@ Power Automate es un servicio de [Power Platform](/power-platform/) que le ayuda
 
 ### <a name="ai-builder"></a>AI Builder 
 
-[AI Builder](/ai-builder/overview) es una funcionalidad de Microsoft Power Platform que puede usar para mejorar el rendimiento empresarial mediante la automatización de los procesos y la predicción de los resultados. AI Builder aporta la tecnología de la inteligencia artificial a sus soluciones mediante una experiencia de tipo apuntar y hacer clic. Muchos servicios cognitivos, como Text Analytics y Computer Vision, se han integrado directamente aquí y no es necesario crear un servicio propio de Cognitive Services. 
+[AI Builder](/ai-builder/overview) es una funcionalidad de Microsoft Power Platform que puede usar para mejorar el rendimiento empresarial mediante la automatización de los procesos y la predicción de los resultados. AI Builder aporta la tecnología de la inteligencia artificial a sus soluciones mediante una experiencia de tipo apuntar y hacer clic. Muchos servicios cognitivos, como el servicio de lenguaje y Computer Vision, se han integrado directamente aquí y no exigen crear una instancia propia de Cognitive Services. 
 
 * **Usuarios de destino**: usuarios empresariales (analistas) y administradores de SharePoint
 * **Ventajas** una solución llave en mano que aporta la tecnología de la inteligencia artificial mediante una experiencia de tipo apuntar y hacer clic. No se requieren conocimientos de codificación ni de ciencia de datos.

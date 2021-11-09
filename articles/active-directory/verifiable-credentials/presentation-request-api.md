@@ -1,7 +1,7 @@
 ---
 title: Especificación de la solicitud de comprobación de la API REST del servicio de solicitudes (versión preliminar)
 titleSuffix: Azure Active Directory Verifiable Credentials
-description: Obtenga información sobre cómo iniciar una solicitud de presentación de credenciales verificables.
+description: Aprenda a iniciar una solicitud de presentación de credenciales verificables
 documentationCenter: ''
 author: barclayn
 manager: karenh444
@@ -10,17 +10,16 @@ ms.topic: reference
 ms.subservice: verifiable-credentials
 ms.date: 10/08/2021
 ms.author: barclayn
-ms.openlocfilehash: 30da74a6d94f2460a980737670d65442c0ddb3ac
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: c670f060e7849f844997c0feefd60229b90e5202
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129984409"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131474010"
 ---
 # <a name="request-service-rest-api-presentation-specification-preview"></a>Especificación de presentación de la API REST del servicio de solicitudes (versión preliminar)
 
-La API de REST del servicio de solicitudes de credenciales verificables de Azure Active Directory permite emitir y comprobar este tipo de credenciales. En este artículo se especifica la API de REST del servicio de solicitudes para una solicitud de presentación. La solicitud de presentación solicita al usuario que presente una credencial verificable y, a continuación, que la compruebe.
-
+Las credenciales verificables de Azure Active Directory (Azure AD) incluyen la API de REST de solicitud de servicio. Esta API permite emitir y comprobar una credencial. En este artículo se especifica la API de REST del servicio de solicitudes para una solicitud de presentación. La solicitud de presentación pide al usuario que presente una credencial verificable y luego la comprueba.
 
 ## <a name="http-request"></a>Solicitud HTTP
 
@@ -34,10 +33,10 @@ La solicitud de presentación de la API de REST del servicio de solicitudes requ
 
 | Método |Valor  |
 |---------|---------|
-|`Authorization`| Adjunte el token de acceso como token de portador al encabezado "Authorization" en una solicitud HTTP. Por ejemplo, `Authorization: Bearer <token>`.|
+|`Authorization`| Adjunte el token de acceso como token de portador al encabezado de autorización de una solicitud HTTP. Por ejemplo, `Authorization: Bearer <token>`.|
 |`Content-Type`| `Application/json`|
 
-Cree una solicitud HTTP POST para la API de REST del servicio de solicitudes. Reemplace `{tenantID}` por el [Id.](verifiable-credentials-configure-issuer.md#gather-credentials-and-environment-details-to-set-up-your-sample-application) o el nombre de su inquilino.
+Cree una solicitud HTTP POST para la API de REST del servicio de solicitudes. Reemplace `{tenantID}` por el identificador o el nombre del inquilino.
 
 ```http
 https://beta.did.msidentity.com/v1.0/{tenantID}/verifiablecredentials/request
@@ -63,7 +62,7 @@ Authorization: Bearer  <token>
 } 
 ```  
 
-El siguiente permiso es necesario para llamar a la API de REST del servicio de solicitudes. Si desea más información, consulte [Concesión permisos para obtener tokens de acceso](verifiable-credentials-configure-tenant.md#31-grant-permissions-to-get-access-tokens).
+El siguiente permiso es necesario para llamar a la API de REST del servicio de solicitudes. Si desea más información, consulte [Concesión permisos para obtener tokens de acceso](verifiable-credentials-configure-tenant.md#grant-permissions-to-get-access-tokens).
 
 | Tipo de permiso | Permiso  |
 |---------|---------|
@@ -106,15 +105,15 @@ La carga contiene las siguientes propiedades:
 
 |Parámetro |Tipo  | Descripción |
 |---------|---------|---------|
-| `includeQRCode` |  boolean |   Determina si se incluye un código QR en la respuesta de esta solicitud. Presente el código QR y pida al usuario que lo digitalice. Al digitalizar el código QR, se iniciará la aplicación autenticadora con esta solicitud de presentación. Valores posibles: `true` (predeterminado) o `false`. Si se establece en `false`, use la propiedad `url` de retorno para representar un vínculo profundo.  |
-| `authority` | string|  Identificador descentralizado del inquilino de Azure AD comprobador. Para obtener más información, consulte [Recopilación de detalles del inquilino para configurar la aplicación de ejemplo](verifiable-credentials-configure-verifier.md#gather-tenant-details-to-set-up-your-sample-application).|
+| `includeQRCode` |  Boolean |   Determina si se incluye un código QR en la respuesta de esta solicitud. Presente el código QR y pida al usuario que lo digitalice. Al digitalizar el código QR, se iniciará la aplicación autenticadora con esta solicitud de presentación. Los valores posibles son `true` (valor predeterminado) o `false`. Si establece el valor en `false`, use la propiedad `url` devuelta para representar un vínculo profundo.  |
+| `authority` | string|  Identificador descentralizado (DID) del inquilino de Azure AD de comprobación. Para obtener más información, consulte [Recopilación de detalles del inquilino para configurar la aplicación de ejemplo](verifiable-credentials-configure-verifier.md#gather-tenant-details-to-set-up-your-sample-application).|
 | `registration` | [RequestRegistration](#requestregistration-type)|  Proporciona información sobre el comprobador. |
 | `presentation` | [RequestPresentation](#requestpresentation-type)| Proporciona información sobre la solicitud de presentación de credenciales verificables.  |
 |`callback`|  [Callback](#callback-type)| Permite al desarrollador actualizar la interfaz de usuario durante el proceso de presentación de credenciales verificables. Cuando el usuario complete el proceso, continúe con este una vez que los resultados se devuelvan a la aplicación.|
 
 ### <a name="requestregistration-type"></a>Tipo RequestRegistration
 
-El tipo RequestRegistration proporciona el registro de información para el emisor. El tipo RequestRegistration contiene las siguientes propiedades:
+El tipo `RequestRegistration` proporciona el registro de información del emisor. El tipo `RequestRegistration` contiene las propiedades siguientes:
 
 |Propiedad |Tipo |Descripción |
 |---------|---------|---------|
@@ -122,41 +121,40 @@ El tipo RequestRegistration proporciona el registro de información para el emis
 
 En la siguiente captura de pantalla se muestra la propiedad `clientName` y el nombre para mostrar de `authority` (el comprobador) en la solicitud de presentación.
 
-![Captura de pantalla en la que se muestra cómo aprobar la solicitud de presentación](media/presentation-request-api/approve-presentation-request.jpg)
+![Captura de pantalla que muestra cómo aprobar la solicitud de presentación.](media/presentation-request-api/approve-presentation-request.jpg)
 
 ### <a name="requestpresentation-type"></a>Tipo RequestPresentation
 
-El tipo RequestPresentation proporciona información necesaria para la presentación de credenciales verificables. El tipo RequestPresentation contiene las siguientes propiedades:
+El tipo `RequestPresentation` proporciona información necesaria para la presentación de credenciales verificables. `RequestPresentation` contiene las propiedades siguientes:
 
 |Propiedad |Tipo |Descripción |
 |---------|---------|---------|
-| `includeReceipt` |  boolean | Determina si se debe incluir un recibo en la respuesta de esta solicitud. Valores posibles: `true` o `false` (predeterminado). El recibo contiene la carga original enviada desde el autenticador al servicio de credenciales verificables.  El recibo es útil para solucionar problemas y no debe establecerse de manera predeterminada. En la solicitud SIOP de OpenId Connect, el recibo contiene el token de identificador de la solicitud original. |
+| `includeReceipt` |  Boolean | Determina si se debe incluir un recibo en la respuesta de esta solicitud. Los valores posibles son `true` o `false` (valor predeterminado). El recibo contiene la carga original enviada desde el autenticador al servicio de credenciales verificables. El recibo es útil para solucionar problemas y no debe establecerse de manera predeterminada. En la solicitud `OpenId Connect SIOP`, el recibo contiene el token de identificación de la solicitud original. |
 | `requestedCredentials` | collection| Colección de objetos [RequestCredential](#requestcredential-type).|
 
 ### <a name="requestcredential-type"></a>Tipo RequestCredential
 
-El tipo RequestCredential proporciona información sobre las credenciales solicitadas que el usuario debe proporcionar. El tipo RequestCredential contiene las siguientes propiedades:
+`RequestCredential` proporciona información sobre las credenciales solicitadas que el usuario debe proporcionar. `RequestCredential` contiene las propiedades siguientes:
 
 |Propiedad |Tipo |Descripción |
 |---------|---------|---------|
-| `type`| string| Tipo de credencial verificable. La propiedad `type` debe coincidir con el tipo que se define en el manifiesto de credencial verificable del **emisor**. Por ejemplo, `VerifiedCredentialExpert`. Para obtener el manifiesto del emisor, siga las instrucciones de [Recopilación de credenciales y detalles del entorno para configurar la aplicación de ejemplo](verifiable-credentials-configure-issuer.md#gather-credentials-and-environment-details-to-set-up-your-sample-application). Copie la **dirección URL de emisión de credenciales**, ábrala en un explorador web y compruebe la propiedad **id**. |
+| `type`| string| Tipo de credencial verificable. `type` debe coincidir con el tipo que se define en el manifiesto de credencial verificable `issuer` (por ejemplo, `VerifiedCredentialExpert`). Para obtener el manifiesto del emisor, vea [Recopilación de credenciales y detalles del entorno para configurar la aplicación de ejemplo](verifiable-credentials-configure-issuer.md). Copie la **dirección URL de emisión de credenciales**, ábrala en un explorador web y compruebe la propiedad **id**. |
 | `purpose`| string | Proporciona información sobre el propósito de solicitar esta credencial verificable. |
-| `acceptedIssuers`| string collection | DID de una colección de emisores que podría emitir el tipo de credencial verificable que los sujetos pueden presentar. Para obtener el DID de su emisor, siga las instrucciones de [Recopilación de credenciales y detalles del entorno para configurar la aplicación de ejemplo](verifiable-credentials-configure-issuer.md#gather-credentials-and-environment-details-to-set-up-your-sample-application) y copie el valor del **identificador descentralizado (DID)** . |
-
+| `acceptedIssuers`| string collection | DID de una colección de emisores que podría emitir el tipo de credencial verificable que los sujetos pueden presentar. Para obtener el DID del emisor, vea [Recopilación de credenciales y detalles del entorno para configurar la aplicación de ejemplo](verifiable-credentials-configure-issuer.md) y copie el valor del **identificador descentralizado (DID)** . |
 
 ### <a name="callback-type"></a>Tipo de devolución de llamada
 
-La API de REST del servicio de solicitudes genera varios eventos para el punto de conexión de devolución de llamada. Dichos eventos permiten actualizar la interfaz de usuario y continuar con el proceso una vez que se devuelven los resultados a la aplicación. El tipo Callback contiene las siguientes propiedades:
+La API de REST del servicio de solicitudes genera varios eventos para el punto de conexión de devolución de llamada. Esos eventos permiten actualizar la interfaz de usuario y continuar con el proceso una vez que se han devuelto los resultados a la aplicación. El tipo `Callback` contiene las propiedades siguientes:
 
 |Propiedad |Tipo |Descripción |
 |---------|---------|---------|
 | `url` | string| URI al punto de conexión de devolución de llamada de la aplicación. |
 | `state` | string| Se asocia al estado pasado en la carga original. |
-| `headers` | string| [Opcional] Puede incluir una colección de encabezados HTTP que requiera el extremo receptor del mensaje POST. Los encabezados solo deben incluir la clave de API o cualquier encabezado necesario para la autorización.|
+| `headers` | string| Opcional. Puede incluir una colección de encabezados HTTP que necesita el extremo receptor del mensaje POST. Los encabezados solo deben incluir `api-key` o cualquier encabezado necesario para la autorización.|
 
 ## <a name="successful-response"></a>Respuesta correcta
 
-Si se completa correctamente, este método devuelve un código de respuesta HTTP "201 Created" y una colección de objetos de evento en el cuerpo de la respuesta. En el siguiente código JSON se muestra una respuesta correcta:
+Si se ejecuta correctamente, este método devuelve un código de respuesta (*HTTP 201 Created*) y una colección de objetos de evento en el cuerpo de la respuesta. En el siguiente código JSON se muestra una respuesta correcta:
 
 ```json
 {  
@@ -171,16 +169,16 @@ La respuesta contiene las siguientes propiedades:
 
 |Propiedad |Tipo |Descripción |
 |---------|---------|---------|
-| `requestId`| string | Id. de correlación generado automáticamente. La [devolución de llamada](#callback-events) usa la misma solicitud, lo que permite realizar un seguimiento de la solicitud de presentación y sus devoluciones de llamada. |
+| `requestId`| string | Id. de correlación generado automáticamente. La [devolución de llamada](#callback-events) usa la misma solicitud, lo que permite realizar el seguimiento de la solicitud de presentación y sus devoluciones de llamada. |
 | `url`|  string| Dirección URL que inicia la aplicación autenticadora y pone en marcha el proceso de presentación. Puede presentar esta dirección URL al usuario si no puede digitalizar el código QR. |
-| `expiry`| integer| Indica cuándo expirará la respuesta. |
+| `expiry`| integer| Indica cuándo va a expirar la respuesta. |
 | `qrCode`| string | Código QR que el usuario puede digitalizar para iniciar el flujo de presentación. |
 
-Cuando reciba la respuesta, su aplicación debe mostrar el código QR al usuario. El usuario digitaliza el código QR, que abre la aplicación autenticadora que inicia el proceso de presentación.
+Cuando reciba la respuesta, su aplicación debe mostrar el código QR al usuario. El usuario digitaliza el código QR, lo que abre la aplicación autenticadora e inicia el proceso de presentación.
 
 ## <a name="error-response"></a>Respuesta de error
 
-También se pueden devolver respuestas de error para que la aplicación las gestione según corresponda. En el siguiente código JSON se muestra un mensaje de error no autorizado.
+También se pueden devolver respuestas de error para que la aplicación las gestione según corresponda. En el siguiente código JSON se muestra un mensaje de error no autorizado:
 
 
 ```json
@@ -199,24 +197,24 @@ La respuesta contiene las siguientes propiedades:
 |Propiedad |Tipo |Descripción |
 |---------|---------|---------|
 | `requestId`| string | Id. de solicitud generado automáticamente.|
-| `date`| date| Hora del error. |
-| `error.code` | string| Código de error devuelto. |
-| `error.message`| string| El mensaje de error. |
+| `date`| date | Hora del error. |
+| `error.code` | string | Código de error devuelto. |
+| `error.message`| string | El mensaje de error. |
 
 ## <a name="callback-events"></a>Eventos de devolución de llamada
 
-Se llama al punto de conexión de devolución de llamada cuando un usuario digitaliza el código QR, usa el vínculo profundo de su aplicación autenticadora o finaliza el proceso de presentación. 
+Se llama al punto de conexión de devolución de llamada cuando un usuario digitaliza el código QR, usa el vínculo profundo de la aplicación autenticadora o finaliza el proceso de presentación. 
 
 |Propiedad |Tipo |Descripción |
 |---------|---------|---------|
 | `requestId`| string | Se asigna a la solicitud original cuando la carga se ha publicado en el servicio de credenciales verificables.|
-| `code` |string |Código devuelto cuando la aplicación autenticadora ha recuperado la solicitud. Valores posibles: <ul><li>`request_retrieved`: el usuario ha digitalizado el código QR o hecho clic en el vínculo que inicia el flujo de presentación.</li><li>`presentation_verified`: la validación de las credenciales verificables se ha completado correctamente.</li></ul>    |
+| `code` |string |Código devuelto cuando la aplicación autenticadora ha recuperado la solicitud. Valores posibles: <ul><li>`request_retrieved`: el usuario ha digitalizado el código QR o ha seleccionado el vínculo que inicia el flujo de presentación.</li><li>`presentation_verified`: la validación de la credencial verificable se ha completado correctamente.</li></ul>    |
 | `state` |string| Devuelve el valor de estado que ha pasado en la carga original.   |
 | `subject`|string | DID de usuario de la credencial verificable.|
-| `issuers`| array |Devuelve una matriz de credenciales verificables solicitadas. Para cada credencial verificable, se proporciona lo siguiente: </li><li>Tipo de credencial verificable</li><li>Notificaciones recuperadas</li><li>Dominio del emisor de la credencial verificable </li><li>Estado de validación del dominio del emisor de la credencial verificable </li></ul> |
-| `receipt`| string | [Opcional] El recibo contiene la carga original enviada desde el autenticador al servicio de credenciales verificables.  |
+| `issuers`| array |Devuelve una matriz de credenciales verificables solicitadas. En cada credencial verificable, proporciona: </li><li>Tipo de credencial verificable</li><li>Notificaciones recuperadas</li><li>Dominio del emisor de la credencial verificable </li><li>Estado de validación del dominio del emisor de la credencial verificable </li></ul> |
+| `receipt`| string | Opcional. El recibo contiene la carga original enviada desde el autenticador a las credenciales verificables.  |
 
-En el siguiente ejemplo se muestra una carga de devolución de llamada cuando la aplicación autenticadora inicia la solicitud de presentación.
+En el siguiente ejemplo se muestra una carga de devolución de llamada cuando la aplicación autenticadora inicia la solicitud de presentación:
 
 ```json
 {  
@@ -226,7 +224,7 @@ En el siguiente ejemplo se muestra una carga de devolución de llamada cuando la
 } 
 ```
 
-En el siguiente ejemplo se muestra una carga de devolución de llamada después de que se haya completado correctamente la presentación de credenciales verificables.
+En el siguiente ejemplo se muestra una carga de devolución de llamada después de que se haya completado correctamente la presentación de la credencial verificable:
 
 ```json
 {
@@ -257,4 +255,4 @@ En el siguiente ejemplo se muestra una carga de devolución de llamada después 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre [cómo llamar a la API de REST del servicio de solicitudes](get-started-request-api.md).
+Obtenga información sobre [cómo llamar a la API de REST de solicitud de servicio](get-started-request-api.md).

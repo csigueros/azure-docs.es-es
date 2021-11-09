@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 8fe21ce5b92d672a2e025e0b45b8cbaea5951a8b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5dd2f7a7d5bc580c6846f214c84788bd2067cb0c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105043910"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441635"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Solución de problemas cuando se conmuta por error una máquina física o una máquina virtual de VMware en Azure
 
@@ -26,7 +26,7 @@ Site Recovery no pudo crear una máquina virtual conmutada por error en Azure. E
 
 * No hay cuota suficiente disponible para crear la máquina virtual: Para comprobar la cuota disponible, vaya a Suscripción ->Uso y cuotas. Puede abrir una [solicitud de soporte técnico nueva](https://aka.ms/getazuresupport) para aumentar la cuota.
 
-* Se intenta conmutar por error máquinas virtuales de familias de distinto tamaño en el mismo conjunto de disponibilidad. Asegúrese de elegir una familia del mismo tamaño para todas las máquinas virtuales del mismo conjunto de disponibilidad. Cambie el tamaño en la configuración de Proceso y red de la máquina virtual y reintente la conmutación por error.
+* Se intenta conmutar por error máquinas virtuales de familias de distinto tamaño en el mismo conjunto de disponibilidad. Asegúrese de elegir una familia del mismo tamaño para todas las máquinas virtuales del mismo conjunto de disponibilidad. Cambie el tamaño en la configuración **Proceso** de la máquina virtual y vuelva a intentar la conmutación por error.
 
 * Hay una directiva de la suscripción que impide crear una máquina virtual. Cambie la directiva para permitir la creación de una máquina virtual y reintente la conmutación por error.
 
@@ -38,7 +38,7 @@ Site Recovery no pudo crear una interfaz de red para la máquina virtual conmuta
 
 Site Recovery no pudo crear una máquina virtual clásica conmutada por error en Azure. Esto podría suceder porque:
 
-* No existe uno de los recursos, como una red virtual, que se requieren para crear la máquina virtual. Cree la red virtual según lo indicado en la configuración de Proceso y red de la máquina virtual, o bien modifique la configuración a una red virtual que ya existe y reintente la conmutación por error.
+* No existe uno de los recursos, como una red virtual, que se requieren para crear la máquina virtual. Cree la red virtual según lo indicado en la configuración Red de la máquina virtual, o bien modifique la configuración a una red virtual que ya exista y vuelva a intentar la conmutación por error.
 
 ## <a name="failover-failed-with-error-id-170010"></a>No se pudo realizar la conmutación por error con el identificador de error 170010
 

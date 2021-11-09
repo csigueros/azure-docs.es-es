@@ -9,35 +9,33 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/31/2021
+ms.date: 10/23/2021
 ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 8a2bfb1e76a323ab3fb9d4daa3bbb3e6ba2408ab
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: c061dcbbf21c67e0b14768f5918e76f8bcb43e0d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129619792"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471238"
 ---
-# <a name="configure-permission-classifications-with-azure-active-directory"></a>Configuración de las clasificaciones de permisos con Azure Active Directory
+# <a name="configure-permission-classifications-in-azure-active-directory"></a>Configuración de clasificaciones de permisos en Azure Active Directory
 
-Las clasificaciones de permisos permiten identificar el impacto que tienen los distintos permisos según las evaluaciones de riesgo y las directivas de la organización. Por ejemplo, puede usar las clasificaciones de permisos en las directivas de consentimiento para identificar el conjunto de permisos a los que los usuarios pueden dar su consentimiento.
-
-## <a name="prerequisites"></a>Prerrequisitos
-
-Necesita lo siguiente para completar las tareas de esta guía:
-
-- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Un rol de administrador global.
-- Configure Azure AD PowerShell. Consulte [Documentación de Azure PowerShell](/powershell/azure/).
-
-## <a name="manage-permission-classifications"></a>Administración de las clasificaciones de los permisos
+En este artículo va a aprender a configurar clasificaciones de permisos en Azure Active Directory (Azure AD). Las clasificaciones de permisos permiten identificar el impacto que tienen los distintos permisos según las evaluaciones de riesgo y las directivas de la organización. Por ejemplo, puede usar las clasificaciones de permisos en las directivas de consentimiento para identificar el conjunto de permisos a los que los usuarios pueden dar su consentimiento.
 
 Actualmente, solo se admite la clasificación de permisos de "bajo impacto". Solo los permisos delegados que no requieren el consentimiento del administrador se pueden clasificar como "bajo impacto".
 
-> [!TIP]
-> Los permisos mínimos necesarios para realizar el inicio de sesión básico son `openid`, `profile`, `email`, `User.Read` y `offline_access`, puesto que son todos los permisos delegados en Microsoft Graph. Con estos permisos, una aplicación puede leer los detalles completos del perfil del usuario que ha iniciado sesión y puede mantener este acceso incluso cuando el usuario ya no usa la aplicación.
+Los permisos mínimos necesarios para realizar el inicio de sesión básico son `openid`, `profile`, `email`, `User.Read` y `offline_access`, puesto que son todos los permisos delegados en Microsoft Graph. Con estos permisos, una aplicación puede leer los detalles completos del perfil del usuario que ha iniciado sesión y puede mantener este acceso incluso cuando el usuario ya no usa la aplicación.
+
+## <a name="prerequisites"></a>Prerrequisitos
+
+Para configurar clasificaciones de permisos necesita:
+
+- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Uno de los siguientes roles: Administrador global, Administrador de aplicaciones en la nube, Administrador de aplicaciones o Propietario de la entidad de servicio.
+
+## <a name="manage-permission-classifications"></a>Administración de las clasificaciones de los permisos
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -128,12 +126,4 @@ Puede usar el módulo de versión preliminar de Azure AD PowerShell más recien
 
 Para obtener más información:
 
-* [Opciones de configuración del consentimiento del usuario](configure-user-consent.md)
-* [Configuración del flujo de trabajo de consentimiento del administrador](configure-admin-consent-workflow.md)
-* [Aprenda a administrar el consentimiento de aplicaciones y a evaluar las solicitudes de consentimiento](manage-consent-requests.md)
-* [Concesión del consentimiento del administrador para todo el inquilino a una aplicación](grant-admin-consent.md)
-* [Permisos y consentimiento en la plataforma de identidad de Microsoft](../develop/v2-permissions-and-consent.md)
-
-Para obtener ayuda o encontrar respuestas a sus preguntas:
-
-* [Azure AD en Microsoft Q&A](/answers/topics/azure-active-directory.html)
+- Vaya a [Permisos y consentimiento en Plataforma de identidad de Microsoft](../develop/v2-permissions-and-consent.md)

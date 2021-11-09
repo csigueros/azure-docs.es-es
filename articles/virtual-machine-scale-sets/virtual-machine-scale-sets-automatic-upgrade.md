@@ -9,14 +9,16 @@ ms.subservice: automatic-os-upgrade
 ms.date: 07/29/2021
 ms.reviewer: jushiman
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b080c741276233e671d5724b3ee72cc7b4738446
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f4b5c58eb8811db9042d92416c4c37fa30234149
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751733"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131432954"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Actualización automática de imágenes del sistema operativo en un conjunto de escalado de máquinas virtuales de Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado uniformes
 
 La habilitación de las actualizaciones automáticas de imágenes del sistema operativo en el conjunto de escalado facilita la administración de actualizaciones al actualizarse de forma segura y automática el disco del sistema operativo de todas las instancias del conjunto de escalado.
 
@@ -25,7 +27,7 @@ La actualización automática del sistema operativo tiene las siguientes caracte
 - Una vez configurada, la imagen del sistema operativo más reciente publicada por los editores de la imagen se aplica automáticamente al conjunto de escalado sin la intervención del usuario.
 - Actualiza lotes de instancias de forma gradual cada vez que el editor publica una nueva imagen.
 - Se integra con sondeos de estado de la aplicación y la [extensión Estado de la aplicación](virtual-machine-scale-sets-health-extension.md).
-- Funciona para todos los tamaños de máquina virtual y para imágenes de Windows y Linux, incluidas imágenes personalizadas a través de [Shared Image Gallery](../virtual-machines/shared-image-galleries.md).
+- Funciona en todos los tamaños de máquina virtual y en imágenes de Windows y Linux, incluidas imágenes personalizadas mediante [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md).
 - Puede rechazar las actualizaciones automáticas en cualquier momento (las actualizaciones de sistema operativo también se pueden iniciar manualmente).
 - El disco del sistema operativo de una máquina virtual se reemplaza por el nuevo disco de sistema operativo creado con la versión más reciente de la imagen. Las extensiones configuradas y los scripts de datos personalizados se ejecutan, mientras se conservan los discos de datos persistentes.
 - Se admite la [secuenciación de extensiones](virtual-machine-scale-sets-extension-sequencing.md).
@@ -53,7 +55,7 @@ El modelo de orden de disponibilidad para actualizaciones orquestadas de la plat
 - Las máquinas virtuales de un conjunto de escalado común no se actualizan simultáneamente.  
 - Las máquinas virtuales de un conjunto de escalado de máquinas virtuales común se agrupan en lotes y se actualizan en los límites del dominio de actualización, tal y como se describe a continuación.
 
-Se sigue el proceso de las actualizaciones orquestadas de la plataforma para implementar las actualizaciones de imágenes de plataforma de sistema operativo admitidas cada mes. En el caso de imágenes personalizadas a través de Shared Image Gallery, solo se inicia una actualización de imagen para una determinada región de Azure cuando la nueva imagen se publica y [replica](../virtual-machines/shared-image-galleries.md#replication) en la región de ese conjunto de escalado.
+Se sigue el proceso de las actualizaciones orquestadas de la plataforma para implementar las actualizaciones de imágenes de plataforma de sistema operativo admitidas cada mes. En el caso de las imágenes personalizadas mediante Azure Compute Gallery, una actualización de imagen solo se inicia en una determinada región de Azure cuando la nueva imagen se publica y se [replica](../virtual-machines/shared-image-galleries.md#replication) en la región de ese conjunto de escalado.
 
 ### <a name="upgrading-vms-in-a-scale-set"></a>Actualización de máquinas virtuales en un conjunto de escalado
 
@@ -71,7 +73,7 @@ El orquestador de actualización del sistema operativo del conjunto de escalado 
 >La actualización automática del sistema operativo no actualiza la SKU de la imagen de referencia en el conjunto de escalado. Para cambiar la SKU (por ejemplo de Ubuntu 16.04-LTS a 18.04-LTS), debe actualizar el [modelo de conjunto de escalado](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model) directamente con la SKU de imagen deseada. No se puede cambiar la oferta y el publicador de imágenes para un conjunto de escalado existente.  
 
 ## <a name="supported-os-images"></a>Imágenes de sistema operativo compatibles
-Actualmente se admiten solo determinadas imágenes de plataforma del sistema operativo. [Se admiten imágenes personalizadas](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) si el conjunto de escalado usa imágenes personalizadas a través de la [Galería de imágenes compartidas](../virtual-machines/shared-image-galleries.md).
+Actualmente se admiten solo determinadas imágenes de plataforma del sistema operativo. [Se admiten](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) imágenes personalizadas si el conjunto de escalado las usa por medio de [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md).
 
 Las siguientes SKU de plataforma se admiten actualmente (y periódicamente se agregan más):
 
@@ -114,11 +116,11 @@ Asegúrese de que la configuración de durabilidad coincida con la del clúster 
 
 ## <a name="automatic-os-image-upgrade-for-custom-images"></a>Actualización automática de la imagen del sistema operativo para imágenes personalizadas
 
-Se admite la actualización automática de la imagen del sistema operativo para imágenes personalizadas implementadas a través de la [Galería de imágenes compartidas](../virtual-machines/shared-image-galleries.md). No se admiten otras imágenes personalizadas para las actualizaciones automáticas de imágenes del sistema operativo.
+Se admite la actualización automática de imágenes del sistema operativo de las imágenes personalizadas implementadas por medio de [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md). No se admiten otras imágenes personalizadas para las actualizaciones automáticas de imágenes del sistema operativo.
 
 ### <a name="additional-requirements-for-custom-images"></a>Requisitos adicionales de las imágenes personalizadas
 - El proceso de instalación y configuración para la actualización automática de la imagen del sistema operativo es el mismo para todos los conjuntos de escalado que se detallan en la [sección configuración](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade) de esta página.
-- Las instancias de conjuntos de escalado configuradas para actualizaciones automáticas de imágenes del sistema operativo se actualizarán a la versión más reciente de la imagen de Shared Image Gallery cuando se publique una nueva versión de la imagen y se [replique](../virtual-machines/shared-image-galleries.md#replication) en la región de ese conjunto de escalado. Si la nueva imagen no se replica en la región donde se implementa la escala, las instancias del conjunto de escalado no se actualizarán a la versión más reciente. La replicación de imagen regional permite controlar el lanzamiento de la nueva imagen para los conjuntos de escalado.
+- Las instancias de conjuntos de escalado configuradas para actualizaciones automáticas de imágenes del sistema operativo se actualizan a la versión más reciente de la imagen de Azure Compute Gallery cuando se publica una nueva versión de la imagen y se [replica](../virtual-machines/shared-image-galleries.md#replication) en la región de ese conjunto de escalado. Si la nueva imagen no se replica en la región donde se implementa la escala, las instancias del conjunto de escalado no se actualizarán a la versión más reciente. La replicación de imagen regional permite controlar el lanzamiento de la nueva imagen para los conjuntos de escalado.
 - La nueva versión de la imagen no se debe excluir de la versión más reciente de esa imagen de la galería. Las versiones de las imágenes excluidas de la versión más reciente de la imagen de la galería no se implementan en el conjunto de escalado mediante la actualización automática de la imagen del sistema operativo.
 
 > [!NOTE]

@@ -2,19 +2,19 @@
 title: Ahorros para Azure App Service con capacidad reservada
 description: Aprenda a ahorrar costos en instancias reservadas de Azure App Service Premium v3 e Isolated v2 y tarifas de unidades de escalado aisladas.
 author: bandersmsft
-ms.reviewer: primittal
+ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/04/2021
+ms.date: 10/27/2021
 ms.author: banders
 ms.custom: references_regions
-ms.openlocfilehash: f3c45799d88601bb8ef9a2d652bb07d7d54aceb9
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 2566b72723b4f7254e2509a331ed554f93ad4bc3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129456620"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131457893"
 ---
 # <a name="save-costs-with-azure-app-service-reserved-instances"></a>Ahorro de costos con instancias reservadas de Azure App Service
 
@@ -32,7 +32,7 @@ Antes de adquirir una reserva, debe determinar el tamaño de la instancia reserv
 
 Puede consultar las recomendaciones de reserva para averiguar las reservas que debe adquirir.
 
-- Se mostrarán recomendaciones de compra y la cantidad recomendada al adquirir una instancia reservada de Premium v3 en Azure Portal.
+- Se muestran recomendaciones de compra y cantidades recomendadas al adquirir una instancia reservada de Premium v3 en Azure Portal.
 - Azure Advisor proporciona recomendaciones de compra de suscripciones individuales.
 - Puede usar las API para obtener recomendaciones de compra relativas tanto a los ámbitos de suscripción tanto compartida como única. Para más información, vea [Recommendations API de compra de instancia reservada para clientes empresariales](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
 - En el caso de los clientes de Contrato Enterprise (EA) y del Contrato de cliente de Microsoft (MCA), las recomendaciones de compra de los ámbitos de suscripción tanto única como compartida solo están disponibles con el [paquete de contenido de Power BI de Azure Consumption Insights](/power-bi/service-connect-to-azure-consumption-insights).
@@ -48,7 +48,7 @@ El archivo de uso proporciona los cargos por período de facturación y el uso d
 Puede comprar una instancia reservada de Premium v3 en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Pague la reserva [por adelantado o mensualmente](prepare-buy-reservation.md). Estos requisitos se aplican a la compra de una instancia reservada de Premium v3:
 
 - Debe tener un rol de propietario en al menos una suscripción de EA o en una suscripción con una tarifa de pago por uso.
-- En el caso de las suscripciones de EA, la opción **Agregar instancias reservadas** debe estar habilitada en el [portal de EA](https://ea.azure.com/). O bien, si esa opción está deshabilitada, debe ser un administrador de EA en la suscripción.
+- En el caso de las suscripciones de EA, la opción **Agregar instancias reservadas** debe estar habilitada en el [portal de EA](https://ea.azure.com/). O bien, si esa opción está deshabilitada, debe ser un administrador de EA en la suscripción. Los clientes directos de EA ya pueden actualizar la configuración de **instancias reservadas** en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Vaya al menú Directivas para cambiar la configuración.
 - En el caso del programa Proveedor de soluciones en la nube (CSP), solo los agentes de administración o de ventas pueden adquirir reservas.
 
 Para comprar una instancia:
@@ -74,7 +74,7 @@ Si tiene un Contrato Enterprise, puede usar la opción **Agregar más** para agr
 Puede comprar una instancia reservada de App Service aislado v2 en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Pague la reserva [por adelantado o mensualmente](prepare-buy-reservation.md). Estos requisitos se aplican a la compra de una instancia reservada de App Service aislado v2:
 
 - Debe tener un rol de propietario en al menos una suscripción de EA o en una suscripción con una tarifa de pago por uso.
-- En el caso de las suscripciones de EA, la opción **Agregar instancias reservadas** debe estar habilitada en el [portal de EA](https://ea.azure.com/). O bien, si esa opción está deshabilitada, debe ser un administrador de EA en la suscripción.
+- En el caso de las suscripciones de EA, la opción **Agregar instancias reservadas** debe estar habilitada en el [portal de EA](https://ea.azure.com/). O bien, si esa opción está deshabilitada, debe ser un administrador de EA en la suscripción. Los clientes directos de EA ya pueden actualizar la configuración de **instancias reservadas** en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Vaya al menú Directivas para cambiar la configuración.
 - En el caso del programa Proveedor de soluciones en la nube (CSP), solo los agentes de administración o de ventas pueden adquirir reservas.
 
 Para comprar una instancia:

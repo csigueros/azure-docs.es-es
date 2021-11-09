@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 07/06/2021
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: ac47322f33ac8f2efd08e5b04e639f09959dee28
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 7e477f3d8df098f53abc4b1ad5f963f019b79ead
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129352024"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131470896"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar el registro de diagnósticos para las aplicaciones de Azure App Service
 ## <a name="overview"></a>Información general
@@ -19,7 +19,7 @@ Azure integra diagnósticos para ayudar a depurar [aplicaciones de App Service](
 En este artículo se usa [Azure Portal](https://portal.azure.com) y la CLI de Azure para trabajar con registros de diagnóstico. Para obtener información acerca de cómo trabajar con registros de diagnóstico mediante Visual Studio, consulte [Solución de problemas de Azure en Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
 > [!NOTE]
-> Además de las instrucciones de registro de este artículo, hay una nueva funcionalidad de registro integrada con Supervisión de Azure. Encontrará más información sobre esta funcionalidad en la sección [Envío de registros a Azure Monitor (versión preliminar)](#send-logs-to-azure-monitor-preview). 
+> Además de las instrucciones de registro de este artículo, hay una nueva funcionalidad de registro integrada con Supervisión de Azure. Va a encontrar más información sobre esta capacidad en la sección [Envío de registros a Azure Monitor](#send-logs-to-azure-monitor). 
 >
 >
 
@@ -182,12 +182,12 @@ En el caso de las aplicaciones Windows, el archivo ZIP incluye el contenido del 
 | **Registros de servidor web** | */LogFiles/http/RawLogs/* | Contiene archivos de texto con [formato de archivo de registro extendido W3C](/windows/desktop/Http/w3c-logging). Esta información se puede leer con un editor de texto o una utilidad como [Log Parser](https://www.iis.net/downloads/community/2010/04/log-parser-22).<br/>App Service no admite los campos `s-computername`, `s-ip` ni `cs-version`. |
 | **Registros de implementación** | */LogFiles/Git/* y */deployments/* | Contienen registros generados por los procesos de implementación internos, así como registros para implementaciones de Git. |
 
-## <a name="send-logs-to-azure-monitor-preview"></a>Envío de registros a Azure Monitor (versión preliminar)
+## <a name="send-logs-to-azure-monitor"></a>Envío de registros a Azure Monitor
 
-Con la nueva [integración de Azure Monitor](https://aka.ms/appsvcblog-azmon), puede [crear configuraciones de diagnóstico (versión preliminar)](https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html#create-a-diagnostic-setting) para enviar registros a cuentas de almacenamiento, Event Hubs y Log Analytics. 
+Con la nueva [integración de Azure Monitor](https://aka.ms/appsvcblog-azmon), puede [crear configuraciones de diagnóstico](https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html#create-a-diagnostic-setting) para enviar registros a cuentas de almacenamiento, centros de eventos y análisis de registros. 
 
 > [!div class="mx-imgBorder"]
-> ![Configuración de diagnóstico (versión preliminar)](media/troubleshoot-diagnostic-logs/diagnostic-settings-page.png)
+> ![Configuración de diagnóstico](media/troubleshoot-diagnostic-logs/diagnostic-settings-page.png)
 
 ### <a name="supported-log-types"></a>Tipos de registro admitidos
 
@@ -203,11 +203,13 @@ En la tabla siguiente se muestran las descripciones y los tipos de registros adm
 | AppServiceAppLogs | ASP.NET y Tomcat <sup>1</sup> | ASP.NET y Tomcat <sup>1</sup> | Imágenes preparadas de Java SE y Tomcat <sup>2</sup> | Imágenes preparadas de Java SE y Tomcat <sup>2</sup> | Registros de aplicación |
 | AppServiceIPSecAuditLogs  | Sí | Sí | Sí | Sí | Solicitudes de reglas IP |
 | AppServicePlatformLogs  | TBA | Sí | Sí | Sí | Registros de operación de contenedor |
-| AppServiceAntivirusScanAuditLogs | Sí | Sí | Sí | Sí | [Registros de examen antivirus](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) con Microsoft Defender; **solo están disponibles para el nivel prémium** | 
+| AppServiceAntivirusScanAuditLogs <sup>3</sup> | Sí | Sí | Sí | Sí | [Registros de examen antivirus](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) con Microsoft Defender; **solo están disponibles para el nivel prémium** | 
 
 <sup>1</sup> Para las aplicaciones Tomcat, agregue `TOMCAT_USE_STARTUP_BAT` a la configuración de la aplicación y establézcalo en `false` o en `0`. Debe estar en la versión *más reciente* de Tomcat y usar *java.util.logging*.
 
 <sup>2</sup> Para las aplicaciones Java SE, agregue `WEBSITE_AZMON_PREVIEW_ENABLED` a la configuración de la aplicación y establézcalo en `true` o en `1`.
+
+<sup>3</sup> El tipo de registro AppServiceAntivirusScanAuditLogs todavía está en versión preliminar
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Pasos siguientes
 * [Consulta de registros con Azure Monitor](../azure-monitor/logs/log-query-overview.md)

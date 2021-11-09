@@ -3,7 +3,7 @@ title: Cómo funciona el almacenamiento en caché | Microsoft Docs
 description: El almacenamiento en caché es el proceso de almacenar datos localmente para que se pueda tener acceso a las futuras solicitudes de esos datos más rápidamente.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
-ms.author: allensu
-ms.openlocfilehash: 7a4688c196551f3ab6b5713d8939f53af161d1e3
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.date: 10/19/2021
+ms.author: duau
+ms.openlocfilehash: d3ffe6cbfb55651664be4bf845099561916aeee1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106505015"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450654"
 ---
 # <a name="how-caching-works"></a>Cómo funciona el almacenamiento en caché
 
@@ -133,6 +133,10 @@ En la tabla siguiente se describe el valor predeterminado del comportamiento del
 **Respetar origen**: especifica si se respetan los encabezados de la directiva de caché admitidos, en caso de que existan en la respuesta HTTP del servidor de origen.
 
 **Duración de la caché de la red CDN**: especifica el periodo durante el que se almacena en caché un recurso en Azure CDN. Sin embargo, si **Respetar origen** es "Sí" y la respuesta HTTP del servidor de origen incluye el encabezado de la directiva de caché `Expires` o `Cache-Control: max-age`, Azure CDN usa el valor de duración especificado por el encabezado en su lugar. 
+
+> [!NOTE]
+> Azure CDN no garantiza la cantidad mínima de tiempo que el objeto se va a almacenar en la caché. El contenido almacenado en caché se puede expulsar de la caché de CDN antes de que haya expirado si no se solicita con la frecuencia suficiente para acomodar el contenido solicitado con más frecuencia.
+> 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

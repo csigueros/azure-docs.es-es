@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 10/12/2021
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 9df07381d620c2176115636852c6ed912dd1fc38
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 19692739814a4db3ef2f981461254de415c9bdcc
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124786510"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131444181"
 ---
 # <a name="scenario-single-page-application"></a>Escenario: Aplicación de una sola página
 
@@ -35,7 +35,11 @@ Muchas aplicaciones web modernas se compilan como aplicaciones de página única
 
 La Plataforma de identidad de Microsoft ofrece **dos** opciones para que las aplicaciones de página única inicien la sesión de los usuarios y obtengan tokens para acceder a los servicios de back-end o a las API web:
 
-- [Flujo de códigos de autorización de OAuth 2.0 (con PKCE)](./v2-oauth2-auth-code-flow.md) El flujo del código de autorización permite a la aplicación intercambiar un código de autorización para los tokens de **identificador** para representar al usuario autenticado y también los tokens de **acceso** necesarios para llamar a las API protegidas. PKCE es una clave de prueba para intercambio de códigos y está diseñada para evitar varios ataques y para poder realizar de forma segura el intercambio de OAuth desde clientes públicos. PKCE es un estándar de IETF documentado en RFC 7636. Además, devuelve tokens de **actualización** que proporcionan acceso a largo plazo a los recursos en nombre de los usuarios sin necesidad de interacción con estos. Este es el enfoque **recomendado**.
+- [Flujo de códigos de autorización de OAuth 2.0 (con PKCE)](./v2-oauth2-auth-code-flow.md) El flujo del código de autorización permite a la aplicación intercambiar un código de autorización para los tokens de **identificador** para representar al usuario autenticado y también los tokens de **acceso** necesarios para llamar a las API protegidas. 
+
+    Proof Key for Code Exchange, o _PKCE_, es una extensión del flujo de código de autorización para evitar ataques de inyección de código de autorización. Este estándar de IETF mitiga la amenaza de que se intercepte un código de autorización y habilita el intercambio seguro de OAuth desde clientes públicos, como se documenta en [RFC 7636](https://datatracker.ietf.org/doc/html/rfc7636). Además, devuelve tokens de **actualización** que proporcionan acceso a largo plazo a los recursos en nombre de usuarios sin necesidad de interacción de estos. 
+
+    El uso del flujo de código de autorización con PKCE es el enfoque de autorización **recomendado** y más seguro, no solo en aplicaciones JavaScript nativas y basadas en explorador, sino en todos los demás tipos de clientes de OAuth.
 
 ![Aplicaciones de página única: autorización](./media/scenarios/spa-app-auth.svg)
 

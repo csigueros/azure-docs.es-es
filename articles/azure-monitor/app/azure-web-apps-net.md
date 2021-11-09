@@ -4,12 +4,12 @@ description: Supervisión del rendimiento de aplicaciones para Azure App Service
 ms.topic: conceptual
 ms.date: 08/05/2021
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: 5e85a12d017f5fc812ac4f910ce9517d73cc41c7
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: 97c0d2710d14e523338ac7cd670383caa75c7cef
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129154608"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131443611"
 ---
 # <a name="application-monitoring-for-azure-app-service-and-aspnet"></a>Supervisión de aplicaciones para Azure App Service y ASP.NET 
 
@@ -105,7 +105,7 @@ La actualización de la versión 2.8.9 se realiza automáticamente, sin acciones
 
 Para comprobar qué versión de la extensión se ejecuta, vaya a `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`.
 
-:::image type="content"source="./media/azure-web-apps/extension-version.png" alt-text="Captura de pantalla de la ruta de acceso de URL para comprobar la versión de la extensión que está ejecutando" border="false"::: 
+:::image type="content"source="./media/azure-web-apps/extension-version.png" alt-text="Captura de pantalla de la ruta de acceso URL para comprobar la versión de la extensión que está ejecutando." border="false"::: 
 
 ### <a name="upgrade-from-versions-100---265"></a>Actualización de las versiones 1.0.0 a 2.6.5
 
@@ -122,12 +122,15 @@ Si se realiza la actualización desde una versión anterior a la 2.5.1, comprueb
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
+> [!NOTE]
+> Al crear una aplicación web con los entornos de ejecución `ASP.NET` en Azure App Service, implementa una sola página HTML estática como sitio web de inicio. **No** se recomienda solucionar un problema con la plantilla predeterminada. Implemente una aplicación antes de solucionar un problema.
+
 A continuación figura nuestra guía paso a paso de solución de problemas relacionados con la supervisión basada en extensiones o agentes para aplicaciones basadas en ASP.NET que se ejecutan en Azure App Service.
 
 1. Compruebe que la configuración de la aplicación `ApplicationInsightsAgent_EXTENSION_VERSION` se establece en un valor de "~2".
 2. Vaya a `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`.  
 
-    :::image type="content"source="./media/azure-web-apps/app-insights-sdk-status.png" alt-text="Captura de pantalla de la página de resultados del vínculo anterior"border ="false"::: 
+    :::image type="content"source="./media/azure-web-apps/app-insights-sdk-status.png" alt-text="Captura de pantalla de la página de resultados del vínculo anterior."border ="false"::: 
     
     - Confirme que el `Application Insights Extension Status` es `Pre-Installed Site Extension, version 2.8.x.xxxx, is running.`. 
     

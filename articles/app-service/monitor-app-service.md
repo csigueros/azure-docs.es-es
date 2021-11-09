@@ -7,26 +7,22 @@ ms.topic: article
 ms.service: app-service
 ms.custom: subject-monitoring
 ms.date: 04/16/2021
-ms.openlocfilehash: 1c3ff0fb224d5c1f8fe0133f184044b8aa5b30a3
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d0bef29fc9e91d847046bc5d8157a70bd2fdfd9a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124837145"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131470991"
 ---
 # <a name="monitoring-app-service"></a>Supervisión de App Service
 
-Si tiene aplicaciones y procesos empresariales críticos que dependen de recursos de Azure, querrá supervisar esos recursos para su disponibilidad, rendimiento y funcionamiento. En este artículo se describen los datos de supervisión que genera App Service y se envían a [Azure Monitor](../azure-monitor/overview.md). También puede usar los [diagnósticos integrados para supervisar los recursos](troubleshoot-diagnostic-logs.md) para ayudar a depurar aplicaciones de App Service. Si no está familiarizado con las características de Azure Monitor comunes a todos los servicios de Azure que lo usan, consulte [Supervisión de recursos de Azure con Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md).
-
-> [!NOTE]
-> La integración de la configuración de diagnóstico con App Service se encuentra en [versión preliminar](https://aka.ms/appsvcblog-azmon).
->
+Si tiene aplicaciones y procesos empresariales críticos que dependen de recursos de Azure, querrá supervisar esos recursos para su disponibilidad, rendimiento y funcionamiento. En este artículo se describen los datos de supervisión que genera App Service y se envían a [Azure Monitor](../azure-monitor/overview.md). También puede usar los [diagnósticos integrados para supervisar los recursos](troubleshoot-diagnostic-logs.md) para ayudar a depurar aplicaciones de App Service. Si no está familiarizado con las características de Azure Monitor comunes a todos los servicios de Azure, lea [Supervisión de recursos de Azure con Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md).
 
 ## <a name="monitoring-data"></a>Supervisión de datos 
 
 App Service recopila los mismos tipos de datos de supervisión que otros recursos de Azure que se describen en [Supervisión de datos de recursos de Azure](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data). 
 
-Consulte el artículo sobre la [supervisión de la referencia de datos de *App Service*](monitor-app-service-reference.md) para obtener información detallada sobre las métricas y las métricas de registros creadas por App Service.
+Vea la [referencia de datos Supervisión de *App Service*](monitor-app-service-reference.md) para obtener información detallada sobre las métricas y los registros de App Service.
 
 App Service también proporciona diagnósticos integrados para ayudar a depurar aplicaciones. Para más información sobre cómo habilitar los registros integrados, consulte [Habilitación del registro de diagnóstico](troubleshoot-diagnostic-logs.md). Para supervisar las instancias de App Service, consulte [Supervisión de instancias de App Service mediante la comprobación de estado](monitor-instances-health-check.md).
 
@@ -52,7 +48,7 @@ Como referencia, puede ver una lista de [todas las métricas de recursos que se 
 
 Los datos de los registros de Azure Monitor se almacenan en tablas, cada una con un conjunto propio de propiedades únicas.  
 
-Todos los registros de recursos de Azure Monitor tienen los mismos campos seguidos de campos específicos del servicio. El esquema común se describe en [Esquema de registros de recursos de Azure Monitor](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor-preview).
+Todos los registros de recursos de Azure Monitor tienen los mismos campos seguidos de campos específicos del servicio. El esquema común se describe en [Esquema de registros de recursos de Azure Monitor](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor).
 
 El [registro de actividad](../azure-monitor/essentials/activity-log.md) es un tipo de registro de plataforma que proporciona información de eventos de nivel de suscripción. Puede verlo como algo independiente o enrutado a los registros de Azure Monitor. El enrutamiento a los registros de Azure Monitor proporciona la ventaja de usar Log Analytics para ejecutar consultas complejas.
 
@@ -98,7 +94,7 @@ Para más consultas de ejemplo, consulte [Consultas de Azure Monitor para App Se
 
 Las alertas de Azure Monitor le informan de forma proactiva cuando se detectan condiciones importantes en los datos que se supervisan. Permiten identificar y solucionar las incidencias en el sistema antes de que los clientes puedan verlos. Puede establecer alertas en [métricas](../azure-monitor/alerts/alerts-metric-overview.md), [registros](../azure-monitor/alerts/alerts-unified-log.md) y el [registro de actividad](../azure-monitor/alerts/activity-log-alerts.md).
 
-Si ejecuta una aplicación en App Service, [Azure Monitor Application Insights](../azure-monitor/overview.md#application-insights) puede ofrecer tipos adicionales de alertas.
+Si ejecuta una aplicación en App Service, [Azure Monitor Application Insights](../azure-monitor/overview.md#application-insights) ofrece más tipos de alertas.
 
 En la tabla siguiente se enumeran las reglas de alertas de métricas comunes y recomendadas para App Service.
 

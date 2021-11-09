@@ -10,12 +10,12 @@ ms.date: 08/31/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: c923af2d4260afba8ed8347c6723119278ab1c62
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 7514531d77b145061d8993ccf75cb78e2976ad20
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129278640"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441464"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Almacenamiento de datos de blobs críticos para la empresa con almacenamiento inmutable
 
@@ -122,7 +122,7 @@ Las directivas de inmutabilidad se admiten para las cuentas de almacenamiento nu
 
 ### <a name="access-tiers"></a>Niveles de acceso
 
-Todos los niveles de acceso a blobs admiten almacenamiento inmutable. Puede cambiar el nivel de acceso de un blob con la operación Set Blob Tier. Para más información, consulte [Niveles de acceso frecuente, esporádico y de archivo de los datos de blob](access-tiers-overview.md).
+Todos los niveles de acceso a blobs admiten almacenamiento inmutable. Puede cambiar el nivel de acceso de un blob con la operación Set Blob Tier. Para obtener más información, vea [Niveles de acceso frecuente, esporádico y de archivo para los datos de blobs](access-tiers-overview.md).
 
 ### <a name="redundancy-configurations"></a>Configuraciones de redundancia
 
@@ -167,7 +167,7 @@ Si no paga la factura y su cuenta tiene en vigor una directiva de retención con
 
 En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades.
 
-| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
 | De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)  <sup>2</sup>              | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> |
 | Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)  <sup>2</sup> | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> |

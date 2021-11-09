@@ -3,18 +3,17 @@ title: Administración y búsqueda de datos de Azure Blob con etiquetas de índi
 description: Aprenda a usar etiquetas de índice de blobs para categorizar, administrar y consultar objetos de blobs.
 author: normesta
 ms.author: normesta
-ms.date: 08/25/2021
+ms.date: 11/01/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.reviewer: klaasl
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: fa2284e03c8d69bacb40a2fe99d3c3cb10a73828
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: dfa77490b95f67e7c75e658211602fe5a27c1c57
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129154648"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441426"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags"></a>Administración y búsqueda de datos de Azure Blob con etiquetas de índice de blobs
 
@@ -263,21 +262,32 @@ Se requieren permisos adicionales independientes de los datos de blobs subyacent
 
 A los autores de llamadas que usan una [firma de acceso compartido (SAS)](../common/storage-sas-overview.md) se les puede conceder permisos limitados para operar con etiquetas de índice de blobs.
 
-#### <a name="blob-sas"></a>SAS de blobs
+#### <a name="service-sas-for-a-blob"></a>SAS de servicio para un blob
 
-Se pueden conceder los siguientes permisos en una SAS de blob para permitir el acceso a las etiquetas de índice de blobs. Los permisos de lectura y escritura de blobs por sí solos no son suficientes para permitir la lectura o escritura de sus etiquetas de índice.
+Se pueden conceder los siguientes permisos en una SAS de servicio para que un blob permita el acceso a etiquetas de índice de blob. Los permisos de lectura (`r`) y escritura (`w`) de blobs por sí solos no son suficientes para permitir la lectura o escritura en sus etiquetas de índice.
 
 | Permiso | Símbolo de URI | Operaciones permitidas                |
 |------------|------------|-----------------------------------|
 | Etiquetas de índice |     t      | Obtener y establecer etiquetas de índice para un blob |
 
-#### <a name="container-sas"></a>SAS de contenedor
+#### <a name="service-sas-for-a-container"></a>SAS de servicio para un contenedor
 
-Se pueden conceder los siguientes permisos en una SAS de contenedor para permitir el filtrado de las etiquetas de blobs. El permiso `Blob List` no es suficiente para permitir el filtrado de blobs por sus etiquetas de índice.
+Se pueden conceder los siguientes permisos en una SAS de servicio para que un contenedor permita el filtrado de etiquetas de blob. El permiso de lista de blobs (`i`) no es suficiente para permitir el filtrado de blobs por sus etiquetas de índice.
 
 | Permiso | Símbolo de URI | Operaciones permitidas         |
 |------------|------------|----------------------------|
 | Etiquetas de índice |     f      | Buscar blobs con etiquetas de índice |
+
+#### <a name="account-sas"></a>SAS de cuenta
+
+Se pueden conceder los permisos siguientes en una SAS de cuenta para permitir el acceso a las etiquetas de índice de blob y el filtrado de etiquetas de blob. 
+
+| Permiso | Símbolo de URI | Operaciones permitidas                |
+|------------|------------|-----------------------------------|
+| Etiquetas de índice |     t      | Obtener y establecer etiquetas de índice para un blob |
+| Etiquetas de índice |     f      | Buscar blobs con etiquetas de índice |
+
+Los permisos de lectura (`r`) y escritura (`w`) de blobs por sí solos no son suficientes para permitir la lectura o escritura de sus etiquetas de índice, y el permiso de lista (`i`) no basta para permitir el filtrado de blobs por sus etiquetas de índice.
 
 ## <a name="choosing-between-metadata-and-blob-index-tags"></a>Elección entre metadatos y etiquetas de índice de blobs
 
@@ -309,7 +319,7 @@ Se le cobrará por el número promedio mensual de etiquetas de índice en una cu
 
 En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades.
 
-| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
 | De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) |
 | Blobs en bloques Premium          | ![No](../media/icons/no-icon.png)|![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |

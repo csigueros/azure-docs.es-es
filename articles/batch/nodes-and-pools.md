@@ -3,12 +3,12 @@ title: Nodos y grupos en Azure Batch
 description: Obtenga información sobre los grupos y nodos de proceso, y cómo se usan en un flujo de trabajo de Azure Batch desde el punto de vista del desarrollo.
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: 7d4c2d45849deb011498efe4c8a1ae91724b9acd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6d5556bd719f982995c9353003f2c9dccc1e1a48
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103563902"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131443402"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nodos y grupos en Azure Batch
 
@@ -90,7 +90,7 @@ Cuando crea un grupo, debe seleccionar la opción **nodeAgentSkuId** apropiada, 
 
 ### <a name="custom-images-for-virtual-machine-pools"></a>Imágenes personalizadas de grupos de máquinas virtuales
 
-Para obtener información sobre cómo crear un grupo con imágenes personalizadas, consulte [Uso de Shared Image Gallery para crear un grupo personalizado](batch-sig-images.md).
+Para obtener información sobre cómo crear un grupo con imágenes personalizadas, vea [Uso de Azure Compute Gallery para crear un grupo personalizado](batch-sig-images.md).
 
 Como alternativa, puede crear un grupo personalizado de máquinas virtuales con un recurso de [imagen administrada](batch-custom-images.md). Para obtener información acerca de cómo preparar imágenes personalizadas de Linux desde máquinas virtuales de Azure, consulte [Creación de una imagen de una máquina virtual o un disco duro virtual](../virtual-machines/linux/capture-image.md). Para obtener información acerca de cómo preparar imágenes de Windows personalizadas a partir de máquinas virtuales de Azure, consulte [Captura de una imagen administrada de una máquina virtual generalizada en Azure](../virtual-machines/windows/capture-image-resource.md).
 

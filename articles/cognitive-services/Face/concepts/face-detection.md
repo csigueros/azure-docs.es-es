@@ -1,21 +1,21 @@
 ---
 title: Conceptos de atributos y detección de caras
 titleSuffix: Azure Cognitive Services
-description: La detección de caras es la acción de búsqueda de caras humanas en una imagen y, opcionalmente, la devolución de distintos tipos de datos relacionados con las caras.
+description: Obtenga más información sobre la detección de caras, que es la acción de búsqueda de caras humanas en una imagen y, opcionalmente, la devolución de distintos tipos de datos relacionados con las caras.
 services: cognitive-services
 author: PatrickFarley
 manager: nitime
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 10/27/2021
 ms.author: pafarley
-ms.openlocfilehash: 8e14e1fd97bbf3e0fe83c1b7e0eeae1cf446e74d
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 262de9199d1572130147895e972355daf4ecafbc
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129811233"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450398"
 ---
 # <a name="face-detection-and-attributes"></a>Atributos y detección de caras
 
@@ -58,6 +58,9 @@ Los atributos son un conjunto de características que la API [Face - Detect](htt
 * **Ruido**. Ruido visual detectado en la cara de la imagen. Este atributo devuelve un valor entre cero y uno, así como una clasificación informal de bajo, medio o alto.
 * **Oclusión**. Si hay objetos que bloquean partes de la cara. Este atributo devuelve un valor booleano para eyeOccluded, foreheadOccluded y mouthOccluded.
 * **Sonrisa**. Expresión sonriente de la cara determinada. Este valor se encuentra entre cero para no sonriente y uno para muy sonriente.
+* **QualityForRecognition** Calidad general de la imagen con respecto a si la imagen que se usa en la detección es de calidad suficiente para intentar el reconocimiento facial. El valor es una clasificación informal de baja, media o alta. Solo se recomiendan imágenes de calidad "alta" para la inscripción de personas, y una calidad igual o superior a "media" en escenarios de identificación.
+    >[!NOTE]
+    > La disponibilidad de cada atributo depende del modelo de detección especificado. El atributo QualityForRecognition también depende del modelo de reconocimiento, ya que actualmente solo está disponible cuando se usa una combinación de modelo de detección detection_01 o detection_03 y modelo de reconocimiento recognition_03 o recognition_04.
 
 > [!IMPORTANT]
 > Los atributos de caras se pueden predecir mediante algoritmos estadísticos. No obstante, es posible que no sean siempre precisos. Tenga cuidado al tomar decisiones basadas en datos de atributos.
@@ -66,18 +69,27 @@ Los atributos son un conjunto de características que la API [Face - Detect](htt
 
 Utilice las siguientes sugerencias para asegurarse de que las imágenes de entrada proporcionan los resultados de detección más precisos:
 
-* Los formatos de imagen de entrada admitidos son JPEG, PNG, GIF para el primer fotograma y BMP.
+* Los formatos de imagen de entrada admitidos son JPEG, PNG, GIF(el primer fotograma) y BMP. 
 * El tamaño del archivo de imagen no debe ser superior a 6 MB.
 * El tamaño mínimo detectable de la cara es de 36 x 36 píxeles en una imagen no superior a 1920 x 1080 píxeles. Las imágenes de más de 1920 x 1080 píxeles tienen un tamaño mínimo detectable de la cara proporcionalmente mayor. Reducir el tamaño de la cara podría provocar que no se detecten algunas caras, aunque sean mayores que el tamaño mínimo detectable.
 * El tamaño máximo de cara detectable es 4096 x 4096 píxeles.
 * Las caras fuera del intervalo de tamaño de 36 x 36 a 4096 x 4096 píxeles no se detectarán.
-* Es posible que no se puedan detectar algunas caras debido a desafíos técnicos. Unos ángulos de cara extremos (posición de la cabeza) o una oclusión de la cara (objetos como gafas de sol o manos que bloquean parte de la cara) pueden afectar a la detección. Las caras de frente y casi de frente proporcionan los mejores resultados.
+* Es posible que no se puedan reconocer algunas caras debido a desafíos técnicos como, por ejemplo:
+  * Imágenes con iluminación extrema, por ejemplo, fuerte contraluz.
+  * Obstáculos que bloquean uno o los dos ojos.
+  * Diferencias en el tipo de pelo o vello facial.
+  * Cambios en la apariencia facial debido a la edad.
+  * Expresiones faciales extremas.
 
-Datos de entrada con información de orientación:
-* Algunas imágenes de entrada con formato JPEG pueden contener información de orientación en metadatos de formato de archivo de imagen intercambiable (Exif). Si la orientación Exif está disponible, las imágenes se girarán automáticamente a la orientación correcta antes de su envío para la detección de caras. El rectángulo facial, los puntos de referencia y la posición de la cabeza de todas las caras detectadas se calcularán en función de la imagen girada.
-* Para mostrar correctamente tanto el rectángulo facial como los puntos de referencia es preciso asegurarse de que la imagen se gira correctamente. La mayoría de las herramientas de visualización de imágenes girarán automáticamente la imagen según su orientación Exif de forma predeterminada. Em el caso de otras herramientas, es posible que tenga que usar su propio código para aplicar la rotación. En los ejemplos siguientes se muestra un rectángulo facial en una imagen girada (izquierda) y una imagen no girada (derecha).
+### <a name="input-data-with-orientation-information"></a>Datos de entrada con información de orientación:
 
-![Dos imágenes de caras con o sin rotación](../Images/image-rotation.png)
+Algunas imágenes de entrada con formato JPEG pueden contener información de orientación en metadatos de formato de archivo de imagen intercambiable (Exif). Si la orientación Exif está disponible, las imágenes se girarán automáticamente a la orientación correcta antes de su envío para la detección de caras. El rectángulo facial, los puntos de referencia y la posición de la cabeza de todas las caras detectadas se calcularán en función de la imagen girada.
+
+Para mostrar correctamente tanto el rectángulo facial como los puntos de referencia es preciso asegurarse de que la imagen se gira correctamente. La mayoría de las herramientas de visualización de imágenes girarán automáticamente la imagen según su orientación Exif de forma predeterminada. Em el caso de otras herramientas, es posible que tenga que usar su propio código para aplicar la rotación. En los ejemplos siguientes se muestra un rectángulo facial en una imagen girada (izquierda) y una imagen no girada (derecha).
+
+![Dos imágenes de caras con y sin rotación](../Images/image-rotation.png)
+
+### <a name="video-input"></a>Entrada de vídeo
 
 Si está detectando caras de una fuente de vídeo, puede mejorar el rendimiento mediante el ajuste de determinados valores de la cámara de vídeo:
 

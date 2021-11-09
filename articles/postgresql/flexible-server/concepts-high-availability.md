@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/30/2021
-ms.openlocfilehash: c8108540f77d323c46cc88caa628764b40c59e74
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/26/2021
+ms.openlocfilehash: 80b0d18eec8bbc37eda407d07873786f4155f4be
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128597994"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131422622"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Conceptos de alta disponibilidad en Azure Database for PostgreSQL: Servidor flexible
 
@@ -92,7 +92,9 @@ El servidor flexible proporciona dos métodos para realizar la conmutación por 
 
 Puede usar esta característica para simular un escenario de interrupción no planeada mientras se ejecuta la carga de trabajo de producción y observar el tiempo de inactividad de la aplicación. Como alternativa, en raras ocasiones cuando el servidor principal deja de responder por cualquier motivo, puede usar esta característica. 
 
-Esta característica activa el servidor principal e inicia el flujo de trabajo de conmutación por error en el que se realiza la operación de promoción en espera. Una vez que el modo de espera completa el proceso de recuperación hasta los últimos datos confirmados, se promueve para que sea el servidor principal. Los registros DNS se actualizan y la aplicación puede conectarse al servidor principal promocionado. La aplicación puede seguir escribiendo en el servidor principal mientras se establece un nuevo servidor en espera en segundo plano. Hay que seguir estos pasos:
+Esta característica activa el servidor principal e inicia el flujo de trabajo de conmutación por error en el que se realiza la operación de promoción en espera. Una vez que el modo de espera completa el proceso de recuperación hasta los últimos datos confirmados, se promueve para que sea el servidor principal. Los registros DNS se actualizan y la aplicación puede conectarse al servidor principal promocionado. La aplicación puede seguir escribiendo en el servidor principal mientras se establece un nuevo servidor en espera en segundo plano, y eso no afecta al tiempo de actividad. 
+
+Estos son los pasos durante una conmutación por error forzada:
 
   | **Step** | **Descripción** | **¿Se prevé algún tiempo de inactividad?** |
   | ------- | ------ | ----- |
@@ -109,6 +111,9 @@ Esta característica activa el servidor principal e inicia el flujo de trabajo d
   | 11 | Se ha completado el proceso de conmutación por error forzada. | No |
 
 Se espera que el tiempo de inactividad de la aplicación se inicie el paso 1 y persista hasta que se complete el paso 6. El resto de los pasos se suceden en segundo plano sin afectar a las escrituras y confirmaciones de la aplicación.
+
+>[!Important]
+>El proceso de conmutación por error de un extremo a otro incluye (a) la conmutación por error al servidor en espera después del error del principal y (b) el establecimiento de un nuevo servidor en espera en estado estable. Como la aplicación incurre en tiempo de inactividad solo hasta que se completa la conmutación por error al servidor en espera, **mida el tiempo de inactividad desde la perspectiva de la aplicación o el cliente** en lugar del proceso de conmutación por error general de un extremo a otro. 
 
 ### <a name="planned-failover"></a>Conmutación por error planeada
 
@@ -178,7 +183,8 @@ Los servidores flexibles que están configurados con alta disponibilidad replica
 
 * No se puede usar la réplica en espera para las consultas de solo lectura.
 
-* Según la carga de trabajo y la actividad en el servidor principal, el proceso de conmutación por error puede tardar más de 120 segundos debido a la recuperación implicada en la réplica en espera antes de que se pueda promover.
+* Según la carga de trabajo y la actividad en el servidor principal, el proceso de conmutación por error puede tardar más de 120 segundos debido a la recuperación implicada en la réplica en espera antes de que se pueda promover. 
+* El servidor en espera normalmente recupera archivos WAL a la velocidad de 40 MB/s. Si la carga de trabajo supera este límite, es posible que detecte más tiempo para que la recuperación se complete durante la conmutación por error o después de establecer un nuevo servidor en espera. 
 
 * Al reiniciar el servidor de bases de datos principal también se reinicia la réplica en espera. 
 

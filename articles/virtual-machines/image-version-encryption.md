@@ -1,24 +1,25 @@
 ---
 title: Creación de una versión de imagen cifrada con claves propias
-description: Cree una versión de imagen en una galería de imágenes compartidas mediante claves de cifrado administradas por el cliente.
+description: Cree una versión de imagen en Azure Compute Gallery mediante claves de cifrado administradas por el cliente.
+author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 7/1/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d80b2fb62f0c11a06daaf9198add9c7cbe19a42a
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: bcd214413eb4880219e18c4bb03e4430f31690fd
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129458744"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131452060"
 ---
 # <a name="use-customer-managed-keys-for-encrypting-images"></a>uso de claves administradas por el cliente para el cifrado de imágenes
 
 **Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
-Las imágenes de una galería de imágenes compartidas se almacenan como instantáneas, por lo que se cifran automáticamente a través del cifrado del lado servidor. El cifrado del lado servidor usa el [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uno de los cifrados de bloques más seguros que existen. El cifrado del lado servidor también es compatible con FIPS 140-2. Para más información sobre de los módulos criptográficos subyacentes en los discos administrados de Azure, consulte [Cryptography API: última generación](/windows/desktop/seccng/cng-portal).
+Las imágenes de Azure Compute Gallery (anteriormente conocido como Shared Image Gallery) se almacenan como instantáneas, por lo que se cifran automáticamente mediante cifrado del lado servidor. El cifrado del lado servidor usa el [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uno de los cifrados de bloques más seguros que existen. El cifrado del lado servidor también es compatible con FIPS 140-2. Para más información sobre de los módulos criptográficos subyacentes en los discos administrados de Azure, consulte [Cryptography API: última generación](/windows/desktop/seccng/cng-portal).
 
 Puede confiar en las claves administradas por la plataforma para el cifrado de las imágenes, o bien usar claves propias. También puede usarlas conjuntamente para el cifrado doble. Si opta por administrar el cifrado con claves propias, puede especificar una *clave administrada por el cliente* que se usará para cifrar y descifrar todos los discos de las imágenes. 
 
@@ -37,7 +38,7 @@ Para este artículo, es necesario que ya disponga de un conjunto de cifrado de d
 
 ## <a name="limitations"></a>Limitaciones
 
-Si usa claves administradas por el cliente para cifrar imágenes en una galería de imágenes compartidas, se aplican las limitaciones siguientes:   
+Si usa claves administradas por el cliente para cifrar imágenes en Azure Compute Gallery, se aplican las limitaciones siguientes: 
 
 - Los conjuntos de claves de cifrado deben estar en la misma suscripción que la imagen.
 
@@ -98,7 +99,7 @@ New-AzGalleryImageVersion `
 
 ### <a name="create-a-vm"></a>Crear una VM
 
-Puede crear una máquina virtual (VM) a partir de una galería de imágenes compartidas y usar claves administradas por el cliente para cifrar los discos. La sintaxis es la misma que para crear una VM [generalizada](vm-generalized-image-version.md) o [especializada](vm-specialized-image-version.md) a partir de una imagen. Use el conjunto de parámetros extendido y agregue `Set-AzVMOSDisk -Name $($vmName +"_OSDisk") -DiskEncryptionSetId $diskEncryptionSet.Id -CreateOption FromImage` a la configuración de la VM.
+Puede crear una máquina virtual (VM) a partir de Azure Compute Gallery y usar claves administradas por el cliente para cifrar los discos. La sintaxis es la misma que para crear una VM [generalizada](vm-generalized-image-version.md) o [especializada](vm-specialized-image-version.md) a partir de una imagen. Use el conjunto de parámetros extendido y agregue `Set-AzVMOSDisk -Name $($vmName +"_OSDisk") -DiskEncryptionSetId $diskEncryptionSet.Id -CreateOption FromImage` a la configuración de la VM.
 
 En el caso de los discos de datos, agregue el parámetro `-DiskEncryptionSetId $setID` al usar [Add-AzVMDataDisk](/powershell/module/az.compute/add-azvmdatadisk).
 
@@ -142,7 +143,7 @@ az sig image-version create \
 
 ### <a name="create-the-vm"></a>Creación de la máquina virtual
 
-Puede crear una máquina virtual a partir de una galería de imágenes compartidas y usar claves administradas por el cliente para cifrar los discos. La sintaxis es la misma que para crear una VM [generalizada](vm-generalized-image-version.md) o [especializada](vm-specialized-image-version.md) a partir de una imagen. Solo tiene que agregar el parámetro `--os-disk-encryption-set` con el identificador del conjunto de cifrado. En el caso de los discos de datos, agregue `--data-disk-encryption-sets` con una lista delimitada por espacios de los conjuntos de cifrado de disco para los discos de datos.
+Puede crear una VM a partir de Azure Compute Gallery y usar claves administradas por el cliente para cifrar los discos. La sintaxis es la misma que para crear una VM [generalizada](vm-generalized-image-version.md) o [especializada](vm-specialized-image-version.md) a partir de una imagen. Solo tiene que agregar el parámetro `--os-disk-encryption-set` con el identificador del conjunto de cifrado. En el caso de los discos de datos, agregue `--data-disk-encryption-sets` con una lista delimitada por espacios de los conjuntos de cifrado de disco para los discos de datos.
 
 
 ## <a name="portal"></a>Portal

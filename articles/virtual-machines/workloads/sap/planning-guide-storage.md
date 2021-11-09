@@ -13,18 +13,18 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/17/2021
+ms.date: 11/02/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 25cdaf3bd916b587adeeaf200d0c55b0c4001ad2
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: eb1e315d0fce2b43ed15c2808ddaf37c605c79dd
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130074558"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131432802"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Tipos de Azure Storage para una carga de trabajo de SAP
-Azure tiene numerosos tipos de almacenamiento que difieren en gran medida en términos de funcionalidad, rendimiento, latencia y precio. Algunos de los tipos de almacenamiento no son para escenarios de SAP, o bien su uso está limitado en ellos. Sin embargo, hay varios tipos de almacenamiento de Azure que son idóneos para escenarios específicos de carga de trabajo de SAP, o bien están optimizados para ello. Especialmente en el caso de SAP HANA, algunos tipos de almacenamiento de Azure han recibido certificación para su uso con SAP HANA. En este documento, vamos a repasar los diferentes tipos de almacenamiento y describir su capacidad y uso con las cargas de trabajo de SAP y los componentes de SAP.
+Azure tiene numerosos tipos de almacenamiento que difieren en gran medida en términos de funcionalidad, rendimiento, latencia y precio. Algunos de los tipos de almacenamiento no son para escenarios de SAP, o bien su uso está limitado en ellos. Sin embargo, hay varios tipos de almacenamiento de Azure que están bien adaptados u optimizados para escenarios específicos de carga de trabajo de SAP. Especialmente en el caso de SAP HANA, algunos tipos de almacenamiento de Azure han recibido certificación para su uso con SAP HANA. En este documento, vamos a repasar los diferentes tipos de almacenamiento y describir su capacidad y uso con las cargas de trabajo de SAP y los componentes de SAP.
 
 Comentario sobre las unidades que se usan en este artículo. Los proveedores de nube pública se han migrado para usar GiB ([gibibyte](https://en.wikipedia.org/wiki/Gibibyte)) o TiB ([tebibyte](https://en.wikipedia.org/wiki/Tebibyte) como unidades de tamaño, en lugar del gigabyte o terabyte. Por lo tanto, toda la documentación y los precios de Azure utilizan esas unidades.  A lo largo de todo el documento nos referiremos exclusivamente a estas unidades de tamaño MiB, GiB y TiB. Es posible que sus planes se basen en MB, GB y TB. Por lo tanto, tenga en cuenta algunas pequeñas diferencias en los cálculos si necesita dimensionar un rendimiento de 400 MiB/seg, en lugar de un rendimiento de 250 MiB/seg.
 
@@ -79,16 +79,16 @@ Antes de entrar en los detalles, presentamos el resumen y las recomendaciones qu
 
 | Escenario de uso | HDD estándar | SSD estándar | Premium Storage | Disco Ultra | Azure NetApp Files |
 | --- | --- | --- | --- | --- | --- |
-| Disco del sistema operativo | no es adecuado |  adecuación restringida (no en prod.) | recomendado | no es posible | no es posible |
-| Directorio de transporte global | no admitido | no admitido | recomendado | recomendado | recomendado |
-| /sapmnt | no es adecuado | adecuación restringida (no en prod.) | recomendado | recomendado | recomendado |
-| Familias de máquinas virtuales M/MV2 de SAP HANA en volumen de datos de DBMS | no admitido | no admitido | recomendado | recomendado | recomendado<sup>2</sup> |
-| Familias de máquinas virtuales M/MV2 de SAP HANA en volumen de registro de DBMS | no admitido | no admitido | recomendado<sup>1</sup> | recomendado | recomendado<sup>2</sup> | 
-| Familias de máquinas virtuales Esv3/Edsv4 de SAP HANA en volumen de datos de DBMS | no admitido | no admitido | recomendado | recomendado | recomendado<sup>2</sup> |
-| Familias de máquinas virtuales Esv3/Edsv4 de SAP HANA en volumen de registro de DBMS | no admitido | no admitido | no admitido | recomendado | recomendado<sup>2</sup> | 
-| Volumen de datos DBMS no HANA | no admitido | adecuación restringida (no en prod.) | recomendado | recomendado | Solo para versiones específicas de Oracle en Oracle Linux y Db2 en Linux |
-| Familias de máquinas virtuales M/MV2 no de HANA en volumen de registro de DBMS | no admitido | adecuación restringida (no en prod.) | recomendado<sup>1</sup> | recomendado | Solo para versiones específicas de Oracle en Oracle Linux y Db2 en Linux |
-| Familias de máquinas virtuales no M/MV2 no de HANA en volumen de registro de DBMS | no admitido | adecuación restringida (no en prod.) | adecuado para carga de trabajo hasta de tamaño medio | recomendado | Solo para versiones específicas de Oracle en Oracle Linux y Db2 en Linux |
+| Disco del sistema operativo | No adecuado |  Adecuación restringida (no en prod.) | Recomendado | No es posible | No es posible |
+| Directorio de transporte global | No compatible | No compatible | Recomendado | Recomendado | Recomendado |
+| /sapmnt | No adecuado | Adecuación restringida (no en prod.) | Recomendado | Recomendado | Recomendado |
+| Familias de máquinas virtuales M/MV2 de SAP HANA en volumen de datos de DBMS | No compatible | No compatible | Recomendado | Recomendado | Recomendado<sup>2</sup> |
+| Familias de máquinas virtuales M/MV2 de SAP HANA en volumen de registro de DBMS | No compatible | No compatible | Recomendado<sup>1</sup> | Recomendado | Recomendado<sup>2</sup> | 
+| Familias de máquinas virtuales Esv3/Edsv4 de SAP HANA en volumen de datos de DBMS | No compatible | No compatible | Recomendado | Recomendado | Recomendado<sup>2</sup> |
+| Familias de máquinas virtuales Esv3/Edsv4 de SAP HANA en volumen de registro de DBMS | No compatible | No compatible | No compatible | Recomendado | Recomendado<sup>2</sup> | 
+| Volumen de datos DBMS no HANA | No compatible | Adecuación restringida (no en prod.) | Recomendado | Recomendado | Solo para versiones específicas de Oracle en Oracle Linux, Db2 y SAP ASE en SLES/RHEL Linux |
+| Familias de máquinas virtuales M/MV2 no de HANA en volumen de registro de DBMS | No compatible | Adecuación restringida (no en prod.) | Recomendado<sup>1</sup> | Recomendado | Solo para versiones específicas de Oracle en Oracle Linux, Db2 y SAP ASE en SLES/RHEL Linux |
+| Familias de máquinas virtuales no M/MV2 no de HANA en volumen de registro de DBMS | No compatible | adecuación restringida (no en prod.) | Adecuado para cargas de trabajo hasta de tamaño medio | Recomendado | Solo para versiones específicas de Oracle en Oracle Linux, Db2 y SAP ASE en SLES/RHEL Linux |
 
 
 <sup>1</sup> Con el uso del [Acelerador de escritura de Azure](../../how-to-enable-write-accelerator.md) para las familias de máquinas virtuales M/MV2 para los volúmenes de registros de registro/rehacer. <sup>2</sup> El uso de UNF requiere que /hana/data y /hana/log estén en ANF. 
@@ -97,15 +97,15 @@ Características que puede esperar de la lista de tipos de almacenamiento difere
 
 | Escenario de uso | HDD estándar | SSD estándar | Premium Storage | Disco Ultra | Azure NetApp Files |
 | --- | --- | --- | --- | --- | --- |
-| Acuerdo de Nivel de Servicio rendimiento/IOPS | no | No | sí | sí | sí |
-| Lecturas de latencia | high | de medio a alto | low | submilisegundo | submilisegundo |
-| Escrituras de latencia | high | de medio a alto  | bajo (submilisegundo<sup>1</sup>) | submilisegundo | submilisegundo |
-| HANA compatible | no | no | sí<sup>1</sup> | sí | sí |
-| Instantáneas de disco posibles | sí | sí | sí | No | sí |
-| Asignación de discos en diferentes clústeres de almacenamiento cuando se usan conjuntos de disponibilidad | a través de discos administrados | a través de discos administrados | a través de discos administrados | tipo de disco no compatible con máquinas virtuales implementadas mediante conjuntos de disponibilidad | no<sup>3</sup> |
-| Alineación con Availability Zones | sí | sí | sí | sí | requiere la participación de Microsoft |
-| Redundancia de zona | no para discos administrados | no para discos administrados | no para discos administrados | no | no |
-| Redundancia geográfica | no para discos administrados | no para discos administrados | no | No | no |
+| Acuerdo de Nivel de Servicio rendimiento/IOPS | No | No | Sí | Sí | Sí |
+| Lecturas de latencia | Alto | Medio a alto | Bajo | submilisegundo | submilisegundo |
+| Escrituras de latencia | Alto | Medio a alto  | Bajo (submilisegundo<sup>1</sup>) | submilisegundo | submilisegundo |
+| HANA compatible | No | No | sí<sup>1</sup> | Sí | Sí |
+| Instantáneas de disco posibles | Sí | Sí | Sí | No | Sí |
+| Asignación de discos en diferentes clústeres de almacenamiento cuando se usan conjuntos de disponibilidad | Mediante discos administrados | Mediante discos administrados | Mediante discos administrados | Tipo de disco no compatible con máquinas virtuales implementadas mediante conjuntos de disponibilidad | No<sup>3</sup> |
+| Alineación con Availability Zones | Sí | Sí | Sí | Sí | Requiere la participación de Microsoft |
+| Redundancia de zona | No para discos administrados | No para discos administrados | No para discos administrados | No | No |
+| Redundancia geográfica | No para discos administrados | No para discos administrados | No | No | No |
 
 
 <sup>1</sup> Con el uso del [Acelerador de escritura de Azure](../../how-to-enable-write-accelerator.md) para las familias de máquinas virtuales M/MV2 para los volúmenes de registro/rehacer.
@@ -142,23 +142,23 @@ La matriz de funcionalidad para la carga de trabajo de SAP tiene el siguiente as
 
 | Capacidad| Comentario| Notas y vínculos | 
 | --- | --- | --- | 
-| VHD de base de SO | adecuado | todos los sistemas |
-| Disco de datos | adecuado | todos los sistemas: [especialmente para SAP HANA](../../how-to-enable-write-accelerator.md) |
-| Directorio de transporte global de SAP | SÍ | [Compatible](https://launchpad.support.sap.com/#/notes/2015553) |
-| SAP sapmnt | adecuado | todos los sistemas |
-| Almacenamiento de copia de seguridad | adecuado | para el almacenamiento a corto plazo de copias de seguridad |
-| Recursos compartidos/disco compartido | no disponible | Necesita Azure Premium Files o de terceros |
+| VHD de base de SO | Adecuado | Todos los sistemas |
+| Disco de datos | Adecuado | Todos los sistemas: [especialmente para SAP HANA](../../how-to-enable-write-accelerator.md) |
+| Directorio de transporte global de SAP | Sí | [Compatible](https://launchpad.support.sap.com/#/notes/2015553) |
+| SAP sapmnt | Adecuado | Todos los sistemas |
+| Almacenamiento de copia de seguridad | Adecuado | Para el almacenamiento a corto plazo de copias de seguridad |
+| Recursos compartidos/disco compartido | No disponible | Necesita Azure Premium Files o de terceros |
 | Resistencia | LRS | No hay almacenamiento con redundancia geográfica o almacenamiento con redundancia de zona disponible para los discos |
-| Latencia | de baja a media | - |
-| SLA DE IOPS | SÍ | - |
+| Latencia | Baja a media | - |
+| SLA DE IOPS | Sí | - |
 | IOPS lineal a capacidad | semilineal entre corchetes  | [Precios de Managed Disk](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | Número máximo de IOPS por disco | 20 000 [en función del tamaño del disco](https://azure.microsoft.com/pricing/details/managed-disks/) | Tenga también en cuenta los [límites de la máquina virtual](../../sizes.md). |
-| SLA de rendimiento | SÍ | - |
-| Rendimiento lineal de la capacidad | semilineal entre corchetes | [Precios de Managed Disk](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| Certificación de HANA | SÍ | [especialmente para SAP HANA](../../how-to-enable-write-accelerator.md) |
-| Instantáneas de disco posibles | SÍ | - |
-| Instantáneas de máquina virtual de Azure Backup posibles | SÍ | a excepción de los discos de caché del [Acelerador de escritura](../../how-to-enable-write-accelerator.md)  |
-| Costos | MEDIUM | - |
+| SLA de rendimiento | Sí | - |
+| Rendimiento lineal de la capacidad | Semilineal entre corchetes | [Precios de Managed Disk](https://azure.microsoft.com/pricing/details/managed-disks/) |
+| Certificación de HANA | Sí | [especialmente para SAP HANA](../../how-to-enable-write-accelerator.md) |
+| Instantáneas de disco posibles | Sí | - |
+| Instantáneas de máquina virtual de Azure Backup posibles | Sí | A excepción de los discos de caché del [Acelerador de escritura](../../how-to-enable-write-accelerator.md)  |
+| Costes | Media| - |
 
 Azure Premium Storage no cumple los KPI de latencia de almacenamiento de SAP HANA de latencia de almacenamiento con los tipos comunes de almacenamiento en caché que se ofrecen con Azure Premium Storage. Para cumplir los KPI de latencia de almacenamiento para escrituras de registro de SAP HANA, debe usar el almacenamiento en caché del Acelerador de escritura de Azure como se describe en el artículo [Habilitar el acelerador de escritura](../../how-to-enable-write-accelerator.md). El Acelerador de escritura de Azure beneficia a todos los demás sistemas DBMS para sus escrituras de registro de transacciones y de rehacer. Por lo tanto, se recomienda utilizarlo en todas las implementaciones de DBMS de SAP. Para SAP HANA, es obligatorio el uso del Acelerador de escritura de Azure junto con Azure Premium Storage.
 
@@ -200,20 +200,20 @@ La matriz de funcionalidad para la carga de trabajo de SAP tiene el siguiente as
 
 | Capacidad| Comentario| Notas y vínculos | 
 | --- | --- | --- | 
-| VHD de base de SO | no funciona | - |
-| Disco de datos | adecuado | todos los sistemas  |
-| Directorio de transporte global de SAP | SÍ | [Compatible](https://launchpad.support.sap.com/#/notes/2015553) |
-| SAP sapmnt | adecuado | todos los sistemas |
-| Almacenamiento de copia de seguridad | adecuado | para el almacenamiento a corto plazo de copias de seguridad |
-| Recursos compartidos/disco compartido | no disponible | Necesita terceros |
+| VHD de base de SO | No funciona | - |
+| Disco de datos | Adecuado | Todos los sistemas  |
+| Directorio de transporte global de SAP | Sí | [Compatible](https://launchpad.support.sap.com/#/notes/2015553) |
+| SAP sapmnt | Adecuado | Todos los sistemas |
+| Almacenamiento de copia de seguridad | Adecuado | Para el almacenamiento a corto plazo de copias de seguridad |
+| Recursos compartidos/disco compartido | No disponible | Necesita terceros |
 | Resistencia | LRS | No hay almacenamiento con redundancia geográfica o almacenamiento con redundancia de zona disponible para los discos |
-| Latencia | muy baja | - |
-| SLA DE IOPS | SÍ | - |
-| IOPS lineal a capacidad | semilineal entre corchetes  | [Precios de Managed Disk](https://azure.microsoft.com/pricing/details/managed-disks/) |
+| Latencia | Muy baja | - |
+| SLA DE IOPS | Sí | - |
+| IOPS lineal a capacidad | Semilineal entre corchetes  | [Precios de Managed Disk](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | Número máximo de IOPS por disco | 1200 a 160 000 | depende de la capacidad del disco |
-| SLA de rendimiento | SÍ | - |
-| Rendimiento lineal de la capacidad | semilineal entre corchetes | [Precios de Managed Disk](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| Certificación de HANA | SÍ | - |
+| SLA de rendimiento | Sí | - |
+| Rendimiento lineal de la capacidad | Semilineal entre corchetes | [Precios de Managed Disk](https://azure.microsoft.com/pricing/details/managed-disks/) |
+| Certificación de HANA | Sí | - |
 | Instantáneas de disco posibles | No | - |
 | Instantáneas de máquina virtual de Azure Backup posibles | No | - |
 | Costos | Mayor que Premium Storage | - |
@@ -243,9 +243,10 @@ El almacenamiento de ANF se admite actualmente en varios escenarios de carga de 
 - Las implementaciones de SAP HANA que usan recursos compartidos de NFS v.4.1 para volúmenes /hana/data y /hana/log o volúmenes de NFS v4.1 o NFS v3 para volúmenes de /hana/shared, como se documenta en el artículo [Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA](./hana-vm-operations-storage.md).
 - IBM Db2 en un sistema operativo invitado Suse o Red Hat Linux
 - Las implementaciones de Oracle en un sistema operativo invitado Oracle Linux mediante [dNFS](https://docs.oracle.com/en/database/oracle/oracle-database/19/ntdbi/creating-an-oracle-database-on-direct-nfs.html#GUID-2A0CCBAB-9335-45A8-B8E3-7E8C4B889DEA) para volúmenes registros de fase de puesta al día y datos de Oracle. Puede encontrar más detalles en el artículo [Implementación de DBMS de Oracle de Azure Virtual Machines para la carga de trabajo de SAP](./dbms_guide_oracle.md)
+- SAP ASE en un sistema operativo invitado Suse o Red Hat Linux
 
 > [!NOTE]
-> No se admite ninguna otra carga de trabajo de DBMS para recursos compartidos de NFS o SMB basados en Azure NetApp Files. Se proporcionarán actualizaciones en caso de que esto cambie.
+> De momento no se admiten cargas de trabajo DBMS en SMB basado en Azure NetApp Files.
 
 Como ya se ha hecho con Azure Premium Storage, un tamaño de rendimiento fijo o lineal por GB puede suponer un problema cuando tiene que cumplir algunos números mínimos para el rendimiento. Este es el caso de SAP HANA. Con ANF, este problema puede ser más pronunciado que con el disco Premium de Azure. En el caso del disco Premium de Azure, puede tomar varios discos más pequeños con un rendimiento relativamente alto por GiB y seccionarlos para que sean rentables y tengan un rendimiento mayor a menor capacidad. Este tipo de seccionamiento no funciona para los recursos compartidos de NFS o SMB hospedados en ANF. Esta restricción dio lugar a la implementación de un exceso de capacidad como el siguiente:
 
@@ -257,20 +258,20 @@ La matriz de funcionalidad para la carga de trabajo de SAP tiene el siguiente as
 
 | Capacidad| Comentario| Notas y vínculos | 
 | --- | --- | --- | 
-| VHD de base de SO | no funciona | - |
-| Disco de datos | adecuado | Solo SAP HANA  |
-| Directorio de transporte global de SAP | SÍ | SMB y NFS |
-| SAP sapmnt | adecuado | todos los sistemas SMB (solo Windows) o NFS (solo Linux) |
-| Almacenamiento de copia de seguridad | adecuado | - |
-| Recursos compartidos/disco compartido | SÍ | SMB 3.0, NFS v3 y NFS v4.1 |
+| VHD de base de SO | No funciona | - |
+| Disco de datos | Adecuado | SAP HANA, Oracle en Oracle Linux, Db2 y SAP ASE en SLES/RHEL  |
+| Directorio de transporte global de SAP | Sí | SMB y NFS |
+| SAP sapmnt | Adecuado | Todos los sistemas SMB (solo Windows) o NFS (solo Linux) |
+| Almacenamiento de copia de seguridad | Adecuado | - |
+| Recursos compartidos/disco compartido | Sí | SMB 3.0, NFS v3 y NFS v4.1 |
 | Resistencia | LRS | No hay almacenamiento con redundancia geográfica o almacenamiento con redundancia de zona disponible para los discos |
-| Latencia | muy baja | - |
-| SLA DE IOPS | SÍ | - |
+| Latencia | Muy baja | - |
+| SLA DE IOPS | Sí | - |
 | IOPS lineal a capacidad | estrictamente lineal  | Dependiente del [nivel de servicio](../../../azure-netapp-files/azure-netapp-files-service-levels.md) |
-| SLA de rendimiento | SÍ | - |
-| Rendimiento lineal de la capacidad | semilineal entre corchetes | Dependiente del [nivel de servicio](../../../azure-netapp-files/azure-netapp-files-service-levels.md) |
-| Certificación de HANA | SÍ | - |
-| Instantáneas de disco posibles | SÍ | - |
+| SLA de rendimiento | Sí | - |
+| Rendimiento lineal de la capacidad | Semilineal entre corchetes | Dependiente del [nivel de servicio](../../../azure-netapp-files/azure-netapp-files-service-levels.md) |
+| Certificación de HANA | Sí | - |
+| Instantáneas de disco posibles | Sí | - |
 | Instantáneas de máquina virtual de Azure Backup posibles | No | - |
 | Costos | Mayor que Premium Storage | - |
 
@@ -290,20 +291,20 @@ En comparación con el almacenamiento HDD estándar de Azure, el almacenamiento 
 
 | Capacidad| Comentario| Notas y vínculos | 
 | --- | --- | --- | 
-| VHD de base de SO | adecuación restringida | sistemas que no son de producción |
-| Disco de datos | adecuación restringida | algunos sistemas que no son de producción con bajas demandas de IOPS y latencia |
+| VHD de base de SO | Adecuación restringida | Sistemas que no son de producción |
+| Disco de datos | Adecuación restringida | Algunos sistemas que no son de producción con bajas exigencias de IOPS y latencia |
 | Directorio de transporte global de SAP | No | [No compatible](https://launchpad.support.sap.com/#/notes/2015553) |
-| SAP sapmnt | adecuación restringida | sistemas que no son de producción |
-| Almacenamiento de copia de seguridad | adecuado | - |
-| Recursos compartidos/disco compartido | no disponible | Necesita terceros |
+| SAP sapmnt | Adecuación restringida | Sistemas que no son de producción |
+| Almacenamiento de copia de seguridad | Adecuado | - |
+| Recursos compartidos/disco compartido | No disponible | Necesita terceros |
 | Resistencia | LRS y GRS | No hay almacenamiento con redundancia de zona disponible para los discos |
-| Latencia | high | demasiado alto para el directorio de transporte global de SAP o sistemas de producción |
+| Latencia | high | Demasiado alta para el directorio de transporte global de SAP o sistemas de producción |
 | SLA DE IOPS | No | - |
 | Número máximo de IOPS por disco | 500 | Independiente del tamaño del disco |
 | SLA de rendimiento | No | - |
 | Certificación de HANA | No | - |
-| Instantáneas de disco posibles | SÍ | - |
-| Instantáneas de máquina virtual de Azure Backup posibles | SÍ | - |
+| Instantáneas de disco posibles | Sí | - |
+| Instantáneas de máquina virtual de Azure Backup posibles | Sí | - |
 | Costos | LOW | - |
 
 
@@ -317,21 +318,21 @@ El almacenamiento HDD estándar de Azure era el único tipo de almacenamiento cu
 
 | Capacidad| Comentario| Notas y vínculos | 
 | --- | --- | --- | 
-| VHD de base de SO | no es adecuado | - |
-| Disco de datos | no es adecuado | - |
+| VHD de base de SO | No adecuado | - |
+| Disco de datos | No adecuado | - |
 | Directorio de transporte global de SAP | No | [No compatible](https://launchpad.support.sap.com/#/notes/2015553) |
 | SAP sapmnt | No | No compatible |
-| Almacenamiento de copia de seguridad | adecuado | - |
-| Recursos compartidos/disco compartido | no disponible | Necesita Azure Files o de terceros |
+| Almacenamiento de copia de seguridad | Adecuado | - |
+| Recursos compartidos/disco compartido | No disponible | Necesita Azure Files o de terceros |
 | Resistencia | LRS y GRS | No hay almacenamiento con redundancia de zona disponible para los discos |
-| Latencia | high | demasiado alto para el uso de DBMS, el directorio de transporte global de SAP o sapmnt/saploc |
+| Latencia | high | Demasiado alta para el uso de DBMS, el directorio de transporte global de SAP o sapmnt/saploc |
 | SLA DE IOPS | No | - |
 | Número máximo de IOPS por disco | 500 | Independiente del tamaño del disco |
 | SLA de rendimiento | No | - |
 | Certificación de HANA | No | - |
-| Instantáneas de disco posibles | SÍ | - |
-| Instantáneas de máquina virtual de Azure Backup posibles | SÍ | - |
-| Costos | LOW | - |
+| Instantáneas de disco posibles | Sí | - |
+| Instantáneas de máquina virtual de Azure Backup posibles | Sí | - |
+| Costes | Bajo | - |
 
 
 

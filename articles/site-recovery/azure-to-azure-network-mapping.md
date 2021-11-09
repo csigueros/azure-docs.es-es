@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: harshacs
-ms.openlocfilehash: b7c4b0f75dd94a5aa61b75b99bbb553c98090aac
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: afc8bd93704008860882150b53e1624072871778
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121726063"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441823"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configuración de la asignación de red y el direccionamiento IP para redes virtuales
 
@@ -52,7 +52,7 @@ Si aún no ha preparado la asignación de red antes de configurar la recuperaci�
 
 >[!NOTE]
 >* Al modificar la asignación de red, solo se cambian los valores predeterminados para las nuevas replicaciones de máquina virtual. No afecta a las selecciones de red virtual de destino para las replicaciones existentes.
->* Si desea modificar la red de destino para una replicación existente, vaya a Proceso y Configuración de red del elemento replicado.
+>* Si quiere modificar la red de destino de una replicación existente, vaya a la configuración **Red** del elemento replicado.
 
 ## <a name="specify-a-subnet"></a>Especificación de una subred
 
@@ -60,9 +60,9 @@ La subred de la máquina virtual de destino se selecciona en función del nombre
 
 - Si una subred con el mismo nombre que el de la subred de la máquina virtual de origen está disponible en la red de destino, se establece esa subred para la máquina virtual de destino.
 - Si no hay ninguna subred con el mismo nombre en la red de destino, se establece la primera red en orden alfabético como subred de destino.
-- Puede modificar la subred de destino en la configuración de **Proceso y red** para la máquina virtual.
+- Puede modificar la subred de destino en la configuración **Red** de la máquina virtual.
 
-    ![Ventana Propiedades de Compute de Proceso y red](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
+    ![Ventana de propiedades de proceso Red](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 
 
 ## <a name="set-up-ip-addressing-for-target-vms"></a>Configuración del direccionamiento IP para las máquinas virtuales de destino
@@ -72,6 +72,7 @@ La dirección IP de cada NIC de una máquina virtual de destino se configura com
 - **DHCP**: si la NIC de la máquina virtual de origen usa DHCP, la NIC de la máquina virtual de destino también se establece para usar DHCP.
 - **Static IP address** (Dirección IP estática): si la NIC de la máquina virtual de origen usa direccionamiento IP estático, la NIC de la máquina virtual de destino también usará una dirección IP estática.
 
+También es así para las configuraciones de IP secundarias.
 
 ## <a name="ip-address-assignment-during-failover"></a>Asignación de direcciones IP durante la conmutación por error
 
@@ -91,7 +92,7 @@ La red de destino no es la red virtual de conmutación por error | - La direcci�
 
 - La red virtual de conmutación por error es la red de destino que seleccionó al configurar la recuperación ante desastres.
 - Se recomienda que utilice siempre una red que no sea de producción para la conmutación por error de prueba.
-- Puede modificar la dirección IP de destino en la configuración de **Proceso y red** de la máquina virtual.
+- Puede modificar la dirección IP de destino en la configuración **Red** de la máquina virtual.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

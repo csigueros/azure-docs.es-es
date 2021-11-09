@@ -3,17 +3,17 @@ title: 'Selección de un tipo de disco para máquinas virtuales IaaS de Azure: d
 description: Obtenga información sobre los tipos de disco de Azure disponibles para las máquinas virtuales, incluidos los discos ultra, SSD Premium, SSD estándar y HDD estándar.
 author: roygara
 ms.author: rogarana
-ms.date: 10/14/2021
+ms.date: 11/03/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 90612eecede80ae83247cb3727411db8c43e1eb2
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 5e4eb581f8cf9b95e9a8ba4dffd442efc6c055ef
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130074368"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131505448"
 ---
 # <a name="azure-managed-disk-types"></a>Tipos de discos administrados de Azure
 
@@ -35,8 +35,8 @@ En la tabla siguiente se proporciona una comparación de los cuatro tipos de dis
 | **Tipo de disco** | SSD | SSD | SSD | HDD |
 | **Escenario**  | Cargas de trabajo de uso intensivo de E/S, como [SAP HANA](workloads/sap/hana-vm-operations-storage.md), bases de datos de nivel superior (por ejemplo, SQL y Oracle) y otras cargas de trabajo con muchas transacciones. | Cargas de trabajo confidenciales de producción y rendimiento | Servidores web, aplicaciones empresariales poco utilizadas y desarrollo y pruebas | Copia de seguridad, no crítico, acceso poco frecuente |
 | **Tamaño máximo del disco** | 65 536 gibibyte (GiB) | 32 767 GiB | 32 767 GiB | 32 767 GiB |
-| **Rendimiento máx.** | 2000 MB/s | 900 MB/s | 750 MB/s | 500 MB/s |
-| **IOPS máx.** | 160 000 | 20.000 | 6,000 | 2\.000 |
+| **Rendimiento máx.** | 4000 MB/s | 900 MB/s | 750 MB/s | 500 MB/s |
+| **IOPS máx.** | 160 000 | 20 000 | 6,000 | 2\.000 |
 
 ## <a name="ultra-disks"></a>Discos Ultra
 
@@ -55,12 +55,12 @@ En la tabla siguiente se proporciona una comparación del tamaño y la capacidad
 |4     |1,200         |300         |
 |8     |2,400         |600         |
 |16     |4,800         |1,200         |
-|32     |9 600         |2\.000         |
-|64     |19 200         |2\.000         |
-|128     |38 400         |2\.000         |
-|256     |76 800         |2\.000         |
-|512     |153.600         |2\.000         |
-|1024 - 65 536 (los tamaños de este intervalo aumentan en incrementos de 1 TiB)     |160 000         |2\.000         |
+|32     |9 600         |2,400         |
+|64     |19 200         |4\.000         |
+|128     |38 400         |4\.000         |
+|256     |76 800         |4\.000         |
+|512     |153.600         |4\.000         |
+|1024 - 65 536 (los tamaños de este intervalo aumentan en incrementos de 1 TiB)     |160 000         |4\.000         |
 
 Los discos Ultra están diseñados para proporcionar latencias de submilisegundos y las IOPS y el rendimiento que se describen en la tabla anterior el 99,99 % del tiempo.
 
@@ -80,7 +80,7 @@ Para más información sobre IOPS, consulte [Rendimiento de la máquina virtual 
 
 ### <a name="ultra-disk-throughput"></a>Rendimiento de discos Ultra
 
-El límite de rendimiento de un solo disco Ultra es de 256 KiB/s por cada IOPS aprovisionada, y hasta 2000 MBps como máximo por disco (donde MBps = 10^6 bytes por segundo). El rendimiento mínimo garantizado por disco es 4 KiB/s por cada IOPS aprovisionada, con una base de referencia total como mínima de 1 MBps.
+El límite de rendimiento de un solo disco Ultra es de 256 KiB/s por cada IOPS aprovisionada, hasta 4000 MBps como máximo por disco (donde MBps = 10^6 bytes por segundo). El rendimiento mínimo garantizado por disco es 4 KiB/s por cada IOPS aprovisionada, con una base de referencia total como mínima de 1 MBps.
 
 Puede ajustar el rendimiento y las IOPS de los discos Ultra en tiempo de ejecución sin desasociar el disco de la máquina virtual. Después de enviar una operación de cambio de tamaño del rendimiento de un disco, este cambio puede tardar hasta una hora en surtir efecto. Se permiten hasta cuatro operaciones de cambio de tamaño de rendimiento durante un período de 24 horas.
 

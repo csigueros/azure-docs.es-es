@@ -16,12 +16,12 @@ ms.author: curtand
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a2088357859ec3f77e7a482ba1507f86e9fdf92
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: 365f480af81289a9f48dd6ce5a1102be7a7ed6a1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129668246"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131444162"
 ---
 # <a name="activate-my-privileged-access-group-roles-in-privileged-identity-management"></a>Activar mis roles de grupo de acceso con privilegios en Privileged Identity Management
 
@@ -31,7 +31,7 @@ Este artículo va dirigido a los miembros aptos que desean activar su rol de gru
 
 ## <a name="activate-a-role"></a>Activación de un rol
 
-Cuando necesite asumir un rol de grupo de acceso con privilegios, puede solicitar la activación mediante la opción de navegación **Mis roles** en Privileged Identity Management.
+Si necesita asumir un rol de grupo de acceso con privilegios, puede solicitar la activación mediante la opción de navegación **Mis roles** de Privileged Identity Management.
 
 1. [Inicie sesión en el portal de Azure AD](https://aad.portal.azure.com) con permisos de administrador global o de propietario de grupo.
 

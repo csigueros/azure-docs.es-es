@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 09/21/2021
 ms.custom: references_regions
-ms.openlocfilehash: 50ab3c65abd6fe57941f18f58ff277de6822389c
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 22569277eefafc518f407f06e34a69c061509b96
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130216492"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458976"
 ---
 # <a name="azure-monitor-agent-overview"></a>Información general del agente de Azure Monitor
 El agente de Azure Monitor (AMA) recopila datos de supervisión del sistema operativo invitado de máquinas virtuales de Azure y los entrega a Azure Monitor. En este artículo se proporciona información general sobre el agente de Azure Monitor, incluido cómo instalarlo y cómo configurar la recopilación de datos.
@@ -61,7 +61,7 @@ El agente de Azure Monitor reemplaza los [agentes antiguos de Azure Monitor](age
   Si el agente de Azure Monitor tiene todas las funcionalidades principales que necesita, considere la posibilidad de realizar la transición a este. Si hay características críticas que necesita, continúe con el agente actual hasta que el agente de Azure Monitor alcance la paridad.
 - **Tolerancia al reprocesamiento:** si va a configurar un nuevo entorno con recursos como scripts de implementación y plantillas de incorporación, evalúe el esfuerzo que conlleva. Si la configuración va a implicar una cantidad considerable de trabajo, plantéese la posibilidad de configurar su nuevo entorno con el nuevo agente, puesto que ya tiene disponibilidad general. 
  
-  Se publicará una fecha de desuso para los agentes de Log Analytics en agosto de 2021. Se prestará asistencia con relación a los agentes actuales durante varios años una vez que se inicie el desuso.
+  El agente de análisis de registros de Azure Monitor se retira el 31 de agosto de 2024. Se prestará asistencia con relación a los agentes actuales durante varios años una vez que se inicie el desuso.
 
 ## <a name="supported-resource-types"></a>Tipos de recurso admitidos
 Actualmente se admiten máquinas virtuales de Azure, conjuntos de escalado de máquinas virtuales y servidores habilitados para Azure Arc. En este momento no se admiten Azure Kubernetes Service ni otros tipos de recursos de proceso.
@@ -141,18 +141,28 @@ Las extensiones del agente de Azure Monitor para Windows y Linux pueden comunica
 
     | Parámetro | Value |
     |:---|:---|
-    | SettingString | Objeto JSON del diagrama de flujo anterior convertido en cadena. Omítase si no es aplicable. Ejemplo: {"proxy":{"mode":"application","address":"http://[address]:[port]","auth": false}}. |
-    | ProtectedSettingString | Objeto JSON del diagrama de flujo anterior convertido en cadena. Omítase si no es aplicable. Ejemplo: {"proxy":{"username": "[username]","password": "[password]"}}. |
+    | Configuración | Objeto JSON del diagrama de flujo anterior convertido en cadena. Omítase si no es aplicable. Ejemplo: {"proxy":{"mode":"application","address":"http://[address]:[port]","auth": false}}. |
+    | ProtectedSetting | Objeto JSON del diagrama de flujo anterior convertido en cadena. Omítase si no es aplicable. Ejemplo: {"proxy":{"username": "[username]","password": "[password]"}}. |
 
 
-# <a name="windows"></a>[Windows](#tab/PowerShellWindows)
+# <a name="windows-vm"></a>[Máquina virtual Windows](#tab/PowerShellWindows)
 ```powershell
-Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.0 -SettingString <settingString> -ProtectedSettingString <protectedSettingString>
+Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.0 -Setting <settingString> -ProtectedSetting <protectedSettingString>
 ```
 
-# <a name="linux"></a>[Linux](#tab/PowerShellLinux)
+# <a name="linux-vm"></a>[Máquina virtual Linux](#tab/PowerShellLinux)
 ```powershell
-Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.5 -SettingString <settingString> -ProtectedSettingString <protectedSettingString>
+Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.5 -Setting <settingString> -ProtectedSetting <protectedSettingString>
+```
+
+# <a name="windows-arc-enabled-server"></a>[Servidor habilitado para Windows Arc](#tab/PowerShellWindowsArc)
+```powershell
+New-AzConnectedMachineExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting <settingString> -ProtectedSetting <protectedSettingString>
+```
+
+# <a name="linux-arc-enabled-server"></a>[Servidor habilitado para Linux Arc](#tab/PowerShellLinuxArc)
+```powershell
+New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting <settingString> -ProtectedSetting <protectedSettingString>
 ```
 
 ---

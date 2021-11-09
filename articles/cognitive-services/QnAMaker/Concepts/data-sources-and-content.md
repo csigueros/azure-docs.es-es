@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: e205d403a8d482d5af3278ed42dde60e5808a00a
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 829d55cd156f2396014b2b5b55c380e347c7878d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112280808"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458273"
 ---
 # <a name="importing-from-data-sources"></a>Importación de orígenes de datos
 
@@ -69,7 +69,7 @@ Si no está seguro de cómo representar el par de QnA en el archivo `.tsv`:
 También puede crear una knowledge base en función del contenido no estructurado que importa desde un archivo. Actualmente, esta funcionalidad solo está disponible desde la carga de documentos que utilizan cualquiera de los formatos de archivo admitidos.
 
 > [!IMPORTANT]
-> La compatibilidad con contenido no estructurado por medio de la carga de archivos solo está disponible en la característica de respuesta a preguntas personalizada (versión preliminar).
+> La compatibilidad con contenido no estructurado por medio de la carga de archivos solo está disponible en la [respuesta a preguntas](../../language-service/question-answering/overview.md).
 
 ## <a name="content-types-of-documents-you-can-add-to-a-knowledge-base"></a>Tipos de contenido de documento que se pueden agregar a una base de conocimiento
 Entre los tipos de contenido se incluyen muchos documentos estructurados estándar, como los archivos PDF, DOC y TXT.

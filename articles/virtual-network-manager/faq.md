@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/02/2021
 ms.author: duau
 ms.custom: references_regions, ignite-fall-2021
-ms.openlocfilehash: f25a2f21713684024dcacee18e5666dfbb33a1b2
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 921c829cefae8ab4ea96066d70c5d110fc9188f6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093666"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131451946"
 ---
 # <a name="azure-virtual-network-manager-faq"></a>Preguntas más frecuentes sobre Azure Virtual Network Manager
 
@@ -89,15 +89,36 @@ Puede ver la configuración de Azure Virtual Network Manager en **Administrador
 
 Sí, puede optar por invalidar o eliminar un emparejamiento existente ya creado.
 
+### <a name="how-can-i-explicitly-allow-sqlmi-traffic-before-having-deny-rules"></a>¿Cómo puedo permitir explícitamente el tráfico SQLMI antes de tener reglas de denegación?
+
+Azure SQL Managed Instance tiene algunos requisitos de red. Si las reglas de administración de seguridad pueden bloquear los requisitos de red, puede usar las siguientes reglas de ejemplo para permitir el tráfico SQLMI con mayor prioridad que las reglas de denegación que pueden bloquear el tráfico de SQL Managed Instance.
+
+#### <a name="inbound-rules"></a>Reglas de entrada
+
+| Port | Protocolo | Source | Destination | Acción |
+| ---- | -------- | ------ | ----------- | ------ |
+| 9000, 9003, 1438, 1440, 1452 | TCP | SqlManagement | **VirtualNetwork** | Allow |
+| 9000, 9003 | TCP | CorpnetSaw | **VirtualNetwork** | Allow |
+| 9000, 9003 | TCP | CorpnetPublic | **VirtualNetwork** | Allow |
+| Any | Any | **VirtualNetwork** | **VirtualNetwork** | Allow |
+| Any | Any | **AzureLoadBalancer** | **VirtualNetwork** | Allow |
+
+#### <a name="outbound-rules"></a>Reglas de salida
+
+| Port | Protocolo | Source | Destination | Acción |
+| ---- | -------- | ------ | ----------- | ------ |
+| 443, 12000 | TCP  | **VirtualNetwork** | AzureCloud | Allow |
+| Any | Any | **VirtualNetwork** | **VirtualNetwork** | Allow |
+
 ## <a name="limits"></a>Límites
 
 ### <a name="what-are-the-service-limitation-of-azure-virtual-network-manager"></a>¿Cuál es la limitación del servicio de Azure Virtual Network Manager?
 
-* Un concentrador en una topología de concentrador y radio se puede emparejar hasta 500 radios. 
+* Un concentrador de una topología en estrella tipo hub-and-spoke se puede emparejar con hasta 250 radios. 
+
+* Una topología de malla puede tener hasta 250 redes virtuales.
 
 * Las subredes de una red virtual no se pueden comunicar entre ellas si tienen el mismo espacio de direcciones en una configuración de malla. 
-
-* Azure Virtual Network Manager solo permite 500 conexiones de emparejamiento de red virtual en toda la configuración de conectividad de una red virtual determinada. También puede administrar el emparejamiento heredado de forma independiente. 
 
 * El número máximo de prefijos IP en todas las reglas de administración combinadas es de 1000. 
 
@@ -105,7 +126,7 @@ Sí, puede optar por invalidar o eliminar un emparejamiento existente ya creado.
 
 * Azure Virtual Network Manager no tiene compatibilidad entre inquilinos en la versión preliminar pública.
 
-* Una red virtual puede formar parte de hasta cinco configuraciones de malla. 
+* Una red virtual puede formar parte de hasta dos configuraciones de malla. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

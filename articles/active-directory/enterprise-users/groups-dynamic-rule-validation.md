@@ -14,16 +14,23 @@ ms.author: curtand
 ms.reviewer: yukarppa
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee84f80110975f6a12a6371ae204ca85401a2adf
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 9b12c1c69f160a51fbcf5650a3ebe30045584106
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129986518"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471257"
 ---
 # <a name="validate-a-dynamic-group-membership-rule-preview-in-azure-active-directory"></a>Validación de una regla de pertenencia dinámica a grupos (versión preliminar) en Azure Active Directory
 
 Azure Active Directory (Azure AD) ofrece ahora los medios para validar las reglas de pertenencia dinámica a grupos (en versión preliminar pública). En la pestaña **Validación de las reglas**, puede validar la regla dinámica con los miembros del grupo de ejemplo, para confirmar que la regla funciona según lo previsto. Al crear o actualizar reglas de grupos dinámicos, los administradores quieren saber si un usuario o un dispositivo será miembro del grupo. Esto ayuda a evaluar si el usuario o el dispositivo cumplen los criterios de la regla y ayuda a solucionar problemas cuando no se espera la pertenencia.
+
+## <a name="prerequisites"></a>Prerrequisitos
+Para usar la característica de evaluación de pertenencia dinámica a reglas de grupos, el administrador debe tener una de las siguientes reglas asignadas directamente: Administrador global, Administrador de grupos o Administrador de Intune.
+
+> [!TIP]
+> Todavía no se permite la asignación de ninguno de los roles necesarios por medio de la pertenencia indirecta a grupos.
+>
 
 ## <a name="step-by-step-walk-through"></a>Tutorial paso a paso
 
