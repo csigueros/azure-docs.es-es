@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 09/21/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3f781b32c000ec42c876fa61a90d9ef70c3eb01c
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: c5f89a755cecd2dcf36d3a8a41711fe941108ffa
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129354559"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131427273"
 ---
 # <a name="send-an-email-from-am-automation-runbook"></a>Envío de un correo electrónico desde un runbook de Azure Automation
 
@@ -103,7 +103,7 @@ Cree una instancia de Azure Key Vault y una [directiva de acceso de Key Vault](.
 
 ## <a name="assign-permissions-to-managed-identities"></a>Asignación de permisos a las identidades administradas
 
-Asigne permisos a la [identidad administrada](./automation-security-overview.md#managed-identities-preview) adecuada. El runbook puede usar la identidad administrada asignada por el sistema de la cuenta de Automation o una identidad administrada asignada por el usuario. Se proporcionan los pasos necesarios para asignar permisos a cada identidad. En los pasos siguientes se usa PowerShell. Si prefiere utilizar Azure Portal, consulte [Asignación de roles de Azure mediante Azure Portal](./../role-based-access-control/role-assignments-portal.md).
+Asigne permisos a la [identidad administrada](./automation-security-overview.md#managed-identities) adecuada. El runbook puede usar la identidad administrada asignada por el sistema de la cuenta de Automation o una identidad administrada asignada por el usuario. Se proporcionan los pasos necesarios para asignar permisos a cada identidad. En los pasos siguientes se usa PowerShell. Si prefiere utilizar Azure Portal, consulte [Asignación de roles de Azure mediante Azure Portal](./../role-based-access-control/role-assignments-portal.md).
 
 1. Use el cmdlet de PowerShell [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) para asignar un rol a la identidad administrada asignada por el sistema.
 
@@ -131,7 +131,7 @@ Asigne permisos a la [identidad administrada](./automation-security-overview.md#
 
 ## <a name="create-the-runbook-to-send-an-email"></a>Creación del runbook para enviar un correo electrónico
 
-Después de crear un almacén de claves y de almacenar la clave de API de `SendGrid`, es el momento de crear el runbook que recupere la clave de API y envíe un correo electrónico. Vamos a usar un runbook que utiliza la [identidad administrada asignada por el sistema](./automation-security-overview.md#managed-identities-preview) para autenticarse en Azure con el fin de recuperar el secreto de Azure Key Vault. Llamaremos al runbook **Send-GridMailMessage**. Puede modificar el script de PowerShell utilizado para distintos escenarios.
+Después de crear un almacén de claves y de almacenar la clave de API de `SendGrid`, es el momento de crear el runbook que recupere la clave de API y envíe un correo electrónico. Vamos a usar un runbook que utiliza la [identidad administrada asignada por el sistema](./automation-security-overview.md#managed-identities) para autenticarse en Azure con el fin de recuperar el secreto de Azure Key Vault. Llamaremos al runbook **Send-GridMailMessage**. Puede modificar el script de PowerShell utilizado para distintos escenarios.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a su cuenta de Automation.
 

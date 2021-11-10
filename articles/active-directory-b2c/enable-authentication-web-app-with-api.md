@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/25/2021
+ms.date: 11/10/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 439483f34cc6ebf6ad4b9172307d3a5dd4976c57
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 987fbce373b0b6696f13fb40aa2731c3c239aea4
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130040842"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132156034"
 ---
 # <a name="enable-authentication-in-web-apps-that-call-a-web-api-by-using-azure-ad-b2c"></a>Habilitación de la autenticación en aplicaciones web que llaman a una API web mediante Azure AD B2C
 
@@ -61,6 +61,8 @@ dotnet add package Microsoft.Identity.Web.UI
 Install-Package Microsoft.Identity.Web
 Install-Package Microsoft.Identity.Web.UI
 ```
+
+---
 
 ## <a name="step-3-initiate-the-authentication-libraries"></a>Paso 3: Inicio de las bibliotecas de autenticación
 

@@ -5,15 +5,15 @@ services: virtual-machines
 author: rishabv90
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/05/2020
+ms.date: 10/20/2021
 ms.author: risverma
 ms.custom: include file
-ms.openlocfilehash: 6d2e50a5154a74fc2521da6032d8bfcd8d34f4d6
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: b5d51a00a35fa34236a62c48f1ee01402ca2f1c9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113364833"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131520429"
 ---
 Azure Compute ofrece tamaños de máquinas virtuales que están aislados para un tipo concreto de hardware y dedicados a un solo cliente. Los tamaños aislados viven y funcionan en una generación de hardware específica y quedarán en desuso cuando se retire la generación de hardware.
 
@@ -25,6 +25,10 @@ Además, dado que las VM de tamaño aislado son más grandes, los clientes puede
 Las ofertas de máquinas virtuales aisladas actuales incluyen:
 * Standard_E80ids_v4
 * Standard_E80is_v4
+* Standard_E104i_v5
+* Standard_E104is_v5
+* Standard_E104id_v5
+* Standard_E104ids_v5
 * Standard_F72s_v2
 * Standard_M128ms
 * Standard_DC8_v2
@@ -39,13 +43,13 @@ Los tamaños de VM aislados tienen una duración limitada de hardware. Azure emi
 
 | Size | Fecha de retirada del aislamiento | 
 | --- | --- |
-| Standard_DS15_v2 | 15 de mayo de 2021 |
-| Standard_D15_v2  | 15 de mayo de 2021 |
-| Standard_G5  | 15 de febrero de 2022 |
-| Standard_GS5  | 15 de febrero de 2022 |
+| Standard_DS15_v2  | 15 de mayo de 2021      |
+| Standard_D15_v2   | 15 de mayo de 2021      |
+| Standard_G5       | 15 de febrero de 2022 |
+| Standard_GS5      | 15 de febrero de 2022 |
 | Standard_E64i_v3  | 15 de febrero de 2022 |
-| Standard_E64is_v3  | 15 de febrero de 2022 |
-| Standard_DC8_v2 | 15 de febrero de 2022 |
+| Standard_E64is_v3 | 15 de febrero de 2022 |
+| Standard_DC8_v2   | 15 de febrero de 2022 |
 
 
 ## <a name="faq"></a>Preguntas más frecuentes

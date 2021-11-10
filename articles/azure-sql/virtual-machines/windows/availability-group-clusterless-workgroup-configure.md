@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: rsetlem
 ms.reviewer: mathoma
-ms.openlocfilehash: 6eb8af995b733fb796827d508ee003d83e46c67f
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 29037a52284bb8af8adb68090f484061db6b9100
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130167304"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132157030"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Configuración de un grupo de disponibilidad de grupo de trabajo 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -136,7 +136,7 @@ En este paso, configure un testigo de recurso compartido en la nube. Si no está
 
 ## <a name="enable-the-availability-group-feature"></a>Habilitación de la característica de grupos de disponibilidad 
 
-En este paso, habilitará la característica de grupo de disponibilidad. Si no está familiarizado con los pasos, consulte el [tutorial sobre los grupos de disponibilidad](availability-group-manually-configure-tutorial.md#enable-availability-groups). 
+En este paso, habilitará la característica de grupo de disponibilidad. Si no está familiarizado con los pasos, consulte el [tutorial sobre los grupos de disponibilidad](availability-group-manually-configure-tutorial-single-subnet.md#enable-availability-groups). 
 
 ## <a name="create-keys-and-certificates"></a>Creación de claves y certificados
 
@@ -281,7 +281,7 @@ Si hay otros nodos en el clúster, repita los mismos pasos en estos con los nomb
 
 ## <a name="configure-an-availability-group"></a>Configuración de un grupo de disponibilidad
 
-En este paso, configure el grupo de disponibilidad y agréguele sus bases de datos. No cree un agente de escucha en este momento. Si no está familiarizado con los pasos, consulte el [tutorial sobre los grupos de disponibilidad](availability-group-manually-configure-tutorial.md#create-the-availability-group). Asegúrese de iniciar una conmutación por error y una conmutación por recuperación para comprobar que todo funciona correctamente. 
+En este paso, configure el grupo de disponibilidad y agréguele sus bases de datos. No cree un agente de escucha en este momento. Si no está familiarizado con los pasos, consulte el [tutorial sobre los grupos de disponibilidad](availability-group-manually-configure-tutorial-single-subnet.md#create-the-availability-group). Asegúrese de iniciar una conmutación por error y una conmutación por recuperación para comprobar que todo funciona correctamente. 
 
    > [!NOTE]
    > Si se produce un error durante el proceso de sincronización, puede que tenga que conceder derechos de administrador del sistema `NT AUTHORITY\SYSTEM` para crear recursos de clúster en el primer nodo, como `AGNode1`, temporalmente. 

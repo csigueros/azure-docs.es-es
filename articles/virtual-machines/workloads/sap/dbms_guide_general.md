@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/20/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 6d7a391bcd90d54c7024da6deeef74849c178039
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: bc9a29e97e32ba798b516901d01aea968c93eab1
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130232082"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132157631"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -325,7 +325,7 @@ Si hay una conmutación por error del nodo de base de datos, no hay necesidad de
 
 Azure ofrece dos [SKU de equilibrador de carga](../../../load-balancer/load-balancer-overview.md) diferentes: una SKU básica y una SKU estándar. En función de las ventajas de la instalación y la funcionalidad, debe usar la SKU estándar del Azure Load Balancer. Una de las grandes ventajas de la versión estándar del equilibrador de carga es que el tráfico de datos no se enruta a través del propio equilibrador de carga.
 
-Puede encontrar un ejemplo de cómo configurar un equilibrador de carga interno en el artículo [Tutorial: Configuración de un grupo de disponibilidad de SQL Server Always On en Azure Virtual Machines de forma manual](../../../azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial.md#create-an-azure-load-balancer).
+Puede encontrar un ejemplo de cómo configurar un equilibrador de carga interno en el artículo [Tutorial: Configuración de un grupo de disponibilidad de SQL Server Always On en Azure Virtual Machines de forma manual](../../../azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial-single-subnet.md#create-an-azure-load-balancer).
 
 > [!NOTE]
 > Hay diferencias en el comportamiento de la SKU básica y estándar relacionadas con el acceso de las direcciones IP públicas. Una solución alternativa a las restricciones de la SKU estándar para acceder a las direcciones IP públicas se describe en el artículo [Conectividad del punto de conexión público para las máquinas virtuales que usan Azure Standard Load Balancer en escenarios de alta disponibilidad de SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).

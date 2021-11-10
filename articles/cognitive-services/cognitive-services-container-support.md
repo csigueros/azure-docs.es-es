@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 09/24/2021
+ms.date: 10/28/2021
 ms.author: aahi
 keywords: local, Docker, contenedor, Kubernetes
-ms.openlocfilehash: 0057888a85acc2356660fecbf8a77071401e8e3c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 8758a4688e66a1000c142ab775e563ff829bc79b
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131033482"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132158291"
 ---
 # <a name="azure-cognitive-services-containers"></a>Contenedores de Azure Cognitive Services
 
@@ -53,7 +53,7 @@ Los contenedores de Azure Cognitive Services proporcionan el siguiente conjunto 
 | [Servicio de lenguaje][ta-containers-keyphrase] | **Extracción de frases clave** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | Extrae las frases clave para identificar los puntos principales. Por ejemplo, si el texto de entrada es "La comida estaba deliciosa y el personal era maravilloso", la API devuelve los principales puntos de conversación: "comida" y "personal maravilloso". | Vista previa |
 | [Servicio de lenguaje][ta-containers-language] |  **Detección de idioma del texto** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | Se detecta el idioma (120 como máximo) en que está escrito el texto de entrada y se usa un código de idioma único para informar acerca de cada documento enviado en la solicitud. El código de idioma se empareja con una puntuación que indica la intensidad de esta. | Disponibilidad general |
 | [Servicio de lenguaje][ta-containers-sentiment] | **Análisis de sentimiento** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analiza el texto sin formato para obtener pistas sobre opiniones positivas o negativas. Esta versión del análisis de sentimiento devuelve etiquetas de sentimiento (por ejemplo, *positivo* o *negativo*) para cada documento y oración que contiene. |  Disponibilidad general |
-| [Servicio de lenguaje][ta-containers-health] |  **Text Analytics para el estado** | Extraiga y etiquete la información médica del texto clínico no estructurado. | Versión preliminar |
+| [Servicio de lenguaje][ta-containers-health] |  **Text Analytics para el estado** | Extraiga y etiquete la información médica del texto clínico no estructurado. | Vista previa |
 | [Traductor][tr-containers] | **Traductor** | Traduzca texto a varios idiomas y dialectos. | Versión preliminar "validada". [Solicite acceso](https://aka.ms/csgate-translator). | 
 
 ### <a name="speech-containers"></a>Contenedores de Speech
@@ -72,14 +72,11 @@ Los contenedores de Azure Cognitive Services proporcionan el siguiente conjunto 
 
 ### <a name="vision-containers"></a>Contenedores de Vision
 
-> [!WARNING]
-> El 11 de junio de 2020 Microsoft anunció que no venderá tecnología de reconocimiento facial a los departamentos de policía de Estados Unidos hasta que se promulgue un reglamento estricto cimentado en los derechos humanos. Por lo tanto, es posible que los clientes no usen las características o la funcionalidad del reconocimiento facial incluidas en los servicios de Azure, como Face o Video Indexer, si un es un departamento de policía de Estados Unidos o permite el uso de dichos servicios por parte de cualquiera de ellos.
 
 | Servicio |  Contenedor | Descripción | Disponibilidad |
 |--|--|--|--|
 | [Computer Vision][cv-containers] | **Lectura de OCR** ([imagen](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | El contenedor Read OCR permite extraer texto impreso y manuscrito de imágenes y documentos con compatibilidad con los formatos de archivo JPEG, PNG, BMP, PDF y TIFF. Para obtener más información, consulte la [documentación de la API Read](./computer-vision/overview-ocr.md). | Versión preliminar "validada". [Solicite acceso][request-access]. |
-| [Análisis espacial][spa-containers] | **Análisis espacial** ([imagen](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-spatial-analysis)) | Analiza vídeo en streaming en tiempo real para comprender las relaciones espaciales entre los usuarios, su movimiento y las interacciones con objetos de los entornos físicos. | Versión preliminar |
-| [Face][fa-containers] | **Face** | Detecta caras humanas en imágenes e identifica atributos, incluidos faciales (como narices y ojos), sexo, edad y otras características faciales previstas por la máquina. Además de la detección, Face puede comprobar si dos caras en la misma o en diferentes imágenes son iguales mediante una puntuación de confianza, o bien comparar caras en una base de datos para ver si ya existe un aspecto similar o una cara idéntica. También puede organizar caras similares en grupos mediante rasgos visuales compartidos. | No disponible |
+| [Análisis espacial][spa-containers] | **Análisis espacial** ([imagen](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-spatial-analysis)) | Analiza vídeo en streaming en tiempo real para comprender las relaciones espaciales entre los usuarios, su movimiento y las interacciones con objetos de los entornos físicos. | Vista previa |
 
 <!--
 |[Personalizer](./personalizer/what-is-personalizer.md) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
@@ -88,11 +85,10 @@ Los contenedores de Azure Cognitive Services proporcionan el siguiente conjunto 
 Además, se admiten algunos contenedores en la oferta de [recurso de varios servicios](cognitive-services-apis-create-account.md) de Cognitive Services. Puede crear un único recurso todo en uno de Cognitive Services y usar la misma clave de facturación en los servicios compatibles para los siguientes servicios:
 
 * Computer Vision
-* Caras
 * LUIS
-* Text Analytics
+* Servicio de lenguaje
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Debe cumplir los siguientes requisitos previos para poder utilizar contenedores de Azure Cognitive Services:
 
@@ -120,7 +116,6 @@ Instale y explore la funcionalidad proporcionada por los contenedores en Azure C
 
 * [Contenedores de Anomaly Detector][ad-containers]
 * [Contenedores de Computer Vision][cv-containers]
-* [Contenedores de Face][fa-containers]
 * [Contenedores de Language Understanding (LUIS)][lu-containers]
 * [Contenedores de Speech Service API][sp-containers]
 * [Contenedores del servicio Lenguaje][ta-containers]
@@ -131,7 +126,6 @@ Instale y explore la funcionalidad proporcionada por los contenedores en Azure C
 
 [ad-containers]: anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: computer-vision/computer-vision-how-to-install-containers.md
-[fa-containers]: ./face/overview.md
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
 [spa-containers]: ./computer-vision/spatial-analysis-container.md

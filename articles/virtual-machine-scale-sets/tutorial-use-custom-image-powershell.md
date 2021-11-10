@@ -9,12 +9,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: mimckitt
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1da552c76b1a76a4bc131b15e25021264c2d869f
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 1c0ba3a58906275d136a437f3b18d32e3fe70a24
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122692884"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456791"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Tutorial: Creación y uso de una imagen personalizada para conjuntos de escalado de máquinas virtuales con Azure PowerShell
 
@@ -23,7 +23,7 @@ ms.locfileid: "122692884"
 Al crear el conjunto de escalado, se especifica la imagen que se usará cuando se implementen las instancias de máquina virtual. Para reducir el número de tareas después de implementar las instancias de máquina virtual, puede usar una imagen de máquina virtual personalizada. Esta imagen de máquina virtual personalizada incluye la instalación o configuración de las aplicaciones necesarias. Las instancias de máquina virtual creadas en el conjunto de escalado usan la imagen de máquina virtual personalizada y están listas para atender el tráfico de la aplicación. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Creación de una instancia de Shared Image Gallery
+> * Create an Azure Compute Gallery
 > * Creación de la definición de una imagen
 > * Creación de la versión de una imagen
 > * Creación de un conjunto de escalado a partir de una imagen 
@@ -76,7 +76,7 @@ $gallery = New-AzGallery `
    -GalleryName 'myGallery' `
    -ResourceGroupName $resourceGroup.ResourceGroupName `
    -Location $resourceGroup.Location `
-   -Description 'Shared Image Gallery for my organization'  
+   -Description 'Azure Compute Gallery for my organization' 
 ```
 
 
@@ -264,7 +264,7 @@ Azure también ofrece un servicio, basado en Packer, [Azure VM Image Builder](..
 En este tutorial, aprendió a crear y utilizar una imagen de máquina virtual personalizada para los conjuntos de escalado con Azure PowerShell:
 
 > [!div class="checklist"]
-> * Creación de una instancia de Shared Image Gallery
+> * Create an Azure Compute Gallery
 > * Creación de la definición de una imagen
 > * Creación de la versión de una imagen
 > * Creación de un conjunto de escalado a partir de una imagen 

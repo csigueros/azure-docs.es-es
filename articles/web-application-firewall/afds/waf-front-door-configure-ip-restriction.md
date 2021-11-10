@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/22/2020
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: dc895f399afbf9fdeff23b0ffc1950ffa6c9adfc
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: e9022db23ac425cd958180954373ff4a924e9818
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110671795"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131507139"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Configuración de una regla de restricción de IP con un firewall de aplicaciones web para Azure Front Door
 
@@ -58,7 +58,7 @@ Para crear un perfil de Azure Front Door, siga las instrucciones que se describe
    |Tipo de regla     |Coincidir con|
    |Priority    |100|
    |Tipo de coincidencia     |Dirección IP|
-   |Variable de coincidencia|RemoteAddr|
+   |Variable de coincidencia|SocketAddr|
    |Operación|No contiene|
    |Dirección o intervalo de direcciones IP|10.10.10.0/24|
    |Entonces|Deny traffic|
@@ -130,7 +130,7 @@ A continuación, agregue la condición de coincidencia a la regla:
 
 ```azurecli
 az network front-door waf-policy rule match-condition add \
---match-variable RemoteAddr \
+--match-variable SocketAddr \
 --operator IPMatch \
 --values "ip-address-range-1" "ip-address-range-2" \
 --negate true \
@@ -195,7 +195,7 @@ Use el comando [New AzFrontDoorWafMatchConditionObject](/powershell/module/az.fr
 En el siguiente ejemplo, reemplace *ip-address-range-1*, *ip-address-range-2* por su propio rango.
 ```powershell
 $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
--MatchVariable  RemoteAddr `
+-MatchVariable  SocketAddr `
 -OperatorProperty IPMatch `
 -MatchValue "ip-address-range-1", "ip-address-range-2"
 -NegateCondition 1

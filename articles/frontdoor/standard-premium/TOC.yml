@@ -44,7 +44,7 @@
         - name: Arquitectura del motor de reglas
           href: concept-rule-set.md
         - name: Condiciones de coincidencia de reglas
-          href: concept-rule-set-match-conditions.md
+          href: ../rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
         - name: Acciones de reglas
           href: concept-rule-set-actions.md
     - name: Redireccionamiento y reescritura de URL
