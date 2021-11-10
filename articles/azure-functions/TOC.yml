@@ -294,7 +294,7 @@
           items:
             - name: Desencadenador HTTP
               items:
-                - name: Azure portal
+                - name: Portal de Azure
                   href: functions-create-function-app-portal.md
                 - name: Línea de comandos
                   href: ./create-first-function-cli-csharp.md
@@ -401,7 +401,9 @@
           href: configure-networking-how-to.md
         - name: Recuperación ante desastres geográfica
           href: functions-geo-disaster-recovery.md
-    - name: Supervisión
+        - name: Traslado entre regiones
+          href: functions-move-across-regions.md
+    - name: Monitor
       items:
         - name: Configuración de la supervisión
           href: configure-monitoring.md
@@ -549,7 +551,7 @@
             - name: Output
               displayName: Blob storage
               href: functions-bindings-storage-blob-output.md
-        - name: Azure Cosmos DB
+        - name: "Azure Cosmos\_DB"
           items:
             - name: Functions 1.x
               href: functions-bindings-cosmosdb.md

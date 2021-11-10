@@ -13,12 +13,12 @@ ms.date: 09/18/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 7ff61811e8b736f8f6d104a253cfe5dc5e76c428
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 437de129cec6b8ef6f8d9ca572b18c2a181295b3
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771369"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132133650"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Inicialización de aplicaciones cliente con MSAL.NET
 En este artículo se describe la inicialización de aplicaciones cliente confidenciales y públicas mediante la Biblioteca de autenticación de Microsoft para .NET (MSAL.NET).  Para obtener más información sobre los tipos de aplicación cliente, consulte [Aplicaciones cliente público y cliente confidencial](msal-client-applications.md).
@@ -100,7 +100,7 @@ Los modificadores que puede establecer en un generador de aplicaciones cliente p
 
 |Modificador | Descripción|
 |--------- | --------- |
-|7 invalidaciones de `.WithAuthority()` | Establece la autoridad predeterminada de la aplicación en una autoridad de Azure AD, con la posibilidad de elegir Azure Cloud, la audiencia o el inquilino (identificador de inquilino o nombre de dominio) o de proporcionar directamente la URI de la autoridad.|
+|[`.WithAuthority()`](/dotnet/api/microsoft.identity.client.abstractapplicationbuilder-1.withauthority)  | Establece la autoridad predeterminada de la aplicación en una autoridad de Azure AD, con la posibilidad de elegir Azure Cloud, la audiencia o el inquilino (identificador de inquilino o nombre de dominio) o de proporcionar directamente la URI de la autoridad.|
 |`.WithAdfsAuthority(string)` | Establece la autoridad predeterminada de la aplicación en una autoridad de ADFS.|
 |`.WithB2CAuthority(string)` | Establece la autoridad predeterminada de la aplicación en una autoridad de Azure AD B2C.|
 |`.WithClientId(string)` | Invalida el identificador de cliente.|

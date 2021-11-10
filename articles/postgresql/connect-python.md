@@ -8,12 +8,12 @@ ms.custom: mvc, devcenter, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/28/2020
-ms.openlocfilehash: 6c589f3f0913609640ac14534c170c741c16a084
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fc02862b6d980854d20e90724d9192e33693b5db
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048177"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132137131"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Inicio rápido: Uso de Python para conectarse y consultar datos en un servidor único Azure Database for PostgreSQL
 
@@ -39,7 +39,7 @@ Para esta guía de inicio rápido, necesitará lo siguiente:
 - [Python](https://www.python.org/downloads/) 2.7 o 3.6+.
 
 - Instalador de paquetes [pip](https://pip.pypa.io/en/stable/installing/) más reciente.
-- Instalar [psycopg2](https://pypi.python.org/pypi/psycopg2/) mediante `pip install psycopg2` en un terminal o una ventana del símbolo del sistema. Para más información, consulte [Instalación`psycopg2`](http://initd.org/psycopg/docs/install.html).
+- Instalar [psycopg2](https://pypi.python.org/pypi/psycopg2-binary/) mediante `pip install psycopg2-binary` en un terminal o una ventana del símbolo del sistema. Para más información, consulte [Instalación`psycopg2`](https://www.psycopg.org/docs/install.html).
 
 ## <a name="get-database-connection-information"></a>Obtener información de conexión de base de datos
 La conexión a una base de datos Azure Database for PostgreSQL requiere el nombre completo del servidor y las credenciales de inicio de sesión. Puede obtener esta información en el Azure Portal.
@@ -55,12 +55,12 @@ La conexión a una base de datos Azure Database for PostgreSQL requiere el nombr
 >  Reemplace los siguientes valores:
 >   - `<server-name>` y `<admin-username>` con los valores que copió del Azure Portal.
 >   - `<admin-password>` con la contraseña del servidor.
->   - `<database-name>` se ha creado automáticamente una base de datos predeterminada llamada *postgres* al crear el servidor. Puede cambiar el nombre de la base de datos o [crear una nueva](https://www.postgresql.org/docs/9.0/sql-createdatabase.html) mediante comandos SQL.
+>   - `<database-name>` se ha creado automáticamente una base de datos predeterminada llamada *postgres* al crear el servidor. Puede cambiar el nombre de la base de datos o [crear una nueva](https://www.postgresql.org/docs/current/sql-createdatabase.html) mediante comandos SQL.
 
 ## <a name="step-1-connect-and-insert-data"></a>Paso 1: Conexión e inserción de datos
 El siguiente ejemplo de código se conecta a la base de datos de Azure Database for PostgreSQL con
--  la función [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) y carga los datos con la instrucción SQL **INSERT**.
-- la función [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) ejecuta la consulta SQL en la base de datos.
+-  la función [psycopg2.connect](https://www.psycopg.org/docs/connection.html) y carga los datos con la instrucción SQL **INSERT**.
+- la función [cursor.execute](https://www.psycopg.org/docs/cursor.html#execute) ejecuta la consulta SQL en la base de datos.
 
 ```Python
 import psycopg2
@@ -108,8 +108,8 @@ Cuando el código se ejecuta correctamente, genera el siguiente resultado:
 
 ## <a name="step-2-read-data"></a>Paso 2: Lectura de datos
 El siguiente ejemplo de código se conecta a la base de datos de Azure Database for PostgreSQL y usa
-- [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) con la instrucción SQL **SELECT** para leer los datos.
-- [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall) acepta una consulta y devuelve un conjunto de resultados para iterar mediante
+- [cursor.execute](https://www.psycopg.org/docs/cursor.html#execute) con la instrucción SQL **SELECT** para leer los datos.
+- [cursor.fetchall()](https://www.psycopg.org/docs/cursor.html#cursor.fetchall) acepta una consulta y devuelve un conjunto de resultados para iterar mediante
 
 ```Python
 
@@ -126,7 +126,7 @@ for row in rows:
 [¿Tiene problemas? Háganoslo saber.](https://aka.ms/postgres-doc-feedback)
 
 ## <a name="step-3-update-data"></a>Paso 3: Actualización de datos
-En el ejemplo de código siguiente se usa [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) con la instrucción SQL **UPDATE** para actualizar los datos.
+En el ejemplo de código siguiente se usa [cursor.execute](https://www.psycopg.org/docs/cursor.html#execute) con la instrucción SQL **UPDATE** para actualizar los datos.
 
 ```Python
 
@@ -138,7 +138,7 @@ print("Updated 1 row of data")
 [¿Tiene problemas? Háganoslo saber.](https://aka.ms/postgres-doc-feedback)
 
 ## <a name="step-5-delete-data"></a>Paso 5: Eliminación de datos
-En el ejemplo de código siguiente se ejecuta [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) con la instrucción SQL **DELETE** para eliminar un elemento de inventario que se ha insertado previamente.
+En el ejemplo de código siguiente se ejecuta [cursor.execute](https://www.psycopg.org/docs/cursor.html#execute) con la instrucción SQL **DELETE** para eliminar un elemento de inventario que se ha insertado previamente.
 
 ```Python
 

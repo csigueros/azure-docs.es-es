@@ -2,13 +2,13 @@
 title: Restricciones de nomenclatura de recursos
 description: Muestra las reglas y las restricciones de nomenclatura de recursos de Azure.
 ms.topic: conceptual
-ms.date: 09/27/2021
-ms.openlocfilehash: 12d589088f17e3eeb3bda0fecbb2c1fc24b65203
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.date: 11/09/2021
+ms.openlocfilehash: 868fa30779048447014fa0e7b048d6de8051931c
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129084101"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132137540"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reglas y restricciones de nomenclatura para los recursos de Azure
 
@@ -175,7 +175,7 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | --- | --- | --- | --- |
 > | availabilitySets | resource group | 1-80 | Caracteres alfanuméricos, de subrayado, puntos y guiones.<br><br>Comience con un carácter alfanumérico. Termine con un carácter alfanumérico o de subrayado. |
 > | cloudservices | resource group | 1-15 <br><br>Vea la nota siguiente. | No se pueden usar espacios, caracteres de control ni estos caracteres:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>No puede comenzar con un carácter de subrayado. No puede terminar con un punto ni un guion. |
-> | diskEncryptionSets | resource group | 1-80 | Caracteres alfanuméricos y de subrayado. |
+> | diskEncryptionSets | resource group | 1-80 | Caracteres alfanuméricos, de subrayado y guiones. |
 > | disks | resource group | 1-80 | Caracteres alfanuméricos, de subrayado y guiones. |
 > | galleries | resource group | 1-80 | Caracteres alfanuméricos y puntos.<br><br>Comience y termine con un carácter alfanumérico. |
 > | galleries/applications | galería | 1-80 | Caracteres alfanuméricos, guiones y puntos.<br><br>Comience y termine con un carácter alfanumérico. |

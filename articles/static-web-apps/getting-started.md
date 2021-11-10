@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 06/16/2021
 ms.author: cshoe
-ms.openlocfilehash: 167d6a2fbe6ec782a83c8dc3cb7f3ea57832a594
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: a7b7504a99be6784e2767abe0daf9ba64066d0c1
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129275912"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132134620"
 ---
 # <a name="quickstart-building-your-first-static-site-with-azure-static-web-apps"></a>Inicio rápido: creación del primer sitio estático con Azure Static Web Apps
 
@@ -79,9 +79,7 @@ Después, abra Visual Studio Code y vaya a **Archivo > Abrir carpeta** para abr
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
-    Aunque hay un valor preestablecido de Angular, seleccione la opción **Personalizar** para proporcionar una ubicación de salida adecuada para esta aplicación.
-
-    :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Valores preestablecidos de la aplicación: Angular":::
+    :::image type="content" source="media/getting-started/extension-presets-angular.png" alt-text="Valores preestablecidos de la aplicación: Angular":::
 
     Escriba **/** como la ubicación de los archivos de aplicación.
 

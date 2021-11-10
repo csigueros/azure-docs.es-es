@@ -453,7 +453,7 @@ items:
                 items:
                   - name: Creación de una aplicación Comandos personalizados
                     href: quickstart-custom-commands-application.md
-              - name: Guías de procedimientos
+              - name: Guías paso a paso
                 items:
                   - name: Desarrollo y personalización de aplicaciones de Comandos personalizados
                     href: how-to-develop-custom-commands-application.md
@@ -619,6 +619,8 @@ items:
             href: speech-sdk.md
           - name: Configuración del SDK de Voz
             href: quickstarts/setup-platform.md
+          - name: Solución de problemas del SDK de voz
+            href: troubleshooting.md
           - name: Notas de la versión del SDK de voz
             href: releasenotes.md
           - name: Referencia

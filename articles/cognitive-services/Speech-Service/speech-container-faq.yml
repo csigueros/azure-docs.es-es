@@ -12,12 +12,12 @@ metadata:
   ms.date: 03/11/2021
   ms.author: eur
   ms.custom: devx-track-csharp
-  ms.openlocfilehash: 5b896e3f4bbd6cf00d4ee9b7eb2723cc75d07a5b
-  ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+  ms.openlocfilehash: 6fec58c20c40371eb1c7226e7dbe6120217657fe
+  ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/03/2021
-  ms.locfileid: "131508180"
+  ms.lasthandoff: 11/10/2021
+  ms.locfileid: "132133907"
 title: Preguntas frecuentes sobre los contenedores del servicio de voz
 summary: Cuando use el servicio de voz con contenedores, consulte primero estas preguntas frecuentes antes de escalar el problema al soporte técnico. En este artículo se recopilan preguntas de distinto grado, desde las generales a las más técnicas. Para expandir una respuesta, haga clic en la pregunta.
 sections:
@@ -114,10 +114,7 @@ sections:
       Si realiza el entrenamiento con el modelo personalizado más reciente, no se admite en estos momentos. Si lo realiza con una versión anterior, debería ser posible usarla. Todavía estamos trabajando para admitir las versiones más recientes.
 
 
-      Esencialmente, los contenedores personalizados no admiten los modelos acústicos basados en Halide u ONNX (que es el modelo predeterminado en el portal de entrenamiento personalizado). Esto se debe a que los modelos personalizados no están cifrados y no queremos exponer modelos de ONNX; sin embargo, los modelos de lenguaje son correctos. El cliente tendrá que seleccionar explícitamente un modelo que no sea ONNX anterior para el entrenamiento personalizado. La precisión no se verá afectada. El tamaño del modelo puede ser mayor (100 MB).
-
-
-      > Modelo admitido > 20190220 (v4.5 Unified)
+      Esencialmente, los contenedores personalizados no admiten los modelos acústicos basados en Halide u ONNX (que es el modelo predeterminado en el portal de entrenamiento personalizado). Esto se debe a que los modelos personalizados no están cifrados y no queremos exponer modelos de ONNX; sin embargo, los modelos de lenguaje son correctos. El tamaño del modelo puede ser mayor (100 MB).
 
 
       **Error 2:**
