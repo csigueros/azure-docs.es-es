@@ -1,5 +1,5 @@
 ---
-title: Archivo de inclusión
+title: archivo de inclusión
 description: Archivo de inclusión
 services: storage
 author: tamram
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/04/2021
 ms.author: tamram
 ms.custom: include file, references_regions
-ms.openlocfilehash: 8a50cc2f09d9094e8a7f327f0088988ca776a2c6
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 300a216e02182e3e2fe675795ff64942d8e98ed8
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129713894"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132096987"
 ---
 En la tabla siguiente se describen los límites predeterminados para las cuentas de almacenamiento de uso general v2 (GPv2) y v1 (GPv1) de Azure y de Blob Storage. El límite de *entrada* hace referencia a todos los datos que se envían a una cuenta de almacenamiento. El límite de *salida* hace referencia a todos los datos que se reciben de una cuenta de almacenamiento.
 
@@ -28,12 +28,12 @@ Microsoft recomienda usar una cuenta de almacenamiento GPv2 en la mayoría de lo
 | Capacidad máxima predeterminada de la cuenta de almacenamiento. | 5 PiB <sup>1</sup> |
 | Número máximo de contenedores de blobs, blobs, recursos compartidos de archivos, tablas, colas, entidades o mensajes por cuenta de almacenamiento. | Sin límite |
 | Tasa de solicitud máxima predeterminada por cuenta de almacenamiento. | 20 000 solicitudes por segundo<sup>1</sup> |
-| Entrada máxima predeterminada por cuenta de almacenamiento de uso general v2 y de Blob Storage en las siguientes regiones (LRS/GRS):<br /><ul><li>Este de Australia</li><li>Centro de EE. UU.</li><li>Este de Asia</li><li>Este de EE. UU. 2</li><li>Centro de Francia</li><li>Japón Oriental</li><li>Centro de Corea del Sur</li><li>Norte de Europa</li><li>Centro-sur de EE. UU.</li><li>Sudeste de Asia</li><li>Sur de Reino Unido</li><li>Oeste de Europa</li><li>Oeste de EE. UU.</li></ul> | 60 Gbps<sup>1</sup> |
-| Entrada máxima predeterminada por cuenta de almacenamiento de uso general v2 y de Blob Storage en las siguientes regiones (ZRS):<br /><ul><li>Este de Australia</li><li>Centro de EE. UU.</li><li>Este de EE. UU.</li><li>Este de EE. UU. 2</li><li>Centro de Francia</li><li>Japón Oriental</li><li>Norte de Europa</li><li>Centro-sur de EE. UU.</li><li>Sudeste de Asia</li><li>Sur de Reino Unido</li><li>Oeste de Europa</li><li>Oeste de EE. UU. 2</li></ul> | 60 Gbps<sup>1</sup> |
+| Entrada máxima predeterminada por cuenta de almacenamiento de uso general v2 y de Blob Storage en las siguientes regiones (LRS/GRS):<br /><ul><li>Este de Australia</li><li>Centro de EE. UU.</li><li>Este de Asia</li><li>Este de EE. UU. 2</li><li>Japón Oriental</li><li>Centro de Corea del Sur</li><li>Norte de Europa</li><li>Centro-sur de EE. UU.</li><li>Sudeste de Asia</li><li>Sur de Reino Unido 2</li><li>Oeste de Europa</li><li>Oeste de EE. UU.</li></ul> | 60 Gbps<sup>1</sup> |
+| Entrada máxima predeterminada por cuenta de almacenamiento de uso general v2 y de Blob Storage en las siguientes regiones (ZRS):<br /><ul><li>Este de Australia</li><li>Centro de EE. UU.</li><li>Este de EE. UU.</li><li>Este de EE. UU. 2</li><li>Japón Oriental</li><li>Norte de Europa</li><li>Centro-sur de EE. UU.</li><li>Sudeste de Asia</li><li>Sur de Reino Unido 2</li><li>Oeste de Europa</li><li>Oeste de EE. UU. 2</li></ul> | 60 Gbps<sup>1</sup> |
 | Entrada máxima predeterminada por cuenta de almacenamiento de uso general v2 y de Blob Storage en regiones que no aparecen en la lista anterior. | 25 Gbps<sup>1</sup> |
 | Entrada máxima predeterminada para las cuentas de almacenamiento de uso general v1 (todas las regiones) | 10 Gbps<sup>1</sup> |
-| Salida máxima predeterminada de las cuentas de almacenamiento de uso general v2 y de Blob Storage en las siguientes regiones (LRS/GRS):<br /><ul><li>Este de Australia</li><li>Centro de EE. UU.</li><li>Este de Asia</li><li>Este de EE. UU. 2</li><li>Centro de Francia</li><li>Japón Oriental</li><li>Centro de Corea del Sur</li><li>Norte de Europa</li><li>Centro-sur de EE. UU.</li><li>Sudeste de Asia</li><li>Sur de Reino Unido</li><li>Oeste de Europa</li><li>Oeste de EE. UU.</li></ul> | 120 Gbps<sup>1</sup> |
-| Salida máxima predeterminada de las cuentas de almacenamiento de uso general v2 y de Blob Storage en las siguientes regiones (ZRS): <ul><li>Este de Australia</li><li>Centro de EE. UU.</li><li>Este de EE. UU.</li><li>Este de EE. UU. 2</li><li>Centro de Francia</li><li>Japón Oriental</li><li>Norte de Europa</li><li>Centro-sur de EE. UU.</li><li>Sudeste de Asia</li><li>Sur de Reino Unido</li><li>Oeste de Europa</li><li>Oeste de EE. UU. 2</li></ul> | 120 Gbps<sup>1</sup> |
+| Salida máxima predeterminada de las cuentas de almacenamiento de uso general v2 y de Blob Storage en las siguientes regiones (LRS/GRS):<br /><ul><li>Este de Australia</li><li>Centro de EE. UU.</li><li>Este de Asia</li><li>Este de EE. UU. 2</li><li>Japón Oriental</li><li>Centro de Corea del Sur</li><li>Norte de Europa</li><li>Centro-sur de EE. UU.</li><li>Sudeste de Asia</li><li>Sur de Reino Unido 2</li><li>Oeste de Europa</li><li>Oeste de EE. UU.</li></ul> | 120 Gbps<sup>1</sup> |
+| Salida máxima predeterminada de las cuentas de almacenamiento de uso general v2 y de Blob Storage en las siguientes regiones (ZRS): <ul><li>Este de Australia</li><li>Centro de EE. UU.</li><li>Este de EE. UU.</li><li>Este de EE. UU. 2</li><li>Japón Oriental</li><li>Norte de Europa</li><li>Centro-sur de EE. UU.</li><li>Sudeste de Asia</li><li>Sur de Reino Unido 2</li><li>Oeste de Europa</li><li>Oeste de EE. UU. 2</li></ul> | 120 Gbps<sup>1</sup> |
 | Salida máxima predeterminada de las cuentas de almacenamiento de uso general v2 y de Blob Storage en regiones que no aparecen en la lista anterior. | 50 Gbps<sup>1</sup> |
 | Salida máxima para cuentas de almacenamiento de uso general v1 (regiones de EE. UU.) | 20 Gbps si RA-GRS o GRS están habilitado, 30 Gbps en el caso de LRS o ZRS<sup>2</sup> |
 | Salida máxima para cuentas de almacenamiento de uso general v1 (regiones no de EE. UU.) | 10 Gbps si RA-GRS o GRS está habilitado, 15 Gbps en el caso de LRS o ZRS<sup>2</sup> |
