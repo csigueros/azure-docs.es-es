@@ -484,6 +484,8 @@ items:
                 href: ./sql-data-warehouse/sql-data-warehouse-manage-monitor.md?context=/azure/synapse-analytics/context/context
               - name: 'Supervisión de la carga de trabajo: portal'
                 href: ./sql-data-warehouse/sql-data-warehouse-monitor-workload-portal.md?context=/azure/synapse-analytics/context/context
+              - name: Análisis e historial de consultas
+                href: ./sql/query-history-storage-analysis.md
               - name: Administración de cargas de trabajo
                 items:
                   - name: Análisis de la carga de trabajo

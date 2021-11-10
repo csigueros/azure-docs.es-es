@@ -180,7 +180,7 @@
               href: manage/azurestudents-subscription-disabled.md
             - name: Instalación y configuración de la integración de AWS
               href: costs/aws-integration-set-up-configure.md
-            - name: Configuración del pago mediante factura
+            - name: Pago por cheque o transferencia bancaria
               href: manage/pay-by-invoice.md
             - name: Creación de suscripciones adicionales
               href: manage/create-subscription.md

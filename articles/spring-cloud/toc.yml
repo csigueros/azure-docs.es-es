@@ -188,6 +188,10 @@
           href: how-to-self-diagnose-running-in-vnet.md
         - name: Guía de solución de problemas
           href: troubleshoot.md
+        - name: Captura manual del volcado de montón/volcado de subproceso/JFR
+          href: how-to-capture-dumps.md
+        - name: Solución de problemas basada en opciones de JVM
+          href: tutorial-dump-jvm-options.md
     - name: Migrar
       items:
         - name: Spring Cloud

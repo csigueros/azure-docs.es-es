@@ -741,6 +741,8 @@ items:
                 href: monitor-install-analytics.md
           - name: Supervisar con SDK
             href: monitor-programmatically.md
+          - name: Control de errores y error de canalización
+            href: tutorial-pipeline-failure-error-handling.md
           - name: Supervisión de canalizaciones y notificaciones por correo electrónico
             href: how-to-send-email.md
           - name: Supervisión de canalizaciones con notificaciones de Microsoft Teams

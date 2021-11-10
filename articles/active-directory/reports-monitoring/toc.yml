@@ -62,8 +62,6 @@
           href: howto-find-activity-reports.md
         - name: Solución de errores de inicio de sesión para un usuario
           href: howto-troubleshoot-sign-in-errors.md
-        - name: Corrección de usuarios marcados en riesgo
-          href: howto-remediate-users-flagged-for-risk.md
         - name: Configuración de requisitos previos para la API de informes
           href: howto-configure-prerequisites-for-reporting-api.md
         - name: "Uso de libros de Azure\_AD"
@@ -95,6 +93,8 @@
 - name: Referencia
   expanded: true
   items:
+    - name: Identificadores de información básica en el registro de inicio de sesión
+      href: reference-basic-info-identifiers.md
     - name: Cmdlets de Azure AD PowerShell para informes
       href: reference-powershell-reporting.md
     - name: Referencia de la API de registros de auditoría
@@ -111,3 +111,9 @@
       href: reports-faq.yml
     - name: Esquema de registro de inicio de sesión
       href: reference-azure-monitor-sign-ins-log-schema.md
+    - name: Workbooks
+      items:
+        - name: Analizador de brechas del acceso condicional
+          href: workbook-conditional-access-gap-analyzer.md
+        - name: Informe de operaciones confidenciales
+          href: workbook-sensitive-operations-report.md

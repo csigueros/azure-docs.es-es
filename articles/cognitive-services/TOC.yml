@@ -20,6 +20,8 @@
     - name: Creación de un recurso mediante una plantilla de ARM
       displayName: Resource Manager
       href: create-account-resource-manager-template.md
+    - name: Creación de un recurso con los precios del nivel de compromiso
+      href: commitment-tier.md
 - name: Procedimiento
   items:
     - name: Planificación y administración de costos

@@ -571,16 +571,24 @@
           href: marketplace-metering-service-apis-faq.yml
     - name: API de suministro de SaaS
       items:
-        - name: Introducción a API de suministro de SaaS
+        - name: Introducción a las API de suministro de SaaS
           href: partner-center-portal/pc-saas-fulfillment-apis.md
         - name: Registro de una aplicación SaaS
           href: partner-center-portal/pc-saas-registration.md
         - name: API de suministro de SaaS v2
-          href: partner-center-portal/pc-saas-fulfillment-api-v2.md
-        - name: API de suministro de SaaS v1 (en desuso)
-          href: partner-center-portal/pc-saas-fulfillment-api-v1.md
+          items:
+            - name: Ciclo de vida de la suscripción a SaaS
+              href: partner-center-portal/pc-saas-fulfillment-life-cycle.md
+            - name: API Subscription
+              href: partner-center-portal/pc-saas-fulfillment-subscription-api.md
+            - name: API Operations
+              href: partner-center-portal/pc-saas-fulfillment-operations-api.md
+        - name: Implementación de un webhook
+          href: partner-center-portal/pc-saas-fulfillment-webhook.md
         - name: Preguntas más frecuentes sobre las API de suministro de SaaS
           href: partner-center-portal/saas-fulfillment-apis-faq.yml
+        - name: API de suministro de SaaS v1 (en desuso)
+          href: partner-center-portal/pc-saas-fulfillment-api-v1.md
 - name: Recursos
   items:
     - name: Preguntas frecuentes de Marketplace comercial
