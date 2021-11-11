@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 06/29/2021
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a0f95f78b8ca84175be185088316209ea5eb1e97
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: b7a6e23ae5f1dde2feab830a484cd33107bd7212
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129546833"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132180196"
 ---
 # <a name="manage-storage-account-access-keys"></a>Administración de las claves de acceso de la cuenta de almacenamiento
 
@@ -199,7 +199,7 @@ StorageBlobLogs | where KeyExpiryStatus startsWith "Policy Violated".
 También puede crear una consulta que le ayude a determinar si una consulta está a punto de expirar. En la consulta siguiente se proporciona esta información.
 
 ```kusto
-resources 
+StorageBlobLogs 
 | where type =~ 'microsoft.storage/storageAccounts'
 | extend days = datetime_diff('day', now(), todatetime(parse_json(properties).keyCreationTime))
 | extend KeyExpiryStatus = iff(days > 180, "Policy Violated", "")

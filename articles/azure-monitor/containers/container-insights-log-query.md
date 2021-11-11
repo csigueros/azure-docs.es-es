@@ -3,12 +3,12 @@ title: Procedimiento para consultar registros desde Container Insights
 description: Container Insights recopila datos de registro y métricas, y en este artículo se describen los registros y se incluyen consultas de ejemplo.
 ms.topic: conceptual
 ms.date: 07/19/2021
-ms.openlocfilehash: ff2ce2fa2e70400b4b591f4e8f3dbb50e3dc6415
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: af48255c1895142107e693595c256d2c76fdee65
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130240136"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132179223"
 ---
 # <a name="how-to-query-logs-from-container-insights"></a>Procedimiento para consultar registros desde Container Insights
 
@@ -48,12 +48,6 @@ KubeEvents
 | where not(isempty(Namespace))
 | sort by TimeGenerated desc
 | render table
-```
-### <a name="image-inventory"></a>Inventario de imágenes
-
-``` kusto
-ContainerImageInventory
-| summarize AggregatedValue = count() by Image, ImageTag, Running
 ```
 
 ### <a name="container-cpu"></a>CPU de contenedor
