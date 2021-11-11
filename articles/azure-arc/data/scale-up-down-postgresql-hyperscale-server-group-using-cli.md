@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 8b2b64de8dd16e36b6956c289beda986d89a5c98
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1c33c2f4bf89b76abf40d12146965114ba4918b0
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733503"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131564506"
 ---
 # <a name="scale-up-and-down-an-azure-database-for-postgresql-hyperscale-server-group-using-cli-az-or-kubectl"></a>Escalado y reducción vertical de un grupo de servidores de Hiperescala de Azure Database for PostgreSQL mediante la CLI (az o kubectl)
 
@@ -25,7 +25,9 @@ En algunas ocasiones, es posible que necesite cambiar las características o la 
 
 En esta guía se explica cómo escalar los núcleos virtuales y la memoria.
 
-El escalado o la reducción vertical de la configuración de la memoria o los núcleos virtuales del grupo de servidores significa que puede establecer un valor mínimo o máximo para cada una de las opciones de configuración de memoria y de núcleos virtuales. Si quiere configurar el grupo de servidores para que use un número específico de núcleos virtuales o una cantidad determinada de memoria, los mínimos deben establecerse en los mismos valores que los máximos.
+El escalado o la reducción vertical de la configuración de la memoria o los núcleos virtuales del grupo de servidores significa que puede establecer un valor mínimo o máximo para cada una de las opciones de configuración de memoria y de núcleos virtuales. Si quiere configurar el grupo de servidores para que use un número específico de núcleos virtuales o una cantidad determinada de memoria, los mínimos deben establecerse en los mismos valores que los máximos. Antes de aumentar el valor establecido de núcleos virtuales y memoria, debe asegurarse de que 
+- tiene suficientes recursos disponibles en la infraestructura física que hospeda la implementación y 
+- de que las cargas de trabajo colocadas en el mismo sistema no compiten por los mismos núcleos virtuales o memoria.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -33,7 +35,7 @@ El escalado o la reducción vertical de la configuración de la memoria o los n�
 
 Para mostrar la definición actual del grupo de servidores y ver cuál es la configuración de los núcleos virtuales y de la memoria en este momento, ejecute cualquiera de los siguientes comandos:
 
-### <a name="cli-with-azure-cli-az"></a>CLI con azure cli (az):
+### <a name="with-azure-cli-az"></a>Con la CLI de Azure (az)
 
 ```azurecli
 az postgres arc-server show -n <server group name> --k8s-namespace <namespace> --use-k8s
@@ -54,7 +56,9 @@ Spec:
       Name:   citus
     Version:  12
   Scale:
-    Workers:  2
+    Replicas:       1
+    Sync Replicas:  0
+    Workers:        4
   Scheduling:
     Default:
       Resources:
@@ -117,13 +121,13 @@ Para indicar un número de núcleos, basta con pasar un número sin unidad.
 **Configuración del rol de coordinador para que no supere los 2 núcleos y del rol de trabajo para que no supere los 4 núcleos:**
 
 ```azurecli
- az postgres arc-server edit -n postgres01 --cores-request coordinator=1, --cores-limit coordinator=2  --k8s-namespace <namespace> --use-k8s
- az postgres arc-server edit -n postgres01 --cores-request worker=1, --cores-limit worker=4 --k8s-namespace <namespace> --use-k8s
+ az postgres arc-server edit -n postgres01 --cores-request coordinator=1, --cores-limit coordinator=2  --k8s-namespace arc --use-k8s
+ az postgres arc-server edit -n postgres01 --cores-request worker=1, --cores-limit worker=4 --k8s-namespace arc --use-k8s
 ```
 
 o bien
 ```azurecli
-az postgres arc-server edit -n postgres01 --cores-request coordinator=1,worker=1 --cores-limit coordinator=4,worker=4 --k8s-namespace <namespace> --use-k8s
+az postgres arc-server edit -n postgres01 --cores-request coordinator=1,worker=1 --cores-limit coordinator=4,worker=4 --k8s-namespace arc --use-k8s
 ```
 
 > [!NOTE]
@@ -150,6 +154,17 @@ Por ejemplo, si quiere establecer la siguiente configuración para los roles de 
 Establecería la definición del grupo de servidores para que coincida con la configuración siguiente:
 
 ```json
+...
+  spec:
+  dev: false
+  engine:
+    extensions:
+    - name: citus
+    version: 12
+  scale:
+    replicas: 1
+    syncReplicas: "0"
+    workers: 4
   scheduling:
     default:
       resources:
@@ -163,7 +178,7 @@ Establecería la definición del grupo de servidores para que coincida con la co
             memory: 1Gi
           requests:
             cpu: "2"
-            memory: 512Mi
+            memory: 256Mi
       worker:
         resources:
           limits:
@@ -171,7 +186,8 @@ Establecería la definición del grupo de servidores para que coincida con la co
             memory: 1Gi
           requests:
             cpu: "2"
-            memory: 512Mi
+            memory: 256Mi
+...
 ```
 
 Si no está familiarizado con el editor `vi`, puede ver una descripción de los comandos que puede necesitar [aquí](https://www.computerhope.com/unix/uvi.htm):
@@ -186,13 +202,13 @@ Si no está familiarizado con el editor `vi`, puede ver una descripción de los 
 Para restablecer los valores predeterminados de los parámetros de núcleo, límites de memoria y solicitudes, edítelos y pase una cadena vacía en lugar de un valor real. Por ejemplo, si quiere restablecer el parámetro de límite de núcleos, ejecute los siguientes comandos:
 
 ```azurecli
-az postgres arc-server edit -n postgres01 --cores-request coordinator='',worker='' --k8s-namespace <namespace> --use-k8s
-az postgres arc-server edit -n postgres01 --cores-limit coordinator='',worker='' --k8s-namespace <namespace> --use-k8s
+az postgres arc-server edit -n postgres01 --cores-request coordinator='',worker='' --k8s-namespace arc --use-k8s
+az postgres arc-server edit -n postgres01 --cores-limit coordinator='',worker='' --k8s-namespace arc --use-k8s
 ```
 
 o bien 
 ```azurecli
-az postgres arc-server edit -n postgres01 --cores-request coordinator='',worker='' --cores-limit coordinator='',worker='' --k8s-namespace <namespace> --use-k8s
+az postgres arc-server edit -n postgres01 --cores-request coordinator='',worker='' --cores-limit coordinator='',worker='' --k8s-namespace arc --use-k8s
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -1227,39 +1227,56 @@
                     - name: "Copia de seguridad automatizada (SQL\_2014)"
                       href: virtual-machines/windows/automated-backup-sql-2014.md
                 - name: Grupo de disponibilidad (AG)
+                  displayName: 'Always On, alwayson, availability group'
                   items:
-                    - name: Creación de un grupo de disponibilidad
+                    - name: Configuración de un grupo de disponibilidad (varias subredes)
+                      displayName: 'Always On, alwayson, availability group'
+                      items:
+                        - name: Prerrequisitos
+                          href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md
+                          displayName: 'Always On, alwayson, availability group'
+                        - name: Crear grupo de disponibilidad
+                          href: virtual-machines/windows/availability-group-manually-configure-tutorial-multi-subnet.md
+                          displayName: 'Always On, alwayson, availability group'
+                    - name: Configuración de un grupo de disponibilidad (subred única)
+                      displayName: 'Always On, alwayson, availability group'
                       items:
                         - name: Azure portal
                           href: virtual-machines/windows/availability-group-azure-portal-configure.md
+                          displayName: 'Always On, alwayson, availability group'
                         - name: PowerShell o Az CLI
                           href: virtual-machines/windows/availability-group-az-commandline-configure.md
+                          displayName: 'Always On, alwayson, availability group'
                         - name: Plantillas de inicio rápido de Azure
                           href: virtual-machines/windows/availability-group-quickstart-template-configure.md
+                          displayName: 'Always On, alwayson, availability group'
                         - name: Varias regiones
                           href: virtual-machines/windows/availability-group-manually-configure-multiple-regions.md
+                          displayName: 'Always On, alwayson, availability group'
                         - name: Independiente del dominio (grupo de trabajo)
                           href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
-                        - name: Configuración manual
+                          displayName: 'Always On, alwayson, availability group'
+                        - name: Manualmente
                           items:
-                            - name: Requisitos previos
-                              href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
-                            - name: Tutorial
-                              href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
+                            - name: Prerrequisitos
+                              href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial-single-subnet.md
+                              displayName: 'Always On, alwayson, availability group'
+                            - name: Crear grupo de disponibilidad
+                              href: virtual-machines/windows/availability-group-manually-configure-tutorial-single-subnet.md
                             - name: 'Equilibrador de carga: Azure Portal'
                               href: virtual-machines/windows/availability-group-load-balancer-portal-configure.md
                             - name: 'Equilibrador de carga: Azure PowerShell'
                               href: virtual-machines/windows/availability-group-listener-powershell-configure.md
-                    - name: Configuración de la conectividad
-                      items:
-                        - name: Cliente de escucha de VNN
-                          displayName: virtual network name
-                          href: virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure.md
-                        - name: Cliente de escucha de DNN
-                          displayName: distributed network name
-                          href: virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md
-                        - name: Interoperabilidad de DNN
-                          href: virtual-machines/windows/availability-group-dnn-interoperability.md
+                        - name: Configuración de la conectividad
+                          items:
+                            - name: Cliente de escucha de VNN
+                              displayName: virtual network name
+                              href: virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure.md
+                            - name: Cliente de escucha de DNN
+                              displayName: distributed network name
+                              href: virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md
+                            - name: Interoperabilidad de DNN
+                              href: virtual-machines/windows/availability-group-dnn-interoperability.md
                 - name: Instancia de clúster de conmutación por error (FCI)
                   items:
                     - name: Preparación de una máquina virtual para FCI
@@ -1272,7 +1289,7 @@
                           href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
                         - name: "Recurso compartido de archivos Premium (a partir de Windows\_2012)"
                           href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
-                    - name: Configuración de la conectividad
+                    - name: Configuración de conectividad (subred única)
                       items:
                         - name: Nombre de red virtual (VNN)
                           href: virtual-machines/windows/failover-cluster-instance-vnn-azure-load-balancer-configure.md

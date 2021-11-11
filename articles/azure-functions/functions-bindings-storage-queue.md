@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 93685e97c06bf16ee316fbd3d16f272e01103fd4
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 199fbe82cc1c3c88020bf9c2bc39d7df7380cc2f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130072734"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131459033"
 ---
 # <a name="azure-queue-storage-trigger-and-bindings-for-azure-functions-overview"></a>Introducción al desencadenador y enlaces de Azure Queue Storage para Azure Functions
 
@@ -36,23 +36,22 @@ Para trabajar con el desencadenador y los enlaces, es necesario hacer referencia
 
 #### <a name="storage-extension-5x-and-higher"></a>Extensión de Storage 5.x y versiones posteriores
 
-Hay disponible una nueva versión de la extensión de enlaces de Storage en versión preliminar. Presenta la posibilidad de [conectarse con una identidad en lugar de un secreto](./functions-reference.md#configure-an-identity-based-connection). En el caso de las aplicaciones .NET, también cambian los tipos con los que se puede enlazar; así, los tipos `WindowsAzure.Storage` y `Microsoft.Azure.Storage` se reemplazan por otros más recientes de [Azure.Storage.Queues](/dotnet/api/azure.storage.queues).
+Ya hay disponible una nueva versión de la extensión de enlaces de Storage. Presenta la posibilidad de [conectarse con una identidad en lugar de un secreto](./functions-reference.md#configure-an-identity-based-connection). Para examinar un tutorial sobre cómo configurar las aplicaciones de funciones con identidades administradas, vea [Creación de una aplicación de funciones con conexiones basadas en identidades](./functions-identity-based-connections-tutorial.md). En el caso de las aplicaciones .NET, la nueva versión de la extensión también cambia los tipos con los que se puede enlazar; así, los tipos `WindowsAzure.Storage` y `Microsoft.Azure.Storage` se reemplazan por otros tipos más recientes de [Azure.Storage.Queues](/dotnet/api/azure.storage.queues).
 
-Esta versión de la extensión está disponible como un [paquete NuGet en versión preliminar] o se puede añadir desde el conjunto de extensiones en versión preliminar v3, mediante la adición del siguiente código al archivo `host.json`:
+Esta versión de la extensión está disponible mediante la instalación de un [paquete NuGet], versión 5.x, o se puede agregar desde el conjunto de extensiones v3 mediante la incorporación de lo siguiente al archivo `host.json`:
 
 ```json
 {
   "version": "2.0",
   "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[3.*, 4.0.0)"
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[3.3.0, 4.0.0)"
   }
 }
 ```
 
 Para obtener más información, consulte [Actualización de las extensiones].
 
-[paquete NuGet en versión preliminar]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/5.0.0-beta.5
 [core tools]: ./functions-run-local.md
 [conjunto de extensiones]: ./functions-bindings-register.md#extension-bundles
 [Paquete NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage

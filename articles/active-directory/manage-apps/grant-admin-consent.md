@@ -1,7 +1,7 @@
 ---
 title: Concesión del consentimiento del administrador para todo el inquilino a una aplicación
-description: Obtenga información sobre cómo conceder consentimiento para todo el inquilino a una aplicación de modo que no se les solicite consentimiento a los usuarios finales al iniciar sesión en una aplicación.
 titleSuffix: Azure AD
+description: Obtenga información sobre cómo conceder consentimiento para todo el inquilino a una aplicación de modo que no se les solicite consentimiento a los usuarios finales al iniciar sesión en una aplicación.
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -9,69 +9,59 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/21/2021
+ms.date: 10/23/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 439a24c0e33cf33eaa758d91f516a435a2d2cb53
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 486063ba11c0b5854889ee22ef554bcab310ea26
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129617632"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131447975"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application-in-azure-active-directory"></a>Concesión del consentimiento del administrador para todo el inquilino a una aplicación en Azure Active Directory
 
-  Obtenga información acerca de cómo conceder el consentimiento del administrador para todo el inquilino a una aplicación. En este artículo se proporcionan las distintas formas de lograrlo.
+  En este artículo va a aprender a conceder consentimiento del administrador para todo el inquilino a una aplicación en Azure Active Directory (Azure AD).
 
-Para más información acerca de cómo dar consentimiento a las aplicaciones, consulte [Marco de consentimiento de Azure Active Directory](../develop/consent-framework.md).
+Al conceder el consentimiento del administrador de todo el inquilino a una aplicación, todos los usuarios pueden iniciar sesión en la aplicación. Para restringir qué usuarios pueden iniciar sesión en una aplicación, configure esta de modo que requiera asignación de usuarios y luego asigne usuarios o grupos a la aplicación. Para más información, consulte [Métodos para asignar usuarios y grupos](./assign-user-or-group-access-portal.md).
+
+El consentimiento del administrador para todo el inquilino a una aplicación concede acceso a la aplicación y al publicador de esta a los datos de la organización. Antes de conceder el consentimiento, repase cuidadosamente los permisos que solicita la aplicación. Para más información acerca de cómo dar consentimiento a las aplicaciones, consulte [Marco de consentimiento de Azure Active Directory](../develop/consent-framework.md).
+
+La concesión del consentimiento del administrador para todo el inquilino puede revocar los permisos concedidos previamente para todo el inquilino. Los permisos concedidos previamente por los usuarios en su propio nombre no se verán afectados.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-La concesión del consentimiento del administrador para todo el inquilino requiere que inicie sesión como un usuario que esté autorizado para dar su consentimiento en nombre de la organización. Esto incluye  [Administrador global](../roles/permissions-reference.md#global-administrator) y [Administrador de roles con privilegios](../roles/permissions-reference.md#privileged-role-administrator). Para las aplicaciones que no requieren permisos de aplicación para Microsoft Graph o Azure AD Graph, esto también incluye [Administrador de aplicaciones](../roles/permissions-reference.md#application-administrator) y [Administrador de aplicaciones en la nube](../roles/permissions-reference.md#cloud-application-administrator). También se puede autorizar a un usuario para conceder consentimiento para todo el inquilino si se le asigna un [rol de directorio personalizado](../roles/custom-create.md) que incluya el [permiso para conceder permisos a las aplicaciones](../roles/custom-consent-permissions.md).
+La concesión del consentimiento del administrador para todo el inquilino requiere que inicie sesión como un usuario que esté autorizado para dar su consentimiento en nombre de la organización.
 
-> [!WARNING]
-> La concesión del consentimiento del administrador para todo el inquilino a una aplicación concederá acceso a la aplicación y al publicador de la aplicación a los datos de la organización. Antes de conceder el consentimiento, revise con atención los permisos que solicita la aplicación.
+Para conceder consentimiento del administrador para todo el inquilino necesita:
 
-> [!IMPORTANT]
-> Cuando a una aplicación se le concede consentimiento del administrador para todo el inquilino, todos los usuarios podrán iniciar sesión en la aplicación a menos que se haya configurado para requerir la asignación de usuarios. Para restringir qué usuarios pueden iniciar sesión en una aplicación, debe requerir la asignación de usuarios y, luego, asignar usuarios o grupos a la aplicación. Para más información, consulte [Métodos para asignar usuarios y grupos](./assign-user-or-group-access-portal.md).
+- Una cuenta de Azure con uno de los siguientes roles: Administrador global, Administrador de roles con privilegios, Administrador de aplicaciones en la nube o Administrador de aplicaciones. También se puede autorizar a un usuario para conceder consentimiento para todo el inquilino si se le asigna un [rol de directorio personalizado](../roles/custom-create.md) que incluya el [permiso para conceder permisos a las aplicaciones](../roles/custom-consent-permissions.md).
 
-## <a name="grant-admin-consent-from-the-azure-portal"></a>Concesión del consentimiento del administrador desde Azure Portal
-
-### <a name="grant-admin-consent-in-enterprise-apps"></a>Concesión del consentimiento del administrador en aplicaciones empresariales
+## <a name="grant-tenant-wide-admin-consent-in-enterprise-apps"></a>Concesión de consentimiento del administrador para todo el inquilino en aplicaciones empresariales
 
 Puede conceder el consentimiento del administrador para todo el inquilino a través de *Aplicaciones empresariales* si la aplicación ya se ha aprovisionado en el inquilino. Por ejemplo, se podría aprovisionar una aplicación en el inquilino si al menos un usuario ya ha dado su consentimiento a la aplicación. Para más información, vea [Cómo y por qué se agregan aplicaciones a Azure AD](../develop/active-directory-how-applications-are-added.md).
 
 Para conceder el consentimiento del administrador para todo el inquilino a una de las aplicaciones mostradas en **Aplicaciones empresariales**:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con un rol que permita conceder el consentimiento del administrador (consulte [Requisitos previos)](#prerequisites).
-2. Seleccione **Azure Active Directory** y después **Aplicaciones empresariales**.
-3. Seleccione la aplicación a la que quiera conceder el consentimiento del administrador para todo el inquilino.
-4. Seleccione **Permisos** y, a continuación, haga clic en **Conceder consentimiento de administrador**. En este ejemplo, se usan aplicaciones de 10 000ft Plans.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con uno de los roles indicados en la sección de requisitos previos.
+1. Seleccione **Azure Active Directory** y, luego, **Aplicaciones empresariales**.
+1. Seleccione la aplicación a la que quiere conceder consentimiento del administrador para todo el inquilino y luego seleccione **Permisos**.
+   :::image type="content" source="media/grant-tenant-wide-admin-consent/grant-tenant-wide-admin-consent.png" alt-text="Captura de pantalla que muestra cómo conceder consentimiento del administrador para todo el inquilino.":::
 
-   :::image type="content" source="media/grant-tenant-wide-admin-consent/grant-tenant-wide-admin-consent.png" alt-text="Captura de pantalla en la que se muestra cómo conceder consentimiento de administrador para todo el inquilino.":::
+1. Repase cuidadosamente los permisos que requiere la aplicación. Si está de acuerdo con los permisos que requiere la aplicación, seleccione **Conceder consentimiento del administrador**.
 
-5. Revise cuidadosamente los permisos que requiere la aplicación.
-6. Si está de acuerdo con los permisos que requiere la aplicación, conceda el consentimiento. En caso contrario, haga clic en **Cancelar** o cierre la ventana.
-
-> [!WARNING]
-> La concesión del consentimiento de administrador para todo el inquilino a través de **aplicaciones empresariales** revocará todos los permisos concedidos previamente para todo el inquilino. Los permisos concedidos previamente por los usuarios en su propio nombre no se verán afectados.
-
-### <a name="grant-admin-consent-in-app-registrations"></a>Concesión del consentimiento del administrador en Registros de aplicaciones
+## <a name="grant-admin-consent-in-app-registrations"></a>Concesión del consentimiento del administrador en Registros de aplicaciones
 
 Para las aplicaciones desarrolladas por la organización, o bien las que se hayan registrado directamente en el inquilino de Azure AD, también puede conceder el consentimiento del administrador para todo el inquilino desde **Registros de aplicaciones** en Azure Portal.
 
 Para conceder el consentimiento del administrador para todo el inquilino desde **Registros de aplicaciones**:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con un rol que permita conceder el consentimiento del administrador (consulte [Requisitos previos)](#prerequisites).
-2. Seleccione **Azure Active Directory** y después **Registros de aplicaciones**.
-3. Seleccione la aplicación a la que quiera conceder el consentimiento del administrador para todo el inquilino.
-4. Seleccione **Permisos de API** y, después, haga clic en **Conceder consentimiento del administrador**.
-5. Revise cuidadosamente los permisos que requiere la aplicación.
-6. Si está de acuerdo con los permisos que requiere la aplicación, conceda el consentimiento. En caso contrario, haga clic en **Cancelar** o cierre la ventana.
-
-> [!WARNING]
-> La concesión del consentimiento de administrador para todo el inquilino a través de **registros de aplicaciones** revocará todos los permisos concedidos previamente para todo el inquilino. Los permisos concedidos previamente por los usuarios en su propio nombre no se verán afectados.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con uno de los roles indicados en la sección de requisitos previos.
+1. Seleccione **Azure Active Directory** y luego **Registros de aplicaciones**.
+1. Seleccione la aplicación a la que quiera conceder el consentimiento del administrador para todo el inquilino.
+1. Seleccione **Permisos de API**.
+1. Repase cuidadosamente los permisos que requiere la aplicación. Si está de acuerdo, seleccione **Conceder consentimiento del administrador**.
 
 ## <a name="construct-the-url-for-granting-tenant-wide-admin-consent"></a>Construcción de la dirección URL para conceder el consentimiento del administrador para todo el inquilino
 
@@ -85,20 +75,13 @@ https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id={client-id}
 
 donde:
 
-* `{client-id}` es el identificador de cliente de la aplicación (también conocido como id. de la aplicación).
-* `{tenant-id}` es el identificador de inquilino de la organización o cualquier nombre de dominio comprobado.
+- `{client-id}` es el identificador de cliente de la aplicación (también conocido como id. de la aplicación).
+- `{tenant-id}` es el identificador de inquilino de la organización o cualquier nombre de dominio comprobado.
 
 Como siempre, antes de conceder el consentimiento, revise con atención los permisos que solicita la aplicación.
-
-> [!WARNING]
-> La concesión del consentimiento de administrador para todo el inquilino a través de esta dirección URL revocará todos los permisos concedidos previamente para todo el inquilino. Los permisos concedidos previamente por los usuarios en su propio nombre no se verán afectados.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Configuración del consentimiento de los usuarios finales a las aplicaciones](configure-user-consent.md)
 
 [Configuración del flujo de trabajo de consentimiento del administrador](configure-admin-consent-workflow.md)
-
-[Permisos y consentimiento en la plataforma de identidad de Microsoft](../develop/v2-permissions-and-consent.md)
-
-[Azure AD en Microsoft Q&A](/answers/topics/azure-active-directory.html)

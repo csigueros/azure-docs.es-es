@@ -6,12 +6,12 @@ ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 10/10/2021
 ms.custom: language-service-question-answering, ignite-fall-2021
-ms.openlocfilehash: 0ed037e44ff202ec1fd0cacfbbbcfb16ee9be273
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ddd5ed0c51c412342b6e8093a69cdef900346be2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093341"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131476687"
 ---
 # <a name="azure-resources-for-question-answering"></a>Recursos de Azure para respuestas a preguntas
 
@@ -67,9 +67,6 @@ La respuesta a preguntas personalizada se ocupa de dos tipos de claves: **claves
 
 Use estas claves al realizar solicitudes al servicio mediante las API.
 
-> [!div class="mx-imgBorder"]
-> ![Captura de pantalla de la versión preliminar administrada de administración de claves](../../../qnamaker/media/qnamaker-how-to-key-management/custom-question-answering-key-management.png)
-
 |Nombre|Location|Propósito|
 |--|--|--|
 |Clave de autorización o suscripción|[Azure Portal](https://azure.microsoft.com/free/cognitive-services/)|Estas claves se usan para acceder a las API de servicio de lenguaje. Estas API permiten editar las preguntas y respuestas de una base de conocimiento y publicar una base de conocimiento. Estas claves se crean al crear un recurso.<br><br>Busque estas claves en el recurso **Cognitive Services** de la página **Claves y punto de conexión**.|
@@ -77,9 +74,9 @@ Use estas claves al realizar solicitudes al servicio mediante las API.
 
 ### <a name="find-authoring-keys-in-the-azure-portal"></a>Búsqueda de claves de creación en Azure Portal
 
-Puede ver y restablecer las claves de creación desde Azure Portal, donde agregó la característica de respuesta a preguntas personalizada (versión preliminar) en el recurso de Text Analytics.
+Puede ver y restablecer las claves de creación desde Azure Portal, donde ha agregado la característica de respuesta a preguntas personalizada en el recurso de lenguaje.
 
-1. Vaya al recurso de Text Analytics en Azure Portal y seleccione el que tiene el tipo *Cognitive Services*:
+1. Vaya al recurso de lenguaje en Azure Portal y seleccione el recurso con el tipo *Cognitive Services*:
 
     > [!div class="mx-imgBorder"]
     > ![Captura de pantalla de la lista de recursos de respuesta a preguntas](../../../qnamaker/media/qnamaker-how-to-setup-service/resources-created-question-answering.png)

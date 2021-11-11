@@ -9,15 +9,77 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/15/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: e0be3ef40e60f43d3b76c58b8141a0e29ce2742f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b4b291006795728348aa694e56c3e84a88d8e65c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131067686"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469965"
 ---
 # <a name="speech-service-release-notes"></a>Notas de la versión del servicio Voz
 
+## <a name="speech-sdk-1190-2021-nov-release"></a>SDK de Voz 1.19.0: versión de noviembre de 2021  
+
+ 
+
+[Nota](speech-sdk.md#get-the-speech-sdk): Empiece a usar el SDK de Voz **aquí**. El SDK de Voz en Windows depende de Microsoft Visual C++ Redistributable para Visual Studio compartido. Descárguela [aquí](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).  
+  
+
+#### <a name="highlights"></a>Aspectos destacados 
+
+- El servicio Speaker Recognition ya está disponible con carácter general (GA). Las API del SDK de Voz están disponibles en C++, C#, Java y Javascript. Con Speaker Recognition puede comprobar de forma precisa e identificar a hablantes por sus características de voz únicas. Consulte la [documentación](speaker-recognition-overview.md) para más detalles. 
+
+- Se ha eliminado la compatibilidad con Ubuntu 16.04 junto con Azure DevOps y GitHub. Ubuntu 16.04 llegó al final de su ciclo de vida en abril de 2021. Migre los flujos de trabajo de Ubuntu 16.04 a Ubuntu 18.04 o posterior.   
+
+- La vinculación de OpenSSL en archivos binarios de Linux ha cambiado a dinámica. El tamaño de archivo binario de Linux se ha reducido en aproximadamente un 50 %. 
+
+- Se ha agregado compatibilidad con Mac M1 basado en ARM con Silicon. 
+
+ 
+
+#### <a name="new-features"></a>Nuevas características 
+
+- **C++/C#/Java**: se han agregado nuevas API para habilitar la compatibilidad del procesamiento de audio con la entrada de voz con Microsoft Audio Stack. Se documenta [aquí](audio-processing-overview.md).
+
+- **C++** : nuevas API para el reconocimiento de la intención a fin de facilitar una coincidencia de patrones más avanzada. Esto incluye las entidades List y Prebuilt Integer, así como la compatibilidad con la agrupación de intenciones y entidades como modelos (la documentación, las actualizaciones y los ejemplos están en desarrollo y se van a publicar en un futuro próximo). 
+
+- **Mac**: compatibilidad con Silicon basado en ARM64 (M1) para paquetes Cocoapod, Python, Java y NuGet relacionados con el [problema 1244 de GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1244).
+
+- **iOS/Mac**: los archivos binarios de iOS y MacOS ahora se empaquetan en paquetes xcframework relacionados con el [problema 919 de GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/919).
+
+- **iOS/Mac**: compatibilidad con Mac Catalyst relacionado con el [problema 1171 de GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1171). 
+
+- **Linux**: nuevo paquete tar agregado para CentOS7 [Acerca del SDK de Voz](speech-sdk.md).
+
+- **Javascript**: API de VoiceProfile y SpeakerRecognizer convertidas en asincrónicas o que admiten await. 
+
+- **Javascript**: se ha agregado compatibilidad con las regiones de Azure de la administración de los Estados Unidos. 
+
+- **Windows**: se ha agregado compatibilidad con la reproducción en Plataforma universal de Windows (UWP). 
+
+  
+
+#### <a name="bug-fixes"></a>Corrección de errores 
+
+- **Android**: actualización de seguridad de OpenSSL (actualizado a la versión 1.1.1l) para paquetes Android. 
+
+- **Python**: se ha resuelto un error que se generaba al seleccionar un dispositivo de altavoz en Python. 
+
+- **Core**: vuelve a conectarse automáticamente cuando se produce un error en un intento de conexión. 
+
+- **iOS**: compresión de audio deshabilitada en paquetes iOS debido a problemas de compilación de código de bits e inestabilidad al usar Gstreamer. Los detalles están disponibles en el [problema 1209 de GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1209).
+
+ 
+
+#### <a name="samples-github"></a>Samples [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+
+- **Mac/iOS**: se han actualizado ejemplos e inicios rápidos para usar un paquete xcframework. 
+
+- **.NET**: ejemplos actualizados para usar la versión 3.1 de .NET Core. 
+
+- **Javascript**: se ha agregado un ejemplo de asistentes para voz. 
+
+ 
 ## <a name="text-to-speech-2021-october-release"></a>Texto a voz, versión de octubre de 2021
 **Se han agregado nuevos idiomas y voces a TTS neuronal**
 - **Se han agregado 49 nuevos idiomas y variantes**: se agregaron 98 nuevas voces en 49 nuevas configuraciones regionales a la lista de idiomas TTS neuronales: Adri en `af-ZA` afrikáans (Sudáfrica), Willem en `af-ZA` afrikáans (Sudáfrica), Mekdes en `am-ET` amárico (Etiopía), Ameha en `am-ET` amárico (Etiopía), Fátima en `ar-AE` árabe (Emiratos Árabes Unidos), Hamdan en `ar-AE` árabe (Emiratos Árabes Unidos), Laila en `ar-BH` Árabe (Bahréin), Ali en `ar-BH` árabe (Bahréin), Amina en `ar-DZ` árabe (Argelia), Ismael en `ar-DZ` árabe (Argelia), Rana en `ar-IQ` árabe (Irak), Bassel en `ar-IQ` Árabe (Irak), Sana en `ar-JO` árabe (Jordania), Taim en `ar-JO` árabe (Jordania), Noura en `ar-KW` árabe (Kuwait), Fahed en `ar-KW` árabe (Kuwait), Iman en `ar-LY` árabe (Libia), Omar en `ar-LY` árabe (Libia), Mouna en `ar-MA` árabe (Marruecos), Jamal en `ar-MA` árabe (Marruecos), Amal en `ar-QA` árabe (Catar), Moaz en `ar-QA` árabe (Catar), Amany en `ar-SY` árabe (Siria), Laith en `ar-SY` árabe (Siria), Reem en `ar-TN` árabe (Túnez), Hedi en `ar-TN` árabe (Túnez), Maryam en `ar-YE` árabe (Yemen ), Saleh en `ar-YE` árabe (Yemen), Nabanita en `bn-BD` bengalí (Bangladesh), Pradeep en `bn-BD` bengalí (Bangladesh), Asilia en `en-KE` inglés (Kenia), Chilemba en `en-KE` inglés (Kenia), Ezinne en `en-NG` inglés (Nigeria), Abeo en `en-NG` inglés (Nigeria), Imani en `en-TZ` inglés (Tanzania), Elimu en `en-TZ` inglés (Tanzania), Sofia en `es-BO` español (Bolivia), Marcelo en `es-BO` español (Bolivia), Catalina en `es-CL` español (Chile), Lorenzo en `es-CL` español (Chile), María en `es-CR` español (Costa Rica), Juan en `es-CR` español (Costa Rica), Belkys en `es-CU` español (Cuba), Manuel en `es-CU` español (Cuba), Ramona en `es-DO` español (República Dominicana), Emilio en `es-DO` español (República Dominicana), Andrea en `es-EC` español (Ecuador), Luis en `es-EC` español (Ecuador), Teresa en `es-GQ` español (Guinea Ecuatorial), Javier en `es-GQ` español (Guinea Ecuatorial), Marta en `es-GT` español (Guatemala), Andrés en `es-GT` español (Guatemala), Karla en `es-HN` español (Honduras), Carlos en `es-HN` español (Honduras), Yolanda en `es-NI` español (Nicaragua), Federico en `es-NI` español (Nicaragua), Margarita en `es-PA` español (Panamá), Roberto en `es-PA` español (Panamá), Camila en `es-PE` español (Perú), Alex en `es-PE` español (Perú), Karina en `es-PR` español (Puerto Rico), Víctor en `es-PR` español (Puerto Rico), Tania en `es-PY` español (Paraguay), Mario en `es-PY` español (Paraguay), Lorena en `es-SV` español (El Salvador), Rodrigo en `es-SV` español (El Salvador), Valentina en `es-UY` español (Uruguay), Mateo en `es-UY` español (Uruguay), Paola en `es-VE` español (Venezuela), Sebastián en `es-VE` español (Venezuela), Dilara en `fa-IR` persa (Irán), Farid en `fa-IR` persa (Irán), Blessica en `fil-PH` filipino (Filipinas), Angelo en `fil-PH` filipino (Filipinas), Sabela en `gl-ES` gallego (España), Roi en `gl-ES` gallego (España), Siti en `jv-ID` javanés (Indonesia), Dimas en `jv-ID` javanés (Indonesia), Sreymom en `km-KH` jemer (Camboya), Piseth en `km-KH` jemer (Camboya), Nilar en `my-MM` birmano (Myanmar), Thiha en `my-MM` birmano (Myanmar), Ubax en `so-SO` somalí (Somalia), Muuse en `so-SO` somalí (Somalia), Tuti en `su-ID` sundanés (Indonesia), Jajang en `su-ID` sundanés (Indonesia), Rehema en `sw-TZ` swahili (Tanzania), Daudi en `sw-TZ` swahili (Tanzania), Saranya en `ta-LK` tamil (Sri Lanka), Kumar en `ta-LK` tamil (Sri Lanka), Venba en `ta-SG` tamil (Singapur), Anbu en `ta-SG` tamil (Singapur), Gul en `ur-IN` urdu (India), Salman en `ur-IN` urdu (India), Madina en `uz-UZ` uzbeko (Uzbekistán), Sardor en `uz-UZ` uzbeko (Uzbekistán), Thando en `zu-ZA` zulú (Sudáfrica), Themba en `zu-ZA` zulú (Sudáfrica).

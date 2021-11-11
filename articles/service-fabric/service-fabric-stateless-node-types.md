@@ -3,17 +3,17 @@ title: Implementación de tipos de nodo sin estado en un clúster de Service Fab
 description: Obtenga información sobre cómo crear e implementar tipos de nodo sin estado en un clúster de Azure Service Fabric.
 author: peterpogorski
 ms.topic: conceptual
-ms.date: 04/16/2021
+ms.date: 10/19/2021
 ms.author: pepogors
-ms.openlocfilehash: 8e6c3e27f38342028efd102efa32f3df90b2f88a
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 9c9f94cf3d9a9eb0ea18356afdcbba7046509762
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950092"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131460420"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types"></a>Implementación de un clúster de Azure Service Fabric con tipos de nodo sin estado
-Los tipos de nodo de Service Fabric incluyen suposiciones inherentes según las cuales se supone que en algún momento se agregarán servicios con estado en los nodos. Los tipos de nodos sin estado reducen las restricciones de esta suposición en cierto tipo de nodo, lo que permite que ese tipo de nodo use otras características, como operaciones de escalado horizontal más rápidas, compatibilidad con actualizaciones automáticas del sistema operativo en la durabilidad Bronze y un escalado horizontal a más de 100 nodos en un solo conjunto de escalado de máquina virtuales.
+Los tipos de nodo de Service Fabric incluyen suposiciones inherentes según las cuales se supone que en algún momento se agregarán servicios con estado en los nodos. Los tipos de nodos sin estado cambian esta suposición en un tipo de nodo, lo que permite que el tipo de nodo use otras características, como operaciones de escalado horizontal más rápidas, compatibilidad con actualizaciones automáticas del sistema operativo en la durabilidad Bronze y un escalado horizontal a más de 100 nodos en un solo conjunto de escalado de máquina virtuales.
 
 * Los tipos de nodo principales no se pueden configurar para que no tengan estado.
 * Los tipos de nodo sin estado solo se admiten con los niveles de durabilidad Bronze.
@@ -73,7 +73,7 @@ Para habilitar los tipos de nodo sin estado, debe configurar el recurso del conj
 
 * El valor de la propiedad **singlePlacementGroup** debe establecerse en **false** si debe escalar más de 100 máquinas virtuales.
 * El valor **upgradeMode** del conjunto de escalado debe establecerse en **Rolling**.
-* El modo de actualización gradual requiere la configuración de la extensión de mantenimiento de la aplicación o de los sondeos de estado. Configure el sondeo de estado con la configuración predeterminada para los tipos de nodo sin estado, tal como se sugiere a continuación. Una vez que las aplicaciones se implementan en el tipo de nodo, los puertos de la extensión de mantenimiento o del sondeo de estado se pueden cambiar para supervisar el estado de la aplicación.
+* El modo de actualización gradual requiere la configuración de la extensión de mantenimiento de la aplicación o de los sondeos de estado. Para obtener más detalles sobre cómo configurar los sondeos de estado o la extensión de estado de la aplicación, vea este [documento](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#how-does-automatic-os-image-upgrade-work). Configure el sondeo de estado con la configuración predeterminada de los tipos de nodo sin estado, como se sugiere a continuación. Una vez que las aplicaciones se implementan en el tipo de nodo, los puertos de la extensión de mantenimiento o sondeo de estado se pueden cambiar para supervisar el estado real de la aplicación.
 
 >[!NOTE]
 > Al usar el escalado automático con tipos de nodo sin estado, después de la operación de reducción vertical, el estado del nodo no se limpia automáticamente. Para limpiar el estado del nodo de los nodos inactivos durante la escalabilidad automática, se recomienda usar la [aplicación auxiliar de escalabilidad automática de Service Fabric](https://github.com/Azure/service-fabric-autoscale-helper).
@@ -143,9 +143,6 @@ Para configurar un tipo de nodo sin estado que abarque varias zonas de disponibi
 * Establezca **singlePlacementGroup** en **false** si es necesario habilitar varios grupos de selección de ubicación.
 * Establezca **upgradeMode** en **Rolling** y agregue una extensión de mantenimiento de aplicación o sondeos de estado tal y como se ha mencionado anteriormente.
 * Establezca **platformFaultDomainCount:** en **5** para el conjunto de escalado de máquinas virtuales.
-
->[!NOTE]
-> Independientemente del elemento VMSSZonalUpgradeMode configurado en el clúster, las actualizaciones del conjunto de escalado de máquinas virtuales siempre tienen lugar secuencialmente en una sola zona de disponibilidad cada vez en el caso del tipo de nodo sin estado que abarca varias zonas, ya que se usa el modo de actualización gradual.
 
 Como referencia, consulte la [plantilla](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-2-NodeTypes-Windows-Stateless-CrossAZ-Secure) para configurar tipos de nodo sin estado con varias zonas de disponibilidad.
 

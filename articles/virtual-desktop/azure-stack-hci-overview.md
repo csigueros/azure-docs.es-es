@@ -7,12 +7,12 @@ ms.date: 11/02/2021
 ms.author: helohr
 manager: femila
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 8b456b534dd176fd8dc6bcd3b31b2a713fd8d7a2
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 5faea9929fb62af8736e62ca6e629cb2bde01f3a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131090768"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131452174"
 ---
 # <a name="azure-virtual-desktop-for-azure-stack-hci-preview"></a>Azure Virtual Desktop para Azure Stack HCI (versión preliminar)
 
@@ -66,7 +66,7 @@ Somos conscientes de los siguientes problemas que afectan a la versión prelimin
 
 - La pestaña Azure Virtual Desktop de Azure Portal no puede crear máquinas virtuales directamente en la infraestructura de Azure Stack HCI. En su lugar, los administradores deben crear máquinas virtuales locales por separado y, después, registrarlas con un grupo de hosts de Azure Virtual Desktop.
 
-- Al conectarse a un escritorio virtual de sesión múltiple de Windows 10 o 11 Enterprise, los usuarios pueden ver un mensaje que indica "activación necesaria", incluso si tienen una licencia válida.
+- Al conectarse a un escritorio virtual multisesión de Windows 10 o 11 Enterprise, los usuarios pueden ver problemas de activación, como una marca de agua de escritorio que indica "Activar Windows", aunque tengan una licencia válida.
 
 - Actualmente Azure Virtual Desktop para Azure Stack HCI no admite grupos de hosts que contengan hosts de sesión locales y en la nube. Cada grupo de hosts de la implementación solo debe tener un tipo de grupo de hosts.
 

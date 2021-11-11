@@ -12,12 +12,12 @@ ms.date: 11/12/2020
 ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.reviewer: miccohen
-ms.openlocfilehash: 622834d3e91303f55fd4adaf2187800b2b2ce765
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 0faa0d97c1e1bb73e2a97aa3715efee58a589cd8
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130164362"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131432631"
 ---
 # <a name="integrate-f5-big-ip-with-azure-active-directory"></a>Integración de F5 BIG-IP con Azure Active Directory
 
@@ -32,7 +32,7 @@ Hacer que Azure AD realice una autenticación previa para el acceso a los servi
 
 - Autenticación sin contraseña mediante [Windows Hello](/windows/security/identity-protection/hello-for-business/hello-overview), [MS Authenticator](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a), [Claves de Fast Identity Online (FIDO)](../authentication/howto-authentication-passwordless-security-key.md) y [autenticación basada en certificados](../authentication/active-directory-certificate-based-authentication-get-started.md).
 
-- [Acceso condicional](../conditional-access/overview.md) preventivo y [autenticación multifactor (MFA)](../authentication/concept-mfa-howitworks.md).
+- [Acceso condicional](../conditional-access/overview.md) preventivo y [autenticación multifactor (MFA) de Azure AD](../authentication/concept-mfa-howitworks.md)
 
 - [Protección de identidades](../identity-protection/overview-identity-protection.md): control adaptable mediante la generación de perfiles de riesgo de usuario y sesión.
 
@@ -146,6 +146,8 @@ En los siguientes tutoriales se proporcionan instrucciones detalladas sobre la i
 - [Protección de F5 BIG-IP SSL-VPN con el acceso híbrido seguro de Azure AD](f5-aad-password-less-vpn.md)
 
 - [Configuración de Azure AD B2C con F5 BIG-IP](../../active-directory-b2c/partner-f5.md)
+
+- [Integración de Azure Active Directory con F5 BIG-IP para el inicio de sesión único con autenticación basada en formularios](f5-big-ip-forms-advanced.md)
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

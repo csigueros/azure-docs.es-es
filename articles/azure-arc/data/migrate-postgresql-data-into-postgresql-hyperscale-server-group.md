@@ -8,14 +8,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 25e19ac7512c26e9e6985d033ec46d76b4c5233a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ec41b338acbf055e8fa499ff6b4e867844b30e4d
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121729383"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131553064"
 ---
 # <a name="migrate-postgresql-database-to-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Migración de una base de datos de PostgreSQL a un grupo de servidores Hiperescala de PostgreSQL habilitado para Azure Arc
 
@@ -45,9 +45,8 @@ Para realizar esta operación de copia de seguridad y restauración, puede usar 
 - `psql`
 - ...
 
-   [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
-
 ## <a name="example"></a>Ejemplo
+
 Ahora se ilustrarán estos pasos con la herramienta `pgAdmin`.
 Fíjese en la configuración siguiente:
 - **Origen:**  
@@ -80,8 +79,10 @@ az postgres arc-server endpoint list -n postgres01 --k8s-namespace <namespace> -
 ```
 Devuelve un resultado como el siguiente:
 ```console
-[
-  {
+{
+  "instances": [
+    {
+      "endpoints": [
     "Description": "PostgreSQL Instance",
     "Endpoint": "postgresql://postgres:<replace with password>@12.345.123.456:1234"
   },
@@ -93,7 +94,13 @@ Devuelve un resultado como el siguiente:
     "Description": "Metrics Dashboard",
     "Endpoint": "https://12.345.123.456:12345/grafana/d/postgres-metrics?var-Namespace=arc3&var-Name=postgres01"
   }
-]
+],
+"engine": "PostgreSql",
+"name": "postgres01"
+}
+  ],
+  "namespace": "arc"
+}
 ```
 
 Vamos a llamar **RESTORED_MyOnPremPostgresDB** a la base de datos de destino.
@@ -128,12 +135,17 @@ expanda la instancia de Postgres hospedada en la instalación de Azure Arc. Ver�
 
 Dentro de la instalación de Arc puede usar `psql` para conectarse a la instancia de Postgres, establecer el contexto de base de datos en `RESTORED_MyOnPremPostgresDB` y consultar los datos:
 
-1. Enumere los puntos de conexión de ayuda de la cadena de conexión `psql`:
+1. Enumere los puntos de conexión para ayudar a formar la cadena de conexión `psql`:
 
-   ```azurecli
+   ```Az CLI
    az postgres arc-server endpoint list -n postgres01 --k8s-namespace <namespace> --use-k8s
-   [
-     {
+   ```
+
+   ```Az CLI
+   {
+     "instances": [
+       {
+         "endpoints": [
        "Description": "PostgreSQL Instance",
        "Endpoint": "postgresql://postgres:<replace with password>@12.345.123.456:1234"
      },
@@ -145,7 +157,13 @@ Dentro de la instalación de Arc puede usar `psql` para conectarse a la instanci
        "Description": "Metrics Dashboard",
        "Endpoint": "https://12.345.123.456:12345/grafana/d/postgres-metrics?var-Namespace=arc3&var-Name=postgres01"
      }
-   ]
+   ],
+   "engine": "PostgreSql",
+   "name": "postgres01"
+   }
+     ],
+     "namespace": "arc"
+   }
    ```
 
 1. Desde la cadena de conexión `psql`, use el parámetro `-d` para indicar el nombre de la base de datos. Con el comando siguiente, se le pedirá la contraseña:
@@ -196,6 +214,6 @@ Dentro de la instalación de Arc puede usar `psql` para conectarse a la instanci
     * [Diseño de una base de datos multiinquilino](../../postgresql/tutorial-design-database-hyperscale-multi-tenant.md)*
     * [Diseño de un panel de análisis en tiempo real](../../postgresql/tutorial-design-database-hyperscale-realtime.md)*
 
-> *En estos documentos, omita las secciones **Inicio de sesión en Azure Portal** y **Creación de una instancia de Azure Database for PostgreSQL: Hiperescala (Citus)** . Implemente los pasos restantes en la implementación de Azure Arc. Esas secciones son específicas de Hiperescala (Citus) de Azure Database for PostgreSQL que se ofrece como un servicio PaaS en la nube de Azure, pero las demás partes de los documentos se aplican directamente a Hiperescala de PostgreSQL habilitada para Azure Arc.
+> *En estos documentos, omita las secciones **Inicio de sesión en Azure Portal** y **Creación de una instancia de Azure Database for PostgreSQL: Hiperescala (Citus)** . Implemente los pasos restantes en la implementación de Azure Arc. Esas secciones son específicas de Hiperescala (Citus) de Azure Database for PostgreSQL que se ofrece como un servicio PaaS en la nube de Azure, pero las demás partes de los documentos se aplican directamente a Hiperescala de PostgreSQL habilitada para Azure Arc.
 
 - [Escalado del grupo de servidores Hiperescala de Azure Database for PostgreSQL](scale-out-in-postgresql-hyperscale-server-group.md)

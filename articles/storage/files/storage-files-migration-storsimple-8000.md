@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/22/2021
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 9bb33a10314460462cc32838227cadd3480cf362
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 069529d2f97e18e1b5d99b4f96e5bee98d80f497
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131022697"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131421948"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migración de las series 8100 y 8600 de StorSimple a Azure File Sync
 
@@ -287,7 +287,8 @@ Hay algunos aspectos importantes relacionados con la elección de las copias de 
 - Los trabajos de migración solo pueden migrar copias de seguridad, no datos de un volumen activo. Por lo tanto, la copia de seguridad más reciente es más cercana a los datos activos y siempre debe incluirse en la lista de copias de seguridad que se han trasladado en una migración. Al abrir el cuadro de diálogo Backup selection (Selección de copia de seguridad), se selecciona de forma predeterminada.
 - Asegúrese de que la última copia de seguridad sea reciente para mantener el tamaño del delta en el recurso compartido activo lo más pequeño posible. Podría ser conveniente desencadenar y completar manualmente otra copia de seguridad del volumen antes de crear un trabajo de migración. Un pequeño delta en el recurso compartido activo mejorará la experiencia de migración. Si este delta puede ser cero, significa que no se realizaron más cambios en el volumen de StorSimple después de que se tomó la copia de seguridad más reciente de la lista. Por lo tanto, la fase 5: migración total de los usuarios será significativamente más sencilla y rápida.
 - Las copias de seguridad se deben reproducir en el recurso compartido de archivos de Azure **de la más antigua a la más reciente**. Una copia de seguridad antigua no se puede "ordenar" en la lista de copias de seguridad del recurso compartido de archivos de Azure una vez que se ha ejecutado un trabajo de migración. Por lo tanto, debe asegurarse de que la lista de copias de seguridad se ha completado *antes* de crear un trabajo. 
-- Esta lista de copias de seguridad de un trabajo no se puede modificar cuando se ha creado el trabajo, si este nunca se ejecutó. 
+- Esta lista de copias de seguridad de un trabajo no se puede modificar cuando se ha creado el trabajo, si este nunca se ejecutó.
+- Para seleccionar copias de seguridad, el volumen de StorSimple que se quiere migrar debe estar en línea.
 
 :::row:::
     :::column:::        

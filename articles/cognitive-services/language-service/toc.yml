@@ -501,6 +501,8 @@ items:
             href: question-answering/how-to/manage-knowledge-base.md
           - name: Aislamiento de red y puntos de conexión privados
             href: question-answering/how-to/network-isolation.md
+          - name: API pregenerada
+            href: question-answering/how-to/prebuilt.md
           - name: Solución de problemas
             href: question-answering/how-to/troubleshooting.md
       - name: Conceptos

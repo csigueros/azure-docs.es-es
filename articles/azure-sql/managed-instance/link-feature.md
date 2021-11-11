@@ -12,12 +12,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: mathoma, danil
 ms.date: 11/02/2021
-ms.openlocfilehash: fcae82f988ed019717f6693d0d3a63a025113fb4
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0d2a02510a70f35a9744370da8675636a7f296c5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091400"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131465289"
 ---
 # <a name="link-feature-for-azure-sql-managed-instance-limited-preview"></a>Característica de vínculo para Azure SQL Managed Instance (versión preliminar limitada)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -94,7 +94,7 @@ Use el vínculo siguiente a fin de registrarse para obtener la versión prelimin
 
 Para más información sobre la característica de vínculo, vea lo siguiente:
 
-- [La característica de vínculo para SQL Managed Instance: transformación de la movilidad de datos entre SQL Server y Azure](https://aka.ms/mi-link-techblog).
+- [Vínculo de instancia administrada: conexión de SQL Server a Azure reimaginada](https://aka.ms/mi-link-techblog).
 
 Para otros escenarios de replicación, considere lo siguiente: 
 

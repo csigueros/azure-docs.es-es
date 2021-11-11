@@ -6,6 +6,8 @@
       href: devtest-lab-overview.md
 - name: Guía de inicio rápido
   items:
+    - name: 'Creación de un laboratorio: Azure Portal'
+      href: devtest-lab-create-lab.md
     - name: 'Creación de un laboratorio: plantilla de Resource Manager'
       displayName: Resource Manager
       href: create-lab-windows-vm-template.md
@@ -73,8 +75,6 @@
   items:
     - name: Configuración de un laboratorio
       items:
-        - name: Creación de un laboratorio
-          href: devtest-lab-create-lab.md
         - name: Creación de un laboratorio aislado de la red
           href: network-isolation.md
         - name: Creación o modificación de laboratorios mediante una plantilla de Resource Manager

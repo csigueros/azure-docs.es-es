@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 12/09/2019
-ms.openlocfilehash: ed819b22caab25fea8ae002d482cf2df5d0bf60c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/22/2021
+ms.openlocfilehash: 8f5965b81e403e58e6c58e0ca3d567375e211d37
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124733053"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131426187"
 ---
 # <a name="language-and-region-support-for-luis"></a>Compatibilidad de idiomas y regiones para LUIS
 
@@ -28,7 +28,7 @@ Si necesita una aplicación cliente de LUIS multilingüe como un bot de chat, di
 
 LUIS entiende expresiones en los idiomas siguientes:
 
-| Idioma |Configuración regional  |  Dominio creado previamente | Entidad creada previamente | Recomendaciones de la lista de frases | \**[Análisis de texto](../text-analytics/language-support.md)<br>(Las opiniones y<br>palabras clave)|
+| Idioma |Configuración regional  |  Dominio creado previamente | Entidad creada previamente | Recomendaciones de la lista de frases | **[Análisis de sentimiento](../language-service/sentiment-opinion-mining/overview.md) y [extracción de frases clave](../language-service/key-phrase-extraction/overview.md)|
 |--|--|:--:|:--:|:--:|:--:|
 | Árabe (versión preliminar: Árabe estándar moderno) |`ar-AR`|-|-|-|-|
 | *[Chino](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
@@ -37,17 +37,17 @@ LUIS entiende expresiones en los idiomas siguientes:
 | Francés (Canadá) |`fr-CA` |-|-|-|✔|
 | Francés (Francia) |`fr-FR` |✔| ✔ |✔ |✔|
 | Alemán |`de-DE` |✔| ✔ |✔ |✔|
-| Gujarati | `gu-IN`|-|-|-|-|
-| Hindi | `hi-IN`|-|✔|-|-|
+| Guyaratí (versión preliminar) | `gu-IN`|-|-|-|-|
+| Hindi (versión preliminar) | `hi-IN`|-|✔|-|-|
 | Italiano |`it-IT` |✔| ✔ |✔|✔|
 | *[Japonés](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Solo la frase clave|
 | Coreano |`ko-KR` |✔|-|-|Solo la frase clave|
-| Maratí | `mr-IN`|-|-|-|-|
+| Maratí (versión preliminar) | `mr-IN`|-|-|-|-|
 | Portugués (Brasil) |`pt-BR` |✔| ✔ |✔ |No todas las referencias culturales secundarias|
 | Español (México)|`es-MX` |-|✔|✔|✔|
 | Español (España) |`es-ES` |✔| ✔ |✔|✔|
-| Tamil | `ta-IN`|-|-|-|-|
-| Telugu | `te-IN`|-|-|-|-|
+| Tamil (versión preliminar) | `ta-IN`|-|-|-|-|
+| Telugu (versión preliminar) | `te-IN`|-|-|-|-|
 | Turco | `tr-TR` |✔|✔|-|Solo opiniones|
 
 
@@ -63,7 +63,7 @@ La compatibilidad con idiomas varía para las [entidades creadas previamente](lu
      - でございます no es lo mismo que です.
      - です no es lo mismo que だ.
 
-[!INCLUDE [Text Analytics support notes](includes/text-analytics-support-notes.md)]
+[!INCLUDE [Language service support notes](includes/text-analytics-support-notes.md)]
 
 ### <a name="speech-api-supported-languages"></a>Idiomas admitidos en Speech API
 Vea los [idiomas admitidos](../speech-service/speech-to-text.md) en Voz para obtener los idiomas de modo de dictado de Voz.

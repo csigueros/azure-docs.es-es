@@ -10,12 +10,12 @@ ms.date: 08/16/2021
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 47445520e92f6c7f4a8e5eb78c404b6875dbe017
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 7b5f2e6e8f883470826343c0aee1103a9a245be4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129274071"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131437550"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Cambio en la forma en que se replican las cuentas de almacenamiento
 
@@ -108,9 +108,9 @@ Si necesita migrar una cuenta de almacenamiento de LRS a ZRS en la región prima
 
 En una migración en vivo, se puede acceder a los datos de la cuenta de almacenamiento sin pérdida de durabilidad ni disponibilidad. El Acuerdo de Nivel de Servicio de Azure Storage se mantiene durante el proceso de migración. No hay ningún tipo de pérdida de datos asociada con una migración en vivo. Los puntos de conexión de servicio, las claves de acceso, las firmas de acceso compartido y otras opciones de la cuenta permanecen inalteradas después de la migración.
 
-En el nivel de rendimiento estándar, ZRS solo admite cuentas de uso general v2, por lo que debe asegurarse de actualizar la cuenta de almacenamiento si se trata de una cuenta de uso general v1 antes de enviar una solicitud para una migración en vivo a ZRS. Para más información, consulte [Actualización a una cuenta de almacenamiento de uso general v2](storage-account-upgrade.md). Las cuentas de almacenamiento deben contener los datos que se van a migrar con la migración en vivo.
+En el nivel de rendimiento estándar, ZRS solo admite cuentas de uso general v2, así que asegúrese de actualizar la cuenta de almacenamiento si se trata de una cuenta de uso general v1 antes de enviar una solicitud de migración en vivo a ZRS. Para más información, consulte [Actualización a una cuenta de almacenamiento de uso general v2](storage-account-upgrade.md). Las cuentas de almacenamiento deben contener los datos que se van a migrar con la migración en vivo.
 
-En el nivel de rendimiento Premium, se admite la migración en vivo para las cuentas de recurso compartido de archivos Premium, pero no para las cuentas de blob en bloques Premium o de blob en páginas Premium.
+En el nivel de rendimiento premium, se admite la migración en vivo de las cuentas de recurso compartido de archivos premium, pero no de las cuentas de blob en bloques o de blob en páginas premium.
 
 Si su cuenta usa RA-GRS, debe cambiar primero el tipo de replicación de la cuenta a LRS o GRS antes de continuar con una migración en vivo. Este paso intermedio quita el punto de conexión de solo lectura secundario proporcionado por RA-GRS.
 
@@ -151,7 +151,7 @@ Siga estos pasos para solicitar una migración en vivo:
 > [!NOTE]
 > Los recursos compartidos de archivos Premium solo están disponibles para LRS y ZRS.
 >
-> Las cuentas de almacenamiento de GZRS no admiten actualmente el nivel de archivo. Para más información, consulte [Niveles de acceso frecuente, esporádico y de archivo de los datos de blob](../blobs/access-tiers-overview.md).
+> Las cuentas de almacenamiento de GZRS no admiten actualmente el nivel de archivo. Vea [Niveles de acceso frecuente, esporádico y de archivo para los datos de blobs](../blobs/access-tiers-overview.md) para obtener más detalles.
 >
 > Los discos administrados solo están disponible para LRS y no se pueden migrar a ZRS. Puede almacenar instantáneas e imágenes de discos administrados SSD estándar en un almacenamiento HDD estándar y [elegir entre las opciones LRS y ZRS](https://azure.microsoft.com/pricing/details/managed-disks/). Para más información sobre la integración con conjuntos de disponibilidad, consulte [Introducción a los discos administrados de Azure](../../virtual-machines/managed-disks-overview.md#integration-with-availability-sets).
 

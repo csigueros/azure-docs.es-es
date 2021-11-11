@@ -30,7 +30,7 @@
       href: sample-powershell.md
 - name: Conceptos
   items:
-    - name: Características de Azure Firewall
+    - name: Características de Azure Firewall Estándar
       href: features.md
     - name: Características de Azure Firewall Prémium
       href: premium-features.md
@@ -48,6 +48,8 @@
       href: logs-and-metrics.md
     - name: Información sobre amenazas
       href: threat-intel.md
+    - name: Conjuntos de reglas de directiva
+      href: policy-rule-sets.md
     - name: Lógica de procesamiento de reglas
       href: rule-processing.md
     - name: Etiquetas de servicio

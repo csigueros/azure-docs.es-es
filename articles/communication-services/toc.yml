@@ -135,6 +135,16 @@ items:
             href: concepts/ui-library/ui-library-overview.md
           - name: Casos de uso de la biblioteca de interfaz de usuario
             href: concepts/ui-library/ui-library-use-cases.md
+      - name: Supervisión y análisis
+        items:
+          - name: Habilitación del registro en Configuración de diagnósticos
+            href: concepts/analytics/enable-logging.md
+          - name: Registros de Resumen de llamadas y Diagnóstico de llamadas
+            href: concepts/analytics/call-logs-azure-monitor.md
+          - name: Log Analytics
+            href: concepts/analytics/log-analytics.md
+          - name: Información detallada
+            href: concepts/analytics/insights.md
       - name: SDK y API REST
         href: concepts/sdk-options.md
       - name: Arquitectura de cliente y servidor

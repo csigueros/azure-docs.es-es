@@ -9,13 +9,13 @@ ms.topic: how-to
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.reviewer: cgronlun
-ms.date: 05/07/2020
-ms.openlocfilehash: a4a8ea704ab6e304f1d4465befed96e40ea55987
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.date: 10/21/2021
+ms.openlocfilehash: cae79937f1faa36488820d6266484fb43330e821
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107884685"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131560803"
 ---
 # <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Selección de algoritmos para Azure Machine Learning
 
@@ -31,7 +31,7 @@ ms.locfileid: "107884685"
 
 La [hoja de características clave de Azure Machine Learning](./algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri) sirve de ayuda en la primera consideración: **¿Qué quiere hacer con los datos?** En la hoja de características clave de los algoritmos de Machine Learning, busque la tarea que desea realizar y, después, busque un algoritmo del [diseñador de Azure Machine Learning](./concept-designer.md?WT.mc_id=docs-article-lazzeri) para la solución de análisis predictivo. 
 
-El diseñador de Machine Learning proporciona una completa gama de algoritmos, como [Bosque de decisión multiclase](./algorithm-module-reference/multiclass-decision-forest.md?WT.mc_id=docs-article-lazzeri), [Sistemas de recomendación](./algorithm-module-reference/evaluate-recommender.md?WT.mc_id=docs-article-lazzeri), [Regresión de red neuronal](./algorithm-module-reference/neural-network-regression.md?WT.mc_id=docs-article-lazzeri), [Red neuronal multiclase](./algorithm-module-reference/multiclass-neural-network.md?WT.mc_id=docs-article-lazzeri) y [Agrupación en clústeres K-Means](./algorithm-module-reference/k-means-clustering.md?WT.mc_id=docs-article-lazzeri). Cada algoritmo está diseñado para solucionar un tipo distinto de problema de Machine Learning. En el artículo [Referencia de módulo y algoritmo para el diseñador de Azure Machine Learning](./algorithm-module-reference/module-reference.md?WT.mc_id=docs-article-lazzeri) encontrará una lista completa, junto con documentación sobre cómo funciona cada algoritmo y cómo ajustar los parámetros para optimizar el algoritmo.
+El diseñador de Machine Learning proporciona una completa gama de algoritmos, como [Bosque de decisión multiclase](./algorithm-module-reference/multiclass-decision-forest.md?WT.mc_id=docs-article-lazzeri), [Sistemas de recomendación](./algorithm-module-reference/evaluate-recommender.md?WT.mc_id=docs-article-lazzeri), [Regresión de red neuronal](./algorithm-module-reference/neural-network-regression.md?WT.mc_id=docs-article-lazzeri), [Red neuronal multiclase](./algorithm-module-reference/multiclass-neural-network.md?WT.mc_id=docs-article-lazzeri) y [Agrupación en clústeres K-Means](./algorithm-module-reference/k-means-clustering.md?WT.mc_id=docs-article-lazzeri). Cada algoritmo está diseñado para solucionar un tipo distinto de problema de Machine Learning. Vea la [referencia de algoritmos y componentes del diseñador de Azure Machine Learning](./component-reference/component-reference.md?WT.mc_id=docs-article-lazzeri) para obtener una lista completa, junto con documentación sobre cómo funciona cada algoritmo y cómo ajustar los parámetros para optimizar el algoritmo.
 
 > [!NOTE]
 > Para descargar la hoja de características clave de los algoritmos de Machine Learning, vaya a [Hoja de características clave de los algoritmos de Machine Learning](./algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri).
@@ -82,17 +82,17 @@ Elija las opciones y posibles compensaciones para los siguientes requisitos:
 
 ## <a name="accuracy"></a>Precisión
 
-La precisión de Machine Learning mide la eficacia de un modelo como la proporción de resultados verdaderos en comparación con el total de casos. En el diseñador de Machine Learning, el [módulo Evaluate Model (Evaluar modelo)](./algorithm-module-reference/evaluate-model.md?WT.mc_id=docs-article-lazzeri) calcula un conjunto de métricas de evaluación estándar del sector. Este módulo se puede usar para medir la precisión de un modelo entrenado.
+La precisión de Machine Learning mide la eficacia de un modelo como la proporción de resultados verdaderos en comparación con el total de casos. En el diseñador de Machine Learning, el [componente Evaluar modelo](./algorithm-module-reference/evaluate-model.md?WT.mc_id=docs-article-lazzeri) calcula un conjunto de métricas de evaluación estándar del sector. Puede usar este componente para medir la precisión de un modelo entrenado.
 
 No siempre es necesario obtener la respuesta más precisa posible. A veces, una aproximación ya es útil, según para qué se la desee usar. Si es así, puede reducir drásticamente el tiempo de procesamiento mediante el uso de métodos más aproximados. Los métodos aproximados también tienden naturalmente a evitar el sobreajuste.
 
-Hay tres formas de usar el módulo Evaluate Model (Evaluar modelo):
+Hay tres formas de usar el componente Evaluar modelo:
 
 - Generar puntuaciones sobre los datos de entrenamiento para evaluar el modelo
 - Generar puntuaciones en el modelo, pero compararlas con las de un conjunto de pruebas reservado.
 - Comparar las puntuaciones de dos modelos diferentes pero relacionados, usando el mismo conjunto de datos.
 
-Para ver una lista completa de las métricas y los enfoques que se pueden usar para evaluar la precisión de los modelos de Machine Learning, consulte [Módulo Evaluate Model (Evaluar modelo)](./algorithm-module-reference/evaluate-model.md?WT.mc_id=docs-article-lazzeri).
+Para obtener una lista completa de las métricas y los enfoques que se pueden usar para evaluar la precisión de los modelos de Machine Learning, vea [Componente Evaluar modelo](./algorithm-module-reference/evaluate-model.md?WT.mc_id=docs-article-lazzeri).
 
 ## <a name="training-time"></a>Tiempo de entrenamiento
 
@@ -104,9 +104,9 @@ En el diseñador de Machine Learning, la creación y el uso de un modelo de Mach
 
 1.  Para configurar un modelo, elija un tipo de algoritmo concreto y, posteriormente, defina sus parámetros o hiperparámetros. 
 
-2.  Especifique un conjunto de datos que esté etiquetado y tenga datos compatibles con el algoritmo. Conecte los datos y el modelo al [módulo Train Model (Entrenar modelo)](./algorithm-module-reference/train-model.md?WT.mc_id=docs-article-lazzeri).
+2.  Especifique un conjunto de datos que esté etiquetado y tenga datos compatibles con el algoritmo. Conecte los datos y el modelo al [Componente Entrenar modelo](./algorithm-module-reference/train-model.md?WT.mc_id=docs-article-lazzeri).
 
-3.  Una vez que finalice el entrenamiento, use el modelo entrenado con uno de los [módulos de puntuación](./algorithm-module-reference/score-model.md?WT.mc_id=docs-article-lazzeri) para realizar predicciones de los datos nuevos.
+3.  Una vez que finalice el entrenamiento, use el modelo entrenado con uno de los [componentes de puntuación](./algorithm-module-reference/score-model.md?WT.mc_id=docs-article-lazzeri) para realizar predicciones sobre datos nuevos.
 
 ## <a name="linearity"></a>Linealidad
 
@@ -132,7 +132,7 @@ Los algoritmos de regresión lineal suponen que las tendencias de datos siguen u
 
 Los parámetros son los botones que un científico de datos activa al configurar un algoritmo. Son números que afectan al comportamiento del algoritmo, como la tolerancia a errores o la cantidad de iteraciones, o bien opciones de las variantes de comportamiento del algoritmo. Tanto el tiempo de entrenamiento como la precisión del algoritmo a veces pueden ser sensibles y requerir solo la configuración correcta. Normalmente, los algoritmos con parámetros de números grandes requieren la mayor cantidad de pruebas y errores posible para encontrar una buena combinación.
 
-Una alternativa es el [módulo Tune Model Hyperparameters (Optimizar hiperparámetros del modelo)](./algorithm-module-reference/tune-model-hyperparameters.md?WT.mc_id=docs-article-lazzeri) del diseñador de Machine Learning: El objetivo de este módulo es determinar los hiperparámetros óptimos para un modelo de Machine Learning. El módulo compila y prueba varios modelos con diferentes combinaciones de configuraciones. Compara las métricas de todos los modelos para obtener las combinaciones de valores. 
+También existe el [Componente Optimizar hiperparámetros del modelo](./algorithm-module-reference/tune-model-hyperparameters.md?WT.mc_id=docs-article-lazzeri) en el diseñador de Machine Learning: el objetivo de este componente es determinar los hiperparámetros óptimos para un modelo de Machine Learning. El componente compila y prueba varios modelos con diferentes combinaciones de valores. Compara las métricas de todos los modelos para obtener las combinaciones de valores. 
 
 Aunque esta es una excelente manera de asegurarse de que se ha distribuido el espacio de parámetros, el tiempo necesario para entrenar un modelo aumenta de manera exponencial con el número de parámetros. La ventaja es que tener muchos parámetros normalmente indica que un algoritmo tiene mayor flexibilidad. Por lo general, puede conseguir una precisión muy elevada, siempre y cuando se encuentre la combinación correcta de configuraciones de parámetros.
 
@@ -142,12 +142,12 @@ En Machine Learning, una característica es una variable cuantificable del fenó
 
 Una gran cantidad de características puede trabar algunos algoritmos de aprendizaje, lo que hace que el tiempo de entrenamiento sea demasiado largo. Las [máquinas de vectores de soporte](./algorithm-module-reference/two-class-support-vector-machine.md?WT.mc_id=docs-article-lazzeri) son especialmente apropiadas para escenarios con un gran número de características. Por esta razón, se han usado en muchas aplicaciones, desde la recuperación de información hasta la clasificación de texto e imágenes. Las máquinas de vectores de soporte pueden usarse para tareas de clasificación y regresión.
 
-Dada una salida específica, la selección de características hace referencia al proceso de aplicación de pruebas estadísticas a las entradas. para determinar qué columnas son más predecibles de la salida. El [módulo Filter Based Feature Selection](./algorithm-module-reference/filter-based-feature-selection.md?WT.mc_id=docs-article-lazzeri) (Selección de características basada en filtro) del diseñador de Machine Learning proporciona varios algoritmos de selección de características entre los que elegir. El módulo incluye métodos de correlación como la correlación de Pearson y valores de la χ2.
+Dada una salida específica, la selección de características hace referencia al proceso de aplicación de pruebas estadísticas a las entradas. para determinar qué columnas son más predecibles de la salida. El [componente Selección de características basada en filtro](./algorithm-module-reference/filter-based-feature-selection.md?WT.mc_id=docs-article-lazzeri) del diseñador de Machine Learning proporciona varios algoritmos de selección de características entre los que elegir. El componente incluye métodos de correlación como la correlación de Pearson y valores de la prueba χ2.
 
-También puede usar el [módulo Permutation Feature Importance](./algorithm-module-reference/permutation-feature-importance.md?WT.mc_id=docs-article-lazzeri) (Importancia de la característica de permutación) para calcular un conjunto de puntuaciones de importancia de las características del conjunto de resultados. Luego, estas puntuaciones se pueden usan para ayudarle a determinar las mejores características que se deben usar en un modelo.
+También puede usar el [componente Importancia de la característica de permutación](./algorithm-module-reference/permutation-feature-importance.md?WT.mc_id=docs-article-lazzeri) para calcular un conjunto de puntuaciones de importancia de la característica del conjunto de resultados. Luego, estas puntuaciones se pueden usan para ayudarle a determinar las mejores características que se deben usar en un modelo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
  - [Más información sobre el diseñador de Azure Machine Learning](./concept-designer.md?WT.mc_id=docs-article-lazzeri)
- - Para obtener descripciones de todos los algoritmos de Machine Learning disponibles en el diseñador de Azure Machine Learning, consulte [Referencia de módulo y algoritmo para el diseñador de Azure Machine Learning](./algorithm-module-reference/module-reference.md?WT.mc_id=docs-article-lazzeri)
+ - Para obtener descripciones de todos los algoritmos de aprendizaje automático disponibles en el diseñador de Azure Machine Learning, vea la [referencia de algoritmos y componentes del diseñador de Machine Learning](./component-reference/component-reference.md?WT.mc_id=docs-article-lazzeri)
  - Para explorar la relación entre aprendizaje profundo, aprendizaje automático e inteligencia artificial, consulte [Aprendizaje profundo frente a Aprendizaje automático](./concept-deep-learning-vs-machine-learning.md?WT.mc_id=docs-article-lazzeri)
