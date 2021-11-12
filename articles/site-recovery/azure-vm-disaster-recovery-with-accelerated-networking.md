@@ -3,18 +3,18 @@ title: Habilitación de redes aceleradas para la recuperación ante desastres de
 description: Descripción de la habilitación de las redes aceleradas con Azure Site Recovery para la recuperación ante desastres de máquinas virtuales de Azure
 services: site-recovery
 documentationcenter: ''
-author: Harsha-CS
-manager: rochakm
+author: rishjai-msft
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: harshacs
-ms.openlocfilehash: 1d2d3b3aacc00428c96cde0f8230421a98151ae2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: rishjai
+ms.openlocfilehash: d3495625da0b039a5e75bf3973600b16f802b263
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96000256"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131463509"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Redes aceleradas con recuperación ante desastres de máquinas virtuales de Azure
 
@@ -72,12 +72,12 @@ Para más información sobre las instancias de máquinas virtuales, consulte [Ta
 
 Cuando se [habilita la replicación](azure-to-azure-tutorial-enable-replication.md) para las máquinas virtuales de Azure, Site Recovery detecta automáticamente si las interfaces de red de máquina virtual tienen las redes aceleradas habilitadas. Si lo están, Site Recovery las configura automáticamente en las interfaces de red de la máquina virtual replicada.
 
-Se puede comprobar el estado de las redes aceleradas en la sección **Interfaces de red** de la configuración **Compute and Network** (Proceso y red) de la máquina virtual replicada.
+El estado de las redes aceleradas se puede comprobar en la pestaña de la NIC correspondiente en los valores **Redes** de la máquina virtual replicada.
 
 ![Configuración de las redes aceleradas](./media/azure-vm-disaster-recovery-with-accelerated-networking/compute-network-accelerated-networking.png)
 
 Si ha habilitado las redes aceleradas en la máquina virtual de origen después de habilitar la replicación, puede habilitarlas también en las interfaces de red de la máquina virtual replicada mediante el siguiente proceso:
-1. Abra la configuración **Compute and Network** (Proceso y red) de la máquina virtual replicada
+1. Abra los valores **Red** de la máquina virtual replicada
 2. Haga clic en el nombre de la interfaz de red en la sección **Interfaces de red**
 3. Seleccione **Habilitado** en la lista desplegable para las redes aceleradas en la columna **Destino**
 

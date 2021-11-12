@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/15/2021
 ms.author: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 467c5ad44b38e237b1ad9b947f438dcef1006750
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 313532b6292cb3a6799b3c14df69c39d92ba3c03
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130038847"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227518"
 ---
 # <a name="security-operations-for-privileged-accounts"></a>Operaciones de seguridad para cuentas con privilegios
 
@@ -143,7 +143,8 @@ Puede supervisar los eventos de inicio de sesión de la cuenta con privilegios e
 | Detectar cuentas con privilegios no registradas para MFA. | Alto | Graph API de Azure AD| Consulta de IsMFARegistered eq false para cuentas de administrador. [Enumeración de los detalles de credentialUserRegistration:Microsoft Graph beta](/graph/api/reportroot-list-credentialuserregistrationdetails?view=graph-rest-beta&preserve-view=true&tabs=http) | Audite e investigue para determinar si es intencionada o de vigilancia. |
 | Bloqueo de cuenta | Alto | Registro de inicios de sesión de Azure AD | Estado = Error<br>- y -<br>Código de error = 50053 | Defina un umbral de línea de base y, a continuación, supervise y ajuste para adaptar los comportamientos de la organización y limitar la generación de alertas falsas. |
 | Cuenta deshabilitada o bloqueada para inicios de sesión | Bajo | Registro de inicios de sesión de Azure AD | Estado = Error<br>- y -<br>Destino = UPN de usuario<br>- y -<br>Código de error = 50057 | Esto podría indicar que alguien está intentando obtener acceso a una cuenta una vez que ha dejado una organización. Aunque la cuenta está bloqueada, sigue siendo importante registrar y esta actividad y alertar sobre ella. |
-| Bloque o alerta de fraude de MFA | Alto | Registro de inicios de sesión de Azure AD/Análisis de registros de Azure | Correcto = false<br>- y -<br>Detalle del resultado = MFA denegado<br>- y -<br>Destino = usuario | El usuario con privilegios ha indicado que no ha enviado el mensaje de MFA, y podría indicar que un atacante tiene la contraseña de la cuenta. |
+| Bloque o alerta de fraude de MFA | Alto | Registro de inicios de sesión de Azure AD/Análisis de registros de Azure | Inicios de sesión>Detalles de autenticación Detalles del resultado = MFA denegado, Código de fraude especificado | El usuario con privilegios ha indicado que no ha enviado el mensaje de MFA, y podría indicar que un atacante tiene la contraseña de la cuenta. |
+| Bloque o alerta de fraude de MFA | Alto | Registro de auditoría de Azure AD/Azure Log Anaylitics | Tipo de actividad = Fraude informado: el usuario está bloqueado para MFA o Fraude notificado: no se toman medidas (en función de la configuración de nivel de inquilino para el informe de fraude) | El usuario con privilegios ha indicado que no ha enviado el mensaje de MFA, y podría indicar que un atacante tiene la contraseña de la cuenta. |
 | Inicios de sesión de cuentas con privilegios fuera de los controles esperados. |  | Registro de inicios de sesión de Azure AD | Estado = error<br>UserPricipalName = \<Admin account\><br>Ubicación = \<unapproved location\><br>Dirección IP = \<unapproved IP\><br>Información del dispositivo = \<unapproved Browser, Operating System\> | Supervise y notifique todas las entradas que haya definido como no aprobadas. |
 | Fuera de los tiempos de inicio de sesión normales | Alto | Registro de inicios de sesión de Azure AD | Estado = correcto<br>- y -<br>Ubicación =<br>- y -<br>Hora = fuera del horario laboral | Supervise y notifique si los inicios de sesión se producen fuera del horario esperado. Es importante encontrar el patrón de trabajo normal para cada cuenta con privilegios y alertar si hay cambios no planeados fuera de las horas de trabajo normales. Los inicios de sesión fuera del horario laboral normal podrían indicar riesgos o posibles amenazas internas. | 
 | Riesgo de Identity Protection | Alto | Registros de Identity Protection | Estado de riesgo = en riesgo<br>- y -<br>Nivel de riesgo = bajo/medio/alto<br>- y -<br>Actividad = Inicio de sesión/TOR desconocido, etc. | Esto indica que se ha detectado alguna anomalía con el inicio de sesión de la cuenta y que es necesario estar alerta. | 

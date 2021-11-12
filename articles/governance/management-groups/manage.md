@@ -3,12 +3,12 @@ title: 'Trabajo con grupos de administración: Gobernanza en Azure'
 description: Aprenda a visualizar, mantener, actualizar y eliminar la jerarquía de grupos de administración.
 ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: cf52f56b59dd1a99bb48807228015d502163fcd7
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 57c4af2d7c3d5d4978d500beaa6e6c8be5d12d4f
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322159"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131509399"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Administración de los recursos con grupos de administración
 
@@ -20,6 +20,9 @@ Los grupos de administración proporcionan capacidad de administración de nivel
 
 > [!IMPORTANT]
 > Los tokens de usuario y la memoria caché del grupo de administración de Azure Resource Manager duran 30 minutos antes de que se produzca una actualización obligatoria. Después de realizar cualquier acción como mover un grupo de administración o una suscripción, puede tardar hasta 30 minutos en mostrarse. Para ver las actualizaciones antes de que tenga que actualizar el token actualizando el explorador, inicie y cierre sesión, o solicite un nuevo token.
+
+> [!IMPORTANT]
+> Los cmdlets de Az PowerShell relacionados con AzManagementGroup mencionan que **-GroupId** es alias del parámetro **-GroupName**, por lo que podemos usar cualquiera de ellos para proporcionar el identificador del grupo de administración como valor de cadena. 
 
 ## <a name="change-the-name-of-a-management-group"></a>Cambio del nombre de un grupo de administración
 
@@ -50,7 +53,7 @@ Puede cambiar el nombre del grupo de administración mediante el portal, PowerSh
 Para actualizar el nombre para mostrar, use **Update-AzManagementGroup**. Por ejemplo, para cambiar el nombre para mostrar de un grupo de administración de "Contoso TI" a "Grupo de Contoso", ejecute el siguiente comando:
 
 ```azurepowershell-interactive
-Update-AzManagementGroup -GroupName 'ContosoIt' -DisplayName 'Contoso Group'
+Update-AzManagementGroup -GroupId 'ContosoIt' -DisplayName 'Contoso Group'
 ```
 
 ### <a name="change-the-name-in-azure-cli"></a>Cambiar el nombre en la CLI de Azure
@@ -97,7 +100,7 @@ Para eliminar un grupo de administración, deben cumplirse los siguientes requis
 Use el comando **Remove-AzManagementGroup** de PowerShell para eliminar grupos de administración.
 
 ```azurepowershell-interactive
-Remove-AzManagementGroup -GroupName 'Contoso'
+Remove-AzManagementGroup -GroupId 'Contoso'
 ```
 
 ### <a name="delete-in-azure-cli"></a>Eliminación en la CLI de Azure
@@ -132,16 +135,16 @@ Use el comando Get-AzManagementGroup para recuperar todos los grupos. Consulte l
 Get-AzManagementGroup
 ```
 
-Para obtener información de un único grupo de administración, use el parámetro -GroupName.
+Para obtener información de un único grupo de administración, use el parámetro -GroupId.
 
 ```azurepowershell-interactive
-Get-AzManagementGroup -GroupName 'Contoso'
+Get-AzManagementGroup -GroupId 'Contoso'
 ```
 
 Para devolver un grupo de administración específico y todos los niveles de la jerarquía que hay debajo, use los parámetros **-Expand** y **-Recurse**.
 
 ```azurepowershell-interactive
-PS C:\> $response = Get-AzManagementGroup -GroupName TestGroupParent -Expand -Recurse
+PS C:\> $response = Get-AzManagementGroup -GroupId TestGroupParent -Expand -Recurse
 PS C:\> $response
 
 Id                : /providers/Microsoft.Management/managementGroups/TestGroupParent
@@ -204,7 +207,9 @@ Si va a realizar un traslado, necesita permiso en cada una de las capas siguient
 - Suscripción o grupo de administración secundarios
   - `Microsoft.management/managementgroups/write`
   - `Microsoft.management/managementgroups/subscription/write` (solo para suscripciones)
-  - `Microsoft.Authorization/roleassignment/write`
+  - `Microsoft.Authorization/roleAssignments/write`
+  - `Microsoft.Authorization/roleAssignments/delete`
+  - `Microsoft.Management/register/action`
 - Grupo de administración primario de destino
   - `Microsoft.management/managementgroups/write`
 - Grupo de administración primario actual
@@ -259,13 +264,13 @@ Para ver qué permisos tiene en Azure Portal, seleccione el grupo de administrac
 Para mover una suscripción en PowerShell, use el comando New-AzManagementGroupSubscription.
 
 ```azurepowershell-interactive
-New-AzManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
+New-AzManagementGroupSubscription -GroupId 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
 ```
 
 Para quitar el vínculo entre la suscripción y el grupo de administración, use el comando Remove-AzManagementGroupSubscription.
 
 ```azurepowershell-interactive
-Remove-AzManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
+Remove-AzManagementGroupSubscription -GroupId 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
 ```
 
 ### <a name="move-subscriptions-in-azure-cli"></a>Mover las suscripciones en la CLI de Azure
@@ -344,8 +349,8 @@ Para trasladar una suscripción de una plantilla de Azure Resource Manager (plan
 Use el comando Update-AzManagementGroup de PowerShell para mover un grupo de administración a un grupo diferente.
 
 ```azurepowershell-interactive
-$parentGroup = Get-AzManagementGroup -GroupName ContosoIT
-Update-AzManagementGroup -GroupName 'Contoso' -ParentId $parentGroup.id
+$parentGroup = Get-AzManagementGroup -GroupId ContosoIT
+Update-AzManagementGroup -GroupId 'Contoso' -ParentId $parentGroup.id
 ```
 
 ### <a name="move-management-groups-in-azure-cli"></a>Mover grupos de administración en la CLI de Azure

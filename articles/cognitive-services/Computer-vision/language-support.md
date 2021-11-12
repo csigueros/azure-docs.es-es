@@ -8,33 +8,34 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 10/27/2021
 ms.author: pafarley
-ms.openlocfilehash: f2ded17ed86a550ca781fbad792e89bfc4d7809d
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: a79954ba0a96f6db6f12af13c6c74d7386e88231
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130215941"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131473421"
 ---
 # <a name="language-support-for-computer-vision"></a>Compatibilidad con idiomas para Computer Vision
 
-Algunas características de Computer Vision admiten varios idiomas; las características que no se mencionan aquí solo admiten inglés.
+Algunas funcionalidades de Computer Vision admiten varios idiomas; las que no se mencionan aquí solo admiten inglés.
 
 ## <a name="optical-character-recognition-ocr"></a>Reconocimiento óptico de caracteres (OCR)
 
-Las API de OCR de Computer Vision admiten varios idiomas. La operación Read puede extraer texto de imágenes y documentos con idiomas mixtos, incluida la misma línea de texto sin necesidad de un parámetro de lenguaje. Consulte [Información general sobre el reconocimiento óptico de caracteres (OCR)](overview-ocr.md) para más información.
+Las API de OCR de Computer Vision admiten muchos idiomas. La operación de lectura puede extraer texto de imágenes y documentos con idiomas mixtos, incluida la misma línea de texto sin necesidad de un parámetro de idioma. Consulte [Información general sobre el reconocimiento óptico de caracteres (OCR)](overview-ocr.md) para más información.
 
 
 > [!NOTE]
 > **Código de idioma (opcional)**
 >
-> Los modelos universales basados en aprendizaje profundo de OCR de Read extraen todo el texto multilingüe de los documentos, incluidas las líneas de texto con idiomas mixtos, y no requieren especificar un código de idioma. No proporcione el código de idioma como parámetro a menos que esté seguro sobre el idioma y quiera forzar al servicio a aplicar solo el modelo correspondiente. De lo contrario, el servicio puede devolver texto incompleto e incorrecto.
+> Los modelos universales basados en aprendizaje profundo de OCR de Read extraen todo el texto multilingüe de los documentos, incluidas las líneas de texto con idiomas mixtos, y no es necesario especificar un código de idioma. No proporcione el código de idioma como parámetro a menos que esté seguro del idioma y desee forzar al servicio a aplicar solo el modelo correspondiente. De lo contrario, el servicio puede devolver texto incompleto e incorrecto.
 
-Consulte los [procedimientos para especificar la versión del modelo](./Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) para usar las características y los idiomas de la versión preliminar. El modelo en versión preliminar incluye todas las mejoras de la versión de GA actual.
+El modelo en versión preliminar incluye todas las mejoras de la versión de GA actual de la API. Consulte los [procedimientos para especificar la versión del modelo](./Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) para usar las características y los idiomas de la versión preliminar. 
 
 ### <a name="handwritten-languages"></a>Idiomas manuscritos
-En la tabla siguiente se indican los idiomas manuscritos de los idiomas que admite la operación Read.
+
+En la tabla siguiente se enumeran los idiomas que admite la operación Read para texto manuscrito.
 
 |Lenguaje| Código de idioma (opcional) | Lectura |
 |:-----|:----:|:-----|
@@ -47,7 +48,8 @@ En la tabla siguiente se indican los idiomas manuscritos de los idiomas que admi
 |Español |`es`|✅ versión preliminar |
 
 ### <a name="print-languages"></a>Idiomas de impresión
-En la tabla siguiente se enumeran los idiomas de impresión admitidos por las API de OCR.
+
+En la tabla siguiente se enumeran los idiomas que admiten las API de OCR para texto impreso.
 
 |Lenguaje| Código de idioma (opcional) | Lectura | OCR |
 |:-----|:----:|:-----|:---:|
@@ -179,7 +181,7 @@ En la tabla siguiente se enumeran los idiomas de impresión admitidos por las AP
 
 ## <a name="image-analysis"></a>Análisis de imágenes
 
-Algunas acciones de la API [analizar: imagen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) pueden devolver resultados en otros idiomas, especificados con el parámetro de consulta `language`. Otras acciones devuelven resultados en inglés, independientemente del idioma que se especifique, y otros generan una excepción para los idiomas no admitidos. Las acciones se especifican con los parámetros de consulta `visualFeatures` y `details`; vea la [información general](overview-image-analysis.md) para obtener una lista de todas las acciones que puede hacer con el análisis de imágenes. Los idiomas de etiquetado solo están disponibles en la versión de API 3.2 o posteriores.
+Algunas características de la API [Analyze: Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) pueden devolver resultados en otros idiomas, especificados con el parámetro de consulta `language`. Otras acciones devuelven resultados en inglés, independientemente del idioma que se especifique, y otros generan una excepción para los idiomas no admitidos. Las acciones se especifican con los parámetros de consulta `visualFeatures` y `details`; vea la [información general](overview-image-analysis.md) para obtener una lista de todas las acciones que puede hacer con el análisis de imágenes. Los idiomas de etiquetado solo están disponibles en la versión de API 3.2 o posteriores.
 
 |Idioma | Código de lenguaje | Categorías | Etiquetas | Descripción | Adultos | Marcas | Color | Caras | ImageType | Objetos | Celebridades | Puntos de referencia |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|

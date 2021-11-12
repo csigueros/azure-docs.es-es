@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/08/2021
 ms.author: normesta
 ms.reviewer: yzheng
-ms.openlocfilehash: 6e5949f22000c930f101ae36042587d97a5293a0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 13808d38a4ddb7e00af64b02df390eee1e1f9469
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128664872"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131421976"
 ---
 # <a name="known-issues-with-network-file-system-nfs-30-protocol-support-in-azure-blob-storage"></a>Problemas conocidos con el protocolo Network File System (NFS) 3.0 en Azure Blob Storage
 
@@ -27,6 +27,8 @@ Este artículo describe las limitaciones y los problemas conocidos de la compati
 - La compatibilidad con NFS 3.0 no se puede habilitar en las cuentas de almacenamiento existentes.
 
 - La compatibilidad con NFS 3.0 no se puede deshabilitar en una cuenta de almacenamiento después de haberla habilitado.
+
+- Las opciones de redundancia GRS, GZRS y RA-GRS no se admiten al crear una cuenta de almacenamiento de NFS 3.0.
 
 ## <a name="nfs-30-features"></a>Características de NFS 3.0
 

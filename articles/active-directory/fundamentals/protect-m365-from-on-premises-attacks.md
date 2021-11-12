@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73bd6ed2c94ca696eefd4e7a3dfcf5b78cc6dd99
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 523f0d1907e42f2db5d17ca4bd3cd81bfd7f6ca1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130251193"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131466074"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>Protección de Microsoft 365 contra ataques locales
 
@@ -31,6 +31,7 @@ En este artículo se muestra cómo configurar los sistemas para proteger el ento
 - Las concesiones necesarias para que los sistemas funcionen de formas que protejan los sistemas en la nube frente a los peligros locales.
 
 Se recomienda encarecidamente implementar esta guía para proteger el entorno en la nube de Microsoft 365.
+
 > [!NOTE]
 > Este artículo se publicó inicialmente como una entrada de blog. Se movió a su ubicación actual por motivos de durabilidad y mantenimiento.
 >
@@ -38,11 +39,9 @@ Se recomienda encarecidamente implementar esta guía para proteger el entorno en
 
 ## <a name="primary-threat-vectors-from-compromised-on-premises-environments"></a>Vectores de amenazas principales de entornos locales en peligro
 
-
 El entorno en la nube de Microsoft 365 se beneficia de una amplia infraestructura de supervisión y seguridad. Con el aprendizaje automático y la inteligencia humana, Microsoft 365 busca en todo el tráfico mundial. Puede detectar rápidamente ataques y le permite reconfigurarlo casi en tiempo real. 
 
-En las implementaciones híbridas que conectan la infraestructura local a Microsoft 365, muchas organizaciones delegan la confianza en componentes locales para tomar decisiones críticas de administración del estado de los objetos de directorio y autenticación.
-Desafortunadamente, si el entorno local está en peligro, estas relaciones de confianza se convierten en la oportunidad para que un atacante ponga en peligro el entorno de Microsoft 365.
+En las implementaciones híbridas que conectan la infraestructura local a Microsoft 365, muchas organizaciones delegan la confianza en componentes locales para tomar decisiones críticas de administración del estado de los objetos de directorio y autenticación. Desafortunadamente, si el entorno local está en peligro, estas relaciones de confianza se convierten en la oportunidad para que un atacante ponga en peligro el entorno de Microsoft 365.
 
 Los dos vectores de amenazas principales son las *relaciones de confianza de federación* y la *sincronización de cuentas*. Ambos vectores pueden conceder a un atacante acceso administrativo a la nube.
 
@@ -51,7 +50,6 @@ Los dos vectores de amenazas principales son las *relaciones de confianza de fed
 * La **sincronización de cuentas** se puede usar para modificar los usuarios con privilegios (incluidas sus credenciales) o los grupos que tienen privilegios administrativos en Microsoft 365. *Se recomienda asegurarse de que los objetos sincronizados no tengan privilegios más allá de un usuario en Microsoft 365,* directamente o a través de la inclusión en roles o grupos de confianza. Asegúrese de que estos objetos no tienen ninguna asignación directa o anidada en grupos o roles en la nube de confianza.
 
 ## <a name="protecting-microsoft-365-from-on-premises-compromise"></a>Protección de Microsoft 365 contra vulnerabilidades locales
-
 
 Para abordar los vectores de amenazas descritos anteriormente, se recomienda cumplir los principios que se ilustran en el diagrama a continuación:
 
@@ -73,18 +71,15 @@ Para abordar los vectores de amenazas descritos anteriormente, se recomienda cum
 
 1. **Administre dispositivos desde Microsoft 365**. Use la administración de dispositivos móviles (MDM) basados en la nube y unidos a Azure AD para eliminar dependencias en la infraestructura de administración de dispositivos local. Estas dependencias pueden comprometer los controles de seguridad y los dispositivos.
 
-1. **Asegúrese de que ninguna cuenta local tenga privilegios elevados para Microsoft 365.**
-    Algunas cuentas tienen acceso a aplicaciones locales que requieren autenticación NTLM, LDAP o Kerberos. Estas cuentas deben estar en la infraestructura de identidad local de la organización. Asegúrese de que estas cuentas, incluidas las cuentas de servicio, no estén incluidas en grupos ni roles en la nube con privilegios. Asegúrese también de que los cambios en estas cuentas no afecten a la integridad de su entorno de nube. El software local con privilegios no debe ser capaz de afectar a los roles ni a las cuentas con privilegios de Microsoft 365.
+1. **Asegúrese de que ninguna cuenta local tenga privilegios elevados para Microsoft 365.** Algunas cuentas tienen acceso a aplicaciones locales que requieren autenticación NTLM, LDAP o Kerberos. Estas cuentas deben estar en la infraestructura de identidad local de la organización. Asegúrese de que estas cuentas, incluidas las cuentas de servicio, no estén incluidas en grupos ni roles en la nube con privilegios. Asegúrese también de que los cambios en estas cuentas no afecten a la integridad de su entorno de nube. El software local con privilegios no debe ser capaz de afectar a los roles ni a las cuentas con privilegios de Microsoft 365.
 
 1. **Use la autenticación en la nube de Azure AD** para eliminar las dependencias de las credenciales locales. Use siempre una autenticación sólida, como Windows Hello, FIDO, Microsoft Authenticator o Azure AD Multifactor Authentication.
 
 ## <a name="specific-security-recommendations"></a>Recomendaciones de seguridad específicas
 
-
 En las secciones siguientes se proporcionan instrucciones específicas sobre cómo implementar los principios descritos anteriormente.
 
 ### <a name="isolate-privileged-identities"></a>Aislamiento de identidades con privilegios
-
 
 En Azure AD, los usuarios con roles con privilegios, como los administradores, son la raíz de confianza para crear y administrar el resto del entorno. Implemente las siguientes prácticas para minimizar los efectos de un riesgo.
 
@@ -134,14 +129,13 @@ Se recomiendan los siguientes métodos de aprovisionamiento:
 
 * **Aplicaciones en la nube**: Siempre que sea posible, implemente el [aprovisionamiento de aplicaciones de Azure AD](../app-provisioning/user-provisioning.md), en lugar de las soluciones de aprovisionamiento local. Este método protege algunas de las aplicaciones de software como servicio (SaaS) para que no se vean afectadas por perfiles de hackers malintencionados en vulneraciones locales. 
 
-* **Identidades externas**: use la [colaboración B2B de Azure AD](../external-identities/what-is-b2b.md).
-    Este método reduce la dependencia de las cuentas locales frente a la colaboración externa con asociados, clientes y proveedores. Evalúe detenidamente cualquier federación directa con otros proveedores de identidades. Se recomienda limitar las cuentas de invitado de B2B de las siguientes maneras:
+* **Identidades externas**: uso de la [colaboración de Azure AD B2B](../external-identities/what-is-b2b.md) Este método reduce la dependencia de las cuentas locales frente a la colaboración externa con asociados, clientes y proveedores. Evalúe detenidamente cualquier federación directa con otros proveedores de identidades. Se recomienda limitar las cuentas de invitado de B2B de las siguientes maneras:
 
-   *  Limitar el acceso de invitado a los grupos de exploración y otras propiedades del directorio. Use la configuración de colaboración externa para restringir la capacidad de los invitados de leer los grupos de los que no son miembros. 
+   * Limitar el acceso de invitado a los grupos de exploración y otras propiedades del directorio. Use la configuración de colaboración externa para restringir la capacidad de los invitados de leer los grupos de los que no son miembros. 
 
-    *   Bloquear el acceso a Azure Portal. Puede hacer excepciones raras, pero necesarias.  Cree una directiva de acceso condicional que incluya a todos los usuarios invitados y externos. Luego [implemente una directiva para bloquear el acceso](../../role-based-access-control/conditional-access-azure-management.md). 
+    * Bloquear el acceso a Azure Portal. Puede hacer excepciones raras, pero necesarias.  Cree una directiva de acceso condicional que incluya a todos los usuarios invitados y externos. Luego [implemente una directiva para bloquear el acceso](../../role-based-access-control/conditional-access-azure-management.md). 
 
-* **Bosques desconectados**: Use el [aprovisionamiento en la nube de Azure AD](../cloud-sync/what-is-cloud-sync.md). Este método le permite conectarse a los bosques desconectados, eliminando la necesidad de establecer una conexión o relaciones de confianza entre los bosques, lo que puede ampliar el efecto de una vulneración local. 
+* **Bosques desconectados**: Use el [aprovisionamiento en la nube de Azure AD](../cloud-sync/what-is-cloud-sync.md). Este método le permite conectarse a los bosques desconectados, eliminando la necesidad de establecer una conexión o relaciones de confianza entre los bosques, lo que puede ampliar el efecto de una vulneración local.
  
 ### <a name="limitations-and-tradeoffs"></a>Limitaciones y concesiones
 
@@ -153,18 +147,17 @@ Los grupos en la nube permiten desacoplar la colaboración y el acceso de la inf
 
 * **Colaboración**: use Grupos de Microsoft 365 y Microsoft Teams para la colaboración moderna. Retire las listas de distribución locales y [actualice las listas de distribución a grupos de Microsoft 365 en Outlook](/office365/admin/manage/upgrade-distribution-lists).
 
-* **Acceso**: use grupos de seguridad de Azure AD o Grupos de Microsoft 365 para autorizar el acceso a aplicaciones en Azure AD.
+* **Acceso**: use grupos de seguridad de Azure AD o Grupos de Microsoft 365 para autorizar el acceso a las aplicaciones en Azure AD.
+
 * **Licencias de Office 365**: Use las licencias basadas en grupos para aprovisionar en Office 365 usando grupos solo en la nube. Este método desacopla el control de la pertenencia a grupos de la infraestructura local.
 
-Los propietarios de los grupos que se usan para el acceso deben considerarse identidades con privilegios para evitar la toma del control de la pertenencia a partir de un riesgo local.
-Una toma de control incluiría la manipulación directa de la pertenencia a grupos local o la manipulación de atributos locales que pueden afectar a la pertenencia dinámica a grupos en Microsoft 365.
+Los propietarios de los grupos que se usan para el acceso deben considerarse identidades con privilegios para evitar la toma del control de la pertenencia a partir de un riesgo local. Una toma de control incluiría la manipulación directa de la pertenencia a grupos local o la manipulación de atributos locales que pueden afectar a la pertenencia dinámica a grupos en Microsoft 365.
 
 ## <a name="manage-devices-from-the-cloud"></a>Administrar dispositivos de la nube
 
-
 Use las funcionalidades de Azure AD para administrar dispositivos de forma segura.
 
--   **Use estaciones de trabajo de Windows 10**: [implemente dispositivos unidos a Azure AD](../devices/azureadjoin-plan.md) con directivas MDM. Habilite [Windows Autopilot](/mem/autopilot/windows-autopilot) para una experiencia de aprovisionamiento totalmente automatizada.
+- **Use estaciones de trabajo de Windows 10**: [implemente dispositivos unidos a Azure AD](../devices/azureadjoin-plan.md) con directivas MDM. Habilite [Windows Autopilot](/mem/autopilot/windows-autopilot) para una experiencia de aprovisionamiento totalmente automatizada.
 
     -   Deje de usar máquinas que ejecuten Windows 8.1 y versiones anteriores.
 
@@ -226,6 +219,7 @@ Supervise los siguientes escenarios clave, además de los escenarios específico
 *  **Alertas de análisis de comportamiento de usuarios y entidades (UEBA)** 
 
     Use UEBA para obtener conclusiones sobre la detección de anomalías.
+
     * Microsoft Cloud App Security (MCAS) proporciona [UEBA en la nube](/cloud-app-security/tutorial-ueba).
 
     * Puede [integrar UEBA local desde la protección contra amenazas avanzada (ATP) de Azure](/defender-for-identity/install-step2). MCAS lee las señales de Azure AD Identity Protection. 
@@ -240,11 +234,11 @@ Supervise los siguientes escenarios clave, además de los escenarios específico
 
    * Todas las actualizaciones de pertenencias a grupos. 
 
-   * Asignaciones de aplicaciones. 
+   * Asignaciones de aplicaciones.
+
 * **Actividad de roles con privilegios**
 
-    Configure y revise las [alertas de seguridad generadas por Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-how-to-configure-security-alerts.md?tabs=new#security-alerts).
-    Supervise la asignación directa de roles con privilegios fuera de PIM mediante la generación de alertas cada vez que se asigne un usuario directamente.
+    Configure y revise las [alertas de seguridad generadas por Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-how-to-configure-security-alerts.md?tabs=new#security-alerts). Supervise la asignación directa de roles con privilegios fuera de PIM mediante la generación de alertas cada vez que se asigne un usuario directamente.
 
 * **Configuraciones de todo el inquilino en Azure AD**
 

@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 620e304ffa7fae9b12a26c3ba15f57e33aaeed6c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 20214832a79dcf22bd14f6c6594f37a7036669fe
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128664511"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131558865"
 ---
 # <a name="create-a-postgresql-hyperscale-server-group-using-kubernetes-tools"></a>Creación de un grupo de servidores de Hiperescala de PostgreSQL mediante herramientas de Kubernetes
 
@@ -30,13 +30,13 @@ Para crear un grupo de servidores de Hiperescala de PostgreSQL con las herramien
 
 ## <a name="overview"></a>Introducción
 
-Para crear un grupo de servidores de Hiperescala de PostgreSQL, debe crear un secreto de Kubernetes para almacenar el inicio de sesión y la contraseña del administrador de Postgres de forma segura y un recurso personalizado de grupo de servidores de Hiperescala de PostgreSQL basado en las definiciones de recursos personalizadas postgresql-12 o postgresql-11.
+Para crear un grupo de servidores de Hiperescala de PostgreSQL, debe crear un secreto de Kubernetes para almacenar el inicio de sesión y la contraseña del administrador de Postgres de forma segura y un recurso personalizado de grupo de servidores de Hiperescala de PostgreSQL basado en las definiciones de recursos personalizados _postgresqls_.
 
 ## <a name="create-a-yaml-file"></a>Creación de un archivo YAML
 
 Puede usar el archivo [YAML de plantilla](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/postgresql.yaml) como un punto de partida para crear su propio archivo YAML personalizado del grupo de servidores de Hiperescala de PostgreSQL.  Descargue este archivo en el equipo local y ábralo en un editor de texto.  Resulta útil usar un editor de texto como [VS Code](https://code.visualstudio.com/download) que admita el linting y el resaltado de la sintaxis en archivos YAML.
 
-Este es un archivo YAML de ejemplo:
+**Archivo YAML de ejemplo**:
 
 ```yaml
 apiVersion: v1
@@ -86,7 +86,7 @@ spec:
 ```
 
 ### <a name="customizing-the-login-and-password"></a>Personalización del inicio de sesión y la contraseña
-Un secreto de Kubernetes se almacena como una cadena codificada en Base64, una para el nombre de usuario y otra para la contraseña.  Deberá codificar en Base64 el inicio de sesión y la contraseña del administrador y colocarlos en la ubicación del marcador de posición en `data.password` y `data.username`.  No incluya los símbolos `<` y `>` que se proporcionan en la plantilla.
+Un secreto de Kubernetes se almacena como una cadena codificada en Base64, una para el nombre de usuario y otra para la contraseña.  Deberá codificar en Base64 el inicio de sesión y la contraseña de un administrador y colocarlos en la ubicación del marcador de posición en `data.password` y `data.username`.  No incluya los símbolos `<` y `>` que se proporcionan en la plantilla.
 
 Puede usar una herramienta en línea para codificar en Base64 el nombre de usuario y la contraseña que desee, o bien puede usar las herramientas integradas de la CLI, en función de la plataforma.
 
@@ -111,7 +111,7 @@ echo -n '<your string to encode here>' | base64
 
 ### <a name="customizing-the-name"></a>Personalización del nombre
 
-La plantilla tiene un valor de "pg1" para el atributo de nombre.  Puede cambiarlo, pero deben ser caracteres que sigan los estándares de nomenclatura de DNS.  También debe cambiar el nombre del secreto para que coincida.  Por ejemplo, si cambia el nombre del grupo de servidores de Hiperescala de PostgreSQL a "pg2", debe cambiar el nombre del secreto de "pg1-login-secret" a "pg2-login-secret".
+La plantilla tiene un valor de `pg1` para el atributo de nombre.  Puede cambiar este valor, pero deben ser caracteres que sigan los estándares de nomenclatura de DNS. Si cambia el nombre, cambie también el nombre del secreto para que coincida.  Por ejemplo, si cambia el nombre del grupo de servidores de Hiperescala de PostgreSQL a `pg2`, debe cambiar el nombre del secreto de `pg1-login-secret` a `pg2-login-secret`.
 
 ### <a name="customizing-the-engine-version"></a>Personalización de la versión del motor
 
@@ -128,7 +128,7 @@ Requisitos para las solicitudes y los límites de recursos:
 - El valor de límite de núcleos es **necesario** para la facturación.
 - El resto de límites y solicitudes de recursos son opcionales.
 - La solicitud y el límite de núcleos deben ser un valor entero positivo, si se especifican.
-- Se requiere un mínimo de 1 núcleo para la solicitud de núcleos, si se especifica.
+- Se requiere un mínimo de un núcleo para la solicitud de núcleos, si se especifica.
 - El formato del valor de memoria sigue la notación de Kubernetes.  
 
 ### <a name="customizing-service-type"></a>Personalización del tipo de servicio
@@ -137,7 +137,7 @@ Si lo desea, el tipo de servicio se puede cambiar a NodePort.  Se asignará un n
 
 ### <a name="customizing-storage"></a>Personalización del almacenamiento
 
-Puede personalizar las clases de almacenamiento para que el almacenamiento coincida con su entorno.  Si no está seguro de qué clases de almacenamiento están disponibles, puede ejecutar el comando `kubectl get storageclass` para verlas.  La plantilla tiene el valor predeterminado "default".  Esto significa que existe una clase de almacenamiento con _name_ establecido en "default", no que exista una clase de almacenamiento que _sea_ la predeterminada.  También tiene la opción de cambiar el tamaño del almacenamiento.  Puede obtener más información sobre la [configuración de almacenamiento](./storage-configuration.md).
+Puede personalizar las clases de almacenamiento para que el almacenamiento coincida con su entorno.  Si no está seguro de qué clases de almacenamiento están disponibles, ejecute el comando `kubectl get storageclass` para verlas.  La plantilla tiene el valor predeterminado de `default`.  Este valor significa que existe una clase de almacenamiento _denominada_ `default`, no que exista una clase de almacenamiento que _sea_ la predeterminada.  También tiene la opción de cambiar el tamaño del almacenamiento.  Puede obtener más información sobre la [configuración de almacenamiento](./storage-configuration.md).
 
 ## <a name="creating-the-postgresql-hyperscale-server-group"></a>Creación del grupo de servidores de Hiperescala de PostgreSQL
 
@@ -156,7 +156,7 @@ kubectl create -n <your target namespace> -f <path to your yaml file>
 La creación del grupo de servidores de Hiperescala de PostgreSQL tardará unos minutos en completarse. Puede supervisar el progreso en otra ventana de terminal con los siguientes comandos:
 
 > [!NOTE]
->  En los siguientes comandos de ejemplo se da por hecho que ha creado un grupo de servidores de Hiperescala de PostgreSQL denominado "pg1" y un espacio de nombres de Kubernetes con el nombre "arc".  Si ha usado un nombre diferente para el espacio de nombres o el grupo de servidores de Hiperescala de PostgreSQL, puede reemplazar "arc" y "pg1" por los nombres que quiera.
+>  En los siguientes comandos de ejemplo se da por hecho que ha creado un grupo de servidores de Hiperescala de PostgreSQL denominado `pg1` y un espacio de nombres de Kubernetes con el nombre `arc`.  Si ha usado un nombre diferente para el espacio de nombres o el grupo de servidores de Hiperescala de PostgreSQL, puede reemplazar `arc` y `pg1` por los nombres que quiera.
 
 ```console
 kubectl get postgresqls/pg1 --namespace arc
@@ -166,7 +166,7 @@ kubectl get postgresqls/pg1 --namespace arc
 kubectl get pods --namespace arc
 ```
 
-También puede comprobar el estado de creación de un pod determinado ejecutando un comando como el siguiente.  Esto es especialmente útil para solucionar problemas.
+También puede comprobar el estado de creación de cualquier pod determinado ejecutando un comando `kubectl describe`.  El comando `describe` es especialmente útil para solucionar problemas. Por ejemplo:
 
 ```console
 kubectl describe pod/<pod name> --namespace arc

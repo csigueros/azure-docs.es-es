@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
-ms.openlocfilehash: 7683f6ef9966672a7b64a9c3474f37d9b95a942c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: c57d4efffc207759b8d3da343bda397ee885dc0f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131090968"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131439089"
 ---
 # <a name="custom-named-entity-recognition-ner-definitions-and-terms"></a>Definiciones y términos del Reconocimiento de entidades con nombre (NER) personalizado
 
@@ -38,7 +38,7 @@ Dentro del proyecto se puede hacer lo siguiente:
 
 ## <a name="model"></a>Modelo
 
-Un modelo es un objeto que se ha entrenado para realizar una tarea determinada, en este caso la extracción de entidades personalizada.
+Un modelo es un objeto que se ha entrenado para realizar una tarea determinada, en este caso el reconocimiento de entidades con nombre personalizadas.
 
 * El **entrenamiento del modelo** es el proceso de enseñar al modelo qué extraer en función de los datos etiquetados.
 * La **evaluación del modelo** es el proceso que se produce justo después del entrenamiento para saber cómo funciona el modelo.

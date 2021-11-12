@@ -7,12 +7,12 @@ ms.service: chaos-studio
 ms.topic: conceptual
 ms.date: 11/01/2021
 ms.custom: template-concept, ignite-fall-2021
-ms.openlocfilehash: cccfcfa60ed0d527fe3bd0dac9db0a6206a95c2f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 74e3db42471fb4322a9c80cd63f30fee730d7a49
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131092869"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132371493"
 ---
 # <a name="targets-and-capabilities-in-azure-chaos-studio"></a>Destinos y funcionalidades de Azure Chaos Studio
 
@@ -110,5 +110,5 @@ devuelve el código JSON siguiente:
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que comprende qué son los destinos y las funcionalidades, está listo para:
-- [Información sobre errores y acciones](chaos-studio-faults-actions.md)
-- [Crear y ejecutar tu primer experimento](chaos-studio-tutorial-service-direct.md)
+- [Obtener información sobre errores y acciones](chaos-studio-faults-actions.md)
+- [Crear y ejecutar tu primer experimento](chaos-studio-tutorial-service-direct-portal.md)

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/04/2021
 ms.author: thweiss
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: b8812e0d61485a4fd5c7ceb7a2f57d47b90bfeca
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 1423d4444c7ec53e40f77d951acb58a63538cfbf
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131090861"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131557801"
 ---
 # <a name="limit-the-total-throughput-provisioned-on-your-azure-cosmos-db-account"></a>Limitación del rendimiento total aprovisionado en la cuenta de Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -39,6 +39,9 @@ Después de establecer un límite en el rendimiento total de la cuenta, cualquie
 
 > [!NOTE]
 > En el caso de los recursos configurados en modo de escalabilidad automática, es el rendimiento máximo configurado en el recurso el que cuenta para el rendimiento total de la cuenta.
+
+> [!IMPORTANT]
+> Una vez que se habilita un límite de rendimiento total en su cuenta, debe pasar un valor de rendimiento explícito al crear nuevos contenedores. Actualmente recibirá un error si intenta crear un contenedor sin rendimiento explícito.
 
 ## <a name="set-the-total-throughput-limit-from-the-azure-portal"></a>Establecimiento del límite de rendimiento total desde Azure Portal
 
@@ -91,6 +94,12 @@ Al crear o actualizar la cuenta de Azure Cosmos DB con Azure Resource Manager, 
 ```
 
 Establezca esta propiedad en `-1` para deshabilitar el límite.
+
+## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+
+#### <a name="are-there-situations-where-the-total-provisioned-throughput-can-exceed-the-limit"></a>¿Hay situaciones en las que el rendimiento total aprovisionado puede superar el límite?
+
+Azure Cosmos DB exige un rendimiento mínimo de 10 RU/s por GB de datos almacenados. Si ingiere datos cuando ya está en ese mínimo, el rendimiento aprovisionado en los recursos aumentará automáticamente para respetar las 10 RU/s por GB. En este caso, y solo en este caso, el rendimiento total aprovisionado puede superar el límite establecido.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

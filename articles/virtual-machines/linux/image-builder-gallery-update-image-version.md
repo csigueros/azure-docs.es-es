@@ -8,18 +8,18 @@ ms.date: 03/02/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.openlocfilehash: ef783ba32cde3522f5b3cca9e0aa42bdd3fdf5f5
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: c0348e159b14e400e7787da7e1c04de375f96815
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770424"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131437151"
 ---
 # <a name="create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-linux"></a>Creación de una versión de una imagen de una máquina virtual a partir de otra existente mediante Azure Image Builder en Linux
 
 **Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
 
-En este artículo se muestra cómo tomar una versión de imagen existente en una [galería de imágenes compartidas](../shared-image-galleries.md), actualizarla y publicarla como una nueva versión de imagen en la galería.
+En este artículo se muestra cómo tomar una versión de imagen existente en una instancia de [Azure Compute Gallery](../shared-image-galleries.md) (anteriormente denominada Shared Image Gallery), actualizarla y publicarla como una nueva versión de imagen en la galería.
 
 Se usará una plantilla .json de ejemplo para configurar la imagen. El archivo .json que se usa aquí es: [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json). 
 
@@ -50,7 +50,7 @@ az provider register -n Microsoft.Network
 
 ## <a name="set-variables-and-permissions"></a>Establecimiento de variables y permisos
 
-Si ha usado [Crear una imagen y distribuirla a una galería de imágenes compartidas](image-builder-gallery.md) para crear la galería de imágenes compartidas, ya se han creado algunas de las variables necesarias. Si no es así, configure algunas variables para usarlas en este ejemplo.
+Si ha usado [Creación y distribución de una imagen en una instancia de Azure Compute Gallery](image-builder-gallery.md) para crear la instancia de Azure Compute Gallery, ya se han creado algunas de las variables necesarias. Si no es así, configure algunas variables para usarlas en este ejemplo.
 
 
 ```console
@@ -60,7 +60,7 @@ sigResourceGroup=ibLinuxGalleryRG
 location=westus2
 # Additional region to replicate the image version to 
 additionalregion=eastus
-# Name of the shared image gallery 
+# Name of the Azure Compute Gallery 
 sigName=myIbGallery
 # Name of the image definition to use
 imageDefName=myIbImageDef
@@ -92,7 +92,7 @@ Como ha establecido la identidad del usuario en el ejemplo anterior, solo tiene 
 imgBuilderId=$(az identity list -g $sigResourceGroup --query "[?contains(name, 'aibBuiUserId')].id" -o tsv)
 ```
 
-Si ya tiene una galería de imágenes compartidas propia y no ha seguido el ejemplo anterior, tendrá que asignar permisos a Image Builder para acceder al grupo de recursos, para que pueda acceder a la galería. Revise los pasos del ejemplo [Crear una imagen y distribuirla en Shared Image Gallery](image-builder-gallery.md).
+Si ya tiene una instancia de Azure Compute Gallery propia y no ha seguido el ejemplo anterior, tendrá que asignar permisos a Image Builder para acceder al grupo de recursos, a fin de que pueda acceder a la galería. Revise los pasos del ejemplo [Creación y distribución de una imagen en una instancia de Azure Compute Gallery](image-builder-gallery.md).
 
 
 ## <a name="modify-helloimage-example"></a>Modificación del ejemplo helloImage

@@ -6,19 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: 93837c33d905ad3db1b5906e096165db938c0ae9
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: e17b788c3852d104d82b456e03c93420f3ea9f3d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122652830"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131467873"
 ---
-# <a name="stopstart-an-azure-database-for-mysql---flexible-server-preview"></a>Inicio o detención de un servidor flexible de Azure Database for MySQL (versión preliminar)
+# <a name="stopstart-an-azure-database-for-mysql---flexible-server"></a>Inicio o detención de una instancia de Azure Database for MySQL: servidor flexible
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Actualmente, la opción de implementación Servidor flexible de Azure Database for MySQL se encuentra en versión preliminar pública.
 
 En este artículo se proporciona un procedimiento detallado para iniciar y detener un servidor flexible.
 
@@ -33,12 +30,12 @@ Para completar esta guía, necesita:
 1.  En [Azure Portal](https://portal.azure.com/), elija el servidor flexible que quiera detener.
 
 2.  En la página **Información general**, haga clic en el botón **Detener** de la barra de herramientas.
-    
-    :::image type="content" source="media/how-to-stop-start-server-portal/stop-server.png" alt-text="Detenga el servidor flexible."::: 
+
+    :::image type="content" source="media/how-to-stop-start-server-portal/stop-server.png" alt-text="Detenga el servidor flexible.":::
 
 3.  Haga clic en **Sí** para confirmar la detención del servidor.
 
-    :::image type="content" source="media/how-to-stop-start-server-portal/confirm-stop.png" alt-text="Confirme la detención del servidor flexible."::: 
+    :::image type="content" source="media/how-to-stop-start-server-portal/confirm-stop.png" alt-text="Confirme la detención del servidor flexible.":::
 
 > [!NOTE]
 > Una vez detenido el servidor, las restantes operaciones de administración no están disponibles para el servidor flexible.
@@ -49,7 +46,7 @@ Para completar esta guía, necesita:
 
 2.  En la página **Información general**, haga clic en el botón **Iniciar** de la barra de herramientas.
 
-    :::image type="content" source="media/how-to-stop-start-server-portal/start-server.png" alt-text="Inicie el servidor flexible.":::  
+    :::image type="content" source="media/how-to-stop-start-server-portal/start-server.png" alt-text="Inicie el servidor flexible.":::
 
 > [!NOTE]
 > Una vez iniciado el servidor, todas las operaciones de administración están disponibles para el servidor flexible.

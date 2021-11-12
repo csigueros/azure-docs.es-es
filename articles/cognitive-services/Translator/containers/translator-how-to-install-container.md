@@ -8,22 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 10/14/2021
 ms.author: lajanuar
 recommendations: false
 keywords: entorno local, Docker, contenedor, identificar
-ms.openlocfilehash: 680f1f6f1bfddc5bf525ae06b61bcf9098dc850f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: dbee487212f56eb5c99d3cc785cf8a2205280fcf
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745608"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131426152"
 ---
 # <a name="install-and-run-translator-containers-preview"></a>Instalación y ejecución de contenedores de Translator (versión preliminar)
 
-  Los contenedores permiten ejecutar algunas características del servicio Translator en un entorno propio. Los contenedores son excelentes para requisitos específicos de control de datos y seguridad. En este artículo va a aprender a descargar, instalar y ejecutar un contenedor de Translator.
+Los contenedores permiten ejecutar algunas características del servicio Translator en un entorno propio. Los contenedores son excelentes para requisitos específicos de control de datos y seguridad. En este artículo va a aprender a descargar, instalar y ejecutar un contenedor de Translator.
 
 Los contenedores de Translator permiten compilar una arquitectura de aplicación de traductor optimizada tanto para sólidas capacidades en la nube como para localidad perimetral.
+
+Vea la lista de [idiomas admitidos](../language-support.md) al usar contenedores de Translator. 
 
 > [!IMPORTANT]
 >
@@ -158,6 +160,8 @@ Hay varias maneras de comprobar que el contenedor se está ejecutando:
 | `http://localhost:5000/swagger` | El contenedor cuenta con un completo conjunto de documentación sobre los puntos de conexión y una característica de **prueba**. Esta característica le permite especificar la configuración en un formulario HTML basado en web y realizar la consulta sin necesidad de escribir código. Una vez que la consulta devuelve resultados, se proporciona un ejemplo del comando CURL para mostrar los encabezados HTTP y el formato de cuerpo requeridos. |
 
 :::image type="content" source="../../../../includes/media/cognitive-services-containers-api-documentation/container-webpage.png" alt-text="Página principal del contenedor":::
+
+[!INCLUDE [Diagnostic container](../../containers/includes/diagnostics-container.md)]
 
 ## <a name="text-translation-code-samples"></a>Ejemplos de código de traducción de texto
 

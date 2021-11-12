@@ -2,19 +2,19 @@
 title: Creación mediante programación de paneles de Azure
 description: Use un panel de Azure Portal como plantilla para crear paneles de Azure mediante programación. Incluye referencia JSON.
 ms.topic: how-to
-ms.date: 12/4/2020
-ms.openlocfilehash: c0e8064abcac42235ff5086f047aa716ced271cf
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 10/19/2021
+ms.openlocfilehash: 15d94cf5efc857adf9bbc0cf98c9e3d34e5bda7d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111966979"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130239834"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Creación mediante programación de paneles de Azure
 
-Este artículo le guía por el proceso de creación y publicación de paneles de Azure mediante programación. Se hace referencia en todo el documento al panel que se muestra a continuación.
+Este artículo le guía por el proceso de creación y publicación de paneles de Azure mediante programación. En el documento se hace referencia al panel que se muestra a continuación.
 
-![panel de ejemplo](./media/azure-portal-dashboards-create-programmatically/sample-dashboard.png)
+:::image type="content" source="media/azure-portal-dashboards-create-programmatically/sample-dashboard.png" alt-text="Captura de pantalla de un panel de ejemplo en Azure Portal.":::
 
 ## <a name="overview"></a>Información general
 
@@ -24,43 +24,35 @@ Muchas características se basan en estas API para facilitar la administración 
 
 Independientemente de las herramientas que use, para crear un panel mediante programación, debe construir una representación JSON del objeto de panel. Este objeto contiene información sobre los iconos del panel. Incluye tamaños, posiciones, recursos a los que están enlazados y cualquier personalización del usuario.
 
-La manera más práctica de crear este documento JSON es usar Azure Portal. Puede agregar y colocar los iconos de forma interactiva. Luego exporte el JSON y cree una plantilla a partir del resultado para usarla más adelante en scripts, programas y herramientas de implementación.
+La manera más práctica de generar este documento JSON consiste en usar Azure Portal para crear un panel inicial con los iconos deseados. Después, exporte el código JSON y cree una plantilla a partir del resultado que puede modificar para usarla en scripts, programas y herramientas de implementación.
 
 ## <a name="create-a-dashboard"></a>Creación de un panel
 
 Para crear un panel, seleccione **Panel** en el menú de [Azure Portal](https://portal.azure.com) y luego **Nuevo panel**.
 
-![comando nuevo de panel](./media/azure-portal-dashboards-create-programmatically/new-dashboard-command.png)
-
-Use la galería de iconos para buscar y agregar iconos. Los iconos se agregan arrastrándolos y colocándolos. Algunos iconos admiten el cambio de tamaño mediante un controlador de arrastre.
-
-![Controlador de arrastre para cambiar el tamaño](./media/azure-portal-dashboards-create-programmatically/drag-handle.png)
-
-Otros tienen tamaños fijos entre los que elegir en el menú contextual.
-
-![Menú contextual de tamaños para cambiar el tamaño](./media/azure-portal-dashboards-create-programmatically/sizes-context-menu.png)
+Para más información, vea [Creación de un panel en Azure Portal](azure-portal-dashboards.md).
 
 ## <a name="share-the-dashboard"></a>Uso compartido del panel
 
 Después de configurar el panel, el siguiente paso es publicar el panel con el comando **Compartir**.
 
-![Uso compartido de un panel](./media/azure-portal-dashboards-create-programmatically/share-command.png)
+Al compartir un panel, tendrá que elegir en qué suscripción y grupo de recursos se va a publicar. Debe tener acceso de escritura a la suscripción y al grupo de recursos que elija. Para más información, consulte [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
-Al seleccionar **Compartir**, se le pide que elija en qué suscripción y grupo de recursos se va a publicar. Debe tener acceso de escritura a la suscripción y al grupo de recursos que elija. Para más información, consulte [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
-
-![Cambios en el uso compartido y el acceso](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
+Para más información, vea [Uso compartido de paneles de Azure mediante el control de acceso basado en rol de Azure](azure-portal-dashboard-share-access.md).
 
 ## <a name="fetch-the-json-representation-of-the-dashboard"></a>Captura de la representación JSON del panel
 
-La publicación solo tarda unos segundos. Cuando haya terminado, el paso siguiente consiste en capturar el archivo JSON mediante el comando **Descargar**.
+Compartir el panel solo tarda unos segundos. Cuando haya terminado, el paso siguiente consiste en exportar el código JSON mediante el comando **Descargar**.
 
-![descargar representación JSON](./media/azure-portal-dashboards-create-programmatically/download-command.png)
+:::image type="content" source="media/azure-portal-dashboards-create-programmatically/download-command.png" alt-text="Captura de pantalla del comando para exportar la representación JSON de una plantilla en Azure Portal.":::
 
 ## <a name="create-a-template-from-the-json"></a>Creación de una plantilla a partir de JSON
 
-El siguiente paso es crear una plantilla a partir de este JSON. Use esa plantilla mediante programación con las API de administración de recursos adecuadas, las herramientas de línea de comandos o en el portal.
+El siguiente paso es crear una plantilla a partir de este JSON. Podrá usar la plantilla mediante programación con las API de administración de recursos adecuadas, las herramientas de línea de comandos o en el portal.
 
-No es necesario comprender perfectamente la estructura JSON del panel para crear una plantilla. En la mayoría de los casos, se quiere conservar la estructura y la configuración de cada icono. Luego, parametrice el conjunto de recursos de Azure a los que señalan los iconos. Examine el panel JSON exportado y busque todas las repeticiones de los identificadores de recursos de Azure. El panel de ejemplo tiene varios iconos que señalan todos a una única máquina virtual de Azure. Esto se debe a que el panel solo examina este recurso. Si busca "/subscriptions" en el JSON de ejemplo, incluido al final del documento, encuentra varias repeticiones de este identificador.
+No es necesario comprender perfectamente la estructura JSON del panel para crear una plantilla. En la mayoría de los casos, se quiere conservar la estructura y la configuración de cada icono. Luego, parametrice el conjunto de recursos de Azure a los que señalan los iconos.
+
+Examine el panel JSON exportado y busque todas las repeticiones de los identificadores de recursos de Azure. El panel de ejemplo tiene varios iconos que señalan todos a una única máquina virtual de Azure. Esto se debe a que el panel solo examina este recurso. Si busca "/subscriptions" en el código JSON de ejemplo, incluido al final del documento, encontrará varias repeticiones de este identificador.
 
 `/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1`
 
@@ -68,8 +60,8 @@ Para publicar este panel para cualquier máquina virtual en el futuro, parametri
 
 Hay dos enfoques para las API que crean recursos en Azure:
 
-* Las API imperativas crean un recurso cada vez. Para obtener más información, consulte [Recursos](/rest/api/resources/resources).
-* Un sistema de implementación basado en plantillas que crea varios recursos dependientes con una única llamada API. Para obtener más información, vea [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md).
+- Las API imperativas crean un recurso cada vez. Para obtener más información, consulte [Recursos](/rest/api/resources/resources).
+- Un sistema de implementación basado en plantillas que crea varios recursos dependientes con una única llamada API. Para obtener más información, vea [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md).
 
 La implementación basada en plantillas admite la parametrización y las plantillas. En este artículo se usa este enfoque.
 
@@ -113,18 +105,19 @@ Declare los metadatos de plantilla requeridos y los parámetros en la parte supe
 
     ... rest of template omitted ...
 ```
+
 Una vez configurada la plantilla, impleméntela con cualquiera de los métodos siguientes:
 
-* [API de REST](/rest/api/resources/deployments)
-* [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
-* [CLI de Azure](/cli/azure/group/deployment#az_group_deployment_create)
-* [Página de implementación de plantillas de Azure Portal](https://portal.azure.com/#create/Microsoft.Template)
+- [API de REST](/rest/api/resources/deployments)
+- [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+- [CLI de Azure](/cli/azure/group/deployment#az_group_deployment_create)
+- [Página de implementación de plantillas de Azure Portal](https://portal.azure.com/#create/Microsoft.Template)
 
 A continuación, verá dos versiones de nuestro JSON del panel de ejemplo. La primera es la versión que hemos exportado desde el portal y que ya estaba enlazada a un recurso. La segunda es la versión de la plantilla que se puede enlazar mediante programación a cualquier máquina virtual e implementar con Azure Resource Manager.
 
-### <a name="json-representation-of-our-example-dashboard-before-templating"></a>Representación JSON del panel de ejemplo antes de las plantillas
+### <a name="json-representation-of-our-example-dashboard"></a>Representación JSON del panel de ejemplo
 
-En este ejemplo se muestra el resultado previsto si se ha seguido este artículo. Las instrucciones han exportado la representación JSON de un panel que ya está implementado. Los identificadores de recursos codificados de forma rígida muestran que este panel señala a una máquina virtual de Azure específica.
+Este ejemplo es similar al que verá si ha seguido este artículo. Las instrucciones han exportado la representación JSON de un panel que ya está implementado. Los identificadores de recursos codificados de forma rígida muestran que este panel señala a una máquina virtual de Azure específica.
 
 ```json
 
@@ -656,9 +649,9 @@ Prepare el entorno para la CLI de Azure.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-- En estos ejemplos se utiliza el siguiente panel: [portal-dashboard-template-testvm.json](https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json). Reemplace el contenido entre corchetes angulares por sus valores.
+- En estos ejemplos se utiliza el siguiente panel: [portal-dashboard-template-testvm.json](https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json). Asegúrese de reemplazar todo el contenido entre corchetes angulares por valores propios.
 
-Ejecute el comando [az portal dashboard create](/cli/azure/portal/dashboard#az_portal_dashboard_create) para crear un panel:
+Ejecute el comando [az portal dashboard create](/cli/azure/portal/dashboard#az_portal_dashboard_create) para crear un panel en función de la plantilla:
 
 ```azurecli
 az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' \
@@ -692,6 +685,6 @@ az portal dashboard list --resource-group myResourceGroup
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información acerca de los escritorios, consulte [Administración de las preferencias y la configuración de Azure Portal](set-preferences.md).
-
-Para más información sobre la compatibilidad de la CLI de Azure con los paneles, consulte [az portal dashboard](/cli/azure/portal/dashboard).
+- Aprenda a [usar iconos de markdown en los paneles de Azure para mostrar contenido personalizado](azure-portal-markdown-tile.md).
+- Explore todos los comandos de la CLI de Azure para los paneles, vea [az portal dashboard](/cli/azure/portal/dashboard).
+- Aprenda a [administrar las preferencias y los valores de Azure Portal](set-preferences.md).

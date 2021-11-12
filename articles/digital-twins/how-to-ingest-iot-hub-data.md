@@ -1,20 +1,22 @@
 ---
 title: Ingesta de telemetría desde IoT Hub
 titleSuffix: Azure Digital Twins
-description: Consulte cómo ingerir los mensajes de telemetría de dispositivos desde IoT Hub.
+description: Aprenda a ingerir mensajes de telemetría de dispositivos desde Azure IoT Hub en gemelos digitales en una instancia de Azure Digital Twins.
 author: baanders
 ms.author: baanders
-ms.date: 9/9/2021
+ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8fd5b6a046c53a34e41340250c8d6ac38fdf5706
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1b10a87312fd7b27c22bbfa56a928a0357d4698e
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128667357"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500946"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Ingesta de telemetría de IoT Hub en Azure Digital Twins
+
+En esta guía se explica cómo se escribe una función que puede ingerir telemetría de IoT Hub y enviarla a una instancia de Azure Digital Twins.
 
 Azure Digital Twins se basa en los datos de los dispositivos IoT y otros orígenes. Un origen común de los datos del dispositivo que se va a usar en Azure Digital Twins es [IoT Hub](../iot-hub/about-iot-hub.md).
 
@@ -103,7 +105,7 @@ A continuación, **asigne un rol de acceso** para la función y **configure las 
 
 ## <a name="connect-your-function-to-iot-hub"></a>Conexión de la función a IoT Hub
 
-En esta sección, configurará la función como un destino de evento para los datos del dispositivo de IoT Hub. De esta forma, se garantiza que los datos del dispositivo de termostato de IoT Hub se enviarán a la función de Azure para procesarlos.
+En esta sección, configurará la función como un destino de evento para los datos del dispositivo de IoT Hub. Si configura la función de esta forma, se asegurará de que los datos del dispositivo de termostato de IoT Hub se enviarán a la función de Azure para procesarlos.
 
 En [Azure Portal](https://portal.azure.com/), navegue a la instancia de IoT Hub que creó en la sección [Requisitos previos](#prerequisites). En **Eventos**, cree una suscripción para su función.
 

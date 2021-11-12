@@ -6,17 +6,17 @@ ms.service: virtual-machines
 ms.subservice: maintenance
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 10/18/2021
+ms.date: 10/20/2021
 ms.author: manayar
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7df73a0e09cf845f0dd7b5fda10bbb370057e998
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 91d172cf1d3ba5bf78feb8e18382631464619c04
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130181395"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131459736"
 ---
-# <a name="preview-automatic-vm-guest-patching-for-azure-vms"></a>Versión preliminar: Aplicación de revisiones automática a invitados de las máquinas virtuales para máquinas virtuales de Azure
+# <a name="automatic-vm-guest-patching-for-azure-vms"></a>Aplicación de revisiones automática a invitados de máquina virtual para máquinas virtuales de Azure
 
 **Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles
 
@@ -28,11 +28,6 @@ La aplicación de revisiones automáticas a invitados de máquina virtual tiene 
 - Azure administra la orquestación de las revisiones y estas se aplican siguiendo el [principio de orden de disponibilidad](#availability-first-updates).
 - Se supervisa el mantenimiento de la máquina virtual, determinado a través de las señales de mantenimiento de la plataforma, para detectar errores en la aplicación de revisiones.
 - Funciona con todos los tamaños de máquina virtual.
-
-> [!IMPORTANT]
-> La aplicación de revisiones automáticas a invitados de máquina virtual se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="how-does-automatic-vm-guest-patching-work"></a>¿Cómo funciona la aplicación de revisiones a invitados de máquina virtual?
 
@@ -78,7 +73,7 @@ En el caso de los tipos de sistema operativo que publican revisiones en una cade
 A medida que se desencadena un nuevo lanzamiento cada mes, una máquina virtual recibirá al menos una implementación de revisiones cada mes si la máquina virtual está encendida durante las horas de poca actividad. Este proceso garantiza que la máquina virtual se revisará con las revisiones críticas y de seguridad disponibles más recientes de manera mensual. Para garantizar la coherencia en el conjunto de revisiones instaladas, puede configurar las máquinas virtuales para evaluar y descargar las revisiones de sus propios repositorios privados.
 
 ## <a name="supported-os-images"></a>Imágenes de sistema operativo compatibles
-Actualmente, en la versión preliminar, solo se admiten máquinas virtuales creadas a partir de determinadas imágenes de plataforma de sistema operativo. Las imágenes personalizadas no se admiten actualmente en la versión preliminar.
+Actualmente, solo se admiten máquinas virtuales creadas a partir de determinadas imágenes de plataforma de sistema operativo. Las imágenes personalizadas no se admiten actualmente.
 
 Las siguientes SKU de plataforma se admiten actualmente (y periódicamente se agregan más):
 
@@ -232,7 +227,7 @@ Puede tardar más de tres horas en habilitar las actualizaciones automáticas de
 Las actualizaciones automáticas están deshabilitadas en la mayoría de los escenarios y la instalación de las revisiones en adelante se realiza mediante la extensión. Se aplican las siguientes condiciones.
 - Si se había activado previamente Windows Update automático en la máquina virtual mediante el modo de revisión AutomaticByOS, se desactiva Windows Update automático para la máquina virtual cuando se instala la extensión.
 - En el caso de las máquinas virtuales Ubuntu, las actualizaciones automáticas predeterminadas se deshabilitan automáticamente cuando se completa la habilitación de la aplicación de revisiones automática de invitados de máquina virtual.
-- Para RHEL, las actualizaciones automáticas se deben deshabilitar manualmente en la versión preliminar. Ejecute:
+- Para RHEL, las actualizaciones automáticas se deben deshabilitar manualmente. Ejecute:
 
 ```
 systemctl stop packagekit

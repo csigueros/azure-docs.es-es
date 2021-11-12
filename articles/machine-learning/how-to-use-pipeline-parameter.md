@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.author: keli19
 author: likebupt
-ms.date: 04/09/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: designer
-ms.openlocfilehash: b3ef6f684123c863fd2bdfb5a5ec953b3b20cc6f
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: d600f7ad651b58f3cf194c8f5dace8f6dc4c7695
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129428072"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131560347"
 ---
 # <a name="use-pipeline-parameters-in-the-designer-to-build-versatile-pipelines"></a>Uso de parámetros de canalización en el diseñador para compilar canalizaciones versátiles
 
@@ -30,7 +30,7 @@ En este artículo, aprenderá a realizar las siguientes tareas:
 > * Eliminar y administrar parámetros de canalización
 > * Desencadenar ejecuciones de canalización al ajustar los parámetros de canalización
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Un área de trabajo de Azure Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
@@ -41,8 +41,8 @@ En este artículo, aprenderá a realizar las siguientes tareas:
 ## <a name="create-pipeline-parameter"></a>Creación de un parámetro de canalización
 
 Hay tres formas de crear un parámetro de canalización en el diseñador:
-- Cree un parámetro de canalización en el panel de configuración y enlácelo a un módulo.
-- Promueva un parámetro de módulo a un parámetro de canalización.
+- Cree un parámetro de canalización en el panel de configuración y enlácelo a un componente.
+- Promueva un parámetro de componente a un parámetro de canalización.
 - Promueva un conjunto de datos a un parámetro de canalización.
 
 > [!NOTE]
@@ -52,7 +52,7 @@ Hay tres formas de crear un parámetro de canalización en el diseñador:
 
 En esta sección, creará un parámetro de canalización en el panel de configuración.
 
-En este ejemplo, se crea un parámetro de canalización que define cómo una canalización rellena los datos que faltan mediante el módulo **Clean Missing Data** (Limpiar datos que faltan).
+En este ejemplo, se crea un parámetro de canalización que define como una canalización rellena los datos que faltan mediante el componente **Clean Missing Data** (Limpiar datos que faltan).
 
 1. Junto al nombre del borrador de la canalización, seleccione el **icono de engranaje** para abrir el panel **Configuración**.
 
@@ -65,18 +65,18 @@ En este ejemplo, se crea un parámetro de canalización que define cómo una can
    ![Captura de pantalla que muestra cómo crear un parámetro de canalización](media/how-to-use-pipeline-parameter/create-pipeline-parameter.png)
 
 
-Después de crear un parámetro de canalización, debe [adjuntarlo al parámetro de módulo](#attach-module-parameter-to-pipeline-parameter) que desea establecer dinámicamente.
+Después de crear un parámetro de canalización, debe [adjuntarlo al parámetro de componente](#attach-component-parameter-to-pipeline-parameter) que desea establecer dinámicamente.
 
-### <a name="option-2-promote-a-module-parameter"></a>Opción 2: Promoción de un parámetro de módulo
+### <a name="option-2-promote-a-component-parameter"></a>Opción 2: Promoción de un parámetro de componente
 
-La manera más sencilla de crear un parámetro de canalización para un valor de módulo es promover un parámetro de módulo. Utilice los pasos siguientes para promover un parámetro de módulo a un parámetro de canalización:
+La manera más sencilla de crear un parámetro de canalización para un valor de componente es promover un parámetro de componente. Utilice los pasos siguientes para promover un parámetro de componente a un parámetro de canalización:
 
-1. Seleccione el módulo al que desea adjuntar un parámetro de canalización.
-1. En el panel de detalles del módulo, pase el mouse sobre el parámetro que quiere especificar.
+1. Seleccione el componente al que desea adjuntar un parámetro de canalización.
+1. En el panel de detalles del componente, pase el mouse sobre el parámetro que quiere especificar.
 1. Seleccione los puntos suspensivos ( **...** ) que aparecen.
 1. Seleccione **Add to pipeline parameter** (Agregar al parámetro de canalización).
 
-    ![Captura de pantalla que muestra cómo promover el parámetro de módulo a la canalización parameter1](media/how-to-use-pipeline-parameter/promote-module-para-to-pipeline-para.png)
+    ![Captura de pantalla que muestra cómo promover el parámetro de componente a la canalización parameter1](media/how-to-use-pipeline-parameter/promote-module-para-to-pipeline-para.png)
 
 1. Indique un nombre de parámetro y un valor predeterminado.
 1. Seleccione **Guardar**.
@@ -95,19 +95,19 @@ Si quiere enviar la canalización con conjuntos de datos variables, debe promove
 
 Ahora puede especificar otro conjunto de datos mediante el parámetro de canalización la próxima vez que ejecute la canalización.
 
-## <a name="attach-and-detach-module-parameter-to-pipeline-parameter"></a>Asociación y desasociación del parámetro de módulo en el parámetro de canalización 
+## <a name="attach-and-detach-component-parameter-to-pipeline-parameter"></a>Asociación y desasociación del parámetro de componente en el parámetro de canalización 
 
-En esta sección, aprenderá a asociar y desasociar el parámetro de módulo en el parámetro de canalización.
+En esta sección, aprenderá a asociar y desasociar el parámetro de componente en el parámetro de canalización.
 
-### <a name="attach-module-parameter-to-pipeline-parameter"></a>Asociación del parámetro de módulo al parámetro de canalización
+### <a name="attach-component-parameter-to-pipeline-parameter"></a>Asociación de parámetro de componente al parámetro de canalización
 
-Puede adjuntar los mismos parámetros de módulos duplicados al mismo parámetro de canalización si desea modificar el valor de una sola vez al desencadenar la ejecución de la canalización.
+Puede asociar los mismos parámetros de componentes duplicados al mismo parámetro de canalización si desea modificar el valor de una sola vez al desencadenar la ejecución de la canalización.
 
-En el siguiente ejemplo se ha duplicado el módulo **Clean Missing Data** (Limpiar datos que faltan). En cada módulo **Clean Missing Data** (Limpiar datos que faltan), adjunte el **valor de reemplazo** al parámetro de canalización **replace-missing-value**:
+En el siguiente ejemplo se ha duplicado el componente **Clean Missing Data** (Limpiar datos que faltan). En cada componente **Clean Missing Data** (Limpiar datos que faltan), asocie el **valor de reemplazo** al parámetro de canalización **replace-missing-value**:
 
-1. Seleccione el módulo **Clean Missing Data** (Limpiar datos que faltan).
+1. Seleccione el componente **Clean Missing Data** (Limpiar datos que faltan).
 
-1. En el panel de detalles del módulo, a la derecha del lienzo, establezca el **modo de limpieza** en "Custom substitution value" (Valor de sustitución personalizado).
+1. En el panel de detalles del componente, a la derecha del lienzo, establezca **Cleaning mode** (Modo de limpieza) en "Custom substitution value" (Valor de sustitución personalizado).
 
 1. Pase el mouse por el campo **Replacement value** (Valor de reemplazo).
 
@@ -120,11 +120,11 @@ En el siguiente ejemplo se ha duplicado el módulo **Clean Missing Data** (Limpi
 Ha adjuntado correctamente el campo **Replacement value** (Valor de reemplazo) al parámetro de canalización. 
 
 
-### <a name="detach-module-parameter-to-pipeline-parameter"></a>Desasociación del parámetro de módulo en el parámetro de canalización
+### <a name="detach-component-parameter-to-pipeline-parameter"></a>Desasociación de parámetro de componente del parámetro de canalización
 
 Después de asociar el **valor de reemplazo** al parámetro de canalización, no se puede realizar ninguna acción.
 
-Para desasociar el parámetro del módulo en el parámetro de canalización, haga clic en los puntos suspensivos ( **...** ) que hay junto al parámetro de módulo y seleccione **Detach from pipeline parameter** (Desasociar de parámetro de canalización).
+Para desasociar el parámetro del componente del parámetro de canalización, haga clic en los puntos suspensivos ( **...** ) que hay junto al parámetro de componente y seleccione **Detach from pipeline parameter** (Desasociar de parámetro de canalización).
 
  ![Captura de pantalla que muestra que no es accionable después de asociar al parámetro de canalización](media/how-to-use-pipeline-parameter/non-actionable-module-parameter.png)
 
@@ -134,7 +134,7 @@ En esta sección, aprenderá a actualizar y eliminar parámetros de canalizació
 
 ### <a name="update-pipeline-parameters"></a>Actualización de los parámetros de canalización
 
-Siga estos pasos para actualizar un parámetro de canalización de módulo:
+Siga estos pasos para actualizar un parámetro de canalización de componente:
 
 1. En la parte superior del lienzo, seleccione el icono de engranaje.
 1. En la sección **Parámetros de canalización**, puede ver y actualizar el nombre y el valor predeterminado de todos los parámetros de canalización.
@@ -143,26 +143,26 @@ Siga estos pasos para actualizar un parámetro de canalización de módulo:
 
 Use los siguientes pasos para eliminar un parámetro de canalización del conjunto de datos:
 
-1. Seleccione el módulo del conjunto de datos.
+1. Seleccione el componente del conjunto de datos.
 1. Desactive la opción **Set as pipeline parameter** (Establecer como parámetro de canalización).
 
 
-### <a name="delete-module-pipeline-parameters"></a>Eliminación de parámetros de canalización de módulo
+### <a name="delete-component-pipeline-parameters"></a>Eliminación de parámetros de canalización de componentes
 
-Siga estos pasos para eliminar un parámetro de canalización de módulo:
+Siga estos pasos para eliminar un parámetro de canalización de componente:
 
 1. En la parte superior del lienzo, seleccione el icono de engranaje.
 
 1. Seleccione los puntos suspensivos ( **...** ) junto al parámetro de canalización.
 
-    Esta vista muestra los módulos a los que está asociado el parámetro de canalización.
+    En esta vista se muestran los módulos a los que está asociado el parámetro de canalización.
 
-    ![Captura de pantalla que muestra el parámetro de canalización actual aplicado a un módulo](media/how-to-use-pipeline-parameter/delete-pipeline-parameter2.png)
+    ![Captura de pantalla que muestra el parámetro de canalización actual aplicado a un componente](media/how-to-use-pipeline-parameter/delete-pipeline-parameter2.png)
 
 1. Seleccione **Delete parameter** (Eliminar parámetro) para eliminar el parámetro de canalización.
 
     > [!NOTE]
-    > Al eliminar un parámetro de canalización, se desasociarán todos los parámetros del módulo adjuntos y el valor de los parámetros del módulo desasociados mantendrá el valor del parámetro de canalización actual.     
+    > Al eliminar un parámetro de canalización, se desasociarán todos los parámetros de componente asociados y el valor de los parámetros de componente desasociados conservará el valor del parámetro de canalización actual.     
 
 ## <a name="trigger-a-pipeline-run-with-pipeline-parameters"></a>Desencadenamiento de una ejecución de canalización con parámetros de canalización 
 

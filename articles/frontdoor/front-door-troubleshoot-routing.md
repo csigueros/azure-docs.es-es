@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2021
 ms.author: duau
-ms.openlocfilehash: ed47d310f418936b84c505fcf254947a67f0eb6d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3bae55a4a5b2a2b6ec5ae8ce7c63fb52b96fbd9f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124824413"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131464193"
 ---
 # <a name="troubleshooting-common-routing-problems"></a>Solución de problemas comunes de enrutamiento
 
@@ -50,6 +50,22 @@ La causa del problema puede ser una de estas tres cosas:
 * Si con la configuración del tiempo de espera no se resuelve el problema, use una herramienta como Fiddler o la herramienta para desarrolladores del explorador para comprobar si el cliente envía solicitudes de intervalo de bytes con encabezados Accept-Encoding, lo que provoca que el origen responda con distintas longitudes de contenido. En caso afirmativo, puede deshabilitar la compresión en Origen/Azure Front Door, o bien crear una regla de conjunto de reglas para quitar `accept-encoding` de las solicitudes de intervalo de bytes.
 
     :::image type="content" source=".\media\troubleshoot-route-issues\remove-encoding-rule.png" alt-text="Captura de pantalla de la regla Accept-Encoding en el motor de reglas.":::
+
+## <a name="https-traffic-to-backend-fails"></a>Se produce un error en el tráfico HTTPS al back-end
+
+### <a name="symptom"></a>Síntoma
+
+Error de tráfico HTTPS al recurso de back-end.
+
+### <a name="cause"></a>Causa
+
+* El certificado con nombres del sujeto no coincide con el nombre de host del back-end durante el protocolo de enlace TLS.
+* El certificado de hospedaje de back-end no es de una entidad de certificación válida.
+
+### <a name="troubleshooting-steps"></a>Pasos para solucionar problemas
+
+* Aunque no se recomienda desde el punto de vista del cumplimiento, una forma de evitar este error es deshabilitar la comprobación del nombre del firmante del certificado para Front Door. Está presente en Configuración, en Azure Portal, y en BackendPoolsSettings, en la API.
+* Solo se pueden usar certificados de [entidades de certificación válidas](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT) en el back-end con Front Door. No se permiten certificados de entidades de certificación internas ni certificados autofirmados. El certificado debe tener una cadena de certificados completa con certificados de hoja e intermedios, y la CA raíz debe formar parte de la [lista de CA de confianza de Microsoft](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
 
 ## <a name="requests-sent-to-the-custom-domain-return-a-400-status-code"></a>Las solicitudes enviadas al dominio personalizado devuelven el código de estado 400
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/1/2021
 ms.author: jol
-ms.openlocfilehash: 6445f26494394e551795390f29d16b59fca877d7
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 2246b54b6831d0e88581c80aedc4e39388c6f377
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131511342"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132327393"
 ---
 # <a name="smb-over-quic-with-automanage-machine-best-practices"></a>SMB a través de QUIC con procedimientos recomendados para máquinas con Automanage
 
@@ -24,7 +24,7 @@ Además, SMB a través de QUIC se integra con los procedimientos recomendados pa
 ## <a name="how-to-get-started"></a>Primeros pasos
 
 > [!NOTE]
-> Para ver los requisitos previos sobre el uso de los procedimientos recomendados de máquinas con Automanage, consulte [Habilitación para máquinas virtuales en Azure Portal](quick-create-virtual-machines-portal.md). 
+> Para ver los requisitos previos sobre el uso de los procedimientos recomendados de máquinas con Automanage, consulte [Habilitación para máquinas virtuales en Azure Portal](quick-create-virtual-machines-portal.md).
 
 > [!NOTE]
 > Durante la fase de versión preliminar, puede empezar a trabajar en Azure Portal mediante [este vínculo](https://aka.ms/automanage-ws-portal-preview).
@@ -34,10 +34,12 @@ Además, SMB a través de QUIC se integra con los procedimientos recomendados pa
 Para habilitar los procedimientos recomendados para máquinas con Automanage para SMB a través de QUIC en una máquina virtual, siga estos pasos:
 
 1. Inicie sesión en Azure Portal con el anterior vínculo de versión preliminar.
+
 2. Cree una máquina virtual de Azure con la imagen _Windows Server 2022 Datacenter: Azure Edition_ para obtener las funcionalidades de Automanage para Windows Server, incluido SMB a través de QUIC.
+
 3. En la pestaña **Administración** de la configuración del entorno de Azure Automanage, elija **Desarrollo/pruebas** o **Producción** a fin de habilitar los procedimientos recomendados para máquinas con Automanage.
 
-:::image type="content" source="media\automanage-smb-over-quic\create-vm-automanage-setting.png" alt-text="Habilite Automanage al crear una máquina virtual.":::
+    :::image type="content" source="media\automanage-smb-over-quic\create-vm-automanage-setting.png" alt-text="Habilite Automanage al crear una máquina virtual.":::
 
 4. Configure cualquier opción adicional que sea necesaria y cree la máquina virtual.
 
@@ -48,7 +50,7 @@ También puede habilitar los procedimientos recomendados para máquinas con Auto
 1. Vaya a la máquina virtual que ha creado anteriormente.
 2. Seleccione el menú de Automanage, elija el entorno de **Desarrollo/pruebas** o **Producción** y haga clic en **Habilitar**.
 
-:::image type="content" source="media\automanage-smb-over-quic\vm-enable-automanage.png" alt-text="Habilite Automanage en una máquina virtual existente.":::
+    :::image type="content" source="media\automanage-smb-over-quic\vm-enable-automanage.png" alt-text="Habilite Automanage en una máquina virtual existente.":::
 
 ## <a name="viewing-automanage-best-practice-compliance"></a>Visualización del cumplimiento de los procedimientos recomendados de Automanage
 

@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.date: 08/31/2021
 ms.author: azhussai
 ms.topic: conceptual
-ms.openlocfilehash: 5687c4af0321e26d20906932fd9ac3b06b983651
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: 5feb112a9d1c9b7eb229c65f8bcce3845a3f23ad
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132373087"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131844988"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hospedaje de varios sitios de Application Gateway
 
-El hospedaje de varios sitios permite configurar más de una aplicación web en el mismo puerto de puertas de enlace de aplicaciones mediante agentes de escucha de acceso público. Permite configurar una topología más eficaz para las implementaciones al agregar hasta 100 sitios web a una puerta de enlace de aplicaciones. Cada sitio web se puede dirigir a su propio grupo de back-end. Por ejemplo, tres dominios, contoso.com, fabrikam.com y adatum.com, señalan a la dirección IP de la puerta de enlace de aplicaciones. Crearía tres clientes de escucha multisitio y configuraría cada uno con la configuración respectiva de protocolo y puerto.
+El hospedaje de varios sitios permite configurar más de una aplicación web en el mismo puerto de puertas de enlace de aplicaciones mediante agentes de escucha de acceso público. Permite configurar una topología más eficaz para las implementaciones al agregar hasta 100 sitios web a una puerta de enlace de aplicaciones. Cada sitio web se puede dirigir a su propio grupo de back-end. Por ejemplo, tres dominios, contoso.com, fabrikam.com y adatum.com, señalan a la dirección IP de la puerta de enlace de aplicaciones. Crearía tres clientes de escucha multisitio y configuraría cada uno con la configuración respectiva de protocolo y puerto. 
 
 También puede definir nombres de host con el carácter comodín en un cliente de escucha de varios sitios y hasta cinco nombres de host por cliente de escucha. Para obtener más información, consulte los [nombres de host comodín en el cliente de escucha](#wildcard-host-names-in-listener-preview).
 
@@ -71,8 +71,6 @@ En Azure Portal, en el cliente de escucha de varios sitios, debe elegir el host 
 * `*` -puede coincidir con varios caracteres del intervalo permitido
 * `?` -puede coincidir con un único carácter del intervalo permitido
 
-<!-- docutune:disable -->
-
 ### <a name="conditions-for-using-wildcard-characters-and-multiple-host-names-in-a-listener"></a>Condiciones para usar caracteres comodín y varios nombres de host en un cliente de escucha
 
 * Solo puede mencionar hasta cinco nombres de host en un único cliente de escucha.
@@ -80,8 +78,6 @@ En Azure Portal, en el cliente de escucha de varios sitios, debe elegir el host 
 * Solo puede haber hasta dos asteriscos `*` en un nombre de host. Por ejemplo, `*.contoso.*` es válido y `*.contoso.*.*.com` no es válido.
 * Solo puede haber un máximo de 4 caracteres comodín en un nombre de host. Por ejemplo, `????.contoso.com`, `w??.contoso*.edu.*` son válidos, pero `????.contoso.*` no es válido.
 * El uso del asterisco `*` y el signo de interrogación `?` juntos en un componente de un nombre de host (`*?`, `?*` o `**`) no es válido. Por ejemplo, `*?.contoso.com` and `**.contoso.com` no son válidos.
-
-<!-- docutune:enable -->
 
 ### <a name="considerations-and-limitations-of-using-wildcard-or-multiple-host-names-in-a-listener"></a>Consideraciones y limitaciones del uso de caracteres comodín o varios nombres de host en un cliente de escucha
 

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/07/2021
 ms.author: rohogue
-ms.openlocfilehash: e1567cbd90bcb97088e7527cf7cd76ce3895e958
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: 26f85b4d3a2cc49e55d228fbd73ae7cb3b66bf5d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129668983"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132337877"
 ---
 # <a name="avere-cluster-dns-configuration"></a>Configuración de DNS del clúster de Avere
 
@@ -84,4 +84,4 @@ Especifique el servidor DNS que usa el clúster de vFXT en la página de configu
 * Nombre de dominio DNS
 * Dominios de búsqueda DNS
 
-Lea [DNS Settings](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html#gui-dns>) (Configuración de DNS) en la guía de configuración del clúster de Avere para obtener más detalles sobre el uso de esta página.
+Lea [DNS Settings](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html#gui-dns) (Configuración de DNS) en la guía de configuración del clúster de Avere para obtener más detalles sobre el uso de esta página.

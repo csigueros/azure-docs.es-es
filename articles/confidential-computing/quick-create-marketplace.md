@@ -1,20 +1,20 @@
 ---
 title: 'Inicio rápido: Creación de una máquina virtual Intel SGX en Azure Marketplace'
 description: Para empezar a trabajar con sus implementaciones, aprenda a crear rápidamente una máquina virtual Intel SGX en Marketplace.
-author: JBCook
+author: stempesta
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 11/01/2021
-ms.author: JenCook
+ms.author: stempesta
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 43a6e24ac887336854b59f747233b1cd355f4686
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b46bae979d3045d1f301f68841cadcfe46448733
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131077864"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132290274"
 ---
 # <a name="quickstart-create-intel-sgx-vm-in-the-azure-marketplace"></a>Inicio rápido: Creación de una máquina virtual Intel SGX en Azure Marketplace
 

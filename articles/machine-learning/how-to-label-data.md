@@ -7,14 +7,14 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 09/24/2021
-ms.custom: data4ml, ignite-fall-2021
-ms.openlocfilehash: 3fae9f8f6e5c0e54d42751456b693a4bc094771c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 10/21/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: a811c63e29800fa7f79d620f358e06939168ce4c
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131079384"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563043"
 ---
 # <a name="labeling-images-and-text-documents"></a>Etiquetado de imágenes y documentos de texto
 
@@ -67,6 +67,8 @@ Los algoritmos de aprendizaje automático se pueden desencadenar durante el etiq
     * En algún momento, puede ver **Tasks prelabeled** (Tareas preetiquetadas) junto al nombre del proyecto.  Luego aparecerán elementos con una etiqueta sugerida que proviene de un modelo de clasificación de aprendizaje automático. Ninguno de los modelos de Machine Learning tiene una precisión del 100 %. Aunque solo usamos datos para os que el modelo sea seguro, existe la posibilidad de que estos datos no estén preetiquetados correctamente.  Cuando vea etiquetas, corrija las incorrectas antes de enviar la página.
 
 En las primeras fases de un proyecto de etiquetado, es posible que el modelo de Machine Learning sea suficientemente preciso para preetiquetar un pequeño subconjunto de imágenes. Una vez que se etiqueten estas imágenes, el proyecto de etiquetado volverá al etiquetado manual para recopilar más datos para la siguiente ronda del entrenamiento del modelo. Con el paso del tiempo, el modelo pasará a ser más seguro en una mayor proporción de imágenes, lo cual dará como resultado posteriormente un mayor número de tareas preetiquetadas en el proyecto.
+
+Cuando no hay más tareas preetiquetadas, se deja de confirmar o corregir etiquetas y se vuelve al etiquetado manual de los elementos.
 
 ## <a name="image-tasks"></a><a name="image-tasks"></a> Tareas de imagen
 

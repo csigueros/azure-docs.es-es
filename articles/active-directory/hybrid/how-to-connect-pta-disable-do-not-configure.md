@@ -11,14 +11,18 @@ ms.date: 04/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acabc2cf177ec81ecc293398f9b43f42e71c2862
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 66980ff85a3b539c81653f2abce39a1ced50003b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129234919"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131427615"
 ---
-# <a name="disable-pta-when-using-azure-ad-connect"></a>Deshabilitación de PTA al usar Azure AD Connect
+# <a name="disable-pta"></a>Deshabilitación de PTA 
+
+Para deshabilitar PTA, complete los pasos que se describen en [Deshabilitación de PTA al usar Azure AD Connect](#disable-pta-when-using-azure-ad-connect) y [Deshabilitación de PTA en PowerShell](#disable-pta-in-powershell) en este artículo.
+
+## <a name="disable-pta-when-using-azure-ad-connect"></a>Deshabilitación de PTA al usar Azure AD Connect
 
 Si usa la autenticación de paso a través (PTA) con Azure AD Connect y está establecida en **"No configurar"** , puede deshabilitarla. 
 
@@ -44,8 +48,10 @@ Se necesitan los siguientes requisitos previos:
 >| AzureUSGovernment | US Gov|
 
 
-## <a name="to-disable-pta"></a>Para deshabilitar PTA
+## <a name="disable-pta-in-powershell"></a>Deshabilitación de PTA en PowerShell
+
 Desde una sesión de PowerShell, use lo siguiente para deshabilitar PTA:
+
 1. PS C:\Archivos de programa\Microsoft Azure AD Connect Authentication Agent> `Import-Module .\Modules\PassthroughAuthPSModule`
 2. `Get-PassthroughAuthenticationEnablementStatus -Feature PassthroughAuth` o `Get-PassthroughAuthenticationEnablementStatus -Feature PassthroughAuth -EnvironmentName <identifier>`
 3. `Disable-PassthroughAuthentication  -Feature PassthroughAuth` o `Disable-PassthroughAuthentication -Feature PassthroughAuth -EnvironmentName <identifier>`

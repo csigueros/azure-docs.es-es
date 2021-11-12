@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 37192a38376536143472f406b9fd11c490a98e5b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 81dcb85302158adfe8be4df0715fee8cb5633fa6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128578825"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131459584"
 ---
 # <a name="monitor-and-review-logs-for-on-premises-azure-ad-password-protection-environments"></a>Supervisión y revisión de los registros de los entornos de protección con contraseña de Azure AD local
 
@@ -100,6 +100,9 @@ PasswordSetErrors               : 1
 ```
 
 Se puede influenciar el ámbito de los informes del cmdlet con uno de estos parámetros: -Forest, -Domain o -DomainController. No especificar un parámetro implica –Forest.
+
+> [!NOTE]
+> Si solo instala el agente de controlador de dominio en un controlador de dominio, Get-AzureADPasswordProtectionSummaryReport solo leerá eventos de ese controlador de dominio. Para obtener eventos de varios controladores de dominio, necesitará que el agente de controlador de dominio esté instalado en cada uno de ellos.
 
 El cmdlet `Get-AzureADPasswordProtectionSummaryReport` funciona mediante la consulta del registro de eventos de administración del agente de controlador de dominio y el posterior recuento del número total de eventos correspondiente a cada categoría de resultados mostrada. La tabla siguiente contiene las asignaciones entre cada resultado y su identificador de evento correspondiente:
 

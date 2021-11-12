@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
 ms.date: 09/07/2021
-ms.openlocfilehash: e80149a89c38124a6789b5e74e1c73f647465ae6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3f580069fc44f676bc6fcffa40bd74256a818a50
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128580546"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131520739"
 ---
 ## <a name="sdks"></a>SDK
 
@@ -66,7 +66,7 @@ status = nx_azure_iot_provisioning_client_registration_payload_set(prov_client_p
 
 ## <a name="use-components"></a>Uso de componentes
 
-Como se describe en [Descripción de componentes de los modelos de IoT Plug and Play](../articles/iot-develop/concepts-modeling-guide.md), los creadores de dispositivos deben decidir si quieren usar componentes para describir sus dispositivos. Cuando se usan componentes, los dispositivos deben seguir las reglas descritas en las secciones siguientes. Para simplificar el trabajo con las convenciones de IoT Plug and Play para los componentes, los ejemplos usan las funciones auxiliares en [nx_azure_iot_pnp_helpers.h](https://github.com/azure-rtos/netxduo/blob/master/addons/azure_iot/samples/common/nx_azure_iot_pnp_helpers.h).
+Como se describe en [Descripción de componentes de los modelos de IoT Plug and Play](../articles/iot-develop/concepts-modeling-guide.md), los creadores de dispositivos deben decidir si quieren usar componentes para describir sus dispositivos. Cuando se usan componentes, los dispositivos deben seguir las reglas descritas en las secciones siguientes. Para simplificar el trabajo con las convenciones de IoT Plug and Play para los componentes, los ejemplos usan las funciones auxiliares en [nx_azure_iot_hub_client.h](https://github.com/azure-rtos/netxduo/blob/master/addons/azure_iot/nx_azure_iot_hub_client.h).
 
 ## <a name="telemetry"></a>Telemetría
 

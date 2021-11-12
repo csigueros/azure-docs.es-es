@@ -15,16 +15,14 @@ ms.custom:
 - cog-serv-seo-aug-2020
 - contperf-fy21q2
 keywords: computer vision, computer vision applications, computer vision service
-ms.openlocfilehash: c5aad28fc8b2052f9a5af1233085a93b6a25c479
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 3165dc875c89618476284aaaff3e5884ab3fe6b1
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129360155"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132370752"
 ---
 # <a name="what-is-computer-vision"></a>¿Qué es Computer Vision?
-
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 El servicio Computer Vision de Azure proporciona acceso a algoritmos avanzados que procesan imágenes y devuelven información basada en las características visuales de interés. 
 

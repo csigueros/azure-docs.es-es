@@ -15,12 +15,12 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 04/08/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7a2e9d19c3847c5f2c7153580e463ce1e4d1d657
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: a9eb83289beaf3cafb80bda1b5c25bf6b4cb9528
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768774"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131467746"
 ---
 # <a name="registration-management"></a>Administración de registros
 
@@ -39,7 +39,7 @@ Un registro asocia el identificador del Servicio de notificación de plataforma 
 
 ### <a name="installations"></a>Instalaciones
 
-Una Instalación es un registro mejorado que incluye un conjunto de propiedades relacionadas con la inserción. Sin embargo, es el mejor y más reciente enfoque al registro de los dispositivos. Sin embargo, aún no es compatible con el SDK para .NET del cliente ([SDK del centro de notificaciones para operaciones de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)).  Esto significa que si registra desde el propio dispositivo cliente, tendría que usar el enfoque [API de REST de Notification Hubs](/rest/api/notificationhubs/create-overwrite-installation) para admitir las instalaciones. Si usa un servicio back-end, debe ser capaz de usar el [SDK del Centro de notificaciones para las operaciones de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+Una Instalación es un registro mejorado que incluye un conjunto de propiedades relacionadas con la inserción. Es el enfoque más reciente y el mejor para registrar los dispositivos mediante el SDK de .NET del lado cliente ([SDK de Notification Hub para operaciones de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)).  También puede usar el enfoque de la [API REST de Notification Hubs](/rest/api/notificationhubs/create-overwrite-installation) para registrar las instalaciones en el propio dispositivo cliente. Si usa un servicio back-end, debe ser capaz de usar el [SDK del Centro de notificaciones para las operaciones de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 Las siguientes son algunas ventajas clave de usar las instalaciones:
 

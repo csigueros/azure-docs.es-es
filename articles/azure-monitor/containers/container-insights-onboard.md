@@ -3,12 +3,12 @@ title: Habilitación de Container Insights | Microsoft Docs
 description: En este artículo se describe cómo habilitar y configurar Container Insights, de forma que pueda conocer el rendimiento de su contenedor y qué problemas relacionados con el rendimiento se han identificado.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: be2dcaeb088d2996df1d09e3f373e48866db3eb9
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 2d47ea7f2f2f0dadfd979a42b0b0e9125d4bebde
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130233457"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131455119"
 ---
 # <a name="enable-container-insights"></a>Habilitación de Container Insights
 
@@ -74,6 +74,9 @@ Container Insights admite oficialmente las siguientes configuraciones:
 - Entornos: Red Hat OpenShift en Azure, Kubernetes local y el motor de AKS en Azure y Azure Stack. Para más información, vea el [motor de AKS en Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview).
 - Las versiones de Kubernetes y de la directiva de compatibilidad son las mismas que las [compatibles con Azure Kubernetes Service (AKS)](../../aks/supported-kubernetes-versions.md).
 - Se recomienda conectar el clúster a [Azure Arc](../../azure-arc/kubernetes/overview.md) y habilitar la supervisión mediante Container Insights a través de Azure Arc.
+
+> [!IMPORTANT]
+> Tenga en cuenta que el complemento de supervisión no se admite actualmente para los clústeres de AKS configurados con el [proxy HTTP (versión preliminar)](../../aks/http-proxy.md)
 
 ## <a name="network-firewall-requirements"></a>Requisitos de firewall de red
 

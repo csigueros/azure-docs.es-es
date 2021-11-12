@@ -7,24 +7,22 @@ ms.author: sumuth
 ms.topic: tutorial
 ms.date: 11/25/2020
 ms.custom: vc, devx-track-azurecli
-ms.openlocfilehash: 749137187b7fffe111f854860517dc608ae44c8a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ce9b80187bdab50ac05cd426fd04db7e31ccdc0e
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128582424"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131853251"
 ---
 # <a name="tutorial-deploy-wordpress-app-on-aks-with-azure-database-for-mysql---flexible-server"></a>Tutorial: Implementación de una aplicación WordPress en AKS con Servidor flexible de Azure Database for MySQL
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-En este inicio rápido se implementa una aplicación WordPress en el clúster de Azure Kubernetes Service (AKS) con Servidor flexible de Azure Database for MySQL (versión preliminar) mediante la CLI de Azure. 
-**[AKS](../../aks/intro-kubernetes.md)** es un servicio de Kubernetes administrado que permite implementar y administrar clústeres rápidamente. **[Servidor flexible (versión preliminar) de Azure Database for MySQL](overview.md)** es un servicio de base de datos totalmente administrado diseñado para proporcionar un control más pormenorizado y una mayor flexibilidad sobre las funciones de administración de bases de datos y las opciones de configuración. Actualmente, Servidor flexible se encuentra en versión preliminar.
+En este inicio rápido se implementa una aplicación de WordPress en el clúster de Azure Kubernetes Service (AKS) con Servidor flexible de Azure Database for MySQL mediante la CLI de Azure.
+**[AKS](../../aks/intro-kubernetes.md)** es un servicio de Kubernetes administrado que permite implementar y administrar clústeres rápidamente. **[Servidor flexible de Azure Database for MySQL](overview.md)** es un servicio de base de datos totalmente administrado diseñado para proporcionar un control más granular y una mayor flexibilidad sobre las funciones de administración de bases de datos y las opciones de configuración.
 
 > [!NOTE]
->
-> - Actualmente, Azure Database for MySQL con la opción Servidor flexible está en versión preliminar pública.
-> - En este inicio rápido se presupone un conocimiento básico de los conceptos de Kubernetes, WordPress y MySQL.
+> En este inicio rápido se presupone un conocimiento básico de los conceptos de Kubernetes, WordPress y MySQL.
 
 [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
@@ -142,7 +140,7 @@ Descargue la versión de [WordPress más reciente](https://wordpress.org/downloa
 
 ```
 
-Cambie el nombre de ```wp-config-sample.php``` a ```wp-config.php``` y reemplace las líneas de 21 a 32 por este fragmento de código. El siguiente fragmento de código lee el host de base de datos, el nombre de usuario y la contraseña del archivo de manifiesto de Kubernetes.
+Cambie ```wp-config-sample.php``` por ```wp-config.php``` y reemplace las líneas desde el principio de ```// ** MySQL settings - You can get this info from your web host ** //``` hasta la línea ```define( 'DB_COLLATE', '' );``` por el fragmento de código siguiente. El código siguiente lee el host de base de datos, el nombre de usuario y la contraseña del archivo de manifiesto de Kubernetes.
 
 ```php
 //Using environment variables for DB connection information
@@ -153,9 +151,10 @@ Cambie el nombre de ```wp-config-sample.php``` a ```wp-config.php``` y reemplace
 $connectstr_dbhost = getenv('DATABASE_HOST');
 $connectstr_dbusername = getenv('DATABASE_USERNAME');
 $connectstr_dbpassword = getenv('DATABASE_PASSWORD');
+$connectst_dbname = getenv('DATABASE_NAME');
 
 /** MySQL database name */
-define('DB_NAME', 'flexibleserverdb');
+define('DB_NAME', $connectst_dbname);
 
 /** MySQL database username */
 define('DB_USER', $connectstr_dbusername);
@@ -238,11 +237,11 @@ spec:
         - containerPort: 80
         env:
         - name: DATABASE_HOST
-          value: "SERVERNAME.mysql.database.azure.com"
+          value: "SERVERNAME.mysql.database.azure.com" #Update here
         - name: DATABASE_USERNAME
-          value: "YOUR-DATABASE-USERNAME"
+          value: "YOUR-DATABASE-USERNAME"  #Update here
         - name: DATABASE_PASSWORD
-          value: "YOUR-DATABASE-PASSWORD"
+          value: "YOUR-DATABASE-PASSWORD"  #Update here
         - name: DATABASE_NAME
           value: "flexibleserverdb"
       affinity:
@@ -290,20 +289,20 @@ Cuando se ejecuta la aplicación, un servicio de Kubernetes expone el front-end 
 Para supervisar el progreso, utilice el comando [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) con el argumento `--watch`.
 
 ```azurecli-interactive
-kubectl get service wordpress-blog --watch
+kubectl get service php-svc --watch
 ```
 
 En un primer momento, el parámetro *EXTERNAL-IP* del servicio *wordpress-blog* se muestra como *pendiente*.
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
-wordpress-blog   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
+php-svc  LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
 Cuando la dirección *EXTERNAL-IP* cambie de *pendiente* a una dirección IP pública real, use `CTRL-C` para detener el proceso de inspección de `kubectl`. En la salida del ejemplo siguiente se muestra una dirección IP pública válida asignada al servicio:
 
 ```output
-wordpress-blog  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
+  php-svc  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
 ### <a name="browse-wordpress"></a>Examen de WordPress

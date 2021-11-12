@@ -8,12 +8,12 @@ ms.date: 10/05/2021
 ms.topic: article
 ms.service: azure-fluid
 fluid.url: https://fluidframework.com/docs/build/auth/
-ms.openlocfilehash: fc3e55a91af1e7691d1d2677435c283914521dfe
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: e2f24c5455548980318c4536b5c65f84ea6a7dfb
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129661692"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131893830"
 ---
 # <a name="authentication-and-authorization-in-your-app"></a>Autenticación y autorización en una aplicación
 
@@ -63,6 +63,26 @@ Aunque los detalles de la autenticación difieren entre los servicios Fluid, sie
   "ver": "1.0"
 }.[Signature]
 ```
+
+El modo del usuario indica si la conexión está en modo de lectura o de lectura y escritura. Esto se puede ver en el campo `connections` en `AzureAudience`. Los permisos de ámbito de token se pueden actualizar en la función de Azure sin servidor bajo la función `generateToken`.
+
+```ts
+const token = generateToken(
+  tenantId,
+  documentId,
+  key,
+  scopes ?? [ "Token Scope" ],
+  user
+);
+```
+
+Los ámbitos de token, el comportamiento del contenedor y los modos son los siguientes:
+
+| Ámbito del token | Comportamiento de mi documento | Comportamiento del documento de audiencia | 
+|-------------|----------------------|----------------------------|
+| DocRead     | Lectura y escritura en el documento. Los cambios realizados en el documento no se reflejan en ningún otro documento de audiencia. <br /> Modo: lectura. | Lectura y escritura en el documento. Los cambios no se reflejan en ningún otro documento de audiencia. <br /> Modo: escritura. | 
+| DocWrite    | Lectura y escritura en el documento. Los cambios realizados se reflejan en los demás documentos de audiencia. <br />Modo: escritura. | Lectura y escritura en el documento. Los cambios realizados se reflejan en los demás documentos de audiencia. <br />Modo: escritura. |
+| DocRead, DocWrite | Lectura y escritura en el documento. Los cambios realizados se reflejan en los demás documentos de audiencia. <br />Modo: escritura. | Lectura y escritura en el documento. Los cambios realizados se reflejan en los demás documentos de audiencia. <br />Modo: escritura. |
 
 > [!NOTE]
 > Tenga en cuenta que el token también incluye información de usuario (consulte las líneas 7 a 9 anteriores). Puede usarlo para aumentar la información del usuario que está disponible automáticamente para el código de Fluid mediante la característica [audiencia](../how-tos/connect-fluid-azure-service.md#getting-audience-details). Para más información, consulte [Incorporación de datos personalizados a tokens](../how-tos/connect-fluid-azure-service.md#adding-custom-data-to-tokens).

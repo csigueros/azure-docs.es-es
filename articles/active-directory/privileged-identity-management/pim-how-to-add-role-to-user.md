@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: d5dcfee6042bf0e423fa7b9c695d71efc93593ca
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: 3ea66bbd5708e5964bb2c258feaa1fc44fcecff1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129670013"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131444200"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Asignación de roles de Azure AD en Privileged Identity Management
 
@@ -66,7 +66,7 @@ Siga estos pasos para hacer que un usuario sea elegible para un rol de administr
 
     ![Configuración de pertenencias: fecha y hora](./media/pim-how-to-add-role-to-user/start-and-end-dates.png)
 
-1. Una vez asignado el rol, se muestra una notificación de estado de la asignación.
+1. Después de asignar el rol, se muestra una notificación de estado de la asignación.
 
     ![Nueva asignación: notificación](./media/pim-how-to-add-role-to-user/assignment-notification.png)
 

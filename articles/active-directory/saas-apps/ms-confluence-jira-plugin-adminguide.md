@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 8e73ea3650e631bed277ab95092b714eef7596d4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9716b9d7fc89ba789ef44f44bafbd64340256da1
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94359164"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132300344"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guía del administrador de Jira y Confluence de Atlassian para Azure Active Directory
 
@@ -159,7 +159,7 @@ En la imagen siguiente se muestra la pantalla de configuración tanto en Jira co
 
 * **Hay un error "App not found" en Azure AD**: Vea si la dirección URL correspondiente está asignada a la aplicación en Azure AD.
 
-* **Necesita soporte técnico**: Escriba al [equipo de integración de SSO de Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). El equipo responde en un plazo de entre 24 y 48 horas laborales.
+* **Necesita soporte técnico**: Escriba al [equipo de integración de SSO de Azure AD](mailto:SaaSApplicationIntegrations@service.microsoft.com). El equipo responde en un plazo de entre 24 y 48 horas laborales.
 
   También puede generar una incidencia de soporte técnico con Microsoft a través del canal de Azure Portal.
 
@@ -211,7 +211,7 @@ No es necesario reiniciar. Puede empezar a usar el complemento de inmediato.
 
 ### <a name="how-do-i-get-support-for-the-plug-in"></a>¿Cómo puedo obtener soporte técnico para el complemento?
 
-Puede ponerse en contacto con el [equipo de integración de Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) si necesita soporte técnico con relación a este complemento. El equipo responde en un plazo de entre 24 y 48 horas laborales.
+Puede ponerse en contacto con el [equipo de integración de Azure AD SSO](mailto:SaaSApplicationIntegrations@service.microsoft.com) si necesita soporte técnico con relación a este complemento. El equipo responde en un plazo de entre 24 y 48 horas laborales.
 
 También puede generar una incidencia de soporte técnico con Microsoft a través del canal de Azure Portal.
 

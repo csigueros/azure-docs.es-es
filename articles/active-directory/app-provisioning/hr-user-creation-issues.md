@@ -1,7 +1,6 @@
 ---
 title: Solución de problemas de creación de usuarios con el aprovisionamiento de RR. HH.
 description: Descubra cómo solucionar problemas de creación de usuarios con el aprovisionamiento de RR. HH.
-services: active-directory
 author: kenwith
 manager: karenh444
 ms.service: active-directory
@@ -11,12 +10,12 @@ ms.workload: identity
 ms.date: 10/27/2021
 ms.author: kenwith
 ms.reviewer: chmutali
-ms.openlocfilehash: 9bdbbc44b07201b4a1e10a42f607df2a43e971ad
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 0c660221c230f884b43252cef25626e3d2b1d700
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131478381"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132324581"
 ---
 # <a name="troubleshoot-hr-user-creation-issues"></a>Solución de problemas de creación de usuarios de RR. HH.
 
@@ -28,7 +27,7 @@ ms.locfileid: "131478381"
 * Aprovisionamiento de usuarios de SAP SuccessFactors a Active Directory local
 * Aprovisionamiento de usuarios de SAP SuccessFactors a Azure Active Directory
 
-| | |
+| Solución de problemas | Detalles |
 |-- | -- |
 | **Problema** | Ha configurado correctamente la aplicación de aprovisionamiento de entrada. Obtiene un valor NULL o vacío de la aplicación de RR. HH. Se produce un error en la operación de creación con el mensaje de error siguiente: `InvalidAttributeSyntax-LdapErr: The syntax is invalid. The parameter is incorrect. Error in attribute conversion operation, data 0, v3839`. |
 | **Causa** | El servicio de aprovisionamiento no tiene una lógica predeterminada para el procesamiento de valores NULL. Cuando el servicio de aprovisionamiento obtiene una cadena vacía de la aplicación de origen, intenta proporcionar el valor "tal cual" a la aplicación de destino. En este caso, Active Directory local no admite la configuración de valores de cadena vacíos y por eso ve el error anterior. |

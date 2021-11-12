@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
-ms.openlocfilehash: 6b6efd823d8e89fd481c05d1c02affe8bb557b45
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: 9c007ddd8c5a463838dbe7e324f07a18d056ce4d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132372631"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132332371"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Desencadenador de Azure Event Grid para Azure Functions
 
@@ -196,10 +196,10 @@ En los siguientes ejemplos, se muestra un enlace de desencadenador de [Java](fun
   public void logEvent(
     @EventGridTrigger(
       name = "event"
-    )
-    String content,
+    ) 
+    String content, 
     final ExecutionContext context) {
-      context.getLogger().info("Event content: " + content);
+      context.getLogger().info("Event content: " + content);      
   }
 ```
 
@@ -232,8 +232,8 @@ Al llegar, la carga útil JSON del evento se deserializa en el POJO ```EventSche
   public void logEvent(
     @EventGridTrigger(
       name = "event"
-    )
-    EventSchema event,
+    ) 
+    EventSchema event, 
     final ExecutionContext context) {
       context.getLogger().info("Event content: ");
       context.getLogger().info("Subject: " + event.subject);
@@ -428,8 +428,7 @@ En Azure Functions 2.x y versiones posteriores, también tiene la opción de us
 > [!NOTE]
 > Si intenta enlazar a `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`, el compilador mostrará un mensaje de "en desuso" y le avisará de que use en su lugar `Microsoft.Azure.EventGrid.Models.EventGridEvent`. Para usar el tipo más nuevo, haga referencia al paquete NuGet [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) y califique completamente el nombre del tipo `EventGridEvent` usando el prefijo `Microsoft.Azure.EventGrid.Models`. Para información sobre cómo hacer referencia a paquetes NuGet en una función de script de C#, consulte [Uso de paquetes NuGet](functions-reference-csharp.md#using-nuget-packages).
 
-### <a name="additional-types"></a>Tipos adicionales
-
+### <a name="additional-types"></a>Tipos adicionales 
 Las aplicaciones que usan la versión 3.0.0 o posterior de la extensión de Event Grid usan el tipo `EventGridEvent` del espacio de nombres [Azure.Messaging.EventGrid](/dotnet/api/azure.messaging.eventgrid.eventgridevent). Además, puede enlazar al tipo `CloudEvent` desde el espacio de nombres [Azure.Messaging](/dotnet/api/azure.messaging.cloudevent).
 
 # <a name="java"></a>[Java](#tab/java)

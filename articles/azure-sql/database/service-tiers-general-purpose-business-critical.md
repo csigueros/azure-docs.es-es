@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 7/7/2021
-ms.openlocfilehash: 9fbcf03159e11aa9d2951f3f951290eb6e51b511
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.date: 11/02/2021
+ms.openlocfilehash: 716c425958a457b45736835029b90567c090d4a9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129670145"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446987"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Niveles de servicio de Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,11 +31,13 @@ Azure SQL Database también proporciona el nivel de servicio Hiperescala:
 
 - El nivel [Hiperescala](service-tier-hyperscale.md) está diseñado para la mayoría de las cargas de trabajo empresariales; proporciona almacenamiento altamente escalable, escalado horizontal de lectura, escalado rápido y funcionalidades rápidas de restauración de las bases de datos.
 
+Para ver una comparación entre el modelo de compra basado en núcleo virtual y el modelo de compra basado en DTU, consulte [Modelos de compra y recursos](purchasing-models.md).
+
 ## <a name="service-tier-comparison"></a>Comparación de niveles de servicio
 
 En la tabla siguiente se describen las diferencias principales entre los niveles de servicio.
 
-|-| Tipo de recurso | Uso general | Hiperescala | Crítico para la empresa |
+|-| Tipo de recurso | De uso general | Hiperescala | Crítico para la empresa |
 |:---:|:---:|:---:|:---:|:---:|
 | **Más adecuado para** | |  Ofrece opciones de proceso y almacenamiento equilibradas adecuadas para un presupuesto limitado. | La mayoría de las cargas de trabajo empresariales. Escalado automático del tamaño de almacenamiento hasta 100 TB, escalado de procesos vertical y horizontal fluido, restauración rápida de bases de datos. | Aplicaciones de OLTP con una alta tasa de transacciones y latencia de E/S baja. Ofrece mayor resistencia a los errores y rapidez en las conmutaciones por error mediante varias réplicas actualizadas sincrónicamente.|
 | **Disponible en estos tipos de recurso:** ||SQL Database / Instancia administrada de SQL | Base de datos única de Azure SQL Database | SQL Database / Instancia administrada de SQL |
@@ -51,7 +53,8 @@ En la tabla siguiente se describen las diferencias principales entre los niveles
 | | Instancia administrada de SQL  | [24 GB por núcleo virtual](../managed-instance/resource-limits.md#service-tier-characteristics) | N/D | Hasta 4 TB: [limitado en función del tamaño de almacenamiento](../managed-instance/resource-limits.md#service-tier-characteristics) |
 | **Rendimiento de escritura de registros** | SQL Database | Bases de datos únicas: [4,5 MB/s por núcleo virtual (máximo 50 MB/s)](resource-limits-vcore-single-databases.md) <br> Grupos elásticos: [6 MB/s por núcleo virtual (máximo 62,5 MB/s)](resource-limits-vcore-elastic-pools.md)| 100 MB/s | Bases de datos únicas: [12 MB/s por núcleo virtual (máximo 96 MB/s)](resource-limits-vcore-single-databases.md) <br> Grupos elásticos: [15 MB/s por núcleo virtual (máximo 120 MB/s)](resource-limits-vcore-elastic-pools.md)|
 | | Instancia administrada de SQL | [3 MB/s por núcleo virtual (máximo 22 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics) | N/D | [4 MB/s por núcleo virtual (máximo 48 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics) |
-|**Disponibilidad**|All| 99,99% |  [99,95 % con una réplica secundaria; 99,99 % con más réplicas](service-tier-hyperscale-frequently-asked-questions-faq.yml#what-slas-are-provided-for-a-hyperscale-database-) | 99,99% <br/> [99,995 % con una base de datos única con redundancia de zona](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
+|**Disponibilidad**|SQL Database ([SLA](https://azure.microsoft.com/support/legal/sla/azure-sql-database/))| 99,99% | [99,95 % con una réplica secundaria; 99,99 % con más réplicas](service-tier-hyperscale-frequently-asked-questions-faq.yml#what-slas-are-provided-for-a-hyperscale-database-) | 99,99% <br/> [99,995 % con una base de datos única con redundancia de zona](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
+| |SQL Managed Instance ([SLA](https://azure.microsoft.com/support/legal/sla/azure-sql-sql-managed-instance/))| 99,99% |  [99,95 % con una réplica secundaria; 99,99 % con más réplicas](service-tier-hyperscale-frequently-asked-questions-faq.yml#what-slas-are-provided-for-a-hyperscale-database-) | 99,99% <br/> [99,995 % con una base de datos única con redundancia de zona](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
 |**Copias de seguridad**|All|RA-GRS, de 1 a 35 días (7 días de forma predeterminada) | RA-GRS, 7 días, recuperación a un momento dado (PITR) rápida | RA-GRS, de 1 a 35 días (7 días de forma predeterminada) |
 |**OLTP en memoria** | | N/D | La compatibilidad es parcial. Se admiten tipos de tablas optimizadas para memoria, variables de tabla y módulos compilados de forma nativa. | Disponible |
 |**Réplicas de solo lectura**| | 0 integradas <br> 0 a 4 con [replicación geográfica](active-geo-replication-overview.md) | 0 a 4 integradas | 1 integrada, incluida en el precio <br> 0 a 4 con [replicación geográfica](active-geo-replication-overview.md) |
@@ -59,10 +62,17 @@ En la tabla siguiente se describen las diferencias principales entre los niveles
 || Instancia administrada de SQL | [El núcleo virtual, el almacenamiento reservado y el almacenamiento de copia de seguridad](https://azure.microsoft.com/pricing/details/sql-database/managed/) se cobran. <br/>Las IOPS no se cobran.| N/D | [El núcleo virtual, el almacenamiento reservado y el almacenamiento de copia de seguridad](https://azure.microsoft.com/pricing/details/sql-database/managed/) se cobran. <br/>Las IOPS no se cobran.| 
 |**Modelos de descuento**| | [Instancias reservadas](reserved-capacity-overview.md)<br/>[Ventaja híbrida de Azure](../azure-hybrid-benefit.md) (no disponible en suscripciones de desarrollo y pruebas)<br/>Suscripciones de Desarrollo/pruebas de [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) y [de pago por uso](https://azure.microsoft.com/offers/ms-azr-0023p/)| [Ventaja híbrida de Azure](../azure-hybrid-benefit.md) (no disponible en suscripciones de desarrollo y pruebas)<br/>Suscripciones de Desarrollo/pruebas de [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) y [de pago por uso](https://azure.microsoft.com/offers/ms-azr-0023p/)| [Instancias reservadas](reserved-capacity-overview.md)<br/>[Ventaja híbrida de Azure](../azure-hybrid-benefit.md) (no disponible en suscripciones de desarrollo y pruebas)<br/>Suscripciones de Desarrollo/pruebas de [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) y [de pago por uso](https://azure.microsoft.com/offers/ms-azr-0023p/)|
 
-Para obtener más información, consulte las diferencias detalladas entre los niveles de servicio en las páginas [Azure SQL Database (núcleo virtual)](resource-limits-vcore-single-databases.md), [bases de datos únicas en Azure SQL Database (DTU)](resource-limits-dtu-single-databases.md), [bases de datos agrupadas en Azure SQL Database (DTU)](resource-limits-dtu-single-databases.md), e [Instancia administrada de Azure SQL](../managed-instance/resource-limits.md).
-
 > [!NOTE]
-> Para información sobre el nivel de servicio Hiperescala, consulte [Nivel de servicio Hiperescala](service-tier-hyperscale.md). Para ver una comparación entre el modelo de compra basado en núcleo virtual y el modelo de compra basado en DTU, consulte [Modelos de compra y recursos](purchasing-models.md).
+> Para más información sobre el Acuerdo de Nivel de Servicio (SLA), vea [SLA para Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database/) o [SLA para Azure SQL Managed Instance](https://azure.microsoft.com/support/legal/sla/azure-sql-sql-managed-instance/).
+
+### <a name="resource-limits"></a>Límites de recursos
+
+Para más información sobre los límites de recursos, vea lo siguiente:
+
+ - [Azure SQL Database (núcleo virtual)](resource-limits-vcore-single-databases.md)
+ - [Base de datos única: Azure SQL Database (DTU)](resource-limits-dtu-single-databases.md)
+ - [Base de datos agrupada: Azure SQL Database (DTU)](resource-limits-dtu-single-databases.md)
+ - [Instancia administrada de Azure SQL](../managed-instance/resource-limits.md)
 
 ## <a name="data-and-log-storage"></a>Almacenamiento de datos y de registro
 

@@ -1,6 +1,6 @@
 ---
 title: Archivo de inclusión
-description: archivo de inclusión
+description: Archivo de inclusión
 services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 06/02/2021
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 0ae0fa18c2d3d223435656d871bd0d5be00627e4
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.openlocfilehash: f7454d26c57795383cc6bc8464e2259b1b29ed38
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113356958"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131506339"
 ---
-### <a name="on-demand-bursting-preview"></a>Expansión a petición (versión preliminar)
+### <a name="on-demand-bursting"></a>Expansión a petición
 
 Los SSD prémium que usan el modelo de expansión a petición pueden expandirse más allá de los objetivos aprovisionados originales, con tanta frecuencia como sea necesario para su carga de trabajo, hasta el máximo del objetivo de expansión. Por ejemplo, en un disco P30 de 1 TiB, la E/S por segundo aprovisionada es de 5000 IOPS. Cuando se habilita la expansión en este disco, las cargas de trabajo pueden emitir entradas y salidas en este disco hasta alcanzar el rendimiento máximo de expansión de 30 000 IOPS y 1000 MBps.
 
@@ -72,9 +72,13 @@ Dicha característica está habilitada en todas las regiones de la nube pública
 - [Serie Dsv4](../articles/virtual-machines/dv4-dsv4-series.md)
 - [Serie Dasv4](../articles/virtual-machines/dav4-dasv4-series.md)
 - [Serie Ddsv4](../articles/virtual-machines/ddv4-ddsv4-series.md)
+- [Serie Dasv5](../articles/virtual-machines/dasv5-dadsv5-series.md)
+- [Serie Dadsv5](../articles/virtual-machines/dasv5-dadsv5-series.md)
 - [Serie Esv4](../articles/virtual-machines/ev4-esv4-series.md)
 - [Serie Easv4](../articles/virtual-machines/eav4-easv4-series.md)
 - [Serie Edsv4](../articles/virtual-machines/edv4-edsv4-series.md)
+- [Serie Easv5](../articles/virtual-machines/easv5-eadsv5-series.md)
+- [Serie Eadsv5](../articles/virtual-machines/easv5-eadsv5-series.md)
 - [Serie B](../articles/virtual-machines/sizes-b-series-burstable.md)
 - [Serie Fsv2](../articles/virtual-machines/fsv2-series.md)
 - [Serie Dsv3](../articles/virtual-machines/dv3-dsv3-series.md)

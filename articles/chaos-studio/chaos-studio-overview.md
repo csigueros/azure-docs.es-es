@@ -8,12 +8,12 @@ ms.date: 11/01/2021
 ms.author: johnkem
 ms.service: chaos-studio
 ms.custom: template-overview,ignite-fall-2021
-ms.openlocfilehash: 3612a72b13ded7eace24c56f70c722e6cf2270d7
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 7375457b539fc24fad8dce34e416c341ce4abf68
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030934"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132371512"
 ---
 # <a name="what-is-azure-chaos-studio-preview"></a>¿Qué es la versión preliminar de Azure Chaos Studio?
 
@@ -53,5 +53,5 @@ Un experimento del caos es un recurso de Azure que reside en una suscripción y 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Empiece a crear y ejecutar experimentos del caos para mejorar la resistencia de las aplicaciones con Chaos Studio mediante los vínculos siguientes.
-- [Crear y ejecutar tu primer experimento](chaos-studio-tutorial-service-direct.md)
+- [Crear y ejecutar tu primer experimento](chaos-studio-tutorial-service-direct-portal.md)
 - [Más información sobre la ingeniería de caos](chaos-studio-chaos-engineering-overview.md)

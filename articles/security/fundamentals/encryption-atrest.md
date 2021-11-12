@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a73965d0ec5d0d3fbcf665d648137e1153506721
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 174c7d552097bb3d15db198c9874755a919816e4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121746232"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131428337"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Cifrado en reposo de datos de Azure
 
@@ -68,21 +68,21 @@ La ubicación del almacenamiento de las claves de cifrado y el control de acceso
 
 Los permisos para usar las claves almacenadas en Azure Key Vault, además de para administrar o tener acceso a ellas para el cifrado en reposo y el descifrado, se pueden dar a las cuentas de Azure Active Directory.
 
-### <a name="key-hierarchy"></a>Jerarquía de las claves
+### <a name="envelope-encryption-with-a-key-hierarchy"></a>Cifrado de sobres con una jerarquía de claves
 
-Se usa más de una clave de cifrado en una implementación de cifrado en reposo. Almacenar una clave de cifrado en Azure Key Vault garantiza el acceso de clave segura y la administración central de claves. Sin embargo, el acceso local del servicio a las claves de cifrado es más eficaz para el cifrado y descifrado masivo que la interacción con Key Vault para cada operación de datos, lo que permite un cifrado más seguro y un mejor rendimiento. Si se limita el uso de una clave de cifrado única, se reduce el riesgo de que la clave se encuentre en peligro y el costo de volver a cifrar cuando se debe reemplazar una clave. Los modelos de cifrado en reposo de Azure utilizan una jerarquía de claves formada por los siguientes tipos de claves a fin de abordar las necesidades que se indican a continuación:
+Se usa más de una clave de cifrado en una implementación de cifrado en reposo. Almacenar una clave de cifrado en Azure Key Vault garantiza el acceso de clave segura y la administración central de claves. Sin embargo, el acceso local del servicio a las claves de cifrado es más eficaz para el cifrado y descifrado masivo que la interacción con Key Vault para cada operación de datos, lo que permite un cifrado más seguro y un mejor rendimiento. Si se limita el uso de una clave de cifrado única, se reduce el riesgo de que la clave se encuentre en peligro y el costo de volver a cifrar cuando se debe reemplazar una clave. Los modelos de cifrado en reposo de Azure usan el cifrado de sobres, donde una clave de cifrado de claves cifra una clave de cifrado de datos. Este modelo forma una jerarquía de claves que puede abordar mejor los requisitos de rendimiento y seguridad:
 
-- **Clave de cifrado de datos (DEK)** : Una clave simétrica AES256 usada para cifrar una partición o un bloque de datos.  Un único recurso puede tener muchas particiones y muchas claves de cifrado de datos. Cifrar cada bloque de datos con una clave diferente dificulta los ataques de análisis criptográficos. Se necesita acceso a las DEK por la instancia de proveedor o aplicación de recursos que cifra y descifra un bloque específico. Cuando se reemplaza una DEK con una nueva clave, solo se deben volver a cifrar los datos de su bloque asociado con una nueva clave.
-- **Clave de cifrado de claves (KEK)** : una clave de cifrado utilizada para cifrar las claves de cifrado de datos. El uso de una clave de cifrado de claves que siempre permanece en Key Vault permite a las propias claves de cifrado de datos cifrarse y controlarse. La entidad que tiene acceso a la KEK puede ser diferente de la entidad que requiere la DEK. Una entidad puede adaptar el acceso a la DEK para limitar el acceso de cada DEK a una partición específica. Puesto que la KEK es necesaria para descrifrar la DEK, la KEK es de manera eficaz un punto único por el que se pueden eliminar de forma eficaz las DEK mediante la eliminación de la KEK.
+- **Clave de cifrado de datos (DEK)** : una clave AES256 simétrica que se usa para cifrar una partición o bloque de datos, a veces también se denomina simplemente Clave de datos.  Un único recurso puede tener muchas particiones y muchas claves de cifrado de datos. Cifrar cada bloque de datos con una clave diferente dificulta los ataques de análisis criptográficos. Y mantener las DEK en el entorno local del servicio de cifrado y descifrado de datos maximiza el rendimiento.
+- **Clave de cifrado de claves (KEK)** : una clave de cifrado que se usa para cifrar las claves de cifrado de datos mediante el cifrado de sobres, también conocida como ajuste. El uso de una clave de cifrado de claves que siempre permanece en Key Vault permite a las propias claves de cifrado de datos cifrarse y controlarse. La entidad que tiene acceso a la KEK puede ser diferente de la entidad que requiere la DEK. Una entidad puede adaptar el acceso a la DEK para limitar el acceso de cada DEK a una partición específica. Como la KEK es necesaria para descifrar las DEK, los clientes pueden borrar criptográficamente las DEK y los datos si deshabilitan la KEK.
 
-Los proveedores de recursos y las instancias de aplicación almacenan las claves de cifrado de datos cifradas con las claves de cifrado de claves, a menudo como metadatos sobre los datos protegidos por las claves de cifrado de datos. Solo una entidad con acceso a la clave de cifrado de claves puede descifrar estas claves de cifrado de datos. Se admiten diferentes modelos de almacenamiento de claves. Consulte los [modelos de cifrado de datos](encryption-models.md) para obtener más información.
+Los proveedores de recursos y las instancias de aplicación almacenan las claves de cifrado de datos cifradas como metadatos. Solo una entidad con acceso a la clave de cifrado de claves puede descifrar estas claves de cifrado de datos. Se admiten diferentes modelos de almacenamiento de claves. Para más información, vea los [modelos de cifrado de datos](encryption-models.md).
 
 ## <a name="encryption-at-rest-in-microsoft-cloud-services"></a>Cifrado en reposo en servicios en la nube de Microsoft
 
 Los Servicios en la nube de Microsoft se utilizan en los tres modelos de la nube: IaaS, PaaS, SaaS. A continuación encontrará ejemplos de cómo encajan en cada modelo:
 
 - Servicios de software, que se conocen como software como servicio o SaaS, que tienen las aplicaciones proporcionadas por la nube, como Microsoft 365.
-- Servicios de la plataforma de los que los clientes sacan provecho en la nube en sus aplicaciones, que usan la nube para tareas como almacenamiento, análisis y funcionalidad de bus de servicio.
+- Servicios de plataforma en los que los clientes usan la nube en sus aplicaciones para tareas como las de almacenamiento, análisis y funcionalidad de bus de servicio.
 - Servicios de infraestructura o infraestructura como servicio (IaaS) en los que el cliente implementa sistemas operativos y aplicaciones que se hospedan en la nube y, posiblemente, saca provecho de otros servicios en la nube.
 
 ### <a name="encryption-at-rest-for-saas-customers"></a>Cifrado en reposo para clientes de SaaS

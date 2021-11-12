@@ -3,12 +3,12 @@ title: Operaciones de plano de control y de plano de datos
 description: Describe la diferencia entre las operaciones de plano de control y de plano de datos. Las operaciones de plano de control se gestionan mediante Azure Resource Manager. Las operaciones de plano de datos se gestionan mediante un servicio.
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.openlocfilehash: 0e1dbf525266fdcf7ca34a449cc51169dda027d5
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: c5e72693c751086f17958c39c96d12624e478b99
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124755983"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131893412"
 ---
 # <a name="azure-control-plane-and-data-plane"></a>Plano de control y plano de datos de Azure
 
@@ -33,7 +33,7 @@ Todas las solicitudes de las operaciones de plano de control se envían a la dir
 * En el caso de Azure Germany, la dirección URL es `https://management.microsoftazure.de/`.
 * En el caso de Microsoft Azure China 21Vianet, la dirección URL es `https://management.chinacloudapi.cn`.
 
-Para saber qué operaciones usan la dirección URL de Azure Resource Manager, consulte [API REST de Azure](/rest/api/azure/). Por ejemplo, la [operación de creación o actualización](/rest/api/mysql/flexibleserver(preview)/servers/update) para MySql es una operación de plano de control porque la dirección URL de la solicitud es:
+Para saber qué operaciones usan la dirección URL de Azure Resource Manager, consulte [API REST de Azure](/rest/api/azure/). Por ejemplo, la [operación de creación o actualización](/rest/api/mysql/singleserver/databases/create-or-update) para MySql es una operación de plano de control porque la dirección URL de la solicitud es:
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/databases/{databaseName}?api-version=2017-12-01
@@ -52,15 +52,15 @@ El plano de control incluye dos escenarios para la gestión de solicitudes: "cam
 
 ## <a name="data-plane"></a>Plano de datos
 
-Las solicitudes de operaciones de plano de datos se envían a un punto de conexión específico de la instancia. Por ejemplo, la [operación Detectar idioma](../../cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection.md) en Cognitive Services es una operación de plano de datos porque la dirección URL de la solicitud es:
+Las solicitudes de operaciones del plano de datos se envían a un punto de conexión específico de la instancia. Por ejemplo, la [operación Detectar idioma](../../cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection.md) en Cognitive Services es una operación de plano de datos porque la dirección URL de la solicitud es:
 
 ```http
 POST {Endpoint}/text/analytics/v2.0/languages
 ```
 
-Las operaciones de plano de datos no se limitan a API REST. Pueden requerir credenciales adicionales, como iniciar sesión en una máquina virtual o un servidor de bases de datos.
+Las operaciones de plano de datos no se limitan a API REST. Pueden requerir otras credenciales, como iniciar sesión en una máquina virtual o un servidor de bases de datos.
 
-Es posible que las características que exigen la administración y el gobierno no se apliquen a las operaciones de plano de datos. Debe tener en cuenta las distintas formas en que los usuarios interactúan con sus soluciones. Por ejemplo, un bloqueo que impide que los usuarios eliminen una base de datos no impide que los usuarios eliminen datos a través de consultas.
+Es posible que las características que exigen la administración y la gobernanza no se apliquen a las operaciones del plano de datos. Debe tener en cuenta las distintas formas en que los usuarios interactúan con sus soluciones. Por ejemplo, un bloqueo que impide que los usuarios eliminen una base de datos no impide que los usuarios eliminen datos a través de consultas.
 
 Puede usar algunas directivas para controlar las operaciones de plano de datos. Para más información, consulte [Modos del proveedor de recursos (versión preliminar)](../../governance/policy/concepts/definition-structure.md#resource-provider-modes) en Azure Policy.
 
@@ -68,4 +68,4 @@ Puede usar algunas directivas para controlar las operaciones de plano de datos. 
 
 * Para ver información general de Azure Resource Manager, consulte [¿Qué es Azure Resource Manager?](overview.md)
 
-* Para más información sobre el efecto de las definiciones de directivas en los recursos nuevos y los recursos existentes, consulte [Evaluación del efecto de una nueva definición de Azure Policy](../../governance/policy/concepts/evaluate-impact.md).
+* Para obtener más información sobre el efecto de las definiciones de directivas en los recursos nuevos y existentes, consulte [Evaluación del efecto de una nueva definición de Azure Policy](../../governance/policy/concepts/evaluate-impact.md).

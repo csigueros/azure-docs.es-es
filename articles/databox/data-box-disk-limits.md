@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 09/28/2021
 ms.author: alkohli
-ms.openlocfilehash: ab759cf81ce95ca7cf61a3777092fd92040baf6c
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: ce8cc86727c92f8c0091abafa8f5d91ee1ab21ad
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129208483"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132347639"
 ---
 # <a name="azure-data-box-disk-limits"></a>Límites de Azure Data Box Disk
 
@@ -93,7 +93,7 @@ Estos son los tamaños de los objetos de Azure que se pueden escribir. Asegúres
 
 | Entidad | Convenciones                                             |
 |-------------------|-----------------------------------------------------------|
-| Nombres de discos administrados       | <li> El nombre debe tener una longitud de entre 1 y 80 caracteres. </li><li> El nombre debe comenzar con una letra o un número y terminar con una letra, un número o un carácter de subrayado. </li><li> El nombre solo puede contener letras, números, caracteres de subrayado, puntos o guiones. </li><li>   El nombre no debe tener espacios ni `/`.                                              |
+| Nombres de discos administrados       | <li> El nombre debe tener una longitud de entre 1 y 80 caracteres. </li><li> El nombre debe comenzar con una letra o un número y terminar con una letra, un número o un carácter de subrayado. </li><li> El nombre solo puede contener letras, números, caracteres de subrayado, puntos o guiones. </li><li>     El nombre no debe tener espacios ni `/`.                     |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

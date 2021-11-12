@@ -11,12 +11,12 @@ ms.custom: references_regions
 ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/24/2021
-ms.openlocfilehash: 97cf7977d6e867d0c3bbc106f599bc69db4d987b
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 31f42cb2dd8405a08477fd6ee9048f42e80e44be
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131465238"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851294"
 ---
 # <a name="known-issues-with-azure-sql-managed-instance"></a>Problemas conocidos de Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -26,8 +26,9 @@ En este artículo se enumeran los problemas conocidos actualmente de [Azure SQL
  
 ## <a name="known-issues"></a>Problemas conocidos
 
-|Problema  |Fecha de detección  |Estado  |Fecha de resolución  |
+|Problema  |Fecha de detección  |Status  |Fecha de resolución  |
 |---------|---------|---------|---------|
+|[Al usar la autenticación de SQL Server, no se admiten nombres de usuario con "@".](#when-using-sql-server-authentication-usernames-with--are-not-supported)|Octubre de 2021|||
 |[Mensaje de error engañoso en Azure Portal que sugiere la recreación de la entidad de servicio](#misleading-error-message-on-azure-portal-suggesting-recreation-of-the-service-principal)|Septiembre de 2021|||
 |[Cambiar el tipo de conexión no afecta a las conexiones a través del punto de conexión del grupo de conmutación por error](#changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint)|Enero de 2021|Tiene solución alternativa||
 |[Se puede producir un error transitorio en el procedimiento sp_send_dbmail cuando se usa el parámetro @query](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|Enero de 2021|Tiene solución alternativa||
@@ -315,6 +316,10 @@ using (var scope = new TransactionScope())
 
 
 ## <a name="no-resolution"></a>No hay ninguna resolución
+
+### <a name="when-using-sql-server-authentication-usernames-with--are-not-supported"></a>Al usar la autenticación de SQL Server, no se admiten nombres de usuario con "@".
+
+Los nombres de usuario que contienen el símbolo "@" en medio (por ejemplo, "abc@xy") no pueden iniciar sesión mediante la autenticación de SQL Server.
 
 ### <a name="misleading-error-message-on-azure-portal-suggesting-recreation-of-the-service-principal"></a>Mensaje de error engañoso en Azure Portal que sugiere la recreación de la entidad de servicio
 

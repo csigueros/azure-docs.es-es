@@ -9,12 +9,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 04/02/2021
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 501b431e86b19c8e6cf3aa7cfacb0758691eb93b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 41f12d9421a49cb926a666469beda97cd8f53eac
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121735066"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131559739"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Instalación y uso de la extensión de la CLI para Azure Machine Learning
 
@@ -30,7 +30,7 @@ La CLI de Azure Machine Learning es una extensión de la [CLI de Azure](/cli/azu
 
 La CLI no sustituye al SDK de Azure Machine Learning. Es una herramienta complementaria que está optimizada para administrar tareas con muchos parámetros y que están bien adaptadas para la automatización.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Para usar la CLI, debe tener una suscripción de Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 
@@ -61,7 +61,10 @@ Para obtener otros métodos de autenticación, consulte [Inicio de sesión con l
 
 ## <a name="install-the-extension"></a>Instalación de la extensión
 
-La extensión se instala automáticamente la primera vez que intenta usar un comando que comienza por `az ml`.
+Para instalar la extensión de la CLI (v1):
+```azurecli-interactive
+az extension add -n azure-cli-ml
+```
 
 ## <a name="update-the-extension"></a>Actualización de la extensión
 

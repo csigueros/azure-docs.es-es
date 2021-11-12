@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 10/12/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: b7f0cc91f8705ac865cac4820402051dce1e9eff
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b02ce290d0910e2dccc19643c94ee338f80b6989
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131064114"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131467461"
 ---
 # <a name="azure-sentinel-content-hub-catalog"></a>Catálogo del centro de contenido de Azure Sentinel
 
@@ -41,7 +41,8 @@ Para obtener más información, consulte [Detección e implementación central d
 |Nombre    |Includes  |Categorías |Compatible con  |
 |---------|---------|---------|---------|
 |**Administración de riesgos internos de Microsoft** |[Conector de datos](data-connectors-reference.md#microsoft-365-insider-risk-management-irm-preview), libro, reglas de análisis, consultas de búsqueda |Seguridad: amenaza de Insider | Microsoft|
-|**Solución Microsoft MITRE ATT&CK para la nube**| Libros, reglas de análisis, consultas de búsqueda|Seguridad: protección contra amenazas, seguridad: otros |Microsoft |
+| **Solución Microsoft MITRE ATT&CK para la nube**| Libros, reglas de análisis, consultas de búsqueda|Seguridad: protección contra amenazas, seguridad: otros |Microsoft |
+| **Azure Sentinel Deception** | [Libros, reglas de análisis, listas de reproducción](monitor-key-vault-honeytokens.md)  | Seguridad: protección contra amenazas  |Microsoft |
 |**Confianza cero** (TIC3.0) |Workbooks |Identidad, seguridad: otros |Microsoft |
 | | | | |
 

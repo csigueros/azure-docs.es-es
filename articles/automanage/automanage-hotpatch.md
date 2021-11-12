@@ -9,22 +9,19 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: jushiman
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5de4c52015a8282591edeee6de9fd27aae042324
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 32441732385ebd16c2edaa9b77a75382051b6ee1
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770667"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131502889"
 ---
 # <a name="hotpatch-for-new-virtual-machines-preview"></a>Revisión en caliente para nuevas máquinas virtuales (versión preliminar)
 
 > [!IMPORTANT]
-> Automanage para los servicios de Windows Server está actualmente en versión preliminar pública. No es necesario ningún procedimiento de participación para usar la funcionalidad de revisión en caliente que se describe a continuación.
+> Actualmente, la revisión en caliente está en versión preliminar pública. No es necesario ningún procedimiento de participación para usar la funcionalidad de revisión en caliente que se describe a continuación.
 > Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-> [!NOTE]
-> La revisión en caliente se puede evaluar en _Windows Server 2022 Datacenter: Azure Edition (Core) Preview_.  La revisión en caliente en _Windows Server 2019 Datacenter: Azure Edition Preview_ ya no está disponible para evaluar.
 
 La aplicación de revisiones en caliente es una nueva manera de instalar actualizaciones en nuevas máquinas virtuales (VM) de _Windows Server Azure Edition_ admitidas que no es necesario reiniciar después de la instalación. En este artículo se ofrece información sobre la revisión en caliente de VM de _Windows Server Azure Edition_ admitidas, que presentan las siguientes ventajas:
 * Impacto reducido sobre la carga de trabajo con menos reinicios
@@ -49,18 +46,19 @@ Hotpatch está disponible en todas las regiones globales de Azure en versión pr
 ## <a name="how-to-get-started"></a>Primeros pasos
 
 > [!NOTE]
-> Durante la fase de versión preliminar, puede empezar a trabajar en Azure Portal mediante [este vínculo](https://aka.ms/AutomanageWindowsServerPreview).
+> Durante la fase de versión preliminar, puede empezar a trabajar en Azure Portal mediante [este vínculo](https://aka.ms/ws2022ae-portal-preview).
 
 Para empezar a usar Hotpatch en una nueva máquina virtual, siga estos pasos:
 1.  Habilitación del acceso a la versión preliminar
     * Se requiere la habilitación puntual del acceso a la versión preliminar por cada suscripción.
-    * El acceso a la versión preliminar se puede habilitar mediante API, PowerShell o la CLI, como se describe en la sección siguiente.
-1.  Creación de una máquina virtual en Azure Portal
-    * Durante la versión preliminar, deberá empezar a usar [este vínculo](https://aka.ms/AutomanageWindowsServerPreview).
-1.  Suministro de los detalles de la máquina virtual
-    * Asegúrese de que la imagen de _Windows Server Azure Edition_ que le gustaría usar esté seleccionada en la lista desplegable Imagen.  Las imágenes admitidas se muestran en la parte superior de este artículo.
-    * En el paso de la pestaña Administración, desplácese hacia abajo hasta la sección "Guest OS updates" (Actualizaciones del SO invitado). Verá que Aplicar revisión en caliente está establecida en Activado y que Patch installation (Instalación de revisiones) tiene el valor predeterminado de Azure-orchestrated patching (Aplicación de revisiones orquestada por Azure).
-    * De forma predeterminada, se habilitarán los procedimientos recomendados de administración automática de máquinas virtuales.
+    * El acceso a la versión preliminar se puede habilitar mediante API, PowerShell o la CLI, como se describe más adelante en la sección "Habilitación del acceso en versión preliminar".
+1.  Inicio de la creación de una máquina virtual desde Azure Portal
+    * Durante la versión preliminar, deberá empezar a usar [este vínculo](https://aka.ms/ws2022ae-portal-preview).
+1.  Inclusión de detalles durante la creación de la máquina virtual
+    * Asegúrese de que está seleccionada una imagen compatible _Windows Server Azure Edition_ en la lista desplegable de imágenes.  Use [esta guía](automanage-windows-server-services-overview.md#getting-started-with-windows-server-azure-edition) para determinar qué imágenes se admiten.
+    * En la pestaña Administración de la sección "Guest OS updates" (Actualizaciones del SO invitado), active la casilla "Enable hotpatch" (Habilitar la revisión en caliente) para evaluar la revisión en caliente mientras está en versión preliminar.  Las opciones de orquestación de revisiones se establecerán en "Azure-orchestrated" (Orquestado por Azure). 
+    * En la pestaña Administración de la sección "Azure Automanage", seleccione "Desarrollo/pruebas" o "Producción" para "Azure Automanage environment" (Entorno de Azure Automanage) a fin de evaluar los procedimientos recomendados para máquinas con Automanage mientras está en versión preliminar.
+    
 1. Creación de la máquina virtual
 
 ## <a name="enabling-preview-access"></a>Habilitación del acceso en versión preliminar
@@ -234,5 +232,6 @@ Existen algunas consideraciones importantes a la hora de ejecutar una VM de _Win
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información sobre Azure Update Management [aquí](../automation/update-management/overview.md).
-* Más información sobre la revisión automática de invitados de máquina virtual [aquí](../virtual-machines/automatic-vm-guest-patching.md).
+* Más información sobre [Azure Update Management](../automation/update-management/overview.md)
+* Más información sobre la [aplicación de revisiones automática a invitados de las máquinas virtuales](../virtual-machines/automatic-vm-guest-patching.md)
+* Más información sobre [Automanage para Windows Server](automanage-windows-server-services-overview.md)

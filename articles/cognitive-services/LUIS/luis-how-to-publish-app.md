@@ -10,13 +10,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 01/12/2021
-ms.openlocfilehash: 53549869098504396d1fa1039ed43b5ff02d2a9b
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 10/28/2021
+ms.openlocfilehash: 8c006a47f6967be5387e462a2387d1b59195b685
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110083645"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131430788"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publicación de la aplicación activa y entrenada en un punto de conexión de almacenamiento provisional o de producción
 
@@ -71,9 +71,9 @@ Si necesita la dirección URL del punto de conexión, seleccione el vínculo. Ta
 
 <a name="enable-sentiment-analysis"></a>
 
-El análisis de opiniones permite que LUIS se integre con [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) para proporcionar un análisis de frases clave y opiniones.
+El análisis de sentimiento permite que LUIS se integre con el [servicio Language](https://azure.microsoft.com/services/cognitive-services/text-analytics/) para proporcionar un análisis de frases clave y opiniones.
 
-No tiene que proporcionar una clave de Text Analytics y no se carga ningún costo de facturación a su cuenta de Azure por este servicio.
+No tiene que proporcionar una clave del servicio Language y no se carga ningún costo de facturación a la cuenta de Azure por este servicio.
 
 Los datos de opinión son una puntuación entre 1 y 0 que indica el valor de opinión positiva (más cercano a 1) o negativa (más cercano a 0) de los datos. La etiqueta de opinión de `positive`, `neutral` y `negative` es por referencia cultural admitida. Actualmente, solo se admites etiquetas de opinión en inglés.
 

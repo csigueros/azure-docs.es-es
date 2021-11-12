@@ -7,13 +7,13 @@ ms.subservice: studio-classic
 ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 03/08/2021
-ms.openlocfilehash: 0a00ad012f38a142332a62846e78c2ae87460464
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/21/2021
+ms.openlocfilehash: fd0bb1394ce2ce8b8cf8d58ece5834f08e538eaa
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128659500"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131556205"
 ---
 # <a name="rebuild-a-studio-classic-experiment-in-azure-machine-learning"></a>Recompilación de un experimento de Studio (clásico) en Azure Machine Learning
 
@@ -42,16 +42,16 @@ En Azure Machine Learning, el gráfico visual se denomina **borrador de la canal
 1. Vaya a Estudio de Azure Machine Learning en [ml.azure.com](https://ml.azure.com).
 1. En el panel de navegación izquierdo, seleccione **Diseñador** > **Módulos creados previamente fáciles de usar**. ![Captura de pantalla que muestra cómo crear un nuevo borrador de canalización.](./media/tutorial-designer-automobile-price-train-score/launch-designer.png)
 
-1. Recompile manualmente el experimento con los módulos del diseñador.
+1. Recompile manualmente el experimento con los componentes del diseñador.
     
-    Consulte la [tabla de asignación de módulos](migrate-overview.md#studio-classic-and-designer-module-mapping) para localizar los módulos de reemplazo. Muchos de los módulos más populares de Studio (clásico) tienen versiones idénticas en el diseñador.
+    Consulte la [tabla de asignación de módulos](migrate-overview.md#studio-classic-and-designer-component-mapping) para localizar los módulos de reemplazo. Muchos de los módulos más populares de Studio (clásico) tienen versiones idénticas en el diseñador.
 
     > [!Important]
     > Si el experimento usa el módulo Execute R Script (Ejecutar script R), debe realizar pasos adicionales para migrar el experimento. Para obtener más información, consulte [Migración de módulos Execute R Script (Ejecutar script R) en Studio (clásico)](migrate-execute-r-script.md).
 
 1. Ajuste los parámetros.
     
-    Seleccione cada módulo y ajuste los parámetros en el panel de configuración del módulo a la derecha. Use los parámetros para volver a crear la funcionalidad del experimento de Studio (clásico). Para más información sobre cada módulo, consulte la página de [referencia de módulos](./algorithm-module-reference/module-reference.md).
+    Seleccione cada módulo y ajuste los parámetros en el panel de configuración del módulo a la derecha. Use los parámetros para volver a crear la funcionalidad del experimento de Studio (clásico). Para más información sobre cada módulo, consulte la página de [referencia de módulos](./component-reference/component-reference.md).
 
 ## <a name="submit-a-run-and-check-results"></a>Envío de una ejecución y comprobación de los resultados
 
@@ -86,7 +86,7 @@ Una vez finalizada la ejecución, puede comprobar los resultados de cada módulo
     - **Ver registro**: permite ver los registros del controlador y el sistema. Use **70_driver_log** para ver información relacionada con el script enviado por el usuario, como errores y excepciones.
 
 > [!IMPORTANT]
-> Los módulos del diseñador usan paquetes de Python de código abierto, a diferencia de Studio (clásico), que usa paquetes de C#. Esto hace que el resultado del módulo pueda variar ligeramente entre el diseñador y Studio (clásico). 
+> Los componentes del diseñador usan paquetes de Python de código abierto, a diferencia de Studio (clásico), que usa paquetes de C#. Esto hace que el resultado del módulo pueda variar ligeramente entre el diseñador y Studio (clásico). 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

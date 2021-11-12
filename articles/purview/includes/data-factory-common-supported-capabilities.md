@@ -4,13 +4,13 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: include
-ms.date: 09/27/2021
-ms.openlocfilehash: 8c4baccdbfb0f6162e666d6901e0080202a3b7e9
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 11/01/2021
+ms.openlocfilehash: 238db4caa1bcb11e0f4c27b6e490b0859b1e536d
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129212352"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851500"
 ---
 ### <a name="copy-activity-support"></a>Compatibilidad de actividad de copia
 
@@ -30,6 +30,7 @@ ms.locfileid: "129212352"
 | Azure SQL Database \* | Sí | 
 | Azure SQL Managed Instance \* | Sí | 
 | Azure Synapse Analytics \* | Sí | 
+| Grupo de SQL dedicado de Azure (antes denominado SQL DW) \* | Sí | 
 | Azure Table Storage | Sí |
 | Amazon S3 | Sí | 
 | Hive \* | Sí | 
@@ -41,6 +42,8 @@ ms.locfileid: "129212352"
 *\* Actualmente, Azure Purview no admite la consulta ni el procedimiento almacenado para el linaje o el examen. El linaje se limita a los orígenes de tabla y vista.*
 
 Si usa el entorno de ejecución de integración autohospedado, tenga en cuenta la versión mínima con compatibilidad con linaje para:
+
+- Cualquier caso de uso: versión 5.9.7885.3 o posterior
 - Copiar datos desde Oracle: versión 5.10 o posterior
 - Copiar datos en Azure Synapse Analytics mediante el comando COPY o PolyBase: versión 5.10 o posterior
 
@@ -71,6 +74,7 @@ Además del linaje, se indica el esquema de recursos de datos (que se muestra en
 | Azure SQL Database \* | Sí |
 | Azure SQL Managed Instance \* | Sí | 
 | Azure Synapse Analytics \* | Sí |
+| Grupo de SQL dedicado de Azure (antes denominado SQL DW) \* | Sí | 
 
 *\* Actualmente, Azure Purview no admite la consulta ni el procedimiento almacenado para el linaje o el examen. El linaje se limita a los orígenes de tabla y vista.*
 

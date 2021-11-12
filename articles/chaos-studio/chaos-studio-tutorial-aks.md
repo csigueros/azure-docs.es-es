@@ -7,12 +7,12 @@ ms.date: 11/01/2021
 ms.author: johnkem
 ms.service: chaos-studio
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: eb042f6a1e12a114cf60137c2e1ce0aa3e5b48b8
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: e9a9b458343d54b9adadc07cfc009be43dc4b609
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131090974"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132337839"
 ---
 # <a name="create-a-chaos-experiment-that-uses-a-chaos-mesh-fault-to-kill-aks-pods"></a>Creación de un experimento de caos que usa un error de Chaos Mesh para terminar pods de AKS
 
@@ -150,5 +150,5 @@ Ahora ya puede ejecutar el experimento. Para ver el impacto, se recomienda abrir
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha ejecutado un experimento directo del servicio de Chaos Mesh de AKS, está listo para:
-- [Crear un experimento que usa errores basados en agente](chaos-studio-tutorial-agent-based.md)
+- [Crear un experimento que usa errores basados en agente](chaos-studio-tutorial-agent-based-portal.md)
 - [Administrar el experimento](chaos-studio-run-experiment.md)

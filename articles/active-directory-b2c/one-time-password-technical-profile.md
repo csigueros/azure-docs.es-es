@@ -11,12 +11,13 @@ ms.topic: reference
 ms.date: 10/19/2020
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 4815eec021e4ebecda065667dca4568ded703ac5
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.custom: b2c-support
+ms.openlocfilehash: c54f5636ee7af8142bf5fcd401a2160a69cf550c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "131044881"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131436904"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definición de un perfil técnico de una contraseña de un solo uso en una directiva personalizada de Azure AD B2C
 
@@ -76,7 +77,7 @@ La configuración siguiente se puede usar para establecer el modo de generación
 | CodeExpirationInSeconds | No | Tiempo en segundos hasta la expiración del código. Mínimo: `60`; máximo: `1200`; valor predeterminado: `600`. Cada vez que se proporciona un código (el mismo código que usa `ReuseSameCode`, o un código nuevo), se amplía la expiración del código. También se usa para establecer el tiempo de espera de reintento (una vez alcanzado el máximo de intentos, el usuario no podrá intentar obtener nuevos códigos hasta que expire este tiempo). |
 | CodeLength | No | Longitud del código. El valor predeterminado es `6`. |
 | CharacterSet | No | Juego de caracteres del código, con formato para usarse en una expresión regular. Por ejemplo, `a-z0-9A-Z`. El valor predeterminado es `0-9`. El juego de caracteres debe incluir un mínimo de 10 caracteres diferentes en el conjunto especificado. |
-| NumRetryAttempts | No | Número de intentos de verificación antes de que el código se considere no válido. El valor predeterminado es `5`. |
+| NumRetryAttempts | No | Número de intentos de verificación antes de que el código se considere no válido. El valor predeterminado es `5`. Por ejemplo, si establece NumRetryAttempts en 2, solo se permitirán dos intentos en total (el primero + 1 reintento). Para el tercer intento, se iniciarán intentos máximos alcanzados independientemente de si el código es correcto o no.|
 | NumCodeGenerationAttempts | No | Número máximo de intentos de generación de código por identificador. Si no se especifica, el valor predeterminado es 10. |
 | Operación | Sí | La operación que se va a realizar. Valor posible: `GenerateCode`. |
 | ReuseSameCode | No | Indica si se debe proporcionar el mismo código en lugar de generar un código nuevo cuando el código proporcionado no ha expirado y sigue siendo válido. El valor predeterminado es `false`.  |

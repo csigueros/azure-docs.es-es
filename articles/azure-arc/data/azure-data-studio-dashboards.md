@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 94e7b6b351d13a85a516b4a4bc6c54c31754bc12
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: cea97bab303ce2d009cecc67ed30ec89b0992118
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741482"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131554343"
 ---
 # <a name="azure-data-studio-dashboards"></a>Paneles de Azure Data Studio
 
@@ -28,52 +28,18 @@ ms.locfileid: "121741482"
 - Descargar [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
 - Extensión de Azure Arc instalada
 
-### <a name="determine-the-data-controller-server-api-endpoint-url"></a>Determinación de la dirección URL del punto de conexión de la API del servidor del controlador de datos
 
-En primer lugar, necesitará conectar Azure Data Studio a la dirección URL del punto de conexión de la API del servicio del controlador de datos.
-
-Para obtener este punto de conexión, puede ejecutar el siguiente comando:
-
-```console
-kubectl get svc/controller-svc-external -n <namespace name>
-
-#Example:
-kubectl get svc/controller-svc-external -n arc
-```
-
-Verá una salida similar a la siguiente:
-
-```console
-NAME                      TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)                                       AGE
-controller-svc-external   LoadBalancer   10.0.175.137   52.154.152.24    30080:32192/TCP                               22h
-```
-
-Si usa un tipo de LoadBalancer, deberá copiar la dirección IP externa y el número de puerto. Si usa NodePort, deberá usar la dirección IP del servidor de la API de Kubernetes y el número de puerto que aparece en la columna PUERTOS.
-
-Ahora, deberá crear una dirección URL para el punto de conexión combinando esta información de la siguiente manera:
-
-```console
-https://<ip address>:<port>
-
-Example:
-https://52.154.152.24:30080
-```
-
-Tenga en cuenta la dirección IP, ya que la usará en el siguiente paso.
 
 ### <a name="connect"></a>Conectar
 
 1. Procedimiento para abrir Azure Data Studio
+2. Seleccione la pestaña **Conexiones** a la izquierda.
+3. Expanda el panel llamado **Azure Arc Controllers** (Controladores de Azure Arc).
+4. Haga clic en el botón **Connect Controller** (Conectar controlar). Se abrirá una hoja en el lado derecho.
+5. De forma predeterminada, Azure Data Studio intentará leer el archivo kube.config en el directorio predeterminado, enumerar los contextos de clúster de Kubernetes disponibles y seleccionar previamente el contexto de clúster actual. Si es el clúster adecuado para conectarse, escriba el espacio de nombres donde está implementado el controlador de datos de Azure Arc en la entrada de **Espacio de nombres**. Si necesita recuperar el espacio de nombres donde está implementado el controlador de datos de Azure Arc, puede ejecutar ```kubectl get datacontrollers -A``` en el clúster de Kubernetes. 
+6. Opcionalmente, agregue un nombre para mostrar para el controlador de datos de Azure Arc en la entrada de **Nombre**.
+7. Seleccione **Conectar**.
 
-1. Seleccione la pestaña **Conexiones** a la izquierda.
-
-Hacia la parte inferior, expanda el panel llamado **Controladores de Azure Arc**.
-
-Haga clic en el icono + para agregar una nueva conexión de controlador de datos.
-
-En la parte superior de la pantalla, en la paleta de comandos, escriba la dirección URL que creó en el paso 1 y haga clic en Entrar.
-Escriba el nombre de usuario del controlador de datos.  Este era el valor del nombre de usuario que pasó durante la implementación del controlador de datos.  Haga clic en Entrar.
-Escriba la contraseña del controlador de datos.  Este era el valor de la contraseña que pasó durante la implementación del controlador de datos. Haga clic en Entrar.
 
 Ahora que está conectado a un controlador de datos, puede ver los paneles del controlador de datos y las instancias administradas de SQL o los recursos del grupo de servidores de hiperescala de PostgreSQL que tenga.
 

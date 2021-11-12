@@ -5,14 +5,14 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 09/23/2021
+ms.date: 11/02/2021
 ms.author: duau
-ms.openlocfilehash: fa5ea8f191c0b2ea9c7db483eb4d7b9c5a679be0
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 47584994586e735647be4116fb49de610e5f97f5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129094374"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131453276"
 ---
 # <a name="azure-route-server-faq"></a>Preguntas frecuentes sobre Azure Route Server
 
@@ -91,6 +91,12 @@ No, Azure Route Server no admite la asociación de NSG con la RouteServerSubne
 ***Topología: NVA1 -> RouteServer1 -> (a través de emparejamiento de red virtual) -> RouteServer2 -> NVA2***
 
 No, Azure Route Server no desvía el tráfico de datos. Para permitir la conectividad de tránsito a través de la NVA, configure una conexión directa (por ejemplo, un túnel IPsec) entre las NVA y use los servidores de rutas para la propagación dinámica de rutas. 
+
+### <a name="can-i-use-azure-route-server-to-direct-traffic-between-subnets-in-the-same-virtual-network-to-flow-inter-subnet-traffic-through-the-nva"></a>¿Se puede usar Azure Route Server para dirigir el tráfico entre subredes de la misma red virtual para que el tráfico entre las subredes fluya por la NVA?
+
+No. Las rutas de sistema para el tráfico relacionado con la red virtual, los emparejamientos de la red virtual o los puntos de conexión de servicio de red virtual son las rutas preferidas, aunque las rutas BGP sean más específicas. Como Route Server usa BGP para anunciar las rutas, por diseño actualmente esto no se admite. Tendrá que seguir usando UDR para forzar la invalidación de las rutas y no puede utilizar BGP para conmutarlas por error rápidamente. Tendrá que seguir usando una solución de terceros para actualizar las UDR mediante la API en casos de conmutación por error, o bien usar Azure Load Balancer con el modo de puertos de alta disponibilidad para dirigir el tráfico.
+
+Todavía puede usar Route Server para dirigir el tráfico entre subredes de distintas redes virtuales para que fluyan mediante la NVA. El único diseño posible que puede funcionar es una subred por red virtual de "radio" y todas las redes virtuales emparejadas con una red virtual de "concentrador", pero esto es muy limitado y debe tener en cuenta las consideraciones de escalado y los límites máximos de Azure en redes virtuales frente a subredes.
 
 ## <a name="route-server-limits"></a><a name = "limitations"></a>Límites de Route Server
 

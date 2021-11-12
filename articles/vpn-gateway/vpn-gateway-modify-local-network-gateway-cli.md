@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 10/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 5e03da37a727c87995496878b191cbf48cfe0347
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 5a11221cc11e99cf989f1fa50f851b51754c7071
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108229619"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131474276"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>Modificación de la configuración de la puerta de enlace de red local mediante la CLI de Azure
 
@@ -24,6 +24,10 @@ A veces, cambia la configuración Prefijo de dirección o Dirección IP de la pu
 > * [PowerShell](vpn-gateway-modify-local-network-gateway.md)
 > * [CLI de Azure](vpn-gateway-modify-local-network-gateway-cli.md)
 >
+>
+
+>[!NOTE]
+> La realización de cambios en una puerta de enlace de red local que tiene una conexión puede provocar desconexiones de túneles y tiempo de inactividad.
 >
 
 ## <a name="before-you-begin"></a><a name="before"></a>Antes de empezar

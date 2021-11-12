@@ -7,12 +7,12 @@ ms.reviewer: rarayudu, azla
 ms.topic: how-to
 ms.date: 09/13/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: d3814c0888499a1b31d707560f6acd26c572b95e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 475d1d580d1330cd3f65d21338a8dea050d37da7
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131040668"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131464212"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger el acceso y los datos en Azure Logic Apps
 
@@ -977,7 +977,7 @@ En esta tabla se identifican los tipos de autenticación que están disponibles 
 | [Certificado de cliente](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP y Swagger, webhook HTTP |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, webhook HTTP |
 | [Sin formato](#raw-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, webhook HTTP |
-| [Identidad administrada](#managed-identity-authentication) | **Aplicación lógica (consumo)** : <p><p>- **Integrados**: Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP Webhook <p><p>- **Conector administrado** (versión preliminar): <p><p>--- **Autenticación única**: Azure AD Identity Protection, Azure Automation, Azure Container Instance, Azure Data Explorer, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure IoT Central V3, Azure Key Vault, Azure Resource Manager, Azure Sentinel, HTTP con Azure AD <p><p>--- **Autenticación múltiple**: Azure Blob Storage, SQL Server <p><p>___________________________________________________________________________________________<p><p>**Aplicación lógica (estándar)** : <p><p>- **Integrados**: HTTP, HTTP Webhook <p><p>- **Conector administrado** (versión preliminar): <p>--- **Autenticación única**: Azure AD Identity Protection, Azure Automation, Azure Container Instance, Azure Data Explorer, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure IoT Central V3, Azure Key Vault, Azure Resource Manager, Azure Sentinel, HTTP con Azure AD <p><p>--- **Autenticación múltiple**: Azure Blob Storage, SQL Server |
+| [Identidad administrada](#managed-identity-authentication) | **Aplicación lógica (consumo)** : <p><p>- **Integrados**: Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP Webhook <p><p>- **Conector administrado** (versión preliminar): <p><p>--- **Autenticación única**: Azure AD Identity Protection, Azure Automation, Azure Container Instance, Azure Data Explorer, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure Key Vault, Azure Resource Manager, Azure Sentinel, HTTP con Azure AD <p><p>--- **Autenticación múltiple**: Azure Blob Storage, SQL Server <p><p>___________________________________________________________________________________________<p><p>**Aplicación lógica (estándar)** : <p><p>- **Integrados**: HTTP, HTTP Webhook <p><p>- **Conector administrado** (versión preliminar): <p>--- **Autenticación única**: Azure AD Identity Protection, Azure Automation, Azure Container Instance, Azure Data Explorer, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure Key Vault, Azure Resource Manager, Azure Sentinel, HTTP con Azure AD <p><p>--- **Autenticación múltiple**: Azure Blob Storage, SQL Server |
 |||
 
 <a name="basic-authentication"></a>

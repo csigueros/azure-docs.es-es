@@ -2,13 +2,13 @@
 title: Configuración de Azure Arc para App Service, Functions y Logic Apps
 description: En el caso de clústeres de Kubernetes habilitados para Azure Arc, aprenda a habilitar aplicaciones de App Service, aplicaciones de funciones y aplicaciones lógicas.
 ms.topic: article
-ms.date: 08/17/2021
-ms.openlocfilehash: f0594458f65fbd14bc50540148d5ea68d15fbdbd
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.date: 11/02/2021
+ms.openlocfilehash: a330d68ed556a60261ca91e6bfb32fdddf52dc14
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129707130"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131435593"
 ---
 # <a name="set-up-an-azure-arc-enabled-kubernetes-cluster-to-run-app-service-functions-and-logic-apps-preview"></a>Configuración de un clúster de Kubernetes habilitado para Azure Arc para ejecutar App Service, Functions y Logic Apps (versión preliminar)
 
@@ -31,7 +31,6 @@ Si no tiene una cuenta de Azure, [regístrese hoy mismo](https://azure.microsoft
 Set the following environment variables based on your Kubernetes cluster deployment:
 
 ```bash
-staticIp="<public-ip-address-of-the-kubernetes-cluster>"
 aksClusterGroupName="<name-resource-group-with-aks-cluster>"
 groupName="<name-of-resource-group-with-the-arc-connected-cluster>"
 clusterName="<name-of-arc-connected-cluster>"
@@ -54,7 +53,7 @@ az provider register --namespace Microsoft.ExtendedLocation --wait
 az provider register --namespace Microsoft.Web --wait
 az provider register --namespace Microsoft.KubernetesConfiguration --wait
 az extension remove --name appservice-kube
-az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py2.py3-none-any.whl"
+az extension add --upgrade --yes --name appservice-kube
 ```
 
 ## <a name="create-a-connected-cluster"></a>Creación de un clúster conectado
@@ -74,8 +73,6 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
     az group create -g $aksClusterGroupName -l $resourceLocation
     az aks create --resource-group $aksClusterGroupName --name $aksName --enable-aad --generate-ssh-keys
     infra_rg=$(az aks show --resource-group $aksClusterGroupName --name $aksName --output tsv --query nodeResourceGroup)
-    az network public-ip create --resource-group $infra_rg --name MyPublicIP --sku STANDARD
-    staticIp=$(az network public-ip show --resource-group $infra_rg --name MyPublicIP --output tsv --query ipAddress)
     ```
 
     # <a name="powershell"></a>[PowerShell](#tab/powershell)
@@ -87,9 +84,6 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
 
     az group create -g $aksClusterGroupName -l $resourceLocation
     az aks create --resource-group $aksClusterGroupName --name $aksName --enable-aad --generate-ssh-keys
-    $infra_rg=$(az aks show --resource-group $aksClusterGroupName --name $aksName --output tsv --query nodeResourceGroup)
-    az network public-ip create --resource-group $infra_rg --name MyPublicIP --sku STANDARD
-    $staticIp=$(az network public-ip show --resource-group $infra_rg --name MyPublicIP --output tsv --query ipAddress)
     ```
 
     ---
@@ -255,7 +249,6 @@ Aunque no se necesita un [área de trabajo de Log Analytics](../azure-monitor/lo
         --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" \
         --configuration-settings "appsNamespace=${namespace}" \
         --configuration-settings "clusterName=${kubeEnvironmentName}" \
-        --configuration-settings "loadBalancerIp=${staticIp}" \
         --configuration-settings "keda.enabled=true" \
         --configuration-settings "buildService.storageClassName=default" \
         --configuration-settings "buildService.storageAccessMode=ReadWriteOnce" \
@@ -282,7 +275,6 @@ Aunque no se necesita un [área de trabajo de Log Analytics](../azure-monitor/lo
         --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" `
         --configuration-settings "appsNamespace=${namespace}" `
         --configuration-settings "clusterName=${kubeEnvironmentName}" `
-        --configuration-settings "loadBalancerIp=${staticIp}" `
         --configuration-settings "keda.enabled=true" `
         --configuration-settings "buildService.storageClassName=default" `
         --configuration-settings "buildService.storageAccessMode=ReadWriteOnce" `
@@ -304,15 +296,14 @@ Aunque no se necesita un [área de trabajo de Log Analytics](../azure-monitor/lo
     | Parámetro | Descripción |
     | - | - |
     | `Microsoft.CustomLocation.ServiceAccount` | Cuenta de servicio que se debe crear para la ubicación personalizada que se creará. Se recomienda que se establezca en el valor `default`. |
-    | `appsNamespace` | Espacio de nombres para aprovisionar las definiciones de la aplicación y los pods. Debe coincidir con el del espacio de nombres de la versión de la extensión. |
+    | `appsNamespace` | Espacio de nombres para aprovisionar las definiciones de la aplicación y los pods. **Debe** coincidir con el del espacio de nombres de la versión de la extensión. |
     | `clusterName` | Nombre del entorno de Kubernetes de App Service que se creará con esta extensión. |
-    | `loadBalancerIp` | Dirección IP pública del clúster de Kubernetes. Las aplicaciones de App Service reciben tráfico en esta dirección IP. También informa de la asignación de DNS predeterminada. |
     | `keda.enabled` | Si [KEDA](https://keda.sh/) debe instalarse en el clúster de Kubernetes. Acepta `true` o `false`. |
-    | `buildService.storageClassName` | [Nombre de la clase de almacenamiento](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#class) para que el servicio de compilación almacene artefactos de compilación. Un valor como `default` especifica una clase denominada `default`, y no [ninguna clase marcada como predeterminada](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/). |
+    | `buildService.storageClassName` | [Nombre de la clase de almacenamiento](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#class) para que el servicio de compilación almacene artefactos de compilación. Un valor como `default` especifica una clase denominada `default`, y no [ninguna clase marcada como predeterminada](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/).  El valor predeterminado es una clase de almacenamiento válida para AKS y AKS HCI, pero puede que no lo sea para otras distribuciones o plataformas. |
     | `buildService.storageAccessMode` | [Modo de acceso](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) que se usará con la clase de almacenamiento con nombre anterior. Acepta `ReadWriteOnce` o `ReadWriteMany`. |
     | `customConfigMap` | Nombre del mapa de configuración que establecerá el entorno de Kubernetes de App Service. Actualmente, debe ser `<namespace>/kube-environment-config`, reemplazando `<namespace>` por el valor de `appsNamespace` anterior. |
     | `envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group` | Nombre del grupo de recursos en el que reside el clúster de Azure Kubernetes Service. Válido y necesario solo cuando el clúster subyacente es Azure Kubernetes Service.  |
-    | `logProcessor.appLogs.destination` | Opcional. Acepta `log-analytics`. |
+    | `logProcessor.appLogs.destination` | Opcional. Acepta `log-analytics` o `none`, si no se elije ninguno se deshabilitan los registros de la plataforma. |
     | `logProcessor.appLogs.logAnalyticsConfig.customerId` | Necesario solo cuando `logProcessor.appLogs.destination` se establece en `log-analytics`. Identificador del área de trabajo de Log Analytics codificada en base64. Este parámetro debe configurarse como una configuración protegida. |
     | `logProcessor.appLogs.logAnalyticsConfig.sharedKey` | Necesario solo cuando `logProcessor.appLogs.destination` se establece en `log-analytics`. Clave compartida del área de trabajo de Log Analytics codificada en base64. Este parámetro debe configurarse como una configuración protegida. |
     | | |
@@ -456,7 +447,6 @@ Para poder empezar a crear aplicaciones en la ubicación personalizada, necesita
         --resource-group $groupName \
         --name $kubeEnvironmentName \
         --custom-location $customLocationId \
-        --static-ip $staticIp
     ```
 
     # <a name="powershell"></a>[PowerShell](#tab/powershell)
@@ -465,8 +455,7 @@ Para poder empezar a crear aplicaciones en la ubicación personalizada, necesita
     az appservice kube create `
         --resource-group $groupName `
         --name $kubeEnvironmentName `
-        --custom-location $customLocationId `
-        --static-ip $staticIp
+        --custom-location $customLocationId `      
     ```
 
     ---

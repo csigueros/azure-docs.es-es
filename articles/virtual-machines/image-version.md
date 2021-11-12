@@ -1,35 +1,35 @@
 ---
 title: Creación de una definición de imagen y una versión de imagen
-description: Aprenda a crear una imagen en Shared Image Gallery en Azure.
+description: Aprenda a crear una imagen en una instancia de Azure Compute Gallery.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: shared-image-gallery
+ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/31/2021
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: f0ff3a0cc6bc228951fa47eb5723c520684d1dc5
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: e52457a67e2c653d1fa4e191ee568b35cb7e365f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123452410"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471523"
 ---
 # <a name="create-an-image-definition-and-an-image-version"></a>Creación de una definición de imagen y una versión de imagen 
 
-Una [galería de imágenes compartidas](shared-image-galleries.md) simplifica el uso compartido de imágenes personalizadas en toda una organización. Las imágenes personalizadas son como las imágenes de Marketplace, pero las puede crear usted mismo. Las imágenes personalizadas se pueden usar para realizar tareas de implementación de arranque, como la carga previa de aplicaciones, configuraciones de aplicaciones y otras configuraciones del sistema operativo. 
+Una instancia de [Azure Compute Gallery](shared-image-galleries.md) (anteriormente denominada Shared Image Gallery) simplifica el uso compartido de imágenes personalizadas en la organización. Las imágenes personalizadas son como las imágenes de Marketplace, pero las puede crear usted mismo. Las imágenes personalizadas se pueden usar para realizar tareas de implementación de arranque, como la carga previa de aplicaciones, configuraciones de aplicaciones y otras configuraciones del sistema operativo. 
 
-La Galería de imágenes compartidas le permite compartir sus imágenes de máquina virtual personalizadas con otros usuarios de su organización, ya sea dentro o entre regiones, dentro de un inquilino de AAD. Elija las imágenes que desea compartir, qué regiones desea que estén disponibles en ellas y con quién desea compartirlas. Puede crear varias galerías que le permitirán agrupar lógicamente las imágenes compartidas. 
+Azure Compute Gallery le permite compartir las imágenes de máquina virtual personalizadas con otros usuarios de la organización, ya sea dentro o entre regiones, dentro de un inquilino de AAD. Elija las imágenes que desea compartir, qué regiones desea que estén disponibles en ellas y con quién desea compartirlas. Puede crear varias galerías que le permitirán agrupar las imágenes de forma lógica. 
 
-La característica de galería de imágenes compartidas tiene varios tipos de recursos:
+La característica Azure Compute Gallery tiene varios tipos de recursos:
 
 [!INCLUDE [virtual-machines-shared-image-gallery-resources](./includes/virtual-machines-shared-image-gallery-resources.md)]
 
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Para completar este artículo, debe tener una instancia de Shared Image Gallery existente y un origen para su imagen disponible en Azure. Los orígenes de imagen pueden ser los siguientes:
+Para completar este artículo, debe tener una instancia de Azure Compute Gallery existente y un origen para la imagen disponible en Azure. Los orígenes de imagen pueden ser los siguientes:
 - Una máquina virtual de la suscripción. Puede capturar una imagen a partir de máquinas virtuales [especializadas y generalizadas](shared-image-galleries.md#generalized-and-specialized-images). 
 - Una imagen administrada.
 - Discos de datos y sistema operativo administrados.
@@ -54,10 +54,10 @@ Para crear una imagen a partir de una máquina virtual en el portal, consulte [C
 
 Para crear una imagen con un origen distinto de una máquina virtual, siga estos pasos.
 
-1. En [Azure Portal](https://portal.azure.com), busque y seleccione **Shared Image Gallery**.
+1. Vaya a [Azure Portal](https://portal.azure.com) y busque y seleccione **Azure Compute Gallery**.
 1. Seleccione la galería que desea usar en la lista.
-1. En la página de la galería de imágenes, seleccione **Add a new image definition** (Agregar una nueva definición de imagen) en la parte superior de la página. 
-1. En la página **Agregar nueva definición de imagen a la galería de imágenes compartidas**, en la pestaña **Conceptos básicos**, seleccione una **Región**. 
+1. En la página de la galería, seleccione **Agregar** en la parte superior de la página y, después, seleccione **VM image definition** (Definición de imagen de máquina virtual) en la lista desplegable. 
+1. En la página **Add new image definition to Azure Compute Gallery** (Agregar nueva definición de imagen a Azure Compute Gallery), en la pestaña **Conceptos básicos**, seleccione una **Región**. 
 1. En **Nombre de definición de la imagen**, escriba un nombre como *myImageDefinition*.
 1. En **Sistema operativo**, seleccione la opción correcta en función de su origen.  
 1. En **Generación de VM**, seleccione la opción en función de su origen. En la mayoría de los casos, será *Gen 1*. Para obtener más información, consulte [Compatibilidad para máquinas virtuales de generación 2 en Azure](generation-2.md).
@@ -184,7 +184,7 @@ $imageDefinition = New-AzGalleryImageDefinition `
 ```
 
 > [!NOTE]
-> Para las definiciones de imagen que contendrán imágenes descendientes de imágenes de terceros, la información del plan debe coincidir exactamente con la del plan de la imagen de terceros. Para incluir la información del plan en la definición de imagen, agregue `-PurchasePlanName`, `-PurchasePlanProduct`y `-PurchasePlanPublisher` al crearla.
+> Para las definiciones de imagen que contendrán imágenes descendientes de imágenes de terceros, la información del plan debe coincidir exactamente con la información del plan de la imagen de terceros. Para incluir la información del plan en la definición de imagen, agregue `-PurchasePlanName`, `-PurchasePlanProduct`y `-PurchasePlanPublisher` al crearla.
 >
 
 **Creación de la versión de una imagen**
