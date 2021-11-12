@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Documentación de referencia del esquema YAML del conjunto de datos de la CLI (v2).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: reference
 author: ynpandey
 ms.author: yogipandey
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: b92324d61316ba59f964cff97ebbb9869d01dafb
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 4a22fee30a28008fa440d606360623e156c332a0
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131557991"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132133685"
 ---
 # <a name="cli-v2-dataset-yaml-schema"></a>Esquema YAML del conjunto de datos de la CLI (v2)
 
@@ -42,7 +42,7 @@ El esquema JSON de origen se puede encontrar en https://azuremlschemas.azureedge
 | `file` | string | URI de un único archivo que se usa como origen para el conjunto de datos. Los tipos de URI admitidos son `azureml`, `https`, `wasbs`, `abfss` y `adl`. Consulte [Sintaxis principal de YAML](reference-yaml-core-syntax.md) para más información sobre cómo usar el formato de URI `azureml://`. **Se requiere `file` o `folder`.** |
 | `folder` | string | URI de una carpeta que se usa como origen del conjunto de datos. Los tipos de URI admitidos son `azureml`, `https`, `wasbs`, `abfss` y `adl`. Consulte [Sintaxis principal de YAML](reference-yaml-core-syntax.md) para más información sobre cómo usar el formato de URI `azureml://`. **Se requiere `file` o `folder`.** |
 
-## <a name="remarks"></a>Comentarios
+## <a name="remarks"></a>Observaciones
 
 Los comandos `az ml dataset` se pueden usar para administrar los conjuntos de datos de Azure Machine Learning.
 
@@ -52,35 +52,35 @@ Hay ejemplos disponibles en el [repositorio de GitHub de ejemplos](https://githu
 
 ## <a name="yaml-datastore-file"></a>YAML: archivo de almacén de datos
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/dataset/cloud-file.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/cloud-file.yml":::
 
 ## <a name="yaml-datastore-folder"></a>YAML: carpeta de almacén de datos
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/dataset/cloud-folder.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/cloud-folder.yml":::
 
 ## <a name="yaml-https-file"></a>YAML: archivo https
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/dataset/cloud-file-https.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/cloud-file-https.yml":::
 
 ## <a name="yaml-https-folder"></a>YAML: carpeta https
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/dataset/cloud-folder-https.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/cloud-folder-https.yml":::
 
 ## <a name="yaml-wasbs-file"></a>YAML: archivo wasbs
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/dataset/cloud-file-wasbs.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/cloud-file-wasbs.yml":::
 
 ## <a name="yaml-wasbs-folder"></a>YAML: carpeta wasbs
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/dataset/cloud-folder-wasbs.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/cloud-folder-wasbs.yml":::
 
 ## <a name="yaml-local-file"></a>YAML: archivo local
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/dataset/local-file.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/local-file.yml":::
 
 ## <a name="yaml-local-folder"></a>YAML: carpeta local
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/dataset/local-folder.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/local-folder.yml":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

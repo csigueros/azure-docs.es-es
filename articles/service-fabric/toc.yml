@@ -415,7 +415,7 @@
         - name: Configuración de la expansión de la zona de disponibilidad de un clúster administrado
           href: how-to-managed-cluster-availability-zones.md
         - name: Habilitación del cifrado de disco para nodos de clústeres administrados
-          href: how-to-enable-managed-cluster-disk-encryption.md
+          href: how-to-managed-cluster-enable-disk-encryption.md
         - name: Selección de tipos de disco administrado para nodos de clúster administrados
           href: how-to-managed-cluster-managed-disk.md
         - name: Configuración de opciones de actualización de clústeres administrados

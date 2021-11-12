@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Documentación de referencia del esquema YAML de implementación en línea administrada de la CLI (v2).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: reference
 author: lostmygithubaccount
 ms.author: copeters
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: bb04bfb69052fab8224b70206b3c4cf680f20769
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 82c215dd0b7bccfcb53da0952cba82f89105c38a
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131555902"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132137842"
 ---
 # <a name="cli-v2-managed-online-deployment-yaml-schema"></a>Esquema YAML de implementación en línea administrada de la CLI (v2)
 
@@ -65,27 +65,27 @@ El esquema JSON de origen se puede encontrar en https://azuremlschemas.azureedge
 | `success_threshold` | integer | El número mínimo de valores correctos consecutivos para que el sondeo se considere correcto después de que se haya producido un error. El valor mínimo es `1`. | `1` |
 | `failure_threshold` | integer | Cuando un sondeo genera un error, el sistema efectuará `failure_threshold` intentos antes de abandonar. Si se abandona en el caso del sondeo de ejecución significa reiniciar el contenedor. En el caso del sondeo de preparación, el contenedor se marcará como que no está listo. El valor mínimo es `1`. | `30` |
 
-## <a name="remarks"></a>Comentarios
+## <a name="remarks"></a>Observaciones
 
 El comando `az ml online-deployment` se puede usar para administrar implementaciones en línea administradas de Azure Machine Learning.
 
 ## <a name="examples"></a>Ejemplos
 
-Hay ejemplos disponibles en el [repositorio de GitHub de ejemplos](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online). A continuación, se muestran varios.
+Hay ejemplos disponibles en el [repositorio de GitHub de ejemplos](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online). A continuación se muestran varios.
 
 ## <a name="yaml-basic"></a>YAML: básico
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/sample/blue-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/blue-deployment.yml":::
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/sample/green-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/green-deployment.yml":::
 
 ## <a name="yaml-system-assigned-identity"></a>YAML: identidad asignada por el sistema
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/managed-identities/2-sai-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/managed-identities/2-sai-deployment.yml":::
 
 ## <a name="yaml-user-assigned-identity"></a>YAML: identidad asignada por el usuario
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/managed-identities/2-uai-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/managed-identities/2-uai-deployment.yml":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

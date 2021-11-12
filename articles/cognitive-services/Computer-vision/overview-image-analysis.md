@@ -11,16 +11,14 @@ ms.topic: overview
 ms.date: 06/21/2021
 ms.author: pafarley
 keywords: computer vision, computer vision applications, computer vision service
-ms.openlocfilehash: eb7aba4367b7f8ce54141613e0d1f52ded1c26bb
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 46e01af8fb0022e2e003565a07dca6e7e2713dda
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114284833"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132372575"
 ---
 # <a name="what-is-image-analysis"></a>¿Qué es Image Analysis?
-
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 El servicio Image Analysis de Computer Vision puede extraer una gran variedad de características visuales de sus imágenes. Por ejemplo, puede determinar si una imagen tiene contenido para adultos, buscar marcas u objetos específicos o buscar rostros humanos.
 
