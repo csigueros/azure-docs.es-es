@@ -2,13 +2,13 @@
 title: Métodos de autenticación del agente de seguridad
 description: Obtenga información sobre los distintos métodos de autenticación disponibles al usar el servicio Defender para IoT.
 ms.topic: conceptual
-ms.date: 01/24/2021
-ms.openlocfilehash: bd4d89d8664dae2421ff7f268b3710b5a906427b
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.date: 11/09/2021
+ms.openlocfilehash: 1d5aa69b5a44b07f90b063f741e65236f74e7dbd
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018249"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132331573"
 ---
 # <a name="security-agent-authentication-methods"></a>Métodos de autenticación del agente de seguridad
 

@@ -10,13 +10,13 @@ ms.topic: how-to
 author: uc-msft
 ms.author: umajay
 ms.reviewer: mathoma
-ms.date: 04/19/2020
-ms.openlocfilehash: 4597380c0bae96c67c38d36d162fdf740ba119a2
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.date: 10/18/2021
+ms.openlocfilehash: ed70bb517478fb931ac402a7b528118b3d76d148
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111590259"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130239404"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database-and-azure-sql-managed-instance"></a>Introducción a las características de JSON en Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -32,7 +32,7 @@ Azure SQL Database e Instancia administrada de Azure AD permiten analizar y cons
 
 Si tiene un servicio web que toma datos del nivel de base de datos y proporciona una respuesta en formato JSON o marcos JavaScript del lado cliente o bibliotecas que aceptan datos con formato JSON, puede dar formato JSON al contenido de la base de datos directamente en una consulta SQL. Ya no tiene que escribir código de aplicación para dar formato JSON a los resultados de Azure SQL Database o Instancia administrada de Azure SQL ni incluir una biblioteca de serialización de JSON para convertir los resultados tabulares de la consulta y después serializar los objetos en formato JSON. En su lugar, puede usar la cláusula FOR JSON para dar formato JSON a resultados de consultas SQL y usarlos directamente en su aplicación.
 
-En el ejemplo siguiente, se aplica el formato JSON a las filas de la tabla Sales.Customers mediante la cláusula FOR JSON:
+En el ejemplo siguiente, se aplica el formato JSON a las filas de la tabla `Sales.Customer` mediante la cláusula FOR de JSON:
 
 ```sql
 select CustomerName, PhoneNumber, FaxNumber
@@ -104,7 +104,7 @@ En lugar de enviar consultas diferentes para obtener los datos del cliente y des
 
 ## <a name="working-with-json-data"></a>Trabajo con datos JSON
 
-Si no tiene datos con una estructura estricta, si tiene subobjetos complejos, matrices o datos jerárquicos, o si sus estructuras de datos evolucionan con el tiempo, el formato JSON puede ayudarlo a representar cualquier estructura de datos compleja.
+Si no tiene datos con una estructura estricta, si tiene subobjetos complejos, matrices o datos jerárquicos, o si las estructuras de datos evolucionan con el tiempo, el formato JSON puede ayudar a representar cualquier estructura de datos compleja.
 
 JSON es un formato de texto que se puede usar como cualquier otro tipo de cadena en Azure SQL Database e Instancia administrada de Azure SQL. Puede enviar o almacenar datos JSON como un tipo NVARCHAR estándar:
 
@@ -191,9 +191,3 @@ END
 ```
 
 La colección de pedidos con formato de matriz JSON que se proporciona como parámetro del procedimiento almacenado se puede analizar e insertar en la tabla Orders.
-
-## <a name="next-steps"></a>Pasos siguientes
-
-Para aprender a integrar JSON en la aplicación, consulte estos recursos:
-
-Para más información sobre diversos escenarios para integrar JSON en su aplicación, vea las demostraciones en este [vídeo de Channel 9](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) o busque un escenario que coincida con su caso de uso en las [publicaciones del blog sobre JSON](/archive/blogs/sqlserverstorageengine/json-in-sql-server-use-cases).

@@ -3,13 +3,13 @@ title: Configuración local del agente de seguridad de Defender para IoT (C#)
 description: Obtenga más información sobre el archivo de configuración local del agente de seguridad y del servicio de seguridad Defender para IoT en C#.
 ms.custom: devx-track-csharp
 ms.topic: conceptual
-ms.date: 10/08/2020
-ms.openlocfilehash: 810ca270fed350da8beaa1c63fafe39df4ab6a61
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 11/09/2021
+ms.openlocfilehash: bfd70e8576bb139feb39d4a15e7076da0a4e0131
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128658285"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132293599"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>Información sobre el archivo de configuración local (agente de C#)
 

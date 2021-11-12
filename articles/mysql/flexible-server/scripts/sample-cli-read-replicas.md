@@ -1,5 +1,5 @@
 ---
-title: 'Script de CLI: creación y administración de réplicas de lectura en un servidor Azure Database for MySQL: servidor flexible (versión preliminar)'
+title: 'Script de la CLI: creación y administración de réplicas de lectura en Azure Database for MySQL: servidor flexible'
 description: 'En este script de ejemplo de la CLI de Azure se muestra como crear y administrar réplicas de lectura en un servidor Azure Database for MySQL: servidor flexible'
 author: shreyaaithal
 ms.author: shaithal
@@ -8,14 +8,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 09/15/2021
-ms.openlocfilehash: 02eea900b9e78b0a23bead45bd077902de7417eb
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1155231ca8909352aee2354023a19ea66c7ffc4d
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128702180"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131844136"
 ---
-# <a name="create-and-manage-read-replicas-in-an-azure-database-for-mysql---flexible-server-preview-using-azure-cli"></a>Creación y administración de réplicas de lectura en un servidor Azure Database for MySQL: servidor flexible (versión preliminar) mediante la CLI de Azure
+# <a name="create-and-manage-read-replicas-in-an-azure-database-for-mysql---flexible-server-using-azure-cli"></a>Creación y administración de réplicas de lectura en Azure Database for MySQL: servidor flexible mediante la CLI de Azure
 
 Este script de la CLI de ejemplo crea y administra [réplicas de lectura](../concepts-read-replicas.md) en un servidor Azure Database for MySQL: servidor flexible.
 
@@ -56,5 +56,5 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Pruebe otros scripts: [Ejemplos de la CLI de Azure para Azure Database for MySQL: servidor flexible (versión preliminar)](../sample-scripts-azure-cli.md).
+- Pruebe otros scripts: [Ejemplos de la CLI de Azure para Azure Database for MySQL: servidor flexible](../sample-scripts-azure-cli.md).
 - Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](/cli/azure).

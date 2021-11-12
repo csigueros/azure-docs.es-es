@@ -8,12 +8,12 @@ ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.openlocfilehash: e6ea151e7f8449a8dc3e86944fff4bcf55932784
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 5bee5e85fe7529ae783e99be02159bc8d62442b7
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770406"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131437227"
 ---
 # <a name="use-azure-image-builder-for-linux-vms-allowing-access-to-an-existing-azure-vnet"></a>Uso de Azure Image Builder para máquinas virtuales Linux que permiten acceder a una red virtual de Azure existente
 
@@ -153,7 +153,7 @@ sed -i -e "s/<vnetRgName>/$vnetRgName/g" aibRoleNetworking.json
 
 ## <a name="set-permissions-on-the-resource-group"></a>Establecer permisos en el grupo de recursos
 
-Image Builder usará la [identidad de usuario](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) proporcionada para insertar la imagen en la instancia de Azure Shared Image Gallery (SIG). En este ejemplo, se creará una definición de roles de Azure que tiene las acciones granulares necesarias para realizar la distribución de la imagen a la instancia de SIG. La definición de roles se asignará a la identidad del usuario.
+Image Builder usará la [identidad de usuario](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) proporcionada para insertar la imagen en Azure Compute Gallery (anteriormente denominada Shared Image Gallery). En este ejemplo, se creará una definición de roles de Azure que tiene las acciones granulares necesarias para realizar la distribución de la imagen a la instancia de SIG. La definición de roles se asignará a la identidad del usuario.
 
 ```bash
 # create user assigned identity for image builder
@@ -266,7 +266,7 @@ Si ahora quiere volver a personalizar la versión de la imagen para crear una nu
 
 Lo siguiente elimina la imagen que se ha creado, junto con todos los demás archivos de recursos. Asegúrese de que haya terminado con esta implementación antes de eliminar los recursos.
 
-Al eliminar los recursos de la galería de imágenes, tendrá que eliminar todas las versiones de la imagen antes de poder eliminar la definición de la imagen que se ha usado para crearlas. Para eliminar una galería, primero tiene que haber eliminado todas las definiciones de imagen de la galería.
+Al eliminar los recursos de la galería, tendrá que eliminar todas las versiones de la imagen antes de poder eliminar la definición de la imagen que se ha usado para crearlas. Para eliminar una galería, primero tiene que haber eliminado todas las definiciones de imagen de la galería.
 
 Elimine la plantilla de Azure Image Builder.
 
@@ -306,4 +306,4 @@ Si ha creado una red virtual para este inicio rápido, puede eliminarla red virt
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre las [galerías de imágenes compartidas de Azure](../shared-image-galleries.md).
+Más información sobre las [galerías de Azure Compute](../shared-image-galleries.md).

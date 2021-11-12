@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: f8aa1b8e50a287861cb6367e21878579d69e2d2d
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 938e5b88c635213b5614efe4c9dc646a25ee8d06
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122687885"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471504"
 ---
 # <a name="disable-or-remove-the-linux-agent-from-vms-and-images"></a>Deshabilitar o quitar el agente Linux de las máquinas virtuales y las imágenes
 
@@ -141,7 +141,7 @@ az vm generalize -g <resource_group> -n <vm_name>
 az image create -g <resource_group> -n <image_name> --source <vm_name>
 ```
 
-**Creación de una versión de imagen en una instancia de Shared Image Gallery**
+**Creación de una versión de imagen en una instancia de Azure Compute Gallery**
 
 ```azurecli
 az sig image-version create \

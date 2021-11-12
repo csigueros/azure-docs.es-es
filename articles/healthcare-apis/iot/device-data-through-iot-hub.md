@@ -1,31 +1,31 @@
 ---
 title: 'Recepción de datos del dispositivo mediante Azure IoT Hub: API de Azure Healthcare'
-description: En este tutorial, aprenderá a habilitar el enrutamiento de datos de dispositivo desde IoT Hub al servicio FHIR a través del conector de IoT.
+description: En este tutorial, aprenderá a habilitar el enrutamiento de datos de dispositivos desde IoT Hub al servicio FHIR a través del conector de IoT.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial
-ms.date: 10/12/2021
+ms.date: 11/10/2021
 ms.author: jasteppe
-ms.openlocfilehash: fe478235897b855d079241192108f5d5ebd70fe0
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: f12c5efe25f48ae16e4f59159936627a27b47212
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129992986"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132283474"
 ---
 # <a name="tutorial-receive-device-data-through-azure-iot-hub"></a>Tutorial: Recepción de datos del dispositivo mediante Azure IoT Hub
 
 > [!IMPORTANT]
 > Azure Healthcare APIs se encuentra actualmente en VERSIÓN PRELIMINAR. Los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado con disponibilidad general.
 
-El conector de IoT proporciona la capacidad de ingerir datos de dispositivos de Internet de las cosas médicas (IoMT) en el servicio Recursos Rápidos de Interoperabilidad en Salud (FHIR&#174;). El conector de IoT también puede trabajar con dispositivos aprovisionados y administrados mediante Azure IoT Hub. En este tutorial se proporciona el procedimiento para conectar y enrutar los datos del dispositivo desde Azure IoT Hub al conector de IoT.
+El conector de IoT proporciona la capacidad de recopilar e ingerir datos de estado de varios dispositivos médicos o relacionados con el estado de IoT en el servicio Recursos Rápidos de Interoperabilidad en Salud (FHIR®). El conector de IoT es interoperable y responde con dispositivos creados y administrados a través de Azure IoT Hub para mejorar los flujos de trabajo y facilitar su uso. En este tutorial se proporciona el procedimiento para conectar y enrutar los datos del dispositivo desde Azure IoT Hub al conector de IoT.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una suscripción de Azure activa: [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Recurso de servicio de FHIR con al menos un conector de IoT: [implementación del conector de IoT mediante Azure Portal](deploy-iot-connector-in-azure.md)
+- Recurso de servicio de FHIR con al menos un conector de IoT: [implemente el conector de IoT mediante Azure Portal](deploy-iot-connector-in-azure.md)
 - Un recurso de Azure IoT Hub conectado a dispositivos reales o simulados: [Creación de un centro de IoT con Azure Portal](../../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp)
 
 > [!TIP]
@@ -39,7 +39,7 @@ El conector de IoT usa una instancia de Azure Event Hubs en segundo plano para r
 
 ## <a name="connect-azure-iot-hub-with-iot-connector"></a>Conectar Azure IoT Hub con el conector de IoT
 
-Azure IoT Hub admite una característica llamada [enrutamiento de mensajes](../../iot-hub/iot-hub-devguide-messages-d2c.md) que proporciona la funcionalidad de enviar datos del dispositivo a varios servicios de Azure, como Event Hubs, una cuenta de Azure Storage y Service Bus. El conector de IoT usa esta característica para conectarse y enviar datos del dispositivo desde Azure IoT Hub a su punto de conexión del centro de eventos.
+Azure IoT Hub admite una característica llamada [enrutamiento de mensajes](../../iot-hub/iot-hub-devguide-messages-d2c.md) que proporciona la funcionalidad de enviar datos del dispositivo a varios servicios de Azure, como Event Hubs, una cuenta de Azure Storage y Service Bus. El conector de IoT usa esta característica para conectarse y enviar datos de dispositivo desde Azure IoT Hub a su punto de conexión del centro de eventos.
 
 > [!NOTE] 
 > En este momento solo puede usar PowerShell o el comando de la CLI para crear el enrutamiento de mensajes porque el centro de eventos del conector de IoT no está hospedado en la suscripción del cliente, por lo que no será visible para usted a través de la Azure Portal. [](../../iot-hub/tutorial-routing.md) Sin embargo, una vez que se agregan los objetos de ruta de mensaje mediante PowerShell o la CLI, están visibles en Azure Portal y se pueden administrar desde allí.
@@ -111,4 +111,4 @@ Comprender las distintas fases del flujo de datos en el conector de IoT.
 >[!div class="nextstepaction"]
 >[Flujo de datos del conector de IoT](iot-data-flow.md)
 
-(FHIR&#174;) es una marca comercial registrada de HL7 y se usa con el permiso hl7.
+(FHIR&#174;) es una marca comercial registrada de HL7 y se usa con el permiso de HL7.

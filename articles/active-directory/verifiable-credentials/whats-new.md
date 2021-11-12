@@ -8,31 +8,23 @@ ms.subservice: verifiable-credentials
 ms.topic: reference
 ms.date: 10/08/2021
 ms.author: barclayn
-ms.openlocfilehash: 42194075a3f97c13a3c45535ba68d2b4d23de0b8
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 4a00a787e61e6de2eda5753262b94d8a316c9b01
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129984922"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131440514"
 ---
 # <a name="whats-new-in-azure-active-directory-verifiable-credentials-preview"></a>Novedades de las credenciales verificables de Azure Active Directory (versión preliminar)
 
-En este documento puede encontrar las características, mejoras y cambios más recientes del servicio de credenciales verificables de Azure AD.
+En este artículo se enumeran las características, mejoras y cambios más recientes del servicio Credenciales verificables de Azure Active Directory (Azure AD).
 
 ## <a name="october-2021"></a>Octubre de 2021
 
-**Versión preliminar pública de la API de servicios de solicitud.**
+Ahora puede usar la [API REST Request Service](get-started-request-api.md) para compilar aplicaciones que puedan emitir y comprobar las credenciales desde cualquier lenguaje de programación que use. Esta nueva API de REST proporciona una capa de abstracción mejorada e integración con el servicio de credenciales verificables de Azure AD.
 
-- Los desarrolladores pueden empezar a usar la nueva [Request Service API](get-started-request-api.md) para compilar fácilmente aplicaciones que puedan emitir y comprobar credenciales en cualquier lenguaje de programación de su elección. Esta nueva API de REST proporciona una capa de abstracción mejorada e integración con el servicio de credenciales verificables de Azure AD.
-
-- Con la versión de la API de servicios de solicitud, nos alejamos del SDK inicial basado en NodeJS y le recomendamos encarecidamente que empiece a usar la API, ya que en los próximos meses el SDK de NodeJS quedará en desuso. La documentación y los ejemplos se han actualizado para usar la API de servicios de solicitud. Más información sobre la [API de servicios de solicitud](get-started-request-api.md)
+Es recomendable empezar a usar la API pronto, ya que el SDK de NodeJS quedará en desuso en los próximos meses. Ahora en la documentación y los ejemplos se usa la API REST Request Service. Para más información, vea [API REST Request Service (versión preliminar)](get-started-request-api.md).
 
 ## <a name="april-2021"></a>Abril de 2021
 
-**Las credenciales verificables de Azure Active Directory se encuentran en versión preliminar pública.**
-
-Los clientes de Azure AD ahora pueden emitir fácilmente [credenciales verificables](decentralized-identifier-overview.md) para representar pruebas de empleo, educación o cualquier otra notificación para que el titular de dicha credencial pueda decidir cuándo y con quién compartir sus credenciales. Cada credencial se firma mediante claves criptográficas asociadas al DID que el usuario posee y controla.
-
-## <a name="next-steps"></a>Pasos siguientes
-
-Si tiene preguntas, puede ponerse en contacto con nosotros a través del departamento de [soporte técnico](https://azure.microsoft.com/support/options/).
+Ahora puede emitir [credenciales verificables](decentralized-identifier-overview.md) en Azure AD. Este servicio es útil cuando es necesario representar pruebas de empleo, educación o cualquier otra notificación para que el titular de esa credencial pueda decidir cuándo y con quién compartir sus credenciales. Cada credencial se firma mediante claves criptográficas asociadas a la identidad descentralizada que el usuario posee y controla.

@@ -11,12 +11,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: mathoma
 ms.date: 09/23/2021
-ms.openlocfilehash: a501b564fcf8d9780c6398a5abd8bae49c10811f
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: f5acdf621c04ba48664004bbb1f28ae1c0914fcb
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130163541"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131447044"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Uso de réplicas de solo lectura para descargar cargas de trabajo de consulta de solo lectura
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -196,6 +196,13 @@ De este modo, la creación de una réplica geográfica puede proporcionar varias
 
 > [!NOTE]
 > No se permite aplicar el método round-robin ni ningún otro enrutamiento de carga equilibrada entre las réplicas de una base de datos secundaria con replicación geográfica, a excepción de una réplica geográfica de Hiperescala con más de una réplica de alta disponibilidad. En ese caso, las sesiones con intención de solo lectura se distribuyen entre todas las réplicas de alta disponibilidad de una réplica geográfica.
+
+## <a name="feature-support-on-read-only-replicas"></a>Compatibilidad con características en réplicas de solo lectura
+
+A continuación se muestra una lista del comportamiento de algunas características en réplicas de solo lectura:
+* La auditoría en las réplicas de solo lectura se habilita automáticamente. Para más información sobre la jerarquía de las carpetas de almacenamiento, las convenciones de nomenclatura y el formato del registro, vea [Formato del registro de auditoría de SQL Database](audit-log-format.md).
+* [Información de rendimiento de consultas](query-performance-insight-use.md) se basa en los datos del [Almacén de consultas](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store), que actualmente no realiza el seguimiento de la actividad en la réplica de solo lectura. Información de rendimiento de consultas no mostrará las consultas que se ejecutan en la réplica de solo lectura.
+* El ajuste automático se basa en Almacén de consultas, como se detalla en el [documento Ajuste automático](https://www.microsoft.com/en-us/research/uploads/prod/2019/02/autoindexing_azuredb.pdf). El ajuste automático solo funciona para las cargas de trabajo que se ejecutan en la réplica principal.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

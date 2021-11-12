@@ -1,22 +1,22 @@
 ---
 title: Creación de particiones de tablas en el grupo de SQL dedicado
-description: Recomendaciones y ejemplos para usar particiones de tablas en el grupo de SQL dedicado
+description: Recomendaciones y ejemplos para usar particiones de tablas en el grupo de SQL dedicado.
 services: synapse-analytics
-author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 08/19/2021
-ms.author: xiaoyul
-ms.reviewer: igorstan, wiassaf
+ms.date: 11/02/2021
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: ''
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ea941ae782e7da33cc07932d4b0c79613790b2e8
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: af068f531a07be05da8ff8911ffff68242f7f4cf
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122515041"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131504747"
 ---
 # <a name="partitioning-tables-in-dedicated-sql-pool"></a>Creación de particiones de tablas en el grupo de SQL dedicado
 
@@ -42,7 +42,7 @@ La creación de particiones también puede utilizarse para mejorar el rendimient
 
 Por ejemplo, si la tabla de datos de ventas se particiona en 36 meses mediante el campo de fecha de ventas, las consultas que se filtren por esa fecha de ventas pueden omitir la búsqueda en las particiones que no coincidan con el filtro.
 
-## <a name="sizing-partitions"></a>Ajustar el tamaño de las particiones
+## <a name="partition-sizing"></a>Tamaño de la partición
 
 Aunque la creación de particiones se puede usar para mejorar el rendimiento en algunos escenarios, la creación de una tabla con **demasiadas** particiones pueden afectar negativamente al rendimiento en algunas circunstancias.  Estas cuestiones se dan especialmente en las tablas de almacén de columnas en clúster. 
 
@@ -60,7 +60,7 @@ El grupo de SQL dedicado introduce una manera más sencilla de definir particion
 
 Aunque la sintaxis de la creación de particiones puede variar ligeramente con respecto a la de SQL Server, los conceptos básicos son los mismos. SQL Server y el grupo de SQL dedicado admiten una columna de partición por tabla, que puede ser una partición por rangos. Para obtener más información sobre las particiones, consulte [Tablas e índices con particiones](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
-En el siguiente ejemplo se usa una instrucción [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para crear particiones en la tabla FactInternetSales en la columna OrderDateKey:
+En el siguiente ejemplo se usa una instrucción [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para crear particiones en la tabla `FactInternetSales` en la columna `OrderDateKey`:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -86,7 +86,7 @@ WITH
 ;
 ```
 
-## <a name="migrating-partitioning-from-sql-server"></a>Migración de particiones de SQL Server
+## <a name="migrate-partitions-from-sql-server"></a>Migración de particiones desde SQL Server
 
 Para migrar las definiciones de particiones de SQL Server al grupo de SQL dedicado, basta con que haga lo siguiente:
 
@@ -194,7 +194,10 @@ El siguiente comando split recibe un mensaje de error:
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
-La cláusula Msg 35346, Level 15, State 1, Line 44 SPLIT de la instrucción ALTER PARTITION ha generado un error porque la partición no está vacía. solo las particiones vacías se pueden dividir cuando existe un índice de almacén de columnas en la tabla. Considere la posibilidad de deshabilitar el índice de almacén de columnas antes de emitir la instrucción ALTER PARTITION y, a continuación, vuelva a generar el índice de almacén de columnas una vez completada la instrucción ALTER PARTITION.
+```
+Msg 35346, Level 15, State 1, Line 44
+SPLIT clause of ALTER PARTITION statement failed because the partition is not empty. Only empty partitions can be split in when a columnstore index exists on the table. Consider disabling the columnstore index before issuing the ALTER PARTITION statement, then rebuilding the columnstore index after ALTER PARTITION is complete.
+```
 
 Sin embargo, puede usar `CTAS` para crear una nueva tabla que contenga los datos.
 

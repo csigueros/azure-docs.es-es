@@ -3,12 +3,12 @@ title: Uso de máquinas virtuales de Azure de proceso intensivo con Batch
 description: Aprovechamiento de los tamaños de máquina virtual HPC y GPU en grupos de Azure Batch Aprenda sobre las dependencias del sistema operativo y consulte varios escenarios de ejemplo.
 ms.topic: how-to
 ms.date: 12/17/2018
-ms.openlocfilehash: 8f3156296e1ae1ec892be86fc41738fcb7f29090
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: 10abcfeb8a754ccaeac6de9986612c81fe4decbe
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107988341"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131426665"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Uso de instancias RDMA o GPU en grupos de Batch
 
@@ -116,7 +116,7 @@ Para ejecutar aplicaciones CUDA en un grupo de nodos NC Linux, debe instalar los
 1. Implemente una VM de la serie NC de Azure en la que se ejecute Ubuntu 16.04 LTS. Por ejemplo, puede crear la VM en la región Centro y Sur de EE. UU. 
 2. Agregue la [extensión de controladores de GPU de NVIDIA](../virtual-machines/extensions/hpccompute-gpu-linux.md
 ) a la máquina virtual mediante Azure Portal, un equipo cliente que se conecte a la suscripción de Azure o Azure Cloud Shell. Como alternativa, siga los pasos para conectarse a la máquina virtual e [instale los controladores de CUDA](../virtual-machines/linux/n-series-driver-setup.md) de forma manual.
-3. Siga los pasos para crear una [imagen de Shared Image Gallery](batch-sig-images.md) para Batch.
+3. Siga los pasos para crear una [imagen de Azure Compute Gallery](batch-sig-images.md) para Batch.
 4. Cree una cuenta de Batch en una región que admite las máquinas virtuales de NC.
 5. Mediante las API de Batch o Azure Portal , cree un grupo [mediante la imagen personalizada](batch-sig-images.md) y con el número de nodos y la escala deseados. En la siguiente tabla se muestra la configuración de grupo de ejemplo de la imagen:
 
@@ -135,8 +135,8 @@ Para ejecutar aplicaciones MPI de Windows en un grupo de nodos de máquinas virt
 2. Agregue la extensión HpcVmDrivers a la máquina virtual mediante la [ejecución de un comando de Azure PowerShell](../virtual-machines/sizes-hpc.md) desde un equipo cliente que se conecte a la suscripción de Azure o mediante Azure Cloud Shell. 
 1. Abra una conexión de Escritorio remoto a la máquina virtual.
 1. Descargue el [paquete de instalación](https://www.microsoft.com/download/details.aspx?id=57467) (MSMpiSetup.exe) correspondiente a la versión más reciente de Microsoft MPI e instale Microsoft MPI.
-1. Siga los pasos para crear una [imagen de Shared Image Gallery](batch-sig-images.md) para Batch.
-1. Mediante las API de Batch o Azure Portal, cree un grupo [mediante Shared Image Gallery](batch-sig-images.md) con el número de nodos y la escala deseados. En la siguiente tabla se muestra la configuración de grupo de ejemplo de la imagen:
+1. Siga los pasos para crear una [imagen de Azure Compute Gallery](batch-sig-images.md) para Batch.
+1. Con las API de Batch o Azure Portal, cree un grupo [mediante Azure Compute Gallery](batch-sig-images.md) con el número de nodos y la escala deseados. En la siguiente tabla se muestra la configuración de grupo de ejemplo de la imagen:
 
 | Configuración | Value |
 | ---- | ---- |

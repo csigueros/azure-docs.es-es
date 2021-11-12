@@ -8,12 +8,12 @@ ms.author: kgremban
 ms.date: 08/24/2021
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: e7ded6eb8b3e8ee44594e75eb22b920c4e0649b6
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 5f546acb48a84ddddeb822601d9284818d2211fb
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123037605"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423078"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Uso de Visual Studio 2019 para desarrollar y depurar módulos para Azure IoT Edge
 
@@ -125,7 +125,7 @@ La carpeta del proyecto también contiene un archivo denominado `deployment.temp
 
 ### <a name="set-iot-edge-runtime-version"></a>Establecimiento de la versión del entorno de ejecución de IoT Edge
 
-La extensión IoT Edge adopta como predeterminada la versión estable más reciente del entorno de ejecución de IoT Edge cuando crea los recursos de implementación. Actualmente, esta versión es la 1.2. Si va a desarrollar módulos para dispositivos que ejecutan la versión de compatibilidad a largo plazo 1.1 o la versión 1.0 anterior, actualice la versión del entorno de ejecución de IoT Edge en Visual Studio para que coincidan.
+La extensión de IoT Edge adopta como predeterminada la versión estable más reciente del entorno de ejecución de IoT Edge cuando crea los recursos de implementación. Actualmente, esta versión es la 1.2. Si va a desarrollar módulos para dispositivos que ejecutan la versión de compatibilidad a largo plazo 1.1 o la versión 1.0 anterior, actualice la versión del entorno de ejecución de IoT Edge en Visual Studio para que coincidan.
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en el nombre del proyecto y seleccione **Set IoT Edge runtime version** (Establecer la versión del entorno de ejecución de Azure IoT Edge).
 
@@ -163,6 +163,9 @@ Para inicializar la herramienta, proporcione una cadena de conexión del disposi
 ## <a name="build-and-debug-a-single-module"></a>Compilación y depuración de un solo módulo
 
 Por lo general, querrá probar y depurar los módulos antes de que se ejecuten en una solución entera con varios de ellos.
+
+>[!TIP]
+>Asegúrese de que ha cambiado al modo de contenedor de Docker correcto, ya sea el modo de contenedor de Linux o de Windows, en función del tipo de módulo de IoT Edge que desarrolle. En el menú Escritorio de Docker, puede alternar entre los dos tipos de modos. Seleccione **Switch to Windows containers** (Cambiar a contenedores de Windows) para usar contenedores de Windows, o bien **Switch to Linux containers** (Cambiar a contenedores de Linux) para usar contenedores de Linux. 
 
 1. En **Explorador de soluciones**, haga clic con el botón derecho en la carpeta del módulo y seleccione **Establecer como proyecto de inicio** en el menú.
 
@@ -205,7 +208,7 @@ Cuando haya terminado de desarrollar el módulo, querrá ejecutar y depurar una 
 1. Abra el archivo `deployment.template.json` y verá que el nuevo módulo se ha agregado a la sección **modules**. También se ha agregado una nueva ruta a la sección **routes** para enviar mensajes desde el nuevo módulo a IoT Hub. Si desea enviar datos desde el sensor de temperatura simulado al nuevo módulo, agregue otra ruta como la del ejemplo siguiente: 
 
     ```json
-   "sensorTo<NewModuleName>&quot;: &quot;FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/<NewModuleName>/inputs/input1\")"
+   "sensorTo<NewModuleName>": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/<NewModuleName>/inputs/input1\")"
     ```
 
 1. Haga clic con el botón derecho en la carpeta del proyecto y seleccione **Establecer como proyecto de inicio** en el menú contextual.

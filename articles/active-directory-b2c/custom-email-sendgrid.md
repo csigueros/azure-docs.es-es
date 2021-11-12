@@ -12,12 +12,12 @@ ms.date: 09/15/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 304b7056fda06e017be445b57a4b75aef6a17ffc
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 5bb6c3aef0476e3da440eb8523d0ccc09491e074
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131007430"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501407"
 ---
 # <a name="custom-email-verification-with-sendgrid"></a>Verificación de correo electrónico personalizado con SendGrid
 
@@ -65,9 +65,9 @@ A continuación, almacene la clave de API de SendGrid en una clave de directiva 
 Con la cuenta de SendGrid creada y la clave de API de SendGrid almacenada en una clave de directiva de Azure AD B2C, cree una [plantilla transaccional dinámica](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/) de SendGrid.
 
 1. En el sitio de SendGrid, abra la página [Transactional Templates](https://sendgrid.com/dynamic_templates) (Plantillas transaccionales) y seleccione **Create Template** (Crear plantilla).
-1. Escriba un nombre de plantilla único, como por ejemplo `Verification email`, y, a continuación, seleccione **Save** (Guardar).
-1. Para empezar a editar la nueva plantilla, seleccione **Add Version** (Agregar versión).
-1. Seleccione **Code Editor** (Editor de código) y, a continuación, **Continue** (Continuar).
+1. Escriba un nombre de plantilla único, como `Verification email`, y seleccione **Create** (Crear).
+1. Para empezar a editar la nueva plantilla, elija la plantilla (es decir, `Verification email`) y seleccione **Add Version** (Agregar versión).
+1. Elija **Blank Template** (Plantilla en blanco) y seleccione **Code Editor** (Editor de código).
 1. En el editor de HTML, pegue la siguiente plantilla HTML o use la suya propia. Los parámetros `{{otp}}` y `{{email}}` se reemplazarán dinámicamente con el valor de la contraseña de un solo uso y la dirección de correo electrónico del usuario.
 
     ```HTML
@@ -162,8 +162,9 @@ Con la cuenta de SendGrid creada y la clave de API de SendGrid almacenada en una
     </html>
     ```
 
-1. Expanda **Settings** (Configuración) a la izquierda y, en **Email Subject** (Asunto del correo electrónico), escriba `{{subject}}`.
-1. Seleccione **Save Template** (Guardar plantilla).
+1. Expanda **Settings** (Configuración) a la izquierda y, en **Version Name** (Nombre de versión), escriba una versión de plantilla. 
+1. En **Subject** (Asunto), escriba `{{subject}}`.
+1. En la parte superior de la página, seleccione **Save** (Guardar).
 1. Seleccione la flecha atrás para volver a la página **Transactional Templates** (Plantillas transaccionales).
 1. Anote el valor de **ID** de la plantilla que creó para usarlo en un paso posterior. Por ejemplo, `d-989077fbba9746e89f3f6411f596fb96`. Este identificador se especifica al [agregar la transformación de notificaciones](#add-the-claims-transformation).
 
@@ -396,13 +397,6 @@ Para más información, consulte [Definición de un perfil técnico de RESTful e
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>
     <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
-      <Metadata>
-        <!--OTP validation error messages-->
-        <Item Key="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</Item>
-        <Item Key="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</Item>
-        <Item Key="UserMessageIfInvalidCode">You have entered the wrong code.</Item>
-        <Item Key="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</Item>
-      </Metadata>
       <DisplayClaims>
         <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
         <DisplayClaim ClaimTypeReferenceId="displayName" Required="true" />
@@ -413,13 +407,6 @@ Para más información, consulte [Definición de un perfil técnico de RESTful e
       </DisplayClaims>
     </TechnicalProfile>
     <TechnicalProfile Id="LocalAccountDiscoveryUsingEmailAddress">
-      <Metadata>
-        <!--OTP validation error messages-->
-        <Item Key="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</Item>
-        <Item Key="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</Item>
-        <Item Key="UserMessageIfInvalidCode">You have entered the wrong code.</Item>
-        <Item Key="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</Item>
-      </Metadata>
       <DisplayClaims>
         <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
       </DisplayClaims>
@@ -554,10 +541,11 @@ El elemento Localization permite incluir varios idiomas o configuraciones region
     <LocalizedString ElementType="ClaimType" ElementId="emailVerificationCode" StringId="DisplayName">Verification Code</LocalizedString>
     <LocalizedString ElementType="ClaimType" ElementId="emailVerificationCode" StringId="UserHelpText">Verification code received in the email.</LocalizedString>
     <LocalizedString ElementType="ClaimType" ElementId="emailVerificationCode" StringId="AdminHelpText">Verification code received in the email.</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Eamil</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
     <!-- Email validation error messages-->
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxNumberOfCodeGenerated">You have exceeded the number of code generation attempts allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">The verification has failed, please try again.</LocalizedString>
@@ -565,7 +553,6 @@ El elemento Localization permite incluir varios idiomas o configuraciones region
 </LocalizedResources>
 ```
 
-Después de agregar las cadenas localizadas, quite los metadatos de los mensajes de error de validación de OTP de los perfiles técnicos LocalAccountSignUpWithLogonEmail y LocalAccountDiscoveryUsingEmailAddress.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

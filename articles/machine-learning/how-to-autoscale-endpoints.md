@@ -10,12 +10,12 @@ author: rsethur
 ms.reviewer: laobri
 ms.custom: devplatv2
 ms.date: 11/03/2021
-ms.openlocfilehash: b98730e29dc5cc6e8b2e75781b366b5923adf2ae
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 94a1d171fb2bdf16f8229aa9a9bc9fd4a7ab3458
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131566025"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132062916"
 ---
 # <a name="autoscale-a-managed-online-endpoint-preview"></a>Escalabilidad automática de un punto de conexión administrado en línea (versión preliminar)
 
@@ -41,15 +41,15 @@ Para habilitar la escalabilidad automática en un punto de conexión, primero de
 
 El fragmento de código siguiente establece los nombres del punto de conexión y la implementación:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-moe-autoscale.sh" ID="set_endpoint_deployment_name" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="set_endpoint_deployment_name" :::
 
 Luego obtenga el identificador de Azure Resource Manager de la implementación y el punto de conexión:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-moe-autoscale.sh" ID="set_other_env_variables" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="set_other_env_variables" :::
 
 El fragmento de código siguiente crea el perfil de escalabilidad automática:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-moe-autoscale.sh" ID="create_autoscale_profile" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="create_autoscale_profile" :::
 
 > [!NOTE]
 > Para obtener más información, vea la [página de referencia de la escalabilidad automática](/cli/azure/monitor/autoscale?view=azure-cli-latest&preserve-view=true)
@@ -81,7 +81,7 @@ Una regla de escalabilidad horizontal común es aquella que aumenta el número d
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-moe-autoscale.sh" ID="scale_out_on_cpu_util" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="scale_out_on_cpu_util" :::
 
 La regla forma parte del perfil `my-scale-settings` (`autoscale-name` coincide con el valor `name` del perfil). El valor de su argumento `condition` indica que la regla debe desencadenarse cuando "El consumo medio de CPU entre las instancias de la máquina virtual supere el 70 % durante cinco minutos". Cuando se cumple esa condición, se asignan dos instancias de máquina virtual más. 
 
@@ -109,7 +109,7 @@ Si la carga es ligera, una regla de reducción horizontal puede reducir el núme
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-moe-autoscale.sh" ID="scale_in_on_cpu_util" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="scale_in_on_cpu_util" :::
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -136,7 +136,7 @@ Las reglas anteriores se aplicaban a la implementación. Ahora, agregue una regl
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-moe-autoscale.sh" ID="scale_up_on_request_latency" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="scale_up_on_request_latency" :::
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -162,7 +162,7 @@ También puede crear reglas que se apliquen solo en determinados días u horas. 
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-moe-autoscale.sh" ID="weekend_profile" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="weekend_profile" :::
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -181,7 +181,7 @@ En la parte inferior de la página, seleccione __+ Agregar una condición de esc
 
 Si no va a usar las implementaciones, elimínelas:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -2,13 +2,13 @@
 title: Configuración de un punto de conexión privado con Private Link
 description: Configure un punto de conexión privado en un registro de contenedor y habilite un vínculo privado en una red virtual local. El acceso de vínculo privado es una característica del nivel de servicio Premium.
 ms.topic: article
-ms.date: 07/14/2021
-ms.openlocfilehash: 25a45f0e1f4115fce623deef919368ecdf479ead
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.date: 10/26/2021
+ms.openlocfilehash: 36f06efc223ff84efb7cf7d638900a5d018ce149
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114471501"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446605"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Conexión privada a un registro de contenedor de Azure mediante Azure Private Link
 
@@ -21,7 +21,7 @@ En este artículo se muestra cómo configurar un punto de conexión privado para
 [!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 
 > [!NOTE]
-> Actualmente, se puede configurar un máximo de 10 puntos de conexión privados para un registro. 
+> A partir de octubre de 2021, los nuevos registros de contenedor permiten un máximo de 200 puntos de conexión privados. Los registros creados anteriormente permiten un máximo de 10 puntos de conexión privados. Use el comando [az acr show-usage](/cli/az/acr#az_acr_show_usage) para ver el límite del registro.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -53,9 +53,9 @@ Configure un punto de conexión privado al crear un registro o agregue un punto 
 1. En **Conectividad de red**, seleccione **Punto de conexión privado** >  **+ Agregar**.
 1. Escriba o seleccione la siguiente información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Resource group | Escriba el nombre de un grupo existente o cree uno nuevo.|
     | Nombre | Escriba un nombre único. |
     | Subrecurso del registro |Seleccione **registro**.|
@@ -86,7 +86,7 @@ El vínculo privado ya está configurado y listo para su uso.
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Resource group | Escriba el nombre de un grupo existente o cree uno nuevo.|
     | **Detalles de instancia** |  |
     | Nombre | Escriba un nombre. |

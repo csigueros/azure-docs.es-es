@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afb264da92eb47dd53b6b1900fcbdafcae0d4911
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 8f83c7a9ac8a910a96a49c2ee354b68a18f4a774
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131049736"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131892160"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configuración de dispositivos híbridos unidos a Azure Active Directory para dominios administrados
 
@@ -42,7 +42,7 @@ En este tutorial, aprenderá a:
 > * Comprobación dispositivos unidos
 > * Solución de problemas
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (versión 1.1.819.0 o posterior)
 - Las credenciales de administrador global para el inquilino de Azure AD
@@ -74,7 +74,7 @@ La unión a Azure AD híbrido requiere que los dispositivos tengan acceso a los
 - `https://autologon.microsoftazuread-sso.com` (si usa o planea usar SSO de conexión directa)
 
 > [!WARNING]
-> Si su organización usa servidores proxy que interceptan el tráfico SSL en escenarios tales como la prevención de pérdida de datos o las restricciones de inquilino de Azure AD, asegúrese de que el tráfico a `https://device.login.microsoftonline.com` y `https://enterpriseregistration.windows.net` se excluya de la interrupción e inspección de TLS. Si no excluye estas direcciones URL, pueden surgir interferencias con la autenticación de los certificados de cliente, lo que causaría problemas con el registro de dispositivos y el acceso condicional basado en dispositivos.
+> Si su organización usa servidores proxy que interceptan el tráfico SSL en escenarios tales como la prevención de pérdida de datos o las restricciones de inquilino de Azure AD, asegúrese de que el tráfico a estas direcciones URL se excluya de la interrupción e inspección de TLS. Si no excluye estas direcciones URL, pueden surgir interferencias con la autenticación de los certificados de cliente, lo que causaría problemas con el registro de dispositivos y el acceso condicional basado en dispositivos.
 
 Si la organización necesita acceso a Internet mediante un proxy de salida, puede [implementar la detección automática de proxy web (WPAD)](/previous-versions/tn-archive/cc995261(v=technet.10)) para permitir que los equipos con Windows 10 realicen el registro de dispositivos con Azure AD. Para solucionar problemas de configuración y administración de WPAD, consulte [Solución de problemas de la detección automática](/previous-versions/tn-archive/cc302643(v=technet.10)). En los dispositivos Windows 10 anteriores a la actualización 1709, WPAD es la única opción disponible para configurar un proxy con el fin de que funcione con una combinación de Azure AD híbrido. 
 

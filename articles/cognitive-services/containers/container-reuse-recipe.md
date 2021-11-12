@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 10/28/2021
 ms.author: aahi
-ms.openlocfilehash: 2226e4e7c5df60a4a601408da04a1f2e67c4dc4f
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: e11de4634d7488f75649535b56bd5129d7c1d65a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067782"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131473402"
 ---
 # <a name="create-containers-for-reuse"></a>Creación de contenedores para su reutilización
 
@@ -55,7 +55,7 @@ En este ejemplo:
 
 ### <a name="reuse-recipe-store-billing-settings-with-container"></a>Reutilización fórmulas: almacenamiento de la configuración de facturación con el contenedor
 
-Este ejemplo muestra cómo crear el contenedor de opiniones de Text Analytics a partir de un archivo Dockerfile.
+En este ejemplo se muestra cómo crear el contenedor de opiniones del servicio Language a partir de un Dockerfile.
 
 ```Dockerfile
 FROM mcr.microsoft.com/azure-cognitive-services/sentiment:latest

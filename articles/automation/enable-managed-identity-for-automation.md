@@ -1,21 +1,21 @@
 ---
-title: Uso de una identidad administrada asignada por el sistema para una cuenta de Azure Automation (versión preliminar)
+title: Utilización de una identidad administrada asignada por el sistema para la cuenta de Azure Automation
 description: En este artículo se describe cómo configurar la identidad administrada para las cuentas de Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/23/2021
+ms.date: 10/26/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: eb883fafd7c738ca99fe2282edb67d1849b9b1af
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 685126603c302a02d56aff51873cd34340947494
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129858165"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131470763"
 ---
-# <a name="using-a-system-assigned-managed-identity-for-an-azure-automation-account-preview"></a>Uso de una identidad administrada asignada por el sistema para una cuenta de Azure Automation (versión preliminar)
+# <a name="using-a-system-assigned-managed-identity-for-an-azure-automation-account"></a>Utilización de una identidad administrada asignada por el sistema para la cuenta de Azure Automation
 
-En este artículo, se muestra cómo agregar una identidad administrada asignada por el sistema para una cuenta de Azure Automation y cómo usarla para acceder a otros recursos. Para más información sobre cómo funcionan las identidades administradas con Azure Automation, consulte [Identidades administradas (versión preliminar)](automation-security-overview.md#managed-identities-preview).
+En este artículo, se muestra cómo agregar una identidad administrada asignada por el sistema para una cuenta de Azure Automation y cómo usarla para acceder a otros recursos. Para más información sobre cómo funcionan las identidades administradas con Azure Automation, consulte [Identidades administradas (versión preliminar)](automation-security-overview.md#managed-identities).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -64,7 +64,7 @@ $automationAccount = "automationAccountName"
 ```
 
 > [!IMPORTANT]
-> La nueva identidad de nivel de cuenta de Automation invalidará las identidades asignadas por el sistema de nivel de máquina virtual anteriores que se describen en [Uso de la autenticación de runbook con identidades administradas](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities). Si ejecuta trabajos híbridos en máquinas virtuales de Azure que usan la identidad asignada por el sistema de la máquina virtual para acceder a los recursos del runbook, la identidad de la cuenta de Automation se usará para los trabajos híbridos. Esto significa que la ejecución del trabajo existente puede verse afectada si ha estado usando la característica Claves administradas de cliente (CMK) de la cuenta de Automation.<br/><br/>Si desea seguir usando la identidad administrada de la máquina virtual, no debe habilitar la identidad de nivel de cuenta de Automation. Si ya la ha habilitado, puede deshabilitar la identidad administrada por el sistema de la cuenta de Automation. Consulte [Deshabilitación de la identidad administrada de la cuenta de Azure Automation.](./disable-managed-identity-for-automation.md)
+> La nueva identidad de nivel de cuenta de Automation invalida las identidades asignadas por el sistema de nivel de máquina virtual anteriores que se describen en [Uso de la autenticación de runbook con identidades administradas](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities). Si ejecuta trabajos híbridos en máquinas virtuales de Azure que usan la identidad asignada por el sistema de la máquina virtual para acceder a los recursos del runbook, la identidad de la cuenta de Automation se usará para los trabajos híbridos. Esto significa que la ejecución del trabajo existente puede verse afectada si ha estado usando la característica Claves administradas de cliente (CMK) de la cuenta de Automation.<br/><br/>Si desea seguir usando la identidad administrada de la máquina virtual, no debe habilitar la identidad de nivel de cuenta de Automation. Si ya la ha habilitado, puede deshabilitar la identidad administrada por el sistema de la cuenta de Automation. Consulte [Deshabilitación de la identidad administrada de la cuenta de Azure Automation.](./disable-managed-identity-for-automation.md)
 
 ### <a name="enable-using-the-azure-portal"></a>Habilitación de Azure Portal
 
@@ -101,7 +101,7 @@ La salida debe tener una apariencia similar a la siguiente:
 
 :::image type="content" source="media/enable-managed-identity-for-automation/set-azautomationaccount-output.png" alt-text="Salida del comando set-azautomationaccount command.":::
 
-Para obtener una salida adicional, ejecute: `$output.identity | ConvertTo-Json`.
+Para obtener una salida adicional, modifique el ejemplo para especificar: `$output.identity | ConvertTo-Json`.
 
 ### <a name="enable-using-a-rest-api"></a>Habilitación mediante una API REST
 
@@ -257,9 +257,9 @@ Una cuenta de Automation puede utilizar su identidad administrada asignada por e
 
 Para poder usar la identidad administrada asignada por el sistema para la autenticación, configure el acceso para esa identidad en el recurso de Azure en el que planea usar la identidad. Para completar esta tarea, asigne el rol adecuado a esa identidad en el recurso de Azure de destino.
 
-Siga la entidad de seguridad con menos privilegios y asigne cuidadosamente solo los permisos necesarios para ejecutar el runbook. Por ejemplo, si la cuenta de Automation solo es necesaria para iniciar o detener una VM de Azure, los permisos asignados a la cuenta de ejecución o a la identidad administrada solo deben ser para iniciar o detener la VM. De forma similar, si un runbook lee desde Blob Storage, asigne permisos de solo lectura. En este ejemplo, se usa Azure PowerShell para mostrar cómo asignar el colaborador.
+Siga la entidad de seguridad con menos privilegios y asigne cuidadosamente solo los permisos necesarios para ejecutar el runbook. Por ejemplo, si la cuenta de Automation solo es necesaria para iniciar o detener una VM de Azure, los permisos asignados a la cuenta de ejecución o a la identidad administrada solo deben ser para iniciar o detener la VM. De manera similar, si un runbook lee el almacenamiento de blobs, asigne permisos de solo lectura.
 
-En este ejemplo se usa Azure PowerShell para mostrar cómo asignar el rol Colaborador en la suscripción al recurso de Azure de destino. El rol Colaborador se usa como ejemplo y puede ser necesario o no en su caso.
+En el ejemplo siguiente se usa Azure PowerShell para mostrar cómo asignar el rol Colaborador en la suscripción al recurso de Azure de destino. El rol Colaborador se usa como ejemplo y puede ser necesario o no en su caso.
 
 ```powershell
 New-AzRoleAssignment `
@@ -295,7 +295,7 @@ Para los puntos de conexión HTTP, asegúrese de lo siguiente.
 - X-IDENTITY-HEADER debe establecerse en el valor de la variable de entorno IDENTITY_HEADER para Hybrid Runbook Worker.
 - El tipo de contenido de la solicitud Post debe ser "application/x-www-form-urlencoded".
 
-### <a name="get-access-token-for-system-assigned-identity-using-http-get"></a>Obtención del token de acceso para la identidad asignada por el sistema mediante HTTP Get
+### <a name="get-access-token-for-system-assigned-managed-identity-using-http-get"></a>Obtención del token de acceso para la identidad administrada asignada por el sistema mediante HTTP Get
 
 ```powershell
 $resource= "?resource=https://management.azure.com/" 
@@ -388,10 +388,22 @@ $command.ExecuteNonQuery()
 $conn.Close()
 ```
 
+## <a name="migrate-from-existing-run-as-accounts-to-managed-identity"></a>Migración de cuentas de ejecución existentes a identidad administrada
+
+Azure Automation proporcionaba la autenticación para administrar los recursos de Azure Resource Manager o los recursos implementados en el modelo de implementación clásica con la cuenta de ejecución. Para cambiar de una cuenta de ejecución a una identidad administrada para la autenticación del runbook, siga estos pasos.
+
+1. Habilite una identidad administrada [asignada por el sistema](enable-managed-identity-for-automation.md), una identidad administrada [asignada por el usuario](add-user-assigned-identity.md) o ambos tipos de identidades administradas.
+1. Conceda a la identidad administrada los privilegios para los recursos de Azure que coincidan con los que se asignaron a la cuenta de ejecución.
+1. Actualice los runbooks para autenticarse mediante la identidad administrada.
+1. Modifique los runbooks para usar la identidad administrada. Para compatibilidad con las identidades, use el cmdlet `Connect-AzAccount`. Consulte [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) en la referencia de PowerShell.
+
+   - Si usa módulos de AzureRM, actualice `AzureRM.Profile` a la versión más reciente y reemplace mediante el cmdlet `Add-AzureRMAccount` por `Connect-AzureRMAccount –Identity`.
+   - Si usa módulos Az, actualice a la versión más reciente siguiendo los pasos descritos en el artículo [Actualización de los módulos de Azure PowerShell](automation-update-azure-modules.md#update-az-modules).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si los runbooks no se completan correctamente, revise [Solución de problemas de identidad administrada de Azure Automation (versión preliminar)](troubleshoot/managed-identity.md).
+- Si los runbooks no se completan correctamente, revise [Solución de problemas de identidad administrada de Azure Automation](troubleshoot/managed-identity.md).
 
-- Si necesita deshabilitar una identidad administrada, consulte [Deshabilitación de la identidad administrada de la identidad administrada de la cuenta de Azure Automation (versión preliminar)](disable-managed-identity-for-automation.md).
+- Si necesita deshabilitar una identidad administrada, vea [Deshabilitación de la identidad administrada de la cuenta de Azure Automation](disable-managed-identity-for-automation.md).
 
 - Para información general sobre la seguridad de l cuenta de Azure Automation, consulte [Introducción a la autenticación de cuentas de Automation](automation-security-overview.md).

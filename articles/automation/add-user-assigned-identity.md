@@ -1,20 +1,20 @@
 ---
-title: Uso de una identidad administrada asignada por el usuario para una cuenta de Azure Automation (versión preliminar)
+title: Uso de una identidad administrada asignada por el usuario para una cuenta de Azure Automation
 description: En este artículo, se describe cómo configurar una identidad administrada asignada por el usuario para las cuentas de Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/23/2021
+ms.date: 10/26/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7b1a75aac3166b1fdd3cdd39f5f66bd380339975
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 033f25f5d5902b339a2777cffc8c526a459ca587
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129061796"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131435536"
 ---
-# <a name="using-a-user-assigned-managed-identity-for-an-azure-automation-account-preview"></a>Uso de una identidad administrada asignada por el usuario para una cuenta de Azure Automation (versión preliminar)
+# <a name="using-a-user-assigned-managed-identity-for-an-azure-automation-account"></a>Uso de una identidad administrada asignada por el usuario para una cuenta de Azure Automation
 
-En este artículo, se muestra cómo agregar una identidad administrada asignada por el usuario para una cuenta de Azure Automation y cómo usarla para acceder a otros recursos. Para más información sobre cómo funcionan las identidades administradas con Azure Automation, consulte [Identidades administradas (versión preliminar)](automation-security-overview.md#managed-identities-preview).
+En este artículo, se muestra cómo agregar una identidad administrada asignada por el usuario para una cuenta de Azure Automation y cómo usarla para acceder a otros recursos. Para más información sobre cómo funcionan las identidades administradas con Azure Automation, consulte [Identidades administradas (versión preliminar)](automation-security-overview.md#managed-identities).
 
 > [!NOTE]
 > Las identidades administradas asignadas por el usuario solo se admiten para trabajos en la nube.  
@@ -25,7 +25,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 - Una cuenta de Azure Automation Para obtener instrucciones, consulte [Creación de una cuenta de Azure Automation](./quickstarts/create-account-portal.md).
 
-- Una identidad administrada asignada por el sistema. Para obtener instrucciones, consulte [Habilitación de una identidad administrada para la cuenta de Azure Automation (versión preliminar)](enable-managed-identity-for-automation.md).
+- Una identidad administrada asignada por el sistema. Para obtener instrucciones, vea [Habilitación de una identidad administrada asignada por el sistema para una cuenta de Azure Automation](enable-managed-identity-for-automation.md).
 
 - Una identidad administrada asignada por el usuario. Para obtener instrucciones, consulte [Crear una identidad administrada asignada por el usuario](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
 
@@ -336,7 +336,7 @@ Para los puntos de conexión HTTP, asegúrese de lo siguiente.
 - Se debe pasar un recurso junto con la solicitud, como parámetro de consulta para una solicitud GET y como datos de formulario para una solicitud POST.
 - El tipo de contenido de la solicitud Post debe ser `application/x-www-form-urlencoded`.
 
-### <a name="get-access-token-for-user-assigned-managed-identity-using-http-get"></a>Obtención de un token de acceso para la identidad administrada asignada por el usuario mediante Http Get  
+### <a name="get-access-token-for-user-assigned-managed-identity-using-http-get"></a>Obtención de un token de acceso para la identidad administrada asignada por el usuario mediante HTTP Get  
 
 ```powershell
 $resource= "?resource=https://management.azure.com/"
@@ -348,7 +348,7 @@ $accessToken = Invoke-RestMethod -Uri $url -Method 'GET' -Headers�
 Write-Output $accessToken.access_token 
 ```
 
-### <a name="get-access-token-for-user-assigned-managed-identity-using-http-post"></a>Obtención de un token de acceso para la identidad administrada asignada por el usuario mediante Http Post
+### <a name="get-access-token-for-user-assigned-managed-identity-using-http-post"></a>Obtención de un token de acceso para la identidad administrada asignada por el usuario mediante HTTP Post
 
 ```powershell
 $url = $env:IDENTITY_ENDPOINT
@@ -397,8 +397,8 @@ print(response.text)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si los runbooks no se completan correctamente, revise [Solución de problemas de identidad administrada de Azure Automation (versión preliminar)](troubleshoot/managed-identity.md).
+- Si los runbooks no se completan correctamente, revise [Solución de problemas de identidad administrada de Azure Automation](troubleshoot/managed-identity.md).
 
-- Si necesita deshabilitar una identidad administrada, consulte [Deshabilitación de la identidad administrada de la identidad administrada de la cuenta de Azure Automation (versión preliminar)](disable-managed-identity-for-automation.md).
+- Si necesita deshabilitar una identidad administrada, vea [Deshabilitación de la identidad administrada de la identidad administrada de la cuenta de Azure Automation](disable-managed-identity-for-automation.md).
 
 - Para información general sobre la seguridad de l cuenta de Azure Automation, consulte [Introducción a la autenticación de cuentas de Automation](automation-security-overview.md).

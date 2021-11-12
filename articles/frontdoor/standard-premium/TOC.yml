@@ -46,7 +46,7 @@
         - name: Condiciones de coincidencia de reglas
           href: ../rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
         - name: Acciones de reglas
-          href: concept-rule-set-actions.md
+          href: ../rules-actions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
     - name: Redireccionamiento y reescritura de URL
       href: concept-rule-set-url-redirect-and-rewrite.md
     - name: Seguridad
@@ -146,9 +146,9 @@
     - name: Ubicaciones perimetrales de Azure Front Door
       items:
         - name: Ubicaciones perimetrales por región
-          href: edge-locations.md
+          href: ../edge-locations-by-region.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
         - name: Ubicaciones perimetrales por abreviatura
-          href: edge-locations-by-abbreviation.md
+          href: ../edge-locations-by-abbreviation.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.cdn
     - name: API DE REST

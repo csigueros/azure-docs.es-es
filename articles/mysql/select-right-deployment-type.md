@@ -6,38 +6,28 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: 3126eb9a2c3289f6fbc97a14fadf94300d1c2e84
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 03799c27173a06ba1ffb25ba117750e65bca6b31
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129728786"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131842537"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Selección de la opción adecuada de MySQL Server en Azure
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
-Con Azure, las cargas de trabajo del servidor MySQL se pueden ejecutar en una infraestructura como servicio (IaaS) de máquina virtual hospedada o como una plataforma como servicio (PaaS) hospedada. PaaS dispone de varias opciones de implementación y, dentro de cada una, hay niveles de servicio. Al decidir entre PaaS o IaaS, debe decidir si quiere administrar la base de datos, aplicar revisiones y realizar copias de seguridad, o si quiere delegar estas operaciones en Azure.
+Con Azure, las cargas de trabajo del servidor MySQL se pueden ejecutar en una infraestructura como servicio (IaaS) de máquina virtual hospedada o como una plataforma como servicio (PaaS) hospedada. PaaS dispone de dos opciones de implementación y, dentro de cada una, hay niveles de servicio. Al decidir entre IaaS y PaaS, debe decidir si quiere administrar la base de datos, aplicar revisiones, copias de seguridad, seguridad, supervisión o escalado, o si quiere delegar estas operaciones en Azure.
 
 Cuando tome la decisión, tenga en cuenta las dos siguientes opciones:
 
-- **Azure Database for MySQL**. Esta opción es un motor de base de datos MySQL totalmente administrado basado en la versión estable de la edición Community de MySQL. Esta base de datos relacional como servicio (DBaaS), hospedada en plataforma en la nube de Azure, se engloba en la categoría del sector denominada PaaS.
+- **Azure Database for MySQL**. Esta opción es un motor de base de datos MySQL totalmente administrado basado en la versión estable de la edición Community de MySQL. Esta base de datos relacional como servicio (DBaaS), hospedada en plataforma en la nube de Azure, se engloba en la categoría del sector denominada PaaS. Con una instancia administrada de MySQL en Azure, puede usar características integradas, por ejemplo, revisiones automatizadas, alta disponibilidad, copias de seguridad automatizadas, escalado elástico, seguridad de nivel empresarial, cumplimiento y gobernanza, supervisión y alertas que, de otro modo, necesitan una configuración exhaustiva cuando el servidor MySQL está en el entorno local o en una máquina virtual de Azure. Al usar MySQL como servicio, se paga por el uso de opciones de escalado vertical u horizontal a fin de aumentar el control de forma ininterrumpida. [Azure Database for MySQL](overview.md), con tecnología de MySQL Community Edition, está disponible en dos modos de implementación:
 
-  Con una instancia administrada de MySQL en Azure, puede usar características integradas, por ejemplo, revisiones automatizadas, alta disponibilidad, copias de seguridad automatizadas, escalado elástico, seguridad de nivel empresarial, cumplimiento y gobernanza, supervisión y alertas que, de otro modo, necesitan una configuración exhaustiva cuando el servidor MySQL está en el entorno local o en una máquina virtual de Azure. Al usar MySQL como servicio, se paga por el uso de opciones de escalado vertical u horizontal a fin de aumentar el control de forma ininterrumpida.
-  
-  [Azure Database for MySQL](overview.md), con tecnología de MySQL Community Edition, está disponible en dos modos de implementación:
+   - [Servidor flexible](flexible-server/overview.md): Servidor flexible de Azure Database for MySQL es un servicio de base de datos totalmente administrado diseñado para lograr un control más granular y una mayor flexibilidad sobre las funciones de administración de bases de datos y las opciones de configuración. La arquitectura de servidor flexible permite a los usuarios optar por la alta disponibilidad dentro de una única zona de disponibilidad o entre varias. Los servidores flexibles proporcionan mejores controles de optimización de costos con la capacidad de iniciar o detener el servidor y niveles de proceso flexibles, que son idóneos para cargas de trabajo que no necesitan una capacidad de proceso completa de forma continua. El servidor flexible también admite instancias reservadas, de modo que puede ahorrar hasta un 63 % del costo, lo que resulta ideal para las cargas de trabajo de producción con requisitos de capacidad de proceso predecibles. El servicio es compatible con la versión Community de MySQL 5.7 y 8.0. El servicio está disponible con carácter general hoy en muchas [regiones de Azure](flexible-server/overview.md#azure-regions). Los servidores flexibles son más adecuados para todos los nuevos desarrollos y la migración de cargas de trabajo de producción al servicio Azure Database for MySQL.
 
-  - [Servidor único](single-server-overview.md) es un servicio de base de datos totalmente administrado con requisitos mínimos para las personalizaciones de la base de datos. La plataforma de servidor único está diseñada para administrar la mayoría de las funciones de administración de bases de datos, como las de revisión, copias de seguridad, alta disponibilidad y seguridad con una configuración y un control mínimos para el usuario. La arquitectura está optimizada para proporcionar una disponibilidad del 99,99 % en una zona de disponibilidad única. Los servidores únicos son más adecuados para las aplicaciones nativas en la nube diseñadas para controlar la aplicación de revisiones automatizadas sin necesidad de un control granular sobre la programación de aplicación de revisiones y la configuración personalizada de MySQL.
-
-  - [Servidor flexible (versión preliminar)](flexible-server/overview.md) es un servicio de base de datos totalmente administrado diseñado para proporcionar un control más granular y una mayor flexibilidad sobre las funciones de administración de bases de datos y las opciones de configuración. En general, el servicio proporciona más flexibilidad y personalizaciones de configuración del servidor en comparación con la implementación de servidor único en función de los requisitos del usuario. La arquitectura de servidor flexible permite a los usuarios optar por la alta disponibilidad dentro de una única zona de disponibilidad o entre varias. Los servidores flexibles también proporcionan mejores controles de optimización de costes con la capacidad de iniciar o detener el servidor, y SKU flexibles, idóneas para cargas de trabajo que no necesitan una capacidad de proceso completa de forma continuada.
-
-Los servidores flexibles son idóneos para:
-
-  - Desarrollo de aplicaciones que necesitan un mejor control y personalizaciones del motor de MySQL.
-  - Alta disponibilidad con redundancia de zona
-  - Ventanas de mantenimiento administradas
+   - [Servidor único](single-server-overview.md) es un servicio de base de datos totalmente administrado diseñado para una personalización mínima. La plataforma de servidor único está diseñada para administrar la mayoría de las funciones de administración de bases de datos, como las de aplicación de revisión, copias de seguridad, alta disponibilidad y seguridad con una configuración y un control mínimos para el usuario. La arquitectura está optimizada para una alta disponibilidad integrada, ya que ofrece una disponibilidad del 99,99 % en una zona de disponibilidad única. Es compatible con la versión Community de MySQL 5.6 (retirada), 5.7 y 8.0. El servicio está disponible con carácter general hoy en muchas [regiones de Azure](https://azure.microsoft.com/global-infrastructure/services/). Los servidores únicos son más adecuados **solo para las aplicaciones existentes que ya aprovechan un servidor único**. Para todos los nuevos desarrollos o migraciones, un servidor flexible sería la opción de implementación recomendada. Para obtener información sobre las diferencias entre las opciones de implementación de servidor flexible y servidor único, consulte la documentación sobre la [selección de la opción de implementación adecuada para usted](select-right-deployment-type.md).
  
-  - **MySQL en máquinas virtuales de Azure**. Esta opción pertenece a la categoría del sector de IaaS. Con este servicio, puede ejecutar MySQL Server dentro de una máquina virtual administrada en la plataforma en la nube de Azure. Todas las versiones y ediciones recientes de MySQL se pueden instalar en la máquina virtual.
+- **MySQL en máquinas virtuales de Azure**. Esta opción pertenece a la categoría del sector de IaaS. Con este servicio, puede ejecutar MySQL Server dentro de una máquina virtual administrada en la plataforma en la nube de Azure. Todas las versiones y ediciones recientes de MySQL se pueden instalar en la máquina virtual.
 
 ## <a name="comparing-the-mysql-deployment-options-in-azure"></a>Comparación de las opciones de implementación de MySQL en Azure
 
@@ -46,8 +36,8 @@ Las principales diferencias entre estas opciones se mencionan en la siguiente ta
 | Atributo          | Azure Database for MySQL<br/>Servidor único |Azure Database for MySQL<br/>Servidor flexible  |MySQL en máquinas virtuales de Azure |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|:------------------|
 | [**General**](flexible-server/overview.md)  | | | |
-| Disponibilidad general | GA desde 2018 | Vista previa pública | GA |
-| Acuerdo de Nivel de Servicio (SLA) | Acuerdo de Nivel de Servicio con disponibilidad del 99,99 % |No hay Acuerdo de Nivel de Servicio en la versión preliminar| 99.99 % con Availability Zones|
+| Disponibilidad general | Disponibilidad general | Disponibilidad general | Disponibilidad general |
+| Acuerdo de Nivel de Servicio (SLA) | Acuerdo de Nivel de Servicio con disponibilidad del 99,99 % |99.99 % con Availability Zones| 99.99 % con Availability Zones|
 | Sistema operativo subyacente | Windows | Linux  | Administrado por el usuario |
 | Edición de MySQL | Community Edition | Community Edition | Community o Enterprise Edition |
 | Compatibilidad con versiones de MySQL | 5.6 (retirado), 5.7 y 8.0| 5.7 y 8.0 | Cualquier versión|
@@ -55,7 +45,7 @@ Las principales diferencias entre estas opciones se mencionan en la siguiente ta
 | Nombre de usuario en la cadena de conexión | `<user_name>@server_name`. Por ejemplo, `mysqlusr@mypgServer`. | Solo nombre de usuario. Por ejemplo, `mysqlusr`. | Solo nombre de usuario. Por ejemplo, `mysqlusr`. | 
 | [**Escalado de almacenamiento y proceso**](flexible-server/concepts-compute-storage.md) | | | |
 | Niveles de proceso | Básico, De uso general y Optimizado para memoria | Ampliable, De uso general y Optimizado para memoria | Ampliable, De uso general y Optimizado para memoria |
-| Escalado de proceso | Compatible (no se admite el escalado desde y hasta el nivel Básico)| Compatible | Compatible|
+| Escalado de proceso | Compatible (**no se admite** el escalado desde y hasta el nivel Básico)| Compatible | Compatible|
 | Tamaño de almacenamiento | De 5 GiB a 16 TiB| De 20 GiB a 16 TiB | De 32 GiB a 32 767 GiB|
 | Escalado de almacenamiento en línea | Compatible| Compatible| No compatible|
 | Escalado de almacenamiento automático | Compatible| Compatible| No compatible|
@@ -83,7 +73,7 @@ Las principales diferencias entre estas opciones se mencionan en la siguiente ta
 | Redundancia de zona | No compatible | Compatible | Compatible|
 | Colocación de zona en espera | No compatible | Compatible | Compatible|
 | Conmutación por error automática | Sí (gira otro servidor)| Sí | Administrado por el usuario|
-| conmutación por error forzada | No | Sí | Administrado por el usuario |
+| Conmutación por error manual forzada iniciada por el usuario | No | Sí | Administrado por el usuario |
 | Conmutación por error transparente de la aplicación | Sí | Sí | Administrado por el usuario|
 | [**Replicación**](flexible-server/concepts-read-replicas.md) | | | |
 | Compatibilidad para réplicas de lectura | Sí | Sí | Administrado por el usuario |
@@ -92,7 +82,7 @@ Las principales diferencias entre estas opciones se mencionan en la siguiente ta
 | Compatibilidad de GTID para réplicas de lectura | Compatible | Compatible | Administrado por el usuario |
 | Compatibilidad entre regiones (replicación geográfica) | Yes | No compatible | Administrado por el usuario |
 | Escenarios híbridos | Compatible con [Replicación de datos de entrada](./concepts-data-in-replication.md)| Compatible con [Replicación de datos de entrada](./flexible-server/concepts-data-in-replication.md) | Administrado por el usuario |
-| Compatibilidad de GTID con la replicación de datos de entrada | Compatible | No compatible | Administrado por el usuario |
+| Compatibilidad de GTID con la replicación de datos de entrada | Compatible | Compatible | Administrado por el usuario |
 | Replicación de datos de salida | No compatible | En versión preliminar | Compatible |
 | [**Copia de seguridad y recuperación**](flexible-server/concepts-backup-restore.md) | | | |
 | Copias de seguridad automatizadas | Sí | Sí | No |
@@ -100,6 +90,7 @@ Las principales diferencias entre estas opciones se mencionan en la siguiente ta
 | Retención a largo plazo de copias de seguridad | Administrado por el usuario | Administrado por el usuario | Administrado por el usuario |
 | Exportación de copias de seguridad | Compatible con copias de seguridad lógicas | Compatible con copias de seguridad lógicas | Compatible |
 | Funcionalidad de recuperación a un momento dado en cualquier momento dentro del período de retención | Sí | Sí | Administrado por el usuario |
+| Punto de restauración rápida | No | Sí | No |
 | Capacidad de restauración en una zona diferente | No compatible | Sí | Sí |
 | Capacidad de restauración en una red virtual diferente | No | Sí | Sí |
 | Capacidad de restauración a una región diferente | Sí (Con redundancia geográfica) | No | Administrado por el usuario |
@@ -121,7 +112,7 @@ Las principales diferencias entre estas opciones se mencionan en la siguiente ta
 | caching_sha2_password | No compatible | En versión preliminar | Compatible |
 | [**Productividad de los desarrolladores**](flexible-server/quickstart-create-server-cli.md) | | | |
 | Administración de flota | Compatible con la CLI de Azure, PowerShell, REST y Azure Resource Manager | Compatible con la CLI de Azure, PowerShell, REST y Azure Resource Manager  | Compatible para máquinas virtuales con la CLI de Azure, PowerShell, REST y Azure Resource Manager |
-| Compatibilidad con Terraform | Compatible | No compatible | Compatible |
+| Compatibilidad con Terraform | Compatible | Compatible | Compatible |
 | Acciones de GitHub | Compatible | Compatible | Administrado por el usuario |
 
 ## <a name="business-motivations-for-choosing-paas-or-iaas"></a>Motivaciones empresariales para elegir PaaS o IaaS
@@ -154,7 +145,7 @@ Con IaaS, Microsoft:
 
 - Administra la infraestructura subyacente.
 - Proporciona revisiones automatizadas para el hardware y el sistema operativo subyacentes.
-  
+
 Con PaaS, Microsoft:
 
 - Administra la infraestructura subyacente.

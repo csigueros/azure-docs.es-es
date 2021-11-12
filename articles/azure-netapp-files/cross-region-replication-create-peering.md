@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/14/2021
+ms.date: 11/02/2021
 ms.author: b-juche
-ms.openlocfilehash: 34ee024344fb5ed7bf7da32f181a0bc43cbfc8fd
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 8a937074cfc0cd4305ac5946bdb792d612c44f7b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130038657"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131465390"
 ---
 # <a name="create-volume-replication-for-azure-netapp-files"></a>Creación de una replicación de volúmenes para Azure NetApp Files
 
@@ -75,7 +75,7 @@ En el caso del protocolo NFS, asegúrese de que las reglas de la directiva de ex
 
 7. En la pestaña **Etiquetas**, cree pares clave-valor según sea necesario.  
 
-8. En la pestaña **Replicación**, pegue el identificador de recurso del volumen de origen que obtuvo en [Búsqueda del identificador de recurso del volumen de origen](#locate-the-source-volume-resource-id) y, después, seleccione la programación de replicación deseada. Entre las opciones de programación de replicación se incluyen: cada 10 minutos, cada hora, diariamente, semanalmente y mensualmente.  
+8. En la pestaña **Replicación**, pegue el identificador de recurso del volumen de origen que obtuvo en [Búsqueda del identificador de recurso del volumen de origen](#locate-the-source-volume-resource-id) y, después, seleccione la programación de replicación deseada. Entre las opciones de programación de replicación se incluyen: cada 10 minutos, cada hora y diariamente.
 
     ![Creación de replicación de volumen](../media/azure-netapp-files/cross-region-replication-create-volume-replication.png)
 

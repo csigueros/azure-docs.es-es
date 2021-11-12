@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Documentación de referencia para el esquema YAML del almacén de datos de blobs de Azure de la CLI (v2).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: reference
 author: ynpandey
 ms.author: yogipandey
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: dc2455212e2ab67d70dba5cce72a343f05fe2b81
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: a2eb42974b64cf3d70422b4fef8d4611639cf826
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131557972"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132134556"
 ---
 # <a name="cli-v2-azure-blob-datastore-yaml-schema"></a>Esquema YAML del almacén de datos de blobs de Azure de la CLI (v2)
 
@@ -50,19 +50,19 @@ Hay ejemplos disponibles en el [repositorio de GitHub de ejemplos](https://githu
 
 ## <a name="yaml-identity-based-access"></a>YAML: acceso basado en identidad
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/blob-credless.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/blob-credless.yml":::
 
 ## <a name="yaml-account-key"></a>YAML: clave de cuenta
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/blob.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/blob.yml":::
 
 ## <a name="yaml-wasbs-protocol"></a>YAML: protocolo wasbs
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/blob-protocol.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/blob-protocol.yml":::
 
 ## <a name="yaml-sas-token"></a>YAML: token de SAS
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/blob-sas.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/blob-sas.yml":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,12 +10,12 @@ author: lostmygithubaccount
 ms.author: copeters
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: d26f25f2a007d0488b515485be5cc3bf0c9d735d
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 8f812b9c02ef14d7e098c7f50e3a1c3cfabe97a6
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131557953"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132058361"
 ---
 # <a name="cli-v2-environment-yaml-schema"></a>Esquema YAML del entorno de la CLI (v2)
 
@@ -64,15 +64,15 @@ Hay ejemplos disponibles en el [repositorio de GitHub de ejemplos](https://githu
 
 ## <a name="yaml-local-docker-build-context"></a>YAML: contexto de compilación local de Docker
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/environment/docker-context.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-context.yml":::
 
 ## <a name="yaml-docker-image"></a>YAML: imagen de Docker
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/environment/docker-image.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-image.yml":::
 
 ## <a name="yaml-docker-image-plus-conda-file"></a>YAML: imagen de Docker más archivo de Conda
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/environment/docker-image-plus-conda.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-image-plus-conda.yml":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

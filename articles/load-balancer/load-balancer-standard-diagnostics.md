@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2021
 ms.author: allensu
-ms.openlocfilehash: c0502b880d23e9f0a63564f11473f48e1c01b096
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: f92d776239bccb457f6d9fe9b073ea64a56178a8
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129236562"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132286438"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico de Standard Load Balancer con métricas, alertas y estado de los recursos
 
@@ -219,7 +219,7 @@ En este gráfico se muestra la siguiente información:
 El gráfico permite a los clientes solucionar los problemas de la implementación por sí mismos, sin necesidad de adivinar o solicitar soporte técnico si se produjeron otros problemas. El servicio no estaba disponible porque los sondeos de mantenimiento producían errores debidos a una configuración incorrecta o errores en la aplicación.
 </details>
 
-## <a name="configure-alerts-for-multi-dimensional-metrics"></a>Configuración de alertas para métricas multidimensionales ###
+## <a name="configure-alerts-for-multi-dimensional-metrics"></a>Configuración de alertas para métricas multidimensionales
 
 Azure Standard Load Balancer admite alertas configurables fácilmente para métricas multidimensionales. Configure umbrales personalizados para que métricas específicas desencadenen alertas con distintos niveles de gravedad para habilitar una experiencia de supervisión de recursos sin contacto.
 

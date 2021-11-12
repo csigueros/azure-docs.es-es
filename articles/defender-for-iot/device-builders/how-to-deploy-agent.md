@@ -2,13 +2,13 @@
 title: Selección e implementación de agentes de seguridad
 description: Aprenda a seleccionar e implementar agentes de seguridad de Defender for IoT en dispositivos IoT.
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.openlocfilehash: c71c92ffa79c844f3529265320b46eadd0c158cf
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.date: 11/09/2021
+ms.openlocfilehash: 25a879432ff6e20a4f2cda83c9658c79cb4fb0bb
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018137"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306194"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Seleccionar e implementar un agente de seguridad en el dispositivo IoT
 

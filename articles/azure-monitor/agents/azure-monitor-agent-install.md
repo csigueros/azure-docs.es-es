@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 09/21/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 3e8430499edde638bf32cca2f9a36fb3c3583863
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 3c1b3ac13f79037b3357f3ecba0d3d668f88d0b5
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130178063"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131850895"
 ---
 # <a name="install-the-azure-monitor-agent"></a>Instalación del agente de Azure Monitor
 En este artículo se proporcionan las distintas opciones disponibles actualmente para instalar el [agente de Azure Monitor](azure-monitor-agent-overview.md) en máquinas virtuales de Azure y en los servidores habilitados para Azure Arc, así como las opciones para crear [asociaciones con reglas de recopilación de datos](data-collection-rule-azure-monitor-agent.md) que definen qué datos debe recopilar el agente.
@@ -39,14 +39,16 @@ El agente de Azure Monitor se implementa como [extensión de VM de Azure](../../
 | TypeHandlerVersion  | 1.0 | 1.5 |
 
 ## <a name="extension-versions"></a>Versiones de extensión
-Se recomienda encarecidamente actualizar a las versiones de GA+ en lugar de usar versiones preliminares.
+Se recomienda encarecidamente actualizar a las versiones posteriores a la disponibilidad general que se enumeran a continuación en lugar de usar versiones preliminares o intermedias.
 
 | Fecha de la versión | Notas de la versión | Windows | Linux |
 |:---|:---|:---|:---|:---|
 | Junio de 2021 | Se ha anunciado la disponibilidad general. <ul><li>Todas las características excepto el destino de métricas ya tienen disponibilidad general</li><li>Calidad, seguridad y cumplimiento de producción</li><li>Disponibilidad en todas las regiones públicas</li><li>Mejoras de rendimiento y escalado para EPS de versiones superiores</li></ul> [Más información](https://azure.microsoft.com/updates/azure-monitor-agent-and-data-collection-rules-now-generally-available/) | 1.0.12.0 | 1.9.1.0 |
 | Julio de 2021 | <ul><li>Compatibilidad con proxies directos</li><li>Compatibilidad con la puerta de enlace de Log Analytics</li></ul> [Más información](https://azure.microsoft.com/updates/general-availability-azure-monitor-agent-and-data-collection-rules-now-support-direct-proxies-and-log-analytics-gateway/) | 1.1.1.0 | 1.10.5.0 |
-| Agosto de 2021 | Se ha corregido el problema que permitía las métricas de Azure Monitor como único destino | 1.1.2.0 | 1.10.9.0 (no use 1.10.7.0) |
-| Septiembre de 2021 | Se ha corregido un problema que provocaba pérdida de datos al reiniciar el agente | 1.1.3.1 (no use 1.1.3.1) | 1.12.2.0 |
+| Agosto de 2021 | Se ha corregido el problema que permitía las métricas de Azure Monitor como único destino | 1.1.2.0 | 1.10.9.0<sup>1</sup> |
+| Septiembre de 2021 | <ul><li>Se ha corregido un problema que provocaba pérdida de datos al reiniciar el agente</li><li>Se ha solucionado la regresión introducida en la versión 1.1.3.1<sup>2</sup> para los servidores Windows Arc</li></ul> | 1.1.3.2 | 1.12.2.0 <sup>2</sup> |  
+
+<sup>1</sup> No use la versión 1.10.7.0 <sup>2</sup> de AMA Linux. Existe una regresión conocida donde no funciona en servidores habilitados para Arc.
 
 
 ## <a name="install-with-azure-portal"></a>Instalación con Azure Portal

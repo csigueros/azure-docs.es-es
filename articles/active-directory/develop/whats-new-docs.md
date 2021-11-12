@@ -5,23 +5,42 @@ description: Documentación nueva y actualizada de la plataforma de identidad de
 services: active-directory
 author: mmacy
 manager: CelesteDG
-ms.date: 10/01/2021
+ms.date: 11/01/2021
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
 ms.custom: has-adal-ref
-ms.openlocfilehash: 9383c05ed797e4a00470240ce9a25541988d9b6d
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 94518bf41dc449b4b5b240d12c5da1bab9dfc614
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129349558"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131440894"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Documentos de la plataforma de identidad de Microsoft: Novedades
 
 Estas son las novedades de la documentación de la Plataforma de identidad de Microsoft. En este artículo se enumeran los documentos nuevos que se han agregado y los que han tenido actualizaciones importantes en los últimos tres meses.
+
+## <a name="october-2021"></a>Octubre de 2021
+
+### <a name="new-articles"></a>Artículos nuevos
+
+- [Configuración de una aplicación para confiar en un repositorio de GitHub (versión preliminar)](workload-identity-federation-create-trust-github.md)
+- [Configuración de una aplicación para confiar en un proveedor de identidades externo (versión preliminar)](workload-identity-federation-create-trust.md)
+- [Configuración del entorno de prueba de Azure AD en la aplicación](test-setup-environment.md)
+- [Limitación y límites de servicio que se deben tener en cuenta para las pruebas](test-throttle-service-limits.md)
+- [Federación de identidades de carga de trabajo (versión preliminar)](workload-identity-federation.md)
+
+### <a name="updated-articles"></a>Artículos actualizados
+
+- [Consideraciones para usar Xamarin iOS con MSAL.NET](msal-net-xamarin-ios-considerations.md)
+- [Control de ITP en Safari y otros exploradores donde se han bloqueado las cookies de terceros](reference-third-party-cookies-spas.md)
+- [Inicialización de aplicaciones cliente con MSAL.js](msal-js-initializing-client-applications.md)
+- [Microsoft Graph API](microsoft-graph-intro.md)
+- [La Plataforma de identidad de Microsoft y el flujo de credenciales de cliente de OAuth 2.0](v2-oauth2-client-creds-grant-flow.md)
+- [Novedades en la autenticación](reference-breaking-changes.md)
 
 ## <a name="september-2021"></a>Septiembre de 2021
 
@@ -60,19 +79,3 @@ Estas son las novedades de la documentación de la Plataforma de identidad de Mi
 - [Migración de aplicaciones a la Biblioteca de autenticación de Microsoft (MSAL)](msal-migration.md)
 - [Restricciones y limitaciones del identificador URI de redirección (dirección URL de respuesta)](reply-url.md)
 - [Serialización de la caché de tokens en MSAL.NET](msal-net-token-cache-serialization.md)
-
-## <a name="july-2021"></a>Julio de 2021
-
-### <a name="new-articles"></a>Artículos nuevos
-
-- [Procedimientos recomendados sobre la seguridad de registros de aplicación de Azure AD](security-best-practices-for-app-registration.md)
-- [Control de acceso basado en rol para desarrolladores de aplicaciones](custom-rbac-for-developers.md)
-
-### <a name="updated-articles"></a>Artículos actualizados
-
-- [Cómo migrar una aplicación de JavaScript de ADAL.js a MSAL.js](msal-compare-msal-js-and-adal-js.md)
-- [Migración de una aplicación Node.js de ADAL a MSAL](msal-node-migration.md)
-- [Migración de aplicaciones cliente confidenciales de ADAL.NET a MSAL.NET](msal-net-migration-confidential-client.md)
-- [Permisos y consentimiento en la plataforma de identidad de Microsoft](v2-permissions-and-consent.md)
-- [API web protegida: Comprobación de ámbitos y roles de aplicación](scenario-protected-web-api-verification-scope-app-roles.md)
-- [Inicio rápido: Adición del inicio de sesión con Microsoft en una aplicación web de ASP.NET Core](quickstart-v2-aspnet-core-webapp.md)

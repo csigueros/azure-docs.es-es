@@ -6,19 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 67a38e0d9a209c12925e54f208c8cc3a614fbe34
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 61002f3943001dd145cd30593b6972d743f24eec
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130066003"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131472804"
 ---
-# <a name="backup-and-restore-in-azure-database-for-mysql-flexible-server-preview"></a>Copia de seguridad y restauración en el Servidor flexible de Azure Database for MySQL (versión preliminar)
+# <a name="backup-and-restore-in-azure-database-for-mysql-flexible-server"></a>Copia de seguridad y restauración en el Servidor flexible de Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Actualmente, Azure Database for MySQL: Servidor flexible se encuentra en versión preliminar pública.
 
 El Servidor flexible de Azure Database for MySQL crea automáticamente copias de seguridad del servidor y las almacena de forma segura en el almacenamiento con redundancia local en la región. Las copias de seguridad pueden utilizarse para restaurar el servidor a un momento dado. Las copias de seguridad y las restauraciones son una parte esencial de cualquier estrategia de continuidad del negocio, ya que protegen los datos frente a daños o eliminaciones accidentales.
 
@@ -73,6 +70,10 @@ El medio principal para controlar el costo de almacenamiento de la copia de segu
 > [!IMPORTANT]
 > Las copias de seguridad de un servidor de base de datos configurado en una configuración de alta disponibilidad con redundancia de zona se producen desde el servidor de base de datos principal, ya que la sobrecarga es mínima con las copias de seguridad de instantáneas.
 
+## <a name="view-available-full-backups"></a>Visualización de las copias de seguridad completas disponibles
+
+En la hoja Copia de seguridad y restauración de Azure Portal se enumeran las copias de seguridad completas automatizadas realizadas una vez al día. Puede usar esta hoja para ver las marcas de tiempo de finalización de todas las copias de seguridad completas disponibles dentro del período de retención del servidor y para realizar operaciones de restauración mediante estas copias de seguridad completas. La lista de copias de seguridad disponibles incluye todas las copias de seguridad automatizadas completas dentro del período de retención, una marca de tiempo que muestra la finalización correcta, una marca de tiempo que indica cuánto tiempo se conservará una copia de seguridad y una acción de restauración.
+
 ## <a name="restore"></a>Restauración
 
 En Azure Database for MySQL, al realizar una restauración se crea un nuevo servidor a partir de las copias de seguridad del servidor original. Hay dos tipos de restauración disponibles: 
@@ -107,10 +108,11 @@ La restauración a un momento dado es útil en diversos escenarios. Algunos de l
 -   El usuario quita una tabla o base de datos importante.
 -   Una aplicación de usuario sobrescribe accidentalmente datos correctos por otros no válidos debido a un defecto en esta.
 
-Puede elegir entre el último punto de restauración y un punto de restauración personalizado a través de [Azure Portal](how-to-restore-server-portal.md).
+Puede elegir entre el punto de restauración más reciente, el punto de restauración personalizado y el punto de restauración más rápido (restauración mediante copia de seguridad completa) desde [Azure Portal](how-to-restore-server-portal.md).
 
 -   **Punto de restauración más reciente**: la opción de punto de restauración más reciente le ayuda a restaurar el servidor a la marca de tiempo cuando se desencadenó la operación de restauración. Esta opción es útil para restaurar rápidamente el servidor al estado más actualizado.
 -   **Personalizar el punto de restauración**: esto le permitirá elegir cualquier momento dentro del período de retención definido para este servidor flexible. Esta opción es útil para restaurar el servidor en el momento preciso de recuperación de un error de usuario.
+-   **Punto de restauración más rápido**: esta opción permite a los usuarios restaurar el servidor en el tiempo más rápido posible durante un día determinado dentro del período de retención definido para su servidor flexible. La restauración más rápida es posible si se elige el momento de restauración en el que se completa la copia de seguridad completa. Esta operación de restauración simplemente restaura la copia de seguridad de instantánea completa y no garantiza la restauración o recuperación de los registros, lo que hace que sea rápida. Se recomienda seleccionar una marca de tiempo de copia de seguridad completa que sea mayor que el primer punto de restauración en el tiempo para una operación de restauración correcta.
 
 El tiempo estimado de recuperación depende de varios factores, entre los que se incluyen los tamaños de las bases de datos, el tamaño de la copia de seguridad del registro de transacciones, el tamaño de proceso de la SKU y la hora de la restauración. La recuperación del registro de transacciones es la parte más lenta del proceso de restauración. Si el momento de la restauración se elige más próximo a la programación de la copia de seguridad, las operación de restauración son más rápidas, ya que la aplicación del registro de transacciones es mínima. A fin de calcular el tiempo de recuperación preciso para el servidor, es muy recomendable probarla en el entorno, ya que tiene demasiadas variables específicas de entorno.
 
@@ -150,7 +152,7 @@ Cuando efectúe la restauración con el mecanismo de recuperación **último pun
 ### <a name="backup-related-questions"></a>Preguntas relacionadas con las copias de seguridad
 
 - **¿Cómo hago una copia de seguridad de mi servidor?**
-De forma predeterminada, Azure Database for MySQL habilita copias de seguridad automatizadas de todo el servidor (abarcando todas las bases de datos creadas) con un período de retención predeterminado de 7 días. La única manera de realizar manualmente una copia de seguridad es mediante herramientas de comunidad como mysqldump como se documenta [aquí](../concepts-migrate-dump-restore.md#dump-and-restore-using-mysqldump-utility) o mydumper como se documenta [aquí](../concepts-migrate-mydumper-myloader.md#create-a-backup-using-mydumper). Si desea hacer una copia de seguridad de Azure Database for MySQL en un almacenamiento de blobs, consulte el blog de nuestra comunidad tecnológica [Copia de seguridad de Azure Database for MySQL en un almacenamiento de blobs](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/backup-azure-database-for-mysql-to-a-blob-storage/ba-p/803830). 
+De forma predeterminada, Azure Database for MySQL habilita copias de seguridad automatizadas de todo el servidor (abarcando todas las bases de datos creadas) con un período de retención predeterminado de 7 días. La única manera de realizar manualmente una copia de seguridad es mediante herramientas de comunidad como mysqldump como se documenta [aquí](../concepts-migrate-dump-restore.md#dump-and-restore-using-mysqldump-utility) o mydumper como se documenta [aquí](../concepts-migrate-mydumper-myloader.md#create-a-backup-using-mydumper). Si desea hacer una copia de seguridad de Azure Database for MySQL en un almacenamiento de blobs, consulte el blog de nuestra comunidad tecnológica [Copia de seguridad de Azure Database for MySQL en un almacenamiento de blobs](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/backup-azure-database-for-mysql-to-a-blob-storage/ba-p/803830).
 
 - **¿Puedo configurar copias de seguridad automáticas para que se conserven a largo plazo?**
 No, actualmente solo se admite un máximo de 35 días de retención de copia de seguridad automatizada. Puede realizar copias de seguridad manuales y usarlas para los requisitos de retención a largo plazo.
@@ -159,7 +161,7 @@ No, actualmente solo se admite un máximo de 35 días de retención de copia de 
 La primera copia de seguridad de instantáneas se programa inmediatamente después de la creación de un servidor. Las copias de seguridad de instantáneas se realizan una vez al día. Las copias de seguridad del registro de transacciones tienen lugar cada cinco minutos. Azure administra de forma inherente las ventanas de copia de seguridad y no se pueden personalizar.
 
 - **¿Mis copias de seguridad están cifradas?**
-Todos los datos, copias de seguridad y archivos temporales de Azure Database for MySQL creados durante la consultas se cifran mediante AES de 256 bits. El cifrado de almacenamiento siempre está activado y no se puede deshabilitar. 
+Todos los datos, copias de seguridad y archivos temporales de Azure Database for MySQL creados durante la consultas se cifran mediante AES de 256 bits. El cifrado de almacenamiento siempre está activado y no se puede deshabilitar.
 
 - **¿Puedo restaurar una o varias bases de datos?**
 No se admite la restauración de una o varias bases de datos o tablas. En caso de que desee restaurar bases de datos específicas, realice una restauración a un momento dado y, a continuación, extraiga las tablas o bases de datos necesarias.
@@ -174,7 +176,7 @@ No, las copias de seguridad se desencadenan internamente como parte del servicio
 Azure Database for MySQL crea automáticamente copias de seguridad del servidor y las almacena en el almacenamiento con redundancia local o con redundancia geográfica configurado por el usuario. Estos archivos de copia de seguridad no se pueden exportar. El período de retención predeterminado es siete días. Opcionalmente, puede configurar la copia de seguridad de base de datos de 1 a 35 días.
 
 - **¿Cómo puedo validar mis copias de seguridad?**
-La mejor manera de validar la disponibilidad de las copias de seguridad válidas es realizar restauraciones a un momento dado periódicas y garantizar que las copias de seguridad sean válidas y restaurables. Las operaciones o archivos de copia de seguridad no se exponen a los usuarios finales.
+La mejor manera de validar la disponibilidad de las copias de seguridad completadas correctamente consiste en ver las copias de seguridad automatizadas completas realizadas dentro del período de retención en la hoja Copia de seguridad y restauración. Si se produce un error en una copia de seguridad, no aparecerá en la lista de copias de seguridad disponibles y nuestro servicio de copia de seguridad intentará hacer una copia de seguridad cada 20 minutos hasta que se realice una correcta. Estos errores de copia de seguridad se deben a cargas de producción con demasiadas transacciones en el servidor.
 
 - **¿Dónde puedo ver el uso de la copia de seguridad?**
 En la Azure Portal, en la pestaña Supervisión: sección Métricas, puede encontrar la métrica [almacenamiento de copia de seguridad usado](./concepts-monitoring.md) que puede ayudarle a supervisar el uso total de la copia de seguridad.
@@ -189,7 +191,7 @@ El Servidor flexible proporciona hasta un 100 % del almacenamiento del servidor
 No se realizan nuevas copias de seguridad para los servidores detenidos. Todas las copias de seguridad anteriores (dentro de la ventana de retención) en el momento de detener el servidor se conservan hasta que se reinicia el servidor después de que la retención de la copia de seguridad para el servidor activo se rija por su ventana de retención de copia de seguridad.
 
 - **¿Cómo se facturarán las copias de seguridad de un servidor detenido?**
-Mientras se detiene la instancia del servidor, se le cobra por el almacenamiento aprovisionado (incluidas las IOPS aprovisionadas) y el almacenamiento de copia de seguridad (copias de seguridad almacenadas dentro de la ventana de retención especificada). El almacenamiento de copia de seguridad gratuito se limita al tamaño de la base de datos aprovisionada y solo se aplica a los servidores activos. 
+Mientras se detiene la instancia del servidor, se le cobra por el almacenamiento aprovisionado (incluidas las IOPS aprovisionadas) y el almacenamiento de copia de seguridad (copias de seguridad almacenadas dentro de la ventana de retención especificada). El almacenamiento de copia de seguridad gratuito se limita al tamaño de la base de datos aprovisionada y solo se aplica a los servidores activos.
 
 ### <a name="restore-related-questions"></a>Preguntas relacionadas con la restauración
 
@@ -197,12 +199,12 @@ Mientras se detiene la instancia del servidor, se le cobra por el almacenamiento
 Azure Portal admite la restauración a un momento dado (para todos los servidores), lo que permite a los usuarios restaurar al punto de restauración más reciente o personalizado. Para restaurar manualmente el servidor a partir de las copias de seguridad realizadas por mysqldump/myDumper, lea [Restauración de la base de datos mediante myLoader](../concepts-migrate-mydumper-myloader.md#restore-your-database-using-myloader).
 
 - **¿Por qué mi restauración tarda tanto tiempo?**
-El tiempo estimado para la recuperación del servidor depende de varios factores: 
+El tiempo estimado para la recuperación del servidor depende de varios factores:
    - El tamaño de las bases de datos. Como parte del proceso de recuperación, la base de datos debe hidratarse de la última copia de seguridad física y, por lo tanto, el tiempo necesario para recuperarse será proporcional al tamaño de la base de datos.
    - La parte activa de la actividad de la transacción que debe reproducirse para recuperarse. La recuperación puede tardar más en función de la actividad de transacción adicional del último punto de control correcto.
-   - El ancho de banda de red si la restauración es a una región diferente 
-   - El número de solicitudes de restauración simultáneas que se están procesando en la región de destino 
-   - La presencia de la clave principal en las tablas de la base de datos. Para una recuperación más rápida, considere la posibilidad de agregar la clave principal para todas las tablas de la base de datos.  
+   - El ancho de banda de red si la restauración es a una región diferente
+   - El número de solicitudes de restauración simultáneas que se están procesando en la región de destino
+   - La presencia de la clave principal en las tablas de la base de datos. Para una recuperación más rápida, considere la posibilidad de agregar la clave principal para todas las tablas de la base de datos.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

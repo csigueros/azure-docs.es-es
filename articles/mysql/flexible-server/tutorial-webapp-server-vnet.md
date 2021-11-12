@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Creación de un servidor flexible (versión preliminar) de Azure Database for MySQL y una aplicación web de Azure App Service en la misma red virtual'
-description: Guía de inicio rápido para crear un servidor flexible (versión preliminar) de Azure Database for MySQL con una aplicación web en una red virtual
+title: 'Tutorial: Creación de un servidor flexible de Azure Database for MySQL y una aplicación web de Azure App Service en la misma red virtual'
+description: Guía de inicio rápido para crear un servidor flexible de Azure Database for MySQL con una aplicación web en una red virtual
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
@@ -8,23 +8,18 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 03/18/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 0d95def7048b3077232bb728a97c28107ec80313
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 6f415429441801455d71aa459067a9c805dddd1c
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128654487"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131844019"
 ---
-# <a name="tutorial-create-an-azure-database-for-mysql---flexible-server-preview-with-app-services-web-app-in-virtual-network"></a>Tutorial: Creación de un servidor flexible (versión preliminar) de Azure Database for MySQL con una aplicación web de App Services en una red virtual
+# <a name="tutorial-create-an-azure-database-for-mysql---flexible-server-with-app-services-web-app-in-virtual-network"></a>Creación de un servidor flexible (versión preliminar) de Azure Database for MySQL con una aplicación web de App Services en una red virtual
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-
-> [!IMPORTANT]
-> Actualmente, la opción de implementación Servidor flexible de Azure Database for MySQL se encuentra en versión preliminar pública.
-
-
-En este tutorial se muestra cómo crear una aplicación web de Azure App Service con el servidor flexible de MySQL (versión preliminar) dentro de una [red virtual](../../virtual-network/virtual-networks-overview.md).
+En este tutorial se muestra cómo crear una aplicación web de Azure App Service con el servidor flexible de MySQL dentro de una [red virtual](../../virtual-network/virtual-networks-overview.md).
 
 En este tutorial, aprenderá a:
 >[!div class="checklist"]
@@ -32,7 +27,7 @@ En este tutorial, aprenderá a:
 > * Crear una subred para delegar en App Service
 > * Creación de una aplicación web
 > * Adición de una aplicación web a la red virtual
-> * Conexión a Postgres desde la aplicación web 
+> * Conexión a Postgres desde la aplicación web
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -56,13 +51,13 @@ az account set --subscription <subscription ID>
 
 Cree un servidor flexible privado dentro de una red virtual (VNet) con el siguiente comando:
 ```azurecli
-az mysql flexible-server create --resource-group myresourcegroup --location westus2
+az mysql flexible-server create --resource-group myresourcegroup --location westus2 --vnet VNETName
 ```
 Copie la cadena de conexión y el nombre de la red virtual recién creada. Este comando realiza las siguientes acciones, que pueden tardar algunos minutos:
 
 - Cree el grupo de recursos si todavía no existe.
 - Genera un nombre de servidor, si no se proporciona alguno.
-- Crea una nueva red virtual para el nuevo servidor de MySQL. Anote el nombre de la red virtual y de la subred que se crearon para el servidor, ya que debe agregar la aplicación web a la misma red virtual.
+- Cree una red virtual, ```VNETName```, para el nuevo servidor MySQL y la subred dentro de esta red virtual para el servidor de bases de datos. Asegúrese de que el nombre sea único.
 - Crea un nombre de usuario administrador y una contraseña para el servidor, si no se proporciona alguna.
 - Crea una base de datos vacía llamada **flexibleserverdb**.
 
@@ -70,12 +65,12 @@ Copie la cadena de conexión y el nombre de la red virtual recién creada. Este 
 > Anote la contraseña que se generará si no proporciona alguna. Si olvida la contraseña, tendrá que restablecerla con el comando ``` az mysql flexible-server update```.
 
 ## <a name="create-subnet-for-app-service-endpoint"></a>Creación de una subred para un punto de conexión de App Service
-Ahora es necesario tener una subred delegada en el punto de conexión de la aplicación web de App Service. Ejecute el siguiente comando para crear una nueva subred en la misma red virtual en la que se haya creado el servidor de bases de datos. 
+Ahora es necesario tener una subred delegada en el punto de conexión de la aplicación web de App Service. Ejecute el siguiente comando para crear una nueva subred en la misma red virtual en la que se haya creado el servidor de bases de datos.
 
 ```azurecli
 az network vnet subnet create -g myresourcegroup --vnet-name VNETName --name webappsubnetName  --address-prefixes 10.0.1.0/24  --delegations Microsoft.Web/serverFarms --service-endpoints Microsoft.Web
 ```
-Anote el nombre de la red virtual y el nombre de la subred después de este comando, ya que lo necesitará para agregar una regla de integración de red virtual para la aplicación web después de crearla. 
+Anote el nombre de la red virtual y el nombre de la subred después de este comando, ya que lo necesitará para agregar una regla de integración de red virtual para la aplicación web después de crearla.
 
 ## <a name="create-a-web-app"></a>Creación de una aplicación web
 
@@ -120,6 +115,12 @@ az webapp config appsettings set --settings DBHOST="<mysql-server-name>.mysql.da
 - Reemplace _&lt;username>_ y _&lt;password>_ por las credenciales que el comando también ha generado automáticamente.
 - El grupo de recursos y el nombre de la aplicación se extraen de los valores almacenados en caché del archivo .azure/config.
 - El comando crea valores de configuración denominados DBHOST, DBNAME, DBUSER y DBPASS. Si el código de la aplicación usa un nombre diferente para la información de la base de datos, use esos nombres para los valores de la aplicación, tal como se mencionó en el código.
+
+
+Configure la aplicación web para permitir todas las conexiones salientes desde dentro de la red virtual.
+```azurecli
+az webapp config set --name mywebapp --resource-group myresourcesourcegroup --generic-configurations '{"vnetRouteAllEnabled": true}'
+```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

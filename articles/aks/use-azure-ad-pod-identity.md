@@ -1,23 +1,22 @@
 ---
 title: Uso de identidades administradas del pod de Azure Active Directory en Azure Kubernetes Service (versión preliminar)
-description: Aprenda a utilizar identidades administradas del pod de AAD en Azure Kubernetes Service (AKS)
+description: Aprenda a usar identidades administradas del pod de Azure AD en Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
 ms.date: 3/12/2021
-ms.openlocfilehash: df893949214fc73813bb1b45a663f052ae3ed3c8
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3792dbfe187ef6e4b850338448bde5417b78e687
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124829073"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501768"
 ---
 # <a name="use-azure-active-directory-pod-managed-identities-in-azure-kubernetes-service-preview"></a>Uso de identidades administradas del pod de Azure Active Directory en Azure Kubernetes Service (versión preliminar)
 
-Las identidades administradas del pod de Azure Active Directory usan primitivas de Kubernetes para asociar [identidades administradas para recursos de Azure][az-managed-identities] e identidades en Azure Active Directory (AAD) con pods. Los administradores crean identidades y enlaces como primitivas de Kubernetes que permiten a los pods acceder a los recursos de Azure que dependen de AAD como proveedor de identidades.
+Las identidades administradas del pod de Azure Active Directory (Azure AD) usan primitivas de Kubernetes para asociar [identidades administradas para recursos de Azure][az-managed-identities] e identidades en Azure AD con pods. Los administradores crean identidades y enlaces como primitivas de Kubernetes que permiten a los pods acceder a los recursos de Azure que dependen de Azure AD como proveedor de identidades.
 
 > [!NOTE]
->La característica descrita en este documento, identidades administradas por pods (versión preliminar), se reemplazará por identidades administradas por pods v2 (versión preliminar).
-> Si tiene una instalación existente de AADPODIDENTITY, habrá una opción de migración a la versión V2. A medida que nos acerquemos a la versión preliminar pública programada para el segundo trimestre de 2022, se mostrarán más detalles sobre la migración. La habilitación de esta característica significa que el componente MIC no es necesario.
+> La característica descrita en este documento, identidades administradas por pods (versión preliminar), se reemplazará por identidades administradas por pods v2 (versión preliminar).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -54,6 +53,17 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
+### <a name="operation-mode-options"></a>Opciones del modo de funcionamiento
+
+La identidad de pod de Azure AD admite dos modos de funcionamiento:
+ 
+* **Modo estándar**: en este modo, se implementan los dos componentes siguientes en el clúster de AKS: 
+  * [Controlador de identidades administradas (MIC)](https://azure.github.io/aad-pod-identity/docs/concepts/mic/): un MIC es un controlador de Kubernetes que busca cambios en los pods, en [AzureIdentity](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentity/) y en [AzureIdentityBinding](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentitybinding/) mediante el servidor de API de Kubernetes. Cuando se detectan cambios importantes, el MIC agrega o elimina [AzureAssignedIdentity](https://azure.github.io/aad-pod-identity/docs/concepts/azureassignedidentity/) según sea necesario. En concreto, cuando se programa un pod, el MIC asigna la identidad administrada en Azure al conjunto de escalado de máquinas virtuales subyacente utilizado por el grupo de nodos durante la fase de creación. Cuando se eliminan todos los pods que usan la identidad, se quita la identidad del conjunto de escalado de máquinas virtuales del grupo de nodos, a menos que otros pods usen la misma identidad administrada. El MIC realiza acciones similares cuando se crea o elimina AzureIdentity o AzureIdentityBinding.
+  * [Identidad administrada del nodo (NMI)](https://azure.github.io/aad-pod-identity/docs/concepts/nmi/): la NMI es un pod que se ejecuta como DaemonSet en cada nodo del clúster de AKS. La NMI intercepta las solicitudes de token de seguridad a [Azure Instance Metadata Service](../virtual-machines/linux/instance-metadata-service.md?tabs=linux) en cada nodo, las redirige a sí mismo y valida si el pod tiene acceso a la identidad para la que se solicita un token; luego, captura el token del inquilino de Azure AD en nombre de la aplicación.
+* **Modo administrado**: este modo solo ofrece la NMI. El usuario debe asignar y administrar manualmente la identidad. Para obtener más información, consulte [Identidad de pod en modo administrado](https://azure.github.io/aad-pod-identity/docs/configure/pod_identity_in_managed_mode/).
+
+Cuando se realiza la instalación de la identidad de pod de Azure AD mediante un gráfico de Helm o un manifiesto YAML como se muestra en la [Guía de instalación](https://azure.github.io/aad-pod-identity/docs/getting-started/installation/), puede elegir entre el modo `standard` y `managed`. Si en cambio decide instalar la identidad de pod de Azure AD mediante el complemento de clúster de AKS como se muestra en este artículo, la configuración usará el modo `managed`.
+
 ## <a name="create-an-aks-cluster-with-azure-container-networking-interface-cni"></a>Creación de un clúster de AKS con Azure Container Networking Interface (CNI)
 
 > [!NOTE]
@@ -65,21 +75,15 @@ Cree un clúster de AKS con Azure CNI y una identidad administrada del pod habil
 az group create --name myResourceGroup --location eastus
 az aks create -g myResourceGroup -n myAKSCluster --enable-pod-identity --network-plugin azure
 ```
-> [!NOTE]
-> Azure Active Directory Pod Identity admite dos modos de funcionamiento:
-> 
-> 1. Modo estándar: en este modo, se implementan los dos componentes siguientes en el clúster de AKS: 
->     * [Controlador de identidades administradas (MIC)](https://azure.github.io/aad-pod-identity/docs/concepts/mic/): un controlador de Kubernetes que busca cambios en los pods, en [AzureIdentity](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentity/) y en [AzureIdentityBinding](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentitybinding/) mediante el servidor de API de Kubernetes. Cuando se detectan cambios importantes, el MIC agrega o elimina [AzureAssignedIdentity](https://azure.github.io/aad-pod-identity/docs/concepts/azureassignedidentity/) según sea necesario. En concreto, cuando se programa un pod, el MIC asigna la identidad administrada en Azure al conjunto de escalado de máquinas virtuales subyacente que usa el grupo de nodos durante la fase de creación. Cuando se eliminan todos los pods que usan la identidad, se quita la identidad del conjunto de escalado de máquinas virtuales del grupo de nodos, a menos que otros pods usen la misma identidad administrada. El MIC realiza acciones similares cuando se crea o elimina AzureIdentity o AzureIdentityBinding.
->     * [Identidad administrada del nodo (NMI)](https://azure.github.io/aad-pod-identity/docs/concepts/nmi/): es un pod que se ejecuta como DaemonSet en cada nodo del clúster de AKS. NMI intercepta las solicitudes de token de seguridad a [Azure Instance Metadata Service](../virtual-machines/linux/instance-metadata-service.md?tabs=linux) en cada nodo, las redirige a sí misma y valida si el pod tiene acceso a la identidad para la que se solicita un token; luego, captura el token del inquilino de Azure Active Directory en nombre de la aplicación.
-> 2. Modo administrado: en este modo, solo hay una NMI. El usuario debe asignar y administrar manualmente la identidad. Para más información, consulte [Pod Identity en modo administrado](https://azure.github.io/aad-pod-identity/docs/configure/pod_identity_in_managed_mode/).
->
->Cuando se realiza la instalación de Azure Active Directory Pod Identity mediante un gráfico de Helm o un manifiesto YAML como se muestra en la [Guía de instalación](https://azure.github.io/aad-pod-identity/docs/getting-started/installation/), puede elegir entre el modo `standard` y `managed`. Si en cambio decide instalar Azure Active Directory Pod Identity mediante el complemento de clúster de AKS como se muestra en este artículo, la configuración usará el modo `managed` (administrado).
 
 Use [az aks get-credentials][az-aks-get-credentials] para iniciar sesión en el clúster de AKS. Este comando también descarga y configura el certificado de cliente `kubectl` en el equipo de desarrollo.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
+
+> [!NOTE]
+> Al habilitar la identidad administrada del pod en el clúster de AKS, se agrega una excepción AzurePodIdentityException denominada *aks-addon-exception* al espacio de nombres *kube-system*. Una excepción AzurePodIdentityException permite que los pods con determinadas etiquetas accedan al punto de conexión de Azure Instance Metadata Service (IMDS) sin que el servidor de NMI los intercepte. *aks-addon-exception* permite que los complementos propios de AKS, como la identidad administrada del pod de Azure AD, funcionen sin tener que configurar manualmente una excepción AzurePodIdentityException. También puede agregar, quitar y actualizar una excepción AzurePodIdentityException con `az aks pod-identity exception add`, `az aks pod-identity exception delete`, `az aks pod-identity exception update` o `kubectl`.
 
 ## <a name="update-an-existing-aks-cluster-with-azure-cni"></a>Actualización de un clúster de AKS existente con Azure CNI
 
@@ -88,12 +92,13 @@ Actualice un clúster de AKS existente con Azure CNI para incluir la identidad a
 ```azurecli-interactive
 az aks update -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity
 ```
+
 ## <a name="using-kubenet-network-plugin-with-azure-active-directory-pod-managed-identities"></a>Uso del complemento de red Kubenet con identidades administradas del pod de Azure Active Directory 
 
 > [!IMPORTANT]
 > La ejecución de aad-pod-identity en un clúster con Kubenet no es una configuración recomendada debido a la implicación que conlleva en materia de seguridad. Siga los pasos de mitigación y configure las directivas antes de habilitar aad-pod-identity en un clúster con Kubenet.
 
-## <a name="mitigation"></a>Mitigación
+### <a name="mitigation"></a>Mitigación
 
 Para mitigar la vulnerabilidad en el nivel de clúster, puede usar la directiva integrada de Azure "Los contenedores de clúster de Kubernetes solo deben usar funcionalidades permitidas" para limitar el ataque CAP_NET_RAW.  
 
@@ -142,6 +147,9 @@ az aks update -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --enabl
 
 ## <a name="create-an-identity"></a>Creación de una identidad
 
+> [!IMPORTANT]
+> Debe tener los permisos pertinentes (por ejemplo, Propietario) en la suscripción para crear la identidad.
+
 Cree una identidad mediante [az identity create][az-identity-create] y establezca las variables *IDENTITY_CLIENT_ID* e *IDENTITY_RESOURCE_ID*.
 
 ```azurecli-interactive
@@ -167,11 +175,6 @@ az role assignment create --role "Virtual Machine Contributor" --assignee "$IDEN
 
 Cree una identidad de pod para el clúster mediante `az aks pod-identity add`.
 
-> [!IMPORTANT]
-> Debe tener los permisos pertinentes (por ejemplo, Propietario) en la suscripción para crear la identidad y asignar el enlace de roles a la identidad del clúster.
-> 
-> La identidad del clúster debe tener permisos de operador de identidad administrada para la identidad que se va a asignar.
-
 ```azurecli-interactive
 export POD_IDENTITY_NAME="my-pod-identity"
 export POD_IDENTITY_NAMESPACE="my-app"
@@ -179,7 +182,6 @@ az aks pod-identity add --resource-group myResourceGroup --cluster-name myAKSClu
 ```
 
 > [!NOTE]
-> Al habilitar la identidad administrada del pod en el clúster de AKS, se agrega una excepción AzurePodIdentityException denominada *aks-addon-exception* al espacio de nombres *kube-system*. Una excepción AzurePodIdentityException permite que los pods con determinadas etiquetas tengan acceso al punto de conexión de Azure Instance Metadata Service (IMDS) sin que el servidor de identidad administrada del nodo (NMI) lo intercepte. *aks-addon-exception* permite que los complementos propios de AKS, como la identidad administrada del pod de AAD, funcionen sin tener que configurar manualmente una excepción AzurePodIdentityException. También puede agregar, quitar y actualizar una excepción AzurePodIdentityException con `az aks pod-identity exception add`, `az aks pod-identity exception delete`, `az aks pod-identity exception update` o `kubectl`.
 > El valor de "POD_IDENTITY_NAME" debe ser un [nombre de subdominio DNS] válido, tal como se define en [RFC 1123]. 
 
 > [!NOTE]
@@ -187,7 +189,7 @@ az aks pod-identity add --resource-group myResourceGroup --cluster-name myAKSClu
 
 ## <a name="run-a-sample-application"></a>Ejecución de una aplicación de ejemplo
 
-Para que un pod use la identidad administrada del pod de AAD, el pod necesita una etiqueta *aadpodidbinding* con un valor que coincida con un selector de *AzureIdentityBinding*. Para ejecutar una aplicación de ejemplo mediante la identidad administrada del pod de AAD, cree un archivo de `demo.yaml` con el siguiente contenido. Reemplace *POD_IDENTITY_NAME*, *IDENTITY_CLIENT_ID* e *IDENTITY_RESOURCE_GROUP* por los valores de los pasos anteriores. Reemplace *SUBSCRIPTION_ID* por su identificador de suscripción.
+Para que un pod use una identidad administrada del pod de Azure AD, el pod necesita una etiqueta *aadpodidbinding* con un valor que coincida con un selector de *AzureIdentityBinding*. Para ejecutar una aplicación de ejemplo mediante una identidad administrada del pod de Azure AD, cree un archivo `demo.yaml` con el siguiente contenido. Reemplace *POD_IDENTITY_NAME*, *IDENTITY_CLIENT_ID* e *IDENTITY_RESOURCE_GROUP* por los valores de los pasos anteriores. Reemplace *SUBSCRIPTION_ID* por su identificador de suscripción.
 
 > [!NOTE]
 > En los pasos anteriores, creó las variables *POD_IDENTITY_NAME*, *IDENTITY_CLIENT_ID* e *IDENTITY_RESOURCE_GROUP*. Puede usar un comando como `echo` para mostrar el valor establecido para las variables; por ejemplo, `echo $IDENTITY_NAME`.
@@ -248,59 +250,17 @@ successfully acquired a token, userAssignedID MSI, msiEndpoint(http://169.254.16
 successfully made GET on instance metadata
 ...
 ```
+
 ## <a name="run-an-application-with-multiple-identities"></a>Ejecución de una aplicación con varias identidades
 
-## <a name="create-multiple-identities"></a>Creación de varias identidades
-
-Cree identidades mediante [az identity create][az-identity-create] y establezca las variables *IDENTITY_CLIENT_ID* e *IDENTITY_RESOURCE_ID*.
+Para permitir que una aplicación use varias identidades, establezca `--binding-selector` en el mismo selector al crear identidades de pod.
 
 ```azurecli-interactive
-az group create --name myIdentityResourceGroup --location eastus
-export IDENTITY_RESOURCE_GROUP="myIdentityResourceGroup"
-export IDENTITY_NAME_1="application-identity_1"
-az identity create --resource-group ${IDENTITY_RESOURCE_GROUP} --name ${IDENTITY_NAME_1}
-export IDENTITY_NAME_2="application-identity_2"
-az identity create --resource-group ${IDENTITY_RESOURCE_GROUP} --name ${IDENTITY_NAME_2}
-export IDENTITY_CLIENT_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME_1} --query clientId -otsv)"
-export IDENTITY_RESOURCE_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME_1} --query id -otsv)"
-export IDENTITY_CLIENT_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME_2} --query clientId -otsv)"
-export IDENTITY_RESOURCE_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME_2} --query id -otsv)"
+az aks pod-identity add --resource-group myResourceGroup --cluster-name myAKSCluster --namespace ${POD_IDENTITY_NAMESPACE}  --name ${POD_IDENTITY_NAME_1} --identity-resource-id ${IDENTITY_RESOURCE_ID_1} --binding-selector myMultiIdentitySelector
+az aks pod-identity add --resource-group myResourceGroup --cluster-name myAKSCluster --namespace ${POD_IDENTITY_NAMESPACE}  --name ${POD_IDENTITY_NAME_2} --identity-resource-id ${IDENTITY_RESOURCE_ID_2} --binding-selector myMultiIdentitySelector
 ```
 
-## <a name="assign-permissions-for-the-managed-identities"></a>Asignación de permisos a las identidades administradas
-
-La identidad administrada *IDENTITY_CLIENT_ID* debe tener permisos de lectura en el grupo de recursos que contiene el conjunto de escalado de máquinas virtuales del clúster de AKS.
-
-```azurecli-interactive
-NODE_GROUP=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
-NODES_RESOURCE_ID=$(az group show -n $NODE_GROUP -o tsv --query "id")
-az role assignment create --role "Reader" --assignee "$IDENTITY_CLIENT_ID_1" --scope $NODES_RESOURCE_ID
-az role assignment create --role "Reader" --assignee "$IDENTITY_CLIENT_ID_2" --scope $NODES_RESOURCE_ID
-```
-
-## <a name="create-pod-identities"></a>Creación de identidades de pod
-
-Cree identidades de pod para el clúster mediante `az aks pod-identity add`.
-
-> [!IMPORTANT]
-> Debe tener los permisos adecuados, como `Owner`, en su suscripción para crear la identidad y el enlace de rol.
-
-```azurecli-interactive
-export POD_IDENTITY_NAME="my-pod-identity"
-export POD_IDENTITY_NAMESPACE="my-app"
-az aks pod-identity add --resource-group myResourceGroup --cluster-name myAKSCluster --namespace ${POD_IDENTITY_NAMESPACE}  --name ${POD_IDENTITY_NAME} --identity-resource-id ${IDENTITY_RESOURCE_ID_1} --binding-selector foo
-az aks pod-identity add --resource-group myResourceGroup --cluster-name myAKSCluster --namespace ${POD_IDENTITY_NAMESPACE}  --name ${POD_IDENTITY_NAME} --identity-resource-id ${IDENTITY_RESOURCE_ID_2} --binding-selector foo
-```
-
-> [!NOTE]
-> Al habilitar la identidad administrada del pod en el clúster de AKS, se agrega una excepción AzurePodIdentityException denominada *aks-addon-exception* al espacio de nombres *kube-system*. Una excepción AzurePodIdentityException permite que los pods con determinadas etiquetas tengan acceso al punto de conexión de Azure Instance Metadata Service (IMDS) sin que el servidor de identidad administrada del nodo (NMI) lo intercepte. *aks-addon-exception* permite que los complementos propios de AKS, como la identidad administrada del pod de AAD, funcionen sin tener que configurar manualmente una excepción AzurePodIdentityException. También puede agregar, quitar y actualizar una excepción AzurePodIdentityException con `az aks pod-identity exception add`, `az aks pod-identity exception delete`, `az aks pod-identity exception update` o `kubectl`.
-
-## <a name="run-a-sample-application-with-multiple-identities"></a>Ejecución de una aplicación de ejemplo con varias identidades
-
-Para que un pod use la identidad administrada del pod de AAD, el pod necesita una etiqueta *aadpodidbinding* con un valor que coincida con un selector de *AzureIdentityBinding*. Para ejecutar una aplicación de ejemplo mediante la identidad administrada del pod de AAD, cree un archivo de `demo.yaml` con el siguiente contenido. Reemplace *POD_IDENTITY_NAME*, *IDENTITY_CLIENT_ID* e *IDENTITY_RESOURCE_GROUP* por los valores de los pasos anteriores. Reemplace *SUBSCRIPTION_ID* por su identificador de suscripción.
-
-> [!NOTE]
-> En los pasos anteriores, creó las variables *POD_IDENTITY_NAME*, *IDENTITY_CLIENT_ID* e *IDENTITY_RESOURCE_GROUP*. Puede usar un comando como `echo` para mostrar el valor establecido para las variables; por ejemplo, `echo $IDENTITY_NAME`.
+Luego, establezca el campo `aadpodidbinding` del archivo YAML del pod en el selector de enlace que especificó.
 
 ```yml
 apiVersion: v1
@@ -308,62 +268,13 @@ kind: Pod
 metadata:
   name: demo
   labels:
-    aadpodidbinding: foo
-spec:
-  containers:
-  - name: demo
-    image: mcr.microsoft.com/oss/azure/aad-pod-identity/demo:v1.6.3
-    args:
-      - --subscriptionid=$SUBSCRIPTION_ID
-      - --clientid=$IDENTITY_CLIENT_ID
-      - --resourcegroup=$IDENTITY_RESOURCE_GROUP
-    env:
-      - name: MY_POD_NAME
-        valueFrom:
-          fieldRef:
-            fieldPath: metadata.name
-      - name: MY_POD_NAMESPACE
-        valueFrom:
-          fieldRef:
-            fieldPath: metadata.namespace
-      - name: MY_POD_IP
-        valueFrom:
-          fieldRef:
-            fieldPath: status.podIP
-  nodeSelector:
-    kubernetes.io/os: linux
-```
-
-Observe que la definición del pod tiene una etiqueta *aadpodidbinding* con un valor que coincide con el nombre de la identidad de pod que ejecutó `az aks pod-identity add` en el paso anterior.
-
-Implemente `demo.yaml` en el mismo espacio de nombres que la identidad de pod mediante `kubectl apply`:
-
-```azurecli-interactive
-kubectl apply -f demo.yaml --namespace $POD_IDENTITY_NAMESPACE
-```
-
-Compruebe que la aplicación de ejemplo se ejecuta correctamente con `kubectl logs`.
-
-```azurecli-interactive
-kubectl logs demo --follow --namespace $POD_IDENTITY_NAMESPACE
-```
-
-Compruebe que los registros muestran que un token se ha obtenido correctamente y que la operación *GET* es correcta.
- 
-```output
-...
-successfully doARMOperations vm count 0
-successfully acquired a token using the MSI, msiEndpoint(http://169.254.169.254/metadata/identity/oauth2/token)
-successfully acquired a token, userAssignedID MSI, msiEndpoint(http://169.254.169.254/metadata/identity/oauth2/token) clientID(xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
-successfully made GET on instance metadata
+    aadpodidbinding: myMultiIdentitySelector
 ...
 ```
-export IDENTITY_CLIENT_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME} --query clientId -otsv)" export IDENTITY_RESOURCE_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME} --query id -otsv)"
-```
 
-## Clean up
+## <a name="clean-up"></a>Limpieza
 
-To remove AAD pod-managed identity from your cluster, remove the sample application and the pod identity from the cluster. Then remove the identity.
+Para quitar del clúster una identidad administrada del pod de Azure AD, quite del clúster la aplicación de ejemplo y la identidad de pod. A continuación, quite la identidad.
 
 ```azurecli-interactive
 kubectl delete pod demo --namespace $POD_IDENTITY_NAMESPACE

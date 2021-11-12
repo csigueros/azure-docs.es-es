@@ -2,13 +2,13 @@
 title: Alertas y recomendaciones personalizables e integradas del microagente de Defender para IoT para Azure RTOS
 description: 'Obtenga información sobre las alertas de seguridad y la corrección recomendada mediante el microagente de Defender para IoT de Azure IoT: RTOS.'
 ms.topic: conceptual
-ms.date: 09/07/2020
-ms.openlocfilehash: cfbd411617a0b80f4857e08f9803b34b80b873d4
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.date: 11/09/2021
+ms.openlocfilehash: ad6cd708bfdb53068895abc72abb3092e82db818
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018274"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132293561"
 ---
 # <a name="defender-iot-micro-agent-for-azure-rtos-security-alerts-and-recommendations-preview"></a>Microagente de Defender para IoT para alertas y recomendaciones de seguridad de Azure RTOS (versión preliminar)
 

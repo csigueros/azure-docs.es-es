@@ -8,12 +8,12 @@ ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: db70740b484290b56d140d6b71d570d61afd138d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 801930dc58993a81c29969f602da64f201919bd0
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131082728"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131428014"
 ---
 # <a name="azure-disk-pools-preview-planning-guide"></a>Guía de planeamiento de grupos de discos de Azure (versión preliminar)
 
@@ -57,6 +57,8 @@ Consulte [Lista de comprobación del planeamiento de red para Azure VMware Solut
 El ejemplo siguiente debería proporcionarle una idea de cómo funcionan conjuntamente los distintos factores de rendimiento:
 
 Por ejemplo, si agrega dos SSD prémium de 1 TiB (P30, con un destino aprovisionado de 5000 IOPS y 200 Mbps) a un grupo de discos estándar, puede lograr 2 x 5000 = 10 000 IOPS. Sin embargo, el rendimiento se vería limitado en 384 MBps por el grupo de discos. Para superar este límite de 384 MBps, puede implementar más grupos de discos para escalar horizontalmente para obtener un rendimiento adicional. El rendimiento de la red limitará la eficacia del escalado horizontal.
+
+Los grupos de discos creados sin especificar la SKU en la API REST son el grupo de discos estándar, de forma predeterminada.
 
 ## <a name="availability"></a>Disponibilidad
 

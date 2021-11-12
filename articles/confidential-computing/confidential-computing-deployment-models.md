@@ -1,20 +1,20 @@
 ---
 title: Elegir entre modelos de implementación
 description: Elegir entre modelos de implementación
-author: JBCook
+author: stempesta
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/04/2021
-ms.author: JenCook
+ms.author: stempesta
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: f0d28b9f6e9894ec8a5506a428b8c15cadb2f716
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 8ed7f4b88e38581bea6eaf1a19ce945858031f1d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131845520"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132347696"
 ---
 # <a name="confidential-computing-deployment-models"></a>Modelos de implementación de computación confidencial
 

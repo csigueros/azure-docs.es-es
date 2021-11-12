@@ -8,15 +8,15 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.date: 09/27/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack, contperf-fy22q1
-ms.openlocfilehash: 59bf4007cad596b4d14c17a729c9da4e4cfb3957
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0b8d9b3beaf965cc8c5c745d243da429c0de10e4
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131065273"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131561031"
 ---
 # <a name="set-up-automl-training-with-python"></a>Configuración del entrenamiento de AutoML con Python
 
@@ -211,7 +211,7 @@ Obtenga información acerca de las definiciones específicas de estas métricas 
 
 #### <a name="metrics-for-classification-scenarios"></a>Métricas para los escenarios de clasificación 
 
-Las métricas con umbrales de publicación, como `accuracy`, `average_precision_score_weighted`, `norm_macro_recall` y `precision_score_weighted`, podrían no optimizarse adecuadamente para los conjuntos de datos que son pequeños, tienen un sesgo de clase muy grande (desequilibrio de clases) o si el valor de métrica esperado está muy cerca de 0,0 o 1,0. En esos casos, `AUC_weighted` puede ser una mejor opción de métrica principal. Una vez completado el aprendizaje automático automatizado, puede elegir el modelo ganador en función de la métrica que mejor se adapte a sus necesidades empresariales.
+Las métricas dependientes de umbrales, como `accuracy`, `recall_score_weighted`, `norm_macro_recall` y `precision_score_weighted`, podrían no optimizarse adecuadamente para los conjuntos de datos que son pequeños, tienen un sesgo de clase muy grande (desequilibrio de clases) o si el valor de métrica esperado está muy cerca de 0,0 o 1,0. En esos casos, `AUC_weighted` puede ser una mejor opción de métrica principal. Una vez completado el aprendizaje automático automatizado, puede elegir el modelo ganador en función de la métrica que mejor se adapte a sus necesidades empresariales.
 
 | Métrica | Ejemplo de casos de uso |
 | ------ | ------- |
@@ -222,10 +222,16 @@ Las métricas con umbrales de publicación, como `accuracy`, `average_precision_
 | `precision_score_weighted` |  |
 
 #### <a name="metrics-for-regression-scenarios"></a>Métricas para escenarios de regresión
- 
-Las métricas como `r2_score` y `spearman_correlation` pueden representar mejor la calidad del modelo cuando la escala del valor que se predecirá cubre muchos órdenes de magnitud. Por ejemplo, es el caso de una estimación de salarios, en la que muchas personas tienen un salario de entre 20 000 USD a 100 000 USD, pero la escala se eleva mucho con algunos salarios en el intervalo de 100 millones USD. 
 
-En este caso, `normalized_mean_absolute_error` y `normalized_root_mean_squared_error` tratarían un error de predicción de 20 000 USD de la misma manera para un trabajador con un salario de 30 000 USD que para otro que gana 20 millones USD. En realidad, un error de predicción de solo 20 000 USD en un salario de 20 millones USD es muy pequeño (hay una pequeña diferencia relativa del 0,1 %), mientras que una diferencia de 20 000 USD de 30 000 USD no está cerca (una gran diferencia relativa del 67 %). `normalized_mean_absolute_error` y `normalized_root_mean_squared_error` son útiles cuando los valores que se van a predecir están en una escala similar.
+`r2_score`, `normalized_mean_absolute_error` y `normalized_root_mean_squared_error` intentan minimizar los errores de predicción. `r2_score` y `normalized_root_mean_squared_error` minimizan el promedio de errores al cuadrado mientras que `normalized_mean_absolute_error` minimiza el valor absoluto promedio de errores. El valor absoluto trata los errores en todas las magnitudes por igual y los errores al cuadrado tendrán una penalización mucho mayor para los errores con valores absolutos mayores. En función de si los errores mayores se deben penalizar más o no, se puede optar por optimizar el error al cuadrado o el error absoluto.
+
+La principal diferencia entre `r2_score` y `normalized_root_mean_squared_error` es la forma en que se normalizan y sus significados. `normalized_root_mean_squared_error` es la raíz del error cuadrático medio normalizada por intervalo y se puede interpretar como la magnitud media del error para la predicción. `r2_score` es el error cuadrático medio normalizado por una estimación de varianza de datos. Es la proporción de variación que puede capturar el modelo. 
+
+> [! Nota] `r2_score` y `normalized_root_mean_squared_error` también se comportan de forma similar a las métricas principales. Si se aplica un conjunto de validación fijo, estas dos métricas optimizan el mismo destino, error cuadrático medio, y se optimizarán con el mismo modelo. Cuando solo hay un conjunto de entrenamiento disponible y se aplica la validación cruzada, serían ligeramente diferentes, ya que el normalizador de `normalized_root_mean_squared_error` se fija como el intervalo del conjunto de entrenamiento, pero el normalizador para `r2_score` variaría para cada plegamiento, ya que es la varianza de cada plegamiento.
+
+Si la clasificación, en lugar del valor exacto es de interés, `spearman_correlation` puede ser una mejor opción, ya que mide la correlación de clasificación entre los valores reales y las predicciones.
+
+Sin embargo, actualmente no hay métricas principales de regresión que se refieran a la diferencia relativa. `r2_score`, `normalized_mean_absolute_error` y `normalized_root_mean_squared_error` tratan un error de predicción de 20 000 USD igual para un trabajador con un salario de 30 000 USD que para un trabajador que gana 20 millones de USD, si estos dos puntos de datos pertenecen al mismo conjunto de datos para la regresión o a la misma serie temporal especificada por el identificador de serie temporal. En realidad, un error de predicción de solo 20 000 USD en un salario de 20 millones USD es muy pequeño (hay una pequeña diferencia relativa del 0,1 %), mientras que una diferencia de 20 000 USD de 30 000 USD no está cerca (una gran diferencia relativa del 67 %). Para solucionar el problema de la diferencia relativa, se puede entrenar un modelo con métricas principales disponibles y, a continuación, seleccionar el modelo con mejor `mean_absolute_percentage_error` o `root_mean_squared_log_error`.
 
 | Métrica | Ejemplo de casos de uso |
 | ------ | ------- |

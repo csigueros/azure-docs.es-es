@@ -2,13 +2,16 @@
 title: Administración y supervisión de bases de datos de SQL Server en una máquina virtual de Azure
 description: En este artículo se describe cómo administrar y supervisar las bases de datos de SQL Server que se ejecutan en una máquina virtual de Azure.
 ms.topic: conceptual
-ms.date: 07/27/2021
-ms.openlocfilehash: c536b29f731ee646f987dc9ce2d178cb93426c91
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.date: 11/02/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: 6da639ea369b0676a34af12a8e37c13b018c57d7
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129272017"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131435012"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Administración y supervisión de bases de datos SQL Server con copia de seguridad
 
@@ -18,9 +21,9 @@ Si todavía no ha configurado las copias de seguridad para las bases de datos de
 
 ## <a name="monitor-backup-jobs-in-the-portal"></a>Supervisión de trabajos de copia de seguridad en el portal
 
-En Azure Backup se muestran todas las operaciones programadas y a petición en la sección **Trabajos de copia de seguridad** en el portal, excepto las copias de seguridad de registros programadas, ya que pueden ser muy frecuentes. Los trabajos que se muestren en este portal incluyen operaciones de detección y registro de base de datos, configuración de copia de seguridad y la realización y restauración de copias de seguridad.
+En Azure Backup se muestran todas las operaciones programadas y a petición en la sección **Trabajos de copia de seguridad** de **Centro de copias de seguridad** en Azure Portal, excepto las copias de seguridad de registros programadas, ya que pueden ser muy frecuentes. Los trabajos que se muestren en este portal incluyen operaciones de detección y registro de base de datos, configuración de copia de seguridad y la realización y restauración de copias de seguridad.
 
-![Portal Trabajos de copia de seguridad](./media/backup-azure-sql-database/sql-backup-jobs-list.png)
+:::image type="content" source="./media/backup-azure-sql-database/backup-operations-in-backup-center-jobs-inline.png" alt-text="Captura de pantalla en la que se muestran los trabajos de copia de seguridad en Trabajos de copia de seguridad." lightbox="./media/backup-azure-sql-database/backup-operations-in-backup-center-jobs-expanded.png":::
 
 Para más información sobre los escenarios de supervisión, consulte [Supervisión en Azure Portal](backup-azure-monitoring-built-in-monitor.md) y [Supervisión con Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
 
@@ -55,19 +58,21 @@ Si decide dejar los puntos de recuperación, tenga en cuenta estos detalles:
 
 Para detener la protección de una base de datos:
 
-1. En el panel del almacén, seleccione **Elementos de copia de seguridad**.
+1. Vaya al **Centro de copias de seguridad** y haga clic en **Instancias de Backup** en el menú.
 
-2. En **Tipo de administración de copias de seguridad**, seleccione **SQL en Azure VM**.
+2. Seleccione **SQL en Azure VM** como tipo de origen de datos.
 
-    ![Seleccionar SQL en la máquina virtual de Azure](./media/backup-azure-sql-database/sql-restore-backup-items.png)
+   :::image type="content" source="./media/backup-azure-sql-database/backup-center-instance-inline.png" alt-text="Captura de pantalla en la que se muestra la elección de SQL en Azure VM." lightbox="./media/backup-azure-sql-database/backup-center-instance-expanded.png":::
 
 3. Seleccione la base de datos para la que desea detener la protección.
 
-    ![Seleccionar la base de datos en la que detener la protección](./media/backup-azure-sql-database/sql-restore-sql-in-vm.png)
+   :::image type="content" source="./media/backup-azure-sql-database/sql-select-instance-inline.png" alt-text="Captura de pantalla en la que se muestra la selección de la base de datos para detener la protección." lightbox="./media/backup-azure-sql-database/sql-select-instance-expanded.png":::
 
 4. En el menú de la base de datos, seleccione **Detener copia de seguridad**.
 
-    ![Seleccionar Detener copia de seguridad](./media/backup-azure-sql-database/stop-db-button.png)
+   También puede hacer clic con el botón derecho en una fila determinada de la vista Instancias de Backup y seleccionar **Detener copia de seguridad**.
+
+   :::image type="content" source="./media/backup-azure-sql-database/sql-stop-backup-inline.png" alt-text="Captura de pantalla en la que se muestra la selección de Detener copia de seguridad." lightbox="./media/backup-azure-sql-database/sql-stop-backup-expanded.png":::
 
 5. En el menú **Detener copia de seguridad**, seleccione si desea conservar o eliminar los datos. También puede proporcionar una razón y un comentario.
 

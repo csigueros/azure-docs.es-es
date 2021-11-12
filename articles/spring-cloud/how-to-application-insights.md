@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/04/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 1886632101e7d453c2c7e4d4a5b84dbd57c2305a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 5652c28f90c697bc2394e2bb018bff3d8a7ddc7a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131075018"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132324676"
 ---
 # <a name="application-insights-java-in-process-agent-in-azure-spring-cloud"></a>Agente In-Process de Java de Application Insights en Azure Spring Cloud
 
@@ -298,5 +298,5 @@ Cuando los datos se almacenan en Application Insights, este contiene el historia
 * [Live Metrics](../azure-monitor/app/live-stream.md)
 * [Rendimiento](../azure-monitor/app/tutorial-performance.md)
 * [Errores](../azure-monitor/app/tutorial-runtime-exceptions.md)
-* [Metrics](../azure-monitor/essentials/tutorial-metrics-explorer.md) (Métricas)
+* [Metrics](../azure-monitor/essentials/tutorial-metrics.md) (Métricas)
 * [Registros](../azure-monitor/logs/data-platform-logs.md)

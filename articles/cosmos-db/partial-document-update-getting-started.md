@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/25/2021
 ms.author: abhishgu
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 74f55120eb7a6ceeb1891be44e50344fe71b4de5
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 3ceebe9f537dcf2f496594d6a6c63972fcb7af92
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093591"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131434111"
 ---
 # <a name="azure-cosmos-db-partial-document-update-getting-started"></a>Actualización parcial de documentos de Azure Cosmos DB: introducción
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,10 +27,10 @@ En este artículo se proporcionan ejemplos de cómo usar la actualización parci
 
 ## <a name="net"></a>.NET
 
-Puede descargar el [SDK de .NET v3 de Azure Cosmos DB](sql-api-sdk-dotnet-standard.md) desde la [galería de NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)
+Puede descargar la versión *3.22.1-preview* del SDK de .NET v3 de Azure Cosmos DB desde la [galería de NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.22.1-preview).
 
 > [!NOTE]
-> El ejemplo completo se puede encontrar en el [repositorio de ejemplos de .NET v3](https://github.com/Azure/azure-cosmos-dotnet-v3) en GitHub.
+> Se puede encontrar un ejemplo completo de una actualización parcial de documentos en el [repositorio de ejemplos de .NET v3](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/3fa885fdd84e2f8852d2a1d5c75c56b642b5bba3/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs) en GitHub.
 
 **Ejecución de una sola operación de revisión**
 
@@ -99,7 +99,7 @@ transactionalBatchInternalFalse.ExecuteAsync());
 
 ## <a name="java"></a>Java
 
-Puede agregar el [SDK de Java SDK v4 de Azure Cosmos DB ](sql-api-sdk-java-v4.md) (versión `4.20.0` o superior) a la lista de dependencias en su `pom.xml` o descargarlas directamente desde [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos).
+Patch API está actualmente en versión preliminar en la versión 4.20.0 del SDK de Java. Cuando pase a disponibilidad general, estará disponible en la versión 4.21.0. Para utilizar las operaciones de revisión, agregue la versión *4.20.0* del [SDK de Azure Cosmos DB Java v4](sql-api-sdk-java-v4.md) a la lista de dependencias de su `pom.xml` o descárguela directamente de [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos).
 
 ```xml
 <dependency>

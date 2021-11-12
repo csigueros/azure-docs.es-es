@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: d8d18d296a54b85cb3b571099e13f8c3e4e7a9c7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 27f338d093d2084df5ca00b61a8c258d04067b69
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750244"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563366"
 ---
 # <a name="view-logs-and-metrics-using-kibana-and-grafana"></a>Visualización de registros y métricas mediante Kibana y Grafana
 
@@ -24,10 +24,10 @@ Los paneles web Kibana y Grafana se proporcionan para ofrecer información y cla
 
 ## <a name="monitor-azure-sql-managed-instances-on-azure-arc"></a>Supervisión de instancias administradas de Azure SQL en Azure Arc
 
-Para acceder a los paneles de registros y supervisión para SQL Managed Instance con ARC habilitado, ejecute el siguiente comando de la CLI `azdata`
+Para acceder a los paneles de registros y supervisión de SQL Managed Instance habilitado para Azure Arc, ejecute el siguiente comando de la CLI `azdata`
 
 ```azurecl
-az sql mi-arc endpoint list -n <name of SQL instance>
+az sql mi-arc endpoint list -n <name of SQL instance> --use-k8s
 
 ```
 Los paneles de control de Grafana pertinentes son:
@@ -96,4 +96,3 @@ az network nsg rule create -n ports_30777 --nsg-name azurearcvmNSG --priority 60
    - [Guía de Kibana](https://www.elastic.co/guide/en/kibana/current/index.html)
    - [Introducción al panel de exploraciones en profundidad con visualizaciones de datos en Kibana](https://www.elastic.co/webinars/dashboard-drilldowns-with-data-visualizations-in-kibana/)
    - [Cómo crear paneles de Kibana](https://www.elastic.co/webinars/how-to-build-kibana-dashboards/)
-

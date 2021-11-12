@@ -1,6 +1,6 @@
 ---
 title: Creación de un conjunto de escalado a partir de una versión de imagen especializada mediante la CLI de Azure
-description: Cree un conjunto de escalado con una versión de imagen especializada en Shared Image Gallery mediante la CLI de Azure.
+description: Cree un conjunto de escalado con una versión de imagen especializada en Azure Compute Gallery mediante la CLI de Azure.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
@@ -10,18 +10,18 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: mimckitt
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 361ea49a9ab740cc981beac3952301a137e629af
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: ae75ac06b49bd5faa7851dd7cfc2f2a236fd3952
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691245"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441252"
 ---
 # <a name="create-a-scale-set-using-a-specialized-image-version-with-the-azure-cli"></a>Creación de un conjunto de escalado mediante una versión de imagen especializada con la CLI de Azure
 
 **Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado uniformes
 
-Cree un conjunto de escalado a partir de una [versión de imagen especializada](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) que esté almacenada en una instancia de Shared Image Gallery. Si quiere crear un conjunto de escalado con una versión de imagen generalizada, consulte [Creación de u conjunto de escalado a partir de una imagen generalizada](instance-generalized-image-version-cli.md).
+Cree un conjunto de escalado a partir de una [versión de imagen especializada](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) que esté almacenada en una instancia de Azure Compute Gallery. Si quiere crear un conjunto de escalado con una versión de imagen generalizada, consulte [Creación de u conjunto de escalado a partir de una imagen generalizada](instance-generalized-image-version-cli.md).
 
 Si decide instalar y usar la CLI de forma local, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.4.0, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
@@ -58,8 +58,8 @@ az vmss create \
 ## <a name="next-steps"></a>Pasos siguientes
 [Azure Image Builder (versión preliminar)](../virtual-machines/image-builder-overview.md) puede ayudar a automatizar la creación de versiones de la imagen, incluso se puede usar para actualizar y [crear una nueva versión de la imagen a partir de una versión de imagen existente](../virtual-machines/linux/image-builder-gallery-update-image-version.md). 
 
-Puede crear también recursos de galería de imágenes compartidas con plantillas. Hay varias plantillas de Inicio rápido de Azure disponibles: 
+También puede crear recursos de Azure Compute Gallery mediante plantillas. Hay varias plantillas de Inicio rápido de Azure disponibles: 
 
-- [Creación de una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-create/)
-- [Creación de una definición de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
-- [Creación de una versión de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
+- [Creación de una instancia de Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
+- [Creación de una definición de imagen en una instancia de Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
+- [Creación de una versión de imagen en una instancia de Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)

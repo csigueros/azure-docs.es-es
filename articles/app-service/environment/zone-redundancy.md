@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/05/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a60ab8498076eb6380657b9cd57a3f8d0db31da2
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 551146d18fa17aac365d62dbd1f8cbaa2d23a389
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131576422"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132284767"
 ---
 # <a name="availability-zone-support-for-app-service-environments"></a>Compatibilidad de zonas de disponibilidad con instancias de App Service Environment
 
@@ -49,7 +49,7 @@ Las instancias de ASE de ILB de zona se pueden crear en cualquiera de estas regi
 
 Las aplicaciones implementadas en una instancia de ASE de ILB de zona se seguirán ejecutando y atenderán el tráfico en esa instancia de ASE incluso si otras zonas de la misma región sufren una interrupción.  Es posible que los comportamientos no en tiempo de ejecución, incluidos el escalado del plan de servicio de aplicación, la creación de aplicaciones, la configuración de aplicaciones y la publicación de aplicaciones, puedan verse afectados por una interrupción en otras zonas de disponibilidad. La implementación anclada por zona de una instancia de ASE de ILB de zona solo garantiza un tiempo de actividad continuado para las aplicaciones ya implementadas.
 
-## <a name="how-to-deploy-an-app-service-environment-in-an-availability-zone"></a>Implementación de App Service Environment en una zona de disponibilidad ##
+## <a name="how-to-deploy-an-app-service-environment-in-an-availability-zone"></a>Implementación de App Service Environment en una zona de disponibilidad
 
 Las instancias de ASE de ILB de zona se deben crear con plantillas de Resource Manager. Una vez que se crea una instancia de ASE de ILB de zona a través de una plantilla de Resource Manager, es posible verla e interactuar con ella a través de Azure Portal y la CLI.  Solo se necesita una plantilla de Resource Manager para la creación inicial de una instancia de ASE de ILB de zona.
 
@@ -57,7 +57,7 @@ El único cambio necesario en una plantilla de Resource Manager para especificar
 
 El fragmento de la plantilla de Resource Manager de ejemplo que aparece a continuación muestra la nueva propiedad ***zones*** que especifica que la instancia de ASE de ILB se debe anclar a la zona 2.
 
-```
+```json
 "resources": [
     {
         "type": "Microsoft.Web/hostingEnvironments",
@@ -85,7 +85,7 @@ El fragmento de la plantilla de Resource Manager de ejemplo que aparece a contin
 
 Para hacer que la zona de aplicaciones sea redundante, debe implementar dos instancias de ASE de ILB de zona. Las dos instancias de ASE de ILB de zona deben estar en zonas de disponibilidad independientes. Luego debe implementar las aplicaciones en cada una de las instancias de ASE de ILB. Una vez creadas las aplicaciones, debe configurar una solución de equilibrio de carga. La solución recomendada es implementar una instancia ascendente de [Application Gateway con redundancia de zona](../../application-gateway/application-gateway-autoscaling-zone-redundant.md) de las instancias de ASE de ILB de zona. 
 
-## <a name="in-region-data-residency"></a>Residencia de datos en la región ##
+## <a name="in-region-data-residency"></a>Residencia de datos en la región
 
 Las instancias de ASE de ILB implementadas en una zona de disponibilidad solo almacenarán datos de cliente dentro de la región donde se implementó la instancia de ASE de ILB de zona. Tanto el contenido del archivo del sitio web como la configuración proporcionada por el cliente y los secretos almacenados en App Service permanecen dentro de la región donde está implementada la instancia de ASE de ILB de zona.
 

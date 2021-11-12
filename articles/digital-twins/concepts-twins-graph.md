@@ -1,22 +1,22 @@
 ---
 title: Gemelos digitales y el grafo de gemelos
 titleSuffix: Azure Digital Twins
-description: Comprenda el concepto de un gemelo digital y cómo sus relaciones forman un grafo.
+description: Obtenga información sobre los gemelos digitales y la manera en que sus relaciones forman un grafo de gemelos digitales.
 author: baanders
 ms.author: baanders
-ms.date: 8/26/2021
+ms.date: 10/20/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 42cce83683df789aeaabe53ca170f17319ec3603
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 33ad5a0eb684526184affba2d254bf20f66de930
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224847"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500248"
 ---
-# <a name="understand-digital-twins-and-their-twin-graph"></a>Explicación del concepto de gemelos digitales y su grafo gemelo
+# <a name="digital-twins-and-their-twin-graph"></a>Gemelos digitales y grafo de gemelos
 
-En una solución de Azure Digital Twins, las entidades del entorno se representan mediante **gemelos digitales**. Un gemelo digital es una instancia de uno de sus [modelos](concepts-models.md) definidos de forma personalizada. Se puede conectar a otros gemelos digitales a través de **relaciones** para formar una **grafo de gemelos**: este grafo de gemelos es la representación de todo el entorno.
+En este artículo se describe qué son los **gemelos digitales** en el contexto de Azure Digital Twins y cómo las relaciones entre ellos pueden formar un **grafo de gemelos**. En una solución de Azure Digital Twins, las entidades del entorno se representan mediante **gemelos digitales**. Un gemelo digital es una instancia de uno de sus [modelos](concepts-models.md) definidos de forma personalizada. Se puede conectar a otros gemelos digitales a través de **relaciones** para formar una **grafo de gemelos**: este grafo de gemelos es la representación de todo el entorno.
 
 > [!TIP]
 > "Azure Digital Twins" hace referencia a este servicio de Azure en conjunto. "Gemelos digitales" o simplemente "gemelos" hace referencia a nodos gemelos individuales dentro de la instancia del servicio.

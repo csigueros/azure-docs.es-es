@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/30/2021
-ms.openlocfilehash: fb84bc87483b7a0451d6fd63d922ad9c6c2dfb3c
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 8de9ab2942ab739fdf87086191a50ea8e76e48f5
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131467575"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131843316"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Extensiones de PostgreSQL en Azure Database for PostgreSQL: Servidor flexible
 
@@ -98,6 +98,7 @@ Las extensiones siguientes están disponibles en los servidores flexibles de Azu
 > |[earthdistance](https://www.postgresql.org/docs/12/earthdistance.html)                | 1.1             | Calcula distancias de círculo máximo en la superficie de la Tierra|
 > |[fuzzystrmatch](https://www.postgresql.org/docs/12/fuzzystrmatch.html)                | 1.1             | Determina las similitudes y la distancia entre las cadenas|
 > |[hstore](https://www.postgresql.org/docs/12/hstore.html)                       | 1.6             | Tipo de datos para almacenar conjuntos de pares (clave/valor)|
+> |[hypopg](https://github.com/HypoPG/hypopg)                                   |  1.2             | Extensión que agrega compatibilidad con índices hipotéticos. |
 > |[intagg](https://www.postgresql.org/docs/12/intagg.html)                     | 1.1             | Agregador y enumerador de enteros. (Obsoleto)|
 > |[intarray](https://www.postgresql.org/docs/12/intarray.html)                     | 1.2             | Funciones, operadores e índices compatibles con matrices 1D de números enteros|
 > |[isn](https://www.postgresql.org/docs/12/isn.html)                          | 1.2             | Tipos de datos para los estándares internacionales de numeración de productos|
@@ -151,6 +152,7 @@ Las extensiones siguientes están disponibles en los servidores flexibles de Azu
 > |[earthdistance](https://www.postgresql.org/docs/11/earthdistance.html)                | 1.1             | Calcula distancias de círculo máximo en la superficie de la Tierra|
 > |[fuzzystrmatch](https://www.postgresql.org/docs/11/fuzzystrmatch.html)                | 1.1             | Determina las similitudes y la distancia entre las cadenas|
 > |[hstore](https://www.postgresql.org/docs/11/hstore.html)                       | 1.5             | Tipo de datos para almacenar conjuntos de pares (clave/valor)|
+> |[hypopg](https://github.com/HypoPG/hypopg)                                   |  1.1.2            | Extensión que agrega compatibilidad con índices hipotéticos. |
 > |[intagg](https://www.postgresql.org/docs/11/intagg.html)                     | 1.1             | Agregador y enumerador de enteros. (Obsoleto)|
 > |[intarray](https://www.postgresql.org/docs/11/intarray.html)                     | 1.2             | Funciones, operadores e índices compatibles con matrices 1D de números enteros|
 > |[isn](https://www.postgresql.org/docs/11/isn.html)                          | 1.2             | Tipos de datos para los estándares internacionales de numeración de productos|
@@ -214,7 +216,8 @@ En este ejemplo se anula la programación de todas las tareas de pg_cron:
 ```
 SELECT cron.unschedule(jobid) FROM cron.job;
 ```
-
+> [!NOTE]
+> pg_cron se carga previamente en cada servidor flexible de Azure Database for PostgreSQL en la base de datos postgres para proporcionarle la capacidad de programar trabajos que se ejecuten en otras bases de datos en su instancia de base de datos de PostgreSQL sin poner en peligro la seguridad. 
 ## <a name="pg_stat_statements"></a>pg_stat_statements
 
 La [extensión pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html) está cargada previamente en cada servidor flexible de Azure Database for PostgreSQL para proporcionarle un medio de seguimiento de las estadísticas de ejecución de las instrucciones SQL.

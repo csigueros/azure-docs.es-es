@@ -4,16 +4,17 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
-ms.openlocfilehash: 6f7e7e9261eb0ea2969dbfb752426ca16dd3b33c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 270dbad3ea8b1fc76f147f967ee40d4d18924e68
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728078"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131892870"
 ---
 La característica es fácil de configurar, aunque eso no quiere decir que no presente problemas con el uso. Si encuentra problemas para acceder al punto de conexión que quiere, existen varias utilidades que sirven para probar la conectividad desde la consola de la aplicación. Dispone de dos consolas que puede usar. Una es la consola Kudu y la otra es la consola a la que se accede en Azure Portal. Para acceder a la consola Kudu desde la aplicación, vaya a **Herramientas** > **Kudu**. También puede tener acceso a la consola de Kudo en [sitename].scm.azurewebsites.net. Después de que se cargue el sitio web, vaya a la pestaña **Consola de depuración**. Para llegar a la consola hospedada en Azure Portal desde su aplicación, vaya a **Herramientas** > **Consola**.
 
 #### <a name="tools"></a>Herramientas
+
 En las aplicaciones nativas de Windows, las herramientas **ping**, **nslookup** y **tracert** no funcionarán a través de la consola debido a las restricciones de seguridad (funcionan en [contenedores de Windows personalizados](../articles/app-service/quickstart-custom-container.md)). Para suplir esta carencia, se agregaron dos herramientas diferentes. Para probar la funcionalidad de DNS, se agregó una herramienta denominada **nameresolver.exe**. La sintaxis es:
 
 ```console
@@ -23,7 +24,7 @@ nameresolver.exe hostname [optional: DNS Server]
 Puede usar nameresolver para comprobar los nombres de host de los que depende la aplicación. De este modo, puede probar si hay algo mal configurado en el DNS o si no tiene acceso al servidor DNS. Para ver el servidor DNS que la aplicación usa en la consola, examine las variables de entorno WEBSITE_DNS_SERVER y WEBSITE_DNS_ALT_SERVER.
 
 > [!NOTE]
-> nameresolver.exe no funciona actualmente en contenedores de Windows personalizados.
+> La herramienta nameresolver.exe no funciona actualmente en contenedores de Windows personalizados.
 >
 
 Puede usar la siguiente herramienta para probar la conectividad de TCP en una combinación de host y puerto. Esta herramienta se llama **tcpping** y la sintaxis es:
@@ -35,6 +36,7 @@ tcpping.exe hostname [optional: port]
 La utilidad **tcpping** indica si se puede llegar a un host y puerto específicos. Puede mostrar un resultado correcto solo si hay una aplicación que escucha en la combinación de host y puerto, y existe acceso a la red desde la aplicación hacia el host y puerto especificados.
 
 #### <a name="debug-access-to-virtual-network-hosted-resources"></a>Depuración del acceso a recursos hospedados en la red virtual
+
 Varias situaciones pueden impedir que la aplicación se comunique con un host y un puerto específicos. La mayoría de las veces se debe a una de estas causas:
 
 * **Existe un firewall que lo impide.** Si tiene un firewall que lo impide, se agota el tiempo de espera de TCP. El tiempo de espera de TCP es de 21 segundos en este caso. Utilice la herramienta **tcpping** para probar la conectividad. Los tiempos de espera agotados de TCP pueden tener muchas causas además de los firewalls, pero comience por comprobar los firewalls.
@@ -42,18 +44,20 @@ Varias situaciones pueden impedir que la aplicación se comunique con un host y 
 
 Si estos elementos no resuelven el problema, plantéese cuestiones como las siguientes:
 
-**Integración con red virtual regional**
-* ¿El destino no es una dirección RFC 1918 y no tiene la opción Enrutar todo habilitada?
+**Integración de red virtual regional**
+
+* ¿El destino no es una dirección RFC 1918 y no tiene la opción **Enrutar todo** habilitada?
 * ¿Hay un NSG que bloquea la salida de la subred de integración?
 * Si está usando una VPN o Azure ExpressRoute, ¿la puerta de enlace local está configurada para enrutar el tráfico de vuelta a Azure? Si puede acceder a los puntos de conexión de la red virtual pero no a los del entorno local, compruebe las rutas.
-* ¿Tiene permisos suficientes para configurar la delegación en la subred de integración? Al configurar la versión de Integración con red virtual que necesita una puerta de enlace, la subred de integración se delega en Microsoft.Web/serverFarms. La interfaz de usuario de integración de la red virtual delega la subred en Microsoft.Web/serverFarms automáticamente. Si la cuenta no tiene suficientes permisos de red para establecer la delegación, necesitará que un usuario que pueda configurar atributos en la subred de integración delegue la subred. Para delegar manualmente la subred de integración, vaya a la interfaz de usuario de la subred de Azure Virtual Network y establezca la delegación para Microsoft.Web/serverFarms.
+* ¿Tiene permisos suficientes para configurar la delegación en la subred de integración? Al configurar la integración de la red virtual regional, la subred de integración se delega en Microsoft.Web/serverFarms. La interfaz de usuario de integración de la red virtual delega la subred en Microsoft.Web/serverFarms automáticamente. Si la cuenta no tiene suficientes permisos de red para establecer la delegación, necesitará que un usuario que pueda configurar atributos en la subred de integración delegue la subred. Para delegar manualmente la subred de integración, vaya a la interfaz de usuario de la subred de Azure Virtual Network y establezca la delegación para Microsoft.Web/serverFarms.
 
-**Integración con red virtual con requisito de puerta de enlace**
+**Integración de red virtual con requisito de puerta de enlace**
+
 * ¿El intervalo de direcciones de punto a sitio se encuentra en los intervalos de RFC 1918 (10.0.0.0-10.255.255.255/172.16.0.0-172.31.255.255/192.168.0.0-192.168.255.255)?
 * ¿La puerta de enlace aparece como activa en el portal? Si la puerta de enlace está inactiva, vuelva a activarla.
-* ¿Los certificados aparecen como sincronizados o sospecha que la configuración de red ha cambiado?  Si los certificados no están sincronizados o sospecha que se produjo un cambio en la configuración de red virtual que no se ha sincronizado con sus planes de App Service, seleccione **Sincronizar red**.
+* ¿Los certificados aparecen como sincronizados o sospecha que la configuración de red ha cambiado? Si los certificados no están sincronizados o sospecha que se produjo un cambio en la configuración de red virtual que no se ha sincronizado con sus planes de App Service, seleccione **Sincronizar red**.
 * Si está usando una VPN, ¿la puerta de enlace local está configurada para enrutar el tráfico de vuelta a Azure? Si puede acceder a los puntos de conexión de la red virtual pero no del entorno local, compruebe las rutas.
-* ¿Está intentando usar una puerta de enlace de coexistencia que admite tanto una conexión de punto a sitio como ExpressRoute? Las puertas de enlace de coexistencia no son compatibles con la Integración con red virtual.
+* ¿Está intentando usar una puerta de enlace de coexistencia que admite tanto una conexión de punto a sitio como ExpressRoute? Las puertas de enlace de coexistencia no son compatibles con la integración de la red virtual.
 
 Depurar problemas de red es todo un reto porque no se puede ver lo que está bloqueando el acceso en una combinación de host y puerto específica. Entre las causas se incluyen las siguientes:
 
@@ -66,17 +70,17 @@ Depurar problemas de red es todo un reto porque no se puede ver lo que está blo
 
 No se sabe qué dirección usa realmente la aplicación. Podría ser cualquier dirección en el intervalo de direcciones de punto a sitio o de subred de integración, por lo que será necesario permitir el acceso desde el intervalo de direcciones completo.
 
-Otros pasos de depuración son:
+Entre otros pasos de depuración se incluyen los siguientes:
 
 * Conectarse a una máquina virtual de la red virtual e intentar acceder al recurso host:puerto desde allí. Para probar el acceso de TCP, use el comando **test-netconnection** de PowerShell. La sintaxis es:
-
-```powershell
-test-netconnection hostname [optional: -Port]
-```
+    
+    ```powershell
+    test-netconnection hostname [optional: -Port]
+    ```
 
 * Abra una aplicación en una máquina virtual y pruebe el acceso a ese host y ese puerto desde la consola de la aplicación mediante **tcpping**.
 
-#### <a name="on-premises-resources"></a>Recursos locales ####
+#### <a name="on-premises-resources"></a>Recursos locales
 
 Si la aplicación no puede acceder a un recurso local, compruebe si puede hacerlo desde su red virtual. Use el comando **test-netconnection** de PowerShell para comprobar el acceso de TCP. Si la máquina virtual no puede acceder al recurso local, puede que la conexión de VPN o ExpressRoute no esté configurada correctamente.
 
@@ -85,4 +89,4 @@ Si la máquina virtual hospedada en la red virtual puede acceder a su sistema lo
 * Las rutas no están configuradas con los intervalos de direcciones de punto a sitio o subred en la puerta de enlace local.
 * Los grupos de seguridad de red están bloqueando el acceso del intervalo IP de punto a sitio.
 * Los firewalls locales están bloqueando el tráfico del intervalo IP de punto a sitio.
-* Está intentando acceder a una dirección que no es de RFC 1918 con la característica Integración con red virtual regional.
+* Está intentando acceder a una dirección que no es de RFC 1918 mediante la característica de integración de la red virtual regional.

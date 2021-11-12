@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/15/2021
-ms.openlocfilehash: fe7353f8b4021e4cacb6037f65fcf9f22520f8ae
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 1b698ae5b03a7d622e4fccb717789be8cb330057
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130129460"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131561297"
 ---
 # <a name="knowledge-store-projections-in-azure-cognitive-search"></a>"Proyecciones" en un almacén de conocimiento en Azure Cognitive Search
 
@@ -23,7 +23,7 @@ En este artículo se presentan los conceptos de proyección y flujo de trabajo p
 
 Las proyecciones se definen en los conjuntos de aptitudes de Cognitive Search, pero los resultados finales son las proyecciones de archivos de imagen, objetos y tablas de Azure Storage.
 
-:::image type="content" source="media/knowledge-store-concept-intro/projections-azure-storage.png" alt-text="Proyecciones expresadas en Azure Storage" border="true":::
+:::image type="content" source="media/knowledge-store-concept-intro/kstore-in-storage-explorer.png" alt-text="Proyecciones expresadas en Azure Storage" border="true":::
 
 ## <a name="types-of-projections-and-usage"></a>Tipos de proyecciones y uso
 
@@ -142,7 +142,7 @@ Las proyecciones tienen un ciclo de vida que está asociado a los datos de orige
 
 Después de ejecutar el indizador, conéctese a las proyecciones y consuma los datos en otras aplicaciones y cargas de trabajo.
 
-+ Use el [Explorador de Storage](knowledge-store-view-storage-explorer.md) para verificar el contenido y la creación de los objetos.
++ Use el [Explorador de almacenamiento](knowledge-store-view-storage-explorer.md) para verificar el contenido y la creación de los objetos.
 
 + Use [Power BI para la exploración de los datos](knowledge-store-connect-power-bi.md). Esta herramienta funciona mejor cuando los datos están en Azure Table Storage. En Power BI, puede manipular los datos en tablas nuevas que son más fáciles de consultar y analizar.
 

@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: article
 ms.date: 06/10/2020
 ms.author: mamccrea
-ms.openlocfilehash: 59a89c069c332d4d0346e0f3c795763818c601de
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: cb15ab04a92e22099f9c04d9e05bb2e44c182826
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129457114"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471485"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Imágenes Gold de tipo "Bring-your-own-subscription" (BYOS) de Red Hat Enterprise Linux en Azure
 
@@ -193,7 +193,7 @@ Los pasos para aplicar Azure Disk Encryption están disponibles en [Escenarios d
 
     En este caso, póngase en contacto con Microsoft o con Red Hat para habilitar su suscripción.
 
-- Si modifica una instantánea a partir de una imagen BYOS de RHEL e intenta publicarla en [Shared Image Gallery](../../shared-image-galleries.md), debe proporcionar información del plan que coincida con el origen inicial de la instantánea. Por ejemplo, el comando podría tener el siguiente aspecto:
+- Si modifica una instantánea a partir de una imagen BYOS de RHEL e intenta publicar esa imagen personalizada en [Azure Compute Gallery](../../shared-image-galleries.md) (anteriormente denominada Shared Image Gallery), tendrá que proporcionar información del plan que coincida con el origen inicial de la instantánea. Por ejemplo, el comando podría tener el siguiente aspecto:
 
     ```azurecli
     az vm create –image \

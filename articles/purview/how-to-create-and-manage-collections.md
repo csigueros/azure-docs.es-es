@@ -6,21 +6,16 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 08/18/2021
+ms.date: 11/04/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 0a684cec230766119345b8fd8acd3df53cc3f25a
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 0c288971fefc95bfed7d5c4b7496dda628bb1f90
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129213021"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131845273"
 ---
 # <a name="create-and-manage-collections-in-azure-purview"></a>Creación y administración de colecciones en Azure Purview
-
-> [!NOTE]
-> En este momento, esta guía solo se aplica a las instancias de Azure Purview creadas el **18 de agosto de 2021 o después**. Las instancias creadas antes del 18 de agosto pueden crear colecciones, pero no administran permisos a través de esas colecciones. Para más información sobre cómo crear una colección para una instancia de Purview creada antes del 18 de agosto, consulte nuestra [**guía de colecciones heredada**](#legacy-collection-guide) en la parte inferior de la página.
->
-> Todas las cuentas heredadas se actualizarán automáticamente en las próximas semanas. Recibirá una notificación por correo electrónico cuando se actualice la cuenta de Purview. Para más información sobre los cambios que se producirán al actualizar la cuenta, consulte nuestra [guía de cuentas actualizadas](concept-account-upgrade.md).
 
 Las colecciones de Azure Purview se pueden usar para organizar recursos y orígenes según el flujo del negocio, pero también son la herramienta que se usa para administrar el acceso a través de Purview. Esta guía le orientará sobre la creación y administración de estas colecciones, así como sobre los pasos para registrar orígenes y agregar recursos a las colecciones.
 
@@ -102,6 +97,20 @@ Debe ser un administrador colecciones para crear una colección. Si no está seg
 1. Seleccione **Actualizar** en la página de detalles de la colección para volver a cargar la colección única.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/refresh-single-collection.png" alt-text="Captura de pantalla de la ventana de colecciones de Purview Studio, con el botón Actualizar debajo de la ventana de la colección resaltado." border="true":::
+
+### <a name="delete-a-collection"></a>Eliminación de una recopilación
+
+Debe ser un administrador colecciones para poder eliminar una colección. Si no está seguro, siga la guía anterior para comprobar los permisos. La colección solo se puede eliminar si no tiene colecciones secundarias, recursos, orígenes de datos o exámenes asociados. 
+
+1. Seleccione **Eliminar** en la página de detalles de la colección.
+   
+   :::image type="content" source="./media/how-to-create-and-manage-collections/delete-collections.png" alt-text="Captura de pantalla de la ventana de Purview Studio para eliminar una colección." border="true":::
+
+2. Seleccione **Confirmar** cuando se le pregunte: solicite **¿Está seguro de que desea eliminar esta colección?**
+
+   :::image type="content" source="./media/how-to-create-and-manage-collections/delete-collection-confirmation.png" alt-text="Captura de pantalla de la ventana de Purview Studio que muestra un mensaje de confirmación para eliminar una colección." border="true":::
+
+3. Compruebe la eliminación de la colección de Mapa de datos de Purview.
 
 ## <a name="add-roles-and-restrict-access-through-collections"></a>Incorporación de roles y restricción del acceso a través de colecciones
 
@@ -201,7 +210,7 @@ Los recursos y orígenes también están asociados a colecciones. Durante un exa
 
         :::image type="content" source="./media/how-to-create-and-manage-collections/no-access.png" alt-text="Captura de pantalla de la ventana de recursos de Purview Studio donde el usuario no tiene permisos y no tiene acceso a información u opciones." border="true":::
 
-    1. Si tiene permiso de lectura para una colección pero no tiene permiso de escritura, puede examinar la página de detalles del recurso, pero se deshabilitan las siguientes operaciones:
+    1. Si tiene permiso de lectura para una colección pero no tiene permiso de escritura, puede examinar la página de detalles del recurso, pero las siguientes operaciones se deshabilitan:
         * Edite el recurso. El botón **Editar** se deshabilitará.
         * Elimine el recurso. El botón **Eliminar** se deshabilitará.
         * Mueva el recurso a otra colección. El botón de puntos suspensivos situado en la esquina superior derecha de la sección Ruta de acceso de la colección se ocultará.
@@ -263,27 +272,6 @@ Los recursos y orígenes también están asociados a colecciones. Durante un exa
 1. Para ver los detalles de un recurso, seleccione el nombre del recurso en el resultado de la búsqueda. O bien, puede comprobar los recursos y editarlos de forma masiva.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/view-asset-details.png" alt-text="Captura de pantalla de la ventana de Purview Studio del catálogo con la pestaña By collection (Por colección) seleccionada y las casillas de recursos resaltadas."border="true":::
-
-## <a name="legacy-collection-guide"></a>Guía de la colección heredada
-
-> [!NOTE]
-> Esta guía de la colección heredada es solo para las instancias de Purview creadas antes del 18 de agosto de 2021. Las instancias creadas después de esa fecha deben seguir la guía anterior.
-
-Las colecciones heredadas solo organizan los orígenes en el mapa de datos y no administran los permisos para estos orígenes.
-
-### <a name="create-a-legacy-collection"></a>Creación de una colección heredada
-
-1. Seleccione Mapa de datos en el panel izquierdo para abrir el mapa de datos. Con la vista de mapa, puede ver las colecciones y los orígenes enumerados en ellas.
-
-    :::image type="content" source="./media/how-to-create-and-manage-collections/legacy-collection-view.png" alt-text="Captura de pantalla de la ventana de Purview Studio, abierta en el Mapa de datos." border="true":::
-
-1. Seleccione **+ Nueva colección**.
-
-    :::image type="content" source="./media/how-to-create-and-manage-collections/legacy-collection-create.png" alt-text="Captura de pantalla de la ventana de Purview Studio, abierta en el Mapa de datos, con la opción + Nueva colección resaltada." border="true":::
-
-1. Asigne un nombre a la colección y seleccione un elemento primario o "Ninguno". Seleccione **Crear**. La información de la colección se reflejará en el mapa de datos.
-
-    :::image type="content" source="./media/how-to-create-and-manage-collections/legacy-collection-name.png" alt-text="Captura de pantalla de la ventana de Purview Studio, en la que se muestra la ventana de la nueva colección." border="true":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

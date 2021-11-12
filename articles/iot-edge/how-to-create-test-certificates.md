@@ -3,16 +3,16 @@ title: 'Creación de certificados de prueba: Azure IoT Edge | Microsoft Docs'
 description: Cree certificados de prueba y obtenga información sobre cómo instalarlos en un dispositivo Azure IoT Edge para preparar la implementación de producción.
 author: kgremban
 ms.author: kgremban
-ms.date: 06/02/2020
+ms.date: 10/25/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 460c8f4d5d59b0f43d0706587dafab60289b1984
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ac93261275ea28161661f458ff2ac9bb204e872d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128610985"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131430180"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Creación de certificados de demostración para probar las características de dispositivo IoT Edge
 
@@ -34,7 +34,7 @@ Siga estos pasos para crear certificados de demostración para probar el escenar
 2. [Cree el certificado de CA raíz](#create-root-ca-certificate) que usa para firmar todos los demás certificados del escenario.
 3. Genere los certificados que necesita para el escenario que desea probar:
    * [Cree certificados de identidad de dispositivo de IoT Edge](#create-iot-edge-device-identity-certificates) para aprovisionar dispositivos con la autenticación de certificado X.509, ya sea manualmente o con IoT Hub Device Provisioning Service.
-   * [Cree certificados de CA de dispositivo IoT Edge](#create-iot-edge-device-ca-certificates) para los dispositivos IoT Edge en escenarios de puerta de enlace.
+   * [Cree certificados de CA de IoT Edge](#create-iot-edge-ca-certificates) para los dispositivos IoT Edge en escenarios de puerta de enlace.
    * [Cree certificados de dispositivo de bajada](#create-downstream-device-certificates) para la autenticación de dispositivos de bajada en un escenario de puerta de enlace.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -226,20 +226,24 @@ El script crea varios archivos de certificado y clave, incluidos los tres que us
 * `<WRKDIR>/certs/iot-edge-device-identity-<name>.cert.pem`
 * `<WRKDIR>/private/iot-edge-device-identity-<name>.key.pem`
 
-## <a name="create-iot-edge-device-ca-certificates"></a>Creación de certificados de CA de dispositivo IoT Edge
+## <a name="create-iot-edge-ca-certificates"></a>Creación de certificados de CA de IoT Edge
 
-Cada dispositivo IoT Edge que va a producción necesita un certificado de CA de dispositivo al que se haga referencia desde el archivo de configuración.
-El certificado de CA de dispositivo es responsable de la creación de certificados para los módulos que se ejecutan en el dispositivo.
-También es necesario para los escenarios de puerta de enlace, ya que el certificado de entidad de certificación del dispositivo es la forma en que el dispositivo IoT Edge comprueba su identidad en los dispositivos de bajada.
-
-<!-- 1.1 -->
+<!--1.1-->
 :::moniker range="iotedge-2018-06"
+
+Todos los dispositivos IoT Edge destinados a producción necesitan un certificado de firma de CA al que se haga referencia desde el archivo de configuración. Se denomina **certificado de CA de dispositivo**. El certificado de CA de dispositivo es responsable de la creación de certificados para los módulos que se ejecutan en el dispositivo. También es necesario para los escenarios de puerta de enlace, ya que el certificado de entidad de certificación del dispositivo es la forma en que el dispositivo IoT Edge comprueba su identidad en los dispositivos de bajada.
+
 Los certificados de CA de dispositivo van en la sección **Certificado** del archivo config.yaml en el dispositivo IoT Edge.
+
 :::moniker-end
 
-<!-- 1.2 -->
+<!--1.2-->
 :::moniker range=">=iotedge-2020-11"
-Los certificados de CA de dispositivo van en la sección **Edge CA** (CA de Edge) del archivo config.toml en el dispositivo IoT Edge.
+
+Todos los dispositivos IoT Edge destinados a producción necesitan un certificado de firma de CA al que se haga referencia desde el archivo de configuración. Se denomina **certificado de CA perimetral**. El certificado de CA perimetral es responsable de la creación de certificados para los módulos que se ejecutan en el dispositivo. También es necesario para los escenarios de puerta de enlace, ya que el certificado de CA perimetral es la forma en que el dispositivo IoT Edge comprueba su identidad en los dispositivos descendentes.
+
+Los certificados de CA perimetrales van en la sección **Edge CA** (CA perimetral) del archivo config.toml en el dispositivo IoT Edge.
+
 :::moniker-end
 
 Antes de continuar con los pasos de esta sección, siga los descritos en las secciones [Configuración de scripts](#set-up-scripts) y [Creación de certificados de CA raíz](#create-root-ca-certificate).
@@ -248,7 +252,7 @@ Antes de continuar con los pasos de esta sección, siga los descritos en las sec
 
 1. Vaya al directorio de trabajo que contiene los scripts de generación de certificados y el certificado de CA raíz.
 
-2. Cree el certificado de entidad de certificación del dispositivo IoT Edge y una clave privada con el siguiente comando. Proporcione un nombre para el certificado de entidad de certificación.
+2. Cree el certificado de entidad de certificación de IoT Edge y una clave privada con el siguiente comando. Proporcione un nombre para el certificado de entidad de certificación.
 
    ```powershell
    New-CACertsEdgeDevice "<CA cert name>"
@@ -265,7 +269,7 @@ El nombre que se pasa al comando **New-CACertsEdgeDevice** no debe coincidir con
 
 1. Vaya al directorio de trabajo que contiene los scripts de generación de certificados y el certificado de CA raíz.
 
-2. Cree el certificado de entidad de certificación del dispositivo IoT Edge y una clave privada con el siguiente comando. Proporcione un nombre para el certificado de entidad de certificación.
+2. Cree el certificado de entidad de certificación de IoT Edge y una clave privada con el siguiente comando. Proporcione un nombre para el certificado de entidad de certificación.
 
    ```bash
    ./certGen.sh create_edge_device_ca_certificate "<CA cert name>"

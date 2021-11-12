@@ -6,12 +6,12 @@ ms.author: femila
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 10/07/2021
-ms.openlocfilehash: 2af1e6308cd572115c43d3dfd27b25499ae590ed
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a51f6654c8e82a46c1a31f2dd030cd2d5af754cd
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131086044"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132347311"
 ---
 # <a name="tutorial-configure-the-clusters-network-settings"></a>Tutorial: Configuración de red del clúster
 
@@ -151,7 +151,7 @@ Especifique el servidor DNS que usa el clúster en la página de configuración 
 * Nombre de dominio DNS
 * Dominios de búsqueda DNS
 
-Para más información, lea [DNS Settings](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html#gui-dns>) (Configuración de DNS) en la guía de configuración de clúster.
+Para más información, lea [DNS Settings](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html#gui-dns) (Configuración de DNS) en la guía de configuración de clúster.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

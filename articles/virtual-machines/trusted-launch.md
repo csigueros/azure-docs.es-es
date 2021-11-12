@@ -1,22 +1,22 @@
 ---
-title: 'Versión preliminar: inicio seguro para máquinas virtuales de Azure'
+title: Inicio seguro para máquinas virtuales de Azure
 description: Obtenga información acerca del inicio seguro para máquinas virtuales de Azure.
 author: khyewei
 ms.author: khwei
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: conceptual
-ms.date: 02/26/2021
+ms.date: 10/26/2021
 ms.reviewer: cynthn
 ms.custom: template-concept; references_regions
-ms.openlocfilehash: 9b2dfe8d4ae7bb17eee4d875178ff059080cb4e0
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 03bbb681c61f28c2b4fbed580094fd8f47017de0
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129728900"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131466778"
 ---
-# <a name="trusted-launch-for-azure-virtual-machines-preview"></a>Inicio seguro para máquinas virtuales de Azure (versión preliminar)
+# <a name="trusted-launch-for-azure-virtual-machines"></a>Inicio seguro para máquinas virtuales de Azure
 
 **Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles
 
@@ -24,11 +24,7 @@ Azure ofrece el inicio seguro como una manera continua de mejorar la seguridad d
 
 > [!IMPORTANT]
 > El inicio seguro requiere la creación de nuevas máquinas virtuales. No se puede habilitar el inicio seguro en las máquinas virtuales existentes que se crearon inicialmente sin él.
->
-> El inicio seguro está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. 
->
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 
 ## <a name="benefits"></a>Ventajas 
@@ -38,9 +34,9 @@ Azure ofrece el inicio seguro como una manera continua de mejorar la seguridad d
 - Obtenga información y confianza de la integridad de toda la cadena de arranque.
 - Asegúrese de que las cargas de trabajo sean de confianza y comprobables.
 
-## <a name="public-preview-limitations"></a>Limitaciones de la vista preliminar pública
+## <a name="limitations"></a>Limitaciones
 
-**Compatibilidad con tamaño**:
+**Compatibilidad con tamaño de máquina virtual**:
 - Serie B
 - Serie Dav4, serie Dasv4
 - Serie DCsv2
@@ -60,6 +56,8 @@ Azure ofrece el inicio seguro como una manera continua de mejorar la seguridad d
 - Debian 11
 - CentOS 8.4
 - Oracle Linux 8.3
+- CBL-Mariner
+- Windows Server 2022
 - Windows Server 2019
 - Windows Server 2016
 - Windows 11 Pro
@@ -74,14 +72,16 @@ Azure ofrece el inicio seguro como una manera continua de mejorar la seguridad d
 
 **Precios**: no hay coste adicional en los precios de las máquinas virtuales existentes.
 
-**Las siguientes características no se admiten en esta versión preliminar**:
+**No se admiten las siguientes características**:
 - Backup
 - Azure Site Recovery
-- Galería de imágenes compartidas
+- Azure Compute Gallery (anteriormente denominada Shared Image Gallery)
 - Disco de sistema operativo efímero
 - Disco compartido
+- Disco Ultra
 - Imagen administrada
 - Azure Dedicated Host 
+- Virtualización anidada
 
 ## <a name="secure-boot"></a>Arranque seguro
 
@@ -108,7 +108,8 @@ El inicio seguro se integra con Azure Security Center para asegurarse de que las
 
 - **Recomendación para habilitar el arranque seguro**: esta recomendación solo se aplica a las máquinas virtuales que admiten el inicio seguro. Azure Security Center identificará las máquinas virtuales que pueden habilitar el arranque seguro, pero que lo han deshabilitado. Emitirá una recomendación de gravedad baja para habilitarlo.
 - **Recomendación para habilitar vTPM**: si la máquina virtual tiene vTPM habilitado, Azure Security Center puede usarla para realizar la atestación de invitados e identificar patrones de amenazas avanzados. Si Azure Security Center identifica las máquinas virtuales que admiten el inicio seguro y tienen deshabilitado vTPM, emitirá una recomendación de gravedad baja para habilitarlo. 
-- **Evaluación del estado de atestación**: si la máquina virtual tiene vTPM habilitado, una extensión de Azure Security Center puede validar de forma remota que la máquina virtual se ha arrancado de forma correcta. Esto se conoce como atestación remota. Azure Security Center emite una evaluación, que indica el estado de la atestación remota.
+- **Recomendación para instalar la extensión de atestación de invitado**: si la máquina virtual tiene habilitado el arranque seguro y vTPM, pero no tiene instalada la extensión de atestación de invitado, Azure Security Center emitirá una recomendación de gravedad baja para instalar en ella la extensión de atestación de invitado. Esta extensión permite a Azure Security Center atestiguar y supervisar de forma proactiva la integridad de arranque de las máquinas virtuales. La integridad del arranque se atestigua mediante la atestación remota.  
+- **Evaluación del estado de atestación**: si la máquina virtual tiene vTPM habilitado y la extensión de atestación instalada, Azure Security Center puede validar de forma remota que la máquina virtual se ha arrancado de forma correcta. Esto se conoce como atestación remota. Azure Security Center emite una evaluación, que indica el estado de la atestación remota.
 
 ## <a name="azure-defender-integration"></a>Integración de Azure Defender
 
@@ -118,8 +119,7 @@ Si las máquinas virtuales están configuradas correctamente con el inicio segur
     La atestación de la máquina virtual puede producir un error por las razones siguientes:
     - La información atestada, que incluye un registro de arranque, se desvía de una línea base de confianza. Esto puede indicar que los módulos que no son de confianza se han cargado y que el sistema operativo puede estar en peligro.
     - No se pudo comprobar que la oferta de atestación se originó en el vTPM de la máquina virtual atestada. Esto puede indicar que el malware está presente y puede estar interceptando tráfico a vTPM.
-    - La extensión de atestación en la máquina virtual no responde. Esto puede indicar un ataque por denegación de servicio por malware o un administrador del sistema operativo.
-
+    
     > [!NOTE]
     >  Esta alerta está disponible para las máquinas virtuales con vTPM habilitado y la extensión de atestación instalada. El arranque seguro debe estar habilitado para que se supere la atestación. Se producirá un error en la atestación si el arranque seguro está deshabilitado. Si debe deshabilitar el arranque seguro, puede suprimir esta alerta para evitar falsos positivos.
 
@@ -154,10 +154,16 @@ Azure Security Center realiza la atestación periódicamente. Si se produce un e
 
   
 ### <a name="how-does-trusted-launch-compared-to-hyper-v-shielded-vm"></a>¿Cómo se compara el inicio seguro con la máquina virtual blindada de Hyper-V?
+
 Actualmente, la máquina virtual blindada de Hyper-V solo está disponible en Hyper-V. Normalmente, la [máquina virtual blindada de Hyper-V](/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms) se implementa junto con el tejido protegido. Un tejido protegido consta de un Servicio de protección de host (HGS), uno o más hosts protegidos y un conjunto de máquinas virtuales blindadas. Las máquinas virtuales blindadas de Hyper-V están destinadas a usarse en tejidos en los que los datos y el estado de la máquina virtual deben estar protegidos de los administradores del tejido y del software que no es de confianza y que podrían estar ejecutándose en los hosts de Hyper-V. Por otro lado, el inicio seguro se puede implementar como una máquina virtual independiente o conjuntos de escalado de máquinas virtuales en Azure sin necesidad de implementación y administración adicionales de HGS. Las demás características de inicio seguro se pueden habilitar con un simple cambio en el código de implementación o una casilla en Azure Portal.  
 
 ### <a name="how-can-i-convert-existing-vms-to-trusted-launch"></a>¿Cómo puedo convertir las máquinas virtuales existentes en un inicio seguro?
-En el caso de las máquinas virtuales de generación 2, la ruta de acceso de migración para convertir en un inicio seguro está destinada a disponibilidad general (GA).
+
+En el caso de las máquinas virtuales de generación 2, la ruta de migración para realizar la conversión al inicio seguro está destinada a la disponibilidad general (GA).
+
+### <a name="what-is-vm-guest-state-vmgs"></a>¿Qué es el estado de invitado de la máquina virtual (VMGS)?  
+
+El estado de invitado de la máquina virtual (VMGS) es específico de la máquina virtual de inicio seguro. Es un blob administrado por Azure y contiene las bases de datos unificadas de firma de arranque seguro de Unified Extensible Firmware Interface(UEFI) y otra información de seguridad. El ciclo de vida del blob de VMGS está asociado al del disco del sistema operativo.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 
