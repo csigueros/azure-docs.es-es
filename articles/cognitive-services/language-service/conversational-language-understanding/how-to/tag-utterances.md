@@ -11,16 +11,16 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021
-ms.openlocfilehash: 697a42d32fd0af80737ad65a8350b719ffc5c7a6
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 73ab3df8a7f13ec2c734206772f55bee626b871a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131092838"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132339941"
 ---
 # <a name="how-to-tag-utterances"></a>Etiquetado de expresiones
 
-Una vez que [haya creado un esquema](build-schema.md) para el proyecto, debe agregar expresiones de entrenamiento al proyecto. Las expresiones deben ser similares a las que usarán los usuarios al interactuar con el proyecto. Al agregar una expresión, debe asignar a qué intención pertenece. Una vez agregada la expresión, etiquete las palabras que contiene con las entidades del proyecto. Las etiquetas de las entidades deben ser coherentes entre las distintas expresiones. 
+Una vez que [haya creado un esquema](build-schema.md) para el proyecto, debe agregar expresiones de entrenamiento al proyecto. Las expresiones deben ser similares a las que usarán los usuarios al interactuar con el proyecto. Al agregar una expresión, debe asignar a qué intención pertenece. Una vez agregada la expresión, etiquete las palabras que contiene con las entidades del proyecto. Las etiquetas de las entidades deben ser coherentes entre las distintas expresiones.
 
 El etiquetado es el proceso de asignar las expresiones a las intenciones y etiquetarlas con entidades. Es conveniente dedicar un tiempo a etiquetar las expresiones: introducir y refinar los datos que entrenarán los modelos de aprendizaje automático subyacentes para el proyecto. Los modelos de aprendizaje automático realizan generalizaciones basadas en los ejemplos que les proporcione. Cuantos más ejemplos proporcione, más puntos de datos tendrá un modelo para realizar mejores generalizaciones.
 

@@ -9,12 +9,12 @@ ms.subservice: terminate-notification
 ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 29466a1954e64b79614eec0afdd139e45a44df5b
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 7a0992c67657647d6350c8437f549134f1706443
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698267"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132289345"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Notificación de finalización para instancias de conjunto de escalado de máquinas virtuales de Azure
 
@@ -184,7 +184,7 @@ Asegúrese de que todas las máquinas virtuales del conjunto de escalado solo ap
 También puede hacer referencia a los scripts de ejemplo para consultar y responder a eventos usando [Python](../virtual-machines/linux/scheduled-events.md#python-sample).
 
 ## <a name="tips-and-best-practices"></a>Sugerencias y prácticas recomendadas
--   Notificaciones de finalización solo en operaciones "de eliminación": todas las operaciones de eliminación (eliminación manual o reducción horizontal iniciada mediante escalabilidad automática) generará eventos de finalización si el conjunto de escalado tiene *scheduledEventsProfile* habilitado. Otras operaciones como reiniciar, restablecer la imagen inicial, volver a implementar y detener/desasignar no generan eventos de finalización. Las notificaciones de finalización no se pueden habilitar para máquinas virtuales de prioridad baja.
+-   Notificaciones de finalización solo en operaciones "de eliminación": todas las operaciones de eliminación (eliminación manual o reducción horizontal iniciada mediante escalabilidad automática) generará eventos de finalización si el conjunto de escalado tiene *scheduledEventsProfile* habilitado. Otras operaciones como reiniciar, restablecer la imagen inicial, volver a implementar y detener/desasignar no generan eventos de finalización. 
 -   No hay esperas obligatorias para el tiempo de espera: puede iniciar la operación de finalización en cualquier momento después de que se haya recibido el evento y antes de que expire el tiempo especificado en *NotBefore* en la configuración de este.
 -   Eliminación obligatoria en tiempo de espera: la versión preliminar no proporciona ninguna funcionalidad para ampliar el valor del tiempo de espera una vez que se ha generado un evento. Una vez que expire el tiempo de espera, se procesará el evento de finalización pendiente y se eliminará la máquina virtual.
 -   Valor de tiempo de espera modificable: puede modificar el valor del tiempo de espera en cualquier momento antes de que se elimine una instancia. Para ello, modifique la propiedad *notBeforeTimeout* en el modelo del conjunto de escalado y actualice las instancias de máquina virtual al modelo más reciente.

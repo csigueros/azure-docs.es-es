@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: danlep
-ms.openlocfilehash: ebeca98b2cf3741e83083b0b5eb6d13fdfeb6525
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5acf947fdc4354fe57112cd8c49854e6a27e80a4
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128629795"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132340388"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Plantillas de aplicación en Azure API Management
 Azure API Management le ofrece la posibilidad de personalizar el contenido de las páginas del portal para desarrolladores mediante un conjunto de plantillas que configuran su contenido. Por medio de la sintaxis [DotLiquid](http://dotliquidmarkup.org/) y el editor que prefiera, como [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers) (DotLiquid para diseñadores), y un conjunto proporcionado de [recursos de cadena](api-management-template-resources.md#strings), [recursos de glifo](api-management-template-resources.md#glyphs) y [controles de página](api-management-page-controls.md) localizados, puede disponer de una gran flexibilidad para configurar el contenido de las páginas como considere oportuno mediante estas plantillas.  
@@ -57,7 +57,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
             <li>  
             {% if app.application.icon.url != "" %}  
                 <aside>  
-                    <a href="/applications/details/{{app.application.id}}"><img src="{{app.application.icon.url}}" alt="App Icon" /></a>  
+                    <a href="/applications/details/{{app.application.id}}"><img src="{{app.application.icon.url}}" alt="App Icon"></a>  
                 </aside>  
             {% endif %}  
                 <h3><a href="/applications/details/{{app.application.id}}">{{app.application.title}}</a></h3>  

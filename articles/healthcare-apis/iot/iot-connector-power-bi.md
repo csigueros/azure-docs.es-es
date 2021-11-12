@@ -1,34 +1,34 @@
 ---
-title: 'Conector de IoT microsoft Power BI: API de Azure Healthcare'
+title: 'Conector de IoT Microsoft Power BI: API de Azure Healthcare'
 description: En este artículo, aprenderá a usar el conector de IoT y Power BI
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 11/05/2021
+ms.date: 11/10/2021
 ms.author: jasteppe
-ms.openlocfilehash: 014bf6fe316252536a14c15bad8255285226ce10
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: b099a085041664ed00788720eb3245dd9518c020
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131894793"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132315413"
 ---
 # <a name="iot-connector-and-microsoft-power-bi"></a>Conector de IoT y Microsoft Power BI
 
 En este artículo, exploraremos el uso del conector de IoT y Microsoft Power Business Intelligence (BI).
 
-## <a name="iot-connector-and-power-bi-reference-architecture"></a>Conector de IoT y Power BI de referencia
+## <a name="iot-connector-and-power-bi-reference-architecture"></a>Conector de IoT Power BI arquitectura de referencia
 
 La arquitectura de referencia siguiente muestra los componentes básicos del uso de servicios en la nube de Microsoft para habilitar Power BI sobre los datos de Internet de las cosas médicas (IoMT) y Recursos Rápidos de Interoperabilidad en Salud (FHIR&#174;). 
 
-Incluso puede insertar paneles Power BI en el cliente de Microsoft Teams para mejorar aún más la coordinación del equipo de atención. Para obtener más información sobre la inserción de Power BI en Teams, visite [aquí](/power-bi/collaborate-share/service-embed-report-microsoft-teams).
+Incluso puede insertar paneles de Power BI en el cliente Microsoft Teams para mejorar aún más la coordinación del equipo de atención. Para obtener más información sobre la inserción de Power BI en Teams, visite [aquí](/power-bi/collaborate-share/service-embed-report-microsoft-teams).
 
 :::image type="content" source="media/iot-concepts/iot-connector-power-bi.png" alt-text="Captura de pantalla del conector de IoT Power BI." lightbox="media/iot-concepts/iot-connector-power-bi.png":::
 
 El conector de IoT puede ingerir datos de IoT de la mayoría de los dispositivos o puertas de enlace de IoT, independientemente de la ubicación, el centro de datos o la nube. 
 
-Se recomienda el uso de servicios de Azure IoT para ayudar con la conectividad de dispositivos o puertas de enlace.
+Se recomienda el uso de servicios de Azure IoT para ayudar con la conectividad del dispositivo o la puerta de enlace.
 
 :::image type="content" source="media/iot-concepts/iot-connector-iot-hub-power-bi.png" alt-text="Captura de pantalla del conector de IoT, IoT Hub y Power BI." lightbox="media/iot-concepts/iot-connector-iot-hub-power-bi.png":::
 
@@ -45,4 +45,4 @@ En este artículo, ha aprendido sobre el conector de IoT y Power BI integración
 >[!div class="nextstepaction"]
 >[Introducción al conector de IoT](iot-connector-overview.md)
 
-(FHIR&#174;) es una marca comercial registrada de [HL7](https://hl7.org/fhir/) y se usa con el permiso de HL7.
+(FHIR&#174;) es una marca registrada [de HL7](https://hl7.org/fhir/) y se usa con el permiso HL7.

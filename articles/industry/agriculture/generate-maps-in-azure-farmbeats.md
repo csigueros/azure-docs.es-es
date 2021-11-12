@@ -5,12 +5,12 @@ author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: riyazp
-ms.openlocfilehash: 0b936ecbd80ba0b258cea8b043f4bef789b67a35
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 0183e56d9bdf0c995dbbcf273914790eb0909e7d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108751308"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132297552"
 ---
 # <a name="generate-maps"></a>Generación de mapas
 
@@ -43,7 +43,7 @@ Las siguientes dependencias pertenecen a Sentinel:
 
 - Dependemos del rendimiento de Sentinel para descargar las imágenes poor satélite. Compruebe el estado de rendimiento de Sentinel y las [actividades](https://scihub.copernicus.eu/twiki/do/view/SciHubNews/WebHome) de mantenimiento.
 - Sentinel solo permite dos [subprocesos de descarga](https://sentinels.copernicus.eu/web/sentinel/sentinel-data-access/typologies-and-services) simultáneos por usuario.
-- La generación de mapas de precisión se ve afectada por la [cobertura de Sentinel y la frecuencia de las visitas]( https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/revisit-coverage).
+- La generación de mapas de precisión se ve afectada por la [cobertura de Sentinel y la frecuencia de las visitas](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/revisit-coverage).
 
 ## <a name="create-a-sensor-placement-map"></a>Creación de un mapa de colocación de sensores
 En esta sección se detallan los procedimientos de creación de mapas de colocación de sensores.

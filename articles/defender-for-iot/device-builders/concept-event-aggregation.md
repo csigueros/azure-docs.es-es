@@ -1,14 +1,14 @@
 ---
 title: Recopilación de eventos de microagentes (versión preliminar)
 description: Los agentes de seguridad de Defender para IoT recopilan datos y eventos del sistema de un dispositivo local, y envían los datos a la nube de Azure para su procesamiento y análisis.
-ms.date: 10/11/2021
+ms.date: 11/09/2021
 ms.topic: conceptual
-ms.openlocfilehash: 1868df35c05560fd80f6fa619b2d612ba6325d3c
-ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
+ms.openlocfilehash: 36cce317c4e53f7578dace7faba5e2fb567f42cc
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129740443"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132289988"
 ---
 # <a name="micro-agent-event-collection-preview"></a>Recopilación de eventos de microagentes (versión preliminar)
 

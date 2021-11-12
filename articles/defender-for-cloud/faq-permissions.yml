@@ -1,0 +1,42 @@
+### YamlMime:FAQ
+metadata:
+  title: 'Preguntas más frecuentes sobre Microsoft Defender for Cloud: preguntas sobre permisos'
+  description: Estas preguntas más frecuentes responden a cuestiones sobre permisos de Microsoft Defender for Cloud, un producto que ayuda a evitar, detectar y responder a amenazas.
+  services: security-center
+  documentationcenter: na
+  author: memildin
+  manager: rkarlin
+  ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
+  ms.service: security-center
+  ms.devlang: na
+  ms.topic: conceptual
+  ms.tgt_pltfrm: na
+  ms.workload: na
+  ms.date: 11/09/2021
+  ms.author: memildin
+  ms.openlocfilehash: 21450652a3f40a46059b597e2f6b339c4d078454
+  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 11/11/2021
+  ms.locfileid: "132350024"
+title: Permisos
+summary: ''
+sections:
+- name: Omitido
+  questions:
+  - question: ¿Cómo funcionan los permisos en Microsoft Defender for Cloud?
+    answer: >
+      Microsoft Defender for Cloud usa el [control de acceso basado en rol de Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md), que proporciona [roles integrados](../role-based-access-control/built-in-roles.md) que se pueden asignar a usuarios, grupos y servicios en Azure.
+
+
+      Defender for Cloud evalúa la configuración de los recursos para identificar problemas de seguridad y vulnerabilidades. En Defender for Cloud, solo se muestra información relacionada con un recurso cuando tiene asignado el rol de Propietario, Colaborador o Lector a la suscripción o grupo de recursos al que pertenece un recurso.
+
+
+      Consulte [Permisos en Microsoft Defender for Cloud](permissions.md) para obtener más información sobre los roles y las acciones permitidas en Defender for Cloud.
+  - question: ¿Quién puede modificar una directiva de seguridad?
+    answer: >-
+      Para modificar una directiva de seguridad, debe ser administrador de seguridad o propietario/colaborador de esa suscripción.
+
+
+      Para obtener información sobre cómo configurar una directiva de seguridad, consulte [Establecimiento de directivas de seguridad en Microsoft Defender for Cloud](tutorial-security-policy.md).
