@@ -10,12 +10,12 @@ author: mx-iao
 ms.author: minxia
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: ff49606e2f1a3877b6949d9ec0ae8a125c533484
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: ecfd6d57d7f978e64bed0003253a05941effa910
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131557934"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132060971"
 ---
 # <a name="cli-v2-command-job-yaml-schema"></a>Esquema YAML del trabajo de comando de la CLI (v2)
 
@@ -99,71 +99,71 @@ Hay ejemplos disponibles en el [repositorio de GitHub de ejemplos](https://githu
 
 ## <a name="yaml-hello-world"></a>YAML: hola mundo
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world.yml":::
 
 ## <a name="yaml-display-name-experiment-name-description-and-tags"></a>YAML: nombre para mostrar, nombre del experimento, descripción y etiquetas
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-org.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-org.yml":::
 
 ## <a name="yaml-environment-variables"></a>YAML: variables de entorno
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-env-var.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-env-var.yml":::
 
 ## <a name="yaml-source-code"></a>YAML: código fuente
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-code.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-code.yml":::
 
 ## <a name="yaml-literal-inputs"></a>YAML: entradas literales
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-input.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-input.yml":::
 
 ## <a name="yaml-write-to-default-outputs"></a>YAML: escritura en salidas predeterminadas
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-output.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-output.yml":::
 
 ## <a name="yaml-write-to-named-data-output"></a>YAML: escritura en la salida de datos con nombre
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-output-data.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-output-data.yml":::
 
 ## <a name="yaml-datastore-uri-file-input"></a>YAML: entrada del archivo de URI del almacén de datos
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-iris-datastore-file.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-datastore-file.yml":::
 
 ## <a name="yaml-datastore-uri-folder-input"></a>YAML: entrada de la carpeta de URI del almacén de datos
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-iris-datastore-folder.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-datastore-folder.yml":::
 
 ## <a name="yaml-uri-file-input"></a>YAML: entrada del archivo de URI
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-iris-file.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-file.yml":::
 
 ## <a name="yaml-uri-folder-input"></a>YAML: entrada de la carpeta de URI
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-iris-folder.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-folder.yml":::
 
 ## <a name="yaml-notebook-via-papermill"></a>YAML: cuaderno a través de Papermill
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-notebook.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-notebook.yml":::
 
 ## <a name="yaml-basic-python-model-training"></a>YAML: entrenamiento básico del modelo de Python
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/scikit-learn/iris/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/scikit-learn/iris/job.yml":::
 
 ## <a name="yaml-basic-r-model-training-with-local-docker-build-context"></a>YAML: entrenamiento básico del modelo de R con contexto de compilación de Docker local
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/r/iris/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/r/iris/job.yml":::
 
 ## <a name="yaml-distributed-pytorch"></a>YAML: PyTorch distribuido
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/pytorch/cifar-distributed/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/pytorch/cifar-distributed/job.yml":::
 
 ## <a name="yaml-distributed-tensorflow"></a>YAML: TensorFlow distribuido
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/tensorflow/mnist-distributed/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/tensorflow/mnist-distributed/job.yml":::
 
 ## <a name="yaml-distributed-mpi"></a>YAML: MPI distribuido
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/tensorflow/mnist-distributed-horovod/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/tensorflow/mnist-distributed-horovod/job.yml":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

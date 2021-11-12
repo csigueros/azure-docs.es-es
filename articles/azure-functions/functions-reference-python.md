@@ -4,12 +4,12 @@ description: Aprenda a desarrollar funciones con Python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: b4342a70e5fa7c5a0a7a2fd51dcfe97476f34995
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.openlocfilehash: 78351934381ebd76e32041987a4534f64cf151bf
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132027211"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131892748"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guía de Azure Functions para desarrolladores de Python
 
@@ -427,8 +427,7 @@ Azure Functions admite las siguientes versiones de Python:
 
 | Versión de Functions | Versiones de Python<sup>*</sup> |
 | ----- | ----- |
-| 4.x | 3.9<br/> 3.8<br/>3.7 |
-| 3.x | 3.9<br/> 3.8<br/>3.7<br/>3.6 |
+| 3.x | 3.9 (versión preliminar) <br/> 3.8<br/>3.7<br/>3.6 |
 | 2.x | 3.7<br/>3.6 |
 
 <sup>*</sup>Distribuciones oficiales de CPython

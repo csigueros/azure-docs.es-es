@@ -1,18 +1,18 @@
 ---
 title: Publicación de revisiones con Acciones de GitHub en la versión preliminar de Azure Container Apps
 description: Aprenda a crear revisiones automáticamente mediante Acciones de GitHub en la versión preliminar de Azure Container Apps
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: cshoe
-ms.openlocfilehash: d83c6904f721d429488bca50359c3b32877ad50b
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: f345c3138891cef9d83000d1e64b950cd33747b4
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131478253"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132179571"
 ---
 # <a name="publish-revisions-with-github-actions-in-azure-container-apps-preview"></a>Publicación de revisiones con Acciones de GitHub en la versión preliminar de Azure Container Apps
 
@@ -41,7 +41,7 @@ La primera vez que asocie Acciones de GitHub a la aplicación contenedora, deber
 az ad sp create-for-rbac \
   --name <SERVICE_PRINCIPAL_NAME> \
   --role "contributor" \
-  --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME> /subscriptions/<SUBSCRIPTION_ID> \
+  --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME> \
   --sdk-auth
 ```
 
@@ -51,7 +51,7 @@ az ad sp create-for-rbac \
 az ad sp create-for-rbac `
   --name <SERVICE_PRINCIPAL_NAME> `
   --role "contributor" `
-  --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME> /subscriptions/<SUBSCRIPTION_ID> `
+  --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME> `
   --sdk-auth
 ```
 

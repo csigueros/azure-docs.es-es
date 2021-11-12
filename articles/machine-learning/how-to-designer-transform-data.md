@@ -5,17 +5,17 @@ description: Aprenda a importar y transformar datos en el diseñador de Azure Ma
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
-author: peterclu
-ms.author: peterlu
-ms.date: 06/28/2020
+author: lgayhardt
+ms.author: lagayhar
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: designer
-ms.openlocfilehash: 3d658421d392032e4425a3f87f8f59f9baab2ce4
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 42f70e55bf8c2e8b8d6186d26f5a3a1ba08f6a63
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129427616"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131557459"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer"></a>Transformación de datos en el diseñador de Azure Machine Learning
 
@@ -44,60 +44,60 @@ Siga estos pasos para importar el conjunto de datos de ejemplo.
 
 1. Inicie sesión en <a href="https://ml.azure.com?tabs=jre" target="_blank">ml.azure.com</a> y seleccione el área de trabajo con la que quiere trabajar.
 
-1. Vaya al diseñador. Seleccione **Easy-to-use-prebuild modules** (Módulos fáciles de usar creados previamente) para crear una canalización.
+1. Vaya al diseñador. Seleccione **Easy-to-use-prebuild components** (Módulos fáciles de usar creados previamente) para crear una canalización.
 
 1. Seleccione un destino de proceso predeterminado para ejecutar la canalización.
 
-1. A la izquierda del lienzo de la canalización, hay una paleta de conjuntos de datos y módulos. Seleccione **Conjuntos de datos**. Luego, consulte la sección **Ejemplos**.
+1. A la izquierda del lienzo de la canalización, hay una paleta de conjuntos de datos y componentes. Seleccione **Conjuntos de datos**. Luego, consulte la sección **Ejemplos**.
 
 1. Arrastre y coloque el conjunto de datos **Clasificación binaria de ingresos en el censo de adultos** en el lienzo.
 
-1. Haga clic con el botón derecho en el módulo de **ingresos en el censo de adultos** y seleccione **Visualizar** > **Salida del conjunto de datos**.
+1. Haga clic con el botón derecho en el componente de conjunto de datos **Adult Census Income** y seleccione **Visualizar** > **Salida del conjunto de datos**.
 
 1. Use la ventana de vista previa de los datos para explorar el conjunto de datos. Tenga en cuenta especialmente los valores de la columna "native-country".
 
 ### <a name="split-the-data"></a>División de los datos
 
-En esta sección, usará el [módulo Split Data](algorithm-module-reference/split-data.md) (Dividir datos) para identificar y dividir las filas que contienen "United-States" en la columna "native-country". 
+En esta sección, usará el componente [Split Data](algorithm-module-reference/split-data.md) (Dividir datos) para identificar y dividir las filas que contienen "United-States" en la columna "native-country". 
 
-1. En la paleta de módulos que se encuentra a la izquierda del lienzo, expanda la sección **Transformación de datos** y busque el módulo **Split Data** (Dividir datos).
+1. En la paleta de componentes que se encuentra a la izquierda del lienzo, expanda la sección **Transformación de datos** y busque el componente **Split Data** (Dividir datos).
 
-1. Arrastre el módulo **Split Data** (Dividir datos) al lienzo y colóquelo debajo del módulo del conjunto de datos.
+1. Arrastre el componente **Split Data** (Dividir datos) al lienzo y colóquelo debajo del componente de conjunto de datos.
 
-1. Conecte el módulo del conjunto de datos con el módulo **Split Data** (Dividir datos).
+1. Conecte el componente de conjunto de datos al componente **Split Data** (Dividir datos).
 
-1. Seleccione el módulo **Split Data** (Dividir datos).
+1. Seleccione el componente **Split Data** (Dividir datos).
 
-1. En el panel de detalles del módulo que se encuentra a la derecha del lienzo, establezca **Splitting mode** (Modo de división) en **Expresión regular**.
+1. En el panel de detalles del componente que se encuentra a la derecha del lienzo, establezca **Splitting mode** (Modo de división) en **Expresión regular**.
 
 1. Escriba la **expresión regular**: `\"native-country" United-States`.
 
-    El modo **Expresión regular** prueba una columna con respecto a un valor. Para más información sobre el módulo Split Data (Dividir datos), consulte la [página de referencia del módulo de algoritmo](algorithm-module-reference/split-data.md).
+    El modo **Expresión regular** prueba una columna con respecto a un valor. Para más información sobre el componente Split Data (Dividir datos), consulte la [página de referencia del componente de algoritmo](algorithm-module-reference/split-data.md).
 
 La canalización debe ser parecida a esta:
 
-:::image type="content" source="./media/how-to-designer-transform-data/split-data.png" alt-text="Captura de pantalla que muestra cómo configurar la canalización y el módulo Split Data (Dividir datos)":::
+:::image type="content" source="./media/how-to-designer-transform-data/split-data.png" alt-text="Captura de pantalla que muestra cómo configurar la canalización y el componente Split Data (Dividir datos)":::
 
 
 ## <a name="save-the-datasets"></a>Guardado de los conjuntos de datos
 
-Ahora que la canalización está configurada para dividir los datos, debe especificar dónde quiere guardar los conjuntos de datos. En este ejemplo, use el módulo **Export Data** (Exportar datos) para guardar los datos en un almacén de datos. Para más información sobre los almacenes de datos, consulte [Conexión con los servicios de Azure Storage](how-to-access-data.md).
+Ahora que la canalización está configurada para dividir los datos, debe especificar dónde quiere guardar los conjuntos de datos. En este ejemplo, use el componente **Exportar datos** para guardar el conjunto de datos en un almacén de datos. Para más información sobre los almacenes de datos, consulte [Conexión con los servicios de Azure Storage](how-to-access-data.md).
 
-1. En la paleta de módulos que se encuentra a la izquierda del lienzo, expanda la sección **Entrada y salida de datos** y busque el módulo **Export Data** (Exportar datos).
+1. En la paleta de componentes que se encuentra a la izquierda del lienzo, expanda la sección **Data Input and Output** (Entrada y salida de datos) y busque el módulo **Exportar datos**.
 
-1. Arrastre y coloque dos módulos **Export Data** (Exportar datos) debajo del módulo **Split Data** (Dividir datos).
+1. Arrastre y coloque dos componentes **Exportar datos** debajo del componente **Split Data** (Dividir datos).
 
-1. Conecte cada puerto de salida del módulo **Split Data** (Dividir datos) a un módulo **Export Data** (Exportar datos) distinto.
+1. Conecte cada puerto de salida del componente **Split Data** (Dividir datos) a un componente **Exportar datos** distinto.
 
     La canalización debe parecerse a esta:
 
-    ![Captura de pantalla que muestra cómo conectar los módulos Export Data (Exportar datos)](media/how-to-designer-transform-data/export-data-pipeline.png).
+    ![Captura de pantalla que muestra cómo conectar los componentes Exportar datos](media/how-to-designer-transform-data/export-data-pipeline.png).
 
-1. Seleccione el módulo **Export Data** (Exportar datos) que está conectado al puerto que está más a la *izquierda* del módulo **Split Data** (Dividir datos).
+1. Seleccione el componente **Exportar datos** que está conectado al puerto que está más a la *izquierda* del componente **Split Data** (Dividir datos).
 
-    El orden de los puertos de salida es importante para el módulo **Split Data** (Dividir datos). El primer puerto de salida contiene las filas en las que el valor de la expresión regular es true. En este caso, el primer puerto contiene filas para los ingresos basados en Estados Unidos y el segundo puerto contiene filas para ingresos no basados en Estados Unidos.
+    El orden de los puertos de salida es importante para el componente **Split Data** (Dividir datos). El primer puerto de salida contiene las filas en las que el valor de la expresión regular es true. En este caso, el primer puerto contiene filas para los ingresos basados en Estados Unidos y el segundo puerto contiene filas para ingresos no basados en Estados Unidos.
 
-1. En el panel de detalles del módulo que se encuentra a la derecha del lienzo, establezca estas opciones:
+1. En el panel de detalles del componente que se encuentra a la derecha del lienzo, establezca estas opciones:
     
     **Tipo de almacén de datos**: Azure Blob Storage
 
@@ -112,9 +112,9 @@ Ahora que la canalización está configurada para dividir los datos, debe especi
 
     Si no tiene un almacén de datos, puede crear uno ahora. Para fines de ejemplo, en este artículo se guardarán los conjuntos de datos en la cuenta de almacenamiento de blobs predeterminada asociada con el área de trabajo. Guardará los conjuntos de datos en el contenedor `azureml` en una carpeta nueva llamada `data`.
 
-1.  Seleccione el módulo **Export Data** (Exportar datos) conectado al puerto que está más a la *derecha* del módulo **Split Data** (Dividir datos).
+1.  Seleccione el componente **Exportar datos** conectado al puerto que está más a la *derecha* del componente **Split Data** (Dividir datos).
 
-1. En el panel de detalles del módulo que se encuentra a la derecha del lienzo, establezca estas opciones:
+1. En el panel de detalles del componente que se encuentra a la derecha del lienzo, establezca estas opciones:
     
     **Tipo de almacén de datos**: Azure Blob Storage
 
@@ -124,13 +124,13 @@ Ahora que la canalización está configurada para dividir los datos, debe especi
 
     **Formato de archivo**: csv
 
-1. Confirme que el módulo **Export Data** (Exportar datos) conectado al puerto izquierdo del módulo **Split Data** (Dividir datos) tiene la **ruta de acceso** `/data/us-income`.
+1. Confirme que el componente **Exportar datos** conectado al puerto izquierdo del componente **Split Data** (Dividir datos) tiene la **Ruta de acceso** `/data/us-income`.
 
-1. Confirme que el módulo **Export Data** (Exportar datos) conectado al puerto derecho tiene la **ruta de acceso** `/data/non-us-income`.
+1. Confirme que el componente **Exportar datos** conectado al puerto derecho tiene la **Ruta de acceso** `/data/non-us-income`.
 
     La canalización y configuración deberían ser similares a estas:
     
-    ![Captura de pantalla que muestra cómo configurar los módulos Export Data (Exportar datos)](media/how-to-designer-transform-data/us-income-export-data.png).
+    ![Captura de pantalla que muestra cómo configurar los componentes Exportar datos](media/how-to-designer-transform-data/us-income-export-data.png).
 
 ### <a name="submit-the-run"></a>Envío de la ejecución
 
@@ -148,11 +148,11 @@ Ahora que la canalización está configurada para dividir y exportar los datos, 
 
 ## <a name="view-results"></a>Vista de resultados
 
-Una vez finalizada la ejecución de la canalización, puede ver los resultados si navega al almacenamiento de blobs en Azure Portal. También puede ver los resultados intermedios del módulo **Split Data** (Dividir datos) para confirmar que los datos se dividieron correctamente.
+Una vez finalizada la ejecución de la canalización, puede ver los resultados si navega al almacenamiento de blobs en Azure Portal. También puede ver los resultados intermedios del componente **Split Data** (Dividir datos) para confirmar que los datos se dividieron correctamente.
 
-1. Seleccione el módulo **Split Data** (Dividir datos).
+1. Seleccione el componente **Split Data** (Dividir datos).
 
-1. En el panel de detalles del módulo, situado a la derecha del lienzo, seleccione **Outputs + logs** (Salidas y registros). 
+1. En el panel de detalles del componente, situado a la derecha del lienzo, seleccione **Resultados y registros**. 
 
 1. Seleccione el icono de visualización ![icono de visualización](media/how-to-designer-transform-data/visualize-icon.png) junto a **Conjunto de datos de resultados 1**. 
 

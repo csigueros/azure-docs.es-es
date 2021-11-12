@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/26/2021
-ms.openlocfilehash: 67ada228d3b4ed95b1247b221f0ad90bbbc74ba0
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: e3932ee9a0683689bd74fb2d912d98cd29715da6
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112416972"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132343048"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Supervisión de solicitudes de consulta en Azure Cognitive Search
 
@@ -100,21 +100,21 @@ En la siguiente captura de pantalla, el primer número es el valor de "count" (o
 
 Para echar un vistazo a las cifras actuales, la pestaña **Supervisión** de la página de información general del servicio ofrece tres métricas (**Latencia de búsqueda**, **Consultas de búsqueda por segundo (por unidad de búsqueda)** , **Porcentaje de consultas de búsqueda limitadas**) en intervalos fijos que se miden en horas, días y semanas con la posibilidad de cambiar el tipo de agregación.
 
-Para un análisis en profundidad, abra el explorador de métricas en el menú **Supervisión** para que pueda clasificar, ampliar y visualizar los datos en busca de tendencias o anomalías. Para más información sobre el explorador de métricas, realice este [tutorial sobre creación de un gráfico de métricas](../azure-monitor/essentials/tutorial-metrics-explorer.md).
+Para un análisis en profundidad, abra el explorador de métricas en el menú **Supervisión** para que pueda clasificar, ampliar y visualizar los datos en busca de tendencias o anomalías. Para más información sobre el explorador de métricas, realice este [tutorial sobre creación de un gráfico de métricas](../azure-monitor/essentials/tutorial-metrics.md).
 
 1. En la sección Supervisión, seleccione **Métricas** para que se abra el explorador de métricas con el ámbito establecido en el servicio de búsqueda.
 
-1. En Métricas, elija una de la lista desplegable y revise la lista de las agregaciones disponibles para seleccionar el tipo que prefiera. La agregación define cómo se realizará el muestreo de los valores recopilados durante cada intervalo de tiempo.
+2. En Métricas, elija una de la lista desplegable y revise la lista de las agregaciones disponibles para seleccionar el tipo que prefiera. La agregación define cómo se realizará el muestreo de los valores recopilados durante cada intervalo de tiempo.
 
    ![Explorador de métricas QPS](./media/search-monitor-usage/metrics-explorer-qps.png "Explorador de métricas QPS")
 
-1. En la esquina superior derecha, establezca el intervalo de tiempo.
+3. En la esquina superior derecha, establezca el intervalo de tiempo.
 
-1. Elija una visualización. La opción predeterminada es un gráfico de líneas.
+4. Elija una visualización. La opción predeterminada es un gráfico de líneas.
 
-1. Para clasificar según las agregaciones adicionales, seleccione **Agregar métrica** y seleccione las diferentes agregaciones.
+5. Para clasificar según las agregaciones adicionales, seleccione **Agregar métrica** y seleccione las diferentes agregaciones.
 
-1. Acerque cualquier área de su interés en el gráfico de líneas. Coloque el puntero del mouse al principio del área, haga clic y mantenga presionado el botón izquierdo, arrastre al otro lado del área y suelte el botón. El gráfico acercará el intervalo de tiempo.
+6. Acerque cualquier área de su interés en el gráfico de líneas. Coloque el puntero del mouse al principio del área, haga clic y mantenga presionado el botón izquierdo, arrastre al otro lado del área y suelte el botón. El gráfico acercará el intervalo de tiempo.
 
 ## <a name="return-query-strings-entered-by-users"></a>Devolución de cadenas de consulta introducidas por los usuarios
 

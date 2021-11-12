@@ -4,15 +4,15 @@ description: Aprenda a habilitar Synapse Link para las cuentas de Azure Cosmos 
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 11/02/2021
 ms.author: rosouz
 ms.custom: references_regions, synapse-cosmos-db, devx-track-azurepowershell
-ms.openlocfilehash: 116997c8abbad382dc10014fd76e7933f333c113
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 271b0a6c41f37a3ac8efe6e5562af48f3f267692
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123109356"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131425867"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Configuración y uso de Azure Synapse Link para Azure Cosmos DB (versión preliminar)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -280,6 +280,9 @@ El grupo de SQL sin servidor permite consultar y analizar los datos de los conte
 
 Se puede crear una base de datos de grupo de SQL sin servidor y vistas a través de Synapse Link para Azure Cosmos DB. Posteriormente se pueden consultar los contenedores de Azure Cosmos y, después, compilar un modelo con Power BI sobre esas vistas para reflejar la consulta. No hay ningún impacto en el rendimiento ni en el costo de las cargas de trabajo transaccionales y tampoco existe ninguna complejidad en la administración de canalizaciones de ETL. Puede usar los modos [DirectQuery](/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) o [importación](/power-bi/connect-data/service-dataset-modes-understand#import-mode). Para obtener más información, vea el artículo sobre cómo usar un [grupo de SQL sin servidor para analizar los datos de Azure Cosmos DB con Synapse Link](synapse-link-power-bi.md).
 
+## <a name="configure-custom-partitioning"></a>Configuración de particiones personalizadas
+
+La creación de particiones personalizadas permite crear particiones de los datos del almacén analítico en campos que se usan normalmente como filtros en consultas analíticas, lo que mejora el rendimiento de las consultas.Para más información, vea los artículos de [introducción a la creación de particiones personalizadas](custom-partitioning-analytical-store.md) y sobre [cómo configurar la creación de particiones personalizadas](configure-custom-partitioning.md).
 
 ## <a name="azure-resource-manager-template"></a>Plantilla del Administrador de recursos de Azure
 

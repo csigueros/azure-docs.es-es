@@ -9,12 +9,12 @@ ms.date: 03/01/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: e8ad6d072af6979eb8509068c1dcd239e7840950
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4ad54fe95bc646d7ed3c96ad901ae2ba1337ab7b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104598021"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251345"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Administración de bibliotecas para Apache Spark en Azure Synapse Analytics
 Las bibliotecas proporcionan código reutilizable que se puede incluir en los programas o proyectos. 
@@ -63,7 +63,7 @@ Los paquetes de ámbito de sesión permiten a los usuarios definir las dependenc
 
 Para obtener más información sobre cómo administrar paquetes de ámbito de sesión, consulte las siguientes guías paso a paso:
 
-- [Paquetes de sesión de Python (versión preliminar):](./apache-spark-manage-python-packages.md) al inicio de una sesión, proporcione un archivo *environment.yml* de Conda para instalar paquetes de Python adicionales desde repositorios populares. 
+- [Paquetes de sesión de Python:](./apache-spark-manage-python-packages.md) al inicio de una sesión, proporcione un archivo *environment.yml* de Conda para instalar paquetes de Python adicionales desde repositorios populares. 
 - [Paquetes de sesión de Scala/Java:](./apache-spark-manage-scala-packages.md) al inicio de la sesión, proporcione una lista de los archivos JAR que se van a instalar mediante `%%configure`.
 
 ## <a name="next-steps"></a>Pasos siguientes

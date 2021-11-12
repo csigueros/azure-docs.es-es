@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/14/2019
-ms.openlocfilehash: ca36c35d859e651c0d949f4b7fbb28137d01af90
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0fa173769e50b8d3d06199e166d2507281abc12e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101734968"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130240174"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Administrar y mantener el agente de Log Analytics para Windows y Linux
 
@@ -22,7 +22,7 @@ El agente de Log Analytics para Windows y Linux puede actualizarse a la versión
 
 | Entorno | Método de instalación | Método de actualización |
 |--------|----------|-------------|
-| Azure VM | Extensión de VM del agente de Log Analytics para Windows o Linux | El agente se actualiza automáticamente de forma predeterminada a menos que configure la plantilla de Azure Resource Manager para no realizar la actualización; para ello, debe establecer la propiedad *autoUpgradeMinorVersion* a **false**. |
+| Azure VM | Extensión de VM del agente de Log Analytics para Windows o Linux | El agente se actualiza automáticamente de forma predeterminada [después de que cambie el modelo de VM](../../virtual-machines/extensions/features-linux.md#how-do-agents-and-extensions-get-updated), a menos que configure la plantilla de Azure Resource Manager para no participar mediante el establecimiento de la propiedad *autoUpgradeMinorVersion* en **false**. |
 | Imágenes personalizadas de VM de Azure | Instalación manual del agente de Log Analytics para Windows o Linux | La actualización de las VM a la versión más reciente del agente debe realizarse desde la línea de comandos que ejecuta el paquete del instalador de Windows o el paquete de scripts de shell instalable y autoextraíble de Linux.|
 | VM ajenas a Azure | Instalación manual del agente de Log Analytics para Windows o Linux | La actualización de las VM a la versión más reciente del agente debe realizarse desde la línea de comandos que ejecuta el paquete del instalador de Windows o el paquete de scripts de shell instalable y autoextraíble de Linux. |
 

@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.author: peterlu
-author: peterclu
+ms.author: lagayhar
+author: lgayhardt
 ms.date: 01/09/2020
 ms.custom: designer
-ms.openlocfilehash: 86cb5260a59f864658fbb7ac1c1da2d943c6253e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dfa3b5630b09e2a3e3411afc7d77b76f1b651e72
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "90893427"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131555008"
 ---
 # <a name="use-a-keyboard-to-use-azure-machine-learning-designer"></a>Uso del diseñador de Azure Machine Learning mediante el teclado
 
@@ -25,40 +25,40 @@ Este flujo de trabajo se ha probado con [Narrator](https://support.microsoft.com
 
 ## <a name="navigate-the-pipeline-graph"></a>Desplazamiento por el gráfico de canalización
 
-El gráfico de canalización se organiza como lista anidada. La lista externa es una lista de módulos, que describe todos los módulos del gráfico de canalización. La lista interna es una lista de conexiones, que describe todas las conexiones de un módulo concreto.  
+El gráfico de canalización se organiza como lista anidada. La lista externa es una lista de componentes, que describe todos los componentes del grafo de la canalización. La lista interna es una lista de conexiones, que describe todas las conexiones de un componente concreto.  
 
-1. En la lista de módulos, use la tecla de dirección para cambiar los módulos.
-1. Use la pestaña para abrir la lista de conexiones del módulo de destino.
-1. Use la tecla de dirección para cambiar entre los distintos puertos de conexión del módulo.
-1. Use “G” para ir al módulo de destino.
+1. En la lista de componentes, use la tecla de flecha para cambiar los componentes.
+1. Use el tabulador para abrir la lista de conexiones del componente de destino.
+1. Use la tecla de dirección para cambiar entre los distintos puertos de conexión del componente.
+1. Use "G" para ir al componente de destino.
 
 ## <a name="edit-the-pipeline-graph"></a>Edición del gráfico de canalización
 
-### <a name="add-a-module-to-the-graph"></a>Adición de un módulo al gráfico
+### <a name="add-a-component-to-the-graph"></a>Adición de un componente al grafo
 
-1. Use Ctrl+F6 para cambiar el foco del lienzo al árbol de módulos.
-1. Busque el módulo deseado en el árbol de módulos mediante el control TreeView estándar.
+1. Use Ctrl+F6 para cambiar el foco del lienzo al árbol de componentes.
+1. Busque el componente deseado en el árbol de componentes mediante el control de vista de árbol estándar.
 
-### <a name="edit-a-module"></a>Edición de un módulo
+### <a name="edit-a-component"></a>Edición de un componente
 
-Para conectar un módulo a otro:
+Para conectar un componente a otro componente:
 
-1. Use Ctrl + Mayús + H cuando el destino sea un módulo de la lista de módulos para abrir el asistente de conexión.
-1. Edite los puertos de conexión del módulo.
+1. Use Ctrl+Mayús+H cuando el destino sea un componente de la lista de componentes, para abrir el asistente de conexión.
+1. Edite los puertos de conexión del componente.
 
-Para ajustar las propiedades del módulo:
+Para ajustar las propiedades del componente:
 
-1. Use Ctrl + Mayús + E cuando el destino sea un módulo para abrir las propiedades del módulo.
-1. Edite las propiedades del módulo.
+1. Use Ctrl+Mayús+E cuando el destino sea un componente, para abrir las propiedades del componente.
+1. Edite las propiedades de los componentes.
 
 ## <a name="navigation-shortcuts"></a>Métodos abreviados de navegación
 
 | Pulsación de tecla | Descripción |
 |-|-|
-| Ctrl + F6 | Alterna el foco entre el lienzo y el árbol de módulos |
-| Ctrl + F1   | Abre la tarjeta de información cuando se centra en un nodo del árbol de módulos |
+| Ctrl + F6 | Alterna el foco entre el lienzo y el árbol de componentes |
+| Ctrl + F1   | Abre la tarjeta de información cuando se centra en un nodo del árbol de componentes |
 | Ctrl + Mayús + H | Abre el asistente de conexión cuando el foco está en un nodo |
-| Ctrl + Mayús + E | Abre las propiedades del módulo cuando el foco está en un nodo |
+| Ctrl + Mayús + E | Abre las propiedades del componente cuando el foco está en un nodo |
 | Ctrl + G | Mueve el foco al primer nodo con error si se produjo algún error al ejecutar la canalización |
 
 ## <a name="action-shortcuts"></a>Accesos directos de acciones

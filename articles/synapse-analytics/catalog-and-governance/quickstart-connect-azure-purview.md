@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/29/2021
 ms.author: jejiang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 894df32142cf29e59e40b1e9218f4090bbda93f0
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 86e2eee3be8a25cc236a5774ab485c863c8d655b
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129351623"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131842532"
 ---
 # <a name="quickstartconnect-a-synapse-workspace-to-an-azure-purview-account"></a>Inicio rápido: Conectar un área de trabajo de Synapse a una cuenta de Azure Purview
 
@@ -67,13 +67,9 @@ La información de conexión de Purview se almacena en el recurso del área de t
 
 La identidad administrada del área de trabajo de Synapse se usa para autenticar las operaciones de inserción de linaje desde el área de trabajo de Synapse a Purview.
 
-- En el caso de la cuenta de Purview creada el **18 de agosto de 2021 o después**, conceda el rol **Conservador de datos** de la identidad administrada del área de trabajo de Synapse en la **colección raíz** de Purview. Obtenga más información sobre el [control de acceso en Azure Purview](../../purview/catalog-permissions.md) y la [adición de roles y restricción del acceso mediante colecciones](../../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
+Conceda el rol **Conservador de datos** de identidad administrada del área de trabajo de Synapse en la **colección raíz** de Purview. Obtenga más información sobre el [control de acceso en Azure Purview](../../purview/catalog-permissions.md) y la [adición de roles y restricción del acceso mediante colecciones](../../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
-    Al conectar el área de trabajo de Synapse a Purview en Synapse Studio, Synapse intenta agregar dicha asignación de roles automáticamente. Si tiene el rol **Administradores de colecciones** en la colección raíz de Purview y tiene acceso a la cuenta de Purview desde la red, esta operación se realiza correctamente.
-
-- En el caso de la cuenta de Purview creada **antes del 18 de agosto de 2021**, conceda el rol integrado de Azure [**Conservador de datos de Purview (heredado)** ](../../role-based-access-control/built-in-roles.md#purview-data-curator-legacy) de la identidad administrada del área de trabajo de Synapse en la cuenta de Purview. Obtenga más información sobre el [Control de acceso en Azure Purview: permisos heredados](../../purview/catalog-permissions.md#legacy-permission-guide).
-
-    Al conectar el área de trabajo de Synapse a Purview en Synapse Studio, Synapse intenta agregar dicha asignación de roles automáticamente. Si tiene los roles integrados de Azure **Propietario** o **Administrador de acceso de usuarios** en la cuenta de Purview, esta operación se realiza correctamente.
+Al conectar el área de trabajo de Synapse a Purview en Synapse Studio, Synapse intenta agregar dicha asignación de roles automáticamente. Si tiene el rol **Administradores de colecciones** en la colección raíz de Purview y tiene acceso a la cuenta de Purview desde la red, esta operación se realiza correctamente.
 
 ## <a name="monitor-purview-connection"></a>Supervisión de la conexión de Purview
 

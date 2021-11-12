@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0a88acaf29187c648b24f74877a260a8772f6008
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: e9468de9cbd88e9ad4406ac929aebc6bda938fb3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319690"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131447386"
 ---
 # <a name="application-gateway-listener-configuration"></a>Configuración del cliente de escucha de Application Gateway
 
@@ -54,7 +54,7 @@ Elija HTTP o HTTPS:
 - Seleccione HTTPS si desea [terminación TLS](features.md#secure-sockets-layer-ssltls-termination) o [cifrado TLS de un extremo a otro](./ssl-overview.md). Si lo hace, se cifrará el tráfico entre el cliente y la puerta de enlace de aplicaciones. Y la conexión TLS termina en la puerta de enlace de aplicaciones. Si quiere cifrado TLS de un extremo a otro, debe elegir HTTPS y configurar el valor de **HTTP de back-end**. Esto garantiza que el tráfico se volverá a cifrar cuando vaya desde la puerta de enlace de aplicaciones al back-end.
 
 
-Para configurar la terminación TLS y el cifrado TLS de un extremo a otro, debe agregar un certificado al cliente de escucha para permitir a la puerta de enlace de aplicaciones derivar una clave simétrica. Esto viene determinado por la especificación del protocolo TLS. La clave simétrica se usa para cifrar y descifrar el tráfico que se envía a la puerta de enlace. El certificado de la puerta de enlace debe estar en formato de Intercambio de información personal (PFX). Este formato le permite exportar la clave privada que usa la puerta de enlace para cifrar y descifrar el tráfico.
+Para configurar la terminación TLS, se debe agregar un certificado TLS/SSL al cliente de escucha. Esto permite a Application Gateway descifrar el tráfico entrante y cifrar el tráfico de respuesta al cliente. El certificado proporcionado a Application Gateway debe estar en formato Intercambio de información personal (PFX), que contiene las claves privadas y públicas.
 
 ## <a name="supported-certificates"></a>Certificados admitidos
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/11/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, subject-rbac-steps
-ms.openlocfilehash: 9bcc18a16566f63678fb739b2d453ecc6ffdf3d5
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: ebd3b0f8ffc5b00ebbce55884c889549501ab3ba
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129993898"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131466226"
 ---
 # <a name="use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos
 
@@ -157,7 +157,7 @@ Para cargar el certificado:
 1. Seleccione **Azure Active Directory**.
 1. En **Registros de aplicaciones**, en Azure AD, seleccione su aplicación.
 1. Seleccione **Certificados y secretos**.
-1. Seleccione **Cargar certificado** y seleccione el certificado (un certificado existente o el certificado autofirmado que exportó).
+1. Seleccione **Certificados** > **Cargar certificado** y seleccione el certificado (uno existente o el certificado autofirmado que ha exportado).
 
     ![Seleccione Cargar certificado y seleccione el certificado que quiere agregar](./media/howto-create-service-principal-portal/upload-cert.png)
 

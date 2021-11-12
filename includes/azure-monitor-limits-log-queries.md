@@ -1,5 +1,5 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: azure-monitor
 author: rboucher
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/22/2019
 ms.author: bwren
 ms.custom: include file
-ms.openlocfilehash: 5f2b77c7d8e1a2da9517183043231b717b6cceab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f691f760c9abfed773db8602f878dfc7ba0c08ba
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101734076"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131520758"
 ---
 ### <a name="general-query-limits"></a>Límites generales de las consultas
 
@@ -29,10 +29,10 @@ Azure Monitor tiene varios límites para protegerse frente a los usuarios que en
 
 | Measure | Límite por usuario | Descripción |
 |:---|:---|:---|
-| Consultas simultáneas | 5 | Si ya hay 5 consultas en ejecución para el usuario, las consultas nuevas se colocan en una cola de simultaneidad por usuario. Cuando finaliza una de las consultas en ejecución, la siguiente consulta se extrae de la cola y se inicia. No se incluyen las consultas de reglas de alertas.
+| Consultas simultáneas | 5 | Un usuario puede ejecutar hasta 5 consultas simultáneas; cualquier consulta adicional se agregará a una cola. Cuando finaliza una de las consultas en ejecución, se extrae la primera consulta de la cola y comienza a ejecutarse. Nota: Las consultas de alertas no forman parte de este límite.
 | Tiempo en la cola de simultaneidad | 3 minutos | Si una consulta se encuentra en la cola durante más de 3 minutos sin iniciarse, se terminará con una respuesta de error HTTP con el código 429. |
-| Total de consultas en la cola de simultaneidad | 200 | Una vez que el número de consultas en la cola alcanza las 200, las consultas adicionales se rechazarán con un código de error HTTP 429. Este número es adicional a las 5 consultas que se pueden ejecutar simultáneamente. |
-| Velocidad de consulta | 200 consultas cada 30 segundos | Esta es la velocidad global con la que un solo usuario puede enviar consultas a todas las áreas de trabajo.  Este límite se aplica a consultas mediante programación o a consultas iniciadas por elementos de visualización, como los paneles de Azure y la página de resumen del área de trabajo de Log Analytics. |
+| Total de consultas en la cola de simultaneidad | 200 | Una vez que el número de consultas de la cola llega a 200, la siguiente consulta se rechazará con un código de error HTTP 429. Este número es adicional a las cinco consultas que se pueden ejecutar simultáneamente. |
+| Velocidad de consulta | 200 consultas cada 30 segundos | La velocidad global a la que un solo usuario puede enviar consultas a todas las áreas de trabajo. Este límite se aplica a consultas mediante programación o a consultas iniciadas por elementos de visualización, como los paneles de Azure y la página de resumen del área de trabajo de Log Analytics. |
 
 - Optimice las consultas como se describe en [Optimización de las consultas de registro en Azure Monitor](../articles/azure-monitor/logs/query-optimization.md).
 - Los paneles y los libros pueden contener varias consultas en una sola vista que generan una ráfaga de consultas cada vez que se cargan o actualizan. Considere la posibilidad de dividirlos en varias vistas que se cargan a petición. 

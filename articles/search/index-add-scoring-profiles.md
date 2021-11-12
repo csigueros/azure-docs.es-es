@@ -8,12 +8,12 @@ ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/16/2021
-ms.openlocfilehash: 986bc72d135cbbfceeb4b7e60556673a8dd8edbc
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 757290560f921ee87cf9454037a4f8f199283f29
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129275855"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131449495"
 ---
 # <a name="add-scoring-profiles-to-a-search-index"></a>Incorporación de perfiles de puntuación a un índice de búsqueda
 
@@ -206,7 +206,7 @@ Use funciones cuando las ponderaciones relativas simples sean insuficientes o no
 
 | Función | Descripción |
 |-|-|
-| "freshness" | Aumenta por valores de un campo datetime (Edm.DataTimeOffset). Esta función tiene un atributo `boostingDuration` para que pueda especificar un valor que represente un intervalo de tiempo durante el que se produce el aumento. | 
+| "freshness" | Aumenta por valores de un campo datetime (Edm.DateTimeOffset). Esta función tiene un atributo `boostingDuration` para que pueda especificar un valor que represente un intervalo de tiempo durante el que se produce el aumento. | 
 | "magnitude" | Realiza el aumento en función de si un valor numérico es alto o bajo. Entre los escenarios que requieren esta función se incluyen aumentar por margen de beneficio, precio máximo, precio mínimo o recuento de descargas. Esta función solo se puede usar con campos Edm.Double y Edm.Int. Para la función magnitude, puede invertir el rango, de mayor a menor, si quiere el patrón inverso (por ejemplo, aumentar los artículos de precio inferior más que los de precio superior). Dado un intervalo de precios de 100 a 1 USD, tendría que establecer "boostingRangeStart" en 100 y "boostingRangeEnd" en 1 para aumentar los artículos con precios más bajos. | 
 | "distance"  | Realiza el aumento por proximidad o ubicación geográfica. Esta función solo se puede usar con campos Edm.GeographyPoint. | 
 | "tag"  | Realiza el aumento por las etiquetas comunes a los documentos de búsqueda y las cadenas de consulta. Las etiquetas se proporcionan en un objeto `tagsParameter`. Esta función solo se puede usar con campos Edm.String y Collection(Edm.String). | 

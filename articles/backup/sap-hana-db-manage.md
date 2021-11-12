@@ -2,13 +2,16 @@
 title: Administración de bases de datos de SAP HANA con copia de seguridad en máquinas virtuales de Azure
 description: En este artículo, aprenderá las tareas comunes para administrar y supervisar las bases de datos de SAP HANA que se ejecutan en máquinas virtuales de Azure.
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.openlocfilehash: 2e793cddeb4e751c47ffa82786f24e65a0873faf
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.date: 11/02/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: 03f7609b02461a89519ba19f3f70dd14e6922a2a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129231375"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131431342"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Administración y supervisión de bases de datos de SAP HANA de las que se ha realizado copia de seguridad
 
@@ -18,13 +21,13 @@ Si todavía no ha configurado las copias de seguridad para las bases de datos de
 
 ## <a name="monitor-manual-backup-jobs-in-the-portal"></a>Supervisión de trabajos de copia de seguridad manuales en el portal
 
-Azure Backup muestra todos los trabajos desencadenados manualmente en la sección **Trabajos de copia de seguridad** de Azure Portal.
+Azure Backup muestra todos los trabajos desencadenados manualmente en la sección **Trabajos de copia de seguridad** del **Centro de copias de seguridad**.
 
-![Sección Trabajos de copia de seguridad](./media/sap-hana-db-manage/backup-jobs.png)
+:::image type="content" source="./media/sap-hana-db-manage/backup-center-jobs-list-inline.png" alt-text="Captura de pantalla en la que se muestra la sección Trabajos de copia de seguridad." lightbox="./media/sap-hana-db-manage/backup-center-jobs-list-expanded.png":::
 
 Los trabajos que vea en este portal incluyen operaciones de detección y registro de base de datos, y copia de seguridad y restauración. Los trabajos programados, incluidas las copias de seguridad de registros, no se muestran en esta sección. Las copias de seguridad desencadenadas manualmente desde los clientes nativos de SAP HANA (Studio/Cockpit/DBA Cockpit) tampoco se muestran aquí.
 
-![Lista de trabajos de copia de seguridad](./media/sap-hana-db-manage/backup-jobs-list.png)
+:::image type="content" source="./media/sap-hana-db-manage/hana-view-jobs-inline.png" alt-text="Captura de pantalla en la que se muestra la lista Trabajos de copia de seguridad." lightbox="./media/sap-hana-db-manage/hana-view-jobs-expanded.png":::
 
 Para obtener más información sobre la supervisión, vaya a [Supervisión en Azure Portal](./backup-azure-monitoring-built-in-monitor.md) y [Supervisión con Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
 
@@ -61,10 +64,10 @@ Azure Backup facilita la administración de una base de datos de SAP HANA de la 
 
 Las copias de seguridad se ejecutan según la programación de la directiva. Puede ejecutar una copia de seguridad a petición siguiendo estos pasos:
 
-1. En el menú del almacén, seleccione **Elementos de copia de seguridad**.
-2. En **Elementos de copia de seguridad**, seleccione la VM que ejecuta la base de datos de SAP HANA y, a continuación, seleccione **Hacer copia de seguridad ahora**.
+1. En el **Centro de copias de seguridad**, seleccione **Instancias de Backup** en el menú.
+2. Seleccione **SAP HANA en Azure VM** como tipo de origen de datos, seleccione la máquina virtual que ejecuta la base de datos de SAP HANA y, después, haga clic en **Realizar copia de seguridad ahora**.
 3. En **Hacer copia de seguridad ahora**, elija el tipo de copia de seguridad que desea realizar. Después, seleccione **Aceptar**. Esta copia de seguridad se conservará de acuerdo con la directiva asociada a este elemento de copia de seguridad.
-4. Supervise las notificaciones del portal. Puede supervisar el progreso del trabajo en el panel del almacén > **Trabajos de copia de seguridad** > **En curso**. Según el tamaño de la base de datos, la creación de la copia de seguridad inicial puede tardar un tiempo.
+4. Supervise las notificaciones del portal. Para supervisar el progreso del trabajo, vaya a **Centro de copias de seguridad** -> **Trabajos de copia de seguridad** y filtre por los trabajos que tengan el estado **En curso**. Según el tamaño de la base de datos, la creación de la copia de seguridad inicial puede tardar un tiempo.
 
 De forma predeterminada, la retención de copias de seguridad a petición es de 45 días.
 
@@ -72,7 +75,7 @@ De forma predeterminada, la retención de copias de seguridad a petición es de 
 
 #### <a name="backup"></a>Copia de seguridad
 
-Las copias de seguridad a petición desencadenadas desde cualquiera de los clientes nativos de HANA (a **Backint**) se mostrarán en la lista de copia de seguridad de la página **Elementos de copia de seguridad**.
+Las copias de seguridad a petición desencadenadas desde cualquiera de los clientes nativos de HANA (a **Backint**) se mostrarán en la lista de copia de seguridad de la página **Instancias de Backup**.
 
 ![Última ejecución de copias de seguridad](./media/sap-hana-db-manage/last-backups.png)
 
@@ -96,31 +99,31 @@ La operación de eliminación de clientes nativos de HANA **NO** es compatible c
 Si quiere hacer una copia de seguridad local (mediante HANA Studio/Cockpit) de una base de datos de la que se está haciendo una copia de seguridad con Azure Backup, haga lo siguiente:
 
 1. Espere a que finalicen las copias de seguridad completas o de registro de la base de datos. Compruebe el estado en SAP HANA Studio o Cockpit.
-2. para la base de datos pertinente
+2. Para la base de datos pertinente:
     1. Anule los parámetros de BackInt. Para ello, haga doble clic en **systemdb** > **Configuración** > **Seleccionar base de datos** > **Filtro (registro)** .
         * enable_auto_log_backup: No
         * log_backup_using_backint: False
         * catalog_backup_using_backint:False
 3. A continuación, haga una copia de seguridad completa a petición de la base de datos
 4. e invierta los pasos. Para la misma base de referencia pertinente mencionada anteriormente,
-    1. vuelva a habilitar los parámetros de BackInt
+    1. Vuelva a habilitar los parámetros de Backint:
         1. catalog_backup_using_backint:True
         1. log_backup_using_backint: True
         1. enable_auto_log_backup: Sí
 
 ### <a name="manage-or-clean-up-the-hana-catalog-for-a-database-with-azure-backup-enabled"></a>Administre o limpie el catálogo de HANA para una base de datos con Azure Backup habilitado
 
-Si desea editar o limpiar el catálogo de copias de seguridad, haga lo siguiente:
+Si quiere editar o limpiar el catálogo de copias de seguridad, siga estos pasos:
 
 1. Espere a que finalicen las copias de seguridad completas o de registro de la base de datos. Compruebe el estado en SAP HANA Studio o Cockpit.
-2. para la base de datos pertinente
+2. Para la base de datos pertinente:
     1. Anule los parámetros de BackInt. Para ello, haga doble clic en **systemdb** > **Configuración** > **Seleccionar base de datos** > **Filtro (registro)** .
         * enable_auto_log_backup: No
         * log_backup_using_backint: False
         * catalog_backup_using_backint:False
 3. Edite el catálogo y quite las entradas anteriores
 4. e invierta los pasos. Para la misma base de referencia pertinente mencionada anteriormente,
-    1. vuelva a habilitar los parámetros de BackInt
+    1. Vuelva a habilitar los parámetros de Backint
         1. catalog_backup_using_backint:True
         1. log_backup_using_backint: True
         1. enable_auto_log_backup: Sí
@@ -129,15 +132,13 @@ Si desea editar o limpiar el catálogo de copias de seguridad, haga lo siguiente
 
 Puede cambiar la directiva subyacente para un elemento de copia de seguridad de SAP HANA.
 
-* En el panel del almacén, vaya a **Elementos de copia de seguridad**:
+En el panel del  **Centro de copias de seguridad**, vaya a **Instancias de Backup**:
 
-  ![Selección de elementos de copia de seguridad](./media/sap-hana-db-manage/backup-items.png)
+* Elija **SAP HANA en Azure VM** como tipo de origen de datos.
 
-* Elija **SAP HANA en Azure VM**.
+  :::image type="content" source="./media/sap-hana-db-manage/hana-backup-instances-inline.png" alt-text="Captura de pantalla en la que se muestra la elección de SAP HANA en Azure VM." lightbox="./media/sap-hana-db-manage/hana-backup-instances-expanded.png":::
 
-  ![Elección de SAP HANA en Azure VM](./media/sap-hana-db-manage/sap-hana-in-azure-vm.png)
-
-* Elija el elemento de copia de seguridad cuya directiva subyacente desea cambiar.
+* Elija el elemento de copia de seguridad cuya directiva subyacente quiera cambiar.
 * Seleccione la directiva de copia de seguridad existente.
 
   ![Selección de la directiva de copia de seguridad existente](./media/sap-hana-db-manage/existing-backup-policy.png)
@@ -162,9 +163,9 @@ Modifique la directiva para cambiar los tipos, las frecuencias o la duración de
 >[!NOTE]
 >Cualquier cambio en el período de retención se aplicará con efectos retroactivos a todos los puntos de recuperación anteriores, además de a los nuevos.
 
-1. En el panel del almacén, vaya a **Administrar > Directivas de copia de seguridad** y elija la directiva que desea editar.
+1. En el panel del **Centro de copias de seguridad**, vaya a **Directivas de copia de seguridad** y elija la directiva que quiera editar.
 
-   ![Selección de la directiva que editar](./media/sap-hana-db-manage/manage-backup-policies.png)
+   :::image type="content" source="./media/sap-hana-db-manage/backup-center-policies-inline.png" alt-text="Captura de pantalla en la que se muestra cómo elegir la directiva que se va a editar." lightbox="./media/sap-hana-db-manage/backup-center-policies-expanded.png":::
 
 1. Seleccione **Modificar**.
 
@@ -201,24 +202,22 @@ Si decide dejar los puntos de recuperación, tenga en cuenta estos detalles:
 
 Para detener la protección de una base de datos:
 
-* En el panel del almacén, seleccione **Elementos de copia de seguridad**.
-* En **Tipo de administración de copias de seguridad**, seleccione **SAP HANA en la VM de Azure**.
+1. En el panel del  **Centro de copias de seguridad**, seleccione **Instancias de Backup**.
+1. Seleccione **SAP HANA en Azure VM** como tipo de origen de datos.
 
-  ![Selección de SAP HANA en la VM de Azure](./media/sap-hana-db-manage/sap-hana-azure-vm.png)
+   :::image type="content" source="./media/sap-hana-db-manage/hana-backup-instances-inline.png" alt-text="Captura de pantalla en la que se muestra la elección de SAP HANA en Azure VM." lightbox="./media/sap-hana-db-manage/hana-backup-instances-expanded.png":::
 
-* Seleccione la base de datos para la que quiere detener la protección:
+1. Seleccione la base de datos para la que quiere detener la protección.
 
-  ![Seleccionar la base de datos en la que detener la protección](./media/sap-hana-db-manage/select-database.png)
+1. En el menú de la base de datos, seleccione **Detener copia de seguridad**.
 
-* En el menú de la base de datos, seleccione **Detener copia de seguridad**.
+   :::image type="content" source="./media/sap-hana-db-manage/stop-backup.png" alt-text="Captura de pantalla en la que se muestra la selección de Detener copia de seguridad.":::
 
-  ![Seleccionar Detener copia de seguridad](./media/sap-hana-db-manage/stop-backup.png)
+1. En el menú **Detener copia de seguridad**, seleccione si quiere conservar los datos o eliminarlos. También puede proporcionar una razón y un comentario.
 
-* En el menú **Detener copia de seguridad**, seleccione si desea conservar o eliminar los datos. También puede proporcionar una razón y un comentario.
+   :::image type="content" source="./media/sap-hana-db-manage/retain-backup-data.png" alt-text="Captura de pantalla en la que se muestra la selección de conservar o eliminar los datos.":::
 
-  ![Seleccionar Conservar o eliminar datos](./media/sap-hana-db-manage/retain-backup-data.png)
-
-* Seleccione **Detener copia de seguridad**.
+1. Seleccione **Detener copia de seguridad**.
 
 ### <a name="resume-protection-for-an-sap-hana-database"></a>Reanudación de la protección para una base de datos de SAP HANA
 

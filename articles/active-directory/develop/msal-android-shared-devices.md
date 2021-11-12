@@ -13,12 +13,12 @@ ms.date: 09/30/2021
 ms.author: marsma
 ms.reviewer: brandwe
 ms.custom: aaddev, identitypla | Azuretformtop40
-ms.openlocfilehash: 3a1539f80556afa9a3dbeb73edcd4d38380db33a
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: fa55cf74ce8dc1de2782d748e770d7770057ab33
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129357659"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227704"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Modo de dispositivo compartido para dispositivos Android
 
@@ -93,6 +93,12 @@ Si va a escribir una aplicación que solo van a usar los trabajadores de primera
 
 Si la aplicación se ejecuta en el modo de varias cuentas y un administrador coloca el dispositivo en el modo de dispositivo compartido, todas las cuentas del dispositivo se borrarán de la aplicación y esta pasará al modo de una sola cuenta.
 
+## <a name="microsoft-applications-that-support-shared-device-mode"></a>Aplicaciones de Microsoft que admiten el modo de dispositivo compartido
+
+Estas aplicaciones de Microsoft admiten el modo de dispositivo compartido de Azure AD:
+
+* [Microsoft Teams](/microsoftteams/platform/)
+* Aplicación [Microsoft Managed Home Screen](/mem/intune/apps/app-configuration-managed-home-screen-app) para Android Enterprise
 ## <a name="shared-device-sign-out-and-the-overall-app-lifecycle"></a>Cierre de sesión del dispositivo compartido y el ciclo de vida de la aplicación general
 
 Cuando un usuario cierre la sesión, deberá tomar medidas para proteger la privacidad y los datos del usuario. Por ejemplo, si va a crear una aplicación de historias clínicas, querrá asegurarse de que cuando el usuario cierra la sesión, las historias de pacientes mostradas anteriormente se borran. La aplicación debe estar preparada para la privacidad de datos y comprobarse cada vez que entra en primer plano.

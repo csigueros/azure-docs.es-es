@@ -1,21 +1,21 @@
 ---
 title: Creación y carga de un VHD de Red Hat Enterprise Linux para su uso en Azure
 description: Aprenda a crear y cargar un disco duro virtual (VHD) de Azure que contiene un sistema operativo Red Hat Linux.
-author: danielsollondon
+author: srijang
 ms.service: virtual-machines
 ms.subservice: redhat
 ms.collection: linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
-ms.date: 12/01/2020
-ms.author: danis
-ms.openlocfilehash: 24cccbbd1bed0fc4e1fbe357832095455dae7df8
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.date: 11/10/2021
+ms.author: srijangupta
+ms.openlocfilehash: 11a7931126d451b2fbeff301a337f15fd6aecbf3
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123219994"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132301236"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Preparación de una máquina virtual basada en Red Hat para Azure
 
@@ -349,12 +349,13 @@ En esta sección, se supone que ya obtuvo un archivo ISO en el sitio web de Red 
     Ejecute los comandos siguientes para desaprovisionar la máquina virtual y prepararla para aprovisionarse en Azure:
 
     > [!CAUTION]
-    > Si va a migrar una máquina virtual concreta y no desea crear una imagen generalizada, omita el paso de desaprovisionamiento. Al ejecutar el comando `waagent -force -deprovision`, la máquina de origen no se podrá usar; este paso está pensado únicamente para crear una imagen generalizada.
+    > Si va a migrar una máquina virtual concreta y no desea crear una imagen generalizada, omita el paso de desaprovisionamiento. Al ejecutar el comando `waagent -force -deprovision+user`, la máquina de origen no se podrá usar; este paso está pensado únicamente para crear una imagen generalizada.
     ```console
-    # sudo waagent -force -deprovision
-
+    # sudo rm -f /var/log/waagent.log
+    # sudo cloud-init clean
+    # waagent -force -deprovision+user
+    # rm -f ~/.bash_history
     # export HISTSIZE=0
-
     # logout
     ```
     
@@ -536,14 +537,15 @@ En esta sección, se supone que ya obtuvo un archivo ISO en el sitio web de Red 
     Ejecute los comandos siguientes para desaprovisionar la máquina virtual y prepararla para aprovisionarse en Azure:
 
     ```console
-    # sudo waagent -force -deprovision
-
+    # sudo cloud-init clean
+    # waagent -force -deprovision+user
+    # rm -f ~/.bash_history
+    # sudo rm -f /var/log/waagent.log
     # export HISTSIZE=0
-
     # logout
     ```
     > [!CAUTION]
-    > Si va a migrar una máquina virtual concreta y no desea crear una imagen generalizada, omita el paso de desaprovisionamiento. Al ejecutar el comando `waagent -force -deprovision`, la máquina de origen no se podrá usar; este paso está pensado únicamente para crear una imagen generalizada.
+    > Si va a migrar una máquina virtual concreta y no desea crear una imagen generalizada, omita el paso de desaprovisionamiento. Al ejecutar el comando `waagent -force -deprovision+user`, la máquina de origen no se podrá usar; este paso está pensado únicamente para crear una imagen generalizada.
 
 
 1. Haga clic en **Acción**  >  **Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.

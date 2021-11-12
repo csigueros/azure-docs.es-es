@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 10/15/2021
 ms.author: barclayn
-ms.openlocfilehash: e25ebb85071b6d0af2696083afda45a453c5841a
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: b1dbdf7f7798458ec3ea3a7487f69a9dee244dda
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130131037"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131474295"
 ---
 # <a name="managed-identity-best-practice-recommendations"></a>Procedimientos recomendados para identidades administradas
 
@@ -42,7 +42,7 @@ Si necesita que cada recurso tenga su propia identidad o tiene recursos que requ
 
 | Escenario| Recomendación|Notas|
 |---|---|---|
-| Creación rápida de recursos (por ejemplo, informática efímera) con identidades administradas |  Identidad asignada por el usuario | Si intenta crear varias identidades administradas en un breve espacio de tiempo (por ejemplo, la implementación de varias máquinas virtuales cada una con su propia identidad asignada por el sistema), puede que supere el límite de velocidad para las creaciones de objetos de Azure Active Directory y se producirá un error HTTP 429 en la solicitud. <br/><br/>Si los recursos se crean o eliminan rápidamente, también puede que supere el límite en el número de recursos de Azure Active Directory si se usan identidades asignadas por el sistema. Aunque un recurso ya no pueda acceder a una identidad asignada por el sistema eliminada, seguirá contando de cara al límite hasta que se purgue completamente después de 30 días.<br/><br/>La implementación de los recursos asociados a una única identidad asignada por el usuario requerirá la creación de una sola entidad de servicio en Azure Active Directory, lo que evitará el límite de velocidad. El uso de una identidad única creada de antemano también reducirá el riesgo de retrasos en la replicación que podrían producirse si se crean varios recursos cada uno con su propia identidad.<br/><br/>Obtenga más información sobre los [límites del servicio de suscripción de Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md#managed-identity-limits). |
+| Creación rápida de recursos (por ejemplo, informática efímera) con identidades administradas |  Identidad asignada por el usuario | Si intenta crear varias identidades administradas en un breve espacio de tiempo (por ejemplo, la implementación de varias máquinas virtuales cada una con su propia identidad asignada por el sistema), puede que supere el límite de velocidad para las creaciones de objetos de Azure Active Directory y se producirá un error HTTP 429 en la solicitud. <br/><br/>Si los recursos se crean o eliminan rápidamente, también puede que supere el límite en el número de recursos de Azure Active Directory si se usan identidades asignadas por el sistema. Aunque un recurso ya no pueda acceder a una identidad asignada por el sistema eliminada, seguirá contando de cara al límite hasta que se purgue completamente después de 30 días.<br/><br/>La implementación de los recursos asociados a una única identidad asignada por el usuario requerirá la creación de una sola entidad de servicio en Azure Active Directory, lo que evitará el límite de velocidad. El uso de una identidad única creada de antemano también reducirá el riesgo de retrasos en la replicación que podrían producirse si se crean varios recursos cada uno con su propia identidad.<br/><br/>Obtenga más información sobre los [límites del servicio de suscripción de Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md#managed-identity-limits). |
 | Recursos y aplicaciones replicados | Identidad asignada por el usuario  |  Los recursos que llevan a cabo la misma tarea (por ejemplo, servidores web duplicados o una funcionalidad idéntica que se ejecuta en un servicio de aplicaciones y en una aplicación en una máquina virtual) normalmente requieren los mismos permisos. <br/><br/>Al usar la misma identidad asignada por el usuario, se requieren menos asignaciones de roles, lo que reduce la sobrecarga administrativa. Los recursos no tienen que ser del mismo tipo. 
 |Cumplimiento normativo| Identidad asignada por el usuario  | Si su organización requiere que toda la creación de identidades pase por un proceso de aprobación, el uso de una única identidad asignada por el usuario en varios recursos requerirá menos aprobaciones que en el caso de las identidades asignadas por el sistema, que se crean a medida que se crean nuevos recursos. |
 Acceso necesario antes de implementar un recurso |Identidad asignada por el usuario| Algunos recursos pueden requerir acceso a determinados recursos de Azure como parte de su implementación.<br/><br/>En este caso, es posible que no se cree una identidad asignada por el sistema a tiempo, por lo que se debe usar una identidad asignada por el usuario que ya exista.|

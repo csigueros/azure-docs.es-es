@@ -2,13 +2,13 @@
 title: Dependencias de Linux de microagentes (versión preliminar)
 description: En este artículo se describen las distintas dependencias del sistema operativo Linux para el microagente de Defender para IoT.
 ms.topic: conceptual
-ms.date: 08/26/2021
-ms.openlocfilehash: 102cf31dbe19c068de344f1f7f294a6f3f0a722b
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.date: 11/09/2021
+ms.openlocfilehash: 9fa1d53481e5e7f3b775855e54a0387fc04518ba
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122967564"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132284120"
 ---
 # <a name="micro-agent-linux-dependencies-preview"></a>Dependencias de Linux de microagentes (versión preliminar)
 

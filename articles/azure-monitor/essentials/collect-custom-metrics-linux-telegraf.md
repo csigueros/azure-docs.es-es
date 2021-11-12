@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
-ms.openlocfilehash: 336f7ff589cdc9b2df3f8e447294719869ca0c2f
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 2d30630e9c860f3a6cb5ea7808822f1c1ac850ab
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122445234"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132290578"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Recopilación de métricas personalizadas para una máquina virtual Linux con el agente de InfluxData Telegraf
 
@@ -26,40 +26,7 @@ Mediante Azure Monitor, puede recopilar métricas personalizadas a través de lo
 > [!NOTE]  
 > Las métricas personalizadas no se admiten en todas las regiones. Las regiones admitidas se enumeran [aquí](./metrics-custom-overview.md#supported-regions).
 
-## <a name="send-custom-metrics"></a>Envío de métricas personalizadas 
 
-En este tutorial, implementamos una máquina virtual Linux que ejecuta el sistema operativo Ubuntu 18.04 LTS. El agente de Telegraf es compatible con la mayoría de los sistemas operativos Linux. En el [portal de descarga de InfluxData](https://portal.influxdata.com/downloads) están disponibles los paquetes Debian y RPM, además de los archivos binarios de Linux sin empaquetar. Consulte esta [guía de instalación de Telegraf](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/) para conocer instrucciones y opciones de instalación adicionales. 
-
-Inicie sesión en [Azure Portal](https://portal.azure.com).
-
-> [!NOTE]  
-> Si quiere migrar reglas de alertas clásicas y usar una máquina virtual de Linux existente, asegúrese de que la máquina virtual tenga establecida una identidad asignada por el sistema en **Activado**.
-
-Cree una nueva máquina virtual Linux: 
-
-1. Seleccione la opción **Crear un recurso** en el panel de navegación izquierdo. 
-1. Busque **Máquina virtual**.  
-1. Seleccione **Ubuntu 18.04 LTS** y seleccione **Crear**. 
-1. Especifique un nombre de máquina virtual como **MyTelegrafVM**.  
-1. Deje el tipo de disco como **SSD**. A continuación, proporcione un **Nombre de usuario**, por ejemplo, **usuarioAzure**. 
-1. En **Tipo de autenticación**, seleccione **Contraseña**. A continuación, escriba una contraseña que utilizará más adelante para conectarse mediante SSH a la máquina virtual. 
-1. Elija **Crear nuevo grupo de recursos**. A continuación, indique un nombre, como **miGrupoDeRecursos**. Elija su **Ubicación**. Después, seleccione **Aceptar**. 
-
-    ![Creación de una máquina virtual de Ubuntu](./media/collect-custom-metrics-linux-telegraf/create-vm.png)
-
-1. Seleccione un tamaño para la máquina virtual. Puede filtrar por **Tipo de proceso** o **Tipo de disco**, por ejemplo. 
-
-    ![Información general del tamaño de máquina virtual en el agente de Telegraf](./media/collect-custom-metrics-linux-telegraf/vm-size.png)
-
-1. En la página **Configuración**, en **Red** > **Grupo de seguridad de red** > **Seleccionar puertos de entrada públicos**, seleccione **HTTP** y **SSH (22)** . Deje el resto de valores predeterminados y seleccione **Aceptar**. 
-
-1. En la página de resumen, seleccione **Crear** para iniciar la implementación de la máquina virtual. 
-
-1. La máquina virtual se ancla al panel de Azure Portal. Una vez completada la implementación, se abrirá automáticamente el resumen de la máquina virtual. 
-
-1. En el panel de la máquina virtual, vaya a la pestaña **Identidad**. Asegúrese de que la máquina virtual tiene una identidad asignada por el sistema establecida en **Activada**. 
- 
-    ![Vista previa de la identidad de la máquina virtual de Telegraf](./media/collect-custom-metrics-linux-telegraf/connect-to-VM.png)
  
 ## <a name="connect-to-the-vm"></a>Conexión a la máquina virtual 
 

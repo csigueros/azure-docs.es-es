@@ -7,34 +7,37 @@ ms.service: mysql
 ms.custom: mvc, references_regions
 ms.topic: overview
 ms.date: 08/10/2021
-ms.openlocfilehash: 863281f85eac1d467e7935f47a90aacf1b3134dd
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: 13d220dc0b168ade0bd6493025d858e01772a980
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129153451"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131893963"
 ---
-# <a name="azure-database-for-mysql---flexible-server-preview"></a>Servidor flexible (versión preliminar) de Azure Database for MySQL
+# <a name="azure-database-for-mysql---flexible-server"></a>Azure Database for MySQL con la opción Servidor flexible 
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 
 Azure Database for MySQL, con tecnología de MySQL Community Edition, está disponible en dos modos de implementación:
 
+- Servidor flexible
 - Servidor único
-- Servidor flexible (versión preliminar)
 
 En este artículo proporcionaremos información general y una introducción a los conceptos básicos del modelo de implementación del servidor flexible. Para información sobre cómo decidir qué opción de implementación es adecuada para la carga de trabajo, consulte [Elección de la opción correcta de Servidor MySQL en Azure](./../select-right-deployment-type.md).
 
 ## <a name="overview"></a>Información general
 
-Servidor flexible de Azure Database for MySQL es un servicio de base de datos totalmente administrado diseñado para proporcionar un control más granular y una mayor flexibilidad sobre las funciones de administración de bases de datos y las opciones de configuración. En general, el servicio proporciona mayor flexibilidad y personalizaciones de la configuración del servidor en función de los requisitos del usuario. La arquitectura de servidor flexible permite a los usuarios optar por la alta disponibilidad dentro de una única zona de disponibilidad o entre varias. Los servidores flexibles también proporcionan mejores controles de optimización de costos con la capacidad de iniciar o detener el servidor, y SKU ampliables, idóneas para cargas de trabajo que no necesitan una capacidad de proceso completa de forma continuada. El servicio admite actualmente la versiones de la comunidad de MySQL 5.7 y 8.0. El servicio está disponible actualmente en versión preliminar en muchas [regiones de Azure](https://azure.microsoft.com/global-infrastructure/services/).
+Servidor flexible de Azure Database for MySQL es un servicio de base de datos totalmente administrado y listo para la producción diseñado para lograr un control más pormenorizado y una mayor flexibilidad de las funciones de administración de bases de datos y las opciones de configuración. La arquitectura de servidor flexible permite a los usuarios optar por la alta disponibilidad dentro de una única zona de disponibilidad o entre varias. Los servidores flexibles proporcionan mejores controles de optimización de costos con la capacidad de iniciar o detener el servidor y niveles de proceso flexibles, que son idóneos para cargas de trabajo que no necesitan una capacidad de proceso completa de forma continua. El servidor flexible también admite instancias reservadas, de modo que se puede ahorrar hasta un 63 % del coste, lo que resulta ideal para las cargas de trabajo de producción con requisitos de capacidad de proceso predecibles. El servicio es compatible con la versión Community de MySQL 5.7 y 8.0. El servicio está disponible con carácter general hoy en muchas [regiones de Azure](overview.md#azure-regions).
 
-Los servidores flexibles son idóneos para:
+La opción de implementación de servidor flexible ofrece tres niveles de proceso: ampliable, de uso general y optimizado para memoria. Cada nivel ofrece una capacidad de proceso y de memoria diferente para admitir las cargas de trabajo de base de datos. Puede compilar su primera aplicación en un nivel ampliable por poco dinero al mes y, después, ajustar la escala para satisfacer las necesidades de la solución. La escalabilidad dinámica permite a la base de datos responder de manera transparente a los cambiantes requisitos de recursos. Solo paga por los recursos que necesite y cuando los necesite. Consulte [Proceso y almacenamiento](concepts-compute-storage.md) para obtener más información.
 
-- Desarrollo de aplicaciones que requieren un control mejorado y personalizaciones.
-- Alta disponibilidad con redundancia de zona
-- Ventanas de mantenimiento administradas
+Los servidores flexibles son idóneos para lo siguiente:
+- Facilidad de las implementaciones, escalado simplificado y baja sobrecarga de administración de bases de datos para funciones como copias de seguridad, alta disponibilidad, seguridad y supervisión
+- Desarrollos de aplicaciones que requieren la versión de la comunidad de MySQL con un mejor control y personalizaciones
+- Cargas de trabajo de producción con ventanas de mantenimiento administradas y de alta disponibilidad con redundancia de zona y en la misma zona
+- Experiencia de desarrollo simplificada 
+- Seguridad, cumplimiento y privacidad empresarial
 
 Para obtener las actualizaciones más recientes en servidor flexible, consulte [Novedades de Azure Database for MySQL: servidor flexible](whats-new.md).
 
@@ -50,7 +53,7 @@ Puede aprovechar esta oferta para desarrollar e implementar aplicaciones que use
 
 ## <a name="high-availability-within-and-across-availability-zones"></a>Alta disponibilidad dentro y entre zonas de disponibilidad
 
-Servidor flexible de Azure Database for MySQL (versión preliminar) permite configurar la alta disponibilidad con conmutación automática por error. La solución de alta disponibilidad está diseñada para garantizar que los datos confirmados nunca se pierdan debido a errores y mejorar el tiempo de actividad general de la aplicación.Cuando se configura la alta disponibilidad, el servidor flexible aprovisiona y administra automáticamente una réplica en espera. Hay dos modelos arquitectónicos de alta disponibilidad: 
+Servidor flexible de Azure Database for MySQL permite configurar la alta disponibilidad con conmutación automática por error. La solución de alta disponibilidad está diseñada para garantizar que los datos confirmados nunca se pierdan debido a errores y mejorar el tiempo de actividad general de la aplicación.Cuando se configura la alta disponibilidad, el servidor flexible aprovisiona y administra automáticamente una réplica en espera. Hay dos modelos arquitectónicos de alta disponibilidad: 
 
 - **Alta disponibilidad con redundancia de zona**: esta opción es preferible para lograr el aislamiento completo y la redundancia de la infraestructura en varias zonas de disponibilidad. Proporciona el máximo nivel de disponibilidad, pero exige configurar la redundancia de aplicaciones entre zonas. La alta disponibilidad con redundancia de zona es preferible cuando se quiere lograr el máximo nivel de disponibilidad frente a cualquier error de infraestructura en la zona de disponibilidad y donde la latencia en la zona de disponibilidad sea aceptable. La alta disponibilidad con redundancia de zona está disponible en un  [subconjunto de regiones de Azure](overview.md#azure-regions)  en el que la región admite varias zonas de disponibilidad y en la que hay disponibles recurso compartido de archivos Prémium con redundancia de zona. 
 
@@ -64,13 +67,13 @@ Para más información, consulte los [conceptos sobre la alta disponibilidad](co
 
 ## <a name="automated-patching-with-managed-maintenance-window"></a>Aplicación de revisiones automatizada con la ventana de mantenimiento administrado
 
-El servicio aplica automáticamente revisiones al hardware, sistema operativo y motor de base de datos subyacentes. La aplicación de revisión incluye actualizaciones de seguridad y software. En el motor de MySQL, las actualizaciones de versión secundaria también se incluyen como parte de la versión de mantenimiento planeado. Los usuarios pueden configurar la programación de la aplicación de revisión para que la administre el sistema o definir su programación personalizada. Durante la programación de mantenimiento, se aplica la revisión y es posible que el servidor requiera un reinicio como parte del proceso de aplicación de revisiones para completar la actualización. Con la programación personalizada, los usuarios pueden hacer que el ciclo de aplicación de revisiones sea predecible y elegir una ventana de mantenimiento con un impacto mínimo en el negocio. En general, el servicio sigue una programación mensual de versiones como parte de la integración y publicación continuas.
+El servicio aplica automáticamente revisiones al hardware, sistema operativo y motor de base de datos subyacentes. La revisión incluye actualizaciones de seguridad y software. En el motor de MySQL, las actualizaciones de versión secundaria también se incluyen como parte de la versión de mantenimiento planeado. Los usuarios pueden configurar la programación de la aplicación de revisión para que la administre el sistema o definir su programación personalizada. Durante la programación de mantenimiento, se aplica la revisión y es posible que el servidor requiera un reinicio como parte del proceso de aplicación de revisiones para completar la actualización. Con la programación personalizada, los usuarios pueden hacer que el ciclo de aplicación de revisiones sea predecible y elegir una ventana de mantenimiento con un impacto mínimo en el negocio. En general, el servicio sigue una programación mensual de versiones como parte de la integración y publicación continuas.
 
 Consulte [Mantenimiento programado](concepts-maintenance.md) para más detalles. 
 
 ## <a name="automatic-backups"></a>Copias de seguridad automáticas
 
-El servicio de servidor flexible crea automáticamente copias de seguridad del servidor y las almacena en el almacenamiento con redundancia local o con redundancia geográfica configurado por el usuario. Las copias de seguridad se pueden usar para restaurar el servidor a un momento dado dentro del período de retención de la copia de seguridad. El período de retención predeterminado es siete días. La retención se puede configurar para un total de 35 días. Todas las copias de seguridad se cifran mediante cifrado AES de 256 bits.
+El servicio de servidor flexible crea automáticamente copias de seguridad del servidor y las almacena en el almacenamiento con redundancia local o con redundancia geográfica configurado por el usuario. Las copias de seguridad se pueden usar para restaurar el servidor a un momento dado dentro del período de retención de la copia de seguridad. El período de retención predeterminado es siete días. La retención se puede configurar para un plazo de entre 1 y 35 días. Todas las copias de seguridad se cifran mediante cifrado AES de 256 bits.
 
 Consulte los [conceptos de copia de seguridad](concepts-backup-restore.md) para obtener más información.
 
@@ -118,11 +121,11 @@ Para más información, consulte los [conceptos sobre la replicación de los dat
 
 ## <a name="stopstart-server-to-optimize-cost"></a>Detención o inicio del servidor para optimizar el costo
 
-El servicio de servidor flexible le permite detener e iniciar el servidor a petición para optimizar los costos. La facturación del nivel de proceso se detiene inmediatamente al detener el servidor. De este modo puede lograr un importante ahorro en el costo durante el desarrollo, las pruebas y las cargas de trabajo de producción predecibles enlazadas con límites de tiempo. El servidor permanece en estado detenido durante siete días, a menos que se reinicie antes.
+El servicio de servidor flexible le permite detener e iniciar el servidor a petición para optimizar los costos. La facturación del nivel de proceso se detiene inmediatamente al detener el servidor. De este modo, puede lograr un importante ahorro en el costo durante el desarrollo, las pruebas y las cargas de trabajo de producción predecibles con límites de tiempo. El servidor permanece en estado detenido durante 30 días, a menos que se reinicie antes.
 
 Para más información, consulte los [conceptos sobre el servidor](concept-servers.md).
 
-## <a name="enterprise-grade-security-and-privacy"></a>Privacidad y seguridad de calidad empresarial
+## <a name="enterprise-grade-security-compliance-and-privacy"></a>Seguridad, cumplimiento y privacidad empresarial
 
 El servicio de servidor flexible usa el módulo criptográfico con validación FIPS 140-2 para el cifrado del almacenamiento de los datos en reposo. Se cifran los datos, incluidas las copias de seguridad, y los archivos temporales creados mientras se ejecutan las consultas. El servicio usa el cifrado AES de 256 bits que se incluye en el cifrado de Azure Storage y las claves las puede administrar el sistema (valor predeterminado).
 
@@ -136,7 +139,13 @@ Para más información, consulte [Conceptos de redes](concepts-networking.md).
 
 ## <a name="monitoring-and-alerting"></a>Supervisión y alertas
 
-El servicio de servidor flexible está equipado con características integradas de alertas y supervisión de rendimiento. Todas las métricas de Azure tienen una frecuencia de un minuto y cada métrica proporciona 30 días de historial. Puede configurar alertas en las métricas. El servicio expone las métricas del servidor host para supervisar el uso de los recursos y permite configurar registros de consultas lentas. Con estas herramientas, puede optimizar rápidamente sus cargas de trabajo y configurar el servidor para lograr el mejor rendimiento. Además, puede usarlas e integrarlas con herramientas de supervisión de la comunidad como [Percona Monitoring and Management con su servidor flexible de MySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/monitor-azure-database-for-mysql-using-percona-monitoring-and/ba-p/2568545). 
+El servicio de servidor flexible está equipado con características integradas de alertas y supervisión de rendimiento. Todas las métricas de Azure tienen una frecuencia de un minuto y cada métrica proporciona 30 días de historial. Puede configurar alertas en las métricas. El servicio expone las métricas del servidor host para supervisar el uso de los recursos y permite configurar registros de consultas lentas. Con estas herramientas, puede optimizar rápidamente sus cargas de trabajo y configurar el servidor para lograr el mejor rendimiento. Servidor flexible de Azure Database for MySQL permite visualizar los datos de los registros de auditoría y consultas lentas mediante libros de Azure Monitor. Con los libros se obtiene un lienzo flexible para analizar datos y crear informes visuales enriquecidos dentro de Azure Portal. Servidor flexible de Azure Database for MySQL proporciona tres plantillas de libro disponibles de forma predeterminada: Información general del servidor, [Auditoría](tutorial-configure-audit.md) e [Información de rendimiento de consultas](tutorial-query-performance-insights.md). El libro [Información de rendimiento de consultas](tutorial-query-performance-insights.md) está diseñado para ayudarle a dedicar menos tiempo a solucionar problemas de rendimiento de la base de datos, al proporcionar información como la siguiente:
+
+* Las N principales consultas de larga duración y sus tendencias.
+* Los detalles de la consulta: se puede ver el texto de la consulta, así como el historial de ejecución con el tiempo de consulta mínimo, máximo, promedio y la desviación estándar.
+* El uso de recursos (CPU, memoria y almacenamiento).
+
+Además, puede usarlas e integrarlas con herramientas de supervisión de la comunidad como [Percona Monitoring and Management con su servidor flexible de MySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/monitor-azure-database-for-mysql-using-percona-monitoring-and/ba-p/2568545). 
 
 Para más información, consulte los [conceptos sobre la supervisión](concepts-monitoring.md).
 
@@ -153,7 +162,7 @@ Use la replicación de datos de entrada con la copia de seguridad y restauració
 
 Para migrar de Azure Database for MySQL: servidor único a servidor flexible en cinco sencillos pasos sencillos, consulte [este blog](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/migrate-from-azure-database-for-mysql-single-server-to-flexible/ba-p/2674057).
 
-Para más información, consulte [Guía de migración para Azure Database for MySQL](../../mysql/migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md).
+Para obtener más información, consulte [Selección de las herramientas adecuadas para la migración a Azure Database for MySQL](../../mysql/how-to-decide-on-right-migration-tools.md).
 
 ## <a name="azure-regions"></a>Regiones de Azure
 
@@ -163,7 +172,7 @@ Una ventaja de ejecutar una carga de trabajo en Azure es su alcance global. El s
 | --- | --- | --- | --- |
 | Este de Australia | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Sudeste de Australia | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Sur de Brasil | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Sur de Brasil | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Centro de Canadá | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Este de Canadá | :heavy_check_mark: | :x: | :x: |
 | Centro de la India | :heavy_check_mark: | :heavy_check_mark: | :x: |
@@ -177,19 +186,22 @@ Una ventaja de ejecutar una carga de trabajo en Azure es su alcance global. El s
 | Japón Occidental | :heavy_check_mark: | :x: | :x: |
 | Centro de Corea del Sur | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Corea del Sur | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Centro-Norte de EE. UU | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Norte de Europa | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Centro-Norte de EE. UU | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Este de Noruega | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Sudeste de Asia | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Centro-sur de EE. UU. | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Norte de Sudáfrica | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Centro-sur de EE. UU. | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Sudeste de Asia | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Norte de Suiza | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Norte de Emiratos Árabes Unidos | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Sur de Reino Unido | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Oeste de Reino Unido | :heavy_check_mark: | :x: | :x: |
-| Norte de Emiratos Árabes Unidos | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Centro-Oeste de EE. UU. | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Oeste de Europa | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Oeste de EE. UU. | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Oeste de EE. UU. 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Oeste de Europa | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Centro-Oeste de EE. UU. | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Oeste de EE. UU. 3 | :heavy_check_mark: | :heavy_check_mark: | :x: |
 
 ## <a name="contacts"></a>Contactos
 
@@ -199,7 +211,7 @@ Además, tenga en cuenta los siguientes puntos de contacto según corresponda:
 
 - Para ponerse en contacto con el servicio de soporte técnico de Azure, [presente una incidencia de soporte técnico en Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - Para corregir un problema con la cuenta, envíe una [solicitud de soporte técnico](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) en Azure Portal.
-- Para proporcionar comentarios o solicitar nuevas características, cree una entrada mediante [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
+- Para proporcionar comentarios o solicitar nuevas características, cree una entrada mediante [UserVoice](https://feedback.azure.com/d365community/forum/47b1e71d-ee24-ec11-b6e6-000d3a4f0da0).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,12 +8,12 @@ metadata:
   ms.date: 02/19/2020
   ms.author: helohr
   manager: femila
-  ms.openlocfilehash: e6633e117fc06e9d7e337d6bece2cc2f7c36193c
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.openlocfilehash: 0546f6186fbf725e14a105b0d735db0b7ecef2cc
+  ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122253332"
+  ms.lasthandoff: 11/05/2021
+  ms.locfileid: "131841609"
 title: Preguntas frecuentes sobre la sesión múltiple de Windows 10 Enterprise
 summary: En este artículo se responden preguntas frecuentes y se explican procedimientos recomendados para la sesión múltiple de Windows 10 Enterprise.
 sections:
@@ -92,4 +92,6 @@ sections:
       5. Seleccione **Deshabilitado** y, después, **Aceptar**.
 
       6. Seleccione **Aplicar**.
+  - question: ¿Windows 10 o 11 Enterprise para sesiones múltiples pueden recibir actualizaciones de características a través Windows Server Update Services (WSUS)?
+    answer: "Actualmente, WSUS no puede proporcionar actualizaciones de características a Windows 10 ni 11 Enterprise para sesiones múltiples.\n         \n"
 additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n   \nPara más información sobre Azure Virtual Desktop y la sesión múltiple de Windows 10 Enterprise:\n        \n- Lea nuestra [documentación sobre Azure Virtual Desktop](overview.md).\n- Visite el espacio de [TechCommunity sobre Azure Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).\n- Configure la implementación de Azure Virtual Desktop con los [tutoriales de Azure Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).\n        \n"

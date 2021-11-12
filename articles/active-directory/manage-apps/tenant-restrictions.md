@@ -12,12 +12,12 @@ ms.date: 7/30/2021
 ms.author: davidmu
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b5cdbbe4955063d6a241949be14cd7dcd0af0a5
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 2838c6be64718669fb03b3a04dbbea41e5de8c19
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129997523"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131841835"
 ---
 # <a name="restrict-access-to-a-tenant-in-azure-active-directory"></a>Restringir el acceso a un inquilino en Azure Active Directory
 
@@ -78,7 +78,7 @@ Los encabezados deben incluir los siguientes elementos:
 
 - Para *Restrict-Access-To-Tenants* (Restringir acceso a inquilinos), use un valor de \<permitted tenant list\>, que es una lista separada por comas de los inquilinos a los que quiere que los usuarios puedan tener acceso. Se puede utilizar cualquier dominio que esté registrado en un inquilino para identificar al inquilino en esta lista, así como el identificador de directorio mismo. Para ver un ejemplo de las tres formas de describir un inquilino, el par de nombre-valor para permitir Contoso, Fabrikam y Microsoft tiene el siguiente aspecto: `Restrict-Access-To-Tenants: contoso.com,fabrikam.onmicrosoft.com,72f988bf-86f1-41af-91ab-2d7cd011db47`
 
-- Para *Restrict-Access-Context* (Contexto para restringir acceso), use un valor de un identificador de directorio único que declare qué inquilino está estableciendo restricciones de inquilino. Por ejemplo, para declarar Contoso como el inquilino que establece la directiva de restricciones de inquilino, el par nombre-valor puede ser algo así como: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`.  **Debe** usar su propio identificador de inquilino en este lugar para obtener registros de estas autenticaciones.
+- Para *Restrict-Access-Context* (Contexto para restringir acceso), use un valor de un identificador de directorio único que declare qué inquilino está estableciendo restricciones de inquilino. Por ejemplo, para declarar Contoso como el inquilino que establece la directiva de restricciones de inquilino, el par nombre-valor puede ser algo así como: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`. Aquí *debe* usar su propio identificador de directorio para obtener registros de estas autenticaciones. Si usa cualquier identificador de directorio que no sea el suyo propio, esos registros de inicio de sesión *aparecerán* en el inquilino de otra persona y se quitará toda la información personal. Para más información, consulte [Experiencia del administrador](#admin-experience).
 
 > [!TIP]
 > Puede encontrar el identificador de directorio en el [portal de Azure Active Directory](https://aad.portal.azure.com/). Inicie sesión como administrador, seleccione **Azure Active Directory** y luego seleccione **propiedades**.

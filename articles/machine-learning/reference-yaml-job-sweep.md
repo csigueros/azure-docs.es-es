@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Documentación de referencia del esquema YAML del trabajo de barrido de la CLI (v2).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: reference
 author: mx-iao
 ms.author: minxia
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: b0b82b36126e063c68c595736c1e0ea18260dd5f
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 90a69fceb96067ad92cc4d68f8b3e0929d2622a6
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131560176"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132135110"
 ---
 # <a name="cli-v2-sweep-job-yaml-schema"></a>Esquema YAML del trabajo de barrido de la CLI (v2)
 
@@ -207,11 +207,11 @@ Hay ejemplos disponibles en el [repositorio de GitHub de ejemplos](https://githu
 
 ## <a name="yaml-hello-sweep"></a>YAML: hello sweep
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-sweep.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-sweep.yml":::
 
 ## <a name="yaml-basic-python-model-hyperparameter-tuning"></a>YAML: ajuste básico de hiperparámetros del modelo de Python
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/scikit-learn/iris/job-sweep.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/scikit-learn/iris/job-sweep.yml":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

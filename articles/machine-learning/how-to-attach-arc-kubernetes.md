@@ -1,6 +1,6 @@
 ---
 title: Aprendizaje automático habilitado para Azure Arc (versión preliminar)
-description: Configuración de un clúster de Kubernetes habilitado para Azure Arc para el entrenamiento y la inferencia de modelos de aprendizaje automático en Azure Machine Learning
+description: Configuración de Azure Kubernetes Service y clústeres de Kubernetes habilitados para Azure Arc para el entrenamiento y la inferencia de modelos de Machine Learning en Azure Machine Learning
 titleSuffix: Azure Machine Learning
 author: luisquintanilla
 ms.author: luquinta
@@ -9,22 +9,30 @@ ms.subservice: mlops
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 5e9d95f863e5107a71118da9fdc9b0c5329acbb0
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: c4c2867382ffd3c3369417b0e83fb89bc6dd6561
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131084676"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131460951"
 ---
-# <a name="configure-azure-arc-enabled-machine-learning-preview"></a>Configuración del aprendizaje automático habilitado para Azure Arc (versión preliminar)
+# <a name="configure-kubernetes-clusters-for-machine-learning-preview"></a>Configuración de clústeres de Kubernetes para el aprendizaje automático (versión preliminar)
 
-Aprenda a configurar el aprendizaje automático habilitado para Azure Arc para el entrenamiento y la inferencia.
+Aprenda a configurar Azure Kubernetes Service (AKS) y clústeres de Kubernetes habilitados para Azure Arc para el entrenamiento y la inferencia de cargas de trabajo de aprendizaje automático.
 
 ## <a name="what-is-azure-arc-enabled-machine-learning"></a>¿Qué es el aprendizaje automático habilitado para Azure Arc?
 
 Azure Arc permite ejecutar servicios de Azure en cualquier entorno de Kubernetes, ya sea local, en varias nubes o en el perímetro.
 
-El aprendizaje automático habilitado para Azure Arc le permite configurar y usar clústeres de Kubernetes habilitados para Azure Arc para el entrenamiento, la inferencia y la administración de modelos de aprendizaje automático en Azure Machine Learning.
+El aprendizaje automático habilitado para Azure Arc permite configurar y usar Azure Kubernetes Service o clústeres de Kubernetes habilitados para Azure Arc para el entrenamiento, la inferencia y la administración de modelos de Machine Learning en Azure Machine Learning.
+
+## <a name="machine-learning-on-azure-kubernetes-service"></a>Machine Learning en Azure Kubernetes Service
+
+Para usar clústeres de Azure Kubernetes Service para cargas de trabajo de entrenamiento e inferencia de Azure Machine Learning, no tiene que conectarlos a Azure Arc.
+
+Tendrá que configurar el tráfico de red entrante y saliente. Para más información, vea [Configuración del tráfico de red de entrada y salida (AKS)](how-to-access-azureml-behind-firewall.md#azure-kubernetes-services-1).
+
+Para implementar la extensión Azure Machine Learning en clústeres de Azure Kubernetes Service, vea la sección [Implementación de la extensión Azure Machine Learning](#deploy-azure-machine-learning-extension).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -32,15 +40,18 @@ El aprendizaje automático habilitado para Azure Arc le permite configurar y usa
 * Clúster de Kubernetes habilitado para Azure Arc. Para más información, consulte [Inicio rápido: conexión de un clúster de Kubernetes existente a Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md).
 
     > [!NOTE]
-    > Para los clústeres de Azure Kubernetes Service (AKS), la conexión a Azure Arc es **opcional**.
+    > Para los clústeres de AKS, la conexión a Azure Arc es **opcional**.
+
+* Debe cumplir los [requisitos de red de Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli#meet-network-requirements).
+
+    > [!IMPORTANT]
+    > Los clústeres que se ejecutan detrás de un servidor proxy o firewall de salida necesitan configuraciones de red adicionales.
+    >
+    > Para más información, vea [Configuración del tráfico de red de entrada y salida (Kubernetes habilitado para Azure Arc)](how-to-access-azureml-behind-firewall.md#arc-kubernetes).
 
 * Cumpla los [requisitos previos de las extensiones de clústeres de Kubernetes habilitados para Azure Arc](../azure-arc/kubernetes/extensions.md#prerequisites).
   * CLI de Azure versión 2.24.0 o posterior
   * Versión de la extensión k8s-extension de la CLI de Azure >= 1.0.0
-* Debe cumplir los [requisitos de red de Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli#meet-network-requirements).
-
-    > [!IMPORTANT]
-    > Los clústeres que se ejecutan detrás de un servidor proxy o firewall de salida necesitan configuraciones de red adicionales. Para obtener más información, consulte [Configuración del tráfico de red de entrada y salida](how-to-access-azureml-behind-firewall.md#arc-kubernetes).
 
 * Un área de trabajo de Azure Machine Learning. [Cree un área de trabajo](how-to-manage-workspace.md?tabs=python) antes de empezar si no la tiene todavía.
   * SDK de Azure Machine Learning para Python 1.30 o posterior
@@ -84,7 +95,7 @@ Kubernetes habilitado para Azure Arc tiene una funcionalidad de extensión de cl
 Use el comando [`create`](/cli/azure/k8s-extension?view=azure-cli-latest&preserve-view=true) de la extensión `k8s-extension` de la CLI de Azure para implementar la extensión de Azure Machine Learning en el clúster de Kubernetes habilitado para Azure Arc.
 
 > [!IMPORTANT]
-> Establezca el parámetro `--cluster-type` en `managedCluster` para implementar la extensión de Azure Machine Learning en clústeres de AKS.
+> Establezca el parámetro `--cluster-type` en `managedClusters` para implementar la extensión de Azure Machine Learning en clústeres de AKS.
 
 A continuación, se muestra la lista de opciones de configuración disponibles para su uso en diferentes escenarios de implementación de extensiones de Azure Machine Learning.
 

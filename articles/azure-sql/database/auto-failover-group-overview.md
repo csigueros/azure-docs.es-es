@@ -11,12 +11,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: mathoma
 ms.date: 10/25/2021
-ms.openlocfilehash: 8977af3468ce861efb9a2e97048b681c2b41d76d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 2d4aa937a29170ff1ebabc9b1e0bbe316b526189
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131069546"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131894134"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-geo-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error geográfica de varias bases de datos de manera transparente y coordinada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -172,7 +172,7 @@ Se pueden crear uno o más grupos de conmutación por error entre dos servidores
   
 ### <a name="use-the-read-write-listener-to-connect-to-primary"></a><a name="using-read-write-listener-for-oltp-workload"></a> Uso del cliente de escucha de lectura y escritura para conectarse a la principal
 
-Para cargas de trabajo de lectura y escritura, use `<fog-name>.database.windows.net` como nombre del servidor en la cadena de conexión. Las conexiones se dirigirán automáticamente a la principal. Este nombre no cambia después de la conmutación por error. Tenga en cuenta que la conmutación por error implica actualizar el registro DNS para que las conexiones de cliente se redirijan a la nueva base de datos principal cuando la caché DNS del cliente se haya actualizado.
+Para cargas de trabajo de lectura y escritura, use `<fog-name>.database.windows.net` como nombre del servidor en la cadena de conexión. Las conexiones se dirigirán automáticamente a la principal. Este nombre no cambia después de la conmutación por error. Tenga en cuenta que la conmutación por error implica actualizar el registro DNS para que las conexiones de cliente se redirijan a la nueva base de datos principal cuando la caché DNS del cliente se haya actualizado. El período de vida (TTL) del registro DNS del agente de escucha principal y secundario es de 30 segundos.
 
 ### <a name="use-the-read-only-listener-to-connect-to-geo-secondary"></a><a name="using-read-only-listener-for-read-only-workload"></a> Uso del cliente de escucha de solo lectura para conectarse a la base de datos secundaria geográfica
 

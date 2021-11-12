@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 4135bfe528c33a2beaeb21438181deb5b19ad12e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9913bf8e576af5de6f6cb2e558188aa8517a26e3
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85505501"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132336000"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Administración del clúster de Avere de vFXT
 
@@ -65,11 +65,11 @@ Para apagar, reiniciar o quitar un nodo, busque el nodo en la lista de la págin
 > [!NOTE]
 > Las direcciones IP se pueden mover entre nodos del clúster si el número de nodos activos cambia.
 
-Lea [Cluster > FXT Nodes](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html#gui-fxt-nodes>) (Clúster > Nodos de FXT) en la guía de configuración del clúster de Avere para obtener más información.
+Lea [Cluster > FXT Nodes](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html#gui-fxt-nodes) (Clúster > Nodos de FXT) en la guía de configuración del clúster de Avere para obtener más información.
 
 ### <a name="stop-or-reboot-the-cluster-with-avere-control-panel"></a>Detención o reinicio del clúster con el panel de control de Avere
 
-La página de configuración **System Maintenance** (Mantenimiento del sistema) presenta comandos para reiniciar los servicios del clúster, reiniciar el clúster o apagar el clúster de forma segura. Lea [Administration > System Maintenance](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_system_maintenance.html#gui-system-maintenance>) (Administración > Mantenimiento del sistema) en la guía de configuración del clúster de Avere para obtener más información.
+La página de configuración **System Maintenance** (Mantenimiento del sistema) presenta comandos para reiniciar los servicios del clúster, reiniciar el clúster o apagar el clúster de forma segura. Lea [Administration > System Maintenance](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_system_maintenance.html#gui-system-maintenance) (Administración > Mantenimiento del sistema) en la guía de configuración del clúster de Avere para obtener más información.
 
 Cuando un clúster se empieza a apagar, publica mensajes de estado en la pestaña **Panel**. Después de unos momentos, se detienen los mensajes y, a la larga, la sesión del panel de control de Avere deja de responder, lo que significa que el clúster se apagó.
 
@@ -143,7 +143,7 @@ vfxt.py --cloud-type azure --from-environment --destroy --resource-group GROUPNA
 
 La opción ``--quick-destroy`` puede usarse si no quiere guardar datos modificados de la memoria caché del clúster.
 
-Lea la [guía de uso de vfxt.py](<https://github.com/Azure/AvereSDK/blob/master/docs/README.md>) para obtener más información.
+Lea la [guía de uso de vfxt.py](https://github.com/Azure/AvereSDK/blob/master/docs/README.md) para obtener más información.
 
 ## <a name="manage-cluster-vms-from-the-azure-portal"></a>Administración de máquinas virtuales del clúster desde Azure Portal
 

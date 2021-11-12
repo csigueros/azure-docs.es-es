@@ -7,18 +7,18 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/13/2021
-ms.openlocfilehash: 0a7ca14a797ef2680527cd6992ff9a7a1d6ea115
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 1e83714026ac0d2ac50a4b30d358e127b92e99b2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131084907"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131433562"
 ---
 # <a name="create-plans-for-a-virtual-machine-offer"></a>Creación de planes para una oferta de máquina virtual
 
 En la página **Información general del plan** (selecciónela en el menú de navegación de la izquierda en el Centro de partners), puede proporcionar diversas opciones de plan dentro de la misma oferta. Una oferta requiere al menos un plan (anteriormente denominada una SKU), que puede variar en términos de audiencia de monetización, regiones de Azure, características o imágenes de máquina virtual.
 
-Puede crear hasta 100 planes para cada oferta, de los cuales hasta 45 pueden ser privados. Más información sobre los planes privados en [Ofertas privadas en el marketplace comercial de Microsoft](private-offers.md).
+Puede crear hasta 100 planes para cada oferta, de los cuales hasta 45 pueden ser privados. Más información sobre los planes privados en [Ofertas privadas en el marketplace comercial de Microsoft](private-offers.md).
 
 Después de crear los planes, la pestaña **Plan overview** (Información general del plan) muestra lo siguiente:
 
@@ -126,7 +126,7 @@ Especifique un **Precio por núcleo** y, luego, seleccione **Precio por tamaño 
 
 ### <a name="free-trial"></a>Versión de prueba gratuita
 
-Puede ofrecer una **evaluación gratuita** de un mes, de tres meses o de seis meses a los clientes.
+Puede ofrecer a los clientes una **evaluación gratuita** de uno, tres o seis meses.
 
 ### <a name="plan-visibility"></a>Visibilidad del plan
 
@@ -147,9 +147,9 @@ Las ofertas privadas no son compatibles con las suscripciones de Azure que se es
 
 Si la máquina virtual está diseñada para utilizarla solo indirectamente cuando se hace referencia a ella desde otra plantilla de solución o aplicación administrada, seleccione esta casilla para publicar la máquina virtual, pero ocultarla para los clientes que puedan buscarla directamente.
 
-Cualquier cliente de Azure puede implementar la oferta mediante PowerShell o la CLI.  Si quiere que esta oferta esté disponible para un conjunto limitado de clientes, establezca el plan en **Privado**. 
+Cualquier cliente de Azure puede implementar la oferta mediante PowerShell o la CLI.  Si quiere que esta oferta esté disponible para un conjunto limitado de clientes, establezca el plan en **Privado**.
 
-Los planes ocultos no generan vínculos de vista previa. Sin embargo, puede probarlos [siguiendo estos pasos](azure-vm-create-faq.yml#how-do-i-test-a-hidden-preview-image-). 
+Los planes ocultos no generan vínculos de vista previa. Pero puede probarlos [si sigue estos pasos](azure-vm-create-faq.yml#how-do-i-test-a-hidden-preview-image-).
 
 Seleccione **Guardar borrador** antes de pasar a la pestaña siguiente del menú de navegación de la izquierda Plan, **Configuración técnica**.
 
@@ -159,7 +159,7 @@ Proporcione las imágenes y otras propiedades técnicas asociadas al plan.
 
 ### <a name="reuse-technical-configuration"></a>Reutilización de la configuración técnica
 
-Esta opción permite usar las mismas opciones de configuración técnica en los planes de la misma oferta y, por tanto, aprovechar el mismo conjunto de imágenes. Si habilita la opción de reutilización de la configuración técnica, el plan heredará las mismas opciones de configuración técnica que el plan base que seleccione.  Al cambiar el plan base, los cambios se reflejan en el plan que reutiliza la configuración.
+Esta opción permite usar los mismos valores de configuración técnica en los planes de la misma oferta y, por tanto, sacar provecho del mismo conjunto de imágenes. Si habilita la opción de _reutilización de la configuración técnica_, el plan heredará las mismas opciones de configuración técnica que el plan base que seleccione.  Al cambiar el plan base, los cambios se reflejan en el plan que reutiliza la configuración.
 
 Entre las razones habituales para reutilizar las opciones de configuración técnica de otro plan se incluyen:
 
@@ -169,7 +169,7 @@ Entre las razones habituales para reutilizar las opciones de configuración téc
 
 Aproveche [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md) (IMDS) para identificar en qué plan se implementa la solución para validar la licencia o habilitar las características adecuadas.
 
-Si más adelante decide publicar cambios diferentes entre los planes, puede separarlos. Desasocie el plan que está reutilizando la configuración técnica mediante la anulación de la selección de esta opción con el plan. Una vez desasociado, el plan llevará las mismas opciones de configuración técnica en lugar de la última configuración y los planes podrán diferir en la configuración. Un plan que se ha publicado de forma independiente en el pasado no puede reutilizar una configuración técnica más adelante. 
+Si más adelante decide publicar cambios diferentes entre los planes, puede separarlos. Desasocie el plan que está reutilizando la configuración técnica mediante la anulación de la selección de esta opción con el plan. Una vez desasociado, el plan llevará las mismas opciones de configuración técnica en lugar de la última configuración y los planes podrán diferir en la configuración. Un plan que se ha publicado de forma independiente en el pasado no puede reutilizar una configuración técnica más adelante.
 
 ### <a name="operating-system"></a>Sistema operativo
 

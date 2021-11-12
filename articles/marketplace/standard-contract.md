@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 05/20/2020
-ms.openlocfilehash: 20a257bde6022249fd7b2ab875b94f356234b490
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 10/26/2021
+ms.openlocfilehash: 4313a9a6478c38ccb6611ea7c0008bd7fa9ebcbf
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94488883"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131848256"
 ---
 # <a name="standard-contract-for-microsoft-commercial-marketplace"></a>Contrato estándar para el Marketplace comercial de Microsoft
 
@@ -22,6 +22,9 @@ Los términos y condiciones de una oferta se definen al crearla en el Centro de 
 
 >[!Note]
 >Después de publicar una oferta con el Contrato estándar para el Marketplace comercial de Microsoft, no podrá usar sus propios términos y condiciones personalizados. Puede ofrecer su solución con el Contrato estándar *o* con sus propios términos y condiciones. Los términos y condiciones personalizados se definen en el nivel de oferta y se aplican a todos los planes; escriba los términos y condiciones personalizados en la página **Propiedades** de la oferta en el Centro de partners. Si quiere modificar los términos del contrato estándar, puede hacerlo mediante las Modificaciones del Contrato estándar.
+
+> [!TIP]
+> Para obtener la vista del cliente de los contratos legales en Azure Marketplace, consulte [Contratos legales](/marketplace/legal-contracts).
 
 ## <a name="standard-contract-amendments"></a>Modificaciones del Contrato estándar
 
@@ -36,7 +39,7 @@ Hay dos tipos de modificaciones para los anunciantes de Marketplace comercial:
 >[!Note]
 >Estos dos tipos de modificaciones se superponen entre sí. Los clientes específicos con modificaciones personalizadas también obtendrán la modificación universal al Contrato estándar durante la compra. Las modificaciones se limitan a 4000 caracteres, incluidos los espacios.
 
-Puede aprovechar el Contrato estándar del Marketplace comercial de Microsoft para los siguientes tipos de ofertas:  aplicaciones de Azure (plantillas de solución y aplicaciones administradas), máquinas virtuales y SaaS.
+Puede aprovechar el Contrato estándar del marketplace comercial de Microsoft para los siguientes tipos de oferta: aplicaciones de Azure (plantillas de soluciones y aplicaciones administradas), contenedores de Azure, aplicaciones de contenedor, máquinas virtuales y SaaS.
 
 ## <a name="customer-experience"></a>Experiencia del cliente
 

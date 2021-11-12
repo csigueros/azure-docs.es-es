@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.author: ssambare
 author: shivanissambare
 ms.custom: deploy, devplatv2
-ms.openlocfilehash: 521ebf79dd265b26958c36411c1d6aa281e11a5e
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: d4c65af505725f3f667dd2ad51902717352e4c42
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131842594"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132063672"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Servicio de alto rendimiento con Triton Inference Server (versión preliminar) 
 
@@ -63,7 +63,7 @@ En esta sección se muestra cómo puede implementar Triton en un punto de conexi
 
 1. Use el siguiente comando para establecer el nombre del punto de conexión que se creará. En este ejemplo, se crea un nombre aleatorio para el punto de conexión:
 
-    :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-triton-managed-online-endpoint.sh" ID="set_endpoint_name":::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="set_endpoint_name":::
 
 1. Instale los requisitos de Python mediante los siguientes comandos:
 
@@ -78,11 +78,11 @@ En esta sección se muestra cómo puede implementar Triton en un punto de conexi
 
     __create-managed-endpoint.yaml__
 
-    :::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/triton/single-model/create-managed-endpoint.yaml":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/triton/single-model/create-managed-endpoint.yaml":::
 
 1. Para crear un nuevo punto de conexión mediante la configuración de YAML, use el siguiente comando:
 
-    :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-triton-managed-online-endpoint.sh" ID="create_endpoint":::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="create_endpoint":::
 
 1. Cree un archivo de configuración de YAML para la implementación. En el ejemplo siguiente se configura una implementación denominada __blue__ en el punto de conexión creado en el paso anterior. El que se usa en los siguientes comandos se encuentra en `/cli/endpoints/online/triton/single-model/create-managed-deployment.yml` en el repositorio azureml-examples que clonó anteriormente:
 
@@ -91,11 +91,11 @@ En esta sección se muestra cómo puede implementar Triton en un punto de conexi
     >
     > Esta implementación usa una VM Standard_NC6s_v3. Es posible que deba solicitar un aumento de cuota para su suscripción para poder usar esta VM. Para más información, consulte [Serie NCv3](/azure/virtual-machines/ncv3-series).
 
-    :::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/triton/single-model/create-managed-deployment.yaml":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/triton/single-model/create-managed-deployment.yaml":::
 
 1. Para crear la implementación mediante la configuración de YAML, use el siguiente comando:
 
-    :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-triton-managed-online-endpoint.sh" ID="create_deployment":::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="create_deployment":::
 
 ### <a name="invoke-your-endpoint"></a>Invocación del punto de conexión
 
@@ -106,15 +106,15 @@ Una vez completada la implementación, use el siguiente comando para realizar un
 
 1. Para obtener el URI de puntuación del punto de conexión, use el siguiente comando:
 
-    :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-triton-managed-online-endpoint.sh" ID="get_scoring_uri":::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="get_scoring_uri":::
 
 1. Para obtener un token de autenticación, use el siguiente comando:
 
-    :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-triton-managed-online-endpoint.sh" ID="get_token":::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="get_token":::
 
 1. Para puntuar los datos con el punto de conexión, use el comando siguiente. Envía la imagen de un pavo real (https://aka.ms/peacock-pic) ) al punto de conexión:
 
-    :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-triton-managed-online-endpoint.sh" ID="check_scoring_of_model":::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="check_scoring_of_model":::
 
     La respuesta del script es similar al texto siguiente:
 
@@ -129,7 +129,7 @@ Una vez completada la implementación, use el siguiente comando para realizar un
 
 Una vez que haya terminado con el punto de conexión, use el siguiente comando para eliminarlo:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-triton-managed-online-endpoint.sh" ID="delete_endpoint":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="delete_endpoint":::
 
 Use el siguiente comando para eliminar el modelo:
 

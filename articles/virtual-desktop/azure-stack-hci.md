@@ -7,12 +7,12 @@ ms.date: 11/02/2021
 ms.author: helohr
 manager: femila
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: a80cdacaebe4cba2dceb1b29b2f512a6148a518b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d91722247e44016695154912277a0e1e2370fed6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131090839"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131452136"
 ---
 # <a name="set-up-azure-virtual-desktop-for-azure-stack-hci-preview"></a>Configuración de Azure Virtual Desktop para Azure Stack HCI (versión preliminar)
 
@@ -40,20 +40,22 @@ Para configurar Azure Virtual Desktop para Azure Stack HCI:
 
 1. Cree un grupo de hosts sin máquinas virtuales mediante las instrucciones de [Inicio del proceso de configuración del grupo de hosts](create-host-pools-azure-marketplace.md#begin-the-host-pool-setup-process). Al final de esa sección, vuelva a este artículo e inicie el paso 2.
 
-2. Siga las instrucciones de [Información del área de trabajo](create-host-pools-azure-marketplace.md#workspace-information) para crear un área de trabajo.
+2. Configure el grupo de hosts recién creado como grupo de hosts de validación siguiendo los pasos descritos en [Definición del grupo de hosts como grupo de hosts de validación](create-validation-host-pool.md#define-your-host-pool-as-a-validation-host-pool) para habilitar la propiedad de entorno de validación.
 
-3. Implemente una nueva máquina virtual en la infraestructura de Azure Stack HCI mediante las instrucciones de [Creación de una máquina virtual](/azure-stack/hci/manage/vm#create-a-new-vm). Implemente una máquina virtual con un sistema operativo compatible y únala a un dominio.
+3. Siga las instrucciones de [Información del área de trabajo](create-host-pools-azure-marketplace.md#workspace-information) para crear un área de trabajo.
+
+4. Implemente una nueva máquina virtual en la infraestructura de Azure Stack HCI mediante las instrucciones de [Creación de una máquina virtual](/azure-stack/hci/manage/vm#create-a-new-vm). Implemente una máquina virtual con un sistema operativo compatible y únala a un dominio.
 
    >[!NOTE]
    >Instale el rol de host de sesión de Escritorio remoto (RDSH) si en la máquina virtual se ejecuta un sistema operativo Windows Server.
 
-4. Habilite Azure para administrar la nueva máquina virtual con Azure Arc mediante la instalación del agente de Connected Machine en ella. Siga las instrucciones de [Conexión de máquinas híbridas con servidores habilitados para Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md) a fin de instalar el agente Windows en la máquina virtual.
+5. Habilite Azure para administrar la nueva máquina virtual con Azure Arc mediante la instalación del agente de Connected Machine en ella. Siga las instrucciones de [Conexión de máquinas híbridas con servidores habilitados para Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md) a fin de instalar el agente Windows en la máquina virtual.
 
-5. Agregue la máquina virtual al grupo de hosts de Azure Virtual Desktop que ha creado antes mediante la instalación del [agente de Azure Virtual Desktop](agent-overview.md). Después, siga las instrucciones de [Registro de las máquinas virtuales en el grupo de hosts de Azure Virtual Desktop](create-host-pools-powershell.md#register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool) para registrar la máquina virtual en el servicio Azure Virtual Desktop.
+6. Agregue la máquina virtual al grupo de hosts de Azure Virtual Desktop que ha creado antes mediante la instalación del [agente de Azure Virtual Desktop](agent-overview.md). Después, siga las instrucciones de [Registro de las máquinas virtuales en el grupo de hosts de Azure Virtual Desktop](create-host-pools-powershell.md#register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool) para registrar la máquina virtual en el servicio Azure Virtual Desktop.
 
-6. Siga las instrucciones de [Creación de grupos de aplicaciones y administración de asignaciones de usuarios](manage-app-groups.md) a fin de crear un grupo de aplicaciones para probarlo y asignarle acceso de usuario.
+7. Siga las instrucciones de [Creación de grupos de aplicaciones y administración de asignaciones de usuarios](manage-app-groups.md) a fin de crear un grupo de aplicaciones para probarlo y asignarle acceso de usuario.
 
-7. Vaya al [cliente web](./user-documentation/connect-web.md) y conceda a los usuarios acceso a la nueva implementación.
+8. Vaya al [cliente web](./user-documentation/connect-web.md) y conceda a los usuarios acceso a la nueva implementación.
 
 ## <a name="optional-configurations"></a>Configuraciones opcionales
 
@@ -165,6 +167,13 @@ Para exportar el disco duro virtual:
 
 2. Descargue la imagen de VHD. El proceso de descarga puede tardar varios minutos, por lo que debe tener paciencia. Asegúrese de que la imagen se ha descargado completamente antes de ir a la sección siguiente.
 
+>[!NOTE]
+>Si ejecuta azcopy, es posible que tenga que omitir md5check mediante la ejecución de este comando:
+>
+> ```azure
+> azcopy copy “$sas" "destination_path_on_cluster" --check-md5 NoCheck
+> ```
+
 ### <a name="clean-up-the-managed-disk"></a>Limpieza del disco administrado
 
 Cuando haya terminado con el disco duro virtual, tendrá que liberar espacio mediante la eliminación del disco administrado.
@@ -177,6 +186,13 @@ az disk delete --name $diskName --resource-group $diskRG --yes
 ```
 
 Este comando puede tardar unos minutos en finalizar, así que tenga paciencia.
+
+>[!NOTE]
+>Opcionalmente, también puede convertir el disco duro virtual de descarga en un disco VHDx dinámico mediante la ejecución de este comando:
+>
+> ```powershell
+> Convert-VHD -Path " destination_path_on_cluster\file_name.vhd" -DestinationPath " destination_path_on_cluster\file_name.vhdx" -VHDType Dynamic
+> ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 10/29/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dadaa832e065163186ef590989c22c0f7e7700a
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 19e4a99967e8fdc64eb7d10c66649cac59db048a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130233911"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456258"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app"></a>Habilitación del inicio de sesión sin contraseña con la aplicación Microsoft Authenticator 
 
@@ -28,15 +28,15 @@ Esta tecnología de autenticación se puede usar en cualquier plataforma de disp
 
 Las personas que habilitaron el inicio de sesión en el teléfono desde la aplicación Microsoft Authenticator ven un mensaje que les pide que pulsen un número en su aplicación. No se solicita ningún nombre de usuario ni contraseña. Para completar el proceso de inicio de sesión en la aplicación, el usuario debe realizar las siguientes acciones:
 
-1. Introducir el mismo número.
-2. Elija **Aprobar**.
-3. Proporcionar su PIN o elemento biométrico.
+1. Escriba el número que ven en la pantalla de inicio de sesión en el cuadro de diálogo de la aplicación Microsoft Authenticator.
+1. Elija **Aprobar**.
+1. Proporcionar su PIN o elemento biométrico.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para usar el inicio de sesión en el teléfono sin contraseña con la aplicación Microsoft Authenticator, se deben cumplir los siguientes requisitos previos:
 
-- Multi-Factor Authentication de Azure AD, con notificaciones push permitidas como método de verificación. Las notificaciones de inserción en su smartphone o tableta ayudan a la aplicación Authenticator a impedir el acceso no autorizado a las cuentas y a detener las transacciones fraudulentas. La aplicación Authenticator genera códigos automáticamente cuando se configura para realizar notificaciones de inserción, de modo que un usuario tenga un método de inicio de sesión de reserva aunque el dispositivo no tenga conectividad. 
+- Recomendados: autenticación multifactor de Azure AD, con notificaciones de inserción permitidas como método de verificación. Las notificaciones de inserción en su smartphone o tableta ayudan a la aplicación Authenticator a impedir el acceso no autorizado a las cuentas y a detener las transacciones fraudulentas. La aplicación Authenticator genera códigos automáticamente cuando se configura para realizar notificaciones de inserción, de modo que un usuario tenga un método de inicio de sesión de reserva aunque el dispositivo no tenga conectividad. 
 - Versión más reciente de Microsoft Authenticator instalada en dispositivos que ejecutan iOS 8.0 o superior o Android 6.0 o superior.
 - El dispositivo en el que está instalada la aplicación Microsoft Authenticator debe estar registrado en el inquilino de Azure AD para un usuario individual. 
 
@@ -68,7 +68,7 @@ Siga estos pasos para habilitar el método de autenticación para el inicio de s
 Los usuarios se registran directamente en el método de autenticación sin contraseña de Azure AD mediante los pasos siguientes:
 
 1. Vaya a [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) .
-1. Inicie sesión y, después, agregue la aplicación Authenticator seleccionando **Agregar método > Aplicación Authenticator** y **Agregar**.
+1. Inicie sesión y, después, haga clic en **Agregar método** > **Aplicación autenticadora** > **Agregar** para agregar la aplicación Authenticator.
 1. Siga las instrucciones para instalar y configurar la aplicación Microsoft Authenticator en el dispositivo.
 1. Seleccione **Listo** para completar la configuración de Authenticator.
 1. En la aplicación **Microsoft Authenticator**, seleccione **Habilitar inicio de sesión en el teléfono** en el menú desplegable de la cuenta registrada.
@@ -93,7 +93,7 @@ La primera vez que un usuario inicia el proceso de inicio de sesión en el telé
 3. Si es necesario, selecciona **Otras formas de iniciar sesión**.
 4. Selecciona **Aprobar una solicitud en la aplicación Microsoft Authenticator**.
 
-A continuación, se presenta un número al usuario. La aplicación solicita al usuario que se autentique seleccionando el número adecuado, en lugar de tener que escribir una contraseña.
+A continuación, se presenta un número al usuario. La aplicación solicita al usuario que se autentique y escriba el número adecuado, en lugar de una contraseña.
 
 Una vez que el usuario ha utilizado el inicio de sesión en el teléfono sin contraseña, la aplicación continúa guiando al usuario por este método. El usuario también verá la opción para elegir otro método.
 

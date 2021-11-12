@@ -2,14 +2,17 @@
 title: Copia de seguridad y restauración selectivas de discos para máquinas virtuales de Azure
 description: En este artículo, se describen la copia de seguridad y la restauración selectivas de discos mediante la solución de copia de seguridad de máquinas virtuales de Azure.
 ms.topic: conceptual
-ms.date: 05/13/2021
-ms.custom: references_regions , devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: e23c0729f44128172e4afd4902ce60e9c2ecb29c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 11/10/2021
+ms.custom: references_regions , devx-track-azurecli, devx-track-azurepowershell3
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: f2b4eda015bca45e586d77302eeedef18b217fbc
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128613087"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132312426"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Copia de seguridad y restauración selectivas de discos para máquinas virtuales de Azure
 
@@ -186,9 +189,9 @@ Cada punto de recuperación tiene la información de los discos incluidos y excl
 ### <a name="remove-disk-exclusion-settings-and-get-protected-item-with-azure-cli"></a>Eliminación de la configuración de exclusión de discos y obtención del elemento protegido con la CLI de Azure
 
 ```azurecli
-az backup protection update-for-vm --vault-name {vaultname} --resource-group {resourcegroup} -c {vmname} -i {vmname} --backup-management-type AzureIaasVM --disk-list-setting resetexclusionsettings
+az backup protection update-for-vm --vault-name {vaultname} --resource-group {resourcegroup} -c {vmname} -i {vmname} --disk-list-setting resetexclusionsettings
 
-az backup item show -c {vmname} -n {vmname} --vault-name {vaultname} --resource-group {resourcegroup} --backup-management-type AzureIaasVM
+az backup item show -c {vmname} -n {vmname} --vault-name {vaultname} --resource-group {resourcegroup}
 ```
 
 Cuando ejecute estos comandos, verá `"diskExclusionProperties": null`.

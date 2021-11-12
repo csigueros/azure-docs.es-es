@@ -11,12 +11,12 @@ ms.author: tracych
 ms.reviewer: laobri
 ms.date: 10/21/2021
 ms.custom: how-to, devplatv2
-ms.openlocfilehash: 966b8abf60e0569a683932824045253ac32c724e
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 481227a747fca327f107049734a69008aa3c3bcf
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131560497"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132063786"
 ---
 # <a name="use-batch-endpoints-preview-for-batch-scoring"></a>Uso de puntos de conexión por lotes (versión preliminar) para la puntuación por lotes
 
@@ -64,7 +64,7 @@ Establezca el nombre del punto de conexión. Reemplace `YOUR_ENDPOINT_NAME` por 
 
 Para Unix, ejecute este comando:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/batch-score.sh" ID="set_variables" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="set_variables" :::
 
 Para Windows, ejecute este comando:
 
@@ -79,7 +79,7 @@ set ENDPOINT_NAME="<YOUR_ENDPOINT_NAME>"
 
 El punto de conexión por lotes solo se ejecuta en recursos de informática en la nube, no de forma local. El recurso de informática en la nube es un clúster de proceso virtual reutilizable. Ejecute el código siguiente para crear un clúster de proceso de Azure Machine Learning. En los ejemplos siguientes de este artículo se usa el proceso creado aquí denominado `batch-cluster`. Realice los ajustes necesarios y haga referencia al proceso mediante `azureml:<your-compute-name>`.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/batch-score.sh" ID="create_compute" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="create_compute" :::
 
 > [!NOTE]
 > En este momento, no se le cobra por el proceso, ya que el clúster permanecerá en 0 nodos hasta que se invoque un punto de conexión por lotes y se envíe un trabajo de puntuación por lotes. Más información sobre cómo [administrar y optimizar el coste de AmlCompute](how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
@@ -93,7 +93,7 @@ Un punto de conexión por lotes es un punto de conexión HTTPS al que los client
 
 En el siguiente archivo YAML se define un punto de conexión por lotes, que puede incluir en el comando de la CLI para la [creación del punto de conexión por lotes](#create-a-batch-endpoint). En el repositorio, este archivo se encuentra en `/cli/endpoints/batch/batch-endpoint.yml`.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/batch-endpoint.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/batch-endpoint.yml":::
 
 En la tabla siguiente se describen las propiedades clave del YAML de punto de conexión. Para el esquema de YAML de punto de conexión por lotes completo, consulte [Esquema de YAML de punto de conexión por lotes de la CLI (v2)](./reference-yaml-endpoint-batch.md).
 
@@ -114,7 +114,7 @@ Para más información sobre cómo hacer referencia a una entidad de Azure ML, 
 
 El repositorio de ejemplo contiene todos los archivos necesarios. El siguiente archivo YAML define una implementación por lotes con todas las entradas necesarias y la configuración opcional. Puede incluir este archivo en el comando de la CLI para [crear la implementación por lotes](#create-a-batch-deployment). En el repositorio, este archivo se encuentra en `/cli/endpoints/batch/nonmlflow-deployment.yml`. 
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/nonmlflow-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/nonmlflow-deployment.yml":::
 
 En la tabla siguiente se describen las propiedades clave del YAML de implementación. Para el esquema de YAML de implementación por lotes completo, consulte [Esquema de YAML de implementación por lotes de la CLI (v2)](./reference-yaml-deployment-batch.md).
 
@@ -157,7 +157,7 @@ Ahora, vamos a implementar el modelo con puntos de conexión por lotes y a ejecu
 
 La manera más sencilla de crear un punto de conexión por lotes es ejecutar el código siguiente proporcionando solo un elemento `--name`.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/batch-score.sh" ID="create_batch_endpoint" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="create_batch_endpoint" :::
 
 También puede crear un punto de conexión por lotes mediante un archivo YAML. Agregue el parámetro `--file` en el comando anterior y especifique la ruta de acceso del archivo YAML.
 
@@ -165,7 +165,7 @@ También puede crear un punto de conexión por lotes mediante un archivo YAML. A
 
 Ejecute el código siguiente para crear una implementación por lotes denominada `nonmlflowdp` en el punto de conexión por lotes y establézcala como la implementación predeterminada. 
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/batch-score.sh" ID="create_batch_deployment_set_default" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="create_batch_deployment_set_default" :::
 
 > [!TIP]
 > El parámetro `--set-default` establece la implementación recién creada como la implementación predeterminada del punto de conexión. Es una manera cómoda de crear una nueva implementación predeterminada del punto de conexión, especialmente para la primera creación de la implementación. Como procedimiento recomendado para escenarios de producción, puede crear una nueva implementación sin establecerla como predeterminada, comprobarla y actualizar la implementación predeterminada más adelante. Para más información, consulte la sección [Implementación de un modelo nuevo](#deploy-a-new-model).
@@ -176,11 +176,11 @@ Use `show` para comprobar los detalles de implementación y punto de conexión p
 
 Para comprobar una implementación por lotes, ejecute el código siguiente:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/batch-score.sh" ID="check_batch_deployment_detail" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="check_batch_deployment_detail" :::
 
 Para comprobar un punto de conexión por lotes, ejecute el código siguiente. Como la implementación recién creada se establece como la implementación predeterminada, debe ver `nonmlflowdp` en `defaults.deployment_name` en la respuesta.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/batch-score.sh" ID="check_batch_endpooint_detail" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="check_batch_endpooint_detail" :::
 
 ### <a name="invoke-the-batch-endpoint-to-start-a-batch-scoring-job"></a>Invocación del punto de conexión por lotes para iniciar un trabajo de puntuación por lotes
 
@@ -198,7 +198,7 @@ Hay tres opciones para especificar las entradas de datos en la CLI `invoke`.
 
     En el ejemplo se usan datos disponibles públicamente en una carpeta de `https://pipelinedata.blob.core.windows.net/sampledata/mnist`, que contiene miles de dígitos escritos a mano. El nombre del trabajo de puntuación por lotes se devolverá en la respuesta de la invocación. Ejecute el código siguiente para invocar el punto de conexión por lotes con estos datos. `--query name` se agrega para devolver solo el nombre del trabajo de la respuesta de invocación y se usará más adelante para [supervisar el progreso de la ejecución del trabajo de puntuación por lotes](#monitor-batch-scoring-job-execution-progress) y [comprobar los resultados de puntuación por lotes](#check-batch-scoring-results). Quite `--query name -o tsv` si desea ver la respuesta de invocación completa. Para más información sobre el parámetro `--query`, vea [Consulta de la salida de los comandos de la CLI de Azure](/cli/azure/query-azure-cli).
 
-    :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/batch-score.sh" ID="start_batch_scoring_job" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="start_batch_scoring_job" :::
 
 * __Opción 2: Datos registrados__
 
@@ -234,7 +234,7 @@ Algunas opciones de configuración se pueden sobrescribir en la invocación para
 
 Para especificar la ubicación de salida y sobrescribir la configuración en la invocación, ejecute el código siguiente. En el ejemplo se almacenan las salidas en una carpeta con el mismo nombre que el punto de conexión en el almacenamiento de blobs predeterminado del área de trabajo y también se usa un nombre de archivo aleatorio para garantizar la exclusividad de la ubicación de salida. El código debe funcionar en Unix. Reemplácelos por sus propios nombres únicos de archivo y carpeta.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/batch-score.sh" ID="start_batch_scoring_job_configure_output_settings" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="start_batch_scoring_job_configure_output_settings" :::
 
 ### <a name="monitor-batch-scoring-job-execution-progress"></a>Supervisión del progreso de la ejecución del trabajo de puntuación por lotes
 
@@ -242,7 +242,7 @@ Los trabajos de puntuación por lotes suelen tardar algún tiempo en procesar to
 
 Puede usar la CLI `job show` para ver el trabajo. Ejecute el código siguiente para comprobar el estado del trabajo de la invocación de punto de conexión anterior. Para más información sobre los comandos de trabajo, ejecute `az ml job -h`.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/batch-score.sh" ID="check_job_status" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="check_job_status" :::
 
 ### <a name="check-batch-scoring-results"></a>Comprobación de los resultados de la puntuación por lotes
 
@@ -250,7 +250,7 @@ Siga los pasos siguientes para ver los resultados de puntuación en Explorador d
 
 1. Ejecute el código siguiente para abrir el trabajo de puntuación por lotes en Estudio de Azure Machine Learning. El vínculo del estudio de trabajo se incluye también en la respuesta de `invoke`, como el valor de `interactionEndpoints.Studio.endpoint`.
 
-    :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/batch-score.sh" ID="show_job_in_studio" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="show_job_in_studio" :::
 
 1. En el grafo de la ejecución, seleccione el paso `batchscoring`.
 1. Seleccione la pestaña __Resultados y registros__ y, después, **Show data outputs** (Mostrar salidas de datos).
@@ -270,7 +270,7 @@ Una vez que tenga un punto de conexión por lotes, puede seguir refinando el mod
 
 Para crear una nueva implementación por lotes en el punto de conexión por lotes existente, pero no establecerla como implementación predeterminada, ejecute el código siguiente:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/batch-score.sh" ID="create_new_deployment_not_default" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="create_new_deployment_not_default" :::
 
 Tenga en cuenta que no se utiliza `--set-default`. Si vuelve a ejecutar `show` para el punto de conexión por lotes, no debería ver ningún cambio en `defaults.deployment_name`. 
 
@@ -278,7 +278,7 @@ En el ejemplo se usa un modelo (`/cli/endpoints/batch/autolog_nyc_taxi`) entrena
 
 A continuación, se muestra el archivo YAML que el ejemplo usa para implementar un modelo de MLflow, que solo contiene las propiedades mínimas necesarias. El archivo de origen del repositorio es `/cli/endpoints/batch/mlflow-deployment.yml`.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/mlflow-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mlflow-deployment.yml":::
 
 > [!NOTE]
 > La generación automática de `scoring_script` y `environment` solo admite el tipo de modelo de función de Python y la firma del modelo basado en columnas.
@@ -287,7 +287,7 @@ A continuación, se muestra el archivo YAML que el ejemplo usa para implementar 
 
 Para probar la nueva implementación no predeterminada, ejecute el código siguiente. En el ejemplo se usa un modelo diferente que acepta un archivo csv disponible públicamente desde `https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv`.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/batch-score.sh" ID="test_new_deployment" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="test_new_deployment" :::
 
 Observe que `--deployment-name` se usa para especificar el nuevo nombre de implementación. Este parámetro le permite ejecutar `invoke` para una implementación no predeterminada y no actualizará la implementación predeterminada del punto de conexión por lotes.
 
@@ -295,7 +295,7 @@ Observe que `--deployment-name` se usa para especificar el nuevo nombre de imple
 
 Para actualizar la implementación por lotes predeterminada del punto de conexión, ejecute el código siguiente:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/batch-score.sh" ID="update_default_deployment" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="update_default_deployment" :::
 
 Ahora, si vuelve a ejecutar `show` para el punto de conexión por lotes, debería ver que `defaults.deployment_name` está establecido en `mlflowdp`. Puede ejecutar `invoke` para el punto de conexión por lotes directamente sin el parámetro `--deployment-name`.
 
@@ -307,11 +307,11 @@ Si quiere actualizar la implementación (por ejemplo, el código, el modelo, el 
 
 Si no va a usar la implementación por lotes anterior, debe eliminarla ejecutando el código siguiente. `--yes` se usa para confirmar la eliminación.
 
-::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/batch-score.sh" ID="delete_deployment" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="delete_deployment" :::
 
 Ejecute el código siguiente para eliminar el punto de conexión por lotes y todas las implementaciones subyacentes. Los trabajos de puntuación por lotes no se eliminarán.
 
-::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/batch-score.sh" ID="delete_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="delete_endpoint" :::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

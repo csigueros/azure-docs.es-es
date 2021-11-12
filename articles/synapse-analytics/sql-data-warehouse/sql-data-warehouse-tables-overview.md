@@ -1,22 +1,22 @@
 ---
 title: Diseño de tablas
-description: Introducción al diseño de tablas mediante un grupo de SQL dedicado en Azure Synapse Analytics.
+description: Introducción al diseño de tablas mediante un grupo de SQL dedicado.
 services: synapse-analytics
-author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 03/15/2019
-ms.author: xiaoyul
-ms.reviewer: igorstan
+ms.date: 11/02/2021
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: ''
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: c55edbd24553189c11070999ddc5d3b3516f2d97
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea3081720adc74576d171dbba40a0f09d858749a
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98737938"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131507101"
 ---
 # <a name="design-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Diseño de tablas mediante un grupo de SQL dedicado en Azure Synapse Analytics
 
@@ -36,15 +36,15 @@ Un [esquema de estrella](https://en.wikipedia.org/wiki/Star_schema) organiza los
 
 Los esquemas son una buena manera de agrupar tablas que se usan de manera similar.  Si está migrando varias bases de datos de una solución local al grupo de SQL dedicado, lo mejor es migrar todas las tablas de hechos, dimensiones e integración a un esquema del grupo de SQL dedicado.
 
-Por ejemplo, podría almacenar todas las tablas en el grupo de SQL dedicado de ejemplo [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) dentro de un esquema denominado wwi. El siguiente código crea un [esquema definido por el usuario](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) denominado wwi.
+Por ejemplo, podría almacenar todas las tablas en el grupo de SQL dedicado de ejemplo [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) dentro de un esquema denominado `wwi`. El siguiente código crea un [esquema definido por el usuario](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) denominado `wwi`.
 
 ```sql
 CREATE SCHEMA wwi;
 ```
 
-Para mostrar la organización de las tablas en el grupo de SQL dedicado, puede utilizar fact, dim e int como prefijos para los nombres de tabla. En la tabla siguiente se muestran algunos de los nombres de esquema y tabla para WideWorldImportersDW.  
+Para mostrar la organización de las tablas en el grupo de SQL dedicado, puede utilizar fact, dim e int como prefijos para los nombres de tabla. En la tabla siguiente se muestran algunos de los nombres de esquema y tabla para `WideWorldImportersDW`.  
 
-| Tabla WideWorldImportersDW  | Tipo de tabla. | Grupo de SQL dedicado |
+| **Tabla WideWorldImportersDW**  | *Tipo de tabla.* | **Grupo de SQL dedicado** |
 |:-----|:-----|:------|:-----|
 | City | Dimensión | wwi.DimCity |
 | Pedido de | Fact | wwi.FactOrder |
@@ -65,11 +65,11 @@ CREATE TABLE MyTable (col1 int, col2 int );
 
 Una tabla temporal solo existe mientras dura la sesión. Una tabla temporal se puede usar para evitar que otros usuarios vean los resultados temporales y también para reducir la necesidad de limpieza.  
 
-Las tablas temporales usan el almacenamiento local para ofrecer un rendimiento más rápido.  Para más información, consulte [Tablas temporales](sql-data-warehouse-tables-temporary.md).
+Las tablas temporales usan el almacenamiento local para ofrecer un rendimiento más rápido. Para obtener más información, consulte [Tablas temporales](sql-data-warehouse-tables-temporary.md).
 
 ### <a name="external-table"></a>Tabla externa
 
-Una tabla externa apunta a datos ubicados en Azure Storage Blob o Azure Data Lake Store. Cuando se utiliza en combinación con la instrucción CREATE TABLE AS SELECT, la selección de una tabla externa importa datos en el grupo de SQL dedicado.
+Una tabla externa apunta a datos ubicados en Azure Storage Blob o Azure Data Lake Store. Cuando se usa con la instrucción CREATE TABLE AS SELECT, la selección de una tabla externa importa datos en el grupo de SQL dedicado.
 
 Por este motivo, las tablas externas son útiles para cargar datos. Para un tutorial sobre la carga, consulte [Uso de PolyBase para cargar datos de Azure Blob Storage en Azure SQL Data Warehouse](./load-data-from-azure-blob-storage-using-copy.md).
 
@@ -103,7 +103,7 @@ Para más información, vea [Distribución de tablas en SQL Data Warehouse](sql-
 
 La categoría de tabla a menudo determina qué opción elegir para distribuir la tabla.
 
-| Categoría de tabla | Opción de distribución recomendada |
+| **Categoría de tabla** | **Opción de distribución recomendada** |
 |:---------------|:--------------------|
 | Fact           | Utilice la distribución por hash con el índice de almacén de columnas agrupado. El rendimiento mejora cuando se combinan dos tablas hash en la misma columna de distribución. |
 | Dimensión      | Use la distribución replicada para tablas más pequeñas. Si las tablas son demasiado grandes para almacenar en cada nodo de proceso, utilice la distribución por hash. |
@@ -144,7 +144,7 @@ PRIMARY KEY solo se admite cuando se usan NONCLUSTERED y NOT ENFORCED.  Solo se 
 
 Puede crear una tabla como una nueva tabla vacía. También puede crear y rellenar una tabla con los resultados de una instrucción SELECT. A continuación se muestran los comandos de T-SQL para crear una tabla.
 
-| Instrucción T-SQL | Descripción |
+| **Instrucción T-SQL**| **Descripción** |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Crea una tabla vacía mediante la definición de todas las opciones y columnas de la tabla. |
 | [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Crea una tabla externa. La definición de la tabla se almacena en el grupo de SQL dedicado. Los datos de la tabla se almacenan en Azure Blob Storage o Azure Data Lake Store. |

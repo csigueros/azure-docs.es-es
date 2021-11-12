@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: c3497b39699d66cc665ea2c217dea5e016ca42df
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: df8794f0b22fa5ae1cc457bd8dfebc12032a7961
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131472416"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131848882"
 ---
 # <a name="connect-to-and-manage-sap-s4hana-in-azure-purview"></a>Conexión y administración de SAP S/4HANA en Azure Purview
 
@@ -23,7 +23,9 @@ En este artículo se describe cómo registrar SAP S/4HANA y cómo autenticarse e
 
 |**Extracción de metadatos**|  **Examen completo**  |**Examen incremental**|**Examen con ámbito**|**Clasificación**|**Directiva de acceso**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Sí](#register)| [Sí](#scan)| No | No | No | No| [Sí](how-to-lineage-sapecc.md)|
+| [Sí](#register)| [Sí](#scan)| No | No | No | No| [Sí**](how-to-lineage-sapecc.md)|
+
+\** Se admite el linaje si el conjunto de datos se usa como origen o receptor en la [actividad de copia de Data Factory](how-to-link-azure-data-factory.md) 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

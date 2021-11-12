@@ -2,20 +2,20 @@
 title: Uso de tablas temporales en Synapse SQL
 description: Instrucciones esenciales para el uso de tablas temporales en SQL de Synapse.
 services: synapse-analytics
-author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 04/15/2020
-ms.author: xiaoyul
-ms.reviewer: igorstan
-ms.openlocfilehash: 8513df83196b3521a749515c6bb22caad7d255b7
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.date: 11/02/2021
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: ''
+ms.openlocfilehash: 3244152e4d7eb7cac78dcab07995719bdd07e863
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816050"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131508558"
 ---
 # <a name="temporary-tables-in-synapse-sql"></a>Tablas temporales en SQL de Synapse
 
@@ -25,7 +25,7 @@ Los recursos tanto del grupo de SQL dedicado como del grupo de SQL sin servidor 
 
 ## <a name="temporary-tables"></a>Tablas temporales
 
-Las tablas temporales son útiles al procesar datos, especialmente durante la transformación, en la que los resultados intermedios son transitorios. En SQL de Synapse, las tablas temporales existen en el nivel de sesión.  Solo están visibles para la sesión en la que se crearon. Como tales, se quitan automáticamente cuando se cierra la sesión. 
+Las tablas temporales son útiles al procesar datos, especialmente durante la transformación, en la que los resultados intermedios son transitorios. En SQL de Synapse, las tablas temporales existen en el nivel de sesión.  Solo están visibles para la sesión en la que se crearon. Como tales, se quitan automáticamente cuando la sesión finaliza. 
 
 ## <a name="temporary-tables-in-dedicated-sql-pool"></a>Tablas temporales en el grupo de SQL dedicado
 
@@ -95,8 +95,7 @@ GROUP BY
 
 > [!NOTE]
 > `CTAS` es un comando eficaz y ofrece un uso eficiente del espacio del registro de transacciones. 
-> 
-> 
+
 
 ### <a name="drop-temporary-tables"></a>Eliminación de tablas temporales
 

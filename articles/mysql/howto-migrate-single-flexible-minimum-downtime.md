@@ -6,12 +6,12 @@ ms.author: sunaray
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/18/2021
-ms.openlocfilehash: 0197d3c4a76158663d721604cdd8e033b3d78153
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3bc4ee8d7d7491e577fba2e29d905262e37764cb
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128589651"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132339549"
 ---
 # <a name="tutorial-migrate-azure-database-for-mysql--single-server-to-azure-database-for-mysql--flexible-server-with-minimal-downtime"></a>Tutorial: Migración de Azure Database for MySQL con servidor único a Azure Database for MySQL con servidor flexible con un tiempo de inactividad mínimo
 
@@ -168,7 +168,7 @@ Para configurar la replicación de datos de entrada, lleve a cabo los siguientes
         iii. Para configurar la replicación de datos de entrada, ejecute el siguiente comando:
 
         ```sql
-        CALL mysql.az_replication_change_master('<Primary_server>.mysql.database.azure.com', '=<username>@<primary_server>', '<Password>, 3306, '<File_Name>', <Position>, @cert);
+        CALL mysql.az_replication_change_master('<Primary_server>.mysql.database.azure.com', '<username>@<primary_server>', '<Password>', 3306, '<File_Name>', <Position>, @cert);
         ```
 
         > [!Note]
@@ -177,7 +177,7 @@ Para configurar la replicación de datos de entrada, lleve a cabo los siguientes
     * Si el cumplimiento de SSL no está habilitado, ejecute el siguiente comando:
 
         ```sql
-        CALL mysql.az_replication_change_master('<Primary_server>.mysql.database.azure.com', '=<username>@<primary_server>', '<Password>, 3306, '<File_Name>', <Position>, ‘’);
+        CALL mysql.az_replication_change_master('<Primary_server>.mysql.database.azure.com', '<username>@<primary_server>', '<Password>', 3306, '<File_Name>', <Position>, ‘’);
         ```
 
 9. Para iniciar la replicación desde el servidor de réplica, llame al procedimiento almacenado siguiente.

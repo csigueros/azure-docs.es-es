@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: duau
-ms.openlocfilehash: a9402ac0a69cff3cd2b420754aceeb452811e1a1
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 7f1787d8b1d074350ce42a98635bb8bb89c4aa75
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130246782"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501483"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -84,7 +84,7 @@ ExpressRoute admite [tres dominios de enrutamiento](expressroute-circuit-peering
 
 **Se admite:**
 
-* Virtual Networks, que incluye todas las máquinas virtuales y servicios en la nube.
+* Redes virtuales, incluidas todas las máquinas virtuales y servicios en la nube, como [RDP Shortpath de Azure Virtual Desktop](../virtual-desktop/shortpath.md)
 
 ### <a name="microsoft-peering"></a>Emparejamiento de Microsoft
 
@@ -103,7 +103,6 @@ Si el circuito ExpressRoute está habilitado para el emparejamiento de Microsoft
 
 * CDN
 * Azure Front Door
-* [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
 * Servidor de la autenticación multifactor (heredado)
 * Traffic Manager
 * Logic Apps

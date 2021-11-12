@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/13/2021
 ms.author: mjbrown
-ms.openlocfilehash: d6cf0b9ba4fe856a153abf004a81c250c59b2aa1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6046468281878f8ae6b9ac9f802bb16fd378c616
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128618616"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131434149"
 ---
 # <a name="manage-an-azure-cosmos-account-using-the-azure-portal"></a>Administración de una cuenta de Azure Cosmos mediante Azure Portal
 
@@ -30,7 +30,7 @@ En este artículo se describe cómo administrar varias tareas en una cuenta de A
 ## <a name="addremove-regions-from-your-database-account"></a>Incorporación o eliminación de regiones de una cuenta de base de datos
 
 > [!TIP]
-> Cuando se agrega una nueva región, todos los datos deben replicarse por completo y estar confirmados en la nueva región antes de que la región se marque como disponible. La cantidad de tiempo que tarde esta operación dependerá de la cantidad de datos almacenados en la cuenta.
+> Cuando se agrega una nueva región, todos los datos deben replicarse por completo y estar confirmados en la nueva región antes de que la región se marque como disponible. La cantidad de tiempo que tarde esta operación dependerá de la cantidad de datos almacenados en la cuenta. Si hay una [operación asincrónica de escalado del rendimiento](scaling-provisioned-throughput-best-practices.md#background-on-scaling-rus) en curso, la operación de escalado vertical del rendimiento se pausa y se reanuda automáticamente cuando se completa la operación de adición o eliminación de la región. 
 
 1. Inicie sesión en el [portal de Azure](https://portal.azure.com).
 
@@ -95,6 +95,9 @@ Una vez que una cuenta de Cosmos se configura para la conmutación automática p
 
 > [!IMPORTANT]
 > La cuenta de Azure Cosmos debe estar configurada para la conmutación por error manual para que esta operación se realice correctamente.
+
+> [!NOTE]
+> Si realiza una operación de conmutación por error manual mientras hay una [operación asincrónica de escalado del rendimiento](scaling-provisioned-throughput-best-practices.md#background-on-scaling-rus) en curso, la operación de escalado vertical del rendimiento se pausa. Se reanudará automáticamente cuando se complete la operación de conmutación por error.
 
 1. Vaya a la cuenta de Azure Cosmos y abra el menú **Replicar datos globalmente**.
 

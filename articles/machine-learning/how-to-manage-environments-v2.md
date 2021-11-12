@@ -11,12 +11,12 @@ ms.author: minxia
 ms.date: 10/21/2021
 ms.reviewer: laobri
 ms.custom: devx-track-azurecli, devplatv2
-ms.openlocfilehash: 351ef1c91ae665c170604543ac509562d2e2f0d0
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 2c88c8954e334b5c6ffc80a60b2bd85cd98bda7a
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131566016"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132055538"
 ---
 # <a name="manage-azure-machine-learning-environments-with-the-cli-v2-preview"></a>Administración de entornos de Azure Machine Learning con la CLI (v2) (versión preliminar)
 
@@ -26,7 +26,7 @@ En este artículo va a aprender a crear y administrar entornos de Azure ML medi
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Para usar la CLI, debe tener una suscripción de Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 - [Instalación y configuración de la extensión de la CLI de Azure para Machine Learning](how-to-configure-cli.md)
@@ -38,7 +38,7 @@ En este artículo va a aprender a crear y administrar entornos de Azure ML medi
 
 Para ejecutar los ejemplos de entrenamiento, primero clone el repositorio de ejemplos y cambie al directorio `cli`:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/misc.sh" id="git_clone":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="git_clone":::
 
 Tenga en cuenta que `--depth 1` solo clona la confirmación más reciente en el repositorio, lo cual reduce el tiempo para completar la operación.
 
@@ -68,7 +68,7 @@ Para definir un entorno a partir de una imagen de Docker, proporcione el URI de 
 
 El ejemplo siguiente es un archivo de especificaciones YAML para un entorno definido a partir de una imagen de Docker. Se especifica una imagen del repositorio oficial de PyTorch en Docker Hub mediante la propiedad `image` del archivo YAML.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/environment/docker-image.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-image.yml":::
 
 Para crear el entorno:
 
@@ -89,7 +89,7 @@ El ejemplo siguiente es un archivo de especificaciones YAML para un entorno defi
 
 En este ejemplo el contexto de compilación contiene un documento Dockerfile de nombre `Dockerfile` y un archivo `requirements.txt` al que se hace referencia dentro del documento Dockerfile para instalar paquetes de Python.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/environment/docker-context.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-context.yml":::
 
 Para crear el entorno:
 
@@ -107,7 +107,7 @@ También debe especificar una imagen base de Docker para este entorno. Azure ML
 
 El ejemplo siguiente es un archivo de especificaciones YAML para un entorno definido a partir de una especificación de Conda. Aquí se especifica la ruta de acceso relativa al archivo de Conda desde el archivo YAML del entorno de Azure ML mediante la propiedad `conda_file`. También puede definir la especificación de Conda insertada mediante la propiedad `conda_file`, en lugar de definirla en un archivo independiente.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/environment/docker-image-plus-conda.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-image-plus-conda.yml":::
 
 Para crear el entorno:
 

@@ -10,12 +10,12 @@ author: tracychms
 ms.author: tracych
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: c91de82d4b0eec1256d34a28132ae3161c62690a
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: cfb475bef0cb308a8e7570a4cbad71e4e9bebb54
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132057772"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131565920"
 ---
 # <a name="cli-v2-batch-endpoint-yaml-schema"></a>Esquema YAML de punto de conexión por lotes de la CLI (v2)
 
@@ -35,7 +35,7 @@ El esquema JSON de origen se puede encontrar en https://azuremlschemas.azureedge
 | `defaults` | object | Configuración predeterminada del punto de conexión. | | |
 | `defaults.deployment_name` | string | Nombre de la implementación que va a actuar como implementación predeterminada del punto de conexión. | | |
 
-## <a name="remarks"></a>Observaciones
+## <a name="remarks"></a>Comentarios
 
 Los comandos `az ml batch-endpoint` se pueden usar para administrar los puntos de conexión de Azure Machine Learning.
 
@@ -45,7 +45,7 @@ Hay ejemplos disponibles en el [repositorio de GitHub de ejemplos](https://githu
 
 ## <a name="yaml-basic"></a>YAML: básico
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/batch-endpoint.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/batch-endpoint.yml":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

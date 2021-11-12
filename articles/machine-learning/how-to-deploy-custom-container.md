@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: deploy, devplatv2
-ms.openlocfilehash: 9b36a5799444b6da011693693b58f6574b135799
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: fdbe6f6232bcd4d53ce3473a80de2829f02fb6bf
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131553640"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132056670"
 ---
 # <a name="deploy-a-tensorflow-model-served-with-tf-serving-using-a-custom-container-in-a-managed-online-endpoint-preview"></a>Implementación de un modelo de TensorFlow servido con TF Serving mediante un contenedor personalizado en un punto de conexión en línea administrado (versión preliminar)
 
@@ -58,35 +58,35 @@ cd azureml-examples/cli
 
 Defina las variables de entorno:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-tfserving.sh" id="initialize_variables":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="initialize_variables":::
 
 ## <a name="download-a-tensorflow-model"></a>Descarga de un modelo de TensorFlow
 
 Descargue y descomprima un modelo que divide una entrada entre dos y agrega 2 al resultado:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-tfserving.sh" id="download_and_unzip_model":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="download_and_unzip_model":::
 
 ## <a name="run-a-tf-serving-image-locally-to-test-that-it-works"></a>Ejecución local de una imagen de TF Serving para probar que funciona
 
 Use Docker para ejecutar la imagen localmente para realizar pruebas:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-tfserving.sh" id="run_image_locally_for_testing":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="run_image_locally_for_testing":::
 
 ### <a name="check-that-you-can-send-liveness-and-scoring-requests-to-the-image"></a>Comprobar que pueden enviar solicitudes de ejecución y puntuación a la imagen
 
 En primer lugar, compruebe que el contenedor está "activo", lo que significa que el proceso dentro del contenedor todavía está en ejecución. Debería obtener una respuesta 200 (OK).
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-tfserving.sh" id="check_liveness_locally":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="check_liveness_locally":::
 
 A continuación, compruebe que puede obtener predicciones sobre datos sin etiquetar:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-tfserving.sh" id="check_scoring_locally":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="check_scoring_locally":::
 
 ### <a name="stop-the-image"></a>Detención de la imagen
 
 Ahora que ha realizado las pruebas localmente, detenga la imagen:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-tfserving.sh" id="stop_image":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="stop_image":::
 
 ## <a name="create-a-yaml-file-for-your-endpoint-and-deployment"></a>Creación de un archivo YAML para el punto de conexión y la implementación
 
@@ -94,11 +94,11 @@ Puede configurar la implementación en la nube mediante YAML. Eche un vistazo al
 
 __tfserving-endpoint.yml__
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/custom-container/tfserving-endpoint.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/custom-container/tfserving-endpoint.yml":::
 
 __tfserving-deployment.yml__
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/custom-container/tfserving-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/custom-container/tfserving-deployment.yml":::
 
 Hay algunos conceptos importantes que se pueden observar en este código YAML:
 
@@ -171,7 +171,7 @@ az ml online-deployment create --name tfserving-deployment -f endpoints/online/c
 
 Una vez completada la implementación, compruebe si puede realizar una solicitud de puntuación al punto de conexión implementado.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-tfserving.sh" id="invoke_endpoint":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="invoke_endpoint":::
 
 ### <a name="delete-endpoint-and-model"></a>Eliminación del punto de conexión y el modelo
 
