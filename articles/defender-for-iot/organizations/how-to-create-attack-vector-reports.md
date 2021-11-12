@@ -1,14 +1,14 @@
 ---
 title: Creación de informes de vectores de ataque
 description: Los informes de vectores de ataque proporcionan una representación gráfica de una cadena de vulnerabilidades de dispositivos que se pueden infringir.
-ms.date: 12/17/2020
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: 6c178f379561ca4a572a7ae8f556ae6753d6e2be
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: a100363cd974bd820e859ca2456fcfa5c347e7eb
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113020690"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132293295"
 ---
 # <a name="attack-vector-reporting"></a>Informe de vectores de ataque
 
@@ -68,5 +68,3 @@ Para crear una simulación de vector de ataque:
 ## <a name="see-also"></a>Vea también
 
 [Informe de vectores de ataque](how-to-create-attack-vector-reports.md)
-
-

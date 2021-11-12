@@ -1,14 +1,14 @@
 ---
 title: Generación de informes de tendencias y estadísticas
 description: Obtenga conclusiones sobre la actividad de red, las estadísticas y las tendencias mediante los widgets de tendencias y estadísticas de Defender for IoT.
-ms.date: 2/21/2021
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: b4539e20ff485f1b6be69fee8e6849298540adcb
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: f84f739a9566bff2a9fe8286d301aa31d1e74199
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113020554"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132284044"
 ---
 # <a name="sensor-trends-and-statistics-reports"></a>Informes de tendencias y estadísticas del sensor
 

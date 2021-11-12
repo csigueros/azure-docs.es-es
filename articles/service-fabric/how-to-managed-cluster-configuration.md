@@ -3,12 +3,12 @@ title: Configuración del clúster administrado de Service Fabric
 description: Aprenda a configurar el clúster administrado de Service Fabric para las actualizaciones automáticas del sistema operativo, las reglas de grupo de seguridad de red y mucho más.
 ms.topic: how-to
 ms.date: 10/25/2021
-ms.openlocfilehash: 808b7e96778821c695ed5fca08648e95f4290959
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: aad982def0a1dd2e4b6f847a72e270337abcd460
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131060637"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132286039"
 ---
 # <a name="service-fabric-managed-cluster-configuration-options"></a>Opciones de configuración del clúster administrado de Service Fabric
 
@@ -19,7 +19,7 @@ Además de seleccionar el [SKU de clúster administrado de Service Fabric](overv
 * Configuración de las [opciones de red](how-to-managed-cluster-networking.md) del clúster
 * Configuración de un tipo de nodo para [grandes conjuntos de escalado de máquinas virtuales](how-to-managed-cluster-large-virtual-machine-scale-sets.md)
 * Configuración de la [identidad administrada](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md) en los tipos de nodo de clúster
-* Habilitación del [cifrado de discos de datos y sistema operativo](how-to-enable-managed-cluster-disk-encryption.md) en los nodos de clúster
+* Habilitación del [cifrado de discos de datos y sistema operativo](how-to-managed-cluster-enable-disk-encryption.md) en los nodos de clúster
 * Configuración del [escalado automático](how-to-managed-cluster-autoscale.md) en un tipo de nodo secundario
 * [Escalado manual de un tipo de nodo](how-to-managed-cluster-modify-node-type.md#scale-a-node-type-manually-with-portal)
 * Habilitación de las [actualizaciones automáticas de las imágenes del sistema operativo](how-to-managed-cluster-modify-node-type.md#enable-automatic-os-image-upgrades) en los tipos de nodo de clúster

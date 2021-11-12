@@ -2,13 +2,13 @@
 title: Configuraciones local del agente de seguridad (C)
 description: Obtenga información sobre Defender para las configuraciones locales del agente de C.
 ms.topic: conceptual
-ms.date: 10/08/2020
-ms.openlocfilehash: 24445ce60b3a6d070805cf04a23d7834c24f01e4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 11/09/2021
+ms.openlocfilehash: 9ffe4ae98cd745c4c9362f09a9a29258a8d48a2e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128680514"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132286666"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>Información acerca del archivo LocalConfiguration.json: agente de C
 

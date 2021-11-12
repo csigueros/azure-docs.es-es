@@ -1,14 +1,14 @@
 ---
 title: Creación de informes de minería de datos
 description: Genere información exhaustiva y detallada sobre los dispositivos de red en varias capas como protocolos, versiones de firmware o comandos de programación.
-ms.date: 01/20/2021
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: 460edc5aa21461f37bbcdf35d070ef3674d509d3
-ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.openlocfilehash: 4da8e9b25c700641f2e6ee49bf44f2e380386897
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130138114"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132284063"
 ---
 # <a name="sensor-data-mining-queries"></a>Consultas de minería de datos del sensor
 

@@ -6,14 +6,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 10/01/2021
+ms.date: 11/10/2021
 ms.author: jasteppe
-ms.openlocfilehash: d5111425c6377cf16d3fbd4afceb7fcacc1e539a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 3b0d9a946408091f32b950e0daa349ee0f887380
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131077427"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132281804"
 ---
 # <a name="iot-connector-troubleshooting-guide"></a>Guía de solución de problemas del conector de IoT
 
@@ -30,7 +30,7 @@ En este artículo se proporcionan los pasos para solucionar problemas comunes de
 En esta sección se describe el proceso de validación que realiza el conector de IoT. El proceso de validación valida las asignaciones de destino de dispositivo y FHIR antes de permitir que se guarden para su uso. Estos elementos son necesarios en las asignaciones de destino de dispositivo y FHIR.
 
 > [!TIP]
-> Consulte la herramienta [Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) del conector ioMT para editar, probar y solucionar problemas de asignaciones de dispositivos y destinos de FHIR del conector de IoT. Exporte asignaciones para cargar en el conector de IoT Azure Portal use con la versión [de código abierto](https://github.com/microsoft/iomt-fhir) del conector de IoT.
+> Consulte la herramienta [Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) del conector ioMT para editar, probar y solucionar problemas de las asignaciones de dispositivos y destinos de FHIR del conector de IoT. Exporte asignaciones para cargar en el conector de IoT Azure Portal use con la versión [de código](https://github.com/microsoft/iomt-fhir) abierto del conector de IoT.
 
 **Asignaciones de dispositivos**
 
@@ -78,7 +78,7 @@ En esta sección se describe el proceso de validación que realiza el conector d
 |Se ha alcanzado el número máximo de tipos `iotconnectors/destinations` de recursos.|API y Azure Portal|Se alcanza la cuota de recursos de destino del conector de IoT y el valor predeterminado es 1 por conector de IoT.|Elimine la instancia existente del recurso de destino del conector de IoT. Solo se permite un recurso de destino por conector de IoT.
 |El valor `fhirServiceResourceId` proporcionado no es válido.|API y Azure Portal|El proporcionado en la solicitud de aprovisionamiento de recursos de destino no es un identificador de recurso válido para una instancia del servicio FHIR de `properties.fhirServiceResourceId` las API de Azure Healthcare.|Asegúrese de que el identificador de recurso tiene el formato correcto y asegúrese de que el identificador de recurso es para una instancia de FHIR de Azure Healthcare APIs. El formato debe ser `/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP_NAME}/providers/Microsoft.HealthcareApis/services/{FHIR_SERVER_NAME} or /subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP_NAME}/providers/Microsoft.HealthcareApis/workspaces/{WORKSPACE_NAME}/`.
 |Los recursos antecesores deben aprovisionarse por completo antes de que se pueda aprovisionar un recurso secundario.|API|El área de trabajo primaria o el conector de IoT primario siguen aprovisionamiento.|Espere hasta que se complete el aprovisionamiento del área de trabajo principal o del conector de IoT primario y, a continuación, envíe de nuevo la solicitud de aprovisionamiento.
-|La propiedad `Location` de los recursos secundarios debe coincidir con la propiedad `Location` de los recursos principales.|API|La propiedad Solicitud de aprovisionamiento `location` de destino es diferente de la propiedad del conector de IoT `location` principal.|Establezca la propiedad de Destination en la solicitud de aprovisionamiento en el mismo valor que la propiedad principal del conector `location` de `location` IoT.
+|La propiedad `Location` de los recursos secundarios debe coincidir con la propiedad `Location` de los recursos principales.|API|La propiedad Solicitud de aprovisionamiento `location` de destino es diferente de la propiedad del conector de IoT `location` principal.|Establezca la `location` propiedad de Destination en la solicitud de aprovisionamiento en el mismo valor que la propiedad principal del conector de `location` IoT.
 
 ## <a name="why-is-iot-connector-data-not-showing-up-in-the-fhir-service"></a>¿Por qué los datos del conector de IoT no aparecen en el servicio FHIR?
 
@@ -94,7 +94,7 @@ En esta sección se describe el proceso de validación que realiza el conector d
 
 *Guía [de inicio rápido de referencia:](deploy-iot-connector-in-azure.md) Implementación del conector de IoT mediante Azure Portal para obtener una descripción funcional de los tipos de resolución del conector de IoT (por ejemplo: Búsqueda o creación).
 
-### <a name="the-operation-performed-by-iot-connector"></a>La operación realizada por el conector de IoT
+### <a name="the-operation-performed-by-iot-connector"></a>Operación realizada por el conector de IoT
 
 Esta propiedad representa la operación que realiza el conector de IoT cuando se ha producido el error. Por lo general, una operación representa la fase del flujo de datos durante el procesamiento de un mensaje del dispositivo. A continuación se muestra una lista de valores posibles para esta propiedad.
 
@@ -142,14 +142,14 @@ Esta propiedad proporciona el nombre de un error específico. A continuación pu
 |`MultipleResourceFoundException`|Este error se produce cuando se encuentran varios recursos de pacientes o dispositivos en el servicio FHIR para los identificadores respectivos presentes en el mensaje del dispositivo.|`FHIRResourceError`|Error|`FHIRConversion`|
 |`TemplateNotFoundException`|Asignación de destino de dispositivo o FHIR que no está configurada con la instancia del conector de IoT.|`DeviceTemplateError`, `FHIRTemplateError`|`Critical|Normalization`, `FHIRConversion`|
 |`CorrelationIdNotDefinedException`|El identificador de correlación no se especifica en la asignación de dispositivos. `CorrelationIdNotDefinedException` es un error condicional que se produce solo cuando la observación de FHIR debe agrupar las medidas del dispositivo mediante un identificador de correlación porque no está configurado correctamente.|`DeviceMessageError`|Error|Normalización|
-|`PatientDeviceMismatchException`|Este error se produce cuando el recurso de dispositivo en el servicio FHIR tiene una referencia a un recurso de paciente. Este tipo de error significa que no coincide con el identificador de Patient presente en el mensaje.|`FHIRResourceError`|Error|`FHIRConversionError`|
-|`PatientNotFoundException`|El recurso FHIR del dispositivo asociado con el identificador del dispositivo presente en el mensaje del dispositivo no hace referencia a ningún recurso FHIR del paciente. Tenga en cuenta que este error solo se producirá cuando la instancia del conector de IoT esté configurada con el tipo de resolución *Lookup.*|`FHIRConversionError`|Error|`FHIRConversion`|
+|`PatientDeviceMismatchException`|Este error se produce cuando el recurso del dispositivo en el servicio FHIR tiene una referencia a un recurso de paciente. Este tipo de error significa que no coincide con el identificador de Patient presente en el mensaje.|`FHIRResourceError`|Error|`FHIRConversionError`|
+|`PatientNotFoundException`|El recurso FHIR del dispositivo asociado con el identificador del dispositivo presente en el mensaje del dispositivo no hace referencia a ningún recurso FHIR del paciente. Tenga en cuenta que este error solo se producirá cuando la instancia del conector de IoT esté configurada con el *tipo de* resolución de búsqueda.|`FHIRConversionError`|Error|`FHIRConversion`|
 |`DeviceNotFoundException`|No existe ningún recurso de dispositivo en el servicio FHIR asociado al identificador de dispositivo presente en el mensaje del dispositivo.|`DeviceMessageError`|Error|Normalización|
-|`PatientIdentityNotDefinedException`|Este error se produce cuando la expresión para analizar el identificador de paciente del mensaje del dispositivo no está configurada en la asignación de dispositivos o el identificador de paciente no está presente en el mensaje del dispositivo. Tenga en cuenta que este error solo se produce cuando el tipo de resolución del conector de IoT está establecido en *Crear*.|`DeviceTemplateError`|Crítico|Normalización|
-|`DeviceIdentityNotDefinedException`|Este error se produce cuando la expresión para analizar el identificador de dispositivo del mensaje del dispositivo no está configurada en la asignación de dispositivos o el identificador de dispositivo no está presente en el mensaje del dispositivo.|`DeviceTemplateError`|Crítico|Normalización|
+|`PatientIdentityNotDefinedException`|Este error se produce cuando la expresión para analizar el identificador de pacientes del mensaje del dispositivo no está configurada en la asignación de dispositivos o el identificador de paciente no está presente en el mensaje del dispositivo. Tenga en cuenta que este error solo se produce cuando el tipo de resolución del conector de IoT está establecido en *Crear*.|`DeviceTemplateError`|Crítico|Normalización|
+|`DeviceIdentityNotDefinedException`|Este error se produce cuando la expresión para analizar el identificador del dispositivo del mensaje del dispositivo no está configurada en la asignación de dispositivos o el identificador de dispositivo no está presente en el mensaje del dispositivo.|`DeviceTemplateError`|Crítico|Normalización|
 |`NotSupportedException`|Error al recibir un mensaje del dispositivo con un formato no compatible.|`DeviceMessageError`|Error|Normalización|
 
-## <a name="creating-copies-of-iot-connector-device-and-fhir-destination-mappings"></a>Creación de copias de asignaciones de destino de dispositivos y FHIR del conector de IoT
+## <a name="creating-copies-of-iot-connector-device-and-fhir-destination-mappings"></a>Creación de copias de las asignaciones de destino de dispositivo y FHIR del conector de IoT
 
 Copiar asignaciones de conectores de IoT puede ser útil para editar y archivar fuera del sitio Azure Portal web.
 
@@ -165,7 +165,7 @@ Las copias de asignación se deben proporcionar al soporte técnico de Azure al 
 
    :::image type="content" source="media/iot-troubleshoot/iot-connector-blade.png" alt-text="Seleccione Conectores de IoT." lightbox="media/iot-troubleshoot/iot-connector-blade.png":::
 
-2. Seleccione el nombre del conector **de IoT** del que va a copiar las asignaciones de destino de Dispositivo y FHIR.
+2. Seleccione el nombre del conector **de IoT** desde el que va a copiar las asignaciones de destino de dispositivo y FHIR.
 
    :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="Conector de IoT2" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
@@ -179,11 +179,11 @@ Las copias de asignación se deben proporcionar al soporte técnico de Azure al 
 4. Realice una operación de pegado (por ejemplo, presione **Ctrl + V**) en un nuevo archivo dentro de un editor como Microsoft Visual Studio Code o Bloc de notas. Asegúrese de guardar el archivo con la **extensión .json.**
 
 > [!TIP]
-> Si va a abrir una vale de soporte técnico de [Azure](https://azure.microsoft.com/support/create-ticket/) para el conector de IoT, asegúrese de incluir copias de las asignaciones de destino de dispositivos y FHIR para ayudar con el proceso de solución de problemas.
+> Si va a abrir una entrada de soporte técnico de [Azure](https://azure.microsoft.com/support/create-ticket/) para el conector de IoT, asegúrese de incluir copias de las asignaciones de destino de dispositivo y FHIR para ayudar con el proceso de solución de problemas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 >[!div class="nextstepaction"]
 >[Introducción al conector de IoT](iot-connector-overview.md)
 
-(FHIR&#174;) es una marca registrada [de HL7](https://hl7.org/fhir/) y se usa con el permiso HL7.
+(FHIR&#174;) es una marca comercial registrada de [HL7](https://hl7.org/fhir/) y se usa con el permiso hl7.

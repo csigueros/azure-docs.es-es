@@ -9,12 +9,12 @@ metadata:
   author: johnkemnetz
   ms.author: johnkem
   ms.date: 08/24/2021
-  ms.openlocfilehash: 8ae0b6d778d71b05b45cdc23d27be26bd6b0cfa9
-  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.openlocfilehash: 540fb41d74babdda1e36c7fcb77c877d23043c80
+  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/02/2021
-  ms.locfileid: "131088361"
+  ms.lasthandoff: 11/11/2021
+  ms.locfileid: "132293789"
 landingContent:
 - title: Acerca de Azure Chaos Studio
   linkLists:
@@ -31,7 +31,7 @@ landingContent:
     - text: Creación de un experimento de caos que usa un error directo del servicio para conmutar por error una instancia de Azure Cosmos DB
       url: chaos-studio-tutorial-service-direct.md
     - text: Creación de un experimento que use un error basado en agente con Azure Chaos Studio
-      url: chaos-studio-tutorial-agent-based.md
+      url: chaos-studio-tutorial-agent-based-portal.md
     - text: Creación de un experimento que usa un error de Chaos Mesh de AKS con Azure Chaos Studio
       url: chaos-studio-tutorial-aks.md
 - title: Referencia
@@ -44,3 +44,5 @@ landingContent:
       url: chaos-studio-fault-providers.md
     - text: Documentación de la API REST
       url: https://docs.microsoft.com/rest/api/chaosstudio
+    - text: SDK de Python
+      url: https://docs.microsoft.com/python/api/azure-mgmt-chaos/?view=azure-python-preview

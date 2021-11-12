@@ -7,12 +7,12 @@ ms.service: chaos-studio
 ms.topic: how-to
 ms.date: 11/01/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: df9dc3bc114f486b86b3621a6aa8d0fbddd73431
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: fd945f5a96228bc30c7d1f801fcc16ca34717cde
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131092861"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132293827"
 ---
 # <a name="create-a-chaos-experiment-that-uses-a-service-direct-fault-to-fail-over-an-azure-cosmos-db-instance"></a>Creación de un experimento de caos que usa un error directo del servicio para conmutar por error una instancia de Azure Cosmos DB
 
@@ -79,5 +79,5 @@ Ahora ya puede ejecutar el experimento. Para ver el impacto, se recomienda abrir
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha ejecutado un experimento directo del servicio Azure Cosmos DB, está listo para:
-- [Crear un experimento que usa errores basados en agente](chaos-studio-tutorial-agent-based.md)
+- [Crear un experimento que usa errores basados en agente](chaos-studio-tutorial-agent-based-portal.md)
 - [Administrar el experimento](chaos-studio-run-experiment.md)

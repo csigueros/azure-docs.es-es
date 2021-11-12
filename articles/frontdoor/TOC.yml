@@ -55,7 +55,7 @@
         - name: Condiciones de coincidencia de reglas
           href: rules-match-conditions.md
         - name: Acciones de reglas
-          href: front-door-rules-engine-actions.md
+          href: rules-actions.md
     - name: Reescritura de direcciones URL
       href: front-door-url-rewrite.md
     - name: Redirección de direcciones URL
@@ -131,7 +131,7 @@
         - name: Ubicaciones perimetrales por región
           href: edge-locations-by-region.md
         - name: Ubicaciones perimetrales por abreviatura
-          href: edge-locations-abbreviation.md
+          href: edge-locations-by-abbreviation.md
     - name: CLI de Azure
       href: /cli/azure/afd/
     - name: Azure PowerShell

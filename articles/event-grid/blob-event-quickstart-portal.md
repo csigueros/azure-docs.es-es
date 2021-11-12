@@ -3,12 +3,12 @@ title: 'Uso de Azure Event Grid para enviar eventos de Blob Storage a un punto d
 description: 'Inicio rápido: Use Azure Event Grid y Azure Portal para crear una cuenta de Blob Storage y suscribirse a sus eventos. Envíe los eventos a un webhook.'
 ms.date: 07/01/2021
 ms.topic: quickstart
-ms.openlocfilehash: 9f4f552f4f6a796bef0fcfb011c34317500500f2
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: 62ab7d3196b00f1d59038928a01f3ba50614cbe2
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113219177"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132278595"
 ---
 # <a name="use-azure-event-grid-to-route-blob-storage-events-to-web-endpoint-azure-portal"></a>Uso de Azure Event Grid para enrutar eventos de Blob Storage a un punto de conexión web (Azure Portal)
 Event Grid es un servicio totalmente administrado que le permite administrar fácilmente eventos en muchos servicios y aplicaciones de Azure diferentes. Simplifica la creación de aplicaciones controladas por eventos y sin servidor. Para obtener información general sobre el servicio, consulte [¿Qué es Azure Event Grid?](overview.md)
@@ -53,7 +53,7 @@ Antes de suscribirse a los eventos de Blob Storage, vamos a crear el punto de co
 
 1. Seleccione **Deploy to Azure** (Implementar en Azure) para implementar la solución en su suscripción. 
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png" alt="Button to Deploy to Aquent." /></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png" alt="Button to deploy to Azure."></a>
 2. En la página **Implementación personalizada**, siga estos pasos: 
     1. En **Grupo de recursos**, seleccione el grupo de recursos que usó para crear la cuenta de almacenamiento. Cuando acabe el tutorial elimine el grupo de recursos.  
     2. En **Nombre del sitio**, escriba el nombre de la aplicación web.

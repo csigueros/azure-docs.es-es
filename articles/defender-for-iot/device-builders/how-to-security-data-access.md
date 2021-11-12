@@ -2,13 +2,13 @@
 title: Acceso a datos de seguridad y recomendaciones
 description: Aprenda a obtener acceso a los datos de recomendaciones y alertas de seguridad al usar Defender para IoT.
 ms.topic: conceptual
-ms.date: 05/26/2021
-ms.openlocfilehash: 8dc6f9d3deb80439d23e220c97f2a24363f0f05b
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.date: 11/09/2021
+ms.openlocfilehash: da73bc8984e4d6a24ce94cc6c703ac2f0a93cff3
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018618"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132284101"
 ---
 # <a name="access-your-security-data"></a>Acceso a los datos de seguridad
 

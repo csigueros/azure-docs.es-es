@@ -2,13 +2,13 @@
 title: Defender-IoT-micro-agent y los dispositivos gemelos
 description: Obtenga información sobre el concepto de los módulos gemelos de Defender-IoT-micro-agent y cómo se usan en Defender para IoT.
 ms.topic: conceptual
-ms.date: 05/25/2021
-ms.openlocfilehash: ca36ad03c8e21e1606b163940f8bc06c0b761dd5
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.date: 11/09/2021
+ms.openlocfilehash: f8a634eaa3947d08e6ab88b8f05e119fbcf54665
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018210"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132278937"
 ---
 # <a name="defender-iot-micro-agent"></a>Defender-IoT-micro-agent
 

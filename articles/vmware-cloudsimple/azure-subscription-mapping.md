@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 7fa189e16f71c2b0f04c27911fbcb6e811de45f6
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 8ba2716849295b2a83d88cf3fc190545cceb2369
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129618069"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132283266"
 ---
 # <a name="create-resource-pools-for-your-private-cloud-with-azure-subscription-mapping"></a>Creación de grupos de recursos para la nube privada con la asignación de suscripciones de Azure
 La asignación de suscripciones de Azure le permite crear grupos de recursos para la nube privada a partir de los grupos de recursos de vSphere disponibles. En el portal de CloudSimple, puede ver y administrar la suscripción de Azure para las nubes privadas.
@@ -30,4 +30,4 @@ La asignación de suscripciones de Azure le permite crear grupos de recursos par
 
     ![Suscripciones de Azure](media/resources-azure-mapping.png)
 
-6. Haga clic en **OK**.
+6. Haga clic en **Aceptar**.

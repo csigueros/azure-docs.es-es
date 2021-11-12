@@ -9,18 +9,14 @@ ms.workload: infrastructure-services
 ms.date: 05/25/2021
 ms.author: duau
 ms.custom: references_regions
-ms.openlocfilehash: 051d9b0f3f2d4a2d100f27f80e095431b2837fd8
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: aa6f86138d526ac907d3ff9e6a915cbd07f5035c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129361458"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132305871"
 ---
 # <a name="azure-front-door-edge-locations-by-metro"></a>Ubicaciones perimetrales de Azure Front Door por área metropolitana
-> [!div class="op_single_selector"]
-> * [Ubicaciones perimetrales por región](edge-locations-by-region.md)
-> * [Ubicaciones perimetrales por abreviatura](edge-locations-abbreviation.md)
-> 
 
 En este artículo se enumeran las áreas metropolitanas actuales que contienen ubicaciones perimetrales, ordenadas por región, para Azure Front Door. Cada área metropolitana puede contener más de una ubicación perimetral. Actualmente, Azure Front Door tiene 118 ubicaciones perimetrales en 100 ciudades metropolitanas.
 
@@ -33,3 +29,4 @@ En este artículo se enumeran las áreas metropolitanas actuales que contienen u
 * Consulte las [Ubicaciones perimetrales de Azure Front Door por abreviatura](edge-locations-abbreviation.md).
 * Para obtener la lista más reciente de nodos perimetrales para Azure Front Door, consulte [Lista de nodos perimetrales: API REST](/rest/api/cdn/edge-nodes/list).
 * Aprenda a [crear un perfil de Azure Front Door](quickstart-create-front-door.md).
+* Aprenda a [crear un perfil Estándar/Prémium de Azure Front Door](standard-premium/create-front-door-portal.md).

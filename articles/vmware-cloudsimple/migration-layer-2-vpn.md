@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5156be86fdaf2830abc66ed270edd1217be13bfb
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: b70f282b1429b2233914a239e68a655f1958dd33
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129614239"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132283399"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migración de cargas de trabajo mediante redes extendidas de Capa 2
 
@@ -261,7 +261,7 @@ POST  https://192.168.110.201/api/v1/vpn/ipsec/tunnel-profiles
 
 ### <a name="create-a-local-endpoint"></a>Creación de un punto de conexión local
 
-``` 
+```
 POST https://192.168.110.201/api/v1/vpn/ipsec/local-endpoints
  
 {
@@ -356,7 +356,7 @@ POST : https://192.168.110.201/api/v1/vpn/l2vpn/services
 
 Para el siguiente comando POST, el identificador de servicio de L2VPN es el identificador que acaba de obtener y el identificador de sesión de VPN de IPsec es el identificador obtenido en la sección anterior.
 
-```    
+```
 POST: https://192.168.110.201/api/v1/vpn/l2vpn/sessions
 
 {

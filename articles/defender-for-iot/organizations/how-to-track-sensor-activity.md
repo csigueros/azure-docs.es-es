@@ -1,14 +1,14 @@
 ---
 title: Seguimiento de la actividad del sensor
 description: La escala de tiempo de eventos presenta una escala de tiempo de actividad detectada en la red, incluidas las alertas y las acciones de administración de alertas, los eventos de red y las operaciones de usuario como el inicio de sesión y la eliminación del usuario.
-ms.date: 12/10/2020
+ms.date: 11/09/2021
 ms.topic: article
-ms.openlocfilehash: 195908001fbd247ed2e0fa007bc8dcd5ebf28e60
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: b70675ec16483b50a7207662b85fc6c65a2cf401
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113019442"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132278614"
 ---
 # <a name="track-sensor-activity"></a>Seguimiento de la actividad del sensor
 

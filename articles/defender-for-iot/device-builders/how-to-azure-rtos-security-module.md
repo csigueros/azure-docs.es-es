@@ -2,13 +2,13 @@
 title: Configuración y personalización del microagente de Defender para IoT para Azure RTOS
 description: Aprenda a configurar y personalizar el microagente de Defender para IoT para Azure RTOS.
 ms.topic: how-to
-ms.date: 03/07/2021
-ms.openlocfilehash: 38e0b7cd1226d26caf45ed454c93e253a2ead240
-ms.sourcegitcommit: a2540262e05ffd4a4b059df0976940d60fabd125
+ms.date: 11/09/2021
+ms.openlocfilehash: dc6e522e1d9453264d92100c6e7e830506d8284b
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113138430"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306290"
 ---
 # <a name="configure-and-customize-defender-iot-micro-agent-for-azure-rtos"></a>Configuración y personalización del microagente de Defender para IoT para Azure RTOS
 

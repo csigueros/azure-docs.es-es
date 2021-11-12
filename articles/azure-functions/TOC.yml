@@ -294,7 +294,7 @@
           items:
             - name: Desencadenador HTTP
               items:
-                - name: Portal de Azure
+                - name: Azure portal
                   href: functions-create-function-app-portal.md
                 - name: Línea de comandos
                   href: ./create-first-function-cli-csharp.md
@@ -403,7 +403,7 @@
           href: functions-geo-disaster-recovery.md
         - name: Traslado entre regiones
           href: functions-move-across-regions.md
-    - name: Monitor
+    - name: Supervisión
       items:
         - name: Configuración de la supervisión
           href: configure-monitoring.md
@@ -568,9 +568,20 @@
                 - name: Entrada
                   href: functions-bindings-cosmosdb-v2-input.md
                   displayName: Azure Cosmos DB
-                - name: Output
+                - name: Resultados
                   href: functions-bindings-cosmosdb-v2-output.md
                   displayName: Azure Cosmos DB
+        - name: Azure SQL
+          items:
+            - name: Información general
+              href: functions-bindings-azure-sql.md
+              displayName: Azure SQL
+            - name: Entrada
+              href: functions-bindings-azure-sql-input.md
+              displayName: Azure SQL
+            - name: Output
+              href: functions-bindings-azure-sql-output.md
+              displayName: Azure SQL
         - name: Dapr
           href: 'https://github.com/dapr/azure-functions-extension'
         - name: Event Grid
