@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 5e0d1de26a87cb4a0ac7ddf440b2ce529e02de34
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: ebaad16ff413b33f175815a1ddadb2fa1d5b63ae
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131441939"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131841930"
 ---
 # <a name="connect-to-and-manage-teradata-in-azure-purview"></a>Conectar y administrar Teradata en Azure Purview
 
@@ -23,10 +23,11 @@ Este artículo describe cómo registrar Teradata y cómo autenticar e interactua
 
 |**Extracción de metadatos**|  **Examen completo**  |**Examen incremental**|**Examen con ámbito**|**Clasificación**|**Directiva de acceso**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Sí](#register)| [Sí](#scan)| No | No | No | No| [Sí](how-to-lineage-teradata.md)|
+| [Sí](#register)| [Sí](#scan)| No | No | No | No| [Sí**](how-to-lineage-teradata.md)|
 
-> [!Important]
-> Las versiones de la base de datos de Teradata compatibles son 12.x a 16.x.
+\** Se admite el linaje si el conjunto de datos se usa como origen o receptor en la [actividad de copia de Data Factory](how-to-link-azure-data-factory.md) 
+
+Las versiones de la base de datos de Teradata compatibles son de 12.x a 16.x.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -103,24 +104,24 @@ Siga los pasos que tiene a continuación para examinar Teradata e identificar au
 
         Para obtener más información sobre credenciales, vea el vínculo que se indica [aquí](./manage-credentials.md).
 
-1. **Schema** (Esquema): indique el subconjunto de esquemas que se va a importar expresado como una lista separada por puntos y coma. Por ejemplo, esquema1; esquema2. Si esa lista está vacía, se importan todos los esquemas del usuario. De forma predeterminada, se ignoran todos los esquemas del sistema (por ejemplo, SysAdmin) y los objetos. Si la lista está vacía, se importan todos los esquemas disponibles.
+    1. **Schema** (Esquema): indique el subconjunto de esquemas que se va a importar expresado como una lista separada por puntos y coma. Por ejemplo: `schema1; schema2`. Si esa lista está vacía, se importan todos los esquemas del usuario. De forma predeterminada, se ignoran todos los esquemas del sistema (por ejemplo, SysAdmin) y los objetos. Si la lista está vacía, se importan todos los esquemas disponibles.
 
-    Los patrones de nombres de esquema aceptables que usan la sintaxis de expresiones SQL LIKE incluyen el uso de %. Por ejemplo, A%; %B; %C%; D
-     * empieza por A o
-     * termina en B o
-     * contiene C o
-     * igual a D
+        Los patrones de nombres de esquema aceptables que usan la sintaxis de expresiones SQL LIKE incluyen el uso de %. Por ejemplo: `A%; %B; %C%; D`
+        * empieza por A o
+        * termina en B o
+        * contiene C o
+        * es igual a D
 
-    No se permite usar NOT ni caracteres especiales.
+        No se permite usar NOT ni caracteres especiales.
 
-1. **Driver location** (Ubicación del controlador): especifique la ruta de acceso a la ubicación del controlador JDBC en la máquina virtual donde se ejecuta el entorno de ejecución de integración autohospedado. Debe ser la ruta de acceso a la ubicación válida de la carpeta JAR.
+    1. **Driver location** (Ubicación del controlador): especifique la ruta de acceso a la ubicación del controlador JDBC en la máquina virtual donde se ejecuta el entorno de ejecución de integración autohospedado. Debe ser la ruta de acceso a la ubicación válida de la carpeta JAR.
 
-1. **Maximum memory available** (Memoria máxima disponible): memoria máxima (en GB) disponible en la máquina virtual del cliente que van a usar los procesos de examen. Depende del tamaño del origen de Teradata que se va a examinar.
+    1. **Maximum memory available** (Memoria máxima disponible): memoria máxima (en GB) disponible en la máquina virtual del cliente que van a usar los procesos de examen. Depende del tamaño del origen de Teradata que se va a examinar.
 
-    > [!Note]
-    > Como regla general, especifique 2 GB de memoria por cada 1000 tablas
+        > [!Note]
+        > Como regla general, especifique 2 GB de memoria por cada 1000 tablas
 
-    :::image type="content" source="media/register-scan-teradata-source/setup-scan.png" alt-text="examen de configuración" border="true":::
+        :::image type="content" source="media/register-scan-teradata-source/setup-scan.png" alt-text="examen de configuración" border="true":::
 
 1. Seleccione **Continuar**.
 

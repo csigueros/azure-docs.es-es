@@ -2,99 +2,114 @@
 title: Creación de un laboratorio
 description: Este artículo le guiará por el proceso de creación de un laboratorio mediante Azure Portal y Azure DevTest Labs.
 ms.topic: how-to
-ms.date: 10/12/2020
-ms.openlocfilehash: 68b560125a4cacceee613b5c7c9bfaafc5c95c06
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/27/2021
+ms.openlocfilehash: ffec989e93bcd394c175a2b4a19c4cb72978beb0
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128602904"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131464503"
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Creación de un laboratorio con Laboratorios de desarrollo y pruebas de Azure
 
-En Azure Dev/Test Labs, un laboratorio es la infraestructura que abarca un grupo de recursos, como máquinas virtuales (VM), que permite una mejor administración de dichos recursos mediante la especificación de límites y cuotas. Este artículo le guiará a través del proceso de creación de un laboratorio mediante Azure Portal.
+Azure DevTest Labs abarca un grupo de recursos, como máquinas virtuales (VM) y redes de Azure. Esta infraestructura permite administrar mejor esos recursos mediante la especificación de límites y cuotas. Este artículo le guiará a través del proceso de creación de un laboratorio mediante Azure Portal.
 
 ## <a name="prerequisites"></a>Prerequisites
 
-Para crear un laboratorio necesitará:
+Suscripción a Azure. Para información sobre las opciones de compra de Azure, consulte [Instrucciones para contratar Azure](https://azure.microsoft.com/pricing/purchase-options/) o [Evaluación gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/). Debe ser el propietario de la suscripción para crear el laboratorio.
 
-* Suscripción a Azure. Para información sobre las opciones de compra de Azure, consulte [Instrucciones para contratar Azure](https://azure.microsoft.com/pricing/purchase-options/) o [Evaluación gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/). Debe ser el propietario de la suscripción para crear el laboratorio.
+## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-## <a name="get-started-with-azure-devtest-labs-in-minutes"></a>Introducción a Azure DevTest Labs en cuestión de minutos
-
-Al hacer clic en el vínculo siguiente, se le transferirá a la página de Azure Portal donde podrá empezar a crear un laboratorio nuevo en Azure DevTest Labs.
+Al seleccionar el vínculo siguiente, se le transferirá a la página de Azure Portal donde puede empezar a crear un laboratorio en Azure DevTest Labs.
 
 [Introducción a Azure DevTest Labs en cuestión de minutos](https://go.microsoft.com/fwlink/?LinkID=627034&clcid=0x409)
 
-## <a name="fill-out-settings-for-your-new-account"></a>Configuración de la cuenta nueva
+## <a name="create-a-devtest-labs-resource"></a>Creación de un recurso de DevTest Labs
 
-En la página **Creación de una instancia de DevTest Labs**, rellene la configuración siguiente.
+La página **Create Devtest Lab** (Crear laboratorio de Devtest) contiene cinco pestañas. La primera pestaña es **Configuración básica**.
 
 > [!TIP]
 > En la parte inferior de cada página, encontrará un vínculo en el que podrá **descargar una plantilla para la automatización**.
 
-### <a name="basic-settings"></a>Configuración básica
+### <a name="basic-settings-tab"></a>Pestaña Configuración básica
 
-De manera predeterminada, ve la pestaña **Configuración básica**. 
+Proporcione la siguiente información:
 
-![configuración básica](./media/devtest-lab-create-lab/basic-settings.png)
-
-Rellene estos valores:
-
-|Nombre|Descripción|
+|Propiedad | Descripción |
 |---|---|
-|**Suscripción** | Necesario. Seleccione una **suscripción** para asociar al laboratorio.|
-|**Grupos de recursos**| Necesario. Escriba un **nombre para el grupo de recursos** para el laboratorio. Cree uno si no existe.|
-|**Nombre del laboratorio**| Necesario. Escriba un **nombre** para el laboratorio.|
-|**Ubicación**|Necesario. Seleccione una ubicación en la que se va a almacenar el laboratorio.|
-|**Entornos públicos**| Consulte [Configuración y uso de entornos públicos](devtest-lab-configure-use-public-environments.md).
+|Subscription| En la lista desplegable, seleccione la suscripción de Azure que se va a usar para el laboratorio.|
+|Grupo de recursos| En la lista desplegable, seleccione el grupo de recursos existente o seleccione **Crear**.|
+|Nombre del laboratorio| Escriba un nombre único dentro de la suscripción para el laboratorio.|
+|Location| En la lista desplegable, seleccione una ubicación para el laboratorio.|
+|Entornos públicos| El repositorio de entornos públicos contiene una lista de plantillas de Azure Resource Manager mantenidas que permiten a los usuarios de los laboratorios crear recursos PaaS dentro de Labs. Para más información, vea [Configuración y uso de entornos públicos](devtest-lab-configure-use-public-environments.md).|
 
-### <a name="auto-shutdown-settings"></a>Configuración de apagado automático
+:::image type="content" source="./media/devtest-lab-create-lab/portal-create-basic-settings.png" alt-text="Captura de pantalla de la pestaña Configuración básica para crear laboratorios de DevTest.":::
 
-Cambie a la página **Apagado automático** para ver su configuración. El apagado automático permite apagar automáticamente todas las máquinas de un laboratorio a una hora programada cada día.
 
-![Pestaña Apagado automático](./media/devtest-lab-create-lab/auto-shutdown.png)
+### <a name="auto-shutdown-tab"></a>Pestaña Apagado automático
 
-En la página, puede habilitar **Apagado automático** y definir los parámetros del apagado automático de todas las máquinas virtuales del laboratorio. La característica de apagado automático es principalmente una característica de ahorro de costos por la que puede especificar cuándo desea que la máquina virtual se apague automáticamente. Para cambiar la configuración del apagado automático después de crear el laboratorio, siga los pasos que se describen en el artículo [Administración de todas las directivas para un laboratorio de Azure DevTest Labs](./devtest-lab-set-lab-policy.md#set-auto-shutdown).
+El apagado automático permite apagar automáticamente todas las máquinas de un laboratorio a una hora programada cada día. La característica de apagado automático es principalmente una característica de ahorro de costos. Para cambiar la configuración de apagado automático después de crear el laboratorio, vea [Administración de todas las directivas de un laboratorio en Azure DevTest Labs](./devtest-lab-set-lab-policy.md#set-auto-shutdown).
 
-### <a name="networking"></a>Redes
+Proporcione la siguiente información:
 
-Al crear un laboratorio, se creará automáticamente una red predeterminada. Cambie a la pestaña **Redes** para cambiar o modificar la configuración como desee. Por ejemplo, seleccione una red virtual existente.
+|Propiedad | Descripción |
+|---|---|
+|habilitado| Seleccione **Activado** para habilitar esta directiva, o bien **Desactivado** para deshabilitarla.|
+|Apagado programado| Escriba una hora para apagar todas las máquinas virtuales del laboratorio actual.|
+|Zona horaria| Seleccione una zona horaria en la lista desplegable.|
+|¿Enviar notificación antes del apagado automático? | Seleccione **Sí** o **No** para enviar una notificación 30 minutos antes de la hora especificada de apagado automático. Si elige **Sí**, escriba un punto de conexión de URL del webhook o una dirección de correo electrónico para especificar dónde quiere que se publique o se envíe la notificación. El usuario recibe la notificación y se le ofrece la opción de retrasar el apagado.|
+|Dirección URL de Webhook| Se publicará una notificación en el punto de conexión de webhook especificado cuando esté a punto de producirse un apagado automático.|
+|Dirección de correo electrónico| Escriba un conjunto de direcciones de correo electrónico separadas por punto y coma para recibir correos electrónicos de notificación de alertas.|
 
-![Pestaña Redes ](./media/devtest-lab-create-lab/networking.png)
+:::image type="content" source="./media/devtest-lab-create-lab/portal-create-auto-shutdown.png" alt-text="Captura de pantalla de los detalles de la programación del apagado automático.":::
 
-### <a name="tags"></a>Etiquetas
+### <a name="networking-tab"></a>Pestaña Redes
 
-Escriba la información de **NOMBRE** y **VALOR** en las **Etiquetas**, si desea crear un etiquetado personalizado que se agregue a cada recurso que vaya a crear en el laboratorio. Las etiquetas son útiles para ayudarle a administrar y organizar los recursos del laboratorio por categoría. Para más información acerca de las etiquetas, incluido cómo agregar etiquetas después de crear el laboratorio, consulte [Incorporación de etiquetas a un laboratorio](devtest-lab-add-tag.md).
+Se creará automáticamente una red predeterminada (que se puede cambiar o configurar más adelante) o se puede seleccionar una red virtual existente.
 
-![Pestaña Etiquetas ](./media/devtest-lab-create-lab/tags.png)
+Proporcione la siguiente información:
 
-### <a name="review-and-create"></a>Revisar y crear
+|Propiedad | Descripción |
+|---|---|
+|Red virtual| Mantenga el valor predeterminado o seleccione uno existente en la lista desplegable. Las redes virtuales están aisladas lógicamente entre sí en Azure. De manera predeterminada, las máquinas virtuales de la misma red virtual pueden acceder unas a otras.|
+|Subred| Mantenga el valor predeterminado o seleccione uno existente en la lista desplegable. Una subred es un intervalo de direcciones IP de la red virtual que se puede usar para aislar máquinas virtuales entre sí o de Internet.|
 
-Cuando haya terminado, seleccione **Crear**. Para supervisar el estado del proceso de creación de un laboratorio, inspeccione el área **Notificaciones** en la parte superior de la página del portal. 
+:::image type="content" source="./media/devtest-lab-create-lab/portal-create-networking.png" alt-text="Captura de pantalla de los detalles de red.":::
 
-![Pestaña Crear](./media/devtest-lab-create-lab/create-1.png)
+### <a name="tags-tab"></a>Pestaña Etiquetas
 
-## <a name="completed-the-creation"></a>Creación finalizada
+Las etiquetas son útiles para ayudarle a administrar y organizar los recursos del laboratorio por categoría. Para más información, vea [Adición de etiquetas a un laboratorio](devtest-lab-add-tag.md).
 
-Una vez finalizada, el botón **Ir al recurso** aparecerá en la parte inferior de la página y en la ventana de notificación. Como alternativa puede actualizar la página **DevTest Labs** para ver el laboratorio recién creado en la lista de laboratorios.  
+Proporcione la siguiente información:
 
-![Creación del servicio](./media/devtest-lab-create-lab/create-2.png)
+|Propiedad | Descripción |
+|---|---|
+|Nombre| Los nombres de etiqueta no distinguen mayúsculas de minúsculas y se limitan a 512 caracteres.|
+|Value| Los valores de etiqueta distinguen mayúsculas de minúsculas y se limitan a 256 caracteres.|
 
-Presione el botón **Ir al recurso** y pasará a la página principal de la cuenta nueva de DevTest Labs.
+:::image type="content" source="./media/devtest-lab-create-lab/portal-create-tags.png" alt-text="Captura de pantalla de los detalles de las etiquetas.":::
 
-![Resource](./media/devtest-lab-create-lab/go-to-resource.png)
+### <a name="review--create-tab"></a>Pestaña Revisar y crear
 
-También puede buscar **DevTest Labs** en Azure Portal. Seleccione la cuenta nueva en la lista y vaya a la página principal. 
+En la pestaña **Revisar y crear** se validan todas las configuraciones. Si todas las configuraciones son válidas, aparecerá **Correcto** en la parte superior. Revise la configuración y seleccione **Crear**. Para supervisar el estado del proceso de creación de un laboratorio, inspeccione el área **Notificaciones** en la parte superior de la página del portal. 
 
-![Servicio creado](./media/devtest-lab-create-lab/created.png)
+:::image type="content" source="./media/devtest-lab-create-lab/portal-review-and-create.png" alt-text="Captura de pantalla de los detalles de Revisar y crear.":::
+
+## <a name="post-creation"></a>Después de la creación
+
+1. Una vez que finalice el proceso de creación, seleccione **Ir al recurso** en la notificación de implementación.
+
+    :::image type="content" source="./media/devtest-lab-create-lab/creation-notification.png" alt-text="Captura de pantalla de la notificación de implementación de DevTest Labs.":::
+
+1. La página **Información general** del laboratorio es similar a la siguiente imagen:
+
+    :::image type="content" source="./media/devtest-lab-create-lab/lab-home-page.png" alt-text="Captura de pantalla de la página de información general de DevTest Labs.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Una vez creado el laboratorio, le presentamos algunos pasos que se deben tener en cuenta:
 
+* [Adición de una máquina virtual a un laboratorio](devtest-lab-add-vm.md)
 * [Acceso seguro a un laboratorio](devtest-lab-add-devtest-user.md)
 * [Definición de directivas de laboratorio](devtest-lab-set-lab-policy.md)
-* [Creación de una plantilla de laboratorio](devtest-lab-create-template.md)
-* [Creación de artefactos personalizados para máquinas virtuales](devtest-lab-artifact-author.md)
-* [Adición de una máquina virtual a un laboratorio](devtest-lab-add-vm.md)
+

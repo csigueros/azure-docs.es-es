@@ -7,12 +7,12 @@ ms.service: chaos-studio
 ms.topic: conceptual
 ms.date: 11/01/2021
 ms.custom: template-concept, ignite-fall-2021
-ms.openlocfilehash: 8502000dde601f6b42a8f770513e13f171dcf5d2
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: fa547771b125b17d05e6a615f01cecc899cba7e0
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091688"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132372215"
 ---
 # <a name="permissions-and-security-in-azure-chaos-studio"></a>Permisos y seguridad en Azure Chaos Studio
 
@@ -65,5 +65,5 @@ Chaos Studio cifra todos los datos de manera predeterminada. Chaos Studio solo
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que sabe cómo proteger el experimento de caos, puede:
-- [Crear y ejecutar tu primer experimento](chaos-studio-tutorial-service-direct.md)
-- [Crear y ejecutar su primer experimento de Azure Kubernetes Service](chaos-studio-tutorial-aks.md)
+- [Crear y ejecutar tu primer experimento](chaos-studio-tutorial-service-direct-portal.md)
+- [Crear y ejecutar su primer experimento de Azure Kubernetes Service](chaos-studio-tutorial-aks-portal.md)

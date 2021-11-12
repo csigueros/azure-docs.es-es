@@ -6,14 +6,14 @@ ms.service: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: ffb57d83493aee607fa89720d978a00b25e44e24
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 15688b89b319b884707e9e6d8faa9a13de3233e0
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129426856"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563347"
 ---
 # <a name="plan-an-azure-arc-enabled-data-services-deployment"></a>Planeamiento de una implementación de servicios de datos habilitados para Azure Arc
 
@@ -33,7 +33,7 @@ Consulte los artículos siguientes:
 
 Compruebe lo siguiente:
 
-- La [extensión de la CLI de Azure Arc](install-arcdata-extension.md) está instalada.
+- La [extensión de la CLI `arcdata`](install-arcdata-extension.md) está instalada.
 - Las demás [herramientas de cliente](install-client-tools.md) están instaladas.
 - Tiene acceso al clúster de Kubernetes.
 - El archivo *kubeconfig* está configurado. Debe apuntar al clúster de Kubernetes en el que desea realizar la implementación. Ejecute el siguiente comando para comprobar el contexto actual del clúster:
@@ -51,7 +51,7 @@ Una vez preparada la infraestructura, implemente los servicios de datos habilita
 
 ## <a name="overview-create-an-azure-arc-enabled-data-controller"></a>Introducción: Creación del controlador de datos habilitado para Azure Arc
 
-Puede crear servicios de datos habilitados para Azure Arc en varios tipos de clústeres de Kubernetes y puede crear servicios de Kubernetes administrados mediante diversos enfoques.
+Puede crear servicios de datos habilitados para Azure Arc en varios tipos de clústeres de Kubernetes, y puede crear servicios de Kubernetes administrados mediante diversos enfoques.
 
 Actualmente, la lista validada de servicios y distribuciones de Kubernetes incluye:
 
@@ -82,24 +82,30 @@ Al crear servicios de datos habilitados para Azure Arc, independientemente de la
 - **Nombre del grupo de recursos de Azure**: nombre del grupo de recursos en el que desea que se cree el recurso del controlador de datos en Azure. Todas las instancias administradas de SQL habilitadas para Azure Arc y los grupos de servidores de Hiperescala de Azure Database for PostgreSQL también se crean en este grupo de recursos.
 - **Ubicación de Azure**: ubicación de Azure en la que se almacenarán los metadatos del recurso del controlador de datos en Azure. Para obtener una lista de las regiones disponibles, consulte la página [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc) de la infraestructura global de Azure. Los metadatos y la información de facturación sobre los recursos de Azure administrados por el controlador de datos que va a implementar solo se almacenarán en la ubicación de Azure que especifique como parámetro de ubicación. Si va a implementar en modo de conectividad directa, el parámetro de ubicación para el controlador de datos es el mismo que la ubicación del recurso de ubicación personalizada de destino.
 - **Información de la entidad de servicio** 
-   - Si va a implementar en modo de conectividad directa durante la creación del controlador de datos de Azure Arc, necesita la información de la entidad de servicio. Para más información, consulte la sección "Asignación de roles a la entidad de servicio" de [Carga de datos de uso, métricas y registros en Azure](upload-metrics-and-logs-to-azure-monitor.md). 
-   - Para el modo de conexión indirecta, todavía necesita la entidad de servicio para exportar y cargar manualmente, pero después que se haya creado el controlador de datos de Azure Arc.
-- **Infraestructura**: para fines de facturación, es necesario indicar la infraestructura en la que se ejecutan los servicios de datos habilitados para Azure Arc. Las opciones son *alibaba*, *aws*, *azure*, *gcp*, *onpremises* u *other*.
+   - Si va a implementar en modo de conectividad **indirecta**, necesita información de la entidad de servicio para cargar datos de uso y métricas. Para más información, consulte la sección "Asignación de roles a la entidad de servicio" de [Carga de datos de uso, métricas y registros en Azure](upload-metrics-and-logs-to-azure-monitor.md). 
+
+- **Infraestructura**: para fines de facturación, es necesario indicar la infraestructura en la que se ejecutan los servicios de datos habilitados para Azure Arc. Las opciones son:
+- `alibaba`
+- `aws`
+- `azure`
+- `gcp`
+- `onpremises`
+- `other`
 
 ## <a name="additional-concepts-for-direct-connectivity-mode"></a>Conceptos adicionales para el modo de conexión directa
 
-Como se ha descrito en [Modos y requisitos de conectividad](./connectivity.md), puede implementar el controlador de datos Azure Arc en modo de conectividad directa o indirecta. La implementación de los servicios de datos de Azure Arc en el modo de conexión directa requiere conocer un par de conceptos y consideraciones adicionales:
+Como se ha esbozado en [Modos y requisitos de conectividad](./connectivity.md), puede implementar el controlador de datos de Azure Arc en modo de conectividad **directa** o **indirecta**. La implementación de servicios de datos de Azure Arc en modo de conectividad directa exige conceptos y consideraciones adicionales:
 
-* En primer lugar, el clúster de Kubernetes en el que se implementarán los servicios de datos habilitados para Azure Arc debe ser un [clúster de Kubernetes habilitado para Azure Arc](../kubernetes/overview.md). La implementación del clúster de Kubernetes en Azure Arc proporciona conectividad de Azure con funcionalidades como la carga automática de información de uso, registros y métricas. Al conectar el clúster de Kubernetes a Azure, también puede implementar y administrar servicios de datos de Azure Arc directamente en el clúster desde Azure Portal. Para obtener información sobre cómo hacerlo, consulte [Conexión del clúster a Azure](../kubernetes/quickstart-connect-cluster.md).
+* En primer lugar, el clúster de Kubernetes en el que se implementarán los servicios de datos habilitados para Azure Arc debe ser un [clúster de Kubernetes habilitado para Azure Arc](../kubernetes/overview.md). Al conectar el clúster de Kubernetes a Azure, puede implementar y administrar servicios de datos de Azure Arc directamente en el clúster desde Azure Portal, cargar el uso, los registros y las métricas en Azure automáticamente y obtener otras ventajas de Azure. Para obtener información sobre cómo hacerlo, consulte [Conexión del clúster a Azure](../kubernetes/quickstart-connect-cluster.md).
 
-* Una vez implementado el clúster de Kubernetes en Azure Arc, implemente los servicios de datos habilitados para Azure Arc en un clúster de Kubernetes habilitado para Azure Arc de la manera siguiente:
-   1. Cree la extensión de servicios de datos de Arc. Para saber cómo hacerlo, consulte [Extensiones de clústeres en Kubernetes con Azure Arc habilitado](../kubernetes/conceptual-extensions.md).
+* Después de habilitar el clúster de Kubernetes para Azure Arc, implemente servicios de datos habilitados para Azure Arc mediante este procedimiento:
+   1. Cree la extensión de servicios de datos de Azure Arc. Para saber cómo hacerlo, consulte [Extensiones de clústeres en Kubernetes con Azure Arc habilitado](../kubernetes/conceptual-extensions.md).
    1. Crear una ubicación personalizada. Para saber cómo hacerlo, consulte [Ubicaciones personalizadas basadas en Kubernetes habilitado para Azure Arc](../kubernetes/conceptual-custom-locations.md).
    1. Cree el controlador de datos de Azure Arc.
 
    Puede ejecutar los tres pasos se pueden realizar en un solo paso mediante el asistente para la creación de controladores de datos de Azure Arc en Azure Portal.
 
-Después de haber instalado el controlador de datos de Azure Arc, puede acceder a los servicios de datos como SQL Managed Instance habilitado para Azure Arc o un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc.
+Después de haber instalado el controlador de datos de Azure Arc, puede crear servicios de datos, como SQL Managed Instance habilitado para Azure Arc o un servidor de Hiperescala de PostgreSQL habilitado para Azure Arc, y acceder a ellos.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

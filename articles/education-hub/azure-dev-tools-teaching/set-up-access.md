@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
-ms.openlocfilehash: 3151da4375c440bec44523711448149f51440d5c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fa06b7aa3210afc6ade1167ec86f449cc46ea6ba
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92676537"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132343427"
 ---
 # <a name="setting-up-access-for-azure-dev-tools"></a>Configuración del acceso para Azure Dev Tools
 
@@ -22,7 +22,7 @@ Hay dos maneras de acceder a la suscripción para que pueda implementar software
 
 Para más información, visite el [sitio web de Azure for Education](https://azureforeducation.microsoft.com).
 
-## <a name="for-administrators-only"></a>Solo para administradores  
+## <a name="for-administrators-only"></a>Solo para administradores
 Los administradores pueden acceder a Azure Dev Tools a través del [portal de Visual Studio Subscription](https://my.visualstudio.com/).
 
 Para solicitar acceso a Visual Studio Subscription, puede hacerlo a través del [Portal de administración](https://azureforeducation.microsoft.com/account/Subscriptions). Una vez aprobado, tendrá acceso al portal de suscripciones de Visual Studio. Si esta es la primera vez que accede al portal de Visual Studio Subscription, se le pedirá que vincule una cuenta de Microsoft con la dirección de correo electrónico que se proporcionó al inscribirse. Necesitará el identificador de suscriptor o el número de acceso a los beneficios, el nombre y apellidos de un administrador, y el correo electrónico que se proporcionó durante la inscripción para vincular estas cuentas. Después de vincular las cuentas, podrá acceder al portal de suscriptores de Visual Studio.

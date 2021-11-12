@@ -3,21 +3,21 @@ title: Instalación y ejecución de contenedores de Docker para las API del serv
 titleSuffix: Azure Cognitive Services
 description: Use los contenedores de Docker del servicio de voz para realizar el reconocimiento de voz, la transcripción, la generación y trabajar en más entornos locales.
 services: cognitive-services
-author: aahill
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/11/2021
-ms.author: aahi
+ms.author: eur
 ms.custom: cog-serv-seo-aug-2020
 keywords: entorno local, Docker, contenedor
-ms.openlocfilehash: a930b5234f13d7e53bc50b6dc3f7b3d959df2e0e
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 3297231244cd5323c0218dcce02ac20453456685
+ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "131024603"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131867178"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instalación y ejecución de contenedores de Docker para las API del servicio de voz 
 
@@ -30,11 +30,11 @@ Los contenedores de Voz permiten a los clientes compilar una arquitectura de apl
 
 | Contenedor | Características | Más reciente | Estado de la versión |
 |--|--|--|--|
-| Voz a texto | Analice opiniones y transcriba grabaciones continuas de audio por lotes o de voz en tiempo real con resultados intermedios.  | 2.15.0 | Disponibilidad general |
-| Conversión de voz a texto personalizada | Con un modelo personalizado del [portal de Habla personalizada](https://speech.microsoft.com/customspeech), transcribe las grabaciones continuas de voz en tiempo real o de audio por lotes a texto con resultados inmediatos. | 2.15.0 | Disponibilidad general |
+| Voz a texto | Analice opiniones y transcriba grabaciones continuas de audio por lotes o de voz en tiempo real con resultados intermedios.  | 2.16.0 | Disponibilidad general |
+| Conversión de voz a texto personalizada | Con un modelo personalizado del [portal de Habla personalizada](https://speech.microsoft.com/customspeech), transcribe las grabaciones continuas de voz en tiempo real o de audio por lotes a texto con resultados inmediatos. | 2.16.0 | Disponibilidad general |
 | Texto a voz | Convierte texto a voz de sonido natural con entrada de texto sin formato o Lenguaje de marcado de síntesis de voz (SSML). | 1.15.0 | Disponibilidad general |
 | Identificación de idioma de la voz | Detecte el idioma que se habla en los archivos de audio. | 1.3.0 | Vista previa |
-| Texto a voz neuronal | Convierte texto en voz con un sonido natural utilizando una tecnología de red neuronal profunda, lo que permite obtener una voz sintetizada más natural. | 1.9.0 | Disponibilidad general |
+| Texto a voz neuronal | Convierte texto en voz con un sonido natural utilizando una tecnología de red neuronal profunda, lo que permite obtener una voz sintetizada más natural. | 1.10.0 | Disponibilidad general |
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -311,18 +311,18 @@ diarize_speech_config.set_service_property(
 
 
 #### <a name="analyze-sentiment-on-the-speech-to-text-output"></a>Análisis de la opinión sobre la salida de voz a texto 
-A partir de la versión 2.6.0 del contenedor de la conversión de voz en texto, se debe usar el punto de conexión de Text Analytics 3.0 API, en lugar de la versión preliminar. Por ejemplo
+A partir de la versión 2.6.0 del contenedor de la conversión de voz en texto, se debe usar el punto de conexión de la API del servicio de lenguaje 3.0, en lugar de la versión preliminar. Por ejemplo
 * `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0/sentiment`
 * `https://localhost:5000/text/analytics/v3.0/sentiment`
 
 > [!NOTE]
-> Text Analytics `v3.0` API no es compatible con Text Analytics `v3.0-preview.1`. Para obtener la compatibilidad con la característica de opiniones más reciente, use `v2.6.0` de la imagen de contenedor de la conversión de voz en texto y Text Analytics `v3.0`.
+> La API del servicio de lenguaje `v3.0` no es compatible con versiones anteriores de `v3.0-preview.1`. Para obtener la compatibilidad con la característica de opiniones más reciente, use `v2.6.0` de la imagen de contenedor de la conversión de voz en texto y el servicio de lenguaje `v3.0`.
 
-A partir de la versión 2.2.0 del contenedor de voz a texto, puede llamar a la [API de análisis de opiniones v3](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md). Para llamar al análisis de opiniones, necesitará un punto de conexión de recurso de Text Analytics API. Por ejemplo: 
+A partir de la versión 2.2.0 del contenedor de voz a texto, puede llamar a la [API de análisis de opiniones v3](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md). Para llamar al análisis de opiniones, necesitará un punto de conexión de recurso de la API del servicio de lenguaje. Por ejemplo: 
 * `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
 * `https://localhost:5000/text/analytics/v3.0-preview.1/sentiment`
 
-Si tiene acceso a un punto de conexión de análisis de texto en la nube, necesitará una clave. Si ejecuta Text Analytics localmente, es posible que no tenga que proporcionarla.
+Si tiene acceso a un punto de conexión de servicio de lenguaje en la nube, necesitará una clave. Si ejecuta las características del servicio de lenguaje localmente, es posible que no necesite proporcionarla.
 
 La clave y el punto de conexión se pasan al contenedor de Voz en forma de argumentos, como en el ejemplo siguiente.
 
@@ -339,7 +339,7 @@ CloudAI:SentimentAnalysisSettings:SentimentAnalysisApiKey={SENTIMENT_APIKEY}
 Este comando:
 
 * Realiza los mismos pasos que el comando anterior.
-* Almacena un punto de conexión y una clave de Text Analytics API para el envío de solicitudes de análisis de opiniones. 
+* Almacena un punto de conexión y una clave de la API del servicio de lenguaje para el envío de solicitudes de análisis de opiniones. 
 
 #### <a name="phraselist-v2-on-the-speech-to-text-output"></a>Phraselist v2 en la salida de la conversión de voz en texto 
 
@@ -541,13 +541,13 @@ Para más información sobre cómo usar los protocolos WSS y HTTPS, consulte la 
 
 #### <a name="analyze-sentiment"></a>Análisis de opinión
 
-Si proporcionó sus credenciales de Text Analytics API [al contenedor](#analyze-sentiment-on-the-speech-to-text-output), puede usar el SDK de Voz para enviar solicitudes de reconocimiento de voz con análisis de opiniones. Puede configurar las respuestas de la API para usar un formato *simple* o *detallado*.
+Si proporcionó sus credenciales de la API del servicio de lenguaje [al contenedor](#analyze-sentiment-on-the-speech-to-text-output), puede usar el SDK de Voz para enviar solicitudes de reconocimiento de voz con análisis de opiniones. Puede configurar las respuestas de la API para usar un formato *simple* o *detallado*.
 > [!NOTE]
 > Se ha detectado un problema con el análisis de opiniones en la versión 1.13 del SDK de Python para el servicio Voz. Utilice la versión 1.12.x u otra anterior si desea usar el análisis de opiniones en el SDK de Python para el servicio Voz.
 
 # <a name="simple-format"></a>[Formato simple](#tab/simple-format)
 
-Para configurar el cliente de Voz de forma que use un formato simple, agregue `"Sentiment"` como valor para `Simple.Extensions`. Si quiere elegir una versión específica del modelo de Text Analytics, reemplace `'latest'` en la configuración de la propiedad `speechcontext-phraseDetection.sentimentAnalysis.modelversion`.
+Para configurar el cliente de Voz de forma que use un formato simple, agregue `"Sentiment"` como valor para `Simple.Extensions`. Si quiere elegir una versión específica del modelo de servicio de lenguaje, reemplace `'latest'` en la configuración de la propiedad `speechcontext-phraseDetection.sentimentAnalysis.modelversion`.
 
 ```python
 speech_config.set_service_property(
@@ -581,7 +581,7 @@ speech_config.set_service_property(
 
 # <a name="detailed-format"></a>[Formato detallado](#tab/detailed-format)
 
-Para configurar el cliente de Voz de forma que use un formato detallado, agregue `"Sentiment"` como valor para `Detailed.Extensions`, `Detailed.Options` o ambos. Si quiere elegir una versión específica del modelo de Text Analytics, reemplace `'latest'` en la configuración de la propiedad `speechcontext-phraseDetection.sentimentAnalysis.modelversion`.
+Para configurar el cliente de Voz de forma que use un formato detallado, agregue `"Sentiment"` como valor para `Detailed.Extensions`, `Detailed.Options` o ambos. Si quiere elegir una versión específica del modelo de servicio de lenguaje, reemplace `'latest'` en la configuración de la propiedad `speechcontext-phraseDetection.sentimentAnalysis.modelversion`.
 
 ```python
 speech_config.set_service_property(

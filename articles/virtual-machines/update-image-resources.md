@@ -1,6 +1,6 @@
 ---
 title: Enumeración, actualización y eliminación de recursos de imagen
-description: Enumere, actualice y elimine recursos de imagen en la galería de imágenes compartidas.
+description: Enumere, actualice y elimine recursos de imagen en la instancia de Azure Compute Gallery.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 08/05/2021
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: af41cd667da05abcd05d4c04d913e82567eec5ca
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 2c01020c266a357329c38023c9e9c34c59424088
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123452339"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131448774"
 ---
 # <a name="list-update-and-delete-image-resources"></a>Enumeración, actualización y eliminación de recursos de imagen 
 
-Puede administrar los recursos de la galería de imágenes compartidas mediante la CLI de Azure o Azure PowerShell.
+Puede administrar los recursos de Azure Compute Gallery (anteriormente conocida como Shared Image Gallery) mediante la CLI de Azure o Azure PowerShell.
 
 ## <a name="list-information"></a>Visualización de la información
 
@@ -36,7 +36,7 @@ Enumere las definiciones de las imágenes en una galería, incluida la informaci
 az sig image-definition list --resource-group myGalleryRG --gallery-name myGallery -o table
 ```
 
-Enumere las versiones de imágenes compartidas en una galería, con [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list).
+Enumere las versiones de imágenes de una galería mediante [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list).
 
 ```azurecli-interactive
 az sig image-version list --resource-group myGalleryRG --gallery-name myGallery --gallery-image-definition myImageDefinition -o table
@@ -95,7 +95,7 @@ Remove-AzGalleryImageVersion `
 ### <a name="cli"></a>[CLI](#tab/cli)
 Existen algunas limitaciones en lo que se puede actualizar. Se pueden actualizar los siguientes elementos: 
 
-Galería de imágenes compartidas:
+Azure Compute Gallery:
 - Descripción
 
 Definición de la imagen:
@@ -170,7 +170,7 @@ az sig image-version update \
 
 Existen algunas limitaciones en lo que se puede actualizar. Se pueden actualizar los siguientes elementos: 
 
-Galería de imágenes compartidas:
+Azure Compute Gallery:
 - Descripción
 
 Definición de la imagen:
@@ -258,7 +258,7 @@ az sig image-definition delete \
 ```
 
 
-Elimine una galería de imágenes mediante [az sig delete](/cli/azure/sig#az_sig_delete).
+Elimine una galería mediante [az sig delete](/cli/azure/sig#az_sig_delete).
 
 ```azurecli-interactive
 az sig delete \

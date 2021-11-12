@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Documentación de referencia para el esquema YAML del almacén de datos de Azure Data Lake Gen1 de la CLI (v2).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: reference
 author: ynpandey
 ms.author: yogipandey
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: 3a0048e0bba1e4772345845dbe1505cc636aba5b
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 847a296fa567d0365508161eafdacc525efd9191
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131556129"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132133244"
 ---
 # <a name="cli-v2-azure-data-lake-gen1-yaml-schema"></a>Esquema YAML de Azure Data Lake Gen1 de la CLI (v2)
 
@@ -28,10 +28,10 @@ El esquema JSON de origen se puede encontrar en https://azuremlschemas.azureedge
 | Clave | Tipo | Descripción | Valores permitidos | Valor predeterminado |
 | --- | ---- | ----------- | -------------- | ------- |
 | `$schema` | string | Esquema de YAML. Si usa la extensión VS Code de Azure Machine Learning para crear el archivo YAML, la inclusión de `$schema` en la parte superior del archivo le permite invocar las finalizaciones del esquema y los recursos. | | |
-| `type` | string | **Obligatorio.** El tipo de almacén de datos. | `azure_data_lake_gen1` | |
+| `type` | string | **Obligatorio.** Tipo de almacén de datos. | `azure_data_lake_gen1` | |
 | `name` | string | **Obligatorio.** Nombre del almacén de datos. | | |
 | `description` | string | Descripción del almacén de datos. | | |
-| `tags` | object | Diccionario de etiquetas para el almacén de datos. | | |
+| `tags` | object | Diccionario de etiquetas del almacén de datos. | | |
 | `store_name` | string | **Obligatorio.** Nombre de la cuenta de Azure Data Lake Storage Gen1. | | |
 | `credentials` | object | Credenciales de entidad de servicio para conectarse a la cuenta de almacenamiento de Azure. Los secretos de credenciales se almacenan en el almacén de claves del área de trabajo. | | |
 | `credentials.tenant_id` | string | El id. de inquilino de la entidad de servicio. **Obligatorio si se especifica `credentials`.** | | |
@@ -46,15 +46,15 @@ El comando `az ml datastore` se puede usar para administrar los almacenes de dat
 
 ## <a name="examples"></a>Ejemplos
 
-Hay ejemplos disponibles en el [repositorio de GitHub de ejemplos](https://github.com/Azure/azureml-examples/tree/main/cli/resources/datastore). A continuación, se muestran varios.
+Hay ejemplos disponibles en el [repositorio de GitHub de ejemplos](https://github.com/Azure/azureml-examples/tree/main/cli/resources/datastore). A continuación se muestran varios.
 
 ## <a name="yaml-identity-based-access"></a>YAML: acceso basado en identidad
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/adls-gen1-credless.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/adls-gen1-credless.yml":::
 
 ## <a name="yaml-tenant-id-client-id-client-secret"></a>YAML: id. de inquilino, id. de cliente, secreto de cliente
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/adls-gen1.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/adls-gen1.yml":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

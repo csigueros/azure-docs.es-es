@@ -6,38 +6,63 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: lostmygithubaccount
-ms.author: copeters
-ms.date: 08/03/2021
+author: ynpandey
+ms.author: yogipandey
+ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: de1ade806ebd7b26d89fda6d0a7d69d35c2d020d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: dc2455212e2ab67d70dba5cce72a343f05fe2b81
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121781192"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131557972"
 ---
 # <a name="cli-v2-azure-blob-datastore-yaml-schema"></a>Esquema YAML del almacén de datos de blobs de Azure de la CLI (v2)
 
+El esquema JSON de origen se puede encontrar en https://azuremlschemas.azureedge.net/latest/azureBlob.schema.json.
+
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-## <a name="schema"></a>Schema
+## <a name="yaml-syntax"></a>Sintaxis de YAML
 
-El esquema JSON de origen se puede encontrar en https://azuremlschemas.azureedge.net/latest/azureBlob.schema.json. El esquema se proporciona a continuación en formatos JSON y YAML para mayor comodidad.
-
-# <a name="json"></a>[JSON](#tab/json)
-
-:::code language="json" source="~/azureml-examples-main/cli/.schemas/jsons/latest/azureBlob.schema.json":::
-
-# <a name="yaml"></a>[YAML](#tab/yaml)
-
-:::code language="yaml" source="~/azureml-examples-main/cli/.schemas/yamls/latest/azureBlob.schema.yml":::
-
----
+| Clave | Tipo | Descripción | Valores permitidos | Valor predeterminado |
+| --- | ---- | ----------- | -------------- | ------- |
+| `$schema` | string | Esquema de YAML. Si usa la extensión VS Code de Azure Machine Learning para crear el archivo YAML, la inclusión de `$schema` en la parte superior del archivo le permite invocar las finalizaciones del esquema y los recursos. | | |
+| `type` | string | **Obligatorio.** Tipo de almacén de datos. | `azure_blob` | |
+| `name` | string | **Obligatorio.** Nombre del almacén de datos. | | |
+| `description` | string | Descripción del almacén de datos. | | |
+| `tags` | object | Diccionario de etiquetas del almacén de datos. | | |
+| `account_name` | string | **Obligatorio.** Nombre de la cuenta de almacenamiento de Azure. | | |
+| `container_name` | string | **Obligatorio.** Nombre del contenedor. | | |
+| `endpoint` | string | Sufijo del punto de conexión del servicio de almacenamiento, que se usa para crear la dirección URL del punto de conexión de la cuenta de almacenamiento mediante la combinación del nombre de la cuenta de almacenamiento y `endpoint`. Dirección URL de la cuenta de almacenamiento de ejemplo: `https://<storage-account-name>.blob.core.windows.net`. | | `core.windows.net` |
+| `protocol` | string | Protocolo que se va a usar para conectarse al contenedor. | `https`, `wasbs` | `https` |
+| `credentials` | object | Credenciales de autenticación basadas en credenciales para conectarse a la cuenta de almacenamiento de Azure. Puede proporcionar una clave de cuenta o un token de firma de acceso compartido (SAS). Los secretos de credenciales se almacenan en el almacén de claves del área de trabajo. | | |
+| `credentials.account_key` | string | Clave de cuenta para acceder a la cuenta de almacenamiento. **Se requiere `credentials.account_key` o `credentials.sas_token` si se especifica `credentials`.** | | |
+| `credentials.sas_token` | string | Token de SAS para acceder a la cuenta de almacenamiento. **Se requiere `credentials.account_key` o `credentials.sas_token` si se especifica `credentials`.** | | |
 
 ## <a name="remarks"></a>Comentarios
 
 El comando `az ml datastore` se puede usar para administrar los almacenes de datos de Azure Machine Learning.
+
+## <a name="examples"></a>Ejemplos
+
+Hay ejemplos disponibles en el [repositorio de GitHub de ejemplos](https://github.com/Azure/azureml-examples/tree/main/cli/resources/datastore). A continuación se muestran varios.
+
+## <a name="yaml-identity-based-access"></a>YAML: acceso basado en identidad
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/blob-credless.yml":::
+
+## <a name="yaml-account-key"></a>YAML: clave de cuenta
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/blob.yml":::
+
+## <a name="yaml-wasbs-protocol"></a>YAML: protocolo wasbs
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/blob-protocol.yml":::
+
+## <a name="yaml-sas-token"></a>YAML: token de SAS
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/blob-sas.yml":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

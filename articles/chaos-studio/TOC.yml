@@ -14,7 +14,7 @@
   items:
     - name: Ejecución y administración del experimento
       href: chaos-studio-run-experiment.md
-- name: Muestras
+- name: Ejemplos
   items:
     - name: API REST de Azure
       href: chaos-studio-samples-rest-api.md
@@ -28,12 +28,16 @@
       href: chaos-studio-targets-capabilities.md
     - name: Permisos y seguridad
       href: chaos-studio-permissions-security.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: 'Creación y ejecución de un experimento: errores directos del servicio'
       href: chaos-studio-tutorial-service-direct.md
     - name: 'Creación y ejecución de un experimento: errores basados en agente'
-      href: chaos-studio-tutorial-agent-based.md
+      items:
+        - name: Portal
+          href: chaos-studio-tutorial-agent-based-portal.md
+        - name: CLI
+          href: chaos-studio-tutorial-agent-based-cli.md
     - name: 'Creación y ejecución de un experimento: errores de Chaos Mesh en AKS'
       href: chaos-studio-tutorial-aks.md
     - name: Solución de problemas comunes
@@ -50,6 +54,8 @@
       href: chaos-studio-service-limits.md
     - name: Documentación de la API de REST
       href: 'https://docs.microsoft.com/rest/api/chaosstudio'
+    - name: SDK de Python
+      href: 'https://docs.microsoft.com/python/api/azure-mgmt-chaos/?view=azure-python-preview'
 - name: Recursos
   items:
     - name: Azure Roadmap

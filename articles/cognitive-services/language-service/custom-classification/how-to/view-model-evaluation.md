@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
-ms.openlocfilehash: d0b708f3b06eaeb458df4e4c9da73e86b451e137
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 6b7d56ee6eb7280b285442a2c82001b100d1cf06
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131469676"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132054379"
 ---
 # <a name="view-the-model-evaluation"></a>Visualización de la evaluación del modelo
 
@@ -31,7 +31,7 @@ Antes de entrenar el modelo, necesita lo siguiente:
 * [Datos etiquetados](tag-data.md)
 * Un [modelo entrenado](train-model.md) correctamente.
 
-Consulte el [ciclo de vida de desarrollo de aplicaciones](../overview.md#application-development-lifecycle) para más información.
+Consulte el [ciclo de vida de desarrollo de aplicaciones](../overview.md#project-development-lifecycle) para más información.
 
 ## <a name="model-evaluation"></a>Evaluación del modelo
 
@@ -40,7 +40,7 @@ El proceso de evaluación usa el modelo entrenado para predecir las clases defin
 ## <a name="view-the-model-details-using-language-studio"></a>Visualización de los detalles del modelo mediante Language Studio
 
 1. Vaya a la página del proyecto en [Language Studio](https://aka.ms/languageStudio).
-    1. Busque la sección de Language Studio con la etiqueta **Clasificar texto**.
+    1. Busque la sección de Language Studio con la etiqueta **Classify text** (Clasificar texto).
     2. Seleccione **Clasificación de texto personalizada**. 
 
 2. Seleccione **Ver detalles del modelo** en el menú situado en el lado izquierdo.

@@ -9,12 +9,12 @@ ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 9096b11331a4e935bb0d9a23e648404b5c0d5bab
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 7f193a59386be49e00d975b4614b583c368694a3
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122271670"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131893526"
 ---
 # <a name="samples"></a>Ejemplos
 
@@ -30,6 +30,7 @@ Azure Communication Services tiene muchos ejemplos disponibles, que puede usar p
 | [Aplicación médica de Contoso](https://github.com/Azure-Samples/communication-services-contoso-med-app)       | Aplicación de ejemplo que muestra un flujo de paciente-doctor.                     | Web y Node.js                      |
 | [Aplicación de comercio minorista de Contoso](https://github.com/Azure-Samples/communication-services-contoso-retail-app)     | Aplicación de ejemplo que muestra un flujo de soporte técnico del comercio minorista.                     | ASP.NET, .NET Core, JavaScript/Web |
 | [Ejemplo de llamada de WPF](https://github.com/Azure-Samples/communication-services-web-calling-wpf-sample) | Aplicación de ejemplo para Windows que muestra la funcionalidad de llamada          | WPF/Node.js                      |
+| [Ejemplo de Network Traversal de WPF]( https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/communication/communication-network-traversal) | Aplicación de ejemplo que muestra la funcionalidad Network Traversal          | WPF/Node.js 
 
 ## <a name="quickstart-samples"></a>Ejemplos de inicios rápidos
 Acceda a los ejemplos de código de los inicios rápidos que se encuentran en nuestra documentación.

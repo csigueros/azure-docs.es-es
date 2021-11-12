@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: glenga
-ms.openlocfilehash: 740f1e3bd8c08ae7d1684613d1920cffd1bba619
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 7000b403146f3468807582bb01ccaf05f8a70d0b
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129237329"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131894587"
 ---
 Los errores que se producen en una instancia de Azure Functions pueden provenir de cualquiera de los orígenes siguientes:
 
@@ -127,6 +127,23 @@ Esta es la directiva de reintentos del archivo *function.json*:
         "delayInterval": "00:00:10"
     }
 }
+```
+
+Este es un ejemplo de Python para usar el contexto de reintento en una función:
+
+```Python
+import azure.functions
+import logging
+
+
+def main(req: azure.functions.HttpRequest, context: azure.functions.Context) -> None:
+    logging.log(f'Current retry count: {context.retry_context.retry_count}')
+    
+    if context.retry_context.retry_count == context.retry_context.max_retry_count:
+        logging.log(
+            f"Max retries of {context.retry_context.max_retry_count} for "
+            f"function {context.function_name} has been reached")
+   
 ```
 
 # <a name="java"></a>[Java](#tab/java)
@@ -248,6 +265,23 @@ Esta es la directiva de reintentos del archivo *function.json*:
         "maximumInterval": "00:15:00"
     }
 }
+```
+
+Este es un ejemplo de Python para usar el contexto de reintento en una función:
+
+```Python
+import azure.functions
+import logging
+
+
+def main(req: azure.functions.HttpRequest, context: azure.functions.Context) -> None:
+    logging.log(f'Current retry count: {context.retry_context.retry_count}')
+    
+    if context.retry_context.retry_count == context.retry_context.max_retry_count:
+        logging.log(
+            f"Max retries of {context.retry_context.max_retry_count} for "
+            f"function {context.function_name} has been reached") 
+            
 ```
 
 # <a name="java"></a>[Java](#tab/java)

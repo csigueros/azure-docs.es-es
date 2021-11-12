@@ -1,18 +1,18 @@
 ---
 title: Administración de modelos DTDL
 titleSuffix: Azure Digital Twins
-description: Vea cómo crear, editar y eliminar un modelo en Azure Digital Twins.
+description: Obtenga información sobre cómo administrar modelos DTDL en Azure Digital Twins, incluido cómo crearlos, editarlos y eliminarlos.
 author: baanders
 ms.author: baanders
-ms.date: 8/30/2021
+ms.date: 10/20/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2e5c137ceb08bd89dc70026639c6191b1c61f42d
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 7ae5a3293b7b9ba4712c3762b18b6d9c66eab926
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123223246"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131507177"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Administración de modelos de Azure Digital Twins
 
@@ -97,10 +97,10 @@ En esta sección se describen las consideraciones y estrategias para actualizar 
 Antes de realizar actualizaciones en los modelos, se recomienda pensar holísticamente en toda la solución y el impacto de los cambios de modelo que está a punto de realizar. Los modelos de una solución Azure Digital Twins a menudo están interconectados, por lo que es importante tener en cuenta los cambios en cascada en los que la actualización de un modelo requiere actualizar varios otros. La actualización de modelos afectará a los gemelos que usan los modelos y también puede afectar a la entrada y el procesamiento de código, las aplicaciones cliente y los informes automatizados.
 
 Estas son algunas recomendaciones que le ayudarán a administrar las transiciones del modelo sin problemas:
-* En lugar de pensar en los modelos individuales, considere la posibilidad de evolucionar todo el conjunto de modelos cuando sea necesario para mantener los modelos y sus relaciones actualizados.
+* En lugar de pensar en los modelos como entidades individuales, considere la posibilidad de evolucionar todo el conjunto de modelos cuando sea necesario para mantener los modelos y sus relaciones actualizados.
 * Trate los modelos como código fuente y adminístrelos en el control de código fuente. Aplique el mismo rigor y la misma atención a los modelos y los cambios de modelo que aplica a otro código de la solución.
 
-Cuando esté listo para continuar con la actualización de los modelos, en el resto de esta sección se describen las estrategias que puede usar para implementar las actualizaciones.
+Cuando esté listo para continuar con el proceso de actualizar los modelos, encontrará en el resto de esta sección las estrategias que puede usar para implementar las actualizaciones.
 
 ### <a name="strategies-for-updating-models"></a>Estrategias para actualizar modelos
 
@@ -112,7 +112,7 @@ Hay dos estrategias entre las que elegir al reemplazar un modelo:
 * [Estrategia 1: Cargar una nueva versión del modelo](#strategy-1-upload-new-model-version): cargue el modelo, con un nuevo número de versión, y actualice los gemelos para usar ese nuevo modelo. Las versiones nuevas y anteriores del modelo existirán en la instancia hasta que elimine una.
     - **Use esta estrategia cuando** quiera actualizar solo algunos de los gemelos que usan el modelo, o cuando desee asegurarse de que los gemelos se mantienen conformes con sus modelos y se pueden escribir a través de la transición del modelo.
 * [Estrategia 2: Eliminar el modelo antiguo y volver a cargarlo](#strategy-2-delete-old-model-and-reupload): elimine el modelo original y cargue el nuevo modelo con el mismo nombre e id. (valor DTMI) en su lugar. Reemplace completamente el modelo anterior por el nuevo. 
-    - **Use esta estrategia cuando** desee actualizar todos los gemelos que usan este modelo a la vez, así como todo el código que reacciona a los modelos. Si la actualización del modelo contiene un cambio importante con la actualización del modelo, los gemelos no serán conformes con sus modelos durante un breve período de tiempo mientras los está transfiriendo del modelo anterior al nuevo, lo que significa que no podrán realizar ninguna actualización hasta que se cargue el nuevo modelo y los gemelos se ajusten a él.
+    - **Use esta estrategia cuando** quiera actualizar todos los gemelos que usan este modelo a la vez, así como todo el código que reacciona a los modelos. Si la actualización del modelo contiene un cambio importante con la actualización del modelo, los gemelos no serán conformes con sus modelos durante un breve período de tiempo mientras los está transfiriendo del modelo anterior al nuevo, lo que significa que no podrán realizar ninguna actualización hasta que se cargue el nuevo modelo y los gemelos se ajusten a él.
 
 >[!NOTE]
 > No se recomienda realizar cambios importantes en los modelos fuera del desarrollo.

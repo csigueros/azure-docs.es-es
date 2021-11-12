@@ -7,12 +7,12 @@ ms.service: chaos-studio
 ms.topic: conceptual
 ms.date: 11/01/2021
 ms.custom: template-concept, ignite-fall-2021
-ms.openlocfilehash: c4db4525c3535b0dda7bd8a21c46509f1203b748
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 70d212a7d9677c0068670d2954897d7e1f27b137
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131092879"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132372442"
 ---
 # <a name="faults-and-actions-in-azure-chaos-studio"></a>Errores y acciones en Azure Chaos Studio
 
@@ -40,4 +40,4 @@ Los errores también incluyen el nombre del selector que describe los recursos e
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que comprende las acciones y los errores, está listo para:
-- [Crear y ejecutar tu primer experimento](chaos-studio-tutorial-service-direct.md)
+- [Crear y ejecutar tu primer experimento](chaos-studio-tutorial-service-direct-portal.md)

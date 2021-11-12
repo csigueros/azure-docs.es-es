@@ -1,14 +1,14 @@
 ---
 title: Uso de las notificaciones del dispositivo
 description: Las notificaciones proporcionan información sobre la actividad de red que puede requerir su atención, junto con recomendaciones para tratar con esta actividad.
-ms.date: 12/12/2020
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: c0c2fc5a4c01a8a31512cd43c340bf3fadc259b1
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 27f42f27920d41643f571efed1d5c033ebb47f40
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113019105"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132315395"
 ---
 # <a name="work-with-device-notifications"></a>Uso de las notificaciones del dispositivo
 

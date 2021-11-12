@@ -1,22 +1,22 @@
 ---
 title: Guía de diseño de tablas distribuidas
-description: Recomendaciones para diseñar tablas distribuidas por hash y por round robin mediante un grupo de SQL dedicado en Azure Synapse Analytics.
+description: Recomendaciones para diseñar tablas distribuidas por hash y por round robin mediante un grupo de SQL dedicado.
 services: synapse-analytics
-author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 04/17/2018
-ms.author: xiaoyul
-ms.reviewer: igorstan
+ms.date: 11/02/2021
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: ''
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 1f85a8d539c8f841bafaae9d877446c5e6ecb416
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: f1cae70e186d6fb1467dcb5f31ea5c9ee15df6eb
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122324576"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500628"
 ---
 # <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Guía de diseño de tablas distribuidas mediante un grupo de SQL dedicado en Azure Synapse Analytics
 
@@ -42,11 +42,11 @@ Como parte del diseño de tablas, comprenda tanto como sea posible sobre los dat
 
 Una tabla distribuida por hash distribuye filas de tabla entre todos los nodos de proceso mediante una función hash determinista para asignar cada fila a una [distribución](massively-parallel-processing-mpp-architecture.md#distributions).
 
-![Tabla distribuida](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "Tabla distribuida")  
+:::image type="content" source="./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png" alt-text="Tabla distribuida" lightbox="./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png":::
 
 Como los valores idénticos siempre se distribuyen por hash a la misma distribución, SQL Analytics tiene conocimiento integrado de las ubicaciones de las filas. En un grupo de SQL dedicado, este conocimiento se usa para minimizar el movimiento de datos durante las consultas, lo que mejora el rendimiento de estas.
 
-Las tablas distribuidas por hash funcionan bien para las tablas de hechos de gran tamaño en un esquema de estrella. Pueden tener un gran número de filas y lograr aún así un alto rendimiento. Por supuesto, hay algunas consideraciones de diseño que le ayudarán a obtener el rendimiento que el sistema distribuido está diseñado para proporcionar. La elección de una columna de distribución óptima es una consideración de este tipo que se describe en este artículo.
+Las tablas distribuidas por hash funcionan bien para las tablas de hechos de gran tamaño en un esquema de estrella. Pueden tener un gran número de filas y lograr aún así un alto rendimiento. Hay algunas consideraciones de diseño que le ayudarán a obtener el rendimiento que el sistema distribuido está diseñado para proporcionar. La elección de una columna de distribución óptima es una consideración de este tipo que se describe en este artículo.
 
 Tenga en cuenta la posibilidad de usar una tabla distribuida por hash cuando:
 
@@ -70,7 +70,7 @@ Considere la opción de usar la distribución round robin para la tabla en los s
 
 El tutorial [Load New York taxicab data](./load-data-from-azure-blob-storage-using-copy.md#load-the-data-into-your-data-warehouse) (Carga de datos de taxis de Nueva York) proporciona un ejemplo de carga de datos en una tabla de almacenamiento provisional round robin.
 
-## <a name="choosing-a-distribution-column"></a>Elección de una columna de distribución
+## <a name="choose-a-distribution-column"></a>Elección de una columna de distribución
 
 Una tabla distribuida por hash tiene una columna de distribución que es la clave hash. Por ejemplo, el código siguiente crea una tabla distribuida por hash con ProductKey como columna de distribución.
 
@@ -88,8 +88,7 @@ CREATE TABLE [dbo].[FactInternetSales]
 WITH
 (   CLUSTERED COLUMNSTORE INDEX
 ,  DISTRIBUTION = HASH([ProductKey])
-)
-;
+);
 ```
 
 Los datos almacenados en la columna de distribución se pueden actualizar. Las actualizaciones de los datos de la columna de distribución podrían dar lugar a la operación de orden aleatorio de los datos.
@@ -119,7 +118,7 @@ Para minimizar el movimiento de datos, seleccione una columna de distribución q
 
 - Se utilice en las cláusulas `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` y `HAVING`. Cuando dos tablas de hechos de gran tamaño tienen combinaciones frecuentes, el rendimiento de las consultas mejora cuando distribuye ambas tablas en una de las columnas de combinación.  Cuando una tabla no se utiliza en las combinaciones, considere la posibilidad de distribuir la tabla en una columna que se encuentre con frecuencia en la cláusula `GROUP BY`.
 - *No* se utilice en las cláusulas `WHERE`. Esto puede restringir la consulta para que no se ejecute en todas las distribuciones.
-- *No* sea una columna de fecha. A menudo, las cláusulas WHERE se filtran por fecha.  Cuando esto ocurre, el procesamiento solo se puede ejecutar en algunas distribuciones.
+- *No* sea una columna de fecha. A menudo, las cláusulas `WHERE` se filtran por fecha.  Cuando esto ocurre, el procesamiento solo se puede ejecutar en algunas distribuciones.
 
 ### <a name="what-to-do-when-none-of-the-columns-are-a-good-distribution-column"></a>Qué se puede hacer cuando ninguna de las columnas es una columna de distribución óptima
 
@@ -142,7 +141,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 
 Para identificar las tablas que tienen más de un 10 % de asimetría de datos:
 
-1. Cree la vista dbo.vTableSizes que se muestra en el artículo [Información general de Tablas](sql-data-warehouse-tables-overview.md#table-size-queries).  
+1. Cree la vista `dbo.vTableSizes` que se muestra en el artículo [Información general de tablas](sql-data-warehouse-tables-overview.md#table-size-queries).  
 2. Ejecute la siguiente consulta:
 
 ```sql

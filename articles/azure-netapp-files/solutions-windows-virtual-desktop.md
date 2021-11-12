@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: b-juche
-ms.openlocfilehash: dba2c43f0b146816fcbb07419efa7ff4cd926ebe
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8d4d9b393c698b2b638a119b7eb4386e0099d514
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733361"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132347924"
 ---
 # <a name="benefits-of-using-azure-netapp-files-with-azure-virtual-desktop"></a>Ventajas de usar Azure NetApp Files con Azure Virtual Desktop 
 
@@ -29,7 +29,7 @@ Azure NetApp Files es un servicio de almacenamiento de archivos de Azure que ofr
 
 ## <a name="sample-blueprints"></a>Planos técnicos de ejemplo
 
-En los siguientes planos técnicos de ejemplo se muestra la integración de Azure Virtual Desktop con Azure NetApp Files. En un escenario de escritorio agrupado, los usuarios son dirigidos al mejor host de sesión del grupo que esté disponible ([ modo en amplitud](../virtual-desktop/host-pool-load-balancing.md#breadth-first-load-balancing-method)) mediante [máquinas virtuales multisesión](../virtual-desktop/windows-10-multisession-faq.yml#what-is-windows-10-enterprise-multi-session). Por otro lado, los escritorios personales se reservan para escenarios en los que cada usuario dispone de su propia máquina virtual.
+En los siguientes planos técnicos de ejemplo se muestra la integración de Azure Virtual Desktop con Azure NetApp Files. En un escenario de escritorio agrupado, los usuarios son dirigidos al mejor host de sesión del grupo que esté disponible ([ modo en amplitud](../virtual-desktop/host-pool-load-balancing.md#breadth-first-load-balancing-algorithm)) mediante [máquinas virtuales multisesión](../virtual-desktop/windows-10-multisession-faq.yml#what-is-windows-10-enterprise-multi-session). Por otro lado, los escritorios personales se reservan para escenarios en los que cada usuario dispone de su propia máquina virtual.
 
 ### <a name="pooled-desktop-scenario"></a>Escenario de escritorio agrupado
 

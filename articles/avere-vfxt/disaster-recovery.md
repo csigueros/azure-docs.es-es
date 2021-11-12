@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rohogue
-ms.openlocfilehash: ec58e921940be71b0189bcba96596c18b1b8786b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5ae2ac35cc01ed8dfbc34ab2ff90117c46298980
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751495"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132325569"
 ---
 # <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Guía de recuperación ante desastres para Avere vFXT for Azure
 
@@ -61,7 +61,7 @@ Los procedimientos recomendados para proteger los datos en Azure Blob Storage in
 
 * Copie los datos críticos en otra cuenta de almacenamiento de otra región con frecuencia (con la frecuencia que se determine en el plan de recuperación ante desastres).
 * Controle el acceso a los datos de todos los sistemas de destino para evitar daños o eliminaciones accidentales. Considere la posibilidad de utilizar [bloqueos de recursos](../azure-resource-manager/management/lock-resources.md) en el almacenamiento de datos.
-* Habilite la característica de [instantánea de nube](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_snapshot_policies.html>) de Avere vFXT for Azure para los archivadores básicos de Blob.
+* Habilite la característica de [instantánea de nube](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_snapshot_policies.html) de Avere vFXT for Azure para los archivadores básicos de Blob.
 
 ### <a name="copy-avere-vfxt-core-filer-data-to-a-backup-account"></a>Copia de los datos del archivador básico de Avere vFXT en una cuenta de copia de seguridad
 
@@ -73,7 +73,7 @@ Siga estos pasos para establecer una copia de seguridad de datos en otra cuenta.
 
    Debe proporcionar esta clave al agregar el contenedor a un clúster, incluso si va a volver a agregarlo a su clúster original.
 
-   Consulte el artículo sobre la [configuración de cifrado en la nube](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_encryption_settings.html>)<!-- link to legacy doc site --> para obtener información detallada.
+   Consulte el artículo sobre la [configuración de cifrado en la nube](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_encryption_settings.html)<!-- link to legacy doc site --> para obtener información detallada.
 
    Si el contenedor usa solo el cifrado integrado de Azure, puede omitir este paso.
 

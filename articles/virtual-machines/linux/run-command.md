@@ -1,23 +1,23 @@
 ---
-title: Ejecución de scripts de shell en una VM Linux de Azure
+title: Ejecución de scripts en una máquina virtual Linux en Azure mediante la acción Ejecutar comandos
 description: Este tema describe cómo ejecutar scripts dentro de una máquina virtual Linux de Azure mediante la función Ejecutar comando
 services: automation
 ms.service: virtual-machines
 ms.collection: linux
-author: bobbytreed
-ms.author: robreed
-ms.date: 04/26/2019
+author: cynthn
+ms.author: cynthn
+ms.date: 10/27/2021
 ms.topic: how-to
+ms.reviewer: jushiman
 ms.custom: devx-track-azurepowershell
-manager: carmonm
-ms.openlocfilehash: 2d4c640695395963a83629fbeea87c96b4a31aad
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: a608c252b806e4b6e538ab4849ca305de7602732
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122688219"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131424729"
 ---
-# <a name="run-shell-scripts-in-your-linux-vm-by-using-run-command"></a>Ejecución de scripts de shell en la máquina virtual Linux con Ejecutar comando
+# <a name="run-scripts-in-your-linux-vm-by-using-action-run-commands"></a>Ejecución de scripts en la máquina virtual Linux mediante la acción Ejecutar comandos
 
 **Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
 

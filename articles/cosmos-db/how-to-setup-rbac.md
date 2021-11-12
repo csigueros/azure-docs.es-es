@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/21/2021
 ms.author: thweiss
-ms.openlocfilehash: 29aeee156ee87c055a3581e9dc2fd0bd86a2064d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a659b4cdd404e9090fee177d383f26733aa4496b
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128551052"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132371873"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account"></a>Configuración del control de acceso basado en roles con Azure Active Directory para la cuenta de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -288,7 +288,7 @@ az cosmosdb sql role definition list --account-name $accountName --resource-grou
 
 ### <a name="using-azure-resource-manager-templates"></a>Uso de plantillas del Administrador de recursos de Azure
 
-Consulte [esta página](/rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources2/create-update-sql-role-definition) para obtener una referencia y ejemplos del uso de plantillas de Azure Resource Manager para crear definiciones de roles.
+Consulte [esta página](/rest/api/cosmos-db-resource-provider/2021-04-15/sql-resources/create-update-sql-role-definition) para obtener una referencia y ejemplos del uso de plantillas de Azure Resource Manager para crear definiciones de roles.
 
 ## <a name="create-role-assignments"></a><a id="role-assignments"></a> Creación de asignaciones de roles
 
@@ -343,7 +343,7 @@ az cosmosdb sql role assignment create --account-name $accountName --resource-gr
 
 ### <a name="using-azure-resource-manager-templates"></a>Uso de plantillas del Administrador de recursos de Azure
 
-Consulte [esta página](/rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources2/create-update-sql-role-assignment) para obtener una referencia y ejemplos del uso de plantillas de Azure Resource Manager para crear asignaciones de roles.
+Consulte [esta página](/rest/api/cosmos-db-resource-provider/2021-04-15/sql-resources/create-update-sql-role-assignment) para obtener una referencia y ejemplos del uso de plantillas de Azure Resource Manager para crear asignaciones de roles.
 
 ## <a name="initialize-the-sdk-with-azure-ad"></a>Inicialización del SDK con Azure AD
 

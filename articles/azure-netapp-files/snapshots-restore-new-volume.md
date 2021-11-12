@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/16/2021
 ms.author: b-juche
-ms.openlocfilehash: 4c3f65d61cac7f6bafd6d483383c3f85bb3e2516
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1d6c74acffe68fb75fbad72a4e0ad052f4c4cef0
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128699512"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132327431"
 ---
 # <a name="restore-a-snapshot-to-a-new-volume-using-azure-netapp-files"></a>Restauración de una instantánea en un nuevo volumen mediante Azure NetApp Files
 

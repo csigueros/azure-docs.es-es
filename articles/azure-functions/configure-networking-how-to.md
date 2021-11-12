@@ -4,12 +4,12 @@ description: En este artículo se muestra cómo realizar ciertas tareas de redes
 ms.topic: conceptual
 ms.date: 3/13/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 91555099c7144d976b5f0b5ef2fe639912857bce
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: db0567456156f8ea74ba048e991000b57ae271b2
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131048824"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132332390"
 ---
 # <a name="how-to-configure-azure-functions-with-a-virtual-network"></a>Configuración de Azure Functions con una red virtual
 
@@ -47,7 +47,7 @@ Para configurar una función con una cuenta de almacenamiento restringida a una 
     | `AzureWebJobsStorage`| Cadena de conexión de almacenamiento | Esta es la cadena de conexión para una cuenta de almacenamiento protegida. |
     | `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` |  Cadena de conexión de almacenamiento | Esta es la cadena de conexión para una cuenta de almacenamiento protegida. |
     | `WEBSITE_CONTENTSHARE` | Recurso compartido de archivos | El nombre del recurso compartido de archivos creado en la cuenta de almacenamiento protegida donde residen los archivos de implementación del proyecto. |
-    | `WEBSITE_CONTENTOVERVNET` | 1 | Nueva configuración |
+    | `WEBSITE_CONTENTOVERVNET` | 1 | Un valor de 1 permite escalar la aplicación de funciones cuando tiene una cuenta de almacenamiento restringida a una red virtual. Debe habilitar esta opción al restringir la cuenta de almacenamiento a una red virtual. |
     | `WEBSITE_VNET_ROUTE_ALL` | 1 | Fuerza todo el tráfico saliente a través de la red virtual. Obligatorio cuando la cuenta de almacenamiento usa conexiones de punto de conexión privado. |
 
 1. Seleccione **Guardar** para guardar la configuración de la aplicación. Si cambia la configuración de la aplicación, esta se reiniciará.  

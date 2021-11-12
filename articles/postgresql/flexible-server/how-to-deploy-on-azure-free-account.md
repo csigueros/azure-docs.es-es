@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 08/23/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 38a1e264d3febfc114df253a24479d9580c86bb5
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 0d1ba0118360f579b675f4f64d8ecba1b4764ff5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123538370"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131425411"
 ---
 # <a name="use-an-azure-free-account-to-try-azure-database-for-postgresql---flexible-server-for-free"></a>Uso de una cuenta gratuita de Azure para probar Azure Database for PostgreSQL: servidor flexible de forma gratuita
 
@@ -93,9 +93,9 @@ Para completar este tutorial, necesita:
     
     Con el acceso público, el acceso al servidor se limita a las direcciones IP permitidas que incluye en una regla de firewall. Este método evita que herramientas y aplicaciones externas se conecten al servidor o a las bases de datos de este, a menos que cree una regla para abrir el firewall para una dirección IP o un intervalo específico.
     
-    Con el acceso privado (integración con red virtual), el acceso al servidor se limita a la red virtual. Para más información sobre los métodos de conectividad, consulte Introducción a las redes.
+    Con el acceso privado (integración con red virtual), el acceso al servidor se limita a la red virtual. Para más información sobre los métodos de conectividad, [**vea Introducción a las redes**](https://docs.microsoft.com/azure/postgresql/flexible-server/concepts-networking).
     
-    Siguiendo este tutorial, habilite el acceso público para conectarse al servidor.
+    Para los fines de este tutorial, habilite el acceso público para conectarse al servidor.
 
 1. En la pestaña **Redes**, en **Método de conectividad**, seleccione **Acceso público**.
 

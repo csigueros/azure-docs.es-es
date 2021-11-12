@@ -4,14 +4,14 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 09/09/2021
 ms.author: victorh
-ms.openlocfilehash: f106ca51487e1c4c306d51161110062ad3582fcd
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 76fed7a6f79dafd42c6262f4f73bd21a7c2e45a7
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129439983"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131861522"
 ---
-| Resource | Límite | Nota: |
+| Recurso | Límite | Nota: |
 | --- | --- | --- |
 | Azure Application Gateway |1000 por suscripción | |
 | Configuración de direcciones IP de front-end |2 |1 pública y 1 privada |
@@ -27,7 +27,8 @@ ms.locfileid: "129439983"
 | Certificados de autenticación |100 | |
 | Certificados raíz de confianza |100 | |
 | Tiempo de espera de solicitud mínimo |1 segundo | |
-| Tiempo de espera de solicitud máximo |24 horas | |
+| Tiempo de espera máximo de la solicitud al back-end privado |24 horas | |
+| Tiempo de espera máximo de la solicitud al back-end externo |4 minutos | |
 | Número de sitios |100<sup>1</sup> |Uno por cliente de escucha HTTP |
 | Asignaciones de URL por agente de escucha |1 | |
 | Número máximo de reglas basadas en rutas por mapa de direcciones URL|100||

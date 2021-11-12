@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: allensu
-ms.openlocfilehash: 9d70a60a115f1ddcb2b2253a78aeec1563ec8e8a
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 824d89126252a0690b93a2129f47d8e02b728694
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129367871"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131560119"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Creación, modificación o eliminación del prefijo de una dirección IP pública
 
@@ -61,6 +61,9 @@ También puede usar los comandos siguientes de la CLI y de PowerShell con los pa
 |---|---|
 |CLI|[az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create)|
 |PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)|
+
+>[!NOTE]
+>Al solicitar una dirección IP pública desde un prefijo de dirección IP pública, la asignación no es determinista ni secuencial. Si se requiere una dirección IP pública específica de un prefijo de dirección IP pública, los comandos de PowerShell o la CLI lo permitirán.  Para PowerShell, se debe usar el parámetro `IpAddress` (seguido de la dirección IP deseada); para la CLI, se debe usar el parámetro `ip-address` (seguido de la dirección IP deseada).
 
 >[!NOTE]
 >Solo se pueden asignar direcciones IP públicas estáticas del intervalo del prefijo creadas con la SKU Estándar. Para más información sobre las SKU de direcciones IP públicas, consulte [Direcciones IP publicas](public-ip-addresses.md#public-ip-addresses).
