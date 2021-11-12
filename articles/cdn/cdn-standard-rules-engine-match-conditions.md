@@ -2,17 +2,17 @@
 title: Condiciones de coincidencia en el motor de reglas estándar de Azure CDN | Microsoft Docs
 description: Documentación de referencia para las condiciones de coincidencia del motor de reglas estándar de Azure Content Delivery Network (Azure CDN).
 services: cdn
-author: asudbring
+author: duongau
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 11/01/2019
-ms.author: allensu
-ms.openlocfilehash: b8050b973027ac91ede0ba98f4d1c76831da9828
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: duau
+ms.openlocfilehash: bd0c6b0578fc301c38e96b654a281eb025c54dc5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "81259940"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469927"
 ---
 # <a name="match-conditions-in-the-standard-rules-engine-for-azure-cdn"></a>Condiciones de coincidencia en el motor de reglas estándar de Azure CDN
 
@@ -113,6 +113,7 @@ No tiene ninguna coincidencia de IP | Dirección IP (separada por espacios)
 - La sintaxis de un bloque de direcciones IP es la dirección IP de base seguida por una barra diagonal y el tamaño del prefijo. Por ejemplo:
   - **Ejemplo IPv4**: *5.5.5.64/26* coincide con las solicitudes que llegan desde la dirección 5.5.5.64 hasta la 5.5.5.127.
   - **Ejemplo IPv6**: *1:2:3:/48* coincide con las solicitudes que llegan desde la dirección 1:2:3:0:0:0:0:0 hasta la 1:2:3:ffff:ffff:ffff:ffff:ffff.
+- Dirección remota representa la dirección IP del cliente original que es de la conexión de red o normalmente el encabezado de solicitud X-Forwarded-For si el usuario está detrás de un proxy.
 
 ### <a name="request-body"></a>Cuerpo de la solicitud
 

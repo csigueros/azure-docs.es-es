@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 45a18ade65a08b378652248bc0b0f62cb8f97e84
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 652347a2b63581a613088497ef8b3cb7df4ee8ec
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130072772"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131448754"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Lista de comprobación de planeamiento e implementación de cargas de trabajo de SAP en Azure
 
@@ -196,10 +196,10 @@ En esta fase, normalmente se implementan sistemas de desarrollo, sistemas de pru
 
 1.  Antes de pasar los sistemas de la plataforma anterior a Azure, recopile datos de consumo de recursos, como el uso de CPU, el rendimiento de almacenamiento y los datos de E/S por segundo. Recopile estos datos especialmente en las unidades del nivel de DBMS, pero también en las unidades del nivel de aplicación. Mida también la latencia de la red y del almacenamiento.
 2.  Registre los patrones de tiempo de uso de disponibilidad de los sistemas. El objetivo es averiguar si los sistemas de no producción deben estar disponibles permanentemente o si hay sistemas de no producción que se pueden apagar durante ciertas fases de una semana o un mes.
-3.  Pruebe y determine si quiere crear sus propias imágenes de sistema operativo para las máquinas virtuales en Azure o si desea utilizar una imagen de Azure Shared Image Gallery. Si utiliza una imagen de Shared Image Gallery, asegúrese de usar una imagen que refleje el contrato de soporte técnico con el proveedor del sistema operativo. En el caso de algunos proveedores de sistemas operativos, Shared Image Gallery le permite traer sus propias imágenes de licencia. Para otras imágenes de sistema operativo, el soporte técnico se incluye en el precio presupuestado por Azure. Si decide crear sus propias imágenes de sistema operativo, encontrará documentación en estos artículos:
+3.  Pruebe y determine si quiere crear imágenes de sistema operativo propias para las máquinas virtuales en Azure o si quiere utilizar una imagen de Azure Compute Gallery (anteriormente denominada Shared Image Gallery). Si usa una imagen de Azure Compute Gallery, asegúrese de utilizar una que refleje el contrato de soporte técnico con el proveedor del sistema operativo. En el caso de algunos proveedores de sistemas operativos, Azure Compute Gallery permite traer imágenes de licencia propias. Para otras imágenes de sistema operativo, el soporte técnico se incluye en el precio presupuestado por Azure. Si decide crear sus propias imágenes de sistema operativo, encontrará documentación en estos artículos:
     -   [Creación de una imagen generalizada de una máquina virtual Windows implementada en Azure](../../windows/capture-image-resource.md)
     -   [Creación de una imagen generalizada de una máquina virtual Linux implementada en Azure](../../linux/capture-image.md)
-3.  Si usa imágenes de SUSE o de Red Hat Linux procedentes de Shared Image Gallery, tendrá que usar las imágenes para SAP que proporcionan los proveedores de Linux en ella.
+3.  Si usa imágenes de SUSE o de Red Hat Linux procedentes de Azure Compute Gallery, tendrá que usar las imágenes para SAP que proporcionan los proveedores de Linux en esta galería.
 4.  Asegúrese de cumplir los requisitos de soporte técnico de SAP para los contratos de soporte técnico de Microsoft. Consulte la [nota de soporte técnico de SAP 2015553](https://launchpad.support.sap.com/#/notes/2015553). Para instancias grandes de HANA, consulte [Requisitos de incorporación](./hana-onboarding-requirements.md).
 4.  Asegúrese de que las personas adecuadas obtienen las [notificaciones de mantenimiento planeado](https://azure.microsoft.com/blog/a-new-planned-maintenance-experience-for-your-virtual-machines/), para que pueda elegir los mejores tiempos de inactividad.
 5.  Busque con cierta frecuencia presentaciones de Azure en canales como [Channel 9](https://channel9.msdn.com/), para conocer las nuevas funciones que pueden aplicarse a sus implementaciones.

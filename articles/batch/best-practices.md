@@ -3,12 +3,12 @@ title: Procedimientos recomendados
 description: Obtenga información sobre los procedimientos recomendados y sugerencias útiles para desarrollar sus soluciones de Azure Batch.
 ms.date: 09/03/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5227b738ab5d7af19ed2877a1c3d6b37ea08c556
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: e910fd444fc443ef93d9cc513632ad6ab11a124e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123535822"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131461578"
 ---
 # <a name="azure-batch-best-practices"></a>Procedimientos recomendados de Azure Batch
 
@@ -61,7 +61,7 @@ Los grupos de Batch pueden experimentar eventos de tiempo de inactividad en Azur
 
 ### <a name="custom-image-pools"></a>Grupos de imágenes personalizados
 
-Al crear un grupo en Azure Batch con Configuración de máquina virtual, se especifica una imagen de máquina virtual (VM) que proporciona el sistema operativo para cada nodo de proceso en el grupo. Puede crear el grupo con una imagen de Azure Marketplace compatible o [crear una imagen personalizada con una imagen de Shared Image Gallery](batch-sig-images.md). Aunque también puede usar una [imagen administrada](batch-custom-images.md) para crear un grupo de imágenes personalizadas, se recomienda crear imágenes personalizadas mediante Shared Image Gallery siempre que sea posible. Shared Image Gallery le ayuda a aprovisionar grupos más rápido, escalar cantidades más grandes de VM y mejorar la confiabilidad al aprovisionar las VM.
+Al crear un grupo en Azure Batch con Configuración de máquina virtual, se especifica una imagen de máquina virtual (VM) que proporciona el sistema operativo para cada nodo de proceso en el grupo. Puede crear el grupo con una imagen de Azure Marketplace compatible, o bien [crear una imagen personalizada con una imagen de Azure Compute Gallery](batch-sig-images.md). Aunque también puede usar una [imagen administrada](batch-custom-images.md) para crear un grupo de imágenes personalizadas, se recomienda crear imágenes personalizadas mediante Azure Compute Gallery siempre que sea posible. Azure Compute Gallery ayuda a aprovisionar grupos más rápido, a escalar cantidades más grandes de VM y a mejorar la confiabilidad al aprovisionar las VM.
 
 ### <a name="third-party-images"></a>Imágenes de terceros
 

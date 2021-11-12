@@ -7,12 +7,12 @@ ms.service: purview
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 9f6f13805a1b93f415bd7398299ed5e4b2f27947
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d740ba049353a250468321741d90d1f8b7b88d2b
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131062830"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131848996"
 ---
 # <a name="connect-to-azure-blob-storage-in-azure-purview"></a>Conexión a Azure Blob Storage en Azure Purview
 
@@ -22,7 +22,9 @@ En este artículo se describe el proceso para registrar una cuenta de Azure Blob
 
 |**Extracción de metadatos**|  **Examen completo**  |**Examen incremental**|**Examen con ámbito**|**Clasificación**|**Directiva de acceso**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Sí](#register) | [Sí](#scan)|[Sí](#scan) | [Sí](#scan)|[Sí](#scan)| Sí | No|
+| [Sí](#register) | [Sí](#scan)|[Sí](#scan) | [Sí](#scan)|[Sí](#scan)| Sí | Limitado** |
+
+\** Se admite el linaje si el conjunto de datos se usa como origen o receptor en la [actividad de copia de Data Factory](how-to-link-azure-data-factory.md) 
 
 En el caso de los tipos de archivo como csv, tsv, psv y ssv, el esquema se extrae cuando se implementan las siguientes lógicas:
 

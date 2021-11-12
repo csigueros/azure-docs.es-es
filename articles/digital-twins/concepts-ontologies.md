@@ -1,24 +1,26 @@
 ---
 title: ¿Qué es una ontología?
 titleSuffix: Azure Digital Twins
-description: Más información sobre ontologías del sector basadas en DTDL para el modelado en0 un determinado dominio
+description: Descubra qué son las ontologías de gemelos digitales, cómo se usan en Azure Digital Twins y cómo se pueden usar estas ontologías de DTDL para el modelado en el contexto de determinados sectores.
 author: baanders
 ms.author: baanders
-ms.date: 6/1/2021
+ms.date: 10/21/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: f4beb002a1bfd8a885157099228747213e754253
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 56ce0815bdcb59e64f6a61cce4d4fb6172abea20
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122772362"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501635"
 ---
 # <a name="what-is-an-ontology"></a>¿Qué es una ontología? 
 
+En este artículo se describe el concepto de ontologías del sector y cómo se pueden usar en el contexto de Azure Digital Twins.
+
 El vocabulario de una solución de Azure Digital Twins se define mediante [modelos](concepts-models.md) que describen los tipos de entidades que existen en su entorno.
 
-A veces, cuando la solución está asociada a un sector determinado, puede ser más fácil y eficaz comenzar con un conjunto de modelos para ese sector que ya exista en lugar de crear su propio modelo desde cero. Estos conjuntos de modelos ya existentes se denominan **ontologías**. 
+A veces, cuando la solución está asociada a un sector determinado, puede ser más fácil y eficaz comenzar con un conjunto de modelos para ese sector que ya exista en lugar de crear su propio modelo desde cero. Estos conjuntos de modelos ya existentes se denominan **ontologías**.
 
 En general, una ontología es un conjunto de modelos para un dominio determinado, como una estructura de edificio, un sistema de IoT, una ciudad inteligente, la red eléctrica, el contenido web, etc. Las ontologías se usan a menudo como esquemas para grafos gemelos, ya que permiten:
 * La armonización de componentes de software, documentación, bibliotecas de consulta, etc.
@@ -56,7 +58,7 @@ Independientemente de la estrategia que elija para integrar una ontología en Az
 1. [Valide](how-to-parse-models.md) los modelos para comprobar que son documentos DTDL operativos.
 1. Cargue los modelos terminados en Azure Digital Twins, mediante las [API](how-to-manage-model.md#upload-models) o un ejemplo como el del [cargador de modelos de Azure Digital Twins](https://github.com/Azure/opendigitaltwins-tools/tree/master/ADTTools#uploadmodels).
 
-Después de leer esta serie de artículos, debería poder usar los modelos en la instancia de Azure Digital Twins. 
+Esta serie de artículos le orientará a la hora de los modelos en la instancia de Azure Digital Twins. 
 
 >[!TIP]
 > Para visualizar los modelos en la ontología, utilice [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) o el [Azure Digital Twins Model Visualizer](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer).

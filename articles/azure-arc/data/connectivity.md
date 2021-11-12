@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/08/2021
+ms.date: 11/03/2021
 ms.topic: conceptual
-ms.openlocfilehash: fa34a8e5e801080f354e13b632917a1a05eabf43
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f8e52c61db68aaf85af70b6bfb373bd7b331bd29
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124832639"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131555426"
 ---
 # <a name="connectivity-modes-and-requirements"></a>Modos de conectividad y requisitos
 
@@ -48,15 +48,15 @@ Algunos servicios conectados a Azure solo están disponibles cuando se puede lle
 |**Característica**|**Conexión indirecta**|**Conexión directa**|
 |---|---|---|
 |**Alta disponibilidad automática**|Compatible|Compatible|
-|**Aprovisionamiento de autoservicio**|Compatible<br/>La creación se puede realizar mediante Azure Data Studio, la CLI apropiada o las herramientas nativas de Kubernetes (Helm, kubectl, oc, etc.) o mediante el aprovisionamiento de GitOps de Kubernetes habilitado para Azure Arc.|Compatible<br/>Además de las opciones de creación del modo de conexión indirecta, también puede crear lo que necesite mediante Azure Portal, las API de Azure Resource Manager, la CLI de Azure o plantillas de ARM. **Pendiente de la disponibilidad del modo de conexión directa**
-|**Escalabilidad elástica**|Compatible|Compatible<br/>**Pendiente de la disponibilidad del modo de conexión directa**|
-|**Facturación**|Compatible<br/>Los datos de facturación se exportan periódicamente y se envían a Azure.|Compatible<br/>Los datos de facturación se envían automáticamente y continuamente a Azure y se reflejan casi en tiempo real. **Pendiente de la disponibilidad del modo de conexión directa**|
+|**Aprovisionamiento de autoservicio**|Compatible<br/>La creación se puede realizar mediante Azure Data Studio, la CLI apropiada o las herramientas nativas de Kubernetes (Helm, kubectl, oc, etc.) o mediante el aprovisionamiento de GitOps de Kubernetes habilitado para Azure Arc.|Compatible<br/>Además de las opciones de creación del modo de conexión indirecta, también puede crear lo que necesite mediante Azure Portal, las API de Azure Resource Manager, la CLI de Azure o plantillas de ARM. 
+|**Escalabilidad elástica**|Compatible|Compatible<br/>|
+|**Facturación**|Compatible<br/>Los datos de facturación se exportan periódicamente y se envían a Azure.|Compatible<br/>Los datos de facturación se envían automáticamente y continuamente a Azure y se reflejan casi en tiempo real. |
 |**Administración de inventario**|Compatible<br/>Los datos de inventario se exportan periódicamente y se envían a Azure.<br/><br/>Use herramientas de cliente como Azure Data Studio, la CLI de datos de Azure o `kubectl` para ver y administrar el inventario de forma local.|Compatible<br/>Los datos de inventario se envían automáticamente y continuamente a Azure y se reflejan casi en tiempo real. Como tal, puede administrar el inventario directamente desde Azure Portal.|
-|**Actualizaciones y revisiones automáticas**|Compatible<br/>El controlador de datos debe tener acceso directo a Microsoft Container Registry (MCR) o se deben extraer de MCR las imágenes de contenedor e insertarlas en un registro de contenedor privado local al que el controlador de datos tenga acceso.|Compatible<br/>**Pendiente de la disponibilidad del modo de conexión directa**|
-|**Copia de seguridad y restauración automáticas**|Compatible<br/>Copias de seguridad y restauración locales automáticas.|Compatible<br/>Además de la copia de seguridad y restauración locales automatizadas, puede enviar _de forma opcional_ copias de seguridad a Azure Backup para la retención a largo plazo y fuera del sitio. **Pendiente de la disponibilidad en el modo de conexión directa**|
-|**Supervisión**|Compatible<br/>Supervisión local con los paneles de Grafana y Kibana.|Compatible<br/>Además de los paneles de supervisión locales, puede _opcionalmente_ enviar datos de supervisión y registros a Azure Monitor para la supervisión a escala de varios sitios en un solo lugar. **Pendiente de la disponibilidad del modo de conexión directa**|
+|**Actualizaciones y revisiones automáticas**|Compatible<br/>El controlador de datos debe tener acceso directo a Microsoft Container Registry (MCR) o se deben extraer de MCR las imágenes de contenedor e insertarlas en un registro de contenedor privado local al que el controlador de datos tenga acceso.|Compatible<br/>**Pendiente de la disponibilidad en conexión directa.**|
+|**Copia de seguridad y restauración automáticas**|Compatible<br/>Copias de seguridad y restauración locales automáticas.|Compatible<br/>Además de la copia de seguridad y restauración locales automatizadas, puede enviar _de forma opcional_ copias de seguridad a Azure Backup para la retención a largo plazo y fuera del sitio. **Pendiente de la disponibilidad en el modo de conexión directa.**|
+|**Supervisión**|Compatible<br/>Supervisión local con los paneles de Grafana y Kibana.|Compatible<br/>Además de los paneles de supervisión locales, puede _opcionalmente_ enviar datos de supervisión y registros a Azure Monitor para la supervisión a escala de varios sitios en un solo lugar. |
 |**Autenticación**|Use el nombre de usuario y la contraseña locales para el controlador de datos y la autenticación del panel. Use inicios de sesión de SQL y Postgres o Active Directory (AD no se admite actualmente, estará en versión preliminar pronto) para la conectividad con instancias de base de datos.  Use los proveedores de autenticación de K8s para la autenticación en la API de Kubernetes.|Además o en lugar de los métodos de autenticación para el modo conexión indirecta, puede usar _opcionalmente_ Azure Active Directory. **Pendiente de la disponibilidad en el modo de conexión directa**|
-|**Control de acceso basado en rol (RBAC)**|Use RBAC de Kubernetes en la API de Kubernetes. Use RBAC de SQL y Postgres para las instancias de base de datos.|Puede usar Azure Active Directory y Azure RBAC.|
+|**Control de acceso basado en rol (RBAC)**|Use RBAC de Kubernetes en la API de Kubernetes. Use RBAC de SQL y Postgres para las instancias de base de datos.|Puede usar Azure Active Directory y Azure RBAC. **Pendiente de la disponibilidad en el modo de conexión directa**|
 |**Azure Defender**|No compatible|Planeada para el futuro.|
 
 ## <a name="connectivity-requirements"></a>Requisitos de conectividad
@@ -81,7 +81,7 @@ Algunos servicios conectados a Azure solo están disponibles cuando se puede lle
 
 ## <a name="details-on-internet-addresses-ports-encryption-and-proxy-server-support"></a>Detalles sobre las direcciones de Internet, los puertos, el cifrado y la compatibilidad con servidores proxy
 
-Actualmente, solo el modo de conexión indirecta está disponible con carácter general. En este modo, solo hay tres conexiones necesarias para los servicios disponibles en Internet. Estas conexiones incluyen las siguientes:
+Hay tres conexiones necesarias para los servicios disponibles en Internet. Estas conexiones incluyen las siguientes:
 
 - [Microsoft Container Registry (MCR)](#microsoft-container-registry-mcr)
 - [API de Azure Resource Manager](#azure-resource-manager-apis):

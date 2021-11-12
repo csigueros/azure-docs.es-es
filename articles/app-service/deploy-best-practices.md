@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: c70cf1ca07e5fff58a14aa6b5b6c2f18b9e0e775
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 06728431db78d14be1a67f1dde753a0992b5dbba
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123222516"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471124"
 ---
 # <a name="deployment-best-practices"></a>Procedimientos recomendados de implementación
 
@@ -43,7 +43,7 @@ Siempre que sea posible, use [ranuras de implementación](deploy-staging-slots.m
 
 ### <a name="continuously-deploy-code"></a>Código de implementación continua
 
-Si el proyecto tiene ramas designadas para pruebas, control de calidad y ensayo, cada una de esas ramas debe implementarse continuamente en un espacio de ensayo. (Esto se conoce como [diseño Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)). De esta manera, las partes interesadas pueden evaluar y probar fácilmente la rama implementada. 
+Si el proyecto tiene ramas designadas para pruebas, control de calidad y ensayo, cada una de esas ramas debe implementarse continuamente en un espacio de ensayo. (Se denomina [Diseño Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).) De esta manera, las partes interesadas pueden evaluar y probar fácilmente la rama implementada. 
 
 La implementación continua nunca debe estar habilitada para el espacio de producción. En su lugar, la rama de producción (a menudo la principal) se debe implementar en un espacio que no sea de producción. Cuando esté listo para liberar la rama base, cámbiela al espacio de producción. El cambio a producción, en lugar de la implementación en producción, evita tiempos de inactividad y permite revertir los cambios intercambiando de nuevo. 
 

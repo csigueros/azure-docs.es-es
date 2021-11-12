@@ -5,13 +5,13 @@ author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 03/29/2021
-ms.openlocfilehash: c7a7aaa47d40c9d49065f71bc9bebc998adbfc12
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.date: 11/08/2021
+ms.openlocfilehash: e7bce9f9c5ac81d7f722e76162f38e4b0178a157
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111410484"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131994998"
 ---
 # <a name="billing-model-of-azure-web-pubsub-service"></a>Modelo de facturación del servicio Azure Web PubSub
 
@@ -43,7 +43,7 @@ El tráfico saliente son los mensajes que se envían fuera del servicio Azure W
 
 - Los mensajes transmitidos desde el servicio a los receptores
 - Los mensajes enviados desde el servicio a los webhooks ascendentes
-- Los registros de diagnóstico con la [herramienta de seguimiento en directo](./howto-troubleshoot-diagnostic-logs.md#capture-diagnostic-logs-with-azure-web-pubsub-service-live-trace-tool) 
+- Los registros de recursos con la [herramienta de seguimiento en directo](./howto-troubleshoot-resource-logs.md#capture-resource-logs-with-live-trace-tool). 
 
 El tráfico entrante son los mensajes que se envían al servicio Azure Web PubSub. 
 

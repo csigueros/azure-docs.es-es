@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 4f15d39da8f97897498f07892eb90d37a1bd8574
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 2d0a74b5674bba6850cbe38f1811c1204acb5e69
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129209344"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131848218"
 ---
 # <a name="connect-to-your-azure-purview-and-scan-data-sources-privately-and-securely"></a>Conexión a Azure Purview y examen de los orígenes de datos de forma privada y segura
 
@@ -62,7 +62,7 @@ Con una de las opciones de implementación que se explican más en detalle en es
    :::image type="content" source="media/catalog-private-link/purview-pe-deploy-account.png" alt-text="Captura de pantalla que muestra la página de creación de un punto de conexión privado de la cuenta.":::
 
    > [!NOTE]
-   > También puede usar las zonas DNS privadas de Azure existentes o crear registros de DNS en los servidores DNS manualmente más adelante. Para obtener más información, consulte [Configuración de la resolución de nombres DNS para puntos de conexión privados](./catalog-private-link-name-resolution.md).
+   > También puede usar las zonas DNS privadas de Azure existentes o crear registros de DNS en los servidores DNS manualmente más adelante. Para más información, consulte [Configuración de la resolución de nombres DNS para puntos de conexión privados](./catalog-private-link-name-resolution.md).
 
 5. Seleccione **Aceptar**.
    
@@ -73,7 +73,7 @@ Con una de las opciones de implementación que se explican más en detalle en es
    :::image type="content" source="media/catalog-private-link/purview-pe-deploy-portal.png" alt-text="Captura de pantalla que muestra la página de creación de un punto de conexión privado del portal.":::
    
    > [!NOTE]
-   > También puede usar las zonas DNS privadas de Azure existentes o crear registros de DNS en los servidores DNS manualmente más adelante. Para obtener más información, consulte [Configuración de la resolución de nombres DNS para puntos de conexión privados](./catalog-private-link-name-resolution.md).
+   > También puede usar las zonas DNS privadas de Azure existentes o crear registros de DNS en los servidores DNS manualmente más adelante. Para más información, consulte [Configuración de la resolución de nombres DNS para puntos de conexión privados](./catalog-private-link-name-resolution.md).
 
 8. Seleccione **Aceptar**.
 
@@ -108,7 +108,7 @@ Con una de las opciones de implementación que se explican más en detalle en es
 6. En la pestaña **Configuración**, seleccione la red virtual y, opcionalmente, seleccione la zona DNS privada de Azure para crear una nueva zona DNS de Azure.
    
    > [!NOTE]
-   > Para la configuración de DNS, también puede usar las zonas DNS privadas de Azure existentes de la lista desplegable o agregar los registros DNS necesarios a los servidores DNS manualmente más adelante. Para obtener más información, consulte [Configuración de la resolución de nombres DNS para puntos de conexión privados](./catalog-private-link-name-resolution.md).
+   > Para la configuración de DNS, también puede usar las zonas DNS privadas de Azure existentes de la lista desplegable o agregar los registros DNS necesarios a los servidores DNS manualmente más adelante. Para más información, consulte [Configuración de la resolución de nombres DNS para puntos de conexión privados](./catalog-private-link-name-resolution.md).
 
 7. Vaya a la página de resumen y seleccione **Crear** para crear el punto de conexión privado del portal.
    
@@ -180,7 +180,7 @@ Siga los pasos descritos en [Creación y administración de un entorno de ejecuc
    :::image type="content" source="media/catalog-private-link/shir-for-azure.png" alt-text="Captura de pantalla en la que se muestra la ejecución de un examen de Azure con un IR autohospedado":::
 
 > [!IMPORTANT]
-> Si ha creado la cuenta de Azure Purview después del 18 de agosto de 2021, asegúrese de descargar e instalar la versión más reciente del entorno de ejecución de integración autohospedado desde el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=39717).
+> Asegúrese de descargar e instalar la versión más reciente del entorno de ejecución de integración autohospedado desde el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=39717).
 
 ## <a name="firewalls-to-restrict-public-access"></a>Firewalls para la restricción del acceso público
 

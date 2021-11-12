@@ -7,13 +7,13 @@ ms.subservice: extensions
 author: amjads1
 ms.author: amjads
 ms.collection: linux
-ms.date: 02/18/2020
-ms.openlocfilehash: 352aea7f000082a2f978005d958b41669e191584
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.date: 11/02/2021
+ms.openlocfilehash: 3c857f01ba5a706c8b20289221badbee3aa3dccf
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122181567"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471637"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual de Log Analytics para Linux
 
@@ -21,18 +21,17 @@ ms.locfileid: "122181567"
 
 Los registros de Azure Monitor proporcionan funcionalidades de supervisión, generación de alertas y corrección de alertas a los recursos locales y en la nube. Microsoft, como editor de la extensión de máquina virtual de Log Analytics para Linux, es quien presta los servicios de soporte técnico para esta solución. La extensión instala el agente de Log Analytics en Azure Virtual Machines e inscribe las máquinas virtuales en un área de trabajo de Log Analytics. En este documento se especifican las plataformas compatibles, configuraciones y opciones de implementación de la extensión de máquina virtual de Log Analytics para Linux.
 
->[!NOTE]
->Como parte de la transición en curso de Microsoft Operations Management Suite (OMS) a Azure Monitor, se hará referencia al agente de OMS para Windows o Linux como el agente de Log Analytics para Windows y el agente de Log Analytics para Linux.
+> [!NOTE]
+> Los servidores habilitados para Azure Arc permiten implementar, quitar y actualizar extensiones de VM del agente de análisis de registros en máquinas Windows y Linux que no son de Azure, lo que simplifica la administración de la máquina híbrida durante su ciclo de vida. Para más información, vea [Administración de extensiones de máquina virtual con servidores habilitados para Azure Arc](../../azure-arc/servers/manage-vm-extensions.md).
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
-
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="operating-system"></a>Sistema operativo
 
 Para más información sobre las distribuciones de Linux admitidas, consulte el artículo [Información general sobre los agentes de Azure Monitor](../../azure-monitor/agents/agents-overview.md#supported-operating-systems).
 
 ### <a name="agent-and-vm-extension-version"></a>Versión de extensión de agente y máquina virtual
+
 En la tabla siguiente se proporciona una asignación de la versión de la extensión de VM de Log Analytics y el paquete del agente de Log Analytics para cada versión. Se incluye un vínculo a las notas de la versión del paquete del agente de Log Analytics. Las notas de versión incluyen detalles sobre corrección de errores y nuevas características que están disponibles para una versión de agente determinada.  
 
 | Versión de extensión de máquina virtual Linux de Log Analytics | Versión del paquete del agente de Log Analytics | 
@@ -65,11 +64,11 @@ Azure Security Center aprovisiona automáticamente el agente de Log Analytics y 
 
 ### <a name="internet-connectivity"></a>Conectividad de Internet
 
-La extensión del agente de Log Analytics para Linux requiere que la máquina virtual de destino esté conectada a Internet. 
+La extensión del agente de Log Analytics para Linux necesita que la máquina virtual de destino esté conectada a Internet. 
 
 ## <a name="extension-schema"></a>Esquema de extensión
 
-El siguiente JSON muestra el esquema para la extensión del agente de Log Analytics. La extensión requiere el identificador y la clave del área de trabajo de Log Analytics de destino, valores que se pueden [encontrar en el área de trabajo de Log Analytics](../../azure-monitor/vm/monitor-virtual-machine.md) en Azure Portal. Como la clave del área de trabajo debe tratarse como datos confidenciales, debe almacenarse en una configuración protegida. Los datos de configuración protegida de la extensión de VM de Azure están cifrados y solo se descifran en la máquina virtual de destino. Tenga en cuenta que **workspaceId** y **workspaceKey** distinguen mayúsculas de minúsculas.
+En el siguiente JSON se muestra el esquema para la extensión del agente de Log Analytics. La extensión requiere el identificador y la clave del área de trabajo de Log Analytics de destino, valores que se pueden [encontrar en el área de trabajo de Log Analytics](../../azure-monitor/vm/monitor-virtual-machine.md) en Azure Portal. Como la clave del área de trabajo debe tratarse como datos confidenciales, debe almacenarse en una configuración protegida. Los datos de configuración protegida de la extensión de VM de Azure están cifrados y solo se descifran en la máquina virtual de destino. Tenga en cuenta que **workspaceId** y **workspaceKey** distinguen mayúsculas de minúsculas.
 
 ```json
 {
@@ -109,13 +108,12 @@ El siguiente JSON muestra el esquema para la extensión del agente de Log Analyt
 | workspaceId (p.ej) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (p. ej.) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
-
 ## <a name="template-deployment"></a>Implementación de plantilla
 
 >[!NOTE]
 >Algunos componentes de la extensión de máquina virtual de Log Analytics también se incluyen en la [extensión de máquina virtual de diagnóstico](./diagnostics-linux.md). Debido a esta arquitectura, se pueden producir conflictos si se crean instancias de las dos extensiones en la misma plantilla de ARM. Para evitar estos conflictos en tiempo de instalación, use la [directiva `dependsOn`](../../azure-resource-manager/templates/resource-dependency.md#dependson) para asegurarse de que las extensiones se instalan de forma secuencial. Las extensiones se pueden instalar en cualquier orden.
 
-Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Resource Manager. Las plantillas resultan ideales cuando se implementan una o varias máquinas virtuales que requieren configuración tras la implementación, como por ejemplo, su incorporación a los registros de Azure Monitor. Puede encontrar una plantilla de Resource Manager de ejemplo que incluye la extensión de máquina virtual del agente de Log Analytics en la [Galería de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/oms-extension-ubuntu-vm). 
+Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Resource Manager. Las plantillas resultan ideales cuando se implementan una o varias máquinas virtuales que requieren configuración tras la implementación, como por ejemplo, su incorporación a los registros de Azure Monitor. En la [Galería de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/oms-extension-ubuntu-vm) puede encontrar una plantilla de Resource Manager de ejemplo que incluye la extensión de máquina virtual del agente de Log Analytics. 
 
 La configuración JSON de una extensión de máquina virtual puede estar anidada en el recurso de máquina virtual o colocada en la raíz o nivel superior de una plantilla JSON de Resource Manager. La colocación de la configuración JSON afecta al valor del nombre y tipo del recurso. Para obtener más información, consulte el artículo sobre cómo [establecer el nombre y el tipo de recursos secundarios](../../azure-resource-manager/templates/child-resource-name-type.md). 
 

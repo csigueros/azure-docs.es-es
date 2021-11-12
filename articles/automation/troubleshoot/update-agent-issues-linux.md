@@ -2,15 +2,15 @@
 title: Solución de problemas del agente de actualización de Linux en Azure Automation
 description: En este artículo se describe cómo solucionar y resolver problemas con el agente de Windows Update de Linux en Update Management.
 services: automation
-ms.date: 01/25/2021
+ms.date: 11/01/2021
 ms.topic: troubleshooting
 ms.subservice: update-management
-ms.openlocfilehash: 9fdfa1541e928491aecc039d51338f7ef1f1ef3d
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 99758393b3d6545d534563a67f1346f7622b56db
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122181416"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131477105"
 ---
 # <a name="troubleshoot-linux-update-agent-issues"></a>Solución de problemas del agente de actualización de Linux
 
@@ -49,14 +49,7 @@ Una vez finalizadas las comprobaciones, los resultados se muestran en la ventana
 
 ### <a name="operating-system"></a>Sistema operativo
 
-La comprobación del sistema operativo comprueba si Hybrid Runbook Worker está ejecutando alguno de los siguientes sistemas operativos.
-
-|Sistema operativo  |Notas  |
-|---------|---------|
-|CentOS 6 (x86/x64) y 7 (x64)      | Los agentes de Linux deben tener acceso a un repositorio de actualización. La aplicación de revisiones basada en la clasificación requiere "yum" para devolver los datos de seguridad que CentOS no tiene de forma nativa.         |
-|Red Hat Enterprise (x86/x64) 6 y 7 (x64)     | Los agentes de Linux deben tener acceso a un repositorio de actualización.        |
-|SUSE Linux Enterprise Server 11 (x86/x64) y 12 (x64)     | Los agentes de Linux deben tener acceso a un repositorio de actualización.        |
-|Ubuntu 14.04 LTS, 16.04 LTS y 18.04 LTS (x86/x64)      |Los agentes de Linux deben tener acceso a un repositorio de actualización.         |
+La comprobación del sistema operativo comprueba si Hybrid Runbook Worker está ejecutando alguno de los [sistemas operativos admitidos](../update-management/operating-system-requirements.md#supported-operating-systems).
 
 ## <a name="monitoring-agent-service-health-checks"></a>Supervisión de comprobaciones del estado de servicio del agente
 
@@ -124,7 +117,13 @@ Esta comprobación verifica que la máquina tenga acceso a los puntos de conexi�
 
 ## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>Solución de problemas sin conexión
 
-Puede utilizar el solucionador de problemas sin conexión en un Hybrid Runbook Worker mediante la ejecución local del script. El script de Python, [UM_Linux_Troubleshooter_Offline.py](https://github.com/Azure/updatemanagement/blob/main/UM_Linux_Troubleshooter_Offline.py), se puede encontrar en GitHub. En el ejemplo siguiente se muestra un ejemplo del resultado de este script:
+Puede utilizar el solucionador de problemas sin conexión en un Hybrid Runbook Worker mediante la ejecución local del script. El script de Python, [UM_Linux_Troubleshooter_Offline.py](https://github.com/Azure/updatemanagement/blob/main/UM_Linux_Troubleshooter_Offline.py), se puede encontrar en GitHub.
+
+> [!NOTE]
+> La versión actual del script del solucionador de problemas no admite Ubuntu 20.04.
+>
+
+En el ejemplo siguiente se muestra un ejemplo del resultado de este script:
 
 ```output
 Debug: Machine Information:   Static hostname: LinuxVM2

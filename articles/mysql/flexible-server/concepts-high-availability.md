@@ -6,21 +6,18 @@ ms.author: sunaray
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2021
-ms.openlocfilehash: 276bcd288f519a5060f859bf6b5a74c0453e7c79
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 1d1ec1b6196dd543b9310a945fc9b07e26673c84
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129994069"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131472777"
 ---
-# <a name="high-availability-in-azure-database-for-mysql---flexible-server-preview"></a>Alta disponibilidad en la opción Servidor flexible de Azure Database for MySQL (versión preliminar)
+# <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server"></a>Conceptos de alta disponibilidad en el servidor flexible de Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-> [!IMPORTANT] 
-> Actualmente, Azure Database for MySQL: Servidor flexible se encuentra en versión preliminar pública.
-
-La versión preliminar de la opción Servidor flexible de Azure Database for MySQL permite configurar la alta disponibilidad con conmutación automática por error. La solución de alta disponibilidad está diseñada para garantizar que los datos confirmados nunca se pierdan debido a errores y que la base de datos no sea un único punto de error de la arquitectura de software. Cuando se configura la alta disponibilidad, la opción Servidor flexible aprovisiona y administra automáticamente una réplica en espera. Hay dos modelos arquitectónicos de alta disponibilidad:
+Servidor flexible de Azure Database for MySQL permite configurar la alta disponibilidad con conmutación automática por error. La solución de alta disponibilidad está diseñada para garantizar que los datos confirmados nunca se pierdan debido a errores y que la base de datos no sea un único punto de error de la arquitectura de software. Cuando se configura la alta disponibilidad, el servidor flexible aprovisiona y administra automáticamente una réplica en espera. Hay dos modelos arquitectónicos de alta disponibilidad:
 
 * **Alta disponibilidad con redundancia de zona**. Esta opción es preferible para el aislamiento completo y la redundancia de la infraestructura en varias zonas de disponibilidad. Proporciona el máximo nivel de disponibilidad, pero exige configurar la redundancia de las aplicaciones entre zonas. La alta disponibilidad con redundancia de zona es preferible cuando se quiere lograr el máximo nivel de disponibilidad frente a cualquier error de infraestructura en la zona de disponibilidad y cuando la latencia entre las zonas de disponibilidad es aceptable. Solo se puede habilitar cuando se crea el servidor. La alta disponibilidad con redundancia de zona está disponible en un [subconjunto de regiones de Azure](./overview.md#azure-regions) que admiten varias [zonas de disponibilidad](../../availability-zones/az-overview.md) y donde hay disponibles [recursos compartidos de archivos Premium con redundancia de zona](../..//storage/common/storage-redundancy.md#zone-redundant-storage).
 

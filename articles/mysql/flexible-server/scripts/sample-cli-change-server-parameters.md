@@ -1,5 +1,5 @@
 ---
-title: 'Script de la CLI: enumeración y cambio de los parámetros del servidor de un servidor Azure Database for MySQL: servidor flexible (versión preliminar)'
+title: 'Script de la CLI: enumeración y cambio de los parámetros del servidor de Azure Database for MySQL: servidor flexible'
 description: 'En este script de ejemplo de la CLI de Azure se muestra cómo enumerar y cambiar los parámetros de servidor de un servidor Azure Database for MySQL: servidor flexible'
 author: shreyaaithal
 ms.author: shaithal
@@ -8,14 +8,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 09/15/2021
-ms.openlocfilehash: bcb811c9143e97ae070873c4b94396d6a1308d4a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4316669346f8bedec7a674da3e7114b95dd8c4ca
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128604664"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131844304"
 ---
-# <a name="list-and-change-server-parameters-of-an-azure-database-for-mysql---flexible-server-preview-using-azure-cli"></a>Enumeración y cambio de los parámetros del servidor de una instancia de Azure Database for MySQL: servidor flexible (versión preliminar) mediante la CLI de Azure
+# <a name="list-and-change-server-parameters-of-an-azure-database-for-mysql---flexible-server-using-azure-cli"></a>Enumeración y cambio de los parámetros del servidor de Azure Database for MySQL: servidor flexible mediante la CLI de Azure
 
 Este script de la CLI de ejemplo enumera todos los [parámetros de servidor](../concepts-server-parameters.md) disponibles, así como sus valores permitidos para Azure Database for MySQL: servidor flexible y establece los parámetros *max_connections* y *time_zone* global en unos valores que no son los predeterminados.
 
@@ -54,5 +54,5 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Pruebe otros scripts: [Ejemplos de la CLI de Azure para Azure Database for MySQL: servidor flexible (versión preliminar)](../sample-scripts-azure-cli.md).
+- Pruebe otros scripts: [Ejemplos de la CLI de Azure para Azure Database for MySQL: servidor flexible](../sample-scripts-azure-cli.md).
 - Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](/cli/azure).

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: aab3c66a76e22e17e5e5d6c0cd03ebca4562734d
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 6d51aa87232445e35533632d5071abd121a3fcfb
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129277658"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131442205"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introducción al registro de flujo de grupos de seguridad de red
 
@@ -375,6 +375,8 @@ Además, cuando se elimina un NSG, se elimina de forma predeterminada el recurso
 **Flujos entrantes registrados desde direcciones IP de Internet a VM sin direcciones IP públicas**: Las VM que no tienen una dirección IP pública asignada a través de una dirección IP pública asociada con la NIC como dirección IP pública de nivel de instancia, o que forman parte de un grupo de back-end de equilibrador de carga básico, usan [SNAT predeterminada](../load-balancer/load-balancer-outbound-connections.md) y tiene una dirección IP asignada por Azure para facilitar la conectividad de salida. Como consecuencia, es posible que vea las entradas de registro de flujo para los flujos desde las direcciones IP de Internet, si el flujo está destinado a un puerto en el intervalo de puertos asignados para SNAT. Si bien Azure no permitirá estos flujos a la VM, el intento se registra y aparece en el registro de flujos de NSG de Network Watcher por diseño. Se recomienda que el tráfico entrante de Internet no deseado se bloquee explícitamente con NSG.
 
 **NSG en la subred de puerta de enlace de ExpressRoute**: no se recomienda registrar flujos en la subred de puerta de enlace de ExpressRoute porque el tráfico puede omitir la puerta de enlace de ExpressRoute (ejemplo:[ FastPath](../expressroute/about-fastpath.md)). Por lo tanto, si un NSG está vinculado a una subred de puerta de enlace de ExpressRoute y los registros de flujo de NSG están habilitados, es posible que los flujos salientes a las máquinas virtuales no se capturan. Estos flujos deben capturarse en la subred o NIC de la máquina virtual. 
+
+**Tráfico por medio de vínculo privado**: para registrar el tráfico mientras se accede a los recursos de PaaS mediante vínculo privado, habilite los registros de flujo de NSG en un NSG de subred que contenga el vínculo privado. Debido a las limitaciones de la plataforma, el tráfico en todas las máquinas virtuales de origen solo se puede capturar, mientras que en el recurso PaaS de destino no.
 
 **Problema con el grupo de seguridad de red de la subred de Application Gateway V2**: El registro de flujo en el grupo de seguridad de red de la subred de Application Gateway V2 [no se admite](../application-gateway/application-gateway-faq.yml#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) actualmente. Este problema no afecta a Application Gateway V1.
 

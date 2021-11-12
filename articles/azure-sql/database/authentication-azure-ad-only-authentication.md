@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/21/2021
+ms.date: 11/03/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 74b02577e6bb59481182afda881216ebff0544cf
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 050a9690f22ef34b39d89a5cd0cf4d8a6c7d340b
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131044045"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131503060"
 ---
 # <a name="azure-ad-only-authentication-with-azure-sql"></a>Autenticación solo de Azure AD con Azure SQL
 
@@ -402,7 +402,7 @@ Cuando la autenticación solo de Azure AD está habilitada para SQL Database, n
 - [Roles del servidor de Azure SQL Database](security-server-roles.md)
 - [Trabajos elásticos](job-automation-overview.md)
 - [SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md)
-- [Captura de datos modificados (CDC)](/sql/relational-databases/track-changes/about-change-data-capture-sql-server)
+- [Captura de datos modificados (CDC)](/sql/relational-databases/track-changes/about-change-data-capture-sql-server): si crea una base de datos en Azure SQL Database como usuario de Azure AD y habilita en ella la captura de datos modificados, un usuario de SQL no podrá deshabilitar ni realizar cambios en los artefactos de CDC. Aun así, otro usuario de Azure AD podrá habilitar o deshabilitar CDC en la misma base de datos. De forma similar, si crea una instancia de Azure SQL Database como usuario de SQL, la habilitación o deshabilitación de CDC como usuario de Azure AD no funcionará.
 - [Replicación transaccional](/azure/azure-sql/managed-instance/replication-transactional-overview): dado que se requiere la autenticación de SQL para la conectividad entre los participantes de la replicación, cuando se habilita la autenticación solo de Azure AD, la replicación transaccional no se admite para SQL Database en escenarios en los que la replicación transaccional se usa para insertar los cambios realizados en Azure SQL Managed Instance, SQL Server local o una instancia de SQL Server de una máquina virtual de Azure en una base de datos de Azure SQL Database
 - [SQL Insights](/azure/azure-monitor/insights/sql-insights-overview)
 - Instrucción EXEC AS para las cuentas de miembros de un grupo de Azure AD

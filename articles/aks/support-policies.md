@@ -4,12 +4,12 @@ description: Aprenda sobre las directivas de soporte técnico de Azure Kubernete
 services: container-service
 ms.topic: article
 ms.date: 09/18/2020
-ms.openlocfilehash: 1e85effa5a8efca59bfc88aada050ee5ddcc7fcf
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: 759d2714f755c39e0b189d7578e90cd268cd53c5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114666447"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130222464"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Directivas de soporte técnico para Azure Kubernetes Service
 
@@ -18,7 +18,7 @@ En este artículo se proporcionan detalles sobre las directivas de soporte técn
 ## <a name="service-updates-and-releases"></a>Actualizaciones de servicio y versiones
 
 * Para información sobre la versión, consulte las [notas de la versión de AKS](https://github.com/Azure/AKS/releases).
-* Para información sobre las características en versión preliminar, consulte [AKS preview features and related projects](https://awesomeopensource.com/projects/aks?categoryPage=11) (Características en versión preliminar y proyectos relacionados de AKS).
+* Para obtener información sobre las características en versión preliminar, vea la [hoja de ruta de AKS](https://github.com/Azure/AKS/projects/1).
 
 ## <a name="managed-features-in-aks"></a>Características administradas en AKS
 

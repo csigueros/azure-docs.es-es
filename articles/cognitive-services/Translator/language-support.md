@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 06/10/2020
+ms.date: 10/28/2021
 ms.author: lajanuar
-ms.openlocfilehash: 0055cae979e1ab116d71a387f3f9d7e61afb9d32
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: ef091072d7d5847ca1e8daa206de1734dccf4ff2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129754489"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469908"
 ---
 # <a name="translator-language-support"></a>Idiomas admitidos en Translator
 
@@ -185,7 +185,8 @@ La [operación de transliteración](reference/v3-0-transliterate.md) de la carac
 Agregue funcionalidades adicionales a las aplicaciones y flujos de trabajo mediante el uso de otros servicios de Cognitive Services con Translator. A continuación, se muestran las listas de idiomas para los servicios adicionales.
 * [Computer Vision](../computer-vision/language-support.md) 
 * [Voz](../speech-service/language-support.md) 
-* [Text Analytics ](../text-analytics/language-support.md) 
+* [Servicio de lenguaje](../language-service/index.yml) 
+    * Seleccione la característica que quiere usar y, después, **Compatibilidad de idioma** en el menú de navegación de la izquierda.
 
 Consulte todos los servicios de [Cognitive Services](../index.yml). 
 

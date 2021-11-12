@@ -9,23 +9,23 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/01/2021
+ms.date: 10/28/2021
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a5d3eb79931c845b3e67a65d3e0d77d227f5022
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: eb41fbaf1b1430cddb1ce5c44748edf35801405e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129986841"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131427653"
 ---
 # <a name="change-subdomain-authentication-type-in-azure-active-directory"></a>Cambio del tipo de autenticación de subdominio en Azure Active Directory
 
 Después de agregar un dominio raíz a Azure Active Directory (Azure AD), todos los subdominios siguientes agregados a esa raíz en la organización de Azure AD heredan automáticamente la configuración de autenticación del dominio raíz. Pero si quiere administrar la configuración de autenticación de dominio independientemente de la configuración de dominio raíz, puede hacerlo con Microsoft Graph API. Por ejemplo, si tiene un dominio raíz federado como contoso.com, este artículo puede ayudarle a comprobar un subdominio como child.contoso.com como administrado en lugar de federado.
 
-En el portal de Azure AD, si el dominio primario está federado y el administrador intenta comprobar un subdominio administrado en la página **Nombres de dominio personalizados**, se obtiene un error "Error al agregar dominio" con el motivo "Una o más propiedades contienen valores no válidos". Si intenta agregar este subdominio desde el centro de administración de Microsoft 365, recibe un error similar. Para obtener más información sobre el error, vea [Un dominio secundario no hereda los cambios de dominio primario en Office 365, Azure o Intune](/office365/troubleshoot/administration/child-domain-fails-inherit-parent-domain-changes).
+En el portal de Azure AD, si el dominio primario está federado y el administrador intenta comprobar un subdominio administrado en la página **Nombres de dominio personalizados**, se produce un error "Error al agregar dominio" con el motivo "Una o más propiedades contienen valores no válidos". Si intenta agregar este subdominio desde el centro de administración de Microsoft 365, recibe un error similar. Para obtener más información sobre el error, vea [Un dominio secundario no hereda los cambios de dominio primario en Office 365, Azure o Intune](/office365/troubleshoot/administration/child-domain-fails-inherit-parent-domain-changes).
 
 ## <a name="how-to-verify-a-custom-subdomain"></a>Comprobación de un subdominio personalizado
 

@@ -7,27 +7,23 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 08/16/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 2472a3495b872a17b073a86a6d99c6ddbf218343
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 619c65cb2f86c946d0e85573a967a23d718b38c9
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124755353"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501445"
 ---
 # <a name="use-an-azure-free-account-to-try-azure-database-for-mysql---flexible-server-for-free"></a>Uso de una cuenta gratuita de Azure para probar gratis Azure Database for MySQL: servidor flexible
 
-Azure Database for MySQL con la opción Servidor flexible (versión preliminar) es un servicio administrado que se usa para ejecutar, administrar y escalar bases de datos MySQL de alta disponibilidad en la nube.  Con una cuenta gratuita de Azure, puede usar la opción de servidor flexible **gratis durante 12 meses** con **límites mensuales** de hasta:
+Azure Database for MySQL: servidor flexible es un servicio administrado que se usa para ejecutar, administrar y escalar bases de datos MySQL de alta disponibilidad en la nube.  Con una cuenta gratuita de Azure, puede usar la opción de servidor flexible **gratis durante 12 meses** con **límites mensuales** de hasta:
 - **750 horas** de instancia **B1MS ampliable**, suficientes para ejecutar una instancia de base de datos continuamente cada mes.
 - **Almacenamiento de 32 GB y almacenamiento de copia de seguridad de 32 GB.** 
 
 En este artículo se muestra cómo crear y usar un servidor flexible de forma gratuita mediante una [cuenta gratuita de Azure](https://azure.microsoft.com/free/). 
 
 
-> [!IMPORTANT]
-> Actualmente, Azure Database for MySQL: Servidor flexible se encuentra en versión preliminar pública.
-
-
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesita:
 
@@ -54,7 +50,7 @@ En este artículo, usará Azure Portal para crear un servidor flexible con el m�
 
 1. Seleccione **Crear**.
 
-1. En la página **Select Azure Database for MySQL deployment option** (Seleccionar opción de implementación de Azure Database for MySQL), seleccione **Flexible Server (Preview)** [Servidor flexible (versión preliminar)]. 
+1. En la página **Select Azure Database for MySQL deployment option** (Seleccionar opción de implementación de Azure Database for MySQL), seleccione **Flexible Server** (Servidor flexible). 
 
     :::image type="content" source="media/how-to-deploy-on-azure-free-account/select-deployment-option.png" alt-text="Captura de pantalla que muestra la opción de implementación de servidor flexible que se va a elegir.":::
 

@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 03/15/2021
 ms.topic: how-to
-ms.openlocfilehash: 86ea4ce4d596875e455d7b86250882713a14337f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 295877bd894d9a91ba310d133c670a40db5f10ec
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104720158"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131454948"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Comprobación de errores de grupo y de nodo
 
@@ -40,7 +40,7 @@ Las causas comunes de los errores de cambio de tamaño son:
 - Recursos insuficientes cuando un [grupo está en una red virtual](./batch-virtual-network.md)
   - Puede crear recursos, como equilibradores de carga, direcciones IP públicas y grupos de seguridad de red, en la misma suscripción que la cuenta de Batch. Compruebe que las cuotas de suscripción sean suficientes para estos recursos.
 - Grupos de gran tamaño con imágenes de máquina virtual personalizadas
-  - Los grupos grandes que usan imágenes de máquina virtual personalizadas pueden tardar más tiempo en asignarse y pueden producirse tiempos de expiración de cambio de tamaño.  Consulte [Creación de un grupo con Shared Image Gallery](batch-sig-images.md) para obtener recomendaciones sobre los límites y la configuración.
+  - Los grupos grandes que usan imágenes de máquina virtual personalizadas pueden tardar más tiempo en asignarse y pueden producirse tiempos de expiración de cambio de tamaño.  Vea [Creación de un grupo con Azure Compute Gallery](batch-sig-images.md) para obtener recomendaciones sobre los límites y la configuración.
 
 ### <a name="automatic-scaling-failures"></a>Errores de escalado automático
 

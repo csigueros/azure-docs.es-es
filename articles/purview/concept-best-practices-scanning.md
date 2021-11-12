@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 10/08/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 53cf2144dfbb858d21030da7147805155ca1b982
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 85dc954dcb352f9bc2447e72322d35e8d5e73cb3
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131056307"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131552665"
 ---
 # <a name="azure-purview-scanning-best-practices"></a>Procedimientos recomendados de análisis de Azure Purview
 
@@ -98,6 +98,7 @@ Para evitar costos inesperados y repetir el trabajo, se recomienda planear y seg
             - Clave de cuenta o autenticación básica (por ejemplo, para orígenes de SAP S/4HANA)
             > [!Note]
             > Si tiene el firewall habilitado para la cuenta de almacenamiento, debe usar el método de autenticación de Identidad administrada al configurar un examen.
+            > Al configurar una nueva credencial, el nombre de la credencial solo puede contener _letras, números, caracteres de subrayado y guiones_. 
 
     - **Integration runtime** (Tiempo de ejecución de integración)
         - Use el entorno de ejecución de integración de resolución automática de Azure, siempre que sea factible.

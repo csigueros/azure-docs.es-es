@@ -2,18 +2,18 @@
 title: Personalización de las configuraciones de red de una máquina virtual de conmutación por error | Microsoft Docs
 description: Se proporciona información general sobre la personalización de configuraciones de red de una máquina virtual de conmutación por error en la replicación de máquinas virtuales de Azure mediante Azure Site Recovery.
 services: site-recovery
-author: sideeksh
-manager: rochakm
+author: rishjai-msft
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/21/2019
-ms.author: sideeksh
-ms.openlocfilehash: 29896c026b65859448f923bc542ea7198e8f848b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 10/01/2021
+ms.author: rishjai
+ms.openlocfilehash: 79a33226da71071d8985daf723dde7314116ce37
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131083467"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131475176"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Personalización de las configuraciones de red de la máquina virtual de Azure de destino
 
@@ -28,7 +28,8 @@ Obtenga información sobre cómo Site Recovery proporciona recuperación ante de
 Al replicar máquinas virtuales de Azure, se pueden proporcionar las siguientes configuraciones de recursos clave para la máquina virtual de conmutación por error:
 
 - [Equilibrador de carga interno](../load-balancer/load-balancer-overview.md)
-- [Dirección IP pública](../virtual-network/ip-services/public-ip-addresses.md)
+- [Dirección IP pública](../virtual-network/public-ip-addresses.md)
+- [Dirección IP secundaria](../virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal.md)
 - [Grupo de seguridad de red](../virtual-network/manage-network-security-group.md) tanto de la subred como de la NIC
 
 ## <a name="prerequisites"></a>Prerrequisitos
@@ -40,14 +41,14 @@ Al replicar máquinas virtuales de Azure, se pueden proporcionar las siguientes 
 
 1. Vaya a **Elementos replicados**. 
 2. Seleccione la máquina virtual de Azure que desee.
-3. Seleccione **Proceso y red**  y, después,**Editar**. Observe que los valores de la configuración de la NIC incluyen los recursos correspondientes en el origen. 
+3. Seleccione **Red** y, después, **Editar**. Observe que los valores de la configuración de la NIC incluyen los recursos correspondientes en el origen. 
 
-     ![Personalización de las configuraciones de red de conmutación por error](media/azure-to-azure-customize-networking/edit-networking-properties.png)
+    :::image type="content" source="./media/azure-to-azure-customize-networking/edit-networking-properties.png" alt-text="Personalización de las configuraciones de red de conmutación por error" lightbox="./media/azure-to-azure-customize-networking/edit-networking-properties-expanded.png":::
 
 4. Seleccione una red virtual de conmutación por error de prueba.
-5. Seleccione **Editar** junto a la NIC que desee configurar. En la siguiente hoja que se abre, seleccione los recursos creados previamente correspondientes en la conmutación por error de prueba y a la ubicación de conmutación por error.
+5. Seleccione la pestaña NIC que quiere configurar. Ahora, seleccione los recursos creados previamente correspondientes en la conmutación por error de prueba y la ubicación de conmutación por error.
 
-    ![Edición de la configuración de la NIC](media/azure-to-azure-customize-networking/nic-drilldown.png) 
+    :::image type="content" source="./media/azure-to-azure-customize-networking/nic-drilldown.png" alt-text="Edición de la configuración de la NIC" lightbox="./media/azure-to-azure-customize-networking/nic-drilldown-expanded.png":::
 
 6. Seleccione **Aceptar**.
 

@@ -10,14 +10,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/08/2021
+ms.date: 11/02/2021
 ms.author: radeltch
-ms.openlocfilehash: fb99396b141ad2d9b8c15e5f250396d32ee9f46e
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: e323b39c5164c1263ed12d5fa8965a692b0b952f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129708712"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131427919"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Alta disponibilidad de SAP HANA en máquinas virtuales de Azure en Red Hat Enterprise Linux
 
@@ -722,7 +722,7 @@ Asegúrese de que el estado del clúster sea el correcto y de que se iniciaron t
 
 A partir de SAP HANA 2.0 SPS 01, SAP permite el uso de configuraciones activas/habilitadas para lectura para la replicación del sistema de SAP HANA, donde los sistemas secundarios de la replicación del sistema de SAP HANA se pueden usar activamente para cargas de trabajo de lectura intensiva. Para admitir esta configuración en un clúster, se requiere una segunda dirección IP virtual que permita a los clientes tener acceso a la base de datos secundaria de SAP HANA habilitada para lectura. Para garantizar que todavía se puede tener acceso al sitio de replicación secundario tras una adquisición, el clúster debe mover la dirección IP virtual con el sistema secundario del recurso SAPHana.
 
-En esta sección se describen los pasos adicionales necesarios para administrar la replicación del sistema de HANA activo/habilitado para lectura en un clúster de Red Hat de alta disponibilidad con una segunda IP virtual.    
+En esta sección se describen los pasos adicionales necesarios para administrar la replicación del sistema de HANA activo/habilitado para lectura en un clúster de Red Hat de alta disponibilidad con una segunda IP virtual.
 
 Antes de continuar, asegúrese de que ha configurado completamente el clúster de Red Hat de alta disponibilidad que administra la base de datos de SAP HANA, tal como se describe en las secciones anteriores de la documentación.  
 
@@ -781,10 +781,9 @@ pcs resource create secnc_HN1_03 ocf:heartbeat:azure-lb port=62603
 
 pcs resource group add g_secip_HN1_03 secnc_HN1_03 secvip_HN1_03
 
-RHEL 8.x: 
-pcs constraint colocation add g_secip_HN1_03 with slave SAPHana_HN1_03-clone 4000
-RHEL 7.x:
-pcs constraint colocation add g_secip_HN1_03 with slave SAPHana_HN1_03-master 4000
+pcs constraint location g_secip_HN1_03 rule score=INFINITY hana_hn1_sync_state eq SOK and hana_hn1_roles eq 4:S:master1:master:worker:master
+
+pcs constraint location g_secip_HN1_03 rule score=4000 hana_hn1_sync_state eq PRIM and hana_hn1_roles eq 4:P:master1:master:worker:master
 
 pcs property set maintenance-mode=false
 ```
@@ -814,13 +813,13 @@ En la siguiente sección puede encontrar el conjunto típico de pruebas de conmu
 
 Tenga en cuenta el comportamiento de la segunda dirección IP virtual mientras prueba un clúster de HANA habilitado para lectura:
 
-1. Al migrar el recurso de clúster **SAPHana_HN1_HDB03** a **hn1-db-1**, la segunda dirección IP virtual pasará al otro servidor **hn1-db-0**. Si ha configurado AUTOMATED_REGISTER = "false" y la replicación del sistema de HANA no se registra automáticamente, la segunda dirección IP virtual se ejecutará en **hn1-DB-0,** , ya que el servidor está disponible y los servicios de clúster están en línea.  
+1. Al migrar el recurso de clúster **SAPHana_HN1_03** al sitio secundario **hn1-db-1**, la segunda dirección IP virtual se seguirá ejecutando en el mismo sitio **hn1-db-1**. Si ha establecido AUTOMATED_REGISTER="true" para el recurso y la replicación del sistema HANA se ha registrado automáticamente en **hn1-db-0**, la segunda dirección IP virtual también se moverá a **hn1-db-0**.
 
-2. Al probar el bloqueo del servidor, los recursos de la segunda dirección IP virtual (**rsc_secip_HN1_HDB03**) y el recurso de puerto de Azure Load Balancer (**rsc_secnc_HN1_HDB03**) se ejecutarán en el servidor principal junto con los recursos de la dirección IP virtual principal.  Mientras el servidor secundario está inactivo, las aplicaciones que están conectadas a la base de datos de HANA habilitada para lectura se conectarán a la base de datos de HANA principal. El comportamiento es el esperado, ya que no desea que las aplicaciones que están conectadas a la base de datos de HANA habilitada para lectura sean inaccesibles mientras el servidor secundario de hora no esté disponible.
-
-3. Cuando el servidor secundario esté disponible y los servicios de clúster estén en línea, la segunda dirección IP virtual y los recursos de puerto se trasladarán automáticamente al servidor secundario, incluso si la replicación del sistema de HANA no se registra como secundaria. Es muy importante registrar la base de datos de HANA secundaria como habilitada para lectura antes de iniciar los servicios de clúster en ese servidor. Puede configurar el recurso de clúster de instancia de HANA para registrar automáticamente la replicación secundaria estableciendo el parámetro AUTOMATED_REGISTER=true.
+2. Al probar el bloqueo del servidor, los recursos de la segunda IP virtual (**secvip_HN1_03**) y el recurso de puerto de Azure Load Balancer (**secnc_HN1_03**) se ejecutarán en el servidor principal junto con los recursos de la IP virtual principal. Por tanto, mientras el servidor secundario está inactivo, las aplicaciones conectadas a la base de datos de HANA habilitada para lectura se conectarán a la base de datos de HANA principal. Es el comportamiento esperado, ya que no quiere que las aplicaciones conectadas a la base de datos de HANA habilitada para lectura sean inaccesibles mientras el servidor horario secundario no esté disponible.
    
-4. Durante la conmutación por error y la reserva, se pueden interrumpir las conexiones existentes de las aplicaciones mediante la conexión de la segunda dirección IP virtual a la base de datos de HANA.  
+3. Durante la conmutación por error y la reserva de la segunda dirección IP virtual, es posible que se interrumpan las conexiones existentes en las aplicaciones que usan la segunda dirección IP virtual para conectarse a la base de datos de HANA.
+
+La configuración maximiza el tiempo durante el que se asignará el segundo recurso de IP virtual a un nodo en el que se ejecuta una instancia de SAP HANA correcta.
 
 ## <a name="test-the-cluster-setup"></a>Prueba de la configuración del clúster
 

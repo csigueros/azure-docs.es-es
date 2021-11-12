@@ -13,12 +13,12 @@ ms.date: 06/08/2021
 ms.author: jmprieur
 ms.reviewer: saeeda, shermanouko
 ms.custom: devx-track-csharp, aaddev, has-adal-ref
-ms.openlocfilehash: 2148aa8deaa698c10918ee7a6b667c7d90286448
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 4e362812224f8e538d7a36dfa5378e23f6438d6e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129355088"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131462829"
 ---
 # <a name="migrate-confidential-client-applications-from-adalnet-to-msalnet"></a>Migración de aplicaciones cliente confidenciales de ADAL.NET a MSAL.NET
 
@@ -149,6 +149,8 @@ public partial class AuthWrapper
 
   var authResult = await app.AcquireTokenForClient(
               new [] { $"{resourceId}/.default" })
+              // .WithTenantId(specificTenant)
+              // See https://aka.ms/msal.net/withTenantId
               .ExecuteAsync()
               .ConfigureAwait(false);
 
@@ -171,7 +173,7 @@ Tendrá que serializar `AppTokenCache` si decide no usar la caché de tokens de 
 
 ### <a name="migrate-a-web-api-that-calls-downstream-web-apis"></a>Migración de una API web que llama a las API web de nivel inferior
 
-Las API web que llaman a las API web de nivel inferior usan el flujo [con derechos delegados (OBO)](v2-oauth2-on-behalf-of-flow.md) de OAuth2.0. El código de la API web usa el token recuperado del encabezado autorizado HTTP y lo valida. Este token se cambia por un token para llamar a la API web de nivel inferior. Este token se usa como una instancia de `UserAssertion` tanto en ADAL.NET como en MSAL.NET.
+Las API web que llaman a las API web de nivel inferior usan el flujo [con derechos delegados (OBO)](v2-oauth2-on-behalf-of-flow.md) de OAuth2.0. El código de la API web usa el token recuperado del encabezado **Authorize** HTTP y lo valida. Después, este token se cambia por un token para llamar a la API web de nivel inferior. Este token se usa como una instancia de `UserAssertion` tanto en ADAL.NET como en MSAL.NET.
 
 #### <a name="find-out-if-your-code-uses-obo"></a>Averiguar si el código usa OBO
 
@@ -272,6 +274,8 @@ public partial class AuthWrapper
   var authResult = await app.AcquireTokenOnBehalfOf(
               new string[] { $"{resourceId}/.default" },
               userAssertion)
+              // .WithTenantId(specificTenant) 
+              // See https://aka.ms/msal.net/withTenantId
               .ExecuteAsync()
               .ConfigureAwait(false);
   
@@ -300,9 +304,9 @@ Si la aplicación usa ASP.NET Core, se recomienda encarecidamente que actualice 
 
 Las aplicaciones web que inician la sesión de los usuarios y llaman a las API web en nombre de los usuarios utilizan el [flujo de código de autorización](v2-oauth2-auth-code-flow.md) de OAuth2.0. Generalmente:
 
-1. La aplicación web inicia la sesión de un usuario mediante la ejecución de un primer segmento del flujo de código de autorización. Para ello, vaya al punto de conexión de autorización en Azure Active Directory (Azure AD). El usuario inicia sesión y realiza autenticaciones multifactor si es necesario. Como resultado de esta operación, la aplicación recibe el código de autorización. Hasta ahora, ADAL y MSAL no están implicados.
-2. La aplicación ejecuta el segundo segmento del flujo de código de autorización. Usa el código de autorización para obtener un token de acceso, un token de identificador y un token de actualización. La aplicación debe proporcionar el valor `redirectUri`, que es el URI en el que Azure AD proporcionará los tokens de seguridad. Una vez que la aplicación recibe ese URI, normalmente llama a `AcquireTokenByAuthorizationCode` para que ADAL o MSAL canjee el código y obtenga un token que se almacenará en la caché de tokens.
-3. La aplicación usa ADAL o MSAL para llamar a `AcquireTokenSilent` para que pueda obtener tokens para llamar a las API web necesarias. Esto se hace desde los controladores de la aplicación web.
+1. La aplicación web inicia la sesión de un usuario mediante la ejecución de un primer segmento del flujo de código de autorización. Para ello, va al punto de conexión de autorización de la plataforma de identidad de Microosft. El usuario inicia sesión y realiza autenticaciones multifactor si es necesario. Como resultado de esta operación, la aplicación recibe el código de autorización. En esta fase no se usa la biblioteca de autenticación.
+1. La aplicación ejecuta el segundo segmento del flujo de código de autorización. Usa el código de autorización para obtener un token de acceso, un token de identificador y un token de actualización. La aplicación debe proporcionar el valor `redirectUri`, que es el URI donde el punto de conexión de la plataforma de identidad de Microsoft proporcionará los tokens de seguridad. Una vez que la aplicación recibe ese URI, normalmente llama a `AcquireTokenByAuthorizationCode` para que ADAL o MSAL canjee el código y obtenga un token que se almacenará en la caché de tokens.
+1. La aplicación usa ADAL o MSAL para llamar a `AcquireTokenSilent` para que pueda obtener tokens para llamar a las API web necesarias. Esto se hace desde los controladores de la aplicación web.
 
 #### <a name="find-out-if-your-code-uses-the-auth-code-flow"></a>Averiguar si el código usa el flujo de código de autenticación
 
@@ -442,7 +446,8 @@ public partial class AuthWrapper
    authResult = await app.AcquireTokenSilent(
                scopes,
                account)
-                .WithAuthority(authority)
+                // .WithTenantId(specificTenantId) 
+                // See https://aka.ms/msal.net/withTenantId
                 .ExecuteAsync().ConfigureAwait(false);
   }
   catch (MsalUiRequiredException)
@@ -496,6 +501,8 @@ Entre las principales ventajas de MSAL.NET para la aplicación se incluyen las s
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
+### <a name="msalserviceexception"></a>MsalServiceException
+
 La siguiente información de solución de problemas hace dos suposiciones: 
 
 - El código ADAL.NET estaba funcionando.
@@ -511,10 +518,19 @@ Si recibe una excepción con cualquiera de los mensajes siguientes:
 
 Puede solucionar problemas de la excepción mediante estos pasos:
 
-1. Confirme que usa la versión más reciente de MSAL.NET.
+1. Confirme que usa la versión más reciente de [MSAL.NET](https://www.nuget.org/packages/Microsoft.Identity.Client/).
 1. Confirme que el host de autoridad que estableció al compilar la aplicación cliente confidencial y el host de autoridad que usó con ADAL son similares. En concreto, ¿es la misma [nube](msal-national-cloud.md) (Azure Government, Azure China 21Vianet o Azure Alemania)?
+
+### <a name="msalclientexception"></a>MsalClientException
+
+En las aplicaciones multiinquilino, puede tener escenarios en los que especifique una autoridad común al compilar la aplicación, pero luego quiera tener como destino un inquilino específico (por ejemplo, el del usuario) al llamar a una API web. Desde MSAL.NET 4.37.0, al especificar `.WithAzureRegion` al crear la aplicación, ya no puede especificar la autoridad mediante `.WithAuthority` durante las solicitudes de token. Si lo hace, se producirá el siguiente error al actualizar desde versiones anteriores de MSAL.NET:
+
+  `MsalClientException - "You configured WithAuthority at the request level, and also WithAzureRegion. This is not supported when the environment changes from application to request. Use WithTenantId at the request level instead."`
+
+Para corregir este problema, reemplace `.WithAuthority` en la expresión AcquireTokenXXX por `.WithTenantId`. Especifique el inquilino mediante un GUID o un nombre de dominio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre las [diferencias entre las aplicaciones de ADAL.NET y MSAL.NET](msal-net-differences-adal-net.md).
-Obtenga más información sobre la [serialización de la caché de tokens en MSAL.NET](msal-net-token-cache-serialization.md)
+Más información sobre:
+- [Diferencias entre las aplicaciones de ADAL.NET y MSAL.NET](msal-net-differences-adal-net.md).
+- [Serialización de la caché de tokens en MSAL.NET](msal-net-token-cache-serialization.md)

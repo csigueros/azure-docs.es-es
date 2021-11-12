@@ -1,26 +1,26 @@
 ---
-title: Solución de problemas de implementación de puntos de conexión en línea administrados (versión preliminar)
+title: Solución de problemas de implementación de puntos de conexión en línea (versión preliminar)
 titleSuffix: Azure Machine Learning
-description: Aprenda a solucionar algunos errores comunes de implementación y puntuación con puntos de conexión en línea administrados.
+description: Aprenda a solucionar algunos errores comunes de implementación y puntuación con puntos de conexión en línea.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 author: petrodeg
 ms.author: petrodeg
 ms.reviewer: laobri
-ms.date: 05/13/2021
+ms.date: 11/03/2021
 ms.topic: troubleshooting
 ms.custom: devplatv2
-ms.openlocfilehash: e4c4b611b4316f0e9a950c9f13144e37c9c1762b
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 06c8c9c128528b3e50c49e9c29a0849c9640d7eb
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129425761"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131560689"
 ---
-# <a name="troubleshooting-managed-online-endpoints-deployment-and-scoring-preview"></a>Solución de problemas de implementación y puntuación de puntos de conexión en línea administrados (versión preliminar)
+# <a name="troubleshooting-online-endpoints-deployment-and-scoring-preview"></a>Solución de problemas de implementación y puntuación de puntos de conexión en línea (versión preliminar)
 
-Aprenda a resolver problemas comunes en la implementación y la puntuación de puntos de conexión en línea administrados de Azure Machine Learning (versión preliminar).
+Aprenda a resolver problemas comunes en la implementación y la puntuación de puntos de conexión en línea de Azure Machine Learning (versión preliminar).
 
 Este documento se estructura de la manera en que debe abordar la solución de problemas:
 
@@ -42,11 +42,15 @@ En la sección [Códigos de estado HTTP](#http-status-codes) se explica cómo se
 
 Se está implementando un modelo en un entorno de Docker local con la implementación local. La implementación local es útil para pruebas y depuración antes de su implementación en la nube.
 
+> [!TIP]
+> Use Visual Studio Code para probar y depurar los puntos de conexión localmente. Para más información, consulte [Depuración local de puntos de conexión en línea en Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
+
 La implementación local admite la creación, la actualización y la eliminación de un punto de conexión local. También permite invocar y obtener registros desde el punto de conexión. Para usar la implementación local, agregue `--local` al comando de la CLI adecuado:
 
 ```azurecli
-az ml endpoint create -n <endpoint-name> -f <spec_file.yaml> --local
+az ml online-deployment create --endpoint-name <endpoint-name> -n <deployment-name> -f <spec_file.yaml> --local
 ```
+
 Como parte de la implementación local, se llevan a cabo los pasos siguientes:
 
 - Docker compila una nueva imagen de contenedor o extrae una imagen existente de la caché local de Docker. Se usa una imagen existente si hay una que coincida con la parte del entorno del archivo de especificación.
@@ -61,13 +65,13 @@ No se puede obtener acceso directo a la máquina virtual donde está implementad
 Para ver la salida del registro del contenedor, use el siguiente comando de la CLI:
 
 ```azurecli
-az ml endpoint get-logs -n <endpoint-name> -d <deployment-name> -l 100
+az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 ```
 
 o
 
 ```azurecli
-    az ml endpoint get-logs --name <endpoint-name> --deployment <deployment-name> --lines 100
+    az ml online-deployment get-logs --endpoint-name <endpoint-name> --name <deployment-name> --lines 100
 ```
 
 Agregue `--resource-group` y `--workspace-name` a los comandos anteriores si aún no ha establecido estos parámetros a través de `az configure`.
@@ -75,7 +79,7 @@ Agregue `--resource-group` y `--workspace-name` a los comandos anteriores si aú
 Para ver información sobre cómo establecer estos parámetros y si los valores actuales ya están establecidos, ejecute:
 
 ```azurecli
-az ml endpoint get-logs -h
+az ml online-deployment get-logs -h
 ```
 
 De forma predeterminada, los registros se extraen del servidor de inferencia. Los registros incluyen los de la consola del servidor de inferencia, que contiene instrucciones print/log del código "score.py".
@@ -129,7 +133,7 @@ Por ejemplo, si la imagen es `testacr.azurecr.io/azureml/azureml_92a029f831ce58d
 Para más información sobre este error, ejecute:
 
 ```azurecli
-az ml endpoint get-logs -n <endpoint-name> --deployment <deployment-name> --tail 100
+az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 ```
 
 ### <a name="err_1300-unable-to-download-user-modelcode-artifacts"></a>ERR_1300: Unable to download user model\code artifacts (No se pueden descargar artefactos de código o modelo de usuario)
@@ -160,7 +164,7 @@ Después de aprovisionar el recurso de proceso, durante la creación de la imple
 Para más información sobre este error, ejecute:
 
 ```azurecli
-az ml endpoint get-logs -n <endpoint-name> --deployment <deployment-name> --lines 100
+az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 ```
 
 ### <a name="err_1350-unable-to-download-user-model-not-enough-space-on-the-disk"></a>ERR_1350: Unable to download user model, not enough space on the disk (No se puede descargar el modelo de usuario, no hay suficiente espacio en el disco)
@@ -176,7 +180,7 @@ Este error significa que este contenedor no se pudo iniciar, lo que implica que 
 Para conocer el motivo exacto de un error, ejecute: 
 
 ```azurecli
-az ml endpoint get-logs
+az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 ```
 
 ### <a name="err_2101-kubernetes-unschedulable"></a>ERR_2101: No se puede programar Kubernetes
@@ -203,9 +207,13 @@ Para ejecutar el archivo `score.py` proporcionado como parte de la implementaci�
 
 Aunque hacemos todo lo posible para proporcionar un servicio estable y confiable, a veces las cosas no van como se espera. Si recibe este error, significa que algo no funciona por nuestra parte y es necesario corregirlo. Envíe una [incidencia de soporte técnico de cliente](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) con toda la información relacionada y solucionaremos el problema.  
 
+## <a name="autoscaling-issues"></a>Problemas de escalado automático
+
+Si tiene problemas con el escalado automático, consulte [Solución de problemas de escalado automático de Azure](../azure-monitor/autoscale/autoscale-troubleshoot.md).
+
 ## <a name="http-status-codes"></a>Códigos de estado HTTP
 
-Al acceder a los puntos de conexión en línea administrados con solicitudes REST, los códigos de estado devueltos cumplen los estándares de los [códigos de estado HTTP](https://aka.ms/http-status-codes). A continuación, se muestran detalles sobre cómo se asignan los errores de predicción e invocación de puntos de conexión administrados a códigos de estado HTTP.
+Al acceder a los puntos de conexión en línea con solicitudes REST, los códigos de estado devueltos cumplen los estándares de los [códigos de estado HTTP](https://aka.ms/http-status-codes). A continuación, se muestran detalles sobre cómo se asignan los errores de predicción e invocación de puntos de conexión a códigos de estado HTTP.
 
 | status code| Frase de motivo |  Motivo de que se devuelva este código. |
 | --- | --- | --- |
@@ -214,10 +222,10 @@ Al acceder a los puntos de conexión en línea administrados con solicitudes RES
 | 404 | No encontrado | La dirección URL no es correcta. |
 | 408 | Tiempo de espera de solicitud | La ejecución del modelo tardó más que el tiempo de espera proporcionado en `request_timeout_ms` en el elemento `request_settings` de la configuración de implementación del modelo.|
 | 413 | Carga demasiado grande | La carga de la solicitud es superior a 1,5 megabytes. |
-| 424 | Error del modelo; original-code=`<original code>` | Si el contenedor del modelo devuelve una respuesta distinta de 200, Azure devuelve el error 424. |
+| 424 | Error del modelo | Si el contenedor del modelo devuelve una respuesta distinta de 200, Azure devuelve el error 424. Consulte los encabezados de respuesta `ms-azureml-model-error-statuscode` y `ms-azureml-model-error-reason` para más información. |
 | 424 | Carga de respuesta demasiado grande | Si el contenedor devuelve una carga superior a 1,5 megabytes, Azure devuelve el error 424. |
 | 429 | Limitación de frecuencia | Intentó enviar más de 100 solicitudes por segundo al punto de conexión. |
-| 429 | Demasiadas solicitudes pendientes | El modelo está recibiendo más solicitudes de las que puede manejar. Se permiten 2 *`max_concurrent_requests_per_instance`* `instance_count` solicitudes cada vez. Las solicitudes adicionales se rechazan. Puede confirmar esta configuración en la configuración de implementación del modelo en `request_settings` y `scale_settings`. Si usa la escalabilidad automática, el modelo recibe solicitudes más rápido de lo que el sistema puede escalarse verticalmente. Con la escalabilidad automática, puede intentar volver a enviar solicitudes con [retroceso exponencial](https://aka.ms/exponential-backoff). Si lo hace, puede dar tiempo a que se ajuste el sistema. |
+| 429 | Demasiadas solicitudes pendientes | El modelo está recibiendo más solicitudes de las que puede manejar. Se permiten 2 * `max_concurrent_requests_per_instance` * `instance_count` solicitudes cada vez. Las solicitudes adicionales se rechazan. Puede confirmar esta configuración en la configuración de implementación del modelo en `request_settings` y `scale_settings`. Si usa la escalabilidad automática, el modelo recibe solicitudes más rápido de lo que el sistema puede escalarse verticalmente. Con la escalabilidad automática, puede intentar volver a enviar solicitudes con [retroceso exponencial](https://aka.ms/exponential-backoff). Si lo hace, puede dar tiempo a que se ajuste el sistema. |
 | 500 | Error interno del servidor | Error en la infraestructura aprovisionada por Azure ML. |
 
 ## <a name="next-steps"></a>Pasos siguientes

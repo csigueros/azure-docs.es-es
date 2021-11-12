@@ -10,13 +10,13 @@ ms.topic: how-to
 author: scoriani
 ms.author: scoriani
 ms.reviewer: mathoma
-ms.date: 01/25/2019
-ms.openlocfilehash: 316f1c6558cf033ac315f413f4e081b4f920343b
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 10/18/2021
+ms.openlocfilehash: a27957a289f3ab94e0c55462715a668b9f85e215
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110705543"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130239515"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Introducción a Elastic Database Tools
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ Este documento es una introducción a la experiencia del desarrollador con la [b
 
 ## <a name="elastic-database-tools-for-java"></a>Elastic Database Tools para Java
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 * Kit para desarrolladores de Java (JDK) versión 1.8 o posterior
 * [Maven](https://maven.apache.org/download.cgi)
@@ -72,7 +72,7 @@ Para agregar la biblioteca de cliente a su propio proyecto de Maven, agregue la 
 
 ## <a name="elastic-database-tools-for-net"></a>Elastic Database Tools para .NET
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 * Visual Studio 2012 o posterior con C#. Descargue una versión gratuita desde [Descargas de Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * NuGet 2.7 o posterior. Para obtener la versión más reciente, vea [Installing NuGet (Instalación de NuGet)](https://docs.nuget.org/docs/start-here/installing-nuget).
@@ -89,7 +89,7 @@ Para descargar y ejecutar el ejemplo, siga estos pasos:
 
 3. Establezca el proyecto *ElasticScaleStarterKit* como proyecto de inicio.
 
-4. En el proyecto *ElasticScaleStarterKit*, abra el archivo *App.config*. A continuación, siga las instrucciones del archivo para agregar el nombre de servidor y la información de inicio de sesión (nombre de usuario y contraseña).
+4. En el proyecto *ElasticScaleStarterKit*, abra el archivo *App.config*. Después, siga las instrucciones del archivo para agregar el nombre de servidor y la información de inicio de sesión (nombre de usuario y contraseña).
 
 5. Compile y ejecute la aplicación. Cuando se le pida, permita que Visual Studio restaure los paquetes NuGet de la solución. Esta acción descarga la versión más reciente de la biblioteca de cliente de Elastic Database desde NuGet.
 
@@ -135,7 +135,6 @@ Para más información sobre Elastic Database Tools, consulte los artículos sig
   * [Elastic Database Tools for Azure SQL - Entity Framework Integration](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE) (Elastic Database Tools para Azure SQL: integración con Entity Framework)
   * [Shard Elasticity on Script Center (Elasticidad de particiones en el Centro de scripts)](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * Blog: [Elastic Scale announcement](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/) (Presentación del escalado elástico)
-* Channel 9: [vídeo de introducción al escalado elástico](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 * Foro de debate: [Página de preguntas y respuestas de Microsoft sobre Azure SQL Database](/answers/topics/azure-sql-database.html)
 * Para medir el rendimiento: [Creación de bases de datos escalables en la nube](elastic-database-client-library.md)
 

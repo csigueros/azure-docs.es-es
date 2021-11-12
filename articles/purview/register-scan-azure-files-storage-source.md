@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: e91e435ca2d8050a0c6d9728c4d010f9e9c844c4
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 95abf27060748255f24b089cfc4fb9229f33bfa5
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131076270"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131848066"
 ---
 # <a name="connect-to-and-manage-azure-files-in-azure-purview"></a>Conexión y administración de Azure Files en Azure Purview
 
@@ -23,7 +23,9 @@ En este artículo se describe cómo registrar Azure Files y cómo autenticarse e
 
 |**Extracción de metadatos**|  **Examen completo**  |**Examen incremental**|**Examen con ámbito**|**Clasificación**|**Directiva de acceso**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Sí](#register) | [Sí](#scan) | [Sí](#scan) | [Sí](#scan) | [Sí](#scan) | No | No |
+| [Sí](#register) | [Sí](#scan) | [Sí](#scan) | [Sí](#scan) | [Sí](#scan) | No | Limitado** |
+
+\** Se admite el linaje si el conjunto de datos se usa como origen o receptor en la [actividad de copia de Data Factory](how-to-link-azure-data-factory.md) 
 
 Azure Files admite exámenes completos e incrementales para capturar los metadatos y las clasificaciones, en función de reglas de clasificación predeterminadas del sistema y personalizadas.
 

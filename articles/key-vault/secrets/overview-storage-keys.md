@@ -9,12 +9,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6e8ad07ac5a03e1ad4df9762dfc1fbb81d820dd2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a0232775be0bc87d4e69d78d855ecc0d268ad339
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128593560"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131841589"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Administración de claves de cuenta de almacenamiento con Key Vault y la CLI de Azure
 > [!IMPORTANT]
@@ -30,6 +30,9 @@ Cuando use la característica de clave de cuenta de almacenamiento administrada,
 - Solo Key Vault debe administrar las claves de cuenta de almacenamiento. No administre las claves por su cuenta y evite interferir en los procesos de Key Vault.
 - Solo un único objeto de Key Vault debe administrar las claves de cuenta de almacenamiento. No permita la administración de claves desde varios objetos.
 - Regenere las claves solo con Key Vault. No regenere manualmente las claves de cuenta de almacenamiento.
+
+> [!IMPORTANT]
+> La regeneración de la clave directamente en la cuenta de almacenamiento interrumpe la configuración de la cuenta de almacenamiento administrada y puede invalidar los tokens de SAS en uso y provocar una interrupción.
 
 ## <a name="service-principal-application-id"></a>Id. de aplicación de la entidad de servicio
 

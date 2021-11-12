@@ -6,19 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2021
-ms.openlocfilehash: 68461802f24a34f66fd51dd6653fda97854c6cca
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 31645daf978aa24dfbdc7a947d7d3d8a609936b7
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128565328"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131460610"
 ---
-# <a name="restartstopstart-an-azure-database-for-mysql---flexible-server-preview"></a>Reinicio, inicio o detención de un servidor flexible de Azure Database for MySQL (versión preliminar)
+# <a name="restartstopstart-an-azure-database-for-mysql-flexible-server"></a>Reinicio, inicio o detención de un servidor flexible de Azure Database for MySQL
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Actualmente, la opción de implementación Servidor flexible de Azure Database for MySQL se encuentra en versión preliminar pública.
 
 En este artículo se muestra cómo reiniciar, iniciar y detener un servidor flexible mediante la CLI de Azure.
 

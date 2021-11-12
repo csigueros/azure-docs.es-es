@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 10/30/2020
+ms.date: 11/05/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 422a273f0bc5fbeccf61f3af1ddb4edc9b95e36b
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 7ebaa3c9b6a931a01eb65a28cd48cf29e74c13b3
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129232484"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131892407"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Conceder a los usuarios B2B de Azure AD acceso a las aplicaciones locales
 
@@ -46,10 +46,10 @@ Para proporcionar a los usuarios B2B acceso a las aplicaciones locales que está
    > [!NOTE]
    > Al configurar Application Proxy de Azure AD, asegúrese de que la opción **Identidad de inicio de sesión delegada** esté establecida en **Nombre principal del usuario** (valor predeterminado) en la configuración de autenticación integrada de Windows (IWA).
 
-   En el escenario de usuario B2B, hay dos métodos disponibles que se pueden usar para crear los objetos de usuario invitado que son necesarios para la autorización en el directorio local:
+   En el escenario de usuario B2B, hay dos métodos que se pueden usar para crear los objetos de usuario invitado que son necesarios para la autorización en el directorio local:
 
-   - Microsoft Identity Manager (MIM) y el agente de administración de MIM para Microsoft Graph. 
-   - [Un script de PowerShell](#create-b2b-guest-user-objects-through-a-script-preview). El uso del script es una solución más ligera que no requiere MIM. 
+   - Microsoft Identity Manager (MIM) y el agente de administración de MIM para Microsoft Graph.
+   - Un script de PowerShell, que es una solución más ligera que no requiere MIM.
 
 En el siguiente diagrama se proporciona información general de alto nivel de cómo funcionan juntos Azure AD Application Proxy y la generación del objeto de usuario B2B en el directorio local para conceder a los usuarios B2B acceso a sus aplicaciones locales IWA y KCD. Los pasos numerados se describen en detalle más adelante en el diagrama.
 
@@ -74,20 +74,12 @@ Puede administrar los objetos de usuario B2B locales mediante directivas de admi
 
 Si necesita información acerca de cómo usar MIM 2016 Service Pack 1 y el agente de administración de MIM para Microsoft Graph a fin de crear los objetos del usuario invitado en el directorio local, consulte [Colaboración de negocio a negocio (B2B) de Azure AD con Microsoft Identity Manager(MIM) 2016 SP1 con el proxy de aplicación de Azure](/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario).
 
-### <a name="create-b2b-guest-user-objects-through-a-script-preview"></a>Creación de objetos de usuario invitado B2B mediante un script (versión preliminar)
-
-Hay un script de ejemplo de PowerShell que puede usar como punto de partida para crear los objetos de usuario invitado en su instancia local de Active Directory.
-
-Puede descargar el script y el archivo Léame en [Conectores para Microsoft Identity Manager 2016 y Forefront Identity Manager 2010 R2](https://www.microsoft.com/download/details.aspx?id=51495). En el paquete de descarga, elija el archivo **Script and Readme to pull Azure AD B2B users on-prem.zip**.
-
-Antes de usar el script, asegúrese de revisar los requisitos previos y las consideraciones importantes en el archivo Léame asociado. Además, debe saber que el script solo está disponible como ejemplo. El equipo de desarrollo o el asociado deben personalizar y revisar el script antes de que lo ejecuten los usuarios.
-
 ## <a name="license-considerations"></a>Consideraciones sobre licencias
 
 Asegúrese de que dispone de las licencias de acceso cliente (CAL) correctas para los usuarios invitados externos que acceden a las aplicaciones locales. Para más información, consulte la sección "External Connector" de [Licencias de acceso de cliente y licencias de administración](https://www.microsoft.com/licensing/product-licensing/client-access-license.aspx). Hable con su representante o distribuidor local de Microsoft para informarse sobre sus necesidades concretas de licencia.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Colaboración B2B de Azure Active Directory para organizaciones híbridas](hybrid-organizations.md)
+- Consulte también [Colaboración B2B de Azure Active Directory para organizaciones híbridas](hybrid-organizations.md).
 
 - Para información general sobre Azure AD Connect, consulte [Integración de los directorios locales con Azure Active Directory](../hybrid/whatis-hybrid-identity.md).

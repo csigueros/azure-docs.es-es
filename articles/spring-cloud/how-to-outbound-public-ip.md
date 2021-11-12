@@ -7,16 +7,19 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/17/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: cc3050cb7c92e0e46c02a4a12f218364b94b2d1f
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 57c161659819bd89d2587b287a3c58058aa3c9ce
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122015545"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501388"
 ---
 # <a name="how-to-identify-outbound-public-ip-addresses-in-azure-spring-cloud"></a>Procedimiento para identificar las direcciones IP públicas de salida en Azure Spring Cloud
 
-En esta página se explica cómo ver las direcciones IP públicas estáticas de salida de las aplicaciones de Azure Spring Cloud.  Las direcciones IP públicas se usan para comunicarse con recursos externos, como las bases de datos, el almacenamiento y los almacenes de claves.
+En esta página se explica cómo ver las direcciones IP públicas estáticas de salida de las aplicaciones de Azure Spring Cloud. Las direcciones IP públicas se usan para comunicarse con recursos externos, como las bases de datos, el almacenamiento y los almacenes de claves.
+
+> [!IMPORTANT]
+> Si la instancia de Azure Spring Cloud se implementa en su red virtual, puede aprovechar el grupo de seguridad de red o Azure Firewall para controlar completamente el tráfico de salida.
 
 ## <a name="how-ip-addresses-work-in-azure-spring-cloud"></a>Funcionamiento de las direcciones IP en Azure Spring Cloud
 

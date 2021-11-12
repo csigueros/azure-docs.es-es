@@ -2,13 +2,13 @@
 title: Expiración de mensajes de Azure Service Bus
 description: En este artículo se explica la expiración y período de vida de los mensajes de Azure Service Bus. Después de una fecha límite de este tipo, ya no se entrega el mensaje.
 ms.topic: conceptual
-ms.date: 07/09/2021
-ms.openlocfilehash: ac37096b411df0fa1a52286f82ce421dff459239
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.date: 11/01/2021
+ms.openlocfilehash: 5534a2ee94db118f4429eaec2409683f68fa5547
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113585472"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131460534"
 ---
 # <a name="message-expiration-time-to-live"></a>Expiración de mensajes (período de vida)
 La carga de un mensaje, o un comando o una consulta que transmite un mensaje a un receptor, casi siempre está sujeta a alguna forma de fecha límite de expiración de nivel de aplicación. Después de esta fecha límite, el contenido ya no se entrega o la operación solicitada ya no se ejecuta.
@@ -62,6 +62,7 @@ Esto es lo que se considera inactividad de las entidades (colas, temas y suscrip
     - No envía  
     - No hay actualizaciones al tema  
     - No hay mensajes programados 
+    - Ninguna operación en las suscripciones del tema (como se muestra a continuación)
 - Suscripciones
     - No recibe  
     - No hay actualizaciones a la suscripción  

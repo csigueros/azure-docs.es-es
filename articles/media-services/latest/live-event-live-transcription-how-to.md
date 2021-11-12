@@ -16,16 +16,7 @@ En este artículo se describe cómo habilitar Transcripción en directo al hacer
 
 ## <a name="live-transcription-preview-regions-and-languages"></a>Regiones y lenguajes de la versión preliminar de Transcripción en directo
 
-Transcripción en directo está disponible en las siguientes regiones:
-
-- Sudeste de Asia
-- Oeste de Europa
-- Norte de Europa
-- Este de EE. UU.
-- Centro de EE. UU.
-- Centro-sur de EE. UU.
-- Oeste de EE. UU. 2
-- Sur de Brasil
+Transcripción en directo está disponible en las regiones que se documentan [aquí](azure-clouds-regions.md).
 
 Esta es la lista de idiomas disponibles que se pueden asignar, use el código de idioma de la API.
 

@@ -9,12 +9,12 @@ ms.date: 06/21/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 54d406303019ebfa967133c26bd5487c848575b2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6b22b99cdd883ed8dedb90f925a918fe9c25d9bb
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128664891"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131444883"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol"></a>Montaje de Blob Storage con el protocolo Network File System (NFS) 3.0
 
@@ -100,7 +100,7 @@ Cree un directorio en el sistema Linux y, a continuación, monte un contenedor e
 |Error | Causa/resolución|
 |---|---|
 |`Access denied by server while mounting`|Asegúrese de que el cliente se ejecute en una subred compatible. Consulte las [ubicaciones de red compatibles](network-file-system-protocol-support.md#supported-network-connections).|
-|`No such file or directory`| Asegúrese de escribir el comando mount y sus parámetros directamente en el terminal. Si copia y pega cualquier parte de este comando en el terminal desde otra aplicación, es posible que aparezca este error en los caracteres ocultos de la información pegada.|
+|`No such file or directory`| Asegúrese de escribir el comando mount y sus parámetros directamente en el terminal. Si copia y pega cualquier parte de este comando en el terminal desde otra aplicación, es posible que aparezca este error en los caracteres ocultos de la información pegada. Este error también puede aparecer si la cuenta no está habilitada para NFS 3.0. |
 |`Permision denied`| El modo predeterminado de un contenedor NFS v3 recién creado es 0750. Los usuarios no raíz no tienen acceso al volumen. Si se requiere acceso de usuarios no raíz, el usuario raíz debe cambiar el modo a 0755. Comando de ejemplo: `sudo chmod 0755 /mnt/<newcontainer>`|
 |`EINVAL ("Invalid argument"`) |Este error puede aparecer cuando un cliente intenta lo siguiente:<li>Escribir en un blob que se creó a partir de un punto de conexión de blob.<li>Eliminar un blob que tiene una instantánea o que está en un contenedor que tiene una directiva WORM (una sola escritura/varias lecturas) activa.|
 |`EROFS ("Read-only file system"`) |Este error puede aparecer cuando un cliente intenta lo siguiente:<li>Escribir en un blob o eliminar un blob que tiene una concesión activa.<li>Escribir en un blob o eliminar un blob en un contenedor que tiene una directiva WORM (una sola escritura/varias lecturas) activa. |

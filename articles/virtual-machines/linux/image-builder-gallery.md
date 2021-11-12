@@ -1,6 +1,6 @@
 ---
-title: Uso de Azure Image Builder y Shared Image Gallery para máquinas virtuales Linux
-description: Aprenda a usar Azure Image Builder y la CLI de Azure para crear una versión de la imagen en el servicio Shared Image Gallery y después distribuirla globalmente.
+title: Uso de Azure Image Builder y Azure Compute Gallery en máquinas virtuales Linux
+description: Aprenda a usar Azure Image Builder y la CLI de Azure para crear una versión de la imagen en Azure Compute Gallery y después distribuirla globalmente.
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: cynthn
@@ -8,23 +8,23 @@ ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.openlocfilehash: ead4462c6dcff231b6127830ca24732bd7e3ef45
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 8dd2e8068e21c5ee7ce4dea1b54d8f36df2e661b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769098"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131437170"
 ---
-# <a name="create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Crear una imagen de Linux y distribuirla en una galería de imágenes compartidas
+# <a name="create-a-linux-image-and-distribute-it-to-an-azure-compute-gallery"></a>Creación de una imagen de Linux y distribución a una instancia de Azure Compute Gallery
 
 **Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles
 
-En este artículo se muestra cómo puede usar Azure Image Builder y la CLI de Azure para crear una versión de la imagen en el servicio [Shared Image Gallery](../shared-image-galleries.md) y después distribuirla globalmente. También puede hacerlo mediante [Azure PowerShell](../windows/image-builder-gallery.md).
+En este artículo se muestra cómo puede usar Azure Image Builder y la CLI de Azure para crear una versión de una imagen en una instancia de [Azure Compute Gallery](../shared-image-galleries.md) (anteriormente denominada Shared Image Gallery) y después distribuirla globalmente. También puede hacerlo mediante [Azure PowerShell](../windows/image-builder-gallery.md).
 
 
 Se usará una plantilla .json de ejemplo para configurar la imagen. El archivo .json que se usa aquí es: [helloImageTemplateforSIG.json](https://github.com/azure/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
 
-Para distribuir la imagen en una galería de imágenes compartidas, en la plantilla se usa [sharedImage](image-builder-json.md#distribute-sharedimage) como valor de la sección `distribute` de la plantilla.
+Para distribuir la imagen en una instancia de Azure Compute Gallery, en la plantilla se usa [sharedImage](image-builder-json.md#distribute-sharedimage) como valor de la sección `distribute` de la plantilla.
 
 
 ## <a name="register-the-features"></a>Registro de las características
@@ -64,7 +64,7 @@ sigResourceGroup=ibLinuxGalleryRG
 location=westus2
 # Additional region to replicate the image to - we are using East US in this example
 additionalregion=eastus
-# name of the shared image gallery - in this example we are using myGallery
+# name of the Azure Compute Gallery - in this example we are using myGallery
 sigName=myIbGallery
 # name of the image definition to be created - in this example we are using myImageDef
 imageDefName=myIbImageDef
@@ -85,7 +85,7 @@ az group create -n $sigResourceGroup -l $location
 ```
 
 ## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>Creación de una identidad asignada por el usuario y establecimiento de los permisos en el grupo de recursos
-Image Builder usará la [identidad de usuario](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) proporcionada para insertar la imagen en la instancia de Azure Shared Image Gallery (SIG). En este ejemplo, se creará una definición de roles de Azure que tiene las acciones granulares necesarias para realizar la distribución de la imagen a la instancia de SIG. La definición de roles se asignará a la identidad del usuario.
+Image Builder usará la [identidad de usuario](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) proporcionada para insertar la imagen en la instancia de Azure Compute Gallery. En este ejemplo, se creará una definición de roles de Azure que tiene las acciones granulares necesarias para realizar la distribución de la imagen a la galería. La definición de roles se asignará a la identidad del usuario.
 
 ```bash
 # create user assigned identity for image builder to access the storage account where the script is located
@@ -121,9 +121,9 @@ az role assignment create \
 
 ## <a name="create-an-image-definition-and-gallery"></a>Creación de una definición de imagen y una galería
 
-Para usar Image Builder con una galería de imágenes compartidas, debe tener ya una galería de imágenes y una definición de imagen. Image Builder no creará la galería de imágenes ni la definición de imagen automáticamente.
+Para usar Image Builder con una instancia de Azure Compute Gallery, debe tener una galería y una definición de imagen existentes. Image Builder no creará la galería de imágenes ni la definición de imagen automáticamente.
 
-Si aún no tiene una galería y una definición de imagen para usar, empiece por crearlas. En primer lugar, cree una galería de imágenes.
+Si aún no tiene una galería y una definición de imagen para usar, empiece por crearlas. En primer lugar, cree una galería.
 
 ```azurecli-interactive
 az sig create \
@@ -226,7 +226,7 @@ Si ahora quiere volver a personalizar la versión de la imagen para crear una nu
 
 Esta acción eliminará la imagen que se ha creado, junto con todos los demás archivos de recursos. Asegúrese de que haya terminado con esta implementación antes de eliminar los recursos.
 
-Al eliminar los recursos de la galería de imágenes, tendrá que eliminar todas las versiones de la imagen antes de poder eliminar la definición de la imagen que se ha usado para crearlas. Para eliminar una galería, primero tiene que haber eliminado todas las definiciones de imagen de la galería.
+Al eliminar los recursos de la galería, tendrá que eliminar todas las versiones de la imagen antes de poder eliminar la definición de la imagen que se ha usado para crearlas. Para eliminar una galería, primero tiene que haber eliminado todas las definiciones de imagen de la galería.
 
 Elimine la plantilla de Azure Image Builder.
 
@@ -290,4 +290,4 @@ az group delete -n $sigResourceGroup -y
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre las [galerías de imágenes compartidas de Azure](../shared-image-galleries.md).
+Más información sobre las [galerías de Azure Compute](../shared-image-galleries.md).

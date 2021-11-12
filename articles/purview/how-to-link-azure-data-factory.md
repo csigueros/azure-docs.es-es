@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/01/2021
-ms.openlocfilehash: f939d397db80e303ec2ed36d4112df0d38d090aa
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 2ba2c135a0b07df6c6a4802c241b064b2ef94335
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131464060"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851501"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Cómo conectar Azure Data Factory y Azure Purview
 
@@ -36,17 +36,15 @@ Es posible conectar varias instancias de Azure Data Factory a una sola de Azure 
 
 >[!Note]
 >Para ver las conexiones de Data Factory, debe tener asignado el rol siguiente. No se admite la herencia de roles del grupo de administración.
->- Para la cuenta de Purview creada el **18 de agosto de 2021 o después**: rol **Administradores de colecciones** en la colección raíz.
->- Para la cuenta de Purview creada **antes del 18 de agosto de 2021**: rol integrado de Azure **Propietario**, **Colaborador**, **Lector** o **Administrador de acceso de usuario**.
+>Rol **Administradores de colecciones** en la colección raíz.
 
 ## <a name="create-new-data-factory-connection"></a>Creación de una nueva conexión de Data Factory
 
 >[!Note]
 >Para agregar o quitar las conexiones de Data Factory, debe tener asignado el rol siguiente. No se admite la herencia de roles del grupo de administración.
->- Para la cuenta de Purview creada el **18 de agosto de 2021 o después**: rol **Administradores de colecciones** en la colección raíz.
->- Para la cuenta de Purview creada **antes del 18 de agosto de 2021**: rol **Propietario** o **Administrador de acceso de usuario**.
+>Rol **Administradores de colecciones** en la colección raíz.
 >
-> Además, es necesario que los usuarios sean el "Propietario" o "Colaborador" de la factoría de datos.
+> Además, es necesario que los usuarios tengan el rol "Propietario" o "Colaborador" de la factoría de datos.
 
 Siga los pasos que se indican a continuación para conectar una factoría de datos existente a la cuenta de Purview. También puede [conectar Data Factory a la cuenta de Purview desde ADF](../data-factory/connect-data-factory-to-azure-purview.md).
 
@@ -71,9 +69,7 @@ Siga los pasos que se indican a continuación para conectar una factoría de dat
 
 La identidad administrada de la factoría de datos se usa para autenticar las operaciones de inserción de linaje desde la factoría de datos a Purview. Al conectar la factoría de datos a Purview en la interfaz de usuario, agrega automáticamente la asignación de roles.
 
-- En el caso de la cuenta de Purview creada el **18 de agosto de 2021 o después**, conceda el rol **Conservador de datos** de la identidad administrada de la factoría de datos en la **colección raíz** de Purview. Obtenga más información sobre el [control de acceso en Azure Purview y ](../purview/catalog-permissions.md)[Adición de roles y restricción del acceso mediante colecciones](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
-
-- En la cuenta de Purview creada **antes del 18 de agosto de 2021**, conceda el rol integrado de Azure [**Conservador de datos de Purview (heredado)**](../role-based-access-control/built-in-roles.md#purview-data-curator-legacy) de la identidad administrada de la factoría de datos en la cuenta de Purview. Obtenga más información sobre el [Control de acceso en Azure Purview: permisos heredados](../purview/catalog-permissions.md#legacy-permission-guide).
+Conceda el rol **Conservador de datos** de la identidad administrada de la factoría de datos en la **colección raíz** de Purview. Obtenga más información sobre el [control de acceso en Azure Purview y ](../purview/catalog-permissions.md)[Adición de roles y restricción del acceso mediante colecciones](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
 ### <a name="remove-data-factory-connections"></a>Eliminación de conexiones de Data Factory
 

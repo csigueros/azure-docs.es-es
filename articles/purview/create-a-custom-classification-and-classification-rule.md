@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 12af9165b8393291b67fd0cbe4cb2ced6ae77a17
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 8e1e43b1c1f11ae6eb37ab599f9636bc47423f8b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129212195"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131442148"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Clasificaciones personalizadas en Azure Purview
 
@@ -28,6 +28,9 @@ También tiene la posibilidad de crear clasificaciones personalizadas, si alguna
 
 > [!Note]
 > Nuestras [reglas de muestreo de datos](sources-and-scans.md#sampling-within-a-file) se aplican a las clasificaciones tanto del sistema como personalizadas.  
+
+> [!NOTE]
+> Las clasificaciones personalizadas de Purview solo se aplican a orígenes de datos estructurados como SQL y Cosmos DB, y a tipos de archivo estructurados como CSV, JSON y Parquet. La clasificación personalizada no se aplica a tipos de archivos de datos no estructurados, como DOC, PDF y XLSX.
 
 ## <a name="steps-to-create-a-custom-classification"></a>Pasos para crear una clasificación personalizada
 

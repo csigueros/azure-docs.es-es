@@ -1,7 +1,7 @@
 ---
 title: Novedades de la administración de aplicaciones en Azure Active Directory
 description: Documentación nueva y actualizada sobre la administración de aplicaciones de Azure Active Directory.
-ms.date: 10/05/2021
+ms.date: 11/04/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -10,16 +10,33 @@ ms.author: davidmu
 author: davidmu1
 manager: CelesteDG
 reviewer: napuri
-ms.openlocfilehash: 260473c428e7bdc2bfd968aa2ba5469e578c1005
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 1c000a30c22cf7a934ab6deec5dc6d6a11bfc5a8
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129533141"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131842366"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Administración de aplicaciones en Azure Active Directory: Novedades
 
 Le damos la bienvenida a las novedades sobre la documentación de administración de aplicaciones de Azure Active Directory. En este artículo se enumeran los documentos nuevos que se han agregado y los que han tenido actualizaciones importantes en los últimos tres meses. Para conocer las novedades del servicio de administración de aplicaciones, consulte [Novedades de Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="october-2021"></a>Octubre de 2021
+
+### <a name="updated-articles"></a>Artículos actualizados
+
+- [Administración del consentimiento en las aplicaciones y evaluación de las solicitudes de consentimiento en Azure Active Directory](manage-consent-requests.md)
+- [¿Qué es la administración de aplicaciones en Azure Active Directory?](what-is-application-management.md)
+- [Configuración del consentimiento de los usuarios finales a las aplicaciones mediante Azure Active Directory](configure-user-consent.md)
+- [¿Qué es el inicio de sesión único en Azure Active Directory?](what-is-single-sign-on.md)
+- [Asignación de propietarios de aplicaciones empresariales](assign-app-owners.md)
+- [Configuración del flujo de trabajo de consentimiento del administrador](configure-admin-consent-workflow.md)
+- [Acceso híbrido seguro: Protección de aplicaciones heredadas con Azure Active Directory](secure-hybrid-access.md)
+- [Administración de aplicaciones en Azure Active Directory: Novedades](whats-new-docs.md)
+- [Tutorial: Migrar directivas de inicio de sesión de Okta al acceso condicional de Azure Active Directory](migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md)
+- [Tutorial: Migración del aprovisionamiento de la sincronización de Okta a la sincronización basada en Azure AD Connect](migrate-okta-sync-provisioning-to-azure-active-directory.md)
+- [Administración de certificados para inicio de sesión único federado en Azure Active Directory](manage-certificates-for-federated-single-sign-on.md)
+
 
 ## <a name="september-2021"></a>Septiembre de 2021
 

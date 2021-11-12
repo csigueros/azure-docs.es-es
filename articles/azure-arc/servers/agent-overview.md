@@ -1,15 +1,15 @@
 ---
 title: Información general del agente Connected Machine
 description: En este artículo se proporciona una descripción detallada del agente de servidores habilitados para Azure Arc disponible, que admite la supervisión de máquinas virtuales hospedadas en entornos híbridos.
-ms.date: 10/12/2021
+ms.date: 10/28/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 71446d57d5f73e81c859a0d8453a2017f4c5fd12
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: c2fa68aedd837df2f7c573da8adaece3e4d16477
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129984371"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131462109"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Introducción al agente de servidores habilitados para Azure Arc
 
@@ -78,7 +78,13 @@ El agente de Azure Connected Machine para Windows y Linux se puede actualizar a 
 
 ### <a name="supported-environments"></a>Entornos admitidos
 
-Los servidores habilitados para Azure Arc admiten la instalación del agente de Connected Machine en cualquier servidor físico y máquina virtual hospedados *fuera* de Azure. Inclusión de máquinas virtuales que se ejecutan en plataformas como VMware, Azure Stack HCI y otros entornos en la nube. Los servidores habilitados para Azure Arc no admiten la instalación del agente en máquinas virtuales que se ejecutan en Azure ni en las que se ejecutan en Azure Stack Hub o Azure Stack Edge, porque ya están modeladas como máquinas virtuales de Azure.
+Los servidores habilitados para Azure Arc admiten la instalación del agente de Connected Machine en cualquier servidor físico y máquina virtual hospedados *fuera* de Azure. Esto incluye compatibilidad con máquinas virtuales que se ejecutan en plataformas como las siguientes:
+
+* VMware
+* Azure Stack HCI
+* Otro entornos de nube
+
+Los servidores habilitados para Azure Arc *no* admiten la instalación del agente en máquinas virtuales que se ejecutan en Azure ni en las que se ejecutan en Azure Stack Hub o Azure Stack Edge, porque ya están modeladas como máquinas virtuales de Azure.
 
 ### <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 

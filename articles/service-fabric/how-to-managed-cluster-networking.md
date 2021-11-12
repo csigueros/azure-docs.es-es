@@ -3,12 +3,12 @@ title: Configuración de la red para clústeres administrados de Service Fabric
 description: Información sobre cómo configurar el clúster administrado de Service Fabric para las reglas de grupos de seguridad de red, el acceso a puertos RDP, las reglas de equilibrio de carga, etc.
 ms.topic: how-to
 ms.date: 8/23/2021
-ms.openlocfilehash: 0299118a7715a566cccc0dd1fb7bc83aa9c5e06c
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 3482f414029c79ceea9c0ee8bcc258ed2fc495e1
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129545667"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131558884"
 ---
 # <a name="configure-network-settings-for-service-fabric-managed-clusters"></a>Configuración de la red para clústeres administrados de Service Fabric
 
@@ -331,7 +331,11 @@ Los clústeres administrados no habilitan IPv6 de forma predeterminada. Esta car
 Esta característica permite a los clientes usar una red virtual existente, especificando para ello una subred dedicada en la que el clúster administrado implementará sus recursos. Esto puede ser útil si ya hay una red virtual y una subred configuradas con las directivas de seguridad relacionadas y el enrutamiento del tráfico que se quieren usar. Tras implementar en una red virtual existente, es fácil usar e incorporar otras características de red como Azure ExpressRoute, Azure VPN Gateway, un grupo de seguridad de red y emparejamiento de redes virtuales. También puede [traer su propia instancia de Azure Load Balancer](#byolb) si es necesario.
 
 > [!NOTE]
+> Al usar BYOVNET, los recursos de clúster administrados se implementarán en una subred. 
+
+> [!NOTE]
 > Esta configuración no se puede cambiar una vez creado el clúster, y el clúster administrado asignará un grupo de seguridad de red a la subred proporcionada. No invalide la asignación del grupo de seguridad de red o el tráfico podría interrumpirse.
+
 
 **Para traer su propia red virtual:**
 
@@ -443,6 +447,9 @@ Los clústeres administrados crean una instancia de Azure Load Balancer y un nom
 * Mantener las directivas y los controles existentes que pueda tener implementados
 
 > [!NOTE]
+> Al usar BYOVNET, los recursos de clúster administrados se implementarán en una subred con un NSG independientemente de los equilibradores de carga configurados adicionales.
+
+> [!NOTE]
 > Una vez implementado el clúster de un tipo de nodo, no se puede cambiar de opción predeterminada a personalizada, pero sí se puede modificar la configuración personalizada del equilibrador de carga tras la implementación.
 
 **Requisitos de la característica**
@@ -488,7 +495,7 @@ Para configurar para traer su propio equilibrador de carga:
 
 2. Agregue una asignación de roles a la aplicación de proveedor de recursos de Service Fabric. Agregar una asignación de roles es una acción única aislada. Para agregar el rol, ejecute los siguientes comandos de PowerShell o configure una plantilla de Azure Resource Manager (ARM) como se detalla a continuación.
 
-   En los siguientes pasos, empezaremos con un equilibrador de carga existente denominado Existing-LoadBalancer1 en el grupo de recursos Existing-RG. La subred recibe un nombre predeterminado.
+   En los siguientes pasos, empezaremos con un equilibrador de carga existente denominado Existing-LoadBalancer1 en el grupo de recursos Existing-RG.
 
    Obtenga la información de la propiedad `Id` necesaria de la instancia de Azure Load Balancer existente. Haremos esto: 
 
@@ -510,7 +517,7 @@ Para configurar para traer su propio equilibrador de carga:
    New-AzRoleAssignment -PrincipalId 00000000-0000-0000-0000-000000000000 -RoleDefinitionName "Network Contributor" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<LoadBalancerName>"
    ```
 
-   También puede agregar la asignación de roles usando una plantilla de Azure Resource Manager (ARM) configurada con los valores adecuados de `principalId`, `roleDefinitionId` y `vnetName``subnetName`:
+   También puede agregar la asignación de roles usando una plantilla de Azure Resource Manager (ARM) configurada con los valores adecuados de `principalId` obtenidos en el paso 1, `loadBalancerRoleAssignmentID` y `roleDefinitionId`:
 
    ```JSON
       "type": "Microsoft.Authorization/roleAssignments",

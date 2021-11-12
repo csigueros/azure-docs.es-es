@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: jushiman
-ms.openlocfilehash: c3accb7edfb65ee2f21c924e4b028a6fdcaccea4
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e6439acb72bffabf117387182ee6eb08f1041873
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124774260"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131437284"
 ---
 # <a name="dv3-and-dsv3-series"></a>Series Dv3 y DSv3
 
@@ -40,7 +40,7 @@ Las máquinas virtuales de la serie Dv3 cuentan con la tecnología Hyper-Threadi
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): No compatible <br>
 <br>
 
-| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal: IOPS/Mbps de lectura/Mbps de escritura | Nº máx. de NIC/ancho de banda de red |
+| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal: IOPS/Mbps de lectura/Mbps de escritura | N.º máx. de NIC/ ancho de banda de red esperado |
 |---|---|---|---|---|---|---|
 | Standard_D2_v3<sup>1</sup>  | 2  | 8   | 50   | 4  | 3000/46/23     | 2/1000  |
 | Standard_D4_v3  | 4  | 16  | 100  | 8  | 6000/93/46     | 2/2000  |
@@ -68,7 +68,7 @@ Las máquinas virtuales de la serie DSv3 cuentan con la tecnología Hyper-Thread
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible <br>
 <br>
 
-| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS/Mbps (tamaño de caché en GiB) | Rendimiento máximo de almacenamiento en caché y almacenamiento temporal expandidos: IOPS/MBps<sup>2</sup> | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps | Rendimiento máximo del disco sin almacenamiento en la caché expandido: IOPS/MBps<sup>1</sup> | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
+| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS/Mbps (tamaño de caché en GiB) | Rendimiento máximo de almacenamiento en caché y almacenamiento temporal expandidos: IOPS/MBps<sup>2</sup> | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps | Rendimiento máximo del disco sin almacenamiento en la caché expandido: IOPS/MBps<sup>1</sup> | N.º máx. de NIC/ancho de banda de red esperado (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_D2s_v3<sup>2</sup>  | 2  | 8   | 16  | 4  | 4000/32 (50)       | 4000/100    |3200/48    | 4000/100   | 2/1000  |
 | Standard_D4s_v3  | 4  | 16  | 32  | 8  | 8000/64 (100)      | 8000/200    |6400/96    | 8000/200   | 2/2000  |

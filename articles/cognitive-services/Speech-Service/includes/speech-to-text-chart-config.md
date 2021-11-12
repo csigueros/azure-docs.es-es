@@ -3,19 +3,19 @@ title: Instalación de contenedores de Speech
 titleSuffix: Azure Cognitive Services
 description: Detalles de las opciones de configuración de un gráfico Helm de speech-to-text
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 05/05/2020
-ms.author: pafarley
-ms.openlocfilehash: 0726b01ea082df91d426a66d36f7ad5f83babba4
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.author: eur
+ms.openlocfilehash: b5d2eed959f216d7ec3f1b504e086b1b83efdb58
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123646594"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500798"
 ---
 ### <a name="speech-to-text-sub-chart-chartsspeechtotext"></a>Speech-to-Text (gráfico secundario: charts/speechToText)
 
@@ -43,7 +43,7 @@ Para reemplazar al gráfico de nivel superior, agregue el prefijo `speechToText.
 
 #### <a name="sentiment-analysis-sub-chart-chartsspeechtotext"></a>Análisis de sentimiento (sub-chart: charts/speechToText)
 
-A partir de la versión 2.2.0 del contenedor de conversión de voz a texto y la versión 0.2.0 del gráfico de Helm, se usan los siguientes parámetros para el análisis de sentimiento mediante Text Analytics API.
+A partir de la versión 2.2.0 del contenedor de conversión de voz a texto y la versión 0.2.0 del gráfico de Helm, se usan los siguientes parámetros para el análisis de sentimiento mediante la API del servicio de lenguaje.
 
 |Parámetro|Descripción|Valores|Valor predeterminado|
 | --- | --- | --- | --- |

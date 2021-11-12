@@ -1,6 +1,6 @@
 ---
-title: Automanage para servicios de Windows Server (versión preliminar)
-description: Introducción a Automanage para servicios de Windows Server y funcionalidades con Windows Server Azure Edition
+title: Automanage para Windows Server
+description: Introducción a Azure Automanage para funcionalidades de Windows Server con Windows Server Azure Edition
 author: nwashburn-ms
 ms.service: virtual-machines
 ms.subservice: automanage
@@ -8,27 +8,24 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 07/09/2021
 ms.author: niwashbu
-ms.openlocfilehash: 09b011d76a570aaed1a9ea8c0b9bdc74e80eca53
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: efd5b643608b8d3de5cacbc1f810a9b1e9efb612
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122772191"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501597"
 ---
-# <a name="automanage-for-windows-server-services-preview"></a>Automanage para servicios de Windows Server (versión preliminar)
+# <a name="azure-automanage-for-windows-server"></a>Azure Automanage para Windows Server
 
-Automanage para servicios de Windows Server aporta nuevas funcionalidades específicamente a _Windows Server Azure Edition_.  Estas son algunas de ellas:
-- Revisiones en caliente
+Azure Automanage para Windows Server aporta nuevas funcionalidades específicamente a _Windows Server Azure Edition_.  Estas son algunas de ellas:
+- Revisión en caliente (versión preliminar)
 - SMB a través de QUIC
-- Red extendida
+- Red extendida para Azure
 
 > [!IMPORTANT]
-> Automanage para los servicios de Windows Server está actualmente en versión preliminar pública. No es necesario ningún procedimiento de participación para usar la funcionalidad de revisión en caliente que se describe a continuación.
+> Actualmente, la revisión en caliente está en versión preliminar pública. No es necesario ningún procedimiento de participación para usar la funcionalidad de revisión en caliente que se describe a continuación.
 > Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-> [!NOTE]
-> La revisión en caliente se puede evaluar en _Windows Server 2022 Datacenter: Azure Edition (Core) Preview_.  La revisión en caliente en _Windows Server 2019 Datacenter: Azure Edition Preview_ ya no está disponible para evaluar.
 
 Las funcionalidades de Automanage para Windows Server se pueden encontrar en una o varias de estas imágenes de _Windows Server Azure Edition_: 
 
@@ -39,7 +36,7 @@ Las funcionalidades varían según la imagen; para más detalles, consulte la se
 
 ## <a name="automanage-for-windows-server-capabilities"></a>Funcionalidades de Automanage para Windows Server
 
-### <a name="hotpatch"></a>Revisiones en caliente
+### <a name="hotpatch-preview"></a>Revisión en caliente (versión preliminar)
 
 La revisión en caliente está disponible en versión preliminar pública en las siguientes imágenes:
 
@@ -54,11 +51,16 @@ SMB a través de QUIC está disponible en versión preliminar pública en las si
 - Windows Server 2022 Datacenter: Azure Edition (Desktop Experience)
 - Windows Server 2022 Datacenter: Azure Edition (Core)
 
-SMB a través de QUIC permite a los usuarios acceder a los archivos cuando trabajan de forma remota sin una VPN, mediante la tunelización del tráfico SMB a través del protocolo QUIC.  Para más información, consulte el artículo sobre [SMB a través de QUIC](/windows-server/storage/file-server/smb-over-quic).  
+SMB a través de QUIC ofrece una "VPN SMB" para teletrabajadores, usuarios de dispositivos móviles y sucursales, lo que proporciona conectividad segura y confiable a servidores de archivos perimetrales a través de redes que no son de confianza, como Internet. [QUIC](https://datatracker.ietf.org/doc/rfc9000/) es un protocolo estandarizado con IETF que se usa en HTTP/3, diseñado para la máxima protección de datos con TLS 1.3 y que requiere cifrado que no se puede deshabilitar. SMB se comporta con normalidad en el túnel de QUIC, lo que significa que la experiencia del usuario no cambia. Las características de SMB como el multicanal, la firma, la compresión, la disponibilidad continua y la concesión de directorios funcionan con normalidad. 
 
-### <a name="azure-extended-network"></a>Red extendida de Azure
+SMB a través de QUIC también se integra con los [procedimientos recomendados para máquinas con Automanage para Windows Server](automanage-windows-server.md) a fin de facilitar la administración de SMB a través de QUIC. QUIC usa certificados para proporcionar su cifrado y las organizaciones suelen tener dificultades para mantener infraestructuras de clave pública complejas. Los procedimientos recomendados para máquinas con Automanage garantizan que los certificados no expiren sin previo aviso y que SMB a través de QUIC permanezca habilitado para una continuidad máxima del servicio.
 
-La red extendida de Azure está disponible en versión preliminar pública en las siguientes imágenes:
+Para obtener más información, consulte [SMB a través de QUIC](https://aka.ms/smboverquic) y [Administración de SMB a través de QUIC con procedimientos recomendados para máquinas con Automanage](automanage-smb-over-quic.md).
+ 
+
+### <a name="extended-network-for-azure"></a>Red extendida para Azure
+
+La red extendida para Azure está disponible en las imágenes siguientes:
 
 - Windows Server 2022 Datacenter: Azure Edition (Desktop Experience)
 - Windows Server 2022 Datacenter: Azure Edition (Core)
@@ -74,12 +76,15 @@ Es importante tener en cuenta por adelantado qué funcionalidades de Automanage 
 
 |Imagen|Funcionalidades|
 |--|--|
-|Windows Server 2022 Datacenter: Azure Edition (Desktop Experience) | SMB a través de QUIC, red extendida | 
-| Windows Server 2022 Datacenter: Azure Edition (Core) | Revisión en caliente, SMB a través de QUIC, red extendida | 
+|Windows Server 2022 Datacenter: Azure Edition (Desktop Experience) | SMB a través de QUIC, red extendida para Azure | 
+| Windows Server 2022 Datacenter: Azure Edition (Core) | Revisión en caliente, SMB a través de QUIC, red extendida para Azure | 
 
 ### <a name="creating-a-vm"></a>Creación de una máquina virtual
 
-Para empezar a usar las funcionalidades de Automanage para Windows Server en una nueva máquina virtual, use el método que prefiera para crear una máquina virtual de Azure y seleccione la imagen de _Windows Server Azure Edition_ que corresponde al conjunto de [funcionalidades](#getting-started-with-windows-server-azure-edition) que desea usar.  Es posible que sea necesario configurar esas funcionalidades durante la creación de la máquina virtual. Puede obtener más información sobre la configuración de máquinas virtuales en los temas de funcionalidad individuales (como [Revisión en caliente](automanage-hotpatch.md)).
+Para empezar a usar las funcionalidades de Automanage para Windows Server en una nueva máquina virtual, use el método que prefiera para crear una máquina virtual de Azure y seleccione la imagen de _Windows Server Azure Edition_ que corresponde al conjunto de [funcionalidades](#getting-started-with-windows-server-azure-edition) que desea usar.  
+
+> [!IMPORTANT]
+> Algunas funcionalidades contienen pasos de configuración específicos que se deben llevar a cabo durante la creación de máquinas virtuales y algunas funcionalidades que se encuentran en versión preliminar incluyen requisitos específicos para la participación y la visualización en el portal.  Consulte los temas individuales de cada funcionalidad indicados anteriormente para obtener más información sobre el uso de la funcionalidad en cuestión con la máquina virtual.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

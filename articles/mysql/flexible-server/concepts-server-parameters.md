@@ -6,23 +6,20 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 43f544cb2782fc80dd574a1d8c425283c51a0ed3
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 59bb5a6a2a544eb72d1438c38ad3040c2ac43476
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123256482"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131468373"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql---flexible-server"></a>Parámetros del servidor en Azure Database for MySQL: servidor flexible
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Actualmente, la opción de implementación Servidor flexible de Azure Database for MySQL se encuentra en versión preliminar pública.
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 En este artículo se incluyen consideraciones e instrucciones para configurar parámetros del servidor en el servidor flexible de Azure Database for MySQL.
 
-## <a name="what-are-server-variables"></a>¿Qué son las variables de servidor? 
+## <a name="what-are-server-variables"></a>¿Qué son las variables de servidor?
 
 El motor MySQL proporciona muchas [variables o parámetros de servidor](https://dev.mysql.com/doc/refman/5.7/en/server-option-variable-reference.html) diferentes que se pueden usar para configurar y ajustar el comportamiento del motor. Algunos parámetros se pueden establecer de forma dinámica en tiempo de ejecución, mientras que otros son "estáticos", requiriendo un reinicio del servidor para su aplicación.
 
@@ -37,15 +34,15 @@ La lista de parámetros del servidor admitidos crece constantemente. Use la pest
 Consulte las siguientes secciones para obtener más información sobre los límites de los diferentes parámetros del servidor actualizados con más frecuencia. Los límites vienen determinados por el nivel de proceso y el tamaño (núcleos virtuales) del servidor.
 
 > [!NOTE]
-> Si quiere modificar un parámetro de servidor que no es modificable pero desea verlo como modificable para su entorno, abra un elemento de [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql) o, si el comentario ya existe, vótelo para ayudarnos a priorizar.
+> Si quiere modificar un parámetro de servidor que no es modificable pero desea verlo como modificable para su entorno, abra un elemento de [UserVoice](https://feedback.azure.com/d365community/forum/47b1e71d-ee24-ec11-b6e6-000d3a4f0da0) o, si el comentario ya existe, vótelo para ayudarnos a priorizar.
 
 ### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
 
-En el servidor flexible de Azure Database for MySQL, siempre están habilitados los registros binarios (p. ej., `log_bin` está establecido en ACTIVADO). log_bin_trust_function_creators se establece en ON de manera predeterminada en servidores flexibles. 
+En el servidor flexible de Azure Database for MySQL, siempre están habilitados los registros binarios (p. ej., `log_bin` está establecido en ACTIVADO). log_bin_trust_function_creators se establece en ON de manera predeterminada en servidores flexibles.
 
 El formato de registro binario siempre es **ROW** y todas las conexiones al servidor **ALWAYS** usan un registro binario basado en filas. Con el registro binario basado en filas, no existen problemas de seguridad y el registro binario no se puede interrumpir, de modo que puede habilitar [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) para que se establezca en **ON** de manera segura.
 
-Si [`log_bin_trust_function_creators`] está establecido en OFF, cuando intente crear desencadenadores podría obtener errores similares a *No tiene el privilegio SUPER y el registro binario está habilitado (se recomienda usar la variable menos segura`log_bin_trust_function_creators`)* . 
+Si [`log_bin_trust_function_creators`] está establecido en OFF, cuando intente crear desencadenadores podría obtener errores similares a *No tiene el privilegio SUPER y el registro binario está habilitado (se recomienda usar la variable menos segura`log_bin_trust_function_creators`)* .
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 
@@ -77,9 +74,18 @@ MySQL almacena la tabla InnoDB en distintos espacios de tabla en función de la 
 
 El servidor flexible de Azure Database for MySQL admite **4 TB** como máximo en un solo archivo de datos. Si el tamaño de la base de datos es superior a 4 TB, debería crear la tabla en el espacio de tabla [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table). Si tiene una sola tabla de tamaño superior a 4 TB, debería usar la tabla de particiones.
 
+### <a name="innodb_log_file_size"></a>innodb_log_file_size
+
+[innodb_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) es el tamaño en bytes de cada [archivo de registro](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_log_file) de un [grupo de registros](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_log_group). El tamaño combinado de los archivos de registro [(innodb_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) * [innodb_log_files_in_group](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_files_in_group)) no puede superar un valor máximo ligeramente inferior a 512 GB). Un tamaño de archivo de registro mayor es mejor para el rendimiento, pero tiene un inconveniente de que el tiempo de recuperación después de un bloqueo será alto. Debe equilibrar el tiempo de recuperación en el caso poco frecuente de una recuperación de bloqueo frente a maximizar el rendimiento durante las operaciones máximas. También pueden dar lugar a tiempos de reinicio más largos. Para el servidor flexible de Azure Database for MySQL puede configurar innodb_log_size en cualquiera de estos valores: 256 MB, 512 MB, 1 GB o 2 GB. El parámetro es estático y requiere un reinicio.
+
+> [!NOTE]
+> Si ha cambiado el parámetro innodb_log_file_size del valor predeterminado, compruebe si el valor de "mostrar el estado global como "innodb_buffer_pool_pages_dirty"" permanece en 0 durante 30 segundos para evitar el retraso del reinicio.
+
+
+
 ### <a name="max_connections"></a>max_connections
 
-El valor de max_connection viene determinado por el tamaño de la memoria del servidor. 
+El valor de max_connection viene determinado por el tamaño de la memoria del servidor.
 
 |**Plan de tarifa**|**Núcleos virtuales**|**Tamaño de memoria (GiB)**|**Valor predeterminado**|**Valor mínimo**|**Valor máximo**|
 |---|---|---|---|---|---|
@@ -114,7 +120,7 @@ La creación de conexiones de cliente a MySQL lleva tiempo y, una vez establecid
 
 ### <a name="innodb_strict_mode"></a>innodb_strict_mode
 
-Si recibe un error similar a "Tamaño de la fila demasiado grande (> 8126)", puede desactivar el parámetro **innodb_strict_mode**. El parámetro de servidor **innodb_strict_mode** no se puede modificar globalmente en el nivel de servidor porque, si el tamaño de los datos de fila es superior a 8 KB, se truncarán los datos sin que se produzca ningún error, lo que puede causar pérdida de datos. Se recomienda modificar el esquema para ajustarlo al límite de tamaño de página. 
+Si recibe un error similar a "Tamaño de la fila demasiado grande (> 8126)", puede desactivar el parámetro **innodb_strict_mode**. El parámetro de servidor **innodb_strict_mode** no se puede modificar globalmente en el nivel de servidor porque, si el tamaño de los datos de fila es superior a 8 KB, se truncarán los datos sin que se produzca ningún error, lo que puede causar pérdida de datos. Se recomienda modificar el esquema para ajustarlo al límite de tamaño de página.
 
 Este parámetro se puede establecer en un nivel de sesión mediante `init_connect`. Para establecer **innodb_strict_mode** en el nivel de sesión, consulte cómo [ajustar un parámetro que no aparece en la lista](./how-to-configure-server-parameters-portal.md#setting-non-modifiable-server-parameters).
 
@@ -129,7 +135,7 @@ Tras la implementación inicial, un servidor flexible de Azure for MySQL incluye
 
 En Azure Database for MySQL, este parámetro especifica el número de segundos que el servicio espera antes de purgar el archivo de registro binario.
 
-El registro binario contiene "eventos" que describen los cambios de la base de datos, como las operaciones de creación de tablas o los cambios en los datos de la tabla. También contiene eventos para instrucciones que puedan haber realizado cambios. El registro binario se usa para dos objetivos principalmente: las operaciones de replicación y de recuperación de datos.  Normalmente, los registros binarios se purgan en cuanto el identificador queda libre del servicio, de la copia de seguridad o del conjunto de réplicas. En el caso de varias réplicas, espera a que la réplica más lenta lea los cambios antes de purgarse. Si quiere conservar los registros binarios durante más tiempo, puede configurar el parámetro binlog_expire_logs_seconds para ello. Si binlog_expire_logs_seconds se establece en 0, que es el valor predeterminado, se purgará en cuanto se libere el identificador para el registro binario. Si el valor de binlog_expire_logs_seconds es > 0, se esperaría durante los segundos configurados antes de purgar. En Azure Database for MySQL, las características administradas, como la copia de seguridad y la purga de réplicas de lectura de archivos binarios, se controlan internamente. Al replicar los datos fuera del servicio Azure Database for MySQL, este parámetro debe establecerse como primario para evitar la purga de registros binarios antes de que la réplica lea los cambios del elemento primario. Si binlog_expire_logs_seconds se establece en un valor superior, los registros binarios no se purgarán lo suficientemente pronto, lo que puede provocar un aumento de los gastos de facturación de almacenamiento. 
+El registro binario contiene "eventos" que describen los cambios de la base de datos, como las operaciones de creación de tablas o los cambios en los datos de la tabla. También contiene eventos para instrucciones que puedan haber realizado cambios. El registro binario se usa con dos finalidades principalmente: las operaciones de replicación y de recuperación de datos.  Normalmente, los registros binarios se purgan en cuanto el identificador queda libre del servicio, de la copia de seguridad o del conjunto de réplicas. En el caso de varias réplicas, espera a que la réplica más lenta lea los cambios antes de purgarse. Si quiere conservar los registros binarios durante más tiempo, puede configurar el parámetro binlog_expire_logs_seconds. Si binlog_expire_logs_seconds se establece en 0, que es el valor predeterminado, se purgará en cuanto se libere el identificador para el registro binario. Si el valor de binlog_expire_logs_seconds es > 0, se esperaría durante los segundos configurados antes de purgar. En Azure Database for MySQL, las características administradas, como la copia de seguridad y la purga de réplicas de lectura de archivos binarios, se controlan internamente. Si se replican los datos fuera del servicio Azure Database for MySQL, este parámetro debe establecerse como primario para evitar la purga de registros binarios antes de que la réplica lea los cambios del elemento primario. Si binlog_expire_logs_seconds se establece en un valor superior, los registros binarios no se purgarán lo suficientemente pronto, lo que puede provocar un aumento de los gastos de facturación de almacenamiento. 
 
 ## <a name="non-modifiable-server-parameters"></a>Parámetros de servidor no modificables
 

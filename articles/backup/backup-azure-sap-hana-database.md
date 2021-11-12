@@ -2,13 +2,16 @@
 title: Copia de seguridad de una base de datos de SAP HANA a Azure con Azure Backup
 description: En este artículo, aprenderá a realizar copias de seguridad de una base de datos de SAP HANA en máquinas virtuales de Azure con el servicio Azure Backup.
 ms.topic: conceptual
-ms.date: 09/27/2021
-ms.openlocfilehash: 472a83ddac9b88179f583868ba4e19136b147154
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 11/02/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: 5c92daa02a98e87f440bc76c114f5b6839eadd08
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130236050"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131439710"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
 
@@ -102,19 +105,28 @@ En el almacén de Recovery Services, puede habilitar la restauración entre regi
 
 ## <a name="discover-the-databases"></a>Detección de bases de datos
 
-1. En el almacén, en **Introducción**, seleccione **Copia de seguridad**. En **¿Dónde se ejecuta su carga de trabajo?** , seleccione **SAP HANA en máquina virtual de Azure**.
-2. Seleccione **Iniciar detección**. Se iniciará la detección de máquinas virtuales de Linux no protegidas en la región del almacén.
+1. En Azure Portal, vaya al **Centro de copias de seguridad** y haga clic en **+Copia de seguridad**.
+
+   :::image type="content" source="./media/backup-azure-sap-hana-database/backup-center-configure-inline.png" alt-text="Captura de pantalla en la que se muestra cómo empezar a comprobar bases de datos de SAP HANA." lightbox="./media/backup-azure-sap-hana-database/backup-center-configure-expanded.png":::
+
+1. Seleccione **SAP HANA en Azure VM** como tipo de origen de datos, seleccione un almacén de Recovery Services que se usará para la copia de seguridad y, después, haga clic en **Continuar**.
+
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-select-vault.png" alt-text="Captura de pantalla en la que se muestra la selección de una base de datos de SAP HANA en una máquina virtual de Azure.":::
+
+1. Seleccione **Iniciar detección**. Se iniciará la detección de máquinas virtuales de Linux no protegidas en la región del almacén.
 
    * Tras la detección, las máquinas virtuales no protegidas aparecen en el portal, enumeradas por nombre y grupo de recursos.
    * Si una máquina virtual no aparece en la lista como cabría esperar, compruebe que no se haya copiado ya en un almacén.
    * Varias máquinas virtuales pueden tener el mismo nombre pero pertenecer a distintos grupos de recursos.
 
-3. En **Seleccionar máquinas virtuales**, seleccione el vínculo para descargar el script que proporciona permisos para que el servicio Azure Backup obtenga acceso a las máquinas virtuales de SAP HANA para la detección de bases de datos.
-4. Ejecute el script en cada máquina virtual que hospede bases de datos de SAP HANA de las que desee hacer una copia de seguridad.
-5. Tras ejecutar el script en las máquinas virtuales, seleccione las máquinas virtuales en **Seleccionar máquinas virtuales**. A continuación, seleccione **Detectar bases de datos**.
-6. Azure Backup detecta todas las bases de datos de SAP HANA en la máquina virtual. Durante la detección, Azure Backup registra la máquina virtual con el almacén e instala una extensión en la máquina virtual. No se instala ningún agente en la base de datos.
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-discover-databases.png" alt-text="Captura de pantalla en la que se muestra la selección de Iniciar detección.":::
 
-    ![Detectar bases de datos de SAP HANA](./media/backup-azure-sap-hana-database/hana-discover.png)
+1. En **Seleccionar máquinas virtuales**, seleccione el vínculo para descargar el script que proporciona permisos para que el servicio Azure Backup obtenga acceso a las máquinas virtuales de SAP HANA para la detección de bases de datos.
+1. Ejecute el script en cada máquina virtual que hospede bases de datos de SAP HANA de las que desee hacer una copia de seguridad.
+1. Tras ejecutar el script en las máquinas virtuales, seleccione las máquinas virtuales en **Seleccionar máquinas virtuales**. A continuación, seleccione **Detectar bases de datos**.
+1. Azure Backup detecta todas las bases de datos de SAP HANA en la máquina virtual. Durante la detección, Azure Backup registra la máquina virtual con el almacén e instala una extensión en la máquina virtual. No se instala ningún agente en la base de datos.
+
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-select-virtual-machines-inline.png" alt-text="Captura de pantalla en la que se muestran las bases de datos de SAP HANA detectadas." lightbox="./media/backup-azure-sap-hana-database/hana-select-virtual-machines-expanded.png":::
 
 ## <a name="configure-backup"></a>Configuración de la copia de seguridad  
 
@@ -122,13 +134,16 @@ Ahora habilite la copia de seguridad.
 
 1. En el paso 2, seleccione **Configurar copia de seguridad**.
 
-    ![Configurar la copia de seguridad](./media/backup-azure-sap-hana-database/configure-backup.png)
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-configure-backups.png" alt-text="Captura de pantalla en la que se muestra Configurar copia de seguridad.":::
+
 2. En **Seleccione los elementos de los que desea hacer una copia de seguridad**, seleccione todas las bases de datos que desee proteger y haga clic en **Aceptar**.
 
-    ![Seleccionar elementos de los que se va a hacer una copia de seguridad](./media/backup-azure-sap-hana-database/select-items.png)
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-select-databases-inline.png" alt-text="Captura de pantalla en la que se muestra la selección de las bases de datos de las que se va a realizar una copia de seguridad." lightbox="./media/backup-azure-sap-hana-database/hana-select-databases-expanded.png":::
+
 3. En **Directiva de copia de seguridad** > **Elegir directiva de copia de seguridad**, cree una directiva de copia de seguridad para las bases de datos, según las instrucciones siguientes.
 
-    ![Elegir directiva de copia de seguridad](./media/backup-azure-sap-hana-database/backup-policy.png)
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-policy-summary.png" alt-text="Captura de pantalla en la que se muestra la elección de la directiva de copia de seguridad.":::
+
 4. Tras crear la directiva, en el **menú Copia de seguridad**, seleccione **Habilitar copia de seguridad**.
 
     ![Habilitación de la copia de seguridad](./media/backup-azure-sap-hana-database/enable-backup.png)
@@ -142,7 +157,7 @@ Una directiva de copia de seguridad define cuándo se realizan las copias de seg
 * Varios almacenes pueden usar la misma directiva de copia de seguridad, pero debe aplicar la directiva de copia de seguridad a cada almacén.
 
 >[!NOTE]
->Azure Backup no se ajusta automáticamente a los cambios del horario de verano cuando realiza la copia de seguridad de una base de datos SAP HANA en una máquina virtual de Azure.
+>Azure Backup no se ajusta automáticamente a los cambios del horario de verano cuando realiza la copia de seguridad de una base de datos de SAP HANA en una máquina virtual de Azure.
 >
 >Modifique la directiva de forma manual según sea necesario.
 

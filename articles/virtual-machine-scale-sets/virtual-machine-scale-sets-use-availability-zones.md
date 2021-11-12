@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 08/08/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 5584f052dc9dcb72f03b923c1a4c666e212b5385
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: b4da00cb112ac84a049910cb23a71841461cfa06
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122697362"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131459926"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Creación de un conjunto de escalado de máquinas virtuales que usa Zonas de disponibilidad
 
@@ -38,7 +38,7 @@ Con la propagación máxima, el conjunto de escalado propaga las máquinas virtu
 
 ### <a name="placement-groups"></a>Grupos de selección de ubicación
 
-Al implementar un conjunto de escalado, también tiene la opción de realizar la implementación con un único [grupo de selección de ubicación](./virtual-machine-scale-sets-placement-groups.md) por zona de disponibilidad o con varios por zona. Para los conjuntos de escalado regionales (no zonales), la opción es tener un único grupo de selección de ubicación en la región o tener varios. Para la mayoría de las cargas de trabajo, se recomiendan varios grupos de selección de ubicación, lo que permite mayor escala. En la versión *2017-12-01* de la API, los conjuntos de escalado de una o varias zonas tienen varios grupos de selección de ubicación de manera predeterminada, pero se cambia de manera predeterminada a un único grupo para los conjuntos de escalado regionales (no zonales).
+Al implementar un conjunto de escalado, también tiene la opción de realizar la implementación con un único [grupo de selección de ubicación](./virtual-machine-scale-sets-placement-groups.md) por zona de disponibilidad o con varios por zona. Para los conjuntos de escalado regionales (no zonales), la opción es tener un único grupo de selección de ubicación en la región o tener varios. Si la propiedad `singlePlacementGroup` del conjunto de escalado se establece en false, el conjunto de escalado puede estar compuesto por varios grupos de selección de ubicación y tiene un intervalo de 0 a 1000 máquinas virtuales. Cuando se establece en el valor predeterminado true, el conjunto de escalado se compone de un solo grupo de selección de ubicación y tiene un intervalo de 0 a 100 máquinas virtuales. Para la mayoría de las cargas de trabajo, se recomiendan varios grupos de selección de ubicación, lo que permite mayor escala. En la versión *2017-12-01* de la API, los conjuntos de escalado de una o varias zonas tienen varios grupos de selección de ubicación de manera predeterminada, pero se cambia de manera predeterminada a un único grupo para los conjuntos de escalado regionales (no zonales).
 
 > [!NOTE]
 > Si usa la propagación máxima, debe usar varios grupos de selección de ubicación.
@@ -55,6 +55,9 @@ Es posible que las máquinas virtuales del conjunto de escalado se creen correct
 Con la mejor opción de equilibrio de zonas, el conjunto de escalado intenta aumentarse y reducirse horizontalmente, y conserva el equilibrio. Sin embargo, si por alguna razón no es posible (por ejemplo, que una zona deje de funcionar, y, como consecuencia, el conjunto de escala no pueda crear una máquina virtual en esa zona), el conjunto de escalado permite el desequilibrio temporal para realizar correctamente el aumento o la reducción horizontal. Para los posteriores intentos de escalado horizontal, el conjunto de escalado e máquinas virtuales a las zonas donde se necesitan más para conseguir el equilibrio. Análogamente, para los posteriores intentos de reducción horizontal, el conjunto de escalado elimina máquinas virtuales de las zonas donde se necesitan menos para conseguir el equilibrio. Con el equilibrio de zonas estricto, el conjunto de escalado produce un error al intentar el aumento o la reducción horizontal si ello causara desequilibrio.
 
 Para usar la mejor opción de equilibrio de zonas, establezca *zoneBalance* en *false*. Esta es la configuración predeterminada de la API versión *2017-12-01*. Para usar el equilibrio de zonas estricto, establezca *zoneBalance* en *true*.
+
+>[!NOTE]
+> La propiedad `zoneBalance` solo se puede establecer si la propiedad zones del conjunto de escalado contiene más de una zona. Si no hay zonas o solo se especifica una, la propiedad zoneBalance no se debe establecer.
 
 ## <a name="single-zone-and-zone-redundant-scale-sets"></a>Conjuntos de escalado de una sola zona y con redundancia de zona
 

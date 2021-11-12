@@ -3,19 +3,19 @@ title: 'Grabación de ejemplos de voz personalizada: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Para crear una voz personalizada con calidad de producción, prepare un guion sólido, contrate un buen actor de voz y realice la grabación de manera profesional.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.author: pafarley
-ms.openlocfilehash: 965791510a58391476e0f0ef1e276d06a83a690b
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.author: eur
+ms.openlocfilehash: 2a0c504fdcc39b4aff0981350e747dfd42ce3389
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123540674"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131504728"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Grabación de muestras de voz para crear una voz personalizada
 
@@ -107,7 +107,9 @@ A continuación se muestran algunas directrices generales que puede seguir para 
    A continuación se muestran algunos procedimientos recomendados, por ejemplo:
     - En el caso de líneas con abreviaturas, en lugar de "p.ej.", tiene "por ejemplo".
     - Para las líneas con dígitos, en lugar de "112", tiene "uno uno dos".
-    - En el caso de las líneas con acrónimos, en lugar de "ABC", tiene "A B C". Teniendo eso en cuenta, asegúrese de que el actor de voz pronuncia estas palabras de la manera esperada. Haga que el guión y las grabaciones coincidan de forma coherente durante el proceso de entrenamiento.  
+    - Para las líneas con acrónimos, en lugar de "ABC", tiene "A B C".
+   
+   Con eso, asegúrese de que el actor de voz pronuncia estas palabras de la manera esperada. Haga que el guión y las grabaciones coincidan de forma coherente durante el proceso de entrenamiento.  
 
    > [!NOTE]
    > Los scripts preparados para el actor de voz deben seguir las convenciones de lectura nativas, como 50 % y 45 USD, mientras que los scripts usados para el entrenamiento deben estar normalizados para garantizar que los guiones coincidan con el contenido de audio, como *cincuenta por ciento* y *cuarenta y cinco dólares*. Compare los guiones utilizados para el entrenamiento con las grabaciones del actor de voz para asegurarse de que coinciden.

@@ -6,19 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 04/01/2021
-ms.openlocfilehash: 5239812bdd916b19571059aa2641eb738ef5ba09
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 46602d13441fd972f3d292d0bfd48b9fd2919231
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130249464"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131467993"
 ---
-# <a name="point-in-time-restore-of-a-azure-database-for-mysql---flexible-server-with-azure-cli"></a>Recuperación a un momento dado de una instancia de Azure Database for MySQL: servidor flexible con la CLI de Azure
+# <a name="point-in-time-restore-of-a-azure-database-for-mysql-flexible-server-with-azure-cli"></a>Recuperación a un momento dado de una instancia de servidor flexible de Azure Database for MySQL con la CLI de Azure
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Azure Database for MySQL: servidor flexible está actualmente en versión preliminar pública.
 
 En este artículo se proporciona un procedimiento detallado para llevar a cabo recuperaciones a un momento dado en servidores flexibles mediante copias de seguridad.
 

@@ -6,19 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: e0309a0a939d310df3265a9b05e8953644bc1abb
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: f78143483ccefe5147eb2ba5d0ee3f3353ab4aac
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130065994"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131445699"
 ---
-# <a name="overview-of-business-continuity-with-azure-database-for-mysql---flexible-server-preview"></a>Introducción a la continuidad empresarial con Azure Database for MySQL: servidor flexible (versión preliminar)
+# <a name="overview-of-business-continuity-with-azure-database-for-mysql---flexible-server"></a>Introducción a la continuidad empresarial con Azure Database for MySQL: servidor flexible
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Azure Database for MySQL: servidor flexible está actualmente en versión preliminar pública.
 
 Azure Database for MySQL: servidor flexible habilita capacidades de continuidad empresarial que protegen las bases de datos en caso de una interrupción, ya sea planeada o no. Características como las copias de seguridad automatizadas y la alta disponibilidad abordan distintos niveles de protección ante errores con diferentes tiempos de recuperación y riesgos de pérdida de datos. Cuando diseñe la aplicación para protegerse frente a errores, debe tener en cuenta el objetivo de tiempo de recuperación (RTO) y el objetivo de punto de recuperación (RPO) de cada aplicación. El RTO es la tolerancia al tiempo de inactividad y el RPO es la tolerancia de pérdida de datos después de una interrupción del servicio de base de datos.
 
@@ -31,9 +28,6 @@ En la tabla siguiente se muestran las características que ofrece un servidor fl
 | **Copia de seguridad con redundancia geográfica** | Las copias de seguridad de servidor flexibles se pueden configurar con redundancia geográfica en el momento de la creación. Al habilitar la redundancia geográfica, se replican los archivos de datos de copia de seguridad del servidor en la región primaria emparejada para proporcionar resistencia regional. El almacenamiento de copia de seguridad con redundancia geográfica proporciona una durabilidad mínima del 99,99999999999999 % (16 nueves) de los objetos a lo largo de un año determinado. Vea [Conceptos: copia de seguridad y restauración](./concepts-backup-restore.md) para obtener más detalles.| Disponible en todas las [regiones emparejadas de Azure](../../best-practices-availability-paired-regions.md). |
 | **Alta disponibilidad con redundancia de zona** | Un servidor flexible se puede implementar en modo de alta disponibilidad, que implementa los servidores principal y en espera en dos zonas de disponibilidad diferentes dentro de una región. Esto protege frente a errores de nivel de zona y, además, ayuda a reducir el tiempo de inactividad de la aplicación durante eventos de tiempo de inactividad, ya sean planeados o no. Los datos del servidor principal se replican de forma sincrónica en la réplica en espera. Durante cualquier evento de tiempo de inactividad, el servidor de bases de datos se conmuta por error automáticamente en la réplica en espera. Vea [Conceptos: alta disponibilidad](./concepts-high-availability.md) para obtener más detalles. | Es compatible con los niveles de proceso de uso general y optimizado para memoria. Está disponible únicamente en regiones con varias zonas.|
 | **Recursos compartidos de archivos Premium** | Los archivos de base de datos se almacenan en recursos compartidos Premium de Azure de gran durabilidad y confiabilidad que proporcionan redundancia de datos con tres copias de réplica almacenadas en una zona de disponibilidad con capacidades de recuperación de datos automáticas. Vea [Recursos compartidos de archivos Premium](../../storage/files/storage-how-to-create-file-share.md) para obtener más detalles. | Datos almacenados en una zona de disponibilidad |
-
-> [!IMPORTANT]
-> No se ofrece ningún contrato de nivel de servicio de tiempo de actividad, RTO ni RPO durante el período de versión preliminar. Los detalles que se proporcionan en esta página solo tienen fines informativos y de planeación.
 
 ## <a name="planned-downtime-mitigation"></a>Mitigación del tiempo de inactividad planeado
 
@@ -62,7 +56,6 @@ Estos son algunos escenarios de error no planeados y el proceso de recuperación
 | **Errores de usuario o lógicos** | La recuperación de los errores de usuario, como las tablas eliminadas accidentalmente o los datos actualizados incorrectamente, implica la realización de una [recuperación a un momento dado](concepts-backup-restore.md) (PITR), de modo que se restauran y recuperan los datos hasta el momento justo antes de que se produjera el error.<br> <br>  Si quiere restaurar únicamente un subconjunto de bases de datos o tablas específicas en lugar de todas las bases de datos del servidor de bases de datos, puede restaurar el servidor de base de datos en una nueva instancia, exportar las tablas a través de [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html) y, a continuación, usar [pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html) para restaurar esas tablas en la base de datos. | Estos errores de usuario no están protegidos con alta disponibilidad debido al hecho de que todas las operaciones de usuario se replican también en el servidor en espera. |
 | **Error de zona de disponibilidad** | Aunque se trata de un evento poco frecuente, si quiere recuperarse de un error de nivel de zona, puede realizar una recuperación a un momento dado mediante la copia de seguridad y elegir un punto de restauración personalizado para obtener los datos más recientes. Se implementará un nuevo servidor flexible en otra zona. El tiempo necesario para la restauración dependerá de la copia de seguridad anterior y del número de registros de transacciones que se vayan a recuperar. | El servidor flexible realizará la conmutación automática por error en el sitio en espera. Vea la [página de conceptos de alta disponibilidad](./concepts-high-availability.md) para obtener más detalles. |
 | **Error de región** | Aunque es un evento poco frecuente, si desea recuperarse de un error de nivel de región, puede realizar la recuperación de la base de datos mediante la creación de un servidor con la copia de seguridad con redundancia geográfica más reciente disponible en la misma suscripción para obtener los datos más recientes. Se implementará un nuevo servidor flexible en la región seleccionada. El tiempo necesario para la restauración dependerá de la copia de seguridad anterior y del número de registros de transacciones que se vayan a recuperar. | Aunque es un evento poco frecuente, si desea recuperarse de un error de nivel de región, puede realizar la recuperación de la base de datos mediante la creación de un servidor con la copia de seguridad con redundancia geográfica más reciente disponible en la misma suscripción para obtener los datos más recientes. El servidor flexible de destino para un servidor de alta capacidad existente se implementará como un servidor que no sea de alta disponibilidad en la región emparejada de Azure. El tiempo necesario para la restauración dependerá de la copia de seguridad anterior y del número de registros de transacciones que se vayan a recuperar. |
-
 
 > [!IMPORTANT]
 > Los servidores eliminados **no se pueden** restaurar. Si elimina el servidor, todas las bases de datos que pertenecen al servidor también se eliminan y no se pueden recuperar. Use el [bloqueo de recursos de Azure](../../azure-resource-manager/management/lock-resources.md) para evitar la eliminación accidental del servidor.

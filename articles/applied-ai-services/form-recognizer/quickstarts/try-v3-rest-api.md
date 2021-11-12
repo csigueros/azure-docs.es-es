@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: lajanuar
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: c19e08dce4c2cfcae67555189b55d085b18eceb0
-ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
+ms.openlocfilehash: ed7518c8abd5b2cdddca0b0e534c7abbcc2f8f55
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131988566"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132373277"
 ---
 # <a name="quickstart-rest-api---preview"></a>Inicio rápido: API REST | Versión preliminar
 
@@ -111,7 +111,7 @@ En este inicio rápido, usará las siguientes características para analizar y e
 #### <a name="request"></a>Solicitud
 
 ```bash
- curl -v -i POST "https://{endpoint}/formrecognizer/documentModels/prebuilt-document:analyze?api-version=2021-09-30-preview&api-version=2021-09-30-preview HTTP/1.1" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{'source': '{your-document-url}'}"
+ curl -v -i POST "https://{endpoint}/formrecognizer/documentModels/prebuilt-document:analyze?api-version=2021-09-30-preview HTTP/1.1" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{'source': '{your-document-url}'}"
 ```
 
 #### <a name="operation-location"></a>Operation-Location
@@ -132,7 +132,7 @@ Tras la llamada a **[Analyze document](https://westus.dev.cognitive.microsoft.co
 #### <a name="request"></a>Solicitud
 
 ```bash
-curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/prebuilt-document/analyzeResults/{resultId}?api-version=2021-09-30-preview&api-version=2021-09-30-preview"
+curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/prebuilt-document/analyzeResults/{resultId}?api-version=2021-09-30-preview"
 ```
 
 ### <a name="examine-the-response"></a>Examen de la respuesta
@@ -369,7 +369,7 @@ El nodo `"analyzeResults"` contiene todo el texto reconocido. El texto se organi
 
 ```bash
 bash
- curl -v -i POST "https://{endpoint}/formrecognizer/documentModels/prebuilt-layout:analyze?api-version=2021-09-30-preview&api-version=2021-09-30-preview HTTP/1.1" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{'source': '{your-document-url}'}"
+ curl -v -i POST "https://{endpoint}/formrecognizer/documentModels/prebuilt-layout:analyze?api-version=2021-09-30-preview HTTP/1.1" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{'source': '{your-document-url}'}"
 ```
 
 #### <a name="operation-location"></a>Operation-Location
@@ -390,7 +390,7 @@ Tras la llamada a **[Analyze document](https://westus.api.cognitive.microsoft.co
 #### <a name="request"></a>Solicitud
 
 ```bash
-curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/prebuilt-layout/analyzeResults/{resultId}?api-version=2021-09-30-preview&api-version=2021-09-30-preview"
+curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/prebuilt-layout/analyzeResults/{resultId}?api-version=2021-09-30-preview"
 ```
 
 ### <a name="examine-the-response"></a>Examen de la respuesta
@@ -427,7 +427,7 @@ Antes de ejecutar el comando, realice estos cambios:
 #### <a name="request"></a>Solicitud
 
 ```bash
- curl -v -i POST "https://{endpoint}/formrecognizer/documentModels/prebuilt-invoice:analyze?api-version=2021-09-30-preview&api-version=2021-09-30-preview HTTP/1.1" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{'source': '{your-document-url}'}"
+ curl -v -i POST "https://{endpoint}/formrecognizer/documentModels/prebuilt-invoice:analyze?api-version=2021-09-30-preview HTTP/1.1" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{'source': '{your-document-url}'}"
 ```
 
 #### <a name="operation-location"></a>Operation-Location
@@ -448,7 +448,7 @@ Tras la llamada a **[Analyze document](https://westus.api.cognitive.microsoft.co
 #### <a name="request"></a>Solicitud
 
 ```bash
-curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/prebuilt-invoice/analyzeResults/{resultId}?api-version=2021-09-30-preview&api-version=2021-09-30-preview"
+curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/prebuilt-invoice/analyzeResults/{resultId}?api-version=2021-09-30-preview"
 ```
 
 ### <a name="examine-the-response"></a>Examen de la respuesta

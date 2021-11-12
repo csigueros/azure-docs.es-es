@@ -7,19 +7,19 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 03/17/2021
+ms.date: 11/02/2021
 ms.author: martinle
-ms.reviewer: igorstan
-ms.openlocfilehash: c0c436a2e36edbd6feb433074efc2d746ee38f18
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.reviewer: wiassaf
+ms.openlocfilehash: a6ebaa9f6afe9afe007c5ffb2eb0a164d3f2ac75
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129091832"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500552"
 ---
 # <a name="best-practices-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Procedimientos recomendados para grupos de SQL dedicados en Azure Synapse Analytics
 
-En este artículo se proporciona una colección de procedimientos recomendados que le ayudarán a conseguir un rendimiento óptimo con los grupos de SQL dedicados en Azure Synapse Analytics.  Si trabaja con un grupo de SQL sin servidor, consulte los [procedimientos recomendados para los grupos de SQL sin servidor](best-practices-serverless-sql-pool.md) para ver instrucciones específicas. A continuación, encontrará instrucciones básicas y las áreas importantes en las que debe centrarse a medida que compila la solución. En cada sección se presenta un concepto y se le indican artículos que lo desarrollan más en detalle.
+En este artículo se proporciona una colección de procedimientos recomendados que le ayudarán a conseguir un rendimiento óptimo con los grupos de SQL dedicados en Azure Synapse Analytics. Si trabaja con un grupo de SQL sin servidor, consulte [Procedimientos recomendados para grupos de SQL sin servidor](best-practices-serverless-sql-pool.md) para obtener instrucciones específicas. A continuación, encontrará instrucciones básicas y áreas importantes en las que centrar su atención durante la creación de la solución. En cada sección se presenta un concepto y se le indican artículos que lo desarrollan más en detalle.
 
 ## <a name="dedicated-sql-pools-loading"></a>Carga de grupos de SQL dedicados
 
@@ -60,7 +60,7 @@ El grupo de SQL dedicado admite la carga y exportación de datos con varias herr
 
 Lo que haya cargado con PolyBase se ejecuta con la consulta CTAS o de selección. CTAS reducirá el registro de transacciones y es la manera más rápida de cargar datos. Azure Data Factory también admite cargas de PolyBase y puede lograr un rendimiento parecido a CTAS. PolyBase admite varios formatos de archivo, como Gzip.
 
-Con el fin de conseguir un mayor rendimiento al usar archivos de texto Gzip, divídalos en 60 o más archivos para aumentar el paralelismo de la carga. Para conseguir un rendimiento total más rápido, cargue los datos simultáneamente. En los siguientes artículos se incluye información adicional sobre los temas pertinentes para esta sección:
+Con el fin de conseguir un mayor rendimiento al usar archivos de texto Gzip, divídalos en 60 o más archivos para aumentar el paralelismo de la carga. Para conseguir un rendimiento total más rápido, cargue los datos simultáneamente. En los siguientes artículos se incluye información adicional pertinente para esta sección:
 
 - [Carga de datos](../sql-data-warehouse/design-elt-data-loading.md?context=/azure/synapse-analytics/context/context)
 - [Guía para el uso de PolyBase](data-loading-best-practices.md)
@@ -72,7 +72,7 @@ Con el fin de conseguir un mayor rendimiento al usar archivos de texto Gzip, div
 
 ## <a name="load-then-query-external-tables"></a>Carga y consulta de tablas externas
 
-PolyBase no es óptimo para las consultas. Las tablas de PolyBase para grupos de SQL dedicados solo admiten actualmente archivos de blobs de Azure y almacenamiento de Azure Data Lake. Estos archivos no tienen ningún recurso de proceso que los respalde. Como resultado, los grupos de SQL dedicados no pueden descargar este trabajo y, para leer los datos del archivo entero, tienen que cargarlo en tempdb.
+PolyBase no es óptimo para las consultas. Las tablas de PolyBase para grupos de SQL dedicados solo admiten actualmente archivos de blobs de Azure y almacenamiento de Azure Data Lake. Estos archivos no tienen ningún recurso de proceso que los respalde. Como resultado, los grupos de SQL dedicados no pueden descargar este trabajo y, para leer los datos del archivo entero, tienen que cargarlo en `tempdb`.
 
 Si tiene varias consultas que usan estos datos, es mejor cargarlos una vez que las consultas usen la tabla local. Se incluyen más instrucciones sobre PolyBase en el artículo [Guía de uso de PolyBase](data-loading-best-practices.md).
 
@@ -141,7 +141,7 @@ Cuando deje temporalmente los datos en grupos de SQL dedicados, las tablas de mo
 
 Los datos de una tabla temporal también se cargarán mucho más rápido que las tablas de almacenamiento permanente.  Las tablas temporales empiezan por "#" y solo se puede acceder a ellas desde la sesión en la que se crean. Por lo tanto, pueden no funcionar en algunas situaciones. Las tablas de apilamiento se definen en la cláusula WITH de CREATE TABLE.  Si usa una tabla temporal, no olvide crear estadísticas en ella también.
 
-Para obtener instrucciones adicionales, consulte los artículos [Tablas temporales](/sql/t-sql/statements/alter-table-transact-sql?view=azure-sqldw-latest&preserve-view=true), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) y [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true).
+Para obtener más información, consulte los artículos [Tablas temporales](/sql/t-sql/statements/alter-table-transact-sql?view=azure-sqldw-latest&preserve-view=true), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) y [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="optimize-clustered-columnstore-tables"></a>Optimización de tablas de almacén de columnas agrupadas
 
@@ -163,7 +163,7 @@ Si la tabla no tiene 6 mil millones filas, tiene dos opciones principales. Redu
 Al consultar una tabla de almacén de columnas, las consultas se ejecutarán más rápido si selecciona solo las que necesita.  Más información sobre los índices de tabla y de almacén de columnas en los siguientes artículos:
 - [Índices de tablas](../sql-data-warehouse/sql-data-warehouse-tables-index.md?context=/azure/synapse-analytics/context/context)
 - [Guía de índices de almacén de columnas](/sql/relational-databases/indexes/columnstore-indexes-overview?view=azure-sqldw-latest&preserve-view=true)
-- [Regeneración de índices de almacén de columnas](../sql-data-warehouse/sql-data-warehouse-tables-index.md?view=azure-sqldw-latest&preserve-view=true#rebuilding-indexes-to-improve-segment-quality) 
+- [Regeneración de índices de almacén de columnas](../sql-data-warehouse/sql-data-warehouse-tables-index.md?view=azure-sqldw-latest&preserve-view=true#rebuild-indexes-to-improve-segment-quality) 
 - [Optimización del rendimiento con el índice de almacén de columnas agrupado ordenado](../sql-data-warehouse/performance-tuning-ordered-cci.md)
 
 ## <a name="use-larger-resource-class-to-improve-query-performance"></a>Uso de clases de recursos más grandes para mejorar el rendimiento de las consultas

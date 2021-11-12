@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo hacer que las conexiones de Azure 
 author: shpathak-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 10/11/2021
+ms.date: 11/3/2021
 ms.author: shpathak
-ms.openlocfilehash: dd7bb63204ccaa38379b49cfe3946372319dfc44
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: d8e5f95e78db7c46ad1c52401b938acc37af6b4f
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130252908"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131850952"
 ---
 # <a name="connection-resilience"></a>Resistencia de la conexión
 
@@ -33,13 +33,16 @@ Se recomienda esta configuración de TCP:
 |Configuración  |Valor |
 |---------|---------|
 | *net.ipv4.tcp_retries2*   | 5 |
-| *TCP_KEEPIDLE*   | 15 |
-| *TCP_KEEPINTVL*  | 5 |
-| *TCP_KEEPCNT* | 3 |
-
-Plantéese usar el patrón *ForceReconnect*. Para obtener una implementación del patrón, vea el código de [Volver a conectar con el patrón diferido\<T\>](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-lazyreconnect-cs).
 
 Para obtener más información sobre el escenario, consulte [La conexión no se establece de nuevo durante 15 minutos cuando se ejecuta en Linux](https://github.com/StackExchange/StackExchange.Redis/issues/1848#issuecomment-913064646). Aunque este artículo trata sobre la biblioteca StackExchange.Redis, también se ven afectadas otras bibliotecas cliente que se ejecutan en Linux. La explicación sigue siendo útil y se puede generalizar a otras bibliotecas.
+
+## <a name="using-forcereconnect-with-stackexchangeredis"></a>Uso de ForceReconnect con StackExchange.Redis
+
+En raras ocasiones, StackExchange.Redis no se puede volver a conectar después de que se anule una conexión. En estos casos, reiniciar el cliente o crear un nuevo objeto `ConnectionMultiplexer` corrige el problema. Se recomienda usar un patrón de singleton `ConnectionMultiplexer` al tiempo que se permite que las aplicaciones fuercen una reconexión periódicamente. Eche un vistazo al proyecto de ejemplo de inicio rápido que mejor se adapte al marco y la plataforma que usa la aplicación. Puede ver un ejemplo de este patrón de código en nuestros [inicios rápidos](https://github.com/Azure-Samples/azure-cache-redis-samples).
+
+Los usuarios del objeto `ConnectionMultiplexer` deben controlar los errores de `ObjectDisposedException` que puedan producirse como resultado de eliminar el anterior.
+
+Llame a `ForceReconnectAsync()` para `RedisConnectionExceptions` y `RedisSocketExceptions`. También puede llamar a `ForceReconnectAsync()` para `RedisTimeoutExceptions`, pero solo si usa valores generosos de `ReconnectMinInterval` y `ReconnectErrorThreshold`. De lo contrario, el establecimiento de nuevas conexiones puede provocar un error en cascada en un servidor que está agotando el tiempo de espera porque ya está sobrecargado.
 
 ## <a name="configure-appropriate-timeouts"></a>Configuración de tiempos de espera adecuados
 

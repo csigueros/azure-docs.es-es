@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: mlops
 author: lobrien
 ms.author: laobri
-ms.date: 10/22/2020
+ms.date: 10/21/2021
 ms.topic: troubleshooting
 ms.custom: troubleshooting, devx-track-python, contperf-fy21q2
-ms.openlocfilehash: f6fc3ad230c4da9f44c536ec61d8c840374c3ed6
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 0d25bcabc1c3108ed1899110a61da22551262bf8
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429041"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131559131"
 ---
 # <a name="troubleshooting-machine-learning-pipelines"></a>Solución de problemas de canalizaciones de aprendizaje automático
 
@@ -238,10 +238,10 @@ Para solucionar problemas y depurar puntos de conexión en tiempo real en el dis
 
 ### <a name="get-logs-from-the-authoring-page"></a>Obtención de los registros desde la página de creación
 
-Cuando envía una ejecución de canalización y permanece en la página de creación, puede encontrar los archivos de registro generados para cada módulo a medida que cada módulo finaliza su ejecución.
+Cuando envía una ejecución de canalización y permanece en la página de creación, puede encontrar los archivos de registro generados para cada componente a medida que cada componente finaliza su ejecución.
 
-1. Seleccione un módulo que haya terminado de ejecutarse en el lienzo de creación.
-1. En el panel derecho del módulo, vaya a la pestaña **Resultados y registros**.
+1. Seleccione un componente que haya terminado de ejecutarse en el lienzo de creación.
+1. En el panel derecho del componente, vaya a la pestaña **Resultados y registros**.
 1. Expanda el panel derecho y seleccione el archivo **70_driver_log. txt** para verlo en el explorador. También puede descargar registros localmente.
 
     ![Panel de salida expandido en el diseñador](./media/how-to-debug-pipelines/designer-logs.png)
@@ -254,8 +254,8 @@ También puede buscar los archivos de registro de ejecuciones específicas en la
 
     ![Página de ejecución de la canalización](./media/how-to-debug-pipelines/designer-pipelines.png)
 
-1. Seleccione un módulo en el panel de vista previa.
-1. En el panel derecho del módulo, vaya a la pestaña **Resultados y registros**.
+1. Seleccione un componente en el panel de vista previa.
+1. En el panel derecho del componente, vaya a la pestaña **Resultados y registros**.
 1. Expanda el panel derecho para ver el archivo **70_driver_log. txt** en el explorador, o seleccione el archivo para descargar los registros de forma local.
 
 > [!IMPORTANT]

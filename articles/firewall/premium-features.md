@@ -5,15 +5,15 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 10/11/2021
+ms.date: 11/04/2021
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: c6cc19bd688dd2c38210fae8d77a036f2ba5be7e
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: addbd908670741cd0ba8662bf73a1a6788487498
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129754318"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851465"
 ---
 # <a name="azure-firewall-premium-features"></a>Características de Azure Firewall Prémium
 
@@ -51,8 +51,8 @@ Azure Firewall Premium proporciona un IDPS basado en firma que permite detectar 
 
 Las firmas y los conjuntos de reglas de Azure Firewall incluyen:
 - Énfasis en la aplicación de la huella digital al malware real, comando y control, kits de vulnerabilidad de seguridad y en la actividad malintencionada descontrolada que se omiten en los métodos de prevención tradicionales.
-- Más de 55 000 reglas en más de 50 categorías.
-    - Las categorías incluyen comando y control de malware, ataques de DoS, redes de robots (botnets), eventos informativos, vulnerabilidades de seguridad, protocolos de red SCADA, actividad del kit de vulnerabilidades de seguridad, etc.
+- Más de 58 000 reglas en más de 50 categorías.
+    - Las categorías incluyen comando y control de malware, suplantación de identidad (phishing), troyanos, redes de robots (botnets), eventos informativos, vulnerabilidades de seguridad, protocolos de red SCADA, actividad del kit de vulnerabilidades de seguridad, etc.
 - Se publican entre 20 y 40 reglas nuevas o más cada día.
 - Baja puntuación de falsos positivos mediante el uso de un espacio aislado de malware de última generación y el bucle de comentarios de red del sensor global.
 
@@ -87,6 +87,26 @@ Puede ver el tráfico filtrado por **Categorías web** en los registros de aplic
 ### <a name="category-exceptions"></a>Excepciones de las categorías
 
 Puede crear excepciones a las reglas de la categoría web. Cree una colección de reglas de permiso o denegación independiente con una prioridad más alta dentro del grupo de recopilación de reglas. Por ejemplo, puede configurar una colección de reglas que permita `www.linkedin.com` con prioridad 100, con una colección de reglas que deniegue las **redes sociales** con prioridad 200. Esto crea la excepción para la categoría web **Redes sociales** predefinida.
+
+### <a name="web-category-search"></a>Búsqueda de categorías web
+
+Puede identificar a qué categoría corresponden un FQDN o una dirección URL determinados mediante la característica de **comprobación de categorías web**. Para usarlo, seleccione la pestaña **Categorías web** en **Configuración de directiva de firewall**. Esto es especialmente útil al definir las reglas de aplicación para el tráfico de destino.
+
+:::image type="content" source="media/premium-features/firewall-category-search.png" alt-text="Cuadro de diálogo de búsqueda de categorías de firewall":::
+
+### <a name="category-change"></a>Cambio de categoría
+
+En la pestaña **Categorías web** de **Configuración de directiva de firewall**, puede solicitar un cambio de categorización si: 
+
+- Cree que un FQDN o una dirección URL deben estar en otra categoría 
+
+   o bien 
+
+- Tiene una categoría sugerida para un FQDN o una dirección URL sin categoría 
+
+ Una vez que envíe un informe de cambio de categoría, se le proporcionará un token en las notificaciones que indican que hemos recibido la solicitud de procesamiento. Puede comprobar si la solicitud está en curso, denegada o aprobada si escribe el token en la barra de búsqueda.  Asegúrese de guardar el id. de token para hacerlo.
+
+:::image type="content" source="media/premium-features/firewall-category-change.png" alt-text="Cuadro de diálogo de informe de categoría de firewall":::
 
  ## <a name="supported-regions"></a>Regiones admitidas
 

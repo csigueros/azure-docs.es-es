@@ -5,13 +5,13 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 269656068d01e2db1e222ec58e5f9b40f34f0d53
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 11/4/2021
+ms.openlocfilehash: 44b4c8e48c7e0edf4501915d3f801abc94b2f0ab
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121781091"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131893621"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Herramientas de administración y controladores de MySQL compatibles con Azure Database for MySQL
 
@@ -20,10 +20,13 @@ ms.locfileid: "121781091"
 En este artículo se describen las herramientas de administración y los controladores compatibles con Azure Database for MySQL: servidor único.
 
 > [!NOTE]
-> Este artículo solo se aplica a Azure Database for MySQL: servidor único para garantizar que los controladores son compatibles con la [arquitectura de conectividad](concepts-connectivity-architecture.md) del servicio Servidor único. [Azure Database for MySQL: servidor flexible](./flexible-server/overview.md) es compatible con todos los controladores y herramientas admitidos y compatibles con MySQL Community Edition. 
+> Este artículo solo se aplica a Azure Database for MySQL: servidor único para garantizar que los controladores son compatibles con la [arquitectura de conectividad](concepts-connectivity-architecture.md) del servicio Servidor único. [Azure Database for MySQL: servidor flexible](./flexible-server/overview.md) es compatible con todos los controladores y herramientas admitidos y compatibles con MySQL Community Edition.
 
 ## <a name="mysql-drivers"></a>Controladores de MySQL
 Azure Database for MySQL usa la edición comunitaria más popular del mundo de la base de datos MySQL. Por lo tanto, es compatible con una amplia variedad de controladores y lenguajes de programación. El objetivo es admitir las tres versiones más recientes de controladores MySQL. Asimismo, continúan las iniciativas con autores de la comunidad de código abierto para mejorar constantemente la funcionalidad y la facilidad de uso de los controladores de MySQL. En la tabla siguiente se proporciona una lista de controladores que se han probado y son compatibles con Azure Database for MySQL 5.6 y 5.7:
+
+> [!WARNING]
+> El cliente MySQL 8.0.27 no es compatible con Azure Database for MySQL: Servidor único. Todas las conexiones del cliente MySQL 8.0.27 creadas mediante mysql.exe o Workbench producirán un error. Como solución alternativa, considere la posibilidad de usar una versión anterior del cliente (anterior a MySQL 8.0.27) o, en su lugar, cree una instancia de [Azure Database for MySQL: Servidor flexible](https://docs.microsoft.com/azure/mysql/flexible-server/overview).
 
 | **Lenguaje de programación** | **Controlador** | **Vínculos** | **Versiones compatibles** | **Versiones incompatibles** | **Notas** |
 | :----------------------- | :--------- | :-------- | :---------------------- | :------------------------ | :-------- |

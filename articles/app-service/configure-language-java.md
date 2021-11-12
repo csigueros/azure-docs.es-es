@@ -11,12 +11,12 @@ ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: d994716f24c0a5dff4fd42f8152a08cabc4fe12c
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: bd98cd6a0317400bcae932d9f08f719cb8c7fc0f
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130253428"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131558922"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Configuración de una aplicación Java para Azure App Service
 
@@ -143,7 +143,7 @@ Esta es una configuración de ejemplo. Para obtener detalles, vea este [document
     ```
     
 ### <a name="ides"></a>IDE
-Azure proporciona una experiencia de desarrollo de Java App Service directa en los entornos de desarrollo de Java más populares, incluidos:
+Azure proporciona una experiencia de desarrollo de Java App Service eficiente en los entornos de desarrollo de Java más populares, incluidos:
 - *VS Code*: [Java Web Apps con Visual Studio Code](https://code.visualstudio.com/docs/java/java-webapp#_deploy-web-apps-to-the-cloud)
 - *IntelliJ IDEA*: [Creación de una aplicación web Hola mundo para Azure App Service mediante IntelliJ](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app)
 - *Eclipse*: [Creación de una aplicación web Hola mundo para Azure App Service mediante Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)
@@ -151,20 +151,20 @@ Azure proporciona una experiencia de desarrollo de Java App Service directa en l
 ### <a name="kudu-api"></a>API de Kudu
 #### <a name="java-se"></a>Java SE
 
-Para implementar archivos .jar en Java SE, use el punto de conexión `/api/publish/` del sitio de Kudu. Para obtener más información sobre esta API, consulte [este documento](./deploy-zip.md#deploy-warjarear-packages). 
+Para implementar archivos .jar en Java SE, use el punto de conexión `/api/publish/` del sitio de Kudu. Para más información sobre esta API, consulte [esta documentación](./deploy-zip.md#deploy-warjarear-packages). 
 
 > [!NOTE]
 >  La aplicación .jar debe tener el nombre `app.jar` para App Service y así poder identificar y ejecutar la aplicación. El complemento Maven (mencionado anteriormente) cambiará automáticamente el nombre de la aplicación durante la implementación. Si no quiere cambiar el nombre de archivo JAR a *app.jar*, puede cargar un script de shell con el comando para ejecutar la aplicación .jar. Pegue la ruta de acceso absoluta a este script en el cuadro de texto[Archivo de inicio](./faq-app-service-linux.yml) de la sección Configuración del portal. El script de inicio no se ejecuta desde el directorio en el que se encuentra. Por lo tanto, use siempre rutas de acceso absolutas para hacer referencia a los archivos del script de inicio (por ejemplo: `java -jar /home/myapp/myapp.jar`).
 
 #### <a name="tomcat"></a>Tomcat
 
-Para implementar archivos .war en Tomcat, utilice el punto de conexión `/api/wardeploy/` para realizar el conjunto de rutinas POST en el archivo. Para obtener más información sobre esta API, consulte [este documento](./deploy-zip.md#deploy-warjarear-packages).
+Para implementar archivos .war en Tomcat, utilice el punto de conexión `/api/wardeploy/` para realizar el conjunto de rutinas POST en el archivo. Para más información sobre esta API, consulte [esta documentación](./deploy-zip.md#deploy-warjarear-packages).
 
 ::: zone pivot="platform-linux"
 
 #### <a name="jboss-eap"></a>JBoss EAP
 
-Para implementar archivos .war en JBoss, use el punto de conexión `/api/wardeploy/` para realizar la instrucción POST en el archivo. Para obtener más información sobre esta API, consulte [este documento](./deploy-zip.md#deploy-warjarear-packages).
+Para implementar archivos .war en JBoss, use el punto de conexión `/api/wardeploy/` para realizar la instrucción POST en el archivo. Para más información sobre esta API, consulte [esta documentación](./deploy-zip.md#deploy-warjarear-packages).
 
 Para implementar archivos .ear, [use FTP](deploy-ftp.md). La aplicación .ear se implementará en la raíz de contexto definida en la configuración de la aplicación. Por ejemplo, si la raíz de contexto de la aplicación es `<context-root>myapp</context-root>`, puede examinar el sitio en la ruta de acceso `/myapp`: `http://my-app-name.azurewebsites.net/myapp`. Si desea que se atienda a la aplicación web en la ruta de acceso raíz, asegúrese de que la aplicación establece la raíz del contexto en la ruta de acceso raíz: `<context-root>/</context-root>`. Para obtener más información, vea [Establecimiento del contexto raíz de una aplicación web](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html).
 
@@ -211,7 +211,7 @@ Todos los entornos de ejecución de Java en App Service que usan JVM de Azul inc
 
 #### <a name="timed-recording"></a>Grabación temporizada
 
-Para realizar una grabación temporizada, necesitará el PID (identificador de proceso) de la aplicación Java. Para buscar el PID, abra un explorador en el sitio de SCM de la aplicación web en `https://<your-site-name>.scm.azurewebsites.net/ProcessExplorer/`. En esta página se muestran los procesos en ejecución en la aplicación web. Busque el proceso denominado "Java" en la tabla y copie el PID (identificador de proceso) correspondiente.
+Para realizar una grabación temporizada, necesitará el PID (id. de proceso) de la aplicación Java. Para buscar el PID, abra un explorador en el sitio de SCM de la aplicación web en `https://<your-site-name>.scm.azurewebsites.net/ProcessExplorer/`. En esta página se muestran los procesos en ejecución en la aplicación web. Busque el proceso denominado "Java" en la tabla y copie el PID (identificador de proceso) correspondiente.
 
 A continuación, abra la **Consola de depuración** en la barra de herramientas superior del sitio de SCM y ejecute el siguiente comando. Reemplace `<pid>` por el identificador de proceso que ha copiado anteriormente. Este comando iniciará una grabación de 30 segundos del generador de perfiles de su aplicación Java y generará un archivo denominado `timed_recording_example.jfr` en el directorio `D:\home`.
 
@@ -237,7 +237,7 @@ Ejecute el siguiente comando para iniciar una grabación de 30 segundos de la m�
 jcmd 116 JFR.start name=MyRecording settings=profile duration=30s filename="/home/jfr_example.jfr"
 ```
 
-Durante el intervalo de 30 segundos puede validar que la grabación se lleva a cabo mediante la ejecución de `jcmd 116 JFR.check`. Esto mostrará todas las grabaciones del proceso de Java dado.
+Durante el intervalo de 30 segundos puede validar que la grabación se lleva a cabo mediante la ejecución de `jcmd 116 JFR.check`. Esto mostrará todas las grabaciones del proceso de Java dado.
 
 #### <a name="continuous-recording"></a>Grabación continua
 
@@ -270,7 +270,7 @@ Habilite el [registro de aplicaciones](troubleshoot-diagnostic-logs.md#enable-ap
 
 Habilite el [registro de aplicaciones](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) a través de Azure Portal o la [CLI de Azure](/cli/azure/webapp/log#az_webapp_log_config) para configurar App Service para que escriba los flujos de salida y de error de la consola estándar en el sistema de archivos local o en Azure Blob Storage. Si necesita una retención más prolongada, configure la aplicación para escribir la salida en un contenedor de Blob Storage. Los registros de aplicación de Java y Tomcat pueden encontrarse en el directorio */home/LogFiles/Application/* .
 
-El registro de Azure Blob Storage para instancias de App Services basadas en Linux solo se puede configurar mediante [Azure Monitor (versión preliminar)](./troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor-preview) 
+El registro de Azure Blob Storage para instancias de App Services basadas en Linux solo se puede configurar mediante [Azure Monitor](./troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor) 
 
 ::: zone-end
 
@@ -278,7 +278,7 @@ Si la aplicación usa [Logback](https://logback.qos.ch/) o [Log4j](https://loggi
 
 ## <a name="customization-and-tuning"></a>Personalización y optimización
 
-Azure App Service para Linux admite la optimización y la personalización de serie a través de Azure Portal y de la CLI de Azure. Consulte los artículos siguientes para conocer la configuración de aplicaciones web específicas que no son de Java:
+Azure App Service admite la optimización y la personalización de serie a través de Azure Portal y de la CLI de Azure. Consulte los artículos siguientes para conocer la configuración de aplicaciones web específicas que no son de Java:
 
 - [Configuración de aplicaciones](configure-common.md#configure-app-settings)
 - [Configuración de un dominio personalizado](app-service-web-tutorial-custom-domain.md)
@@ -286,12 +286,11 @@ Azure App Service para Linux admite la optimización y la personalización de se
 - [Adición de una red CDN](../cdn/cdn-add-to-web-app.md)
 - [Configuración del sitio de Kudu](https://github.com/projectkudu/kudu/wiki/Configurable-settings#linux-on-app-service-settings)
 
-
 ### <a name="set-java-runtime-options"></a>Definición de las opciones de Java Runtime
 
 Para establecer la memoria asignada u otras opciones de runtime de JVM, cree una [configuración de la aplicación](configure-common.md#configure-app-settings) denominada `JAVA_OPTS` con las opciones. App Service pasa esta configuración como variable de entorno para Java Runtime cuando se inicia.
 
-En Azure Portal, en **Configuración de la aplicación** para la aplicación web, cree un valor de la aplicación denominado `JAVA_OPTS` para Java SE o `CATALINA_OPTS` para Tomcat que incluya valores de configuración adicionales, como `-Xms512m -Xmx1204m`.
+En Azure Portal, en **Configuración de la aplicación** para la aplicación web, cree un valor de la aplicación denominado `JAVA_OPTS` para Java SE o `CATALINA_OPTS` para Tomcat que incluya otros valores de configuración, como `-Xms512m -Xmx1204m`.
 
 Para definir la configuración de la aplicación desde el complemento MavenLinux, agregue las etiquetas setting/value a la sección de complementos de Azure. En el ejemplo siguiente se establece un tamaño del montón de Java mínimo y máximo específico:
 
@@ -304,11 +303,30 @@ Para definir la configuración de la aplicación desde el complemento MavenLinux
 </appSettings>
 ```
 
+::: zone pivot="platform-windows"
+
+> [!NOTE]
+> No es necesario crear un archivo web.config al usar Tomcat en Windows App Service. 
+
+::: zone-end
+
 Los desarrolladores que ejecutan una sola aplicación con una ranura de implementación en su plan de App Service pueden usar las siguientes opciones:
 
 - Instancias de S1 y B1: `-Xms1024m -Xmx1024m`
 - Instancias de S2 y B2: `-Xms3072m -Xmx3072m`
 - Instancias de S3 y B3: `-Xms6144m -Xmx6144m`
+- Instancias de P1v2: `-Xms3072m -Xmx3072m`
+- Instancias de P2v2: `-Xms6144m -Xmx6144m`
+- Instancias de P3v2: `-Xms12800m -Xmx12800m`
+- Instancias de P1v3: `-Xms6656m -Xmx6656m`
+- Instancias de P2v3: `-Xms14848m -Xmx14848m`
+- Instancias de P3v3: `-Xms30720m -Xmx30720m`
+- Instancias de I1: `-Xms3072m -Xmx3072m`
+- Instancias de I2: `-Xms6144m -Xmx6144m`
+- Instancias de I3: `-Xms12800m -Xmx12800m`
+- Instancias de I1v2: `-Xms6656m -Xmx6656m`
+- Instancias de I2v2: `-Xms14848m -Xmx14848m`
+- Instancias de I3v2: `-Xms30720m -Xmx30720m`
 
 Cuando optimice la configuración del montón de la aplicación, revise los detalles de su plan de App Service y tenga en cuenta distintas necesidades de aplicaciones y ranuras de implementación para encontrar la asignación óptima de memoria.
 
@@ -404,7 +422,7 @@ Siga las instrucciones de [Protección de un nombre DNS personalizado con un enl
 
 En primer lugar, siga las instrucciones para [conceder a su aplicación acceso a Key Vault](app-service-key-vault-references.md#granting-your-app-access-to-key-vault) y [hace una referencia de KeyVault a su secreto en una configuración de aplicación](app-service-key-vault-references.md#reference-syntax). Para validar que la referencia se resuelve en el secreto, imprima la variable de entorno mie3ntras acceder de forma remota al terminal de App Service.
 
-Para insertar estos secretos en el archivo de configuración de Spring o Tomcat, use la sintaxis de inserción de variables de entorno (`${MY_ENV_VAR}`). En el caso de los archivos de configuración de Spring, consulte esta documentación acerca de [configuraciones externalizadas](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
+Para insertar estos secretos en el archivo de configuración de Spring o Tomcat, use la sintaxis de inserción de variables de entorno (`${MY_ENV_VAR}`). En el caso de los archivos de configuración de Spring, consulte esta documentación acerca de las [configuraciones externalizadas](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
 
 ::: zone pivot="platform-linux"
 
@@ -412,7 +430,7 @@ Para insertar estos secretos en el archivo de configuración de Spring o Tomcat,
 
 De forma predeterminada, los certificados públicos o privados [cargados en App Service Linux](configure-ssl-certificate.md) se cargarán en los almacenes de claves de Java respectivos cuando se inicie el contenedor. Después de cargar el certificado, deberá reiniciar la instancia de App Service para que se cargue en el almacén de claves de Java. Los certificados públicos se cargan en el almacén de claves en `$JAVA_HOME/jre/lib/security/cacerts`, y los certificados privados se almacenan en `$JAVA_HOME/lib/security/client.jks`.
 
-Puede ser necesaria una configuración adicional para el cifrado de la conexión de JDBC con certificados en el almacén de claves de Java. Consulte la documentación del controlador JDBC elegido.
+Puede ser necesaria más configuración para el cifrado de la conexión de JDBC con certificados en el almacén de claves de Java. Consulte la documentación del controlador JDBC elegido.
 
 - [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
 - [SQL Server](/sql/connect/jdbc/connecting-with-ssl-encryption)
@@ -574,7 +592,7 @@ Para conectarse a orígenes de datos en aplicaciones de Spring Boot, se recomien
     app.datasource.url=${CUSTOMCONNSTR_exampledb}
     ```
 
-Consulte la [documentación de Spring Boot relativa al acceso a datos](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-data-access.html) y [a configuraciones externalizadas ](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html) para más información acerca de este tema.
+Consulte la [documentación de Spring Boot relativa al acceso a datos](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-data-access.html) y [configuraciones externalizadas ](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html) para más información acerca de este tema.
 
 ::: zone pivot="platform-windows"
 
@@ -892,11 +910,11 @@ Como alternativa, puede usar un cliente FTP para cargar el controlador JDBC. Sig
 
 Estas instrucciones se aplican a todas las conexiones de base de datos. Deberá rellenar los marcadores de posición con el nombre de clase de controlador de la base de datos elegido y con el archivo JAR. Se proporciona una tabla con los nombres de clase y las descargas de controladores de las bases de datos más habituales.
 
-| Base de datos   | Nombre de clase de controlador                             | Controlador JDBC                                                                      |
+| Base de datos   | Nombre de clase de controlador                             | Controlador JDBC                                                                              |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
 | PostgreSQL | `org.postgresql.Driver`                        | [Descargar](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Descargar](https://dev.mysql.com/downloads/connector/j/) (seleccione "Platform Independent") |
-| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Descargar](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server#download)                                                           |
+| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Descargar](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server#download)     |
 
 Para configurar Tomcat para que use Java Database Connectivity (JDBC) o Java Persistence API (JPA), personalice primero la variable de entorno `CATALINA_OPTS` que lee Tomcat al iniciarse. Establezca estos valores a través de un valor de la aplicación en el [complemento de Maven de App Service](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md):
 
@@ -1090,7 +1108,7 @@ Para confirmar que el origen de datos se agregó al servidor JBoss, conéctese a
 
 ## <a name="choosing-a-java-runtime-version"></a>Selección de la versión del entorno de ejecución de Java
 
-App Service permite a los usuarios elegir la versión principal de JVM (por ejemplo, Java 8 o Java 11), así como la versión secundaria (por ejemplo, 1.8.0_232 o 11.0.5). También puede elegir que la versión secundaria se actualice automáticamente a medida que estén disponibles otras nuevas. En la mayoría de los casos, los sitios de producción deben usar versiones secundarias de JVM ancladas. De esta forma, se evitan interrupciones imprevistas durante la actualización automática de una versión secundaria. Todas las aplicaciones web de Java usan JMS de 64 bits, lo que no es configurable.
+App Service permite a los usuarios elegir la versión principal de JVM (por ejemplo, Java 8 o Java 11) y la versión secundaria (por ejemplo, 1.8.0_232 o 11.0.5). También puede elegir que la versión secundaria se actualice automáticamente a medida que estén disponibles otras nuevas. En la mayoría de los casos, los sitios de producción deben usar versiones secundarias de JVM ancladas. De esta forma, se evitan interrupciones imprevistas durante la actualización automática de una versión secundaria. Todas las aplicaciones web de Java usan JMS de 64 bits, lo que no es configurable.
 
 Si elige anclar la versión secundaria, tendrá que actualizar periódicamente la versión secundaria de JVM en el sitio. Para asegurarse de que la aplicación se ejecuta en la versión secundaria más reciente, cree un espacio de ensayo e incremente en él la versión secundaria. Cuando haya confirmado que la aplicación se ejecuta correctamente en la nueva versión secundaria, puede intercambiar los espacios de ensayo y de producción.
 
@@ -1111,7 +1129,7 @@ El JDK (Java Development Kit) compatible con Azure es [Zulu](https://www.azul.co
 
 Las actualizaciones de versión principal se proporcionarán por medio de nuevas opciones de entorno de ejecución en Azure App Service. Para actualizar a estas versiones más recientes, los clientes deben configurar su implementación de App Service. Asimismo, son responsables de probar y garantizar que la actualización principal satisface sus necesidades.
 
-Los JDK compatibles se revisarán trimestralmente de manera automática en enero, abril, julio y octubre de cada año. Para obtener más información sobre Java en Azure, consulte [este documento de soporte técnico](/azure/developer/java/fundamentals/java-support-on-azure).
+Los JDK compatibles se revisarán trimestralmente de manera automática en enero, abril, julio y octubre de cada año. Para más información sobre Java en Azure, consulte [este documento de soporte técnico](/azure/developer/java/fundamentals/java-support-on-azure).
 
 ### <a name="security-updates"></a>Actualizaciones de seguridad
 

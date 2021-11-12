@@ -7,17 +7,20 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 09/27/2021
-ms.openlocfilehash: b8d72d3b2e32f22cd3fc6bbe8a89b11469b343c4
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.date: 10/26/2021
+ms.openlocfilehash: 1b41284306927a2538e983c093ee8e571a9e93eb
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130072221"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131842081"
 ---
 # <a name="azure-consumption-commitment-enrollment"></a>Inscripción en Compromiso de consumo de Azure
 
 Este artículo está dirigido a publicadores de Marketplace comercial y describe el programa Compromiso de consumo de Microsoft Azure (MACC), un compromiso contractual que hacen los clientes con Microsoft con respecto a importes específicos de gastos de Azure a lo largo del tiempo. Para información sobre las ventajas que el programa MACC ofrece a los clientes, consulte [Ventaja del compromiso de consumo de Azure](/marketplace/azure-consumption-commitment-benefit).
+
+> [!TIP]
+> Para obtener la vista del cliente de las ventajas del compromiso de consumo de Azure Marketplace, consulte [Ventaja del compromiso de consumo de Azure](/marketplace/azure-consumption-commitment-benefit).
 
 ## <a name="macc-program"></a>Programa MACC
 

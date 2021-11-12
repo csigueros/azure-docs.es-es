@@ -2,13 +2,13 @@
 title: 'Funciones de plantillas: cadena'
 description: Se describen las funciones que se usan en una plantilla de Azure Resource Manager para trabajar con cadenas.
 ms.topic: conceptual
-ms.date: 09/09/2021
-ms.openlocfilehash: bfb80a03012f5a1a9194789a82efd5cccd1eb18d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/29/2021
+ms.openlocfilehash: 44661751e3bd1f32a9b06ed6b7b6993716162cb1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124807003"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131455043"
 ---
 # <a name="string-functions-for-arm-templates"></a>Funciones de cadena para plantillas de ARM
 
@@ -821,7 +821,7 @@ Devuelve una subcadena que empieza en la posición de carácter especificada y q
 |:--- |:--- |:--- |:--- |
 | stringToParse |Sí |string |La cadena original desde la que se extrae la subcadena. |
 | startIndex |No |int |La posición de carácter inicial basado en cero de la subcadena. |
-| length |No |int |El número de caracteres de la subcadena. Debe hacer referencia a una ubicación dentro de la cadena. Debe ser cero o mayor. |
+| length |No |int |El número de caracteres de la subcadena. Debe hacer referencia a una ubicación dentro de la cadena. Debe ser cero o mayor. Si se omite, se devolverá el resto de la cadena desde la posición inicial.|
 
 ### <a name="return-value"></a>Valor devuelto
 

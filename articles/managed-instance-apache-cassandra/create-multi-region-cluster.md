@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 236b2d1b34c04c387e8cc5dd83e886bcea0a8b52
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: fe2ab4a780e07f8d8325c2881d562a379ec16b97
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131084982"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131894419"
 ---
 # <a name="quickstart-create-a-multi-region-cluster-with-azure-managed-instance-for-apache-cassandra"></a>Inicio rápido: Configuración de un clúster de varias regiones con Azure Managed Instance for Apache Cassandra
 
@@ -22,7 +22,7 @@ En este inicio rápido se muestra cómo usar los comandos de la CLI de Azure par
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-* Este artículo requiere la CLI de Azure 2.12.1 o una versión posterior. Si usa Azure Cloud Shell, la versión más reciente ya está instalada.
+* Este artículo requiere la CLI de Azure 2.30.0 o una versión posterior. Si usa Azure Cloud Shell, la versión más reciente ya está instalada.
 
 * [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) con conectividad a su entorno autohospedado o local. Para obtener más información sobre cómo conectar entornos locales a Azure, consulte el artículo [Conexión de una red local a Azure](/azure/architecture/reference-architectures/hybrid-networking/).
 
@@ -196,11 +196,7 @@ Como todos los centros de datos aprovisionados con este servicio deben implement
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
-Si se produce un error al aplicar permisos a la red virtual, por ejemplo, uno que dice que *no se encuentra el usuario o la entidad de servicio en la base de datos de grafos para "e5007d2c-4b13-4a74-9b6a-605d99f03501"* , puede aplicar el mismo permiso manualmente desde Azure Portal. 
-
-Para aplicar permisos desde Azure Portal, vaya al panel **Control de acceso (IAM)** de la red virtual existente y agregue una asignación de roles de "Azure Cosmos DB" al rol "Administrador de red". Si aparecen dos entradas al buscar "Azure Cosmos DB", agregue las dos entradas, tal como se muestra en la siguiente imagen: 
-
-   :::image type="content" source="./media/create-cluster-cli/apply-permissions.png" alt-text="Permisos de aplicación" lightbox="./media/create-cluster-cli/apply-permissions.png" border="true":::
+Si se produce un error al aplicar permisos a la red virtual mediante la CLI de Azure, por ejemplo, se indica que *no se encuentra el usuario o la entidad de servicio en la base de datos de grafos para "e5007d2c-4b13-4a74-9b6a-605d99f03501"* , puede aplicar el mismo permiso manualmente desde Azure Portal. Aprenda cómo hacerlo [aquí](add-service-principal.md).
 
 > [!NOTE] 
 > La asignación de roles de Azure Cosmos DB se usa solo con fines de implementación. Azure Managed Instance for Apache Cassandra no tiene dependencias de back-end en Azure Cosmos DB.  

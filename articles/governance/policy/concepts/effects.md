@@ -3,12 +3,12 @@ title: Descripción del funcionamiento de los efectos
 description: Las definiciones de Azure Policy tienen diversos efectos que determinan cómo se administra y notifica el cumplimiento.
 ms.date: 09/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: bca5d7535cbbcbf2fc7b6f54e853872c788c723d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: bbcdce83fad513c85ab45f4c38c936b345828ef3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124792284"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131449685"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprender los efectos de Azure Policy
 
@@ -198,7 +198,7 @@ La propiedad **details** de los efectos de AuditIfNotExists tiene todas las subp
   - Establece el ámbito de donde obtener el recurso relacionado para que coincida.
   - No se aplica si **type** es un recurso que estaría debajo del recurso de condición **if**.
   - Para _ResourceGroup_, se limitaría al grupo de recursos del recurso de la condición **if** o al grupo de recursos especificado en **ResourceGroupName**.
-  - Para _Subscription_, se consulta toda la suscripción para el recurso relacionado.
+  - Para _Subscription_, se consulta toda la suscripción para el recurso relacionado. El ámbito de asignación debe establecerse en la suscripción o superior para una evaluación adecuada. 
   - El valor predeterminado es _ResourceGroup_.
 - **EvaluationDelay** (opcional)
   - Especifica cuándo se debe evaluar la existencia de los recursos relacionados. El retraso solo se usa para las evaluaciones que son el resultado de una solicitud de creación o de actualización de recursos.
@@ -353,7 +353,7 @@ La propiedad **details** del efecto DeployIfNotExists tiene todas las subpropied
   - Establece el ámbito de donde obtener el recurso relacionado para que coincida.
   - No se aplica si **type** es un recurso que estaría debajo del recurso de condición **if**.
   - Para _ResourceGroup_, se limitaría al grupo de recursos del recurso de la condición **if** o al grupo de recursos especificado en **ResourceGroupName**.
-  - Para _Subscription_, se consulta toda la suscripción para el recurso relacionado.
+  - Para _Subscription_, se consulta toda la suscripción para el recurso relacionado. El ámbito de asignación debe establecerse en la suscripción o superior para una evaluación adecuada. 
   - El valor predeterminado es _ResourceGroup_.
 - **EvaluationDelay** (opcional)
   - Especifica cuándo se debe evaluar la existencia de los recursos relacionados. El retraso solo se usa para las evaluaciones que son el resultado de una solicitud de creación o de actualización de recursos.

@@ -4,16 +4,16 @@ description: Introducción a los discos administrados de Azure, que controlan la
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/29/2021
+ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 801e9ed20c86c59d9c72043ff192a3500bae9a5f
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: f3a58291dcd0f6da13fb4c20f806f6450376f2be
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696138"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131555729"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introducción a los discos administrados de Azure
 
@@ -112,10 +112,7 @@ Una instantánea de disco administrado es una copia completa de solo lectura coh
 
 Las instantáneas se facturan en función del tamaño utilizado. Por ejemplo, si crea una instantánea de un disco administrado con capacidad aprovisionada de 64 GiB y el tamaño de datos usado real es de 10 GiB, solo se le cobra por el tamaño de datos usado de 10 GiB. El tamaño usado de las instantáneas se puede ver en el [informe de uso de Azure](../cost-management-billing/understand/review-individual-bill.md). Por ejemplo, si el tamaño de datos usado de una instantánea es de 10 GiB, el informe de uso **diario** mostrará 10 GiB/(31 días) = 0,3226 como cantidad consumida.
 
-Para más información sobre cómo crear instantáneas para discos administrados, consulte los siguientes recursos:
-
-- [Creación de una instantánea de un disco administrado en Windows](windows/snapshot-copy-managed-disk.md)
-- [Creación de una instantánea de un disco administrado en Linux](linux/snapshot-copy-managed-disk.md)
+Para más información sobre cómo crear instantáneas para discos administrados, consulte el artículo [Creación de una instantánea de un disco administrado](windows/snapshot-copy-managed-disk.md).
 
 ### <a name="images"></a>Imágenes
 
@@ -136,15 +133,19 @@ Una instantánea no tiene información sobre ningún disco, excepto el que conti
 
 ## <a name="disk-allocation-and-performance"></a>Asignación y rendimiento de discos
 
-En el diagrama siguiente se muestra la asignación en tiempo real de ancho de banda e IOPS para los discos mediante un sistema de aprovisionamiento en tres niveles:
+En el diagrama siguiente se muestra la asignación en tiempo real de ancho de banda e IOPS para discos, con tres rutas de acceso diferentes que una E/S puede tomar: 
 
-![Sistema de aprovisionamiento en tres niveles que muestra la asignación de ancho de banda e IOPS](media/virtual-machines-managed-disks-overview/real-time-disk-allocation.png)
+![Diagrama de un sistema de aprovisionamiento de tres niveles que muestra la asignación de ancho de banda e IOPS.](media/virtual-machines-managed-disks-overview/real-time-disk-allocation.png)
 
-El aprovisionamiento del primer nivel establece la asignación de IOPS y ancho de banda por disco.  En el segundo nivel, el host del servidor de proceso implementa el aprovisionamiento de SSD y lo aplica solo a los datos que se almacenan en la unidad de estado sólido del servidor, que incluye los discos con almacenamiento en caché (ReadWrite y ReadOnly), así como los discos locales y temporales. Por último, el aprovisionamiento de red de VM se realiza en el tercer nivel, para cualquier E/S que el host de proceso envía al back-end de Azure Storage. En este esquema el rendimiento de una máquina virtual depende de varios factores, desde el modo en que la máquina virtual usa la unidad de estado sólido local hasta el número de discos conectados, así como el tipo de rendimiento y almacenamiento en caché de los discos que tiene conectados.
+La primera ruta de acceso de E/S es la ruta de acceso de disco administrado sin almacenar en caché. Esta ruta de acceso se toma si usa un disco administrado y establece el almacenamiento en caché del host en ninguno. Una E/S que use esta ruta de acceso se ejecutará en función del aprovisionamiento del nivel de disco y, a continuación, del aprovisionamiento de nivel de red de la máquina virtual para E/S por segundo y rendimiento.   
+
+La segunda ruta de acceso de E/S es la ruta de acceso del disco administrado almacenado en caché. La E/S de disco administrado almacenado en caché usa un SSD cercano a la máquina virtual, que tiene sus propias E/S por segundo y rendimiento aprovisionado, y se etiqueta como aprovisionamiento de nivel de SSD en el diagrama. Cuando un disco administrado almacenado en caché inicia una lectura, la solicitud comprueba primero si los datos están en el SSD del servidor. Si los datos no están presentes, se crea un error de almacenamiento en caché y, a continuación, la E/S se ejecuta en función del aprovisionamiento de nivel de SSD, el aprovisionamiento de nivel de disco y luego el aprovisionamiento de nivel de red de máquina virtual para E/S por segundo y rendimiento. Cuando el SSD del servidor inicia lecturas en E/S almacenadas en caché que están presentes en el SSD del servidor, crea un acierto de caché y la E/S se ejecutará en función del aprovisionamiento de nivel de SSD. Las escrituras iniciadas por un disco administrado almacenado en caché siempre siguen la ruta de acceso de un error de almacenamiento en caché y deben pasar por el aprovisionamiento de nivel de SSD, nivel de disco y nivel de red de la máquina virtual.  
+
+Por último, la tercera ruta de acceso es para el disco local o temporal. Solo está disponible en máquinas virtuales que admiten discos locales o temporales. Una E/S que use esta ruta de acceso se ejecutará en función del aprovisionamiento de nivel SSD para E/S por segundo y rendimiento.   
 
 Como ejemplo de estas limitaciones, se evita que una máquina virtual Standard_DS1v1 alcance el potencial de 5 000 IOPS de un disco P30, tanto si está almacenado en caché como si no, debido a los límites en los niveles de red y SSD:
 
-![Asignación de ejemplo de Standard_DS1v1](media/virtual-machines-managed-disks-overview/example-vm-allocation.png)
+![Diagrama de asignación de ejemplo del sistema de aprovisionamiento de tres niveles con Standard_DS1v1.](media/virtual-machines-managed-disks-overview/example-vm-allocation.png)
 
 Azure usa un canal de red con clasificación por orden de prioridad para el tráfico de disco, que tiene precedencia sobre otras prioridades bajas de tráfico de red. Esto ayuda a los discos a mantener el rendimiento esperado en caso de contenciones de red. Del mismo modo, Azure Storage controla las contenciones de recursos y otros problemas en segundo plano, con el equilibrio de carga automático. Azure Storage asigna los recursos necesarios cuando se crea un disco y aplica un equilibrio proactivo y reactivo de recursos para controlar el nivel de tráfico. De este modo, se garantiza que los discos pueden mantener sus objetivos de IOPS y rendimiento esperados. Puede usar las métricas de nivel de máquina virtual y de nivel de disco para realizar el seguimiento del rendimiento y configurar alertas según sea necesario.
 

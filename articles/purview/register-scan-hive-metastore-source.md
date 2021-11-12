@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 074a2cbef5a19185f2e817f9cedd4ea509a3d966
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 2e40125d65dd2b4b701d5b1049444a52e6cb7dc4
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131457285"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131850667"
 ---
 # <a name="connect-to-and-manage-hive-metastore-databases-in-azure-purview"></a>Conexión y administración de bases de datos de metastore de Hive en Azure Purview
 
@@ -23,7 +23,9 @@ En este artículo se describe cómo registrar bases de datos de Hive Metastore 
 
 |**Extracción de metadatos**|  **Examen completo**  |**Examen incremental**|**Examen con ámbito**|**Clasificación**|**Directiva de acceso**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Sí](#register)| [Sí](#scan)| No | No | No | No| Sí |
+| [Sí](#register)| [Sí](#scan)| No | No | No | No| Sí** |
+
+\** Se admite el linaje si el conjunto de datos se usa como origen o receptor en la [actividad de copia de Data Factory](how-to-link-azure-data-factory.md) 
 
 > [!Important]
 > Las plataformas admitidas son Apache Hadoop, Cloudera, Hortonworks y Databricks.

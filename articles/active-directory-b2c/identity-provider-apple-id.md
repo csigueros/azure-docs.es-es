@@ -8,19 +8,19 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 11/02/2021
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8e47335810ec8f9845ab159af832d7ea3d362323
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: c3d3fa84e615a60092d0f42acd401be0421bc3f3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130228026"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131448640"
 ---
-# <a name="set-up-sign-up-and-sign-in-with-an-apple-id--using-azure-active-directory-b2c-preview"></a>Configuración de la suscripción y del inicio de sesión con un id. de Apple mediante Azure Active Directory B2C (versión preliminar)
+# <a name="set-up-sign-up-and-sign-in-with-an-apple-id--using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con un id. de Apple mediante Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -81,7 +81,7 @@ Para habilitar el inicio de sesión para los usuarios con un id. de Apple en Azu
 1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
 1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En **Servicios de Azure**, seleccione **Azure AD B2C**. O bien, use el cuadro de búsqueda para buscar y seleccionar **Azure AD B2C**.
-1. Seleccione **Proveedores de identidades** y luego **Apple (versión preliminar)** .
+1. Seleccione **Proveedores de identidades** y luego **Apple**.
 1. En **Name** (Nombre), escriba **Sign in with Apple** (Iniciar sesión con Apple). 
 1. Escriba el **Apple developer ID (Team ID)** [Id. de desarrollador de Apple (id. de equipo)].
 1. Escriba el **Apple service ID (client ID)** (Id. de servicio de Apple [id. de cliente]).
@@ -92,8 +92,7 @@ Para habilitar el inicio de sesión para los usuarios con un id. de Apple en Azu
 
 > [!IMPORTANT] 
 > - El inicio de sesión con Apple requiere que el administrador renueve el secreto de cliente cada 6 meses. 
-> - Durante la versión preliminar pública de esta característica, deberá renovar manualmente el secreto de cliente de Apple si expira. Se mostrará una advertencia de antemano en la página Configuración de IDP social de los proveedores de identidades de Apple, pero le recomendamos que establezca su propio recordatorio. 
-> - Si necesita renovar el secreto, abra Azure AD B2C en Azure Portal, vaya a **Proveedores de identidades** > **Apple** y seleccione **Renew secret** (Renovar secreto).
+> - El secreto de cliente de Apple se renovará automáticamente cuando expire. Si tiene que renovar manualmente el secreto, abra Azure AD B2C en Azure Portal, vaya a **Proveedores de identidades** > **Apple** y seleccione **Renew secret** (Renovar secreto).
 > - Siga las instrucciones para [ofrecer el botón Iniciar sesión con Apple](#customize-your-user-interface).
 
 ## <a name="add-the-apple-identity-provider-to-a-user-flow"></a>Adición del proveedor de identidades de Apple a un flujo de usuario
@@ -102,7 +101,7 @@ Para permitir que los usuarios inicien sesión con un identificador de Apple, de
 
 1. En el inquilino de Azure AD B2C, seleccione **Flujos de usuario**.
 1. Seleccione un flujo de usuario para el que desee agregar el proveedor de identidades de Apple. 
-1. En **Proveedores de identidades sociales**, seleccione **Apple (versión preliminar)** .
+1. En **Proveedores de identidades sociales**, seleccione **Apple**.
 1. Seleccione **Guardar**.
 1. Para probar la directiva, seleccione **Ejecutar flujo de usuario**.
 1. En **Aplicación**, seleccione la aplicación web denominada *testapp1* que registró anteriormente. La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.

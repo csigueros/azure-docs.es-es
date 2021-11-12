@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 6a707f349d4153c7b7a5dca78e2a739625cc7db5
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: b6d31f3a55338a9a92549954dd8ae1a3367c3da4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130232240"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131428071"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver
 
@@ -455,7 +455,7 @@ Azure ofrece una gran variedad de máquinas virtuales que puede seleccionar para
 
 ![Posicionamiento de servicios de máquinas virtuales de Microsoft Azure][planning-guide-figure-400]
 
-Con los servicios de máquina virtual de Azure, Microsoft permite implementar imágenes de servidor personalizadas en Azure como instancias de IaaS. También puede elegir entre una amplia selección de imágenes de sistema operativo consumibles de la galería de imágenes de Azure.
+Con los servicios de máquina virtual de Azure, Microsoft permite implementar imágenes de servidor personalizadas en Azure como instancias de IaaS. O bien, puede elegir entre una amplia selección de imágenes de sistema operativo consumibles en Azure Marketplace.
 
 Desde una perspectiva operativa, el servicio de máquinas virtuales de Azure es similar a las máquinas virtuales implementadas en local. El usuario es el responsable de la administración, de las operaciones y también de la aplicación de revisiones del sistema operativo concreto que se ejecuta en una máquina virtual de Azure y de las aplicaciones en esa máquina virtual. El único servicio que Microsoft presta es el hospedaje de esa máquina virtual en su infraestructura de Azure (infraestructura como servicio, o IaaS). Microsoft no tiene ofertas, aparte de las relativas a IaaS, para las cargas de trabajo de SAP que un usuario implemente como cliente.
 

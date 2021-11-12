@@ -3,19 +3,19 @@ title: 'Transcripción para los centros de llamadas: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Un escenario común para la conversión de voz a texto es la transcripción de grandes volúmenes de datos de telefonía que provienen de varios sistemas, como la respuesta de voz interactiva (IVR). Con el servicio Voz y el modelo de voz unificado, una empresa puede obtener transcripciones de alta calidad con sistemas de captura de audio.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.author: pafarley
-ms.openlocfilehash: 0c1e1ca9b38c342d469c7d4ea1589b48038c95db
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.author: eur
+ms.openlocfilehash: ba4e6fc3d128daf54f55456163acb6a563745b55
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123538874"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131507954"
 ---
 # <a name="speech-service-for-telephony-data"></a>Servicio Voz para datos de telefonía
 
@@ -76,7 +76,7 @@ Otro elemento básico del análisis es identificar las interacciones en las que 
 
 ### <a name="key-phrase-extraction"></a>Extracción de frases clave
 
-Esta área es una de las aplicaciones de análisis más desafiantes y una que se está beneficiando de la aplicación de la inteligencia artificial y del aprendizaje automático. El escenario principal en este caso es inferir la intención del cliente. ¿Por qué llama el cliente? ¿Cuál es el problema del cliente? ¿Por qué el cliente ha tenido una experiencia negativa? Nuestro [servicio de análisis de texto](https://azure.microsoft.com/services/cognitive-services/text-analytics/) proporciona un conjunto de análisis de fábrica para actualizar rápidamente su solución completa y extraer esas palabras clave o frases importantes.
+Esta área es una de las aplicaciones de análisis más desafiantes y una que se está beneficiando de la aplicación de la inteligencia artificial y del aprendizaje automático. El escenario principal en este caso es inferir la intención del cliente. ¿Por qué llama el cliente? ¿Cuál es el problema del cliente? ¿Por qué el cliente ha tenido una experiencia negativa? Nuestro [servicio de lenguaje](https://azure.microsoft.com/services/cognitive-services/text-analytics/) proporciona un conjunto de análisis de fábrica para actualizar rápidamente su solución completa y extraer esas palabras clave o frases importantes.
 
 Veamos ahora con más detalle el procesamiento por lotes y las canalizaciones en tiempo real para el reconocimiento de voz.
 

@@ -8,12 +8,12 @@ ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions, devx-track-azurepowershell
 ms.date: 09/28/2021
-ms.openlocfilehash: f9c07abdfe512c2564fdfe1595f16db8a6372a8b
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: c4baf3ee8fdb26bd361dfafbaa29953f6d1d13f8
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129230246"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469564"
 ---
 # <a name="azure-data-factory-managed-virtual-network"></a>Red virtual administrada de Azure Data Factory
 
@@ -38,7 +38,7 @@ Ventajas del uso de una red virtual administrada:
 >Actualmente, la red virtual administrada solo se admite en la misma región que Azure Data Factory.
 
 > [!Note]
->El entorno público de ejecución de integración de Azure existente no puede cambiar al entorno de ejecución de Azure en la red virtual administrada de Azure Data Factory y viceversa.
+>El entorno de ejecución de integración de Azure global existente no se puede cambiar al entorno de ejecución de integración de Azure en la red virtual administrada de Azure Data Factory y viceversa.
  
 
 :::image type="content" source="./media/managed-vnet/managed-vnet-architecture-diagram.png" alt-text="Arquitectura de la red virtual de Azure Data Factory":::
@@ -77,7 +77,7 @@ Entre las funcionalidades de la creación interactiva se incluyen probar la cone
 :::image type="content" source="./media/managed-vnet/interactive-authoring.png" alt-text="Creación interactiva":::
 
 ## <a name="activity-execution-time-using-managed-virtual-network"></a>Tiempo de ejecución de la actividad mediante una red virtual administrada
-Por diseño, el entorno de ejecución de integración de Azure en la red virtual administrada tiene un tiempo en la cola más largo que el entorno de ejecución de Azure, ya que no se reserva un nodo de proceso por factoría de datos, por lo que hay una preparación antes de que se inicie cada actividad y se produce principalmente en la unión a una red virtual y no al entorno de ejecución de integración de Azure. En el caso de las actividades que no son de copia, incluida la actividad de canalización y la actividad externa, hay un período de vida (TTL) de 60 minutos al desencadenarlas por primera vez. Dentro de TTL, el tiempo de cola es más corto porque el nodo ya está preparado. 
+Por diseño, el entorno de ejecución de integración de Azure en la red virtual administrada tiene un tiempo en la cola más largo que el entorno de ejecución de integración global de Azure, ya que no se reserva un nodo de proceso por factoría de datos, por lo que hay una preparación antes de que se inicie cada actividad y se produce principalmente en la unión a una red virtual y no al entorno de ejecución de integración de Azure. En el caso de las actividades que no son de copia, incluida la actividad de canalización y la actividad externa, hay un período de vida (TTL) de 60 minutos al desencadenarlas por primera vez. Dentro de TTL, el tiempo de cola es más corto porque el nodo ya está preparado. 
 > [!NOTE]
 > La actividad de copia todavía no tiene compatibilidad con TTL.
 
@@ -129,8 +129,9 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
 ```
 
 ## <a name="limitations-and-known-issues"></a>Limitaciones y problemas conocidos
-### <a name="supported-data-sources"></a>Orígenes de datos compatibles
-Los orígenes de datos siguientes tienen compatibilidad nativa con puntos de conexión privados y se pueden conectar a través de Private Link desde una red virtual administrada por ADF.
+
+### <a name="supported-data-sources"></a>Orígenes de datos admitidos
+Los orígenes de datos siguientes tienen compatibilidad nativa con puntos de conexión privados y se pueden conectar mediante un vínculo privado desde una red virtual administrada por ADF.
 - Azure Blob Storage (sin incluir la cuenta de almacenamiento V1)
 - Azure Cognitive Search
 - API de SQL de Azure Cosmos DB
@@ -154,43 +155,11 @@ Los orígenes de datos siguientes tienen compatibilidad nativa con puntos de con
 > Dado que Azure SQL Managed Instance no admite por el momento puntos de conexión privados nativos, puede acceder a este servicio desde la red virtual administrada mediante el servicio Private Link y Load Balancer. Consulte [Tutorial: Acceso a SQL Managed Instance desde una VNET administrada de Data Factory mediante un punto de conexión privado](tutorial-managed-virtual-network-sql-managed-instance.md).
 
 ### <a name="on-premises-data-sources"></a>Orígenes de datos locales
-Para acceder a orígenes de datos locales desde una red virtual administrada mediante un punto de conexión privado, consulte [Tutorial: Acceso a SQL Server local desde una red virtual administrada por Data Factory mediante un punto de conexión privado](tutorial-managed-virtual-network-on-premise-sql-server.md).
+Para acceder a orígenes de datos locales desde una red virtual administrada mediante un punto de conexión privado, vea este tutorial [Acceso a SQL Server local desde una red virtual administrada por Data Factory mediante un punto de conexión privado](tutorial-managed-virtual-network-on-premise-sql-server.md).
 
-### <a name="azure-data-factory-managed-virtual-network-is-available-in-the-following-azure-regions"></a>La característica Managed Virtual Network de Azure Data Factory está disponible en las siguientes regiones de Azure:
-- Este de Australia
-- Sudeste de Australia
-- Sur de Brasil
-- Centro de Canadá
-- Este de Canadá
-- Centro de la India
-- Centro de EE. UU.
-- Este de China 2
-- Norte de China 2
-- Este de Asia
-- Este de EE. UU.
-- Este de EE. UU. 2
-- Centro de Francia
-- Centro-oeste de Alemania
-- Japón Oriental
-- Japón Occidental
-- Centro de Corea del Sur
-- Centro-Norte de EE. UU
-- Norte de Europa
-- Este de Noruega
-- Norte de Sudáfrica
-- Centro-sur de EE. UU.
-- Sudeste de Asia
-- Norte de Suiza
-- Norte de Emiratos Árabes Unidos
-- US Gov: Arizona
-- US Gov Texas
-- US Gov - Virginia
-- Sur de Reino Unido
-- Oeste de Reino Unido
-- Centro-Oeste de EE. UU.
-- Oeste de Europa
-- Oeste de EE. UU.
-- Oeste de EE. UU. 2
+### <a name="azure-data-factory-managed-virtual-network-is-available-in-the-following-azure-regions"></a>La característica de red virtual administrada de Azure Data Factory está disponible en las siguientes regiones de Azure
+Por lo general, la red virtual administrada está disponible para todas las regiones de Azure Data Factory, excepto:
+- Sur de la India
 
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Comunicaciones salientes a través del punto de conexión público desde la red virtual administrada de ADF

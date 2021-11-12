@@ -2,20 +2,20 @@
 title: Cómo proteger una aplicación de demonio en Microsoft Azure Maps
 titleSuffix: Azure Maps
 description: En este artículo, se explica cómo hospedar aplicaciones de demonio, como procesos en segundo plano, temporizadores y trabajos, en un entorno seguro y de confianza en Microsoft Azure Maps.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 06/21/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philema
+manager: eriklind
 custom.ms: subject-rbac-steps
-ms.openlocfilehash: b888dccbd7ce5cbf948b2da5494dd554b2d80649
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
+ms.openlocfilehash: e64645f7bdcbfb40cbee0fd29d1df2464a5d4f3e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112541777"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450863"
 ---
 # <a name="secure-a-daemon-application"></a>Protección de una aplicación demonio
 
@@ -202,7 +202,7 @@ Para adquirir el token de acceso:
 
 4. Seleccione la aplicación.
 
-5. Debe abrirse la página Información general. Copie el id. de la aplicación (id. de cliente) y el id. del directorio (inquilino).
+5. Debe abrirse la página Información general. Copie el id. de la aplicación (cliente) y el id. del directorio (inquilino).
 
       :::image type="content" border="true" source="./media/how-to-manage-authentication/get-token-params.png" alt-text="Copia de los parámetros del token.":::
 
@@ -216,10 +216,10 @@ Usaremos la aplicación [Postman](https://www.postman.com/) para crear la solici
 
 4. Seleccione el método HTTP **POST**.
 
-5. Escriba la siguiente dirección URL en la barra de direcciones [reemplace `<Tenant ID>` por el identificador del directorio (inquilino), `<Client ID>` por el identificador de la aplicación (cliente) y `<Client Secret>` por el secreto del cliente]:
+5. Escriba la siguiente dirección URL en la barra de direcciones (reemplace `{Tenant-ID}` por el identificador del directorio (inquilino), `{Client-ID}` por el identificador de la aplicación (cliente) y `{Client-Secret}` por el secreto del cliente):
 
     ```http
-    https://login.microsoftonline.com/<Tenant ID>/oauth2/v2.0/token?response_type=token&grant_type=client_credentials&client_id=<Client ID>&client_secret=<Client Secret>%3D&scope=api%3A%2F%2Fazmaps.fundamentals%2F.default
+    https://login.microsoftonline.com/{Tenant-ID}/oauth2/v2.0/token?response_type=token&grant_type=client_credentials&client_id={Client-ID}&client_secret={Client-Secret}%3D&scope=api%3A%2F%2Fazmaps.fundamentals%2F.default
     ```
 
 6. Seleccione **Enviar**.
@@ -231,7 +231,7 @@ Usaremos la aplicación [Postman](https://www.postman.com/) para crear la solici
     "token_type": "Bearer",
     "expires_in": 86399,
     "ext_expires_in": 86399,
-    "access_token&quot;: &quot;eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Im5PbzNaRHJPRFhFSzFq..."
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Im5PbzNaRHJPRFhFSzFq..."
 }
 ```
 

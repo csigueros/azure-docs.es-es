@@ -5,13 +5,13 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 03/22/2021
-ms.openlocfilehash: 11360af784f456559955152772ba099ad4d48d73
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 11/01/2021
+ms.openlocfilehash: 446a59d6234219425bb24e62ecfc4796cd7fec6d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123423886"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131429591"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Dispositivo de Azure Migrate: Preguntas frecuentes
 
@@ -108,6 +108,12 @@ No. Hay una asignación unívoca entre un [dispositivo Azure Migrate](migrate-ap
 ## <a name="can-a-project-have-multiple-appliances"></a>¿Puede un proyecto tener varias aplicaciones?
 
 Un proyecto puede tener varios dispositivos registrados. Sin embargo, un dispositivo solo puede registrarse en un solo proyecto.
+
+## <a name="how-do-i-find-the-azure-migrate-appliances-registered-to-the-project"></a>¿Cómo se encuentran los dispositivos de Azure Migrate registrados en el proyecto?
+1. En Azure Portal, vaya a la [página principal de Azure Migrate](https://portal.azure.com/?feature.customportal=false&feature.showassettypes=Microsoft_Azure_Migrate_AzureMigrationHub&feature.smsMigrationTool=true&feature.cloudamizeAssessmentTool=true&feature.sasAssessmentTool=true&feature.firstPartyDiscoveredMachines=true#blade/Microsoft_Azure_Migrate/AmhResourceMenuBlade/getStarted) y, en el menú de la izquierda, seleccione **Servidores, bases de datos y aplicaciones web**.
+1. Seleccione **Cambiar** en la esquina superior derecha para elegir el proyecto.
+1. En el proyecto de Azure Migrate, seleccione **Información general** en Azure Migrate: Detección y evaluación.
+1. En **Información general**, seleccione **Dispositivos** en el menú de la izquierda para ver los dispositivos registrados con el proyecto y el estado de conectividad de los agentes en el dispositivo.
 
 ## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>¿El dispositivo de Azure Migrate o el dispositivo de replicación puede conectarse al mismo vCenter?
 

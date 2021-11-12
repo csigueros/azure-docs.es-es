@@ -8,15 +8,15 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 08/03/2021
+ms.date: 10/29/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q3, devx-track-azurepowershell
-ms.openlocfilehash: bbe9f19bcf5925ef6e08829fde75bc2f9032b031
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: f683d7192d73cc04b23b58243ba27ccc62afb010
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429877"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131468639"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Uso de un área de trabajo con un servidor DNS personalizado
 
@@ -24,6 +24,9 @@ Al usar un área de trabajo de Azure Machine Learning con un punto de conexión 
 
 > [!IMPORTANT]
 > En este artículo se habla de cómo buscar los nombres de dominio completos (FQDN) y las direcciones IP de estas entradas si se quieren registrar manualmente registros DNS en la solución DNS. Además, en este artículo se proporcionan recomendaciones de arquitectura sobre cómo configurar la solución DNS personalizada para que resuelva automáticamente los FQDN en las direcciones IP correctas. En este artículo NO se proporciona información sobre la configuración de los registros DNS de estos elementos. Consulte la documentación del software de DNS para obtener información sobre cómo agregar registros.
+
+> [!WARNING]
+> Si usa un punto de conexión privado para otros servicios de Azure en los que se basa el área de trabajo de aprendizaje automático, como Azure Storage, Azure Key Vault o Azure Container Registry. También debe crear entradas de DNS o usar un reenviador condicional para estos servicios. Para obtener más información, vea [Configuración de DNS para puntos de conexión privados de Azure](/azure/private-link/private-endpoint-dns).
 
 > [!TIP]
 > Este artículo forma parte de una serie sobre la protección de un flujo de trabajo de Azure Machine Learning. Consulte los demás artículos de esta serie:
@@ -285,7 +288,7 @@ En los pasos siguientes se explica cómo funciona esta topología:
     **Regiones de Azure público**:
     - ```api.azureml.ms```
     - ```notebooks.azure.net```
-    - ```instances.ml.azure.us```
+    - ```instances.ml.azure.ms```
     
     **Regiones de Azure China**:
     - ```api.ml.azure.cn```

@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones y limitaciones de compatibilidad
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 8f812eb5793dd2c83cfd1e867d79fe6d6530912e
-ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
+ms.openlocfilehash: 94c5a7da0ab05750f63b9af26fa25d9b5cf00fca
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113485750"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132345497"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matriz de compatibilidad de copia de seguridad de recursos compartidos de archivos de Azure
 
@@ -56,7 +56,7 @@ La copia de seguridad de recursos compartidos de archivos de Azure está disponi
 | Configuración                                      | Límite |
 | -------------------------------------------- | ----- |
 | Número máximo de copias de seguridad a petición al día | 10   |
-| Número máximo de copias de seguridad programadas al día | 1     |
+| Número máximo de copias de seguridad programadas al día | 6    |
 
 ## <a name="restore-limits"></a>Límites de restauración
 

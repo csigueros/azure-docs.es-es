@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 57d211a7a080cc07d30a5810c4e1660c575acff3
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 9dabeaa9dd8e22e63b356768e34ebf828ac43632
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123078426"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131861186"
 ---
 En este artículo se enumeran las versiones y las características del agente de aprovisionamiento de Azure Active Directory Connect que se han publicado. El equipo de Azure AD actualiza periódicamente el agente de aprovisionamiento con nuevas características y funciones. 
 
@@ -12,6 +12,15 @@ Microsoft proporciona soporte técnico directo para la versión más reciente de
 
 ## <a name="download-link"></a>Vínculo de descarga
 Puede descargar la versión más reciente del agente en [este vínculo](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/provisioningAgentInstaller).
+
+## <a name="115870"></a>1.1.587.0
+
+2 de noviembre de 2021: publicado para descarga
+
+Nuevas características y mejoras
+
+- Cmdlet para configurar la escritura diferida de contraseñas
+
 
 ## <a name="115840"></a>1.1.584.0 
 

@@ -2,31 +2,29 @@
 title: Guía de diseño de tablas replicadas
 description: Recomendaciones para el diseño de tablas replicadas en un grupo de Synapse SQL
 services: synapse-analytics
-author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 03/19/2019
-ms.author: xiaoyul
-ms.reviewer: igorstan
+ms.date: 11/02/2021
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: ''
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: f4c9326d4893209379bf459ed9fa7b9feff253aa
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
+ms.openlocfilehash: 2dd2b937029d240ac28904cc346d2211cab99ac1
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109837860"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131506360"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Instrucciones de diseño para el uso de tablas replicadas en un grupo de Synapse SQL
 
 En este artículo se proporcionan recomendaciones para el diseño de tablas replicadas en el esquema de grupo de Synapse SQL. Siga estas recomendaciones para mejorar el rendimiento de las consultas al reducir el movimiento de datos y la complejidad de las consultas.
 
-> [!VIDEO https://www.youtube.com/embed/1VS_F37GI9U]
+## <a name="prerequisites"></a>Prerrequisitos
 
-## <a name="prerequisites"></a>Requisitos previos
-
-En este artículo se da por supuesto que está familiarizado con los conceptos de distribución y movimiento de datos en el grupo de SQL.    Para obtener más información, consulte el artículo [Arquitectura](massively-parallel-processing-mpp-architecture.md).
+En este artículo se da por supuesto que está familiarizado con los conceptos de distribución y movimiento de datos en el grupo de SQL.   Para obtener más información, consulte el artículo [Arquitectura](massively-parallel-processing-mpp-architecture.md).
 
 Como parte del diseño de tablas, comprenda tanto como sea posible sobre los datos y cómo se consultan los datos.    Por ejemplo, considere estas preguntas:
 
@@ -36,13 +34,13 @@ Como parte del diseño de tablas, comprenda tanto como sea posible sobre los dat
 
 ## <a name="what-is-a-replicated-table"></a>¿Qué es una tabla replicada?
 
-Una tabla replicada tiene una copia completa de la tabla a la que se puede tener acceso en cada nodo de proceso. Al replicar una tabla se elimina la necesidad de transferir sus datos de un nodo de proceso a otro antes de una combinación o agregación. Como la tabla tiene varias copias, las tablas replicadas funcionan mejor cuando el tamaño de la tabla es inferior a 2 GB comprimido.  2 GB no es un límite máximo.  Si los datos son estáticos y no cambian, puede replicar tablas más grandes.
+Una tabla replicada tiene una copia completa de la tabla a la que se puede tener acceso en cada nodo de proceso. Al replicar una tabla se elimina la necesidad de transferir sus datos de un nodo de proceso a otro antes de una combinación o agregación. Como la tabla tiene varias copias, las tablas replicadas funcionan mejor cuando el tamaño de la tabla es inferior a 2 GB comprimido. 2 GB no es un límite máximo.  Si los datos son estáticos y no cambian, puede replicar tablas más grandes.
 
 En el diagrama siguiente se muestra una tabla replicada a la que se puede tener acceso en cada nodo de proceso. En el grupo de SQL, la tabla replicada se copia completamente en una base de datos de distribución en cada nodo de proceso.
 
-![Tabla replicada](./media/design-guidance-for-replicated-tables/replicated-table.png "Tabla replicada")  
+:::image type="content" source="./media/design-guidance-for-replicated-tables/replicated-table.png" alt-text="Tabla replicada" lightbox="./media/design-guidance-for-replicated-tables/replicated-table.png":::
 
-Las tablas replicadas funcionan correctamente para tablas de dimensiones de un esquema de estrella. Las tablas de dimensiones suelen unirse a las tablas de hechos que se distribuyen de manera diferente a la tabla de dimensiones.  Las dimensiones suelen tener un tamaño que resulta adecuado para almacenar y mantener varias copias. Las dimensiones almacenan datos descriptivos que cambian lentamente, como el nombre y la dirección del cliente, y detalles del producto. La naturaleza de cambio lento de los datos genera menos tareas de mantenimiento de la tabla replicada.
+Las tablas replicadas funcionan correctamente para tablas de dimensiones de un esquema de estrella. Las tablas de dimensiones suelen unirse a las tablas de hechos, que se distribuyen de manera diferente a la tabla de dimensiones.  Las dimensiones suelen tener un tamaño que resulta adecuado para almacenar y mantener varias copias. Las dimensiones almacenan datos descriptivos que cambian lentamente, como el nombre y la dirección del cliente, y detalles del producto. La naturaleza de cambio lento de los datos genera menos tareas de mantenimiento de la tabla replicada.
 
 Considere la posibilidad de usar una tabla replicada cuando:
 
@@ -67,18 +65,16 @@ Las consultas que consumen más CPU ofrecen un mejor comportamiento cuando el tr
 Por ejemplo, esta consulta tiene un predicado complejo.  Se ejecuta con mayor rapidez cuando los datos están en una tabla distribuida en lugar de en una tabla replicada. En este ejemplo, los datos se pueden distribuir mediante el método round robin.
 
 ```sql
-
 SELECT EnglishProductName
 FROM DimProduct
-WHERE EnglishDescription LIKE '%frame%comfortable%'
-
+WHERE EnglishDescription LIKE '%frame%comfortable%';
 ```
 
 ## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>Convertir tablas Round Robin existentes en tablas replicadas
 
 Si ya tiene tablas Round Robin, se recomienda convertirlas en tablas replicadas si cumplen con los criterios que se describen en este artículo. Las tablas replicadas mejoran el rendimiento con respecto a las tablas Round Robin porque eliminan la necesidad del movimiento de datos.  Una tabla Round Robin siempre requiere movimiento de datos para las combinaciones.
 
-En este ejemplo se usa [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para convertir la tabla DimSalesTerritory en una tabla replicada. Este ejemplo funciona independientemente de si DimSalesTerritory se distribuye por hash o Round Robin.
+En este ejemplo se usa [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para convertir la tabla `DimSalesTerritory` en una tabla replicada. Este ejemplo funciona independientemente de si `DimSalesTerritory` se distribuye por hash o round robin.
 
 ```sql
 CREATE TABLE [dbo].[DimSalesTerritory_REPLICATE]
@@ -101,7 +97,7 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 
 Una tabla replicada no requiere ningún movimiento de datos para las combinaciones porque la tabla completa ya está presente en todos los nodo de proceso. Si las tablas de dimensiones se distribuyen con el método Round Robin, una combinación copia la tabla de dimensiones completa en todos los nodos de proceso. Para mover los datos, el plan de consulta contiene una operación llamada BroadcastMoveOperation. Este tipo de operación de movimiento de datos reduce el rendimiento de las consultas y se elimina mediante el uso de tablas replicadas. Para ver los pasos del plan de consulta, use la vista de catálogo del sistema [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  
 
-Por ejemplo, en la siguiente consulta en el esquema de AdventureWorks, la tabla `FactInternetSales` se distribuye por hash. Las tablas `DimDate` y `DimSalesTerritory` son tablas de dimensiones más pequeñas. Esta consulta devuelve el total de ventas en Norteamérica para el año fiscal 2004:
+Por ejemplo, en la siguiente consulta en el esquema de `AdventureWorks`, la tabla `FactInternetSales` se distribuye por hash. Las tablas `DimDate` y `DimSalesTerritory` son tablas de dimensiones más pequeñas. Esta consulta devuelve el total de ventas en Norteamérica para el año fiscal 2004:
 
 ```sql
 SELECT [TotalSalesAmount] = SUM(SalesAmount)

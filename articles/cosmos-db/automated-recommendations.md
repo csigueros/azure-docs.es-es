@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/26/2021
 ms.reviewer: sngun
-ms.openlocfilehash: 3844e71a1c3c9e823586a428b9ae98a3b804d502
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 73bad87352176e4272a68248bf7f052dccc0165a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123034591"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446417"
 ---
 # <a name="automated-recommendations-for-azure-cosmos-db"></a>Recomendaciones automatizadas para Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -66,6 +66,8 @@ En esta categoría, el asesor detecta el uso de RU/s y determina que puede optim
 | Capacidad reservada | Detecta el uso de RU/s y recomienda instancias reservadas para los usuarios que pueden beneficiarse de ellas. |
 | Contenedores inactivos | Detecta los contenedores que no se han usado durante más de treinta días y recomienda reducir el rendimiento de dichos contenedores o eliminarlos.|
 | Nuevas suscripciones con un alto rendimiento | Detecta nuevas suscripciones con cuentas que gastan una cantidad inusualmente alta de RU/s al día y se lo notifica. Esta notificación es específicamente para dar a conocer a los nuevos clientes que Azure Cosmos DB opera en un modelo basado en rendimiento aprovisionado y no en un modelo basado en consumo. |
+| Habilitar escalado automático | Detecta si en las bases de datos y los contenedores que usan actualmente el rendimiento manual se reducirían los costos al habilitar la escalabilidad automática. |
+| Uso del rendimiento manual en lugar de la escalabilidad automática | Detecta si en las bases de datos y los contenedores que usan actualmente el rendimiento de escalabilidad automática se reducirían los costos al cambiar al rendimiento manual. |
 
 ## <a name="migration-recommendations"></a>Recomendaciones sobre migración
 
@@ -87,6 +89,6 @@ En esta categoría, el asesor detecta la ejecución de consultas e identifica qu
 
 * [Optimización del rendimiento de consultas en Azure Cosmos DB](sql-api-query-metrics.md)
 * [Solución de problemas de consulta](troubleshoot-query-performance.md) al usar Azure Cosmos DB
-* ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Puede usar información sobre el clúster de bases de datos existente para planear la capacidad.
+* ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Para ello, puede usar información sobre el clúster de bases de datos existente.
     * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
-    * Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).
+    * Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).

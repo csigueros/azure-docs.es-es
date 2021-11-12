@@ -7,15 +7,19 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 2ce8bc5c26eb99ed19578a036a4569829bc44879
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 8f86b7659e3147fcdf4a450820db31c3f72c0b4d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129458309"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450977"
 ---
 # <a name="repair-an-automanage-account"></a>Reparación de una cuenta de Automanage
-La [cuenta de Azure Automanage](./automanage-virtual-machines.md#automanage-account) es el contexto de seguridad o la identidad bajo los que tienen lugar las operaciones automatizadas. Si ha movido recientemente una suscripción que contiene una cuenta de Automanage a un nuevo inquilino, debe volver a configurarla. Para volver a configurarla, debe restablecer el tipo de identidad y asignar los roles adecuados para la cuenta.
+
+> [!IMPORTANT]
+> Este artículo solo es pertinente para las máquinas que se han incorporado a la versión anterior de Automanage (versión 2020-06-30-preview de la API). El estado de estas máquinas será **Necesita actualización**. 
+
+La cuenta de Azure Automanage es el contexto de seguridad o la identidad bajo los que tienen lugar las operaciones automatizadas. Si ha movido recientemente una suscripción que contiene una cuenta de Automanage a un nuevo inquilino, debe volver a configurarla. Para volver a configurarla, debe restablecer el tipo de identidad y asignar los roles adecuados para la cuenta.
 
 ## <a name="step-1-reset-the-automanage-account-identity-type"></a>Paso 1: Restablecimiento del tipo de identidad de cuenta de Automanage
 Restablezca el tipo de identidad de cuenta de Automanage mediante la siguiente plantilla de Azure Resource Manager (ARM). Guarde el archivo localmente como armdeploy.json o un nombre similar. Anote el nombre y la ubicación de la cuenta de Automanage porque son parámetros necesarios en la plantilla de Resource Manager.

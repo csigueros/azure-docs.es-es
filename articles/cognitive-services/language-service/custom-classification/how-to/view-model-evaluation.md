@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
-ms.openlocfilehash: 89cb476141544c136ac38abf996cf16d3ac4d002
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d0b708f3b06eaeb458df4e4c9da73e86b451e137
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093364"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469676"
 ---
 # <a name="view-the-model-evaluation"></a>Visualización de la evaluación del modelo
 
@@ -60,13 +60,16 @@ El proceso de evaluación usa el modelo entrenado para predecir las clases defin
 
 La matriz de confusión del modelo se encuentra en **Matriz de confusión del conjunto de pruebas**.
 
+> [!NOTE]
+> La matriz de confusión no se admite actualmente para proyectos de clasificación de varias etiquetas.
+
 **Clasificación de etiqueta única**
 
 :::image type="content" source="../media/conf-matrix-single.png" alt-text="Matriz de confusión para la clasificación de clase única" lightbox="../media/conf-matrix-single.png":::
 
-**Clasificación de varias etiquetas**
+<!-- **Multiple Label Classification**
 
-:::image type="content" source="../media/conf-matrix-multi.png" alt-text="Matriz de confusión para la clasificación de varias clases" lightbox="../media/conf-matrix-multi.png":::
+:::image type="content" source="../media/conf-matrix-multi.png" alt-text="Confusion matrix for multiple class classification" lightbox="../media/conf-matrix-multi.png"::: -->
 
 ## <a name="next-steps"></a>Pasos siguientes
 

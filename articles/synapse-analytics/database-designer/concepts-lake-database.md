@@ -4,15 +4,16 @@ description: Obtenga información sobre el concepto de base de datos de lago y c
 author: gsaurer
 ms.author: gesaur
 ms.service: synapse-analytics
+ms.subservice: database-editor
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.custom: template-concept, ignite-fall-2021
-ms.openlocfilehash: b0c288fe2f7b6ac9bf6c0a2a636131a1d89ffe5d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 5b030bc1551bc8d21101b127c123507f08abf62c
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131092905"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131510420"
 ---
 # <a name="lake-database"></a>Base de datos de lago
 
@@ -27,7 +28,7 @@ El nuevo diseñador de bases de datos ofrece la posibilidad de crear un modelo d
 
 ## <a name="data-storage"></a>Almacenamiento de datos 
 
-Las bases de datos de lago usan un lago de datos en la cuenta de Azure Storage para almacenar los datos de la base de datos. Los datos se pueden almacenar en formato Parquet de archivo .csv y se pueden usar diferentes configuraciones para optimizar el almacenamiento. Cada base de datos de lago usa un servicio vinculado para definir la ubicación de la carpeta de datos raíz. Para cada entidad, se crean carpetas independientes de forma predeterminada dentro de esta carpeta de base de datos en el lago de datos. De forma predeterminada, todas las tablas de una base de datos de lago usan el mismo formato, pero los formatos y la ubicación de los datos se pueden cambiar por entidad si se solicita. 
+Las bases de datos de lago usan un lago de datos en la cuenta de Azure Storage para almacenar los datos de la base de datos. Los datos se pueden almacenar en formato de archivo .csv o Parquet y se pueden usar diferentes configuraciones para optimizar el almacenamiento. Cada base de datos de lago usa un servicio vinculado para definir la ubicación de la carpeta de datos raíz. Para cada entidad, se crean carpetas independientes de forma predeterminada dentro de esta carpeta de base de datos en el lago de datos. De forma predeterminada, todas las tablas de una base de datos de lago usan el mismo formato, pero los formatos y la ubicación de los datos se pueden cambiar por entidad si se solicita. 
 
 
 ## <a name="database-compute"></a>Proceso de base de datos

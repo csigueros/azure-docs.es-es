@@ -8,12 +8,12 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: e2c5ecdd43d90fbfe6e6b792b1d0a6e990bb3736
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: e96d3219668475760556c209b3d7a4d59da1b275
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824907"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423363"
 ---
 # <a name="certificates-overview-for-azure-cloud-services-classic"></a>Introducción a los certificados de Azure Cloud Services (clásico)
 
@@ -48,6 +48,8 @@ Los certificados de administración le permiten autenticar con el modelo de impl
 
 ### <a name="limitations"></a>Limitaciones
 Hay un límite de 100 certificados de administración por suscripción. También hay un límite de 100 certificados de administración para todas las suscripciones bajo un identificador de usuario de un administrador de servicio específico. Si ya ha se ha usado el identificador de usuario para el administrador de la cuenta para agregar 100 certificados de administración y se necesitan más certificados, puede agregar un coadministrador para añadir certificados adicionales. 
+
+Además, los certificados de administración no se pueden usar con suscripciones de CSP, ya que las suscripciones de CSP solo admiten el modelo de implementación de Azure Resource Manager y los certificados de administración usan el modelo de implementación clásica. Consulte [Implementación mediante Azure Resource Manager frente a la implementación clásica](/azure/azure-resource-manager/management/deployment-models) y [Descripción de la autenticación con el SDK de Azure para .NET](/dotnet/azure/sdk/authentication) a fin de obtener más información sobre las opciones de las suscripciones de CSP.
 
 <a name="create"></a>
 ## <a name="create-a-new-self-signed-certificate"></a>Creación de un nuevo certificado autofirmado

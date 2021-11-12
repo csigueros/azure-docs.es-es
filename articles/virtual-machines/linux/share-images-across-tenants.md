@@ -1,6 +1,6 @@
 ---
 title: Uso compartido de imágenes de la galería entre inquilinos
-description: Obtenga información sobre cómo compartir imágenes de VM entre inquilinos de Azure mediante Galerías de imágenes compartidas y la CLI de Azure.
+description: Aprenda a compartir imágenes de máquina virtual entre inquilinos de Azure mediante instancias de Azure Compute Gallery y la CLI de Azure.
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 05/04/2019
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 78944d14a2d1555c76468b5b9915b07cf55e9d3f
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 525e1f51629fe698d1c9f2c3cb9454ddd0a5d183
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123223781"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131448906"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants-using-the-azure-cli"></a>Uso compartido de imágenes de VM de la galería entre inquilinos de Azure mediante la CLI de Azure
 
-Las galerías de imágenes compartidas le permiten compartir las imágenes mediante Azure RBAC. Puede usar Azure RBAC para compartir imágenes dentro de su inquilino e incluso con personas de fuera de él. Para más información sobre esta opción de uso compartido simple, consulte [Compartir la galería](./shared-images-portal.md#share-the-gallery).
+Las instancias de Azure Compute Gallery permiten compartir imágenes mediante RBAC de Azure. Puede usar Azure RBAC para compartir imágenes dentro de su inquilino e incluso con personas de fuera de él. Para más información sobre esta opción de uso compartido simple, consulte [Compartir la galería](./shared-images-portal.md#share-the-gallery).
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 
@@ -54,4 +54,4 @@ az vm create \
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si experimenta algún problema, puede [solucionar problemas de galerías de imágenes compartidas](../troubleshooting-shared-images.md).
+Si experimenta algún problema, puede [solucionar problemas de las galerías](../troubleshooting-shared-images.md).

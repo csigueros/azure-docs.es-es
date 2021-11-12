@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/26/2021
 ms.author: jushiman
-ms.openlocfilehash: a8e6133d0b4e7d0595524bb4142e51610226ad7f
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: f0a78f60f8610c4b6430cf33928ec389c0ed85ba
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130214694"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471580"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Compatibilidad para máquinas virtuales de generación 2 en Azure
 
@@ -37,10 +37,20 @@ Azure ahora ofrece compatibilidad de generación 2 para las siguientes series de
 * [Serie Dsv4](dv4-dsv4-series.md)
 * [Serie Dasv4](dav4-dasv4-series.md)
 * [Serie Ddsv4](ddv4-ddsv4-series.md)
+* [Serie Dasv5](dasv5-dadsv5-series.md)
+* [Serie Dadsv5](dasv5-dadsv5-series.md)
+* [Serie Dv5](dv5-dsv5-series.md)
+* [Serie Dsv5](dv5-dsv5-series.md)
 * [Serie Esv3](ev3-esv3-series.md)
 * [Serie Esv4](ev4-esv4-series.md)
 * [Serie Easv4](eav4-easv4-series.md)
 * [Serie Edsv4](edv4-edsv4-series.md)
+* [Serie Easv5](easv5-eadsv5-series.md)
+* [Serie Eadsv5](easv5-eadsv5-series.md)
+* [Serie Edv5](edv5-edsv5-series.md)
+* [Serie Edsv5](edv5-edsv5-series.md)
+* [Serie Ev5](ev5-esv5-series.md)
+* [Serie Esv5](ev5-esv5-series.md)
 * [Serie Fsv2](fsv2-series.md)
 * [Serie GS](sizes-previous-gen.md#gs-series)
 * [Serie HB](hb-series.md)
@@ -58,6 +68,7 @@ Azure ahora ofrece compatibilidad de generación 2 para las siguientes series de
 * [Serie NVv3](nvv3-series.md)
 * [Serie NVv4](nvv4-series.md)
 * [Serie NCasT4_v3](nct4-v3-series.md)
+* [Serie NDm A100 v4](ndm-a100-v4-series.md)
 
 <sup>1</sup> Las series Mv2, DC, NDv2, Msv2 y Mdsv2 de memoria media no admiten imágenes de máquina virtual de generación 1 y solo admiten un subconjunto de imágenes de generación 2. Consulte la [documentación de la serie Mv2](mv2-series.md), [serie DSv2](dv2-dsv2-series.md), [serie ND A100 v4](nda100-v4-series.md), [serie NDv2](ndv2-series.md) y la [serie de memoria media Msv2 y Mdsv2](msv2-mdsv2-series.md) para obtener más detalles.
 
@@ -111,9 +122,10 @@ Para más información, consulte [Inicio seguro (versión preliminar)](trusted-l
 | Compatibilidad con los conjuntos de escalado de máquinas virtuales | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Copia de seguridad y restauración                    | :heavy_check_mark: | :heavy_check_mark: |
-| Galería de imágenes compartidas              | :heavy_check_mark: | :heavy_check_mark: |
+| Azure Compute Gallery             | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :heavy_check_mark:                |
 | [Cifrado del servidor](disk-encryption.md)            | :heavy_check_mark: | :heavy_check_mark: |
+
 
 ## <a name="creating-a-generation-2-vm"></a>Creación de una VM de generación 2
 
@@ -121,7 +133,7 @@ Para más información, consulte [Inicio seguro (versión preliminar)](trusted-l
 
 En Azure Portal o la CLI de Azure, puede crear VM de generación 2 a partir de una imagen de Marketplace que admita el arranque UEFI.
 
-#### <a name="azure-portal"></a>Portal de Azure
+#### <a name="azure-portal"></a>Azure portal
 
 A continuación se indican los pasos para crear una máquina virtual de segunda generación (Gen2) en Azure Portal.
 

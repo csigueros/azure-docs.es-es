@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/02/2021
-ms.openlocfilehash: 6d6e5ca910bfd24a8d10952d92441fcc7fe6fcfa
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c5b4f6611dc5ad5a514eaf1affd0517c14fcd353
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780707"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132337119"
 ---
 # <a name="comparison-chart---azure-database-for-postgresql-single-server-and-flexible-server"></a>Gráfico de comparación del servidor único y el servidor flexible de Azure Database for PostgreSQL
 
@@ -110,7 +110,7 @@ En la tabla siguiente se proporcionan comparaciones de características y funcio
 | **Otras características** | | |
 | Clave administrada por el cliente (BYOK) | Sí | No |
 | Alertas | Sí | Sí |
-| Azure defender | Sí | No |
+| Microsoft Defender for Cloud | Sí | No |
 | Estado de los recursos | Sí | No |
 | Estado del servicio | Sí | Sí |
 | Información sobre el rendimiento (iPerf) | Sí | Sí (versión preliminar) |

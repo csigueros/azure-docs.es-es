@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6507e2367005c1f400c68f46f2ea15705205e819
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 81b40887710645f4ee9164ab6c6c2da3bf60e0da
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130262990"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131466587"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configuraciones y operaciones de infraestructura de SAP HANA en Azure
 En este documento se proporcionan instrucciones para configurar la infraestructura de Azure y sobre el funcionamiento de los sistemas SAP HANA que se implementaron en máquinas virtuales nativas de Azure. En el documento también se incluye información sobre la configuración de la escalabilidad horizontal de SAP HANA para la SKU de máquinas virtuales M128s. Este documento no pretende reemplazar ninguna documentación estándar de SAP, incluido el contenido siguiente:
@@ -67,7 +67,7 @@ Implemente las máquinas virtuales en Azure mediante:
 También puede implementar una plataforma SAP HANA completamente instalada en los servicios de máquina virtual de Azure a través de la [plataforma en la nube de SAP](https://cal.sap.com/). El proceso de instalación se describe en [Implementación de SAP S/4HANA o BW/4HANA en Azure](./cal-s4h.md), o con la automatización publicada en [GitHub](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
 
 >[!IMPORTANT]
-> Para usar máquinas virtuales M208xx_v2, es preciso seleccionar la imagen de Linux en la galería de imágenes de máquina virtual de Azure. Para leer los detalles, consulte el artículo [Tamaños de máquina virtual optimizada para memoria](../../mv2-series.md).
+> Para usar máquinas virtuales M208xx_v2, tendrá que seleccionar la imagen de Linux. Para más información, vea [Tamaños de máquina virtual optimizada para memoria](../../mv2-series.md).
 > 
 
 
@@ -143,7 +143,7 @@ La configuración básica de un nodo de máquina virtual para escalabilidad hori
 - Todos los demás volúmenes de disco no se comparten entre los diferentes nodos y no se basan en NFS. Más adelante en este documento se proporcionan las configuraciones de instalación y los pasos para la escalabilidad horizontal de instalaciones HANA con los recursos no compartidos **/hana/data** y **/hana/log**. Para conocer el almacenamiento certificado para HANA que se puede usar, consulte el artículo [Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA](./hana-vm-operations-storage.md).
 
 
-Para ajustar el tamaño de los volúmenes o discos, debe consultar el documento [Requisitos de almacenamiento de TDI para SAP HANA](https://blogs.saphana.com/wp-content/uploads/2015/02/Storage-Whitepaper-2-54.pdf). El tamaño necesario depende del número de nodos de trabajo. En el documento se incluye una fórmula que debe aplicar para obtener la capacidad necesaria del volumen.
+Para ajustar el tamaño de los volúmenes o discos, debe consultar el documento [Requisitos de almacenamiento de TDI para SAP HANA](https://archive.sap.com/kmuuid2/70c8e423-c8aa-3210-3fae-e043f5c1ca92/SAP%20HANA%20TDI%20-%20Storage%20Requirements.pdf). El tamaño necesario depende del número de nodos de trabajo. En el documento se incluye una fórmula que debe aplicar para obtener la capacidad necesaria del volumen.
 
 El otro criterio de diseño que se muestra en los gráficos de la configuración de un único nodo para una máquina virtual de SAP HANA de escalabilidad horizontal es la red virtual, o mejor dicho la configuración de subred. SAP recomienda encarecidamente una separación del tráfico orientado al cliente y a la aplicación de las comunicaciones entre los nodos HANA. Como se muestra en los gráficos, esto se logra al tener dos VNIC diferentes conectados a la máquina virtual. Ambos VNIC están en subredes diferentes, con dos direcciones IP distintas. Puede controlar el flujo del tráfico con reglas de enrutamiento mediante grupos de seguridad de red o rutas definidas por el usuario.
 

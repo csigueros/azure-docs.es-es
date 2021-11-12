@@ -12,12 +12,12 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0a3e8476ae567c0e7d35ab53e1a5c57a52ad2e7
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: f964829c0d775bd33ea0c44386820ae2ba921ce1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129233699"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131466055"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api"></a>API de punto de conexión de Azure AD Connect Sync V2 
 Microsoft ha implementado un nuevo punto de conexión (API) para Azure AD Connect que mejora el rendimiento de las operaciones del servicio de sincronización para Azure Active Directory. Al usar el nuevo punto de conexión V2, experimentará mejoras de rendimiento notables en la exportación y la importación respecto a Azure AD. Este nuevo punto de conexión admite lo siguiente:
@@ -35,155 +35,13 @@ Microsoft ha implementado un nuevo punto de conexión (API) para Azure AD Conne
 > - La nube de Azure Gobierno de EE. UU. no estará disponible en la nube de Azure Alemania.
 
 ## <a name="prerequisites"></a>Requisitos previos  
-Para poder usar el nuevo punto de conexión V2, debe usar [Azure AD Connect versión 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) o posterior y seguir los pasos de implementación que se proporcionan a continuación para habilitar el punto de conexión V2 para el servidor de Azure AD Connect.   
-
-## <a name="deployment-guidance"></a>Guía para la implementación 
-Tendrá que implementar [Azure AD Connect versión 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) o posterior para usar el punto de conexión V2. Use el vínculo que se proporciona para la descarga. 
-
-Se recomienda seguir el método de [migración oscilante](./how-to-upgrade-previous-version.md#swing-migration) para implementar el nuevo punto de conexión en su entorno. Esto proporcionará un plan de contingencia claro en el caso de que sea necesario realizar una reversión importante. En el ejemplo siguiente se muestra cómo se puede utilizar una migración oscilante en este escenario. Para más información sobre el método de implementación de la migración oscilante, vea el vínculo proporcionado. 
-
-### <a name="swing-migration-for-deploying-v2-endpoint"></a>Migración oscilante para implementar el punto de conexión V2
-Los pasos siguientes le guiarán a través de la implementación del punto de conexión V2 mediante el método oscilante.
-
-1. Implemente el punto de conexión V2 en el servidor provisional actual. Este servidor se conoce como **servidor V2** en los pasos siguientes. El servidor activo actual seguirá procesando la carga de trabajo de producción mediante el punto de conexión V1, al que se llamará **servidor V1** a continuación.
-1. Compruebe que el **servidor V2** todavía procesa las importaciones según lo esperado. En esta fase, los grupos grandes no se aprovisionarán en Azure AD o AD local, pero podrá comprobar que la actualización no ha provocado ningún otro impacto inesperado en el proceso de sincronización existente. 
-2. Una vez finalizada la validación, cambie el **servidor V2** para que sea el servidor activo y el **servidor V1** para que sea el servidor provisional. En este momento, los grupos grandes que se encuentran en el ámbito que se va a sincronizar se aprovisionarán en Azure AD, al igual que los grupos unificados grandes de Microsoft 365 se aprovisionarán en AD, si está habilitada la escritura diferida de grupos.
-3. Compruebe que el **servidor V2** está en ejecución y que procesa los grupos grandes correctamente. Puede optar por permanecer en este paso y supervisar el proceso de sincronización durante un período.
-  >[!NOTE]
-  > Si necesita volver a la configuración anterior, puede realizar una migración oscilante desde el **servidor V2** al **servidor V1**. Dado que el punto de conexión V1 no admite grupos con más de 50 000 miembros, se eliminarán posteriormente todos los grupos grandes aprovisionados por Azure AD Connect, tanto en Azure AD como en AD local. 
-4. Una vez que esté seguro de usar el punto de conexión V2, actualice el **servidor V1** para empezar a usar el punto de conexión V2. 
- 
-
-## <a name="expectations-of-performance-impact"></a>Previsiones de impacto en el rendimiento  
-Cuando se usa el punto de conexión V2, las mejoras de rendimiento dependen del número de grupos sincronizados, el tamaño de esos grupos y la renovación de un grupo (la actividad resultante de agregar y quitar usuarios como miembros del grupo). El uso del nuevo punto de conexión, sin aumentar el número, el tamaño o la renovación de los grupos sincronizados, debe resultar en tiempos más cortos de exportación e importación a Azure AD. 
- 
-Sin embargo, las mejoras de rendimiento pueden ser infructuosas por el procesamiento adicional necesario al sincronizar grupos grandes. Podría acabar aumentando el tiempo de sincronización total al agregar demasiados grupos grandes al proceso de sincronización.  
-
-Para comprender mejor cómo la adición de los nuevos grupos afectará al rendimiento de la sincronización, se recomienda que empiece por sincronizar solo unos pocos grupos grandes con menos de 100 000 miembros. Después, puede aumentar el número y el tamaño de los grupos mediante la incorporación de más en el ámbito, a través de la unidad organizativa, el atributo o el filtrado del tamaño máximo del grupo. Las mejoras de rendimiento se producirán en las tareas de exportación e importación del conector de Azure AD, no en el conector de AD local. 
-
-## <a name="deployment-step-by-step"></a>Implementación paso a paso 
-Las tres fases siguientes son un ejemplo detallado de la implementación del nuevo punto de conexión V2.  Use las fases como guía para la implementación.
-
-### <a name="phase-1--install-and-validate-azure-ad-connect"></a>Fase 1: Instalar y validar Azure AD Connect 
-Se recomienda que realice primero los pasos para instalar [Azure AD Connect versión 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) o posterior o actualizar a esta versión, y que valide el proceso de sincronización antes de pasar a la segunda fase, en la que habilitará el punto de conexión V2. En el servidor de Azure AD Connect: 
-
-
-1. [Opcional] Realice la copia de seguridad de la base de datos. 
-2. Instale [Azure AD Connect versión 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) o posterior, o actualice a esta versión.
-3. Validación de la instalación 
-
-### <a name="phase-2--enable-the-v2-endpoint"></a>Fase 2: Habilitar el punto de conexión V2 
-El paso siguiente es habilitar el punto de conexión V2. 
-
-> [!NOTE]
-> Una vez habilitado el punto de conexión V2 para el servidor, podrá observar algunas mejoras en el rendimiento de la carga de trabajo existente. Sin embargo, aún no podrá sincronizar grupos con más de 50 000 miembros. 
-
-Para cambiar al punto de conexión V2, siga estos pasos: 
-
-1. Abra un símbolo del sistema de PowerShell como administrador. 
-2. Deshabilite el programador de sincronización después de comprobar que no se está ejecutando ninguna operación de sincronización: 
- 
- `Set-ADSyncScheduler -SyncCycleEnabled $false`
- 
-3. Importe el módulo nuevo: 
- 
- `Import-Module 'C:\Program Files\Microsoft Azure AD Sync\Extensions\AADConnector.psm1'` 
- 
-4.  Cambie al punto de conexión v2:
-
- `Set-ADSyncAADConnectorExportApiVersion 2` 
- 
- `Set-ADSyncAADConnectorImportApiVersion 2` 
-
- ![PowerShell](media/how-to-connect-sync-endpoint-api-v2/endpoint1.png)
- 
-Ya ha habilitado el punto de conexión v2 para su servidor. Tómese un tiempo para comprobar que no hay resultados inesperados después de habilitar el punto de conexión V2 antes de pasar a la fase siguiente, donde aumentará el límite de tamaño del grupo. 
->[!NOTE]
->Las rutas de acceso al archivo o módulo pueden usar una letra de unidad diferente, dependiendo de la ruta de instalación proporcionada al instalar Azure AD Connect. 
-
-
-### <a name="phase-3--increase-the-group-membership-limit"></a>Fase 3: Aumentar el límite de pertenencia a grupos 
-Después de comprobar que el servicio se está ejecutando sin resultados inesperados, puede continuar con el aumento del límite de pertenencia a grupos. Se recomienda aumentar primero el límite de pertenencia a un valor ligeramente superior, por ejemplo, 75 000 miembros, para ver cómo se sincronizan los grupos más grandes en Azure AD. Una vez que esté satisfecho con los resultados, puede aumentar el límite de miembros.  
-
-El límite máximo es 250 000 miembros por grupo. 
-
-Los siguientes pasos se pueden usar para aumentar el límite de pertenencia:  
-
-1. Abra el editor de reglas de sincronización de Azure AD. 
-2. En el editor, elija **Saliente** para la dirección. 
-3. Haga clic en la regla de sincronización **Out to AAD – Group Join**. 
-4. Haga clic en el botón **Editar** ![Captura de pantalla que muestra "View and manage your synchronization rules" (Ver y administrar las reglas de sincronización) con la opción "Out to AAD - Group Join" (Salida a AAD: Unión a grupo).](media/how-to-connect-sync-endpoint-api-v2/endpoint2.png)
-
-6. Haga clic en el botón **Sí** para deshabilitar la regla predeterminada y crear una copia editable.
- ![Captura de pantalla que muestra la ventana "Edit Reserved Rule Confirmation" (Editar confirmación de regla reservada) con el botón "Sí" seleccionado.](media/how-to-connect-sync-endpoint-api-v2/endpoint3.png)
-
-7. En la ventana emergente de la página **Descripción**, establezca la precedencia en un valor disponible entre 1 y 99 ![Captura de pantalla que muestra la ventana "Edit outbound synchronization rule" (Editar regla de sincronización de salida) con la opción "Precedencia" resaltada.](media/how-to-connect-sync-endpoint-api-v2/endpoint4.png)
-
-8. En la página **Transformations**, actualice el valor de **Source** por la transformación **member**, reemplazando "50000&quot; por un valor comprendido entre 50001 y 250000. Este cambio aumentará el tamaño máximo de pertenencia de los grupos que se sincronizarán con Azure AD. Se recomienda comenzar con un número de 100 000 para saber el impacto que tendrá la sincronización de grupos grandes en el rendimiento de la sincronización. 
- 
- **Ejemplo** 
- 
- `IIF((ValueCount(&quot;member")> 75000),Error("Maximum Group member count exceeded"),IgnoreThisFlow)` 
- 
- ![Editar regla de sincronización](media/how-to-connect-sync-endpoint-api-v2/endpoint5.png)
-
-9. Haga clic en Guardar 
-10. Abra un símbolo del sistema de PowerShell como administrador. 
-11. Vuelva a habilitar el programador de sincronización. 
- 
- `Set-ADSyncScheduler -SyncCycleEnabled $true` 
- 
->[!NOTE]
-> Si Azure AD Connect Health no está habilitado, cambie la configuración del registro de eventos de aplicación Windows para archivar los registros, en lugar de sobrescribirlos. Los registros se pueden usar para ayudar en el futuro trabajo de solución de problemas. 
-
->[!NOTE]
-> Después de habilitar el nuevo punto de conexión, puede ver errores de exportación adicionales en el conector de AAD con el nombre "dn-attributes-failure". Habrá una entrada del registro de eventos correspondiente para cada error con el identificador 6949. Los errores son informativos y no indican un problema con la instalación, sino que el proceso de sincronización no pudo agregar determinados miembros a un grupo en Azure AD porque el propio objeto miembro no se sincronizó con Azure AD. 
-
-El nuevo código del punto de conexión V2 controla algunos tipos de errores de exportación de forma ligeramente distinta a como lo hizo el código de V1.  Es posible que vea más mensajes de error informativos al usar el punto de conexión V2. 
-
->[!NOTE]
-> Al actualizar Azure AD Connect, asegúrese de que se vuelven a ejecutar los pasos de la fase 2, ya que los cambios no se conservan durante el proceso de actualización. 
-
-Durante los próximos aumentos del límite de miembros de grupo en la regla de sincronización **Out to AAD – Group Join**, no es necesario realizar una sincronización completa, por lo que puede optar por suprimir la sincronización completa ejecutando el siguiente comando en PowerShell. 
-
- `Set-ADSyncSchedulerConnectorOverride -FullSyncRequired $false -ConnectorName "<AAD Connector Name>" `
- 
->[!NOTE]
-> Si tiene grupos unificados de Microsoft 365 con más de 50 000 miembros, los grupos se leerán en Azure AD Connect y, si la escritura diferida de grupos está habilitada, se escribirán en la instancia de AD local. 
-
-## <a name="rollback"></a>Reversión 
-Si ha habilitado el punto de conexión V2 y necesita revertirlo, siga estos pasos: 
-
-1. En el servidor de Azure AD Connect: a. [Opcional] Realice la copia de seguridad de la base de datos. 
-2. Abra un símbolo del sistema de PowerShell como administrador.
-3. Deshabilite el programador de sincronización después de comprobar que no se está ejecutando ninguna operación de sincronización:
- 
- `Set-ADSyncScheduler -SyncCycleEnabled $false`
-
-4. Cambie al punto de conexión V1*. 
- 
- `Import-Module 'C:\Program Files\Microsoft Azure AD Sync\Extensions\AADConnector.psm1'` 
-
- `Set-ADSyncAADConnectorExportApiVersion 1`
-
- `Set-ADSyncAADConnectorImportApiVersion 1`
- 
-5. Abra el editor de reglas de sincronización de Azure AD. 
-6. Elimine la copia editable de la regla de sincronización **Out to AAD – Group Join**. 
-7. Habilite la copia predeterminada de la regla de sincronización **Out to AAD – Group Join**. 
-8. Abra un símbolo del sistema de PowerShell como administrador. 
-9. Vuelva a habilitar el programador de sincronización. 
- 
- `Set-ADSyncScheduler -SyncCycleEnabled $true`
- 
->[!NOTE]
-> Al revertir de los puntos de conexión V2 a V1, los grupos sincronizados con más de 50 000 miembros se eliminarán después de ejecutar una sincronización completa, tanto en el caso de los grupos de AD aprovisionados en Azure AD como de los grupos unificados de Microsoft 365 aprovisionados en AD. 
+Para usar el nuevo punto de conexión V2, tendrá que usar Azure AD Connect v2.0. Al implementar AADConnect V2.0, el punto de conexión V2 se habilitará automáticamente.
+Tenga en cuenta que la compatibilidad con el punto de conexión V2 ya no está disponible para las versiones V1.x. Si tiene que sincronizar grupos con más de 50 000 miembros, debe actualizar a Azure AD Connect V2.0.
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes  
  
-**¿Cuándo se convertirá el nuevo punto de conexión en el valor predeterminado para las actualizaciones y las nuevas instalaciones?**   
-</br>Prevemos publicar la posibilidad de descargar una versión nueva de AADConnect en febrero de 2021. Esta versión usará el punto de conexión v2 de forma predeterminada y habilitará los grupos de sincronización mayores de 50 KB sin necesidad de realizar ninguna configuración adicional. Esta versión se publicará posteriormente para la actualización automática a servidores válidos.
- 
+**¿Cuándo se convertirá el nuevo punto de conexión en el valor predeterminado para las actualizaciones y las nuevas instalaciones?**   El punto de conexión V2 es la configuración predeterminada para AADConnect V2.0 y no es compatible con AADConnect V1.x
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](how-to-connect-sync-whatis.md)

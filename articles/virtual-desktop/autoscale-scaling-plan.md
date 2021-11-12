@@ -7,12 +7,12 @@ ms.date: 10/19/2021
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
-ms.openlocfilehash: 644857c552b6e54d94746746f1c2ba9a230baeb6
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 88de9f363851d47fbefcdcf69060111d8fd64bbf
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130181569"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131842385"
 ---
 # <a name="autoscale-preview-for-azure-virtual-desktop-host-pools"></a>Escalabilidad automática (versión preliminar) para grupos de hosts de Azure Virtual Desktop
 
@@ -27,7 +27,10 @@ La característica de escalabilidad automática (versión preliminar) permite es
 - Límites de sesión por host de sesión
 
 >[!NOTE]
->Windows Virtual Desktop (clásico) no admite la característica de escalabilidad automática. Tampoco admite el escalado de discos efímeros.
+> - Azure Virtual Desktop (clásico) no admite la característica de escalabilidad automática. 
+> - La escalabilidad automática no admite Azure Virtual Desktop para Azure Stack HCI 
+> - La escalabilidad automática no admite el escalado de discos efímeros.
+
 
 Para obtener mejores resultados, se recomienda usar la escalabilidad automática con máquinas virtuales implementadas con plantillas de Azure Resource Manager de Azure Virtual Desktop o herramientas de Microsoft.
 
@@ -50,9 +53,9 @@ Antes de crear el primer plan de escalado, asegúrese de seguir estas directrice
 
 Para empezar a crear un plan de escalado, primero debe crear un rol personalizado del control de acceso basado en roles (RBAC) en la suscripción. Este rol permitirá que Windows Virtual Desktop administre el encendido de las máquinas virtuales de la suscripción. También permitirá que el servicio aplique acciones en los grupos de hosts y las máquinas virtuales cuando no haya sesiones de usuario activas.
 
-Para crear el rol personalizado, siga las instrucciones que se indican en [Roles personalizados de Azure](../role-based-access-control/custom-roles.md) mediante esta plantilla JSON:
-
+Para crear el rol personalizado, siga las instrucciones de [Roles personalizados de Azure](../role-based-access-control/custom-roles.md) mediante la plantilla JSON siguiente. Esta plantilla ya incluye los permisos que necesita. Para obtener instrucciones más detalladas, vea [Asignación de roles personalizados con Azure Portal](#assign-custom-roles-with-the-azure-portal).
 ```json
+ {
  "properties": {
  "roleName": "Autoscale",
  "description": "Friendly description.",
@@ -62,19 +65,20 @@ Para crear el rol personalizado, siga las instrucciones que se indican en [Roles
   "permissions": [
    {
    "actions": [
-                      "Microsoft.Insights/eventtypes/values/read",
-           "Microsoft.Compute/virtualMachines/deallocate/action",
-                      "Microsoft.Compute/virtualMachines/restart/action",
-                      "Microsoft.Compute/virtualMachines/powerOff/action",
-                      "Microsoft.Compute/virtualMachines/start/action",
-                      "Microsoft.Compute/virtualMachines/read",
-                      "Microsoft.DesktopVirtualization/hostpools/read",
-                      "Microsoft.DesktopVirtualization/hostpools/write",
-                      "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read",
-                      "Microsoft.DesktopVirtualization/hostpools/sessionhosts/write",
-                      "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete",
-"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",                   "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action",
-"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read"
+                 "Microsoft.Insights/eventtypes/values/read",
+                 "Microsoft.Compute/virtualMachines/deallocate/action",
+                 "Microsoft.Compute/virtualMachines/restart/action",
+                 "Microsoft.Compute/virtualMachines/powerOff/action",
+                 "Microsoft.Compute/virtualMachines/start/action",
+                 "Microsoft.Compute/virtualMachines/read",
+                 "Microsoft.DesktopVirtualization/hostpools/read",
+                 "Microsoft.DesktopVirtualization/hostpools/write",
+                 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read",
+                 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/write",
+                 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete",
+                 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",
+                 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action",
+                 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read"
 ],
   "notActions": [],
   "dataActions": [],
@@ -85,11 +89,9 @@ Para crear el rol personalizado, siga las instrucciones que se indican en [Roles
 }
 ```
 
-## <a name="assign-custom-roles"></a>Asignación de roles personalizados
+## <a name="assign-custom-roles-with-the-azure-portal"></a>Asignación de roles personalizados con Azure Portal
 
-A continuación, deberá usar Azure Portal para asignar el rol personalizado que ha creado a la suscripción.
-
-Para asignar el rol personalizado:
+Para crear y asignar el rol personalizado a la suscripción con Azure Portal:
 
 1. Abra Azure Portal y vaya a **Suscripciones**.
 
@@ -103,18 +105,20 @@ Para asignar el rol personalizado:
 4. En la pestaña **Permisos**, agregue los siguientes permisos a la suscripción a la que va a asignar el rol:
 
     ```azcopy
-    "Microsoft.Compute/virtualMachines/deallocate/action", 
-    "Microsoft.Compute/virtualMachines/restart/action", 
-    "Microsoft.Compute/virtualMachines/powerOff/action", 
-    "Microsoft.Compute/virtualMachines/start/action", 
-    "Microsoft.Compute/virtualMachines/read",
-    "Microsoft.DesktopVirtualization/hostpools/read",
-    "Microsoft.DesktopVirtualization/hostpools/write",
-    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read",
-    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/write",
-    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete",
-    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action",
-    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",
+        "Microsoft.Insights/eventtypes/values/read"
+                 "Microsoft.Compute/virtualMachines/deallocate/action"
+                 "Microsoft.Compute/virtualMachines/restart/action"
+                 "Microsoft.Compute/virtualMachines/powerOff/action"
+                 "Microsoft.Compute/virtualMachines/start/action"
+                 "Microsoft.Compute/virtualMachines/read"
+                 "Microsoft.DesktopVirtualization/hostpools/read"
+                 "Microsoft.DesktopVirtualization/hostpools/write"
+                 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read"
+                 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/write"
+                 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete"
+                 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read"
+                 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action"
+                 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read"
     ```
 
 5. Cuando haya finalizado, seleccione **Aceptar**.
@@ -125,29 +129,14 @@ Para asignar el rol personalizado para conceder acceso:
 
 1. En la pestaña **Control de acceso (IAM)** , seleccione **Agregar asignación de roles**.
 
-2. Seleccione el rol que acaba de crear.
+2. Seleccione el rol que acaba de crear y continúe en la siguiente pantalla.
 
-3. En la barra de búsqueda, escriba y seleccione **Windows Virtual Desktop**, como se muestra en la siguiente captura de pantalla.
+3. Elija **+ Seleccionar miembros**. En la barra de búsqueda, escriba y seleccione **Windows Virtual Desktop**, como se muestra en la siguiente captura de pantalla. Cuando tenga una implementación de Azure Virtual Desktop (clásico) y una instancia de Azure Virtual Desktop con objetos de Azure Virtual Desktop de Azure Resource Manager, verá dos aplicaciones con el mismo nombre. Selecciónelas las dos.
 
     > [!div class="mx-imgBorder"]
     > ![Captura de pantalla del menú Agregar asignación de roles. El campo Seleccionar está resaltado en rojo y el usuario escribe "Windows Virtual Desktop" en el campo de búsqueda.](media/search-for-role.png)
 
-Al agregar el rol personalizado en Azure Portal, asegúrese de que también ha seleccionado los permisos siguientes:
-
-   - Microsoft.Compute/virtualMachines/deallocate/action
-   - Microsoft.Compute/virtualMachines/restart/action
-   - Microsoft.Compute/virtualMachines/powerOff/action
-   - Microsoft.Compute/virtualMachines/start/action 
-   - Microsoft.Compute/virtualMachines/read
-   - Microsoft.DesktopVirtualization/hostpools/read
-   - Microsoft.DesktopVirtualization/hostpools/write
-   - Microsoft.DesktopVirtualization/hostpools/sessionhosts/read
-   - Microsoft.DesktopVirtualization/hostpools/sessionhosts/write
-   - Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete
-   - Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action
-   - Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read
-
-Estos son los mismos permisos que especificó en el paso 4.
+4. Seleccione **Review + assign** (Revisar y asignar) para finalizar la asignación.
 
 ## <a name="how-creating-a-scaling-plan-works"></a>Funcionamiento de la creación de un plan de escalado
 
@@ -194,7 +183,7 @@ Para crear un plan de escalado:
 
 6. Opcionalmente, también puede agregar un nombre "descriptivo" que se mostrará a los usuarios y una descripción del plan.
 
-7. En **Region** (Región), seleccione una región para el plan de escalado. Los metadatos del objeto se almacenarán en la geografía asociada a la región. Actualmente, la escalabilidad automática solo admite las regiones Centro de EE. UU. y Este de EE. UU. 2. Para más información sobre las regiones, consulte [Ubicaciones de datos para Azure Virtual Desktop](data-locations.md).
+7. En **Region** (Región), seleccione una región para el plan de escalado. Los metadatos del objeto se almacenarán en la geografía asociada a la región. Para más información sobre las regiones, consulte [Ubicaciones de datos para Azure Virtual Desktop](data-locations.md).
 
 8. En **Time zone** (Zona horaria), seleccione la zona horaria que usará con el plan.
 
@@ -210,7 +199,7 @@ Para crear o cambiar una programación:
 
 1. En la pestaña **Schedules** (Programaciones), seleccione **Add schedule** (Agregar programación).
 
-2. Escriba un nombre para la programación en el campo **Name** (Nombre).
+2. Escriba un nombre para la programación en el campo **Nombre de programación**.
 
 3. En el campo **Repeat on** (Repetir el), seleccione los días en los que se repetirá la programación.
 
@@ -223,13 +212,13 @@ Para crear o cambiar una programación:
         >[!NOTE]
         >La preferencia de equilibrio de carga que seleccione aquí invalidará la que seleccionó para la configuración original del grupo de hosts.
 
-    - En **Peak hours** (Horas punta), escriba una hora de inicio para el momento en el que la tasa de uso sea mayor durante el día. Asegúrese de que la hora esté en la misma zona horaria que especificó para el plan de escalado. Esta hora también es la hora de finalización de la fase de ascenso.
-
     - En **Minimum percentage of session host VMs** (Porcentaje mínimo de máquinas virtuales de host de sesión), escriba la cantidad de recursos de host de sesión que desea usar durante las horas de ascenso y las horas punta. Por ejemplo, si elige el **10 %** y el grupo de hosts tiene 10 hosts de sesión, la escalabilidad automática mantendrá un host de sesión disponible para las conexiones de usuario en todo momento durante las horas de ascenso y las horas punta.
     
     - En **Capacity threshold** (Umbral de capacidad), escriba el porcentaje de uso del grupo de hosts que desencadenará el inicio de las fases de ascenso y de horas punta. Por ejemplo, si elige el **60 %** para un grupo de hosts que puede controlar 100 sesiones, la escalabilidad automática solo activará hosts adicionales una vez que el grupo de hosts supere las 60 sesiones.
 
 5. En la pestaña **Peak hours** (Horas punta), rellene los campos siguientes:
+
+    - En **Horas punta**, escriba una hora de inicio para el momento en el que la tasa de uso sea mayor durante el día. Asegúrese de que la hora esté en la misma zona horaria que especificó para el plan de escalado. Esta hora también es la hora de finalización de la fase de ascenso.
 
     - En **Load balancing** (Equilibrio de carga), puede seleccionar entre el equilibrio de carga en amplitud o en profundidad. El equilibrio de carga en amplitud distribuye las nuevas sesiones de usuario entre todas las sesiones disponibles del grupo de hosts. El equilibrio de carga en profundidad distribuye las nuevas sesiones de usuario a un host de sesión disponible con el máximo número de conexiones que aún no haya alcanzado su límite de sesiones. Para más información sobre los tipos de equilibrio de carga, consulte [Configuración del método de equilibrio de carga de Azure Virtual Desktop](configure-host-pool-load-balancing.md).
 

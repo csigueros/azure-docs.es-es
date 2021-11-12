@@ -7,12 +7,12 @@ ms.service: purview
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 7d5556fcd040eaefe1078cddaf084089e471d496
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ba4c12c51ad744e6c68d63c1aaad17f32fbec15e
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131076960"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131841987"
 ---
 # <a name="connect-to-azure-cosmos-database-sql-api-in-azure-purview"></a>Conectar a la base de datos de Azure Cosmos (API de SQL) en Azure Purview
 
@@ -22,7 +22,9 @@ En este artículo se describe el proceso para registrar una base de datos de Azu
 
 |**Extracción de metadatos**|  **Examen completo**  |**Examen incremental**|**Examen con ámbito**|**Clasificación**|**Directiva de acceso**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Sí](#register) | [Sí](#scan)|[Sí](#scan) | [Sí](#scan)|[Sí](#scan)|No|No|
+| [Sí](#register) | [Sí](#scan)|[Sí](#scan) | [Sí](#scan)|[Sí](#scan)|No|No** |
+
+\** Se admite el linaje si el conjunto de datos se usa como origen o receptor en la [actividad de copia de Data Factory](how-to-link-azure-data-factory.md) 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

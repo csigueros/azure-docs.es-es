@@ -1,20 +1,20 @@
 ---
 title: 'Compilación con enclaves SGX: Azure Virtual Machines'
 description: Obtenga información sobre el hardware de Intel SGX para habilitar las cargas de trabajo de computación confidencial.
-author: JenCook
+author: stempesta
 ms.service: virtual-machines
 ms.subservice: workloads
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/01/2021
-ms.author: JenCook
+ms.author: stempesta
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 0870c0cc762078ec38e978c8dab4815ff37741a4
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 3ac8c9ddced2fd37c829277c925b8953e7c71151
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131067610"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132310022"
 ---
 # <a name="build-with-sgx-enclaves"></a>Compilación con enclaves SGX 
 

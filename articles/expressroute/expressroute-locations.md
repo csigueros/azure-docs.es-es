@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/26/2021
 ms.author: duau
-ms.openlocfilehash: d420313cc38b905b0b04ce746f050ed6f585eb11
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 6b4353ad60f8ae2f4238762297d694cde1ae253a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130163367"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131473136"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Asociados de conectividad de ExpressRoute y ubicaciones de emparejamiento
 
@@ -131,6 +131,7 @@ La siguiente tabla muestra las ubicaciones por proveedor de servicios. Si desea 
 | **[PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** |Compatible |Compatible |Chicago, Dallas, Denver, Las Vegas, Silicon Valley, Washington DC. |
 | **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |Compatible |Compatible |Chicago, Hong Kong, Hong Kong2, Londres, Singapur2 |
 | **[REANNZ](https://www.reannz.co.nz/products-and-services/cloud-connect/)** | Compatible | Compatible | Auckland |
+| **[Reliance Jio](https://www.jio.com/business/jio-cloud-connect)** | Compatible | Compatible | Mumbai (Bombay) |
 | **[Retelit](https://www.retelit.it/EN/Home.aspx)** | Compatible | Compatible | Milán | 
 | **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** |Compatible |Compatible |Seúl |
 | **[SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)** | Compatible |Compatible | Londres2, Washington DC |

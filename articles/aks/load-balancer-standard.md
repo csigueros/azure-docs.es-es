@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 764f6585aab43ba1f6db29a234cc2bc554b78c58
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 41d98bfa2fddc6575d53c2770e9411609acb68c1
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130236682"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131845844"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Uso de Standard Load Balancer en Azure Kubernetes Service (AKS)
 
@@ -193,8 +193,7 @@ az aks create \
 ### <a name="configure-the-allocated-outbound-ports"></a>Configuración de los puertos de salida asignados
 
 > [!IMPORTANT]
-> Si tiene aplicaciones en el clúster que se espera que establezcan un gran número de conexiones con un pequeño conjunto de destinos; p. ej., muchas instancias de front-end que se conectan a una base de datos SQL, tiene un escenario muy susceptible al agotamiento de puertos SNAT (a quedarse sin puertos desde los que conectarse). En estos casos, se recomienda aumentar los puertos de salida asignados y las direcciones IP de front-end salientes en el equilibrador de carga. El aumento debe tener en cuenta que una (1) dirección IP adicional agrega 64 000 puertos adicionales que se distribuyen entre todos los nodos de clúster.
-
+> Si tiene aplicaciones en el clúster que se espera que establezcan una gran cantidad de conexiones en un pequeño conjunto de destinos; por ejemplo, muchas instancias de front-end que se conectan a una base de datos de SQL, tiene un escenario muy susceptible de encontrar agotamiento de puertos SNAT (que se está quedando sin puertos desde los que conectarse). En estos casos, se recomienda aumentar los puertos de salida asignados y las direcciones IP de front-end salientes en el equilibrador de carga. Consulte a continuación el procedimiento para calcular correctamente estos valores.
 
 A menos que se especifique lo contrario, AKS usará el valor predeterminado de los puertos de salida asignados que defina Standard Load Balancer al configurarlo. Este valor es **null** en la API de AKS o **0** en la API de SLB, tal como se muestra en el comando siguiente:
 
@@ -211,11 +210,19 @@ AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name        
 0                         True              30                      aksOutboundRule  All         Succeeded            MC_myResourceGroup_myAKSCluster_eastus  
 ```
 
-Esta salida no significa que tenga 0 puertos, sino que está aprovechando la [asignación automática de puertos de salida basada en el tamaño del grupo de back-end][azure-lb-outbound-preallocatedports], por lo que, por ejemplo, si un clúster tiene menos de 50 nodos, se asignan 1024 puertos para cada nodo. A medida que aumente el número de nodos desde allí, obtendrá menos puertos por nodo.
+Esta salida no significa que el clúster tenga 0 puertos, sino que usa la [asignación automática de puertos de salida en función del tamaño del grupo de back-end][azure-lb-outbound-preallocatedports]. Por ejemplo, si un clúster tiene 50 nodos o menos, se asignan 1024 puertos a cada nodo. A medida que aumenta el número de nodos del clúster, habrá menos puertos disponibles por nodo.
 
+Para definir o aumentar el número de puertos de salida asignados, se deben calcular los valores adecuados para el número de puertos de salida y el número de direcciones IP. El número de puertos de salida se fija por instancia en el valor especificado aquí. El valor de los puertos de salida debe ser un múltiplo de 8.
 
-Para definir o aumentar el número de puertos de salida asignados, puede seguir el ejemplo siguiente:
+Si se agregan más direcciones IP no se agregan más puertos a ningún nodo; en su lugar, se proporciona capacidad para más nodos del clúster. Al realizar este cálculo, asegúrese de tener en cuenta los nodos que se pueden agregar como parte de las actualizaciones, incluido el recuento de los nodos especificados a través de los [valores maxSurge](upgrade-cluster.md#customize-node-surge-upgrade). El cálculo del número de direcciones IP necesarias es `(<maximum number of nodes in the cluster> * <outbound ports per node>) / 64000`, redondeado al entero más cercano.
 
+Ejemplos:
+- Si no se proporciona ningún valor y el clúster tiene 48 nodos, cada nodo tendrá 1024 puertos disponibles.
+- Si no se proporciona ningún valor y el clúster aumenta a 52 nodos, cada nodo ahora tendrá 512 puertos disponibles.
+- Si los puertos de salida se establecen en 1000 y el número de direcciones IP salientes se establece en 2, el clúster puede admitir un máximo de 128 nodos (64 000 puertos por IP/1000 puertos por nodo x 2 direcciones IP = 128 nodos).
+- Si los puertos de salida se establecen en 4000 y el número de direcciones IP salientes se establece en 7, el clúster puede admitir un máximo de 112 nodos (64 000 puertos por IP/4000 puertos por nodo x 7 direcciones IP = 112 nodos).
+
+Una vez calculados los valores, se puede usar el siguiente comando para aplicarlos al clúster:
 
 ```azurecli-interactive
 az aks update \
@@ -225,13 +232,13 @@ az aks update \
     --load-balancer-outbound-ports 4000
 ```
 
-Este ejemplo le daría 4000 puertos de salida asignados para cada nodo del clúster y, con 7 direcciones IP, tendría *4000 puertos por nodo * 100 nodos = 400 000 puertos totales < = 448 000 puertos totales = 7 IP * 64 000 puertos por IP*. Esto le permite escalar de forma segura hasta 100 nodos y tener una operación de actualización predeterminada. Es fundamental asignar suficientes puertos para los nodos adicionales necesarios para la actualización y otras operaciones. De forma predeterminada, AKS se asigna a un nodo de búfer para la actualización. En este ejemplo, se requieren 4000 puertos libres en cualquier momento dado. Si usa [valores maxSurge](upgrade-cluster.md#customize-node-surge-upgrade), multiplique los puertos de salida por nodo por el valor de maxSurge.
+Para comprobar estos valores, suponga que el clúster tiene un tamaño máximo de 100 nodos y calcule el número de puertos necesarios (400 000) frente al número de puertos disponibles (448 000). Esta configuración proporcionaría puertos suficientes para un clúster de 100 nodos con espacio para la sobrecarga de nodos durante las actualizaciones.
 
-Para superar los 100 nodos con seguridad, tendría que agregar más direcciones IP.
-
+- 100 nodos x 4000 puertos por nodo = 400 000 puertos necesarios
+- 7 direcciones IP x 64 000 puertos por IP = 448 000 puertos disponibles.
 
 > [!IMPORTANT]
-> Debe [calcular la cuota necesaria y comprobar los requisitos][requirements] antes de personalizar *allocatedOutboundPorts* para evitar problemas de conectividad o escalado.
+> Debe [calcular la cuota necesaria y comprobar los requisitos][requisitos] antes de personalizar *allocatedOutboundPorts* para evitar problemas de conectividad o escalado. Es fundamental asignar suficientes puertos para los nodos adicionales necesarios para la actualización y otras operaciones. AKS se establece de forma predeterminada en un nodo de búfer para la actualización. Si usa [valores maxSurge](upgrade-cluster.md#customize-node-surge-upgrade), multiplique los puertos de salida por nodo por el valor maxSurge para determinar el número de puertos necesarios.
 
 También puede usar los parámetros **`load-balancer-outbound-ports`** al crear un clúster, pero debe especificar **`load-balancer-managed-outbound-ip-count`** , **`load-balancer-outbound-ips`** o **`load-balancer-outbound-ip-prefixes`** .  Por ejemplo:
 
@@ -263,16 +270,7 @@ Si espera tener numerosas conexiones de corta duración, no hay ninguna conexió
 > AKS habilita el restablecimiento de TCP en modo inactivo de forma predeterminada y recomienda que mantenga esta configuración y la aproveche para obtener un comportamiento de la aplicación más predecible en sus escenarios.
 > TCP RST solo se envía durante la conexión TCP en el estado ESTABLECIDO. [Aquí encontrará más información](../load-balancer/load-balancer-tcp-reset.md).
 
-### <a name="requirements-for-customizing-allocated-outbound-ports-and-idle-timeout"></a>Requisitos para personalizar los puertos de salida asignados y el tiempo de espera de inactividad
-
-- El valor que especifique para *allocatedOutboundPorts* también debe ser un múltiplo de 8.
-- Debe tener suficiente capacidad de IP de salida en función del número de VM de nodo y los puertos de salida asignados que quiera. Para comprobar que tiene capacidad de IP de salida suficiente, use la fórmula siguiente: 
- 
-*outboundIPs* \* 64 000 \> *nodeVMs* \* *desiredAllocatedOutboundPorts*.
- 
-Por ejemplo, si tiene 3 *nodeVMs* y 50 000 *desiredAllocatedOutboundPorts*, debe tener al menos 3 *outboundIPs*. Se recomienda incorporar más capacidad de IP de salida de la necesaria. Además, debe tener en cuenta el escalador automático del clúster y la posibilidad de que se produzcan actualizaciones del grupo de nodos al calcular la capacidad de IP de salida. Para el escalador automático del clúster, revise el número de nodos actual y el número máximo de nodos, y use el valor más alto. Para la actualización, tenga en cuenta una VM de nodo adicional para cada grupo de nodos que permita la actualización.
-
-- Si establece *IdleTimeoutInMinutes* en un valor distinto del predeterminado de 30 minutos, tenga en cuenta el tiempo que las cargas de trabajo necesitarán una conexión de salida. Tenga en cuenta también que el valor de tiempo de espera predeterminado para un equilibrador de carga de SKU *estándar* usado fuera de AKS es de 4 minutos. Un valor de *IdleTimeoutInMinutes* que refleje de forma más precisa su carga de trabajo de AKS específica puede ayudar a reducir el agotamiento de SNAT causado por la vinculación de las conexiones ya no se usan.
+Si establece *IdleTimeoutInMinutes* en un valor distinto del predeterminado de 30 minutos, tenga en cuenta el tiempo que las cargas de trabajo necesitarán una conexión de salida. Tenga en cuenta también que el valor de tiempo de espera predeterminado para un equilibrador de carga de SKU *estándar* usado fuera de AKS es de 4 minutos. Un valor de *IdleTimeoutInMinutes* que refleje de forma más precisa su carga de trabajo de AKS específica puede ayudar a reducir el agotamiento de SNAT causado por la vinculación de las conexiones ya no se usan.
 
 > [!WARNING]
 > La modificación de los valores de *AllocatedOutboundPorts* e *IdleTimeoutInMinutes* puede cambiar significativamente el comportamiento de la regla de salida para el equilibrador de carga y no debe realizarse a la ligera sin comprender los inconvenientes y los patrones de conexión de la aplicación. Consulte la sección [Solución de problemas de SNAT que aparece a continuación][troubleshoot-snat] y revise las [reglas de salida de Load Balancer][azure-lb-outbound-rules-overview] y las [conexiones salientes en Azure][azure-lb-outbound-connections] antes de actualizar estos valores para comprender totalmente el impacto de los cambios.
@@ -295,6 +293,8 @@ spec:
   loadBalancerSourceRanges:
   - MY_EXTERNAL_IP_RANGE
 ```
+
+En este ejemplo se actualiza la regla para permitir el tráfico externo entrante solo desde el intervalo `MY_EXTERNAL_IP_RANGE`. Si reemplaza `MY_EXTERNAL_IP_RANGE` por la dirección IP de la subred interna, el tráfico se restringe solo a las direcciones IP internas del clúster. Si el tráfico está restringido a las direcciones IP internas del clúster, los clientes fuera del clúster de Kubernetes no podrán acceder al equilibrador de carga.
 
 > [!NOTE]
 > Los flujos de tráfico externos entrantes del equilibrador de carga a la red virtual para el clúster de AKS. La red virtual tiene un grupo de seguridad de red (NSG) que permite todo el tráfico entrante desde el equilibrador de carga. Este NSG usa una [etiqueta de servicio][service-tags] de tipo *LoadBalancer* para permitir el tráfico desde el equilibrador de carga.
@@ -330,7 +330,7 @@ A continuación, se muestra una lista de las anotaciones admitidas para los serv
 | `service.beta.kubernetes.io/azure-load-balancer-resource-group`   | Nombre del grupo de recursos            | Especifique el grupo de recursos de direcciones IP públicas del equilibrador de carga que no están en el mismo grupo de recursos que la infraestructura de clúster (grupo de recursos de nodo).
 | `service.beta.kubernetes.io/azure-allowed-service-tags`           | Lista de etiquetas de servicio permitidas          | Especifique una lista de [etiquetas de servicio ][service-tags] permitidas separadas por comas.
 | `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout` | Tiempo de expiración de inactividad de TCP en minutos          | Especifique el tiempo, en minutos, para la expiración de inactividad de conexión TCP en el equilibrador de carga. El valor predeterminado y el mínimo es 4. El valor máximo es 30. Debe ser un entero.
-|`service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset` | `true`                                | Deshabilite `enableTcpReset` para SLB.
+|`service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset` | `true`                                | Deshabilite `enableTcpReset` para SLB. En desuso en Kubernetes 1.18 y eliminado en la versión 1.20. 
 
 
 ## <a name="troubleshooting-snat"></a>Solución de problemas de SNAT
@@ -355,9 +355,6 @@ Aproveche la reutilización de las conexiones y la agrupación de conexiones sie
 Use los grupos de conexiones para dar forma al volumen de la conexión.
 - Nunca abandone de forma silenciosa un flujo TCP y confíe en temporizadores TCP para limpiar el flujo. Si no permite que TCP cierre explícitamente la conexión, el estado permanecerá asignado en los sistemas y puntos de conexión intermedios y hará que los puertos de SNAT no estén disponibles para otras conexiones. Este patrón puede desencadenar errores en la aplicación y el agotamiento de SNAT.
 - No cambie los valores del temporizador relacionado con el cierre de TCP de nivel de sistema operativo sin el conocimiento experto de impacto. Aunque la pila de TCP se recuperará, el rendimiento de la aplicación puede verse afectado negativamente si los puntos de conexión de una conexión tienen expectativas no coincidentes. El deseo de cambiar los temporizadores suele ser un signo de un problema de diseño subyacente. Revise las siguientes recomendaciones.
-
-
-En el ejemplo anterior se actualiza la regla para permitir solo el tráfico externo entrante del intervalo *MY_EXTERNAL_IP_RANGE*. Si sustituye *MY_EXTERNAL_IP_RANGE* con la dirección IP de la subred interna, el tráfico se restringe únicamente a las IP internas del clúster. Esto no permitirá que los clientes de fuera del clúster de Kubernetes accedan al equilibrador de carga.
 
 ## <a name="moving-from-a-basic-sku-load-balancer-to-standard-sku"></a>Traslado de un equilibrador de carga de la SKU básica a la SKU estándar
 
@@ -427,7 +424,6 @@ Obtenga más información sobre el uso de una instancia de Load Balancer interna
 [use-kubenet]: configure-kubenet.md
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update
-[requirements]: #requirements-for-customizing-allocated-outbound-ports-and-idle-timeout
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [troubleshoot-snat]: #troubleshooting-snat
 [service-tags]: ../virtual-network/network-security-groups-overview.md#service-tags

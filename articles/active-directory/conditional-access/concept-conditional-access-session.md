@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e33f2c7393a9c7b91dcd6fd9188bd9a89f190215
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a4d902a3c5471455f6f2d6cc614544aeb4e0dc39
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131050737"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131892085"
 ---
 # <a name="conditional-access-session"></a>Acceso condicional: Sesión
 
@@ -76,10 +76,13 @@ Para más información, consulte el artículo [Configuración de la administraci
 
 [La evaluación continua de acceso](concept-continuous-access-evaluation.md) se habilita automáticamente como parte de las directivas de acceso condicional de una organización. Para las organizaciones que deseen deshabilitar o aplicar estrictamente la evaluación continua de acceso, esta configuración es ahora una opción en el control de sesión dentro del acceso condicional. El ámbito de las directivas de evaluación continua de acceso pueden ser todos los usuarios o usuarios y grupos específicos. Los administradores pueden hacer las siguientes selecciones al crear una nueva directiva o al editar una directiva de acceso condicional existente.
 
-- **Deshabilitar** se logra cuando están seleccionadas **todas las aplicaciones en la nube**, ninguna condición está seleccionada y **Deshabilitar** está seleccionada en **Session** (Sesión) > **Customize continuous access evaluation** (Personalizar evaluación continua de acceso) en una directiva de acceso condicional.
-- **El cumplimiento estricto** significa que cualquier evento y directiva críticos se aplicará en tiempo real. Todos los servicios compatibles con CAE siempre obtienen tokens CAE, independientemente de lo que el cliente o el usuario pueda solicitar o hacer. Hay dos escenarios en los que CAE no entra en juego cuando el modo de cumplimiento estricto está activado:
-   - Los clientes no compatibles con CAE no deben obtener un token normal para los servicios compatibles con CAE.
-   - Rechácelo cuando la dirección IP que el proveedor de recursos ve no se encuentra en el intervalo permitido.
+- **Deshabilitar** solo funciona cuando está seleccionado **Todas las aplicaciones en la nube**, no hay ninguna condición seleccionada y la opción **Deshabilitar** está seleccionada en **Sesión**  > **Customize continuous access evaluation** (Personalizar evaluación continua de acceso) en una directiva de acceso condicional. Puede optar por deshabilitar todos los usuarios o usuarios y grupos específicos.
+- Se puede usar un **cumplimiento estricto** para reforzar aún más las ventajas de seguridad de CAE. Garantizará que cualquier evento y directiva críticos se aplicarán en tiempo real.  Hay dos escenarios adicionales en los que se aplicará CAE cuando el modo de cumplimiento estricto esté activado:
+   - Los clientes no compatibles con CAE no podrán acceder a servicios compatibles con CAE.
+   - El acceso se rechazará cuando la dirección IP del cliente que ve el proveedor de recursos no esté en el intervalo permitido del acceso condicional.
+
+> [!NOTE] 
+> Solo debe habilitar el cumplimiento estricto después de asegurarse de que todas las aplicaciones cliente admiten CAE y que ha incluido todas las direcciones IP que ven Azure AD y los proveedores de recursos (como Exchange Online y Azure Resource Manager) en la directiva de ubicación bajo Acceso condicional. De lo contrario, se podría bloquear a los usuarios de los inquilinos.
 
 :::image type="content" source="media/concept-conditional-access-session/continuous-access-evaluation-session-controls.png" alt-text="Configuración de CAE en una nueva directiva de acceso condicional en Azure Portal." lightbox="media/concept-conditional-access-session/continuous-access-evaluation-session-controls.png":::
 

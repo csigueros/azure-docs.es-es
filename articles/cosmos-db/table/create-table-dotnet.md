@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/26/2021
 ms.author: daberry
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3a815fe51815a967c23de9b0d95a0411e70dbd35
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: e76341f8d3d0e7b7c67be6a19ab3fb8c5b902794
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131423325"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132324182"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>Inicio rápido: creación de una aplicación de Table API con el SDK de .NET y Azure Cosmos DB
 
@@ -52,10 +52,10 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/) y siga estos pasos p
 
 | Instrucciones    | Instantánea |
 |:----------------|-----------:|
-| [!INCLUDE [Create cosmos db account step 1](<./includes/create-table-dotnet/create-cosmos-db-acct-1.md>)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-1-240px.png" alt-text="Captura de pantalla que muestra cómo usar el cuadro de búsqueda de la barra de herramientas superior para buscar cuentas de Cosmos DB en Azure." lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-1.png":::           |
-| [!INCLUDE [Create cosmos db account step 1](<./includes/create-table-dotnet/create-cosmos-db-acct-2.md>)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-2-240px.png" alt-text="Captura de pantalla que muestra la ubicación del botón Crear en la página de cuentas de Cosmos DB en Azure." lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-2.png":::           |
-| [!INCLUDE [Create cosmos db account step 1](<./includes/create-table-dotnet/create-cosmos-db-acct-3.md>)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-3-240px.png" alt-text="Captura de pantalla que muestra la opción Tabla de Azure como opción correcta para seleccionar." lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-3.png":::           |
-| [!INCLUDE [Create cosmos db account step 1](<./includes/create-table-dotnet/create-cosmos-db-acct-4.md>)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-4-240px.png" alt-text="Captura de pantalla que muestra cómo rellenar los campos de la página de creación de la cuenta de Cosmos DB." lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-4.png":::           |
+| [!INCLUDE [Create cosmos db account step 1](./includes/create-table-dotnet/create-cosmos-db-acct-1.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-1-240px.png" alt-text="Captura de pantalla que muestra cómo usar el cuadro de búsqueda de la barra de herramientas superior para buscar cuentas de Cosmos DB en Azure." lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-1.png":::           |
+| [!INCLUDE [Create cosmos db account step 1](./includes/create-table-dotnet/create-cosmos-db-acct-2.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-2-240px.png" alt-text="Captura de pantalla que muestra la ubicación del botón Crear en la página de cuentas de Cosmos DB en Azure." lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-2.png":::           |
+| [!INCLUDE [Create cosmos db account step 1](./includes/create-table-dotnet/create-cosmos-db-acct-3.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-3-240px.png" alt-text="Captura de pantalla que muestra la opción Tabla de Azure como opción correcta para seleccionar." lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-3.png":::           |
+| [!INCLUDE [Create cosmos db account step 1](./includes/create-table-dotnet/create-cosmos-db-acct-4.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-4-240px.png" alt-text="Captura de pantalla que muestra cómo rellenar los campos de la página de creación de la cuenta de Cosmos DB." lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-4.png":::           |
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -123,9 +123,9 @@ En [Azure Portal](https://portal.azure.com/), complete los pasos siguientes para
 
 | Instrucciones    | Instantánea |
 |:----------------|-----------:|
-| [!INCLUDE [Create cosmos db table step 1](<./includes/create-table-dotnet/create-cosmos-table-1.md>)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-1-240px.png" alt-text="Captura de pantalla que muestra cómo usar el cuadro de búsqueda de la barra de herramientas superior para buscar la cuenta de Cosmos DB." lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-1.png":::           |
-| [!INCLUDE [Create cosmos db table step 2](<./includes/create-table-dotnet/create-cosmos-table-2.md>)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-2-240px.png" alt-text="Captura de pantalla que muestra la ubicación del botón Agregar tabla." lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-2.png":::           |
-| [!INCLUDE [Create cosmos db table step 3](<./includes/create-table-dotnet/create-cosmos-table-3.md>)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-3-240px.png" alt-text="Captura de pantalla que muestra cómo usar el cuadro de diálogo Nueva tabla para una tabla de Cosmos DB." lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-3.png":::           |
+| [!INCLUDE [Create cosmos db table step 1](./includes/create-table-dotnet/create-cosmos-table-1.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-1-240px.png" alt-text="Captura de pantalla que muestra cómo usar el cuadro de búsqueda de la barra de herramientas superior para buscar la cuenta de Cosmos DB." lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-1.png":::           |
+| [!INCLUDE [Create cosmos db table step 2](./includes/create-table-dotnet/create-cosmos-table-2.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-2-240px.png" alt-text="Captura de pantalla que muestra la ubicación del botón Agregar tabla." lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-2.png":::           |
+| [!INCLUDE [Create cosmos db table step 3](./includes/create-table-dotnet/create-cosmos-table-3.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-3-240px.png" alt-text="Captura de pantalla que muestra cómo usar el cuadro de diálogo Nueva tabla para una tabla de Cosmos DB." lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-3.png":::           |
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -165,8 +165,8 @@ Para acceder a las tablas de Cosmos DB, la aplicación necesitará la cadena de
 
 | Instrucciones    | Instantánea |
 |:----------------|-----------:|
-| [!INCLUDE [Get cosmos db table connection string step 1](<./includes/create-table-dotnet/get-cosmos-connection-string-1.md>)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-cosmos-db-table-connection-string-1-240px.png" alt-text="Captura de pantalla que muestra la ubicación del vínculo de cadenas de conexión en la página de Cosmos DB." lightbox="./media/create-table-dotnet/azure-portal-cosmos-db-table-connection-string-1.png":::           |
-| [!INCLUDE [Get cosmos db table connection string step 2](<./includes/create-table-dotnet/get-cosmos-connection-string-2.md>)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-cosmos-db-table-connection-string-2-240px.png" alt-text="Captura de pantalla que muestra la cadena de conexión que se va a seleccionar y usar en la aplicación." lightbox="./media/create-table-dotnet/azure-portal-cosmos-db-table-connection-string-2.png":::           |
+| [!INCLUDE [Get cosmos db table connection string step 1](./includes/create-table-dotnet/get-cosmos-connection-string-1.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-cosmos-db-table-connection-string-1-240px.png" alt-text="Captura de pantalla que muestra la ubicación del vínculo de cadenas de conexión en la página de Cosmos DB." lightbox="./media/create-table-dotnet/azure-portal-cosmos-db-table-connection-string-1.png":::           |
+| [!INCLUDE [Get cosmos db table connection string step 2](./includes/create-table-dotnet/get-cosmos-connection-string-2.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-cosmos-db-table-connection-string-2-240px.png" alt-text="Captura de pantalla que muestra la cadena de conexión que se va a seleccionar y usar en la aplicación." lightbox="./media/create-table-dotnet/azure-portal-cosmos-db-table-connection-string-2.png":::           |
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -627,9 +627,9 @@ Se puede eliminar un grupo de recursos mediante [Azure Portal](https://portal.az
 
 | Instrucciones    | Instantánea |
 |:----------------|-----------:|
-| [!INCLUDE [Delete resource group step 1](<./includes/create-table-dotnet/remove-resource-group-1.md>)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-remove-resource-group-1-240px.png" alt-text="Captura de pantalla que muestra cómo buscar un grupo de recursos." lightbox="./media/create-table-dotnet/azure-portal-remove-resource-group-1.png"::: |
-| [!INCLUDE [Delete resource group step 2](<./includes/create-table-dotnet/remove-resource-group-2.md>)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-remove-resource-group-2-240px.png" alt-text="Captura de pantalla que muestra la ubicación del botón Eliminar grupo de recursos." lightbox="./media/create-table-dotnet/azure-portal-remove-resource-group-2.png"::: |
-| [!INCLUDE [Delete resource group step 3](<./includes/create-table-dotnet/remove-resource-group-3.md>)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-remove-resource-group-3-240px.png" alt-text="Captura de pantalla que muestra el cuadro de diálogo de confirmación para eliminar un grupo de recursos." lightbox="./media/create-table-dotnet/azure-portal-remove-resource-group-3.png"::: |
+| [!INCLUDE [Delete resource group step 1](./includes/create-table-dotnet/remove-resource-group-1.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-remove-resource-group-1-240px.png" alt-text="Captura de pantalla que muestra cómo buscar un grupo de recursos." lightbox="./media/create-table-dotnet/azure-portal-remove-resource-group-1.png"::: |
+| [!INCLUDE [Delete resource group step 2](./includes/create-table-dotnet/remove-resource-group-2.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-remove-resource-group-2-240px.png" alt-text="Captura de pantalla que muestra la ubicación del botón Eliminar grupo de recursos." lightbox="./media/create-table-dotnet/azure-portal-remove-resource-group-2.png"::: |
+| [!INCLUDE [Delete resource group step 3](./includes/create-table-dotnet/remove-resource-group-3.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-remove-resource-group-3-240px.png" alt-text="Captura de pantalla que muestra el cuadro de diálogo de confirmación para eliminar un grupo de recursos." lightbox="./media/create-table-dotnet/azure-portal-remove-resource-group-3.png"::: |
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 

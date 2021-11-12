@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 09/10/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 334eb66a6372272b7b5d467c5603e694b1ad8683
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c57e93b68c6a9252fbb9a0551b3b987c44d759da
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128610947"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131841684"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Administración de claves de cuenta de almacenamiento con Key Vault y Azure PowerShell
 > [!IMPORTANT]
@@ -31,6 +31,9 @@ Cuando use la característica de clave de cuenta de almacenamiento administrada,
 - Solo un único objeto de Key Vault debe administrar las claves de cuenta de almacenamiento. No permita la administración de claves desde varios objetos.
 - Regenere las claves solo con Key Vault. No regenere manualmente las claves de cuenta de almacenamiento.
 
+> [!IMPORTANT]
+> La regeneración de la clave directamente en la cuenta de almacenamiento interrumpe la configuración de la cuenta de almacenamiento administrada y puede invalidar los tokens de SAS en uso y provocar una interrupción.
+
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="service-principal-application-id"></a>Id. de aplicación de la entidad de servicio
@@ -45,7 +48,7 @@ Key Vault es una aplicación de Microsoft que previamente se ha registrado en to
 | Azure AD | Pública de Azure | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 | Otros  | Any | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar esta guía, antes debe completar los pasos siguientes:
 

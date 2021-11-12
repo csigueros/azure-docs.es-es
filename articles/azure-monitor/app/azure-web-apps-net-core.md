@@ -4,12 +4,12 @@ description: Supervisión del rendimiento de aplicaciones para Azure App Service
 ms.topic: conceptual
 ms.date: 08/05/2021
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: d31f8e59b297c16995482826414d07ab8cf5774f
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 4bb5df82dcfd045100b4fe41c70538504cf2566b
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129233234"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131508238"
 ---
 # <a name="application-monitoring-for-azure-app-service-and-aspnet-core"></a>Supervisión de aplicaciones para Azure App Service mediante ASP.NET Core 
 
@@ -20,18 +20,14 @@ Habilitar la supervisión en sus aplicaciones web basadas en ASP.NET Core que se
 # <a name="windows"></a>[Windows](#tab/Windows)
 
 > [!IMPORTANT]
-> Se admiten las siguientes versiones de ASP.NET Core para la instrumentación automática en Windows: ASP.NET Core 3.1 y 5.0. Las versiones 2.0, 2.1, 2.2 y 3.0 se han retirado y ya no se admiten. Actualice a una [versión compatible](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) de .NET Core para que la instrumentación automática funcione.
-
-En Windows **no se admite** el establecimiento como destino del marco completo desde ASP.NET Core. En su lugar, use [instrumentación manual](./asp-net-core.md) por medio de código.
-
-En Windows, solo se admite la [implementación dependiente del marco](/dotnet/core/deploying/#publish-framework-dependent) y no se admite la [implementación independiente](/dotnet/core/deploying/#publish-self-contained).
+> Se admiten las siguientes versiones de ASP.NET Core para la instrumentación automática en Windows: ASP.NET Core 3.1, 5.0 y 6.0. Las versiones 2.0, 2.1, 2.2 y 3.0 se han retirado y ya no se admiten. Actualice a una [versión compatible](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) de .NET Core para que la instrumentación automática funcione.
 
 Vea la sección [Habilitar supervisión](#enable-monitoring ) a continuación para empezar a configurar Application Insights con el recurso de App Service. 
 
 # <a name="linux"></a>[Linux](#tab/Linux)
 
 > [!IMPORTANT]
-> Solo se admite ASP.NET Core 6.0 (versión preliminar) para la instrumentación automática en Linux.
+> Solo se admite ASP.NET Core 6.0 para la instrumentación automática en Linux.
 
 > [!NOTE]
 > La instrumentación automática de Linux del portal de App Services está en versión preliminar pública. Estas versiones preliminares se proporcionan sin contrato de nivel de servicio. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
@@ -120,6 +116,9 @@ A partir de la versión 2.8.9 se usa la extensión de sitio preinstalada. Si usa
 Si se realiza la actualización desde una versión anterior a la 2.5.1, compruebe que los archivos DLL de ApplicationInsigths se quitan de la carpeta de la ubicación de la aplicación. [Vea los pasos para la solución de problemas](#troubleshooting).
 
 ## <a name="troubleshooting"></a>Solución de problemas
+
+> [!NOTE]
+> Al crear una aplicación web con los entornos de ejecución `ASP.NET Core` en Azure App Service, implementa una sola página HTML estática como sitio web de inicio. **No** se recomienda solucionar un problema con la plantilla predeterminada. Implemente una aplicación antes de solucionar un problema.
 
 A continuación, se muestra nuestra guía paso a paso de solución de problemas para la supervisión basada en extensiones o agentes para aplicaciones basadas en ASP.NET Core que se ejecutan en Azure App Services.
 

@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma, danil
-ms.date: 11/02/2021
-ms.openlocfilehash: 0d2a02510a70f35a9744370da8675636a7f296c5
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.date: 11/05/2021
+ms.openlocfilehash: 19851f1ff3bef1ab57d23013ada78bec5665b7c5
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131465289"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131989819"
 ---
 # <a name="link-feature-for-azure-sql-managed-instance-limited-preview"></a>Característica de vínculo para Azure SQL Managed Instance (versión preliminar limitada)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -85,7 +85,7 @@ Para usar la característica de vínculo, necesitará lo siguiente:
 - Se necesita conectividad de red entre SQL Server y la instancia administrada. Si SQL Server se ejecuta en el entorno local, use un vínculo VPN o ExpressRoute. Si SQL Server se ejecuta en una máquina virtual de Azure, implemente la máquina virtual en la misma subred que la instancia administrada, o bien use el emparejamiento de VNet global para conectar dos subredes independientes. 
 - Azure SQL Managed Instance aprovisionada en cualquier nivel de servicio.
 
-Use el vínculo siguiente a fin de registrarse para obtener la versión preliminar limitada de la característica de vínculo. Los clientes se incorporan de forma gradual, ya que actualmente el número de puestos disponibles es limitado. Se le incorporará en la primera oportunidad disponible. Las instancias administradas implementadas a partir del 02/11/2021 tienen prioridad y, aunque se admiten las implementadas antes de esta fecha, la incorporación puede tardar más tiempo. 
+Use el vínculo siguiente a fin de registrarse para obtener la versión preliminar limitada de la característica de vínculo. 
 
 > [!div class="nextstepaction"]
 > [Registro para obtener la versión preliminar de la característica de vínculo](https://aka.ms/mi-link-signup)

@@ -4,9 +4,9 @@ description: Asegúrese de que el acceso administrativo y las cuentas de adminis
 services: active-directory
 keywords: ''
 author: rolyon
-manager: daveba
+manager: KarenH444
 ms.author: rolyon
-ms.date: 11/05/2020
+ms.date: 11/04/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeba1c933d049e67e45204ad62d71a0eb52a930d
-ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
+ms.openlocfilehash: da609d7952243c19a3cc6cc9417353965635f0de
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122662436"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851313"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD
 
@@ -178,7 +178,7 @@ Azure AD Identity Protection es una herramienta de supervisión y generación d
 
 #### <a name="obtain-your-microsoft-365-secure-score-if-using-microsoft-365"></a>Obtención de la puntuación de seguridad de Microsoft 365 (si se usa Microsoft 365)
 
-La puntuación de seguridad examina la configuración y las actividades de los servicios de Microsoft 365 que usa, y las compara con una base de referencia establecida por Microsoft. Obtendrá una puntuación que se basa en su grado de alineación con los procedimientos de seguridad. Cualquiera que tenga permisos de administrador en una suscripción de Microsoft 365 Business Standard o Enterprise puede acceder a la Puntuación de seguridad en `https://securescore.office.com`.
+La puntuación de seguridad examina la configuración y las actividades de los servicios de Microsoft 365 que usa, y las compara con una base de referencia establecida por Microsoft. Obtendrá una puntuación que se basa en su grado de alineación con los procedimientos de seguridad. Cualquiera que tenga permisos de administrador en una suscripción de Microsoft 365 Business Standard o Enterprise puede acceder a la Puntuación de seguridad en `https://security.microsoft.com/securescore`.
 
 #### <a name="review-the-microsoft-365-security-and-compliance-guidance-if-using-microsoft-365"></a>Revisión de la guía de seguridad y cumplimiento de Microsoft 365 (si usa Microsoft 365)
 

@@ -3,12 +3,12 @@ title: Configuración del origen de identidad externo de vCenter
 description: Obtenga información sobre cómo configurar Active Directory a través de LDAP o LDAPS para vCenter como origen de identidad externa.
 ms.topic: how-to
 ms.date: 08/31/2021
-ms.openlocfilehash: 77644c2d52a5eed87ab4dca83632b69834dd4c58
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 37478b65572fba2815121b0712d1a0f2e43376dc
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123537119"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131506303"
 ---
 # <a name="configure-external-identity-source-for-vcenter"></a>Configuración del origen de identidad externo de vCenter
 
@@ -85,7 +85,7 @@ Ejecute el cmdlet `New-AvsLDAPSIdentitySource` para agregar un AD a través de L
    | **Nombre**  | Nombre descriptivo del origen de identidad externa, por ejemplo, **avslap.local**.  |
    | **DomainName**  | FQDN del dominio.   |
    | **DomainAlias**  | En el caso de orígenes de identidad de Active Directory, nombre NetBIOS del dominio. Si usa autenticaciones de SSPI, agregue el nombre de NetBIOS del dominio de AD como alias del origen de identidad.     |
-   | **PrimaryUrl**  | Dirección URL principal del origen de identidad externa, por ejemplo, **ldap://suservidor:389**.  |
+   | **PrimaryUrl**  | Dirección URL principal del origen de identidad externa, por ejemplo, **ldap://suservidor:636**.  |
    | **SecondaryURL**  | Dirección URL secundaria de reserva si se produce un error en la principal.  |
    | **BaseDNUsers**  |  Dónde se deben buscar usuarios válidos, por ejemplo, **CN=users,DC=yourserver,DC=internal**.  El DN base es necesario para usar la autenticación LDAP.  |
    | **BaseDNGroups**  | Dónde se deben buscar grupos, por ejemplo, **CN=group1, DC=yourserver,DC= internal**. El DN base es necesario para usar la autenticación LDAP.  |

@@ -5,13 +5,13 @@ author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
-ms.date: 10/18/2019
-ms.openlocfilehash: 3ede36ef718fbe4ef535e9999edf55a0381cfd2e
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.date: 11/3/2021
+ms.openlocfilehash: 67b3ad49033a2fb4708b93c65e0d9f7110726cee
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129538560"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131850971"
 ---
 # <a name="failover-and-patching-for-azure-cache-for-redis"></a>Conmutación por error y aplicación de revisiones para Azure Cache for Redis
 
@@ -78,13 +78,13 @@ Las aplicaciones cliente podrían recibir algunos errores de la instancia de Azu
 
 Muchas bibliotecas cliente pueden emitir distintos tipos de errores al interrumpirse las conexiones, entre ellos:
 
-- excepciones de tiempo de espera
-- excepciones de conexión
-- excepciones de socket
+- Excepciones de tiempo de espera
+- Excepciones de conexión
+- Excepciones de socket
 
 El número y el tipo de excepciones dependen de dónde se encuentre la solicitud en la ruta de acceso al código cuando la memoria caché cierra sus conexiones. Por ejemplo, una operación que envía una solicitud pero que no ha recibido una respuesta cuando se produce la conmutación por error puede obtener una excepción de tiempo de espera. Las nuevas solicitudes en el objeto de conexión cerrado reciben excepciones de conexión hasta que la reconexión se produce correctamente.
 
-La mayoría de las bibliotecas cliente intentan volver a conectarse a la memoria caché si están configuradas para ello. Sin embargo, en ocasiones, errores imprevistos pueden dejar los objetos de biblioteca en un estado irrecuperable. Si los errores continúan durante más tiempo del preconfigurado, se debe volver a crear el objeto de conexión. En Microsoft .NET y otros lenguajes orientados a objetos, se puede volver a crear la conexión sin necesidad de reiniciar la aplicación mediante [un patrón Lazy\<T\>](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#reconnecting-with-lazyt-pattern).
+La mayoría de las bibliotecas cliente intentan volver a conectarse a la memoria caché si están configuradas para ello. Sin embargo, en ocasiones, errores imprevistos pueden dejar los objetos de biblioteca en un estado irrecuperable. Si los errores continúan durante más tiempo del preconfigurado, se debe volver a crear el objeto de conexión. En Microsoft .NET y en otros lenguajes orientados a objetos, se puede volver a crear la conexión sin necesidad de reiniciar la aplicación, mediante un [patrón ForceReconnect](cache-best-practices-connection.md#using-forcereconnect-with-stackexchangeredis).
 
 ### <a name="can-i-be-notified-in-advance-of-planned-maintenance"></a>¿Puedo recibir una notificación por adelantado sobre un mantenimiento planeado?
 

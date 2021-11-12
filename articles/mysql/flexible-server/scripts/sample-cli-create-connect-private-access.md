@@ -1,5 +1,5 @@
 ---
-title: 'Script de la CLI: Creación de una instancia de Azure Database for MySQL: servidor flexible (versión preliminar) en una red virtual'
+title: 'Script de la CLI: Creación de una instancia de Azure Database for MySQL: servidor flexible en una red virtual'
 description: 'En este script de ejemplo de la CLI de Azure se muestra cómo crear una instancia de Azure Database for MySQL: servidor flexible en una red virtual (método de conectividad de acceso privado) y conectarse al servidor desde una máquina virtual dentro de la red virtual.'
 author: shreyaaithal
 ms.author: shaithal
@@ -8,14 +8,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 09/15/2021
-ms.openlocfilehash: eef5a814fd25d30a96ad3fd445d30e9daeadc596
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4d7972293652d765cdb1686ff7759a41104f8229
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128604663"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131844247"
 ---
-# <a name="create-an-azure-database-for-mysql---flexible-server-preview-in-a-vnet-using-azure-cli"></a>Creación de una instancia de Azure Database for MySQL: servidor flexible (versión preliminar) en una red virtual mediante la CLI de Azure
+# <a name="create-an-azure-database-for-mysql---flexible-server-in-a-vnet-using-azure-cli"></a>Creación de una instancia de Azure Database for MySQL: servidor flexible en una red virtual mediante la CLI de Azure
 
 En este script de ejemplo de la CLI de Azure se muestra cómo crear una instancia de Azure Database for MySQL: servidor flexible en una red virtual ([método de conectividad de acceso privado](../concepts-networking-vnet.md)) y conectarse al servidor desde una máquina virtual dentro de la red virtual.
 
@@ -55,5 +55,5 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Pruebe scripts adicionales en: [Ejemplos de la CLI de Azure para Azure Database for MySQL: servidor flexible (versión preliminar)](../sample-scripts-azure-cli.md).
+- Pruebe otros scripts: [Ejemplos de la CLI de Azure para Azure Database for MySQL: servidor flexible](../sample-scripts-azure-cli.md).
 - Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](/cli/azure).

@@ -1,18 +1,18 @@
 ---
 title: Creación de un conjunto de reglas de examen
 description: Cree un conjunto de reglas de examen en Azure Purview para examinar rápidamente los orígenes de datos de su organización.
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 0b9175a2795ac926c7adf93dc81f84ff7b5a4472
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: fb3151b3981d0bd28120efab9bdba7fd143ae86d
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129207389"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131510981"
 ---
 # <a name="create-a-scan-rule-set"></a>Creación de un conjunto de reglas de examen
 
@@ -60,7 +60,7 @@ Para crear un conjunto de reglas de examen:
 
 1. Haga clic en **Crear** para terminar de crear el conjunto de reglas de examen.
 
-### <a name="create-a-custom-file-type"></a>Creación de un tipo de archivo personalizado
+## <a name="create-a-custom-file-type"></a>Creación de un tipo de archivo personalizado
 
 Azure Purview le permite agregar una extensión personalizada y la definición de un delimitador de columna personalizado en un conjunto de reglas de examen.
 
@@ -91,6 +91,26 @@ Para crear un tipo de archivo personalizado:
 1. Seleccione **Editar** en el icono del nuevo tipo de archivo si quiere cambiarlo o eliminarlo.
 
 1. Seleccione **Continuar** para terminar de configurar el conjunto de reglas de examen.
+
+## <a name="ignore-patterns"></a>Omisión de patrones
+
+Azure Purview admite la definición de expresiones regulares (regex) para excluir recursos durante el examen. Durante el examen, Azure Purview comparará la dirección URL del recurso con estas expresiones regulares. Todos los recursos que coincidan con cualquiera de las expresiones regulares mencionadas se omitirán durante el examen.
+
+La hoja **Ignorar patrones** rellena previamente una expresión regular para los archivos de transacción de Spark. Puede quitar el patrón preexistente si no es necesario. Puede definir hasta 10 patrones de omisión.
+
+:::image type="content" source="./media/create-a-scan-rule-set/ignore-patterns-blade.png" alt-text="Captura de pantalla en la que se muestra la hoja Ignorar patrones con cuatro expresiones regulares definidas. La primera es la expresión regular de transacción de Spark rellenada previamente, la segunda es \\.txt$, la tercera es \\.csv$ y la última, .folderB/.*.":::
+
+En el ejemplo anterior:
+
+- Las expresiones regulares 2 y 3 omiten todos los archivos que terminan en .txt y .csv durante el examen.
+- La expresión regular 4 omite /folderB/ y todo su contenido durante el examen.
+
+Estas son otras sugerencias que le resultarán útiles para omitir patrones:
+
+- Al procesar la expresión regular, Azure Purview agregará $ a la expresión regular de forma predeterminada.
+- Una buena manera de entender qué dirección URL comparará el agente de análisis con la expresión regular consiste en examinar el catálogo de datos de Purview, buscar el recurso que quiere omitir en el futuro y ver su nombre completo (FQN) en la pestaña **Información general**.
+
+   :::image type="content" source="./media/create-a-scan-rule-set/fully-qualified-name.png" alt-text="Captura de pantalla en la que se muestra el nombre completo en la pestaña de información general de un recurso.":::
 
 ## <a name="system-scan-rule-sets"></a>Conjuntos de reglas de examen del sistema
 

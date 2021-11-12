@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.service: virtual-network
 localization_priority: Normal
 ms.date: 08/29/2019
-ms.openlocfilehash: a2d2fc40417e1548a621e26bff70ac6028f8dda7
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: ac29c46f9e7b1bdb3201e33bc35e35811d8adc98
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "116986093"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132335354"
 ---
 # <a name="troubleshoot-azure-vm-connectivity-problems"></a>Solución de problemas de conectividad de máquinas virtuales de Azure
 
@@ -48,9 +48,9 @@ Para resolver estos problemas, siga los pasos de la siguiente sección.
 > [!TIP]
 > Si la prueba de ping se realiza correctamente, vaya al paso 3. De lo contrario, vaya al próximo paso.
 
-#### <a name="step-2-check-the-network-security-group-settings&quot;></a>Paso 2: Compruebe la configuración del grupo de seguridad de red.
+#### <a name="step-2-check-the-network-security-group-settings"></a>Paso 2: Compruebe la configuración del grupo de seguridad de red.
 
-Para cada máquina virtual, compruebe las reglas de puerto de entrada predeterminadas (&quot;Permitir entrada de red virtual&quot; y &quot;Permitir entrada de Load Balancer"). Asegúrese también de comprobar que no hay reglas de bloqueo que coincidan que se enumeran debajo de una regla de prioridad inferior.
+Para cada máquina virtual, compruebe las reglas de puerto de entrada predeterminadas ("Permitir entrada de red virtual" y "Permitir entrada de Load Balancer"). Asegúrese también de comprobar que no hay reglas de bloqueo que coincidan que se enumeran debajo de una regla de prioridad inferior.
 
 > [!NOTE]
 > Las reglas que tengan un número menor se aplicarán primero. Por ejemplo, si tiene una regla que tiene prioridad 1000 y 6500, la regla que tiene prioridad 1000 se aplicará primero.

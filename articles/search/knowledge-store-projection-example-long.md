@@ -7,25 +7,33 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/15/2021
-ms.openlocfilehash: e06772af191917daed79210c28ed2efb19c30036
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.date: 10/20/2021
+ms.openlocfilehash: 41960e60479bf553eeb92cebb9888e2ae01aae55
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130134229"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131503079"
 ---
 # <a name="detailed-example-of-shapes-and-projections-in-a-knowledge-store"></a>Ejemplo detallado de formas y proyecciones en un almacén de conocimiento
 
 En este artículo se proporciona un ejemplo detallado que complementa los [conceptos de alto nivel](knowledge-store-projection-overview.md) y los [artículos basados en sintaxis](knowledge-store-projections-examples.md) al recorrer los pasos de creación de formas y proyección necesarios para expresar la salida de un conjunto de aptitudes enriquecido en un [almacén de conocimiento](knowledge-store-concept-intro.md).
 
-Si los requisitos de la aplicación exigen varias aptitudes y proyecciones, este ejemplo puede proporcionarle una mejor comprensión de cómo forman intersecciones las formas y las proyecciones.
+Si los requisitos de la aplicación exigen varias aptitudes y proyecciones, este ejemplo puede proporcionarle una mejor idea de cómo forman intersecciones las formas y las proyecciones.
 
 ## <a name="download-sample-definitions"></a>Descarga de definiciones de ejemplo
 
+En este ejemplo se usa la [aplicación Postman Desktop](https://www.postman.com/downloads/) y las [API REST de búsqueda](/rest/api/searchservice/).
+
 Clone o descargue [azure-search-postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples) en GitHub e importe la [**colección de proyectos**](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/projections) para revisar este ejemplo paso por paso usted mismo.
 
-Los documentos de ejemplo no están incluidos en la colección, pero los [archivos multimedia mixtos](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/ai-enrichment-mixed-media) de [azure-search-sample-data](https://github.com/Azure-Samples/azure-search-sample-data) disponen tanto de texto como de imágenes para admitir las proyecciones que se describen en este ejemplo.
+## <a name="set-up-sample-data"></a>Configuración de datos de ejemplo
+
+Los documentos de ejemplo no están incluidos en la colección Proyecciones, pero los [archivos de datos de demostración de enriquecimiento con IA](https://github.com/azure-search-sample-data/tree/master/ai-enrichment-mixed-media) del [repositorio azure-search-sample-data](https://github.com/Azure-Samples/azure-search-sample-data) contienen texto e imágenes y funcionarán con las proyecciones que se describen en este ejemplo.
+
+Cree un contenedor de blobs en Azure Storage y cargue los 14 elementos.
+
+Mientras esté en Azure Storage, copie una cadena de conexión para que pueda especificarla en la colección de Postman.
 
 ## <a name="example-skillset"></a>Conjunto de aptitudes de ejemplo
 

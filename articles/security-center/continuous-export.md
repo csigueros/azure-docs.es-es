@@ -5,15 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/18/2021
+ms.date: 11/02/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 1557503699a47e471abee173733007cb3d0b5380
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 23908a7824e4e489da575fd1563b82c340d42def
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131010163"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131425186"
 ---
 # <a name="continuously-export-microsoft-defender-for-cloud-data"></a>Exportación continua de datos de Microsoft Defender for Cloud
 
@@ -28,7 +27,7 @@ La **exportación continua** le permite personalizar completamente *qué* se exp
 - Se entreguen recomendaciones específicas a un centro de eventos o área de trabajo de Log Analytics cada vez que se generen. 
 - La puntuación segura para una suscripción se envía a un área de trabajo de Log Analytics cada vez que la puntuación de un control cambia en 0,01 o más. 
 
-Aunque la característica se denomina *continua*, también hay una opción para exportar instantáneas semanales de datos de cumplimiento normativo o de puntuación segura.
+Aunque la característica se denomina *continua*, también hay una opción para exportar instantáneas semanales.
 
 En este artículo se describe cómo configurar la exportación continua a áreas de trabajo de Log Analytics o a Azure Event Hubs.
 
@@ -75,7 +74,7 @@ Puede configurar la exportación continua desde las páginas de Microsoft Defend
 
 Los pasos siguientes son necesarios si va a configurar una exportación continua a las área de trabajo de Log Analytics o a Azure Event Hubs.
 
-1. En el menú Defender for Cloud, seleccione **Parámetros del entorno**.
+1. En el menú de Defender for Cloud, abra **Parámetros del entorno**.
 
 1. Seleccione la suscripción específica para la que quiere configurar la exportación de datos.
 
@@ -89,7 +88,7 @@ Los pasos siguientes son necesarios si va a configurar una exportación continua
 
 1. Seleccione la frecuencia de exportación adecuada:
     - **Streaming**: las evaluaciones se enviarán cuando se actualice el estado de mantenimiento de un recurso (si no se produce ninguna actualización, no se enviarán datos).
-    - **Instantáneas**: se enviará una vez a la semana por suscripción una instantánea del estado actual de todas las evaluaciones de cumplimiento normativo. Esta característica en versión preliminar proporciona instantáneas semanales de las puntuaciones de seguridad y los datos de cumplimiento normativo. Para identificar los datos de la instantánea, busque el campo ``IsSnapshot``.
+    - **Instantáneas**: se enviará una vez a la semana por suscripción una instantánea del estado actual de los tipos de datos seleccionados. Para identificar los datos de la instantánea, busque el campo ``IsSnapshot``.
 
 1. Opcionalmente, si la selección incluye una de estas recomendaciones, puede incluir los resultados de la evaluación de vulnerabilidades junto con ellas:
     - Las bases de datos SQL deben tener resueltos los hallazgos de vulnerabilidades.

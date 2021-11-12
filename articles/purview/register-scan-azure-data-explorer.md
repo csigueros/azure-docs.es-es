@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: df323dd973f65f6e4d332ec7a8a0d408c26ecc4e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 954fbb8edef1e35993acb9ec7590018719c4627d
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131076327"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131848085"
 ---
 # <a name="connect-to-and-manage-azure-data-explorer-in-azure-purview"></a>Conexión y administración de Azure Data Explorer en Azure Purview
 
@@ -24,7 +24,9 @@ En este artículo se describe cómo registrar Azure Data Explorer y cómo autent
 
 |**Extracción de metadatos**|  **Examen completo**  |**Examen incremental**|**Examen con ámbito**|**Clasificación**|**Directiva de acceso**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Sí](#register) | [Sí](#scan) | [Sí](#scan) | [Sí](#scan)| [Sí](#scan)| No | No |
+| [Sí](#register) | [Sí](#scan) | [Sí](#scan) | [Sí](#scan)| [Sí](#scan)| No | No** |
+
+\** Se admite el linaje si el conjunto de datos se usa como origen o receptor en la [actividad de copia de Data Factory](how-to-link-azure-data-factory.md) 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

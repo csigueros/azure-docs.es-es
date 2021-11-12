@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 6/19/2021
-ms.openlocfilehash: cf23b4111bc50b9276ffdc99704b750c8c7d5b3b
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: dfeea2cfde2f8122891b6fada2eba1e546ed2342
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131429116"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131894229"
 ---
 # <a name="azure-database-for-mysql-single-server"></a>Servidor único de Azure Database for MySQL
 
@@ -20,16 +20,15 @@ ms.locfileid: "131429116"
 
 [Azure Database for MySQL](overview.md), con tecnología de MySQL Community Edition, está disponible en dos modos de implementación:
 
+- Servidor flexible 
 - Servidor único
-- Servidor flexible (versión preliminar)
 
 En este artículo, se proporcionará información general y una introducción a los conceptos básicos del modelo de implementación de Servidor único. Para información sobre el modo de implementación de servidor flexible, consulte [Información general de servidor flexible](flexible-server/index.yml). Para información sobre cómo decidir qué opción de implementación es adecuada para la carga de trabajo, consulte [Elección de la opción correcta de Servidor MySQL en Azure](select-right-deployment-type.md).
 
 ## <a name="overview"></a>Información general
+Servidor único de Azure Database for MySQL es un servicio de base de datos totalmente administrado diseñado para una personalización mínima. La plataforma de servidor único está diseñada para administrar la mayoría de las funciones de administración de bases de datos, como las de aplicación de revisión, copias de seguridad, alta disponibilidad y seguridad con una configuración y un control mínimos para el usuario. La arquitectura está optimizada para una alta disponibilidad integrada, ya que ofrece una disponibilidad del 99,99 % en una zona de disponibilidad única. Es compatible con la versión Community de MySQL 5.6 (retirado), 5.7 y 8.0. El servicio está disponible con carácter general hoy en muchas [regiones de Azure](https://azure.microsoft.com/global-infrastructure/services/).
 
-Servidor único es un servicio de base de datos totalmente administrado con requisitos mínimos para las personalizaciones de la base de datos. La plataforma Servidor único está diseñada para administrar la mayoría de las funciones de administración de bases de datos, como la aplicación de revisión, las copias de seguridad, la alta disponibilidad y la seguridad, con una configuración y un control mínimos para el usuario. La arquitectura está optimizada para proporcionar una disponibilidad del 99,99 % en una zona de disponibilidad única. Es compatible con la versión Community de MySQL 5.6, 5.7 y 8.0. El servicio está disponible con carácter general hoy en muchas [regiones de Azure](https://azure.microsoft.com/global-infrastructure/services/). 
-
-Los servidores únicos son los más adecuados para las aplicaciones nativas en la nube diseñadas para controlar la aplicación de revisiones automatizada sin necesidad de un control granular sobre la programación de aplicación de revisiones ni de una configuración personalizada de MySQL. 
+Los servidores únicos son más adecuados **solo para las aplicaciones existentes que ya aprovechan un servidor único**. Para todos los nuevos desarrollos o migraciones, un servidor flexible sería la opción de implementación recomendada. Para obtener información sobre las diferencias entre las opciones de implementación de servidor flexible y servidor único, consulte la documentación sobre la [selección de la opción de implementación adecuada para usted](select-right-deployment-type.md).
 
 ## <a name="high-availability"></a>Alta disponibilidad
 

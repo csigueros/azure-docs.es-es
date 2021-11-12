@@ -9,12 +9,12 @@ ms.subservice: mldata
 ms.topic: how-to
 ms.date: 10/21/2021
 ms.custom: data4ml, ignite-fall-2021
-ms.openlocfilehash: 1aa49d52c11f430affb6b9deea14a4160806f06c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: e3097c6b00d97287526015836c44ddcaeb08177a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131068419"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131468714"
 ---
 # <a name="create-a-text-labeling-project-and-export-labels-preview"></a>Creación de un proyecto de etiquetado de texto y exportación de etiquetas (versión preliminar)
 
@@ -39,10 +39,10 @@ El etiquetado de datos de Azure Machine Learning es una ubicación central para 
 > [!Important]
 > Los datos de texto deben estar disponibles en un almacén de datos de blobs de Azure. (Si no tiene un almacén de datos existente, puede cargar los archivos durante la creación del proyecto).
 
-Los datos de texto pueden ser archivos ".txt" o ".csv".
+Formatos de datos disponibles para los datos de texto:
 
-* En el caso de los archivos ".txt", cada archivo representa un elemento que se va a etiquetar.
-* Para los archivos ".csv", cada fila representa un elemento presentado al etiquetador.  Puede mostrar una o varias columnas para usarlas al etiquetar esa fila.
+* **.txt**, cada archivo representa un elemento que se va a etiquetar.
+* **.csv** o **.tsv**: cada fila representa un elemento presentado al etiquetador.  Decida qué columnas puede ver el etiquetador para etiquetar la fila.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -83,7 +83,7 @@ Para crear un conjunto de datos a partir de los datos que ya ha almacenado en el
 1. Seleccione **Crear un conjunto de datos** > **De almacén de datos**.
 1. En **Nombre**, asigne un nombre al conjunto de datos.
 1. Elija el **Tipo de conjunto de datos**:
-    * Seleccione **Tabular** si usa un archivo .csv, donde cada fila contiene una respuesta.
+    * Seleccione **Tabular** si usa un archivo .csv, o .tsv, donde cada fila contiene una respuesta.
     * Seleccione **Archivo** si usa archivos .txt para cada respuesta.
 1. (Opcional) Proporcione una descripción para el conjunto de datos.
 1. Seleccione **Siguiente**.
@@ -101,16 +101,16 @@ Para cargar los datos directamente:
 1. Seleccione **Crear un conjunto de datos** > **De archivos locales**.
 1. En **Nombre**, asigne un nombre al conjunto de datos.
 1. Elija el **tipo de conjunto de datos**.
-    * Seleccione **Tabular** si usa un archivo .csv, donde cada fila es una respuesta.
+    * Seleccione **Tabular** si usa un archivo .csv, o .tsv, donde cada fila es una respuesta.
     * Seleccione **Archivo** si usa archivos .txt para cada respuesta.
 1. (Opcional) Proporcione una descripción para el conjunto de datos.
 1. Seleccione **Siguiente**.
 1. (Opcional) Seleccione o cree un almacén de datos. También puede mantener el almacén de blobs predeterminado para realizar la carga ("workspaceblobstore") del área de trabajo de Machine Learning.
 1. Seleccione **Cargar** para seleccionar las carpetas o los archivos locales que se van a cargar.
 1. Seleccione **Siguiente**.
-1. Si se cargan archivos .csv:
+1. Si carga archivos .csv o .tsv:
     * Confirme la configuración, obtenga una vista previa y seleccione **Siguiente**.
-    * Incluya todas las columnas de texto que quiera que vea el etiquetador al clasificar esa fila.
+    * Incluya todas las columnas de texto que quiera que vea el etiquetador al clasificar esa fila.  Si va a usar el etiquetado asistido por ML, agregar columnas numéricas puede degradar el modelo de asistencia por ML.
     * Seleccione **Next** (Siguiente).
 1.  Confirme los detalles. Seleccione **Atrás** para modificar la configuración o **Crear** para crear el conjunto de datos.
 
@@ -118,6 +118,9 @@ Para cargar los datos directamente:
 ## <a name="configure-incremental-refresh"></a><a name="incremental-refresh"> </a>Configuración de la actualización incremental
 
 [!INCLUDE [refresh](../../includes/machine-learning-data-labeling-refresh.md)]
+
+> [!NOTE]
+> La actualización incremental no está disponible para los proyectos que usan conjuntos de datos tabulares (.csv o .tsv).
 
 ## <a name="specify-label-classes"></a>Especificación de clases de etiquetas
 

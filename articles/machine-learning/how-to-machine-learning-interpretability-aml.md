@@ -1,5 +1,5 @@
 ---
-title: Interpretación y explicación de los modelos de Machine Learning en Python (versión preliminar)
+title: Uso de Python para interpretar y explicar modelos (versión preliminar)
 titleSuffix: Azure Machine Learning
 description: Aprenda a obtener explicaciones sobre cómo el modelo de aprendizaje automático determina la importancia de las características y realiza predicciones al usar el SDK de Azure Machine Learning.
 services: machine-learning
@@ -10,15 +10,15 @@ author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, responsible-ml
-ms.openlocfilehash: ce73277b509a0ea98e02196998dc9b735768d5a7
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.custom: devx-track-python, responsible-ml, mktng-kw-nov2021
+ms.openlocfilehash: f22bee60a86d162c57313ab33811a21408eefd74
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131562435"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131847458"
 ---
-# <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Uso del paquete de interpretación para explicar los modelos de Machine Learning y las predicciones en Python (versión preliminar)
+# <a name="use-the-python-interpretability-package-to-explain-ml-models--predictions-preview"></a>Uso del paquete de interpretación de Python para explicar los modelos y las predicciones de ML (versión preliminar)
 
 En este artículo, aprenderá a usar el paquete de interpretación del SDK de Azure Machine Learning para Python para realizar las siguientes tareas:
 
@@ -571,7 +571,7 @@ Pestaña Explicación admitida | Características sin procesar (densas) | Caract
 :----- | :--- | :--- | :---- | :---- |
 Rendimiento del modelo   | Compatible (sin previsión) | Compatible (sin previsión)  | Compatible | Compatible |
 Explorador del conjunto de datos  | Compatible (sin previsión)   | No compatible. Puesto que los datos dispersos no se cargan y la interfaz de usuario tiene problemas para representar datos dispersos. | Compatible | No compatible. Puesto que los datos dispersos no se cargan y la interfaz de usuario tiene problemas para representar datos dispersos. | 
- Agregación de la importancia de la característica | Compatible | Compatible | Compatible | Compatible |
+ Agregación de la importancia de la característica | Compatible. | Compatible. | Compatible. | Compatible |
  Importancia de una característica individual| Compatible (sin previsión)   | No compatible. Puesto que los datos dispersos no se cargan y la interfaz de usuario tiene problemas para representar datos dispersos. | Compatible | No compatible. Puesto que los datos dispersos no se cargan y la interfaz de usuario tiene problemas para representar datos dispersos. | 
 
 
@@ -584,6 +584,6 @@ Explorador del conjunto de datos  | Compatible (sin previsión)   | No compatibl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Más información sobre la interpretación de modelos](how-to-machine-learning-interpretability.md)
+[Técnicas para la interpretación de modelos en Azure ML](how-to-machine-learning-interpretability.md)
 
-[Consulte los cuadernos de ejemplos de interpretación de Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
+[Consulta de los cuadernos de ejemplos de interpretación de Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)

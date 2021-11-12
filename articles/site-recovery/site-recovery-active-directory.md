@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: mayg
-ms.openlocfilehash: f7df260f0ef02df5d706bc78ed4938cb1868eead
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 01956fa1dc12d992d05f004d21572b9fc045d5f9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130065091"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131437683"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configuración de la recuperación ante desastres para Active Directory y DNS
 
@@ -47,7 +47,7 @@ El controlador de dominio que se haya replicado con Site Recovery se utiliza par
 
 ### <a name="configure-vm-network-settings"></a>Configuración de las opciones de red de la máquina virtual
 
-Para la máquina virtual que hospeda al controlador de dominio o DNS, en Site Recovery, configure los valores de red en la configuración **Proceso y red** de la máquina virtual replicada. Esto asegura que la máquina virtual se conecte a la red adecuada después de la conmutación por error.
+Para la máquina virtual en la que se hospeda al controlador de dominio o DNS, en Site Recovery, configure los valores de red en las opciones **Red** de la máquina virtual replicada. Esto asegura que la máquina virtual se conecte a la red adecuada después de la conmutación por error.
 
 ## <a name="protect-active-directory"></a>Protección de Active Directory
 
@@ -77,12 +77,12 @@ La mayoría de las aplicaciones requieren la presencia de un controlador de domi
 
 1. Use Site Recovery para [replicar](vmware-azure-tutorial.md) la máquina virtual que hospeda el controlador de dominio o DNS.
 1. Cree una red aislada. Cualquier red virtual que se cree en Azure está aislada de otras redes de forma predeterminada. Se recomienda usar el mismo intervalo de direcciones IP para esta red sea el mismo que el usado en la red de producción. No habilite la conectividad de sitio a sitio en esta red.
-1. Proporcione una dirección IP de DNS en la red aislada. Use la dirección IP que se espera que obtenga la máquina virtual de DNS. Si replica en Azure, indique la dirección IP para la máquina virtual que se utiliza en la conmutación por error. Para escribir la dirección IP, en la máquina virtual replicada, en la opción **Proceso y red**, seleccione el valor **IP de destino**.
+1. Proporcione una dirección IP de DNS en la red aislada. Use la dirección IP que se espera que obtenga la máquina virtual de DNS. Si replica en Azure, indique la dirección IP para la máquina virtual que se utiliza en la conmutación por error. Para escribir la dirección IP, en la máquina virtual replicada, en las opciones **Red**, seleccione el valor **IP de destino**.
 
    :::image type="content" source="./media/site-recovery-active-directory/azure-test-network.png" alt-text="Red de prueba de Azure":::
 
    > [!TIP]
-   > Site Recovery intenta crear máquinas virtuales de prueba en una subred del mismo nombre y con la misma dirección IP que se proporcionó en la opción **Proceso y red** de la máquina virtual. Si no hay disponible una subred con el mismo nombre en la red virtual de Azure proporcionada para la conmutación por error de prueba, la máquina virtual de prueba se crea en la primera subred por orden alfabético.
+   > Site Recovery intenta crear máquinas virtuales de prueba en una subred del mismo nombre y con la misma dirección IP que se han proporcionado en la opción **Red** de la máquina virtual. Si no hay disponible una subred con el mismo nombre en la red virtual de Azure proporcionada para la conmutación por error de prueba, la máquina virtual de prueba se crea en la primera subred por orden alfabético.
    >
    > Si la dirección IP de destino forma parte de la subred seleccionada, Site Recovery trata de crear la máquina de virtual de la conmutación por error de prueba con la dirección IP de destino. Si la dirección IP de destino no forma parte de la subred seleccionada, la máquina virtual de la conmutación por error de prueba se creará con la siguiente dirección IP disponible en la subred seleccionada.
 

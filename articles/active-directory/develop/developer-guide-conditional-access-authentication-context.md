@@ -12,12 +12,12 @@ manager: CelesteDG
 ms.reviewer: kkrishna
 ms.workload: identity
 ms.custom: aaddev
-ms.openlocfilehash: 0a310df6793d2caecda095f0c89244ffee5e46eb
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 48e9598acac2739b7663fcd9a46006208d44783c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113728037"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131459508"
 ---
 # <a name="developers-guide-to-conditional-access-authentication-context"></a>Instrucciones para desarrolladores sobre el contexto de autenticación del acceso condicional
 
@@ -43,7 +43,7 @@ Estos son los requisitos previos y los pasos si desea usar el contexto de autent
 
 ### <a name="prerequisites"></a>Prerrequisitos
 
-**En primer lugar**, la aplicación debe integrarse con Microsoft Identity Platform mediante el uso de los protocolos [OpenID Connect](v2-protocols-oidc.md)/ [OAuth 2.0](v2-oauth2-auth-code-flow.md) para la autenticación y autorización. Se recomienda usar las [bibliotecas de autenticación de la plataforma de identidad de Microsoft](reference-v2-libraries.md) para integrar y proteger la aplicación con Azure Active Directory. La [documentación de la plataforma de identidad de Microsoft](index.yml) es un buen lugar para aprender a integrar las aplicaciones con dicha plataforma. La compatibilidad con las características de contexto de autenticación del acceso condicional se basa en las extensiones de protocolo proporcionadas por el protocolo estándar [OpenID Connect](v2-protocols-oidc.md) del sector. Los desarrolladores usan un **valor** de [referencia para el contexto de autenticación del acceso condicional](/graph/api/resources/authenticationcontextclassreference) con el parámetro [Solicitud de notificaciones](claims-challenge.md) para proporcionar a las aplicaciones una manera de desencadenar y cumplir con la directiva.
+**En primer lugar**, la aplicación debe integrarse con Microsoft Identity Platform mediante el uso de los protocolos [OpenID Connect](v2-protocols-oidc.md)/ [OAuth 2.0](v2-oauth2-auth-code-flow.md) para la autenticación y autorización. Se recomienda usar las [bibliotecas de autenticación de la plataforma de identidad de Microsoft](reference-v2-libraries.md) para integrar y proteger la aplicación con Azure Active Directory. La [documentación de la plataforma de identidad de Microsoft](index.yml) es un buen lugar para aprender a integrar las aplicaciones con dicha plataforma. La compatibilidad con las características de contexto de autenticación del acceso condicional se basa en las extensiones de protocolo proporcionadas por el protocolo estándar [OpenID Connect](v2-protocols-oidc.md) del sector. Los desarrolladores usan un **valor** de [referencia para el contexto de autenticación del acceso condicional](/graph/api/conditionalaccessroot-list-authenticationcontextclassreferences) con el parámetro [Solicitud de notificaciones](claims-challenge.md) para proporcionar a las aplicaciones una manera de desencadenar y cumplir con la directiva.
 
 **En segundo lugar**, el [acceso condicional](../conditional-access/overview.md) requiere licencias de Azure AD Premium P1. Para más información sobre las licencias, consulte la [página de precios de Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 

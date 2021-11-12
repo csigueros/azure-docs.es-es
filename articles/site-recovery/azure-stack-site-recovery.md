@@ -3,12 +3,12 @@ title: Replicar máquinas virtuales de Azure Stack en Azure con Azure Site Recov
 description: Aprenda a configurar la recuperación ante desastres en Azure para máquinas virtuales de Azure Stack con el servicio Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 386eae05ea06b59aac290d5f1f51d643d7952b6a
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: d423f4511e830c4a62537330f3bff7d2c7bc6ec9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112580429"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131452725"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicación de máquinas virtuales de Azure Stack en Azure
 
@@ -260,7 +260,7 @@ Antes de ejecutar una conmutación por error de prueba, compruebe las propiedade
 
 1. En **Elementos protegidos**, haga clic en **Elementos replicados** > VM.
 2. En el panel **Elemento replicado**, puede ver un resumen de la información de la máquina virtual, el estado de mantenimiento y los puntos de recuperación disponibles más recientes. Haga clic en **Propiedades** para ver más detalles.
-3. En **Compute and Network** (Proceso y red), modifique la configuración según sea necesario.
+3. En los valores de **Proceso** y **Red**, modifique la configuración según sea necesario.
 
     - Puede modificar el nombre de máquina virtual de Azure, el grupo de recursos, el tamaño de destino, el [conjunto de disponibilidad](../virtual-machines/windows/tutorial-availability-sets.md) y la configuración de discos administrados.
     - También puede ver y modificar la configuración de red. Esta incluye la red y subred a la que se une la máquina virtual de Azure después de la conmutación por error y la dirección IP que se asignará a la máquina virtual.

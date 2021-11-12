@@ -9,12 +9,12 @@ ms.date: 06/21/2021
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: 51335fe48208423883706796fe4812ec0e0af5fe
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 8cb7f667f2898d1508df2f58a3aea2ced68582e1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129275722"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131474806"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Planeamiento y administración de costos de Azure Blob Storage
 
@@ -117,7 +117,7 @@ Para más información, consulte [Optimización de los costos de almacenamiento 
 
 Para reducir los costos puede colocar los datos del blob en las capas de almacenamiento más económicas. Elija una de las tres capas que están diseñadas para optimizar los costos del uso de datos. Por ejemplo, el nivel de *acceso frecuente* tiene un mayor costo de almacenamiento, pero un menor costo de acceso. Por consiguiente, si planea acceder a los datos con frecuencia, es posible que este nivel sea la opción más económica. Si planea acceder a los datos con poca frecuencia, tendría más sentido elegir los niveles de acceso *esporádico* o *de archivo*, ya que su costo de acceso a los datos es mayor, pero se reduce el costo de almacenamiento.
 
-Para más información, consulte [Niveles de acceso frecuente, esporádico y de archivo de los datos de blob](../blobs/access-tiers-overview.md?tabs=azure-portal).
+Para obtener más información, consulte [Niveles de acceso frecuente, esporádico y de archivo de los datos de blob](../blobs/access-tiers-overview.md?tabs=azure-portal).
 
 #### <a name="automatically-move-data-between-access-tiers"></a>Movimiento automático de datos entre las capas de almacenamiento
 

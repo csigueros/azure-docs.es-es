@@ -3,12 +3,12 @@ title: Habilitación de la extensión de máquina virtual en Azure Portal
 description: En este artículo se describe cómo implementar extensiones de máquina virtual en servidores habilitados para Azure Arc que se ejecutan en entornos de nube híbridos desde Azure Portal.
 ms.date: 10/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: d6ecbbc57237192f68b9949ab960fb36cda64c81
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: b3bb6e6b6dcb70dc229dc01a02d04cf195c89700
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130069603"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423914"
 ---
 # <a name="enable-azure-vm-extensions-from-the-azure-portal"></a>Habilitación de las extensiones de máquina virtual de Azure desde Azure Portal
 
@@ -89,7 +89,7 @@ Puede actualizar una extensión de una de las tres maneras siguientes:
 
     :::image type="content" source="media/manage-vm-extensions-portal/vm-extensions-update-selected.png" alt-text="Actualización de la extensión seleccionada." border="true":::
 
-## <a name="uninstall-extensions"></a>Desinstalar extensiones
+## <a name="remove-extensions"></a>Eliminación de extensiones
 
 Puede quitar una o más extensiones de un servidor habilitado para Azure Arc desde Azure Portal. Siga los pasos siguientes para quitar una extensión.
 

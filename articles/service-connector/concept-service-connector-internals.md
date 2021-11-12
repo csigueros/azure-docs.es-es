@@ -7,12 +7,12 @@ ms.service: serviceconnector
 ms.topic: conceptual
 ms.date: 10/29/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 99c793fb5b9b249acd440669a01e50f14c7b6de5
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: fda89409a39644057ebd76d949665b281d32dc2a
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131090778"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501673"
 ---
 # <a name="service-connector-internals"></a>Aspectos internos de Service Connector
 
@@ -76,7 +76,7 @@ Si usa **Spring Boot** como el tipo de cliente:
 Si usa **otros tipos de cliente** excepto Spring Boot:
 
 * Cuando se conecta a un servicio de destino, el nombre de clave de la primera configuración de conexión tiene el formato `{Cloud}_{Type}_{Name}`. Por ejemplo, `AZURE_STORAGEBLOB_RESOURCEENDPOINT`, `CONFLUENTCLOUD_KAFKA_BOOTSTRAPSERVER`. 
-* Para el mismo tipo de recurso de destino, t El nombre de clave de la segunda configuración de conexión tendrá el formato `{Cloud}_{Type}_{Connection Name}_{Name}`. Por ejemplo, `AZURE_STORAGEBLOB_CONN2_RESOURCEENDPOINT`, `CONFLUENTCLOUD_KAFKA_CONN2_BOOTSTRAPSERVER`.
+* Para el mismo tipo de recurso de destino, el nombre de clave de la segunda configuración de conexión tendrá el formato `{Cloud}_{Type}_{Connection Name}_{Name}`. Por ejemplo, `AZURE_STORAGEBLOB_CONN2_RESOURCEENDPOINT`, `CONFLUENTCLOUD_KAFKA_CONN2_BOOTSTRAPSERVER`.
 
 ## <a name="validate-a-service-connection"></a>Validar una conexión de servicio
 Se comprobarán los siguientes elementos al validar la conexión:

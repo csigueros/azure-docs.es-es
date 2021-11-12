@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: bef6439ae51c6e15f7be997758acbbd3722ae4ff
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 8e4bc76203ee84d71f4a9f201dac6e63d4728c34
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123223255"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238067"
 ---
 # <a name="troubleshoot"></a>Solución de problemas
 
@@ -37,9 +37,9 @@ Si está trabajando en un equipo portátil con dos GPU, es posible que la GPU qu
 
 ## <a name="retrieve-sessionconversion-status-fails"></a>Error al recuperar el estado de la sesión o conversión
 
-Enviar comandos de la API REST con demasiada frecuencia hará que el servidor se limite y devuelva un error con el tiempo. El código de estado HTTP en caso de limitación es 429 ("demasiadas solicitudes"). Como regla general, debería haber un retraso de entre **5 y 10 segundos entre las llamadas subsiguientes**.
+Enviar comandos de la API REST con demasiada frecuencia hará que el servidor se limite y devuelva un error con el tiempo. El código de estado HTTP en caso de limitación es 429 ("demasiadas solicitudes"). Como regla general, debería haber un retraso de entre **5 y 10 segundos entre las llamadas subsiguientes**.
 
-Tenga en cuenta que este límite no solo afecta a las llamadas a API REST cuando se realizan directamente, sino también a sus homólogos de C#/C++, como `Session.GetPropertiesAsync`, `Session.RenewAsync` o `Frontend.GetAssetConversionStatusAsync`.
+Tenga en cuenta que este límite no solo afecta a las llamadas a API REST cuando se realizan directamente, sino también a sus homólogos de C#/C++, como `Session.GetPropertiesAsync`, `Session.RenewAsync` o `Frontend.GetAssetConversionStatusAsync`. Algunas funciones también devuelven información cuando se guardan para intentarse de nuevo. Por ejemplo, `RenderingSessionPropertiesResult.MinimumRetryDelay` especifica cuántos segundos hay que esperar antes de intentar otra comprobación. Cuando está disponible, es mejor usar este valor devuelto, ya que permite realizar comprobaciones con la mayor frecuencia posible, sin limitaciones.
 
 Si experimenta una limitación en el lado del servidor, cambie el código para que realice las llamadas con menos frecuencia. El servidor restablecerá el estado de limitación cada minuto, por lo que podrá volver a ejecutar el código después de un minuto.
 

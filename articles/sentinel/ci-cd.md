@@ -1,6 +1,6 @@
 ---
-title: Administración de contenido personalizado para Azure Sentinel en su propio repositorio | Microsoft Docs
-description: En este artículo se describe cómo crear conexiones con un repositorio de GitHub o Azure DevOps donde puede guardar contenido personalizado.
+title: Implementación de contenido personalizado desde el repositorio | Microsoft Docs
+description: En este artículo se describe cómo crear conexiones con un repositorio de GitHub o Azure DevOps donde pueda guardar contenido personalizado e implementarlo en Azure Sentinel.
 services: sentinel
 cloud: na
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 10/20/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 7d1a20fd1d74c3b5057201cac38a9353737f98dd
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 607e153b751315ee0a43c74cc2926dffbbc706d3
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131090963"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131841665"
 ---
 # <a name="deploy-custom-content-from-your-repository-public-preview"></a>Implementación de contenido personalizado desde el repositorio (versión preliminar pública)
 
@@ -125,7 +125,9 @@ Cada conexión puede admitir varios tipos de contenido personalizado, como regla
 
 Una vez creada la conexión, se genera un nuevo flujo de trabajo o una canalización en el repositorio, y el contenido almacenado en él se implementa en el área de trabajo de Azure Sentinel.
 
-El tiempo de implementación puede variar en función de la cantidad de contenido que se va a implementar. Consulta del estado de la implementación
+El tiempo de implementación puede variar en función de la cantidad de contenido que se va a implementar. 
+
+### <a name="view-the-deployment-status"></a>Consulta del estado de la implementación
 
 - **En GitHub**: en la pestaña **Actions** (Acciones) del repositorio. Seleccione el archivo **.yaml** del flujo de trabajo que se muestra para acceder a los registros de implementación detallados y a los mensajes de error específicos, si procede.
 - **En Azure DevOps**: en la pestaña **Pipelines** (Canalizaciones) del repositorio.
@@ -294,7 +296,7 @@ Cada instalación de la aplicación Azure Sentinel tiene un identificador único
 
 Use su contenido personalizado en Azure Sentinel de la misma manera que usaría el contenido integrado.
 
-Para más información, consulte:
+Para obtener más información, consulte:
 
 - [Detección e implementación de soluciones de Azure Sentinel (versión preliminar)](sentinel-solutions-deploy.md)
 - [Conectores de datos de Azure Sentinel](connect-data-sources.md)

@@ -6,19 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: c8460d6df9710e5a8752a0edd50c6b83276725ad
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 85718f5c9f3705d5530a2528c07a5a5c40a971c5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128668590"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131468392"
 ---
-# <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Limitaciones de Azure Database for MySQL con servidor flexible (versión preliminar)
+# <a name="limitations-in-azure-database-for-mysql---flexible-server"></a>Limitaciones de Azure Database for MySQL: servidor flexible
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Actualmente, Azure Database for MySQL con servidor flexible se encuentra en versión preliminar pública.
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 En este artículo se describen las limitaciones del servicio Azure Database for MySQL con servidor flexible. También se aplican las [limitaciones generales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.7/en/limits.html) en el motor de base de datos de MySQL. Para obtener más información sobre las limitaciones de los recursos (proceso, memoria y almacenamiento), consulte el artículo acerca del [proceso y el almacenamiento](concepts-compute-storage.md).
 
@@ -45,12 +42,14 @@ MySQL es compatible con muchos motores de almacenamiento. En Azure Database for 
 
 ## <a name="privileges--data-manipulation-support"></a>Compatibilidad con privilegios y con la manipulación de datos
 
-El servicio MySQL no permite el acceso directo al sistema de archivos subyacente. No se admiten algunos comandos de manipulación de datos. 
+Muchos parámetros y ajustes del servidor pueden reducir por error el rendimiento del servidor o invalidar las propiedades ACID del servidor de MySQL. Para mantener la integridad del servicio y el SLA en un nivel de producto, no se exponen varios roles en este servicio.
+
+El servicio MySQL no permite el acceso directo al sistema de archivos subyacente. No se admiten algunos comandos de manipulación de datos.
 
 ### <a name="unsupported"></a>No compatible
 
 No se admite lo siguiente:
-- Rol DBA: restringido. De forma alternativa, puede usar el rol de administrador (generado durante la creación del nuevo servidor), que le permite ejecutar la mayoría de las instrucciones DDL y DML. 
+- Rol DBA: restringido. De forma alternativa, puede usar el rol de administrador (generado durante la creación del nuevo servidor), que le permite ejecutar la mayoría de las instrucciones DDL y DML.
 - Privilegio SUPER: del mismo modo, el [privilegio SUPER](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) también está restringido.
 - DEFINER: requiere privilegios SUPER para crear y está restringido. Si importa datos mediante una copia de seguridad, quite los comandos `CREATE DEFINER` manualmente o mediante el comando `--skip-definer` durante una operación mysqldump.
 - Bases de datos del sistema: La [base de datos del sistema de MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) es de solo lectura y se usa para admitir varias funcionalidades de PaaS. No puede realizar cambios en la base de datos del sistema de `mysql`.
@@ -69,7 +68,6 @@ No se admite lo siguiente:
 - El método de conectividad no se puede cambiar después de crear el servidor. Si el servidor se crea con la opción *Acceso privado (integración con red virtual)* , no se puede cambiar a *Acceso público (direcciones IP permitidas)* después de la creación, y viceversa
 
 ### <a name="stopstart-operation"></a>Operación de inicio/detención
-- No es compatible con las configuraciones de alta disponibilidad con redundancia de zona (principal y en espera).
 - No es compatible con las configuraciones de réplica de lectura (tanto de origen como de réplicas).
 
 ### <a name="scale-operations"></a>Operaciones de escalado
@@ -85,7 +83,7 @@ No se admite lo siguiente:
 - Con la restauración a un momento dado, se crea un nuevo servidor con las mismas configuraciones de proceso y almacenamiento que el servidor de origen en el que se basa. El proceso del servidor recién restaurado se puede reducir verticalmente después de crear el servidor.
 - No se admite la restauración de un servidor eliminado.
 
-## <a name="features-available-in-single-server-but-not-yet-supported-in-flexible-server"></a>Características disponibles en Servidor único que aún no se admiten en Servidor flexible 
+## <a name="features-available-in-single-server-but-not-yet-supported-in-flexible-server"></a>Características disponibles en Servidor único que aún no se admiten en Servidor flexible
 No todas las características disponibles en Azure Database for MySQL: servidor único están disponibles ya en el servidor flexible. Para obtener una lista completa de la comparación de características entre el servidor único y el servidor flexible, consulte cómo [elegir la opción de servidor de MySQL adecuada en la documentación de Azure](../select-right-deployment-type.md#comparing-the-mysql-deployment-options-in-azure).
 
 ## <a name="next-steps"></a>Pasos siguientes

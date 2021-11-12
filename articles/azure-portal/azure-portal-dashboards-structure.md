@@ -1,19 +1,20 @@
 ---
-title: La estructura de los paneles de Azure
-description: Recorra la estructura JSON de un Panel de Azure mediante un panel de ejemplo. Incluye una referencia a las propiedades de los recursos.
+title: Estructura de los paneles de Azure
+description: Recorra la estructura JSON de un panel de Azure mediante un panel de ejemplo. Incluye una referencia a las propiedades de los recursos.
 ms.topic: conceptual
-ms.date: 12/20/2019
-ms.openlocfilehash: d37e2fd9c9f6ef6e7ddea6dea002f26f20cd66a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 10/19/2021
+ms.openlocfilehash: 4f005d6b232a7bba15d55055d49ac1c7adf49866
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96745968"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130239711"
 ---
-# <a name="the-structure-of-azure-dashboards"></a>La estructura de los paneles de Azure
+# <a name="the-structure-of-azure-dashboards"></a>Estructura de los paneles de Azure
+
 Este documento le guía a través de la estructura de un panel de Azure con el panel siguiente como ejemplo:
 
-![panel de ejemplo](./media/azure-portal-dashboards-structure/sample-dashboard.png)
+:::image type="content" source="media/azure-portal-dashboards-structure/sample-dashboard.png" alt-text="Captura de pantalla de un panel de ejemplo en Azure Portal.":::
 
 Como los [paneles de Azure compartidos son recursos](../azure-resource-manager/management/overview.md), este panel se puede representar como JSON.  La siguiente representación JSON representa el panel visualizado anteriormente.
 
@@ -283,48 +284,55 @@ Como los [paneles de Azure compartidos son recursos](../azure-resource-manager/m
 
 Vamos a desglosar las secciones relevantes de JSON.  Las propiedades de nivel superior, __id__, __name__, __type__, __location__ y __tags__ se comparten entre todos los tipos de recursos de Azure. Es decir, no tienen mucho que ver con el contenido del panel.
 
-### <a name="the-id-property"></a>La propiedad ID
+### <a name="id"></a>id
 
-El identificador de recurso de Azure está sujeto a las [convenciones de nomenclatura de recursos de Azure](/azure/architecture/best-practices/resource-naming). Cuando el portal crea un panel, elige generalmente un identificador en forma de identificador único global, pero se puede usar cualquier nombre válido cuando se crea mediante programación. 
+El identificador de recurso de Azure está sujeto a las [convenciones de nomenclatura de recursos de Azure](/azure/architecture/best-practices/resource-naming). Cuando el portal crea un panel, elige generalmente un identificador en forma de identificador único global, pero se puede usar cualquier nombre válido cuando se crea mediante programación.
 
-### <a name="the-name-property"></a>La propiedad name
+### <a name="name"></a>Nombre
+
 El nombre es el segmento del identificador de recurso que no incluye la suscripción, el tipo de recurso o la información del grupo de recursos. Básicamente, es el último segmento del identificador de recurso.
 
-### <a name="the-type-property"></a>La propiedad type
+### <a name="type"></a>Tipo
+
 Todos los paneles son del tipo __Microsoft.Portal/dashboards__.
 
-### <a name="the-location-property"></a>La propiedad location
+### <a name="location"></a>Ubicación
+
 A diferencia de otros recursos, los paneles no tienen un componente de tiempo de ejecución.  Para los paneles, la ubicación indica la ubicación geográfica principal que almacena la representación JSON del panel. El valor debe ser uno de los códigos de ubicación que se pueden recuperar mediante la [API de ubicaciones en el recurso de suscripciones](/rest/api/resources/subscriptions).
 
-### <a name="the-tags-property"></a>La propiedad tags
-Las etiquetas son una característica común de los recursos de Azure que le permiten organizar el recurso por pares de nombre y valor arbitrarios. Para los paneles, hay una etiqueta especial denominada __hidden-title__. Si el panel tiene esta propiedad rellenada, se utiliza como el nombre para mostrar del panel en el portal. No se puede cambiar el nombre de los identificadores de recursos de Azure, pero con las etiquetas sí se puede. Esta etiqueta ofrece un modo de tener un nombre para mostrar que pueda cambiar para el panel.
+### <a name="tags"></a>Etiquetas
+
+Las etiquetas son una característica común de los recursos de Azure que le permiten organizar el recurso por pares de nombre y valor arbitrarios. Los paneles incluyen una etiqueta especial denominada __hidden-title__. Si el panel tiene esta propiedad rellenada, ese valor se utiliza como el nombre para mostrar del panel en el portal. No se puede cambiar el nombre de los identificadores de recursos de Azure, pero sí el de las etiquetas. Esta etiqueta ofrece un modo de tener un nombre para mostrar que pueda cambiar para el panel.
 
 `"tags": { "hidden-title": "Created via API" }`
 
-### <a name="the-properties-object"></a>El objeto properties
+### <a name="properties"></a>Propiedades
+
 El objeto properties contiene dos propiedades, __lenses__ y __metadata__. La propiedad __lenses__ contiene información sobre los iconos del panel.  La propiedad __metadata__ existe para posibles características futuras.
 
-### <a name="the-lenses-property"></a>La propiedad lenses
-La propiedad __lenses__ contiene el panel. Tenga en cuenta que el objeto lenses de este ejemplo contiene una propiedad única denominada "0". Lenses son un concepto de agrupación que no está implementado actualmente en los paneles. Por ahora, todos los paneles tienen esta propiedad en el objeto lens, que también se llama "0".
+### <a name="lenses"></a>lenses
 
-### <a name="the-lens-object"></a>El objeto lens
+La propiedad __lenses__ contiene el panel. El objeto lens de este ejemplo contiene una propiedad única denominada "0". lenses son un concepto de agrupación que no está implementado actualmente en los paneles. Por ahora, todos los paneles tienen esta propiedad en el objeto lens, denominada "0".
+
+### <a name="parts"></a>Partes
+
 El objeto que hay debajo de "0" contiene dos propiedades, __order__ y __parts__.  En la versión actual de los paneles, __order__ es siempre 0. La propiedad __parts__ contiene un objeto que define los elementos individuales (también denominados iconos) del panel.
 
-El objeto __parts__ contiene una propiedad para cada elemento, donde el nombre de la propiedad es un número. Este número no es significativo. 
+El objeto __parts__ contiene una propiedad para cada elemento, donde el nombre de la propiedad es un número. El número no es significativo.
 
-### <a name="the-part-object"></a>El objeto part
 Cada objeto part individual tiene las propiedades __position__ y __metadata__.
 
-### <a name="the-position-object"></a>El objeto position
+### <a name="position"></a>Posición
+
 La propiedad __position__ contiene información sobre el tamaño y la ubicación del elemento expresado como __x__, __y__, __rowSpan__ y __colSpan__. Los valores se expresan en términos de unidades de cuadrícula. Estas unidades de cuadrícula están visibles cuando el panel está en modo de personalización tal como se muestra aquí. Si desea que un icono tenga una anchura de dos unidades de cuadrícula, una altura de una unidad de cuadrícula y una ubicación en la esquina superior izquierda del panel, entonces, el objeto position tendrá el siguiente aspecto:
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
-![La captura de pantalla muestra un primer plano de la cuadrícula, con una unidad de cuadrícula cuadrada resaltada.](./media/azure-portal-dashboards-structure/grid-units.png)
+:::image type="content" source="media/azure-portal-dashboards-structure/grid-units.png" alt-text="Captura de pantalla en la que se muestran las unidades de cuadrícula de un panel en Azure Portal.":::
 
-### <a name="the-metadata-object"></a>El objeto metadata
+### <a name="metadata"></a>Metadatos
+
 Cada elemento tiene una propiedad metadata, un objeto solo tiene una propiedad necesaria que se llama __type__. Esta cadena indica al portal qué icono debe mostrar. El panel de ejemplo utiliza estos tipos de iconos:
-
 
 1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart`: se usa para mostrar las métricas de supervisión
 1. `Extension[azure]/HubsExtension/PartType/MarkdownPart`: se usa para mostrar con texto o imágenes y con el formato básico para listas, vínculos, etc.
@@ -333,7 +341,8 @@ Cada elemento tiene una propiedad metadata, un objeto solo tiene una propiedad n
 
 Cada tipo de elemento tiene su propia configuración. Las posibles propiedades de configuración se denominan __inputs__, __settings__ y __asset__. 
 
-### <a name="the-inputs-object"></a>El objeto inputs
+### <a name="inputs"></a>Entradas
+
 El objeto inputs generalmente contiene información que enlaza un icono con una instancia del recurso.  El elemento de máquina virtual en el panel de ejemplo contiene una sola entrada que usa el identificador de recurso de Azure para expresar el enlace.  Este formato de identificador de recurso es coherente en todos los recursos de Azure.
 
 ```json
@@ -346,10 +355,11 @@ El objeto inputs generalmente contiene información que enlaza un icono con una 
 ]
 
 ```
-El elemento del gráfico de métricas tiene una sola entrada que expresa el recurso al que se va a enlazar, así como información sobre las métricas que se van a mostrar. Esta es la entrada para el icono que muestra las métricas Network In y Network Out.
+
+El elemento de gráfico de métricas tiene una sola entrada que expresa el recurso al que se va a enlazar, junto con información sobre las métricas que se van a mostrar. Esta es la entrada para el icono que muestra las métricas Entrada de red y Salida de red.
 
 ```json
-“inputs”:
+"inputs":
 [
     {
         "name": "queryInputs",
@@ -380,8 +390,9 @@ El elemento del gráfico de métricas tiene una sola entrada que expresa el recu
 
 ```
 
-### <a name="the-settings-object"></a>El objeto settings
-El objeto settings contiene los elementos configurables de un elemento.  En el panel de ejemplo, el elemento Markdown usa valores para almacenar el contenido de marcado personalizado, así como un título y un subtítulo configurables.
+### <a name="settings"></a>Configuración
+
+El objeto settings contiene los elementos configurables de un elemento.  En el panel de ejemplo, el elemento Markdown usa valores para almacenar el contenido de marcado personalizado, junto con un título y un subtítulo configurables.
 
 ```json
 "settings": 
@@ -418,7 +429,13 @@ Del mismo modo, el icono de vídeo tiene su propia configuración que contiene u
 
 ```
 
-### <a name="the-asset-object"></a>El objeto asset
+### <a name="asset"></a>Recurso
+
 Los iconos que están enlazados a objetos del portal de primera clase administrables (denominados recursos) expresan esta relación mediante el objeto asset.  En el panel de ejemplo, el icono de la máquina virtual contiene esta descripción del recurso.  La propiedad __idInputName__ indica al portal que la entrada del identificador contiene el identificador único para el activo, en este caso, el identificador del recurso. La mayoría de los tipos de recursos tienen activos definidos en el portal.
 
 `"asset": {    "idInputName": "id",    "type": "VirtualMachine"    }`
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- Aprenda a crear un panel en [Azure Portal](azure-portal-dashboards.md) o [mediante programación](azure-portal-dashboards-create-programmatically.md).
+- Aprenda a [usar iconos de markdown en los paneles de Azure para mostrar contenido personalizado](azure-portal-markdown-tile.md).

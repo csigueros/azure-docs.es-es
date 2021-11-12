@@ -8,15 +8,15 @@ ms.subservice: automl
 ms.author: nibaccam
 author: cartacioS
 ms.reviewer: nibaccam
-ms.date: 06/11/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: a48fa9df38b9892c740713b1463010c1f601506d
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: d7bf32faabd6b0a9d2037ad5599a5b2cceb70053
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130000031"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131556262"
 ---
 # <a name="set-up-no-code-automl-training-with-the-studio-ui"></a>Configuración del entrenamiento de AutoML sin código con la interfaz de usuario de Estudio 
 
@@ -28,7 +28,7 @@ Para obtener un ejemplo completo, pruebe el [Tutorial: Aprendizaje automático a
 
 Si prefiere una experiencia basada en código de Python, [configure sus experimentos de aprendizaje automático automatizado](how-to-configure-auto-train.md) con el SDK de Azure Machine Learning.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 
@@ -94,7 +94,9 @@ De lo contrario, verá una lista de los experimentos de aprendizaje automático 
 
 1. Seleccione una columna de destino; esta es la columna en la que realizará las predicciones.
 
-1. Seleccione un proceso para la generación de perfiles de los datos y el trabajo de entrenamiento. Hay una lista de los procesos existentes disponible en la lista desplegable. Para crear un nuevo proceso, siga las instrucciones del paso 7.
+1. Seleccione un tipo de proceso para la generación de perfiles de los datos y el trabajo de entrenamiento. Puede seleccionar un [clúster de proceso](concept-compute-target.md#azure-machine-learning-compute-managed) o una [instancia de proceso](concept-compute-instance.md). 
+    
+1. Seleccione un proceso en la lista desplegable de los procesos existentes.  Para crear un nuevo proceso, siga las instrucciones del paso 8.
 
 1. Seleccione **Create a new compute** (Crear un proceso) para configurar el contexto del proceso de este experimento.
 

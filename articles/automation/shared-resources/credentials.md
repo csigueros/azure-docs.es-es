@@ -6,12 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 09/22/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2a78f9636a29c8e48c8d3e1c38d7127bd3ba84b7
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 5a33bac9db69320df6e2e6d0e02361cb9aa0cdab
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129354041"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131432517"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Administración de credenciales en Azure Automation
 
@@ -116,7 +116,7 @@ $securePassword = $myCredential.Password
 $password = $myCredential.GetNetworkCredential().Password
 ```
 
-También puede usar una credencial para autenticarse en Azure con [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) después de conectarse primero a una [identidad administrada](../automation-security-overview.md#managed-identities-preview). En ese ejemplo se usa una [identidad administrada asignada por el sistema](../enable-managed-identity-for-automation.md).
+También puede usar una credencial para autenticarse en Azure con [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) después de conectarse primero a una [identidad administrada](../automation-security-overview.md#managed-identities). En ese ejemplo se usa una [identidad administrada asignada por el sistema](../enable-managed-identity-for-automation.md).
 
 ```powershell
 # Ensures you do not inherit an AzContext in your runbook

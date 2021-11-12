@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 09/09/2021
 ms.author: lajanuar
-ms.openlocfilehash: 4b27e60776c459ed74bcf33c79a819f90722a0d0
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 777ee0bcbf139c9edc9e4715133faec3318f692b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130239008"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131434510"
 ---
 # <a name="translator-v30"></a>Translator v3.0
 
@@ -31,22 +31,16 @@ La versión 3 de Translator proporciona una API web moderna basada en JSON. Mejo
 
 ## <a name="base-urls"></a>Direcciones URL base
 
-Microsoft Translator está disponible en varias ubicaciones de centros de datos. En la actualidad, se encuentran en diez [regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions):
+En la mayoría de los casos, las solicitudes dirigidas a Translator se administran en el centro de datos que está más próximo a la ubicación donde se ha originado la solicitud. Si se produce un error en el centro de datos al usar el punto de conexión global, la solicitud se puede enrutar fuera de la geografía.
 
-* **América**: Este de EE. UU., Centro-sur de EE. UU. , Centro-oeste de EE. UU. y Oeste de EE. UU. 2
-* **Asia Pacífico:** Sur de Corea del Sur, Este de Japón, Sudeste de Asia y Este de Australia
-* **Europa:** Norte de Europa y Oeste de Europa
+Para forzar el control de la solicitud dentro de una geografía específica, use el punto de conexión geográfico deseado. Todas las solicitudes se procesan entre los centros de datos dentro de la geografía. 
 
-En la mayoría de los casos, las solicitudes dirigidas a Microsoft Translator se administran en el centro de datos que está más próximo a la ubicación donde se originó la solicitud. Si se produce un error en un centro de datos, la solicitud podría enrutarse fuera de la geografía.
-
-Para hacer que la solicitud se controle en una geografía específica, cambie el punto de conexión Global en la solicitud de API por el punto de conexión geográfico que quiera:
-
-|Geography|URL base (punto de conexión geográfico)|
-|:--|:--|
-|Global (no regional)|    api.cognitive.microsofttranslator.com|
-|Estados Unidos|    api-nam.cognitive.microsofttranslator.com|
-|Europa|    api-eur.cognitive.microsofttranslator.com|
-|Asia Pacífico|    api-apc.cognitive.microsofttranslator.com|
+|Geography|URL base (punto de conexión geográfico)|Centros de datos|
+|:--|:--|:--|
+|Global (no regional)|    api.cognitive.microsofttranslator.com|Centro de datos más cercano disponible|
+|Asia Pacífico|    api-apc.cognitive.microsofttranslator.com|Sur de Corea del Sur, Este de Japón, Sudeste de Asia y Este de Australia|
+|Europa|    api-eur.cognitive.microsofttranslator.com|Norte de Europa y Oeste de Europa|
+|Estados Unidos|    api-nam.cognitive.microsofttranslator.com|Este de EE. UU., Centro-sur de EE. UU. , Centro-oeste de EE. UU. y Oeste de EE. UU. 2|
 
 <sup>1</sup> Los clientes con un recurso ubicado en las regiones Norte de Suiza u Oeste de Suiza pueden estar seguro de que sus solicitudes de Text API se atienden en Suiza. Para asegurarse de que las solicitudes se controlan en Suiza, cree el recurso de Traductor en la "región de recursos" "Norte de Suiza" u "Oeste de Suiza" y, a continuación, use el punto de conexión personalizado del recurso en las solicitudes de API. Por ejemplo, si crea un recurso de Translator en Azure Portal con una "región de recursos" como "Norte de Suiza" y el nombre de recurso es "my-ch-n", el punto de conexión personalizado será "https://my-ch-n.cognitiveservices.azure.com". Y una solicitud de ejemplo para traducir sería:
 ```curl

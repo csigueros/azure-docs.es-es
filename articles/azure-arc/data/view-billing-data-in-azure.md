@@ -7,104 +7,44 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 2c4e25aebf46ea13b69b8ca24d1336c4ba5521ad
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b54d77c5abb5e8043368ad1e8bce3d3865e68fd7
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751492"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131558770"
 ---
 # <a name="upload-billing-data-to-azure-and-view-it-in-the-azure-portal"></a>Carga de datos de facturación en Azure y visualización en Azure Portal
 
-> [!IMPORTANT] 
->  El uso de los servicios de datos habilitados para Azure Arc durante el período de versión preliminar no supone ningún coste. Aunque el sistema de facturación funciona de extremo a extremo, el medidor de facturación se establece en 0 USD.  Si sigue este escenario, verá entradas en la facturación de un servicio denominado actualmente **servicios de datos híbridos** y de recursos de un tipo denominado **Microsoft.AzureArcData/`<resource type>`** . Podrá ver un registro para cada servicio de datos de Azure Arc que cree, pero cada registro se facturará por 0 USD.
+
 
 
 ## <a name="connectivity-modes---implications-for-billing-data"></a>Modos de conectividad: implicaciones de los datos de facturación
 
-En el futuro, habrá dos modos de ejecución de los servicios de datos habilitados para Azure Arc:
+Hay dos modos en los que puede implementar los servicios de datos habilitados para Azure Arc:
 
 - **Conexión indirecta**: no hay ninguna conexión directa con Azure. Los datos solo se envían a Azure a través de un proceso de exportación y carga.
-- **Conexión directa**: en este modo, habrá una dependencia del servicio Kubernetes habilitado para Azure Arc a fin de proporcionar una conexión directa entre Azure y el clúster de Kubernetes en el que se ejecutan los servicios de datos habilitados para Azure Arc. Esto habilitará más funcionalidades y también le permitirá usar Azure Portal y la CLI de Azure para administrar los servicios de datos habilitados para Azure Arc igual que los servicios de datos en PaaS de Azure.  Este modo de conectividad todavía no está disponible en versión preliminar, pero lo estará próximamente.
+- **Conexión directa**: en este modo, habrá una dependencia del servicio Kubernetes habilitado para Azure Arc a fin de proporcionar una conexión directa entre Azure y el clúster de Kubernetes en el que se implementan los servicios de datos habilitados para Azure Arc. Esto habilitará más funcionalidades de Azure y también le permitirá usar Azure Portal para administrar los servicios de datos habilitados para Azure Arc igual que administra los servicios de datos en PaaS de Azure.  
 
 Puede obtener más información sobre la diferencia entre los [modos de conectividad](./connectivity.md).
 
 En el modo de conexión indirecta, los datos de facturación se exportan periódicamente desde el controlador de datos de Azure Arc a un archivo seguro y, después, se cargan en Azure y se procesan.  En el próximo modo de conexión directa, los datos de facturación se enviarán automáticamente a Azure aproximadamente cada hora para ofrecer una visión casi en tiempo real de los costes de los servicios. El proceso de exportación y carga de los datos en el modo de conexión indirecta también se puede automatizar mediante scripts, o bien se puede crear un servicio que lo haga automáticamente.
 
-## <a name="upload-billing-data-to-azure"></a>Carga de datos de facturación en Azure
+## <a name="upload-billing-data-to-azure---indirectly-connected-mode"></a>Carga de datos de facturación en Azure: modo de conexión indirecta
+
+> [!NOTE]
+> La carga de datos de uso (facturación) se realiza automáticamente en el modo de conexión directa. Las instrucciones siguientes son solo para el modo de conexión indirecta. 
 
 Para cargar los datos de facturación en Azure, primero debe ocurrir lo siguiente:
 
 1. Cree un servicio de datos habilitado para Azure Arc si todavía no tiene uno. Por ejemplo, cree uno de los siguientes:
    - [Creación de una Instancia administrada de Azure SQL en Azure Arc](create-sql-managed-instance.md)
    - [Creación de un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc](create-postgresql-hyperscale-server-group.md)
-1. [Cargue el inventario de recursos, los datos de uso, las métricas y los registros en Azure Monitor](upload-metrics-and-logs-to-azure-monitor.md) si aún no lo ha hecho.
-1. Espere al menos dos horas desde la creación del servicio de datos para que el proceso de recopilación de telemetría de facturación pueda recopilar algunos datos de facturación.
+2. Espere al menos dos horas desde la creación del servicio de datos para que el proceso de recopilación de telemetría de facturación pueda recopilar algunos datos de facturación.
+3. Siga los pasos descritos en [Carga del inventario de recursos, datos de uso, métricas y registros en Azure Monitor](upload-metrics-and-logs-to-azure-monitor.md) para obtener la configuración con los requisitos previos para cargar datos de uso, facturación y registros y, a continuación, siga en [Carga de datos de uso en Azure](upload-usage-data.md) para cargar los datos de facturación. 
 
-Ejecute el comando siguiente para exportar los datos de facturación:
-
-```azurecli
-az arcdata dc export -t usage -p usage.json --k8s-namespace <namespace> --use-k8s
-```
-
-Por ahora, el archivo no está cifrado para que pueda ver el contenido. No dude en abrirlo en un editor de texto y ver el aspecto del contenido.
-
-Observará que hay dos conjuntos de datos: `resources` y `data`. `resources` son el controlador de datos, los grupos de servidores Hiperescala de PostgreSQL y las instancias administradas de SQL. Los registros `resources` de los datos capturan los eventos pertinentes en el historial de un recurso: cuándo se ha creado, actualizado y eliminado. Los registros `data` capturan el número de núcleos disponibles para que los use una instancia determinada cada hora.
-
-Ejemplo de una entrada de `resource`:
-
-```console
-    {
-        "customObjectName": "<resource type>-2020-29-5-23-13-17-164711",
-        "uid": "4bc3dc6b-9148-4c7a-b7dc-01afc1ef5373",
-        "instanceName": "sqlInstance001",
-        "instanceNamespace": "arc",
-        "instanceType": "<resource>",
-        "location": "eastus",
-        "resourceGroupName": "production-resources",
-        "subscriptionId": "482c901a-129a-4f5d-86e3-cc6b294590b2",
-        "isDeleted": false,
-        "externalEndpoint": "32.191.39.83:1433",
-        "vCores": "2",
-        "createTimestamp": "05/29/2020 23:13:17",
-        "updateTimestamp": "05/29/2020 23:13:17"
-    }
-```
-
-Ejemplo de una entrada de `data`:
-
-```console
-        {
-          "requestType": "usageUpload",
-          "clusterId": "4b0917dd-e003-480e-ae74-1a8bb5e36b5d",
-          "name": "DataControllerTestName",
-          "subscriptionId": "482c901a-129a-4f5d-86e3-cc6b294590b2",
-          "resourceGroup": "production-resources",
-          "location": "eastus",
-          "uploadRequest": {
-            "exportType": "usages",
-            "dataTimestamp": "2020-06-17T22:32:24Z",
-            "data": "[{\"name\":\"sqlInstance001\",
-                       \"namespace\":\"arc\",
-                       \"type\":\"<resource type>\",
-                       \"eventSequence\":1, 
-                       \"eventId\":\"50DF90E8-FC2C-4BBF-B245-CB20DC97FF24\",
-                       \"startTime\":\"2020-06-17T19:11:47.7533333\",
-                       \"endTime\":\"2020-06-17T19:59:00\",
-                       \"quantity\":1,
-                       \"id\":\"4BC3DC6B-9148-4C7A-B7DC-01AFC1EF5373\"}]",
-           "signature":"MIIE7gYJKoZIhvcNAQ...2xXqkK"
-          }
-        }
-```
-
-Ejecute el comando siguiente para cargar el archivo usage.json en Azure:
-
-```azurecli
-az arcdata dc upload -p usage.json
-```
 
 ## <a name="view-billing-data-in-azure-portal"></a>Visualización de los datos de facturación en Azure Portal
 

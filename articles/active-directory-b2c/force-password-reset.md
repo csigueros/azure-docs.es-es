@@ -12,16 +12,18 @@ ms.date: 09/16/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 7c350c04071dd5f01804aaea57dd7390dc00bad5
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 4c5802d9cd1fc9a7a41d38bc70e9d384882a1ea1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130236720"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131424332"
 ---
 # <a name="set-up-a-force-password-reset-flow-in-azure-active-directory-b2c"></a>Configuración de un flujo de restablecimiento de contraseña forzado en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+::: zone pivot="b2c-user-flow"
 
 ## <a name="overview"></a>Información general
 
@@ -33,11 +35,19 @@ Cuando un administrador restablece la contraseña de un usuario desde Azure Port
 
 El flujo de restablecimiento de contraseña es aplicable a las cuentas locales de Azure AD B2C que utilizan una [dirección de correo electrónico](sign-in-options.md#email-sign-in) o un [nombre de usuario](sign-in-options.md#username-sign-in) con una contraseña para el inicio de sesión.
 
-::: zone pivot="b2c-user-flow"
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+Esta característica solo está disponible actualmente para los Flujos de usuario. Para ver los pasos de configuración, elija **Flujo de usuario** más arriba. Para las directivas personalizadas, use el [ejemplo de GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/force-password-reset-first-logon) de forzar el restablecimiento de contraseña en el primer inicio de sesión con los requisitos previos siguientes.
+
+::: zone-end
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
+
+::: zone pivot="b2c-user-flow"
 
 ## <a name="configure-your-user-flow"></a>Configuración del flujo de usuario
 
@@ -116,12 +126,6 @@ Una vez que se ha establecido una directiva de expiración de contraseña, tambi
 ### <a name="password-expiry-duration"></a>Duración de las contraseñas
 
 El valor predeterminado de duración de expiración de la contraseña es **90 días**. El valor se puede configurar mediante el cmdlet [Set-MsolPasswordPolicy](/powershell/module/msonline/set-msolpasswordpolicy) del Módulo Azure Active Directory para Windows PowerShell. Este comando actualiza el inquilino para que las contraseñas de todos los usuarios expiren después del número de días que configure.
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-Esta característica solo está disponible actualmente para los Flujos de usuario. Para ver los pasos de configuración, elija **Flujo de usuario** más arriba. Para las directivas personalizadas, use el [ejemplo de GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/force-password-reset-first-logon) de forzar el restablecimiento de contraseña en el primer inicio de sesión.
 
 ::: zone-end
 

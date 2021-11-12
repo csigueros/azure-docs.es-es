@@ -76,8 +76,6 @@ items:
             href: concept-asset-normalization.md
       - name: Información de datos
         href: concept-insights.md
-      - name: Cuentas de Azure Purview actualizadas
-        href: concept-account-upgrade.md
   - name: Guías paso a paso
     items:
       - name: Administración de recopilaciones

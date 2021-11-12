@@ -5,12 +5,12 @@ author: gundarev
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 2ace40157681b250b56fcd595486260f07ec80c3
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: 0bd470650ca3a2d6a8fd2d672d2eac0e5790dc89
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129400712"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130241010"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-azure-virtual-desktop"></a>Configuración de la aceleración por la unidad de procesamiento gráfico (GPU) para Azure Virtual Desktop
 
@@ -82,6 +82,9 @@ El Escritorio remoto codifica todos los gráficos que representan las aplicacion
 3. Cierre sesión en la sesión de Escritorio remoto.
 
 ## <a name="configure-fullscreen-video-encoding"></a>Configuración de la codificación de vídeo de pantalla completa
+
+>[!NOTE]
+>La codificación de vídeo de pantalla completa se puede habilitar incluso sin una GPU presente.
 
 Si suele usar aplicaciones que producen un contenido de velocidad de fotogramas alto, como aplicaciones de modelado 3D, CAD o CAM y de vídeo, puede habilitar una codificación de vídeo de pantalla completa para una sesión remota. El perfil de vídeo de pantalla completa proporciona una velocidad de fotogramas mayor y una mejor experiencia de usuario para estas aplicaciones a costa del ancho de banda de la red y de los recursos tanto del host de sesión como del cliente. Se recomienda usar la codificación de fotogramas acelerada por GPU para una codificación de vídeo a pantalla completa. Configure la directiva de grupo para el host de sesión para habilitar la codificación de vídeo de pantalla completa. Continúe con los pasos anteriores:
 

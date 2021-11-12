@@ -9,12 +9,12 @@ metadata:
   ms.subservice: v1
   ms.topic: conceptual
   ms.date: 10/22/2021
-  ms.openlocfilehash: 1557693510b8db97fc942cdb864de6c9f9527827
-  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+  ms.openlocfilehash: 0a85978ffd2fed13e441bc7109ca013c347b4373
+  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/22/2021
-  ms.locfileid: "131464573"
+  ms.lasthandoff: 11/11/2021
+  ms.locfileid: "132301672"
 title: 'Azure Data Factory: preguntas más frecuentes'
 summary: >
   > [!NOTE]
@@ -198,7 +198,7 @@ sections:
     answer: "Use la propiedad **offset** para especificar la hora en la que desea que se produzca el segmento. Consulte la sección [Disponibilidad del conjunto de datos](data-factory-create-datasets.md#dataset-availability) para obtener más información sobre esta propiedad. Este es un ejemplo rápido:\n\n```json\n\"availability\":\n{\n    \"frequency\": \"Day\",\n    \"interval\": 1,\n    \"offset\": \"06:00:00\"\n}\n```\nLos segmentos diarios comienzan a las **6:00** en lugar de a medianoche, que es el valor predeterminado.     \n"
   - question: >
       ¿Cómo puedo volver a ejecutar un segmento?
-    answer: "Puede volver a ejecutar un segmento de una de las siguientes maneras:\n\n* Use la aplicación de supervisión y administración para volver a ejecutar una ventana de actividad o segmento. Consulte [Nueva ejecución de ventanas de actividad seleccionadas](data-factory-monitor-manage-app.md#perform-batch-actions) para ver instrucciones.   \n* Haga clic en **Ejecutar** en la barra de comandos de la hoja **SEGMENTO DE DATOS** para el segmento en Azure Portal.\n* Ejecute el cmdlet **Set-AzDataFactorySliceStatus** con el estado **En espera** para el segmento.   \n\n    ```powershell\n    Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime \"02/26/2015 19:00:00\" -EndDateTime \"02/26/2015 20:00:00\"\n    ```\n  Consulte [Set-AzDataFactorySliceStatus](/powershell/module/az.datafactory/set-Azdatafactoryslicestatus) para más información sobre el cmdlet.\n"
+    answer: "Puede volver a ejecutar un segmento de una de las siguientes maneras:\n\n* Use la aplicación de supervisión y administración para volver a ejecutar una ventana de actividad o segmento. Consulte [Nueva ejecución de ventanas de actividad seleccionadas](data-factory-monitor-manage-app.md#perform-batch-actions) para ver instrucciones.   \n* Haga clic en **Ejecutar** en la barra de comandos de la hoja **SEGMENTO DE DATOS** para el segmento en Azure Portal.\n* Ejecute el cmdlet **Set-AzDataFactorySliceStatus** con el estado **En espera** para el segmento.   \n\n  ```powershell\n  Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime \"02/26/2015 19:00:00\" -EndDateTime \"02/26/2015 20:00:00\"\n  ```\n  \n  Consulte [Set-AzDataFactorySliceStatus](/powershell/module/az.datafactory/set-Azdatafactoryslicestatus) para más información sobre el cmdlet.\n"
   - question: >
       ¿Cuánto tiempo se tardó en procesar un segmento?
     answer: "Utilice el explorador de ventana de actividad de la aplicación de supervisión y administración para descubrir cuánto tiempo se tardó en procesar un segmento de datos. Consulte [Explorador de ventanas de actividad](data-factory-monitor-manage-app.md#activity-window-explorer) para obtener más información.\n\nTambién puede hacer lo siguiente en Azure Portal:  \n\n1. Haga clic en la ventana **Conjuntos de datos** de la hoja **FACTORÍA DE DATOS** para su factoría de datos.\n2. Haga clic en el conjunto de datos específico de la hoja **Conjuntos de datos** .\n3. Seleccione el segmento en el que está interesado en la lista **Segmentos recientes** de la hoja **TABLA**.\n4. Haga clic en la actividad ejecutada en la lista **Ejecuciones de actividad** de la hoja **SEGMENTO DE DATOS**.\n5. Haga clic en la ventana **Propiedades** de la hoja **DETALLES DE EJECUCIÓN DE ACTIVIDAD**.\n6. Debería ver el campo **DURACIÓN** con un valor. Este valor es el tiempo necesario para procesar el segmento.   \n"

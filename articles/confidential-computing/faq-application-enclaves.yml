@@ -2,19 +2,19 @@
 metadata:
   title: Preguntas frecuentes de computación confidencial de Azure
   description: Respuestas a las preguntas frecuentes sobre la computación confidencial de Azure.
-  author: JBCook
+  author: stempesta
   ms.topic: troubleshooting
   ms.workload: infrastructure
   ms.service: virtual-machines
   ms.subservice: confidential-computing
   ms.date: 11/1/2021
-  ms.author: jencook
-  ms.openlocfilehash: be4d8b1b620dc5eeecbba0a3e9e430bc16d1141e
-  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.author: stempesta
+  ms.openlocfilehash: 26f08798cc0ab80bcf205bef8da91e97a5fb48d8
+  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/02/2021
-  ms.locfileid: "131092948"
+  ms.lasthandoff: 11/11/2021
+  ms.locfileid: "132309984"
 title: Preguntas más frecuentes sobre enclaves de aplicaciones en máquinas virtuales confidenciales de Intel SGX
 summary: >
   En este artículo se proporcionan respuestas a algunas de las preguntas más comunes sobre la ejecución de [cargas de trabajo de computación confidencial en máquinas virtuales de Azure Intel SGX](overview.md).

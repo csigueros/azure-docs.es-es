@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 09/1/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: b95688eca33400956997b44bda43565454f82479
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: d4dc8843804d48fb98fef7cd336e6b56f54f49ae
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123481225"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131554362"
 ---
 # <a name="configure-azure-arc-enabled-sql-managed-instance"></a>Configuración de una instancia de SQL Managed Instance habilitada para Azure Arc
 
@@ -32,7 +32,7 @@ Puede editar la configuración de las instancias de SQL Managed Instance habilit
 az sql mi-arc edit --help
 ```
 
-Puede actualizar la memoria y los núcleos disponibles de una instancia SQL Managed Instance habilitada para Azure Arc mediante el siguiente comando:
+Puede actualizar la memoria y los núcleos disponibles de una instancia de SQL Managed Instance habilitada para Azure Arc mediante el siguiente comando:
 
 ```azurecli
 az sql mi-arc edit --cores-limit 4 --cores-request 2 --memory-limit 4Gi --memory-request 2Gi -n <NAME_OF_SQL_MI> --k8s-namespace <namespace> --use-k8s
@@ -44,7 +44,7 @@ En el ejemplo siguiente se establecen las solicitudes y límites de CPU, núcleo
 az sql mi-arc edit --cores-limit 4 --cores-request 2 --memory-limit 4Gi --memory-request 2Gi -n sqlinstance1 --k8s-namespace arc --use-k8s
 ```
 
-Para ver los cambios realizados en la instancia SQL Managed Instance habilitada para Azure Arc, puede usar los comandos siguientes para ver el archivo de configuración YAML:
+Para ver los cambios realizados en la instancia de SQL Managed Instance habilitada para Azure Arc, puede usar los comandos siguientes para ver el archivo de configuración YAML:
 
 ```azurecli
 az sql mi-arc show -n <NAME_OF_SQL_MI> --k8s-namespace <namespace> --use-k8s

@@ -7,12 +7,12 @@ ms.service: purview
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 6459dc9cfccac5f17e0fac155121a817a0fad060
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 18076fa234650f5d176f2487e2c0ff487a61bb49
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131038483"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131842006"
 ---
 # <a name="connect-to-azure-data-lake-gen2-in-azure-purview"></a>Conexión a Azure Data Lake Gen2 en Azure Purview
 
@@ -22,7 +22,9 @@ En este artículo se describe el proceso para registrar un origen de datos de Az
 
 |**Extracción de metadatos**|  **Examen completo**  |**Examen incremental**|**Examen con ámbito**|**Clasificación**|**Directiva de acceso**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Sí](#register) | [Sí](#scan)|[Sí](#scan) | [Sí](#scan)|[Sí](#scan)| Sí | [Linaje de Data Factory](how-to-link-azure-data-factory.md) |
+| [Sí](#register) | [Sí](#scan)|[Sí](#scan) | [Sí](#scan)|[Sí](#scan)| Sí | Limitado** |
+
+\** Se admite el linaje si el conjunto de datos se usa como origen o receptor en la [actividad de copia de Data Factory](how-to-link-azure-data-factory.md) 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -82,7 +84,7 @@ Se admiten las siguientes opciones:
 
 * **Identidad administrada (recomendado)** : En cuanto se crea la cuenta de Azure Purview, se crea automáticamente una **identidad administrada** por el sistema en el inquilino de Azure AD. Según el tipo de recurso, se requieren asignaciones de roles RBAC específicas para que la MSI de Azure Purview realice los exámenes.
 
-* **Clave de cuenta**: los secretos se pueden crear dentro de una instancia de Azure Key Vault para almacenar las credenciales con el fin de permitir el acceso de Azure Purview para examinar los orígenes de datos de forma segura mediante los secretos. Un secreto puede ser una clave de cuenta de almacenamiento, una contraseña de inicio de sesión de SQL o una contraseña.
+* **Clave de cuenta**: los secretos se pueden crear dentro de una instancia de Azure Key Vault para almacenar las credenciales con el fin de permitir el acceso de Azure Purview para examinar los orígenes de datos de forma segura mediante los secretos. Un secreto puede ser una clave de cuenta de almacenamiento, una contraseña de inicio de sesión SQL o una contraseña.
 
    > [!Note]
    > Si usa esta opción, debe implementar un recurso de _Azure Key Vault_ en la suscripción y asignar el MSI de la _cuenta de Azure Purview_ con el permiso de acceso necesario a los secretos dentro de _Azure Key Vault_.
@@ -106,7 +108,7 @@ Es importante conceder a la cuenta de Purview el permiso para examinar el origen
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-access-control.png" alt-text="Captura de pantalla que muestra el control de acceso para la cuenta de almacenamiento":::
 
-1. Establezca el **Rol** en **Lector de datos de Storage Blob** y escriba el _nombre de la cuenta de Azure Purview_ en el cuadro de entrada **Seleccionar**. A continuación, seleccione **Save** (Guardar) para dar esta asignación de rol a su cuenta de Purview.
+1. Establezca el **Rol** en el **Lector de datos de blobs de almacenamiento** y escriba el _nombre de la cuenta de Azure Purview_ en el cuadro de entrada **Seleccionar**. A continuación, seleccione **Save** (Guardar) para dar esta asignación de rol a su cuenta de Purview.
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-assign-permissions.png" alt-text="Captura de pantalla que muestra los detalles para asignar permisos para la cuenta de Purview":::
 
@@ -149,7 +151,7 @@ Cuando el método de autenticación seleccionado es **Clave de cuenta**, debe ob
 1. Seleccione **Configuración > Secretos** y haga clic en **+ Generar o importar**
 :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-generate-secret.png" alt-text="Captura de pantalla que muestra la opción del almacén de claves para generar un secreto":::.
 
-1. Escriba el **Nombre** y el **Valor** como la *clave* de la cuenta de almacenamiento.
+1. Escriba el **Nombre** y **Valor** como *clave* de la cuenta de almacenamiento.
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-secret-values.png" alt-text="Captura de pantalla que muestra la opción del almacén de claves para especificar los valores del secreto":::
 
@@ -189,7 +191,7 @@ Es importante conceder a la entidad de servicio el permiso para examinar el orig
 
 1. Establezca el **Rol** en **Lector de datos de Storage Blob** y especifique la _entidad de servicio_ en el cuadro de entrada **Seleccionar**. A continuación, seleccione **Save** (Guardar) para dar esta asignación de rol a su cuenta de Purview.
 
-    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-sp-permission.png" alt-text="Captura de pantalla que muestra los detalles para proporcionar permisos de cuenta de almacenamiento a la entidad de servicio":::
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-sp-permission.png" alt-text="Captura de pantalla que muestra los detalles para proporcionar permisos de cuenta de almacenamiento en la entidad de servicio":::
 
 ### <a name="create-the-scan"></a>Creación del examen
 
@@ -203,9 +205,9 @@ Es importante conceder a la entidad de servicio el permiso para examinar el orig
 
 1. Proporcione un **Nombre** para el examen, seleccione **Purview MSI** en **Credencial**, elija la colección adecuada para el examen y haga clic en **Probar conexión**. Tras una conexión correcta, haga clic en **Continuar**.
 
-    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-managed-identity.png" alt-text="Captura de pantalla que muestra la opción Identidad administrada para ejecutar el examen":::
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-managed-identity.png" alt-text="Captura de pantalla que muestra la opción de identidad administrada para ejecutar el examen":::
 
-#### <a name="if-using-account-key"></a>Si se usa una clave de cuenta
+#### <a name="if-using-account-key"></a>Si usa una clave de cuenta
 
 1. Proporcione un **Nombre** para el examen, elija la colección adecuada para el examen y seleccione **Método de autenticación** como _Clave de cuenta_.
 

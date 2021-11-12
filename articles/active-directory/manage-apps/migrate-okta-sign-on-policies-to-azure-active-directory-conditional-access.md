@@ -11,24 +11,24 @@ ms.topic: how-to
 ms.date: 09/01/2021
 ms.author: gasinh
 ms.subservice: app-mgmt
-ms.openlocfilehash: 840d2cfd64f6384c8c503e472f7557ababd0d08e
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 5cca89b361152d3a4a5635f008f70f145d5d68a0
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129389198"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131459448"
 ---
-# <a name="tutorial-migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access"></a>Tutorial: Migrar directivas de inicio de sesión de Okta al acceso condicional de Azure Active Directory
+# <a name="tutorial-migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access"></a>Tutorial: Migración de directivas de inicio de sesión de Okta al acceso condicional de Azure Active Directory
 
 En este tutorial va a conocer cómo puede una organización migrar de directivas de inicio de sesión globales o de nivel de aplicación de Okta a directivas de acceso condicional de Azure Active Directory (Azure AD) para proteger el acceso de los usuarios en Azure AD y las aplicaciones conectadas.
 
-En este tutorial se da por hecho que tiene un inquilino de Office 365 federado en Okta para el inicio de sesión y la autenticación multifactor (MFA). También debe tener configurados los agentes de aprovisionamiento del servidor o la nube de Azure AD Connect para el aprovisionamiento de usuarios en Azure AD.
+En este tutorial se supone que tiene un inquilino de Office 365 federado en Okta para el inicio de sesión y la autenticación multifactor (MFA). También debe tener configurados los agentes de aprovisionamiento del servidor o la nube de Azure AD Connect para el aprovisionamiento de usuarios en Azure AD.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Al pasar del inicio de sesión de Okta al acceso condicional de Azure AD, es importante comprender los requisitos de licencia. El acceso condicional de Azure AD exige que los usuarios tengan una licencia de Azure AD Premium P1 asignada antes del registro en la autenticación multifactor de Azure AD.
+Al cambiar del inicio de sesión de Okta al acceso condicional, es importante comprender los requisitos de licencia. El acceso condicional exige que los usuarios tengan una licencia de Azure AD Premium P1 asignada antes del registro en la autenticación multifactor de Azure AD.
 
-Antes de realizar cualquiera de los pasos de Unión a Azure AD híbrido, necesita una credencial de administrador de empresa en el bosque local para configurar el registro de punto de conexión de servicio (SCP).
+Antes de realizar cualquiera de los pasos de unión a Azure AD híbrido, necesitará una credencial de administrador de empresa en el bosque local para configurar el registro de punto de conexión de servicio (SCP).
 
 ## <a name="catalog-current-okta-sign-on-policies"></a>Catalogación de las directivas de inicio de sesión de Okta actuales
 
@@ -57,15 +57,14 @@ En el siguiente ejemplo la directiva de inicio de sesión de aplicaciones de Off
 
 ## <a name="configure-condition-prerequisites"></a>Configuración de requisitos previos de condición
 
-Las directivas de acceso condicional de Azure AD se pueden configurar de modo que coincidan con las condiciones de Okta en la mayoría de los escenarios sin configuración adicional.
+Las directivas de acceso condicional se pueden configurar de modo que coincidan con las condiciones de Okta en la mayoría de los escenarios sin configuración adicional.
 
 En algunos escenarios es posible que necesite una más configuración antes de configurar las directivas de acceso condicional. Los dos escenarios conocidos en el momento de redacción de este artículo son:
 
 - **Ubicaciones de red de Okta a ubicaciones con nombre en Azure AD**: siga las instrucciones de [Uso de la condición de ubicación en una directiva de acceso condicional](../conditional-access/location-condition.md#named-locations) para configurar ubicaciones con nombre en Azure AD.
 - **Confianza en dispositivo de Okta a acceso condicional basado en dispositivo**: el acceso condicional ofrece dos opciones posibles a la hora de evaluar el dispositivo de un usuario:
 
-  - [Uso de la unión a Azure AD híbrido](#hybrid-azure-ad-join-configuration), que es una característica habilitada en el servidor de Azure AD Connect que sincroniza dispositivos actuales de Windows, como Windows 10, Windows Server 2016 y Windows Server 2019, con Azure AD.
-
+  - [Uso de la unión a Azure AD híbrido](#hybrid-azure-ad-join-configuration), que es una característica habilitada en el servidor de Azure AD Connect que sincroniza dispositivos Windows actuales, como Windows 10, Windows Server 2016 y Windows Server 2019, con Azure AD.
   - [Inscripción del dispositivo en Endpoint Manager](#configure-device-compliance) y asignación de una directiva de cumplimiento.
 
 ### <a name="hybrid-azure-ad-join-configuration"></a>Configuración de la unión a Azure AD híbrido
@@ -73,7 +72,7 @@ En algunos escenarios es posible que necesite una más configuración antes de c
 Para habilitar Unión a Azure AD híbrido en el servidor de Azure AD Connect, ejecute el asistente para configuración. Debe realizar algunos pasos después de la configuración para inscribir dispositivos automáticamente.
 
 >[!NOTE]
->Unión a Azure AD híbrido no es compatible con los agentes de aprovisionamiento en la nube de Azure AD Connect.
+>La unión a Azure AD híbrido no es compatible con los agentes de aprovisionamiento en la nube de Azure AD Connect.
 
 1. Siga estas [instrucciones](../devices/hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join) para habilitar Unión a Azure AD híbrido.
 
@@ -81,7 +80,7 @@ Para habilitar Unión a Azure AD híbrido en el servidor de Azure AD Connect, 
 
    ![Captura de pantalla que muestra la configuración de SCP.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/scp-configuration.png)
 
-1. Si ha bloqueado la autenticación heredada en los clientes de Windows en la directiva de inicio de sesión global o de nivel de aplicación, cree una regla para permitir que finalice el proceso de Unión a Azure AD híbrido.
+1. Si ha bloqueado la autenticación heredada en los clientes de Windows en la directiva de inicio de sesión global o de nivel de aplicación, cree una regla para permitir que finalice el proceso de unión a Azure AD híbrido.
 
 1. Permita toda la pila de autenticación heredada en todos los clientes de Windows. También puede ponerse en contacto con el equipo de soporte técnico de Okta para habilitar su cadena de cliente personalizada en las directivas de aplicación existentes.
 
@@ -113,15 +112,16 @@ Antes de realizar la conversión al acceso condicional, confirme la configuraci�
 
    El campo **Aplicado** también debe estar vacío.
 
-   ![Captura de pantalla que muestra que el campo Aplicado vacío en el portal heredado de autenticación multifactor de Azure AD.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/enforced-empty-legacy-azure-ad-portal.png)
-
 1. Seleccione la opción **Configuración del servicio**. Cambie la selección de **Contraseñas de la aplicación** para **no permitir a los usuarios crear contraseñas de aplicación para iniciar sesión en aplicaciones que no son de explorador**.
+
+   ![Captura de pantalla en la que se muestra la configuración de contraseña de aplicación que no permite a los usuarios crear contraseñas de aplicación.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/app-password-selection.png)
 
 1. Asegúrese de que las casillas **Omitir autenticación multifactor para solicitudes de usuarios federados en mi intranet** y **Permitir a los usuarios recordar la autenticación multifactor en dispositivos en los que confían (entre uno y 365 días)** están desactivadas y seleccione **Guardar**.
 
   >[!NOTE]
    >Vea los [procedimientos recomendados para configurar la solicitud de MFA](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
-   ![Captura de pantalla que muestra las casillas desactivadas en el portal heredado de autenticación multifactor de Azure AD.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/uncheck-fields-legacy-azure-ad-portal.png)
+
+![Captura de pantalla que muestra las casillas desactivadas en el portal heredado de autenticación multifactor de Azure AD.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/uncheck-fields-legacy-azure-ad-portal.png)
 
 ## <a name="configure-conditional-access-policies"></a>Configuración de directivas de acceso condicional
 
@@ -143,17 +143,17 @@ Después de configurar los requisitos previos y establecer la configuración bas
 
 1. Después de configurar la directiva basada en la ubicación y la directiva de confianza del dispositivo, es hora de configurar la directiva equivalente de [bloqueo de la autenticación heredada](../conditional-access/howto-conditional-access-policy-block-legacy.md).
 
-Con estas tres directivas de acceso condicional, la experiencia de directivas de inicio de sesión de Okta original se ha replicado en Azure AD. Los siguientes pasos conllevan la inscripción del usuario mediante autenticación multifactor de Azure y las pruebas de las directivas.
+Con estas tres directivas de acceso condicional, la experiencia de directivas de inicio de sesión de Okta original se ha replicado en Azure AD. Los siguientes pasos implican la inscripción del usuario mediante la autenticación multifactor de Azure AD y la prueba de las directivas.
 
 ## <a name="enroll-pilot-members-in-azure-ad-multi-factor-authentication"></a>Inscripción de miembros piloto en la autenticación multifactor de Azure AD
 
-Después de configurar las directivas de acceso condicional, los usuarios deben registrarse en los métodos de autenticación multifactor de Azure. Puede ser necesario que los usuarios se registren a través de varios métodos diferentes.
+Después de configurar las directivas de acceso condicional, los usuarios deben registrarse en los métodos de autenticación multifactor de Azure AD. Puede ser necesario que los usuarios se registren a través de varios métodos diferentes.
 
 1. Para el registro individual, dirija a los usuarios al [panel de inicio de sesión de Microsoft](https://aka.ms/mfasetup) para que escriban manualmente la información de registro.
 
 1. Los usuarios pueden ir a la [página de información de seguridad de Microsoft](https://aka.ms/mysecurityinfo) para escribir información o administrar el formulario de registro de MFA.
 
-Consulte [esta guía](../authentication/howto-registration-mfa-sspr-combined.md) para comprender completamente el proceso de registro de MFA.  
+Consulte [esta guía](../authentication/howto-registration-mfa-sspr-combined.md) para comprender completamente el proceso de registro de MFA.
 
 Vaya al [panel de inicio de sesión de Microsoft](https://aka.ms/mfasetup). Después de iniciar sesión con MFA de Okta, se le pide que se registre en MFA con Azure AD.
 
@@ -163,7 +163,7 @@ Vea la [documentación del usuario para la inscripción en MFA](../user-help/sec
 
 ## <a name="enable-conditional-access-policies"></a>Habilitar directivas de acceso condicional
 
-1. Para poner en marcha las pruebas, cambie las directivas creadas en los ejemplos anteriores a **Enabled test user login** (Inicio de sesión de usuario de prueba habilitado). 
+1. Para poner en marcha las pruebas, cambie las directivas creadas en los ejemplos anteriores a **Enabled test user login** (Inicio de sesión de usuario de prueba habilitado).
 
    ![Captura de pantalla que muestra la habilitación de un usuario de prueba.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/enable-test-user.png)
 
@@ -183,7 +183,7 @@ Vea la [documentación del usuario para la inscripción en MFA](../user-help/sec
 
 Después de realizar pruebas exhaustivas en los miembros piloto para asegurarse de que el acceso condicional está en vigor según lo previsto, los miembros restantes de la organización se pueden agregar a las directivas de acceso condicional una vez completado el registro.
 
-Para evitar la solicitud doble entre la autenticación multifactor de Azure y la MFA de Okta, anule la MFA de Okta mediante la modificación de las directivas de inicio de sesión.
+Para evitar la solicitud doble entre la autenticación multifactor de Azure AD y la de Okta, anule la MFA de Okta mediante la modificación de las directivas de inicio de sesión.
 
 El paso final de la migración al acceso condicional se puede realizar por etapas o como una migración total.
 

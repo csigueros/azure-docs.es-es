@@ -1,7 +1,7 @@
 ---
 title: Novedades en el aprovisionamiento de aplicaciones de Azure Active Directory
 description: Documentación nueva y actualizada sobre el aprovisionamiento de aplicaciones de Azure Active Directory.
-ms.date: 10/05/2021
+ms.date: 11/04/2021
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -9,16 +9,23 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: karenh444
-ms.openlocfilehash: 7404e91f9a5f71276749b704355a080f5c3cc29f
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 1eaccdcc6d8922f75ac9d00b060ebdb311485c98
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129990527"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851389"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Aprovisionamiento de aplicaciones de Azure Active Directory: Novedades
 
 Le damos la bienvenida a las novedades sobre la documentación de aprovisionamiento de aplicaciones de Azure Active Directory. En este artículo se enumeran los documentos nuevos que se han agregado y los que han tenido actualizaciones importantes en los últimos tres meses. Para conocer las novedades del servicio de aprovisionamiento, consulte [Novedades de Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="october-2021"></a>Octubre de 2021
+
+### <a name="new-articles"></a>Artículos nuevos
+
+- [Configuración de Azure AD para aprovisionar usuarios en directorios LDAP](on-premises-ldap-connector-configure.md)
+
 
 ## <a name="september-2021"></a>Septiembre de 2021
 

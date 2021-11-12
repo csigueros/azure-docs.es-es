@@ -1,35 +1,35 @@
 ---
 title: Ejecución o restablecimiento de indexadores
 titleSuffix: Azure Cognitive Search
-description: Restablezca un indizador, aptitudes o documentos individuales para actualizar todo o una parte, y el índice o el almacén de conocimiento.
+description: Ejecute indizadores de forma completa, o bien restablezca un indizador, aptitudes o documentos individuales para actualizar todo o una parte de un índice de búsqueda o un almacén de conocimiento.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/09/2021
-ms.openlocfilehash: 9ba66a8eb76c2c0bdcc2dd086d3abcfc47bcba65
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 11/02/2021
+ms.openlocfilehash: e29c511a59d8b446b497a8fd4ff393c9a9c683e9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128678144"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131449305"
 ---
-# <a name="how-to-run-or-reset-indexers-skills-or-documents"></a>Cómo ejecutar o restablecer indizadores, aptitudes o documentos
+# <a name="run-or-reset-indexers-skills-or-documents"></a>Ejecución o restablecimiento de indizadores, aptitudes o documentos
 
-La ejecución del indizador puede producirse cuando se crea por primera vez el [indizador](search-indexer-overview.md), cuando se ejecuta un indizador a petición o cuando se establece un indizador según una programación. Después de la ejecución inicial, un indizador realiza un seguimiento de los documentos de búsqueda que se han indexado a través de una "marca de límite superior" interna. El marcador nunca se expone en la API, pero internamente el indizador sabe dónde se detuvo la indexación para que pueda recoger dónde se quedó en la siguiente ejecución.
+Los indizadores se pueden invocar de tres maneras: a petición, según una programación o cuando se [crea el indizador](/rest/api/searchservice/create-indexer). Después de la ejecución inicial, un indizador realiza un seguimiento de los documentos de búsqueda que se han indexado a través de una "marca de límite superior" interna. El marcador nunca se expone en la API, pero internamente el indizador sabe dónde se detuvo la indexación para que pueda recoger dónde se quedó en la siguiente ejecución.
 
 Puede borrar la marca de límite superior restableciendo el indizador si desea volver a procesar desde cero. Las API de restablecimiento están disponibles en niveles decrecientes en la jerarquía de objetos:
 
 + Toda la búsqueda corpus (usar los [indizadores de restablecimiento](#reset-indexers))
 + Un documento o una lista de documentos específicos (usar [Restablecimiento de documentos (versión preliminar)](#reset-docs))
-+ Una habilidad o enriquecimiento específico en un documento (usar [Restablecer aptitudes (versión preliminar)](#reset-skills))
++ Una aptitud o enriquecimiento específico (uso de [Restablecer aptitudes (versión preliminar)](#reset-skills))
 
 Las API de restablecimiento se usan para actualizar el contenido almacenado en caché (aplicable en escenarios de [enriquecimiento con IA](cognitive-search-concept-intro.md)) o para borrar la marca de límite superior y volver a generar el índice.
 
 El restablecimiento, seguido de la ejecución, puede volver a procesar documentos nuevos y ya existentes, pero no quita los documentos de búsqueda huérfanos del índice de búsqueda que se crearon en ejecuciones anteriores. Para obtener más información sobre la eliminación, consulte [Adición, actualización o eliminación de documentos](/rest/api/searchservice/addupdate-or-delete-documents).
 
-## <a name="run-indexers"></a>Ejecución de indizadores
+## <a name="how-to-run-indexers"></a>Procedimiento para ejecutar indizadores
 
 [Crear indizador](/rest/api/searchservice/create-indexer) crea y ejecuta el indizador a menos que lo cree en un estado deshabilitado ("disabled": true). La primera ejecución tarda un poco más, ya que también cubre la creación de objetos.
 
@@ -41,15 +41,17 @@ Puede ejecutar un indizador con cualquiera de estos enfoques:
 + [Ejecutar indizador (REST)](/rest/api/searchservice/run-indexer)
 + [Método RunIndexers](/dotnet/api/azure.search.documents.indexes.searchindexerclient.runindexer) en el SDK de Azure para .NET (o usando el método equivalente RunIndexer en otro SDK)
 
+## <a name="indexer-execution"></a>Ejecución de indizadores
+
 La ejecución del indizador está sujeta a los límites siguientes:
 
-+ El número máximo de trabajos de indizador es 1 por réplica sin trabajos simultáneos.
++ El número máximo de trabajos de indizador es 1 por réplica.
 
   Si la ejecución del indizador ya ha alcanzado su capacidad máxima, recibirá esta notificación: "Failed to run indexer '\<indexer-name\>' (No se pudo ejecutar el indizador '\<indexer-name\>'), error: "Another indexer invocation is currently in progress; concurrent invocations are not allowed" (Otra invocación del indizador está actualmente en curso; no están permitidas las invocaciones simultáneas).
 
-+ El tiempo máximo de ejecución es de 2 horas si se usa un conjunto de aptitudes y 24 horas si no. 
++ El tiempo máximo de ejecución es de 2 horas si se usa un conjunto de aptitudes o de 24 horas si no se usa. 
 
-  Puede extender el procesamiento colocando el indizador según una programación. El nivel Gratis tiene límites de tiempo de ejecución inferiores. Para obtener la lista completa, consulte los [límites del indizador](search-limits-quotas-capacity.md#indexer-limits)
+  Si va a [indexar un conjunto de datos grande](search-howto-large-index.md), puede extender el procesamiento si coloca el indizador según una programación. El nivel Gratis tiene límites de tiempo de ejecución inferiores. Para obtener la lista completa, consulte los [límites del indizador](search-limits-quotas-capacity.md#indexer-limits)
 
 <a name="reset-indexers"></a>
 
@@ -72,12 +74,9 @@ Una vez finalizada la ejecución, se borra una marca de restablecimiento. Cualqu
 
 ## <a name="reset-skills-preview"></a>Restablecer aptitudes (versión preliminar)
 
-> [!IMPORTANT] 
-> [Restablecer aptitudes](/rest/api/searchservice/preview-api/reset-skills) está en versión preliminar pública en los [términos de uso complementarios](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). La [API REST de versión preliminar](/rest/api/searchservice/index-preview) admite esta característica.
-
 En el caso de los indizadores que tienen conjuntos de aptitudes, puede restablecer aptitudes específicas para forzar el procesamiento de esa aptitud y cualquier aptitud de nivel inferior que dependa de su salida. Los [enriquecimientos en caché](search-howto-incremental-index.md) también se actualizan. Al restablecer aptitudes se invalidan los resultados de las aptitudes en caché, lo que resulta útil cuando se implementa una nueva versión de una aptitud y se desea que el indizador vuelva a ejecutar esa aptitud para todos los documentos. 
 
-[Restablecer aptitudes](/rest/api/searchservice/preview-api/reset-skills) está disponible a través de REST **`api-version=2020-06-30-Preview`** .
+[Restablecer aptitudes](/rest/api/searchservice/preview-api/reset-skills) está disponible mediante REST **`api-version=2020-06-30-Preview`** o posterior.
 
 ```http
 POST https://[service name].search.windows.net/skillsets/[skillset name]/resetskills?api-version=2020-06-30-Preview
@@ -98,9 +97,6 @@ Si no se especifica ninguna aptitud, se ejecutará todo el conjunto de aptitudes
 
 ## <a name="reset-docs-preview"></a>Restablecimiento de documentos (versión preliminar)
 
-> [!IMPORTANT] 
-> [Restablecimiento de documentos](/rest/api/searchservice/preview-api/reset-documents) está en versión preliminar pública, disponible solo a través de la API de REST en versión preliminar. Las características en vista previa (GB) se ofrecen tal cual, en [Términos de uso complementarios](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 La [API de restablecimiento de documentos](/rest/api/searchservice/preview-api/reset-documents) acepta una lista de claves de documento para que pueda actualizar documentos específicos. Si se especifica, los parámetros de restablecimiento se convierten en el único factor determinante de lo que se procesa, independientemente de otros cambios en los datos subyacentes. Por ejemplo, si se agregaron o actualizaron 20 blobs desde la última vez que se ejecutó el indizador, pero solo se restablece un documento, solo se procesará dicho documento.
 
 En cada documento, todos los campos de ese documento de búsqueda se actualizan con los valores del origen de datos. No se pueden elegir los campos que se van a actualizar. 
@@ -109,8 +105,8 @@ Si el documento se enriquece a través de un conjunto de aptitudes y tiene datos
 
 Al probar esta API por primera vez, las siguientes API le ayudarán a validar y probar los comportamientos:
 
-+ [Obtención del estado del indizador](/rest/api/searchservice/get-indexer-status) con la versión de API `2020-06-30-Preview`, para comprobar los estados del restablecimiento y la ejecución. Encontrará información sobre la solicitud de restablecimiento al final de la respuesta de estado.
-+ [Restablecimiento de documentos](/rest/api/searchservice/preview-api/reset-documents) con la versión de API `2020-06-30-Preview`, para especificar los documentos que deben procesarse.
++ [Obtener estado del indizador](/rest/api/searchservice/get-indexer-status) con la versión de API **`api-version=2020-06-30-Preview`** o posterior, para comprobar los estados de restablecimiento y ejecución. Encontrará información sobre la solicitud de restablecimiento al final de la respuesta de estado.
++ [Restablecer documentos](/rest/api/searchservice/preview-api/reset-documents) con la versión de API **`api-version=2020-06-30-Preview`** o posterior, para especificar los documentos que se deben procesar.
 + [Ejecutar indizador](/rest/api/searchservice/run-indexer), para ejecutar el indizador (cualquier versión de API).
 + [Buscar en documentos](/rest/api/searchservice/search-documents), para comprobar si hay valores actualizados y también para devolver las claves de documento si no está seguro del valor. Use `"select": "<field names>"` si desea limitar los campos que aparecerán en la respuesta.
 
@@ -145,7 +141,7 @@ POST https://[service name].search.windows.net/indexers/[indexer name]/resetdocs
 
 ## <a name="check-reset-status"></a>Comprobación del estado de restablecimiento
 
-Para comprobar el estado de un restablecimiento y ver qué claves de documento se ponen en cola para su procesamiento, use [Obtención del estado del indizador](/rest/api/searchservice/get-indexer-status) con **`api-version=06-30-2020-Preview`** . La API de vista previa devolverá la sección **`currentState`** , que encontrará al final de la respuesta de Obtención del estado del indexador.
+Para comprobar el estado de un restablecimiento y ver qué claves de documento se ponen en cola para su procesamiento, use [Obtener estado de indizador](/rest/api/searchservice/get-indexer-status) con **`api-version=06-30-2020-Preview`** o posterior. La API de vista previa devolverá la sección **`currentState`** , que encontrará al final de la respuesta de Obtención del estado del indexador.
 
 El "modo" será **`indexingAllDocs`** en Restablecer aptitudes (dado que posiblemente se vean afectados todos los documentos, en los campos que se rellenan a través del enriquecimiento con IA).
 

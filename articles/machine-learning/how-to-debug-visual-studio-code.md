@@ -8,13 +8,13 @@ ms.subservice: mlops
 ms.topic: how-to
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 09/16/2021
-ms.openlocfilehash: 88d7d9976e5b0eeecd656f5aaf68fa603425c3a9
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.date: 10/21/2021
+ms.openlocfilehash: eb1f4fb0e3f833bdcc9631f72c6ffe127005a0e3
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129424414"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131556490"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Depuración interactiva con Visual Studio Code
 
@@ -343,6 +343,9 @@ Guarde el valor de `ip_address`. Se usa en la siguiente sección.
 ## <a name="debug-and-troubleshoot-deployments"></a>Depuración y solución de problemas de implementaciones
 
 En algunos casos, es posible que tenga que depurar interactivamente el código de Python incluido en la implementación de modelo. Por ejemplo, si el script de entrada presenta errores y no se puede determinar el motivo mediante un registro adicional. Mediante VS Code y debugpy, puede conectarse al código que se ejecuta en el contenedor de Docker.
+
+> [!TIP]
+> Ahorre tiempo y detectar errores al principio mediante la depuración local de implementaciones y puntos de conexión en línea administrados. Para más información, consulte [Depuración local de puntos de conexión en línea administrados en Visual Studio Code (versión preliminar)](how-to-debug-managed-online-endpoints-visual-studio-code.md).
 
 > [!IMPORTANT]
 > Este método de depuración no funciona cuando se usa `Model.deploy()` y `LocalWebservice.deploy_configuration` para implementar un modelo de manera local. En su lugar, debe crear una imagen con el método [Model.package()](/python/api/azureml-core/azureml.core.model.model#package-workspace--models--inference-config-none--generate-dockerfile-false-).

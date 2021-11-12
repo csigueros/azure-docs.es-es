@@ -1,5 +1,5 @@
 ---
-title: Implementación de modelos de aprendizaje automático
+title: Implementación de modelos de Machine Learning
 titleSuffix: Azure Machine Learning
 description: Aprenda cómo y dónde implementar modelos de aprendizaje automático. Realice implementaciones en Azure Container Instances, Azure Kubernetes Service y FPGA.
 services: machine-learning
@@ -8,14 +8,14 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.date: 04/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2, contperf-fy21q4
+ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2, contperf-fy21q4, mktng-kw-nov2021
 adobe-target: true
-ms.openlocfilehash: b5514df10228a9e5638712976a0602fc33c8a990
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 78abc8d3dba3090198f8856d71f91a9087237641
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128604367"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131853327"
 ---
 # <a name="deploy-machine-learning-models-to-azure"></a>Implementación de modelos de aprendizaje automático en Azure 
 
@@ -24,13 +24,15 @@ Aprenda a implementar el modelo de aprendizaje automático o aprendizaje profund
 > [!TIP]
 > Los puntos de conexión en línea administrados (versión preliminar) le permiten implementar el modelo entrenado sin tener que crear y administrar la infraestructura subyacente. Para más información, consulte [Implementación y puntuación de un modelo de aprendizaje automático con un punto de conexión en línea administrado (versión preliminar)](how-to-deploy-managed-online-endpoints.md).
 
+## <a name="workflow-for-deploying-a-model"></a>Flujo de trabajo para implementar un modelo
+
 El flujo de trabajo es siempre parecido independientemente de donde implemente el modelo:
 
-1. Registro del modelo
+1. Registre el modelo.
 1. Prepare un script de entrada.
 1. Prepare una configuración de inferencia.
 1. Implemente el modelo localmente para asegurarse de que todo funciona.
-1. Elección de un destino de proceso
+1. Elija un destino de proceso.
 1. Vuelva a implementar el modelo en la nube.
 1. Pruebe el servicio web resultante.
 
@@ -83,7 +85,7 @@ Para más información sobre el uso del SDK para conectarse a un área de trabaj
 
 ---
 
-## <a name="register-your-model"></a><a id="registermodel"></a> Registro del modelo
+## <a name="register-the-model"></a><a id="registermodel"></a> Registro del modelo
 
 En una situación común, un servicio de aprendizaje automático implementado necesita los siguientes componentes:
     

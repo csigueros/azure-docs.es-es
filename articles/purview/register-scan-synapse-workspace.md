@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: ed76730cd37cf903c77b0893b546ab824e7ddff3
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a5921e2af4445ad645ce48f6102c311c9478b9e9
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131010923"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131848028"
 ---
 # <a name="connect-to-and-manage-azure-synapse-analytics-workspaces-in-azure-purview"></a>Conexión y administración de áreas de trabajo de Azure Synapse Analytics en Azure Purview
 
@@ -23,7 +23,7 @@ En este artículo se describe cómo registrar áreas de trabajo Azure Synapse An
 
 |**Extracción de metadatos**|  **Examen completo**  |**Examen incremental**|**Examen con ámbito**|**Clasificación**|**Directiva de acceso**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Sí](#register) | [Sí](#scan)| [Sí](#scan) | [Sí](#scan)| [Sí](#scan)| No| [Sí](how-to-lineage-azure-synapse-analytics.md)|
+| [Sí](#register) | [Sí](#scan)| [Sí](#scan) | [Sí](#scan)| [Sí](#scan)| No| [Sí: canalizaciones de Synapse](how-to-lineage-azure-synapse-analytics.md)|
 
 
 <!-- 4. Prerequisites

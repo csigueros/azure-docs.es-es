@@ -4,15 +4,15 @@ description: Obtenga información sobre el almacén transaccional (basado en fil
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/12/2021
+ms.date: 11/02/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 09b5d7c1865020ba33a89e73b2ba39260f473e6a
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: fd9984d6db66413f3c53d20fa63ffb4e1a106f3d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129859349"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131454549"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>¿Qué es el almacén analítico de Azure Cosmos DB?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -324,6 +324,10 @@ Una vez que el almacén analítico esté habilitado, en función de las necesida
 ## <a name="global-distribution"></a>Distribución global
 
 Si tiene una cuenta de Azure Cosmos DB distribuida globalmente, después de habilitar el almacén analítico para un contenedor, estará disponible en todas las regiones de dicha cuenta.  Los cambios en los datos operativos se replican globalmente en todas las regiones. Puede ejecutar consultas analíticas de forma eficaz en la copia regional más cercana de los datos en Azure Cosmos DB.
+
+## <a name="partitioning"></a>Creación de particiones
+
+La creación de particiones del almacén analítico es independiente de la del almacén transaccional. De manera predeterminada, los datos del almacén analítico no tiene particiones. Si las consultas analíticas han usado filtros con frecuencia, tiene la opción de crear particiones en función de estos campos para mejorar el rendimiento de las consultas. Para más información, vea los artículos de [introducción a la creación de particiones personalizadas](custom-partitioning-analytical-store.md) y sobre [cómo configurar la creación de particiones personalizadas](configure-custom-partitioning.md).  
 
 ## <a name="security"></a>Seguridad
 

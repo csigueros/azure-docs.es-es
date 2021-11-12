@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 10/27/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7f1939536e033d2cf964dd2f4ee562e4ee20061b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c3b0090c1c75c8d341ff67b15e7e0391be45c157
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88934759"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446702"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Uso del modelo con Prediction API
 
-Después de entrenar el modelo, puede probar imágenes mediante programación mediante su envío al punto de conexión de Prediction API.
+Después de entrenar el modelo, puede probarlo mediante programación si envía imágenes al punto de conexión de Prediction API.
 
 > [!NOTE]
 > En este documento se explica cómo usar C# para enviar una imagen a Prediction API. Para más información y ejemplos, consulte la [referencia de Prediction API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15).

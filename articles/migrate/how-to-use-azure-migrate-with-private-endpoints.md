@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 05/10/2020
-ms.openlocfilehash: a7398de8f9c853ca3c17f5052fdc126a33030594
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: c581e89a8252ea8e084a48dc827d75aba90bc670
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131084698"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500495"
 ---
 # <a name="use-azure-migrate-with-private-endpoints"></a>Uso de Azure Migrate con puntos de conexión privados
 
@@ -121,7 +121,7 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 
     **Descargar** | **Valor del código hash**
     --- | ---
-    [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2160648) | BA84B58E88DDFE23E5D4CE73530227EBBC187B3634B66A3E0F0B3E5DF5F0A94F
+    [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2160648) | 3C00F9EB54CC6C55E127EDE47DFA28CCCF752697377EB1C9F3435E75DA5AA029
 
 > [!NOTE]
 > El mismo script se puede usar para configurar un dispositivo con conectividad de punto de conexión privado para cualquiera de los escenarios elegidos, como VMware, Hyper-V, físico u otro para implementar un dispositivo con la configuración deseada.
