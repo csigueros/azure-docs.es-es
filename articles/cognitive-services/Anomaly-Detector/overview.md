@@ -12,16 +12,14 @@ ms.date: 02/16/2021
 ms.author: mbullwin
 keywords: anomaly detection, machine learning, algorithms
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 24d30a475071667fa9f701776302aa81c652fbe2
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 75a040b8c2b480d0c82ef2cab6a953d230f6ffb7
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130045054"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132371113"
 ---
 # <a name="what-is-the-anomaly-detector-univariate-api"></a>¿Qué es la API univariante Anomaly Detector?
-
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Anomaly Detector API permite supervisar y detectar anomalías en los datos de serie temporal sin tener que saber aprendizaje automático. Los algoritmos de Anomaly Detector API se adaptan al identificar y aplicar automáticamente los modelos más idóneos para sus datos, con independencia del sector, el escenario o el volumen de datos. Con el uso de datos de serie temporal, la API determina los límites de la detección de anomalías, los valores esperados y qué puntos de datos son anomalías.
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 03/25/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: bb32a407813ba7e85f55fc39790fba81ca452c50
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: bb777c952e4166b764032317f859419ebc3c94dd
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122693403"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132312027"
 ---
 # <a name="hbv3-series-virtual-machine-performance"></a>Rendimiento de las máquinas virtuales de la serie HBv3
 
@@ -38,9 +38,10 @@ El [anclaje de procesos](compiling-scaling-applications.md#process-pinning) func
 
 Se puede ejecutar la prueba de latencia de MPI del conjunto de pruebas de micropuntos de referencia OSU según se indica a continuación. Los scripts de ejemplo se encuentran en [GitHub](https://github.com/Azure/azhpc-images/blob/04ddb645314a6b2b02e9edb1ea52f079241f1297/tests/run-tests.sh).
 
-```bash 
+```bash
 ./bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./osu_latency
-``` 
+```
+
 ## <a name="mpi-bandwidth"></a>Ancho de banda de MPI
 La prueba de ancho de banda de MPI del conjunto de pruebas de micropuntos de referencia OSU se puede ejecutar según se indica a continuación. Los scripts de ejemplo se encuentran en [GitHub](https://github.com/Azure/azhpc-images/blob/04ddb645314a6b2b02e9edb1ea52f079241f1297/tests/run-tests.sh).
 ```bash

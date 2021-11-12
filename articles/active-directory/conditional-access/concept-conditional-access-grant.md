@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: calebb, sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36d6283bd8304a33b80797e502edde45c952e06a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 21bf4b8abfac8df9fe5791ccbbf37a619be65c7f
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131067401"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132369690"
 ---
 # <a name="conditional-access-grant"></a>Acceso condicional: Conceder
 
@@ -154,7 +154,8 @@ Se ha confirmado que las siguientes aplicaciones cliente admiten esta configurac
 - Microsoft Power BI
 - Microsoft PowerPoint
 - Microsoft SharePoint
-- Equipos de Microsoft
+- Microsoft Teams
+- Microsoft To-Do
 - Microsoft Word
 - MultiLine for Intune
 - Nine Mail - Email & Calendar

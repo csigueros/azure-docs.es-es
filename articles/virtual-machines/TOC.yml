@@ -1415,7 +1415,7 @@
           href: ../virtual-network/ip-services/virtual-networks-static-private-ip-arm-cli.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: 'Creación de una máquina virtual: varias IP'
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: ../virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         - name: Azure PowerShell
           href: ../virtual-network/ip-services/virtual-network-multiple-ip-addresses-powershell.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
@@ -1491,7 +1491,7 @@
     - name: Información general
       displayName: Security Overview
       href: ../security/fundamentals/virtual-machines-overview.md?context=/azure/virtual-machines/context/context
-    - name: Azure Security Center
+    - name: "Microsoft\_Defender for Cloud"
       href: ../security-center/security-center-introduction.md
     - name: Líneas base de seguridad
       items:

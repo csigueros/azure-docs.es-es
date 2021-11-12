@@ -4,12 +4,12 @@ description: Muestra cómo administrar grandes conjuntos de temas de Azure Event
 ms.topic: conceptual
 ms.date: 09/28/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 1e8187f43da38d7986c62a2c154c89f3576cf1ae
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 8fd32086adb853380a63c24bc5055ac39e187942
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130047803"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132343408"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Administrar temas y publicar eventos con dominios de eventos
 
@@ -122,7 +122,7 @@ New-AzEventGridSubscription `
 
 Si necesita un punto de conexión de prueba al que suscribir sus eventos, siempre puede implementar una [aplicación web precompilada](https://github.com/Azure-Samples/azure-event-grid-viewer) que muestre los eventos entrantes. Puede enviar los eventos a su sitio web de prueba en `https://<your-site-name>.azurewebsites.net/api/updates`.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to Deploy to Aquent." /></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to deploy to Azure."></a>
 
 Los permisos que se establecen para un tema se almacenan en Azure Active Directory y se deben eliminar explícitamente. La eliminación de una suscripción de eventos no revoca el acceso de un usuario para crear suscripciones de eventos si tiene acceso de escritura en un tema.
 

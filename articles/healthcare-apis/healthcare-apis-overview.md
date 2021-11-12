@@ -7,19 +7,19 @@ ms.service: healthcare-apis
 ms.topic: overview
 ms.date: 07/09/2021
 ms.author: ginle
-ms.openlocfilehash: 8078dcb2cc0db6786881a834540922e66f47eac8
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: f243f43e50c4739cda36ee8d2374772df436d9f7
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131468882"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132370391"
 ---
 # <a name="what-is-azure-healthcare-apis-preview"></a>¿Qué son las API de Azure Healthcare (versión preliminar)?
 
 > [!IMPORTANT]
 > Azure Healthcare APIs se encuentra actualmente en VERSIÓN PRELIMINAR. Los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado con disponibilidad general.
 
-Los datos de mantenimiento con los que trabaja se fragmentan en varios sistemas y formatos. La administración de estos datos es lo suficientemente difícil, intentar obtener información de estos parece imposible. Debe encontrar una manera de reunir todos estos sistemas y datos dispares. Un enfoque unificado de los datos de mantenimiento le permitiría detectar información operativa y médica, conectar nuevas aplicaciones de usuario final o habilitar nuevos proyectos de investigación. Las API de Atención sanitaria de Azure son un conjunto de herramientas y conectores que le permiten mejorar la atención sanitaria a través de la información detectada mediante la unión de conjuntos dispares de PHI y su conexión de un extremo a otro con herramientas de aprendizaje automático, análisis e inteligencia artificial.
+Las API de Azure Healthcare son un conjunto de servicios de API administrados basados en estándares y marcos abiertos que permiten a los flujos de trabajo mejorar la atención sanitaria y ofrecer soluciones de atención sanitaria escalables y seguras. El uso de un conjunto de marcos y servicios de API administrados dedicados al sector sanitario es importante y beneficioso, ya que los datos sanitarios recopilados de pacientes y consumidores sanitarios se pueden fragmentar entre varios sistemas, tipos de dispositivos y formatos de datos. Obtener información a partir de los datos sanitarios es una de las mayores barreras para mantener la población y la salud personal, así como comprender la comprensión general de la salud. Hoy en día es más importante reunir sistemas dispares, flujos de trabajo y datos de mantenimiento. Un enfoque unificado y alineado para el acceso a los datos sanitarios, la normalización y la captura de tendencias permitiría la detección de conclusiones operativas y médicas. Podemos simplificar el proceso de conexión de nuevas aplicaciones de dispositivo y habilitar nuevos proyectos de investigación. El uso de las API de Atención sanitaria de Azure como una solución de atención sanitaria escalable y segura puede permitir flujos de trabajo para mejorar la atención sanitaria a través de la información detectada al reunir conjuntos de datos de información sanitaria protegida (PHI) y conectarlos de un extremo a otro con herramientas de aprendizaje automático, análisis e inteligencia artificial. 
 
 Las API de Azure Healthcare proporcionan las siguientes ventajas:
 * Capacitar a las nuevas cargas de trabajo para que aprovechen la INFORMACIÓN protegida mediante la habilitación de la recopilación y el acceso a los datos en un solo lugar, de forma coherente.

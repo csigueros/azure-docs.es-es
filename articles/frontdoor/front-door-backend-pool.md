@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 4beba141fec7a819df52e4c3a669312a4ad76998
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68feb1c2df14c3325ae74ef36874e7008bf9d108
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91449297"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132371037"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door"></a>Back-end y grupos de back-end en Azure Front Door
 En este artículo se describen conceptos acerca de cómo asignar la implementación de una aplicación web con Azure Front Door. También se explica la terminología que se usa en las distintas configuraciones de Front Door relativas a los back-end de la aplicación.
@@ -45,7 +45,7 @@ Las solicitudes reenviadas por Front Door a un back-end incluyen un campo de enc
 
 Por ejemplo, una solicitud realizada para `www.contoso.com` tendrá el encabezado de host www.contoso.com. Si usa Azure Portal para configurar su back-end, el valor predeterminado para este campo es el nombre de host del back-end. Si el back-end es contoso-westus.azurewebsites.net, en Azure Portal, el valor que se rellena automáticamente el encabezado de host de back-end será contoso-westus.azurewebsites.net. En cambio, si se usan plantillas de Azure Resource Manager u otro método sin establecer explícitamente este campo, Front Door enviará el nombre de host entrante como el valor del encabezado de host. Si la solicitud se realizó para www\.contoso.com y el back-end es contoso-westus.azurewebsites.net que tiene un campo de encabezado vacío, Front Door establecerá el encabezado de host como www\.contoso.com.
 
-La mayoría de back-end de aplicación (por ejemplo, Azure Web Apps, Blob Storage y Cloud Services) requieren que el encabezado de host coincida con el dominio del back-end. En cambio, el host de front-end que se enrute al back-end usará otro nombre de host, como www.contoso.net.
+La mayoría de back-end de aplicación (por ejemplo, Azure Web Apps, Blob Storage y Cloud Services) requieren que el encabezado de host coincida con el dominio del back-end. En cambio, el host de front-end que se enrute al servidor back-end usará otro nombre de host, como `www.contoso.net`.
 
 Si el back-end requiere que el encabezado de host coincida con el nombre de host de back-end, asegúrese de que el encabezado de host de back-end incluya el nombre de host del back-end.
 

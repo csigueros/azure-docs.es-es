@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 269769c8bc80986230cbbee4225a38523f605724
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 8114492c9740cf706e9d2ba6fbd99f22029ba769
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131565999"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132289838"
 ---
 # <a name="train-anomaly-detection-model-component"></a>Componente Entrenamiento de un modelo de detección de anomalías
 
@@ -48,10 +48,8 @@ Una vez completado el entrenamiento:
 
 + Para guardar una instantánea del modelo entrenado, seleccione el componente. A continuación, seleccione el icono de **Registro de un conjunto de datos** en la pestaña **Outputs+logs** (Salidas+registros) del panel derecho.   
 
- 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Vea el [conjunto de componentes disponibles](component-reference.md) para Azure Machine Learning. 
 
 Vea [Excepciones y códigos de error del diseñador](designer-error-codes.md) para examinar una lista de errores específicos de los componentes del diseñador.
-'
