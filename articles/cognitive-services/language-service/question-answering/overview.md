@@ -7,18 +7,18 @@ ms.topic: overview
 ms.date: 11/02/2021
 keywords: qna maker, low code chat bots, multi-turn conversations
 ms.custom: language-service-question-answering, ignite-fall-2021
-ms.openlocfilehash: 861f888371971a90378639a2ec5cc288c8d7a23f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 8249fa4f276b7474740e2c8d882abc4e69c9487d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030566"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131476497"
 ---
-# <a name="what-is-question-answering"></a>Qué es la respuesta a preguntas
+# <a name="what-is-question-answering"></a>¿Qué es la respuesta a preguntas?
 
 La respuesta a preguntas proporciona procesamiento de lenguaje natural (NLP) basado en la nube que le permite crear una capa natural de conversación con los datos. Se utiliza para encontrar la respuesta más apropiada para una entrada de la knowledge base personalizada (KB) de información.
 
-La respuesta a preguntas se usa normalmente para crear aplicaciones cliente de conversación, entre las que se incluyen aplicaciones de medios sociales, bots de chat y aplicaciones de escritorio habilitadas para voz.
+La respuesta a preguntas se usa normalmente para crear aplicaciones cliente de conversación, entre las que se incluyen aplicaciones de medios sociales, bots de chat y aplicaciones de escritorio habilitadas para voz. Se han agregado varias características nuevas, como la relevancia mejorada mediante un clasificador de aprendizaje profundo, las respuestas precisas y la compatibilidad con regiones de un extremo a otro.
 
 Esta documentación contiene los siguientes tipos de artículos:
 
@@ -29,14 +29,14 @@ Esta documentación contiene los siguientes tipos de artículos:
 
 ## <a name="when-to-use-question-answering"></a>Cuándo usar la respuesta a preguntas
 
-* **Cuando tiene información estática**: use la respuesta a preguntas cuando tenga información estática en la knowledge base de las respuestas. Esta base de conocimiento está personalizada para sus necesidades, que ha creado con documentos como [archivos PDF y direcciones URL.](../../qnamaker/Concepts/data-sources-and-content.md)
+* **Cuando tiene información estática**: use la respuesta a preguntas cuando tenga información estática en la knowledge base de las respuestas. Esta base de conocimiento está personalizada para sus necesidades, que ha creado con documentos como archivos PDF y direcciones URL.
 * **Si desea proporcionar la misma respuesta a una solicitud, una pregunta o un comando**: cuando distintos usuarios envían la misma pregunta, se devuelve la misma respuesta.
-* **Si desea filtrar la información estática en función de la metainformación**: agregue etiquetas de [metadatos](../../qnamaker/how-to/metadata-generateanswer-usage.md) para proporcionar opciones de filtrado adicionales relacionadas con los usuarios de la aplicación cliente y la información. La información común de los metadatos incluye el tipo de contenido o formato [de charla](./how-to/chit-chat.md), y el propósito y la actualización del contenido. <!--TODO: Fix Link-->
-* **Si desea administrar una conversación de bot que incluya información estática**: la base de conocimiento toma el texto o el comando de conversación de un usuario y lo responde. Si la respuesta forma parte de un flujo de conversación determinado previamente, representado en la base de conocimiento con [contexto multiturno](../../qnamaker/how-to/multiturn-conversation.md), el bot puede proporcionar fácilmente este flujo.
+* **Si desea filtrar la información estática en función de la metainformación**: agregue etiquetas de [metadatos](./tutorials/multiple-domains.md) para proporcionar opciones de filtrado adicionales relacionadas con los usuarios de la aplicación cliente y la información. La información común de los metadatos incluye el tipo de contenido o formato [de charla](./how-to/chit-chat.md), y el propósito y la actualización del contenido. <!--TODO: Fix Link-->
+* **Si desea administrar una conversación de bot que incluya información estática**: la base de conocimiento toma el texto o el comando de conversación de un usuario y lo responde. Si la respuesta forma parte de un flujo de conversación determinado previamente, representado en la base de conocimiento con [contexto multiturno](./tutorials/guided-conversations.md), el bot puede proporcionar fácilmente este flujo.
 
 ## <a name="what-is-a-knowledge-base"></a>¿Qué es una base de conocimiento?
 
-La respuesta a preguntas [importa el contenido](../../qnamaker/Concepts/plan.md) en una knowledge base de pares de preguntas y respuestas. En el proceso de importación se extrae información sobre la relación entre las partes del contenido estructurado y semiestructurado para insinuar relaciones entre los conjuntos de preguntas y respuestas. Puede editar estos pares de preguntas y respuestas o agregar otros nuevos.
+La respuesta a preguntas [importa el contenido](./how-to/manage-knowledge-base.md) en una knowledge base de pares de preguntas y respuestas. En el proceso de importación se extrae información sobre la relación entre las partes del contenido estructurado y semiestructurado para insinuar relaciones entre los conjuntos de preguntas y respuestas. Puede editar estos pares de preguntas y respuestas o agregar otros nuevos.
 
 El contenido del par de preguntas y respuestas incluye:
 * Todas las formas alternativas de la pregunta

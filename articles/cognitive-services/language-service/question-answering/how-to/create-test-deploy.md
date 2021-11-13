@@ -6,14 +6,14 @@ ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021
-ms.openlocfilehash: aff89e8d55b4c4f3b2de77b7c44413fefc246cd1
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f190c2aec509af157944fb11a110953c9e8bbdb0
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093325"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131476611"
 ---
-# <a name="create-test-and-deploy-custom-question-answering"></a>Creación, prueba e implementación de respuesta a preguntas personalizada
+# <a name="create-test-and-deploy-a-custom-question-answering-project"></a>Creación, prueba e implementación de un proyecto de respuesta a preguntas personalizado
 
 Puede crear un proyecto de respuesta de preguntas a partir de su propio contenido, como preguntas frecuentes o manuales de productos. En este artículo se incluye un ejemplo de creación de un proyecto de respuesta a preguntas a partir de un manual de producto para responder preguntas.
 
@@ -21,7 +21,7 @@ Puede crear un proyecto de respuesta de preguntas a partir de su propio contenid
 
 > [!div class="checklist"]
 > * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
-> * Un [recurso de lenguaje](https://aka.ms/create-language-resource) con la característica de respuesta a preguntas personalizada habilitada. Recuerde el identificador de Azure Active Directory, la suscripción y el nombre de recurso de lenguaje que seleccionó al crear el recurso.
+> * Un [recurso de lenguaje](https://aka.ms/create-language-resource) con la característica de respuesta a preguntas personalizada habilitada.
 
 ## <a name="create-your-first-question-answering-project"></a>Creación del primer proyecto de respuesta a preguntas
 
@@ -58,7 +58,7 @@ Puede crear un proyecto de respuesta de preguntas a partir de su propio contenid
     |--------|---------|
     |Guía de usuario de Surface Book |https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf |
 
-    El proceso de extracción tarda unos minutos en leer el documento e identificar las preguntas y respuestas.
+    El proceso de extracción tarda unos minutos en leer el documento e identificar las preguntas y respuestas. Las preguntas y respuestas determinarán si el contenido subyacente está estructurado o no.
 
     Después de agregar correctamente el origen, puede editar el contenido del mismo para agregar más conjuntos de respuestas a preguntas personalizadas.
 

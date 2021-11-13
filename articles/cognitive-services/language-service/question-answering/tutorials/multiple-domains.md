@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Creación de un bot de preguntas frecuentes para varios dominios con Azure Bot Service'
-description: En este tutorial se crea un bot de preguntas frecuentes sin código para casos de uso en producción, con QnA Maker y Azure Bot Service.
+title: 'Tutorial: Creación de un bot de preguntas frecuentes para varias categorías con Azure Bot Service'
+description: En este tutorial se crea un bot de preguntas frecuentes sin código para casos de uso en producción, con respuesta a preguntas y Azure Bot Service.
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
@@ -8,19 +8,19 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021
-ms.openlocfilehash: 7fdf1178cd9e737b6696374bc126312c1aa819f6
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ed5f8bf8009df79f2d49b3040aef7a5fe5635fab
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030643"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458178"
 ---
-# <a name="add-multiple-domains-to-your-faq-bot"></a>Incorporación de varios dominios al bot de preguntas frecuentes
+# <a name="add-multiple-categories-to-your-faq-bot"></a>Incorporación de varias categorías al bot de preguntas frecuentes
 
 En este tutorial aprenderá a:
 
 > [!div class="checklist"]
-> * Creación de un proyecto y etiquetado de pares de preguntas y respuestas en dominios distintos con metadatos
+> * Creación de un proyecto y etiquetado de pares de preguntas y respuestas en categorías distintas con metadatos
 > * Creación de un proyecto independiente para cada dominio
 > * Creación de un recurso de idioma independiente para cada dominio
 
@@ -105,4 +105,4 @@ Cuando el servicio reciba la pregunta del usuario, deberá pasar el objeto `proj
 
 ## <a name="create-a-separate-language-resource-for-each-domain"></a>Creación de un recurso de idioma independiente para cada dominio
 
-Supongamos que el equipo de marketing de Microsoft quiere crear un bot de ayuda al cliente que responda a las consultas del usuario sobre varios productos de Surface y Xbox. Para ello, planea asignar distintos equipos para acceder a las bases de conocimiento en Surface y Xbox. En este caso, se recomienda crear dos recursos de QnA Maker: uno para Surface y otro para Xbox. Sin embargo, puede definir roles distintos para los usuarios que acceden al mismo recurso.
+Supongamos que el equipo de marketing de Microsoft quiere crear un bot de ayuda al cliente que responda a las consultas del usuario sobre varios productos de Surface y Xbox. Para ello, planea asignar distintos equipos para acceder a las bases de conocimiento en Surface y Xbox. En este caso, se recomienda crear dos recursos de respuesta a preguntas: uno para Surface y otro para Xbox. Sin embargo, puede definir roles distintos para los usuarios que acceden al mismo recurso.

@@ -4,16 +4,17 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: eur
-ms.openlocfilehash: f5e625686255e77454afbfe0f9a7f855454a5f2e
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 31d428455929b9cdfb14fb78f65dc8def889d563
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131506615"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132252288"
 ---
 :::row:::
     :::column span="3":::
-        El SDK de voz de C++ está disponible en Windows, Linux y macOS. Para más información, consulte <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft.CognitiveServices.Speech </a>.
+        El SDK de Voz de C++ está disponible en forma de paquete NuGet de Windows, Linux y macOS. Para más información, consulte <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft.CognitiveServices.Speech</a>.
+        El SDK de Voz de C++ también está disponible en forma de paquete tar en https://aka.ms/csspeech/linuxbinary.
     :::column-end:::
     :::column:::
         <br>

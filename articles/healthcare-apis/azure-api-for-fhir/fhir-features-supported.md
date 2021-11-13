@@ -6,14 +6,14 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 6/16/2021
+ms.date: 11/11/2021
 ms.author: cavoeg
-ms.openlocfilehash: 5db569349134bd63b0341cc7afb024cfad83b884
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: b6c170a7b2f46adeb4b287424601455bb078aba7
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130046152"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132397307"
 ---
 # <a name="features"></a>Características
 
@@ -27,6 +27,8 @@ Entre las versiones anteriores también admitidas actualmente se incluye: `3.0.2
 
 ## <a name="rest-api"></a>API DE REST
 
+A continuación se muestra un resumen de las funcionalidades de RESTful admitidas. Para más información sobre la implementación de estas funcionalidades, consulte Funcionalidades de la API rest de [FHIR.](fhir-rest-api-capabilities.md)
+
 | API    | API de Azure para FHIR | Servicio FHIR en las API de atención sanitaria | Comentario |
 |--------|--------------------|---------------------------------|---------|
 | leer   | Sí                | Sí                             |         |
@@ -34,10 +36,8 @@ Entre las versiones anteriores también admitidas actualmente se incluye: `3.0.2
 | update | Sí                | Sí                             |         | 
 | update with optimistic locking | Sí       | Sí       |
 | update (conditional)           | Sí       | Sí       |
-| patch                          | Sí       | Sí       | Compatibilidad solo [con la revisión](https://www.hl7.org/fhir/http.html#patch) JSON. Hemos incluido una solución alternativa para usar la revisión JSON en un paquete de [esta solicitud de solicitud de acceso.](https://github.com/microsoft/fhir-server/pull/2143)|
+| patch                          | Sí       | Sí       | Solo compatibilidad [con la revisión JSON.](https://www.hl7.org/fhir/http.html#patch) Hemos incluido una solución alternativa para usar la revisión JSON en una agrupación en [esta solicitud de solicitud de registro.](https://github.com/microsoft/fhir-server/pull/2143)|
 | patch (condicional)            | Sí       | Sí       |
-| delete                         | Sí       | Sí       | Consulte los detalles en la sección de eliminación a continuación. |
-| delete (conditional)           | Sí       | Sí       | Consulte los detalles en la sección de eliminación a continuación. |
 | history                        | Sí       | Sí       |
 | create                         | Sí       | Sí       | Admite POST y PUT |
 | create (conditional)           | Sí       | Sí       | Problema [n.º 1382](https://github.com/microsoft/fhir-server/issues/1382) |
@@ -52,41 +52,18 @@ Entre las versiones anteriores también admitidas actualmente se incluye: `3.0.2
 > [!Note] 
 > En Azure API for FHIR y el servidor FHIR de código abierto respaldado por Cosmos, la búsqueda encadenada y la búsqueda encadenada inversa son una implementación de MVP. Para realizar búsquedas encadenadas en Cosmos DB, la implementación le guía por la expresión de búsqueda y emite subconsultas para resolver los recursos coincidentes. Esto se hace para cada nivel de la expresión. Si alguna consulta devuelve más de 1000 resultados, se producirá un error.
 
-### <a name="delete-and-conditional-delete"></a>Eliminación y eliminación condicional
-
-La eliminación definida por la especificación de FHIR requiere que, después de eliminar, las lecturas posteriores no específicas de la versión de un recurso devuelvan un código de estado HTTP 410 y el recurso ya no se encuentra a través de la búsqueda. El Azure API for FHIR y el servicio FHIR también le permiten eliminar completamente (incluido todo el historial) del recurso. Para eliminar completamente el recurso, puede pasar una configuración de parámetros `hardDelete` a true (`DELETE {server}/{resource}/{id}?hardDelete=true`). Si no pasa este parámetro o establece `hardDelete` en false, las versiones históricas del recurso seguirán estando disponibles.
-
-Además de eliminar, el Azure API for FHIR y el servicio FHIR admiten la eliminación condicional, lo que le permite pasar un criterio de búsqueda para eliminar un recurso. De forma predeterminada, la eliminación condicional le permitirá eliminar un elemento a la vez. También puede especificar el parámetro `_count` para eliminar hasta 100 elementos a la vez. A continuación se muestran algunos ejemplos del uso de la eliminación condicional.
-
-Para eliminar un solo elemento mediante la eliminación condicional, debe especificar criterios de búsqueda que devuelvan un solo elemento.
-``` JSON
-DELETE https://{{hostname}}/Patient?identifier=1032704
-```
-
-Puede realizar la misma búsqueda, pero incluir hardDelete=true para eliminar también todo el historial.
-```JSON 
-DELETE https://{{hostname}}/Patient?identifier=1032704&hardDelete=true
-```
-
-Si desea eliminar varios recursos, puede incluir , que eliminará hasta 100 recursos que coincidan `_count=100` con los criterios de búsqueda. 
-``` JSON
-DELETE https://{{hostname}}/Patient?identifier=1032704&_count=100
-```
-
 ## <a name="extended-operations"></a>Operaciones extendidas
 
-Todas las operaciones admitidas que amplían la API REST.
+Todas las operaciones admitidas que extienden la API REST.
 
 | Tipo de parámetro de búsqueda | API de Azure para FHIR | Servicio FHIR en las API de atención sanitaria| Comentario |
 |------------------------|-----------|-----------|---------|
-| $export (todo el sistema) | Sí       | Sí       |         |
-| Patient/$export        | Sí       | Sí       |         |
-| Group/$export          | Sí       | Sí       |         |
-| $convert-data          | Sí       | Sí       |         |
-| $validate              | Sí       | Sí       |         |
-| $member-match          | Sí       | Sí       |         |
-| $patient-everything    | Sí       | Sí       |         |
-| $purge historial         | Sí       | Sí       |         |
+| [$export](../../healthcare-apis/data-transformation/export-data.md) (sistema completo) | Sí       | Sí       | Admite el sistema, el grupo y el paciente.   |
+| [$convert-data](convert-data.md)          | Sí       | Sí       |         |
+| [$validate](validation-against-profiles.md)              | Sí       | Sí       |         |
+| [$member-match](tutorial-member-match.md)          | Sí       | Sí       |         |
+| [$patient-everything](patient-everything.md)    | Sí       | Sí       |         |
+| $purge-history         | Sí       | Sí       |         |
 
 ## <a name="persistence"></a>Persistencia
 
@@ -116,7 +93,7 @@ Actualmente, las acciones permitidas para un rol determinado se aplican *globalm
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha leído sobre las características admitidas de FHIR en Azure API for FHIR. Después, implemente Azure API for FHIR.
+En este artículo, ha leído sobre las características admitidas de FHIR en Azure API for FHIR. Para obtener información sobre la implementación Azure API for FHIR, consulte
  
 >[!div class="nextstepaction"]
 >[Implementación de Azure API for FHIR](fhir-paas-portal-quickstart.md)

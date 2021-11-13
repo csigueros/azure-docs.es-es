@@ -5,26 +5,26 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
 ms.date: 11/02/2021
+author: mrbullwinkle
+ms:author: mbullwin
 ms.custom: language-service-question-answering, ignite-fall-2021
-ms.openlocfilehash: 94925a2a6cadc80a576470fc1d0a585bd4bb4a01
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 44f2ba3d3a1ae3e05cace797349a2680584a9aff
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093329"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131476573"
 ---
 # <a name="change-default-answer-for-question-answering"></a>Cambio de la respuesta predeterminada en la respuesta a preguntas
 
 La respuesta predeterminada para un proyecto está pensada para devolverse cuando no se encuentra una respuesta. Si usa una aplicación cliente, como [Azure Bot Service](/azure/bot-service/bot-builder-howto-qna), es posible que también tenga una respuesta predeterminada independiente, lo que indica que ninguna respuesta ha alcanzado el umbral de puntuación.
 
-## <a name="types-of-default-answer"></a>Tipos de respuesta predeterminada
+## <a name="default-answer"></a>Respuesta predeterminada
 
-Hay dos tipos de respuesta predeterminada en la knowledge base. Es importante entender cómo y cuándo se devuelve cada una desde una consulta de predicción:
 
-|Tipos de respuestas predeterminadas|Descripción de respuesta|
+|Respuesta predeterminada|Descripción de respuesta|
 |--|--|
-|Respuesta de KB si no se ha determinado ninguna respuesta|`No good match found in KB.`: si la API de respuesta a preguntas no encuentra ninguna respuesta coincidente para la pregunta, se muestra una respuesta de texto predeterminada. En la respuesta a preguntas personalizada, este texto se puede establecer en la pestaña **Settings** (Configuración) del proyecto. |
-|Texto de instrucciones de solicitud de seguimiento|Al usar una solicitud de seguimiento en un flujo de conversación, es posible que no necesite una respuesta en el par de pregunta y respuesta porque quiere que el usuario seleccione en las solicitudes de seguimiento. En este caso, establezca un texto concreto al determinar el texto de respuesta predeterminado, que se devuelve con cada predicción de las solicitudes de seguimiento. El texto tiene que mostrarse como texto de instrucciones para la selección de solicitudes de seguimiento. Un ejemplo de este texto de respuesta predeterminado es `Please select from the following choices`. Esta configuración se explica en las siguientes secciones de este documento. También se puede establecer como parte de una definición de base de conocimiento con `defaultAnswerUsedForExtraction` mediante la API REST.|
+|Respuesta de KB si no se ha determinado ninguna respuesta|`No good match found in KB.`: si la API de respuesta a preguntas no encuentra ninguna respuesta coincidente para la pregunta, se muestra una respuesta de texto predeterminada. En la respuesta a preguntas, este texto se puede establecer en la pestaña **Settings** (Configuración) del proyecto. |
 
 ### <a name="client-application-integration"></a>Integración de aplicación cliente
 
@@ -33,11 +33,7 @@ En el caso de una aplicación cliente, como un bot con **Azure Bot Service**, pu
 * Uso de la configuración del proyecto o de la base de conocimiento
 * Usar otro texto en la aplicación cliente para distinguir cuándo se devuelve una respuesta, pero que no cumple el umbral de puntuación. Este texto puede ser texto estático almacenado en código, o se puede almacenar en la lista de configuración de la aplicación cliente.
 
-## <a name="set-follow-up-prompts-default-answer-when-you-create-knowledge-base"></a>Establecimiento de la respuesta predeterminada de la solicitud de seguimiento al crear la knowledge base
-
-Al crear una nueva base de conocimiento, el texto de respuesta predeterminado es uno de los valores de configuración. Si decide no establecerlo durante el proceso de creación, puede cambiarlo más adelante con el siguiente procedimiento.
-
-## <a name="change-follow-up-prompts-default-answer-in-language-studio"></a>Cambio de la respuesta predeterminada de la solicitud de seguimiento en Language Studio
+## <a name="change-default-answer-in-language-studio"></a>Cambio de la respuesta predeterminada en Language Studio
 
 Se devuelve la respuesta predeterminada de la base de conocimiento cuando la respuesta a preguntas no devuelve ningún resultado.
 

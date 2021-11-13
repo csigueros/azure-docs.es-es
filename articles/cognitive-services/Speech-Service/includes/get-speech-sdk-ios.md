@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: eur
-ms.openlocfilehash: 30d913eba160fd68702758695a8efa0547e55a26
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 942bf206454047f54765d096a2ac97fcabb895ab
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131506622"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132252343"
 ---
 :::row:::
     :::column span="3":::
-        Al desarrollar para iOS, hay dos SDK de Voz disponibles. El SDK de Voz de Objective-C está disponible de forma nativa como paquete de CocoaPod para iOS. Como alternativa, el SDK de Voz de .NET podría usarse con Xamarin.iOS, ya que implementa .NET Standard 2.0.
+        Cuando se realizan desarrollos para iOS, están disponibles los siguientes SDK de Voz. El SDK de Voz de Objective-C/Swift está disponible de forma nativa en forma de paquete de CocoaPod para iOS. Como alternativa, se puede usar el SDK de Voz de .NET con marcos de aplicaciones de Xamarin.iOS y Unity.
     :::column-end:::
     :::column:::
         <br>
@@ -58,7 +58,7 @@ end
 
 :::row:::
     :::column span="3":::
-        Xamarin.iOS expone el SDK de iOS completo para los desarrolladores de .NET. Compile aplicaciones iOS totalmente nativas mediante C# o F# en Visual Studio. Para obtener más información, vea <a href="/xamarin/ios/" target="_blank">Xamarin.iOS </a>.
+        Xamarin.iOS expone el SDK de iOS completo para los desarrolladores de .NET. Compile aplicaciones iOS totalmente nativas mediante C# en Visual Studio. Para más información, vea <a href="/xamarin/ios/" target="_blank">Xamarin.iOS </a>.
     :::column-end:::
     :::column:::
         <br>

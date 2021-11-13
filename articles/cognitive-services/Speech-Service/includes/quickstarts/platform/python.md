@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: eur
-ms.openlocfilehash: 1159fac39df141e92f539063254d5166fba53bc9
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 6a33020c686686d40529b8188ccfcf7fcb412331
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131502552"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132252481"
 ---
 En esta guía se muestra cómo instalar el [SDK de Voz](~/articles/cognitive-services/speech-service/speech-sdk.md) para Python. Si desea simplemente que el nombre del paquete comience por su cuenta, ejecute `pip install azure-cognitiveservices-speech`.
 
@@ -19,7 +19,7 @@ En esta guía se muestra cómo instalar el [SDK de Voz](~/articles/cognitive-ser
 
 - El paquete del SDK de Voz de Python está disponible para estos sistemas operativos:
   - Windows: x64 y x86
-  - Mac: macOS X versión 10.12 o posterior
+  - Mac: versión 10.14, o posterior, de macOS X (la versión mínima de Python en macOS es la 3.7)
   - Linux: consulte la lista de [distribuciones y arquitecturas de destino de Linux admitidas](~/articles/cognitive-services/speech-service/speech-sdk.md).
 
 ## <a name="prerequisites"></a>Requisitos previos

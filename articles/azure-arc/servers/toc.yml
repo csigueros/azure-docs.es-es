@@ -85,9 +85,9 @@
       items:
         - name: Prueba de servidores habilitados para Arc mediante una máquina virtual de Azure
           href: plan-evaluate-on-azure-virtual-machine.md
-        - name: Incorporación a Azure Sentinel
+        - name: "Incorporación a Microsoft\_Azure\_Sentinel"
           href: scenario-onboard-azure-sentinel.md
-        - name: Incorporación a Azure Security Center
+        - name: "Incorporación a Microsoft\_Defender\_for\_Cloud"
           href: ../../security-center/quickstart-onboard-machines.md
     - name: Solución de problemas
       items:

@@ -5,16 +5,16 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: eur
-ms.openlocfilehash: 11856bd2b26703b4f1001c1a5223c86f2d2d9a8a
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 07a992a18cf0cf2768a7bbb15dd4a8ad6bafa20a
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131509782"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132252276"
 ---
 En este inicio rápido, aprenderá a usar Speech Devices SDK para Linux para crear un producto habilitado para voz o para utilizarlo como un dispositivo de [transcripción de conversaciones](../conversation-transcription.md). Actualmente, solo se admite [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/).
 
-La aplicación se crea con el paquete del SDK de voz y el entorno de desarrollo integrado Java de Eclipse (v4) en Linux de 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8 y CentOS 7/8). Se ejecuta en un entorno de tiempo de ejecución de Java 8 (JRE) de 64 bits.
+La aplicación se crea con el paquete del SDK de Voz y el entorno de desarrollo integrado de Java para Eclipse (v4) en Linux de 64 bits (Ubuntu 18.04, Debian 9, Red Hat Enterprise Linux 7/8 y CentOS 7/8). Se ejecuta en un entorno de tiempo de ejecución de Java 8 (JRE) de 64 bits.
 
 Para esta guía se requiere una cuenta de [Azure Cognitive Services](../overview.md#try-the-speech-service-for-free) con un recurso del servicio de voz. 
 
@@ -24,7 +24,7 @@ El código fuente de la [aplicación de ejemplo](https://aka.ms/sdsdk-download-J
 
 Esta guía de inicio rápido requiere:
 
-* Sistema operativo: Linux de 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8 y CentOS 7/8)
+* Sistema operativo: Linux de 64 bits (Ubuntu 18.04, Debian 9, Red Hat Enterprise Linux 7/8, CentOS 7/8)
 * [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)
 * [IDE de Java de Eclipse](https://www.eclipse.org/downloads/)
 * Solo [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) o [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html).

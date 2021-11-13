@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 07/10/2020
 author: manishmsfte
 ms.author: mansha
-ms.openlocfilehash: 0fc2b11f924a5ae50cf1f6ae96f0ed82ab1813ad
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 41dfcdf3a30084eafebcda70a4385508a432a3c0
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131041086"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132279526"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Inicio rápido: Creación, consulta y recorrido de una base de datos de grafos de Azure Cosmos DB en la consola de Gremlin
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
@@ -34,7 +34,7 @@ En este inicio rápido se muestra cómo crear una cuenta de [Gremlin API](graph-
 
 La consola de Gremlin se basa en Groovy/Java y se ejecuta en Linux, Mac y Windows. Puede descargarla desde el [sitio de Apache TinkerPop](https://tinkerpop.apache.org/downloads.html).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Necesita tener una suscripción de Azure para crear una cuenta de Azure Cosmos DB para este inicio rápido.
 
@@ -77,7 +77,7 @@ También necesita instalar la [consola de Gremlin](https://tinkerpop.apache.org/
    ```yaml
    hosts: [your_database_server.gremlin.cosmos.azure.com] 
    port: 443
-   username: /dbs/your_database_account/colls/your_collection
+   username: /dbs/your_database/colls/your_collection
    password: your_primary_key
    connectionPool: {
      enableSsl: true
@@ -103,7 +103,7 @@ Estupendo. Ahora que hemos terminado la configuración, comencemos a ejecutar al
 
 Probemos un comando count() sencillo. En el símbolo del sistema de la consola, escriba lo siguiente:
 
-```java
+```console
 g.V().count()
 ```
 
@@ -113,7 +113,7 @@ Comencemos agregando cinco vértices de personas para *Thomas*, *Mary Kay*, *Rob
 
 Entrada (Thomas):
 
-```java
+```console
 g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1).property('pk', 'pk')
 ```
 
@@ -125,7 +125,7 @@ Salida:
 
 Entrada (Mary Kay):
 
-```java
+```console 
 g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2).property('pk', 'pk')
 
 ```
@@ -139,7 +139,7 @@ Salida:
 
 Entrada (Robin):
 
-```java
+```console 
 g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3).property('pk', 'pk')
 ```
 
@@ -151,7 +151,7 @@ Salida:
 
 Entrada (Ben):
 
-```java
+```console 
 g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4).property('pk', 'pk')
 
 ```
@@ -164,7 +164,7 @@ Salida:
 
 Entrada (Jack):
 
-```java
+```console
 g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5).property('pk', 'pk')
 ```
 
@@ -179,7 +179,7 @@ Después, vamos a agregar bordes a las relaciones entre estas personas.
 
 Entrada (Thomas -> Mary Kay):
 
-```java
+```console
 g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Mary Kay'))
 ```
 
@@ -191,7 +191,7 @@ Salida:
 
 Entrada (Thomas -> Robin):
 
-```java
+```console
 g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Robin'))
 ```
 
@@ -203,7 +203,7 @@ Salida:
 
 Entrada (Robin -> Ben):
 
-```java
+```console
 g.V().hasLabel('person').has('firstName', 'Robin').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Ben'))
 ```
 
@@ -218,7 +218,7 @@ Salida:
 Vamos a actualizar el vértice *Thomas* con una nueva edad de *45*.
 
 Entrada:
-```java
+```console
 g.V().hasLabel('person').has('firstName', 'Thomas').property('age', 45)
 ```
 Salida:
@@ -235,7 +235,7 @@ Primero, vamos a probar una consulta con un filtro para devolver solo las person
 
 Entrada (consulta de filtro):
 
-```java
+```console
 g.V().hasLabel('person').has('age', gt(40))
 ```
 
@@ -249,7 +249,7 @@ Después, vamos a proyectar el nombre de las personas que sean mayores de 40 añ
 
 Entrada (filtro + consulta de proyección):
 
-```java
+```console 
 g.V().hasLabel('person').has('age', gt(40)).values('firstName')
 ```
 
@@ -265,7 +265,7 @@ Vamos a recorrer el grafo para devolver todos los amigos de Thomas.
 
 Entrada (amigos de Thomas):
 
-```java
+```console
 g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person')
 ```
 
@@ -280,7 +280,7 @@ Ahora, vamos a obtener la siguiente capa de vértices. Recorra el grafo para dev
 
 Entrada (amigos de los amigos de Thomas):
 
-```java
+```console
 g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')
 ```
 Salida:
@@ -295,7 +295,7 @@ Vamos a eliminar un vértice de la base de datos del grafo.
 
 Entrada (quitar vértice de Jack):
 
-```java
+```console 
 g.V().hasLabel('person').has('firstName', 'Jack').drop()
 ```
 
@@ -305,7 +305,7 @@ Por último, vamos a borrar todos los vértices y bordes de la base de datos.
 
 Entrada:
 
-```java
+```console
 g.E().drop()
 g.V().drop()
 ```

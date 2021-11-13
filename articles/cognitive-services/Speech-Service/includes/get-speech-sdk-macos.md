@@ -4,25 +4,23 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: eur
-ms.openlocfilehash: 07fa99c6183e98554f20af5c992d0c81734a1b63
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 642fa02cf8f40d7cc6a39a1951499cb7921ed100
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131506627"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132252457"
 ---
-Al desarrollar para macOS, hay tres SDK de voz disponibles.
+Cuando se realizan desarrollos para macOS, están disponibles los siguientes SDK de Voz.
 
-- El SDK de voz de Objective-C está disponible de forma nativa como un paquete de CocoaPod.
-- El SDK de voz de .NET podría usarse con **Xamarin.Mac**, ya que implementa .NET Standard 2.0.
-- El SDK de voz de Python está disponible como un módulo de PyPI.
-
-> [!TIP]
-> Para obtener más información sobre el uso del SDK de Voz de Objective-C con Swift, consulte <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Importación de Objective-C en Swift </a>.
+- El SDK de Voz de Objective-C/Swift está disponible de forma nativa como paquete de CocoaPod para Mac x64 y silicios basados en ARM. Para más información sobre el uso del SDK de Voz de Objective-C con Swift, consulte <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Importación de Objective-C en Swift</a>.
+- El SDK de Voz de .NET está disponible a través de un paquete de NuGet y se puede usar con marcos de aplicaciones **Xamarin.Mac** y **Unity**.
+- El SDK de Voz de Python está disponible como módulo PyPI para las versiones 3.7, y posteriores, de Python.
+- El SDK de Voz de Java está disponible a través del repositorio de Maven en forma de paquete JAR.
 
 ### <a name="system-requirements"></a>Requisitos del sistema
 
-- Una versión macOS 10.13 o posterior
+- macOS 10.14, o cualquier versión posterior
 
 # <a name="xcode"></a>[Xcode](#tab/mac-xcode)
 
@@ -39,7 +37,7 @@ Al desarrollar para macOS, hay tres SDK de voz disponibles.
 :::row-end:::
 
 ```
-platform :ios, '9.3'
+platform :osx, 10.14
 use_frameworks!
 
 target 'MyApp' do

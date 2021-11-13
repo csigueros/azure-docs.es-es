@@ -1,20 +1,20 @@
 ---
 title: Productos de computación confidencial de Azure
 description: Obtenga información sobre todos los servicios de computación confidencial que proporciona Azure.
-author: JBCook
+author: stempesta
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: overview
-ms.date: 11/01/2021
-ms.author: JenCook
+ms.date: 11/04/2021
+ms.author: stempesta
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 6c91bfeaf32dba2f40e321f1c8fbf093351d39cd
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 77cd51a87ba1f7ba7f17ed69c102a4020d7bae2a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030518"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132284405"
 ---
 # <a name="confidential-computing-on-azure"></a>Computación confidencial en Azure
 
@@ -22,15 +22,13 @@ En la actualidad, los clientes cifran tanto sus datos en reposo como los que est
 
 Las tecnologías como [Intel Software Guard Extensions](https://www.intel.com.au/content/www/au/en/architecture-and-technology/software-guard-extensions-enhanced-data-protection.html) (Intel SGX) o [AMD Secure Encrypted Virtualization](https://www.amd.com/en/processors/amd-secure-encrypted-virtualization) (SEV-SNP) son mejoras recientes de la CPU que admiten implementaciones de computación confidencial. Estas tecnologías están diseñadas como extensiones de virtualización y proporcionan conjuntos de características, como el cifrado y la integridad de la memoria, la integridad y confidencialidad del estado de la CPU, y la atestación, para crear el modelo de amenazas de la computación confidencial.
 
-![Gráfico de los tres estados de la protección de datos, con los datos de la computación confidencial en uso resaltados.](media/overview-azure-products/three-states.jpg)
+:::image type="content" source="media/overview-azure-products/three-states.png" alt-text="Gráfico de los tres estados de la protección de datos, con los datos de la computación confidencial en uso resaltados.":::
 
 Cuando se usa con el cifrado de datos en reposo y en tránsito, la computación confidencial elimina la única barrera grande de cifrado (cifrado durante el uso) mediante la protección de conjuntos de datos confidenciales o altamente regulados y cargas de trabajo de aplicaciones en una plataforma de nube pública segura. La computación confidencial va más allá de la protección de datos genérica. Los entornos de ejecución de confianza también se usan para proteger la lógica empresarial propietaria, las funciones de análisis, los algoritmos de aprendizaje automático o aplicaciones enteras.
 
 ## <a name="navigating-azure-confidential-computing"></a>Desplazamiento por la computación confidencial de Azure
 
 Las [ofertas de Microsoft](https://aka.ms/azurecc) para la computación confidencial se extienden desde la infraestructura como servicio (IaaS) a la plataforma como servicio (PaaS), así como las herramientas de desarrollo, para respaldar el recorrido hacia la confidencialidad de los datos y del código en la nube.
-
-![Captura de pantalla de la pila de computación confidencial de Azure en la que se muestran herramientas y servicios.](media/overview-azure-products/acc-stack.jpg)
 
 ## <a name="reducing-the-attack-surface"></a>Reducción de la superficie expuesta a ataques
 La base de computación de confianza (TCB) hace referencia a todos los componentes de hardware, firmware y software del sistema que proporcionan un entorno seguro. Los componentes de la TCB se consideran "críticos". Si un componente de la TCB está en peligro, toda la seguridad del sistema puede verse comprometida. Una TCB menor significa una mayor seguridad. Existe menos riesgo de exposición a diversas vulnerabilidades, malware, ataques y usuarios malintencionados. La computación confidencial de Azure pretende reducir la TCB de las cargas de trabajo en la nube ofreciendo TEE. 

@@ -9,20 +9,18 @@ ms.subservice: language-service
 ms.topic: reference
 ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021
-ms.openlocfilehash: 24e5f8baa8b90dbdaf848711ce87006c0de90ee6
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: dbef13bdb39085c650a1fc5cedceb6c143eea4ad
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093648"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450122"
 ---
 # <a name="language-support-for-custom-question-answering-and-knowledge-bases"></a>Compatibilidad con idiomas en la respuesta a preguntas personalizada y las bases de conocimiento
 
-En este artículo se describen las opciones de compatibilidad de idiomas con los recursos y las bases de conocimiento habilitados para la respuesta a preguntas personalizada. 
+En este artículo se describen las opciones de compatibilidad de idiomas con los recursos y las bases de conocimiento habilitados para la respuesta a preguntas personalizada.
 
 En la respuesta a preguntas personalizada, tiene la opción de seleccionar el idioma cada vez que agregue un nuevo proyecto a un recurso que permita la compatibilidad con varios idiomas, o bien puede seleccionar un idioma que se aplique a todos los proyectos futuros de un recurso.
-
-Si decide habilitar la configuración de idioma en todos los proyectos, no podrá deshabilitarla.
 
 ## <a name="supporting-multiple-languages-in-one-custom-question-answering-enabled-resource"></a>Compatibilidad con varios idiomas en un recurso habilitado para la respuesta a preguntas personalizada
 
@@ -50,7 +48,7 @@ Si **selecciona la opción para establecer el idioma que se usan en todos los pr
 
 ## <a name="languages-supported"></a>Idiomas admitidos
 
-La siguiente lista contiene los idiomas que admiten los recursos de QnA Maker. 
+La lista siguiente contiene los idiomas admitidos para un recurso de respuesta a preguntas.
 
 | Idioma |
 |--|
@@ -111,7 +109,7 @@ La siguiente lista contiene los idiomas que admiten los recursos de QnA Maker.
 ## <a name="query-matching-and-relevance"></a>Coincidencia y relevancia de las consultas
 La respuesta a preguntas personalizada depende de los [analizadores de idioma de Azure Cognitive Search](/rest/api/searchservice/language-support) para proporcionar resultados.
 
-Aunque las funcionalidades de Azure Cognitive Search están en el mismo nivel que los idiomas admitidos, QnA Maker tiene un clasificador adicional que está por encima de los resultados de búsqueda de Azure. En este modelo de clasificador, se usan características semánticas y basadas en palabras especiales en los siguientes idiomas.
+Aunque las funcionalidades de Azure Cognitive Search están en el mismo nivel que los idiomas admitidos, la respuesta a preguntas tiene un clasificador adicional que está por encima de los resultados de búsqueda de Azure. En este modelo de clasificador, se usan características semánticas y basadas en palabras especiales en los siguientes idiomas.
 
 |Idiomas con un clasificador adicional|
 |--|

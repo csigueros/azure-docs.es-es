@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Documentación de Azure Sentinel
-summary: En este artículo se presentan diversos casos de uso para empezar a usar Azure Sentinel. Detecte y detenga las amenazas antes de que causen daños gracias a la tecnología SIEM, que se ha reinventada para el mundo actual. Azure Sentinel le ofrece una vista completa de la empresa.
+title: Documentación de Microsoft Sentinel
+summary: En este artículo se presentan diversos casos de uso para empezar a usar Microsoft Azure Sentinel. Detecte y detenga las amenazas antes de que causen daños gracias a la tecnología SIEM, que se ha reinventada para el mundo actual. Microsoft Azure Sentinel ofrece una vista completa de la empresa.
 metadata:
-  title: Documentación de Azure Sentinel
-  description: En este artículo se presentan diversos casos de uso y escenarios para empezar a usar Azure Sentinel. Detecte y detenga las amenazas antes de que causen daños gracias a la tecnología SIEM, que se ha reinventada para el mundo actual. Azure Sentinel es la vista de pájaros en toda la empresa.# Se requiere; una descripción del artículo que se muestra en los resultados de la búsqueda. Menos de 160 caracteres.
+  title: Documentación de Microsoft Sentinel
+  description: En este artículo se presentan diversos casos de uso y escenarios para empezar a usar Microsoft Azure Sentinel. Detecte y detenga las amenazas antes de que causen daños gracias a la tecnología SIEM, que se ha reinventada para el mundo actual. Microsoft Azure Sentinel proporciona una vista general de la empresa.# Se requiere; una descripción del artículo que se muestra en los resultados de la búsqueda. Menos de 160 caracteres.
   services: sentinel
   ms.service: sentinel
   ms.subservice: azure-sentinel
@@ -11,25 +11,25 @@ metadata:
   ms.collection: collection
   author: yelevin
   ms.author: yelevin
-  ms.date: 06/25/2020
-  ms.openlocfilehash: 30589e2d2f7c1ceb0d5492983e7b189a410000b6
-  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.date: 11/09/2021
+  ms.openlocfilehash: 646e4d8401da416a1113d7c42eb7e9198053efc6
+  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/02/2021
-  ms.locfileid: "131046800"
+  ms.lasthandoff: 11/11/2021
+  ms.locfileid: "132277683"
 landingContent:
-- title: Acerca de Azure Sentinel
+- title: Acerca de Microsoft Azure Sentinel
   linkLists:
   - linkListType: overview
     links:
-    - text: ¿Qué es Azure Sentinel?
+    - text: ¿Qué es Microsoft Sentinel?
       url: overview.md
     - text: Recursos útiles
       url: resources.md
   - linkListType: whats-new
     links:
-    - text: Novedades de Azure Sentinel
+    - text: Novedades de Microsoft Azure Sentinel
       url: whats-new.md
   - linkListType: concept
     links:
@@ -39,7 +39,7 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Incorporación de Azure Sentinel
+    - text: Incorporación a Microsoft Azure Sentinel
       url: quickstart-onboard.md
   - linkListType: concept
     links:
@@ -47,17 +47,17 @@ landingContent:
       url: prerequisites.md
   - linkListType: how-to-guide
     links:
-    - text: Conexión de datos a Azure Sentinel
+    - text: Conexión de datos a Microsoft Azure Sentinel
       url: connect-data-sources.md
     - text: Visualización de los datos recopilados
       url: get-visibility.md
     - text: Investigación de incidentes
       url: investigate-cases.md
-    - text: Integración de Microsoft 365 Defender en Azure Sentinel
+    - text: Integración de Microsoft 365 Defender en Microsoft Azure Sentinel
       url: microsoft-365-defender-sentinel-integration.md
   - linkListType: learn
     links:
-    - text: Creación de consultas KQL para Azure Sentinel
+    - text: Creación de consultas KQL para Microsoft Azure Sentinel
       url: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
 - title: Recopilación de datos
   linkLists:
@@ -89,15 +89,15 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: Descripción de la inteligencia sobre amenazas en Azure Sentinel
+    - text: Descripción de la inteligencia sobre amenazas en Microsoft Azure Sentinel
       url: understand-threat-intelligence.md
     - text: Integraciones de la inteligencia sobre amenazas
       url: threat-intelligence-integration.md
   - linkListType: how-to-guide
     links:
-    - text: Conexión de plataformas de inteligencia sobre amenazas con Azure Sentinel
+    - text: Conexión de plataformas de inteligencia sobre amenazas con Microsoft Azure Sentinel
       url: connect-threat-intelligence-tip.md
-    - text: Conexión de Azure Sentinel a fuentes STIX/TAXII
+    - text: Conexión de Microsoft Azure Sentinel a STIX/TAXII
       url: connect-threat-intelligence-taxii.md
     - text: Uso de indicadores de amenazas
       url: work-with-threat-indicators.md
@@ -149,7 +149,7 @@ landingContent:
       url: monitor-your-data.md
   - linkListType: reference
     links:
-    - text: Libros de Azure Sentinel que se usan comúnmente
+    - text: Libros de Microsoft Azure Sentinel de uso frecuente
       url: top-workbooks.md
 - title: Respuesta
   linkLists:
@@ -165,7 +165,7 @@ landingContent:
       url: automate-incident-handling-with-automation-rules.md
     - text: Playbooks
       url: automate-responses-with-playbooks.md
-- title: Administración de Azure Sentinel
+- title: Administración de Microsoft Azure Sentinel
   linkLists:
   - linkListType: concept
     links:

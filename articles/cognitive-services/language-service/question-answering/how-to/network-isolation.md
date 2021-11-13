@@ -6,12 +6,12 @@ ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021
-ms.openlocfilehash: e16734ac0ff53f778fad368913d89bcea3869ee3
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 9ab30b82a9bac9d06e2d5228b2004c36d465d392
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093314"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458216"
 ---
 #  <a name="network-isolation-and-private-endpoints"></a>Aislamiento de red y puntos de conexión privados
 
@@ -52,9 +52,9 @@ Se establecerá una conexión de punto de conexión privado entre el recurso de 
 ![Servicio de redes administrado](../../../QnAMaker/media/qnamaker-reference-private-endpoints/private-endpoint-networking-3.png)
 
 ## <a name="support-details"></a>Detalles sobre compatibilidad
- * No se admiten cambios en el servicio Azure Cognitive Search una vez que se habilita el acceso privado al servicio Text Analytics. Si cambia el servicio Azure Cognitive Search desde la pestaña "Características" después de haber habilitado el acceso privado, ya no se podrá utilizar el servicio Text Analytics.
+ * No se admiten cambios en el servicio Azure Cognitive Search una vez que se habilita el acceso privado a los recursos de idioma. Si cambia el servicio Azure Cognitive Search desde la pestaña "Características" después de haber habilitado el acceso privado, ya no se podrá utilizar el recurso de idioma.
 
- * Después de establecer la conexión de punto de conexión privado, si cambia las redes del servicio Azure Cognitive Search a "Públicas", no podrá usar el servicio Text Analytics. Para que la conexión del punto de conexión privado funcione, las redes del servicio Azure Search deben ser "Privadas".
+ * Después de establecer la conexión de punto de conexión privado, si cambia las redes del servicio Azure Cognitive Search a "Públicas", no podrá usar el recurso de idioma. Para que la conexión del punto de conexión privado funcione, las redes del servicio Azure Search deben ser "Privadas".
 
 ## <a name="restrict-access-to-cognitive-search-resource"></a>Restricción del acceso a los recursos de Cognitive Search
 

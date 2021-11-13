@@ -4,21 +4,21 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: eur
-ms.openlocfilehash: 8ceec5d1b6dbc431263d1e2fe989e2a1b6d1ec0b
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 976edb8a7e06dcb917fe36ad12324b6b4a518a35
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131506646"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132252257"
 ---
 :::row:::
     :::column span="3":::
-        El SDK de Java para Android está empaquetado como una <a href="https://developer.android.com/studio/projects/android-library" target="_blank">biblioteca de Android (AAR)</a>, que incluye las bibliotecas necesarias, así como los permisos necesarios de Android. Se hospeda en un repositorio de Maven en `https://csspeechstorage.blob.core.windows.net/maven/` como un paquete `com.microsoft.cognitiveservices.speech:client-sdk:1.17.0`. (Asegúrese de que la versión 1.17.0 sea la más reciente mediante la [búsqueda en nuestro repositorio de GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/search?q=com.microsoft.cognitiveservices.speech%3Aclient-sdk)).
+        El SDK de Java para Android está empaquetado como una <a href="https://developer.android.com/studio/projects/android-library" target="_blank">biblioteca de Android (AAR)</a>, que incluye las bibliotecas necesarias, así como los permisos necesarios de Android. Se hospeda en un repositorio de Maven en `https://csspeechstorage.blob.core.windows.net/maven/` como un paquete `com.microsoft.cognitiveservices.speech:client-sdk:1.19.0` (asegúrese de que la versión 1.19.0 sea la más reciente, para lo que debe realizar la [búsqueda en nuestro repositorio de GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/search?q=com.microsoft.cognitiveservices.speech%3Aclient-sdk)).
     :::column-end:::
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="Java" src="/media/logos/logo_java.svg" width="60px">
+            <img alt="Java" src="https://docs.microsoft.com/media/logos/logo_java.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::
@@ -32,7 +32,7 @@ Para consumir el paquete desde el proyecto de Android Studio, haga los siguiente
 
 2. En el archivo *build.gradle* de nivel de módulo, agregue lo siguiente a la sección `dependencies`:
   ```gradle
-  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.17.0'
+  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.19.0'
   ```
 
 El SDK de Java es parte del [SDK de dispositivos de voz](../speech-devices-sdk.md).
