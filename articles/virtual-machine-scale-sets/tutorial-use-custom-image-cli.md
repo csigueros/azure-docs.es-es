@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.reviewer: mimckitt
-ms.openlocfilehash: dcdfee7742f2afb66965c855bf01f86dc1680690
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 64ff90e695b8027ed23da463bdf75a4778675e0a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122693001"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456810"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: Creación y uso de una imagen personalizada para conjuntos de escalado de máquinas virtuales con la CLI de Azure
 
@@ -23,7 +23,7 @@ ms.locfileid: "122693001"
 Al crear el conjunto de escalado, se especifica la imagen que se usará cuando se implementen las instancias de máquina virtual. Para reducir el número de tareas después de implementar las instancias de máquina virtual, puede usar una imagen de máquina virtual personalizada. Esta imagen de máquina virtual personalizada incluye la instalación o configuración de las aplicaciones necesarias. Las instancias de máquina virtual creadas en el conjunto de escalado usan la imagen de máquina virtual personalizada y están listas para atender el tráfico de la aplicación. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Creación de una instancia de Shared Image Gallery
+> * Crear una instancia de Azure Compute Gallery
 > * Creación de una definición de imagen especializada
 > * Creación de la versión de una imagen
 > * Creación de un conjunto de escalado a partir de una imagen especializada
@@ -38,9 +38,9 @@ Al crear el conjunto de escalado, se especifica la imagen que se usará cuando s
 
 ## <a name="overview"></a>Información general
 
-Una [galería de imágenes compartidas](../virtual-machines/shared-image-galleries.md) simplifica el uso compartido de imágenes personalizadas en toda una organización. Las imágenes personalizadas son como las imágenes de Marketplace, pero las puede crear usted mismo. Las imágenes personalizadas pueden usarse para configuraciones de arranque como la carga previa de aplicaciones, configuraciones de aplicaciones y otras configuraciones del sistema operativo. 
+Una instancia de [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md) simplifica el uso compartido de imágenes personalizadas en las organizaciones. Las imágenes personalizadas son como las imágenes de Marketplace, pero las puede crear usted mismo. Las imágenes personalizadas pueden usarse para configuraciones de arranque como la carga previa de aplicaciones, configuraciones de aplicaciones y otras configuraciones del sistema operativo. 
 
-Shared Image Gallery le permite compartir sus imágenes de máquina virtual personalizadas con otras personas. Elija las imágenes que desea compartir, qué regiones desea que estén disponibles en ellas y con quién desea compartirlas. 
+Azure Compute Gallery permite compartir sus imágenes de máquina virtual personalizadas con otros usuarios. Elija las imágenes que desea compartir, qué regiones desea que estén disponibles en ellas y con quién desea compartirlas. 
 
 ## <a name="create-and-configure-a-source-vm"></a>Creación y configuración de una máquina virtual de origen
 
@@ -235,7 +235,7 @@ az group delete --name myResourceGroup --no-wait --yes
 En este tutorial, aprendió a crear y utilizar una imagen de máquina virtual personalizada para los conjuntos de escalado con la CLI de Azure:
 
 > [!div class="checklist"]
-> * Creación de una instancia de Shared Image Gallery
+> * Crear una instancia de Azure Compute Gallery
 > * Creación de una definición de imagen especializada
 > * Creación de la versión de una imagen
 > * Creación de un conjunto de escalado a partir de una imagen especializada

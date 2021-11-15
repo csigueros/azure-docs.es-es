@@ -2,14 +2,14 @@
 title: Configuración de un proveedor de OpenID Connect (versión preliminar)
 description: Aprenda a configurar un proveedor de OpenID Connect como proveedor de identidades para una aplicación de App Service o Azure Functions.
 ms.topic: article
-ms.date: 07/08/2020
+ms.date: 10/20/2021
 ms.reviewer: mahender
-ms.openlocfilehash: 84a8ce0017b9aac6e2a1c1eb75ef78dff89721a9
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 0536d28ec91ada939a1ee0b3b7ecf6bf5e621a7a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129355262"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130236507"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-login-using-an-openid-connect-provider-preview"></a>Configuración de la aplicación de App Service o Azure Functions para iniciar sesión mediante un proveedor de OpenID Connect (versión preliminar)
 
@@ -17,24 +17,21 @@ ms.locfileid: "129355262"
 
 En este artículo se muestra cómo configurar Azure App Service o Azure Functions para usar un proveedor de autenticación personalizado que cumpla con las [especificaciones de OpenID Connect](https://openid.net/connect/). OpenID Connect (OIDC) es un estándar del sector que usan muchos proveedores de identidades (IDP). No es necesario comprender los detalles de las especificaciones para configurar la aplicación para que use un IDP que cumpla dichas especificaciones.
 
-Puede configurar la aplicación para que use uno o varios proveedores de OIDC. Debe asignar un nombre único a cada uno en la configuración y solo uno puede actuar como destino de redireccionamiento predeterminado.
-
-> [!CAUTION]
-> Al habilitar un proveedor de OpenID Connect, se deshabilitará la característica de administración de la autenticación y autorización de App Service de la aplicación a través de algunos clientes, como Azure Portal, la CLI de Azure y Azure PowerShell. La característica se basa en una nueva superficie de API que, durante la versión preliminar, aún no se ha tomado en cuenta para todas las experiencias de administración.
+Puede configurar la aplicación para que use uno o varios proveedores de OIDC. Cada uno debe tener un nombre alfanumérico único en la configuración y solo uno puede actuar como destino de redirección predeterminado.
 
 ## <a name="register-your-application-with-the-identity-provider"></a><a name="register"> </a>Registro de la aplicación con el proveedor de identidades
 
-El proveedor le solicitará que registre con él los detalles de la aplicación. Consulte las instrucciones correspondientes a ese proveedor. Deberá recopilar **id. de cliente** y un **secreto de cliente** para la aplicación.
-
-> [!IMPORTANT]
-> El secreto de aplicación es una credencial de seguridad importante, No comparta este secreto con nadie ni lo distribuya en una aplicación cliente.
->
+El proveedor le solicitará que registre con él los detalles de la aplicación. Uno de estos pasos implica especificar un URI de redirección. Este URI de redirección tendrá el formato `<app-url>/.auth/login/<provider-name>/callback`. Cada proveedor de identidades debe proporcionar más instrucciones sobre cómo completar estos pasos.
 
 > [!NOTE]
 > Algunos proveedores pueden requerir pasos adicionales para su configuración y para usar los valores que proporcionan. Por ejemplo, Apple proporciona una clave privada que no se usa como secreto de cliente de OIDC y, en su lugar, se debe usar para crear un token JWT que se trata como el secreto que se proporciona en la configuración de la aplicación (consulte la sección "Creación del secreto de cliente" de la [documentación para iniciar sesión con Apple](https://developer.apple.com/documentation/sign_in_with_apple/generate_and_validate_tokens))
 >
 
-Agregue el secreto de cliente como una [configuración de aplicación](./configure-common.md#configure-app-settings), con un nombre de configuración de su elección. Anote este nombre para usarlo más adelante.
+Deberá recopilar **id. de cliente** y un **secreto de cliente** para la aplicación.
+
+> [!IMPORTANT]
+> El secreto de cliente es una credencial de seguridad importante, No comparta este secreto con nadie ni lo distribuya en una aplicación cliente.
+>
 
 Además, necesitará los metadatos de OpenID Connect para el proveedor. A menudo se expone a través de un [documento de metadatos de configuración](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig), que es la dirección URL del emisor del proveedor con el sufijo `/.well-known/openid-configuration`. Obtenga esta dirección URL de configuración.
 
@@ -47,89 +44,14 @@ Si no puede usar un documento de metadatos de configuración, tendrá que recopi
 
 ## <a name="add-provider-information-to-your-application"></a><a name="configure"> </a>Adición de información de un proveedor a su aplicación
 
-> [!NOTE]
-> La configuración necesaria está en un nuevo formato de API, que actualmente solo es compatible con la [configuración basada en archivos (versión preliminar)](configure-authentication-file-based.md). Debe seguir los pasos que se indican a continuación para usar este tipo de archivo.
-
-Esta sección le guiará a través de la actualización de la configuración para incluir su nuevo IDP. La siguiente es una configuración de ejemplo.
-
-1. En el objeto `identityProviders`, agregue un objeto `openIdConnectProviders` si todavía no existe ninguno.
-1. Agregue una clave para el nuevo proveedor en el objeto `openIdConnectProviders`. Este es un nombre descriptivo que se usa para hacer referencia al proveedor en el resto de la configuración. Por ejemplo, si quiere exigir que todas las solicitudes se autentiquen con este proveedor, debe establecer `globalValidation.unauthenticatedClientAction` en "RedirectToLoginPage" y `redirectToProvider` en este mismo nombre descriptivo.
-1. Asigne un objeto a esa clave con un objeto `registration` dentro y, opcionalmente, un objeto `login`:
-    
-    ```json
-    "myCustomIDP" : {
-       "registration" : {},
-       "login": {
-             "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
-             "scopes": [],
-             "loginParameterNames": [],
-       }
-    }
-    ```
-
-1. En el objeto de registro, establezca `clientId` en el id. de cliente que recopiló, establezca `clientCredential.secretSettingName` en el nombre de la configuración de la aplicación en la que almacenó el secreto de cliente y cree un objeto `openIdConnectConfiguration`:
-
-    ```json
-    "registration": {
-      "clientId": "bd96cf8a-3f2b-4806-b180-d3c5fd11a2be",
-      "clientCredential": {
-         "secretSettingName": "IDP_CLIENT_SECRET"
-      },
-      "openIdConnectConfiguration" : {}
-    }
-    ```
-
-1. En el objeto `openIdConnectConfiguration`, especifique los metadatos de OpenID Connect que recopiló anteriormente. En función de la información recopilada, tendrá dos opciones para especificarla:
-
-    - Establezca la propiedad `wellKnownOpenIdConfiguration` en la URL de metadatos de configuración que recopiló anteriormente.
-    - También puede establecer los cuatro valores individuales que recopiló de la siguiente manera:
-        - Establezca `issuer` en la URL del emisor
-        - Establezca `authorizationEndpoint` en el punto de conexión de autorización
-        - Establezca `tokenEndpoint` en el punto de conexión del token
-        - Establezca `certificationUri` en la URL del documento del conjunto de claves web JSON
-
-    Estas dos opciones se excluyen mutuamente.
-
-Una vez establecida esta configuración, está listo para usar el proveedor de OpenID Connect para autenticarse en la aplicación.
-
-Una configuración de ejemplo podría ser similar a la siguiente (se usó el inicio de sesión con Apple como ejemplo, en el que el valor de APPLE_GENERATED_CLIENT_SECRET apunta a un token JWT generado según la [documentación de Apple](https://developer.apple.com/documentation/sign_in_with_apple/generate_and_validate_tokens)):
-
-```json
-{
-    "platform": {
-        "enabled": true
-    },
-    "globalValidation": {
-        "redirectToProvider": "apple",
-        "unauthenticatedClientAction": "RedirectToLoginPage"
-    },
-    "identityProviders": {
-        "openIdConnectProviders": {
-            "apple": {
-                "registration": {
-                    "clientId": "com.contoso.example.client",
-                    "clientCredential": {
-                        "secretSettingName": "APPLE_GENERATED_CLIENT_SECRET"
-                    },
-                    "openIdConnectConfiguration": {
-                        "wellKnownOpenIdConfiguration": "https://appleid.apple.com/.well-known/openid-configuration"
-                    }
-                },
-                "login": {
-                    "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
-                    "scopes": [],
-                    "loginParameterNames": []
-                }
-            }
-        }
-    },
-    "login": {
-        "tokenStore": {
-            "enabled": true
-        }
-    }     
-}
-```
+1. Inicie sesión en [Azure Portal] y vaya a la aplicación.
+1. Seleccione **Autenticación** en el menú de la izquierda. Haga clic en **Agregar proveedor de identidades**.
+1. Seleccione **OpenID Connect** en el menú desplegable del proveedor de identidades.
+1. Proporcione el nombre alfanumérico único seleccionado anteriormente como **nombre del proveedor de OpenID**.
+1. Si tiene la dirección URL del **documento de metadatos** del proveedor de identidades, proporcione ese valor en **URL de metadatos**. De lo contrario, seleccione la opción **Provide endpoints separately** (Proporcionar puntos de conexión por separado) y coloque cada dirección URL recopilada del proveedor de identidades en el campo adecuado.
+1. Proporcione los valores de **Id. de cliente** y **Secreto de cliente** recopilados anteriormente en los campos adecuados.
+1. Especifique un nombre de configuración de aplicación para el secreto de cliente. El secreto de cliente se almacenará como una configuración de aplicación para confirmar que los secretos se almacenan de forma segura. Puede actualizar esa configuración más adelante para usar [referencias de Key Vault](./app-service-key-vault-references.md) si desea administrar el secreto en Azure Key Vault.
+1. Presione el botón **Agregar** para terminar de configurar el proveedor de identidades. 
 
 ## <a name="next-steps"></a><a name="related-content"> </a>Pasos siguientes
 

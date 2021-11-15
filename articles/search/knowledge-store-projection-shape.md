@@ -7,12 +7,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/15/2021
-ms.openlocfilehash: 26f70e4750d29231b3f139ecd617b43071e369bb
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: f0558d7e3cffd744ec4effa1d4f81f359e909e97
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130066098"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131503178"
 ---
 # <a name="shaping-data-for-projection-into-a-knowledge-store"></a>Dar forma a los datos para la proyección en un almacén de conocimiento
 
@@ -20,7 +20,7 @@ En Azure Cognitive Search, "dar forma a los datos" describe un paso en el [flujo
 
 A medida que se ejecutan las aptitudes, las salidas se escriben en un árbol de enriquecimiento en una jerarquía de nodos. Aunque es posible que quiera ver y consumir el árbol de enriquecimiento en su totalidad, es más probable que le interese un nivel más específico y crear subconjuntos de nodos para distintos escenarios, como colocar los nodos relacionados con texto traducido o entidades extraídas en tablas específicas.
 
-Por sí mismo, el árbol de enriquecimiento no incluye lógica que informe de cómo se representa su contenido en un almacén de conocimiento. Las formas de datos rellenan esta carencia proporcionando el esquema de lo que irá en cada proyección de tablas, objetos y archivos. Puede considerar una forma de datos como una definición o vista personalizada de los datos enriquecidos. Puede crear tantas formas como necesite y, luego, asignarlas a proyecciones en una definición de almacén de conocimiento. 
+Por sí mismo, el árbol de enriquecimiento no incluye lógica que informe de cómo se representa su contenido en un almacén de conocimiento. Las formas de datos rellenan esta carencia proporcionando el esquema de lo que irá en cada proyección de tablas, objetos y archivos. Puede considerar una forma de datos como una definición o vista personalizada de los datos enriquecidos. Puede crear tantas formas como necesite y, luego, asignarlas a [proyecciones](knowledge-store-projection-overview.md) en una definición de almacén de conocimiento. 
 
 ## <a name="approaches-for-creating-shapes"></a>Enfoques para crear formas
 

@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 10/07/2021
+ms.date: 10/15/2021
 ms.author: rolyon
 ms.reviewer: abhijeetsinha
 ms.custom: generated, it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1cbd4732513b9c9bcc40f6eafb0a792b2d3ca06
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: 768814932b54dab3a8d761d5502310b6b7315f2d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129667884"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130245469"
 ---
 # <a name="azure-ad-built-in-roles"></a>Roles integrados de Azure AD
 
@@ -107,6 +107,7 @@ En este artículo se enumeran los roles integrados de Azure AD que se pueden asi
 > | [Administrador de dispositivos de Teams](#teams-devices-administrator) | Puede realizar tareas relacionadas con la administración en dispositivos certificados para Teams. | 3d762c5a-1b6c-493f-843e-55a3b42923d4 |
 > | [Lector de informes de resumen de uso](#usage-summary-reports-reader) | Solo permite ver agregados de nivel de inquilino en Análisis de uso y Puntuación de productividad de Microsoft 365. | 75934031-6c7e-415a-99d7-48dbd49e875e |
 > | [Administrador de usuarios](#user-administrator) | Puede administrar todos los aspectos de usuarios y grupos, incluido el restablecimiento de contraseñas para administradores limitados. | fe930be7-5e62-47db-91af-98c3a49a38b1 |
+> | [Administrador de Windows 365](#windows-365-administrator) | Puede aprovisionar y administrar todos los aspectos de los PC en la nube. | 11451d60-acb2-45eb-a7d6-43d0f0125c13 |
 > | [Administrador de implementación de Windows Update](#windows-update-deployment-administrator) | Cree y administre todos los aspectos de las implementaciones de Windows Update mediante el servicio de implementación Windows Update para empresas. | 32696413-001a-46ae-978c-ce0f6b3620d2 |
 
 ## <a name="application-administrator"></a>Administrador de aplicaciones
@@ -2028,6 +2029,50 @@ Los usuarios con este rol pueden crear y administrar todos los aspectos de los u
 > | microsoft.azure.supportTickets/allEntities/allTasks | Crear y administrar incidencias de Soporte técnico de Azure |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Leer y configurar Service Health en el centro de administración de Microsoft 365 |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Crear y administrar las solicitudes de servicio de Microsoft 365 |
+> | microsoft.office365.webPortal/allEntities/standard/read | Leer las propiedades básicas de todos los recursos en el centro de administración de Microsoft 365 |
+
+## <a name="windows-365-administrator"></a>Administrador de Windows 365
+
+Los usuarios con este rol tienen permisos globales en los recursos de Windows 365, cuando existe el servicio. Además, este rol contiene la capacidad de administrar usuarios y dispositivos para asociar una directiva, así como también para crear y administrar grupos.
+
+Este rol puede crear y administrar grupos de seguridad, pero no tiene derechos de administrador sobre grupos de Microsoft 365. Esto significa que los administradores no pueden actualizar los propietarios ni las pertenencias de los grupos de Microsoft 365 en la organización. Sin embargo, pueden administrar el grupo de Microsoft 365 que crean, el que forma parte de sus privilegios de usuario final. Por lo tanto, cualquier grupo de Microsoft 365 (no grupo de seguridad) que creen se tiene en cuenta en la cuota de 250.
+
+Asigne el rol Administrador de Windows 365 a los usuarios que necesiten realizar estas tareas:
+
+- Administrar los PC en la nube de Windows 365 en Microsoft Endpoint Manager
+- Inscribir y administrar dispositivos en Azure AD, incluida la asignación de usuarios y directivas
+- Crear y administrar grupos de seguridad, pero no grupos a los que se pueden asignar roles
+- Ver propiedades básicas en el Centro de administración de Microsoft 365
+- Leer informes de uso en el Centro de administración de Microsoft 365
+- Crear y administrar incidencias de soporte técnico en Azure AD y el Centro de administración de Microsoft 365
+
+> [!div class="mx-tableFixed"]
+> | Acciones | Descripción |
+> | --- | --- |
+> | microsoft.directory/devices/create | Crear dispositivos (inscribirse en Azure AD) |
+> | microsoft.directory/devices/delete | Eliminar usuarios de Azure AD |
+> | microsoft.directory/devices/disable | Deshabilitar dispositivos en Azure AD |
+> | microsoft.directory/devices/enable | Habilitar dispositivos en Azure AD |
+> | microsoft.directory/devices/basic/update | Actualizar las propiedades básicas en los dispositivos |
+> | microsoft.directory/devices/extensionAttributeSet1/update | Actualizar las propiedades de extensionAttribute1 a extensionAttribute5 en los dispositivos |
+> | microsoft.directory/devices/extensionAttributeSet2/update | Actualizar las propiedades de extensionAttribute6 a extensionAttribute10 en los dispositivos |
+> | microsoft.directory/devices/extensionAttributeSet3/update | Actualizar las propiedades de extensionAttribute11 a extensionAttribute15 en los dispositivos |
+> | microsoft.directory/devices/registeredOwners/update | Actualizar los propietarios registrados de los dispositivos |
+> | microsoft.directory/devices/registeredUsers/update | Actualizar los usuarios registrados de los dispositivos |
+> | microsoft.directory/groups.security/create | Crear grupos de seguridad, excepto los grupos a los que se pueden asignar roles |
+> | microsoft.directory/groups.security/delete | Eliminar grupos de seguridad, excepto los grupos a los que se pueden asignar roles |
+> | microsoft.directory/groups.security/basic/update | Actualizar las propiedades básicas de los grupos de seguridad, excepto los grupos a los que se pueden asignar roles |
+> | microsoft.directory/groups.security/classification/update | Actualizar la propiedad de clasificación de los grupos de seguridad, excepto los grupos a los que se pueden asignar roles |
+> | microsoft.directory/groups.security/dynamicMembershipRule/update | Actualice la regla de pertenencia dinámica de grupos de seguridad, excepto los grupos a los que se pueden asignar roles. |
+> | microsoft.directory/groups.security/members/update | Actualizar los miembros de los grupos de seguridad, excepto los grupos a los que se pueden asignar roles |
+> | microsoft.directory/groups.security/owners/update | Actualizar los propietarios de los grupos de seguridad, excepto los grupos a los que se pueden asignar roles |
+> | microsoft.directory/groups.security/visibility/update | Actualizar la propiedad de visibilidad de los grupos de seguridad, excepto los grupos a los que se pueden asignar roles |
+> | microsoft.directory/deviceManagementPolicies/standard/read | Lee las propiedades estándar de las directivas de aplicación de administración de dispositivos. |
+> | microsoft.directory/deviceRegistrationPolicy/standard/read | Lee las propiedades estándar de las directivas de registro de dispositivos. |
+> | microsoft.azure.supportTickets/allEntities/allTasks | Crear y administrar incidencias de Soporte técnico de Azure |
+> | microsoft.cloudPC/allEntities/allProperties/allTasks | Administrar todos los aspectos de Windows 365 |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Crear y administrar las solicitudes de servicio de Microsoft 365 |
+> | microsoft.office365.usageReports/allEntities/allProperties/read | Leer los informes de uso de Office 365 |
 > | microsoft.office365.webPortal/allEntities/standard/read | Leer las propiedades básicas de todos los recursos en el centro de administración de Microsoft 365 |
 
 ## <a name="windows-update-deployment-administrator"></a>Administrador de implementación de Windows Update

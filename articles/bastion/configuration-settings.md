@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/12/2021
 ms.author: cherylmc
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: d1cf4c18c4722c327d9d74569e7709d11068dc7c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 71a86e1440d96a37fd72afc67aaaaa7d122c6d4f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131087081"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131426684"
 ---
 # <a name="about-bastion-configuration-settings"></a>Información sobre la configuración de Bastion
 
@@ -78,7 +78,7 @@ Puede configurar este valor con el método siguiente:
 Azure Bastion requiere una subred dedicada: **AzureBastionSubnet**. Esta subred debe crearse en la misma red virtual en la que se implementa Azure Bastion. La subred debe tener la siguiente configuración:
 
 * La subred debe llamarse *AzureBastionSubnet*.
-* El tamaño de la subred debe ser de al menos /27 (/26, /25, etc.).
+* El tamaño de la subred debe ser de al menos /26 (/25, /24, etc.).
 * Para el escalado de host, se recomienda una subred de al menos /26. El uso de un espacio de subred más pequeño limita el número de unidades de escalado. Para más información, consulte la sección de [Escalado de host](#instance) de este artículo.
 * La subred debe estar en la misma red virtual y grupo de recursos que el host bastión.
 * La subred no puede contener recursos adicionales.

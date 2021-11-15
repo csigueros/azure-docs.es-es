@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: overview
 ms.date: 02/17/2021
 ms.author: mbaldwin
-ms.openlocfilehash: ef1725161630e4a79b078a3c473f56e3d14a06ca
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: d89cde13500757ae38ceaba66044b10225508cb9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129994525"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131460913"
 ---
 # <a name="about-keys"></a>Acerca de las claves
 
@@ -81,9 +81,15 @@ Key Vault admite claves RSA y EC. HSM administrado admite claves RSA, EC y simé
 |Claves protegidas con HSM en HSM administrado|FIPS 140-2 nivel 3|
 |||
 
-
-
 Consulte [Tipos de claves, algoritmos y operaciones](about-keys-details.md) para más información sobre cada tipo de clave, algoritmos, operaciones, atributos y etiquetas.
+
+## <a name="usage-scenarios"></a>Escenarios de uso
+
+| Cuándo se usa | Ejemplos |
+|--------------|-------------|
+| Cifrado de datos del servidor de Azure para proveedores de recursos integrados con claves administradas por el cliente | - [Cifrado del servidor mediante claves administradas por el cliente en Azure Key Vault](https://docs.microsoft.com/azure/security/fundamentals/encryption-models#server-side-encryption-using-customer-managed-keys-in-azure-key-vault) |
+| Cifrado de datos del cliente | - [Cifrado del cliente con Azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption?tabs=dotnet)|
+| TLS sin clave | - Uso de [bibliotecas cliente](../general/client-libraries.md#client-libraries-per-language-and-object) de claves |
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Acerca de Key Vault](../general/overview.md)

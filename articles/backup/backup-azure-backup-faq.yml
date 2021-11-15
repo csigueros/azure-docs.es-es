@@ -4,13 +4,15 @@ metadata:
   description: Respuestas a preguntas comunes
   ms.topic: article
   ms.service: backup
-  ms.date: 06/10/2021
-  ms.openlocfilehash: cf4539afef4df4f09da7eacdf3c195cb08a70e44
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.date: 11/02/2021
+  author: v-amallick
+  ms.author: v-amallick
+  ms.openlocfilehash: afa49f9f586540611e41983407f9381de971614b
+  ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122254254"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131507158"
 title: Preguntas más frecuentes de Azure Backup
 summary: En este artículo se responde a preguntas habituales sobre el servicio Azure Backup.
 sections:
@@ -194,6 +196,10 @@ sections:
       ¿Por qué el tamaño de los datos transferidos al almacén de Recovery Services es más pequeño que los datos seleccionados para la copia de seguridad?
     answer: >
       Los datos de los que se realiza una copia de seguridad desde el agente de Azure Backup, DPM y Azure Backup Server se comprimen y se cifran antes de ser transferidos. Una vez que se aplica la compresión y el cifrado, los datos del almacén se reducen entre un 30 % y un 40 %.
+  - question: >
+      ¿Puedo ver la hora de expiración de los puntos de recuperación?
+    answer: >
+      No, no puede ver la hora de expiración de las copias de seguridad programadas. Sin embargo, puede ver la hora de expiración de las copias de seguridad a petición mediante trabajos de copia de seguridad.
   - question: >
       ¿Puedo eliminar archivos individuales desde un punto de recuperación en el almacén?
     answer: >

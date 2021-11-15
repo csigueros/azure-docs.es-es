@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: 26e0ae48c65953312757eb7ac4d6cb51ba2a44c5
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f0b75b49ce36ef4fb3e45b76ace5402dd5c39efe
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128590088"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456202"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Inicio rápido: Incorporación del inicio de sesión mediante OpenID Connect a una aplicación web de Node.js
 
 En este inicio rápido, descargará y ejecutará un código de ejemplo que muestra cómo configurar la autenticación de OpenID Connect en una aplicación web creada mediante Node.js con Express. El ejemplo está diseñado para ejecutarse en cualquier plataforma.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/en/download/).
@@ -47,7 +47,7 @@ En este inicio rápido, descargará y ejecutará un código de ejemplo que muest
 1. Especifique un valor para **Front-channel logout URL** (Dirección URL de cierre de sesión del canal frontal) de `https://localhost:3000`.
 1. En la sección **Implicit grant and hybrid flows** (Flujos de concesión implícita e híbridos), seleccione **Tokens de id.** , ya que este ejemplo requiere que la opción [Implicit grant flow](./v2-oauth2-implicit-grant-flow.md) (Flujo de concesión implícita) esté habilitada para iniciar la sesión del usuario.
 1. Seleccione **Configurar**.
-1. En **Administrar**, seleccione **Certificados y secretos** > **Nuevo secreto de cliente**.
+1. En **Administrar**, seleccione **Certificados y secretos** > **Secretos de los clientes** > **Nuevo secreto de cliente**.
 1. Introduzca una descripción de clave (por ejemplo, secreto de aplicación).
 1. Seleccione la duración de clave **En 1 año, En 2 años** o **Nunca expira**.
 1. Seleccione **Agregar**. Se mostrará el valor de la clave. Copie el valor de clave y guárdelo en una ubicación segura para usarlo más adelante.

@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 759f48a8bcfaa30c190c701ba5dcc8b9cad8a876
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: e310a12248ab0f17c66de2561e090125cbec392e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696147"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131444542"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-powershell"></a>Configuración de permisos del servicio Azure Image Builder mediante PowerShell
 
@@ -22,7 +22,7 @@ ms.locfileid: "122696147"
 
 Al registrarse para el (AIB), se concede al servicio AIB permiso para crear, administrar y eliminar un grupo de recursos de almacenamiento provisional (IT_ *) y tener derechos para agregarle recursos, que son necesarios para la compilación de la imagen. Esto se realiza mediante un nombre de entidad de seguridad de servicio (SPN) AIB que se pone a disposición de la suscripción durante un registro correcto.
 
-Para permitir que Azure VM Image Builder distribuya imágenes a las imágenes administradas o a Shared Image Gallery, debe crear una identidad asignada por el usuario de Azure que tenga permisos para leer y escribir imágenes. Si va a acceder a Azure Storage, necesitará permisos para leer contenedores privados y públicos.
+Para permitir que Azure VM Image Builder distribuya imágenes a las imágenes administradas o a Azure Compute Gallery (anteriormente conocido como Shared Image Gallery), debe crear una identidad asignada por el usuario de Azure que tenga permisos para leer y escribir imágenes. Si va a acceder a Azure Storage, necesitará permisos para leer contenedores privados y públicos.
 
 Debe configurar los permisos y los privilegios antes de crear una imagen. En las secciones siguientes se detalla cómo configurar posibles escenarios mediante PowerShell.
 
@@ -55,7 +55,7 @@ Para obtener más información sobre las identidades de Azure asignadas por el u
 
 ## <a name="allow-image-builder-to-distribute-images"></a>Permiso para que Image Builder distribuya imágenes
 
-Para que Azure Image Builder distribuya imágenes (imágenes administradas/galería de imágenes compartidas), se debe permitir que el servicio Azure Image Builder inserte las imágenes en estos grupos de recursos. Para conceder los permisos necesarios, debe crear una identidad administrada asignada por el usuario y concederle derechos en el grupo de recursos donde se genera la imagen. Azure Image Builder **no** tiene permiso para acceder a los recursos de otros grupos de recursos de la suscripción. Debe realizar acciones explícitas para permitir el acceso para evitar errores en la creación.
+Para que Azure Image Builder distribuya imágenes (imágenes administradas/Azure Compute Gallery), se debe permitir que el servicio Azure Image Builder inserte las imágenes en estos grupos de recursos. Para conceder los permisos necesarios, debe crear una identidad administrada asignada por el usuario y concederle derechos en el grupo de recursos donde se genera la imagen. Azure Image Builder **no** tiene permiso para acceder a los recursos de otros grupos de recursos de la suscripción. Debe realizar acciones explícitas para permitir el acceso para evitar errores en la creación.
 
 No es necesario conceder derechos de colaborador de identidad administrada asignada por el usuario en el grupo de recursos para distribuir las imágenes. Sin embargo, la identidad administrada asignada por el usuario necesita los siguientes permisos `Actions` de Azure en el grupo de recursos de distribución:
 
@@ -65,7 +65,7 @@ Microsoft.Compute/images/read
 Microsoft.Compute/images/delete
 ```
 
-Si se distribuye a una galería de imágenes compartidas, también necesitará:
+Si se distribuye a una instancia de Azure Compute Gallery, también necesita:
 
 ```Actions
 Microsoft.Compute/galleries/read
@@ -76,7 +76,7 @@ Microsoft.Compute/galleries/images/versions/write
 
 ## <a name="permission-to-customize-existing-images"></a>Permiso para personalizar las imágenes existentes
 
-Para que Azure Image Builder genere imágenes a partir de imágenes personalizadas de origen (imágenes administradas/galería de imágenes compartidas), se debe permitir que el servicio Azure Image Builder lea las imágenes en estos grupos de recursos. Para conceder los permisos necesarios, debe crear una identidad administrada asignada por el usuario y concederle derechos en el grupo de recursos donde se ubica la imagen.
+Para que Azure Image Builder genere imágenes a partir de imágenes personalizadas de origen (imágenes administradas/Azure Compute Gallery), se debe permitir que el servicio Azure Image Builder lea las imágenes en estos grupos de recursos. Para conceder los permisos necesarios, debe crear una identidad administrada asignada por el usuario y concederle derechos en el grupo de recursos donde se ubica la imagen.
 
 Generación a partir de una imagen personalizada existente:
 
@@ -84,7 +84,7 @@ Generación a partir de una imagen personalizada existente:
 Microsoft.Compute/galleries/read
 ```
 
-Generación a partir de una versión existente de una galería de imágenes compartidas:
+Compilación a partir de una versión existente de Azure Compute Gallery:
 
 ```Actions
 Microsoft.Compute/galleries/read
@@ -105,7 +105,7 @@ Microsoft.Network/virtualNetworks/subnets/join/action
 
 ## <a name="create-an-azure-role-definition"></a>Creación de una definición de roles de Azure
 
-En los ejemplos siguientes se crea una definición de roles de Azure a partir de las acciones descritas en las secciones anteriores. Los ejemplos se aplican en el nivel de grupo de recursos. Evalúe y pruebe si los ejemplos son lo suficientemente detallados para sus requisitos. Para su escenario, puede que necesite refinarlo a una galería de imágenes compartidas específica.
+En los ejemplos siguientes se crea una definición de roles de Azure a partir de las acciones descritas en las secciones anteriores. Los ejemplos se aplican en el nivel de grupo de recursos. Evalúe y pruebe si los ejemplos son lo suficientemente detallados para sus requisitos. En el caso de su escenario, puede que necesite reformularlo para una instancia específica de Azure Compute Gallery.
 
 Las acciones en las imágenes permiten la lectura y escritura. Decida qué es adecuado para su entorno. Por ejemplo, cree un rol para permitir que Azure Image Builder lea imágenes del grupo de recursos *example-rg-1* y escriba imágenes en el grupo de recursos *example-rg-2*.
 

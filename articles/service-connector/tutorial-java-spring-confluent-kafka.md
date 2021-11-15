@@ -8,12 +8,12 @@ ms.service: serviceconnector
 ms.topic: tutorial
 ms.date: 10/28/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 84508ab3634ac86a517b11d790d11a3ef56c4c49
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a407d164ec0214ddce6e1d8bf6254876d3642230
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091585"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131449229"
 ---
 # <a name="tutorial-deploy-a-spring-boot-app-connected-to-apache-kafka-on-confluent-cloud-with-service-connector-in-azure-spring-cloud"></a>Tutorial: Implementación de una Spring Boot conectada a Apache Kafka en Confluent Cloud con el conector de servicio en Azure Spring Cloud
 
@@ -119,6 +119,9 @@ az spring-cloud connection create confluent-cloud -g <your-spring-cloud-resource
 * **Reemplace** *\<cluster-api-key>* y *\<cluster-api-secret>* por el secreto y la clave de API del clúster.
 * **Reemplace** *\<kafka-schema-registry-endpoint>* por el punto de conexión del Registro de esquemas de Kafka (el valor debe ser como `https://psrc-xxxx.westus2.azure.confluent.cloud`).
 * **Reemplace** *\<registry-api-key>* y *\<registry-api-secret>* por el secreto y la clave de API del Registro de esquema de Kafka.
+
+> [!NOTE]
+> Si ve el mensaje de error "La suscripción no está registrada para usar Microsoft.ServiceLinker", ejecute `az provider register -n Microsoft.ServiceLinker` para registrar el proveedor de recursos del conector de servicio y vuelva a ejecutar el comando de conexión. 
 
 #### <a name="portal"></a>[Portal](#tab/Azure-portal)
 

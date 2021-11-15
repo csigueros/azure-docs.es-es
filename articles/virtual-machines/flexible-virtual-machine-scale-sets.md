@@ -9,12 +9,12 @@ ms.subservice: flexible-scale-sets
 ms.date: 10/13/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
-ms.openlocfilehash: 56ba42b3aca7d48a62edd264a8ec867fcda5107c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 3403cebab79b49f3a22353bec0a03b68b5a24f0f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131074524"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131432840"
 ---
 # <a name="flexible-orchestration-for-virtual-machine-scale-sets-in-azure"></a>Orquestación flexible para conjuntos de escalado de máquinas virtuales en Azure
 
@@ -64,7 +64,7 @@ Los conjuntos de escalado de máquinas virtuales de Azure proporcionan las capac
     - El escalado automático reduce el número de instancias innecesarias de máquina virtual que ejecutan la aplicación cuando la demanda es baja, mientras que cuando la demanda aumenta, los clientes continúan recibiendo un nivel aceptable de rendimiento gracias a la incorporación automática de instancias adicionales de máquina virtual. Esta capacidad le ayuda a reducir los costos y a crear de forma eficaz los recursos de Azure según sea necesario.
 
 - **Funciona a gran escala**
-    - Los conjuntos de escalado admiten hasta 1000 instancias de máquina virtual para imágenes estándar de marketplace e imágenes personalizadas a través del Shared Image Gallery. Si crea un conjunto de escalado mediante una imagen administrada, el límite es de 600 instancias de máquina virtual.
+    - Los conjuntos de escalado admiten hasta 1000 instancias de máquina virtual para imágenes estándar de Marketplace e imágenes personalizadas a través de Azure Compute Gallery (anteriormente conocida como Shared Image Gallery). Si crea un conjunto de escalado mediante una imagen administrada, el límite es de 600 instancias de máquina virtual.
     - Para el mejor rendimiento con cargas de trabajo de producción, use [Azure Managed Disks](../virtual-machines/managed-disks-overview.md).
 
 

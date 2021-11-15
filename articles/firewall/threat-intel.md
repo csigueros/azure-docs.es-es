@@ -5,18 +5,18 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 05/12/2020
+ms.date: 11/04/2021
 ms.author: victorh
-ms.openlocfilehash: 77e36d5ab98f1177b5a0b89ee10b3e6bd22560c2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 90a988e302d3997156dc643f8bacbe6ed6ec786a
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98791466"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131852662"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering"></a>Filtrado basado en inteligencia sobre amenazas de Azure Firewall
 
-El filtrado basado en inteligencia sobre amenazas puede habilitarse para que el firewall alerte y deniegue el tráfico desde y hacia los dominios y las direcciones IP malintencionados. La direcciones IP y los dominios proceden de la fuente Inteligencia sobre amenazas de Microsoft. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) impulsa la inteligencia sobre amenazas de Microsoft y lo utilizan numerosos servicios, incluido Azure Security Center.<br>
+El filtrado basado en inteligencia sobre amenazas puede habilitarse para que el firewall alerte y deniegue el tráfico desde y hacia los dominios y las direcciones IP malintencionados. Las direcciones IP y los dominios proceden de la fuente de inteligencia sobre amenazas de Microsoft, que incluye varios orígenes, incluido el equipo de Microsoft Cyber Security. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) impulsa la inteligencia sobre amenazas de Microsoft y lo utilizan numerosos servicios, incluido Azure Security Center.<br>
 <br>
 
 :::image type="content" source="media/threat-intel/firewall-threat.png" alt-text="Inteligencia sobre amenazas de Firewall" border="false":::

@@ -3,12 +3,12 @@ title: Ejecución de la instancia de Azure Functions desde un paquete
 description: Para que el sistema en tiempo de ejecución de Azure Functions ejecute sus funciones, monte un archivo del paquete de implementación que contenga los archivos de proyecto de la aplicación de función.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: 0be037d5a9270d60c16f8fc128030705be8b81ef
-ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
+ms.openlocfilehash: c2c0797f256cfd302f4b8a5a80300ef4469355e4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113136893"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256996"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Ejecución de la instancia de Azure Functions desde un archivo de paquete
 
@@ -62,6 +62,36 @@ La [implementación de archivos ZIP][Zip deployment for Azure Functions] es una 
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
+
+## <a name="example-workflow-for-manually-uploading-a-package-hosted-in-azure-storage"></a>Flujo de trabajo de ejemplo para cargar manualmente un paquete hospedado en Azure Storage
+
+Para implementar un paquete comprimido cuando se usa la opción de dirección URL, debe crear un paquete de implementación comprimido en ZIP y cargarlo en el destino. En este ejemplo se usa un contenedor de Blob Storage. 
+
+1. Cree un paquete ZIP para el proyecto con la utilidad que prefiera.
+
+1. En [Azure Portal](https://portal.azure.com), busque el nombre de la cuenta de almacenamiento o vaya a las cuentas de almacenamiento para encontrarla.
+ 
+1. En la cuenta de almacenamiento, en **Almacenamiento de datos**, seleccione **Contenedores**.
+
+1. Seleccione **+ Contenedor** para crear un contenedor de Blob Storage en la cuenta.
+
+1. En la página **Nuevo contenedor**, rellene el valor de **Nombre** (por ejemplo, "implementaciones"), asegúrese de que **Nivel de acceso público** sea **Privado** y seleccione **Crear**.
+
+1. Seleccione el contenedor que creó, elija **Cargar**, busque la ubicación del archivo ZIP que creó con el proyecto y seleccione **Cargar**.
+
+1. Una vez completada la carga, elija el archivo de blob cargado y copie la dirección URL. Puede que tenga que generar una dirección URL de SAS si no [usa una identidad](#fetch-a-package-from-azure-blob-storage-using-a-managed-identity).
+
+1. Busque la aplicación de funciones o vaya a la página **Aplicación de funciones** para encontrarla. 
+
+1. En la aplicación de funciones, en **Configuración**, seleccione **Configuraciones**.
+
+1. En la pestaña **Configuración de la aplicación**, seleccione **+ Nueva configuración de la aplicación**.
+
+1. Escriba el valor `WEBSITE_RUN_FROM_PACKAGE` en **Nombre** y, en **Valor**, pegue la dirección URL del paquete de Blob Storage.
+
+1. Seleccione **Aceptar**. A continuación, seleccione **Guardar** > **Continuar** para guardar la configuración y reiniciar la aplicación.
+
+Ahora puede ejecutar la función en Azure para comprobar que la implementación se ha realizado correctamente mediante el archivo ZIP del paquete de implementación.
 
 ## <a name="troubleshooting"></a>Solución de problemas
 

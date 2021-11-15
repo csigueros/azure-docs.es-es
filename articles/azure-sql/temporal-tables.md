@@ -10,13 +10,13 @@ ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: mathoma
-ms.date: 06/26/2019
-ms.openlocfilehash: 43a2ca496ee9cb03ee76c293e3a980573a50753c
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 10/18/2021
+ms.openlocfilehash: 945afcb2a4158ee4c80bd9d36a9697d6692d0d19
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110691331"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130250433"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database-and-azure-sql-managed-instance"></a>Introducción a las tablas temporales de Azure SQL Database y Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -31,7 +31,7 @@ El modelo de base de datos para este escenario es muy simple: la métrica de la 
 
 ![Schema](./media/temporal-tables/AzureTemporal1.png)
 
-Afortunadamente, no es necesario esforzarse mucho en la aplicación para mantener esta información de actividad. Con las tablas temporales, este proceso se automatiza, y le ofrece una completa flexibilidad durante el diseño del sitio web y más tiempo para centrarse en el propio análisis de los datos. Lo único que tiene que hacer es asegurarse de que la tabla **WebSiteInfo** está configurada como [temporal con versión del sistema](/sql/relational-databases/tables/temporal-tables#what-is-a-system-versioned-temporal-table). Estos son los pasos exactos para usar tablas temporales en este escenario.
+Afortunadamente, no es necesario esforzarse mucho en la aplicación para mantener esta información de actividad. Con las tablas temporales, este proceso se automatiza, y le ofrece una completa flexibilidad durante el diseño del sitio web y más tiempo para centrarse en el propio análisis de los datos. Lo único que tiene que hacer es asegurarse de que la tabla `WebSiteInfo` está configurada como [temporal con versión del sistema](/sql/relational-databases/tables/temporal-tables#what-is-a-system-versioned-temporal-table). Estos son los pasos exactos para usar tablas temporales en este escenario.
 
 ## <a name="step-1-configure-tables-as-temporal"></a>Paso 1: Configurar tablas como temporales
 
@@ -42,11 +42,11 @@ Dependiendo de si inicia un nuevo desarrollo o actualiza una aplicación existen
 
 ### <a name="create-new-table"></a>Creación de una nueva tabla
 
-Utilice el elemento del menú contextual para nueva tabla con versión del sistema en el explorador de objetos de SSMS para abrir el editor de consultas con un script de plantilla de tabla temporal y después utilice "Especificar valores para parámetros de plantilla" (Ctrl+Mayús+M) para rellenar la plantilla:
+Utilice el elemento del menú contextual para "Nueva tabla con versión del sistema" en el Explorador de objetos de SSMS para abrir el editor de consultas con un script de plantilla de tabla temporal y después utilice "Especificar valores para parámetros de plantilla" (Ctrl+Mayús+M) para rellenar la plantilla:
 
 ![SSMSNewTable](./media/temporal-tables/AzureTemporal2.png)
 
-En SSDT, elija la plantilla “Tabla temporal (con versión del sistema)” cuando agregue nuevos elementos al proyecto de base de datos. Se abrirá el diseñador de tablas y podrá especificar fácilmente el diseño de tabla:
+En SSDT, elija la plantilla "Tabla temporal (con versión del sistema)" cuando agregue nuevos elementos al proyecto de base de datos. Se abrirá el diseñador de tablas y podrá especificar fácilmente el diseño de tabla:
 
 ![SSDTNewTable](./media/temporal-tables/AzureTemporal3.png)
 
@@ -201,4 +201,3 @@ Con tablas temporales con versión del sistema, la tabla de historial puede aume
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información sobre las tablas temporales, vea [Tablas temporales](/sql/relational-databases/tables/temporal-tables).
-- Visite Channel 9 para escuchar un [caso de éxito de implementación](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) y ver una [demo en directo](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).

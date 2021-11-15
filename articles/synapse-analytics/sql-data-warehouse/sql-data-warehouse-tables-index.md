@@ -6,21 +6,21 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 04/16/2021
-author: XiaoyuMSFT
-ms.author: xiaoyul
-ms.reviewer: igorstan
+ms.date: 11/02/2021
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: ''
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 58f3eed8b16ff3ed02c6dfac6dc7d72ebb4ca374
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 498c9c6f5f010490f97eb6a7cb0073a8f9c58d28
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107599985"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131503816"
 ---
-# <a name="indexing-dedicated-sql-pool-tables-in-azure-synapse-analytics"></a>Indexación de tablas de un grupo de SQL dedicado en Azure Synapse Analytics
+# <a name="indexes-on-dedicated-sql-pool-tables-in-azure-synapse-analytics"></a>Indexaciones de tablas en un grupo de SQL dedicado en Azure Synapse Analytics
 
-Recomendaciones y ejemplos para indexar tablas en un grupo de SQL dedicado.
+Recomendaciones y ejemplos para indexar tablas en un grupo de SQL dedicado en Azure Synapse Analytics.
 
 ## <a name="index-types"></a>Tipos de índice
 
@@ -32,7 +32,7 @@ Para crear una tabla con un índice, consulte la documentación de [CREATE TABLE
 
 De forma predeterminada, el grupo de SQL dedicado crea un índice de almacén de columnas agrupado cuando no se especifican opciones de índice en una tabla. Las tablas del almacén de columnas en clúster ofrecen el máximo nivel de compresión de datos, así como el mejor rendimiento general de las consultas.  Por lo general, las tablas del almacén de columnas en clúster funcionan mejor que las tablas de montón o de índice agrupado, y suelen ser la mejor opción para tablas grandes.  Por estos motivos, el almacén de columnas agrupado es el mejor lugar por el que empezar cuando no se sabe cómo indexar una tabla.  
 
-Para crear una tabla de almacén de columnas en clúster, simplemente especifique CLUSTERED COLUMNSTORE INDEX en la cláusula WITH u omita la cláusula WITH:
+Para crear una tabla de almacén de columnas en clúster, simplemente especifique `CLUSTERED COLUMNSTORE INDEX` en la cláusula WITH u omita la cláusula WITH:
 
 ```SQL
 CREATE TABLE myTable
@@ -92,7 +92,7 @@ CREATE INDEX zipCodeIndex ON myTable (zipCode);
 
 ## <a name="optimizing-clustered-columnstore-indexes"></a>Optimización de índices de almacén de columnas en clúster
 
-Las tablas de almacén de columnas en clúster organizan los datos en segmentos.  El hecho de que los segmentos sean de gran calidad es fundamental para conseguir un rendimiento óptimo de las consultas en una tabla de almacén de columnas.  La calidad de los segmentos se puede medir por el número de filas de un grupo de filas comprimido.  La calidad de los segmentos es mayor donde hay al menos 100 000 filas por grupo de filas comprimido y su rendimiento aumenta a medida que el número de filas por grupo se aproxima a 1.048.576, que es el número máximo de filas que puede contener un grupo.
+Las tablas de almacén de columnas en clúster organizan los datos en segmentos.  El hecho de que los segmentos sean de gran calidad es fundamental para conseguir un rendimiento óptimo de las consultas en una tabla de almacén de columnas.  La calidad de los segmentos se puede medir por el número de filas de un grupo de filas comprimido.  La calidad de los segmentos es mayor donde hay al menos 100 000 filas por grupo de filas comprimido y su rendimiento aumenta a medida que el número de filas por grupo se aproxima a 1 048 576, que es el número máximo de filas que puede contener un grupo.
 
 La siguiente vista se puede crear y utilizar en un sistema para calcular el promedio de filas por cada fila de grupo e identificar los índices de almacén de columnas de clúster que no llegan a ser óptimos.  La última columna de esta vista genera una instrucción SQL que se puede usar para volver a crear los índices.
 
@@ -139,17 +139,16 @@ JOIN    sys.[tables] t                              ON  mp.[object_id]          
 JOIN    sys.[schemas] s                             ON t.[schema_id]            = s.[schema_id]
 GROUP BY
         s.[name]
-,       t.[name]
-;
+,       t.[name];
 ```
 
-Ahora que ha creado la vista, ejecute esta consulta para identificar las tablas con grupos de filas con menos de 100 000 filas. Por supuesto, puede aumentar el umbral de 100 000 si desea obtener mayor calidad de los segmentos.
+Ahora que ha creado la vista, ejecute esta consulta para identificar las tablas con grupos de filas con menos de 100 000 filas. Por supuesto, puede aumentar el umbral de 100 000 si desea obtener mayor calidad de los segmentos.
 
 ```sql
 SELECT    *
 FROM    [dbo].[vColumnstoreDensity]
 WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
-        OR INVISIBLE_rowgroup_rows_AVG < 100000
+        OR INVISIBLE_rowgroup_rows_AVG < 100000;
 ```
 
 Una vez ejecutada la consulta, puede empezar a examinar los datos y analizar los resultados. En esta tabla se explica lo que hay que buscar en el análisis de los grupos de filas.
@@ -163,11 +162,11 @@ Una vez ejecutada la consulta, puede empezar a examinar los datos y analizar los
 | [COMPRESSED_rowgroup_rows_AVG] |Si el número medio de filas es mucho menor que el número máximo de filas de un grupo de filas, considere la posibilidad de usar CTAS o ALTER INDEX REBUILD para volver a comprimir los datos. |
 | [COMPRESSED_rowgroup_count] |Número de grupos de filas en formato de almacén de columnas. Si este número es muy alto con respecto a la tabla es un indicador de que la densidad del almacén de columnas es baja. |
 | [COMPRESSED_rowgroup_rows_DELETED] |Las filas se eliminan lógicamente en formato de almacén de columnas. Si el número es alto con respecto al tamaño de la tabla, considere la posibilidad de volver a crear la partición o de volver a compilar el índice, ya que esto las quita físicamente. |
-| [COMPRESSED_rowgroup_rows_MIN] |Utilícelo en conjunción con las columnas AVG y MAX para conocer el intervalo de valores para los grupos de filas del almacén de columnas. Un número bajo por encima del umbral de carga (102 400 por cada distribución de particiones alineada) sugiere que hay optimizaciones disponibles en la carga de datos |
+| [COMPRESSED_rowgroup_rows_MIN] |Utilícelo con las columnas AVG y MAX para conocer el intervalo de valores para los grupos de filas del almacén de columnas. Un número bajo por encima del umbral de carga (102 400 por cada distribución de particiones alineada) sugiere que hay optimizaciones disponibles en la carga de datos |
 | [COMPRESSED_rowgroup_rows_MAX] |Mismo caso anterior. |
 | [OPEN_rowgroup_count] |Los grupos de filas abiertos son normales. Cabe esperar un grupo de filas OPEN por cada distribución de tabla (60). Cantidades excesivas sugieren carga de datos entre particiones. Compruebe la estrategia de creación de particiones para asegurarse de que es válida. |
 | [OPEN_rowgroup_rows] |Cada grupo de filas puede incluir un máximo de 1 048 576 filas. Use este valor para ver lo llenos que están actualmente los grupos de filas abiertos |
-| [OPEN_rowgroup_rows_MIN] |Los grupos abiertos indican que los datos se cargan poco a poco en la tabla o que la carga anterior distribuyó las filas restantes en este grupo de filas. Utilice las columnas MIN, MAX, AVG para ver cuántos datos se encuentran en los grupos de filas OPEN. En tablas pequeñas, podría ser el 100% de los datos. En este caso use ALTER INDEX REBUILD para forzar los datos a pasar al almacén de columnas. |
+| [OPEN_rowgroup_rows_MIN] |Los grupos abiertos indican que los datos se cargan poco a poco en la tabla o que la carga anterior distribuyó las filas restantes en este grupo de filas. Utilice las columnas MIN, MAX, AVG para ver cuántos datos se encuentran en los grupos de filas OPEN. En tablas pequeñas, podría ser el 100 % de los datos. En este caso use ALTER INDEX REBUILD para forzar los datos a pasar al almacén de columnas. |
 | [OPEN_rowgroup_rows_MAX] |Mismo caso anterior. |
 | [OPEN_rowgroup_rows_AVG] |Mismo caso anterior. |
 | [CLOSED_rowgroup_rows] |Examine las filas de grupos de filas cerrados para comprobar su integridad. |
@@ -179,7 +178,7 @@ Una vez ejecutada la consulta, puede empezar a examinar los datos y analizar los
 
 ## <a name="impact-of-index-maintenance"></a>Impacto del mantenimiento de índices
 
-La columna `Rebuild_Index_SQL` de la vista `vColumnstoreDensity` contiene una instrucción `ALTER INDEX REBUILD` que se puede usar para volver a generar los índices. Al volver a crear los índices, asegúrese de asignar suficiente memoria a la sesión que volverá a generar el índice. Para ello, aumente la [clase de recurso](resource-classes-for-workload-management.md) de un usuario que tenga permisos para volver a generar el índice en esta tabla al mínimo recomendado. Para obtener un ejemplo, consulte [Regeneración de índices para mejorar la calidad de los segmentos](#rebuilding-indexes-to-improve-segment-quality) más adelante en este artículo.
+La columna `Rebuild_Index_SQL` de la vista `vColumnstoreDensity` contiene una instrucción `ALTER INDEX REBUILD` que se puede usar para volver a generar los índices. Al volver a crear los índices, asegúrese de asignar suficiente memoria a la sesión que volverá a generar el índice. Para ello, aumente la [clase de recurso](resource-classes-for-workload-management.md) de un usuario que tenga permisos para volver a generar el índice en esta tabla al mínimo recomendado. Para obtener un ejemplo, consulte [Regeneración de índices para mejorar la calidad de los segmentos](#rebuild-indexes-to-improve-segment-quality) más adelante en este artículo.
 
 Para una tabla con un índice de almacén de columnas agrupado ordenado, `ALTER INDEX REBUILD` reordenará los datos mediante el uso de tempdb. Supervise tempdb durante las operaciones de recompilación. Si necesita más espacio en tempdb, escale verticalmente el grupo de bases de datos. Vuelva a reducirlo verticalmente una vez completada la recompilación del índice.
 
@@ -224,11 +223,11 @@ Otra cosa que se debe tener en cuenta es el impacto de la creación de particion
 
 Una vez que las tablas se hayan cargado las tablas con datos, siga los pasos que se indican a continuación para identificar las tablas y volver a crearlas con índices de almacén de columnas agrupadas que no llegan a ser óptimas.
 
-## <a name="rebuilding-indexes-to-improve-segment-quality"></a>Regeneración de índices para mejorar la calidad de los segmentos
+## <a name="rebuild-indexes-to-improve-segment-quality"></a>volver a generar los índices para mejorar la calidad del segmento
 
 ### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>Paso 1: Identificación o creación de un usuario que use la clase de recurso adecuada
 
-Una manera rápida de mejorar rápidamente la calidad de los segmentos es volver a generar el índice.  La instrucción SQL que devuelve la vista anterior devuelve una instrucción ALTER INDEX REBUILD que puede utilizarse para volver a crear los índices. Al volver a crear los índices, asegúrese de asignar suficiente memoria a la sesión que volverá a generar el índice. Para ello, aumente la clase de recurso de un usuario que tenga permisos para volver a generar el índice en esta tabla al mínimo recomendado.
+Una manera rápida de mejorar rápidamente la calidad de los segmentos es volver a generar el índice.  La instrucción SQL que devuelve la vista anterior contiene una instrucción ALTER INDEX REBUILD que puede utilizarse para volver a crear los índices. Al volver a crear los índices, asegúrese de asignar suficiente memoria a la sesión que volverá a generar el índice. Para ello, aumente la clase de recurso de un usuario que tenga permisos para volver a generar el índice en esta tabla al mínimo recomendado.
 
 A continuación se muestra un ejemplo de cómo asignar más memoria a un usuario mediante el aumento de su clase de recurso. Para trabajar con clases de recursos, consulte [Clases de recursos para la administración de cargas de trabajo](resource-classes-for-workload-management.md).
 
@@ -238,7 +237,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser';
 
 ### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Paso 2: Recompilación de índices de almacén de columnas en clúster con un usuario de clase de recurso mayor
 
-Inicie sesión como el usuario del paso 1 (LoadUser), que ahora usa una clase de recurso superior, y ejecute las instrucciones ALTER INDEX. Asegúrese de que este usuario tiene el permiso ALTER en las tablas en las que se vuelve a generar el índice. En estos ejemplos se muestra cómo volver a generar todo el índice de almacén de columnas y una sola partición. En tablas mayores, es más práctico volver a generar los índices partición a partición.
+Inicie sesión como el usuario del paso 1 (`LoadUser`), que ahora usa una clase de recurso superior, y ejecute las instrucciones ALTER INDEX. Asegúrese de que este usuario tiene el permiso ALTER en las tablas en las que se vuelve a generar el índice. En estos ejemplos se muestra cómo volver a generar todo el índice de almacén de columnas y una sola partición. En tablas mayores, es más práctico volver a generar los índices partición a partición.
 
 Como alternativa, en lugar de volver a crear el índice, se puede copiar la tabla en otra tabla nueva con [CTAS](sql-data-warehouse-develop-ctas.md). ¿De qué manera es mejor? En el caso de grandes volúmenes de datos, CTAS suele ser más rápido que [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Sin embargo, en el caso de volúmenes menores de datos, ALTER INDEX es más fácil de usar y no requerirá el intercambio de la tabla.
 
@@ -268,7 +267,7 @@ La regeneración de un índice en el grupo de SQL dedicado es una operación que
 
 Vuelva a ejecutar la consulta que identificó la tabla con una calidad deficiente de los segmentos y compruebe que dicha calidad ha mejorado.  Si no lo ha hecho, puede deberse a que las filas de la tabla son demasiado anchas.  Considere el uso de una clase de recurso superior o de DWU al volver a generar los índices.
 
-## <a name="rebuilding-indexes-with-ctas-and-partition-switching"></a>Regeneración de índices con CTAS y conmutación de particiones
+## <a name="rebuild-indexes-with-ctas-and-partition-switching"></a>Recompilación de índices con CTAS y conmutación de particiones
 
 Este ejemplo utiliza la instrucción [CREATE TABLE AS SELECT (CTAS) ](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) y el cambio de partición para volver a crear una partición de tabla.
 

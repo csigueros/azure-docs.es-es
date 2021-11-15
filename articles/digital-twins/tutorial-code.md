@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Programación de una aplicación cliente'
 titleSuffix: Azure Digital Twins
-description: Tutorial para escribir el código mínimo para una aplicación cliente mediante el SDK de .NET (C#).
+description: Siga este tutorial para aprender a escribir el código mínimo para una aplicación cliente de Azure Digital Twins, mediante el SDK de .NET (C#).
 author: baanders
 ms.author: baanders
-ms.date: 04/28/2021
+ms.date: 10/18/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 2146d07ce28cf0d14bb1b1416a0aa5b8ebf1febe
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: df99bfd1dfd07749b4906e9bd7f9f62ece68066b
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128612080"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501711"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Programación con las API de Azure Digital Twins
 
@@ -27,7 +27,7 @@ Es habitual que los desarrolladores que trabajan con Azure Digital Twins escriba
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En este tutorial se usa la línea de comandos para configurar el proyecto y trabajar en él. Por definición, puede usar cualquier editor de código para realizar los ejercicios.
+En este tutorial de Azure Digital Twins se usa la línea de comandos para configurar el proyecto y trabajar en él. Por definición, puede usar cualquier editor de código para realizar los ejercicios.
 
 Lo que necesita para comenzar:
 * Cualquier editor de código
@@ -130,7 +130,7 @@ En el directorio en el que creó el proyecto, cree un archivo .json llamado *Sam
 > [!TIP] 
 > Hay un [ejemplo de validador de DTDL](/samples/azure-samples/dtdl-validator/dtdl-validator) independiente del lenguaje que puede usar para comprobar los documentos del modelo y asegurarse de que el DTDL sea válido. Se basa en la biblioteca del analizador de DTDL, sobre la que puede leer más en [Análisis y validación de modelos](how-to-parse-models.md).
 
-Después, agregue más código a *Program.cs* para cargar el modelo que acaba de crear en la instancia de Azure Digital Twins.
+Después, agregue más código a *Program.cs* para cargar el modelo que ha creado en la instancia de Azure Digital Twins.
 
 Primero, agregue algunas instrucciones `using` en la parte superior del archivo:
 
@@ -196,7 +196,7 @@ En la ventana de comandos, ejecute el programa con `dotnet run`. En la salida, b
 
 Luego, Vuelva a ejecutar el programa. 
 
-Tenga en cuenta que no se produce ningún error cuando los gemelos se crean la segunda vez, aunque ya existen después de la primera ejecución. A diferencia de la creación de modelos, la creación de gemelos es, en el nivel de REST, una llamada *PUT* con semántica *upsert*. Esto significa que si ya existe un gemelo, un intento de volver a crear el mismo gemelo reemplazará al gemelo original. No aparece ningún error.
+Tenga en cuenta que no se produce ningún error cuando los gemelos se crean la segunda vez, aunque ya existen después de la primera ejecución. A diferencia de la creación de modelos, la creación de gemelos es, en el nivel de REST, una llamada *PUT* con semántica *upsert*. El uso de este tipo de llamada REST significa que si ya existe un gemelo, un intento de volver a crear el mismo gemelo reemplazará al gemelo original. No aparece ningún error.
 
 ### <a name="create-relationships"></a>Crear relaciones
 

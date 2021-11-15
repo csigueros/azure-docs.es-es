@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/07/2021
+ms.date: 10/19/2021
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07923556630157dcde3f23c24e1321ec4a02fa5c
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: 7d9214936073106424301d8e7b85867d51cbeb22
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129667998"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130253702"
 ---
 # <a name="discover-azure-resources-to-manage-in-privileged-identity-management"></a>Detección de recursos de Azure para su administración en Privileged Identity Management
 
@@ -29,7 +29,11 @@ Con Azure Active Directory (Azure AD) Privileged Identity Management (PIM), pued
 - Organizaciones que ya usan Privileged Identity Management para proteger roles de Azure AD.
 - Grupos de administración y propietarios de suscripciones que están intentando proteger los recursos de producción.
 
-La primera vez que se configura Privileged Identity Management para recursos de Azure, es preciso detectar y seleccionar los recursos que se van a proteger con Privileged Identity Management. No hay ningún límite en cuanto al número de recursos que se pueden administrar con Privileged Identity Management. Sin embargo, se recomienda empezar por los recursos de producción más críticos.
+La primera vez que se configura Privileged Identity Management para recursos de Azure, es preciso detectar y seleccionar los recursos que quiere proteger con Privileged Identity Management. No hay ningún límite en cuanto al número de recursos que se pueden administrar con Privileged Identity Management. Sin embargo, se recomienda empezar por los recursos de producción más críticos.
+
+## <a name="required-permissions"></a>Permisos necesarios
+
+Puede ver y administrar los grupos de administración o las suscripciones en que tiene permisos Microsoft.Authorization/roleAssignments/write, como los roles Administrador de acceso de usuario o Propietario. Si no es propietario de una suscripción, pero sí administrador global y no ve ninguna suscripción o grupo de administración de Azure que administrar, puede [elevar el acceso para administrar los recursos](../../role-based-access-control/elevate-access-global-admin.md).
 
 ## <a name="discover-resources"></a>Detección de recursos
 

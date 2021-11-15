@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2021
+ms.date: 10/26/2021
 ms.author: mbaldwin
-ms.openlocfilehash: ffbdb8349f9da359cd050b8fd7f058d1877966b0
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a939ec6093d6c06e9a7aeb0d7c46bdce2d78223a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131004291"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132335563"
 ---
 # <a name="data-encryption-models"></a>Modelos de cifrado de datos
 
@@ -193,7 +193,7 @@ Los servicios de Azure que admiten cada modelo de cifrado:
 | Azure Synapse Analytics          | Sí                | Sí, RSA de 3072 bits  | -                  |
 | SQL Server Stretch Database      | Sí                | Sí, RSA de 3072 bits  | Sí                |
 | Table Storage                    | Sí                | Sí                | Sí                |
-| Azure Cosmos DB                  | Sí                | Sí                | -                  |
+| Azure Cosmos DB                  | Sí ([más información](../../cosmos-db/database-security.md?tabs=sql-api))              | Sí ([más información](../../cosmos-db/how-to-setup-cmk.md))                | -                  |
 | Azure Databricks                 | Sí                | Sí                | -                  |
 | Azure Database Migration Service | Sí                | N/D\*              | -                  |
 | **Identidad**                     |                    |                    |                    |
@@ -212,8 +212,8 @@ Los servicios de Azure que admiten cada modelo de cifrado:
 | **Elementos multimedia**                        |                    |                    |                    |
 | Media Services                   | Sí                | Sí                | Sí                |
 | **Seguridad**                     |                    |                    |                    |
-| Preguntas más frecuentes de Azure Security Center for IoT    | Sí                | Sí                | -                  |
-| Azure Sentinel                   | Sí                | Sí                | -                  |
+| Microsoft Defender para IoT    | Sí                | Sí                | -                  |
+| Microsoft Sentinel                   | Sí                | Sí                | -                  |
 | **Storage**                      |                    |                    |                    |
 | Blob Storage                     | Sí                | Sí                | Sí                |
 | Premium Blob Storage             | Sí                | Sí                | Sí                |

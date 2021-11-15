@@ -1,6 +1,6 @@
 ---
-title: Forma en que Azure aplica las licencias de SQL asignadas al uso por hora
-description: En este artículo se proporciona una explicación detallada sobre cómo Azure aplica las licencias de SQL asignadas al uso por hora con la Ventaja híbrida de Azure.
+title: Aplicación de licencias de SQL asignadas centralmente al uso por hora en Azure
+description: En este artículo se proporciona una explicación detallada sobre cómo Azure aplica licencias de SQL asignadas centralmente al uso por hora con Ventaja híbrida de Azure.
 keywords: ''
 author: bandersmsft
 ms.author: banders
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: ahb
 ms.reviewer: chrisrin
-ms.openlocfilehash: 69517a84fa28a6c1d9cde0cb51df82a296bd653a
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 53f8538e6e34c91023bc55e7d47e5f28e9fb3e21
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129710164"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130243854"
 ---
-# <a name="how-azure-applies-assigned-sql-licenses-to-hourly-usage"></a>Forma en que Azure aplica las licencias de SQL asignadas al uso por hora
+# <a name="how-azure-applies-centrally-assigned-sql-licenses-to-hourly-usage"></a>Aplicación de licencias de SQL asignadas centralmente al uso por hora en Azure
 
-En este artículo se proporciona una explicación detallada sobre cómo funciona la Ventaja híbrida de Azure en un nivel de ámbito para ayudarle a administrar las licencias de SQL Server. El proceso comienza con un administrador que asigna licencias a la suscripción o a un ámbito de cuenta de facturación.
+En este artículo se proporcionan detalles sobre cómo funciona la administración centralizada de Ventaja híbrida de Azure para SQL Server a nivel de ámbito. El proceso comienza con un administrador que asigna licencias a la suscripción o a un ámbito de cuenta de facturación.
 
 Cada recurso informa de su uso una vez por hora con el precio completo o los medidores de pago por uso adecuados. Internamente en Azure, el motor de aplicación de uso evalúa las NCL disponibles y las aplica durante esa hora. Para una hora determinada de consumo de recursos de núcleo virtual, los medidores de pago por uso se cambian al medidor de la Ventaja híbrida de Azure correspondiente con un precio de cero (0 USD) si hay suficientes NCL sin usar en el ámbito seleccionado.
 
@@ -45,5 +45,5 @@ En el diagrama siguiente se muestra cómo se aplican las licencias asignadas de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Revise [Preguntas más frecuentes sobre la administración del nivel de ámbito de Ventaja híbrida de Azure](faq-azure-hybrid-benefit-scope.yml).
+- Consulte [Preguntas frecuentes sobre la administración centralizada de Ventaja híbrida de Azure](faq-azure-hybrid-benefit-scope.yml).
 - Obtenga información sobre cómo realizar la [transición desde la experiencia de la Ventaja híbrida de Azure existente](transition-existing.md).

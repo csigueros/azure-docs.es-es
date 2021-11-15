@@ -1,4 +1,4 @@
-- name: Qué es Azure Defender para IoT para organizaciones de usuarios finales
+- name: Microsoft Defender para IoT para las organizaciones de usuarios finales
   href: index.yml
   items: null
 - name: Información general
@@ -17,13 +17,13 @@
     - name: Requisitos previos del sistema
       displayName: 'firewall, proxy, open ports'
       href: quickstart-system-prerequisites.md
-    - name: Introducción a Azure Defender para IoT
+    - name: Primeros pasos con Microsoft Defender para IoT
       displayName: 'getting started, registration, onboarding, activation, threat intelligence, trial, free, subscription'
       href: getting-started.md
 - name: Tutoriales
   expanded: false
   items:
-    - name: Configuración de la evaluación gratuita de Azure Defender para IoT
+    - name: Configuración de la evaluación gratuita de Microsoft Defender para IoT
       href: tutorial-onboarding.md
     - name: Integración de ClearPass
       href: tutorial-clearpass.md
@@ -184,7 +184,7 @@
     - name: Seguimiento de la actividad del sensor
       displayName: 'timeline, time line, time-line, event'
       href: how-to-track-sensor-activity.md
-    - name: Configuración de Azure Sentinel con Defender para IoT para organizaciones de usuarios finales
+    - name: Configuración de Microsoft Azure Sentinel con Defender para IoT para organizaciones de usuarios finales
       displayName: Sentinel
       href: how-to-configure-with-sentinel.md
     - name: Solución de problemas del sensor y de la consola de administración local
@@ -228,8 +228,8 @@
       items:
         - name: Creación de las aptitudes de seguridad con Microsoft Learn
           href: /learn/browse/?term=securityS&terms=securityS
-        - name: Documentación de Azure Security Center
-          href: ../../security-center/
+        - name: Documentación de Microsoft Defender for Cloud
+          href: ../../defender-for-cloud/
         - name: Documentación de Azure Security Center
           href: ../../security/index.yml
         - name: 'Blog sobre seguridad, privacidad y cumplimiento de Azure IoT'

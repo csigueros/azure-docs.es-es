@@ -1,5 +1,5 @@
 ---
-title: Solución de problemas de replicación entre regiones de Azure NetApp Files | Microsoft Docs
+title: Solución de errores de replicación entre regiones de Azure NetApp Files | Microsoft Docs
 description: Aquí se describen los mensajes de error y las resoluciones que pueden ayudar a solucionar problemas de replicación entre regiones de Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 03/10/2021
 ms.author: b-juche
-ms.openlocfilehash: d3d944646689e9e6189b0343e8bf67c8fb0abcbd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: bae0ed7fc15843c50af9dca860367d2074af33ec
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104590932"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256280"
 ---
-# <a name="troubleshoot-cross-region-replication"></a>Solución de problemas de la replicación entre regiones
+# <a name="troubleshoot-cross-region-replication-errors"></a>Solución de errores de replicación entre regiones
 
 En este artículo se describen los mensajes de error y las resoluciones que pueden ayudar a solucionar problemas de replicación entre regiones de Azure NetApp Files. 
 
@@ -75,7 +75,7 @@ En este artículo se describen los mensajes de error y las resoluciones que pued
 
 |     Mensaje de error    |     Solución    |
 |-|-|
-|   Al intentar cambiar el tamaño de un volumen de origen se produce el error `"PoolSizeTooSmall","message":"Pool size too small for total volume size."`  |  Asegúrese de que dispone de suficiente capacidad de aumento en los grupos de capacidad para los volúmenes de origen y de destino de la replicación entre regiones. Al cambiar el tamaño del volumen de origen, se cambia automáticamente el del volumen de destino. Sin embargo, si el grupo de capacidad que hospeda el volumen de destino no tiene suficiente capacidad de aumento, se producirá un error al cambiar de tamaño los volúmenes de origen y de destino. Consulte [Cambio de tamaño de un volumen de destino de replicación entre regiones](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)   |
+|   Al intentar cambiar el tamaño de un volumen de origen se produce el error `"PoolSizeTooSmall","message":"Pool size too small for total volume size."`  |  Asegúrese de que dispone de suficiente capacidad de aumento en los grupos de capacidad para los volúmenes de origen y de destino de la replicación entre regiones. Al cambiar el tamaño del volumen de origen, se cambia automáticamente el tamaño del volumen de destino. Sin embargo, si el grupo de capacidad que hospeda el volumen de destino no tiene suficiente capacidad de aumento, se producirá un error al cambiar de tamaño los volúmenes de origen y de destino. Consulte [Cambio de tamaño de un volumen de destino de replicación entre regiones](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)   |
 
 ## <a name="next-steps"></a>Pasos siguientes  
 

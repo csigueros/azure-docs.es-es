@@ -7,15 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 01/07/2021
+ms.date: 10/19/2021
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: d563907d3567607e537eebfc5c91be02e27fd758
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 8ee5cc31e0127ead62fa91f6b1bfab66854aac83
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014780"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130260421"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>Visualización y descarga de los precios de Azure de la organización
 
@@ -28,11 +28,14 @@ Según las directivas que haya establecido el administrador de empresa para la o
 1. Como administrador de Enterprise, inicie sesión en [Azure Portal](https://portal.azure.com/).
 1. Busque *Administración de costos + facturación*.  
    ![Captura de pantalla que muestra la búsqueda en Azure Portal.](./media/ea-pricing/portal-cm-billing-search.png)
-1. En la cuenta de facturación, seleccione **Uso y cargos**.  
+1. Seleccione un perfil de facturación. En función de su acceso, es posible que tenga que seleccionar primero una cuenta de facturación.
+1. En el menú de navegación, seleccione **Uso y cargos**.  
    ![Captura de pantalla que muestra el uso y los cargos en Facturación](./media/ea-pricing/ea-pricing-usage-charges-nav.png)
 1. Seleccione el ![icono de descarga](./media/ea-pricing/download-icon.png). **Descargar** para el mes.
-1. En **Hoja de precios**, seleccione **Descargar CSV**.  
+1. En la página Descargar uso y cargos, en Hoja de precios, seleccione **Preparar documento**. El archivo puede tardar un tiempo en prepararse.  
     :::image type="content" source="./media/ea-pricing/download-enterprise-agreement-price-sheet-01.png" alt-text="Captura de pantalla que muestra las opciones para descargar el uso y los cargos." :::
+1. Cuando el archivo esté listo para descargarse, seleccione **Descargar CSV**.
+
 
 ## <a name="download-pricing-for-an-mca-or-mpa-account"></a>Descarga de los precios de una cuenta MCA o MPA
 

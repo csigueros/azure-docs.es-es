@@ -4,14 +4,14 @@ description: Se realizan actualizaciones significativas de la documentación de 
 services: automation
 ms.subservice: ''
 ms.topic: overview
-ms.date: 08/27/2021
+ms.date: 11/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: 84644759a3f2f887662faae686814f032410266b
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: ea18171bdd957781e22743c3e59690fc8d4703f6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123107940"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131432441"
 ---
 # <a name="whats-new-in-azure-automation"></a>Novedades de Azure Automation
 
@@ -22,6 +22,36 @@ Azure Automation recibe mejoras de forma continua. Para mantenerse al día de lo
 - Corrección de errores
 
 Esta página se actualiza mensualmente, por lo que se recomienda visitarla con frecuencia. Si busca elementos que tengan más de seis meses, puede encontrarlos en el [Archivo de novedades de Azure Automation](whats-new-archive.md).
+
+## <a name="october-2021"></a>Octubre de 2021
+
+### <a name="preview-support-for-hybrid-runbook-worker-extension-for-azure-vms-and-arc-enabled-servers"></a>Compatibilidad en versión preliminar con la extensión Hybrid Runbook Worker para máquinas virtuales de Azure y servidores habilitados para Arc
+
+**Tipo:** Nueva característica
+
+Azure Automation ha liberado la integración nativa de User Hybrid Runbook Worker no solo para máquinas virtuales de Azure, sino también para máquinas que no son de Azure, a través de servidores habilitados para Arc. Para más información, lea este [anuncio](https://azure.microsoft.com/updates/automation-user-hybrid-extension-support).
+
+### <a name="preview-support-for-azure-active-directory-authentication"></a>Compatibilidad en versión preliminar con la autenticación de Azure Active Directory
+
+**Tipo:** Nueva característica
+
+Azure Automation agregó una característica de seguridad crítica con la compatibilidad de la autenticación de Azure AD con todos los puntos de conexión públicos del servicio Automation. La característica se ha implementado a través de la compatibilidad con la extensión Hybrid Runbook Worker para máquinas virtuales de Azure y servidores habilitados para Arc.
+
+Así se elimina la dependencia de los certificados y se permite cumplir los estrictos requisitos de cumplimiento y auditoría, ya que no se usan métodos de autenticación locales. Para más información, lea este [anuncio](https://azure.microsoft.com/updates/automation-user-hybrid-extension-support).
+
+### <a name="source-control-enabled-to-use-managed-identities"></a>Control de código fuente habilitado para usar identidades administradas
+
+**Tipo:** Nueva característica
+
+La integración del control de código Azure Automation ahora puede usar [identidades administradas](automation-security-overview.md#managed-identities), en lugar de una cuenta de ejecución. Para más información, consulte los [requisitos previos de la integración del control de código fuente](source-control-integration.md#prerequisites).
+
+## <a name="september"></a>Septiembre
+
+### <a name="support-for-az-modules-by-default"></a>Compatibilidad predeterminada con los módulos de Az
+
+**Tipo:** Nueva característica
+
+Azure Automation ahora admite los módulos Az de forma predeterminada. Las nuevas cuentas de Automation creadas incluyen la versión más reciente de los módulos Az: 6.4.0 de forma predeterminada. Automation también incluye una opción en Azure Portal, **Actualizar módulos Az**, que le permite actualizar módulos Az en las cuentas de Automation existentes. Para más información, lea este [anuncio](https://azure.microsoft.com/updates/azure-automation-az-module-support).
 
 ## <a name="august-2021"></a>Agosto de 2021
 
@@ -43,7 +73,7 @@ Azure Automation admite ahora [identidades administradas asignadas por el usuari
 
 **Tipo:** Nueva característica
 
-Los clientes pueden administrar y proteger el cifrado de los recursos de Azure Automation mediante sus propias claves administradas. Con la introducción de las claves administradas por el cliente puede complementar el cifrado predeterminado con una capa de cifrado adicional mediante una clave que se crea y administra en Azure Key Vault. Este cifrado adicional debería ayudarle a satisfacer las necesidades normativas o de cumplimiento de su organización.
+Los clientes pueden administrar y proteger el cifrado de los recursos de Azure Automation mediante sus propias claves administradas. Con la introducción de las claves administradas por el cliente puede complementar el cifrado predeterminado con una capa extraordinaria de cifrado mediante una clave que se crea y administra en Azure Key Vault. Este nivel adicional de cifrado debería ayudarle a satisfacer las necesidades normativas o de cumplimiento de su organización.
 
 Para más información, consulte [Uso de claves administradas por el cliente](automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account).
 
@@ -83,91 +113,7 @@ La asignación de regiones se ha actualizado para admitir Update Management y Ch
 
 **Tipo:** Nueva característica
 
-Azure Automation admite ahora [identidades administradas asignadas por el sistema](./automation-security-overview.md#managed-identities-preview) para trabajos híbridos y en la nube en las regiones Azure global y Azure Government. Para más información, lea este [anuncio](https://azure.microsoft.com/updates/azure-automation-system-assigned-managed-identities/).
-
-## <a name="march-2021"></a>Marzo de 2021
-
-### <a name="new-azure-automation-built-in-policy-definitions"></a>Nuevas definiciones de directivas integradas de Azure Automation
-
-**Tipo:** Nueva característica
-
-Azure Automation ha agregado cinco nuevas directivas integradas:
-
-- Las cuentas de Automation deben deshabilitar el acceso a la red pública.
-- Las cuentas de Azure Automation deben usar claves administradas por el cliente para cifrar los datos en reposo.
-- Configurar cuentas de Azure Automation para deshabilitar el acceso a la red pública
-- Configurar conexiones de punto de conexión privado en cuentas de Azure Automation
-- Las conexiones de punto de conexión privado en cuentas de Automation deben estar habilitadas.
-
-Para más información, consulte la [referencia sobre Azure Policy](./policy-reference.md).
-
-### <a name="support-for-automation-and-state-configuration-declared-ga-in-south-india"></a>Compatibilidad con la disponibilidad general declarada de Automation y State Configuration en Sur de la India
-
-**Tipo:** Nueva característica
-
-Use la automatización de procesos y la característica State Configuration en la región Sur de la India. Para más información, lea este [anuncio](https://azure.microsoft.com/updates/azure-automation-in-south-india-region/).
-
-### <a name="support-for-automation-and-state-configuration-declared-ga-in-uk-west"></a>Compatibilidad con la disponibilidad general declarada de Automation y State Configuration en Oeste de Reino Unido
-
-**Tipo:** Nueva característica
-
-Use la automatización de procesos y la característica State Configuration en la región Oeste de Reino Unido. Para más información, lea el [anuncio](https://azure.microsoft.com/updates/azure-automation-in-uk-west-region/).
-
-### <a name="support-for-automation-and-state-configuration-declared-ga-in-uae-central"></a>Compatibilidad con la disponibilidad general declarada de Automation y State Configuration en Centro de Emiratos Árabes Unidos
-
-**Tipo:** Nueva característica
-
-Use la automatización de procesos y la característica State Configuration en la región Centro de Emiratos Árabes Unidos. Para más información, lea este [anuncio](https://azure.microsoft.com/updates/azure-automation-in-uae-central-region/).
-
-### <a name="support-for-automation-and-state-configuration-available-in-australia-central-2-norway-west-and-france-south"></a>Compatibilidad con Automation y State Configuration disponible en Centro de Australia 2, Oeste de Noruega y Sur de Francia
-
-**Tipo:** Nueva característica
-
-Para más información sobre la [página Residencia de datos](https://azure.microsoft.com/global-infrastructure/data-residency/), seleccione la ubicación geográfica de cada región.
-
-### <a name="new-scripts-added-for-installing-hybrid-worker-on-windows-and-linux"></a>Nuevos scripts agregados para instalar Hybrid Worker en Windows y Linux
-
-**Tipo:** Nueva característica
-
-Se han agregado dos nuevos scripts al [repositorio de GitHub](https://github.com/azureautomation) de Azure Automation que permiten abordar uno de los escenarios clave de Azure Automation para configurar una instancia de Hybrid Runbook Worker en una máquina Windows o Linux. El script crea una máquina virtual o usa una ya existente, crea un área de trabajo de Log Analytics si es necesario, instala el agente de Log Analytics para Windows o para Linux y registra la máquina en el área de trabajo de Log Analytics. El script de Windows se denomina **Create Automation Windows HybridWorker** y el de Linux es **Create Automation Linux HybridWorker**.
-
-### <a name="invoke-runbook-through-an-azure-resource-manager-template-webhook"></a>Invocación de runbook mediante un webhook de una plantilla de Resource Manager
-
-**Tipo:** Nueva característica
-
-Para más información, consulte [Uso de un webhook de una plantilla de ARM](./automation-webhooks.md#create-runbook-and-webhook-with-arm-template).
-
-### <a name="azure-update-management-now-supports-centos-8x-red-hat-enterprise-linux-server-8x-and-suse-linux-enterprise-server-15"></a>Azure Update Management ahora admite Centos 8.x, Red Hat Enterprise Linux Server 8.x y SUSE Linux Enterprise Server 15
-
-**Tipo:** Nueva característica
-
-Consulte la [lista completa](./update-management/operating-system-requirements.md) de sistemas operativos Linux compatibles para más información.
-
-### <a name="in-region-data-residency-support-for-brazil-south-and-south-east-asia"></a>Compatibilidad con la residencia de datos en la región para las regiones Sur de Brasil y Sudeste de Asia
-
-**Tipo:** Nueva característica
-
-En todas las regiones excepto Sur de Brasil y Sudeste de Asia, los datos de Azure Automation se almacenan en una región diferente (región emparejada de Azure) para proporcionar continuidad empresarial y recuperación ante desastres (BCDR). En el caso de las regiones Sur de Brasil y Sudeste de Asia, los datos de Azure Automation se almacenan en la misma región para adaptarse a los requisitos de residencia de datos de estas regiones. Para más información, consulte [Replicación geográfica en Azure Automation](./automation-managing-data.md#geo-replication-in-azure-automation).
-
-## <a name="february-2021"></a>Febrero de 2021
-
-### <a name="support-for-automation-and-state-configuration-declared-ga-in-japan-west"></a>Compatibilidad con la disponibilidad general declarada de Automation y State Configuration en Japón Occidental
-
-**Tipo:** Nueva característica
-
-Disponibilidad de la cuenta de Automation y de State Configuration en la región Japón Occidental. Para más información, lea el [anuncio](https://azure.microsoft.com/updates/azure-automation-in-japan-west-region/).
-
-### <a name="introduced-custom-azure-policy-compliance-to-enforce-runbook-execution-on-hybrid-worker"></a>Se ha presentado el cumplimiento de Azure Policy personalizado para aplicar la ejecución de runbooks en Hybrid Worker
-
-**Tipo:** nueva característica
-
-Puede usar la nueva regla de cumplimiento de Azure Policy para permitir la creación de trabajos, webhooks y programaciones de trabajos para que se ejecuten solo en grupos de Hybrid Worker.
-
-### <a name="update-management-availability-in-east-us-france-central-and-north-europe-regions"></a>Disponibilidad de Update Management en las regiones Este de EE. UU., Centro de Francia y Norte de Europa
-
-**Tipo:** Nueva característica
-
-La característica Update Management de Automation está disponible en las regiones Este de EE. UU., Centro de Francia y Norte de Europa. Vea [Asignación de regiones admitidas](how-to/region-mappings.md) para obtener actualizaciones de la documentación en la que se refleja este cambio.
+Ahora, Azure Automation admite [identidades administradas asignadas por el sistema](./automation-security-overview.md#managed-identities) para trabajos híbridos y en la nube en las regiones Azure global y Azure Government. Para más información, lea este [anuncio](https://azure.microsoft.com/updates/azure-automation-system-assigned-managed-identities/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

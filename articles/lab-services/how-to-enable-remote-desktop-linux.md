@@ -3,12 +3,12 @@ title: Habilitación del escritorio remoto gráfico para Linux en Azure Lab Serv
 description: Obtenga información sobre cómo habilitar Escritorio remoto para máquinas virtuales Linux en un laboratorio en Azure Lab Services.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: c870faf1f85c192f12739c17809cc9c9088ac1fd
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: aaeec2cc74e24061c9c022fdc4526732030c1f97
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130180331"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232686"
 ---
 # <a name="enable-graphical-remote-desktop-for-linux-virtual-machines-in-azure-lab-services"></a>Habilitación del escritorio remoto gráfico para máquinas virtuales Linux en Azure Lab Services
 En este artículo se muestra cómo realizar las tareas siguientes:
@@ -75,17 +75,22 @@ Siga los pasos que se indican a continuación para configurar la máquina virtua
  
     ![Cadena de conexión de SSH](./media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
 
-4. Finalmente, instale RDP o X2Go junto con el entorno de escritorio gráfico de su elección.
+1. Finalmente, instale RDP o X2Go junto con el entorno de escritorio gráfico de su elección.
 
-Para obtener un rendimiento óptimo, normalmente se recomienda usar el escritorio gráfico XFCE para que los usuarios se conecten al escritorio mediante X2Go.  Para configurar XFCE con X2Go en Ubuntu, siga estas instrucciones:
-  - [Instalación y configuración de X2Go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/LinuxGraphicalDesktopSetup/XFCE_Xubuntu/ReadMe.md)
+  Para obtener un rendimiento óptimo, normalmente se recomienda usar el escritorio gráfico XFCE para que los usuarios se conecten al escritorio mediante X2Go.  Para configurar XFCE con X2Go en Ubuntu, siga estas instrucciones:
+    - [Instalación y configuración de X2Go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/LinuxGraphicalDesktopSetup/XFCE_Xubuntu/ReadMe.md)
 
-En los casos en los que, por el contrario, necesite que los usuarios se conecten al escritorio gráfico con RDP, utilice las siguientes instrucciones para Ubuntu:
-  - [Instalación y configuración de RDP](../virtual-machines/linux/use-remote-desktop.md)
+  En los casos en los que, por el contrario, necesite que los usuarios se conecten al escritorio gráfico con RDP, utilice las siguientes instrucciones para Ubuntu:
+    - [Instalación y configuración de RDP](../virtual-machines/linux/use-remote-desktop.md)
 
-En el caso de los entornos de escritorio gráfico GNOME o MATE, es posible que se produzca un conflicto de red con el agente de Linux de Azure, necesario para que las máquinas virtuales funcionen correctamente en Azure Lab Services.  Por ejemplo, de forma predeterminada, si crea un laboratorio a partir de una imagen de Ubuntu 18.04 LTS que tiene instalado GNOME o MATE, se producirá un error en la creación del laboratorio con el siguiente mensaje de error: **No se pudo establecer la comunicación con el agente de máquina virtual. Compruebe que el agente de máquina virtual está habilitado y funcionando.**  Del mismo modo, este conflicto de red hará que la publicación se bloquee al intentar aprovisionar las máquinas virtuales de los alumnos.
+### <a name="using-gnome-or-mate-graphical-desktops"></a>Uso de escritorios gráficos GNOME o MATE
 
-Se recomienda usar las instrucciones siguientes para configurar los escritorios gráficos GNOME o MATE en Ubuntu.  Estas instrucciones incluyen una corrección para el conflicto de red que existe con Ubuntu 18.04 LTS.  También admiten Ubuntu 20.04 LTS y 21.04 LTS:
+En el caso de los entornos de escritorio gráfico GNOME o MATE, es posible que se produzca un conflicto de red con el agente de Linux de Azure, necesario para que las máquinas virtuales funcionen correctamente en Azure Lab Services.  Este conflicto de red provoca los siguientes efectos secundarios cuando se usa Ubuntu 18.04 LTS con GNOME o MATE instalado:
+ - La creación del laboratorio mediante la imagen producirá un mensaje de error que dice **No se ha podido establecer comunicación con el agente de máquina virtual. Compruebe que el agente de máquina virtual está habilitado y funcionando.**  
+ - La publicación de máquinas virtuales de alumnos dejará de responder si la configuración de apagado automático está habilitada.
+ - El restablecimiento de la contraseña de la máquina virtual del alumno dejará de responder.
+
+Se recomienda usar las instrucciones siguientes para configurar los escritorios gráficos GNOME o MATE en Ubuntu.  Estas instrucciones incluyen una corrección para el conflicto de red que existe con Ubuntu 18.04 LTS.  También admiten la instalación de GNOME y MATE en Ubuntu 20.04 LTS y 21.04 LTS:
  - [Instalación y configuración de GNOME/RDP y MATE/X2go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/LinuxGraphicalDesktopSetup/GNOME_MATE/ReadMe.md)
 
 ## <a name="connect-to-the-template-vm-via-the-gui"></a>Conexión a máquina virtual de plantilla mediante la GUI

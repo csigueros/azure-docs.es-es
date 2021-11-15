@@ -11,12 +11,12 @@ ms.date: 10/18/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 63af3b70ebfde53078d71955a95e55e03a6c591b
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 5cdf2cfb9b530721a8de31501c2f763f0c61bd21
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130162485"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130240896"
 ---
 # <a name="tutorial-create-user-flows-and-custom-policies-in-azure-active-directory-b2c"></a>Tutorial: Creación de flujos de usuario y directivas personalizadas en Azure Active Directory B2C
 
@@ -145,7 +145,7 @@ Si desea permitir que los usuarios editen sus perfiles en la aplicación, debe u
 > En este artículo se explica cómo configurar el inquilino manualmente. Puede automatizar todo el proceso con este artículo. La automatización implementará el [paquete de inicio SocialAndLocalAccountsWithMFA](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack) de Azure AD B2C, que proporcionará los recorridos de registro e inicio de sesión, restablecimiento de contraseña y edición de perfil. Para automatizar el tutorial siguiente, visite la [aplicación de configuración de IEF](https://aka.ms/iefsetup) y siga las instrucciones.
 
 
-## <a name="add-signing-and-encryption-keys"></a>Agregar claves de firma y cifrado
+## <a name="add-signing-and-encryption-keys-for-identity-experience-framework-applications"></a>Agregar claves de firma y cifrado para aplicaciones de Identity Experience Framework
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
@@ -276,33 +276,6 @@ Agregue los identificadores de aplicación al archivo de extensiones *TrustFrame
 1. Reemplace ambas instancias de `ProxyIdentityExperienceFrameworkAppId` por el identificador de la aplicación ProxyIdentityExperienceFramework que creó antes.
 1. Guarde el archivo.
 
-## <a name="upload-the-policies"></a>Cargar las directivas
-
-1. Seleccione el elemento de menú **Identity Experience Framework** en el inquilino de B2C en Azure Portal.
-1. Seleccione **Cargar directiva personalizada**.
-1. En este orden, cargue los archivos de directiva:
-    1. *TrustFrameworkBase.xml*
-    2. *TrustFrameworkLocalization.xml*
-    3. *TrustFrameworkExtensions.xml*
-    4. *SignUpOrSignin.xml*
-    5. *ProfileEdit.xml*
-    6. *PasswordReset.xml*
-
-A medida que cargue los archivos, Azure agregará el prefijo `B2C_1A_` a cada uno.
-
-> [!TIP]
-> Si el editor XML admite la validación, valide los archivos con el archivo de esquema XML `TrustFrameworkPolicy_0.3.0.0.xsd` que se encuentra en el directorio raíz del paquete de inicio. La validación del esquema XML identifica los errores antes de realizar la carga.
-
-## <a name="test-the-custom-policy"></a>Prueba de la directiva personalizada
-
-1. En **Directivas personalizadas**, seleccione **B2C_1A_signup_signin**.
-1. Para **Seleccionar aplicación** en la página Información general de la directiva personalizada, seleccione la aplicación web denominada *webapp1* que ha registrado antes.
-1. Asegúrese de que la **URL de respuesta** sea `https://jwt.ms`.
-1. Seleccione **Ejecutar ahora**.
-1. Regístrese con una dirección de correo electrónico. No use aún la opción **Facebook**. 
-1. Vuelva a seleccionar **Ejecutar ahora**.
-1. Inicie sesión con la misma cuenta para confirmar que tiene una configuración correcta.
-
 ## <a name="add-facebook-as-an-identity-provider"></a>Incorporación de Facebook como proveedor de identidades
 
 El paquete de inicio **SocialAndLocalAccounts** incluye el inicio de sesión con la red social Facebook. *No* se requiere Facebook para el uso de directivas personalizadas, pero aquí se usa para mostrar cómo se puede habilitar el inicio de sesión social federado en una directiva personalizada.
@@ -328,7 +301,7 @@ Agregue el [secreto de la aplicación](identity-provider-facebook.md) de la apli
 1. Seleccione **Crear**.
 
 ### <a name="update-trustframeworkextensionsxml-in-custom-policy-starter-pack"></a>Actualización del paquete de inicio de directivas personalizadas TrustFrameworkExtensions.xml
-1. En el archivo `SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`** , sustituya el valor de `client_id` por el identificador de aplicación de Facebook:
+En el archivo `SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`** , sustituya el valor de `client_id` por el identificador de aplicación de Facebook y guarde los cambios.
 
    ```xml
    <TechnicalProfile Id="Facebook-OAUTH">
@@ -337,11 +310,34 @@ Agregue el [secreto de la aplicación](identity-provider-facebook.md) de la apli
        <Item Key="client_id">00000000000000</Item>
    ```
 
-1. Cargue el archivo *TrustFrameworkExtensions.xml* en el inquilino.
+
+## <a name="upload-the-policies"></a>Cargar las directivas
+
+1. Seleccione el elemento de menú **Identity Experience Framework** en el inquilino de B2C en Azure Portal.
+1. Seleccione **Cargar directiva personalizada**.
+1. En este orden, cargue los archivos de directiva:
+    1. *TrustFrameworkBase.xml*
+    2. *TrustFrameworkLocalization.xml*
+    3. *TrustFrameworkExtensions.xml*
+    4. *SignUpOrSignin.xml*
+    5. *ProfileEdit.xml*
+    6. *PasswordReset.xml*
+
+A medida que cargue los archivos, Azure agregará el prefijo `B2C_1A_` a cada uno.
+
+> [!TIP]
+> Si el editor XML admite la validación, valide los archivos con el archivo de esquema XML `TrustFrameworkPolicy_0.3.0.0.xsd` que se encuentra en el directorio raíz del paquete de inicio. La validación del esquema XML identifica los errores antes de realizar la carga.
+
+## <a name="test-the-custom-policy"></a>Prueba de la directiva personalizada
+
 1. En **Directivas personalizadas**, seleccione **B2C_1A_signup_signin**.
-1. Seleccione **Ejecutar ahora** y elija Facebook para iniciar sesión con Facebook y probar la directiva personalizada.
-
-
+1. Para **Seleccionar aplicación** en la página Información general de la directiva personalizada, seleccione la aplicación web denominada *webapp1* que ha registrado antes.
+1. Asegúrese de que la **URL de respuesta** sea `https://jwt.ms`.
+1. Seleccione **Ejecutar ahora**.
+1. Regístrese con una dirección de correo electrónico.
+1. Vuelva a seleccionar **Ejecutar ahora**.
+1. Inicie sesión con la misma cuenta para confirmar que tiene una configuración correcta.
+1. Seleccione **Ejecutar ahora** de nuevo y elija Facebook para iniciar sesión con Facebook y probar la directiva personalizada.
 ::: zone-end
 
 ## <a name="next-steps"></a>Pasos siguientes

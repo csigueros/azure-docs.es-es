@@ -5,16 +5,15 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/17/2021
-ms.openlocfilehash: 58e5f6f5646eb2dd75215a17349b053426b7c837
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.date: 10/26/2021
+ms.openlocfilehash: c28e3b84251c645ff690098950066b3bb653f3df
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130133336"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131467538"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Límites en Azure Database for PostgreSQL con servidor flexible
-
 
 
 En las secciones siguientes se describen los límites de capacidad y funcionales en el servicio de base de datos. Para obtener más información sobre los niveles de recursos (proceso, memoria y almacenamiento), consulte el artículo acerca del [proceso y el almacenamiento](concepts-compute-storage.md).
@@ -82,10 +81,7 @@ Una conexión de PostgreSQL, aunque no esté activa, puede ocupar aproximadament
 
 ### <a name="high-availability-ha"></a>Alta disponibilidad (HA)
 
-- La alta disponibilidad con redundancia de zona no se admite actualmente en los servidores que pueden aumentar la velocidad.
-- La dirección IP del servidor de bases de datos cambia cuando el servidor conmuta por error al modo de espera de alta disponibilidad. Use el registro DNS en lugar de la dirección IP del servidor.
-- Si la replicación lógica está configurada con un servidor flexible configurado de alta disponibilidad, en el caso de una conmutación por error al servidor en espera, las ranuras de replicación lógica no se copian en el servidor en espera. 
-- Para más información sobre la alta disponibilidad con redundancia de zona, incluidas las limitaciones, consulte la página de [documentación sobre concepto de alta disponibilidad](concepts-high-availability.md).
+- Consulte la página de [documentación de las limitaciones de alta disponibilidad con redundancia de zona](concepts-high-availability.md#zone-redundant-high-availability---limitations).
 
 ### <a name="availability-zones"></a>Zonas de disponibilidad
 

@@ -8,12 +8,12 @@ author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
 ms.date: 09/27/2021
-ms.openlocfilehash: 95d0ced24ee4f7426cac96ff2e550f2be88d8d02
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 85352f2cb1b2a0fe042b36fbe795435250385f65
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129083374"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130246349"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Panel Pedidos de los análisis de marketplace comercial
 
@@ -62,7 +62,7 @@ En las secciones siguientes se describe cómo usar el panel Pedidos y cómo leer
 
 ### <a name="month-range"></a>Intervalo mensual
 
-#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
+#### <a name="workspaces-view"></a>[Vista "Áreas de trabajo"](#tab/workspaces-view)
 
 Puede encontrar una selección del intervalo mensual en la esquina superior derecha de cada página. Puede personalizar salida de los gráficos de la página **Pedidos** seleccionando un intervalo mensual basado en los últimos 6 o 12 meses, o seleccionando un intervalo mensual personalizado con una duración máxima de 12 meses. El intervalo mensual predeterminado (período de cálculo) es de seis meses.
 
@@ -148,7 +148,7 @@ En la tabla Detalles del pedido se muestra una lista numerada de los 1000 pedid
 | MonthStartDate | Fecha de inicio del mes | Fecha de inicio del mes representa el mes de la compra. El formato es aaaa-mm-dd. | MonthStartDate |
 | Tipo de oferta | Tipo de oferta | Tipo de oferta de Marketplace comercial. | OfferType |
 | Azure License Type (Tipo de licencia de Azure) | Azure License Type (Tipo de licencia de Azure) | Tipo de contrato de licencia que los clientes utilizan para comprar Azure. También conocido como Canal. Los valores posibles son:<ul><li>[Proveedor de soluciones en la nube](cloud-solution-providers.md)</li><li>Enterprise</li><li>Enterprise a través de revendedor</li><li>Pago por uso</li><li>GTM</li></ul> | AzureLicenseType |
-| Marketplace License Type (Tipo de licencia de Marketplace) | Marketplace License Type (Tipo de licencia de Marketplace) | Método de facturación de la oferta de Marketplace comercial. Los distintos valores son:<ul><li>Facturado a través de Azure</li><li>Traiga su propia licencia</li><li>Gratuito</li><li>Microsoft como revendedor</li></ul> | MarketplaceLicenseType |
+| Marketplace License Type (Tipo de licencia de Marketplace) | Marketplace License Type (Tipo de licencia de Marketplace) | Método de facturación de la oferta de Marketplace comercial. Los distintos valores son:<ul><li>[Proveedor de soluciones en la nube](cloud-solution-providers.md) (CSP)</li><li>Enterprise (EA)</li><li>Enterprise a través de revendedor</li><li>Pago por uso</li><li>[Comercialización de productos](co-sell-overview.md) (GTM)</li></ul> | MarketplaceLicenseType |
 | SKU | SKU | Plan asociado con la oferta. | SKU |
 | Customer Country (País del cliente) | País o región del cliente. | Nombre del país o región proporcionado por el cliente. Podría ser diferente del país o región de la suscripción a Azure del cliente. | CustomerCountry |
 | Versión preliminar de SKU | Versión preliminar de SKU | El valor le permitirá saber si ha etiquetado la SKU como "versión preliminar". El valor es "Sí" si la SKU se ha etiquetado en consecuencia y solo las suscripciones de Azure autorizadas por usted pueden implementar y usar esta imagen. El valor es "No" si la SKU no se ha identificado como "versión preliminar". | IsPreviewSKU |

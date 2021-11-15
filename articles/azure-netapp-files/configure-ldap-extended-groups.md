@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 11/02/2021
 ms.author: b-juche
-ms.openlocfilehash: 90a87c85bace64c7c1cfc4a171c5fcbdb8d263c9
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 79bd8ca1855391365bfc33c7a259d1a984ce139c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130256369"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131447063"
 ---
 # <a name="configure-adds-ldap-with-extended-groups-for-nfs-volume-access"></a>Configuración de ADDS LDAP con grupos extendidos para el acceso a volúmenes NFS
 
@@ -37,7 +37,7 @@ En este artículo se explican las consideraciones y pasos para habilitar LDAP co
 
 * Una vez creado el volumen, no se puede modificar la opción LDAP (ya sea que esté habilitada o deshabilitada).  
 
-* En la tabla siguiente se describe la configuración del período de vida (TTL) para la caché LDAP. Debe esperar hasta que se actualice la caché antes de intentar acceder a un archivo o directorio a través de un cliente. De lo contrario, aparece un mensaje de acceso denegado en el cliente. 
+* En la tabla siguiente se describe la configuración del período de vida (TTL) para la caché LDAP. Debe esperar hasta que se actualice la caché antes de intentar acceder a un archivo o directorio a través de un cliente. De lo contrario, aparece un mensaje de acceso o permiso denegado en el cliente. 
 
     |     Condición de error    |     Resolución    |
     |-|-|

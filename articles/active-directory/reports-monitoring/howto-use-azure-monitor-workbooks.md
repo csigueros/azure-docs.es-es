@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 5/19/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9cde3940f09d3612ebe6411804fe4780e5bcfc18
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 3cbbfd54861cc926fe74b748e6b9a82b4457c9f9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110469204"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131444219"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Uso de los libros de Azure Monitor en informes de Azure Active Directory
 
@@ -31,6 +31,8 @@ Quiere:
 - Comprender el efecto de las [directivas de acceso condicional](../conditional-access/overview.md) en la experiencia de inicio de sesión de los usuarios.
 
 - Solucionar problemas de inicio de sesión para obtener una mejor visión del estado de inicio de sesión de la organización y resolver problemas rápidamente.
+
+- ¿Comprende los usuarios de riesgo y las tendencias de detecciones de riesgo en el inquilino?
 
 - Saber quién está utilizando las autenticaciones heredadas para iniciar sesión en su entorno. (Al [bloquear la autenticación heredada](../conditional-access/block-legacy-authentication.md), puede mejorar la protección del inquilino).
 
@@ -292,9 +294,25 @@ Para ayudarle a solucionar problemas de inicios de sesión, Azure Monitor propor
     ![Resumen de los inicios de sesión a la espera de una acción del usuario](./media/howto-use-azure-monitor-workbooks/54.png)
 
 
+## <a name="identity-protection-risk-analysis"></a>Análisis de riesgos de Identity Protection
 
+Use el libro **Análisis de riesgos de Identity Protection** de la sección **Uso** para comprender lo siguiente:
 
+- Distribución en usuarios de riesgo y detecciones de riesgo por niveles y tipos
+- Oportunidades para corregir mejor el riesgo
+- Dónde se detecta el riesgo en el mundo
 
+Puede filtrar las tendencias de detecciones de riesgo por:
+- Tipo de tiempo de detección
+- Nivel de riesgo
+
+Las detecciones de riesgo en tiempo real son las que se pueden detectar en el punto de autenticación. Estas detecciones se pueden enfrentar mediante directivas de inicio de sesión de riesgo que usan el acceso condicional para requerir la autenticación multifactor. 
+
+Puede filtrar las tendencias de usuarios de riesgo por:
+- Detalle de riesgo
+- Nivel de riesgo
+
+Si tiene un gran número de usuarios de riesgo en los que no se ha realizado "ninguna acción", considere la posibilidad de habilitar una directiva de acceso condicional para requerir un cambio de contraseña seguro cuando un usuario sea de alto riesgo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

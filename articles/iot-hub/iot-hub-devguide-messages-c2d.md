@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt, devx-track-azurecli
-ms.openlocfilehash: 3901f624f5df8770a235c6cd184aca4a3409c26b
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: f712f3f9928816e237504f504ec8ef28ec45d0e6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129547140"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130263577"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Envío de mensajes de la nube al dispositivo desde un centro de IoT
 
@@ -144,9 +144,9 @@ Cada centro de IoT expone las siguientes opciones de configuración para la mens
 
 Puede establecer las opciones de configuración de una de las siguientes maneras:
 
-* **Azure Portal**: en **Configuración** en su instancia de IoT Hub, seleccione **Puntos de conexión integrados** y expanda **Mensajería de la nube al dispositivo**. (Actualmente no es posible configurar las propiedades **feedback.maxDeliveryCount** y **feedback.lockDurationAsIso8601** en Azure Portal).
+* **Azure Portal**: en **Configuración del centro** en su instancia de IoT Hub, seleccione **Puntos de conexión integrados** y vaya a **Mensajería de la nube al dispositivo**. (Actualmente no es posible configurar las propiedades **feedback.maxDeliveryCount** y **feedback.lockDurationAsIso8601** en Azure Portal).
 
-    ![Establecimiento de opciones de configuración para la mensajería de nube a dispositivo en el portal](./media/iot-hub-devguide-messages-c2d/c2d-configuration-portal.png)
+:::image type="content" source="./media/iot-hub-devguide-messages-c2d/c2d-configuration-portal.png" alt-text="Establecimiento de opciones de configuración para la mensajería de nube a dispositivo en el portal" border="true":::
 
 * **CLI de Azure**: use el comando [az iot hub update](/cli/azure/iot/hub#az_iot_hub_update):
 

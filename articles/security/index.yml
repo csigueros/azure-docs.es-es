@@ -4,7 +4,7 @@ summary: 'La seguridad se integra en todos los aspectos de Azure. Azure le ofrec
 brand: azure
 metadata:
   title: Documentación de Azure Security Center
-  description: 'Información acerca de la seguridad en Azure. Vea información sobre los fundamentos de seguridad, los procedimientos recomendados y los patrones, y Azure Security Center.'
+  description: 'Información acerca de la seguridad en Azure. Vea información sobre los fundamentos de seguridad, los procedimientos recomendados y los patrones, y Microsoft Defender for Cloud.'
   services: security
   ms.service: security
   ms.subservice: na
@@ -115,7 +115,7 @@ conceptualContent:
       links:
         - url: ../security-center/security-center-get-started.md
           itemType: quickstart
-          text: Incorporación de una suscripción a Security Center
+          text: Incorporación de una suscripción a Defender for Cloud
         - url: ../security-center/security-center-just-in-time.md
           itemType: how-to-guide
           text: Acceso a máquinas virtuales Just-In-Time
@@ -129,13 +129,13 @@ conceptualContent:
       links:
         - url: ../defender-for-iot/overview.md
           itemType: overview
-          text: Presentación de Azure Security Center for IoT
+          text: Introducción a Microsoft Defender para IoT
         - url: ../defender-for-iot/architecture.md
           itemType: how-to-guide
-          text: Arquitectura de Azure Security Center para IoT
+          text: Arquitectura de Azure Defender para IoT
         - url: ../defender-for-iot/getting-started.md
           itemType: how-to-guide
-          text: Introducción a Azure Security Center for IoT
+          text: Primeros pasos con Microsoft Defender para IoT
       footerLink:
         url: /azure/asc-for-iot/
         text: Ver más
@@ -143,13 +143,13 @@ conceptualContent:
       links:
         - url: ../sentinel/overview.md
           itemType: overview
-          text: ¿Qué es Azure Sentinel?
+          text: ¿Qué es Microsoft Sentinel?
         - url: ../sentinel/quickstart-onboard.md
           itemType: quickstart
-          text: Incorporación de Azure Sentinel
+          text: Incorporación a Microsoft Azure Sentinel
         - url: ../sentinel/get-visibility.md
           itemType: quickstart
-          text: Introducción a Azure Sentinel
+          text: Introducción a Microsoft Azure Sentinel
       footerLink:
         url: ../sentinel/index.yml
         text: Ver más
@@ -157,13 +157,13 @@ conceptualContent:
       links:
         - url: ../security-center/security-center-alerts-overview.md
           itemType: concept
-          text: Alertas de seguridad en Azure Security Center
+          text: Alertas de seguridad en Microsoft Defender for Cloud
         - url: ../storage/common/azure-defender-storage-configure.md
           itemType: concept
-          text: Azure Defender para Storage
+          text: "Microsoft\_Defender para Storage"
         - url: ../azure-sql/database/threat-detection-overview.md
           itemType: concept
-          text: Azure Defender para SQL
+          text: "Microsoft\_Defender para SQL"
       footerLink:
         url: ./fundamentals/threat-detection.md
         text: Ver más

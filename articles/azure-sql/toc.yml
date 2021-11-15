@@ -67,7 +67,7 @@
               href: /security/benchmark/azure/baselines/sql-database-security-baseline?toc=/azure/azure-sql/toc.json
             - name: Always Encrypted
               href: database/always-encrypted-landing.yml
-            - name: Azure Defender para SQL
+            - name: "Microsoft\_Defender para SQL"
               href: database/azure-defender-for-sql.md
             - name: Protección contra amenazas avanzada
               href: database/threat-detection-overview.md
@@ -479,6 +479,8 @@
                   href: database/ledger-limits.md
             - name: Controles de acceso a la red
               href: database/network-access-controls-overview.md
+            - name: Reglas del firewall de salida
+              href: database/outbound-firewall-rule-overview.md
             - name: Private Link
               href: database/private-endpoint-overview.md
             - name: Puntos de conexión de red virtual

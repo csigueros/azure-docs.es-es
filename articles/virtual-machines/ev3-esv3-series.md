@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: mimckitt
-ms.openlocfilehash: 251d9d2afd541159ae48d5e769b24e0f925fd65d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e42078618ad15850420b8c9c57c66e3419d586d2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124776602"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131466929"
 ---
 # <a name="ev3-and-esv3-series"></a>Series Ev3 y Esv3
 
@@ -69,7 +69,7 @@ Las máquinas virtuales de la serie Esv3 cuentan con la tecnología Hyper-Thread
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible <br>
 <br>
 
-| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS/Mbps (tamaño de caché en GiB) | Rendimiento de almacenamiento en caché y almacenamiento temporal expandidos: IOPS/MBps<sup>3</sup> | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps |  Rendimiento del disco sin almacenamiento en la caché expandido: IOPS/MBps<sup>3</sup>| Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
+| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS/Mbps (tamaño de caché en GiB) | Rendimiento de almacenamiento en caché y almacenamiento temporal expandidos: IOPS/MBps<sup>3</sup> | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps |  Rendimiento del disco sin almacenamiento en la caché expandido: IOPS/MBps<sup>3</sup>| N.º máx. de NIC/ancho de banda de red esperado (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_E2s_v3<sup>4</sup>                | 2  | 16  | 32  | 4  | 4000/32 (50)       | 4000/100    | 3200/48    | 4000/100 | 2/1000 |
 | Standard_E4s_v3 <sup>1</sup>   | 4  | 32  | 64  | 8  | 8000/64 (100)      | 8000/200    | 6400/96    | 8000/200 | 2/2000 |

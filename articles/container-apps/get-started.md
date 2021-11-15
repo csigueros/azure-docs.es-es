@@ -5,15 +5,15 @@ services: app-service
 author: craigshoemaker
 ms.service: app-service
 ms.topic: quickstart
-ms.date: 10/21/2021
+ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 7c6865d574204f22c8b81afe04dd10561674876b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 7111391f1a066e386384f6623fa6a3d593592123
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093056"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131508766"
 ---
 # <a name="quickstart-deploy-your-first-container-app"></a>Inicio rápido: Implementar la primera aplicación de contenedor
 
@@ -61,7 +61,23 @@ az extension add `
 
 ---
 
-Establezca estas variables de entorno:
+Ahora que la extensión está instalada, registre el espacio de nombres `Microsoft.Web`.
+
+# <a name="bash"></a>[Bash](#tab/bash)
+
+```azurecli
+az provider register --namespace Microsoft.Web
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+```powershell
+az provider register --namespace Microsoft.Web
+```
+
+---
+
+A continuación, agregue estas variables de entorno:
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
@@ -198,7 +214,8 @@ az containerapp create \
   --environment $CONTAINERAPPS_ENVIRONMENT \
   --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
   --target-port 80 \
-  --ingress 'external'
+  --ingress 'external' \
+  --query configuration.ingress.fqdn
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
@@ -210,14 +227,15 @@ az containerapp create `
   --environment $CONTAINERAPPS_ENVIRONMENT `
   --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest `
   --target-port 80 `
-  --ingress 'external'
+  --ingress 'external' `
+  --query configuration.ingress.fqdn
 ```
 
 ---
 
 Al establecer `--ingress` en `external`, la aplicación contenedora estará disponible para solicitudes públicas.
 
-El comando `create` devuelve el nombre de dominio completo de la aplicación contenedora. Copie esta ubicación en un explorador web y verá el mensaje siguiente.
+Aquí, el comando `create` devuelve el nombre de dominio completo de la aplicación contenedora. Copie esta ubicación en un explorador web y verá el mensaje siguiente.
 
 :::image type="content" source="media/get-started/azure-container-apps-quickstart.png" alt-text="Primera implementación de Azure Container Apps.":::
 

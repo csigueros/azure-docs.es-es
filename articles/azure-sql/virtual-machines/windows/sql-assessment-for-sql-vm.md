@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/02/2021
 ms.reviewer: mathoma
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 47b74190884f40e3d1e7504133758e35c1fb3ba7
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b0c163f3ea101ec47eda25bc81f78033893cad6a
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091388"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500286"
 ---
 # <a name="sql-assessment-for-sql-server-on-azure-vms-preview"></a>SQL Assessment para SQL Server en máquinas virtuales de Azure (versión preliminar)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +29,7 @@ Una vez habilitada la característica SQL Assessment, se examina la instancia de
 
 Los resultados de la evaluación se cargan en el [área de trabajo de Log Analytics](../../../azure-monitor/logs/quick-create-workspace.md) mediante [Microsoft Monitoring Agent (MMA)](../../../azure-monitor/agents/log-analytics-agent.md). Si la máquina virtual ya está configurada para usar Log Analytics, la característica SQL Assessment usa la conexión existente.  De lo contrario, la extensión MMA se instala en la VM con SQL Server y se conecta al área de trabajo de Log Analytics especificada.
 
-El tiempo de ejecución de la evaluación depende del entorno (número de bases de datos, objetos, entre otros), con una duración de unos minutos, hasta una hora. Del mismo modo, el tamaño del resultado de la evaluación también depende de su entorno. 
+El tiempo de ejecución de la evaluación depende del entorno (número de bases de datos, objetos, entre otros), con una duración de unos minutos, hasta una hora. Del mismo modo, el tamaño del resultado de la evaluación también depende de su entorno. La evaluación se ejecuta en la instancia y en todas las bases de datos de esa instancia.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -37,6 +37,7 @@ Para usar la característica SQL Assessment, debe tener los siguientes requisito
 
 - La VM con SQL Server debe estar registrada con la [extensión de IaaS de SQL Server en modo completo](sql-agent-extension-manually-register-single-vm.md#full-mode). 
 - Un [área de trabajo de Log Analytics](../../../azure-monitor/logs/quick-create-workspace.md) en la misma suscripción que la VM con SQL Server en la que se van a cargar los resultados de la evaluación. 
+- SQL Server debe ser la versión 2012 o posterior.
 
 
 ## <a name="enable"></a>Habilitar
@@ -100,20 +101,24 @@ Si hay varias ejecuciones en un solo día, solo se incluye la ejecución más re
 
 Puede encontrar algunos de los siguientes problemas conocidos al usar SQL Assessment. 
 
+### <a name="configuration-error-for-enable-assessment"></a>Error de configuración al habilitar la evaluación
+
+Si la máquina virtual ya está asociada a un área de trabajo de Log Analytics a la que no tiene acceso o que se encuentra en otra suscripción, verá un error en la hoja de configuración. Para lo primero, puede obtener permisos para esa área de trabajo o cambiar la máquina virtual a otra área de trabajo de Log Analytics según [estas instrucciones](../../../azure-monitor/agents/agent-manage.md) para quitar Microsoft Monitoring Agent. Estamos trabajando para habilitar el escenario en el que el área de trabajo de Log Analytics está en otra suscripción.
+
 ### <a name="deployment-failure-for-enable-or-run-assessment"></a>Error de implementación para habilitar o ejecutar evaluación 
 
 Consulte el [historial de implementación](../../../azure-resource-manager/templates/deployment-history.md) del grupo de recursos que contiene la VM con SQL para ver el mensaje de error asociado a la acción con error. 
  
 ### <a name="failed-assessments"></a>Evaluaciones con error 
 
-**Assessment run failed** (Error en la ejecución de evaluación) Indica que la extensión IaaS de SQL encontró un problema al ejecutar la evaluación. El mensaje de error detallado estará disponible en el registro de extensiones dentro de la máquina virtual en `C:\WindowsAzure\Logs\Plugins\Microsoft.SqlServer.Management.SqlIaaSAgent\2.0.X.Y`, donde `2.0.X.Y `es la carpeta de versión más reciente presente.  
+**Error en la ejecución de evaluación**: indica que la extensión de IaaS de SQL encontró un problema al ejecutar la evaluación. El mensaje de error detallado estará disponible en el registro de extensiones dentro de la máquina virtual en `C:\WindowsAzure\Logs\Plugins\Microsoft.SqlServer.Management.SqlIaaSAgent\2.0.X.Y`, donde `2.0.X.Y `es la carpeta de versión más reciente presente.  
 
-**Upload result to Log Analytics workspace failed** (Error al cargar resultado en el área de trabajo de Log Analytics) Indica que Microsoft Monitoring Agent (MMA) no pudo cargar los resultados de una manera limitada en el tiempo. Asegúrese de que la extensión MMA está [aprovisionada correctamente](../../../azure-monitor/visualize/vmext-troubleshoot.md) y consulte la [guía de solución de problemas](../../../azure-monitor/agents/agent-windows-troubleshoot.md) de MMA para identificar el "Problema de registros personalizados" que se indica en la guía. 
+**Error al cargar el resultado en el área de trabajo de Log Analytics**: indica que Microsoft Monitoring Agent (MMA) no pudo cargar los resultados de una manera limitada en el tiempo. Asegúrese de que la extensión de MMA esté [aprovisionada correctamente](../../../azure-monitor/visualize/vmext-troubleshoot.md) y consulte los problemas de conectividad y los problemas de recopilación de datos enumerados en esta [guía de solución de problemas](../../../azure-monitor/agents/agent-windows-troubleshoot.md). 
 
 >[!TIP]
 >Si ha aplicado TLS 1.0 o posterior en Windows y ha deshabilitado los protocolos SSL anteriores, como se describe [aquí](/troubleshoot/windows-server/windows-security/restrict-cryptographic-algorithms-protocols-schannel#schannel-specific-registry-keys), también debe asegurarse de que .NET Framework esté [configurado](../../../azure-monitor/agents/agent-windows.md#configure-agent-to-use-tls-12) para usar criptografía segura. 
 
-**Result expired due to Log Analytics workspace data retention** (El resultado expiró debido a la retención de datos del área de trabajo de Log Analytics) Indica que los resultados ya no se conservan en el área de trabajo de Log Analytics en función de su directiva de retención. Puede [cambiar el período de retención](../../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) del área de trabajo
+**El resultado expiró debido a la retención de datos del área de trabajo de Log Analytics**: indica que los resultados ya no se conservan en el área de trabajo de Log Analytics en función de su directiva de retención. Puede [cambiar el período de retención](../../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) del área de trabajo
 
 ## <a name="next-steps"></a>Pasos siguientes
 

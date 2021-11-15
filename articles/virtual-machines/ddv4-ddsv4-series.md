@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: e36b45f5ac202936e26f238f2082cf811195b235
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: ba964b6bc48eaa1a5c0452709d63cf968a14c888
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130071556"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131459717"
 ---
 # <a name="ddv4-and-ddsv4-series"></a>Series Ddv4 y Ddsv4
 
@@ -40,17 +40,20 @@ Los nuevos tamaños de máquinas virtuales Ddv4 incluyen almacenamiento SSD loca
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible <br>
 <br> 
 
-| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | <sup>**</sup> Rendimiento máximo de almacenamiento temporal: IOPS/Mbps | Nº máx. NIC|Ancho de banda de red esperado (Mbps) |
+| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal: IOPS/Mbps<sup>*</sup> | Nº máx. NIC|Ancho de banda de red esperado (Mbps) |
 |---|---|---|---|---|---|---|---|
-| Standard_D2d_v4<sup>1</sup> | 2 | 8 | 75 | 4 | 19000/120 | 2|1000 |
-| Standard_D4d_v4 | 4 | 16 | 150 | 8 | 38500/242 | 2|2000 |
-| Standard_D8d_v4 | 8 | 32 | 300 | 16 | 77000/485 | 4|4000 |
-| Standard_D16d_v4 | 16 | 64 | 600 | 32 | 154000/968 | 8|8000 |
-| Standard_D32d_v4 | 32 | 128 | 1200 | 32 | 308000/1936 | 8|16000 |
-| Standard_D48d_v4 | 48 | 192 | 1800 | 32 | 462000/2904 | 8|24000 |
-| Standard_D64d_v4 | 64 | 256 | 2400 | 32 | 615000/3872 | 8|30000 |
+| Standard_D2d_v4<sup>1</sup> | 2  | 8   | 75   | 4  | 9000/125    | 2 | 1000  |
+| Standard_D4d_v4             | 4  | 16  | 150  | 8  | 19000/250   | 2 | 2000  |
+| Standard_D8d_v4             | 8  | 32  | 300  | 16 | 38000/500   | 4 | 4000  |
+| Standard_D16d_v4            | 16 | 64  | 600  | 32 | 75000/1000   | 8 | 8000  |
+| Standard_D32d_v4            | 32 | 128 | 1200 | 32 | 150000/2000 | 8 | 16000 |
+| Standard_D48d_v4            | 48 | 192 | 1800 | 32 | 225000/3000 | 8 | 24000 |
+| Standard_D64d_v4            | 64 | 256 | 2400 | 32 | 300000/4000 | 8 | 30000 |
 
-<sup>**</sup> Estos valores de IOPS se pueden lograr mediante las [VM Gen2](generation-2.md)<br>
+
+
+
+<sup>*</sup> Estos valores de IOPS se pueden lograr mediante las [VM Gen2](generation-2.md)<br>
 <sup>1</sup> Las redes aceleradas solo se pueden aplicar a una única NIC. 
 
 ## <a name="ddsv4-series"></a>Serie Ddsv4
@@ -72,17 +75,17 @@ Los nuevos tamaños de máquinas virtuales Ddsv4 incluyen almacenamiento SSD loc
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible <br>
 <br> 
 
-| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | <sup>**</sup> Rendimiento máximo de almacenamiento temporal: IOPS/Mbps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps |  Rendimiento máximo del disco sin almacenamiento en la caché expandido: IOPS/MBps<sup>1</sup> | Nº máx. NIC|Ancho de banda de red esperado (Mbps) |
+| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal: IOPS/Mbps<sup>*</sup> | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps |  Rendimiento máximo del disco sin almacenamiento en la caché expandido: IOPS/MBps<sup>1</sup> | Nº máx. NIC|Ancho de banda de red esperado (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_D2ds_v4<sup>2</sup> | 2 | 8 | 75 | 4 | 19000/120(50) | 3200/48 | 4000/200 | 2|1000 |
-| Standard_D4ds_v4 | 4 | 16 | 150 | 8 | 38500/242(100) | 6400/96 | 8000/200 | 2|2000 |
-| Standard_D8ds_v4 | 8 | 32 | 300 | 16 | 77000/485(200) | 12800/192 | 16 000/400 | 4|4000 |
-| Standard_D16ds_v4 | 16 | 64 | 600 | 32 | 154000/968(400) | 25600/384 | 32 000/800 | 8|8000 |
-| Standard_D32ds_v4 | 32 | 128 | 1200 | 32 | 308000/1936(800) | 51200/768 | 64 000/1600 | 8|16000 |
-| Standard_D48ds_v4 | 48 | 192 | 1800 | 32 | 462000/2904(1200) | 76800/1152 | 80000/2000 | 8|24000 |
-| Standard_D64ds_v4 | 64 | 256 | 2400 | 32 | 615000/3872(1600) | 80000/1200 | 80000/2000 | 8|30000 |
+| Standard_D2ds_v4<sup>2</sup> | 2  | 8   | 75   | 4  | 9000/125    | 3200/48    | 4000/200   | 2 | 1000  |
+| Standard_D4ds_v4             | 4  | 16  | 150  | 8  | 19000/250   | 6400/96    | 8000/200   | 2 | 2000  |
+| Standard_D8ds_v4             | 8  | 32  | 300  | 16 | 38000/500   | 12800/192  | 16 000/400  | 4 | 4000  |
+| Standard_D16ds_v4            | 16 | 64  | 600  | 32 | 85000/1000   | 25600/384  | 32 000/800  | 8 | 8000  |
+| Standard_D32ds_v4            | 32 | 128 | 1200 | 32 | 150000/2000 | 51200/768  | 64 000/1600 | 8 | 16000 |
+| Standard_D48ds_v4            | 48 | 192 | 1800 | 32 | 225000/3000 | 76800/1152 | 80000/2000 | 8 | 24000 |
+| Standard_D64ds_v4            | 64 | 256 | 2400 | 32 | 300000/4000 | 80000/1200 | 80000/2000 | 8 | 30000 |
 
-<sup>**</sup> Estos valores de IOPS se pueden lograr mediante las [VM Gen2](generation-2.md)<br>
+<sup>*</sup> Estos valores de IOPS se pueden lograr mediante las [VM Gen2](generation-2.md)<br>
 <sup>1</sup> Las máquinas virtuales de la serie Ddsv4 pueden [expandir](./disk-bursting.md) su rendimiento de disco y llegar a una expansión máxima durante hasta 30 minutos cada vez.<br>
 <sup>2</sup> Las redes aceleradas solo se pueden aplicar a una única NIC. 
 

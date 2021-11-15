@@ -8,12 +8,12 @@ ms.date: 08/20/2021
 ms.author: dech
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: c8a2ab0b904c60e2d1d1c44a9d596cf62d0403d6
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 49b0f5bac116ccdc6696ce23100f661791304ff5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129546046"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131465010"
 ---
 # <a name="best-practices-for-scaling-provisioned-throughput-rus"></a>Procedimientos recomendados para escalar el rendimiento aprovisionado (RU/s) 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -35,10 +35,12 @@ Cuando envía una solicitud para aumentar las RU/s de la base de datos o contene
     - Como resultado, la operación puede tardar algún tiempo en completarse, normalmente de 4 a 6 horas.
 Cada partición física puede admitir un máximo de 10 000 RU/s (se aplica a todas las API) de rendimiento y 50 GB de almacenamiento (se aplica a todas las API, excepto Cassandra, que tiene 30 GB de almacenamiento). 
 
+> [!NOTE]
+> Si realiza una [operación de conmutación por error de región manual](how-to-manage-database-account.md#manual-failover) o [agrega o quita una nueva región](how-to-manage-database-account.md#addremove-regions-from-your-database-account) mientras hay una operación asincrónica de escalado vertical en curso, la operación de escalado vertical del rendimiento se pausará. Se reanudará automáticamente cuando se complete la operación de conmutación por error o de agregar o quitar región. 
 - **Escalado vertical instantáneo**
     - Para realizar la operación de reducción vertical, Azure Cosmos DB no necesita dividir ni agregar nuevas particiones. 
     - Como resultado, la operación se completa inmediatamente y las RU están disponibles para su uso. 
-    - El resultado clave de esta operación es que se reducirán las RU por intervalo de partición.
+    - El resultado clave de esta operación es que se reducirán las RU por partición física.
     
 ## <a name="how-to-scale-up-rus-without-changing-partition-layout"></a>Escalado vertical de las RU/s sin cambiar el diseño de la partición
 

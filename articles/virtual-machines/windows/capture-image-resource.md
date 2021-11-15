@@ -10,12 +10,12 @@ ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
 ms.collection: windows
-ms.openlocfilehash: 3fb298dc8e01c50b562e3891f02227b416596a04
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 95f57b01f2c9e6bffd0cfc1f1d563605e320d6ba
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122695258"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131437018"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Captura de una imagen administrada de una máquina virtual generalizada en Azure
 
@@ -24,7 +24,7 @@ ms.locfileid: "122695258"
 
 Se puede crear un recurso de imagen administrado a partir de una máquina virtual (VM) generalizada que se almacena como un disco administrado o como un disco no administrado en una cuenta de almacenamiento. A partir de ese momento, la imagen se puede utilizar para crear varias máquinas virtuales. Para obtener información sobre cómo se facturan las imágenes administradas, consulte [Precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
-Una sola imagen administrada admite hasta 20 implementaciones simultáneas. Cuando se intentan crear más de 20 máquinas virtuales simultáneamente, desde una misma imagen administrada, se pueden producir tiempos de espera de aprovisionamiento debido a las limitaciones de rendimiento de almacenamiento de un solo VHD. Para crear más de 20 máquinas virtuales simultáneamente, use una imagen de [Instancias de Shared Image Gallery](../shared-image-galleries.md) configurada con una réplica por cada 20 implementaciones simultáneas de máquina virtual.
+Una sola imagen administrada admite hasta 20 implementaciones simultáneas. Cuando se intentan crear más de 20 máquinas virtuales simultáneamente, desde una misma imagen administrada, se pueden producir tiempos de espera de aprovisionamiento debido a las limitaciones de rendimiento de almacenamiento de un solo VHD. Para crear más de 20 máquinas virtuales simultáneamente, use una imagen de [Azure Compute Gallery](../shared-image-galleries.md) (anteriormente denominado Shared Image Gallery) configurada con una réplica por cada 20 implementaciones simultáneas de máquina virtual.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

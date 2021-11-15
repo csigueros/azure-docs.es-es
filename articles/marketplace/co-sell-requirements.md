@@ -7,13 +7,13 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
-ms.date: 07/13/2021
-ms.openlocfilehash: c39b86c6417d2cae8d303f7cae0aa523e223edaa
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.date: 10/21/2021
+ms.openlocfilehash: 09403aa97df2fe0ab451eee3194b1d6e3b239ab2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866945"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249445"
 ---
 # <a name="co-sell-requirements"></a>Requisitos de venta conjunta
 
@@ -78,7 +78,7 @@ Después de alcanzar el estado Listo para la venta conjunta, hay tres requisitos
 
 Requisito 1, lograr lo siguiente:
 
-- En el _nivel de organización_, alcanzar como mínimo el umbral de 100 000 USD de ingresos por consumo de Azure durante los últimos 12 meses. Este umbral se puede conseguir a través de una combinación de soluciones de Azure. Si la oferta es comercializable en el marketplace comercial, puede cumplir este requisito si alcanza un umbral de ingresos facturados de 100 000 USD.
+- En el _nivel de organización_, alcanzar como mínimo el umbral de 100 000 USD de ingresos por consumo de Azure durante los últimos 12 meses. Este umbral se puede conseguir a través de una combinación de soluciones de Azure. Si la oferta es comercializable en el marketplace comercial, puede cumplir este requisito si alcanza un umbral de ingresos facturados de USD 100 000 durante el período final de 12 meses.
 
 Requisito 2: aprobar la validación técnica de Microsoft para una solución basada en Azure:
 - La validación técnica debe confirmar que más del 50% de la infraestructura de la oferta usa código IP repetible en Azure. Tenga en cuenta que las máquinas virtuales de Azure y las soluciones de Aplicación de Azure comercializables en el marketplace comercial deben cumplir este requisito de forma predeterminada.

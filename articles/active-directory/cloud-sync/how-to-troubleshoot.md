@@ -4,16 +4,16 @@ description: En este artículo se describe cómo solucionar los problemas que pu
 author: billmath
 ms.author: billmath
 manager: daveba
-ms.date: 01/19/2021
+ms.date: 10/13/2021
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 863d043bc3185b5fd7f44056ba13bca5ed700f30
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 4fa397505d7bb98235a97e5818409baee9c9c9e4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131018250"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131451870"
 ---
 # <a name="cloud-sync-troubleshooting"></a>Solución de problemas de sincronización en la nube
 
@@ -27,6 +27,7 @@ La sincronización en la nube afecta a muchos aspectos distintos y tiene muchas 
 |[Problemas del agente](#agent-problems)|Compruebe que el agente se ha instalado correctamente y que se comunica con Azure Active Directory (Azure AD).|
 |[Problemas de sincronización de objetos](#object-synchronization-problems)|Use registros de aprovisionamiento para solucionar problemas de sincronización de objetos.|
 |[Problemas de aprovisionamiento en cuarentena](#provisioning-quarantined-problems)|Obtenga información sobre los problemas de aprovisionamiento en cuarentena y cómo corregirlos.|
+|[escritura diferida de contraseñas](#password-writeback)|Comprenda los problemas comunes de escritura diferida de contraseñas y cómo corregirlos.|
 
 
 ## <a name="agent-problems"></a>Problemas del agente
@@ -230,6 +231,19 @@ Si tiene que reparar la cuenta de servicio de sincronización de la nube, puede 
       ```
 
    5. Una vez se complete esto, debe indicar que la cuenta se ha reparado correctamente.
+
+## <a name="password-writeback"></a>escritura diferida de contraseñas
+Es importante tener en cuenta la siguiente información en lo que respecta a la habilitación y el uso de la escritura diferida de contraseñas con la sincronización en la nube.
+
+- Si tiene que actualizar los [permisos de gMSA](how-to-gmsa-cmdlets.md#using-set-aadcloudsyncpermissions), estos permisos pueden tardar hasta una hora o más en replicarse en todos los objetos del directorio. Si no asigna estos permisos, la escritura diferida puede parecer estar configurada correctamente, pero los usuarios encuentran errores al intentar actualizar sus contraseñas locales desde la nube. Para que aparezca **Contraseña sin expiración**, los permisos se deben aplicar a "Este objeto y todos los descendientes". 
+- Si las contraseñas de algunas cuentas de usuario no se escriben de nuevo en el directorio local, asegúrese de que la herencia no esté deshabilitada para la cuenta en el entorno de AD DS local. Los permisos de escritura para las contraseñas se deben aplicar a los objetos descendientes para que la característica funcione correctamente. 
+- Las directivas de contraseñas en el entorno de AD DS local pueden impedir que se procesen correctamente los restablecimientos de contraseña. Si va a probar esta característica y desea restablecer la contraseña de los usuarios más de una vez al día, la directiva de grupo de Vigencia mínima de la contraseña debe establecerse en 0. Esta configuración se puede encontrar en **Configuración del equipo > Directivas > Configuración de Windows > Configuración de seguridad > Directivas de cuenta** en **gpmc.msc**. 
+     - Si actualiza la directiva de grupo, espere a que la directiva actualizada se replique o use el comando gpupdate /force. 
+     - Para que las contraseñas se cambien inmediatamente, la vigencia mínima de la contraseña debe establecerse en 0. Sin embargo, si los usuarios se adhieren a las directivas locales y el campo Vigencia mínima de la contraseña se establece en un valor mayor que cero, la escritura diferida de contraseñas no funcionará después de que se evalúen las directivas locales. 
+
+
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes 
 

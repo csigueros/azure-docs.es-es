@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 03/02/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: 2fcaaf038ec7a619ec36a68fdd720ac7599da25f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 63fb96a6bbb5ac1cd883ea8c19a10951e4701c8f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128649726"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131443288"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API de Azure Cosmos DB para MongoDB (versión 3.6): características y sintaxis que se admiten
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -179,6 +179,9 @@ La API de Azure Cosmos DB para MongoDB admite los siguientes comandos de base de
 | $allElementsTrue | Sí |
 
 ### <a name="comparison-expressions"></a>Expresiones de comparación
+
+> [!NOTE]
+> La API de MongoDB no admite expresiones de comparación con un literal de matriz en la consulta.
 
 | Get-Help | Compatible |
 |---------|---------|

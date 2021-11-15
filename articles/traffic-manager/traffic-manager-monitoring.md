@@ -1,21 +1,21 @@
 ---
-title: Supervisión de puntos de conexión de Azure Traffic Manager y conmutación por error | Microsoft Docs
+title: Supervisión del punto de conexión de Azure Traffic Manager
 description: Este artículo le puede ayudar a comprender la forma en que el Administrador de tráfico utiliza la supervisión de puntos de conexión y la conmutación por error automática de los puntos de conexión para permitir que los clientes de Azure implementen aplicaciones de alta disponibilidad
 services: traffic-manager
-author: duongau
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/22/2021
-ms.author: duau
-ms.openlocfilehash: ce4ff8cfa4bee895e17cd7ad22c54ff777d210ff
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.date: 11/02/2021
+ms.author: allensu
+ms.openlocfilehash: 52edf0cbae53540152a9991980499698b3292287
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113435189"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131467214"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Supervisión de puntos de conexión de Traffic Manager
 
@@ -134,8 +134,11 @@ La escala de tiempo de la siguiente ilustración es una descripción detallada d
 9. **El servicio vuelve a estar en línea**. El servicio vuelve a estar disponible. El punto de conexión permanece en estado Degradado en Traffic Manager hasta que el sistema de supervisión realiza su siguiente comprobación de estado.
 10. **Se reanuda el tráfico al servicio**. El Administrador de tráfico envía una solicitud GET y recibe una respuesta de estado 200 - Correcto. El servicio ha vuelto a un estado correcto. Los servidores de nombres de Traffic Manager se actualizan y comienzan a distribuir el nombre DNS del servicio en las respuestas DNS. El tráfico vuelve al punto de conexión a medida que caducan las respuestas DNS en caché que devuelven otros puntos de conexión, y conforme se terminan las conexiones existentes a otros puntos de conexión.
 
+    > [!IMPORTANT]
+    > Traffic Manager implementa varios sondeos desde varias ubicaciones para cada punto de conexión. Varios sondeos aumentan la resistencia para la supervisión de puntos de conexión. Traffic Manager agrega el estado medio de los sondeos en lugar de depender de una sola instancia de sondeo. La redundancia del sistema de sondeo es por diseño. Los valores de punto de conexión deben considerarse holísticamente y no por sondeo. El número que se muestra para el estado del sondeo es un promedio. El estado solo debe ser un problema si menos del 50 % (0,5) de sondeos publica un estado **activo**.
+
     > [!NOTE]
-    > Como el Administrador de tráfico funciona en el nivel de DNS, no influye en las conexiones existentes a algún punto de conexión. Cuando dirige el tráfico entre los puntos de conexión (bien por la configuración del perfil modificada o durante la conmutación por error o la conmutación por recuperación), el Administrador de tráfico dirige las nuevas conexiones a los puntos de conexión disponibles. Sin embargo, otros puntos de conexión pueden continuar recibiendo tráfico a través de las conexiones existentes hasta que finalizan esas sesiones. Para habilitar el tráfico que se depura de las conexiones existentes, las aplicaciones deben limitar la duración de la sesión que se utiliza con cada punto de conexión.
+    > Como el Administrador de tráfico funciona en el nivel de DNS, no influye en las conexiones existentes a algún punto de conexión. Cuando dirige el tráfico entre los puntos de conexión (bien por la configuración del perfil modificada o durante la conmutación por error o la conmutación por recuperación), el Administrador de tráfico dirige las nuevas conexiones a los puntos de conexión disponibles. Otros puntos de conexión pueden continuar recibiendo tráfico a través de las conexiones existentes hasta que finalizan esas sesiones. Para habilitar el tráfico que se depura de las conexiones existentes, las aplicaciones deben limitar la duración de la sesión que se utiliza con cada punto de conexión.
 
 ## <a name="traffic-routing-methods"></a>Métodos de enrutamiento del tráfico
 

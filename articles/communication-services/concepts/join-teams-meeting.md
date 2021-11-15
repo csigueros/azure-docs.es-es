@@ -8,12 +8,12 @@ ms.date: 10/15/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.openlocfilehash: c0713588eadebbd1d9376faec8e61cf5a88dfd1d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 6b6444ef42e0ada42f374ed5d1e69aefd332a983
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131068919"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131438880"
 ---
 # <a name="join-a-teams-meeting"></a>Unión a una reunión de Teams
 
@@ -38,7 +38,7 @@ Las aplicaciones personalizadas compiladas con Azure Communication Services para
 
 Al igual que con la unión a una reunión anónima de Teams, la aplicación debe tener el vínculo de reunión para unirse, que se puede recuperar a través de Graph API o del calendario de Microsoft Teams. El nombre de los usuarios BYOI que se muestra en Teams se puede configurar a través de Calling SDK de Communication Services y se etiquetan como "externos" para permitir que los usuarios de Teams sepan que no se han autenticado mediante Azure Active Directory.
 
-Durante una reunión, los usuarios de Communication Services podrán usar la funcionalidad principal de audio, vídeo, uso compartido de pantalla y chat mediante los SDK de Azure Communication Services. Cuando un usuario de Communication Services deja la reunión o esta finaliza, ya no puede enviar ni recibir nuevos mensajes de chat, pero tendrá acceso a los mensajes enviados y recibidos durante la reunión. Los usuarios anónimos de Communication Services no pueden agregar participantes adicionales a la reunión y no pueden iniciar la grabación ni la transcripción de esta.
+Durante una reunión, los usuarios de Communication Services podrán usar la funcionalidad principal de audio, vídeo, uso compartido de pantalla y chat mediante los SDK de Azure Communication Services. Cuando un usuario de Communication Services deja la reunión o esta finaliza, ya no puede enviar ni recibir nuevos mensajes de chat, pero tendrá acceso a los mensajes enviados y recibidos durante la reunión. Los usuarios anónimos de Communication Services no pueden agregar participantes adicionales a la reunión, ni eliminarlos, y no pueden iniciar la grabación ni la transcripción de esta.
 
 En la [página de arquitectura de cliente y servidor](client-and-server-architecture.md) encontrará información adicional sobre los flujos de datos necesarios para unirse a las reuniones de Teams. El [ejemplo de elementos principales de llamada grupal](../samples/calling-hero-sample.md) proporciona código de ejemplo para unirse a una reunión de Teams desde una aplicación web.
 

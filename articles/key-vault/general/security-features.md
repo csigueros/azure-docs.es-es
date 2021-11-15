@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 04/15/2021
 ms.author: mbaldwin
-ms.openlocfilehash: dd32e421b678b9cfc6277bdc593a06f93fab447f
-ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
+ms.openlocfilehash: e63867a4c46f8249db93c13914ab7a7297252f48
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113136119"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238461"
 ---
 # <a name="azure-key-vault-security"></a>Seguridad de Azure Key Vault
 
@@ -73,6 +73,12 @@ Una entidad de seguridad es un objeto que representa un usuario, un grupo o una 
 - Una **entidad de servicio** es un tipo de entidad de seguridad que identifica una aplicación o un servicio, es decir, un fragmento de código en lugar de un usuario o grupo. El identificador de objeto de una entidad de servicio se conoce como su **Id. de cliente** y actúa como su nombre de usuario. El **secreto de cliente** de la entidad de servicio o el **certificado** actúa como contraseña. Muchos servicios de Azure admiten la asignación de [identidades administradas](../../active-directory/managed-identities-azure-resources/overview.md) con la administración automatizada del **id. de cliente** y el **certificado**. La identidad administrada es la opción más segura y recomendada para realizar la autenticación en Azure.
 
 Para obtener más información sobre la autenticación en Key Vault, consulte [Autenticación en Azure Key Vault](authentication.md).
+
+## <a name="conditional-access"></a>Acceso condicional 
+
+Key Vault proporciona compatibilidad con las directivas de acceso condicional de Azure Active Directory. Mediante el uso de directivas de acceso condicional puede aplicar los controles de acceso correctos a Key Vault cuando sea necesario para mantener la organización segura y no interferir con los usuarios cuando no se necesita.
+
+Para más información, consulte la [información general sobre el acceso condicional](../../active-directory/conditional-access/overview.md).
 
 ## <a name="privileged-access"></a>Acceso con privilegios
 

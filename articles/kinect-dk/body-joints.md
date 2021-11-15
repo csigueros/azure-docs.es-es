@@ -8,12 +8,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, portabilidad, cuerpo, seguimiento, articulación, jerarquía, hueso, conexión
-ms.openlocfilehash: 4cf6ac13a93d0674f9fa144abcc3153a2d7c3350
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2616573d0474addb14abe5f6e932181b097bed46
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "85276998"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223466"
 ---
 # <a name="azure-kinect-body-tracking-joints"></a>Articulaciones para seguimiento de personas de Azure Kinect
 
@@ -25,12 +25,14 @@ La posición y orientación de la articulación son estimaciones relativas al ma
 
 ## <a name="joint-coordinates"></a>Coordenadas de articulación
 
-La posición y orientación de cada articulación conforma su propio sistema de coordenadas de articulación. Todos los sistemas de coordenadas de articulaciones son sistemas de coordenadas absolutas en relación con el sistema de coordenadas 3D de la cámara de profundidad.
+La posición y la orientación de cada articulación forman su propio sistema de coordenadas de articulación hacia la derecha. Todos los sistemas de coordenadas de articulación son sistemas de coordenadas absolutos en el sistema de coordenadas 3D de la cámara de profundidad.
 
 > [!NOTE]
-> Las coordenadas de articulaciones se definen mediante ejes de orientación. Los ejes de orientación se usan ampliamente con avatares comerciales, motores de juegos y software de representación. El uso de los ejes de orientación simplifica los movimientos reflejados; por ejemplo, elevar ambos brazos 20 grados.
+> La elección de la orientación del eje volteado para las articulaciones correspondientes en ambos lados del cuerpo está diseñada para simplificar el movimiento del espejo, por ejemplo, elevar ambos brazos más de 20 grados, lo que es común con avatares comerciales, motores de juegos y software de representación.
 
 ![Coordenadas de articulación](./media/concepts/joint-coordinates.png)
+
+Leyenda: | eje x = rojo | eje y = verde | eje z = azul |
 
 ## <a name="joint-hierarchy"></a>Jerarquía de articulaciones
 

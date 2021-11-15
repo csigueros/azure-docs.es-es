@@ -1,5 +1,5 @@
 ---
-title: Solución de problemas con el host del conector ECMA y Azure AD
+title: Solución de problemas con el aprovisionamiento en aplicaciones locales
 description: Describe cómo solucionar varios problemas que pueden surgir al instalar y usar el host del conector ECMA.
 services: active-directory
 author: billmath
@@ -7,24 +7,24 @@ manager: karenh444
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/24/2021
+ms.date: 10/21/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 002c57afde5909a6f02644b554b389d02735def0
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: a364995ae443f121112c7e259525735bc7b8a13c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129991138"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456354"
 ---
-# <a name="troubleshoot-ecma-connector-host-issues"></a>Solución de problemas del host del conector ECMA
+# <a name="troubleshoot-on-premises-application-provisioning"></a>Solucione los problemas de aprovisionamiento local de aplicaciones
 
 >[!IMPORTANT]
 > La versión preliminar de aprovisionamiento local se encuentra actualmente en una versión preliminar solo por invitación. Para solicitar acceso a la capacidad, use el [formulario de solicitud de acceso](https://aka.ms/onpremprovisioningpublicpreviewaccess). La versión preliminar estará a disposición de más clientes y conectores durante los próximos meses, cuando se prepare la disponibilidad general.
 
 ## <a name="troubleshoot-test-connection-issues"></a>Solución de problemas de conexión de prueba.
-Después de configurar el host ECMA y el agente de aprovisionamiento, es el momento de probar la conectividad desde el servicio de aprovisionamiento de Azure Active Directory (Azure AD) al agente de aprovisionamiento, el host ECMA y la aplicación. Para llevar a cabo esta prueba de un extremo a otro, seleccione **Probar conexión** en la aplicación en el Azure Portal. Cuando se produce un error en la conexión de prueba, pruebe los siguientes pasos de solución de problemas:
+Después de configurar el agente de aprovisionamiento y el host de ECMA, es el momento de probar la conectividad entre el servicio de aprovisionamiento de Azure Active Directory (Azure AD), el agente de aprovisionamiento, el host de ECMA y la aplicación. Para llevar a cabo esta prueba de un extremo a otro, seleccione **Probar conexión** en la aplicación en el Azure Portal. Cuando se produce un error en la conexión de prueba, pruebe los siguientes pasos de solución de problemas:
 
  1. Compruebe que el agente y el host ECMA se están ejecutando:
      1. En el servidor con el agente instalado, abra **Servicios**. Para ello, vaya a **Inicio** > **Ejecutar** > **Services.msc**.

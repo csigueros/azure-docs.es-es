@@ -7,13 +7,12 @@ ms.date: 02/08/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 1b7d5e5a418fd776197cdbc6108fc4871668292c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b2f5d680fda34d181264a72a0d745a36093c472a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131064817"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131472184"
 ---
 #  <a name="connect-your-gcp-accounts-to-microsoft-defender-for-cloud"></a>Conexión de cuentas de GCP a Microsoft Defender for Cloud
 
@@ -23,17 +22,17 @@ Las cargas de trabajo de nube abarcan normalmente varias plataformas de nube, po
 
 Microsoft Defender for Cloud protege las cargas de trabajo de Azure, Amazon Web Services (AWS) y Google Cloud Platform (GCP).
 
-La incorporación de las cuentas de GCP a Defender for Cloud integra el centro de comandos de seguridad de GCP y Microsoft Defender for Cloud. Por lo tanto, Defender for Cloud ofrece visibilidad y protección en ambos entornos de nube para proporcionar:
+Agregar una cuenta de GCP a una suscripción de Azure permite que Defender for Cloud se conecte con el comando de seguridad de GCP. Defender for Cloud puede proteger los recursos en ambos entornos de nube y proporcionar:
 
 - Detección de errores de configuración de seguridad
 - Una sola vista que muestra recomendaciones de Defender for Cloud y resultados del centro de comandos de seguridad de GCP
 - Incorporación de los recursos de GCP a los cálculos de puntuación segura de Cloud
 - Integración de recomendaciones del centro de comandos de seguridad de GCP basadas en el estándar CIS en el panel de cumplimiento de normativas de Defender for Cloud
 
-En la captura de pantalla siguiente puede ver que se muestran proyectos de GCP en el panel de información general de Defender for Cloud.
+> [!IMPORTANT]
+> En el evento Ignite Fall 2021, anunciamos una forma actualizada de conectar las cuentas de otros proveedores de nube. Esto usa la nueva página **Configuración del entorno**. Las cuentas de GCP no se admiten desde esa página. Para conectar una cuenta de GCP a su suscripción de Azure, deberá usar la experiencia de conectores en la nube clásica como se indica a continuación.
 
-:::image type="content" source="./media/quickstart-onboard-gcp/gcp-account-in-overview.png" alt-text="Tres proyectos de GCP enumerados en el panel de información general de Defender for Cloud" lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
-
+:::image type="content" source="./media/quickstart-onboard-gcp/gcp-account-in-overview.png" alt-text="Captura de pantalla de los proyectos de GCP que se muestran en el panel de información general de Microsoft Defender for Cloud." lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
 
 ## <a name="availability"></a>Disponibilidad
 
@@ -111,7 +110,10 @@ Obtenga más información sobre la [API del centro de comandos de seguridad](htt
 
 
 ### <a name="step-5-connect-gcp-to-defender-for-cloud"></a>Paso 5. Conectar GCP a Defender for Cloud
-1. En el menú de Defender for Cloud, seleccione **Conectores de nube**.
+1. En el menú de Defender for Cloud, abra **Configuración del entorno** y seleccione la opción para volver a la experiencia de conectores clásicos.
+
+    :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="Volver a la experiencia de conectores clásicos en la nube en Defender for Cloud.":::
+
 1. Seleccione Agregar cuenta de GCP.
 1. En la página Incorporación, haga lo siguiente y, a continuación, seleccione **Siguiente**.
     1. Valide la suscripción elegida.

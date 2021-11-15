@@ -5,12 +5,12 @@ author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
 ms.date: 02/11/2021
-ms.openlocfilehash: abcb233665d6c6074ff50d1bb53e553ed9eb99ef
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c721014e2f0a61e46ad599bccdc26388aa706a3a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741965"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131444959"
 ---
 # <a name="replicate-virtual-machines-running-in-a-proximity-placement-group-to-another-region"></a>Replicación de máquinas virtuales que se ejecutan en un grupo con ubicación por proximidad en otra región
 
@@ -66,7 +66,7 @@ Para seleccionar un grupo con ubicación por proximidad en la región de DR mien
 Puede actualizar fácilmente la selección de un grupo con ubicación por proximidad en la región de DR después de habilitar la replicación para la VM:
 
 1. Vaya a la máquina virtual. En el panel de la parte izquierda, en **Operaciones**, seleccione **Recuperación ante desastres**.
-2. Vaya al panel **Proceso y red** y seleccione **Editar**.
+2. Vaya al panel **Proceso** y seleccione **Editar**.
 3. Puede ver las opciones para editar varios valores de destino, incluido el grupo con ubicación por proximidad. Elija el grupo con ubicación por proximidad en el que desea que la VM conmute por error y luego seleccione **Guardar**.
 
 ### <a name="vmware-to-azure"></a>De VMware a Azure

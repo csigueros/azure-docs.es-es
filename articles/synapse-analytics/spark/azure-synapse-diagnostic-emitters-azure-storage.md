@@ -1,5 +1,5 @@
 ---
-title: Recopilación de los registros de aplicaciones y las métricas de Apache Spark mediante la cuenta de Azure Storage (versión preliminar)
+title: Recopilación de los registros de aplicaciones y las métricas de Apache Spark mediante la cuenta de Azure Storage
 description: En este artículo se muestra cómo usar la extensión de emisión de diagnósticos de Synapse Spark para recopilar registros, registros de eventos y metrics.cluster y cómo se integran los paneles de Grafana.
 services: synapse-analytics
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 08/31/2021
-ms.openlocfilehash: c29cdbd9879397b3e171160f93ccd0ac712467db
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 52d9c903cbd4aafe8799151663a37b09ed5676c2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123544748"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130241048"
 ---
-# <a name="collect-your-apache-spark-applications-logs-and-metrics-using-azure-storage-accountpreview"></a>Recopilación de los registros de aplicaciones y las métricas de Apache Spark mediante la cuenta de Azure Storage (versión preliminar)
+# <a name="collect-your-apache-spark-applications-logs-and-metrics-using-azure-storage-account"></a>Recopilación de los registros de aplicaciones y las métricas de Apache Spark mediante la cuenta de Azure Storage
 
 La extensión de emisión de diagnósticos de Synapse Apache Spark es una biblioteca que permite a la aplicación Apache Spark emitir registros, registros de eventos y métricas a uno o varios destinos, incluidos Azure Log Analytics, Azure Storage y Azure Event Hubs. 
 
@@ -42,7 +42,7 @@ spark.synapse.diagnostic.emitter.MyDestination1.secret <storage-access-key>
 ```
 
 En el archivo de configuración, rellene estos parámetros: `<my-blob-storage>`, `<container-name>`, `<folder-name>`, `<storage-access-key>`.
-Para mayor descripción de los parámetros, consulte las [configuraciones de Azure Storage](#available-configurations).
+Para mayor descripción de los parámetros, consulte las [configuraciones de Azure Storage](#available-configurations)
 
 ### <a name="step-3-upload-the-apache-spark-configuration-file-to-spark-pool"></a>Paso 3: Carga del archivo de configuración de Apache Spark en el grupo de Spark
 
@@ -55,7 +55,7 @@ Para mayor descripción de los parámetros, consulte las [configuraciones de Azu
 
 Después de enviar un trabajo al grupo de Apache Spark configurado, debería poder ver los archivos de registro y las métricas en la cuenta de almacenamiento de destino.
 Los registros se colocarán en las rutas de acceso correspondientes según las distintas aplicaciones según `<workspaceName>.<sparkPoolName>.<livySessionId>`.
-Todos los archivos de registro estarán en formato de líneas JSON (también denominado JSON delimitado por nuevas líneas, ndjson), lo cual resulta muy práctico para el procesamiento de los datos.
+Todos los archivos de registro estarán en formato de líneas JSON (también denominado JSON delimitado por nuevas líneas, ndjson), lo cual resulta práctico para el procesamiento de los datos.
 
 ## <a name="available-configurations"></a>Configuraciones disponibles
 
@@ -111,6 +111,6 @@ Las áreas de trabajo de Azure Synapse Analytics admiten la habilitación de la 
    > [!div class="mx-imgBorder"]
    > ![Creación del punto de conexión privado administrado 2](./media/azure-synapse-diagnostic-emitters-azure-storage/create-private-endpoint-2.png)
 3. Espere unos minutos durante el aprovisionamiento del punto de conexión privado.
-4. Vaya a la cuenta de almacenamiento en Azure Portal; en la página **Redes** > **Conexiones del punto de conexión privado**, seleccione la conexión que acaba de aprovisionar y seleccione **Aprobar**.
+4. Vaya a la cuenta de almacenamiento en Azure Portal; en la página **Redes** > **Conexiones del punto de conexión privado**, seleccione la conexión que ha aprovisionado y seleccione **Aprobar**.
 
 

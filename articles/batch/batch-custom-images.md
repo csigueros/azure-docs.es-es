@@ -3,19 +3,19 @@ title: Uso de una imagen administrada para crear un grupo de imágenes personali
 description: Cree un grupo de imágenes personalizadas de Batch a partir de una imagen administrada para aprovisionar nodos de ejecución con el software y los datos para su aplicación.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 9baa65c0f1c1844ea10e3d5b4f0b48924912d233
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9e70d3391ca9c8d4854c4cd587ffb6e840ef4254
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105023884"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131476896"
 ---
 # <a name="use-a-managed-image-to-create-a-custom-image-pool"></a>Uso de una imagen administrada para crear un grupo de imágenes personalizadas
 
-Para crear un grupo de imágenes personalizadas para las máquinas virtuales (VM) del grupo de Batch, puede usar una imagen administrada para crear una [imagen de Shared Image Gallery](batch-sig-images.md). También se admite el uso de una imagen administrada, pero solo para las versiones de API hasta el 1 de agosto de 2019 inclusive.
+Para crear un grupo de imágenes personalizadas para las máquinas virtuales (VM) del grupo de Batch, puede usar una imagen administrada para crear una [imagen de Azure Compute Gallery](batch-sig-images.md). También se admite el uso de una imagen administrada, pero solo para las versiones de API hasta el 1 de agosto de 2019 inclusive.
 
 > [!IMPORTANT]
-> En la mayoría de los casos, debe crear imágenes personalizadas mediante Shared Image Gallery. Con Shared Image Gallery, puede aprovisionar grupos más rápido, escalar cantidades más grandes de VM y mejorar la confiabilidad al aprovisionar las VM. Para más información, consulte [Uso de Shared Image Gallery para crear un grupo personalizado](batch-sig-images.md).
+> En la mayoría de los casos, debe crear imágenes personalizadas mediante Azure Compute Gallery. Mediante el uso de Azure Compute Gallery, puede aprovisionar grupos más rápido, escalar grandes cantidades de máquinas virtuales y mejorar la confiabilidad al aprovisionar máquinas virtuales. Para más información, consulte [Uso de Azure Compute Gallery para crear un grupo personalizado](batch-sig-images.md).
 
 En este tema se explica cómo crear un grupo de imágenes personalizadas a partir de una sola imagen administrada.
 
@@ -54,7 +54,7 @@ Si va a crear una máquina virtual para la imagen, use una imagen propia de Azur
 
 ### <a name="create-a-vm-snapshot"></a>Creación de una instantánea de máquina virtual
 
-Una instantánea es una copia completa de solo lectura de un disco duro virtual. Para crear una instantánea del sistema operativo de una máquina virtual o de los discos de datos, puede usar Azure Portal o herramientas de la línea de comandos. En cuanto a pasos y opciones de creación de una instantánea, consulte la guía para máquinas virtuales [Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md) o [Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md).
+Una instantánea es una copia completa de solo lectura de un disco duro virtual. Para crear una instantánea de un sistema operativo de máquinas virtuales o discos de datos, puede usar las herramientas de Azure Portal o la línea de comandos. En cuanto a pasos y opciones de creación de una instantánea, consulte la guía para [máquinas virtuales](../virtual-machines/snapshot-copy-managed-disk.md).
 
 ### <a name="create-an-image-from-one-or-more-snapshots"></a>Creación de una imagen a partir de una o varias instantáneas
 
@@ -141,7 +141,7 @@ Además, tenga en cuenta las siguientes consideraciones:
 
   Si tiene previsto un grupo de más de 300 nodos de proceso, es posible que necesite cambiar el tamaño del grupo varias veces para alcanzar el tamaño de destino.
   
-Con [Shared Image Gallery](batch-sig-images.md), puede crear grupos más grandes con sus imágenes personalizadas junto con más réplicas de Shared Image. Mediante el uso de imágenes de Shared Image, el tiempo que tarda el grupo en alcanzar el estado estable es hasta un 25 % más rápido y la latencia de inactividad de la VM es hasta un 30 % más breve.
+Con [Azure Compute Gallery](batch-sig-images.md), puede crear grupos más grandes con las imágenes personalizadas junto con más réplicas de imágenes compartidas. Mediante el uso de imágenes de Shared Image, el tiempo que tarda el grupo en alcanzar el estado estable es hasta un 25 % más rápido y la latencia de inactividad de la VM es hasta un 30 % más breve.
 
 ## <a name="considerations-for-using-packer"></a>Consideraciones a la hora de usar Packer
 
@@ -155,5 +155,5 @@ Para obtener más información sobre el uso de Packer para crear una máquina vi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Uso de [Shared Image Gallery](batch-sig-images.md) para crear un grupo personalizado.
+- Aprenda a usar [Azure Compute Gallery](batch-sig-images.md) para crear un grupo personalizado.
 - Para obtener información general detallada sobre Batch, consulte [Flujo de trabajo y recursos del servicio Batch](batch-service-workflow-features.md).

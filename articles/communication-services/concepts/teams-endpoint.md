@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.openlocfilehash: 6140ba3573452e1285236e9848e2068fd77afc07
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2038efe285f36466b0b562d4d87fbd172a44dd42
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128636104"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469601"
 ---
 # <a name="build-a-custom-teams-endpoint"></a>Creación de un punto de conexión de Teams personalizado
 
@@ -24,13 +24,13 @@ ms.locfileid: "128636104"
 
 Se puede usar Azure Communication Services para crear puntos de conexión de Teams personalizados para la comunicación con el cliente de Microsoft Teams u otros puntos de conexión de Teams personalizados. Con el punto de conexión de Teams personalizado, puede personalizar la experiencia de voz, vídeo, chat y uso compartido de pantalla para los usuarios de Teams.
 
-Puede usar el SDK de identidad de Azure Communication Services para intercambiar tokens de usuario de Azure Active Directory (Azure AD) por tokens de acceso de Teams. En los diagramas de las secciones siguientes se muestran casos de uso multiinquilino, donde la empresa ficticia Fabrikam es el cliente de la empresa ficticia Contoso.
+Puede usar el SDK identidad de Azure Communication Services para intercambiar tokens de acceso de Azure Active Directory de usuarios de Teams con tokens de acceso de identidades de Communication Services. En los diagramas de las secciones siguientes se muestran casos de uso multiinquilino, donde la empresa ficticia Fabrikam es el cliente de la empresa ficticia Contoso.
 
 ## <a name="calling"></a>Llamar 
 
 Las funcionalidades de voz, vídeo y uso compartido de pantalla se proporcionan mediante Calling SDK de Azure Communication Services. En el diagrama siguiente, se muestra información general del proceso que se va a seguir al integrar las experiencias de llamadas con los puntos de conexión de Teams personalizados.
 
-![Diagrama del proceso de habilitación de la característica de llamada para una experiencia de punto de conexión de Teams personalizado.](./media/teams-identities/teams-identity-calling-overview.png)
+![Diagrama del proceso de habilitación de la característica de llamada para una experiencia de punto de conexión de Teams personalizado.](./media/teams-identities/teams-identity-calling-overview.svg)
 
 ## <a name="chat"></a>Chat
 

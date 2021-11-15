@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 06/11/2021
+ms.date: 10/21/2021
 ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: d1d6ee6b7baf930dbe38ca143cdfd1cc61b4758a
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 15edab4bc16067b866912e1fca899e844ff6e7e0
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129430067"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131554935"
 ---
 # <a name="tutorial-designer---train-a-no-code-regression-model"></a>Tutorial: Diseñador (entrenamiento de un modelo de regresión sin código)
 
@@ -62,7 +62,7 @@ Para usar el diseñador, necesita un área de trabajo de Azure Machine Learning.
 
     ![Captura de pantalla del área de trabajo visual que muestra cómo acceder al diseñador](./media/tutorial-designer-automobile-price-train-score/launch-designer.png)
 
-1. Seleccione **Easy-to-use prebuilt modules** (Módulos precompilados fáciles de usar).
+1. Seleccione **Easy-to-use prebuilt components** (Componentes precompilados fáciles de usar).
 
 1. En la parte superior del lienzo, seleccione el nombre predeterminado de la canalización, **Pipeline-Created-on** (Canalización creada el). Cambie el nombre a *Automobile price prediction* (Predicción del precio de automóviles). No es necesario que el nombre sea único.
 
@@ -70,7 +70,7 @@ Para usar el diseñador, necesita un área de trabajo de Azure Machine Learning.
 
 Una canalización se ejecuta en un destino de proceso que es un recurso de proceso asociado al área de trabajo. Después de crear un destino de proceso, puede volver a usarlo para futuras ejecuciones.
 
-Puede establecer un **destino de proceso predeterminado** para toda la canalización. Este indicará a cada módulo que debe usar el mismo destino de proceso de forma predeterminada. Sin embargo, puede especificar destinos de proceso por módulo.
+Puede establecer un **destino de proceso predeterminado** para toda la canalización. Este indicará a cada componente que debe usar el mismo destino de proceso de forma predeterminada. Sin embargo, puede especificar destinos de proceso por módulo.
 
 1. Junto al nombre de la canalización, seleccione el **icono de engranaje** ![Captura de pantalla del icono de engranaje](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) en la parte superior del lienzo para abrir el panel de **configuración**.
 
@@ -94,7 +94,7 @@ Puede establecer un **destino de proceso predeterminado** para toda la canalizac
 
 Se incluyen varios conjuntos de datos de ejemplo en el diseñador para que experimente con ellos. En este tutorial, use **Automobile price data (Raw)** . 
 
-1. A la izquierda del lienzo de la canalización, hay una paleta de conjuntos de datos y módulos. Seleccione **Conjuntos de datos de ejemplo** para ver los conjuntos de datos de ejemplo disponibles.
+1. A la izquierda del lienzo de la canalización, hay una paleta de conjuntos de datos y componentes. Seleccione **Conjuntos de datos de ejemplo** para ver los conjuntos de datos de ejemplo disponibles.
 
 1. Seleccione el conjunto de datos **Automobile price data (Raw)** y arrástrelo al lienzo.
 
@@ -118,21 +118,21 @@ Los conjuntos de datos suelen necesitar algún procesamiento previo antes del an
 
 Al entrenar un modelo, hay que hacer algo con los datos que faltan. En este conjunto de datos, faltan muchos valores en la columna **normalized-losses**, por lo que excluiremos toda esa columna del modelo.
 
-1. En la paleta de módulos que se encuentra a la izquierda del lienzo, expanda la sección **Transformación de datos** y busque el módulo **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos).
+1. En la paleta de componentes que se encuentra a la izquierda del lienzo, expanda la sección **Transformación de datos** y busque el componente **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos).
 
-1. Haga clic y arrastre el módulo **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos) al lienzo. Coloque el módulo bajo el módulo del conjunto de datos.
+1. Arrastre el componente **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos) al lienzo. Coloque el componente debajo del componente de conjunto de datos.
 
-1. Conecte el conjunto de datos **Automobile price data (Raw)** al módulo **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos). Arrastre desde el puerto de salida del conjunto de datos, que es el círculo pequeño situado en la parte inferior del conjunto de datos en el lienzo, hasta el puerto de entrada de **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos), que es el círculo pequeño de la parte superior del módulo.
+1. Conecte el conjunto de datos **Automobile price data (Raw)** al componente **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos). Arrastre desde el puerto de salida del conjunto de datos, que es el círculo pequeño situado en la parte inferior del conjunto de datos en el lienzo, hasta el puerto de entrada de **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos), que es el círculo pequeño de la parte superior del componente.
 
     > [!TIP]
-    > Puede crear un flujo de datos mediante la canalización si conecta el puerto de salida de un módulo al puerto de entrada de otro.
+    > Puede crear un flujo de datos mediante la canalización si conecta el puerto de salida de un componente al puerto de entrada de otro.
     >
 
-    ![Conectar módulos](./media/tutorial-designer-automobile-price-train-score/connect-modules.gif)
+    ![Conexión de componentes](./media/tutorial-designer-automobile-price-train-score/connect-modules.gif)
 
-1. Seleccione el módulo **Select Columns in Dataset**.
+1. Seleccione el componente **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos).
 
-1. En el panel de detalles del módulo, situado a la derecha del lienzo, seleccione **Editar columna**.
+1. En el panel de detalles del componente, situado a la derecha del lienzo, seleccione **Edit column** (Editar columna).
 
 1. Expanda la lista desplegable **Nombres de columna** situada junto a **Incluir** y seleccione **Todas las columnas**.
 
@@ -146,34 +146,34 @@ Al entrenar un modelo, hay que hacer algo con los datos que faltan. En este conj
 
     ![Excluir una columna](./media/tutorial-designer-automobile-price-train-score/exclude-column.png)
 
-1. Seleccione el módulo **Select Columns in Dataset**. 
+1. Seleccione el componente **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos). 
 
-1. En el panel de detalles del módulo situado a la derecha del lienzo, seleccione el cuadro de texto **Comentario** y escriba *Exclude normalized losses* (Excluir normalized-losses).
+1. En el panel de detalles del componente situado a la derecha del lienzo, seleccione el cuadro de texto **Comentario** y escriba *Exclude normalized losses* (Excluir pérdidas normalizadas).
 
     Los comentarios aparecerán en el gráfico para ayudarle a organizar la canalización.
 
 ### <a name="clean-missing-data"></a>Limpiar datos que faltan
 
-Después de quitar la columna **normalized-losses**, aún faltan valores en el conjunto de datos. Puede quitar el resto de los datos que faltan mediante el módulo **Clean Missing Data** (Limpiar datos que faltan).
+Después de quitar la columna **normalized-losses**, aún faltan valores en el conjunto de datos. Puede eliminar el resto de los datos que faltan mediante el componente **Clean Missing Data** (Limpiar datos que faltan).
 
 > [!TIP]
-> Un requisito previo para usar la mayoría de los módulos del diseñador es limpiar los valores que faltan.
+> Un requisito previo para usar la mayoría de los componentes del diseñador es limpiar los valores que faltan.
 
-1. En la paleta de módulos que se encuentra a la izquierda del lienzo, expanda la sección **Transformación de datos** y busque el módulo **Clean Missing Data** (Limpiar datos que faltan).
+1. En la paleta de componentes que se encuentra a la izquierda del lienzo, expanda la sección **Transformación de datos** y busque el componente **Clean Missing Data** (Limpiar datos que faltan).
 
-1. Arrastre el módulo **Clean Missing Data** (Limpiar datos que faltan) al lienzo de la canalización. Conéctelo al módulo **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos). 
+1. Arrastre el componente **Clean Missing Data** (Limpiar datos que faltan) al lienzo de la canalización. Conéctelo al componente **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos). 
 
-1. Seleccione el módulo **Clean Missing Data** (Limpiar datos que faltan).
+1. Seleccione el componente **Clean Missing Data** (Limpiar datos que faltan).
 
-1. En el panel de detalles del módulo, situado a la derecha del lienzo, seleccione **Editar columna**.
+1. En el panel de detalles del componente, situado a la derecha del lienzo, seleccione **Edit Column** (Editar columna).
 
 1. En la ventana **Columns to be cleaned** (Columnas que se limpian) que aparece, expanda el menú desplegable situado junto a **Include** (Incluir). Seleccione **All columns** (Todas las columnas).
 
 1. Seleccione **Guardar**.
 
-1. En el panel de detalles del módulo situado a la derecha del lienzo, seleccione **Remove entire row** (Quitar toda la fila) en **Cleaning mode** (Modo de limpieza).
+1. En el panel de detalles del componente situado a la derecha del lienzo, seleccione **Remove entire row** (Quitar toda la fila) en **Cleaning mode** (Modo de limpieza).
 
-1. En el panel de detalles del módulo situado a la derecha del lienzo, seleccione el cuadro **Comentario** y escriba *Remove missing value rows* (Quitar filas de valores que faltan). 
+1. En el panel de detalles del componente situado a la derecha del lienzo, seleccione el cuadro **Comentario** y escriba *Remove missing value rows* (Quitar filas de valores que faltan). 
 
     La canalización debe parecerse a esta:
 
@@ -181,7 +181,7 @@ Después de quitar la columna **normalized-losses**, aún faltan valores en el c
 
 ## <a name="train-a-machine-learning-model"></a>Entrenar un modelo de Machine Learning
 
-Ahora que los módulos están listos para procesar los datos, puede configurar los módulos de entrenamiento.
+Ahora que los componentes están listos para procesar los datos, puede configurar los componentes de entrenamiento.
 
 Como lo que se desea es predecir un precio, que es un número, se puede usar un algoritmo de regresión. En este ejemplo, va a usar un modelo de regresión lineal.
 
@@ -189,47 +189,47 @@ Como lo que se desea es predecir un precio, que es un número, se puede usar un 
 
 La división de los datos es una tarea común en el aprendizaje automático. Dividirá los datos en dos conjuntos independientes. Uno de ellos entrenará el modelo, mientras que el otro probará su funcionamiento.
 
-1. En la paleta de módulos, expanda la sección **Transformación de datos** y busque el módulo **Split Data** (Dividir datos).
+1. En la paleta de componentes, expanda la sección **Transformación de datos** y busque el componente **Split Data** (Dividir datos).
 
-1. Arrastre el módulo **Split Data** (Dividir datos) al lienzo de la canalización.
+1. Arrastre el componente **Split Data** (Dividir datos) al lienzo de la canalización.
 
-1. Conecte al puerto izquierdo del módulo **Clean Missing Data**(Limpiar datos que faltan) al módulo **Split Data** (Dividir datos).
+1. Conecte al puerto izquierdo del componente **Clean Missing Data**(Limpiar datos que faltan) al componente **Split Data** (Dividir datos).
 
     > [!IMPORTANT]
     > Asegúrese de que el puerto de salida izquierdo de **Clean Missing Data** (Limpiar datos que faltan) se conecta a **Split Data** (Dividir datos). El puerto izquierdo contiene los datos limpios. El puerto derecho contiene los datos descartados.
 
-1. Seleccione el módulo **Split Data** (Dividir datos).
+1. Seleccione el componente **Split Data** (Dividir datos).
 
-1. En el panel de detalles del módulo que se encuentra a la derecha del lienzo, establezca la opción **Fraction of rows in the first output dataset** (Fracción de filas del primer conjunto de datos de salida) en 0,7.
+1. En el panel de detalles del componente que se encuentra a la derecha del lienzo, establezca la opción **Fraction of rows in the first output dataset** (Fracción de filas del primer conjunto de datos de salida) en 0,7.
 
     De este modo divide los datos: el 70 % para entrenar el modelo y el 30 % para probarlo. Al conjunto de datos del 70 % se podrá acceder a través del puerto de salida de la izquierda. Los restantes datos estarán disponibles a través del puerto de salida derecho.
 
-1. En el panel de detalles del módulo situado a la derecha del lienzo, seleccione el cuadro **Comentario** y escriba *Split the dataset into training set (0.7) and test set (0.3)* (Dividir el conjunto de datos en conjunto de entrenamiento [0,7] y conjunto de pruebas [0,3]).
+1. En el panel de detalles del componente situado a la derecha del lienzo, seleccione el cuadro **Comentario** y escriba *Split the dataset into training set (0.7) and test set (0.3)* (Dividir el conjunto de datos en conjunto de entrenamiento [0,7] y conjunto de pruebas [0,3]).
 
 ### <a name="train-the-model"></a>Entrenamiento del modelo
 
 Para entrenar el modelo, proporciónele un conjunto de datos que incluya el precio. El algoritmo construye un modelo que explica la relación entre las características y el precio presentado por los datos de entrenamiento.
 
-1. En la paleta de módulos expanda **Machine Learning Algorithms** (Algoritmos de aprendizaje automático).
+1. En la paleta de componentes expanda **Machine Learning Algorithms** (Algoritmos de aprendizaje automático).
     
-    Esta opción muestra varias categorías de módulos que se pueden usar para inicializar algoritmos de aprendizaje.
+    Esta opción muestra varias categorías de componentes que se pueden usar para inicializar algoritmos de aprendizaje.
 
 1. Seleccione **Regression** > **Linear Regression** (Regresión > Regresión lineal) y arrástrelo al lienzo de la canalización.
 
-1. En la paleta de módulos, expanda la sección **Entrenamiento de módulos** y arrastre el módulo **Train Model** (Entrenar modelo) al lienzo.
+1. En la paleta de componentes, expanda la sección **Entrenamiento de módulos** y arrastre el componente **Train Model** (Entrenar modelo) al lienzo.
 
-1. Conecte la salida del módulo **Linear Regression** (Regresión lineal) a la entrada izquierda del módulo **Train Model** (Entrenar modelo).
+1. Conecte la salida del componente **Linear Regression** (Regresión lineal) a la entrada izquierda del componente **Train Model** (Entrenar modelo).
 
-1. Conecte la salida de datos de entrenamiento (puerto izquierdo) del módulo **Dividir datos** a la entrada derecha del módulo **Entrenar modelo**.
+1. Conecte la salida de datos de entrenamiento (puerto izquierdo) del componente **Dividir datos** a la entrada derecha del componente **Entrenar modelo**.
     
     > [!IMPORTANT]
     > Asegúrese de que el puerto de salida izquierdo de **Split Data** (Dividir datos) se conecta a **Train Model** (Entrenar modelo). El puerto izquierdo contiene el conjunto de entrenamiento. El puerto derecho contiene el conjunto de prueba.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png" alt-text="Captura de pantalla que muestra la configuración correcta del módulo Train Model (Entrenar modelo). El módulo Linear Regression (Regresión lineal) se conecta al puerto izquierdo del módulo Train Model (Entrenar modelo) y el módulo Split Data (Dividir datos) se conecta al puerto derecho de Train Model (Entrenar modelo).":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png" alt-text="Captura de pantalla que muestra la configuración correcta del componente Entrenar modelo. El componente Regresión lineal se conecta al puerto izquierdo del componente Entrenar modelo y el componente Dividir datos se conecta al puerto correcto de Entrenar modelo.":::
 
-1. Seleccione el módulo **Train Model** (Entrenar modelo).
+1. Seleccione el componente **Entrenar modelo**.
 
-1. En el panel de detalles del módulo, situado a la derecha del lienzo, elija el selector **Editar columna**.
+1. En el panel de detalles del componente, situado a la derecha del lienzo, seleccione **Edit Column** (Editar columna).
 
 1. En el cuadro de diálogo **Label column** (Columna de etiqueta), expanda el menú desplegable y seleccione **Column names** (Nombres de columna). 
 
@@ -240,23 +240,23 @@ Para entrenar el modelo, proporciónele un conjunto de datos que incluya el prec
 
     La canalización debe ser parecida a esta:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png" alt-text="Captura de pantalla que muestra la configuración correcta de la canalización después de agregar el módulo Train Model (Entrenar modelo).":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png" alt-text="Captura de pantalla que muestra la configuración correcta de la canalización después de agregar el componente Train Model (Entrenar modelo).":::
 
-### <a name="add-the-score-model-module"></a>Adición del módulo Score Model (Puntuar modelo)
+### <a name="add-the-score-model-component"></a>Incorporación del componente Score Model (Puntuar modelo)
 
 Después de entrenar el modelo con el 70 % de los datos, puede usarlo para puntuar el otro 30 % y ver si el modelo funciona correctamente.
 
-1. Escriba *score model* en el cuadro de búsqueda para encontrar el módulo **Score Model** (Puntuar modelo). Arrastre el módulo al lienzo de la canalización. 
+1. Escriba *score model* en el cuadro de búsqueda para encontrar el componente **Score Model** (Puntuar modelo). Arrastre el componente al lienzo de la canalización. 
 
-1. Conecte la salida del módulo **Train Model** (Entrenar modelo) al puerto de entrada izquierdo de **Score Model** (Entrenar modelo). Conecte la salida de los datos de prueba (puerto derecho) del módulo **Split Data** al puerto de entrada derecho de **Score Model**.
+1. Conecte la salida del componente **Train Model** (Entrenar modelo) al puerto de entrada izquierdo de **Score Model** (Entrenar modelo). Conecte la salida de los datos de prueba (puerto derecho) del componente **Split Data** (Dividir datos) al puerto de entrada correcto de **Score Model** (Puntuar modelo).
 
-### <a name="add-the-evaluate-model-module"></a>Agregar el módulo Evaluate Model (Evaluar modelo)
+### <a name="add-the-evaluate-model-component"></a>Incorporación del componente Evaluate Model (Evaluar modelo)
 
-Use el módulo **Evaluate Model** (Evaluar modelo) para evaluar la puntuación que dio el modelo al conjunto de datos de prueba.
+Use el componente **Evaluate Model** (Evaluar modelo) para evaluar la puntuación que dio el modelo al conjunto de datos de prueba.
 
-1. Escriba *evaluate* en el cuadro de búsqueda para buscar el módulo **Evaluate Model** (Evaluar modelo). Arrastre el módulo al lienzo de la canalización. 
+1. Escriba *evaluate* en el cuadro de búsqueda para buscar el componente **Evaluate Model** (Evaluar modelo). Arrastre el componente al lienzo de la canalización. 
 
-1. Conecte la salida del módulo **Score Model** (Puntuar modelo) a la entrada izquierda de **Evaluate Model** (Evaluar modelo). 
+1. Conecte la salida del componente **Score Model** (Puntuar modelo) a la entrada izquierda de **Evaluate Model** (Evaluar modelo). 
 
     La canalización final debe parecerse a esta:
 
@@ -279,13 +279,13 @@ Ahora que ya ha configurado la canalización, puede enviar una ejecución de can
     
     Puede ver el estado y los detalles de la ejecución en la parte superior derecha del lienzo.
     
-    Si esta es la primera ejecución, la canalización puede tardar hasta 20 minutos en finalizar la ejecución. La configuración del proceso predeterminada tiene un tamaño de nodo mínimo de 0, lo que significa que el diseñador debe asignar recursos después de estar inactivo. Las ejecuciones de canalización repetidas tardarán menos en terminar, dado que los recursos del proceso ya están asignados. Además, el diseñador usa resultados almacenados en la caché en cada módulo para mejorar aún más la eficiencia.
+    Si esta es la primera ejecución, la canalización puede tardar hasta 20 minutos en finalizar la ejecución. La configuración del proceso predeterminada tiene un tamaño de nodo mínimo de 0, lo que significa que el diseñador debe asignar recursos después de estar inactivo. Las ejecuciones de canalización repetidas tardarán menos en terminar, dado que los recursos del proceso ya están asignados. Además, el diseñador usa resultados almacenados en la caché de cada componente para mejorar aún más la eficiencia.
 
 ### <a name="view-scored-labels"></a>Visualización de etiquetas con puntuación
 
 Una vez finalizada la ejecución, puede ver los resultados de la ejecución de la canalización. En primer lugar, examine las predicciones generadas por el modelo de regresión.
 
-1. Haga clic con el botón derecho en el módulo **Score Model** (Puntuar modelo) y seleccione **Visualizar** > **Scored dataset** (Conjunto de datos puntuado) para ver la salida.
+1. Haga clic con el botón derecho en el componente **Score Model** (Puntuar modelo) y seleccione **Visualizar** > **Scored dataset** (Conjunto de datos puntuado) para ver la salida.
 
     Aquí puede ver los precios previstos y los precios reales de los datos de prueba.
 
@@ -295,7 +295,7 @@ Una vez finalizada la ejecución, puede ver los resultados de la ejecución de l
 
 Use **Evaluate Model** (Evaluar modelo) para ver el rendimiento del modelo entrenado en el conjunto de datos de prueba.
 
-1. Haga clic con el botón derecho en el módulo **Evaluate Model** (Evaluar modelo) y seleccione **Visualizar** > **Resultados de la evaluación** para ver el resultado.
+1. Haga clic con el botón derecho en el componente **Evaluate Model** (Evaluar modelo) y seleccione **Visualizar** > **Resultados de la evaluación** para ver el resultado.
 
 Se muestran las siguientes estadísticas de su modelo:
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 04/12/2021
 ms.author: yuajia
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: ee721a56da41c4a5ff9184c6bc716784f858507d
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 20a3015886962d9c48844d0aeb53a994dd5037c3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112467642"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423477"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-endpoint"></a>Tutorial: Adición de un dominio personalizado al punto de conexión
 
@@ -66,7 +66,9 @@ Utilice varios registros CNAME para diferentes subdominios del mismo dominio per
 Puede asignar un dominio personalizado con diferentes subdominios al mismo punto de conexión de CDN.
 
 > [!NOTE]
-> Este tutorial utiliza el tipo de registro CNAME. Si usa los tipos de registro A o AAAA, siga los mismos pasos que se indican a continuación, pero reemplace CNAME por el tipo de registro que prefiera.
+> - En este tutorial se usa el tipo de registro CNAME para varios propósitos:
+>   - El *enrutamiento del tráfico* se puede realizar con un registro CNAME, así como con los tipos de registro A o AAAA de Azure DNS. Para aplicarlo, siga los pasos que se indican a continuación y reemplace el registro CNAME por el tipo de registro que prefiera.  
+>   - Se **requiere** un registro CNAME para la *validación de la propiedad* del dominio personalizado y debe estar disponible al agregar el dominio personalizado a un punto de conexión de CDN.  Más detalles a continuación.
 
 ---
 # <a name="azure-dns"></a>[**Azure DNS**](#tab/azure-dns)

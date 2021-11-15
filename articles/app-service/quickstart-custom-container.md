@@ -7,23 +7,19 @@ ms.date: 06/30/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 29d2f44dec6a80f2512e6ef23c2627c8dd098be4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 02d9f115a5fbeb364719a2fc6cafb22e6ea03cf7
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741562"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131465865"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Ejecución de un contenedor personalizado en Azure
 
 ::: zone pivot="container-windows"
-[Azure App Service](overview.md) proporciona las pilas de aplicaciones predefinidas en Windows, como ASP.NET o Node.js, que se ejecutan en IIS. El entorno del contenedor de Windows preconfigurado impide el acceso administrativo, las instalaciones de software, los cambios en la caché global de ensamblados, etc. en el sistema operativo. Para más información, consulte [Funcionalidad del sistema operativo en Azure App Service](operating-system-functionality.md). Si la aplicación requiere más acceso que el que permite el entorno preconfigurado, puede implementar un contenedor de Windows personalizado en su lugar.
+[Azure App Service](overview.md) proporciona las pilas de aplicaciones predefinidas en Windows, como ASP.NET o Node.js, que se ejecutan en IIS. Sin embargo, las pilas de aplicaciones preconfiguradas [bloquean el sistema operativo e impiden el acceso de bajo nivel](operating-system-functionality.md). Los contenedores de Windows personalizados no tienen estas restricciones y permiten a los desarrolladores personalizar completamente los contenedores y proporcionar a las aplicaciones contenedorizadas acceso total a la funcionalidad de Windows. 
 
 En este inicio rápido se muestra cómo implementar una aplicación ASP.NET, que está en una imagen de Windows, en [Docker Hub](https://hub.docker.com/) desde Visual Studio. La aplicación se ejecuta en un contenedor personalizado en Azure App Service.
-
-> [!NOTE]
-> Los contenedores de Windows se limitan a Azure Files y actualmente no admiten blobs de Azure.
-
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -199,7 +195,7 @@ En este inicio rápido, se usa Azure Container Registry como registro de su elec
 Cree un registro de contenedor según las instrucciones que se indican en [Inicio rápido: Creación de un instancia de Azure Container Registry mediante Azure Portal](../container-registry/container-registry-get-started-portal.md).
 
 > [!IMPORTANT]
-> Asegúrese de establecer la opción **Usuario administrador** en **Habilitar** al crear el registro de contenedor de Azure. También puede establecerla en la sección **Claves de acceso** de la página de registro en Azure Portal. Esta opción de configuración es necesaria para el acceso a App Service.
+> Asegúrese de establecer la opción **Usuario administrador** en **Habilitar** al crear el registro de contenedor de Azure. También puede establecerla en la sección **Claves de acceso** de la página de registro en Azure Portal. Esta opción de configuración es necesaria para el acceso a App Service. Para obtener información sobre la identidad administrada, consulte [Implementación desde el tutorial de ACR](tutorial-custom-container.md?pivots=container-linux#configure-app-service-to-deploy-the-image-from-the-registry).
 
 ## <a name="sign-in"></a>Iniciar sesión
 

@@ -3,12 +3,12 @@ title: Funciones de Bicep
 description: Describe las funciones que se van a usar en un archivo de Bicep para recuperar valores, trabajar con cadenas y valores numéricos y recuperar información de implementación.
 ms.topic: conceptual
 ms.date: 10/15/2021
-ms.openlocfilehash: 429dca8bd4544e1dd8b22406811e53d0ed2ea623
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 4a4f057fe7c29b3ee9b76aa03992ff1efd70079c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130070572"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226917"
 ---
 # <a name="bicep-functions"></a>Funciones de Bicep
 
@@ -167,5 +167,5 @@ Bicep ofrece las siguientes funciones para trabajar con cadenas. Todas estas fun
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Puede encontrar una descripción de las secciones de un archivo de Bicep en [Nociones sobre la estructura y la sintaxis de los archivos de Bicep](./file.md).
-* Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Implementación de varias instancias de recursos en Bicep](./loop-resources.md).
+* Para realizar la iteración un número especificado de veces al crear un tipo de recurso, consulte [Bucles iterativos en Bicep](loops.md).
 * Para ver cómo implementar el archivo de Bicep que ha creado, consulte [Implementación de recursos con Bicep y Azure PowerShell](./deploy-powershell.md).

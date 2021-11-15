@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Sonarqube | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD con Sonarqube'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Sonarqube.
 services: active-directory
 author: jeevansd
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/25/2021
 ms.author: jeedes
-ms.openlocfilehash: e6f366fcc1f268f3c0fa629bd1903be4f8c8d2b8
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 8d209990a84464aa31d4f32a66c30de9f2047804
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124785807"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131462487"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sonarqube"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Sonarqube
+# <a name="tutorial-azure-ad-sso-integration-with-sonarqube"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Sonarqube
 
 En este tutorial, aprenderá a integrar Sonarqube con Azure Active Directory (Azure AD). Al integrar Sonarqube con Azure AD, puede hacer lo siguiente:
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Sonarqube con Azure Active Directory (
 * Permitir que los usuarios inicien sesión automáticamente en Sonarqube con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -60,7 +60,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Sonarqube median
 Para configurar y probar el inicio de sesión único de Azure AD con Sonarqube, complete los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Sonarqube](#configure-sonarqube-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba en Sonarqube](#create-sonarqube-test-user)** , para tener un homólogo de B.Simon en Salesforce que esté vinculado a la representación del usuario en Azure AD.
@@ -78,7 +78,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    a. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://servicessonar.<YOUR_ORGANIZATION>.com`
+    a. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: ` https://sonar.<companyspecificurl>.io/oauth2/callback/saml`
 
     b. En el cuadro de texto **URL de inicio de sesión**, escriba una de las siguientes direcciones URL:
 

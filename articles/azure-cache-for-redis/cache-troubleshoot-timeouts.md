@@ -6,13 +6,13 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 10/18/2019
-ms.openlocfilehash: fab4587cc6320cc020a1d92eb1c6fc2f8fa3e3af
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.date: 11/3/2021
+ms.openlocfilehash: 09f461b5d64b52ded281e338e1307876d7e5f86b
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129537386"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131843829"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Solución de problemas de tiempos de expiración de Redis Cache
 
@@ -27,7 +27,7 @@ En esta sección se describe la solución de problemas de tiempo de expiración 
 
 ## <a name="redis-server-patching"></a>Aplicación de revisiones del servidor de Redis
 
-Redis Cache actualiza periódicamente su software de servidor como parte de la funcionalidad de servicio administrado que ofrece. Esta actividad de [aplicación de revisiones](cache-failover.md) tiene lugar en gran medida en segundo plano. Durante las conmutaciones por error cuando se aplican revisiones a los nodos del servidor de Redis, es posible que los clientes de Redis conectados a estos nodos experimenten tiempos de expiración temporales a medida que se cambian las conexiones entre estos nodos. Vea [cómo afecta una conmutación por error a la aplicación cliente](cache-failover.md#how-does-a-failover-affect-my-client-application) para obtener más información sobre qué efectos secundarios puede tener la aplicación y cómo puede mejorar su control de los eventos de aplicación de revisiones.
+Redis Cache actualiza periódicamente su software de servidor como parte de la funcionalidad de servicio administrado que ofrece. Esta actividad de [aplicación de revisiones](cache-failover.md) tiene lugar en gran medida en segundo plano. Durante las conmutaciones por error cuando se aplican revisiones a los nodos del servidor de Redis, es posible que los clientes de Redis conectados a estos nodos experimenten tiempos de expiración temporales a medida que se cambian las conexiones entre estos nodos. Para más información sobre los efectos secundarios de una aplicación de revisiones en una aplicación y para saber cómo controlar los eventos de aplicación de revisiones, vea [cómo afecta una conmutación por error a la aplicación cliente](cache-failover.md#how-does-a-failover-affect-my-client-application).
 
 ## <a name="stackexchangeredis-timeout-exceptions"></a>Excepciones de tiempo de espera de StackExchange.Redis
 
@@ -41,40 +41,24 @@ Este mensaje de error contiene métricas que pueden indicarle la causa y la posi
 
 | Métrica del mensaje de error | Detalles |
 | --- | --- |
-| inst |En el último período de tiempo: se han emitido 0 comandos. |
-| mgr |El administrador del socket está realizando `socket.select`, lo que significa que está solicitando al sistema operativo que indique un socket que tenga algo que hacer. El lector no está leyendo activamente de la red porque cree que no hay nada que hacer. |
-| cola |Hay un total de 73 operaciones en curso. |
-| qu |6 de las operaciones en curso están en la cola de no enviados y aún no se han escrito en la red de salida. |
-| qs |67 de las operaciones en curso se han enviado al servidor, pero aún no hay una respuesta disponible. La respuesta podría ser `Not yet sent by the server` o `sent by the server but not yet processed by the client.`. |
-| qc |0 de las operaciones en curso han visto respuestas, pero aún no se han marcado como completadas porque están esperando en el bucle de finalización. |
-| wr |Hay un escritor activo (lo que significa que 6 solicitudes sin enviar no se omiten) bytes/activewriters. |
-| bucear |No hay ningún lector activo y hay cero bytes disponibles para su lectura en los bytes/activereaders de NIC. |
+| `inst` |En el último período de tiempo: se han emitido 0 comandos. |
+| `mgr` |El administrador del socket está realizando `socket.select`, lo que significa que está solicitando al sistema operativo que indique un socket que tenga algo que hacer. El lector no está leyendo activamente de la red porque cree que no hay nada que hacer. |
+| `queue` |Hay un total de 73 operaciones en curso. |
+| `qu` |6 de las operaciones en curso están en la cola de no enviados y aún no se han escrito en la red de salida. |
+| `qs`|67 de las operaciones en curso se han enviado al servidor, pero aún no hay una respuesta disponible. La respuesta podría ser `Not yet sent by the server` o `sent by the server but not yet processed by the client.`. |
+| `qc` |0 operaciones en curso han obtenido respuestas, pero aún no se han marcado como completadas porque están esperando en el bucle de finalización. |
+| `wr` |Hay un escritor activo (lo que significa que seis solicitudes sin enviar no se omiten) bytes/activewriters. |
+| `in` |No hay ningún lector activo y hay cero bytes disponibles para su lectura en los bytes/activereaders de NIC. |
 
 En el ejemplo de excepción anterior, las secciones `IOCP` y `WORKER` incluyen cada una un valor `Busy` mayor que el valor `Min`. La diferencia significa que debe ajustar la configuración de `ThreadPool`. Puede [configurar las opciones de ThreadPool](cache-management-faq.yml#important-details-about-threadpool-growth) para asegurarse de que su grupo de subprocesos se escale verticalmente a gran velocidad en escenarios de ráfaga.
 
-Puede usar los pasos siguientes para investigar posibles causas principales.
+Puede usar los pasos siguientes para eliminar posibles causas principales.
 
-1. Como procedimiento recomendado, asegúrese de usar el patrón siguiente para conectarse al usar el cliente de StackExchange.Redis.
+1. Como procedimiento recomendado, asegúrese de que usa el patrón ForceReconnect para detectar y reemplazar conexiones detenidas, como se describe en el artículo [Resistencia de la conexión](cache-best-practices-connection.md#using-forcereconnect-with-stackexchangeredis).
 
-    ```csharp
-    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-    {
-        return ConnectionMultiplexer.Connect("cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
+   Para más información sobre cómo usar StackExchange.Redis, vea [Conexión a la caché mediante StackExchange.Redis](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache). 
 
-    });
-
-    public static ConnectionMultiplexer Connection
-    {
-        get
-        {
-            return lazyConnection.Value;
-        }
-    }
-    ```
-
-    Para más información, consulte [Uso de Caché en Redis de Azure](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
-
-1. Asegúrese de que el servidor y la aplicación cliente están en la misma región de Azure. Por ejemplo, podría obtener tiempos de expiración cuando la caché está en Este de EE. UU., pero el cliente está en Oeste de EE. UU. y no se completa la solicitud en el intervalo `synctimeout`, o bien podría obtener tiempos de expiración cuando realiza la depuración en la máquina de desarrollo local. 
+1. Asegúrese de que el servidor y la aplicación cliente están en la misma región de Azure. Por ejemplo, podría obtener tiempos de expiración cuando la caché está en Este de EE. UU., pero el cliente está en Oeste de EE. UU. y no se completa la solicitud en el intervalo `synctimeout`, o bien podría obtener tiempos de expiración cuando realiza la depuración en la máquina de desarrollo local.
 
     Se recomienda encarecidamente que la memoria caché y el cliente estén en la misma región de Azure. Si tiene un escenario que incluye llamadas entre regiones, debe establecer el intervalo `synctimeout` a un valor mayor que el intervalo predeterminado de 5000 ms mediante la inclusión de una propiedad `synctimeout` en la cadena de conexión. En el ejemplo siguiente se muestra un fragmento de una cadena de conexión para StackExchange.Redis que proporciona Azure Redis Cache con un valor de `synctimeout` de 8000 ms.
 

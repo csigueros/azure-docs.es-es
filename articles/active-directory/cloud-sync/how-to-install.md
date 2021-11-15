@@ -11,12 +11,12 @@ ms.date: 10/19/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a34bda9f5f25d31dec881bd6ea1e00442fbfafc
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 294e66b8b7cef3cec9931b5369562a51b138ab28
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130217172"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131448678"
 ---
 # <a name="install-the-azure-ad-connect-provisioning-agent"></a>Instalación del agente de aprovisionamiento de Azure AD Connect
 Este artículo le guía en el proceso de instalación del agente de aprovisionamiento de Azure Active Directory (Azure AD) Connect y en el modo de configurarlo inicialmente en Azure Portal.
@@ -104,6 +104,18 @@ Para comprobar que el agente se está ejecutando:
 
 >[!IMPORTANT]
 >El agente se ha instalado, pero debe configurarse y habilitarse para que empiece a sincronizar a los usuarios. Para configurar un nuevo agente, consulte [Creación de una configuración para la sincronización en la nube de Azure AD Connect](how-to-configure.md).
+
+### <a name="enable-password-writeback-in-azure-ad-connect-cloud-sync"></a>Habilitación de la escritura diferida de contraseñas en Azure AD Connect Cloud Sync 
+
+Para usar la escritura diferida de contraseñas y permitir que el servicio SSPR detecte el agente de sincronización en la nube, debe usar el cmdlet `Set-AADCloudSyncPasswordWritebackConfiguration` y las credenciales del administrador global del inquilino. 
+
+  ```   
+   Import-Module "C:\\Program Files\\Microsoft Azure AD Connect Provisioning Agent\\Microsoft.CloudSync.Powershell.dll" 
+   Set-AADCloudSyncPasswordWritebackConfiguration -Enable $true -Credential $(Get-Credential)
+  ```
+
+Para más información sobre el uso de la escritura diferida de contraseñas con Azure AD Connect Cloud Sync, consulte:
+
 
 ## <a name="next-steps"></a>Pasos siguientes 
 

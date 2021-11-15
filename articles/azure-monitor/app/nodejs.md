@@ -2,14 +2,14 @@
 title: Supervisión de servicios de Node.js con Azure Application Insights | Microsoft Docs
 description: Supervise el rendimiento y diagnostique problemas en servicios de Node.js con Application Insights.
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 10/12/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 3148dccc9bf6e99d528e34fe54643c871d4a28b5
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 40477ecc4e5b76ee351b74c9d1056f2b7ef91c38
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130162855"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130245026"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Supervisión de servicios y aplicaciones de Node.js con Application Insights
 
@@ -20,6 +20,9 @@ Para recibir, almacenar y explorar los datos de supervisión, incluya el SDK en 
 El SDK de Node.js puede supervisar automáticamente las solicitudes HTTP entrantes y salientes, excepciones y varias métricas del sistema. A partir de la versión 0.20, el SDK también puede supervisar algunos [paquetes de terceros](https://github.com/microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers#currently-supported-modules) comunes, como MongoDB, MySQL y Redis. Todos los eventos relacionados con una solicitud HTTP entrante se correlacionan para una solución de problemas más rápida.
 
 Puede usar TelemetryClient API para instrumentar y supervisar manualmente aspectos adicionales de la aplicación y el sistema. TelemetryClient API se describe con más detalle más adelante en este artículo.
+
+> [!NOTE]
+> Hay disponible una [oferta de Node.js basada en OpenTelemetry](opentelemetry-enable.md?tabs=nodejs) en versión preliminar. [Más información](opentelemetry-overview.md).
 
 ## <a name="get-started"></a>Introducción
 

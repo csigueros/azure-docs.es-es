@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2021
 ms.author: jeedes
-ms.openlocfilehash: 4f521f21ad61eb0163460b552199f2ef5d7b6152
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 41c11c922eec62b282855fee1cd75a94cb912bb6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124821819"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131451357"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-overdrive"></a>Tutorial: Integración de Azure Active Directory con Overdrive
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Overdrive con Azure Active Directory (Az
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Overdrive con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
  
@@ -59,7 +59,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Overdrive median
 Para configurar y probar el inicio de sesión único de Azure AD con Overdrive, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Overdrive](#configure-overdrive-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Overdrive](#create-overdrive-test-user)** , para tener un usuario equivalente a B.Simon en Overdrive que esté vinculado a la representación de usuario en Azure AD.

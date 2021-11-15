@@ -101,7 +101,7 @@
             - name: Implementación de una directiva que se pueda corregir
               displayName: 'deployIfNotExists, modify, managed identities, managed identity'
               href: ./how-to/deploy-policy-remediation.md
-        - name: Integración con Azure Sentinel
+        - name: Integración de Microsoft Azure Sentinel
           href: ./how-to/manage-sentinel-workspaces.md
 - name: Referencia
   items:

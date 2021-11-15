@@ -8,12 +8,12 @@ metadata:
   ms.author: helohr
   ms.custom: devx-track-azurepowershell
   manager: femila
-  ms.openlocfilehash: 732371ae56de0949609aa52086a0bcbaf6d98ccc
-  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.openlocfilehash: 902b01508746ccc6253f633fd54ec6560659110b
+  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/02/2021
-  ms.locfileid: "131093674"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131437342"
 title: Preguntas más frecuentes sobre Azure Virtual Desktop para Azure Stack HCI
 summary: En este artículo se responden las preguntas más frecuentes sobre Azure Virtual Desktop para Azure Stack HCI.
 sections:
@@ -30,6 +30,14 @@ sections:
       ¿Puedo usar Azure Virtual Desktop con otra infraestructura local además de Azure Stack HCI?
     answer: >
       No. Las funcionalidades locales de Azure Virtual Desktop solo se extienden a los hosts de sesión que ejecuten la infraestructura de Azure Stack HCI.
+  - question: >
+      ¿Azure Virtual Desktop es un servicio habilitado para Azure Arc?
+    answer: >
+      No, Azure Virtual Desktop no es un servicio habilitado para Azure Arc. No se admite fuera de Azure, en un entorno de varias nubes o en servidores habilitados para Azure Arc además de las máquinas virtuales de Azure Stack HCI, como se describe en esta documentación técnica.
+  - question: >
+      ¿Azure Virtual Desktop para Azure Stack HCI está disponible en Azure Government?
+    answer: >
+      No, porque Azure Stack HCI no está disponible actualmente en Azure Government.
   - question: >
       ¿El uso de Azure Virtual Desktop para Azure Stack HCI significa que todos mis datos se almacenan de forma local?
     answer: No, el uso de Azure Virtual Desktop para Azure Stack HCI no garantiza que todos los datos se almacenen localmente. Los administradores pueden optar por almacenar datos de usuario localmente localizando máquinas virtuales de host de sesión y servicios asociados, como servidores de archivos, de forma local. Sin embargo, algunos datos de cliente, datos de diagnóstico y datos generados por el servicio se siguen almacenando en un centro de datos. Para obtener más información sobre cómo Azure Virtual Desktop almacena diferentes tipos de datos, consulte [Ubicaciones de datos para Azure Virtual Desktop](data-locations.md).

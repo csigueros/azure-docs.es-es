@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/19/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e17d6026f9b655c6a08bc7e91939482d734a911d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 087af92ce70ccb8db37073b6aadb8cf9b83bc57c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131070952"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131454312"
 ---
 # <a name="use-azure-digital-twins-explorer-preview"></a>Uso de Azure Digital Twins Explorer (versión preliminar)
 
@@ -103,11 +103,39 @@ Para ver los valores de propiedad de un gemelo o una relación, seleccione el ge
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png" alt-text="Captura de pantalla del panel Twin Graph (Grafo de gemelos) de Azure Digital Twins Explorer. El gemelo FactoryA está seleccionado y el panel Twin Properties (Propiedades de gemelos) está expandido, y se muestran las propiedades del gemelo." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png":::
 
-El panel Twin Properties (Propiedades de gemelos) mostrará mensajes de error si el gemelo o algunas de sus propiedades ya no coinciden con su modelo. Si no se encuentra el modelo del gemelo o si una propiedad no forma parte de la definición del modelo que el gemelo usa, es posible que vea mensajes de error como los siguientes:
+##### <a name="data-type-icons"></a>Iconos de tipo de datos
+
+Las propiedades que se muestran en los paneles **Twin Properties** (Propiedades del gemelo) y **Relationship Properties** (Propiedades de la relación) se muestran con un icono, que indica el tipo del campo del modelo DTDL. Puede mantener el puntero sobre un icono para mostrar el tipo asociado.
+
+En la tabla siguiente, se muestran los posibles tipos de datos y sus iconos correspondientes. La tabla también contiene vínculos de cada tipo de datos a su descripción de esquema en la [especificación DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#schemas).
+
+| Icono | Tipo de datos |
+| --- | --- |
+| ![Icono de valor booleano](./media/how-to-use-azure-digital-twins-explorer/data-icons/boolean.svg) | [boolean](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
+| ![Icono de componente](./media/how-to-use-azure-digital-twins-explorer/data-icons/component.svg) | [Componente](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#component) |
+| ![Icono de fecha](./media/how-to-use-azure-digital-twins-explorer/data-icons/date.svg) | [date](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
+| ![Icono dateTime](./media/how-to-use-azure-digital-twins-explorer/data-icons/datetime.svg) | [dateTime](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
+| ![Icono de duración](./media/how-to-use-azure-digital-twins-explorer/data-icons/duration.svg) | [duration](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
+| ![Icono de enumeración](./media/how-to-use-azure-digital-twins-explorer/data-icons/enum.svg) | [enum](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#enum) |
+| ![Icono de mapa](./media/how-to-use-azure-digital-twins-explorer/data-icons/map.svg) | [map](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#map) |
+| ![Icono numérico](./media/how-to-use-azure-digital-twins-explorer/data-icons/numeric.svg) | Tipos numéricos, incluidos [double, float, integer y long](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
+| ![Icono de objeto](./media/how-to-use-azure-digital-twins-explorer/data-icons/object.svg) | [object](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#object) |
+| ![Icono de cadena](./media/how-to-use-azure-digital-twins-explorer/data-icons/string.svg) | [string](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
+| ![Icono de hora](./media/how-to-use-azure-digital-twins-explorer/data-icons/time.svg) | [time](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
+
+##### <a name="errors"></a>Errors
+
+El panel Twin Properties (Propiedades de gemelos) mostrará mensajes de error si el gemelo o algunas de sus propiedades ya no coinciden con su modelo. 
+
+Hay dos escenarios de error posibles en los que cada uno de ellos envía su propio mensaje de error:
+* **Faltan uno o varios modelos usados por el gemelo**. Como resultado, todas las propiedades asociadas a ese modelo se marcarán como "Falta" en el panel Twin Properties (Propiedades del gemelo). Esto puede ocurrir si se ha eliminado el modelo desde que se creó el gemelo.
+* **Algunas propiedades del gemelo no forman parte del modelo del gemelo**. Solo se marcarán como "Falta" estas propiedades en el panel Twin Properties (Propiedades del gemelo). Esto puede ocurrir si el modelo del gemelo se ha reemplazado o ha cambiado desde que se establecieron las propiedades y las propiedades ya no existen en la versión más reciente del modelo.
+
+Ambos mensajes de error se muestran en la captura de pantalla siguiente:
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/properties-errors.png" alt-text="Captura de pantalla del panel Twin Properties (Propiedades de gemelos) de Azure Digital Twins Explorer, en la que se muestran dos mensajes de error. Un error indica que faltan modelos y el otro indica que a las propiedades les falta un modelo." lightbox="media/how-to-use-azure-digital-twins-explorer/properties-errors.png":::
+        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/properties-errors.png" alt-text="Captura de pantalla del panel Twin Properties (Propiedades del gemelo) de Azure Digital Twins Explorer, en la que se muestran dos mensajes de error. Un error indica que faltan modelos y el otro indica que a las propiedades les falta un modelo." lightbox="media/how-to-use-azure-digital-twins-explorer/properties-errors.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -161,7 +189,7 @@ Puede filtrar los gemelos y las relaciones que aparecen en el grafo por texto; p
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-filter-text.png" alt-text="Captura de pantalla del panel Twin Graph (Grafo de gemelos) de Azure Digital Twins Explorer. Está seleccionado el icono de filtro de texto, que muestra la pestaña Filter (Filtro) donde puede escribir un término de búsqueda." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-filter-text.png":::
 
-También puede resaltar los gemelos y los elementos que aparecen en el grafo por texto; para ello, seleccione este icono de **resaltado**:
+También puede resaltar los gemelos y las relaciones que aparecen en el grafo mediante texto; para ello, seleccione el icono **Highlight** (Resaltar):
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-text.png" alt-text="Captura de pantalla del panel Twin Graph (Grafo de gemelos) de Azure Digital Twins Explorer. Está seleccionado el icono de filtro de texto, que muestra la pestaña Highlight (Resaltar) donde puede escribir un término de búsqueda." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-text.png":::
 
@@ -173,7 +201,7 @@ En esta sección se describe cómo se llevan a cabo las siguientes actividades d
 * [Visualización de la lista plana de gemelos y relaciones](#view-flat-list-of-twins-and-relationships)
 * [Creación de gemelos](#create-twins), con o sin propiedades iniciales
 * [Creación de relaciones](#create-relationships) entre gemelos
-* [Edición de gemelos y relaciones](#edit-twins-and-relationships)
+* [Edición de las propiedades de gemelos y relaciones](#edit-twin-and-relationship-properties)
 * [Eliminación de gemelos y relaciones](#delete-twins-and-relationships)
 
 Para obtener información sobre la experiencia de visualización de gemelos y relaciones, consulte [Exploración del panel Twin Graph (Grafo de gemelos)](#explore-the-twin-graph).
@@ -198,7 +226,7 @@ Para crear un gemelo a partir de un modelo, busque ese modelo en la lista y elij
     :::column-end:::
 :::row-end:::
 
-Para agregar valores de propiedad al gemelo, consulte [Edición de gemelos y relaciones](#edit-twins-and-relationships).
+Para agregar valores de propiedad al gemelo, consulte [Edición de las propiedades de gemelos y relaciones](#edit-twin-and-relationship-properties).
 
 ### <a name="create-relationships"></a>Crear relaciones
 
@@ -210,15 +238,18 @@ Una vez seleccionados simultáneamente los dos gemelos, haga clic con el botón 
 
 Se mostrará el cuadro de diálogo **Create Relationship** (Crear relación), que incluye el gemelo de origen y el gemelo de destino de la relación, seguido de un menú desplegable **Relationship** (Relación) que contiene los tipos de relación que puede tener el gemelo de origen (definidos en su modelo DTDL). Seleccione una opción para el tipo de relación y **guarde** la nueva relación.
 
-### <a name="edit-twins-and-relationships"></a>Edición de gemelos y relaciones
+### <a name="edit-twin-and-relationship-properties"></a>Edición de las propiedades de gemelos y relaciones
 
 Para ver los valores de propiedad de un gemelo o una relación, seleccione el elemento del panel **Twin Graph** (Grafo de gemelos) y use el botón **Toggle property inspector** (Alternar inspector de propiedades) para expandir el panel **Twin Properties** (Propiedades de gemelos) o **Relationship Properties** (Propiedades de relación) respectivamente.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png" alt-text="Captura de pantalla del panel Twin Graph (Grafo de gemelos) de Azure Digital Twins Explorer. El gemelo FactoryA está seleccionado y el panel Twin Properties (Propiedades de gemelos) está expandido, y se muestran las propiedades del gemelo." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png":::
 
-Puede usar este panel para editar directamente las propiedades que se pueden modificar. Actualice sus valores en línea y haga clic en el botón **Save changes** (Guardar cambios) de la parte superior del panel para guardarlos. Cuando se guarda la actualización, la pantalla muestra una ventana modal con la operación JSON de revisión aplicada por la [API de actualización](/rest/api/azure-digitaltwins/).
+Puede usar este panel para editar directamente las propiedades que se pueden modificar. Actualice sus valores en línea y seleccione el botón **Save changes** (Guardar cambios) de la parte superior del panel para guardarlos. Cuando se guarda la actualización, la pantalla muestra una ventana modal con la operación JSON de revisión aplicada por la [API de actualización](/rest/api/azure-digitaltwins/).
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties-save.png" alt-text="Captura de pantalla del panel Twin Graph (Grafo de gemelos) de Azure Digital Twins Explorer. El centro de la pantalla muestra un modal de información de revisión con el código JSON de revisión." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties-save.png":::
+
+>[!TIP]
+> Las propiedades que se muestran en los paneles **Twin Properties** (Propiedades del gemelo) y **Relationship Properties** (Propiedades de la relación) se muestran con un icono, que indica el tipo del campo del modelo DTDL. Para más información sobre los iconos de tipo, consulte [Iconos de tipo de datos](#data-type-icons).
 
 ### <a name="delete-twins-and-relationships"></a>Eliminación de gemelos y relaciones
 
@@ -457,7 +488,7 @@ Azure Digital Twins abrirá un panel **Import** (Importar) que muestra una vista
 
 Si la importación se realiza correctamente, una ventana modal mostrará el número de modelos, gemelos y relaciones que se cargaron.
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import-successful.png" alt-text="Captura de pantalla del panel Twin Graph (Grafo de gemelos) de Azure Digital Twins Explorer. El centro de la pantalla muestra un modal de importación correcta con 4 gemelos importados y 2 relaciones importadas." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import-successful.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import-successful.png" alt-text="Captura de pantalla del panel Twin Graph (Grafo de gemelos) de Azure Digital Twins Explorer. El centro de la pantalla muestra una ventana modal de importación correcta con cuatro gemelos importados y dos relaciones importadas." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import-successful.png":::
 
 ### <a name="export-graph-and-models"></a>Exportación de grafos y modelos
 
@@ -507,7 +538,7 @@ El texto de la consulta debe estar codificado como URL.
 >
 > También puede usar un codificador de URL independiente para convertir el texto de la consulta.
 
-Este es un ejemplo del parámetro de una consulta para seleccionar con **SELECT * FROM digitaltwins**:
+Este es un ejemplo del parámetro para una consulta para `SELECT * FROM digitaltwins`:
 
 `...&query=SELECT%20*%20FROM%20digitaltwins`
 
@@ -517,7 +548,7 @@ Después puede compartir la URL completa.
 
 Puede habilitar varias opciones de configuración avanzadas en Azure Digital Twins Explorer para personalizar su experiencia o hacerla más accesible.
 
-Puede usar el icono **Métodos abreviados de teclado** de la barra de herramientas superior derecha para ver una lista de métodos abreviados de teclado que se pueden usar para navegar por Azure Digital Twins Explorer.
+Puede usar el icono **Métodos abreviados de teclado** de la barra de herramientas superior derecha para ver una lista de métodos abreviados de teclado que se pueden usar para desplazarse por Azure Digital Twins Explorer.
 
  :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/keyboard-shortcuts.png" alt-text="Captura de pantalla de Azure Digital Twins Explorer. El icono Métodos abreviados de teclado está resaltado en la barra de herramientas superior." lightbox="media/how-to-use-azure-digital-twins-explorer/keyboard-shortcuts.png":::
 

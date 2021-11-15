@@ -6,17 +6,17 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.custom: mvc, ignite-fall-2021
-ms.date: 11/02/2021
+ms.custom: mvc
+ms.date: 11/04/2021
 ms.author: memildin
-ms.openlocfilehash: 0d75d3c3a7276e15f114f7356941f38ac2ac7c64
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 2b6c756b0dd752d3e4de349b624f17342fad1c9d
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131092936"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131576460"
 ---
-# <a name="what-is-microsoft-defender-for-cloud"></a>¿Qué es Microsoft Defender for Cloud?
+# <a name="what-is-microsoft-defender-for-cloud"></a>¿Qué es Microsoft Defender for Cloud?
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -37,7 +37,7 @@ Defender for Cloud cubre tres necesidades vitales a medida que administra la seg
 
 ## <a name="posture-management-and-workload-protection"></a>Administración de posturas y protección de cargas de trabajo
 
-Las características de Defender for Cloud cubren los dos grandes pilares de la seguridad en la nube: administración de la posición de seguridad en la nube y protección de la carga de trabajo en la nube.
+Las características de Microsoft Defender for Cloud cubren los dos grandes pilares de la seguridad en la nube: la administración de la posición de seguridad en la nube y la protección de cargas de trabajo en la nube.
 
 ### <a name="cloud-security-posture-management-cspm"></a>Administración de la posición de seguridad en la nube (CSPM)
 
@@ -65,7 +65,7 @@ Defender for Cloud ofrece alertas de seguridad con tecnología de [Inteligencia 
 
 Dado que Defender for Cloud es un servicio nativo de Azure, muchos servicios de Azure se supervisan y protegen sin necesidad de ninguna implementación.
 
-Cuando sea necesario, Defender for Cloud puede implementar automáticamente un agente de Log Analytics para recopilar datos relacionados con la seguridad. En el caso de las máquinas de Azure, la implementación se controla directamente. Para entornos híbridos y de varias nubes, se realiza con la ayuda de [Azure Arc](https://azure.microsoft.com/services/azure-arc/).
+Cuando sea necesario, Defender for Cloud puede implementar automáticamente un agente de Log Analytics para recopilar datos relacionados con la seguridad. En el caso de las máquinas de Azure, la implementación se controla directamente. Para entornos híbridos y de varias nubes, los planes de Microsoft Defender se extienden a máquinas que no son de Azure con la ayuda de [Azure Arc](https://azure.microsoft.com/services/azure-arc/). Las características de CSPM se extienden a máquinas de varias nubes sin necesidad de ningún agente (consulte [Defensa de los recursos que se ejecutan en otras nubes](#defend-resources-running-on-other-clouds)).
 
 
 ### <a name="azure-native-protections"></a>Protecciones nativas de Azure
@@ -84,17 +84,17 @@ Además de defender el entorno de Azure, puede agregar funcionalidades de Defend
 
 Para ampliar la protección a las máquinas locales, implemente [Azure Arc](https://azure.microsoft.com/services/azure-arc/) y habilite las características de seguridad mejoradas de Defender for Cloud. Obtenga más información en [Incorporación de máquinas que no sean de Azure con Azure Arc](quickstart-onboard-machines.md#add-non-azure-machines-with-azure-arc).
 
-
 ### <a name="defend-resources-running-on-other-clouds"></a>Defensa de los recursos que se ejecutan en otras nubes 
 
 Defender for Cloud puede proteger los recursos de otras nubes (como AWS y GCP). 
 
-Entre los planes de protección de varias nubes se incluyen:
+Por ejemplo, si ha [conectado una cuenta de Amazon Web Services (AWS)](quickstart-onboard-aws.md) a una suscripción de Azure, puede habilitar cualquiera de estas protecciones:
 
-- **CSPM**: proporciona puntuación segura y recomendaciones de protección para los recursos en otros proveedores de nube.
-- **Microsoft Defender para Kubernetes**: proporciona protección del entorno, de cargas de trabajo y en tiempo de ejecución para los clústeres de Kubernetes.
-- **Microsoft Defender para servidores**: proporciona detección de amenazas y defensas avanzadas para las máquinas Windows y Linux.
+- Las **características de CSPM de Defender for Cloud** se extienden a los recursos de AWS. Este plan sin agente evalúa los recursos de AWS según las recomendaciones de seguridad específicas de AWS, que se incluyen en la puntuación de seguridad. También se evaluará el cumplimiento de los recursos de los estándares integrados específicos de AWS (AWS CIS, AWS PCI DSS y Procedimientos recomendados de seguridad fundamentales de AWS). La [página de inventario de recursos](asset-inventory.md) de Defender for Cloud es una característica habilitada para varias nubes que le permite administrar los recursos de AWS junto con los recursos de Azure.
+- **Microsoft Defender para Kubernetes** amplía la detección de amenazas de contenedores y las defensas avanzadas a los **clústeres Linux de Amazon EKS**.
+- **Microsoft Defender para servidores** proporciona detección de amenazas y defensas avanzadas para instancias de EC2 con Windows y Linux. Este plan incluye la licencia integrada de Microsoft Defender para punto de conexión, las líneas base de seguridad y las evaluaciones de nivel de sistema operativo, análisis de evaluación de vulnerabilidades, controles de aplicaciones adaptables (AAC), supervisión de la integridad de los archivos (FIM) y mucho más.
 
+Más información sobre la conexión de las cuentas de [AWS](quickstart-onboard-aws.md) y [GCP](quickstart-onboard-gcp.md) a Microsoft Defender for Cloud.
 
 ## <a name="vulnerability-assessment-and-management"></a>Evaluación y administración de vulnerabilidades
 
@@ -163,7 +163,7 @@ Use los iconos de protección avanzada del [panel para la protección de cargas 
 
 - Para empezar a trabajar con Defender for Cloud, necesita una suscripción a Microsoft Azure. Si aún no tiene una suscripción, [regístrese para obtener una evaluación gratuita](https://azure.microsoft.com/free/).
 
-- El plan gratuito de Defender for Cloud está habilitado en todas las suscripciones actuales de Azure cuando visite el panel de Defender for Cloud en Azure Portal por primera vez, o si se habilita mediante programación a través de la API de REST. Para aprovechar las funcionalidades de detección de amenazas y administración de seguridad avanzada, debe habilitar las características de seguridad mejoradas. Estas características son gratuitas durante los primeros 30 días. [Obtenga más información sobre los precios](https://azure.microsoft.com/pricing/details/security-center/).
+- El plan gratuito de Defender for Cloud está habilitado en todas las suscripciones actuales de Azure cuando visite las páginas de Defender for Cloud en Azure Portal por primera vez, o si se habilita mediante programación con la API REST. Para aprovechar las funcionalidades de detección de amenazas y administración de seguridad avanzada, debe habilitar las características de seguridad mejoradas. Estas características son gratuitas durante los primeros 30 días. [Obtenga más información sobre los precios](https://azure.microsoft.com/pricing/details/security-center/).
 
 - Si ya está listo para habilitar las características de seguridad mejoradas, el artículo [Guía de inicio rápido: Habilitación de características de seguridad mejoradas](enable-enhanced-security.md) le guiará a través de los pasos necesarios.
 

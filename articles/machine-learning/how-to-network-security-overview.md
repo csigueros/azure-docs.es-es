@@ -8,15 +8,15 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 09/29/2021
+ms.date: 10/29/2021
 ms.topic: how-to
 ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q4,FY21Q4-aml-seo-hack, security
-ms.openlocfilehash: ef84fea20ce59af11abf2f76de409f1363db94c9
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b114077c9af72e9d57d80e783d26f54d0de91410
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131051085"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131429762"
 ---
 <!-- # Virtual network isolation and privacy overview -->
 # <a name="secure-azure-machine-learning-workspace-resources-using-virtual-networks-vnets"></a>Protección de los recursos del área de trabajo de Azure Machine Learning con redes virtuales (VNet)
@@ -88,6 +88,8 @@ Si quiere acceder al área de trabajo a través de la red pública de Internet y
     | __Azure Key Vault__| [Punto de conexión de servicio](../key-vault/general/overview-vnet-service-endpoints.md)</br>[Punto de conexión privado](../key-vault/general/private-link-service.md) | [Permite que los servicios de Microsoft de confianza omitan este firewall](how-to-secure-workspace-vnet.md#secure-azure-key-vault) |
     | __Cuenta de Azure Storage__ | [Punto de conexión privado y de servicio](how-to-secure-workspace-vnet.md?tabs=se#secure-azure-storage-accounts)</br>[Punto de conexión privado](how-to-secure-workspace-vnet.md?tabs=pe#secure-azure-storage-accounts) | [Concesión de acceso a servicios de Azure de confianza](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
     | __Azure Container Registry__ | [Punto de conexión privado](../container-registry/container-registry-private-link.md) | [Permitir servicios de confianza](../container-registry/allow-access-trusted-services.md) |
+
+1. En las propiedades de las cuentas de Azure Storage del área de trabajo, agregue la dirección IP del cliente a la lista de permitidos en la configuración del firewall. Para más información, consulte [Configuración de redes virtuales y firewalls de Azure Storage](/azure/storage/common/storage-network-security#configuring-access-from-on-premises-networks).
 
 ## <a name="secure-the-workspace-and-associated-resources"></a>Proteger el área de trabajo y los recursos asociados
 

@@ -4,7 +4,7 @@ description: Obtenga una visión general de las actividades de auditoría que se
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c4c0c26d413f856e522af00d29798630263ed20
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c9cb1056afe58acb5b3fdc8aae45fedf32eb446a
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128633400"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131995756"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referencia sobre actividades de auditoría de Azure AD
 
@@ -150,7 +150,7 @@ En este artículo se enumeran las actividades de auditoría que se pueden regist
 |Authorization|Creación de directiva de trustFramework con prefijo configurable|
 |Authorization|Creación de atributo de usuario|
 |Authorization|CreateTrustFrameworkPolicy|
-|Authorization|Crea o actualiza un nuevo AdminUserJourney|
+|Authorization|Crea o actualiza un nuevo valor de AdminUserJourney|
 |Authorization|Eliminación de IDP|
 |Authorization|Eliminación de IdentityProvider|
 |Authorization|Eliminación de aplicación V1|

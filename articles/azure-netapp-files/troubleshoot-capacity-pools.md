@@ -1,5 +1,5 @@
 ---
-title: Solución de problemas de grupos de capacidad para Azure NetApp Files | Microsoft Docs
+title: Solución de errores del grupo de capacidad en Azure NetApp Files | Microsoft Docs
 description: Describe las posibles incidencias que podría tener al administrar grupos de capacidad y proporciona soluciones.
 services: azure-netapp-files
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 7ca7f042aaa97967d47dd9f35afaa647e0d37361
-ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.openlocfilehash: e637c80f864592f89252e52f27325762cd43582b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129407273"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219780"
 ---
-# <a name="troubleshoot-capacity-pool-issues"></a>Solución de problemas de grupos de capacidad
+# <a name="troubleshoot-capacity-pool-errors"></a>Solución de errores de los grupos de capacidad
 
 En este artículo se describen las resoluciones a las incidencias que puede tener al administrar grupos de capacidad, incluida la operación de cambio de grupo. 
 

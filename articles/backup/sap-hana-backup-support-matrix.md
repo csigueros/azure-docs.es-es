@@ -2,14 +2,14 @@
 title: Matriz de compatibilidad de SAP HANA
 description: En este artículo se proporciona información sobre los escenarios admitidos y las limitaciones al usar Azure Backup para realizar copias de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure.
 ms.topic: conceptual
-ms.date: 09/01/2021
+ms.date: 10/22/2021
 ms.custom: references_regions
-ms.openlocfilehash: 09dab8a35c5ed06ec9680b2cb57ca6ac0d27109f
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: b9d642d0c70b06677aedcce99c1f21ac4b3a7d34
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123427946"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130244547"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matriz de compatibilidad de la copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
 
@@ -33,6 +33,7 @@ Azure Backup admite la realización de copias de seguridad de bases de datos de 
 | **Tipos de copia de seguridad**           | Copias de seguridad completas, diferenciales, incrementales y de registros                          |  Instantáneas                                       |
 | **Tipos de restauración**          | Consulte la nota SAP HANA [1642148](https://launchpad.support.sap.com/#/notes/1642148) para obtener información sobre los tipos de restauración admitidos |                                                              |
 | **Límites de copia de seguridad**          | Copias de seguridad completas de hasta 8 TB por instancia de SAP HANA (límite temporal)         |                                                              |
+| **Número de copias de seguridad completas al día**     |   Una copia de seguridad programada.  <br><br>   Tres copias de seguridad a petición. <br><br> Se recomienda no desencadenar más de tres copias de seguridad al día. Sin embargo, para permitir reintentos del usuario en caso de intentos fallidos, el límite máximo de copias de seguridad a petición se establece en nueve intentos.  |
 | **Configuraciones especiales** |                                                              | SAP HANA y Dynamic Tiering <br>  Clonación a través de LaMa        |
 
 ------

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 04/09/2021
 ms.author: rohink
-ms.openlocfilehash: eb66facb8d36884205bc9cd8e562ab97f92c3dd8
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 819e3f911a769f870b792ed92b699f3356139565
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108745044"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131457704"
 ---
 # <a name="what-is-azure-private-dns"></a>¿Qué es DNS privado de Azure?
 
@@ -47,7 +47,7 @@ DNS privado de Azure proporciona las ventajas siguientes:
 
 ## <a name="capabilities"></a>Capacidades
 
-Azure DNS ofrece las funcionalidades siguientes:
+Azure DNS privado ofrece las funcionalidades siguientes:
 
 * **Registro automático de máquinas virtuales desde una única red virtual vinculada a una zona privada con registro automático habilitado**. Las máquinas virtuales se registran en la zona privada como registros A que apuntan a sus direcciones IP privadas. Cuando se elimina una máquina virtual de un vínculo de red virtual que tiene el registro automático habilitado, Azure DNS también elimina automáticamente el registro DNS correspondiente de la zona privada vinculada.
 
@@ -57,7 +57,7 @@ Azure DNS ofrece las funcionalidades siguientes:
 
 ## <a name="other-considerations"></a>Otras consideraciones
 
-Azure DNS tiene las siguientes limitaciones:
+Azure DNS privado tiene las siguientes limitaciones:
 
 * Una red virtual concreta se puede vincular a una sola zona privada como si se habilitara el registro automático de los registros DNS de una red virtual. Sin embargo, puede vincular varias redes virtuales a una sola zona DNS.
 * El DNS inverso solo funciona en el espacio de direcciones IP privadas de la red virtual vinculada.

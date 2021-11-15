@@ -10,13 +10,13 @@ ms.topic: troubleshooting
 author: AlainDormehlMSFT
 ms.author: aldorme
 ms.reviewer: mathoma, wiassaf
-ms.date: 1/14/2021
-ms.openlocfilehash: 18cc914db7634637ec2ea541afbcefc105e5d38c
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.date: 11/04/2021
+ms.openlocfilehash: 215cd52bf5f0272884364f2070985459937ccdc8
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111590349"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131853023"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Solucione con Intelligent Insights los problemas de rendimiento de Azure SQL Database e Instancia administrada de Azure SQL.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -110,7 +110,7 @@ Puede optimizar o quitar consultas relacionadas con los distribuidores que reali
 
 Otra manera de reducir la carga de trabajo es optimizarla o distribuirla entre varias bases de datos . Si ninguna de estas soluciones es posible, podría aumentar el plan de tarifa de su base de datos a fin de aumentar la cantidad de recursos de memoria disponibles para la base de datos.
 
-Para obtener más sugerencias de solución de problemas, consulte [Memory grants meditation: The mysterious SQL Server memory consumer with many names](https://techcommunity.microsoft.com/t5/sql-server-support/memory-grants-meditation-the-mysterious-sql-server-memory/ba-p/333994) (Meditación sobre la concesión de memoria: el misterioso consumidor de memoria de SQL Server con muchos nombres).
+Para obtener más sugerencias de solución de problemas, consulte [Memory grants meditation: The mysterious SQL Server memory consumer with many names](https://techcommunity.microsoft.com/t5/sql-server-support/memory-grants-meditation-the-mysterious-sql-server-memory/ba-p/333994) (Meditación sobre la concesión de memoria: el misterioso consumidor de memoria de SQL Server con muchos nombres). Para obtener más información sobre errores de memoria insuficiente en Azure SQL Database, vea [Solución de problemas de errores de memoria insuficiente con Azure SQL Database](troubleshoot-memory-errors-issues.md).
 
 ## <a name="locking"></a>Bloqueo
 
@@ -226,7 +226,7 @@ Para más información sobre cómo optimizar el rendimiento de las consultas, co
 
 ### <a name="what-is-happening"></a>Qué pasa
 
-Este patrón de rendimiento detectable indica una condición de rendimiento de la base de datos en la que existe un cuello de botella de subprocesos que intentan acceder a los recursos de tempDB. (Esta condición no está relacionada con la E/S). El escenario típico de este problema de rendimiento es el de cientos de consultas simultáneas que crean, usan y luego descartan tablas pequeñas de tempDB. El sistema detectó que aumentó el número de consultas simultáneas que usan las mismas tablas de tempDB con una significación estadística suficiente que afecta al rendimiento de la base de datos en comparación con la base de referencia de rendimiento de los últimos 7 días.
+Este patrón de rendimiento detectable indica una condición de rendimiento de la base de datos en la que existe un cuello de botella de subprocesos que intentan acceder a los recursos de tempDB. (Esta condición no está relacionada con la E/S). El escenario típico de este problema de rendimiento consiste en cientos de consultas simultáneas que crean, usan y colocan tablas pequeñas de TempDB. El sistema detectó que aumentó el número de consultas simultáneas que usan las mismas tablas de tempDB con una significación estadística suficiente que afecta al rendimiento de la base de datos en comparación con la base de referencia de rendimiento de los últimos 7 días.
 
 ### <a name="troubleshooting"></a>Solución de problemas
 

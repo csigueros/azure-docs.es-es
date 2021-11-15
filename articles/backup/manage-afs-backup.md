@@ -2,17 +2,20 @@
 title: Administración de copias de seguridad de recursos compartidos de archivos de Azure
 description: En este artículo se describen las tareas comunes para administrar y supervisar los recursos compartidos de archivos de Azure de los que Azure Backup realiza una copia de seguridad.
 ms.topic: conceptual
-ms.date: 10/08/2021
-ms.openlocfilehash: 421162387b28777acf1c4f86288796d8066468a6
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 11/03/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: 021a24cbe5c1e2ba9f504ca99c149b135bc40fc4
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130216055"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131844740"
 ---
 # <a name="manage-azure-file-share-backups"></a>Administración de copias de seguridad de recursos compartidos de archivos de Azure
 
-En este artículo se describen las tareas comunes para administrar y supervisar los recursos compartidos de archivos de Azure de los que [Azure Backup](./backup-overview.md) realiza una copia de seguridad. Aprenderá a realizar tareas de administración en el almacén de Recovery Services.
+En este artículo se describen las tareas comunes para administrar y supervisar los recursos compartidos de archivos de Azure de los que [Azure Backup](./backup-overview.md) realiza una copia de seguridad. Aprenderá a realizar tareas de administración en el **Centro de copias de seguridad**.
 
 ## <a name="monitor-jobs"></a>Supervisión de trabajos
 
@@ -20,31 +23,33 @@ Al desencadenar operaciones de copia de seguridad o restauración, el servicio d
 
 Para abrir la página **Backup Jobs** (Trabajos de copia de seguridad), siga estos pasos:
 
-1. Abra el almacén de Recovery Services que usó para configurar la copia de seguridad de los recursos compartidos de archivos. En el panel **Información general**, seleccione **Trabajos de copia de seguridad** en la sección **Supervisión**.
+1. Vaya a **Centro de copias de seguridad** y seleccione **Trabajos de copia de seguridad** en la sección **Supervisión**.
 
-   ![Trabajos de copia de seguridad en la sección Supervisión](./media/manage-afs-backup/backup-jobs.png)
+   :::image type="content" source="./media/manage-afs-backup/backup-center-jobs-list-inline.png" alt-text="Captura de pantalla que muestra trabajos de copia de seguridad en la sección Supervisión" lightbox="./media/manage-afs-backup/backup-center-jobs-list-expanded.png":::.
 
-1. Después de seleccionar **Aceptar**, el panel **Trabajos de copia de seguridad** muestra el estado de todos los trabajos. Seleccione el nombre de la carga de trabajo correspondiente al recurso compartido de archivos que desea supervisar.
+   En el panel **Trabajos de copia de seguridad**, se muestra el estado de todos los trabajos.
 
-   ![Nombre de la carga de trabajo](./media/manage-afs-backup/workload-name.png)
+1. Seleccione **Azure Files (Azure Storage)** como el tipo de origen de datos y seleccione cualquier fila para ver los detalles del trabajo concreto.
+
+   :::image type="content" source="./media/manage-afs-backup/backup-center-jobs-inline.png" alt-text="Captura de pantalla en la que se muestra la lista de trabajos" lightbox="./media/manage-afs-backup/backup-center-jobs-expanded.png":::.
 
 ## <a name="monitor-using-azure-backup-reports"></a>Supervisión mediante informes de Azure Backup
 
-Azure Backup proporciona una solución de informes que usa [registros de Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md) y [libros de Azure](../azure-monitor/visualize/workbooks-overview.md). Estos recursos le ayudan a obtener mejores conclusiones sobre las copias de seguridad. Puede aprovechar estos informes para obtener visibilidad de los elementos de copia de seguridad de Azure Files, los trabajos en el nivel de elemento y los detalles de las directivas activas. Con la característica "Informe de correo electrónico" disponible en los Informes de Backup, puede crear tareas automatizadas para recibir informes periódicos por correo electrónico. [Aprenda](./configure-reports.md#get-started) cómo configurar y ver los informes de Azure Backup.
+Azure Backup proporciona una solución de informes que usa [registros de Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md) y [libros de Azure](../azure-monitor/visualize/workbooks-overview.md). Estos recursos le ayudan a obtener mejores conclusiones sobre las copias de seguridad. Puede aprovechar estos informes para obtener visibilidad de los elementos de copia de seguridad de Azure Files, los trabajos en el nivel de elemento y los detalles de las directivas activas. Con la característica Informe de correo electrónico disponible en los informes de Backup, puede crear tareas automatizadas para recibir informes periódicos por correo electrónico. [Aprenda](./configure-reports.md#get-started) a configurar y ver los informes de Azure Backup.
 
 ## <a name="create-a-new-policy"></a>Creación de una nueva directiva
 
-Puede crear una nueva directiva para realizar una copia de seguridad de los recursos compartidos de archivos de Azure desde la sección **Directivas de copia de seguridad** del almacén de Recovery Services. Todas las directivas que se crean al configurar la copia de seguridad de los recursos compartidos de archivos se muestran con **Tipo de directiva** establecido en **Recurso compartido de archivos de Azure**.
+Puede crear una directiva para realizar una copia de seguridad de los recursos compartidos de archivos de Azure desde la sección **Directivas de copia de seguridad** del **Centro de copias de seguridad**. Todas las directivas que se crean al configurar la copia de seguridad de los recursos compartidos de archivos se muestran con **Tipo de directiva** establecido en **Recurso compartido de archivos de Azure**.
 
 Para crear una nueva directiva de copia de seguridad, siga estos pasos:
 
-1. En el panel **Directivas de copia de seguridad** del almacén de Recovery Services, seleccione **+ Agregar**.
+1. En el panel **Directivas de copia de seguridad** del **Centro de copias de seguridad**, seleccione **+Agregar**.
 
-   :::image type="content" source="./media/manage-afs-backup/new-backup-policy.png" alt-text="Captura de pantalla que muestra la opción para empezar a crear una nueva directiva de copia de seguridad.":::
+   :::image type="content" source="./media/manage-afs-backup/backup-center-add-policy-inline.png" alt-text="Captura de pantalla que muestra la opción para empezar a crear una nueva directiva de copia de seguridad." lightbox="./media/manage-afs-backup/backup-center-add-policy-expanded.png":::
 
-1. En el panel **Agregar**, seleccione **Recurso compartido de archivos de Azure** como **Tipo de directiva**.
+1. Seleccione **Azure Files (Azure Storage)** como tipo de origen de datos, seleccione el almacén en el que se debe crear la directiva y, a continuación, haga clic en **Continuar**.
 
-   :::image type="content" source="./media/manage-afs-backup/define-policy-type.png" alt-text="Captura de pantalla que muestra la selección de Recurso compartido de archivos de Azure como tipo de directiva.":::
+   :::image type="content" source="./media/manage-afs-backup/azure-file-share-select-vault-for-policy.png" alt-text="Captura de pantalla que muestra la selección de Recurso compartido de archivos de Azure como tipo de directiva":::.
 
 1. Cuando se abra el panel **Directiva de copia de seguridad** de **Recurso compartido de archivos de Azure**, especifique el nombre de la directiva.
 
@@ -82,13 +87,13 @@ Para crear una nueva directiva de copia de seguridad, siga estos pasos:
 
 Para ver las directivas de copia de seguridad existentes:
 
-1. Abra el almacén de Recovery Services que usó para configurar la copia de seguridad de los recursos compartidos de archivos. En el menú del almacén de Recovery Services, seleccione **Directivas de copia de seguridad** en la sección **Administrar**. Se mostrarán todas las directivas de copia de seguridad configuradas en el almacén.
+1. Vaya a **Centro de copias de seguridad** y seleccione **Directivas de copia de seguridad** en la sección **Administrar**.
 
-   :::image type="content" source="./media/manage-afs-backup/all-backup-policies.png" alt-text="Captura de pantalla que muestra todas las directivas de copia de seguridad.":::
+   Aparecen todas las directivas de copia de seguridad configuradas en el almacén.
 
-1. Para ver las directivas específicas de **Recurso compartido de archivos de Azure**, seleccione **Recurso compartido de archivos de Azure** en la lista desplegable de la parte superior derecha.
+   :::image type="content" source="./media/manage-afs-backup/backup-center-policies-list-inline.png" alt-text="Captura de pantalla que muestra todas las directivas de copia de seguridad." lightbox="./media/manage-afs-backup/backup-center-policies-list-expanded.png":::
 
-   :::image type="content" source="./media/manage-afs-backup/azure-file-share.png" alt-text="Captura de pantalla que muestra el proceso para seleccionar el recurso compartido de archivos de Azure.":::
+1. Para ver directivas específicas de **Azure Files (Azure Storage)** , seleccione **Recurso compartido de archivos de Azure** como el tipo de origen de datos.
 
 ## <a name="modify-policy"></a>Modificación de directivas
 
@@ -96,15 +101,19 @@ Puede modificar una directiva de copia de seguridad para cambiar la frecuencia d
 
 Para modificar una directiva:
 
-1. Abra el almacén de Recovery Services que usó para configurar la copia de seguridad de los recursos compartidos de archivos. En el menú del almacén de Recovery Services, seleccione **Directivas de copia de seguridad** en la sección **Administrar**. Se mostrarán todas las directivas de copia de seguridad configuradas en el almacén.
+1. Vaya a **Centro de copias de seguridad** y seleccione **Directivas de copia de seguridad** en la sección **Administrar**.
 
-   ![Todas las directivas de copia de seguridad del almacén](./media/manage-afs-backup/all-backup-policies-modify.png)
+   Aparecen todas las directivas de copia de seguridad configuradas en los almacenes.
 
-1. Para ver las directivas específicas de un recurso compartido de archivos de Azure, seleccione **Recurso compartido de archivos de Azure** en la lista desplegable de la parte superior derecha. Seleccione la directiva de copia de seguridad que desee modificar.
+   :::image type="content" source="./media/manage-afs-backup/backup-center-policies-list-inline.png" alt-text="Captura de pantalla que muestra todas las directivas de copia de seguridad del almacén" lightbox="./media/manage-afs-backup/backup-center-policies-list-expanded.png":::.
 
-   ![Recurso compartido de archivos de Azure que se va a modificar](./media/manage-afs-backup/azure-file-share-modify.png)
+1. Para ver las directivas específicas de un recurso compartido de archivos de Azure, seleccione **Azure Files (Azure Storage)** como el tipo de origen de datos.
 
-1. Se abrirá el panel **Programación**. Edite la **Programación de copia de seguridad** y la **Duración de retención** según sea necesario y seleccione **Guardar**. Verá el mensaje "Actualización en curso" en el panel. Una vez que se actualicen correctamente los cambios en la directiva, verá el mensaje "La directiva de copia de seguridad se actualizó correctamente".
+   Haga clic en la directiva que desea actualizar.
+
+1. Se abrirá el panel **Programación**. Edite la **Programación de copia de seguridad** y la **Duración de retención** según sea necesario y seleccione **Guardar**.
+
+   Verá el mensaje _Actualización en curso_ en el panel. Una vez que se actualicen correctamente los cambios en la directiva, verá el mensaje _La directiva de copia de seguridad se actualizó correctamente_.
 
    ![Directiva modificada y guardada](./media/manage-afs-backup/save-policy.png)
 
@@ -119,15 +128,11 @@ Puede que dejar los puntos de recuperación en el almacenamiento conlleve un cos
 
 Para dejar de proteger recursos compartidos de archivos de Azure, siga estos pasos:
 
-1. Abra el almacén de Recovery Services que contiene los puntos de recuperación del recurso compartido de archivos. Seleccione **Elementos de copia de seguridad** en la sección **Elementos protegidos**. Aparecerá la lista de tipos de elementos de copia de seguridad.
+1. Vaya al **Centro de copias de seguridad**, seleccione **Instancias de copia de seguridad** en el menú y, después, seleccione **Azure Files (Azure Storage)** como el tipo de origen de datos.
 
-   ![Elementos de copia de seguridad](./media/manage-afs-backup/backup-items.png)
+   :::image type="content" source="./media/manage-afs-backup/azure-file-share-backup-instances-inline.png" alt-text="Captura de pantalla que muestra Azure Files como tipo de datos" lightbox="./media/manage-afs-backup/azure-file-share-backup-instances-expanded.png":::.
 
-1. En la lista **Backup Management Type** (Tipo de administración de copia de seguridad), seleccione **Azure Storage (Azure Files)** . Aparecerá la lista **Elementos de copia de seguridad (Azure Storage [Azure Files])** .
-
-   ![Selección de Azure Storage (Azure Files)](./media/manage-afs-backup/azure-storage-azure-files.png)
-
-1. En la lista **Elementos de copia de seguridad (Azure Storage [Azure Files])** , seleccione el elemento de copia de seguridad que desee dejar de proteger.
+1. Seleccione el elemento de copia de seguridad para el que desea detener la protección.
 
 1. Seleccione la opción **Detener copia de seguridad**.
 
@@ -143,15 +148,11 @@ Si seleccionó la opción **Retener datos de copia de seguridad** al detener la 
 
 Para reanudar la protección del recurso compartido de archivos de Azure:
 
-1. Abra el almacén de Recovery Services que contiene los puntos de recuperación del recurso compartido de archivos. Seleccione **Elementos de copia de seguridad** en la sección **Elementos protegidos**. Aparecerá la lista de tipos de elementos de copia de seguridad.
+1. Vaya al **Centro de copias de seguridad**, seleccione **Instancias de copia de seguridad** en el menú y, después, seleccione **Azure Files (Azure Storage)** como el tipo de origen de datos.
 
-   ![Elementos de copia de seguridad para reanudar](./media/manage-afs-backup/backup-items-resume.png)
+   :::image type="content" source="./media/manage-afs-backup/azure-file-share-backup-instances-inline.png" alt-text="Captura de pantalla que muestra Azure Files como el tipo de origen de datos" lightbox="./media/manage-afs-backup/azure-file-share-backup-instances-expanded.png":::.
 
-1. En la lista **Backup Management Type** (Tipo de administración de copia de seguridad), seleccione **Azure Storage (Azure Files)** . Aparecerá la lista **Elementos de copia de seguridad (Azure Storage [Azure Files])** .
-
-   ![Lista de Azure Storage (Azure Files)](./media/manage-afs-backup/azure-storage-azure-files.png)
-
-1. En la lista **Elementos de copia de seguridad (Azure Storage [Azure Files])** , seleccione el elemento de copia de seguridad para el que desee reanudar la protección.
+1. Seleccione el elemento de copia de seguridad para el que desea reanudar la protección.
 
 1. Seleccione la opción **Reanudar copia de seguridad**.
 
@@ -159,7 +160,9 @@ Para reanudar la protección del recurso compartido de archivos de Azure:
 
 1. Se abrirá el panel **Directiva de copia de seguridad**. Seleccione la directiva que desee para reanudar la copia de seguridad.
 
-1. Después de seleccionar una directiva de copia de seguridad, seleccione **Guardar**. Verá el mensaje "Actualización en curso" en el portal. Después de que la copia de seguridad se reanude correctamente, verá el mensaje "La directiva de copia de seguridad del recurso compartido de archivos de Azure protegido se actualizó correctamente".
+1. Después de seleccionar una directiva de copia de seguridad, seleccione **Guardar**.
+
+   Verá el mensaje _Actualización en curso_ en el portal. Después de que la copia de seguridad se reanude correctamente, verá el mensaje _La directiva de copia de seguridad del recurso compartido de archivos de Azure protegido se actualizó correctamente_.
 
    ![Directiva de copia de seguridad actualizada correctamente](./media/manage-afs-backup/successfully-updated.png)
 

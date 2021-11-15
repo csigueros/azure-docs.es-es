@@ -6,12 +6,12 @@ author: palma21
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jpalma
-ms.openlocfilehash: 6ca95378145664b2fafe342d4887d3d8dcf7122a
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: c62e269ae20b8da974b4ba7ef72ac7171ee0e88d
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123112410"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131577980"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Personalización de CoreDNS con Azure Kubernetes Service
 
@@ -79,7 +79,7 @@ kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
 ```
 
 > [!Note]
-> El comando anterior es correcto. Mientras cambiamos `coredns`, la implementación tiene el nombre **kube-dns**.
+> El comando anterior es correcto. Mientras cambiamos `coredns`, la implementación tiene la etiqueta **kube-dns**.
 
 ## <a name="custom-forward-server"></a>Servidor de reenvío personalizado
 

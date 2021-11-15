@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/26/2021
+ms.date: 10/29/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 48577b7625b80954d856d02fcee9e0696393bc55
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0ff64806531f1d99ced2ad2b5747ae73e54114bd
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131036264"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131505107"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial: Creación de un inquilino de Azure Active Directory B2C
 
@@ -59,7 +59,7 @@ En el siguiente tutorial aprenderá a registrar una aplicación.
 1. Agregue **Microsoft.AzureActiveDirectory** como proveedor de recursos para la suscripción de Azure que utiliza ([más información](../azure-resource-manager/management/resource-providers-and-types.md?WT.mc_id=Portal-Microsoft_Azure_Support#register-resource-provider-1)):
 
     1. En Azure Portal, busque y seleccione **Suscripciones**.
-    2. Seleccione la suscripción y luego **Proveedores de recursos** en el menú izquierdo. Si no ve el menú izquierdo, seleccione el icono **Mostrar el menú de <nombre de la suscripción>** en la parte superior izquierda de la página para abrirlo.
+    2. Seleccione la suscripción y luego **Proveedores de recursos** en el menú izquierdo. Si no ve el menú izquierdo, seleccione el icono **Mostrar el menú de <nombre de la suscripción>** en la parte superior izquierda de la página para expandirla.
     3. Asegúrese de que la fila **Microsoft.AzureActiveDirectory** muestre el estado **Registrado**. Si no es así, seleccione la fila y, a continuación, seleccione **Registrar**.
 
 1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**.
@@ -85,6 +85,9 @@ En el siguiente tutorial aprenderá a registrar una aplicación.
 1. Revise la configuración del directorio. Seleccione **Crear**. Obtenga más información sobre la [solución de problemas de implementación](../azure-resource-manager/templates/common-deployment-errors.md).
 
 Puede vincular varios inquilinos de Azure AD B2C a una única suscripción de Azure con fines de facturación. Para vincular un inquilino, debe ser administrador en el inquilino de Azure AD B2C y tener asignado al menos un rol de colaborador en la suscripción de Azure. Consulte [Vinculación de un inquilino de Azure AD B2C a una suscripción](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
+
+> [!NOTE]
+> Cuando se crea un directorio de Azure AD B2C, se crea en él automáticamente una aplicación denominada `b2c-extensions-app`. No la modifique ni la elimine. Azure AD B2C usa esta aplicación para almacenar datos de usuario. Obtenga más información sobre la [aplicación de extensiones de Azure AD B2C](extensions-app.md).
 
 ## <a name="select-your-b2c-tenant-directory"></a>Selección de su directorio de inquilinos B2C
 

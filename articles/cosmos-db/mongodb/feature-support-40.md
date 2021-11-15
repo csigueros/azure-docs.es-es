@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: 3c7e455377ab243f8140ac346c6f924a3b04f0d8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a5994bdfcdaf1203246c71ecddc2a94f4be5a022
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128554190"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450065"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-40-server-version-supported-features-and-syntax"></a>API de Azure Cosmos DB para MongoDB (versión 4.0 de servidor): características y sintaxis que se admiten
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -194,6 +194,9 @@ La API de Azure Cosmos DB para MongoDB admite los siguientes comandos de base de
 | $allElementsTrue | Sí |
 
 ### <a name="comparison-expressions"></a>Expresiones de comparación
+
+> [!NOTE]
+> La API de MongoDB no admite expresiones de comparación con un literal de matriz en la consulta.
 
 | Get-Help | Compatible |
 |---------|---------|
@@ -580,4 +583,4 @@ Algunas aplicaciones se basan en [Write Concern](https://docs.mongodb.com/manual
 - Explore [ejemplos](nodejs-console-app.md) de MongoDB con la API de Azure Cosmos DB para MongoDB.
 - ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Para ello, puede usar información sobre el clúster de bases de datos existente.
     - Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
-    - Si conoce las velocidades de solicitud típicas de la carga de trabajo de base de datos actual, lea sobre el [cálculo de las unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-capacity-planner.md).
+    - Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-capacity-planner.md).

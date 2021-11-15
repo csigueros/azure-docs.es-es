@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo solucionar problemas y resolver pr
 services: container-service
 ms.topic: troubleshooting
 ms.date: 09/24/2021
-ms.openlocfilehash: 16aa9482b9de779295732fef0f2b88fa348e9026
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: c21c5a981f091c9c4b0e340f3c0ae1481cd486c6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129707175"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131455917"
 ---
 # <a name="aks-troubleshooting"></a>Solución de problemas de AKS
 
@@ -92,6 +92,22 @@ Asegúrese de que los puertos 22, 9000 y 1194 están abiertos para conectarse al
 ## <a name="im-getting-tls-client-offered-only-unsupported-versions-from-my-client-when-connecting-to-aks-api-what-should-i-do"></a>Recibo `"tls: client offered only unsupported versions"` de mi cliente al conectarse a la API de AKS. ¿Cuál debo hacer?
 
 La versión de TLS mínima admitida en AKS es TLS 1.2.
+
+## <a name="my-application-is-failing-with-argument-list-too-long"></a>Mi aplicación está dando error con `argument list too long`.
+
+Es posible que reciba un mensaje de error similar al siguiente:
+
+```
+standard_init_linux.go:228: exec user process caused: argument list too long
+```
+
+Hay dos causas posibles:
+- La lista de argumentos proporcionada al archivo ejecutable es demasiado larga.
+- El conjunto de variables de entorno proporcionado al archivo ejecutable es demasiado grande.
+
+Si tiene muchos servicios implementados en un espacio de nombres, puede provocarse que la lista de variables de entorno sea demasiado grande. Así, se producirá el mensaje de error anterior cuando Kubelet intente ejecutar el archivo ejecutable. El error se debe a que Kubelet inserta variables de entorno que registran el host y el puerto de cada servicio activo, por lo que los servicios pueden usar esta información para buscarse entre sí (obtenga más información al respecto [en la documentación de Kubernetes](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service)). 
+
+Como solución alternativa, puede deshabilitar este comportamiento de Kubelet estableciendo `enableServiceLinks: false` dentro de la [especificación de pod](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#podspec-v1-core). **Sin embargo**, si el servicio se basa en estas variables de entorno para ubicar otros servicios, se producirá un error. Una corrección es usar DNS para la resolución de servicios en lugar de variables de entorno (mediante [CoreDNS](https://kubernetes.io/docs/tasks/administer-cluster/coredns/)). Otra opción es reducir el número de servicios que están activos.
 
 ## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Estoy intentando actualizar o escalar y recibo el error `"Changing property 'imageReference' is not allowed"`. ¿Cómo se corrige este problema?
 

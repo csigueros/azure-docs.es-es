@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 19a3f0983a4c5b04ddff02c7ea796a4a8d87c07b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 952f6655720cf95b12dc0d18837b324ca48422b2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093227"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131434263"
 ---
 # <a name="whats-new-in-azure-cognitive-service-for-language"></a>Novedades de Azure Cognitive Service for Language
 
@@ -36,11 +36,13 @@ Azure Cognitive Service for Language se actualiza de forma continua. Para manten
     * [Versión preliminar de la clasificación de texto personalizada](custom-classification/overview.md)
     * [Versión preliminar de Conversational Language Understanding](conversational-language-understanding/overview.md)
 
-* Versión del modelo `2021-10-01` para [Análisis de sentimiento y minería de opiniones](sentiment-opinion-mining/overview.md), que proporciona
+* Versión preliminar del modelo `2021-10-01-preview` para [Análisis de sentimiento y minería de opiniones](sentiment-opinion-mining/overview.md), que proporciona:
     * Calidad de predicción mejorada.
     * [Compatibilidad de idioma adicional](sentiment-opinion-mining/language-support.md?tabs=sentiment-analysis) para la característica de minería de opiniones.
     * Para obtener más información, consulte el [sitio del proyecto z-code](https://www.microsoft.com/research/project/project-zcode/).
-
+    > [!NOTE]
+    > Para usar la [versión del modelo](sentiment-opinion-mining/how-to/call-api.md#specify-the-sentiment-analysis-model), debe especificarla en las llamadas API mediante el parámetro de versión del modelo. 
+ 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [¿Qué es Azure Cognitive Service for Language?](overview.md)  

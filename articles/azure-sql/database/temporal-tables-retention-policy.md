@@ -10,20 +10,20 @@ ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: mathoma
-ms.date: 09/25/2018
-ms.openlocfilehash: bd1884785f5c6e84abd4aae5af29805ec4c004cb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 10/18/2021
+ms.openlocfilehash: d3cf9b884dd1d2610aabe0aa0869ab8ad528da01
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741227"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216243"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Administración de datos históricos en tablas temporales con directivas de retención
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Las tablas temporales aumentan el tamaño de la base de datos más que las tablas normales, especialmente si se conservan datos históricos durante un período de tiempo más largo. De ahí que las directivas de retención de datos históricos sean un aspecto importante del planeamiento y la administración del ciclo de vida de cada tabla temporal. Las tablas temporales de Azure SQL Database e Instancia administrada de Azure SQL incluyen un mecanismo de retención fácil de usar que ayuda a realizar esta tarea.
 
-La retención de historial temporal se puede configurar en el nivel de tabla individual, lo que permite a los usuarios crear directivas de vencimiento flexibles. Aplicar la retención temporal es muy sencillo: solo requiere establecer un parámetro al cambiar el esquema o al crear la tabla.
+La retención del historial temporal se puede configurar a nivel de tabla individual, lo que permite a los usuarios crear directivas de antigüedad flexibles. Aplicar la retención temporal es muy sencillo: solo requiere establecer un parámetro al cambiar el esquema o al crear la tabla.
 
 Después de definir la directiva de retención, Azure SQL Database e Instancia administrada de Azure SQL comprueban de forma periódica si hay filas de historial que sean aptas para la limpieza de datos automática. La identificación de las filas coincidentes y su eliminación de la tabla de historial se producen de forma transparente, en la tarea en segundo plano que programa y ejecuta el sistema. Se comprueba la condición de vencimiento para las filas de la tabla de historial en función de la columna que representa el final del período SYSTEM_TIME. Si el período de retención se establece, por ejemplo, en seis meses, las filas aptas para la limpieza de la tabla cumplen la condición siguiente:
 
@@ -182,7 +182,5 @@ SET TEMPORAL_HISTORY_RETENTION  ON
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre cómo usar las tablas temporales en las aplicaciones, consulte [Introducción a las tablas temporales](../temporal-tables.md).
-
-Visite Channel 9 para escuchar un [caso de éxito de implementación temporal de un cliente](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) y ver una [demostración en directo](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 
 Para obtener más información sobre las tablas temporales, revise la [Tablas temporales](/sql/relational-databases/tables/temporal-tables).

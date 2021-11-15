@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.custom: mode-portal
-ms.openlocfilehash: f471ce5ca6ae4204dd3dce8ae80057b34379e52e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ab9a6f5ff85fe0b5b2d1df4d2a3f64bb4cb21207
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131020908"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131465724"
 ---
 # <a name="quickstart-enable-azure-automanage-for-virtual-machines-in-the-azure-portal"></a>Inicio rápido: Habilitación de la administración automática para máquinas virtuales en Azure Portal
 
@@ -29,12 +29,12 @@ Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.
 > Las cuentas de evaluación gratuita no tienen acceso a las máquinas virtuales que se usan en este tutorial. Actualice a una suscripción de pago por uso.
 
 > [!IMPORTANT]
-> Debe tener el rol **Colaborador** en el grupo de recursos que contiene las máquinas virtuales para habilitar Automanage mediante una cuenta existente de Automanage. Si va a habilitar Automanage con una cuenta nueva de Automanage, necesita los siguientes permisos: los roles **Propietario** o **Colaborador**, junto con el rol **Administrador de acceso de usuario** de la suscripción.
+> Debe tener el rol **Colaborador** en el grupo de recursos que contiene las máquinas virtuales para habilitar Automanage. Si está habilitando Automanage por primera vez en una suscripción necesita los siguientes permisos: rol **Propietario** o **Colaborador** junto con los roles **Administrador de acceso de usuario** en la suscripción.
 
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en [Azure Portal](https://aka.ms/AutomanagePortal-Ignite21).
+Inicie sesión en el [Portal de Azure](https://portal.azure.com)
 
 ## <a name="enable-automanage-on-existing-machines"></a>Habilitación de Automanage en máquinas existentes
 
@@ -44,7 +44,17 @@ Inicie sesión en [Azure Portal](https://aka.ms/AutomanagePortal-Ignite21).
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\zero-vm-list-view.png" alt-text="Habilitación en una máquina virtual existente.":::
 
-3. En la hoja **Seleccionar máquinas**:
+4. En **Perfil de configuración**, seleccione el tipo de perfil: **Procedimientos recomendados de Azure: Producción**, **Procedimientos recomendados de Azure: desarrollo/pruebas** o [**Perfil personalizado**](virtual-machines-custom-profile.md).
+
+    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="Selección de entornos.":::
+
+   Haga clic en **Ver perfiles de procedimientos recomendados de Azure** para ver las diferencias entre los entornos.
+    1. Seleccione un entorno en la lista desplegable: *Desarrollo/pruebas* o *Producción*.
+    1. Haga clic en el botón **Aceptar** .
+
+    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Browse production environment (Explorar entorno de producción).":::
+
+5. En la hoja **Seleccionar máquinas**:
     1. Filtre la lista por su **Suscripción** y **Grupo de recursos**.
     1. Active la casilla de cada máquina virtual que desee incorporar.
     1. Haga clic en el botón **Seleccionar**.
@@ -53,39 +63,9 @@ Inicie sesión en [Azure Portal](https://aka.ms/AutomanagePortal-Ignite21).
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-select-machine.png" alt-text="Seleccione una máquina virtual existente en la lista de máquinas virtuales disponibles.":::
 
-4. En **Entorno**, seleccione el tipo de entorno: **Desarrollo/pruebas** o **Producción**.
-
-    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="Selección de entornos.":::
-
-   Haga clic en **Comparar detalles del entorno** para ver las diferencias entre los entornos.
-    1. Seleccione un entorno en la lista desplegable: *Desarrollo/pruebas* o *Producción*.
-    1. Haga clic en el botón **Aceptar** .
-
-    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Browse production environment (Explorar entorno de producción).":::
-
-5. La opción **Procedimientos recomendados de Azure** se selecciona de forma predeterminada para las preferencias de configuración. Para cambiar esto, cree una nueva preferencia o seleccione una existente.
-
-    :::image type="content" source="media\quick-create-virtual-machine-portal\create-preference.png" alt-text="Creación de una preferencia.":::
 
 6. Haga clic en el botón **Habilitar**.
 
-
-## <a name="enable-automanage-for-a-new-vm"></a>Habilitación de Automanage para una máquina virtual nueva
-
-Inicie sesión en Azure Portal [aquí](https://aka.ms/AzureAutomanagePreview) para crear una máquina virtual y habilitar Automanage.
-
-1. Rellene la pestaña **Datos básicos** con los detalles de la máquina virtual.
-
-> [!NOTE]
-> Revise las [regiones](automanage-virtual-machines.md#supported-regions), las [distribuciones de Linux](automanage-linux.md#supported-linux-distributions-and-versions) y las [versiones de Windows Server](automanage-windows-server.md#supported-windows-server-versions) compatibles con Automanage.
-
-2. Vaya a la pestaña **Administración** y elija su **entorno de Automanage**.
-
-    :::image type="content" source="media\quick-create-virtual-machine-portal\vmcreate-managementtab.png" alt-text="Habilitar Automanage en la pestaña Administración.":::
-
-3. Deje los valores predeterminados restantes y luego seleccione el botón **Revisar + crear** en la parte inferior de la página.
-
-4. Cuando vea el mensaje en el que se indica que la validación se ha realizado correctamente, seleccione **Crear**.
 
 ## <a name="disable-automanage-for-vms"></a>Deshabilitación de Automanage para máquinas virtuales
 
@@ -114,7 +94,7 @@ Azure Automanage crea grupos de recursos predeterminados en los que almacenar lo
 
 En esta guía de inicio rápido, habilitó la administración automática de Azure para máquinas virtuales.
 
-Descubra cómo puede crear y aplicar preferencias personalizadas al habilitar la administración automática en su máquina virtual.
+Descubra cómo puede crear y aplicar perfiles personalizados al habilitar Automanage en la máquina virtual.
 
 > [!div class="nextstepaction"]
-> [Azure Automanage para máquinas virtuales: preferencias de configuración personalizadas](virtual-machines-custom-preferences.md)
+> [Perfiles personalizados de Azure Automanage](virtual-machines-custom-profile.md)

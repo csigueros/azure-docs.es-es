@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 98a74903f5472807ff7eb562ea9db9e12ceeb4be
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: c34577d0c62e1f00c432d5b48e7678711b6477f0
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113108700"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130261831"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Actualización de Azure Load Balancer público
 [Azure Standard Load Balancer](load-balancer-overview.md) ofrece un amplio conjunto de funcionalidades y alta disponibilidad gracias a la redundancia de zona. Para más información acerca de la SKU de Load Balancer, consulte la [tabla de comparación](./skus.md#skus).
@@ -115,7 +115,7 @@ Sí. Consulte [Advertencias y limitaciones](#caveatslimitations).
 
 ### <a name="how-long-does-the-upgrade-take"></a>¿Cuánto tarda la actualización?
 
-Normalmente, el script tarda entre 5 y 10 minutos en finalizar y podría tardar más en función de la complejidad de la configuración de Load Balancer. Por lo tanto, debe tener en cuenta el tiempo de inactividad y planear la conmutación por error si es necesario.
+Por lo general, el script tarda unos minutos en finalizar y podría tardar más en función de la complejidad de la configuración de Load Balancer. Por lo tanto, debe tener en cuenta el tiempo de inactividad y planear la conmutación por error si es necesario.
 
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>¿Puede el script de Azure PowerShell cambiar el tráfico de la instancia de Basic Load Balancer a la instancia de Standard Load Balancer recién creada?
 

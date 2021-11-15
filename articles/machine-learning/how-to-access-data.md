@@ -11,12 +11,12 @@ author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 10/21/2021
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: 9d722d5344316582536b3301270ee47f3ec9d3dc
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 3c308761c0becae3a3f0d7eb3a33fc1bc76f5918
+ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131554970"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131867064"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Conexión a los servicios de almacenamiento en Azure
 
@@ -29,7 +29,7 @@ Para comprender el lugar de los almacenes de datos en el flujo de trabajo global
 Para tener una experiencia con poco código, consulte cómo usar [Estudio de Azure Machine Learning para crear y registrar almacenes de datos](how-to-connect-data-ui.md#create-datastores).
 
 >[!TIP]
-> En este artículo se supone que desea conectarse al servicio de almacenamiento con credenciales de autenticación basada en credenciales, como una entidad de servicio o un token de firma de acceso compartido (SAS). Tenga en cuenta que, si las credenciales se registran con almacenes de datos, todos los usuarios con el rol *Lector* del área de trabajo podrán recuperar estas credenciales. [Más información sobre el rol *Lector* del área de trabajo](how-to-assign-roles.md#default-roles). <br><br>Si esto supone un problema, aprenda a [conectarse a los servicios de almacenamiento con el acceso basado en identidad](how-to-identity-based-data-access.md). <br><br>Esta funcionalidad es una característica [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) en versión preliminar y puede cambiar en cualquier momento. 
+> En este artículo se supone que desea conectarse al servicio de almacenamiento con credenciales de autenticación basada en credenciales, como una entidad de servicio o un token de firma de acceso compartido (SAS). Tenga en cuenta que, si las credenciales se registran con almacenes de datos, todos los usuarios con el rol *Lector* del área de trabajo podrán recuperar estas credenciales. [Más información sobre el rol *Lector* del área de trabajo](how-to-assign-roles.md#default-roles). <br><br>Si esto supone un problema, aprenda a [conectarse a los servicios de almacenamiento con el acceso basado en identidad](how-to-identity-based-data-access.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -92,7 +92,7 @@ Le recomendamos que cree un almacén de datos para un [contenedor de blobs de Az
 Para asegurarse de que se conecta de forma segura a su servicio Azure Storage, Azure Machine Learning requiere que tenga permiso para obtener acceso al contenedor de almacenamiento de datos correspondiente. Este acceso depende de las credenciales de autenticación usadas para registrar el almacén de datos. 
 
 > [!NOTE]
-> Esta guía también se aplica a los [almacenes de datos creados con el acceso a datos basado en identidad (versión preliminar)](how-to-identity-based-data-access.md). 
+> Esta guía también se aplica a los [almacenes de datos creados con el acceso a datos basado en identidad](how-to-identity-based-data-access.md). 
 
 ### <a name="virtual-network"></a>Virtual network 
 

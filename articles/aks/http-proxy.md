@@ -6,12 +6,12 @@ author: nickomang
 ms.topic: article
 ms.date: 09/09/2021
 ms.author: nickoman
-ms.openlocfilehash: 871a2f97ab8b95cca46fea91f5613cb489cb19a3
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 93bcd85c1a0804a6b3335add09d609eac41db98a
+ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131066926"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131866760"
 ---
 # <a name="http-proxy-support-in-azure-kubernetes-service-preview"></a>Compatibilidad del proxy HTTP en Azure Kubernetes Service (versión preliminar)
 
@@ -26,6 +26,7 @@ Algunas soluciones más complejas pueden requerir la creación de una cadena de 
 ## <a name="limitations-and-other-details"></a>Limitaciones y otros detalles
 
 Los siguientes escenarios **no** son compatibles:
+- Complemento de supervisión
 - Diferentes configuraciones de proxy por grupo de nodos
 - Actualización de la configuración del proxy después de la creación del clúster
 - Autenticación de contraseña/usuario

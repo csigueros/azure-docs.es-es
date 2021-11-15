@@ -9,14 +9,14 @@ author: cawrites
 ms.custom: sqldbrb=2
 ms.author: chadam
 ms.reviewer: ''
-ms.date: 01/11/2021
+ms.date: 11/01/2021
 ms.topic: how-to
-ms.openlocfilehash: a4882c763baf00220ac610ef9c0c8c6f5f56740d
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: d65e4c496b3be19e710fe94b955bcc7ad01be945
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129361080"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131470288"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>Exportación a un archivo BACPAC: Azure SQL Database y Azure SQL Managed Instance
 
@@ -47,7 +47,7 @@ Actualmente, no se admite la exportación de un archivo BACPAC de una base de da
 > [!NOTE]
 > Los equipos que procesan las solicitudes de importación o exportación que se envían a través de Azure Portal o PowerShell deben almacenar el archivo BACPAC, así como los archivos temporales generados por Data-Tier Application Framework (DacFX). El espacio en disco necesario varía considerablemente entre las bases de datos del mismo tamaño y puede requerir un espacio en disco de hasta tres veces el tamaño de la base de datos. Los equipos que ejecutan la solicitud de importación o exportación solo tienen 450 GB de espacio en disco local. Como resultado, puede que es produzca el error `There is not enough space on the disk` en algunas solicitudes. En este caso, la solución alternativa es ejecutar sqlpackage.exe en un equipo con suficiente espacio en disco local. Se recomienda usar [SqlPackage](#sqlpackage-utility) para importar o exportar bases de datos superiores a 150 GB para evitar este problema.
 
-1. Para exportar una base de datos mediante [Azure Portal](https://portal.azure.com), abra la página de la base de datos y haga clic en **Exportar** en la barra de herramientas.
+1. Para exportar una base de datos mediante [Azure Portal](https://portal.azure.com), abra la página de la base de datos y seleccione **Exportar** en la barra de herramientas.
 
    ![Captura de pantalla que resalta el botón Exportar.](./media/database-export/database-export1.png)
 
@@ -55,11 +55,9 @@ Actualmente, no se admite la exportación de un archivo BACPAC de una base de da
 
     ![Exportación de base de datos](./media/database-export/database-export2.png)
 
-3. Haga clic en **OK**.
+3. Seleccione **Aceptar**.
 
-4. Para supervisar el progreso de la operación de exportación, abra la página del servidor que contiene la base de datos que se va a exportar. Vaya a **Configuración** y haga clic en **Historial de importación y exportación**.
-
-   ![historial de exportación](./media/database-export/export-history.png)
+4. Para supervisar el progreso de la operación de exportación, abra la página del servidor que contiene la base de datos que se va a exportar. En **Administración de datos**, seleccione **Historial de importación y exportación**.
 
 ## <a name="sqlpackage-utility"></a>Utilidad de SQLPackage
 

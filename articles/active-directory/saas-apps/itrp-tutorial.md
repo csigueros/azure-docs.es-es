@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con ITRP | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD con ITRP'
 description: En este tutorial, aprenderá a configurar el inicio de sesión único entre Azure Active Directory e ITRP.
 services: active-directory
 author: jeevansd
@@ -9,27 +9,22 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/25/2019
+ms.date: 10/27/2021
 ms.author: jeedes
-ms.openlocfilehash: daeff2aef260c13ae4bb08fd0c4c6a39d3fdcb48
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 040c32810aaee9e96939e1937f3d9061ec7d89ba
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124809330"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131474415"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Tutorial: Integración de Azure Active Directory con ITRP
+# <a name="tutorial-azure-ad-sso-integration-with-itrp"></a>Tutorial: Integración del inicio de sesión único de Azure AD con ITRP
 
-En este tutorial, obtendrá información sobre cómo integrar ITRP con Azure Active Directory (Azure AD).
-Esta integración ofrece las siguientes ventajas:
+En este tutorial, obtendrá información sobre cómo integrar ITRP con Azure Active Directory (Azure AD). La integración de ITRP con Azure AD permite:
 
-* Puede usar Azure AD para controlar quién tiene acceso a ITRP.
-* Puede permitir que los usuarios inicien sesión automáticamente en ITRP (inicio de sesión único) con sus cuentas de Azure AD.
-* Puede administrar sus cuentas en una ubicación central: Azure Portal.
-
-Para más información acerca de la integración de aplicaciones SaaS con Azure AD, consulte [Inicio de sesión único en aplicaciones de Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
-
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+* Controlar en Azure AD quién tiene acceso a ITRP.
+* Que los usuarios inicien sesión automáticamente en ITRP con sus cuentas de Azure AD.
+* Administrar las cuentas desde una ubicación central (Azure Portal).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -48,68 +43,48 @@ En este tutorial configurará y probará el inicio de sesión único de Azure A
 
 Para configurar la integración de ITRP en Azure AD, tiene que agregar ITRP desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. En [Azure Portal](https://portal.azure.com), en el panel izquierdo, seleccione **Azure Active Directory**:
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. En la sección **Agregar desde la galería**, escriba **ITRP** en el cuadro de búsqueda.
+1. Seleccione **ITRP** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-    ![Seleccione Azure Active Directory.](common/select-azuread.png)
+## <a name="configure-and-test-azure-ad-sso-for-itrp"></a>Configuración y prueba del inicio de sesión único de Azure AD para ITRP
 
-2. Vaya a **Aplicaciones empresariales** > **Todas las aplicaciones**:
+Configure y pruebe el inicio de sesión único de Azure AD con ITRP mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de ITRP.
 
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+Para configurar y probar el inicio de sesión único de Azure AD con ITRP, siga estos pasos:
 
-3. Para agregar una aplicación, seleccione **Nueva aplicación** en la parte superior de la ventana:
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)**, para permitir que los usuarios puedan utilizar esta característica.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+1. **[Configuración del inicio de sesión único en ITRP](#configure-itrp-sso)** , para configurar los valores del inicio de sesión único en la aplicación.
+    1. **[Creación de un usuario de prueba en ITRP](#create-an-itrp-test-user)** : para tener un homólogo de B.Simon en ITRP vinculado a la representación de usuario en Azure AD.
+1. **[Prueba del inicio de sesión único](#test-sso)**, para comprobar si la configuración funciona.
 
-    ![Seleccionar Nueva aplicación](common/add-new-app.png)
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
-4. En el cuadro de búsqueda, escriba **ITRP**. Seleccione **ITRP** en los resultados de búsqueda y, a continuación, seleccione **Agregar**.
+Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-     ![Search Results](common/search-new-app.png)
+1. En Azure Portal, en la página de integración de la aplicación **ITRP**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
+   ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con ITRP con un usuario de prueba llamado Britta Simon.
-Para habilitar el inicio de sesión único, tendrá que establecer una relación entre un usuario de Azure AD y el usuario correspondiente de ITRP.
+4. En el cuadro de diálogo **Configuración básica de SAML**, siga estos pasos.
 
-Para configurar y probar el inicio de sesión único de Azure AD con ITRP, debe hacer lo siguiente:
+    1. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** para permitir que los usuarios utilicen esta característica.
-2. **[Configure el inicio de sesión único en ITRP](#configure-itrp-single-sign-on)** en el lado de la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** para probar el inicio de sesión único de Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** para permitir el inicio de sesión único de Azure AD para el usuario.
-5. **[Cree un usuario de prueba de ITRP](#create-an-itrp-test-user)** que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)** para comprobar que la configuración funciona.
+       `https://<tenant-name>.itrp.com`
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
-
-En esta sección habilitará el inicio de sesión único de Azure AD en Azure Portal.
-
-Para configurar el inicio de sesión único de Azure AD con ITRP, haga lo siguiente:
-
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación ITRP, seleccione **Inicio de sesión único**:
-
-    ![Selección de inicio de sesión único](common/select-sso.png)
-
-2. En el cuadro de diálogo **Seleccione un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
-
-    ![Selección de un método de inicio de sesión único](common/select-saml-option.png)
-
-3. En la página **Configurar el inicio de sesión único con SAML**, seleccione el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**:
-
-    ![Captura de pantalla de la página Configuración del inicio de sesión único con SAML con el icono de edición seleccionado.](common/edit-urls.png)
-
-4. En el cuadro de diálogo **Configuración básica de SAML**, siga los pasos que se indican a continuación.
-
-    ![Cuadro de diálogo Configuración básica de SAML](common/sp-identifier.png)
-
-    1. En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el siguiente formato:
+    1. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL con el siguiente patrón:
     
-       `https://<tenant-name>.itrp.com`
-
-    1. En el cuadro **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente formato:
-
-       `https://<tenant-name>.itrp.com`
+       `https://<tenant-name>.itrp.com`   
 
     > [!NOTE]
-    > Estos valores son marcadores de posición. Debe utilizar la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de ITRP](https://www.4me.com/support/) para obtener estos valores. También puede consultar los patrones que se muestran en el cuadro de diálogo **Configuración básica de SAML** de Azure Portal.
+    > Estos valores son marcadores de posición. Tiene que usar los valores reales de Identificador y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de ITRP](https://www.4me.com/support/) para obtener estos valores. También puede consultar los patrones que se muestran en el cuadro de diálogo **Configuración básica de SAML** de Azure Portal.
 
 5. En la sección **Certificado de firma de SAML**, seleccione el icono **Editar** para abrir el cuadro de diálogo **Certificado de firma de SAML**:
 
@@ -123,29 +98,47 @@ Para configurar el inicio de sesión único de Azure AD con ITRP, haga lo sigui
 
     ![Copia de las direcciones URL de configuración](common/copy-configuration-urls.png)
 
-    1. **Dirección URL de inicio de sesión**
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
-    1. **Identificador de Azure AD**.
+En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-    1. **Dirección URL de cierre de sesión**
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En el campo **Nombre**, escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+   1. Haga clic en **Crear**.
 
-### <a name="configure-itrp-single-sign-on"></a>Configuración del inicio de sesión único de ITRP
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+
+En esta sección, va a permitir que B.Simon acceda a ITRP mediante el inicio de sesión único de Azure.
+
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **ITRP**.
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
+1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+
+## <a name="configure-itrp-sso"></a>Configuración del inicio de sesión único de ITRP
 
 1. En otra ventana del explorador web, inicie sesión como administrador en el sitio de la compañía de ITRP.
 
 1. En la parte superior de la ventana, seleccione el icono **Settings** (Configuración):
 
-    ![Icono Configuración](./media/itrp-tutorial/ic775570.png "Icono Configuración")
+    ![Icono Configuración](./media/itrp-tutorial/profile.png "Icono Configuración")
 
 1. En el panel izquierdo, haga clic en **Single Sign-On** (Inicio de sesión único):
 
-    ![Selección de Inicio de sesión único](./media/itrp-tutorial/ic775571.png "Seleccionar Inicio de sesión único")
+    ![Selección de Inicio de sesión único](./media/itrp-tutorial/setting.png "Seleccionar Inicio de sesión único")
 
 1. Siga estos pasos en la sección de configuración de **Single Sign-On** (Inicio de sesión único).
 
-    ![Captura de pantalla que muestra la sección Single Sign-On (Inicio de sesión único) con la opción Enabled (Habilitado) seleccionada.](./media/itrp-tutorial/ic775572.png "Sección Inicio de sesión único")
+    ![Captura de pantalla que muestra la sección Single Sign-On (Inicio de sesión único) con la opción Enabled (Habilitado) seleccionada.](./media/itrp-tutorial/configuration.png "Sección Inicio de sesión único")
 
-    ![Captura de pantalla que muestra la sección Single Sign-on (Inicio de sesión único), donde puede especificar la información de este paso.](./media/itrp-tutorial/ic775573.png "Sección Inicio de sesión único")
+    ![Captura de pantalla que muestra la sección Single Sign-on (Inicio de sesión único), donde puede especificar la información de este paso.](./media/itrp-tutorial/certificate.png "Sección Inicio de sesión único")
 
     1. Seleccione **Habilitado**.
 
@@ -157,56 +150,6 @@ Para configurar el inicio de sesión único de Azure AD con ITRP, haga lo sigui
 
     1. Seleccione **Guardar**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
-
-En esta sección creará un usuario de prueba llamado Britta Simon en Azure Portal.
-
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**:
-
-    ![Selección de Todos los usuarios](common/users.png)
-
-2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-
-    ![Selección de Nuevo usuario](common/new-user.png)
-
-3. En el cuadro de diálogo **Usuario**, siga los pasos que se indican a continuación.
-
-    ![Cuadro de diálogo Usuario](common/user-properties.png)
-
-    1. En el cuadro **Nombre**, escriba **BrittaSimon**.
-  
-    1. En el cuadro **Nombre de usuario**, escriba **BrittaSimon@\<yourcompanydomain>.\<extension>** (Por ejemplo, BrittaSimon@contoso.com).
-
-    1. Seleccione **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-
-    1. Seleccione **Crear**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-
-En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a ITRP.
-
-1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales**, **Todas las aplicaciones**, **ITRP**.
-
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
-
-2. En la lista de aplicaciones, seleccione **ITRP**.
-
-    ![Lista de aplicaciones](common/all-applications.png)
-
-3. En el panel izquierdo, seleccione **Usuarios y grupos**:
-
-    ![Seleccionar Usuarios y grupos](common/users-groups-blade.png)
-
-4. Seleccione **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
-
-    ![Selección de Agregar usuario](common/add-assign-user.png)
-
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la ventana.
-
-6. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione el rol adecuado para el usuario en la lista. Haga clic en el botón **Seleccionar** de la parte inferior de la ventana.
-
-7. En el cuadro de diálogo **Agregar asignación**, seleccione **Asignar**.
-
 ### <a name="create-an-itrp-test-user"></a>Creación de un usuario de prueba de ITRP
 
 Para permitir que los usuarios de Azure AD inicien sesión en ITRP, deberá agregarlos a esta aplicación. Y los debe agregar manualmente.
@@ -217,19 +160,19 @@ Para crear una cuenta de usuario, siga estos pasos:
 
 1. En la parte superior de la ventana, seleccione el icono **Records** (Registros):
 
-    ![Icono Registros](./media/itrp-tutorial/ic775575.png "Icono Registros")
+    ![Icono Registros](./media/itrp-tutorial/account.png "Icono Registros")
 
 1. En el menú, seleccione **People** (Personas):
 
-    ![Selección de personas](./media/itrp-tutorial/ic775587.png "Selección de personas")
+    ![Selección de personas](./media/itrp-tutorial/user.png "Selección de personas")
 
 1. Seleccione el signo de más ( **+** ) para agregar a una nueva persona:
 
-    ![Selección del signo más](./media/itrp-tutorial/ic775576.png "Selección del signo más")
+    ![Selección del signo más](./media/itrp-tutorial/people.png "Selección del signo más")
 
 1. En el cuadro de diálogo **Add New Person** (Agregar nueva persona), realice los pasos siguientes.
 
-    ![Cuadro de diálogo Agregar nueva persona](./media/itrp-tutorial/ic775577.png "Cuadro de diálogo Agregar nueva persona")
+    ![Cuadro de diálogo Agregar nueva persona](./media/itrp-tutorial/details.png "Cuadro de diálogo Agregar nueva persona")
 
     1. Escriba el nombre y la dirección de correo electrónico de una cuenta de Azure AD válida que quiera agregar.
 
@@ -238,16 +181,16 @@ Para crear una cuenta de usuario, siga estos pasos:
 > [!NOTE]
 > Puede usar cualquier API o herramienta de creación de cuentas de usuario que proporcione ITRP para aprovisionar cuentas de usuario de AAD.
 
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
+## <a name="test-sso"></a>Prueba de SSO
 
-Ahora, debe probar la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-Al seleccionar el icono de ITRP en el Panel de acceso, debería iniciar sesión automáticamente en la instancia de ITRP para la que configuró el inicio de sesión único. Para más información acerca del Panel de acceso, consulte [Access and use apps on the My Apps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) (Uso de aplicaciones y acceso a ellas en el portal Aplicaciones).
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esto le redirigirá a la dirección URL de inicio de sesión de ITRP, donde puede poner en marcha el flujo de inicio de sesión. 
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Vaya directamente a la dirección URL de inicio de sesión de ITRP y comience inicie el flujo de inicio de sesión desde allí.
 
-- [Tutoriales para integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de ITRP que se encuentra en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de la aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Pasos siguientes
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
+Una vez configurado ITRP, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 088273ff23b28bd54a4a14ab9485a0e28ae42cef
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 1a30e270b202989f041ea9e07dc69e67c33b8e87
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129986556"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131448279"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Reglas de pertenencia dinámica a grupos de Azure Active Directory
 
@@ -52,19 +52,19 @@ Para obtener instrucciones paso a paso, consulte [Creación o actualización de 
 
 ![Adición de una regla de pertenencia a un grupo dinámico](./media/groups-dynamic-membership/update-dynamic-group-rule.png)
 
-### <a name="rule-syntax-for-a-single-expression&quot;></a>Sintaxis de regla para una sola expresión
+### <a name="rule-syntax-for-a-single-expression"></a>Sintaxis de regla para una sola expresión
 
 Una expresión única es la forma más sencilla de una regla de pertenencia y solo tiene los tres elementos mencionados anteriormente. Una regla con una expresión única tiene un aspecto similar al siguiente: `Property Operator Value`, donde la sintaxis de la propiedad es el nombre de object.property.
 
 El siguiente es un ejemplo de una regla de pertenencia construida correctamente con una expresión única:
 
 ```
-user.department -eq &quot;Sales&quot;
+user.department -eq "Sales"
 ```
 
 Los paréntesis son opcionales para una expresión única. La longitud total del cuerpo de la regla de pertenencia no puede superar los 3072 caracteres.
 
-## <a name=&quot;constructing-the-body-of-a-membership-rule&quot;></a>Construcción del cuerpo de una regla de pertenencia
+## <a name="constructing-the-body-of-a-membership-rule"></a>Construcción del cuerpo de una regla de pertenencia
 
 Una regla de pertenencia que rellena automáticamente un grupo con usuarios o dispositivos es una expresión binaria que genera un resultado true o false. Los tres elementos de una regla simple son:
 
@@ -74,7 +74,7 @@ Una regla de pertenencia que rellena automáticamente un grupo con usuarios o di
 
 El orden de los elementos de una expresión es importante para evitar errores de sintaxis.
 
-## <a name=&quot;supported-properties&quot;></a>Propiedades admitidas
+## <a name="supported-properties"></a>Propiedades admitidas
 
 Hay tres tipos de propiedades que se pueden usar para construir una regla de pertenencia.
 
@@ -84,18 +84,18 @@ Hay tres tipos de propiedades que se pueden usar para construir una regla de per
 
 Las siguientes son las propiedades de usuario que puede utilizar para crear una expresión única.
 
-### <a name=&quot;properties-of-type-boolean&quot;></a>Propiedades de tipo booleano
+### <a name="properties-of-type-boolean"></a>Propiedades de tipo booleano
 
 | Propiedades | Valores permitidos | Uso |
 | --- | --- | --- |
 | accountEnabled |true false |user.accountEnabled -eq true |
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
-### <a name=&quot;properties-of-type-string&quot;></a>Propiedades de tipo cadena
+### <a name="properties-of-type-string"></a>Propiedades de tipo cadena
 
 | Propiedades | Valores permitidos | Uso |
 | --- | --- | --- |
-| city |Cualquier valor de cadena o *null* |(user.city -eq &quot;value") |
+| city |Cualquier valor de cadena o *null* |(user.city -eq "value") |
 | country |Cualquier valor de cadena o *null* |(user.country -eq "value") |
 | companyName | Cualquier valor de cadena o *null* | (user.companyName -eq "value") |
 | department |Cualquier valor de cadena o *null* |(user.department -eq "value") |

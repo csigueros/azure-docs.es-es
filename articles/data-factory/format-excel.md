@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/18/2021
 ms.author: jianleishen
-ms.openlocfilehash: 66f0f310faa32e65dea657d7b15ceae7e4f84ba0
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: c1a84fb149ebfaa39fc6704602782c0f872476e2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124831337"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238819"
 ---
 # <a name="excel-file-format-in-azure-data-factory-and-azure-synapse-analytics"></a>Formato Excel en Azure Data Factory y Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -104,7 +104,7 @@ En la sección ***\*source\**** de la actividad de copia se admiten las siguient
 
 ## <a name="mapping-data-flow-properties"></a>Propiedades de Asignación de instancias de Data Flow
 
-En los flujos de datos de asignación, puede leer en formato Excel en los siguientes almacenes de datos: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) y [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties). Puede apuntar a archivos de Excel mediante un conjunto de datos de Excel o mediante un [conjunto de datos alineado](data-flow-source.md#inline-datasets).
+En los flujos de datos de asignación, puede leer el formato Excel en los almacenes de datos siguientes: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) y [Amazon S3](connector-amazon-simple-storage-service.md#mapping-data-flow-properties). Puede apuntar a archivos de Excel mediante un conjunto de datos de Excel o mediante un [conjunto de datos alineado](data-flow-source.md#inline-datasets).
 
 ### <a name="source-properties"></a>Propiedades de origen
 

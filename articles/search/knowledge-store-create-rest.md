@@ -7,17 +7,17 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 09/02/2021
-ms.openlocfilehash: a19fd4aad4ee8e5bac7dc7cde2a5be4609a346fc
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 11/03/2021
+ms.openlocfilehash: ad30dc4f59816f286f6ffe40909b76410e963c16
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124796578"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131555786"
 ---
 # <a name="create-a-knowledge-store-using-rest-and-postman"></a>Creación de un almacén de conocimiento mediante REST y Postman
 
-El almacén de conocimiento es una característica de Azure Cognitive Search que envía la salida de un conjunto de aptitudes desde una [canalización de enriquecimiento con IA](cognitive-search-concept-intro.md) hacia Azure Storage para la subsiguiente minería de conocimientos, análisis de datos o procesamiento posterior. Después de completar un almacén de conocimiento, puede usar herramientas como el [Explorador de Storage](knowledge-store-view-storage-explorer.md) o [Power BI](knowledge-store-connect-power-bi.md) para explorar el contenido.
+El almacén de conocimiento es una característica de Azure Cognitive Search que envía la salida de un conjunto de aptitudes desde una [canalización de enriquecimiento con IA](cognitive-search-concept-intro.md) hacia Azure Storage para la subsiguiente minería de conocimientos, análisis de datos o procesamiento posterior. Después de completar un almacén de conocimiento, puede usar herramientas como el [explorador de almacenamiento](knowledge-store-view-storage-explorer.md) o [Power BI](knowledge-store-connect-power-bi.md) para explorar el contenido.
 
 En este artículo, usará la API REST para ingerir, enriquecer y explorar un conjunto de reseñas de clientes sobre estancias en hotel en un almacén de conocimiento de Azure Storage. El resultado final es un almacén de conocimiento incluye contenido de texto original que se extrajo del origen, además de contenido generado por IA que incluye una puntuación de opinión, la extracción de frases clave, la detección del idioma y la traducción de texto de comentarios de clientes que no están en inglés.
 
@@ -38,11 +38,11 @@ Dado que la carga de trabajo es tan pequeña, Cognitive Services se aprovecha en
 
    Elija el tipo de cuenta **StorageV2 (uso general V2)** .
 
-1. En el recurso de Azure Storage, use el **Explorador de Storage** para crear un contenedor de blobs denominado **hotel-reviews**.
+1. En el recurso Azure Storage, use el **explorador de almacenamiento** para crear un contenedor de blobs denominado **hotel-reviews**.
 
 1. Seleccione **Cargar** en la parte superior de la página para cargar el archivo **HotelReviews-Free.csv** que descargó del paso anterior.
 
-   :::image type="content" source="media/knowledge-store-create-portal/blob-container-storage-explorer.png" alt-text="Captura de pantalla del Explorador de Storage con el archivo cargado y el panel de navegación izquierdo" border="true":::
+   :::image type="content" source="media/knowledge-store-create-portal/blob-container-storage-explorer.png" alt-text="Captura de pantalla del explorador de almacenamiento con el archivo cargado y el panel de navegación izquierdo" border="true":::
 
 1. Casi ha terminado con este recurso, pero antes de salir de estas páginas, seleccione **Claves de acceso** en el panel de navegación izquierdo para obtener una cadena de conexión para poder recuperar estos datos mediante el indexador.
 
@@ -372,13 +372,13 @@ Después de enviar cada solicitud, el servicio de búsqueda debe responder con u
 
 En Azure Portal, vaya a la página **Información general** del servicio Azure Cognitive Search. Seleccione la pestaña **Indexadores** y **hotel-reviews-ixr**. En un minuto o dos, el estado debería avanzar de "En curso" a "Correcto" sin errores ni advertencias.
 
-## <a name="check-tables-in-storage-explorer"></a>Comprobación de las tablas en el Explorador de Storage
+## <a name="check-tables-in-storage-browser"></a>Comprobación de las tablas del explorador de almacenamiento
 
-En Azure Portal, cambie a la cuenta de Azure Storage y use el **Explorador de Storage** para ver las nuevas tablas. Debería ver seis tablas, una para cada proyección definida en el conjunto de aptitudes.
+En Azure Portal, cambie a la cuenta de Azure Storage y use el **explorador de almacenamiento** para ver las nuevas tablas. Debería ver seis tablas, una para cada proyección definida en el conjunto de aptitudes.
 
 Cada tabla se genera con los identificadores necesarios para la vinculación cruzada de las tablas en las consultas. Al abrir una tabla, desplácese más allá de estos campos para ver los campos de contenido que ha agregado la canalización.
 
-   :::image type="content" source="media/knowledge-store-create-rest/knowledge-store-tables.png" alt-text="Captura de pantalla de las tablas del almacén de conocimiento en el Explorador de Storage" border="true":::
+   :::image type="content" source="media/knowledge-store-create-portal/azure-table-hotel-reviews.png" alt-text="Captura de pantalla de las tablas del almacén de conocimiento en el explorador de almacenamiento" border="true":::
 
 En este tutorial, el almacén de conocimiento se compone de varias tablas que muestran diferentes maneras de formar y estructurar una tabla. De la tabla uno a la tabla tres se usa la salida de una aptitud de conformador para determinar las columnas y filas. Las tablas cuatro, cinco y seis están creadas a partir de instrucciones de modelado insertado, integradas dentro de la propia proyección. Puede usar cualquiera de los enfoques para lograr el mismo resultado.
 
@@ -404,9 +404,9 @@ Si está usando un servicio gratuito, recuerde que está limitado a tres índice
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha enriquecido los datos con Cognitive Services y ha proyectado los resultados en un almacén de conocimiento, puede usar el Explorador de Storage u otras aplicaciones para explorar el conjunto de datos enriquecido.
+Ahora que ha enriquecido los datos con Cognitive Services y ha proyectado los resultados en un almacén de conocimiento, puede usar el explorador de almacenamiento u otras aplicaciones para explorar el conjunto de datos enriquecido.
 
-Para aprender a explorar este almacén de conocimiento con el Explorador de Storage, consulte el siguiente tutorial:
+Para aprender a explorar este almacén de conocimiento con el explorador de almacenamiento, consulte el siguiente tutorial:
 
 > [!div class="nextstepaction"]
-> [Visualización con el Explorador de Storage](knowledge-store-view-storage-explorer.md)
+> [Visualización con el explorador de almacenamiento](knowledge-store-view-storage-explorer.md)

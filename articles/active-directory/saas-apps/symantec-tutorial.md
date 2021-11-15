@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Symantec Web Security Service (WSS) | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD con Symantec Web Security Service (WSS)'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Symantec Web Security Service (WSS).
 services: active-directory
 author: jeevansd
@@ -9,26 +9,26 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/24/2021
+ms.date: 10/28/2021
 ms.author: jeedes
-ms.openlocfilehash: 7eb68e8e460c12336e6f10eb65701a542fcc1b3a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 90abed6597f123b291a5af281f109f07df990be5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124751900"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471219"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>Tutorial: Integración de Azure Active Directory con Symantec Web Security Service (WSS)
+# <a name="tutorial-azure-ad-sso-integration-with-symantec-web-security-service-wss"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Symantec Web Security Service (WSS)
 
 En este tutorial aprenderá cómo integrar su cuenta de Symantec Web Security Service (WSS) con su cuenta de Azure Active Directory (Azure AD) para que WSS pueda autenticar un usuario final que se aprovisiona en Azure AD mediante la autenticación de SAML y aplicar reglas de directiva de nivel de usuario o grupo.
 
 La integración de Symantec Web Security Service (WSS) con Azure AD proporciona las siguientes ventajas:
 
-- Administrar todos los usuarios finales y los grupos que usan la cuenta de WSS desde el portal de Azure AD.
+* Administrar todos los usuarios finales y los grupos que usan la cuenta de WSS desde el portal de Azure AD.
 
-- Permitir que los usuarios finales se autentiquen en WSS con sus credenciales de Azure AD.
+* Permitir que los usuarios finales se autentiquen en WSS con sus credenciales de Azure AD.
 
-- Habilitar la aplicación de reglas de directiva de nivel de grupo y usuario definidas en la cuenta de WSS.
+* Habilitar la aplicación de reglas de directiva de nivel de grupo y usuario definidas en la cuenta de WSS.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -36,6 +36,9 @@ Para empezar, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
 * Una suscripción habilitada para el inicio de sesión único en Symantec Web Security Service (WSS).
+
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -64,7 +67,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Symantec Web Sec
 Para configurar el inicio de sesión único de Azure AD con Symantec Web Security Service (WSS), siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Symantec Web Security Service (WSS)](#configure-symantec-web-security-service-wss-sso)** : para configurar el inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba en Symantec Web Security Service (WSS)](#create-symantec-web-security-service-wss-test-user)** : para tener un homólogo de B.Simon en Symantec Web Security Service (WSS) vinculado a la representación del usuario en Azure AD.

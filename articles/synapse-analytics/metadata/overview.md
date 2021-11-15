@@ -1,24 +1,24 @@
 ---
 title: Modelo de metadatos compartidos
-description: Azure Synapse Analytics permite que los diferentes motores de cálculo de áreas de trabajo compartan bases de datos y tablas entre sus grupos de Apache Spark sin servidor y los grupos de SQL sin servidor y dedicados.
+description: Azure Synapse Analytics permite que los diferentes motores de cálculo de áreas de trabajo compartan bases de datos y tablas entre sus grupos de Apache Spark sin servidor y el grupo de SQL sin servidor.
 services: synapse-analytics
-author: MikeRys
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: metadata
-ms.date: 05/01/2020
-ms.author: mrys
-ms.reviewer: jrasnick
-ms.openlocfilehash: b10b6f011fa7daee4094f0cc7b819d36127fedcd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 10/05/2021
+author: ma77b
+ms.author: maburd
+ms.reviewer: wiassaf
+ms.openlocfilehash: 4f9feff8a88e5f8058af808b22ca07191193e41d
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96460343"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129987126"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Metadatos compartidos de Azure Synapse Analytics
 
-Azure Synapse Analytics permite que los diferentes motores de cálculo de áreas de trabajo compartan bases de datos y tablas entre sus grupos de Apache Spark sin servidor y el grupo de SQL sin servidor.
+Azure Synapse Analytics permite que los diferentes motores de cálculo de áreas de trabajo compartan bases de datos y tablas entre grupos de Apache Spark y el grupo de SQL sin servidor.
 
 El uso compartido es compatible con el llamado modelo de almacenamiento de datos moderno y proporciona a los motores de SQL del área de trabajo acceso a las bases de datos y las tablas creadas con Spark. También permite que los motores de SQL creen sus propios objetos que no se comparten con los demás motores.
 
@@ -30,7 +30,7 @@ El modelo de metadatos compartidos admite el moderno patrón de almacenamiento d
 
 2. Las bases de datos creadas por Spark y todas sus tablas se vuelven visibles en cualquiera de las instancias del grupo de Spark del área de trabajo de Azure Synapse y se pueden usar desde cualquiera de los trabajos de Spark. Esta funcionalidad está sujeta a los [permisos](#security-model-at-a-glance), dado que todos los grupos de Spark de un área de trabajo comparten el mismo almacén de metadatos del catálogo subyacente.
 
-3. Las bases de datos creadas por Spark y sus tablas respaldadas por Parquet se vuelven visibles en el grupo de SQL sin servidor del área de trabajo. Las [bases de datos](database.md) se crean automáticamente en los metadatos del grupo de SQL sin servidor y las [tablas externas y administradas](table.md) creadas mediante un trabajo de Spark se hacen accesibles como tablas externas en los metadatos del grupo de SQL sin servidor en el esquema `dbo` de la base de datos correspondiente. 
+3. Las bases de datos creadas por Spark y las tablas con formato Parquet o CSV se vuelven visibles en el grupo de SQL sin servidor del área de trabajo. Las [bases de datos](database.md) se crean automáticamente en los metadatos del grupo de SQL sin servidor y las [tablas externas y administradas](table.md) creadas mediante un trabajo de Spark se hacen accesibles como tablas externas en los metadatos del grupo de SQL sin servidor en el esquema `dbo` de la base de datos correspondiente. 
 
 <!--[INSERT PICTURE]-->
 
@@ -40,7 +40,7 @@ La sincronización de objetos se produce de forma asincrónica. Los objetos tend
 
 ## <a name="shared-metadata-objects"></a>Objetos de metadatos compartidos
 
-Spark permite crear bases de datos, tablas externas, tablas administradas y vistas. Dado que las vistas de Spark requieren que un motor de Spark procese la instrucción SQL de Spark definitoria y que un motor SQL no las pueden procesar, las bases de datos y las tablas externas y administradas que contiene que usen el formato de almacenamiento de Parquet son las únicas que se comparten con el motor SQL del área de trabajo. Las vistas de Spark solo se comparten entre las instancias de grupo de Spark.
+Spark permite crear bases de datos, tablas externas, tablas administradas y vistas. Dado que las vistas de Spark requieren que un motor de Spark procese la instrucción SQL de Spark definitoria y que un motor SQL no las pueden procesar, las bases de datos y las tablas externas y administradas que contiene que usen el formato de almacenamiento de Parquet o CSV son las únicas que se comparten con el motor SQL del área de trabajo. Las vistas de Spark solo se comparten entre las instancias de grupo de Spark.
 
 ## <a name="security-model-at-a-glance"></a>Modelo de seguridad de un vistazo
 

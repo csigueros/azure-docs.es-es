@@ -4,7 +4,7 @@ description: Información general de los registros de inicios de sesión en Azur
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: karenhoran
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/16/2021
+ms.date: 10/25/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5940205b9a1a17a6d6d51d96a6ab792ac744d3f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ad322032237d8e65fd82fea74bf359fcd65c3840
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131051636"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997236"
 ---
 # <a name="sign-in-logs-in-azure-active-directory"></a>Registros de inicios de sesión en Azure Active Directory
 
@@ -280,6 +280,7 @@ En la página **Usuarios**, puede obtener una vista general completa de todos lo
 La pestaña **Detalles de autenticación** que se encuentra en el informe de inicios de sesión proporciona la siguiente información para cada intento de autenticación:
 
 - Una lista de las directivas de autenticación aplicadas (por ejemplo, acceso condicional, MFA por usuario, valores predeterminados de seguridad).
+- Una lista de las directivas de duración de sesión aplicadas (por ejemplo, frecuencia de inicio de sesión, Recordar MFA, Vigencia del token configurable)
 - La secuencia de los métodos de autenticación usados para iniciar sesión.
 - Si el intento de autenticación se ha realizado correctamente o no.
 - Detalles sobre por qué el intento de autenticación se ha realizado correctamente o no.
@@ -287,6 +288,7 @@ La pestaña **Detalles de autenticación** que se encuentra en el informe de ini
 Esta información permite a los administradores solucionar problemas de cada paso en el inicio de sesión de un usuario y realizar un seguimiento de los siguientes aspectos:
 
 - Volumen de inicios de sesión protegidos por la autenticación multifactor. 
+- Motivo de la solicitud de autenticación basada en las directivas de duración de la sesión
 - Tasas de uso y éxito de cada método de autenticación. 
 - Uso de métodos de autenticación sin contraseña (como el inicio de sesión con teléfono sin contraseña, FIDO2 y Windows Hello para empresas). 
 - Con qué frecuencia se cumplen los requisitos de autenticación mediante notificaciones de token (donde a los usuarios no se les pide interactivamente que escriban una contraseña, escriban un SMS OTP, y así sucesivamente).

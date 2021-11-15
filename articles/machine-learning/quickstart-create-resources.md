@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
-ms.date: 06/10/2021
+ms.date: 10/21/2021
 adobe-target: true
 ms.custom: FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: c20c5f96820ae4cbf8aa361b29483fac260ec5ae
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 749400cc3f5c798b16dc08485f0cbff14cb276e7
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124824188"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131556954"
 ---
 # <a name="quickstart-create-workspace-resources-you-need-to-get-started-with-azure-machine-learning"></a>Inicio rápido: Creación de los recursos de área de trabajo necesarios para empezar a trabajar con Azure Machine Learning
 
@@ -81,7 +81,7 @@ Revise las partes de Studio en la barra de navegación izquierda:
 
     * La sección **Cuadernos** permite crear cuadernos de Jupyter Notebook, copiar cuadernos de ejemplo y ejecutar cuadernos y scripts de Python.
     * **ML automatizado** le permite recorrer un modelo de Machine Learning creado sin escribir código.
-    * El **diseñador** proporciona una forma de crear modelos mediante creados previamente a través del método de arrastrar y colocar.
+    * El **diseñador** proporciona una forma de crear modelos mediante componentes precompilados a través del método de arrastrar y colocar.
 
 * La sección **Recursos** de Studio le ayuda a realizar un seguimiento de los recursos que crea al ejecutar los trabajos.  Si tiene un área de trabajo nueva, estas secciones no contendrán absolutamente nada.
 

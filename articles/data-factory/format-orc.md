@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/18/2021
 ms.author: jianleishen
-ms.openlocfilehash: f0bd3840d7c1b1d3fde7c93f11e39d236a954847
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: ecdbf06480c6bf1a7d81b6ab6a67ca353ab94a93
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124743791"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215790"
 ---
 # <a name="orc-format-in-azure-data-factory-and-synapse-analytics"></a>Formato ORC en Azure Data Factory y Azure Synapse Analytics
 
@@ -95,7 +95,7 @@ En la sección ***\*sink\**** de la actividad de copia se admiten las siguientes
 
 ## <a name="mapping-data-flow-properties"></a>Propiedades de Asignación de instancias de Data Flow
 
-En los flujos de datos de asignación, puede leer y escribir en formato ORC en los siguientes almacenes de datos: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) y [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
+En los flujos de datos de asignación, puede leer y escribir en formato JSON en los siguientes almacenes de datos: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) y [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties), y puede leer formato OCR de [Amazon S3](connector-amazon-simple-storage-service.md#mapping-data-flow-properties).
 
 Puede apuntar a archivos ORC mediante un conjunto de datos de ORC o mediante un [conjunto de datos alineado](data-flow-source.md#inline-datasets).
 

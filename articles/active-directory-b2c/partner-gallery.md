@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: a80b5b6340ddf0660961874281cbc6207ffea859
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: bf58338bfc16e2e0cea11183ad4fdf3e72961bb3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130063588"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224934"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Asociados ISV de Azure Active Directory B2C
 
@@ -47,6 +47,7 @@ Microsoft se asocia con los siguientes ISV para la autenticación MFA y sin cont
 |:-------------------------|:--------------|
 | ![Screenshot de un logotipo de BlokSec](./media/partner-gallery/bloksec-logo.png) | [BlokSec](./partner-bloksec.md) es una solución de autenticación sin contraseña y autenticación multifactor sin token, que proporciona servicios basados en consentimientos en tiempo real y que protege a los clientes frente a ciberataques centrados en la identidad, como el relleno de contraseñas, la suplantación de identidad y los ataques de tipo "Man in the middle". |
 | ![Captura de pantalla de un logotipo de Hypr.](./media/partner-gallery/hypr-logo.png) | [Hypr](./partner-hypr.md) es un proveedor de autenticación sin contraseña, que reemplaza las contraseñas por cifrados de clave pública, lo que elimina el fraude, la suplantación de identidad y la reutilización de credenciales. |
+| ![Captura de pantalla de un logotipo de IDEMIA](./media/partner-gallery/idemia-logo.png) | [IDEMIA](./partner-idemia.md) es un proveedor de autenticación sin contraseña que proporciona servicios basados en consentimiento en tiempo real con autenticación biométrica, como la identificación facial y la huella dactilar, lo que elimina el fraude y la reutilización de credenciales. |
 | ![Captura de pantalla de un logotipo de itsme.](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) es una solución de identificación digital compatible con los servicios de identificación electrónica, autenticación y confianza (eiDAS) que permite a los usuarios iniciar sesión de forma segura sin lectores de tarjetas, contraseñas, autenticación en dos fases y códigos PIN múltiples. |
 |![Captura de pantalla de un logotipo de Keyless.](./media/partner-gallery/keyless-logo.png) | [Keyless](./partner-keyless.md) es un proveedor de autenticación sin contraseñas que ofrece autenticación en forma de exámenes biométricos faciales y elimina los fraudes, la suplantación de identidad (phishing) y la reutilización de credenciales.
 | ![Captura de pantalla de un logotipo de Nevis.](./media/partner-gallery/nevis-logo.png) | [Nevis](./partner-nevis.md) permite la autenticación sin contraseña y proporciona una experiencia de usuario final de marca completa, con prioridad para los dispositivos móviles con la aplicación Nevis Access, que ofrece la autenticación sólida de clientes y el cumplimiento de los requisitos de transacciones de PSD2. |

@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo configurar la recuperación ante d
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.custom: MVC
-ms.openlocfilehash: c806f968bc6530879f64ddbf6fd4c7d45aa7a8d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc4e9066cb67617b52e9fa00a42ce95e31e0fe39
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89442827"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456977"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configuración de la recuperación ante desastres de las máquinas virtuales de Hyper-V locales en nubes de VMM en Azure
 
@@ -91,6 +91,30 @@ En el Asistente para la instalación del agente de Microsoft Azure Recovery Serv
 1. **Instalación**. Cuando la instalación finalice, seleccione **Cerrar** para finalizar el asistente.
 
    ![Instalar agente](./media/hyper-v-vmm-azure-tutorial/mars-install.png)
+
+### <a name="install-the-recovery-services-agent-on-windows-core-hyper-v-hosts"></a>Instalación del agente de Recovery Services en hosts de Hyper-V principales de Windows
+
+Instale el agente en cada host de Hyper-V principal de Windows que contenga las máquinas virtuales que desea replicar.
+
+1. En el host de Hyper-V principal de Windows, ejecute el siguiente comando para crear un directorio:
+
+   ```powershell
+   New-Item -Path C:\ASR -ItemType Directory
+   ```
+
+2. Descargue el instalador del agente de Microsoft Azure Recovery Services:
+
+   ```powershell
+   Invoke-WebRequest -Uri <put the URI here> -OutFile .\ASR\MARSsoftware.exe
+   ```
+   
+3. Ejecute el instalador:
+
+   ```powershell
+   .\MARSsoftware.exe
+   ```
+
+4. Una vez que la instalación del agente de Microsoft Azure Recovery Services se haya completado, puede cerrar la consola del asistente.
 
 ## <a name="set-up-the-target-environment"></a>Configuración del entorno de destino
 

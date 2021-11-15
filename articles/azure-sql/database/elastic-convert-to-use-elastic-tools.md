@@ -11,12 +11,12 @@ author: scoriani
 ms.author: scoriani
 ms.reviewer: mathoma
 ms.date: 01/25/2019
-ms.openlocfilehash: acb8a03f4cbd719f348ae5a65974b1c326b10604
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: c6a2506ec92580c949deef98c53d42b06bc37054
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131006285"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131473611"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migración de bases de datos existentes al escalado horizontal
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -156,9 +156,9 @@ Una vez haya completado la configuración, puede empezar a usar la biblioteca de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga los scripts de PowerShell de [Azure SQL Database: scripts de herramientas para bases de datos elásticas](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+Obtenga los scripts de PowerShell de [scripts de herramientas de la base de datos elástica de Azure](https://github.com/Azure/elastic-db-tools/tree/master/Samples/PowerShell).
 
-Las herramientas también se encuentran en GitHub: [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
+La biblioteca cliente de herramientas de bases de datos elásticas está disponible en GitHub: [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
 
 Use la herramienta de división y combinación para mover datos a un modelo de varios inquilinos o desde este a un modelo de inquilino único. Consulte el artículo sobre la [herramienta de división y combinación](elastic-scale-configure-deploy-split-and-merge.md).
 

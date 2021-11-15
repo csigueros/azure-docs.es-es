@@ -3,17 +3,17 @@ title: Instancias reservadas de máquinas virtuales de Azure EA
 description: En este artículo se resume la forma en que las reservas de Azure para las instancias reservadas de máquinas virtuales pueden ayudarle a ahorrar dinero en la inscripción de su empresa.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/17/2021
+ms.date: 10/22/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: boalcsva
-ms.openlocfilehash: 0378e05d8d606d04b90ca20aa3e0399132e9f0ef
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.reviewer: sapnakeshari
+ms.openlocfilehash: feac3cf4e2418fc7d85ab3cdebbba1d08b112e95
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110095849"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130250072"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Instancias reservadas de máquinas virtuales de Azure EA
 
@@ -28,6 +28,8 @@ Puede intercambiar una reserva por otra del mismo tipo. También puede reembolsa
 Se hará un reembolso parcial cuando los clientes de EA devuelvan las reservas que hayan adquirido a través del modelo de uso por encima del límite y no mediante el prepago de Azure (anteriormente llamado compromiso monetario).
 
 El reembolso se mostrará en el portal de EA como un ajuste negativo en el mes anterior y un ajuste positivo en el mes actual. Se mostrará de forma similar a un intercambio de reservas. El abono hará referencia al número de factura original; por lo tanto, para conciliar la compra inicial con el abono, consulte el número de factura original.
+
+El cliente Enterprise directo puede ver los detalles del reembolso en Azure Portal. Vaya al menú **Transacciones de reserva** para ver el reembolso de la reserva.
 
 ## <a name="reservation-costs-and-usage"></a>Costos y uso de las reservas
 

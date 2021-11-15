@@ -4,15 +4,15 @@ description: Configure los valores que se aplican a todo el entorno de Azure App
 author: madsd
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
-ms.date: 01/29/2021
+ms.date: 11/03/2021
 ms.author: madsd
 ms.custom: mvc, seodec18
-ms.openlocfilehash: e95f8a4434f0ca27c57791edfe8663df9e77bbaa
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 863a3fe9ae7b51f347055def7dcaaaa5445293c9
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130002720"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131510051"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Opciones de configuración personalizada para Entornos de App Service
 ## <a name="overview"></a>Información general
@@ -49,7 +49,7 @@ El atributo **clusterSettings** se puede incluir en una plantilla de Resource Ma
 ## <a name="use-azure-resource-explorer-to-update-an-app-service-environment"></a>Uso del Explorador de recursos de Azure para actualizar un entorno de App Service
 Como alternativa, puede actualizar el entorno de App Service mediante el [Explorador de recursos de Azure](https://resources.azure.com).  
 
-1. En el Explorador de recursos, vaya al nodo de App Service Environment (**subscriptions** > **resourceGroups** > **providers** > **Microsoft.Web** > **hostingEnvironments**). A continuación, haga clic en el entorno de App Service específico que quiere actualizar.
+1. En el Explorador de recursos, vaya al nodo de App Service Environment (**subscriptions** >  **{tu suscripción}**  > **resourceGroups** >  **{tu grupo de recursos}**  > **providers** > **Microsoft.Web** > **hostingEnvironments**). A continuación, haga clic en el entorno de App Service específico que quiere actualizar.
 2. En el panel derecho, haga clic en **Lectura/escritura** en la barra de herramientas superior para permitir la edición interactiva en el Explorador de recursos.  
 3. Haga clic en el botón azul **Editar** para que la plantilla de Resource Manager se pueda editar.
 4. Desplácese hasta la parte inferior del panel derecho. El atributo **clusterSettings** se encuentra abajo del todo, donde puede especificar o actualizar su valor.

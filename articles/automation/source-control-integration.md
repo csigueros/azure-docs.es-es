@@ -3,15 +3,15 @@ title: Uso de la integración del control de código fuente en Azure Automation
 description: En este artículo se describe cómo sincronizar el control de código fuente de Azure Automation con otros repositorios.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/10/2021
+ms.date: 11/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d94da9792d40a389e3981163e565d85d82a9cdc9
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: c809021f781e9aa8376b9383328a38bd1c784510
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831247"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131477124"
 ---
 # <a name="use-source-control-integration"></a>Uso de la integración del control de código fuente
 
@@ -30,8 +30,8 @@ Azure Automation admite tres tipos de control de código fuente:
 ## <a name="prerequisites"></a>Prerrequisitos
 
 * Un repositorio de control de código fuente (GitHub o Azure Repos).
-* Una [cuenta de ejecución](automation-security-overview.md#run-as-accounts)
-* El [módulo `AzureRM.Profile`](/powershell/module/azurerm.profile/) se debe importar en la cuenta de Automation. Tenga en cuenta que el módulo Az (`Az.Accounts`) equivalente no funcionará con el control de código fuente de Automation.
+* Se requiere una [identidad administrada](automation-security-overview.md#managed-identities) asignada por el sistema. Si no ha configurado una identidad administrada asignada por el sistema con su cuenta de Automation, consulte [Habilitación de la identidad administrada](enable-managed-identity-for-automation.md#enable-a-system-assigned-managed-identity-for-an-azure-automation-account) para crearla.
+* Asigne la identidad administrada asignada por el sistema al rol [Colaborador](automation-role-based-access-control.md#contributor) en la cuenta de Automation.
 
 > [!NOTE]
 > Los trabajos de sincronización de control de código fuente se ejecutan en la cuenta de Automation del usuario y se facturan con la misma tarifa que otros trabajos de Automation.
@@ -39,6 +39,24 @@ Azure Automation admite tres tipos de control de código fuente:
 ## <a name="configure-source-control"></a>Configurar el control de código fuente
 
 En esta sección se explica cómo configurar el control de código fuente para la cuenta de Automation. Puede usar Azure Portal o PowerShell.
+
+> [!NOTE]
+> Azure Automation solo admite la identidad administrada asignada por el sistema con la integración del control de código fuente. Si tiene habilitadas la cuenta de ejecución y la identidad administrada asignada por el sistema, se le da preferencia a la identidad administrada. Si en su lugar desea usar una cuenta de ejecución, puede [crear una variable de Automation](./shared-resources/variables.md) de tipo BOOLEAN denominada `AUTOMATION_SC_USE_RUNAS` con un valor de `true`.
+
+### <a name="assign-system-assigned-identity-to-contributor-role"></a>Asignación de una identidad asignada por el sistema al rol Colaborador
+
+En este ejemplo se usa Azure PowerShell para mostrar cómo asignar el rol Colaborador en la suscripción al recurso de la cuenta de Azure Automation.
+
+1. Abra una consola de PowerShell con privilegios elevados.
+1. Inicie sesión en Azure para ejecutar el comando `Connect-AzAccount`.
+1. Para asignar la identidad administrada al rol **Colaborador**, ejecute el siguiente comando.
+
+    ```powershell
+    New-AzRoleAssignment `
+        -ObjectId <automation-Identity-object-id> `
+        -Scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}" `
+        -RoleDefinitionName "Contributor"
+    ```
 
 ### <a name="configure-source-control-in-azure-portal"></a>Configuración del control de código fuente en Azure Portal
 
@@ -88,7 +106,6 @@ New-AzAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<accoun
 
 > [!NOTE]
 > Azure Repos (Git) usa una dirección URL que accede a **dev.azure.com** en lugar de **visualstudio.com**, que se usaba en formatos anteriores. El formato de dirección URL anterior `https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname>` está en desuso pero todavía se admite, aunque se prefiere el nuevo formato.
-
 
 ```powershell-interactive
 New-AzAutomationSourceControl -Name SCReposGit -RepoUrl https://dev.azure.com/<accountname>/<adoprojectname>/_git/<repositoryname> -SourceType VsoGit -AccessToken <secureStringofPAT> -Branch master -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"

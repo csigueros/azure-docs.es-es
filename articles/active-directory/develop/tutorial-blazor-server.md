@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: f7d62b6fa3523accbeba9a083c74330ff344e2ae
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 6cbfd1432945bdf45fc1461440b835783e0b2079
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124786377"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456164"
 ---
 # <a name="tutorial-create-a-blazor-server-app-that-uses-the-microsoft-identity-platform-for-authentication"></a>Tutorial: Creación de una aplicación Blazor Server que usa la plataforma de identidad de Microsoft para la autenticación
 
@@ -44,7 +44,7 @@ En **Administrar**, seleccione **Autenticación** > **Implicit grant and hybrid 
 
 Por último, dado que la aplicación llama a una API protegida (en este caso, Microsoft Graph), necesita un secreto de cliente para comprobar su identidad cuando solicita un token de acceso para llamar a esa API.
 
-1. En el mismo registro de aplicaciones, en **Administrar**, seleccione **Certificados y secretos**.
+1. En el mismo registro de aplicaciones, en **Administrar**, seleccione **Certificados y secretos** y, después, **Secretos de cliente**.
 2. Cree un **Nuevo secreto de cliente** que nunca expire.
 3. Tome nota del **Valor** del secreto, ya que lo usará en el siguiente paso. No podrá acceder a este una vez que salga de este panel. Sin embargo, puede volver a crearlo si es necesario.
 

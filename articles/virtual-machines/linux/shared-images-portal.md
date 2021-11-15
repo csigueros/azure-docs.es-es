@@ -9,24 +9,24 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/21/2021
 ms.author: cynthn
-ms.openlocfilehash: 908d4ae4a18ac75577ea567f6aba37c9ea2e49fe
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 515d836e9b36a1fb20a712ab30a561ff68e3f715
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123450501"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131424673"
 ---
-# <a name="create-a-shared-image-gallery-using-the-portal"></a>Creación de un servicio Shared Image Gallery mediante el portal
+# <a name="create-an-azure-compute-gallery-using-the-portal"></a>Creación de una instancia de Azure Compute Gallery mediante el portal
 
 **Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles **Se aplica a:** :heavy_check_mark: :heavy_check_mark: Conjuntos de escalado uniformes 
 
-Una [galería de imágenes compartidas](../shared-image-galleries.md) simplifica el uso compartido de imágenes personalizadas en toda una organización. Las imágenes personalizadas son como las imágenes de Marketplace, pero las puede crear usted mismo. Las imágenes personalizadas se pueden usar para realizar tareas de implementación de arranque, como la carga previa de aplicaciones, configuraciones de aplicaciones y otras configuraciones del sistema operativo. 
+Una instancia de [Azure Compute Gallery](../shared-image-galleries.md) simplifica el uso compartido de imágenes personalizadas en las organizaciones. Las imágenes personalizadas son como las imágenes de Marketplace, pero las puede crear usted mismo. Las imágenes personalizadas se pueden usar para realizar tareas de implementación de arranque, como la carga previa de aplicaciones, configuraciones de aplicaciones y otras configuraciones del sistema operativo. 
 
-Shared Image Gallery le permite compartir sus imágenes de VM personalizadas con otros usuarios de su organización, ya sea dentro o entre regiones, en un inquilino de Azure AD. Elija las imágenes que desea compartir, qué regiones desea que estén disponibles en ellas y con quién desea compartirlas. Puede crear varias galerías que le permitirán agrupar lógicamente las imágenes compartidas. 
+Azure Compute Gallery le permite compartir las imágenes de máquina virtual personalizadas con otros usuarios de la organización, ya sea dentro o entre regiones, dentro de un inquilino de Azure AD. Elija las imágenes que desea compartir, qué regiones desea que estén disponibles en ellas y con quién desea compartirlas. Puede crear varias galerías que le permitirán agrupar las imágenes de forma lógica. 
 
 La galería es un recurso de nivel superior que proporciona control de acceso basado en roles de Azure (RBAC de Azure). Las imágenes pueden tener varias versiones y se puede optar por replicar cada versión de la imagen en un conjunto diferente de regiones de Azure. La galería solo funciona con imágenes administradas.
 
-La característica de galería de imágenes compartidas tiene varios tipos de recursos. En este artículo, usaremos o crearemos los siguientes elementos:
+La característica Azure Compute Gallery tiene varios tipos de recursos. En este artículo, usaremos o crearemos los siguientes elementos:
 
 
 [!INCLUDE [virtual-machines-shared-image-gallery-resources](../includes/virtual-machines-shared-image-gallery-resources.md)]
@@ -70,10 +70,10 @@ Si desea eliminar recursos individuales, deberá eliminarlos en el orden inverso
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Puede crear también recursos de galería de imágenes compartidas con plantillas. Hay varias plantillas de Inicio rápido de Azure disponibles: 
+También puede crear recursos de Azure Compute Gallery mediante plantillas. Hay varias plantillas de Inicio rápido de Azure disponibles: 
 
-- [Creación de una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-create/)
-- [Creación de una definición de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
-- [Creación de una versión de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
+- [Creación de una instancia de Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
+- [Creación de una definición de imagen en una instancia de Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
+- [Creación de una versión de imagen en una instancia de Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
 
-Para más información sobre las galerías de imágenes compartidas, consulte la [Introducción](../shared-image-galleries.md). Si encuentra problemas, consulte [Solución de problemas de galerías de imágenes compartidas](../troubleshooting-shared-images.md).
+Para más información sobre las instancias de Azure Compute Gallery, consulte la [Introducción](../shared-image-galleries.md). Si encuentra problemas, consulte [Solución de problemas de las galerías](../troubleshooting-shared-images.md).

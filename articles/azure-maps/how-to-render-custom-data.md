@@ -1,20 +1,20 @@
 ---
 title: Representación de datos personalizados en un mapa de trama de Microsoft Azure Maps
 description: Aprenda a agregar chinchetas, etiquetas y formas geométricas a un mapa de tramas. Vea cómo usar el servicio de imágenes estáticas de Azure Maps para este fin.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 07/02/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e02da9993804ec170ba89b08ee1b46e01a1adac4
-ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
+ms.openlocfilehash: 9197090d405210db485d1ac8d471d899f58b8e43
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113232365"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131443649"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Representación de datos personalizados en un mapa de trama
 
@@ -58,10 +58,10 @@ Para obtener una imagen estática con marcas y etiquetas personalizadas:
 4. Seleccione el método HTTP **GET**.
 
 
-5. Escriba la siguiente dirección URL (reemplace `{subscription-key}` por la clave de suscripción principal):
+5. Escriba la siguiente dirección URL (reemplace `Your-Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal):
 
     ```HTTP
-    https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.98,%2040.77&pins=custom%7Cla15+50%7Cls12%7Clc003b61%7C%7C%27CentralPark%27-73.9657974+40.781971%7C%7Chttps%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FAzureMapsCodeSamples%2Fmaster%2FAzureMapsCodeSamples%2FCommon%2Fimages%2Ficons%2Fylw-pushpin.png
+    https://atlas.microsoft.com/map/static/png?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.98,%2040.77&pins=custom%7Cla15+50%7Cls12%7Clc003b61%7C%7C%27CentralPark%27-73.9657974+40.781971%7C%7Chttps%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FAzureMapsCodeSamples%2Fmaster%2FAzureMapsCodeSamples%2FCommon%2Fimages%2Ficons%2Fylw-pushpin.png
     ```
 
 6. Seleccione **Enviar**.
@@ -87,10 +87,10 @@ Para cargar marcadores y datos de rutas:
 
 4. Seleccione el método HTTP **POST**.
 
-5. Escriba la siguiente dirección URL (reemplace `{subscription-key}` por la clave de suscripción principal):
+5. Escriba la siguiente dirección URL (reemplace `Your-Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal):
 
     ```HTTP
-    https://us.atlas.microsoft.com/mapData?subscription-key={subscription-key}&api-version=2.0&dataFormat=geojson
+    https://us.atlas.microsoft.com/mapData?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=2.0&dataFormat=geojson
     ```
 
 6. Seleccione la pestaña **Cuerpo**.
@@ -178,16 +178,16 @@ Para comprobar el estado de la carga de datos y recuperar su identificador únic
 
 1. En la aplicación Postman, seleccione **New** (Nuevo).
 
-2. En la ventana **Create New** (Crear nuevo), seleccione **HTTP Request** (Solicitud HTTP).
+2. En la ventana **Crear nuevo**, seleccione **Solicitud HTTP**.
 
 3. En **Request name** (Nombre de solicitud), escriba un nombre para la solicitud, como *GET Data Upload Status*.
 
 4. Seleccione el método HTTP **GET**.
 
-5. Escriba el valor `status URL` que ha copiado en [Carga de marcadores y datos de rutas](#upload-pins-and-path-data). La solicitud debe ser similar a la siguiente dirección URL (reemplace `{subscription-key}` por la clave de suscripción principal):
+5. Escriba el valor `status URL` que ha copiado en [Carga de marcadores y datos de rutas](#upload-pins-and-path-data). La solicitud debe ser similar a la siguiente dirección URL (reemplace `Your-Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal):
 
    ```HTTP
-     https://us.atlas.microsoft.com/mapData/operations/{statusUrl}?api-version=2.0&subscription-key={subscription-key}
+     https://us.atlas.microsoft.com/mapData/operations/{statusUrl}?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
    ```
 
 6. Seleccione **Enviar**.
@@ -204,16 +204,16 @@ Para representar los datos de marcadores y rutas cargados en el mapa:
 
 1. En la aplicación Postman, seleccione **New** (Nuevo).
 
-2. En la ventana **Create New** (Crear nuevo), seleccione **HTTP Request** (Solicitud HTTP).
+2. En la ventana **Crear nuevo**, seleccione **Solicitud HTTP**.
 
 3. En **Request name** (Nombre de solicitud), escriba un nombre para la solicitud, como *GET Data Upload Status*.
 
 4. Seleccione el método HTTP **GET**.
 
-5. Escriba la siguiente dirección URL en [Render Service](/rest/api/maps/render/get-map-image) (Representar servicio) (reemplace `{subscription-key}` por la clave de suscripción principal y `udid` por el valor `udid` del paquete cargado):
+5. Escriba la siguiente dirección URL en [servicio Render](/rest/api/maps/render/get-map-image) (reemplace `Your-Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal y `udid` por el valor `udid` del paquete cargado):
 
     ```HTTP
-    https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.96682739257812%2C40.78119135317995&pins=default|la-35+50|ls12|lc003C62|co9B2F15||'Times Square'-73.98516297340393 40.758781646381024|'Central Park'-73.96682739257812 40.78119135317995&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.30||udid-{udId}
+    https://atlas.microsoft.com/map/static/png?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.96682739257812%2C40.78119135317995&pins=default|la-35+50|ls12|lc003C62|co9B2F15||'Times Square'-73.98516297340393 40.758781646381024|'Central Park'-73.96682739257812 40.78119135317995&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.30||udid-{udId}
     ```
 
 6. El servicio devuelve la siguiente imagen:
@@ -237,11 +237,11 @@ Para representar un polígono con color y opacidad:
 
 4. Seleccione el método HTTP **GET**.
 
-5. Escriba la siguiente dirección URL en [Render Service](/rest/api/maps/render/get-map-image) (Representar servicio) (reemplace `{subscription-key}` por la clave de suscripción principal):
+5. Escriba la siguiente dirección URL en el [servicio Render](/rest/api/maps/render/get-map-image) (reemplace `Your-Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal):
   
     ```HTTP
     https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&sku=S1&zoom=14&height=500&Width=500&center=-74.040701, 40.698666&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.50||-74.03995513916016 40.70090237454063|-74.04082417488098 40.70028420372218|-74.04113531112671 40.70049568385827|-74.04298067092896 40.69899904076542|-74.04271245002747 40.69879568992435|-74.04367804527283 40.6980961582905|-74.04364585876465 40.698055487620714|-74.04368877410889 40.698022951066996|-74.04168248176573 40.696444909137|-74.03901100158691 40.69837271818651|-74.03824925422668 40.69837271818651|-74.03809905052185 40.69903971085914|-74.03771281242369 40.699340668780984|-74.03940796852112 40.70058515602143|-74.03948307037354 40.70052821920425|-74.03995513916016 40.70090237454063
-    &subscription-key={subscription-key}
+    &subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 6. El servicio devuelve la siguiente imagen:
@@ -265,10 +265,10 @@ Para representar un círculo y marcadores con etiquetas personalizadas:
 
 4. Seleccione el método HTTP **GET**.
 
-5. Escriba la siguiente dirección URL en [Render Service](/rest/api/maps/render/get-map-image) (Representar servicio) (reemplace `{subscription-key}` por la clave de suscripción principal):
+5. Escriba la siguiente dirección URL en el [servicio Render](/rest/api/maps/render/get-map-image) (reemplace `Your-Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal):
 
     ```HTTP
-    https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&zoom=14&height=700&Width=700&center=-122.13230609893799,47.64599069048016&path=lcFF0000|lw2|la0.60|ra1000||-122.13230609893799 47.64599069048016&pins=default|la15+50|al0.66|lc003C62|co002D62||'Microsoft Corporate Headquarters'-122.14131832122801  47.64690503939462|'Microsoft Visitor Center'-122.136828 47.642224|'Microsoft Conference Center'-122.12552547454833 47.642940335653996|'Microsoft The Commons'-122.13687658309935  47.64452336193245&subscription-key={subscription-key}
+    https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&zoom=14&height=700&Width=700&center=-122.13230609893799,47.64599069048016&path=lcFF0000|lw2|la0.60|ra1000||-122.13230609893799 47.64599069048016&pins=default|la15+50|al0.66|lc003C62|co002D62||'Microsoft Corporate Headquarters'-122.14131832122801  47.64690503939462|'Microsoft Visitor Center'-122.136828 47.642224|'Microsoft Conference Center'-122.12552547454833 47.642940335653996|'Microsoft The Commons'-122.13687658309935  47.64452336193245&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 6. Seleccione **Enviar**.
@@ -280,7 +280,7 @@ Para representar un círculo y marcadores con etiquetas personalizadas:
 8. Ahora se modificará el modificador de estilo `co` para cambiar el color de los marcadores. Si observa el valor del parámetro `pins` (`pins=default|la15+50|al0.66|lc003C62|co002D62|`), verá que el color actual es `#002D62`. Para cambiar el color a `#41d42a`, se reemplazará `#002D62` por `#41d42a`.  Ahora el parámetro `pins` es `pins=default|la15+50|al0.66|lc003C62|co41D42A|`. La solicitud es similar a la URL siguiente:
 
     ```HTTP
-    https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&zoom=14&height=700&Width=700&center=-122.13230609893799,47.64599069048016&path=lcFF0000|lw2|la0.60|ra1000||-122.13230609893799 47.64599069048016&pins=default|la15+50|al0.66|lc003C62|co41D42A||'Microsoft Corporate Headquarters'-122.14131832122801  47.64690503939462|'Microsoft Visitor Center'-122.136828 47.642224|'Microsoft Conference Center'-122.12552547454833 47.642940335653996|'Microsoft The Commons'-122.13687658309935  47.64452336193245&subscription-key={subscription-key}
+    https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&zoom=14&height=700&Width=700&center=-122.13230609893799,47.64599069048016&path=lcFF0000|lw2|la0.60|ra1000||-122.13230609893799 47.64599069048016&pins=default|la15+50|al0.66|lc003C62|co41D42A||'Microsoft Corporate Headquarters'-122.14131832122801  47.64690503939462|'Microsoft Visitor Center'-122.136828 47.642224|'Microsoft Conference Center'-122.12552547454833 47.642940335653996|'Microsoft The Commons'-122.13687658309935  47.64452336193245&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 9. Seleccione **Enviar**.

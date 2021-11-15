@@ -6,21 +6,17 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 0788ab52bbd70d63cf32d501fc54e10910509e15
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a2836e2c319810b48a20742cebaa816b6c20ffe1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128587789"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131438082"
 ---
-# <a name="manage-an-azure-database-for-mysql---flexible-server-preview-using-the-azure-cli"></a>Administración de un servidor flexible de Azure Database for MySQL (versión preliminar) mediante la CLI de Azure
+# <a name="manage-an-azure-database-for-mysql---flexible-server-using-the-azure-cli"></a>Administración de un servidor flexible de Azure Database for MySQL mediante la CLI de Azure
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Actualmente, la opción de implementación Servidor flexible de Azure Database for MySQL se encuentra en versión preliminar pública.
-
-En este artículo se muestra cómo administrar un servidor flexible (versión preliminar) implementado en Azure. Entre las tareas de administración se incluyen el escalado de proceso y almacenamiento, el restablecimiento de contraseñas de administración y la visualización de detalles del servidor.
+En este artículo se muestra cómo administrar el Servidor flexible implementado en Azure. Entre las tareas de administración se incluyen el escalado de proceso y almacenamiento, el restablecimiento de contraseñas de administración y la visualización de detalles del servidor.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

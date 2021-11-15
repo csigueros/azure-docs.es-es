@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34cd3cbfd92f3448bd8b494b579a641bfb580ecd
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0b014cc8fb1c6ca2e318125aeaefed34950175eb
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131052453"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131578018"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Incorporación de la personalización de marca en la página de inicio de sesión de Azure Active Directory de la organización
 Use el logotipo de la organización y combinaciones de colores personalizadas para proporcionar un aspecto coherente en las páginas de inicio de sesión de Azure Active Directory (Azure AD). Las páginas de inicio de sesión aparecen cuando los usuarios inician sesión en las aplicaciones web de su organización, como Microsoft 365, que usan Azure AD como proveedor de identidades.
@@ -34,7 +34,7 @@ La personalización de marca no aparecerá inmediatamente cuando los usuarios te
 > [!NOTE]
 > **Todos los elementos de personalidad de marca son opcionales y permanecerán como valores predeterminados cuando no se modifican**. Por ejemplo, si especifica un logotipo de banner sin ninguna imagen de fondo, se mostrará en la página de inicio de sesión su logotipo con una imagen de fondo predeterminada del sitio de destino, como Microsoft 365.<br><br>Además, la personalización de marca de la página de inicio de sesión no se incluye en las cuentas Microsoft personales. Si los usuarios o los invitados de la empresa inician sesión con una cuenta Microsoft personal, la página de inicio de sesión no reflejará la personalización de marca de la organización.
 
-### <a name="to-customize-your-branding"></a>Para personalizar su marca
+### <a name="to-configure-your-branding-for-the-first-time"></a>Para configurar la personalización de marca por primera vez:
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta de administrador global para el directorio.
 
 2. Seleccione **Azure Active Directory**, después, seleccione **Personalización de marca de empresa** y, a continuación, seleccione **Configurar**.
@@ -102,7 +102,7 @@ La personalización de marca no aparecerá inmediatamente cuando los usuarios te
 
 3. Una vez haya terminado de agregar la personalización de marca, seleccione **Guardar**.
 
-    Si este proceso supone la creación de la primera configuración de personalización de marca personalizada, se convertirá en el valor predeterminado del inquilino. Si tiene configuraciones adicionales, podrá elegir la configuración predeterminada.
+    Este proceso supone la creación de la primera configuración de personalización de marca personalizada, y se convertirá en el valor predeterminado del inquilino. La configuración de la personalización de marca predeterminada actúa como opción de reserva para todas las configuraciones de personalización de marca específicas del lenguaje. Recuerde que la configuración no se puede quitar después de crearla.
     
     >[!IMPORTANT]
     >Para agregar más configuraciones de personalización de marca corporativa al inquilino, debe elegir **Nuevo idioma** en la página **Contoso: personalización de marca de empresa**. Se abrirá la página **Configurar personalización de marca de empresa**, donde puede seguir los pasos anteriores.

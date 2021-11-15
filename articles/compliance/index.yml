@@ -370,7 +370,7 @@ additionalContent:
       summary: 'Para acceder a un recurso, es posible que deba iniciar sesión en el servicio en la nube'
       items:
         - title: Auditoría de informes y certificados
-          summary: 'Se puede acceder en Azure Portal, es preciso ir a Inicio > Security Center > Cumplimiento normativo'
+          summary: 'Se puede acceder en Azure Portal. Para ello, es preciso ir a Inicio > Defender for Cloud > Cumplimiento normativo'
           links:
             - text: 'ISO 20000-1, 22301, 27001, 27017, 27018, 27701, 9001'
               url: 'https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade'

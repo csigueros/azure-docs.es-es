@@ -1,32 +1,40 @@
 ---
-title: Conexión a las máquinas virtuales a través de un explorador
+title: Habilitación del acceso del explorador a máquinas virtuales de laboratorio
 description: Sepa cómo conectar sus máquinas virtuales a través de un explorador.
 ms.topic: how-to
-ms.date: 06/26/2020
-ms.openlocfilehash: dbbaa4286aac91e362a2024f1705add8f48d566d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/29/2021
+ms.openlocfilehash: f712d0090defa28f673807b835dbe3642cfdface
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128645006"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131464380"
 ---
-# <a name="connect-to-your-virtual-machines-through-a-browser"></a>Conexión a las máquinas virtuales a través de un explorador 
+# <a name="connect-to-your-lab-virtual-machines-through-a-browser"></a>Conexión de las máquinas virtuales de laboratorio a través de un explorador 
 
-DevTest Labs se integra con [Azure Bastion](../bastion/index.yml), lo que le permite conectarse a sus máquinas virtuales a través de un explorador. Para más información sobre cómo habilitar esta característica en DevTest Labs, vea [Habilitar una conexión del explorador en máquinas virtuales de laboratorio](enable-browser-connection-lab-virtual-machines.md).
+DevTest Labs se integra con [Azure Bastion](../bastion/index.yml), lo que le permite conectarse a sus máquinas virtuales de laboratorio a través de un explorador. Una vez habilitada la **conexión del explorador**, los usuarios de laboratorio pueden acceder a las máquinas virtuales a través de un explorador.  
 
-Una vez habilitada la *conexión del explorador*, los usuarios de laboratorio pueden acceder a las máquinas virtuales a través de un explorador.  
+En esta guía paso a paso, se conectará a una máquina virtual de laboratorio mediante la **conexión del explorador**.
 
-## <a name="create-a-lab-virtual-machine"></a>Creación de una máquina virtual de laboratorio
+## <a name="prerequisites"></a>Prerrequisitos
 
-En primer lugar, debe crear la máquina virtual de laboratorio en una red virtual donde Bastion esté configurado. Seleccione la segunda **subred** que creó, no la AzureBastionSubnet. Puede seleccionar una red virtual mientras crea la máquina virtual; para ello, vaya a la pestaña **Configuración avanzada**.
+- Una máquina virtual de laboratorio, con una [red virtual configurada por Bastion y la configuración de la **conexión del explorador** activada](enable-browser-connection-lab-virtual-machines.md).
 
-![Crear máquina virtual](./media/connect-virtual-machine-through-browser/create-virtual-machine.png)
+- Un explorador web configurado para permitir elementos emergentes de `https://portal.azure.com:443`.
 
 ## <a name="launch-virtual-machine-in-a-browser"></a>Inicio de una máquina virtual en un explorador
 
-Una vez creada la máquina virtual, puede iniciarla en un explorador; para ello, haga clic en el botón *Browser connect* (Conexión del explorador) y escriba el nombre de usuario y la contraseña de la máquina.  
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-![Inicio en un explorador](./media/connect-virtual-machine-through-browser/browser-connect.png)
+1. Vaya a su laboratorio en **DevTest Labs**.
+
+1. Seleccione una máquina virtual.
+
+1. En el menú superior, seleccione **Conexión del explorador**.
+
+1. En la sección **Conexión del explorador**, escriba sus credenciales y, a continuación, seleccione **Conectar**.
+
+    :::image type="content" source="./media/connect-virtual-machine-through-browser/lab-vm-browser-connect.png" alt-text="Captura de pantalla del botón conectar al explorador.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

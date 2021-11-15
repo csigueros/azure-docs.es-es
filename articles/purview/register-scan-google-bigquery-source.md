@@ -1,21 +1,21 @@
 ---
 title: Conexión y administración de proyectos de Google BigQuery
 description: En esta guía se describe cómo conectarse a proyectos de Google BigQuery en Azure Purview y usar las características de Purview para examinar y administrar el origen de Google BigQuery.
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: e264aaef00eb0e1af12db3a7a2f3047de5e6e3e5
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f28de0520e4b69970549f7258a5a41dd109d2b48
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131056231"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131852586"
 ---
-# <a name="connect-to-and-manage-google-bigquery-projects-in-azure-purview"></a>Conexión y administración de proyectos de Google BigQuery en Azure Purview
+# <a name="connect-to-and-manage-google-bigquery-projects-in-azure-purview-preview"></a>Conexión y administración de proyectos de Google BigQuery en Azure Purview (versión preliminar)
 
 En este artículo se describe cómo registrar proyectos de Google BigQuery y cómo autenticarse e interactuar con Google BigQuery en Azure Purview. Para obtener más información sobre Azure Purview, consulte el [artículo de introducción](overview.md).
 
@@ -98,8 +98,8 @@ Siga los pasos que tiene a continuación para examinar un proyecto de Google Big
     1. **Credencial**: al configurar las credenciales de BigQuery, asegúrese de:
 
         * Seleccionar **Basic Authentication** (Autenticación básica) como método de autenticación
-        * Proporcione el identificador de correo electrónico de la cuenta de servicio en el campo Nombre de usuario. Por ejemplo, xyz\@developer.gserviceaccount.com.
-        * Guarde el archivo de clave privada de la cuenta de servicio en formato JSON en el secreto del almacén de claves.
+        * Proporcione el identificador de correo electrónico de la cuenta de servicio en el campo Nombre de usuario. Por ejemplo: `xyz\@developer.gserviceaccount.com`
+        * Siga los pasos que se indican a continuación para generar la clave privada, copie el archivo JSON y almacénelo como el valor de un secreto de Key Vault.
 
         Para crear una nueva clave privada desde la plataforma en la nube de Google:
         1. En el menú de navegación, en las opciones IAM y administrador, seleccione \>Cuentas de servicio\>, Seleccionar un proyecto\>. 

@@ -1,33 +1,33 @@
 ---
 title: Información general de Microsoft Azure Confidential Ledger
-description: Información general de Azure Confidential Ledger, un servicio muy seguro para administrar registros de datos confidenciales.
+description: Información general de Azure Confidential Ledger, un servicio muy seguro para administrar registros de datos confidenciales
 services: confidential-ledger
 author: msmbaldwin
 ms.service: confidential-ledger
 ms.topic: overview
 ms.date: 04/15/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 751da192288fd7dc7b0c46a537c7206309fc2f6f
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 05b84abafb308b51236f5d92aa486e6ed8741204
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130160843"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131438823"
 ---
 # <a name="microsoft-azure-confidential-ledger-preview"></a>Microsoft Azure Confidential Ledger (versión preliminar)
 
-Microsoft Azure Confidential Ledger (ACL) o, para abreviar, Confidential Ledger (versión preliminar) es un servicio nuevo y altamente seguro para administrar registros de datos confidenciales. En función de un modelo de cadena de bloques con permisos, Confidential Ledger ofrece ventajas únicas para la integridad de datos. Esto incluye inmutabilidad, hacer que el libro de contabilidad solo se pueda anexar, y la protección frente a manipulaciones, para asegurar que todos los registros se mantengan intactos.
+Microsoft Azure Confidential Ledger (ACL) es un servicio nuevo y muy seguro para administrar registros de datos confidenciales. En función de un modelo de cadena de bloques con permisos, Azure Confidential Ledger ofrece ventajas únicas para la integridad de datos. Esto incluye inmutabilidad, hacer que el libro de contabilidad solo se pueda anexar, y la protección frente a manipulaciones, para asegurar que todos los registros se mantengan intactos.
 
-Confidential Ledger se ejecuta exclusivamente en enclaves seguros con respaldo de hardware, un entorno en tiempo de ejecución muy supervisado y aislado que mantiene a raya los posibles ataques. Además, nadie está "por encima" de Ledger, ni siquiera Microsoft. Al diseñar manteniéndonos fuera de la solución, el Confidential Ledger se ejecuta en una base de computación de confianza (TCB) minimalista que impide el acceso a los desarrolladores del servicio Ledger, los técnicos del centro de datos y los administradores de la nube.
+Confidential Ledger se ejecuta exclusivamente en enclaves seguros con respaldo de hardware, un entorno en tiempo de ejecución muy supervisado y aislado que mantiene a raya los posibles ataques. Además, nadie está "por encima" de Ledger, ni siquiera Microsoft. Al diseñar manteniéndonos fuera de la solución, Azure Confidential Ledger se ejecuta en una base de computación de confianza (TCB) minimalista que impide el acceso a los desarrolladores del servicio Ledger, los técnicos del centro de datos y los administradores de la nube.
 
-Confidential Ledger recurre a los casos de uso en los que no se deben modificar los registros de metadatos críticos, incluso a perpetuidad, con fines de cumplimiento normativo y archivo. Estos son algunos ejemplos de cosas que puede almacenar en Ledger:
+Azure Confidential Ledger recurre a los casos de uso en los que no se deben modificar los registros de metadatos críticos, incluso a perpetuidad, con fines de cumplimiento normativo y archivo. Estos son algunos ejemplos de cosas que puede almacenar en Ledger:
 
 - Registros relacionados con las transacciones empresariales (por ejemplo, transferencias de dinero o ediciones a documentos confidenciales).
 - Actualizaciones de recursos de confianza (por ejemplo, aplicaciones principales o contratos).
 - Cambios administrativos y de control (por ejemplo, concesiones de permisos de acceso).
 - Eventos operativos de TI y seguridad (por ejemplo, alertas de Azure Security Center).
 
-Para obtener más información, puede ver la [demostración de Confidential Ledger en Microsoft Ignite 2020](https://mediusprodstatic.studios.ms/asset-b88de19d-4187-40c4-98f2-a65efc419e2a/OD221_1920x1080_AACAudio_1461.mp4?sv=2018-03-28&sr=b&sig=k5roi6WXnlqK1zP0fs5KYlJd4FD3Nuaf97z%2B2gV0aTs%3D&st=2020-09-22T08%3A05%3A01Z&se=2025-09-22T08%3A10%3A01Z&sp=r&rscd=filename%3DIG20-OD221-Inside%2BAzure%2BDatacenter%2BArchitecture%2Bwith%2BMark%2BRu.mp4).
+Para más información, puede ver la [demostración de Azure Confidential Ledger en Microsoft Ignite 2020](https://mediusprodstatic.studios.ms/asset-b88de19d-4187-40c4-98f2-a65efc419e2a/OD221_1920x1080_AACAudio_1461.mp4?sv=2018-03-28&sr=b&sig=k5roi6WXnlqK1zP0fs5KYlJd4FD3Nuaf97z%2B2gV0aTs%3D&st=2020-09-22T08%3A05%3A01Z&se=2025-09-22T08%3A10%3A01Z&sp=r&rscd=filename%3DIG20-OD221-Inside%2BAzure%2BDatacenter%2BArchitecture%2Bwith%2BMark%2BRu.mp4).
 
 ## <a name="key-features"></a>Principales características
 
@@ -41,7 +41,7 @@ Los datos para Ledger se envían a través de la conexión TLS 1.2, y la conexi
 
 ### <a name="ledger-storage"></a>Almacenamiento de Ledger
 
-Las instancias de Confidential Ledger se crean como bloques en contenedores de almacenamiento en blobs que pertenecen a una cuenta de Azure Storage. Los datos de transacción se pueden almacenar cifrados o en texto no cifrado en función de sus necesidades. Al crear una instancia de Ledger, asociará una cuenta de almacenamiento siguiendo los pasos descritos en [Registro de una entidad de servicio de Confidential Ledger](register-ledger-service-principal.md).
+Las instancias de Confidential Ledger se crean como bloques en contenedores de almacenamiento en blobs que pertenecen a una cuenta de Azure Storage. Los datos de transacción se pueden almacenar cifrados o en texto no cifrado en función de sus necesidades. Al crear un libro de contabilidad, asociará una cuenta de almacenamiento siguiendo los pasos descritos en [Registro de una entidad de servicio de Confidential Ledger](register-ledger-service-principal.md).
 
 Los administradores pueden administrar Confidential Ledger mediante API administrativas (plano de control), y se puede llamar directamente mediante código de aplicación a través de las API funcionales (plano de datos). Las API administrativas admiten operaciones básicas, como crear, actualizar, obtener y eliminar.
 

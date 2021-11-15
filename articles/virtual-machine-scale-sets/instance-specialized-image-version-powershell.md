@@ -1,6 +1,6 @@
 ---
 title: Creación de un conjunto de escalado a partir de una imagen especializada
-description: Cree un conjunto de escalado mediante una imagen especializada en Shared Image Gallery.
+description: Cree un conjunto de escalado mediante una imagen especializada en Azure Compute Gallery.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
@@ -10,18 +10,18 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: mimckitt
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a12e378b91f2b303e80b739be3b8e9efea4262ec
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: e881c400eeaea9202e5ef32cee7900d8065f8051
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691081"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131459964"
 ---
 # <a name="create-a-scale-set-from-a-specialized-image-using-powershell"></a>Creación de un conjunto de escalado a partir de una imagen especializada mediante PowerShell 
 
 **Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado uniformes
 
-Cree una máquina virtual a partir de una versión de imagen especializada almacenada en [Shared Image Gallery](../virtual-machines/shared-image-galleries.md) mediante Azure PowerShell. Si desea crear un conjunto de escalado mediante una versión de imagen generalizada, consulte [Creación de instancias de un conjunto de escalado a partir de una versión de imagen generalizada](instance-generalized-image-version-powershell.md).
+Cree una máquina virtual a partir de una versión de imagen especializada almacenada en [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md) mediante Azure PowerShell. Si desea crear un conjunto de escalado mediante una versión de imagen generalizada, consulte [Creación de instancias de un conjunto de escalado a partir de una versión de imagen generalizada](instance-generalized-image-version-powershell.md).
 
 Una vez que tenga una imagen especializada en la galería, puede crear un conjunto de escalado de máquinas virtuales mediante el cmdlet [New-AzVmss](/powershell/module/az.compute/new-azvmss). 
 
@@ -139,10 +139,10 @@ Se tardan unos minutos en crear y configurar todos los recursos de conjunto de e
 ## <a name="next-steps"></a>Pasos siguientes
 [Azure Image Builder (versión preliminar)](../virtual-machines/image-builder-overview.md) puede ayudar a automatizar la creación de versiones de la imagen, incluso se puede usar para actualizar y [crear una nueva versión de la imagen a partir de una versión de imagen existente](../virtual-machines/linux/image-builder-gallery-update-image-version.md).  
 
-Puede crear también recursos de galería de imágenes compartidas con plantillas. Hay varias plantillas de Inicio rápido de Azure disponibles: 
+También puede crear recursos de Azure Compute Gallery mediante plantillas. Hay varias plantillas de Inicio rápido de Azure disponibles: 
 
-- [Creación de una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-create/)
-- [Creación de una definición de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
-- [Creación de una versión de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
+- [Creación de una instancia de Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
+- [Creación de una definición de imagen en una instancia de Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
+- [Creación de una versión de imagen en una instancia de Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
 
 Para más información sobre las galerías de imágenes compartidas, consulte la [Introducción](../virtual-machines/shared-image-galleries.md). Si encuentra problemas, consulte [Solución de problemas de galerías de imágenes compartidas](../virtual-machines/troubleshooting-shared-images.md).

@@ -1,19 +1,19 @@
 ---
 title: Versión preliminar de los entornos de Azure Container Apps
 description: Obtenga información sobre cómo se administran los entornos en Azure Container Apps.
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
-ms.date: 10/21/2021
+ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 3de8b98a992a97bb96d5e6164321e89da01f6342
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 122b172fc9fe2a66bae742f907d910cbccbf8fbc
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093054"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132025805"
 ---
 # <a name="azure-container-apps-preview-environments"></a>Entornos de la versión preliminar de Azure Container Apps
 
@@ -34,23 +34,14 @@ Las razones para implementar aplicaciones de contenedor en distintos entornos in
 - Que dos aplicaciones nunca comparten los mismos recursos del proceso.
 - Que dos aplicaciones no se puedan comunicar entre sí a través de Dapr.
 
-## <a name="virtual-network-integration"></a>Integración de Virtual Network
-
-A cada entorno se le asigna automáticamente una dirección IP externa. Sin embargo, puede configurar aplicaciones de contenedor individuales para que no sean accesibles desde fuera de la red virtual.
-
-| Propiedad | Descripción |
-|---|---|
-| `properties.workerAppsConfiguration.subnetResourceId` | Id. del recurso de Azure Resource Manager para la subred que se usa en la infraestructura del entorno. |
-| `properties.workerAppsConfiguration.aciSubnetResourceName` | Es el nombre de una subred de la misma red virtual donde se ejecutan las aplicaciones de contenedor. |
-
 ## <a name="logs"></a>Registros
 
-Configuración relevante para el recurso de API del entorno de Kubernetes.
+Configuración relevante para el recurso de API del entorno de Azure Container Apps.
 
 | Propiedad | Descripción |
 |---|---|
 | `properties.appLogsConfiguration` | Se usa para configurar el área de trabajo de Log Analytics donde se publicarán los registros de todas las aplicaciones del entorno. |
-| `properties.workerAppsConfiguration.daprAIInstrumentationKey` | Clave de instrumentación de Application Insights proporcionada a Dapr para realizar el seguimiento. |
+| `properties.containerAppsConfiguration.daprAIInstrumentationKey` | Clave de instrumentación de Application Insights proporcionada a Dapr para realizar el seguimiento. |
 
 ## <a name="billing"></a>Facturación
 

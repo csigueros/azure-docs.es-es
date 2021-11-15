@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Akamai | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD con Akamai'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Akamai.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 10/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 38b0ea6b65c3fcb01e8a49cd3a416533bcab5688
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 46763926a03fc4cb58803bfb2c716f09ece1b71b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124803368"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456408"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Akamai
+# <a name="tutorial-azure-ad-sso-integration-with-akamai"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Akamai
 
 En este tutorial, obtendrá información sobre cómo integrar Akamai con Azure Active Directory (Azure AD). Al integrar Akamai con Azure AD, puede hacer lo siguiente:
 
@@ -119,7 +119,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Akamai mediante 
 Para configurar y probar el inicio de sesión único de Azure AD con Akamai, realice los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Akamai](#configure-akamai-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     * **[Configuración de IDP](#setting-up-idp)**
@@ -379,7 +379,7 @@ Haga clic en **Save and go to Advanced Settings** (Guardar e ir a Configuración
 
 1. Escriba **Application Name** (Nombre de aplicación) y **Description** (Descripción).
 
-    ![Captura de pantalla del cuadro de diálogo de la aplicación SSH que muestra la configuración del nombre y la descripción de la aplicación.](./media/header-akamai-tutorial/configure-26.png)
+    ![Captura de pantalla del cuadro de diálogo de una aplicación SSH que muestra la configuración del nombre y la descripción de la aplicación.](./media/header-akamai-tutorial/configure-26.png)
 
 1. Configure Application Identity (Identidad de aplicación).
 
@@ -519,7 +519,7 @@ Asigne el proveedor de identidades.
 
 1. En la cuenta EAADelegation, haga clic en la pestaña Delegation (Delegación).
 
-    ![Captura de pantalla de un símbolo del sistema del administrador que muestra el comando para configurar el SPN.](./media/header-akamai-tutorial/spn.png)
+    ![Captura de pantalla de un símbolo del sistema del administrador que muestra el comando para configurar el SPN.](./media/header-akamai-tutorial/delegation.png)
 
     * Especifique el uso de cualquier protocolo de autenticación.
     * Haga clic en Agregar y agregue la cuenta del grupo de aplicaciones para el sitio web de Kerberos. Se debe resolver automáticamente para corregir el SPN, si se ha configurado correctamente.

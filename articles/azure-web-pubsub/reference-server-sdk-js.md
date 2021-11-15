@@ -1,66 +1,53 @@
 ---
-title: 'Referencia: SDK de JavaScript para el servicio Azure Web PubSub'
-description: En la referencia se describe el SDK de JavaScript para el servicio Azure Web PubSub.
+title: 'Referencia: SDK de JavaScript para Azure Web PubSub'
+description: En esta referencia se describe el SDK de JavaScript para el servicio Azure Web PubSub.
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 08/26/2021
-ms.openlocfilehash: 1d507f29b184403cb9ef31d84111af60f75c1584
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.date: 11/01/2021
+ms.openlocfilehash: 4571bb8581892525785c3f08e0c627bf20f511aa
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123114231"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131578352"
 ---
-# <a name="javascript-sdk-for-the-azure-web-pubsub-service"></a>SDK de JavaScript para el servicio Azure Web PubSub
+# <a name="javascript-sdk-for-azure-web-pubsub"></a>SDK de JavaScript para Azure Web PubSub
 
-Hay dos bibliotecas que se ofrecen para JavaScript:
-- [Biblioteca cliente de servicio](#service-client-library) para
-    - Enviar mensajes a centros y grupos.
-    - Enviar mensajes a determinados usuarios y conexiones
-    - Organizar usuarios y conexiones en grupos
-    - Cerrar conexiones
-    - Conceder, revocar y comprobar permisos para una conexión existente
-- [Middleware express](#express) para controlar eventos de cliente entrantes
-  - Control de solicitudes de validación de abusos
-  - Control de solicitudes de eventos de cliente
+Hay dos bibliotecas que se ofrecen para JavaScript: la biblioteca cliente de servicio y el middleware express. Las secciones siguientes contienen más información sobre estas bibliotecas.
 
 <a name="service-client-library"></a>
 
 ## <a name="azure-web-pubsub-service-client-library-for-javascript"></a>Biblioteca cliente del servicio Azure Web PubSub para JavaScript
-Use la biblioteca para:
 
-- Enviar mensajes a centros y grupos.
-- Enviar mensajes a determinados usuarios y conexiones
-- Organizar usuarios y conexiones en grupos
-- Cerrar conexiones
-- Conceder, revocar y comprobar permisos para una conexión existente
+Puede usar esta biblioteca para:
+- Enviar mensajes a centros y grupos. 
+- Enviar mensajes a determinados usuarios y conexiones.
+- Organizar usuarios y conexiones en grupos.
+- Cerrar conexiones.
+- Conceder, revocar y comprobar permisos para una conexión existente.
 
 [Código fuente](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/web-pubsub/web-pubsub) |
 [Paquete (NPM)](https://www.npmjs.com/package/@azure/web-pubsub) |
 [Documentación de referencia de API](/javascript/api/@azure/web-pubsub/) |
-[Documentación del producto](https://aka.ms/awps/doc) |
+[Documentación del producto](./index.yml) |
 [Ejemplos][samples_ref]
 
-### <a name="getting-started"></a>Introducción
+### <a name="get-started"></a>Introducción
 
-#### <a name="currently-supported-environments"></a>Entornos admitidos actualmente
-
-- [Node.js](https://nodejs.org/) versión 8.x.x o posterior
-
-#### <a name="prerequisites"></a>Requisitos previos
+Use [Node.js](https://nodejs.org/), la versión 8.x o posteriores. Asimismo, asegúrese de que cumple los siguientes requisitos previos:
 
 - Una [suscripción de Azure][azure_sub].
-- Una instancia del servicio Azure Web PubSub existente.
+- Una instancia existente del servicio Azure Web PubSub.
 
-#### <a name="1-install-the-azureweb-pubsub-package"></a>1. Instale el paquete `@azure/web-pubsub`.
+#### <a name="install-the-azureweb-pubsub-package"></a>Instalar el paquete `@azure/web-pubsub`
 
 ```bash
 npm install @azure/web-pubsub
 ```
 
-#### <a name="2-create-and-authenticate-a-webpubsubserviceclient"></a>2. Cree y autentique de WebPubSubServiceClient.
+#### <a name="create-and-authenticate-webpubsubserviceclient"></a>Creación y autenticación de `WebPubSubServiceClient`
 
 ```js
 const { WebPubSubServiceClient } = require("@azure/web-pubsub");
@@ -114,9 +101,7 @@ await serviceClient.sendToAll(payload.buffer);
 
 ### <a name="troubleshooting"></a>Solución de problemas
 
-#### <a name="enable-logs"></a>Habilitamiento de registros
-
-Puede establecer la siguiente variable de entorno para obtener los registros de depuración cuando se usa esta biblioteca.
+Puede establecer la siguiente variable de entorno para obtener los registros de depuración cuando use esta biblioteca:
 
 - Obtención de registros de depuración de la biblioteca cliente de SignalR
 
@@ -124,42 +109,37 @@ Puede establecer la siguiente variable de entorno para obtener los registros de 
 export AZURE_LOG_LEVEL=verbose
 ```
 
-Para obtener instrucciones más detalladas sobre cómo habilitar los registros, consulte los documentos del paquete [@azure/logger ](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/core/logger).
+Para obtener instrucciones más detalladas sobre cómo habilitar los registros, vea los documentos del paquete [@azure/logger](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/core/logger).
 
 <a name="express"></a>
 
 ## <a name="azure-web-pubsub-cloudevents-handlers-for-express"></a>Controladores de CloudEvents de Azure Web PubSub para Express
 
-Use Express Library para:
-- Agregar middleware de Web PubSub CloudEvents para controlar los eventos de cliente entrantes
-  - Controlar solicitudes de validación de abusos
-  - Controlar solicitudes de eventos de cliente
+Puede usar Express Library para:
+- Agregar middleware de Web PubSub CloudEvents para controlar los eventos de cliente entrantes.
+  - Controlar solicitudes de validación de abusos.
+  - Controlar solicitudes de eventos de cliente.
 
 [Código fuente](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/web-pubsub/web-pubsub-express) |
 [Paquete (NPM)](https://www.npmjs.com/package/@azure/web-pubsub-express) |
 [Documentación de referencia de API](/javascript/api/@azure/web-pubsub-express/) |
-[Documentación del producto](https://aka.ms/awps/doc) |
+[Documentación del producto](./index.yml) |
 [Ejemplos][samples_ref]
 
-### <a name="getting-started"></a>Introducción
+### <a name="get-started"></a>Primeros pasos
 
-#### <a name="currently-supported-environments"></a>Entornos admitidos actualmente
-
-- [Node.js](https://nodejs.org/) versión 8.x.x o posterior
-- [Express](https://expressjs.com/) versión 4.x.x o superior
-
-#### <a name="prerequisites"></a>Requisitos previos
+Use la versión 8.x.x o posterior de [Node.js](https://nodejs.org/) o la versión 4.x.x o posterior de [Express](https://expressjs.com/). Asimismo, asegúrese de que cumple los siguientes requisitos previos:
 
 - Una [suscripción de Azure][azure_sub].
 - Un punto de conexión de Azure Web PubSub existente.
 
-#### <a name="1-install-the-azureweb-pubsub-express-package"></a>1. Instale el paquete `@azure/web-pubsub-express`.
+#### <a name="install-the-azureweb-pubsub-express-package"></a>Instalar el paquete `@azure/web-pubsub-express`
 
 ```bash
 npm install @azure/web-pubsub-express
 ```
 
-#### <a name="2-create-a-webpubsubeventhandler"></a>2. Cree un WebPubSubEventHandler.
+#### <a name="create-webpubsubeventhandler"></a>Cree `WebPubSubEventHandler`
 
 ```js
 const express = require("express");
@@ -189,13 +169,13 @@ app.listen(3000, () =>
 
 ### <a name="key-concepts"></a>Conceptos clave
 
-#### <a name="client-events"></a>Eventos de cliente
+- **Eventos del cliente**:un cliente crea eventos durante el ciclo de vida de una conexión. Por ejemplo, una conexión de cliente de webSocket simple crea los siguientes eventos:
+  - Un evento `connect` cuando intenta conectarse al servicio.
+  - Un evento `connected` cuando se conecta al servicio.
+  - Un evento `message` cuando envía mensajes al servicio.
+  - Un evento `disconnected` cuando se desconecta del servicio.
 
-Los eventos se crean durante el ciclo de vida de una conexión de cliente. Por ejemplo, una conexión del cliente WebSocket simple crea un evento `connect` cuando intenta conectarse al servicio, un evento `connected` cuando se conecta correctamente al servicio, un evento `message` cuando envía mensajes al servicio y un evento `disconnected` cuando se desconecta del servicio.
-
-#### <a name="event-handler"></a>Controlador de eventos
-
-El controlador de eventos contiene la lógica para controlar los eventos del cliente. El controlador de eventos debe registrarse y configurarse en el servicio a través del portal o de la CLI de Azure de antemano. El lugar donde hospedar la lógica del controlador de eventos se suele considerar como el lado servidor.
+- **Controlador de eventos**: un controlador de eventos contiene la lógica para controlar los eventos del cliente. El controlador de eventos debe registrarse y configurarse en el servicio de antemano, a través de Azure Portal o de la CLI de Azure. Por lo general, el servidor hospeda la lógica del controlador de eventos.
 
 ### <a name="troubleshooting"></a>Solución de problemas
 

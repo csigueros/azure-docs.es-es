@@ -1,26 +1,26 @@
 ---
-title: Capacidad de explicación en aprendizaje automático automatizado (versión preliminar)
+title: Capacidad de explicación de modelos de aprendizaje automático automatizado (versión preliminar)
 titleSuffix: Azure Machine Learning
 description: Aprenda a obtener explicaciones sobre cómo el modelo de aprendizaje automático automatizado determina la importancia de las características y realiza predicciones al usar el SDK de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: automl, responsible-ml
+ms.custom: automl, responsible-ml, mktng-kw-nov2021
 ms.author: mithigpe
 author: minthigpen
 ms.date: 10/21/2021
-ms.openlocfilehash: 6538ebfbb7aae0a8e2b97c4b41a124568db858c7
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: f739da0dde7f2ef9935466ebbd4e4d4498355263
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131562323"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131852624"
 ---
-# <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Capacidad de interpretación: explicaciones de los modelos en el aprendizaje automático automatizado (versión preliminar)
+# <a name="interpretability-model-explainability-in-automated-ml-preview"></a>Interpretación: capacidad de explicación de modelos de aprendizaje automático automatizado (versión preliminar)
 
 
-En este artículo, aprenderá a obtener explicaciones del aprendizaje automático automatizado en Azure Machine Learning con el SDK de Python. El aprendizaje automático automatizado ayuda a comprender la importancia de las características de los modelos que se generan. 
+En este artículo, aprenderá a obtener explicaciones de los modelos de aprendizaje automático automatizado (ML automatizado) en Azure Machine Learning con el SDK de Python. El aprendizaje automático automatizado ayuda a comprender la importancia de las características de los modelos que se generan. 
 
 De forma predeterminada, todas las versiones del SDK posteriores a 1.0.85 establecen `model_explainability=True`. En la versión 1.0.85 del SDK y anteriores, los usuarios deben establecer `model_explainability=True` en el objeto `AutoMLConfig` para poder usar la interpretación de modelos. 
 
@@ -323,4 +323,4 @@ Para obtener más información sobre las visualizaciones de paneles de explicaci
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre cómo se pueden habilitar las explicaciones del modelo y la importancia de las características en áreas del SDK de Azure Machine Learning distintas al aprendizaje automático automatizado, consulte el [artículo de conceptos sobre la interpretabilidad](how-to-machine-learning-interpretability.md).
+Para obtener más información sobre cómo puede habilitar las explicaciones de los modelos y la importancia de las características en áreas distintas de ML automatizado, consulte [más técnicas para la interpretación de modelos](how-to-machine-learning-interpretability.md).

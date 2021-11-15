@@ -10,12 +10,12 @@ ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: e2621a6eea481866bb5351623065e7d113e8e9bd
-ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.openlocfilehash: da1348f0e31fbe0c3e2528692d40675d799e43da
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130138669"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469699"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-storage-event"></a>Creación de un desencadenador que ejecuta una canalización en respuesta a un evento de almacenamiento
 
@@ -31,6 +31,9 @@ Si desea ver una demostración y una introducción de diez minutos de esta carac
 
 > [!NOTE]
 > La integración descrita en este artículo depende de [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Asegúrese de que el proveedor de la suscripción se registra con el proveedor de recursos de Event Grid. Para más información, consulte [Tipos y proveedores de recursos](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). Debe poder realizar la acción *Microsoft.EventGrid/eventSubscriptions/* *. Esta acción forma parte del rol integrado Colaborador de EventSubscription EventGrid.
+
+> [!NOTE]
+> Si la cuenta de almacenamiento de blobs reside detrás de un [punto de conexión privado](../storage/common/storage-private-endpoints.md) y bloquea el acceso a la red pública, debe configurar reglas de red para permitir las comunicaciones desde el almacenamiento de blobs a Azure Event Grid. Puede conceder acceso de almacenamiento a servicios de Azure de confianza, como Event Grid, siguiendo la [documentación de Storage](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services), o configurar puntos de conexión privados para Event Grid que se asignen al espacio de direcciones de la red virtual, siguiendo la [documentación de Event Grid](../event-grid/configure-private-endpoints.md).
 
 ## <a name="create-a-trigger-with-ui"></a>Creación de un desencadenador con la interfaz de usuario
 
@@ -95,7 +98,7 @@ En la tabla siguiente se proporciona información general acerca de los elemento
 | **scope** | El identificador de recursos de Azure Resource Manager de la cuenta de almacenamiento. | String | Identificador de Azure Resource Manager | Sí |
 | **eventos** | El tipo de eventos que provocan la activación de este desencadenador. | Array    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Sí, cualquier combinación de estos valores. |
 | **blobPathBeginsWith** | La ruta de acceso del blob debe comenzar con el patrón proporcionado para que se active el desencadenador. Por ejemplo, `/records/blobs/december/` solo activa el desencadenador de blobs en la carpeta `december` bajo el contenedor `records`. | String   | | Proporcione un valor para al menos una de estas propiedades: `blobPathBeginsWith` o `blobPathEndsWith`. |
-| **blobPathEndsWith** | La ruta de acceso del blob debe finalizar con el patrón proporcionado para que se active el desencadenador. Por ejemplo, `december/boxes.csv` solo activa el desencadenador de blobs denominado "`boxes`" en una carpeta `december`. | String   | | Tendrá que proporcionar un valor para al menos una de estas propiedades: `blobPathBeginsWith` o `blobPathEndsWith`. |
+| **blobPathEndsWith** | La ruta de acceso del blob debe finalizar con el patrón proporcionado para que se active el desencadenador. Por ejemplo, `december/boxes.csv` solo activa el desencadenador de blobs denominado "`boxes`" en una carpeta `december`. | String   | | Proporcione un valor para al menos una de estas propiedades: `blobPathBeginsWith` o `blobPathEndsWith`. |
 | **ignoreEmptyBlobs** | Indica si los blobs de cero bytes desencadenarán o no la ejecución de una canalización. De manera predeterminada, se establece en true. | Boolean | true o false | No |
 
 ## <a name="examples-of-storage-event-triggers"></a>Ejemplos de desencadenadores de eventos de almacenamiento
@@ -119,7 +122,7 @@ En esta sección encontrará ejemplos de configuración de desencadenadores de e
 
 Las canalizaciones de Azure Data Factory y Synapse usan el control de acceso basado en roles de Azure (RBAC de Azure) para asegurarse de que el acceso no autorizado a la escucha, la suscripción a las actualizaciones de y el desencadenamiento de canalizaciones vinculadas a eventos de blob, están estrictamente prohibidos.
 
-* Para crear correctamente un desencadenador de evento de almacenamiento existente o actualizarlo, la cuenta de Azure con la sesión iniciada en el servicio debe tener el acceso adecuado a la cuenta de almacenamiento pertinente. De lo contrario, se produce un error en la operación con _acceso denegado_.
+* Para crear correctamente un desencadenador de eventos de Storage o actualizar uno existente, la cuenta de Azure que ha iniciado sesión en el servicio debe tener acceso adecuado a la cuenta de almacenamiento correspondiente. De lo contrario, se produce un error en la operación con _acceso denegado_.
 * Azure Data Factory y Azure Synapse no necesitan ningún permiso especial en el Event Grid y _no_ es necesario asignar un permiso de RBAC especial a la entidad de servicio de Data Factory o Azure Synapse para la operación.
 
 Cualquiera de las siguientes configuraciones de RBAC funciona para el desencadenador de eventos de almacenamiento:

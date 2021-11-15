@@ -9,12 +9,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 10/21/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: dd43c01cac8b0c0c24a3a17385c90d9630da35c5
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 95753a40c60e6b191b768fa3ac9cae3c5e9cb466
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131019655"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131433277"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Novedades de Azure Sentinel
 
@@ -37,6 +37,21 @@ Si busca elementos de más de 6 meses, puede encontrarlos en las [Archivo de nov
 >
 
 ## <a name="november-2021"></a>Noviembre de 2021
+
+### <a name="windows-forwarded-events-connector-now-available-public-preview"></a>Ya está disponible el conector de eventos reenviados de Windows (versión preliminar pública).
+
+Ahora puede transmitir registros de eventos desde los servidores Windows conectados al área de trabajo de Azure Sentinel mediante la recopilación de eventos de Windows y el reenvío de eventos de Windows (WEC/WEF), gracias a este nuevo conector de datos. El conector usa el nuevo agente de Azure Monitor (AMA), que proporciona una serie de ventajas con respecto al agente heredado de Log Analytics (también conocido como MMA):
+- **Escalabilidad:** si ha habilitado la recopilación de eventos de Windows (WEC), puede instalar el agente de Azure Monitor (AMA) en la máquina de WEC para recopilar registros de muchos servidores con un único punto de conexión.
+
+- **Velocidad:** AMA puede enviar datos a una velocidad mejorada de 5000 EPS, lo que permite una actualización de datos más rápida.
+
+- **Eficiencia:** AMA le permite diseñar reglas complejas de recopilación de datos (DCR) para filtrar los registros en su origen, eligiendo los eventos exactos que se transmitirán al área de trabajo. Las DCR ayudan a reducir el tráfico de red y los costos de ingesta al dejar fuera los eventos no deseados.
+
+- **Cobertura:** WEC/WEF permite la recopilación de registros de eventos de Windows desde servidores heredados (locales y físicos) y también desde máquinas de uso elevado o confidenciales, como los controladores de dominio, en los que no se desea instalar un agente. 
+
+Se recomienda usar este conector con los analizadores del [modelo de información de Azure Sentinel (ASIM)](normalization.md) instalados para garantizar la compatibilidad total con la normalización de datos.
+
+Más información sobre el [conector de eventos reenviados de Windows](data-connectors-reference.md#windows-forwarded-events-preview).
 
 ### <a name="near-real-time-nrt-threat-detection-rules-now-available-public-preview"></a>Las reglas de detección de amenazas casi en tiempo real (NRT) ya están disponibles (versión preliminar pública)
 
@@ -202,6 +217,20 @@ Por ejemplo:
 :::image type="content" source="media/whats-new/notebooks-synapse.png" alt-text="Captura de pantalla de la nueva funcionalidad de Azure Synapse en la página Cuadernos." lightbox="media/whats-new/notebooks-synapse.png":::
 
 Para más información, consulte [Uso de cuadernos de Jupyter Notebook para buscar amenazas de seguridad](notebooks.md).
+
+
+### <a name="deploy-and-monitor-azure-key-vault-honeytokens-with-azure-sentinel"></a>Implementación y supervisión de honeytokens de Azure Key Vault con Azure Sentinel
+
+La nueva solución **Azure Sentinel Deception** le ayuda a observar si hay actividad malintencionada en los almacenes de claves, ya que le ayuda a implementar claves y secretos como señuelos, llamados *honeytokens*, en almacenes de claves de Azure seleccionados.
+
+Una vez implementados, cualquier acceso u operación con las claves y secretos del honeytoken generará incidentes que puede investigar en Azure Sentinel.
+
+Como no hay ninguna razón para usar realmente las claves y los secretos de los honeytokens, cualquier actividad similar en el área de trabajo puede ser malintencionada y se debe investigar.
+
+La solución **Azure Sentinel Deception** incluye un libro para ayudarle a implementar los honeytokens, ya sea a gran escala o de uno en uno, listas de control para realizar el seguimiento de los honeytokens creados y reglas de análisis para generar incidentes según sea necesario.
+
+Para más información, consulte [Implementación y supervisión de honeytoken de Azure Key Vault con Azure Sentinel (versión preliminar pública)](monitor-key-vault-honeytokens.md).
+
 
 ## <a name="october-2021"></a>Octubre de 2021
 
@@ -386,7 +415,7 @@ Azure Sentinel proporciona ahora la regla integrada de **Análisis de coincidenc
 La regla de **Análisis de coincidencias de Inteligencia sobre amenazas de Microsoft** coincide actualmente con los indicadores de dominio con los siguientes orígenes de registro:
 
 - [CEF](connect-common-event-format.md)
-- [DNS](./data-connectors-reference.md#domain-name-server)
+- [DNS](./data-connectors-reference.md#windows-dns-server-preview)
 - [Syslog](connect-syslog.md)
 
 Para obtener más información, consulte [Detección de amenazas mediante análisis de coincidencias (versión preliminar pública)](work-with-threat-indicators.md#detect-threats-using-matching-analytics-public-preview).

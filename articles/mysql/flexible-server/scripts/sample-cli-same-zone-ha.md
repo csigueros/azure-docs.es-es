@@ -1,5 +1,5 @@
 ---
-title: 'Script de la CLI: configuración de la alta disponibilidad en la misma zona en un servidor flexible de Azure Database for MySQL (versión preliminar)'
+title: 'Script de la CLI: configuración de la alta disponibilidad en la misma zona en un servidor flexible de Azure Database for MySQL'
 description: Este script de ejemplo de la CLI de Azure muestra cómo configurar la alta disponibilidad en la misma zona en un servidor flexible de Azure Database for MySQL.
 author: shreyaaithal
 ms.author: shaithal
@@ -8,14 +8,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 09/15/2021
-ms.openlocfilehash: 115baa8d181bd7ebef125e7a666216efe50680d2
-ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
+ms.openlocfilehash: c6565a9a8c74f4f1794b3e5869a1784520b8f583
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129740791"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131844124"
 ---
-# <a name="configure-same-zone-high-availability-in-an-azure-database-for-mysql---flexible-server-preview-using-azure-cli"></a>Configuración de la alta disponibilidad en la misma zona en un servidor flexible de Azure Database for MySQL (versión preliminar) mediante la CLI de Azure
+# <a name="configure-same-zone-high-availability-in-an-azure-database-for-mysql---flexible-server-using-azure-cli"></a>Configuración de la alta disponibilidad en la misma zona en un servidor flexible de Azure Database for MySQL mediante la CLI de Azure
 
 Este script de ejemplo de la CLI configura y administra la [alta disponibilidad en la misma zona](../concepts-high-availability.md) en un servidor flexible de Azure Database for MySQL. Actualmente, la alta disponibilidad en la misma zona solo se admite para los planes de tarifa Uso general y Optimizado para memoria.
 
@@ -52,5 +52,5 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Pruebe scripts adicionales en: [Ejemplos de la CLI de Azure para Azure Database for MySQL: servidor flexible (versión preliminar)](../sample-scripts-azure-cli.md).
+- Pruebe otros scripts: [Ejemplos de la CLI de Azure para Azure Database for MySQL: servidor flexible](../sample-scripts-azure-cli.md).
 - Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](/cli/azure).

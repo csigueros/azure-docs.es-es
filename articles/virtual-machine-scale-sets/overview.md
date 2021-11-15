@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
-ms.openlocfilehash: c4ad34729b81d6ca13bb2ff52c30dc77cd1614b9
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 0e3cab3835abc8ca3fed652830437dfa7c425e74
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130167375"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131466967"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>¿Qué son los conjuntos de escalado de máquina virtual?
 
@@ -41,7 +41,7 @@ Los conjuntos de escalado de máquinas virtuales de Azure proporcionan las capac
     - El escalado automático reduce el número de instancias innecesarias de máquina virtual que ejecutan la aplicación cuando la demanda es baja, mientras que cuando la demanda aumenta, los clientes continúan recibiendo un nivel aceptable de rendimiento gracias a la incorporación automática de instancias adicionales de máquina virtual. Esta capacidad le ayuda a reducir los costos y a crear de forma eficaz los recursos de Azure según sea necesario.
 
 - **Funciona a gran escala**
-    - Los conjuntos de escalado admiten hasta 1000 instancias de máquina virtual para imágenes estándar de marketplace e imágenes personalizadas a través del Shared Image Gallery. Si crea un conjunto de escalado mediante una imagen administrada, el límite es de 600 instancias de máquina virtual.
+    - Los conjuntos de escalado admiten hasta 1000 instancias de máquina virtual para imágenes estándar de marketplace e imágenes personalizadas mediante Azure Compute Gallery. Si crea un conjunto de escalado mediante una imagen administrada, el límite es de 600 instancias de máquina virtual.
     - Para el mejor rendimiento con cargas de trabajo de producción, use [Azure Managed Disks](../virtual-machines/managed-disks-overview.md).
 
 

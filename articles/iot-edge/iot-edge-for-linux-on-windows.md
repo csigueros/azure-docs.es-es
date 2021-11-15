@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/18/2021
 ms.author: kgremban
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 6723b203215d650b1fe6718630ae3914c8313256
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 881d0fe19339976342db866072dcf86009b1bbd5
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751973"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131578868"
 ---
 # <a name="what-is-azure-iot-edge-for-linux-on-windows"></a>Qué es Azure IoT Edge para Linux en Windows
 
@@ -24,7 +24,7 @@ Azure IoT Edge para Linux en Windows le permite ejecutar cargas de trabajo de Li
 
 IoT Edge para Linux en Windows funciona mediante la ejecución de una máquina virtual Linux en un dispositivo Windows. La máquina virtual Linux viene preinstalada con el entorno de ejecución de Azure IoT Edge. Los módulos de IoT Edge implementados en el dispositivo se ejecutan dentro de la máquina virtual. Mientras tanto, las aplicaciones de Windows que se ejecutan en el dispositivo host de Windows pueden comunicarse con los módulos que se ejecutan en la máquina virtual Linux.
 
-[Comience](how-to-install-iot-edge-on-windows.md) hoy mismo.
+[Comience](how-to-provision-single-device-linux-on-windows-symmetric.md) hoy mismo.
 
 ## <a name="components"></a>Componentes
 
@@ -40,6 +40,21 @@ IoT Edge para Linux en Windows usa los componentes siguientes para permitir que 
 
 La comunicación bidireccional entre el proceso de Windows y la máquina virtual de Linux significa que los procesos de Windows pueden proporcionar interfaces de usuario o proxies de hardware para las cargas de trabajo que se ejecutan en los contenedores de Linux.
 
+
+## <a name="prerequisites"></a>Requisitos previos
+
+Un dispositivo Windows con los siguientes requisitos mínimos:
+
+* Requisitos del sistema
+   * Windows 10¹/11 (Pro, Enterprise, IoT Enterprise)
+   * Windows Server 2019¹/2022  
+   <sub>¹ Windows 10 y Windows Server 2019 (compilación mínima 17763) con todas las actualizaciones acumulativas actuales instaladas</sub>.
+
+* Requisitos de hardware
+  * Memoria libre mínima: 1 GB
+  * Espacio libre en disco mínimo: 10 GB
+
+
 ## <a name="samples"></a>Ejemplos
 
 IoT Edge para Linux en Windows destaca la interoperabilidad entre los componentes de Windows y Linux.
@@ -54,10 +69,10 @@ Use los canales de soporte y comentarios de IoT Edge para obtener asistencia con
 
 **Equipo de soporte técnico al cliente de Microsoft**: los usuarios que dispongan de un [plan de soporte técnico](https://azure.microsoft.com/support/plans/) pueden ponerse en contacto con este equipo creando una incidencia de soporte técnico directamente en [Azure Portal](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 
-**Solicitudes de características**: el producto Azure IoT Edge realiza un seguimiento de las solicitudes de características a través de la [página Voz del usuario](https://feedback.azure.com/forums/907045-azure-iot-edge).
+**Solicitudes de características**: el producto Azure IoT Edge realiza un seguimiento de las solicitudes de características a través de la [página Voz del usuario](https://feedback.azure.com/d365community/forum/0e2fff5d-f524-ec11-b6e6-000d3a4f0da0).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información y un ejemplo en acción, vea [IoT Edge para Linux en Windows 10 IoT Enterprise](https://aka.ms/azeflow-show).
 
-Siga los pasos descritos en [Instalación y aprovisionamiento de Azure IoT Edge para Linux en un dispositivo Windows](how-to-install-iot-edge-on-windows.md) para configurar un dispositivo con IoT Edge para Linux en Windows.
+Siga los pasos descritos en [Aprovisionamiento manual de Azure IoT Edge para Linux en un dispositivo Windows](how-to-provision-single-device-linux-on-windows-symmetric.md) para configurar un dispositivo con IoT Edge para Linux en Windows.

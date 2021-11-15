@@ -2,14 +2,14 @@
 title: 'Notas de la versión de Azure Video Analyzer: Azure'
 description: En este tema encontrará las notas de la versión de las mejoras, las versiones, las correcciones de errores y los problemas conocidos de Azure Video Analyzer.
 ms.topic: conceptual
-ms.date: 11/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 8b17c19d96699a6442bd6d606ffbc88b25088afe
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 89ab651416237e06343f950d2a9202f082555e58
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131087046"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131556452"
 ---
 # <a name="azure-video-analyzer-release-notes"></a>Notas de la versión de Azure Video Analyzer
 
@@ -51,6 +51,10 @@ La versión de la API de ARM del servicio Video Analyzer es:
 * Puede [exportar la parte deseada del vídeo grabado](cloud/export-portion-of-video-as-mp4.md) a un archivo MP4.
 * Puede especificar una directiva de retención para cualquiera de los vídeos grabados, donde el servicio recortaría periódicamente el contenido anterior al número de días especificado.
 * Los vídeos grabados con el módulo perimetral de Video Analyzer pueden incluir [imágenes de vista previa](edge/enable-video-preview-images.md) o miniaturas periódicamente, lo que permite una mejor experiencia de exploración.
+
+### <a name="known-issues"></a>Problemas conocidos
+* Cuando se usa el streaming de baja latencia, solo se puede conectar un cliente al servicio a la vez.
+* Cuando se usa un módulo de la extensión gRPC para la inferencia con memoria compartida, tanto el módulo perimetral de Video Analyzer como el módulo de la extensión deben ejecutarse en el mismo [usuario y grupo](https://docs.docker.com/engine/reference/builder/#user).
 
 ## <a name="october-1-2021"></a>1 de octubre de 2021
 El servicio Video Analyzer ya está disponible (en versión preliminar) en el Este de Australia. Consulte [aquí](https://azure.microsoft.com/global-infrastructure/services/?products=video-analyzer&regions=all) para obtener la información de disponibilidad más reciente.

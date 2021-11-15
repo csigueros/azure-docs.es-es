@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Cisco Webex | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD con Cisco Webex'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Cisco Webex.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/16/2021
+ms.date: 11/01/2021
 ms.author: jeedes
-ms.openlocfilehash: 94e025c3a76ac2a6722e0fa21b39718624d8645c
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 3647f3d8736d59aaeee4f73211dbf75c690f2446
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130042833"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131474541"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Cisco Webex
+# <a name="tutorial-azure-ad-sso-integration-with-cisco-webex"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Cisco Webex
 
 En este tutorial, aprenderá a integrar Cisco Webex con Azure Active Directory (Azure AD). Al integrar Cisco Webex con Azure AD, puede hacer lo siguiente:
 
@@ -26,12 +26,13 @@ En este tutorial, aprenderá a integrar Cisco Webex con Azure Active Directory (
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Cisco Webex con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
 * Una suscripción habilitada para el inicio de sesión único (SSO) en Cisco Webex.
+*  Archivo de metadatos del proveedor de servicios de Cisco Webex.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 

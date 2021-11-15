@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 08/10/2021
 ms.author: brandwe
 ms.reviewer: brandwe
-ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: 7fbe4e45e48d3416f530b6845faf702959f92463
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: aaddev
+ms.openlocfilehash: 1e12b2d9512bd7c62a2657e13e74790af6556cd4
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131067344"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131507766"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Complemento Microsoft Enterprise SSO para dispositivos Apple (versión preliminar)
 
@@ -171,7 +171,7 @@ Pruebe esta configuración solo con aplicaciones que tengan errores de inicio de
 
 #### <a name="summary-of-keys"></a>Resumen de claves
 
-| Clave | Tipo | Valor |
+| Clave | Tipo | Value |
 |--|--|--|
 | `Enable_SSO_On_All_ManagedApps` | Entero | `1` para habilitar el inicio de sesión único para todas las aplicaciones administradas, `0` para deshabilitar el inicio de sesión único para todas las aplicaciones administradas. |
 | `AppAllowList` | String<br/>*(lista delimitada por comas)* | Identificadores de agrupación de las aplicaciones que pueden participar en el inicio de sesión único. |
@@ -183,21 +183,21 @@ Pruebe esta configuración solo con aplicaciones que tengan errores de inicio de
 
 - *Escenario*: Quiero habilitar el inicio de sesión único para la mayoría de las aplicaciones administradas, pero no para todas ellas.
 
-    | Clave | Valor |
+    | Clave | Value |
     | -------- | ----------------- |
     | `Enable_SSO_On_All_ManagedApps` | `1` |
     | `AppBlockList` | Identificadores de agrupación (lista delimitada por comas) de las aplicaciones que quiere evitar que participen en el inicio de sesión único. |
 
 - *Escenario*: Quiero deshabilitar el inicio de sesión único para Safari, que está habilitado de manera predeterminada, pero habilitar el inicio de sesión único para todas las aplicaciones administradas.
 
-    | Clave | Valor |
+    | Clave | Value |
     | -------- | ----------------- |
     | `Enable_SSO_On_All_ManagedApps` | `1` |
     | `AppBlockList` | Identificadores de agrupación (lista delimitada por comas) de las aplicaciones de Safari que quiere evitar que participen en el inicio de sesión único.<ul><li>Para iOS: `com.apple.mobilesafari`, `com.apple.SafariViewService`</li><li>Para macOS: `com.apple.Safari`</li></ul> |
 
 - *Escenario*: Quiero habilitar el inicio de sesión único en todas las aplicaciones administradas y en algunas aplicaciones no administradas, pero deshabilitar el inicio de sesión único para algunas otras aplicaciones.
 
-    | Clave | Valor |
+    | Clave | Value |
     | -------- | ----------------- |
     | `Enable_SSO_On_All_ManagedApps` | `1` |
     | `AppAllowList` | Identificadores de agrupación (lista delimitada por comas) de las aplicaciones en las que quiere habilitar la participación en el inicio de sesión único. |
@@ -221,7 +221,7 @@ Use los identificadores de agrupación para configurar el inicio de sesión úni
 
 #### <a name="allow-users-to-sign-in-from-unknown-applications-and-the-safari-browser"></a>Permitir que el usuario inicie sesión desde aplicaciones desconocidas y el explorador Safari
 
-De manera predeterminada, el complemento Microsoft Enterprise SSO proporciona SSO para aplicaciones autorizadas solo cuando un usuario ha iniciado sesión desde una aplicación que usa una biblioteca de la Plataforma de identidad de Microsoft como MSAL o la Biblioteca de autenticación de Azure Active Directory (ADAL). El complemento Microsoft Enterprise SSO también puede adquirir una credencial compartida cuando lo llama otra aplicación que usa una biblioteca de la Plataforma de identidad de Microsoft durante una nueva adquisición de token.
+De manera predeterminada, el complemento Microsoft Enterprise SSO proporciona inicio de sesión único para aplicaciones autorizadas solo cuando un usuario ha iniciado sesión desde una aplicación que usa una biblioteca de la Plataforma de identidad de Microsoft, como MSAL. El complemento Microsoft Enterprise SSO también puede adquirir una credencial compartida cuando lo llama otra aplicación que usa una biblioteca de la Plataforma de identidad de Microsoft durante una nueva adquisición de token.
 
 La habilitación de la marca `browser_sso_interaction_enabled` permite que las aplicaciones que no usan una biblioteca de la Plataforma de identidad de Microsoft realicen el arranque inicial y obtengan una credencial compartida. El explorador Safari también puede realizar el arranque inicial y obtener una credencial compartida. 
 

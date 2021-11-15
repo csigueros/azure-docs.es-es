@@ -2,13 +2,13 @@
 title: Envío por correo electrónico de Informes de Azure Backup
 description: Creación de tareas automatizadas para recibir informes periódicos por correo electrónico
 ms.topic: conceptual
-ms.date: 03/01/2021
-ms.openlocfilehash: d3ec76fa1a23657578979e65c0e54bb428722244
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 10/19/2021
+ms.openlocfilehash: dd5e31663262463449df4377329edc6604ffb691
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561345"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130235988"
 ---
 # <a name="email-azure-backup-reports"></a>Envío por correo electrónico de Informes de Azure Backup
 
@@ -52,7 +52,7 @@ Para llevar a cabo la autorización, siga estos pasos:
 
 ## <a name="contents-of-the-email"></a>Contenido del correo electrónico
 
-* Todos las tablas y gráficos que se muestran en el portal están disponibles en forma de contenido en línea en el correo electrónico.
+* Todos las tablas y gráficos que se muestran en el portal están disponibles en forma de contenido en línea en el correo electrónico. [Más información](configure-reports.md) sobre los datos que se muestran en Informes de Backup.
 * Las cuadrículas que se muestran en el portal están disponibles en forma de datos adjuntos *.csv en el correo electrónico.
 * Los datos que se muestran en el correo electrónico utilizan todos los filtros de nivel de informe seleccionados por el usuario en el informe, en el momento de crear la tarea de correo electrónico.
 * No se aplican los filtros de nivel de pestaña, como **Nombre de la instancia de copia de seguridad**, **Nombre de directiva**, etc. La única excepción en este caso es la cuadrícula **Retention Optimizations** (Optimizaciones de retención) en la pestaña **Optimizar**, donde se aplican los filtros para la retención de puntos de retención **Cada día**, **Cada semana**, **Cada mes** y **Anualmente**.

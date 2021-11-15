@@ -4,23 +4,23 @@ description: Controle las interacciones con clientes de Azure vinculando un Id. 
 author: dhirajgandhi
 ms.reviewer: dhgandhi
 ms.author: banders
-ms.date: 09/08/2021
+ms.date: 11/04/2021
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f554c8e29cbff3b78a3390cb3f6ef155a7a61b6f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b5951b46448d7bfa1ac5010bd17a0a5e7d98b89f
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124744171"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131577809"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Vinculación de un Id. de partner a cuentas de Azure
 
 Los asociados de Microsoft proporcionan servicios que ayudan a los clientes lograr los objetivos del negocio y la misión con productos de Microsoft. Cuando actúa en nombre del cliente que administra y configura los servicios de Azure y les da soporte, los usuarios asociados deberán acceder al entorno del cliente. Vínculo de administración de asociados (PAL) permite a los asociados asociar su identificador de red de asociado con las credenciales usadas para la entrega del servicio.
 
-PAL permite a Microsoft identificar y reconocer a los asociados que impulsan el éxito de los clientes de Azure. Microsoft puede atribuir la influencia y los ingresos por consumo de Azure a su organización en función de los permisos de la cuenta (rol de Azure) y el ámbito (suscripción, grupo de recursos y recurso).
+PAL permite a Microsoft identificar y reconocer a los asociados que impulsan el éxito de los clientes de Azure. Microsoft puede atribuir la influencia y los ingresos por consumo de Azure a su organización en función de los permisos de la cuenta (rol de Azure) y el ámbito (suscripción, grupo de recursos y recurso). Si un grupo tiene acceso a Azure RBAC, se reconoce PAL para todos los usuarios del grupo.
 
 ## <a name="get-access-from-your-customer"></a>Obtención de acceso del cliente
 

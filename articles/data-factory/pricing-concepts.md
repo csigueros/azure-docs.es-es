@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.subservice: pricing
 ms.topic: conceptual
 ms.date: 09/07/2021
-ms.openlocfilehash: 38d6f8d8b96526c8ba190559a639985bedf96cff
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 944a49b0c58d1c6e197d385fd6bd029aa29631c5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124798567"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251953"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Descripción de los precios de Data Factory a través de ejemplos
 
@@ -51,10 +51,10 @@ Para lograr el escenario, es preciso crear una canalización con los siguientes 
 **Precio total del escenario: 0,16811 $**
 
 - Operaciones de Data Factory = **0,0001 $**
-  - Lectura y escritura = 10\*00001 = 0,0001 $ [1 L/E = 0,50 $/50000 = 0,00001]
-  - Supervisión = 2\*000005 = 0,00001 $ [1 supervisión = 0,25 $/50000 = 0,000005]
+  - Lectura y escritura = 10\*0,00001 = USD 0,0001 [1 lectura y escritura = USD 0,50/50 000 = 0,00001]
+  - Supervisión = 2\*0,000005 = USD 0,00001 [1 supervisión = USD 0,25/50 000 = 0,000005]
 - Orquestación y ejecución la canalización = **0,168 $**
-  - Ejecuciones de actividad = 001\*2 = 0,002 [1 ejecución = 1 $/1000 = 0,001]
+  - Ejecuciones de actividad = 0,001\*2 = USD 0,002 [1 ejecución = USD 1/1000 = 0,001]
   - Actividades de movimiento de datos = 0,166 $ (prorrateo durante 10 minutos de tiempo de ejecución. 0,25 $/hora en Azure Integration Runtime)
 
 ## <a name="copy-data-and-transform-with-azure-databricks-hourly"></a>Copiar datos y transformarlos con Azure Databricks por hora
@@ -83,10 +83,10 @@ Para lograr el escenario, es preciso crear una canalización con los siguientes 
 **Precio total del escenario: 0,16916 $**
 
 - Operaciones de Data Factory = **0,00012 $**
-  - Lectura y escritura = 11\*00001 = 0,00011 $ [1 L/E = 0,50 $/50000 = 0,00001]
-  - Supervisión = 3\*000005 = 0,00001 $ [1 supervisión = 0,25 $/50000 = 0,000005]
+  - Lectura y escritura = 11\*0,00001 = USD 0,00011 [1 lectura y escritura = USD 0,50/50 000 = 0,00001]
+  - Supervisión = 3\*0,000005 = USD 0,00001 [1 supervisión = USD 0,25/50 000 = 0,000005]
 - Orquestación y ejecución de la canalización = **0,16904 $**
-  - Ejecuciones de actividad = 001\*3 = 0,003 [1 ejecución = 1 $/1000 = 0,001]
+  - Ejecuciones de actividad = 0,001\*3 = USD 0,003 [1 ejecución = USD 1/1000 = 0,001]
   - Actividades de movimiento de datos = 0,166 $ (prorrateo durante 10 minutos de tiempo de ejecución. 0,25 $/hora en Azure Integration Runtime)
   - Actividad de canalización externa = 0,000041 $ (prorrateo durante 10 minutos de tiempo de ejecución. 0,00025 $/hora en Azure Integration Runtime)
 
@@ -118,10 +118,10 @@ Para lograr el escenario, es preciso crear una canalización con los siguientes 
 **Precio total del escenario: 0,17020 $**
 
 - Operaciones de Data Factory = **0,00013 $**
-  - Lectura y escritura = 11\*00001 = 0,00011 $ [1 L/E = 0,50 $/50000 = 0,00001]
-  - Supervisión = 4\*000005 = 0,00002 $ [1 supervisión = 0,25 $/50000 = 0,000005]
+  - Lectura y escritura = 11\*0,00001 = USD 0,00011 [1 lectura y escritura = USD 0,50/50 000 = 0,00001]
+  - Supervisión = 4\*0,000005 = USD 0,00002 [1 supervisión = USD 0,25/50 000 = 0,000005]
 - Orquestación y ejecución de canalizaciones = **0,17007 $**
-  - Ejecuciones de actividad = 001\*4 = 0,004 [1 ejecución = 1 $/1000 = 0,001]
+  - Ejecuciones de actividad = 0,001\*4 = USD 0,004 [1 ejecución = USD 1/1000 = 0,001]
   - Actividades de movimiento de datos = 0,166 $ (prorrateo durante 10 minutos de tiempo de ejecución. 0,25 $/hora en Azure Integration Runtime)
   - Actividad de canalización = 0,00003 $ (prorrateo durante 1 minuto de tiempo de ejecución. 0,002 $/hora en Azure Integration Runtime)
   - Actividad de canalización externa = 0,000041 $ (prorrateo durante 10 minutos de tiempo de ejecución. 0,00025 $/hora en Azure Integration Runtime)
@@ -173,10 +173,10 @@ Para lograr el escenario, es preciso crear una canalización con los siguientes 
 **Precio total del escenario: 1,4631 USD**
 
 - Operaciones de Data Factory = **0,0001 $**
-  - Lectura y escritura = 10\*00001 = 0,0001 $ [1 L/E = 0,50 $/50000 = 0,00001]
-  - Supervisión = 2\*000005 = 0,00001 $ [1 supervisión = 0,25 $/50000 = 0,000005]
+  - Lectura y escritura = 10\*0,00001 = USD 0,0001 [1 lectura y escritura = USD 0,50/50 000 = 0,00001]
+  - Supervisión = 2\*0,000005 = USD 0,00001 [1 supervisión = USD 0,25/50 000 = 0,000005]
 - Orquestación y ejecución de canalizaciones = **1,463 USD**
-  - Ejecuciones de actividad = 001\*2 = 0,002 [1 ejecución = 1 $/1000 = 0,001]
+  - Ejecuciones de actividad = 0,001\*2 = USD 0,002 [1 ejecución = USD 1/1000 = 0,001]
   - Actividades de Data Flow = 1,461 USD prorrateados por 20 minutos (tiempo de ejecución de 10 minutos + TTL de 10 minutos). 0,274 USD/hora en Azure Integration Runtime con un proceso general de 16 núcleos
 
 ## <a name="data-integration-in-azure-data-factory-managed-vnet"></a>Integración de datos en VNET administrada de Azure Data Factory
@@ -204,10 +204,10 @@ Para poner en práctica el escenario, es preciso crear dos canalizaciones con lo
 **Precio total del escenario: 1,45523 USD**
 
 - Operaciones de Data Factory = 0,00023 USD
-  - Lectura y escritura = 20*00001 = 0,0002 USD [1 lectura y escritura = 0,50 USD/50000 = 0,00001]
-  - Supervisión = 6*000005 = 0,00003 USD [1 supervisión = 0,25 USD/50000 = 0,000005]
+  - Lectura y escritura = 20*0,00001 = USD 0,0002 [1 lectura y escritura = USD 0,50/50 000 = 0,00001]
+  - Supervisión = 6*0,000005 = USD 0,00003 [1 supervisión = USD 0,25/50 000 = 0,000005]
 - Orquestación y ejecución de la canalización = 1,455 USD
-  - Ejecuciones de actividad = 0,001*6 = 0,006 [1 ejecución = 1 USD/1000 = 0,001]
+  - Ejecuciones de actividad = 0,001*6 = USD 0,006 [1 ejecución = USD 1/1000 = 0,001]
   - Actividades de movimiento de datos = 0,333 USD (prorrateo durante 10 minutos de tiempo de ejecución. 0,25 $/hora en Azure Integration Runtime)
   - Actividad de canalización = 1,116 USD (prorrateo por 7 minutos de tiempo de ejecución más 60 minutos de período de vida. 1 USD/hora en Azure Integration Runtime)
 

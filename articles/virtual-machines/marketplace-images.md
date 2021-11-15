@@ -1,6 +1,6 @@
 ---
 title: Especificación de la información de un plan de compra de Marketplace mediante Azure PowerShell
-description: Aprenda a especificar los detalles del plan de compra de Azure Marketplace al crear imágenes en una instancia de Shared Image Gallery.
+description: Aprenda a especificar los detalles del plan de compra de Azure Marketplace al crear imágenes en una Azure Compute Gallery (anteriormente conocido como Shared Image Gallery).
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 07/07/2020
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 52f4152a8f3ec1d2f812de74ed0bd238fb323330
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: d50aa76f80205df1d34215a020691c51ca58d4b0
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123451842"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131474617"
 ---
 # <a name="supply-azure-marketplace-purchase-plan-information-when-creating-images"></a>Indicación de la información del plan de compra de Azure Marketplace al crear imágenes
 
@@ -37,7 +37,7 @@ $vm.Plan
 
 ## <a name="create-the-image-definition"></a>Creación de una definición de imagen
 
-Obtenga la galería de imágenes que desee usar para almacenar la imagen. Si lo desea, primero puede enumerar todas las galerías.
+Obtenga la galería que desea usar para almacenar la imagen. Si lo desea, primero puede enumerar todas las galerías.
 
 ```azurepowershell-interactive
 Get-AzResource -ResourceType Microsoft.Compute/galleries | Format-Table

@@ -16,12 +16,12 @@ ms.author: curtand
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ff40238d5b3b666ec6a64fef5b7cc4fc91ee677
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: d2b3707fd3b9b56131d24274555761f616991600
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129669423"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131508747"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Configurar las opciones del rol de recursos de Azure en Privileged Identity Management
 
@@ -100,7 +100,7 @@ Privileged Identity Management proporciona el cumplimiento opcional de Azure AD 
 
 ### <a name="on-active-assignment"></a>En la asignación activa
 
-Esta opción requiere que los administradores completen una autenticación multifactor antes de crear una asignación de roles activa (en lugar de elegible). Privileged Identity Management no puede exigir la autenticación multifactor cuando el usuario usa su asignación de roles, porque ya está activa en el rol desde el momento en que se asigna.
+Esta opción requiere que los administradores completen una autenticación multifactor antes de crear una asignación de roles activa (en lugar de elegible). Privileged Identity Management no puede exigir la autenticación multifactor cuando el usuario activa su asignación de roles, porque el usuario ya está activo en el rol desde el momento en que se asigna.
 
 Para requerir la autenticación multifactor al crear una asignación de roles activa, puede exigir la autenticación multifactor en la asignación activa; para ello, active la casilla **Requerir autenticación multifactor para las asignaciones activas**.
 
@@ -114,7 +114,7 @@ Para más información, consulte [Autenticación multifactor y Privileged Identi
 
 ## <a name="activation-maximum-duration"></a>Duración máxima de la activación
 
-Use control deslizante **Duración máxima de la activación (horas)** para establecer el tiempo máximo, en horas, que un rol permanece activo antes de expirar. Este valor puede oscilar entre una y 24 horas.
+Use control deslizante **Duración máxima de la activación** para establecer el tiempo máximo, en horas, que la asignación de un rol permanece activa antes de expirar. Este valor puede oscilar entre una y 24 horas.
 
 ## <a name="require-justification"></a>Requerir justificación
 

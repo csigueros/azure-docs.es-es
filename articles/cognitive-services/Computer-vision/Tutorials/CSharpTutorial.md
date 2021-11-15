@@ -8,19 +8,19 @@ manager: nolachar
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
-ms.date: 04/17/2019
+ms.date: 10/27/2021
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: dd2ceaa97a456d72227d6180596aeccc9e00a614
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: e083bc3d5f313be6bd32a75f413f858ef68e0993
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110453905"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131470003"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Sample: Exploración de una aplicación de procesamiento de imágenes con C#
 
-Explore una aplicación Windows básica que utiliza Computer Vision para realizar el reconocimiento óptico de caracteres (OCR), crear miniaturas de recorte inteligente, además de detectar, clasificar, etiquetar y describir las características visuales, incluidas las caras, en una imagen. El ejemplo siguiente le permite enviar la dirección URL de una imagen o un archivo almacenado localmente. Puede usar este ejemplo de código abierto como plantilla para crear su propia aplicación para Windows con Computer Vision API y Windows Presentation Foundation (WPF), una parte de .NET Framework.
+Explore una aplicación Windows básica que utiliza Computer Vision para realizar el reconocimiento óptico de caracteres (OCR), crear miniaturas de recorte inteligente, así como detectar, clasificar, etiquetar y describir las características visuales, incluidas las caras, en una imagen. El ejemplo siguiente le permite enviar la dirección URL de una imagen o un archivo almacenado localmente. Puede usar este ejemplo de código abierto como plantilla para crear su propia aplicación para Windows con Computer Vision API y Windows Presentation Foundation (WPF), una parte de .NET Framework.
 
 > [!div class="checklist"]
 > * Obtener la aplicación de ejemplo de GitHub
@@ -49,7 +49,7 @@ git clone --recurse-submodules https://github.com/Microsoft/Cognitive-Vision-Win
 ```
 
 > [!IMPORTANT]
-> No descargue este repositorio como un archivo ZIP. GIT no incluye submódulos cuando descarga un repositorio como un archivo ZIP.
+> No descargue este repositorio como un archivo _.zip_. Git no incluye submódulos cuando descarga un repositorio como un archivo _.zip_.
 
 ### <a name="get-optional-sample-images"></a>Obtener imágenes de ejemplo opcionales
 

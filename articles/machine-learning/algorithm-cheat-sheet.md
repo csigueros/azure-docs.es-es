@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
-ms.date: 07/20/2021
+ms.date: 10/21/2021
 adobe-target: true
-ms.openlocfilehash: ebe02e264a9f3faea2812253eeced6d56319627d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f14a468130dbadfc9ae6a5668a9e1c71b880e818
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121742167"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131564924"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Hoja de características de los algoritmos de Machine Learning para el diseñador de Azure Machine Learning
 
@@ -39,7 +39,7 @@ Las sugerencias ofrecidas en esta hoja de referencia rápida de algoritmos son r
 
 Cada algoritmo de aprendizaje automático tiene su propio estilo o sesgo inductivo. Para un problema específico, varios algoritmos pueden ser apropiados y un algoritmo puede servir mejor que otros. Pero no siempre es posible saber de antemano cuál es la mejor opción. En estos casos, varios algoritmos se muestran juntos en la hoja de referencia rápida. Una estrategia adecuada sería probar un algoritmo y, si los resultados no resultan satisfactorios, probar los demás. 
 
-Para más información sobre los algoritmos del diseñador de Azure Machine Learning, vaya a la [referencia de módulo y algoritmo](algorithm-module-reference/module-reference.md).
+Para obtener más información sobre los algoritmos del diseñador de Azure Machine Learning, vaya a la [referencia de componentes y algoritmos](component-reference/component-reference.md).
 
 ## <a name="kinds-of-machine-learning"></a>Variantes del aprendizaje automático
 

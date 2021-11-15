@@ -6,16 +6,16 @@ ms.subservice: language-service
 ms.topic: tutorial
 ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021
-ms.openlocfilehash: c49eb76f79ef48a5074a70b8bc6930f263486d85
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 3478ab7b9a9d1920bcc5dc61b108b80514f60aba
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091780"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131439070"
 ---
 # <a name="tutorial-create-a-faq-bot"></a>Tutorial: Creación de un bot de preguntas más frecuentes
 
-Cree un bot de preguntas más frecuentes con respuesta a preguntas y Azure [Bot Service](https://azure.microsoft.com/services/bot-service/) sin escribir código.
+Cree un bot de preguntas frecuentes con respuesta a las preguntas personalizada y Azure [Bot Service](https://azure.microsoft.com/services/bot-service/) sin código.
 
 En este tutorial aprenderá a:
 

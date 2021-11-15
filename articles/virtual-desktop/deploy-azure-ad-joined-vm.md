@@ -8,19 +8,16 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 09/15/2021
 ms.author: helohr
-ms.openlocfilehash: e6325c6511c6df9c3f3c021bc24a3f66b2e56c0f
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 7b4ec084b39d7efde884f0cee0235f6fd3653538
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129207742"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129987107"
 ---
 # <a name="deploy-azure-ad-joined-virtual-machines-in-azure-virtual-desktop"></a>Implementación de máquinas virtuales unidas a Azure AD en Azure Virtual Desktop
 
 Este artículo le guía por el proceso de implementar máquinas virtuales unidas a Azure Active Directory, y acceder a ellas, en Azure Virtual Desktop. Las máquinas virtuales unidas a Azure AD eliminan la necesidad de tener un campo visual desde la máquina virtual hasta un controlador de dominio (DC) de Active Directory local o virtualizado o de implementar servicios de dominio de Azure AD (Azure AD DS). En algunos casos, puede eliminar la necesidad de un controlador de dominio por completo, lo que simplifica la implementación y administración del entorno. Estas máquinas virtuales también se pueden inscribir automáticamente en Intune para facilitar la administración.
-
-> [!NOTE]
-> Las máquinas virtuales unidas a Azure AD solo se admiten actualmente en la nube comercial de Azure.
 
 ## <a name="supported-configurations"></a>Configuraciones admitidas
 
@@ -50,6 +47,7 @@ Puede implementar máquinas virtuales unidas a Azure AD directamente desde Azur
 > [!NOTE]
 > - Los grupos de hosts solo deben contener máquinas virtuales del mismo tipo de unión a un dominio. Por ejemplo, las máquinas virtuales unidas a AD solo deben estar con otras máquinas virtuales de AD y viceversa.
 > - Las máquinas virtuales del grupo de hosts deben tener Windows 10 de sesión única o múltiple, versión 2004 o posterior.
+> - La administración de hosts de sesión de Azure Virtual Desktop con Microsoft Endpoint Manager (Intune) solo se admite actualmente en la nube pública de Azure.
 
 ### <a name="assign-user-access-to-host-pools"></a>Asignación de acceso de usuario a grupos de hosts
 

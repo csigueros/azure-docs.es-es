@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: fbfef094cd062e437f2a28369162de96631ef41b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 509709b26a51a4202736fcab7e032ec8f91419eb
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99832613"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851142"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>Tutorial: Supervisión y administración de una aplicación de análisis de vídeo con detección de objetos y movimiento
 
@@ -52,6 +52,22 @@ Seleccione **Run** (Ejecutar) para agregar el dispositivo de cámara:
 
 > [!NOTE]
 > La plantilla de dispositivo **LVA Edge Object Detector** (Detector de objetos LVA Edge) ya existe en la aplicación.
+
+Si el dispositivo no se puede conectar, compruebe el estado de los módulos en el dispositivo:
+
+* Use SSH para abrir un shell en el dispositivo.
+* Ejecute el comando siguiente en el shell:
+
+    `sudo iotedge list`
+
+Si los módulos se ejecutan correctamente, verá una salida similar a la siguiente:
+
+```
+    LvaEdgeGatewayModule                      running          Up 2 minutes     mcr.microsoft.com/lva-utilities/lva-edge-iotc-gateway:1.0-amd64
+    lvaEdge                                   running          Up 2 minutes     mcr.microsoft.com/media/live-video-analytics:2
+```
+
+Para más información, vea [Solución de problemas del dispositivo IoT Edge](../../iot-edge/troubleshoot.md).
 
 ## <a name="add-a-motion-detection-camera-optional"></a>Adición de una cámara de detección de movimiento (opcional)
 

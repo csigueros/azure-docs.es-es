@@ -6,13 +6,13 @@ ms.author: xshi
 ms.service: serviceconnector
 ms.topic: conceptual
 ms.date: 10/29/2021
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 33eefc9a36fcd6e230d95e962da344d7ad738d7d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: ignite-fall-2021, references_regions
+ms.openlocfilehash: 75678da43f400eb3ee56f956dcd307207b501e91
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131090781"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131853061"
 ---
 # <a name="service-connector-region-support"></a>Regiones admitidas de Service Connector
 
@@ -20,11 +20,21 @@ Cuando se crea una conexión de servicio con Service Connector, se aprovisiona e
 
 ## <a name="supported-regions-with-regional-endpoint"></a>Regiones admitidas con punto de conexión regional
 
-Puede encontrar la lista de regiones admitidas más reciente en[Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=service-connector). Si la instancia del servicio de proceso se encuentra en una de las regiones que admite Service Connector, puede usar Service Connector para crear y administrar conexiones de servicio.
+Si la instancia del servicio de proceso se encuentra en una de las regiones que admite Service Connector siguientes, puede usar Service Connector para crear y administrar conexiones de servicio.
+
+- Centro-Oeste de EE. UU.
+- Oeste de Europa
+- Norte de Europa
+- Este de EE. UU.
+- Oeste de EE. UU. 2
 
 ## <a name="supported-regions-with-geographical-endpoint"></a>Regiones admitidas con punto de conexión geográfico
 
 Es posible que la instancia del servicio de proceso se cree en la región en la que Service Connector tiene regiones geográficas admitidas. Esto significa que la conexión de servicio se creará en una región diferente de la instancia de proceso. Verá un banner sobre esta información al crear una conexión de servicio. La diferencia de región puede afectar al cumplimiento, la residencia de datos y la latencia de los datos.
+
+- Este de EE. UU. 2
+- Oeste de EE. UU. 3
+- Centro-sur de EE. UU.
 
 ## <a name="not-supported-regions-in-public-preview"></a>Regiones no admitidas en versión preliminar pública
 

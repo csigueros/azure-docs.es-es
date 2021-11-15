@@ -1,18 +1,18 @@
 ---
-title: Eliminación de una identidad administrada asignada por el usuario para una cuenta de Azure Automation (versión preliminar)
+title: Eliminación de identidades administradas asignadas por el usuario de una cuenta de Azure Automation
 description: En este artículo se explica cómo quitar una identidad administrada por el usuario para una cuenta de Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/24/2021
+ms.date: 10/26/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2f5aba42974c34f9d6799f3965848bdd0ca3787c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 11db735a21e4d4007c35f1a82f1e5dfadb377fd1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128635173"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131432460"
 ---
-# <a name="remove-user-assigned-managed-identity-for-azure-automation-account-preview"></a>Eliminación de una identidad administrada asignada por el usuario para una cuenta de Azure Automation (versión preliminar)
+# <a name="remove-user-assigned-managed-identity-for-azure-automation-account"></a>Eliminación de identidades administradas asignadas por el usuario de una cuenta de Azure Automation
 
 Puede eliminar una identidad administrada asignada por el usuario de Azure Automation mediante Azure Portal, PowerShell, la API REST de Azure o una plantilla de Azure Resource Manager (ARM).
 
@@ -233,6 +233,6 @@ Use el cmdlet [Get-AzAutomationAccount](/powershell/module/az.automation/get-aza
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener más información acerca de cómo habilitar las identidades administradas en Azure Automation, consulte [Habilitación y uso de la identidad administrada para Automation (versión preliminar)](enable-managed-identity-for-automation.md).
+- Para más información sobre cómo habilitar las identidades administradas en Azure Automation, consulte [Habilitación y uso de identidades administradas en Automation](enable-managed-identity-for-automation.md).
 
 - Para información general acerca de la seguridad de la cuenta de Automation, consulte [Introducción a la autenticación de cuentas de Automation](automation-security-overview.md).

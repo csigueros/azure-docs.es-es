@@ -8,12 +8,12 @@ ms.date: 09/13/2021
 ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: b3e5520f91301471bfc9df6bbd4a9cd4a8bc6a6a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4f1075a690c806be76b0102c2954a4f5127dabee
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128666069"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130258342"
 ---
 # <a name="automate-application-deployments-to-azure-spring-cloud"></a>Automatización de implementaciones de aplicaciones en Azure Spring Cloud
 
@@ -229,4 +229,4 @@ Para realizar una implementación directamente en Azure sin tener que usar un pa
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Inicio rápido: Implementación de la primera aplicación de Azure Spring Cloud](./quickstart.md)
+* [Inicio rápido: Implementación de la primera aplicación de Spring Boot en Azure Spring Cloud](./quickstart.md)

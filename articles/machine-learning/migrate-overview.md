@@ -7,13 +7,13 @@ ms.subservice: studio-classic
 ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 08/23/2021
-ms.openlocfilehash: 95e95e3c6eaa3a2e1738dd3a9dea9afd5e56e008
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 10/21/2021
+ms.openlocfilehash: 384b1b11e272cab8386a5a4f3344c36e99959254
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131088129"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131561941"
 ---
 # <a name="migrate-to-azure-machine-learning"></a>Migración a Azure Machine Learning 
 
@@ -53,7 +53,7 @@ Para migrar a Azure Machine Learning, se recomienda usar el siguiente enfoque:
 
     [!INCLUDE [aml-compare-classic](../../includes/machine-learning-compare-classic-aml.md)]
 
-3. Compruebe que los módulos esenciales de Studio (clásico) se admiten en el diseñador de Azure Machine Learning. Para obtener más información, consulte la tabla de [asignación de módulos entre Studio (clásico) y el diseñador](#studio-classic-and-designer-module-mapping) a continuación.
+3. Compruebe que los módulos esenciales de Studio (clásico) se admiten en el diseñador de Azure Machine Learning. Para más información, consulte la tabla [Asignación de componentes entre Studio (clásico) y el diseñador](#studio-classic-and-designer-component-mapping) a continuación.
 
 4. [Cree un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md?tabs=azure-portal).
 
@@ -90,7 +90,7 @@ Tras trazar una estrategia, migre el primer modelo.
 1. Expanda los escenarios y migre otras cargas de trabajo a Azure Machine Learning.
 
 
-## <a name="studio-classic-and-designer-module-mapping"></a>Asignación de módulos entre Studio (clásico) y el diseñador
+## <a name="studio-classic-and-designer-component-mapping"></a>Asignación de componentes entre Studio (clásico) y el diseñador
 
 En la tabla siguiente puede consultar qué módulos debe usar al recompilar los experimentos de Studio (clásico) en el diseñador.
 
@@ -99,7 +99,7 @@ En la tabla siguiente puede consultar qué módulos debe usar al recompilar los 
 > El diseñador implementa los módulos mediante paquetes de Python de código abierto, en lugar de usar paquetes de C# como hace Studio (clásico). Debido a esta diferencia, la salida de los módulos del diseñador puede variar ligeramente de sus homólogos de Studio (clásico).
 
 
-|Category|Módulo de Studio (clásico)|Módulo del diseñador de reemplazo|
+|Category|Módulo de Studio (clásico)|Sustitución de componentes del diseñador|
 |--------------|----------------|--------------------------------------|
 |Entrada y salida de datos|- Enter Data Manually (Introducir datos manualmente) </br> - Export Data (Exportar datos) </br> - Import Data (Importar datos) </br> - Load Trained Model (Cargar modelo entrenado) </br> - Unpack Zipped Datasets (Desempaquetar conjuntos de datos comprimidos)|- Enter Data Manually (Introducir datos manualmente) </br> - Export Data (Exportar datos) </br> - Import Data (Importar datos)|
 |Conversiones de formato de datos|- Convert to CSV (Convertir a CSV) </br> - Convert to Dataset (Convertir a conjunto de datos) </br> - Convert to ARFF (Convertir a ARFF) </br> - Convert to SVMLight (Convertir a SVMLight) </br> - Convert to TSV (Convertir a TSV)|- Convert to CSV (Convertir a CSV) </br> - Convert to Dataset (Convertir a conjunto de datos)|
@@ -125,9 +125,9 @@ En la tabla siguiente puede consultar qué módulos debe usar al recompilar los 
 | Servicio web | - Input (Entrada) </br> -   Output (Salida) | - Input (Entrada) </br>  - Salida|
 | Computer Vision| | - Apply Image Transformation (Aplicación de transformación de imagen) </br> - Convert to Image Directory (Conversión al directorio de imagen) </br> - Init Image Transformation (Transformación de imagen init) </br> - Split Image Directory (División de directorio de imagen)  </br> - DenseNet Image Classification (Clasificación de imágenes DenseNet)   </br>- ResNet Image Classification (Clasificación de imágenes ResNet) |
 
-Para obtener más información sobre cómo usar los módulos individuales del diseñador, consulte la [referencia de módulos del diseñador](algorithm-module-reference/module-reference.md).
+Para más información sobre cómo usar los módulos individuales del diseñador, consulte la [referencia de componentes del diseñador](./component-reference/component-reference.md).
 
-### <a name="what-if-a-designer-module-is-missing"></a>¿Qué ocurre si falta un módulo de diseñador?
+### <a name="what-if-a-designer-component-is-missing"></a>¿Qué ocurre si falta un componente del diseñador?
 
 El diseñador de Azure Machine Learning contiene los módulos más populares de Studio (clásico). También incluye nuevos módulos que aprovechan las técnicas de aprendizaje automático más recientes. 
 

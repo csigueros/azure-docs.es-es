@@ -1,7 +1,7 @@
 ---
-title: Administración de permisos de usuario y de administrador
-description: Obtenga información sobre cómo revisar y administrar los permisos de una aplicación en Azure AD. Por ejemplo, revoque todos los permisos concedidos a una aplicación.
+title: Revisión de los permisos concedidos a las aplicaciones
 titleSuffix: Azure AD
+description: Descubra cómo revisar y administrar los permisos de una aplicación en Azure Active Directory.
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -9,126 +9,48 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/31/2021
+ms.date: 10/23/2021
 ms.author: davidmu
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f58a7e03450d8aed26bfa164803529af12cba31
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 038955a1c7b4a15b2b0ae630c95c2833f32a3eab
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129617519"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471181"
 ---
-# <a name="take-action-on-over-privileged-or-suspicious-applications-in-azure-active-directory"></a>Adopción de medidas ante aplicaciones con privilegios excesivos o sospechosas en Azure Active Directory
+# <a name="review-permissions-granted-to-applications-in-azure-active-directory"></a>Revisión de los permisos concedidos a las aplicaciones en Azure Active Directory
 
-Obtenga información sobre cómo revisar y administrar los permisos de una aplicación. En este artículo se proporcionarán diferentes acciones que puede llevar a cabo para proteger una aplicación en función del escenario. Estas acciones se pueden realizar en todas las aplicaciones que se han agregado a su inquilino de Azure Active Directory (Azure AD) mediante el consentimiento del usuario o del administrador.
+En este artículo aprenderá a revisar los permisos concedidos a las aplicaciones en el inquilino de Azure Active Directory (Azure AD). Es posible que tenga que revisar los permisos cuando haya detectado una aplicación malintencionada o cuando se hayan concedido a la aplicación más permisos de los necesarios.
 
-Para más información acerca de cómo dar consentimiento a las aplicaciones, consulte [Marco de consentimiento de Azure Active Directory](../develop/consent-framework.md).
+Los pasos de este artículo se pueden realizar en todas las aplicaciones que se han agregado al inquilino de Azure Active Directory (Azure AD) mediante el consentimiento del usuario o del administrador. Para más información acerca de cómo dar consentimiento a las aplicaciones, consulte [Marco de consentimiento de Azure Active Directory](../develop/consent-framework.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-Para realizar las siguientes acciones, debe iniciar sesión como administrador global, administrador de la aplicación o administrador de aplicaciones en la nube.
+Para revisar los permisos concedidos a las aplicaciones, necesita:
 
-- Configure Azure AD PowerShell. Vea [Azure AD PowerShell](/powershell/azure/)
-
-Para restringir el acceso a las aplicaciones, debe requerir la asignación de usuarios y, luego, asignar usuarios o grupos a la aplicación.  Para más información, consulte [Métodos para asignar usuarios y grupos](./assign-user-or-group-access-portal.md).
+- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Uno de los siguientes roles: Administrador global, Administrador de aplicaciones en la nube, Administrador de aplicaciones o Propietario de la entidad de servicio.
 
 Puede acceder al portal de Azure AD para obtener scripts de PowerShell contextuales para realizar las acciones.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global, administrador de una aplicación o administrador de una aplicación en la nube.
-2. Seleccione **Azure Active Directory** > **Aplicaciones empresariales**.
-3. Seleccione la aplicación a la que desea restringir el acceso.
-4. Seleccione **Permisos**. En la barra de comandos, seleccione **Revisar permisos**.
+## <a name="review-application-permissions"></a>Revisión de los permisos de la aplicación
 
+Para revisar los permisos de la aplicación:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con uno de los roles enumerados en los requisitos previos.
+1. Seleccione **Azure Active Directory** y, luego, **Aplicaciones empresariales**.
+1. Seleccione la aplicación a la que desea restringir el acceso.
+1. Seleccione **Permisos**. En la barra de comandos, seleccione **Revisar permisos**.
 ![Captura de pantalla de la ventana de revisión de permisos.](./media/manage-application-permissions/review-permissions.png)
+1. Para explicar por qué quiere revisar los permisos de la aplicación, seleccione cualquiera de las opciones enumeradas después de la pregunta **Why do you want to review permissions for this application?** (¿Por qué quiere revisar los permisos de esta aplicación?)
 
-## <a name="control-access-to-an-application"></a>Control del acceso a una aplicación
+Cada opción genera scripts de PowerShell que permiten controlar el acceso de los usuarios a la aplicación y revisar los permisos concedidos a esta. Para información sobre cómo controlar el acceso de los usuarios a una aplicación, consulte [Eliminación del acceso de un usuario a una aplicación](methods-for-removing-user-access.md).
 
-Para restringir el acceso a esta aplicación, se recomienda activar la opción **Asignación de usuario**.
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global, administrador de una aplicación o administrador de una aplicación en la nube.
-2. Seleccione **Azure Active Directory** > **Aplicaciones empresariales**.
-3. Seleccione la aplicación a la que desea restringir el acceso.
-4. Seleccione **Propiedades** y, después, establezca **User requirement required** (Requisito de usuario obligatorio) en **Sí**.
-5. Seleccione **Usuarios y grupos** y, a continuación, quite los usuarios no deseados asignados a la aplicación.
-6. Asigne usuarios o grupos a la aplicación.
-
-De manera opcional, puede quitar todos los usuarios asignados a la aplicación mediante PowerShell.
-
-## <a name="revoke-all-permissions-for-an-application"></a>Revocación de todos los permisos de una aplicación
+## <a name="revoke-permissions-using-powershell-commands"></a>Revocación de permisos mediante comandos de PowerShell
 
 Mediante el script de PowerShell, puede revocar todos los permisos concedidos a esta aplicación.
-
-> [!NOTE]
-> La revocación del permiso actual concedido no impedirá que los usuarios vuelvan a tener consentimiento en la aplicación. Si desea bloquear el consentimiento de los usuarios, lea [Configuración del consentimiento de los usuarios finales a las aplicaciones](configure-user-consent.md).
-
-De manera opcional, puede deshabilitar la aplicación para impedir que los usuarios accedan a la aplicación y que la aplicación acceda a los datos.
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global, administrador de una aplicación o administrador de una aplicación en la nube.
-2. Seleccione **Azure Active Directory** > **Aplicaciones empresariales**.
-3. Seleccione la aplicación a la que desea restringir el acceso.
-4. Seleccione **Propiedades** y, después, establezca **¿Habilitado para que los usuarios inicien sesión?** en **No**.
-
-## <a name="investigate-a-suspicious-application"></a>Investigación de una aplicación sospechosa
-
-Para restringir el acceso a esta aplicación, se recomienda activar la opción **Asignación de usuario**. A continuación, revise los permisos que los usuarios y administradores hayan concedido a la aplicación.
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global, administrador de una aplicación o administrador de una aplicación en la nube.
-2. Seleccione **Azure Active Directory** > **Aplicaciones empresariales**.
-3. Seleccione la aplicación a la que desea restringir el acceso.
-4. Seleccione **Propiedades** y, después, establezca **User requirement required** (Requisito de usuario obligatorio) en **Sí**.
-5. Seleccione **Permisos** y revise los permisos concedidos a administradores y usuarios.
-
-Opcionalmente, mediante PowerShell, puede:
-
-- Quitar a todos los usuarios asignados para impedir que inicien sesión en la aplicación.
-- Invalidar los tokens de actualización para los usuarios que tienen acceso a la aplicación.
-- Revocar todos los permisos de una aplicación.
-
-O bien, puede deshabilitar la aplicación para bloquear el acceso de los usuarios y detener el acceso de las aplicaciones a los datos.
-
-## <a name="disable-a-malicious-application"></a>Deshabilitar una aplicación malintencionada
-
-Se recomienda deshabilitar la aplicación para impedir que los usuarios accedan a la aplicación y que la aplicación tenga acceso a los datos. Si, en su lugar, elimina la aplicación, los usuarios pueden volver a dar su consentimiento a la aplicación y conceder acceso a los datos.
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global, administrador de una aplicación o administrador de una aplicación en la nube.
-2. Seleccione **Azure Active Directory** > **Aplicaciones empresariales**.
-3. Seleccione la aplicación a la que desea restringir el acceso.
-4. Seleccione **Propiedades** y después copie el identificador del objeto.
-
-### <a name="powershell-commands"></a>Comandos de PowerShell
-
-Recupere el identificador de objeto de la entidad de servicio.
-
-   ```powershell
-   $app_name = "<Your App's display name>"
-   $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
-   $sp.ObjectId
-   ```
-
-Quite todos los usuarios asignados a la aplicación.
-
-```powershell
-Connect-AzureAD
-
-# Get Service Principal using objectId
-$sp = Get-AzureADServicePrincipal -ObjectId "<ServicePrincipal objectID>"
-
-# Get Azure AD App role assignments using objectId of the Service Principal
-$assignments = Get-AzureADServiceAppRoleAssignment -ObjectId $sp.ObjectId -All $true
-
-# Remove all users and groups assigned to the application
-$assignments | ForEach-Object {
-    if ($_.PrincipalType -eq "User") {
-        Remove-AzureADUserAppRoleAssignment -ObjectId $_.PrincipalId -AppRoleAssignmentId $_.ObjectId
-    } elseif ($_.PrincipalType -eq "Group") {
-        Remove-AzureADGroupAppRoleAssignment -ObjectId $_.PrincipalId -AppRoleAssignmentId $_.ObjectId
-    }
-}
-```
-
-Revoque los permisos concedidos a la aplicación.
 
 ```powershell
 Connect-AzureAD
@@ -153,7 +75,10 @@ $spApplicationPermissions | ForEach-Object {
 }
 ```
 
-Invalide los tokens de actualización.
+> [!NOTE]
+> La revocación del permiso actual concedido no impedirá que los usuarios vuelvan a tener consentimiento en la aplicación. Si desea bloquear el consentimiento de los usuarios, lea [Configuración del consentimiento de los usuarios finales a las aplicaciones](configure-user-consent.md).
+
+## <a name="invalidate-the-refresh-tokens"></a>Invalidación de los tokens de actualización
 
 ```powershell
 Connect-AzureAD
@@ -172,6 +97,4 @@ $assignments | ForEach-Object {
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Administración del consentimiento a las aplicaciones y evaluación de las solicitudes de consentimiento](manage-consent-requests.md)
-- [Configuración del consentimiento del usuario](configure-user-consent.md)
 - [Configuración del flujo de trabajo de consentimiento del administrador](configure-admin-consent-workflow.md)

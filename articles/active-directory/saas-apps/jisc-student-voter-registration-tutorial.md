@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Jisc Student Voter Registration | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Jisc Student Voter Registration'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Jisc Student Voter Registration.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/26/2019
+ms.date: 10/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 0629cd32df75783c083106d4d21f440eabe410c9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: ce0ced4e7e4c2c0db14c4a1edde161b14a31e0c2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124822472"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131424275"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jisc-student-voter-registration"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Jisc Student Voter Registration
+# <a name="tutorial-azure-ad-sso-integration-with-jisc-student-voter-registration"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Jisc Student Voter Registration
 
 En este tutorial, obtendrá información sobre cómo integrar Jisc Student Voter Registration con Azure Active Directory (Azure AD). Cuando integre Jisc Student Voter Registration con Azure AD, podrá:
 
@@ -26,9 +26,7 @@ En este tutorial, obtendrá información sobre cómo integrar Jisc Student Voter
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Jisc Student Voter Registration con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -42,43 +40,46 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 * Jisc Student Voter Registration admite el inicio de sesión único iniciado por **SP**.
 * Jisc Student Voter Registration admite el aprovisionamiento de usuarios **Just-In-Time**.
 
-## <a name="adding-jisc-student-voter-registration-from-the-gallery"></a>Incorporación de Jisc Student Voter Registration desde la galería
+> [!NOTE]
+> El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
+
+## <a name="add-jisc-student-voter-registration-from-the-gallery"></a>Incorporación de Jisc Student Voter Registration desde la galería
 
 Para configurar la integración de Jisc Student Voter Registration en Azure AD, es preciso agregar esta aplicación desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **Jisc Student Voter Registration** en el cuadro de búsqueda.
 1. Seleccione **Jisc Student Voter Registration** en el panel de resultados y, a continuación, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-jisc-student-voter-registration"></a>Configuración y prueba del inicio de sesión único de Azure AD para Jisc Student Voter Registration
+## <a name="configure-and-test-azure-ad-sso-for-jisc-student-voter-registration"></a>Configuración y prueba del inicio de sesión único de Azure AD para Jisc Student Voter Registration
 
 Configure y pruebe el inicio de sesión único de Azure AD con Jisc Student Voter Registration mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Jisc Student Voter Registration.
 
-Para configurar y probar el inicio de sesión único de Azure AD con Jisc Student Voter Registration, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con Jisc Student Voter Registration, realice los siguientes pasos:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
-    * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)**, para permitir que los usuarios puedan utilizar esta característica.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Jisc Student Voter Registration](#configure-jisc-student-voter-registration-sso)**: para configurar los valores de inicio de sesión único en la aplicación.
-    * **[Creación de un usuario de prueba en Jisc Student Voter Registration](#create-jisc-student-voter-registration-test-user)**: para tener un homólogo de B.Simon en Jisc Student Voter Registration vinculado a la representación del usuario en Azure AD.
+    1. **[Creación de un usuario de prueba en Jisc Student Voter Registration](#create-jisc-student-voter-registration-test-user)**: para tener un homólogo de B.Simon en Jisc Student Voter Registration vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Jisc Student Voter Registration**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de la aplicación **Jisc Student Voter Registration**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, especifique los valores del campo siguiente:
+1. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://www.studentvoterregistration.ac.uk/consent`
+    En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://www.studentvoterregistration.ac.uk/consent`
 
 1. La aplicación Jisc Student Voter Registration espera las aserciones de SAML en un formato específico, lo cual requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 
@@ -118,13 +119,7 @@ En esta sección va a permitir que B.Simon acceda a Jisc Student Voter Registrat
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **Jisc Student Voter Registration**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
-   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
 1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-
-    ![Vínculo de Agregar usuario](common/add-assign-user.png)
-
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
@@ -139,16 +134,14 @@ En esta sección se crea un usuario llamado B.Simon en Jisc Student Voter Regist
 
 ## <a name="test-sso"></a>Prueba de SSO
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-Al hacer clic en el icono de Jisc Student Voter Registration en el panel de acceso debería iniciar sesión automáticamente en esta aplicación, para la cual ha configurado el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la URL de inicio de sesión de Jisc Student Voter Registration, desde donde puede poner en marcha el flujo de inicio de sesión. 
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Vaya a la URL de inicio de sesión de Jisc Student Voter Registration directamente y ponga en marcha el flujo de inicio de sesión desde allí.
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Jisc Student Voter Registration en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de Jisc Student Voter Registration. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Pasos siguientes
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
-
-- [Prueba de Jisc Student Voter Registration con Azure AD](https://aad.portal.azure.com/)
+Una vez configurada Jisc Student Voter Registration, puede aplicar el control de sesión, que protege la información confidencial de la organización de la filtración y la infiltración en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

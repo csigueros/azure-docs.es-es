@@ -6,15 +6,15 @@ author: agowdamsft
 ms.service: container-service
 ms.subservice: confidential-computing
 ms.topic: overview
-ms.date: 2/08/2021
+ms.date: 11/04/2021
 ms.author: amgowda
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: e63e8d2caba6fe9ca5fa7b4a239f2194976dd569
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 2c082d901bd2b48b9d220d9b1b373335b295b377
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131086516"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131845365"
 ---
 # <a name="confidential-computing-nodes-on-azure-kubernetes-service"></a>Nodos de computación confidencial en Azure Kubernetes Service
 
@@ -24,7 +24,7 @@ La [computación confidencial de Azure](overview.md) permite proteger los datos 
 
 Azure Kubernetes Service (AKS) permite agregar [nodos de computación confidencial de DCsv2](confidential-computing-enclaves.md) con tecnología Intel SGX. Estos nodos permiten ejecutar cargas de trabajo confidenciales en un entorno de ejecución de confianza (TEE) basado en hardware. Un entorno TEE permite que el código de nivel de usuario de los contenedores asigne regiones privadas de memoria para ejecutar el código directamente con la CPU. Estas regiones privadas de memoria que se ejecutan directamente con la CPU se denominan enclaves. Los enclaves ayudan a proteger la confidencialidad de los datos y la integridad de los datos y el código de otros procesos que se ejecutan en los mismos nodos. El modelo de ejecución de Intel SGX también quita las capas intermedias del sistema operativo invitado, el sistema operativo del host y el hipervisor. De este modo, se reduce el área expuesta a ataques. El modelo de *ejecución aislada por contenedor basada en hardware* en un nodo permite que las aplicaciones se ejecuten directamente con la CPU, manteniendo el bloque de memoria especial cifrado. Los nodos de computación confidencial con contenedores confidenciales son una excelente incorporación al planeamiento de seguridad de confianza cero y a la estrategia de contenedor para una defensa en profundidad.
 
-![Información general del nodo de SGX](./media/confidential-nodes-aks-overview/sgxaksnode.jpg)
+:::image type="content" source="./media/confidential-nodes-aks-overview/sgx-aks-node.png" alt-text="Gráfico del nodo de proceso confidencial de AKS, que muestra contenedores confidenciales con código y datos protegidos dentro.":::
 
 ## <a name="aks-confidential-nodes-features"></a>Características de los nodos confidenciales de AKS
 

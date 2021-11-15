@@ -12,12 +12,12 @@ ms.date: 02/17/2021
 ms.author: kenwith
 ms.reviewer: ashishj
 ms.custom: contperf-fy21q3-portal
-ms.openlocfilehash: e561b34ae624b800d65885999f7029235fce31b6
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: e9b8f17429c0cfead600361b60e2f752110a23ba
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129990394"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131444314"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adición de una aplicación local para el acceso remoto mediante el proxy de aplicación en Azure Active Directory
 
@@ -64,7 +64,8 @@ Para conseguir una alta disponibilidad del entorno de producción, se recomienda
 > "EnableDefaultHTTP2"=dword:00000000
 > ```
 >
-> La clave se puede establecer mediante PowerShell con el siguiente comando.
+> La clave se puede establecer mediante PowerShell con el siguiente comando:
+>
 > ```
 > Set-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\' -Name EnableDefaultHTTP2 -Value 0
 > ```
@@ -101,7 +102,7 @@ Para habilitar TLS 1.2, siga estos pasos:
 
 1. Reinicie el servidor.
 
-> [!Note]
+> [!NOTE]
 > Microsoft está actualizando los servicios de Azure para que usen los certificados TLS de un conjunto diferente de entidades de certificación (CA) raíz. Este cambio se realiza porque los certificados de entidad de certificación actuales no cumplen uno de los requisitos de la base de referencia del foro CA/Browser. Para más información, consulte [Cambios en los certificados TLS de Azure](../../security/fundamentals/tls-certificate-changes.md).
 
 ## <a name="prepare-your-on-premises-environment"></a>Preparación del entorno local
@@ -127,19 +128,20 @@ Si el firewall fuerza el tráfico según los usuarios de origen, abra también l
 Permita el acceso a las siguientes direcciones URL:
 
 | URL | Port | Cómo se usa |
-| ------------------------------------------------------------ | --------- | ------------------------------------------------------------ |
-| &ast;.msappproxy.net<br>&ast;.servicebus.windows.net         | 443/HTTPS | Comunicación entre el conector y el servicio en la nube del proxy de aplicación |
-| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP   | El conector utiliza estas direcciones URL para comprobar los certificados.        |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com<br>www.microsoft.com/pkiops | 443/HTTPS | El conector utiliza estas direcciones URL durante el proceso de registro. |
-| ctldl.windowsupdate.com                                      | 80/HTTP   | El conector usa esta dirección URL durante el proceso de registro. |
+| --- | --- | --- |
+| `*.msappproxy.net` <br> `*.servicebus.windows.net` | 443/HTTPS | Comunicación entre el conector y el servicio en la nube del proxy de aplicación |
+| `crl3.digicert.com` <br> `crl4.digicert.com` <br> `ocsp.digicert.com` <br> `crl.microsoft.com` <br> `oneocsp.microsoft.com` <br> `ocsp.msocsp.com`<br> | 80/HTTP   | El conector utiliza estas direcciones URL para comprobar los certificados.        |
+| `login.windows.net` <br> `secure.aadcdn.microsoftonline-p.com` <br> `*.microsoftonline.com` <br> `*.microsoftonline-p.com` <br> `*.msauth.net` <br> `*.msauthimages.net` <br> `*.msecnd.net` <br> `*.msftauth.net` <br> `*.msftauthimages.net` <br> `*.phonefactor.net` <br> `enterpriseregistration.windows.net` <br> `management.azure.com` <br> `policykeyservice.dc.ad.msft.net` <br> `ctldl.windowsupdate.com` <br> `www.microsoft.com/pkiops` | 443/HTTPS | El conector utiliza estas direcciones URL durante el proceso de registro. |
+| `ctldl.windowsupdate.com` | 80/HTTP | El conector usa esta dirección URL durante el proceso de registro. |
 
-Puede permitir conexiones a &ast;.msappproxy.net, &ast;.servicebus.windows.net y las otras direcciones URL anteriores si el firewall o el servidor proxy le permiten configurar reglas de acceso basadas en sufijos de dominio. Si no es así, deberá permitir acceso a [Intervalos IP de Azure y etiquetas de servicio: nube pública](https://www.microsoft.com/download/details.aspx?id=56519). Los intervalos IP se actualizan cada semana.
+Si el firewall o el servidor proxy le permiten configurar reglas de acceso basadas en sufijos de dominio, puede permitir conexiones a `*.msappproxy.net`, `*.servicebus.windows.net` y a otras direcciones URL anteriores. Si no es así, deberá permitir acceso a [Intervalos IP de Azure y etiquetas de servicio: nube pública](https://www.microsoft.com/download/details.aspx?id=56519). Los intervalos IP se actualizan cada semana.
+
 > [!IMPORTANT]
 > Evite todas las formas de inspección y terminación insertadas en las comunicaciones de TLS salientes entre los conectores de Azure AD Application Proxy y los servicios en la nube de Azure AD Application Proxy.
 
 ### <a name="dns-name-resolution-for-azure-ad-application-proxy-endpoints"></a>Resolución de nombres DNS para puntos de conexión de Azure AD Application Proxy
 
-Los registros DNS públicos para puntos de conexión de Azure AD Application Proxy son registros CNAME encadenados que apuntan a un registro A. Esto garantiza la tolerancia a errores y la flexibilidad. Se garantiza que el conector de Azure AD Application Proxy siempre tenga acceso a los nombres de host con los sufijos de dominio _*.msappproxy.net_ o _*.servicebus.windows.net_. No obstante, durante la resolución de nombres, los registros CNAME pueden contener registros DNS con distintos nombres de host y sufijos.  Debido a esto, debe asegurarse de que el dispositivo (según la configuración del servidor del conector, el firewall y el proxy de salida) pueda resolver todos los registros de la cadena y permitir la conexión a las direcciones IP resueltas. Dado que los registros DNS de la cadena pueden cambiar de vez en cuando, no se puede proporcionar ningún registro DNS de lista.
+Los registros DNS públicos para puntos de conexión de Azure AD Application Proxy son registros CNAME encadenados que apuntan a un registro A. Esto garantiza la tolerancia a errores y la flexibilidad. Se garantiza que el conector de Azure AD Application Proxy siempre tenga acceso a los nombres de host con los sufijos de dominio `*.msappproxy.net` o `*.servicebus.windows.net`. No obstante, durante la resolución de nombres, los registros CNAME pueden contener registros DNS con distintos nombres de host y sufijos. Debido a esto, debe asegurarse de que el dispositivo (según la configuración del servidor del conector, el firewall y el proxy de salida) pueda resolver todos los registros de la cadena y permitir la conexión a las direcciones IP resueltas. Dado que los registros DNS de la cadena pueden cambiar de vez en cuando, no se puede proporcionar ningún registro DNS de lista.
 
 ## <a name="install-and-register-a-connector"></a>Instalación y registro de un conector
 
@@ -148,7 +150,7 @@ Para usar Application Proxy, deberá instalar un conector en cada servidor Windo
 
 Para instalar el conector:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador de aplicaciones del directorio que usa el proxy de aplicación. Por ejemplo, si el dominio del inquilino es contoso.com, el administrador debe ser admin@contoso.com o cualquier otro alias de administrador de ese dominio.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador de aplicaciones del directorio que usa el proxy de aplicación. Por ejemplo, si el dominio del inquilino es `contoso.com`, el administrador debe ser `admin@contoso.com` o cualquier otro alias de administrador de ese dominio.
 1. En la esquina superior derecha, seleccione su nombre de usuario. Compruebe que ha iniciado sesión en el directorio que usa Application Proxy. Si necesita cambiar directorios, seleccione **Cambiar directorio** y elija un directorio que use Application Proxy.
 1. En el panel de navegación izquierdo, seleccione **Azure Active Directory**.
 1. En **Administrar**, seleccione **Application proxy**.
@@ -216,7 +218,7 @@ Ahora que ya ha preparado el entorno y ha instalado un conector, está listo par
     | Campo  | Descripción |
     | :--------------------- | :----------------------------------------------------------- |
     | **Nombre** | El nombre de la aplicación que va a aparecer en Aplicaciones y en Azure Portal. |
-    | **Dirección URL interna** | La dirección URL para acceder a la aplicación desde la red privada. Puede especificar una ruta de acceso específica en el servidor back-end para publicar, mientras que el resto del servidor no se publica. De esta forma, puede publicar sitios diferentes en el mismo servidor como aplicaciones diferentes y dar a cada uno un nombre y unas reglas de acceso propios.<br><br>Si publica una ruta de acceso, asegúrese de que incluye todas las imágenes, los scripts y las hojas de estilos necesarias para la aplicación. Por ejemplo, si la aplicación está en https:\//yourapp/app y usa las imágenes que se encuentran en https:\//yourapp/media, debe publicar https:\//yourapp/ como la ruta de acceso. Esta dirección URL interna no tiene que ser la página de inicio que verán los usuarios. Para más información, consulte [Establecimiento de una página principal personalizada para aplicaciones publicadas mediante el proxy de aplicación de Azure AD](application-proxy-configure-custom-home-page.md). |
+    | **Dirección URL interna** | La dirección URL para acceder a la aplicación desde la red privada. Puede especificar una ruta de acceso específica en el servidor back-end para publicar, mientras que el resto del servidor no se publica. De esta forma, puede publicar sitios diferentes en el mismo servidor como aplicaciones diferentes y dar a cada uno un nombre y unas reglas de acceso propios.<br><br>Si publica una ruta de acceso, asegúrese de que incluye todas las imágenes, los scripts y las hojas de estilos necesarias para la aplicación. Por ejemplo, si la aplicación se encuentra en `https://yourapp/app` y usa las imágenes que se encuentran en `https://yourapp/media`, debe publicar `https://yourapp/` como la ruta de acceso. Esta dirección URL interna no tiene que ser la página de inicio que verán los usuarios. Para más información, consulte [Establecimiento de una página principal personalizada para aplicaciones publicadas mediante el proxy de aplicación de Azure AD](application-proxy-configure-custom-home-page.md). |
     | **Dirección URL externa** | La dirección para que los usuarios accedan a la aplicación desde fuera de la red. Si no desea usar el dominio del proxy de aplicación predeterminado, lea sobre el [uso de dominios personalizados en el proxy de aplicación de Azure AD](./application-proxy-configure-custom-domain.md). |
     | **Autenticación previa** | La forma en que el proxy de aplicación verifica los usuarios antes de concederles acceso a la aplicación.<br><br>**Azure Active Directory**: el proxy de la aplicación redirige a los usuarios para que inicien sesión en Azure AD, que autentica sus permisos para el directorio y la aplicación. Se recomienda mantener esta opción como predeterminada, para que pueda aprovechar las características de seguridad de Azure AD como el acceso condicional y Multi-Factor Authentication. Se necesita **Azure Active Directory** para la supervisión de la aplicación con Microsoft Cloud Application Security.<br><br>**Acceso directo**: los usuarios no tienen que autenticarse en Azure AD para tener acceso a la aplicación. Esto no impide que pueda configurar los requisitos de autenticación en el back-end. |
     | **Grupo de conectores** | Los conectores procesan el acceso remoto a la aplicación, y los grupos de conectores le ayudan a organizar los conectores y las aplicaciones por región, red o finalidad. Si no tiene ningún grupo de conectores creado todavía, la aplicación se asigna al **predeterminado**.<br><br>Si la aplicación usa WebSockets para conectarse, todos los conectores del grupo deben tener la versión 1.5.612.0 o posterior. |

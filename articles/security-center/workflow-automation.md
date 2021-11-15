@@ -7,13 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 05/03/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 4cf12721cc691f4719cc4442b4092b44f6d8e1b7
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: cefeb17946f5723d7ea44ee89f8245eef01d28c3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131004575"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131445163"
 ---
 # <a name="automate-responses-to-microsoft-defender-for-cloud-triggers"></a>Automatización de respuestas a desencadenadores de Microsoft Defender for Cloud
 
@@ -40,13 +39,15 @@ En este artículo se describe la característica de automatización de flujos de
 
 1. En la barra lateral de Defender for Cloud, seleccione **Automatización de flujos de trabajo**.
 
-    :::image type="content" source="./media/workflow-automation/list-of-workflow-automations.png" alt-text="Lista de automatizaciones de flujos de trabajo.":::
+    :::image type="content" source="./media/workflow-automation/list-of-workflow-automations.png" alt-text="Captura de pantalla de la página de automatización del flujo de trabajo que muestra la lista de automatizaciones definidas." lightbox="./media/workflow-automation/list-of-workflow-automations.png":::
 
     Desde esta página puede crear nuevas reglas de automatización, así como habilitar, deshabilitar o eliminar las existentes.
 
-1. Para definir un nuevo flujo de trabajo, haga clic en **Add workflow automation** (Agregar automatización de flujos de trabajo). 
+1. Para definir un nuevo flujo de trabajo, haga clic en **Add workflow automation** (Agregar automatización de flujos de trabajo). Se abre el panel de opciones de la nueva automatización.
 
-    Aparecerá un panel con las opciones de la nueva automatización. Aquí puede escribir lo siguiente:
+    :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Panel para agregar automatizaciones de flujos de trabajo.":::
+
+    Aquí puede escribir lo siguiente:
     1. Un nombre y descripción para la automatización.
     1. Los desencadenadores que iniciarán este flujo de trabajo automático. Por ejemplo, cuando quiera que la aplicación lógica se ejecute cuando se genere una alerta de seguridad que contenga "SQL".
 
@@ -54,8 +55,6 @@ En este artículo se describe la característica de automatización de flujos de
         > Si el desencadenador es una recomendación que tiene "recomendaciones secundarias", por ejemplo **Se deben remediar los resultados de evaluación de vulnerabilidades en las bases de datos SQL**, la aplicación lógica no se desencadenará para cada nueva búsqueda de seguridad; solo cuando cambie el estado de la recomendación primaria.
 
     1. La aplicación lógica que se ejecutará cuando se cumplan las condiciones del desencadenador. 
-
-        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Panel para agregar automatizaciones de flujos de trabajo.":::
 
 1. En la sección Acciones, seleccione **visitar la página de aplicación lógica** para comenzar el proceso de creación de la aplicación lógica.
 

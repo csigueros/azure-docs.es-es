@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: cf76427df2c1802ed49dc5ff848059d88ba9658e
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 2f81cd3e37b6fefea1a76a8a4bb50c756ff1fca4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111558555"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131463532"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desarrollo de aplicaciones seguras en Azure
 
@@ -31,8 +31,7 @@ En este artículo se tratan las siguientes fases del SDL:
 
 ## <a name="implementation"></a>Implementación
 
-El asunto principal de la fase de implementación es establecer los procedimientos recomendados para la prevención temprana y detectar y quitar los problemas de seguridad del código.
-Suponga que su aplicación se usará de maneras inesperadas. Este pensamiento le ayudará a protegerse contra el uso indebido (intencional o accidental) de la aplicación.
+El asunto principal de la fase de implementación es establecer los procedimientos recomendados para la prevención temprana y detectar y quitar los problemas de seguridad del código. Suponga que su aplicación se usará de maneras inesperadas. Este pensamiento le ayudará a protegerse contra el uso indebido (intencional o accidental) de la aplicación.
 
 ### <a name="perform-code-reviews"></a>Realización de revisiones de código
 
@@ -55,10 +54,10 @@ La incorporación de listas de bloqueados y de permitidos son dos enfoques gener
   - Con las listas de bloqueados se intenta comprobar que una entrada de usuario concreta no incluye contenido "malintencionado conocido".
 
   - En cambio, con las listas de permitidos se intenta comprobar que una entrada de usuario concreta coincida con un conjunto de entradas "válidas conocidas". La creación de listas de permitidos basada en caracteres es un tipo de lista de permitidos en la que una aplicación comprueba si la entrada del usuario solo contiene caracteres "válidos conocidos" o si la entrada coincide con un formato conocido.
+
     Por ejemplo, esto puede implicar la comprobación de si un nombre de usuario contiene solo caracteres alfanuméricos o si contiene exactamente dos números.
 
-La creación de listas de permitidos es el método preferido para la compilación de software seguro.
-Las listas de bloqueados son propensas a errores, ya que es imposible pensar en una lista completa de entradas potencialmente erróneas.
+La creación de listas de permitidos es el método preferido para la compilación de software seguro. Las listas de bloqueados son propensas a errores, ya que es imposible pensar en una lista completa de entradas potencialmente erróneas.
 
 Estas tareas deben realizarse en el servidor, no en el lado cliente (o en el servidor y en el lado cliente).
 

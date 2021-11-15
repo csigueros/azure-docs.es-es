@@ -2,14 +2,14 @@
 title: Matriz de compatibilidad de Azure Backup para la copia de seguridad de SQL Server en VM de Azure
 description: Proporciona un resumen de opciones de compatibilidad y limitaciones para realizar copias de seguridad de SQL Server en VM de Azure con el servicio Azure Backup.
 ms.topic: conceptual
-ms.date: 08/20/2021
+ms.date: 10/22/2021
 ms.custom: references_regions
-ms.openlocfilehash: 78dace2a60ff566af3485e6be0b7d9efc42d8654
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: c0b46a1c75c47b85985946646bf3216c9ab719f5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123103884"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219269"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matriz de compatibilidad para la copia de seguridad de SQL Server en VM de Azure
 
@@ -33,6 +33,7 @@ Puede usar Azure Backup para realizar copias de seguridad de bases de datos de S
 |Número de bases de datos que se pueden proteger en un servidor (y en un almacén)    |   2000      |
 |Tamaño de la base de datos compatible (más allá de esto, pueden aparecer problemas de rendimiento)   |   6 TB*      |
 |Número de archivos admitidos en una base de datos    |   1000      |
+|Número de copias de seguridad completas admitidas al día    |    Una copia de seguridad programada. <br><br> Tres copias de seguridad a petición. <br><br> Se recomienda no desencadenar más de tres copias de seguridad al día. Sin embargo, para permitir reintentos del usuario en caso de intentos fallidos, el límite máximo de copias de seguridad a petición se establece en nueve intentos. |
 
 _*El límite de tamaño de la base de datos depende no solo de la velocidad de transferencia de datos que se admita, sino también de la configuración del límite de tiempo de copia de seguridad. No es un límite rígido. [Más información](#backup-throughput-performance) sobre el rendimiento de la copia de seguridad._
 
@@ -41,8 +42,8 @@ _*El límite de tamaño de la base de datos depende no solo de la velocidad de t
 * Se admiten todos los tipos de copia de seguridad (completas, diferenciales y de registro) y los modelos de recuperación (simple, completo o registros de operaciones masivas).
 * En el caso de las bases de datos de **solo lectura**: las copias de seguridad completas y de solo copia son los únicos tipos de copia de seguridad admitidos.
 * La compresión nativa de SQL es compatible si el usuario la habilita explícitamente en la directiva de copia de seguridad. Azure Backup invalida los valores predeterminados de nivel de instancia con la cláusula COMPRESSION/NO_COMPRESSION según el valor de este control establecido por el usuario.
-* Se admite la copia de seguridad de base de datos habilitada para TDE. Para restaurar una base de datos cifrada TDE en otra de SQL Server, primero debe [restaurar el certificado en el servidor de destino](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). Está disponible la compresión de copia de seguridad para las bases de datos habilitadas para TDE para SQL Server 2016 y las versiones más recientes, pero con un tamaño de transferencia inferior, tal y como se explica [aquí](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593).
-* No se admiten operaciones de copia de seguridad y restauración de bases de datos reflejadas ni de instantáneas de bases de datos.
+* Se admite la copia de seguridad de base de datos habilitada para TDE. Para restaurar una base de datos cifrada TDE en otra de SQL Server, primero debe [restaurar el certificado en el servidor de destino](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). Está disponible la compresión de copia de seguridad para las bases de datos habilitadas para TDE en SQL Server 2016 y versiones más recientes, pero con un tamaño de transferencia inferior, tal y como se explica [aquí](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593).
+* No se admiten las operaciones de copia de seguridad y restauración para las bases de datos reflejadas y las instantáneas de base de datos.
 * La **instancia del clúster de conmutación por error (FCI)** de SQL Server no se admite.
 
 ## <a name="backup-throughput-performance"></a>Rendimiento de la copia de seguridad

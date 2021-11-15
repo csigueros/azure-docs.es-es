@@ -2,14 +2,14 @@
 title: Información general de los almacenes de Backup
 description: Información general de los almacenes de Backup.
 ms.topic: conceptual
-ms.date: 09/08/2021
+ms.date: 10/31/2021
 ms.custom: references_regions
-ms.openlocfilehash: afe103e7fb6c2cb59634029c5ae9a75acadf0afc
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 1a3909e525adadc2e5983e2792e407301a5b321d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130235893"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131473649"
 ---
 # <a name="backup-vaults-overview"></a>Información general de los almacenes de Backup
 
@@ -132,7 +132,7 @@ En esta sección se explica cómo trasladar un almacén de Backup (configurado p
 
 ### <a name="supported-regions"></a>Regiones admitidas
 
-El traslado del almacén entre suscripciones y grupos de recursos se admite actualmente en las siguientes regiones: Oeste de EE. UU., Centro-sur de EE. UU., Este de Asia, Norte de Suiza, Norte de Sudáfrica, Oeste de Reino Unido, Centro-norte de EE. UU., Norte de Emiratos Árabes Unidos, Este de Noruega, Sudeste de Australia, Japón Occidental, Este de Canadá, Centro de Corea del Sur, Centro de Australia, Centro-oeste de EE. UU., Centro de la India, Oeste de la India, Sur de la India, Centro de Emiratos Árabes Unidos, Oeste de Sudáfrica, Oeste de Noruega, Oeste de Suiza
+El movimiento del almacén entre suscripciones y grupos de recursos se admite en todas las regiones públicas.
 
 ### <a name="use-azure-portal-to-move-backup-vault-to-a-different-resource-group"></a>Uso de Azure Portal para trasladar un almacén de Backup a otro grupo de recursos
 

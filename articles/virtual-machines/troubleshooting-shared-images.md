@@ -1,23 +1,23 @@
 ---
 title: Solución de problemas de imágenes compartidas en Azure
-description: Obtenga información sobre cómo solucionar problemas relacionados con las galerías de imágenes compartidas.
+description: Obtenga información sobre cómo solucionar problemas con imágenes compartidas en instancias de Azure Compute Gallery.
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 7/1/2021
-ms.openlocfilehash: 10e8b54145d5948eff55265b3b0bc0b413d2cd66
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: a838879249bad2edfb8d5105e34cd7697a1f59e2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129054442"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131437094"
 ---
-# <a name="troubleshoot-shared-image-galleries-in-azure"></a>Solución de problemas de las galerías de imágenes compartidas de Azure
+# <a name="troubleshoot-images-in-an-azure-compute-gallery"></a>Solución de problemas de imágenes en Azure Compute Gallery
 
 **Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
-Si tiene problemas al realizar cualquier operación en galerías de imágenes compartidas, definiciones de imágenes y versiones de imágenes, vuelva a ejecutar el comando con errores en modo de depuración. El modo de depuración se activa pasando el modificador `--debug` con la CLI de Azure y el modificador `-Debug` con PowerShell. Después de encontrar el error, siga este artículo para solucionarlo.
+Si tiene problemas para realizar operaciones en recursos de Azure Compute Gallery (anteriormente denominado Shared Image Gallery), como galerías, definiciones de imágenes y versiones de imagen, vuelva a ejecutar el comando con errores en modo de depuración. El modo de depuración se activa pasando el modificador `--debug` con la CLI de Azure y el modificador `-Debug` con PowerShell. Después de encontrar el error, siga este artículo para solucionarlo.
 
 
 ## <a name="creating-or-modifying-a-gallery"></a>Creación o modificación de una galería ##
@@ -202,11 +202,11 @@ Si tiene problemas al realizar cualquier operación en galerías de imágenes co
 **Solución alternativa**: Elija un origen con el mismo sistema operativo (Linux o Windows) que la definición de imagen o cree o elija una nueva definición de imagen que tenga la misma generación de sistema operativo que la versión de imagen.
 
 **Mensaje:** *La máquina virtual de origen \<resourceID\> no puede contener un disco de SO efímero.*  
-**Causa:** El origen de \<resourceID\> contiene un disco de SO efímero. La galería de imágenes compartida no admite actualmente discos de SO efímeros.  
+**Causa:** El origen de \<resourceID\> contiene un disco de SO efímero. Azure Compute Gallery no admite actualmente discos de SO efímeros.  
 **Solución alternativa**: Elija otro origen basado en una máquina virtual que no use un disco de SO efímero.
 
 **Mensaje:** *La máquina virtual de origen \<resourceID\> no puede contener un disco ("\<diskID\>") almacenado en un tipo de cuenta UltraSSD.*  
-**Causa:** El disco \<diskID\> es un disco SSD Ultra. La galería de imágenes compartidas no admite actualmente discos SSD Ultra.  
+**Causa:** El disco \<diskID\> es un disco SSD Ultra. Azure Compute Gallery no admite actualmente discos SSD Ultra.  
 **Solución alternativa**: Use un origen que contenga solo discos administrados SSD Premium, SSD estándar o HDD estándar.
 
 **Mensaje:** *Se debe crear la máquina virtual de origen \<resourceID\> a partir de Managed Disks.*  
@@ -222,7 +222,7 @@ Si tiene problemas al realizar cualquier operación en galerías de imágenes co
 **Solución alternativa**: Cree o use un conjunto de cifrado en la misma suscripción y región que la versión de imagen.
 
 **Mensaje:** *El origen de cifrado "\<resourceID\>" está en un Id. de suscripción diferente al de la suscripción de la versión de imagen actual de la galería ("\<subscriptionID\_1\>"). Vuelva a intentarlo con orígenes no cifrados o use la suscripción del origen ("\<subcriptionID\_2\>") para crear la versión de imagen de la galería.*  
-**Causa**: La galería de imágenes compartidas no admite actualmente la creación de versiones de imagen en otra suscripción desde otra imagen de origen si esta está cifrada.  
+**Causa**: Azure Compute Gallery no admite actualmente la creación de versiones de imagen en otra suscripción desde otra imagen de origen si esta está cifrada.  
 **Solución alternativa**: Use un origen no cifrado o cree la versión de imagen en la misma suscripción que el origen.
 
 **Mensaje:** *No se ha encontrado el conjunto de cifrado de disco \<diskEncryptionSetID\>.*  
@@ -282,7 +282,7 @@ Si tiene problemas al realizar cualquier operación en galerías de imágenes co
 **Solución alternativa**: Use los LUN y los discos de datos de la versión de imagen existente.
 
 **Mensaje:** *El conjunto de cifrado de disco \<diskEncryptionSetID\> debe estar en la misma suscripción (\<subscriptionID\>) que el recurso de la galería.*  
-**Causa**: La galería de imágenes admitidas no admite actualmente el uso de un conjunto de cifrado de disco en otra suscripción.  
+**Causa**: Azure Compute Gallery no admite actualmente el uso de un conjunto de cifrado de disco en otra suscripción.  
 **Solución alternativa**: Cree la versión de imagen y conjunto de cifrado de disco en la misma suscripción.
 
 **Mensaje**: *Error de replicación en esta región debido a que "El tamaño 2048 del recurso de origen de GalleryImageVersion supera el tamaño máximo admitido de 1024".*  
@@ -294,7 +294,7 @@ Si tiene problemas al realizar cualquier operación en galerías de imágenes co
 **Solución alternativa**: espere a que se complete el evento de eliminación y vuelva a crear la versión de la imagen.
 
 **Mensaje**: *No se admite el cifrado para el recurso de origen “\<sourceID>”. Use otro tipo de recurso de origen que admita el cifrado o quite las propiedades de cifrado.*  
-**Causa**: actualmente, Shared Image Gallery solo admite el cifrado de máquinas virtuales, discos, instantáneas e imágenes administradas. Uno de los orígenes proporcionados para la versión de la imagen no está en la lista anterior de orígenes que admiten el cifrado.  
+**Causa**: actualmente, Azure Compute Gallery solo admite el cifrado de máquinas virtuales, discos, instantáneas e imágenes administradas. Uno de los orígenes proporcionados para la versión de la imagen no está en la lista anterior de orígenes que admiten el cifrado.  
 **Solución alternativa**: quite el conjunto de cifrado de disco de la versión de la imagen y póngase en contacto con el equipo de soporte técnico.
 
 ## <a name="creating-or-updating-a-vm-or-scale-sets-from-an-image-version"></a>Creación o actualización de una máquina virtual o conjuntos de escalado a partir de la versión de imagen ##
@@ -312,7 +312,7 @@ Si tiene problemas al realizar cualquier operación en galerías de imágenes co
 **Solución alternativa**: asegúrese de que haya al menos una versión de la imagen que tenga el valor "Excluir de las últimas" establecida en falso. 
 
 **Mensaje:** *El cliente tiene permiso para realizar la acción "Microsoft.Compute/galleries/images/versions/read" en el ámbito \<resourceID\>, pero el inquilino actual (\<tenantID\>) no está autorizado para acceder a la suscripción vinculada \<subscriptionID\>.*  
-**Causa**: La máquina virtual o el conjunto de escalado se crearon mediante una imagen SIG en otro inquilino. Ha intentado realizar un cambio en la máquina virtual o el conjunto de escalado, pero no tiene acceso a la suscripción que posee la imagen.  
+**Causa**: La máquina virtual o el conjunto de escalado se crearon mediante una imagen de galería en otro inquilino. Ha intentado realizar un cambio en la máquina virtual o el conjunto de escalado, pero no tiene acceso a la suscripción que posee la imagen.  
 **Solución alternativa**: Póngase en contacto con el propietario de la suscripción de la versión de imagen para conceder a esta acceso de lectura.
 
 **Mensaje:** *La imagen de la galería \<resourceID\> no está disponible en la región \<region\>. Póngase en contacto con el propietario de la imagen para replicarla en esta región o cambie la región solicitada.*  
@@ -331,7 +331,7 @@ Si tiene problemas al realizar cualquier operación en galerías de imágenes co
 **Causa**: La imagen de origen actual del conjunto de escalado es una imagen de origen generalizada, pero se está actualizando con una imagen de origen que es especializada. La imagen de origen actual y la nueva imagen de origen de un conjunto de escalado deben tener el mismo estado.  
 **Solución alternativa**: Para actualizar el conjunto de escalado, use una versión de imagen generalizada.
 
-**Mensaje:** *El conjunto de cifrado de disco \<diskEncryptionSetID\> de la galería de imágenes compartidas \<versionID\> pertenece a la suscripción \<subscriptionID\_1\> y no se puede usar con el recurso en la suscripción \<subscriptionID\_2\>.*  
+**Mensaje:** *El conjunto de cifrado de disco \<diskEncryptionSetID\> de Azure Compute Gallery \<versionID\> pertenece a la suscripción \<subscriptionID\_1\> y no se puede usar con el recurso en la suscripción \<subscriptionID\_2\>.*  
 **Causa**: El conjunto de cifrado de disco que se usa para cifrar la versión de imagen reside en una suscripción diferente de aquella que la hospeda.  
 **Solución alternativa**: Use la misma suscripción para la versión de imagen y el conjunto de cifrado de disco.
 
@@ -346,12 +346,12 @@ Si tiene problemas al realizar cualquier operación en galerías de imágenes co
 ## <a name="creating-a-disk-from-an-image-version"></a>Creación de un disco a partir de una versión de imagen ##
 
 **Mensaje**: *El valor del parámetro imageReference no es válido.*  
-**Causa**: Ha intentado exportar de una versión de imagen SIG a un disco, pero ha usado una posición de LUN que no existe en la imagen.    
+**Causa**: Ha intentado exportar de una versión de imagen de galería a un disco, pero ha usado una posición de LUN que no existe en la imagen.    
 **Solución alternativa**: Compruebe la versión de imagen para ver qué posiciones de LUN están en uso.
 
 ## <a name="sharing-resources"></a>Uso compartido de recursos
 
-El uso compartido de los recursos de la galería de imágenes, versiones de imágenes y definiciones de imágenes entre suscripciones se habilita mediante el [control de acceso basado en rol (RBAC de Azure)](../role-based-access-control/rbac-and-directory-admin-roles.md). 
+El uso compartido de los recursos de la galería, versiones de imágenes y definiciones de imágenes entre suscripciones se habilita mediante el [control de acceso basado en rol (RBAC de Azure)](../role-based-access-control/rbac-and-directory-admin-roles.md). 
 
 ## <a name="replication-speed"></a>Velocidad de replicación
 
@@ -359,9 +359,9 @@ Use la marca **--expand ReplicationStatus** para comprobar si se ha completado l
 
 ## <a name="azure-limits-and-quotas"></a>Límites y cuotas de Azure 
 
-Los[límites y cuotas de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) se aplican a todos los recursos de galería de imágenes compartidas, las versiones de imágenes, definiciones de imágenes. Asegúrese de encontrarse dentro de los límites para las suscripciones. 
+Los[límites y cuotas de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) se aplican a todos los recursos de Azure Compute Gallery, definición de imágenes y versión de imágenes. Asegúrese de encontrarse dentro de los límites para las suscripciones. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre [Shared Image Galleries](./shared-image-galleries.md).
+Más información sobre las [instancias de Azure Compute Gallery](./shared-image-galleries.md).

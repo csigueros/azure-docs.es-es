@@ -10,18 +10,18 @@ ms.date: 10/25/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 5b779df91c4f0347e329348b7bdccd49691d0d5d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d83cb752eaaa2ed3edf58d3d1f31d6d7c5af76cd
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131090841"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131433144"
 ---
 # <a name="archive-a-blob"></a>Archivado de un blob
 
 El nivel de acceso de archivo es un nivel sin conexión para almacenar datos blob a los que rara vez se accede. El nivel de acceso de archivo tiene el coste de almacenamiento más bajo, pero tiene mayores costes de recuperación de datos y latencia en comparación con los niveles de acceso con conexión (frecuente y esporádico). Los datos deben permanecer en el nivel de archivo durante al menos 180 días o estar sujetos a un cargo por eliminación temprana. Para más información sobre el nivel de archivo, consulte [Niveles de acceso de archivo](access-tiers-overview.md#archive-access-tier).
 
-Un blob no se puede leer ni modificar mientras se encuentre en el nivel de archivo. Para leer o descargar un blob en el nivel de acceso de archivo, primero debe rehidratarlo a un nivel en línea, bien sea de acceso esporádico o de acceso frecuente. Los datos del nivel de archivo pueden tardar hasta 15 horas en rehidratarse, dependiendo de la prioridad que especifique para la operación de rehidratación. Para obtener más información sobre la rehidratación de blobs, consulte [Resumen de la rehidratación de blobs desde el nivel de acceso de archivo](archive-rehydrate-overview.md).
+Un blob no se puede leer ni modificar mientras se encuentre en el nivel de archivo. Para leer o descargar un blob del nivel de acceso de archivo, primero debe rehidratarlo a un nivel en línea, bien sea de acceso esporádico o de acceso frecuente. Los datos del nivel de archivo pueden tardar hasta 15 horas en rehidratarse, dependiendo de la prioridad que especifique para la operación de rehidratación. Para obtener más información sobre la rehidratación de blobs, consulte [Resumen de la rehidratación de blobs desde el nivel de acceso de archivo](archive-rehydrate-overview.md).
 
 > [!CAUTION]
 > Los blob en nivel de acceso de archivo no tienen conexión, &mdash; por lo cual, no se podrán leer ni modificar&mdash; hasta que se hayan rehidratado. El proceso de rehidratación puede tardar varias horas y tiene costes asociados. Antes de mover datos al nivel de archivo, considere si desconectar los datos de blob puede afectar a los flujos de trabajo.
@@ -42,7 +42,7 @@ Para archivar un blob o un conjunto de blobs en la carga desde Azure Portal, sig
 1. Expanda la sección **Opciones avanzadas** y establezca el **Nivel de acceso** en *Archivo*.
 1. Seleccione el botón **Cargar**.
 
-    :::image type="content" source="media/archive-blob/upload-blobs-archive-portal.png" alt-text="Captura de pantalla que muestra cómo cargar blobs al nivel de acceso de archivo en Azure Portal.":::
+    :::image type="content" source="media/archive-blob/upload-blobs-archive-portal.png" alt-text="Captura de pantalla que muestra cómo cargar blobs al nivel de acceso de archivo en Azure Portal":::
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -114,7 +114,7 @@ Puede mover un blob existente al nivel de acceso de archivo de una de estas dos 
 
 Utilice la operación **Establecer nivel de blob** para mover un blob desde el nivel esporádico o frecuente al nivel de acceso de archivo. La operación **Establecer nivel de blob** es mejor para escenarios en los que no será necesario acceder a los datos archivados antes de que haya transcurrido el intervalo de eliminación temprana.
 
-La operación **Establecer nivel de blob** cambia el nivel de un único blob. Para mover un conjunto de blobs al nivel de acceso de archivo con un rendimiento óptimo, Microsoft recomienda realizar una operación de archivo masivo. La operación de archivo masivo envía un lote de comandos **Establecer nivel de blob** al servicio en una única transacción. Para obtener más información, consulte[Archivo masivo](#bulk-archive).  
+La operación **Establecer nivel de blob** cambia el nivel de un único blob. Para mover un conjunto de blobs al nivel de acceso de archivo con un rendimiento óptimo, Microsoft recomienda realizar una operación de archivado masivo. La operación de archivo masivo envía un lote de comandos **Establecer nivel de blob** al servicio en una única transacción. Para obtener más información, consulte[Archivo masivo](#bulk-archive).  
 
 #### <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -228,8 +228,8 @@ Para archivar blobs con una operación por lotes, use una de las bibliotecas Azu
 
 Para obtener una aplicación de ejemplo detallada que muestra cómo cambiar los niveles con una operación por lotes, consulte [AzBulkSetBlobTier](/samples/azure/azbulksetblobtier/azbulksetblobtier/).
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Consulte también
 
-- [Niveles de acceso frecuente, esporádico y de archivo de los datos de blob](access-tiers-overview.md)
+- [Niveles de acceso frecuente, esporádico y de archivo para los datos de blobs](access-tiers-overview.md)
 - [Rehidratación de blobs desde el nivel de acceso de archivo](archive-rehydrate-overview.md)
 - [Rehidratación de un blob archivado en un nivel en línea](archive-rehydrate-to-online-tier.md)

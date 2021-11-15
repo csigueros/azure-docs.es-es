@@ -10,12 +10,12 @@ services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 8cf272407e64c612c4a3debb66ba13f7147cd227
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 9a24d9bda03cdb456d92461546b606572f127bcb
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093126"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131467282"
 ---
 # <a name="quickstart-create-a-data-explorer-pool-using-the-azure-portal-preview"></a>Guía de inicio rápido: Creación de un grupo del Explorador de datos mediante Azure Portal (versión preliminar)
 
@@ -109,4 +109,6 @@ Siga estos pasos para eliminar el grupo del Explorador de datos del área de tra
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Guía de inicio rápido: Creación de un grupo del Explorador de datos con Synapse Studio](data-explorer-create-pool-studio.md)
+- [Introducción a la ingesta](ingest-data/data-explorer-ingest-data-overview.md)
+- [Análisis con Data Explorer](../get-started-analyze-data-explorer.md)
+- [Supervisión de grupos de Data Explorer](data-explorer-monitor-pools.md)

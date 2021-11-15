@@ -7,12 +7,12 @@ ms.date: 09/27/2021
 ms.topic: quickstart
 ms.service: purview
 ms.custom: mode-api
-ms.openlocfilehash: b4bcd427508f3ecf66b0cca4bdade023c3f87d61
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0924c0eab925c0ba15f8e0bde841d3005535e23f
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131037822"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131843221"
 ---
 # <a name="quickstart-create-an-azure-purview-account-using-azure-powershellazure-cli"></a>Inicio rápido: Creación de una cuenta de Azure Purview mediante Azure PowerShell o la CLI de Azure
 
@@ -133,7 +133,15 @@ Para más información sobre Purview, [consulte nuestra página de información 
     ---
 
 1. El comando de implementación devuelve los resultados. Busque `ProvisioningState` para ver si la implementación se realizó correctamente.
-    
+
+1. Si implementó la cuenta de Azure Purview mediante una entidad de servicio, en lugar de una cuenta de usuario, también deberá ejecutar el siguiente comando en la CLI de Azure:
+
+    ```azurecli
+    az purview account add-root-collection-admin --account-name --resource-group [--object-id]
+    ```
+  
+    Este comando concederá permisos de [administrador de colecciones](catalog-permissions.md#roles) de cuentas de usuario en la colección raíz de la cuenta de Azure Purview. Esto permite al usuario acceder a Purview Studio y agregar permisos para otros usuarios. Para más información sobre los permisos en Azure Purview, vea nuestra [guía de permisos](catalog-permissions.md). Para más información sobre las colecciones, vea nuestro [artículo de administración de colecciones](how-to-create-and-manage-collections.md).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este inicio rápido, ha aprendido a crear una cuenta de Azure Purview.
@@ -141,5 +149,5 @@ En este inicio rápido, ha aprendido a crear una cuenta de Azure Purview.
 Consulte los artículos siguientes para aprender a navegar por Purview Studio, crear una colección y conceder acceso a Purview.
 
 * [Uso de Purview Studio](use-purview-studio.md)
-* [Crear una colección](quickstart-create-collection.md)
 * [Adición de usuarios a una cuenta de Azure Purview](catalog-permissions.md)
+* [Crear una colección](quickstart-create-collection.md)

@@ -5,27 +5,23 @@ ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Recopile métricas y registros de clústeres de Kubernetes habilitado para Azure Arc con Azure Monitor
-ms.openlocfilehash: fe5a2cb8f57203310d37fa82829b3f1f2c3384e4
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 90a648c5cb6ace4d1f055532d335a705220e2716
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130250699"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131465466"
 ---
 # <a name="azure-monitor-container-insights-for-azure-arc-enabled-kubernetes-clusters"></a>Información del contenedor de Azure Monitor para clústeres de Kubernetes habilitado para Azure Arc
 
 [Información del contenedor de Azure Monitor](container-insights-overview.md) proporciona una experiencia de supervisión enriquecida para clústeres de Kubernetes habilitado para Azure Arc.
 
-[!INCLUDE [preview features note](../../azure-arc/kubernetes/includes/preview/preview-callout.md)]
 
 ## <a name="supported-configurations"></a>Configuraciones admitidas
 
-- Información del contenedor de Azure Monitor admite la supervisión de Kubernetes habilitado para Azure Arc (versión preliminar) tal y como se describe en el artículo [Introducción](container-insights-overview.md), excepto para la característica de datos en directo (versión preliminar). Además, no es necesario que los usuarios tengan permisos de [Propietario](../../role-based-access-control/built-in-roles.md#owner) para [habilitar las métricas](container-insights-update-metrics.md).
+- Información del contenedor de Azure Monitor admite la supervisión de Kubernetes habilitado para Azure Arc tal y como se describe en el artículo [Introducción](container-insights-overview.md), excepto para la característica de datos en directo. Además, no es necesario que los usuarios tengan permisos de [Propietario](../../role-based-access-control/built-in-roles.md#owner) para [habilitar las métricas](container-insights-update-metrics.md).
 - `Docker`, `Moby` y entornos en tiempos de ejecución de contenedor compatibles con CRI, como `CRI-O` y `containerd`.
 - Se admiten un proxy de salida sin autenticación y un proxy de salida con autenticación básica. Actualmente no se admite un proxy de salida que espera certificados de confianza.
-
->[!NOTE]
-> Información del contenedor de Azure Monitor actualmente no admite Kubernetes v1.22 o superior
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -54,8 +50,6 @@ ms.locfileid: "130250699"
 
 - Si anteriormente implementó Azure Monitor Container Insights en este clúster mediante script sin extensiones de clúster, siga las instrucciones que se indican [aquí](container-insights-optout-hybrid.md) para eliminar este gráfico de Helm. Después, puede continuar con la creación de una instancia de la extensión de clúster para Container Insights de Azure Monitor.
 
-    >[!NOTE]
-    > La versión basada en script de la implementación de Azure Monitor Container Insights(versión preliminar) se está reemplazando por la forma de implementación de la [extensión de clúster](../../azure-arc/kubernetes/extensions.md). Azure Monitor implementado anteriormente mediante script solo se admite hasta junio de 2021 y, por lo tanto, se recomienda migrar a la forma de implementación de extensión de clúster cuanto antes.
 
 ### <a name="identify-workspace-resource-id"></a>Identificación del id. del recurso de área de trabajo
 
@@ -135,7 +129,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 1. En Azure Portal, seleccione el clúster de Kubernetes habilitado para Azure Arc que quiere supervisar.
 
-2. Seleccione el elemento "Insights (versión preliminar)" en la sección "Supervisión" de la hoja de recursos.
+2. Seleccione el elemento "Información detallada " en la sección "Supervisión" de la hoja de recursos.
 
 3. En la página de incorporación, seleccione el botón "Configurar Azure Monitor".
 
@@ -162,7 +156,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
     curl -L https://aka.ms/arc-k8s-azmon-extension-arm-template-params -o  arc-k8s-azmon-extension-arm-template-params.json
     ```
 
-2. Actualice los valores de parámetro en el archivo arc-k8s-azmon-extension-arm-template-params.json. En el caso de la nube pública de Azure, debe usarse `opinsights.azure.com` como valor de workspaceDomain.
+2. Actualice los valores de parámetro en el archivo arc-k8s-azmon-extension-arm-template-params.json. En el caso de la nube pública de Azure, debe usarse `opinsights.azure.com` como valor de workspaceDomain y, para AzureUSGovernment, debe usarse `opinsights.azure.us` como valor de workspaceDomain.
 
 3. Implementación de la plantilla para crear una extensión de Azure Monitor Container Insights 
 
@@ -171,6 +165,19 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
     az account set --subscription "Subscription Name"
     az deployment group create --resource-group <resource-group> --template-file ./arc-k8s-azmon-extension-arm-template.json --parameters @./arc-k8s-azmon-extension-arm-template-params.json
     ```
+
+## <a name="verify-extension-installation-status"></a>Comprobación del estado de instalación de la extensión
+Una vez que haya creado correctamente la extensión de Azure Monitor para el clúster de Kubernetes habilitado para Azure Arc, también puede comprobar el estado de la instalación mediante Azure Portal o la CLI. Si las instalaciones son correctas, su estado debe ser "Instalado". Si el estado muestra "Error" o permanece en estado "Pendiente" durante largos períodos de tiempo, continúe con la sección Solución de problemas a continuación.
+
+### <a name="azure-portal"></a>Azure Portal
+1. En Azure Portal, seleccione el clúster de Kubernetes habilitado para Azure Arc con la extensión instalándose.
+2. Seleccione el elemento "Extensiones" en la sección "Configuración" de la hoja de recursos.
+3. Debería ver una extensión con el nombre "azuremonitor-containers" en la lista, con el estado en la columna "Estado de instalación".
+### <a name="azure-cli"></a>Azure CLI
+Ejecute el siguiente comando para mostrar el estado más reciente de la extensión `Microsoft.AzureMonitor.Containers`.
+```azurecli
+az k8s-extension show --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters -n azuremonitor-containers
+```
 
 ## <a name="delete-extension-instance"></a>Eliminación de una instancia de extensión
 
@@ -182,6 +189,9 @@ az k8s-extension delete --name azuremonitor-containers --cluster-type connectedC
 
 ## <a name="disconnected-cluster"></a>Clúster desconectado
 Si el clúster está desconectado de Azure durante > 48 horas, Azure Resource Graph no tendrá información sobre el clúster. Como resultado, la hoja Insights puede mostrar información incorrecta sobre el estado del clúster.
+
+## <a name="troubleshooting"></a>Solución de problemas
+Para las cuestiones relacionadas con la habilitación de la supervisión, hemos proporcionado un [script de solución de problemas](https://aka.ms/azmon-ci-troubleshooting) para ayudar a diagnosticar cualquier problema.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -12,12 +12,12 @@ manager: karenhoran
 ms.reviewer: sahandle
 ms.custom: contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b849d6b208208e42700037179b60b286658bc1fd
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 8d472587800c536f6bebe7e0cf41a2b6fdac2606
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124779414"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131451547"
 ---
 # <a name="what-is-identity-protection"></a>¿Qué es Identity Protection?
 
@@ -80,6 +80,8 @@ Aunque Microsoft no proporciona detalles específicos sobre cómo se calcula el 
 Los datos de Identity Protection se pueden exportar a otras herramientas para su archivo y posterior investigación y correlación. Las API basadas en Microsoft Graph permiten a las organizaciones recopilar estos datos para su posterior procesamiento en una herramienta como su SIEM. Puede encontrar información sobre cómo acceder a la API de Identity Protection en el artículo [Introducción a Azure Active Directory Identity Protection y Microsoft Graph](howto-identity-protection-graph-api.md)
 
 Puede encontrar información sobre la integración de información de Identity Protection con Azure Sentinel en el artículo [Conectar datos de Azure AD Identity Protection](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection).
+
+Además, Las organizaciones pueden optar por almacenar datos durante períodos más largos. Para ello, modifican la configuración de diagnóstico de Azure AD a fin de enviar datos de RiskyUsers y UserRiskEvents a un área de trabajo de Log Analytics, archivar datos en una cuenta de almacenamiento, transmitir datos a un centro de eventos o enviar datos a una solución de asociado. Puede encontrar información detallada sobre cómo hacerlo en el artículo [Procedimiento de exportación de datos de riesgo](howto-export-risk-data.md).
 
 ## <a name="permissions"></a>Permisos
 

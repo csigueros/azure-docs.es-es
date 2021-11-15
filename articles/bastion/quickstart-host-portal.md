@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/12/2021
 ms.author: cherylmc
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 9e9504220ac6aa001314c8ebf78bdb11a6cd011a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 243b8a068c5301c5545c2afe8567ae1fbf71284c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131071598"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131426722"
 ---
 # <a name="quickstart-configure-azure-bastion-from-vm-settings"></a>Inicio rápido: Configuración de Azure Bastion a partir de las opciones de máquina virtual
 
@@ -63,7 +63,7 @@ Puede usar los siguientes valores de ejemplo al crear esta configuración, o pue
 | --- | --- |
 | Nombre | VNet1-bastion |
 | + Nombre de subred | AzureBastionSubnet |
-| Direcciones de AzureBastionSubnet | Una subred dentro del espacio de direcciones de la red virtual con una máscara de subred /27 o superior.<br> Por ejemplo, 10.1.1.0/26.  |
+| Direcciones de AzureBastionSubnet | Una subred dentro del espacio de direcciones de la red virtual con una máscara de subred /26 o superior.<br> Por ejemplo, 10.1.1.0/26.  |
 | Nivel o SKU | Estándar |
 | Dirección IP pública |  Crear nuevo |
 | Nombre de la dirección IP pública | VNet1-ip  |
@@ -89,7 +89,7 @@ Hay varias maneras de configurar un host bastión. En los pasos siguientes crear
 
    :::image type="content" source="./media/quickstart-host-portal/create-step-1.png" alt-text="Captura de pantalla de la configuración prepoblada del paso 1." lightbox="./media/quickstart-host-portal/create-step-1.png":::
 
-1. En la página **Conectar mediante Azure Bastion**, **paso 2**,configure los valores de la subred. El espacio de direcciones de AzureBastionSubnet se rellena previamente con un espacio de direcciones sugerido. AzureBastionSubnet debe tener un espacio de direcciones de /27, o mayor (/26, /25, etc.). Se recomienda usar /26 para que el escalado del host no esté limitado. Cuando termine de configurar esta opción, haga clic en **Crear subred** para crear AzureBastionSubnet.
+1. En la página **Conectar mediante Azure Bastion**, **paso 2**,configure los valores de la subred. El espacio de direcciones de AzureBastionSubnet se rellena previamente con un espacio de direcciones sugerido. AzureBastionSubnet debe tener un espacio de direcciones de /26, o mayor (/25, /24, etc.). Se recomienda usar /26 para que el escalado del host no esté limitado. Cuando termine de configurar esta opción, haga clic en **Crear subred** para crear AzureBastionSubnet.
 
      :::image type="content" source="./media/quickstart-host-portal/create-subnet.png" alt-text="Captura de pantalla de creación de la subred de Bastion.":::
 

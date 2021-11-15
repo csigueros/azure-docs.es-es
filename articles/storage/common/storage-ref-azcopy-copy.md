@@ -8,12 +8,12 @@ ms.date: 09/01/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: d6256fdb15fd4e1e5674ab9aa24002027ed712d9
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 2d22e449a2e3c1ce7d026d4eed6ca9992e0ace14
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129273540"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131460268"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 

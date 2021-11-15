@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: vikancha
-ms.openlocfilehash: f40ac573e8abb20e7d4eb4b11a0d9e09f251d9c8
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 4a366d704e942c74bfa32e9a0819cfda2126b2d1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131022025"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456620"
 ---
 # <a name="np-series"></a>Serie NP 
 
@@ -29,7 +29,7 @@ Compatibilidad con generación de VM: Generación 1<br>
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible<br>
 <br>
 
-| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | FPGA | Memoria de FPGA: GiB | Discos de datos máx. | Nº máx. de NIC/ancho de banda de red esperado (Mbps) | 
+| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | FPGA | Memoria de FPGA: GiB | Discos de datos máx. | N.º máx. de NIC/ancho de banda de red esperado (Mbps) | 
 |---|---|---|---|---|---|---|---|
 | Standard_NP10s | 10 | 168 | 736  | 1 | 64  | 8 | 1 / 7500 | 
 | Standard_NP20s | 20 | 336 | 1474 | 2 | 128 | 16 | 2 / 15000 | 

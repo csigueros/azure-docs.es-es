@@ -1,25 +1,25 @@
 ---
 title: 'Prueba y reentrenamiento de un modelo: Custom Vision Service'
 titleSuffix: Azure Cognitive Services
-description: En este artículo se muestra cómo probar una imagen y, a continuación, utilizarla para volver a entrenar el modelo en Custom Vision Service.
+description: Aprenda a probar una imagen y, a continuación, utilizarla para volver a entrenar el modelo en Custom Vision Service.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 10/27/2021
 ms.author: pafarley
-ms.openlocfilehash: 736d135323e2a2df38a13dc46189e2a243fbe381
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b326a610d3ac946d8fd610b072e882df3a4b5281
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100097541"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450464"
 ---
 # <a name="test-and-retrain-a-model-with-custom-vision-service"></a>Prueba y reentrenamiento de un modelo con Custom Vision Service
 
-Después de entrenar el modelo, puede probarlo rápidamente con una imagen almacenada de forma local o una imagen en línea. En la prueba se usa la iteración entrenada más recientemente.
+Después de entrenar el modelo, puede probarlo rápidamente con una imagen almacenada de forma local o una imagen en línea. En la prueba se usa la iteración entrenada más recientemente de su modelo.
 
 ## <a name="test-your-model"></a>Comprobación del modelo
 

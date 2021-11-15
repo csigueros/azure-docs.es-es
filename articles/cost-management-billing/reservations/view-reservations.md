@@ -6,14 +6,14 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/05/2021
+ms.date: 10/28/2021
 ms.author: banders
-ms.openlocfilehash: 797aff6fed0cf2eda46bcf5371e57e18df466f00
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 5ee6972ae409a2912f677c0411daf01aaa96f6f7
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129546969"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131464706"
 ---
 # <a name="permissions-to-view-and-manage-azure-reservations"></a>Permisos para ver y administrar reservas de Azure
 
@@ -92,6 +92,8 @@ Para que otras personas puedan administrar las reservas, tiene dos opciones:
 
 Los usuarios con acceso de propietario para los pedidos de reservas, los usuarios con acceso elevado y los [administradores de acceso de usuario](../../role-based-access-control/built-in-roles.md#user-access-administrator) pueden delegar la administración de acceso con relación a todos los pedidos de reserva a los que tienen acceso.
 
+El acceso concedido mediante PowerShell no se muestra en Azure Portal. En su lugar, use el comando `get-AzRoleAssignment` de la sección siguiente para ver los roles asignados.
+
 ## <a name="assign-the-owner-role-for-all-reservations"></a>Asignación del rol "Propietario" para todas las reservas
 
 Use el siguiente script de Azure PowerShell para proporcionar a un usuario acceso de Azure RBAC a todos los pedidos de reservas en su inquilino (directorio) de Azure AD.
@@ -112,9 +114,15 @@ $reservationObjects = $responseJSON.value
 foreach ($reservation in $reservationObjects)
 {
   $reservationOrderId = $reservation.id.substring(0, 84)
-  Write-Host "Assiging Owner role assignment to "$reservationOrderId
+  Write-Host "Assigning Owner role assignment to "$reservationOrderId
   New-AzRoleAssignment -Scope $reservationOrderId -ObjectId <ObjectId> -RoleDefinitionName Owner
 }
+```
+
+Cuando se usa el script de PowerShell para asignar el rol de propiedad y se ejecuta correctamente, no se devuelve un mensaje de operación correcta. Sin embargo, puede comprobar que el rol se asignó con:
+
+```azurepowershell
+get-AzRoleAssignment -Scope "/providers/Microsoft.Capacity" |?{$_.RoleDefinitionName -Like "Reservations*"}
 ```
 
 ### <a name="parameters"></a>Parámetros

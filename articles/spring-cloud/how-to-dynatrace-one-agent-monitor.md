@@ -1,22 +1,22 @@
 ---
-title: Supervisión de aplicaciones de Azure Spring Cloud con Dynatrace Java OneAgent
-description: Uso de Dynatrace Java OneAgent para supervisar aplicaciones de Azure Spring Cloud
+title: Supervisión de aplicaciones de Spring Boot con Dynatrace Java OneAgent
+description: Uso de Dynatrace Java OneAgent para supervisar aplicaciones de Spring Boot que se ejecutan en Azure Spring Cloud
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 08/31/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: ea4ce0946239dd6355174674f443a1f29c2b9d06
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 20625461d27108c201f44458eff3f96d77f81132
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123438883"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225536"
 ---
-# <a name="how-to-monitor-azure-spring-cloud-applications-with-dynatrace-java-oneagent"></a>Supervisión de aplicaciones de Azure Spring Cloud con Dynatrace Java OneAgent
+# <a name="how-to-monitor-spring-boot-apps-with-dynatrace-java-oneagent"></a>Supervisión de aplicaciones de Spring Boot con Dynatrace Java OneAgent
 
-En este artículo se explica cómo usar Dynatrace OneAgent para supervisar las aplicaciones de Azure Spring Cloud.
+En este artículo se explica cómo usar Dynatrace OneAgent para supervisar aplicaciones de Spring Boot que se ejecutan en Azure Spring Cloud.
 
 Con Dynatrace OneAgent, puede hacer lo siguiente:
 
@@ -94,11 +94,11 @@ Para agregar los pares clave-valor mediante Azure Portal, siga estos pasos:
 
    :::image type="content" source="media/dynatrace-oneagent/configuration-application.png" alt-text="Captura de pantalla de la pestaña &quot;Variables de entorno&quot; de la sección Configuración de la aplicación." lightbox="media/dynatrace-oneagent/configuration-application.png":::
 
-## <a name="automation"></a>Automation
+## <a name="automate-provisioning"></a>Aprovisionamiento automatizado
 
 Con Terraform o una plantilla de Azure Resource Manager (plantilla de ARM), también puede ejecutar una canalización de automatización de aprovisionamiento. Esta canalización puede proporcionar una experiencia práctica completa para instrumentar y supervisar las nuevas aplicaciones que cree e implemente.
 
-### <a name="terraform"></a>Terraform
+### <a name="automate-provisioning-using-terraform"></a>Aprovisionamiento automatizado mediante Terraform
 
 Para configurar las variables de entorno en una plantilla de Terraform, agregue el código que se muestra a continuación a la plantilla y reemplace los marcadores de posición *\<...>* por sus propios valores. Para obtener más información, consulte el tema sobre la [administración de una implementación activa de Azure Spring Cloud](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_active_deployment).
 
@@ -111,7 +111,7 @@ environment_variables = {
 }
 ```
 
-### <a name="arm-template"></a>Plantilla ARM
+### <a name="automate-provisioning-using-an-arm-template"></a>Aprovisionamiento automatizado mediante una plantilla de ARM
 
 Para configurar las variables de entorno en una plantilla de ARM, agregue el código a la plantilla que se muestra a continuación y reemplace los marcadores de posición *\<...>* por sus propios valores. Para obtener más información, consulte [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=json).
 
@@ -167,7 +167,7 @@ Puede encontrar el **Seguimiento regresivo** en **Databases/Details/Backtrace**:
 
 :::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-database-backtrace.png" alt-text="Captura de pantalla del informe &quot;Seguimiento regresivo&quot;." lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-database-backtrace.png":::
 
-## <a name="dynatrace-oneagent-logging"></a>Registro de Dynatrace OneAgent
+## <a name="view-dynatrace-oneagent-logs"></a>Visualización de registros de Dynatrace OneAgent
 
 De manera predeterminada, Azure Spring Cloud imprimirá los registros de nivel de *información* de Dynatrace OneAgent en `STDOUT`. Los registros se mezclarán con los registros de aplicaciones. Puede encontrar la versión explícita del agente en los registros de aplicaciones.
 

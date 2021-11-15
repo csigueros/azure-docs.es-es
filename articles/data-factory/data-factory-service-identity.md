@@ -6,15 +6,15 @@ author: nabhishek
 ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 10/22/2021
 ms.author: abnarain
 ms.custom: devx-track-azurepowershell, synapse
-ms.openlocfilehash: ed7cd2836f601e412aca7f73c52f2a0e13173a8a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 8e1eaad6d25623c9cb1697137fdb69340cb6aeca
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131011491"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131846134"
 ---
 # <a name="managed-identity-for-azure-data-factory-and-azure-synapse"></a>Identidad administrada para Azure Data Factory y Azure Synapse 
 
@@ -37,7 +37,7 @@ La identidad administrada proporciona las siguientes ventajas:
 
 - [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md), en cuyo caso la identidad administrada se usa para la autenticación de Azure Key Vault.
 - Obtenga acceso a almacenes de datos o procesos mediante la autenticación de identidad administrada, como Azure Blob Storage, Azure Data Explorer, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, REST, actividad de Databricks, actividad web y mucho más. Consulte los artículos sobre el conector y las actividades para obtener más información.
-- La identidad administrada asignada por el usuario también se usa para cifrar o descifrar los metadatos mediante la clave administrada por el cliente almacenada en Azure Key Vault, lo que brinda cifrado doble. 
+- La identidad administrada también se usa para cifrar o descifrar los datos y los metadatos mediante la clave administrada por el cliente almacenada en Azure Key Vault, lo que brinda cifrado doble. 
 
 ## <a name="system-assigned-managed-identity"></a>Identidad administrada asignada por el sistema 
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 09/23/2021
+ms.date: 10/28/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f59d127342eabf3b951972a8d9d2bd82e0a6fa0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a6dddc2825c580507177fd60479f2f496ba742c7
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128622082"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131447956"
 ---
 # <a name="what-is-risk"></a>¿Qué es el riesgo?
 
@@ -34,6 +34,9 @@ Identity Protection proporciona a las organizaciones el acceso a recursos eficac
 El riesgo se puede detectar a nivel de **Usuario** y de **Inicio de sesión**; además, existen dos tipos de detección o cálculo: **Tiempo real** y **Sin conexión**.
 
 Es posible que las detecciones en tiempo real no se muestren en los informes durante un tiempo comprendido entre cinco y diez minutos. Es posible que las detecciones sin conexión no se muestren en los informes durante 48 horas.
+
+> [!NOTE] 
+> Nuestro sistema puede detectar que el evento de riesgo que ha contribuido a la puntuación de riesgo del usuario de riesgo era un falso positivo o que se ha corregido el riesgo del usuario con la aplicación de directivas, como al completar una solicitud de MFA o un cambio de contraseña seguro. Por lo tanto, el sistema descartará el estado de riesgo y se mostrará un detalle de riesgo de "La IA confirmó que el inicio de sesión es seguro" y dejará de contribuir al riesgo del usuario. 
 
 ### <a name="user-linked-detections"></a>Detecciones vinculadas al usuario
 
@@ -58,7 +61,7 @@ Estos riesgos se pueden calcular en tiempo real o sin conexión, usando orígene
 | Viaje atípico | Sin conexión | Este tipo de detección de riesgos identifica dos inicios de sesión procedentes de ubicaciones geográficamente distantes, donde al menos una de las ubicaciones puede también ser inusual para el usuario, según su comportamiento anterior. Entre otros factores, este algoritmo de aprendizaje automático tiene en cuenta el tiempo entre los dos inicios de sesión y el tiempo que habría necesitado el usuario para viajar de la primera ubicación a la segunda, lo que indica que otro usuario utiliza las mismas credenciales. <br><br> Este algoritmo omite "falsos positivos" obvios que contribuyen a una condición de viaje imposible, como las VPN y las ubicaciones que usan con regularidad otros usuarios de la organización. El sistema tiene un período de aprendizaje inicial de 14 días o 10 inicios de sesión, lo que ocurra primero, durante el cual aprende el comportamiento de inicio de sesión del nuevo usuario. |
 | Token anómalo | Sin conexión | Esta detección indica que hay características anómalas en el token, como una duración inusual del token o un token que se reproduce desde una ubicación desconocida. Esta detección abarca los tokens de sesión y los tokens de actualización. |
 | Anomalía del emisor de tokens | Sin conexión |Esta detección de riesgo indica que el emisor del token SAML asociado puede estar en peligro. Las notificaciones incluidas en el token son inusuales o coinciden con patrones de atacante conocidos. |
-| Dirección IP vinculada al malware | Sin conexión | Este tipo de detección de riesgos indica inicios de sesión desde direcciones IP infectadas con malware, que se sabe que se comunican activamente con un servidor bot. Esta detección se determina mediante la correlación de direcciones IP del dispositivo del usuario con direcciones IP que han estado en contacto con un servidor bot mientras este último estaba activo. |
+| Dirección IP vinculada al malware | Sin conexión | Este tipo de detección de riesgos indica inicios de sesión desde direcciones IP infectadas con malware, que se sabe que se comunican activamente con un servidor bot. Esta detección se determina mediante la correlación de direcciones IP del dispositivo del usuario con direcciones IP que han estado en contacto con un servidor bot mientras este último estaba activo. <br><br> **[Esta detección ha quedado en desuso](../fundamentals/whats-new.md#planned-deprecation---malware-linked-ip-address-detection-in-identity-protection)** . Identity Protection ya no generará nuevas detecciones de "Dirección IP vinculada a malware". Los clientes que actualmente tienen detecciones de "Dirección IP vinculada a malware" en su inquilino podrán verlas, corregirlas o descartarlas hasta que se alcance el tiempo de retención de detección de 90 días.|
 | Explorador sospechoso | Sin conexión | La detección sospechosa del explorador indica un comportamiento anómalo basado en la actividad de inicio de sesión sospechosa en varios inquilinos de distintos países en el mismo explorador. |
 | Propiedades de inicio de sesión desconocidas | Tiempo real | Este tipo de detección de riesgos tiene en cuenta el historial de inicio de sesión anterior (dirección IP, latitud/longitud y ASN) para determinar inicios de sesión anómalos. El sistema almacena información acerca de las ubicaciones anteriores que ha utilizado un usuario y considera estas ubicaciones "conocidas". La detección de riesgos se desencadena cuando el inicio de sesión se produce desde una ubicación que no está en la lista de ubicaciones conocidas. Los usuarios recién creados estarán en "modo de aprendizaje" durante un tiempo, en el que las detecciones de riesgo de las propiedades de inicio de sesión desconocidas estarán desactivadas mientras nuestros algoritmos aprenden el comportamiento del usuario. La duración del modo de aprendizaje es dinámica y depende de cuánto tiempo tarde el algoritmo en recopilar información suficiente sobre los patrones de inicio de sesión del usuario. La duración mínima es de cinco días. Un usuario puede volver al modo de aprendizaje tras un largo período de inactividad. El sistema también ignora los inicios de sesión desde dispositivos conocidos y ubicaciones geográficamente cercanas a una ubicación conocida. <br><br> También se ejecuta esta detección para una autenticación básica o para protocolos heredados. Dado que estos protocolos no tienen propiedades modernas como el identificador de cliente, hay una telemetría limitada para reducir los falsos positivos. Se recomienda que los clientes realicen la migración a la autenticación moderna. <br><br> Se pueden detectar propiedades de inicio de sesión desconocidas en inicios de sesión interactivos y no interactivos. Cuando esta detección se realiza en inicios de sesión no interactivos, merece mayor supervisión debido al riesgo de ataques de reproducción de tokens.  |
 | Vulneración de identidad de usuario confirmada por el administrador | Sin conexión | Esta detección indica que un administrador ha seleccionado "Confirmar vulneración de la identidad del usuario" en la interfaz de usuario de Usuarios de riesgo o mediante riskyUsers API. Para ver qué administrador ha confirmado este usuario comprometido, compruebe el historial de riesgos del usuario (a través de la interfaz de usuario o la API). |
@@ -88,6 +91,10 @@ Aunque Microsoft no proporciona detalles específicos sobre cómo se calcula el 
 ### <a name="password-hash-synchronization"></a>Sincronización de hash de contraseña
 
 Las detecciones de riesgos, como las credenciales filtradas, requieren la presencia de elementos hash de contraseña para que se produzca la detección. Para obtener más información sobre la sincronización de hash de contraseñas, consulte [Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md).
+
+### <a name="why-are-there-risk-detections-generated-for-disabled-user-accounts"></a>¿Por qué se generan detecciones de riesgo para cuentas de usuario deshabilitadas?
+          
+Las cuentas de usuario deshabilitadas se pueden volver a habilitar. Si las credenciales de una cuenta deshabilitada están en peligro y la cuenta se vuelve a habilitar, los actores no autorizados podrían usar esas credenciales para obtener acceso. Por este motivo, Identity Protection genera detecciones de riesgos para actividades sospechosas en cuentas de usuario deshabilitadas para alertar a los clientes sobre posibles riesgos para la cuenta. Si una cuenta ya no está en uso y no se habilitará de nuevo, los clientes deben considerar la posibilidad de eliminarla para evitar el riesgo. No se generan detecciones de riesgo para las cuentas eliminadas.
 
 ### <a name="leaked-credentials"></a>Credenciales con fugas
 

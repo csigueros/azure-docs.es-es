@@ -3,28 +3,29 @@ title: 'Microsoft Defender para servidores: ventajas y características'
 description: Obtenga información sobre las ventajas y características de Microsoft Defender para servidores.
 author: memildin
 ms.author: memildin
-ms.date: 09/05/2021
+ms.date: 11/02/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 121809ab32db6811eb6755c857f13a3469cbcfa0
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a02c6305dd3fecfcc3e83d48f228e1753dda1e2b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131061055"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131467594"
 ---
 # <a name="introduction-to-microsoft-defender-for-servers"></a>Introducción a Microsoft Defender para servidores
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Microsoft Defender para servidores agrega la detección de amenazas y defensas avanzadas para las máquinas Windows y Linux.
+Microsoft Defender para servidores es una de las características de seguridad mejoradas de Microsoft Defender for Cloud. Utilícelo para agregar detección de amenazas y defensas avanzadas a las máquinas Windows y Linux, tanto si se ejecutan en Azure, en el entorno local o en un entorno de varias nubes.
 
-Para Windows, Microsoft Defender for Cloud se integra con servicios de Azure para supervisar y proteger las máquinas Windows. Defender for Cloud presenta las alertas y las sugerencias de corrección de todos estos servicios en un formato fácil de usar.
+Para proteger las máquinas en entornos híbridos y de varias nubes, Defender for Cloud usa [Azure Arc](../azure-arc/index.yml). Conecte las máquinas híbridas y de varias nubes, como se explica en la guía de inicio rápido correspondiente:
+- [Conexión de máquinas que no son de Azure a Microsoft Defender for Cloud](quickstart-onboard-machines.md)
+- [Conexión de cuentas de AWS a Microsoft Defender for Cloud](quickstart-onboard-aws.md)
 
-Para Linux, Defender for Cloud recopila registros de auditoría de máquinas Linux mediante auditd, uno de los marcos de trabajo de Linux más comunes.
-
+> [!TIP]
+> Para más información sobre qué características de Defender para servidores son pertinentes para las máquinas que se ejecutan en otros entornos en la nube, consulte [Características admitidas para máquinas virtuales y servidores](supported-machines-endpoint-solutions-clouds.md?tabs=features-windows#supported-features-for-virtual-machines-and-servers-).
 
 ## <a name="what-are-the-benefits-of-microsoft-defender-for-servers"></a>¿Cuáles son las ventajas de Microsoft Defender para servidores?
 
@@ -83,6 +84,14 @@ Las funcionalidades de detección de amenazas y protección que se proporcionan 
     El agente de Log Analytics para Linux recopila registros auditados, los enriquece y los agrega a eventos. Defender for Cloud agrega continuamente análisis nuevos que usan señales de Linux para detectar comportamientos malintencionados en máquinas Linux locales y en la nube. De manera similar a las funcionalidades de Windows, estos análisis abarcan varios procesos sospechosos, intentos de inicio de sesión dudosos, carga de módulos de kernel y otras actividades. Estas actividades pueden indicar que una máquina está sufriendo un ataque o se ha vulnerado.  
 
     Para obtener una lista de las alertas de Linux, consulte la [Tabla de referencia de alertas](alerts-reference.md#alerts-linux).
+
+## <a name="how-does-defender-for-servers-collect-data"></a>¿Cómo recopila los datos Defender para servidores?
+
+Para Windows, Microsoft Defender for Cloud se integra con servicios de Azure para supervisar y proteger las máquinas Windows. Defender for Cloud presenta las alertas y las sugerencias de corrección de todos estos servicios en un formato fácil de usar.
+
+Para Linux, Defender for Cloud recopila registros de auditoría de máquinas Linux mediante auditd, uno de los marcos de trabajo de Linux más comunes.
+
+En escenarios híbridos y de varias nubes, Defender for Cloud se integra con [Azure Arc](../azure-arc/index.yml) para asegurarse de que estas máquinas que no son de Azure se vean como recursos de Azure. 
 
 
 ## <a name="simulating-alerts"></a>Simulación de alertas

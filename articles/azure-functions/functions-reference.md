@@ -4,12 +4,12 @@ description: Obtenga información sobre los conceptos y las técnicas de Azure F
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 9/02/2021
-ms.openlocfilehash: 94760d7029c74cb5669a1275c4d670f1b89b6c12
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: db0fc469d7f4429d8a99c5869940dfc50b63e845
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131048786"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131477067"
 ---
 # <a name="azure-functions-developer-guide"></a>Guía para desarrolladores de Azure Functions
 En Azure Functions, determinadas funciones comparten algunos componentes y conceptos técnicos básicos, independientemente del idioma o el enlace que use. Antes de ir a detalles de aprendizaje específicos de un idioma o un enlace determinados, asegúrese de leer al completo esta información general que se aplica a todos ellos.
@@ -115,10 +115,10 @@ Las conexiones basadas en identidades son compatibles con los siguientes compone
 
 | Origen de la conexión                                       | Planes admitidos | Más información                                                                                                         |
 |---------------------------------------------------------|-----------------|--------------------------------------------------------------------------------------------------------------------|
-| Enlaces y desencadenadores de blobs de Azure: versión preliminar              | All             | [Versión de extensión 5.0.0-beta1 o posterior](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)     |
-| Enlaces y desencadenadores de colas de Azure: versión preliminar             | All             | [Versión de extensión 5.0.0-beta1 o posterior](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher)    |
-| Enlaces y desencadenadores de Azure Event Hubs: versión preliminar        | All             | [Versión de extensión 5.0.0-beta1 o posterior](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher)    |
-| Enlaces y desencadenadores de Azure Service Bus: versión preliminar       | All             | [Versión de extensión 5.0.0-beta2 o posterior](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher)  |
+| Desencadenadores y enlaces de blobs de Azure               | Todo             | [Versión 5.0.0 o posterior de la extensión](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)     |
+| Desencadenadores y enlaces de colas de Azure            | Todo             | [Versión 5.0.0 o posterior de la extensión](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher)    |
+| Desencadenadores y enlaces de Azure Event Hubs     | Todo             | [Versión 5.0.0 o posterior de la extensión](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher)    |
+| Desencadenadores y enlaces de Azure Service Bus       | Todo             | [Versión 5.0.0 o posterior de la extensión](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher)  |
 | Enlaces y desencadenadores de Azure Cosmos DB: versión preliminar         | Elastic Premium | [Versión de extensión 4.0.0-preview1 o posterior](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) |
 | Almacenamiento necesario para el host ("AzureWebJobsStorage"): versión preliminar | All             | [Conexión al almacenamiento de host con una identidad](#connecting-to-host-storage-with-an-identity-preview)                        |
 
@@ -145,11 +145,11 @@ Elija una de las pestaña a continuación para obtener información sobre los pe
 
 [!INCLUDE [functions-service-bus-permissions](../../includes/functions-service-bus-permissions.md)]
 
-# <a name="azure-cosmos-db-extension"></a>[Extensión de Azure Cosmos DB](#tab/cosmos)
+# <a name="azure-cosmos-db-extension-preview"></a>[Extensión de Azure Cosmos DB (versión preliminar)](#tab/cosmos)
 
 [!INCLUDE [functions-cosmos-permissions](../../includes/functions-cosmos-permissions.md)]
 
-# <a name="functions-host-storage"></a>[Almacenamiento de host de Functions](#tab/azurewebjobsstorage)
+# <a name="functions-host-storage-preview"></a>[Almacenamiento de host de Functions (versión preliminar)](#tab/azurewebjobsstorage)
 
 [!INCLUDE [functions-azurewebjobsstorage-permissions](../../includes/functions-azurewebjobsstorage-permissions.md)]
 

@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo crear grupos de nodos de Interfaz 
 services: container-service
 ms.topic: article
 ms.date: 10/12/2021
-ms.openlocfilehash: a15818cc352402cc6b4ba0f302228e183ab1d822
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 91649a6c7893970eee5685554385eed1493c0094
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130007064"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265970"
 ---
 # <a name="create-webassembly-system-interface-wasi-node-pools-in-azure-kubernetes-service-aks-to-run-your-webassembly-wasm-workload-preview"></a>Creación de grupos de nodos de Interfaz del sistema de WebAssembly (WASI) en Azure Kubernetes Service (AKS) para ejecutar la carga de trabajo de WebAssembly (WASM) (versión preliminar)
 
@@ -64,12 +64,12 @@ az extension update --name aks-preview
 
 ### <a name="limitations"></a>Limitaciones
 
-* No puede ejecutar elementos WebAssembly y contenedores en el mismo grupo de nodos.
+* No puede ejecutar WebAssemblies y contenedores en el mismo grupo de nodos.
 * Solo está disponible el entorno de ejecución WebAssembly (WASI), mediante el proveedor Wasmtime.
 * Los grupos de nodos WASM/WASI no se pueden usar para el grupo de nodos del sistema.
 * El *tipo de sistema operativo* de los grupos de nodos WASM/WASI debe ser Linux.
 * Krustlet no funciona con Azure CNI en este momento. Para más información, consulte [Compatibilidad con CNI sobre el problema de GitHub de Krustlet][krustlet-cni-support].
-* Krustlet no proporciona configuración de redes para los elementos WebAssembly. El manifiesto de WebAssembly debe proporcionar la configuración de redes, como la dirección IP.
+* Krustlet no proporciona configuración de redes para los elementos WebAssembly. El manifiesto WebAssembly debe proporcionar la configuración de red, como la dirección IP.
 
 ## <a name="add-a-wasmwasi-node-pool-to-an-existing-aks-cluster"></a>Adición de un grupo de nodos WASM/WASI a un clúster de AKS existente
 

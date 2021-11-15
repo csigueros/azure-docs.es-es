@@ -3,22 +3,22 @@ title: Personalizar la interfaz del usuario
 titleSuffix: Azure AD B2C
 description: Obtenga información acerca de cómo personalizar la interfaz de usuario en las aplicaciones que usan Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 10/21/2021
 ms.custom: project-no-code, b2c-support
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 583c9fb66708cee46cbd0b7c7f341c1a6a9b7a55
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 70331a45936f2608f8eb9a4aadfd182056e11a77
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128575320"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130222732"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalización de la interfaz de usuario en Azure Active Directory B2C
 
@@ -227,7 +227,7 @@ Después de configurar la personalización de marca de la empresa, habilítela e
 
 Si desea personalizar la marca de todas las páginas del flujo de usuario, establezca la versión de cada diseño de página incluido en el flujo de usuario.
 
-![Selección del diseño de página de Azure AD B2C en Azure Portal](media/customize-ui/portal-02-page-layout-select.png)
+:::image type="content" source="media/customize-ui/portal-02-page-layout-select.png" alt-text="Selección del diseño de página de Azure AD B2C en Azure Portal.":::
 
 ::: zone-end
 
@@ -279,6 +279,25 @@ En el siguiente ejemplo se muestran las definiciones de contenido con su corresp
   </ContentDefinition>
 </ContentDefinitions>
 ```
+
+::: zone-end
+
+::: zone pivot="b2c-user-flow"
+
+## <a name="re-order-input-fields-in-the-sign-up-form"></a>Volver a ordenar los campos de entrada en el formulario de registro
+Para volver a ordenar los campos de entrada en la página de registro del formulario de cuentas locales, siga estos pasos:
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. En Azure Portal, busque y seleccione **Azure AD B2C**.
+1. En el menú de la izquierda, seleccione **Flujos de usuario**.
+1. Seleccione un flujo de usuario (solo para cuentas locales) en el que quiera volver a ordenar sus campos de entrada.
+1. En el menú izquierdo, seleccione **Diseños de página**.
+1. En la tabla, seleccione la fila **Página de registro de cuenta local**.
+1. En **Atributos de usuario**, seleccione el campo de entrada que quiere volver a ordenar y arrastre (arriba o abajo) y coloque o use los controles **Subir** o **Bajar** para conseguir el orden deseado. 
+1. En la parte superior de la página, seleccione **Guardar**.
+
+  :::image type="content" source="media/customize-ui/portal-02-page-layout-fields.png" alt-text="Lista desplegable de selección de plantillas en la página de flujo de usuario de Azure Portal.":::
 
 ::: zone-end
 

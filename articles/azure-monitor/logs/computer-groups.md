@@ -4,13 +4,13 @@ description: Los grupos de equipos en Azure Monitor permiten limitar las consult
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/05/2019
-ms.openlocfilehash: d8702b498e08561175aa7ee975c7b6b46fdf1687
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 10/20/2021
+ms.openlocfilehash: dd724da3d200f26122ae780c740aa6fe4c84b08c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031096"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130244969"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupos de equipos en las consultas de registros de Azure Monitor
 Los grupos de equipos en Azure Monitor permiten limitar las [consultas de registros](./log-query-overview.md) a un conjunto concreto de equipos.  Cada grupo se rellena con equipos mediante una consulta que defina o a través de la importación de grupos de diferentes orígenes.  Cuando el grupo se incluye en una consulta de registros, los resultados se limitan a los registros que coinciden con los equipos del grupo.
@@ -60,32 +60,20 @@ Al configurar Azure Monitor para importar pertenencias a grupos de Active Direct
 > [!NOTE]
 > Los grupos importados de Active Directory solo contienen las máquinas de Windows.
 
-Configure Azure Monitor para importar los grupos de seguridad de Active Directory desde **Configuración avanzada** en el área de trabajo de Log Analytics de Azure Portal.  Seleccione **Grupos de equipos**, **Active Directory** y, a continuación, **Importar pertenencias a grupos de Active Directory de los equipos**.  No es necesario realizar ninguna configuración más.
-
-![Grupos de equipos de Active Directory](media/computer-groups/configure-activedirectory.png)
-
-Una vez importados los grupos, el menú muestra el número de equipos con la pertenencia a grupos detectada y el número de grupos de importados.  Puede hacer clic en cualquiera de estos vínculos para devolver los registros de **ComputerGroup** con esta información.
+Configure Azure Monitor para importar los grupos de seguridad de Active Directory desde el elemento de menú **Grupos de equipos** en el área de trabajo de Log Analytics de Azure Portal.  Seleccione la pestaña **Active Directory** y, luego, **Importar pertenencias a grupos de Active Directory desde los equipos**.  Una vez importados los grupos, el menú muestra el número de equipos con la pertenencia a grupos detectada y el número de grupos de importados.  Puede hacer clic en cualquiera de estos vínculos para devolver los registros de **ComputerGroup** con esta información.
 
 ### <a name="windows-server-update-service"></a>Windows Server Update Services
 Al configurar Azure Monitor para importar pertenencias a grupos de WSUS, se analiza la pertenencia a grupos de destino de todos los equipos con el agente de Log Analytics.  Si utiliza destinatarios del lado cliente, se importará a Azure Monitor la pertenencia a grupos de todos los equipos conectados a Azure Monitor que formen parte de cualquier grupo de destino de WSUS. Si usa destinatarios del lado servidor, le recomendamos que instale el agente de Log Analytics en el servidor WSUS para que se importe la información de pertenencia a grupos en Azure Monitor.  Esta pertenencia se actualiza continuamente cada 4 horas. 
 
-Configure Azure Monitor para importar los grupos de WSUS desde **Configuración avanzada** en el área de trabajo de Log Analytics en Azure Portal.  Seleccione **Grupos de equipos**, **WSUS** y, a continuación, **Importar pertenencias a grupos de WSUS**.  No es necesario realizar ninguna configuración más.
-
-![Grupos de equipos de WSUS](media/computer-groups/configure-wsus.png)
-
-Una vez importados los grupos, el menú muestra el número de equipos con la pertenencia a grupos detectada y el número de grupos de importados.  Puede hacer clic en cualquiera de estos vínculos para devolver los registros de **ComputerGroup** con esta información.
+Configurará Azure Monitor para importar los grupos de WSUS desde el elemento de menú **Grupos de equipos** en el área de trabajo de Log Analytics de Azure Portal.  Seleccione la pestaña **Windows Server Update Service** y, luego, **Importar pertenencias a grupos de WSUS**.  Una vez importados los grupos, el menú muestra el número de equipos con la pertenencia a grupos detectada y el número de grupos de importados.  Puede hacer clic en cualquiera de estos vínculos para devolver los registros de **ComputerGroup** con esta información.
 
 ### <a name="configuration-manager"></a>Administrador de configuración
-Al configurar Azure Monitor para importar miembros de la recopilación de Configuration Manager, este crea un grupo de equipos para cada colección.  La información de los miembros de la colección se recupera cada tres horas para mantener actualizados los grupos de equipos. 
+Al configurar Azure Monitor para importar miembros de la recopilación de Configuration Manager, este crea un grupo de equipos para cada colección.  La información de los miembros de la colección se recupera cada tres horas para mantener actualizados los grupos de equipos. Para poder importar colecciones de Configuration Manager, debe [conectar Configuration Manager a Azure Monitor](collect-sccm.md).  
 
-Para poder importar colecciones de Configuration Manager, debe [conectar Configuration Manager a Azure Monitor](collect-sccm.md).  
-
-![Grupos de equipos de SCCM](media/computer-groups/configure-sccm.png)
-
-Una vez importadas las colecciones, el menú muestra el número de equipos con la pertenencia a grupos detectada y el número de grupos de importados.  Puede hacer clic en cualquiera de estos vínculos para devolver los registros de **ComputerGroup** con esta información.
+Configurará Azure Monitor para importar los grupos de WSUS desde el elemento de menú **Grupos de equipos** en el área de trabajo de Log Analytics de Azure Portal.  Seleccione la pestaña **System Center Configuration Manager** y, luego, **Importar pertenencias de la recopilación de Configuration Manager**. Una vez importadas las colecciones, el menú muestra el número de equipos con la pertenencia a grupos detectada y el número de grupos de importados.  Puede hacer clic en cualquiera de estos vínculos para devolver los registros de **ComputerGroup** con esta información.
 
 ## <a name="managing-computer-groups"></a>Administración de grupos de equipos
-Puede ver los grupos de equipos que se crearon a partir de una consulta de registros o la API de búsqueda de registros en **Configuración avanzada** en el área de trabajo de Log Analytics en Azure Portal.  Seleccione **Grupos de equipos** y, a continuación, **Grupos guardados**.  
+Puede ver los grupos de equipos que se crearon a partir de una consulta de registros o la API de búsqueda de registros en el elemento de menú **Grupos de equipos** en el área de trabajo de Log Analytics de Azure Portal.  Seleccione la pestaña **Grupos guardados** para ver la lista de grupos.  
 
 Haga clic en la **x** de la columna **Quitar** para eliminar el grupo de equipos.  Haga clic en el icono **Ver miembros** de un grupo para ejecutar la búsqueda de registros del grupo que devuelve sus miembros.  No se puede modificar un grupo de equipos, se debe eliminar y, a continuación, volver a crear con la configuración modificada.
 

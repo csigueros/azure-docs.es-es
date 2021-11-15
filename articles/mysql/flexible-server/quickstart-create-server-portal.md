@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/22/2020
-ms.openlocfilehash: 1c134fa24914ffc1cc2d51389cf6840986a74c58
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e1469c2d7cbc1be4aac2ec73a1f04138ef9d7fb1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128661571"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131429363"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-an-azure-database-for-mysql-flexible-server"></a>Inicio rápido: Uso de Azure Portal para crear un servidor flexible de Azure Database for MySQL
 
@@ -21,12 +21,7 @@ ms.locfileid: "128661571"
 
 Servidor flexible de Azure Database for MySQL es un servicio administrado que se usa para ejecutar, administrar y escalar servidores MySQL de alta disponibilidad en la nube. En este inicio rápido se muestra cómo crear un servidor flexible mediante Azure Portal.
 
-> [!IMPORTANT]
-> Actualmente, la opción de implementación Servidor flexible de Azure Database for MySQL se encuentra en versión preliminar pública.
-
-
-[!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
-
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 Vaya a [Azure Portal](https://portal.azure.com/). Introduzca sus credenciales para iniciar sesión en el portal. La vista predeterminada es el panel del servicio.
@@ -38,19 +33,19 @@ Puede crear un servidor flexible mediante un conjunto definido de [recursos de p
 Siga estos pasos para crear un servidor flexible:
 
 1. Busque y seleccione **Azure Database for MySQL** en el portal:
-    
+
     > :::image type="content" source="./media/quickstart-create-server-portal/find-mysql-portal.png" alt-text="Captura de pantalla que muestra una búsqueda de servidores de Azure Database for MySQL.":::
 
-2. Seleccione **Crear**. 
+2. Seleccione **Crear**.
 
 3. En la página **Seleccionar opción de implementación de Azure Database for MySQL**, seleccione **Servidor flexible** como opción de implementación:
-     
-    > :::image type="content" source="./media/quickstart-create-server-portal/deployment-option.png" alt-text="Captura de pantalla que muestra la opción Servidor flexible.":::    
 
-4. En la pestaña **Datos básicos**, especifique la siguiente información: 
+    > :::image type="content" source="./media/quickstart-create-server-portal/deployment-option.png" alt-text="Captura de pantalla que muestra la opción Servidor flexible.":::
 
-    > :::image type="content" source="./media/quickstart-create-server-portal/create-form.png" alt-text="Captura de pantalla que muestra la pestaña Conceptos básicos de la página Servidor flexible."::: 
-                                    
+4. En la pestaña **Datos básicos**, especifique la siguiente información:
+
+    > :::image type="content" source="./media/quickstart-create-server-portal/create-form.png" alt-text="Captura de pantalla que muestra la pestaña Conceptos básicos de la página Servidor flexible.":::
+
     |**Configuración**|**Valor sugerido**|**Descripción**|
     |---|---|---|
     Subscription|Nombre de la suscripción|La suscripción de Azure que desea usar para el servidor. Si tiene varias suscripciones, elija aquella en la que quiere que se le facture el recurso.|
@@ -64,27 +59,24 @@ Siga estos pasos para crear un servidor flexible:
     Versión de MySQL|**5.7**| Una versión principal de MySQL.|
     Nombre de usuario administrador |**mydemouser**| Su propia cuenta de inicio de sesión para usar al conectarse al servidor. El nombre del usuario administrador no puede ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ni **public**.|
     Contraseña |La contraseña| Una contraseña nueva para la cuenta de administrador del servidor. Debe tener entre 8 y 128 caracteres. Debe contener también caracteres de tres de las siguientes categorías: Letras del alfabeto inglés mayúsculas y minúsculas, números (0 a 9) y caracteres no alfanuméricos (!, $, #, %, etc.).|
-    Proceso y almacenamiento | **Ampliable**, **Standard_B1ms**, **10 GiB**, **100 IOPS** y **7 días** | Configuración de los recursos de proceso, almacenamiento, IOPS y copia de seguridad para el nuevo servidor. Seleccione **Configurar servidor**. **Ampliable**, **Standard_B1ms**, **10 GiB**, **100 IOPS** y **7 días** son los valores predeterminados para **Nivel de proceso**, **Tamaño de proceso**, **Tamaño de almacenamiento**, **IOPS** y **Período de retención** de copia de seguridad. Puede dejar esos valores tal como están o ajustarlos. Para agilizar la carga de datos durante la migración, se recomienda aumentar IOPS hasta el tamaño máximo admitido por el tamaño de proceso y, posteriormente, volver a escalarlo para ahorrar costos. Para guardar este proceso y la selección de almacenamiento, seleccione **Guardar** a fin de continuar con la configuración. En la captura de pantalla siguiente se muestran las opciones de proceso y almacenamiento.|
-
- 
-    > :::image type="content" source="./media/quickstart-create-server-portal/high-availability.png" alt-text="Captura de pantalla que muestra las opciones de alta disponibilidad.":::
+    Proceso y almacenamiento | **Flexible**, **Standard_B1ms**, **10 GiB**, **100 IOPS** y **7 días** | Configuración de los recursos de proceso, almacenamiento, IOPS y copia de seguridad para el nuevo servidor. Seleccione **Configurar servidor**. **Flexible**, **Standard_B1ms**, **10 GiB**, **100 IOPS** y **7 días** son los valores predeterminados para **Nivel de proceso**, **Tamaño de proceso**, **Tamaño de almacenamiento**, **IOPS** y **Período de retención** de copia de seguridad. Puede dejar esos valores tal como están o ajustarlos. Para agilizar la carga de datos durante la migración, se recomienda aumentar IOPS hasta el tamaño máximo admitido por el tamaño de proceso y, posteriormente, volver a escalarlo para ahorrar costos. Para guardar este proceso y la selección de almacenamiento, seleccione **Guardar** a fin de continuar con la configuración. En la captura de pantalla siguiente se muestran las opciones de proceso y almacenamiento.|
 
     > :::image type="content" source="./media/quickstart-create-server-portal/compute-storage.png" alt-text="Captura de pantalla que muestra las opciones de proceso y almacenamiento.":::
 
 5. Configure las opciones de red.
 
-    En la pestaña **Redes**, puede elegir cómo se puede tener acceso al servidor. Servidor flexible de Azure Database for MySQL proporciona dos formas de conectarse al servidor: 
+    En la pestaña **Redes**, puede elegir cómo se puede tener acceso al servidor. Servidor flexible de Azure Database for MySQL proporciona dos formas de conectarse al servidor:
    - Acceso público (direcciones IP permitidas)
-   - Acceso privado (integración con red virtual) 
-   
-   Si usa un acceso público, el acceso a su servidor se limita a las direcciones IP permitidas que agrega a una regla de firewall. Este método evita que herramientas y aplicaciones externas se conecten al servidor o a las bases de datos de este, a menos que cree una regla para abrir el firewall para una dirección IP o un intervalo específico. Si usa un acceso privado (integración con red virtual), el acceso a su servidor se limita a la red virtual. [Obtenga más información sobre los métodos de conectividad en el artículo de conceptos.](./concepts-networking.md)
-    
-     En este inicio rápido, aprenderá a habilitar el acceso público para conectarse al servidor. En la pestaña **Redes**, en **Método de conectividad**, seleccione **Acceso público**. Para la configuración de **Reglas de firewall**, seleccione **Agregar dirección IP del cliente actual**. 
+   - Acceso privado (integración con red virtual)
+
+    Si usa un acceso público, el acceso a su servidor se limita a las direcciones IP permitidas que agrega a una regla de firewall. Este método evita que herramientas y aplicaciones externas se conecten al servidor y a las bases de datos de este, salvo que cree una regla para abrir el firewall para una dirección IP o un intervalo específicos. Si usa un acceso privado (integración con red virtual), el acceso al servidor se limita a la red virtual. [Obtenga más información sobre los métodos de conectividad en el artículo de conceptos.](./concepts-networking.md)
+
+     En este inicio rápido, aprenderá a habilitar el acceso público para conectarse al servidor. En la pestaña **Redes**, en **Método de conectividad**, seleccione **Acceso público**. Para la configuración de **Reglas de firewall**, seleccione **Agregar dirección IP del cliente actual**.
 
     > [!NOTE]
     > No puede cambiar el método de conectividad después de crear el servidor. Por ejemplo, si seleccionó la opción **Acceso público (direcciones IP permitidas)** al crear el servidor, no podrá cambiar a la opción **Acceso privado (integración con red virtual)** después de la creación. Es muy recomendable que cree el servidor con acceso privado para ayudar a proteger el acceso al servidor mediante la integración de red virtual. [Obtenga más información sobre el acceso privado en el artículo de conceptos.](./concepts-networking.md)
 
-    > :::image type="content" source="./media/quickstart-create-server-portal/networking.png" alt-text="Captura de pantalla que muestra la pestaña Redes.":::  
+    > :::image type="content" source="./media/quickstart-create-server-portal/networking.png" alt-text="Captura de pantalla que muestra la pestaña Redes.":::
 
 6. Seleccione **Revisar y crear** para revisar la configuración del servidor flexible.
 
@@ -95,7 +87,7 @@ Siga estos pasos para crear un servidor flexible:
 De forma predeterminada, se crean estas bases de datos en el servidor: information_schema, mysql, performance_schema y sys.
 
 > [!NOTE]
-> Para evitar problemas de conectividad, compruebe si la red permite el tráfico de salida por el puerto 3306 que usa el servidor flexible de Azure Database for MySQL.  
+> Para evitar problemas de conectividad, compruebe si la red permite el tráfico de salida por el puerto 3306 que usa el servidor flexible de Azure Database for MySQL.
 
 ## <a name="connect-to-the-server-by-using-mysqlexe"></a>Conexión al servidor con mysql.exe
 
@@ -122,7 +114,7 @@ Para usar Azure Cloud Shell para conectarse a un servidor flexible, tendrá que 
 > [!NOTE]
 > La comprobación de **Allow public access from any Azure service within Azure to this server** (Permitir el acceso público desde cualquier servicio de Azure a este servidor) solo debe usarse solo para desarrollo o pruebas. Configura el firewall para permitir conexiones desde las direcciones IP asignadas a cualquier servicio o recurso de Azure, incluidas las conexiones de las suscripciones de otros clientes.
 
-Haga clic en **Probar** para iniciar el Azure Cloud Shell y use los siguientes comandos para conectarse a su servidor flexible. Use el nombre del servidor, el nombre de usuario y la contraseña en el comando. 
+Haga clic en **Probar** para iniciar el Azure Cloud Shell y use los siguientes comandos para conectarse a su servidor flexible. Use el nombre del servidor, el nombre de usuario y la contraseña en el comando.
 
 ```azurecli-interactive
 wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem

@@ -4,14 +4,14 @@ description: Obtenga información sobre cómo Azure Cosmos DB proporciona protec
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/25/2021
+ms.date: 11/03/2021
 ms.author: mjbrown
-ms.openlocfilehash: f6851fa1e129522afbf59b6d1035029e72b231b2
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b789ff99ce38df897df752609240dfa0d1d4f558
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131086533"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131510184"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Seguridad en Azure Cosmos DB: introducción
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -20,11 +20,11 @@ En este artículo se describen los procedimientos recomendados de seguridad de b
 
 ## <a name="whats-new-in-azure-cosmos-db-security"></a>Novedades en la seguridad de Azure Cosmos DB
 
-El cifrado en reposo ahora está disponible para los documentos y copias de seguridad almacenados en Azure Cosmos DB en todas las regiones de Azure. El cifrado en reposo se aplica automáticamente a los clientes nuevos y existentes de estas regiones. No es necesario configurar nada; obtenga la misma latencia, rendimiento, disponibilidad y funcionalidad excelentes que antes con la ventaja de saber que los datos son seguros y de protegerlos con el cifrado en reposo.
+El cifrado en reposo ahora está disponible para los documentos y copias de seguridad almacenados en Azure Cosmos DB en todas las regiones de Azure. El cifrado en reposo se aplica automáticamente a los clientes nuevos y existentes de estas regiones. No es necesario configurar nada; obtenga la misma latencia, rendimiento, disponibilidad y funcionalidad excelentes que antes con la ventaja de saber que los datos son seguros y de protegerlos con el cifrado en reposo.  Los datos almacenados en su cuenta de Azure Cosmos se cifran de forma automática y sin problemas con claves administradas por Microsoft mediante claves administradas por el servicio. También puede optar por agregar una segunda capa de cifrado con las claves que administra con [claves administradas por el cliente o CMK](how-to-setup-cmk.md).
 
 ## <a name="how-do-i-secure-my-database"></a>¿Cómo puedo proteger mi base de datos?
 
-La seguridad de los datos constituye una responsabilidad compartida entre el cliente y el proveedor de base de datos. Dependiendo del proveedor de base de datos que elija, puede variar el nivel de responsabilidad que asumir. Si elige una solución local, debe proporcionar todos los elementos: desde la protección de extremo a extremo hasta la seguridad física del hardware, lo que no es tarea fácil. Si elige un proveedor de bases de datos en la nube PaaS como Azure Cosmos DB, se reduce considerablemente el área de responsabilidad. En la siguiente imagen, que se tomó prestada de las notas del producto [Shared Responsibilities for Cloud Computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91) (Responsabilidades compartidas de la informática en la nube), se muestra cómo se reduce la responsabilidad con un proveedor de PaaS como Azure Cosmos DB.
+La seguridad de los datos constituye una responsabilidad compartida entre el cliente y el proveedor de base de datos. Dependiendo del proveedor de base de datos que elija, puede variar el nivel de responsabilidad que asumir. Si elige una solución local, debe proporcionar todos los elementos: desde la protección de extremo a extremo hasta la seguridad física del hardware, lo que no es tarea fácil. Si elige un proveedor de bases de datos en la nube PaaS como Azure Cosmos DB, se reduce considerablemente el área de responsabilidad. En la siguiente imagen, que se tomó prestada de las notas del producto [Shared Responsibilities for Cloud Computing](https://azure.microsoft.com/resources/shared-responsibilities-for-cloud-computing/) (Responsabilidades compartidas de la informática en la nube), se muestra cómo se reduce la responsabilidad con un proveedor de PaaS como Azure Cosmos DB.
 
 :::image type="content" source="./media/database-security/nosql-database-security-responsibilities.png" alt-text="Responsabilidades del cliente y del proveedor de bases de datos":::
 
@@ -71,14 +71,14 @@ Analicemos cada uno de ellas en detalle.
 |Restauración de los datos eliminados|Las copias de seguridad automatizadas en línea se pueden utilizar para recuperar los datos que puede que haya eliminado accidentalmente hasta unos 30 días después del suceso. <br><br>Obtenga más información en [Copias de seguridad y restauración automáticas en línea con Azure Cosmos DB](online-backup-and-restore.md).|
 |Protección y aislamiento de datos confidenciales|Todos los datos de las regiones incluidos en Novedades ahora se cifran en reposo.<br><br>Los datos personales y otros datos confidenciales se pueden aislar en contenedores específicos. Además, se puede limitar el acceso de escritura-lectura o de solo lectura a usuarios concretos.|
 |Supervisión de los ataques|Use los [registros de auditoría y los registros de actividad](./monitor-cosmos-db.md) para supervisar la actividad normal y la anómala de su cuenta. Puede ver qué operaciones se realizaron en los recursos, quién inició la operación, cuando se produjo, el estado y mucha más información, como se muestra en la captura de pantalla que sigue a esta tabla.|
-|Respuesta a ataques|Una vez que se ha puesto en contacto con el equipo de asistencia técnica de Azure para informar de un posible ataque, se inicia un proceso de respuesta a incidentes de 5 pasos. El objetivo de dicho proceso es restaurar las operaciones y la seguridad de los servicios a su estado normal lo antes posible después de que se detecte un problema y se inicie una investigación.<br><br>Obtenga más información en [Microsoft Azure Security Response in the Cloud](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91) (Respuesta de seguridad de Microsoft Azure en la nube).|
+|Respuesta a ataques|Una vez que se ha puesto en contacto con el equipo de asistencia técnica de Azure para informar de un posible ataque, se inicia un proceso de respuesta a incidentes de 5 pasos. El objetivo de dicho proceso es restaurar las operaciones y la seguridad de los servicios a su estado normal lo antes posible después de que se detecte un problema y se inicie una investigación.<br><br>Obtenga más información en [Microsoft Azure Security Response in the Cloud](https://azure.microsoft.com/resources/shared-responsibilities-for-cloud-computing/) (Respuesta de seguridad de Microsoft Azure en la nube).|
 |Geovalla|Azure Cosmos DB garantiza la gobernanza de datos para regiones soberanas (por ejemplo, Alemania y US Gov).|
 |Instalaciones protegidas|Los datos de Azure Cosmos DB se almacenan en los SSD de los centros de datos protegidos de Azure.<br><br>Obtenga información sobre los [centros de datos globales de Microsoft](https://www.microsoft.com/en-us/cloud-platform/global-datacenters).|
 |HTTPS, SSL y cifrado TLS|Todas las conexiones a Azure Cosmos DB admiten HTTPS. Azure Cosmos DB también admite TLS 1.2.<br>Es posible aplicar una versión de TLS mínima en el servidor. Para ello, abra una [incidencia de soporte técnico de Azure](https://azure.microsoft.com/support/options/).|
 |Cifrado en reposo|Todos los datos almacenados en Azure Cosmos DB se cifran en reposo. Más información en [Cifrado de Azure Cosmos DB en reposo](./database-encryption-at-rest.md)|
 |Servidores revisados|Como una base de datos administrada, Azure Cosmos DB elimina la necesidad de administrar y aplicar revisiones a servidores, que se hace automáticamente.|
 |Cuentas administrativas con contraseñas seguras|Es difícil creer que tengamos que hacer mención a este requisito, pero a diferencia de algunos de nuestros competidores, no se puede tener una cuenta administrativa sin contraseña en Azure Cosmos DB.<br><br> La seguridad mediante TLS y autenticación basada en secreto HMAC está incorporada de forma predeterminada.|
-|Certificaciones de protección de datos y seguridad| Para disponer de la lista de certificaciones más actualizada, consulte el [sitio de cumplimiento de Azure](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) global así como el [documento de cumplimiento de Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) más reciente con todas las certificaciones (busque Cosmos). Para una lectura más centrada, consulte la publicación del 25 de abril de 2018 [Azure #CosmosDB: seguro, privado y compatible que incluye SOCS 1/2 Tipo 2, HITRUST, PCI DSS Nivel 1, ISO 27001, HIPAA, FedRAMP High, etc.
+|Certificaciones de protección de datos y seguridad| Para disponer de la lista de certificaciones más actualizada, consulte el [sitio de cumplimiento de Azure](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) global así como el [documento de cumplimiento de Azure](https://azure.microsoft.com/mediahandler/files/resourcefiles/microsoft-azure-compliance-offerings/Microsoft%20Azure%20Compliance%20Offerings.pdf) más reciente con todas las certificaciones (busque Cosmos).
 
 En la captura de pantalla siguiente se muestra cómo puede usar los registros de actividad y los registro de auditoría para supervisar su cuenta: :::image type="content" source="./media/database-security/nosql-database-security-application-logging.png" alt-text="registros de actividad de Azure Cosmos DB":::
 
@@ -109,7 +109,7 @@ El proceso de rotación y regeneración de claves es sencillo. En primer lugar, 
 
 1. Seleccione **Claves** en el menú de la izquierda y después **Regenerar clave secundaria** en los puntos suspensivos situados a la derecha de la clave secundaria.
 
-    :::image type="content" source="./media/database-security/regenerate-secondary-key.png" alt-text="Captura de pantalla de Azure Portal en la que muestra se cómo regenerar la clave secundaria" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-secondary-key.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra cómo regenerar la clave secundaria" border="true":::
 
 1. Compruebe que la nueva clave secundaria funciona de forma coherente con la cuenta de Azure Cosmos DB. La regeneración de claves puede tardar entre un minuto y varias horas, en función del tamaño de la cuenta de Cosmos DB.
 

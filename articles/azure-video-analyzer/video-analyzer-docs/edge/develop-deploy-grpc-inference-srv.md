@@ -3,14 +3,14 @@ title: 'Desarrollo e implementación de un servidor de inferencia de gRPC: Azure
 description: En este artículo se proporcionan instrucciones sobre cómo desarrollar e implementar un servidor de inferencia de gRPC que se usará con Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 6b252ef52b1501d5428aa85cb697ea04a8c3cafc
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 3b5d2dbb4e686cfe03a8deefbcbbc6d08647f3de
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091056"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131564088"
 ---
 # <a name="develop-and-deploy-grpc-inference-server"></a>Desarrollo e implementación de un servidor de inferencia de gRPC
 
@@ -40,7 +40,7 @@ Para crear un servidor de inferencia de gRPC e implementarlo como una extensión
 
 Siga los pasos necesarios para implementar y poner en funcionamiento el módulo de Video Analyzer en un dispositivo IoT Edge.
 
-### <a name="high-level-implementation-steps"></a>Pasos de implementación generales
+### <a name="high-level-implementation-steps"></a>Pasos de implementación de nivel alto
 
 1. Elija uno de los muchos lenguajes compatibles con gRPC: C#, C++, Dart, Go, Java, Node, Objective-C, PHP, Python, Ruby.
 1. Implemente un servidor de gRPC que se comunicará con Video Analyzer mediante [los archivos de proto3](https://github.com/Azure/video-analyzer/tree/main/contracts/grpc).
@@ -68,6 +68,9 @@ Cuando se coloca en el mismo nodo, se puede usar `shared memory` para obtener el
 1. Abra el identificador de memoria compartida de Linux.
 1. Tras la recepción de un fotograma, acceda al desplazamiento de dirección dentro de la memoria compartida.
 1. Confirme que el procesamiento del fotograma se realizó correctamente para que Video Analyzer pueda reclamar su memoria.
+
+> [!NOTE]
+> Cuando se usa un módulo de la extensión gRPC para la inferencia con memoria compartida, tanto el módulo perimetral de Video Analyzer como el módulo de la extensión deben ejecutarse en el mismo [usuario y grupo](https://docs.docker.com/engine/reference/builder/#user).
 
 ## <a name="create-a-grpc-inference-server"></a>Creación de un servidor de inferencia de gRPC
 

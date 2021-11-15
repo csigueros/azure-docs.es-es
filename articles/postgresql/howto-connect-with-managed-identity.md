@@ -7,20 +7,20 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: beb5930e98a5c5498349dc3aa773423ee5d281bd
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 7cc4b086a4ec9d89187345a66d6ae3e39c999ca0
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107792478"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232184"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-postgresql"></a>Conexión con identidad administrada a Azure Database for PostgreSQL
 
-En este artículo se muestra cómo usar una identidad asignada por el usuario en una máquina virtual (VM) de Azure para acceder a un servidor de Azure Database for PostgreSQL. Las identidades de MSI son administradas automáticamente por Azure y le permiten autenticar los servicios que admiten la autenticación de Azure AD sin necesidad de insertar credenciales en el código. 
+Puede usar identidades administradas asignadas por el sistema y asignadas por el usuario para autenticarse en Azure Database for PostgreSQL. En este artículo se muestra cómo usar una identidad administrada asignada por el sistema para permitir el acceso de una máquina virtual (VM) de Azure a un servidor de Azure Database for PostgreSQL. Azure administra automáticamente las identidades administradas, las cuales le permiten autenticarse en servicios que admiten la autenticación de Azure AD sin necesidad de insertar credenciales en el código.
 
 Aprenderá a:
 - Conceder a la VM acceso a un servidor de Azure Database for PostgreSQL.
-- Crear un usuario en la base de datos que represente la identidad asignada por el usuario de la VM.
+- Crear un usuario en la base de datos que represente la identidad asignada por el sistema de la máquina virtual.
 - Obtener un token de acceso mediante la identidad de la VM y usarlo para consultar un servidor de Azure Database for PostgreSQL.
 - Implementar la recuperación del token en una aplicación de ejemplo de C#.
 
@@ -32,39 +32,24 @@ Aprenderá a:
 - Necesita un servidor de bases de datos de Azure Database for PostgreSQL que tenga configurada la [Autenticación de Azure AD](howto-configure-sign-in-aad-authentication.md).
 - Para seguir el ejemplo de C#, complete primero la guía sobre la [conexión con C#](connect-csharp.md).
 
-## <a name="creating-a-user-assigned-managed-identity-for-your-vm"></a>Creación de una identidad administrada asignada por el usuario para su VM
+## <a name="creating-a-system-assigned-managed-identity-for-your-vm"></a>Creación de una identidad administrada asignada por el sistema para la máquina virtual
 
-Cree una identidad en la suscripción con el comando [az identity create](/cli/azure/identity#az_identity_create). Puede usar el mismo grupo de recursos en el que se ejecuta la máquina virtual o uno diferente.
+Use [az vm identity assign](/cli/azure/vm/identity/) con el comando `identity assign` para habilitar la identidad asignada por el sistema en una VM existente:
 
 ```azurecli-interactive
-az identity create --resource-group myResourceGroup --name myManagedIdentity
+az vm identity assign -g myResourceGroup -n myVm
 ```
 
-Para configurar la identidad en los pasos siguientes, use el comando [az identity show](/cli/azure/identity#az_identity_show) para almacenar en variables el id. de cliente y el id. de recurso de la identidad.
+Recupere el identificador de aplicación de la identidad administrada asignada por el sistema (lo necesitará en los pasos siguientes):
 
 ```azurecli
-# Get resource ID of the user-assigned identity
-resourceID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query id --output tsv)
-
-# Get client ID of the user-assigned identity
-clientID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query clientId --output tsv)
-```
-
-Ahora podemos asignar la identidad asignada por el usuario a la VM con el comando [az vm identity assign](/cli/azure/vm/identity#az_vm_identity_assign):
-
-```azurecli
-az vm identity assign --resource-group myResourceGroup --name myVM --identities $resourceID
-```
-
-Para finalizar la configuración, muestre el valor del id. de cliente, que necesitará en los pasos siguientes:
-
-```bash
-echo $clientID
+# Get the client ID (application ID) of the system-assigned managed identity
+az ad sp list --display-name obs-locdev-wus2 --query [*].appId --out tsv
 ```
 
 ## <a name="creating-a-postgresql-user-for-your-managed-identity"></a>Creación de un usuario de PostgreSQL para la identidad administrada
 
-Ahora, conéctese como usuario administrador de Azure AD a la base de datos PostgreSQL y ejecute las siguientes instrucciones SQL:
+Ahora, conéctese como usuario administrador de Azure AD a la base de datos PostgreSQL y ejecute las siguientes instrucciones SQL, pero reemplace `CLIENT_ID` por el identificador de cliente que recuperó para la identidad administrada asignada por el sistema:
 
 ```sql
 SET aad_validate_oids_in_tenant = off;
@@ -101,7 +86,7 @@ Ahora está conectado a la base de datos que configuró anteriormente.
 
 En esta sección se muestra cómo obtener un token de acceso mediante la identidad administrada asignada por el usuario de la VM y cómo usarlo para llamar a Azure Database for PostgreSQL. Azure Database for PostgreSQL admite de forma nativa la Autenticación de Azure AD, por lo que puede aceptar directamente los tokens de acceso obtenidos con identidades administradas para recursos de Azure. Al crear una conexión a PostgreSQL, se pasa el token de acceso en el campo de contraseña.
 
-Este es un ejemplo de código .NET para abrir una conexión a PostgreSQL con un token de acceso. Este código se debe ejecutar en la VM para acceder al punto de conexión de la identidad administrada asignada por el usuario de la VM. Se requiere .NET Framework 4.6 o posterior, o bien .NET Core 2.2 o posterior, para usar el método de token de acceso. Reemplace los valores de HOST, USER, DATABASE y CLIENT_ID.
+Este es un ejemplo de código .NET para abrir una conexión a PostgreSQL con un token de acceso. Este código debe ejecutarse en la máquina virtual para usar la identidad administrada asignada por el sistema para obtener un token de acceso de Azure AD. Reemplace los valores de HOST, USER, DATABASE y CLIENT_ID.
 
 ```csharp
 using System;
@@ -112,6 +97,7 @@ using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Npgsql;
+using Azure.Identity;
 
 namespace Driver
 {
@@ -122,31 +108,25 @@ namespace Driver
         private static string Host = "HOST";
         private static string User = "USER";
         private static string Database = "DATABASE";
-        private static string ClientId = "CLIENT_ID";
+        //private static string ClientId = "CLIENT_ID";
 
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             //
             // Get an access token for PostgreSQL.
             //
-            Console.Out.WriteLine("Getting access token from Azure Instance Metadata service...");
+            Console.Out.WriteLine("Getting access token from Azure AD...");
 
             // Azure AD resource ID for Azure Database for PostgreSQL is https://ossrdbms-aad.database.windows.net/
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fossrdbms-aad.database.windows.net&client_id=" + ClientId);
-            request.Headers["Metadata"] = "true";
-            request.Method = "GET";
             string accessToken = null;
 
             try
             {
                 // Call managed identities for Azure resources endpoint.
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                var sqlServerTokenProvider = new DefaultAzureCredential();
+                accessToken = (await sqlServerTokenProvider.GetTokenAsync(
+                    new Azure.Core.TokenRequestContext(scopes: new string[] { "https://ossrdbms-aad.database.windows.net/.default" }) { })).Token;
 
-                // Pipe response Stream to a StreamReader and extract access token.
-                StreamReader streamResponse = new StreamReader(response.GetResponseStream());
-                string stringResponse = streamResponse.ReadToEnd();
-                var list = JsonSerializer.Deserialize<Dictionary<string, string>>(stringResponse);
-                accessToken = list["access_token"];
             }
             catch (Exception e)
             {
@@ -159,7 +139,7 @@ namespace Driver
             //
             string connString =
                 String.Format(
-                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};SSLMode=Prefer",
+                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4}; SSLMode=Prefer",
                     Host,
                     User,
                     Database,
@@ -189,12 +169,12 @@ namespace Driver
 Cuando se ejecute, este comando proporcionará una salida similar a la siguiente:
 
 ```
-Getting access token from Azure Instance Metadata service...
+Getting access token from Azure AD...
 Opening connection using access token...
 
 Connected!
 
-Postgres version: PostgreSQL 11.6, compiled by Visual C++ build 1800, 64-bit
+Postgres version: PostgreSQL 11.11, compiled by Visual C++ build 1800, 64-bit
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

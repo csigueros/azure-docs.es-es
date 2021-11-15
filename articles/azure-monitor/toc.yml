@@ -12,39 +12,26 @@
       href: whats-new.md
     - name: Migración desde Operations Manager
       href: azure-monitor-operations-manager.md
-- name: Guías de inicio rápido
-  items:
-    - name: Supervisión de un recurso de Azure
-      href: essentials/quick-monitor-azure-resource.md
-    - name: Envío del registro de actividad a un área de trabajo
-      items:
-        - name: Azure portal
-          href: essentials/quick-collect-activity-log-portal.md
-        - name: Plantilla ARM
-          displayName: Resource Manager
-          href: essentials/quick-collect-activity-log-arm.md
-    - name: Supervisión de aplicaciones
-      items:
-        - name: Aplicación ASP.NET Core
-          href: app/dotnet-quickstart.md
-        - name: Aplicación Node.js
-          href: app/nodejs-quick-start.md
-        - name: Aplicación para dispositivos móviles
-          href: app/mobile-center-quickstart.md
-        - name: Aplicación web
-          href: app/website-monitoring.md
 - name: Tutoriales
   items:
-    - name: Creación de un gráfico de métricas
-      href: essentials/tutorial-metrics-explorer.md
-    - name: Recopilación de registros de un recurso de Azure
+    - name: Supervisión de un recurso de Azure
+      href: essentials/monitor-azure-resource.md
+    - name: Análisis de datos de métricas
+      href: essentials/tutorial-metrics.md
+    - name: Creación de una alerta de métrica
+      href: alerts/tutorial-metric-alert.md
+    - name: Recopilación y visualización de registros de recursos
       href: essentials/tutorial-resource-logs.md
-    - name: Escritura de consultas de registros
-      href: logs/get-started-queries.md
-    - name: Creación de un panel a partir de una consulta de registro
-      href: visualize/tutorial-logs-dashboards.md
-    - name: Escalado automático del rendimiento y programación
-      href: autoscale/tutorial-autoscale-performance-schedule.md
+    - name: Creación de una alerta de consulta de registro
+      href: alerts/tutorial-log-alert.md
+    - name: Máquinas virtuales
+      items:
+        - name: Habilitar supervisión
+          href: vm/tutorial-monitor-vm-enable.md
+        - name: Alerta por máquina fuera de servicio
+          href: vm/tutorial-monitor-vm-alert.md
+        - name: Recopilación de métricas y registros de invitado
+          href: vm/tutorial-monitor-vm-guest.md
     - name: Application Insights
       items:
         - name: Búsqueda de excepciones del entorno de ejecución de la aplicación
@@ -57,6 +44,8 @@
           href: app/tutorial-users.md
         - name: Panel con datos de aplicación
           href: app/tutorial-app-dashboards.md
+        - name: Supervisión de aplicación para dispositivos móviles
+          href: app/mobile-center-quickstart.md
 - name: Ejemplos
   items:
     - name: Plantillas de Resource Manager
@@ -238,7 +227,7 @@
           items:
             - name: Crear un área de trabajo
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: logs/quick-create-workspace.md
                 - name: PowerShell
                   href: logs/powershell-workspace-configuration.md
@@ -284,6 +273,9 @@
             - name: Información general
               displayname: 'log query, log queries, query, queries'
               href: logs/log-query-overview.md
+            - name: Primeros pasos
+              displayname: 'log query, log queries, query, queries'
+              href: logs/get-started-queries.md
             - name: Referencia de KQL
               href: /azure/data-explorer/kusto/query/
             - name: Consultas de ejemplo

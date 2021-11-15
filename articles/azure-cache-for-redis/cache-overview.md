@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: overview
 ms.date: 02/08/2021
-ms.openlocfilehash: 63aae0f54d07fea45f4cecc5a4699cd1448c0a4f
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 3404575f7eef3dc1c4f4784d255e0df6d569fd0f
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129537782"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131893697"
 ---
 # <a name="about-azure-cache-for-redis"></a>Acerca de Azure Cache for Redis
 
@@ -35,7 +35,7 @@ Azure Cache for Redis mejora el rendimiento de las aplicaciones, ya que admite p
 
 ## <a name="redis-versions"></a>Versiones de Redis
 
-Azure Cache for Redis admite la versión 4.x de OSS Redis y la versión preliminar 6.0. Hemos decidido omitir Redis 5.0 para proporcionarle la versión más reciente. Anteriormente, Azure Cache for Redis mantenía una versión única de Redis. En el futuro, se proporcionará una actualización de la versión principal más nueva y al menos una versión anterior estable. El usuario puede [elegir qué versión](cache-how-to-version.md) funciona mejor para su aplicación.
+Azure Cache for Redis admite las versiones 4.0.x y 6.0.x de OSS Redis. Hemos decidido omitir Redis 5.0 para proporcionarle la versión más reciente. Anteriormente, Azure Cache for Redis mantenía una versión única de Redis. En el futuro, se proporcionará una actualización de la versión principal más nueva y al menos una versión anterior estable. El usuario puede [elegir qué versión](cache-how-to-version.md) funciona mejor para su aplicación.
 
 
 ## <a name="service-tiers"></a>Niveles de servicio
@@ -64,7 +64,7 @@ En [Precios de Azure Cache for Redis](https://azure.microsoft.com/pricing/detail
 | [Persistencia de los datos](cache-how-to-premium-persistence.md) |-|-|✔|Vista previa|Vista previa|
 | [Redundancia de zona](cache-how-to-zone-redundancy.md) |-|-|✔|✔|✔|
 | [Replicación geográfica](cache-how-to-geo-replication.md) |-|-|✔|Vista previa|Vista previa|
-| [Módulos de Redis](#choosing-the-right-tier) |-|-|-|✔|✔|
+| [Módulos de Redis](#choosing-the-right-tier) |-|-|-|✔|-|
 | [Import/Export](cache-how-to-import-export-data.md) |-|-|✔|✔|✔|
 | [Reboot](cache-administration.md#reboot) |✔|✔|✔|-|-|
 | [Actualizaciones programadas](cache-administration.md#schedule-updates) |✔|✔|✔|-|-|

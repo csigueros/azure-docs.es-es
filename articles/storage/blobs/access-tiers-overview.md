@@ -1,20 +1,20 @@
 ---
 title: Niveles de acceso frecuente, esporádico y de archivo para los datos de blobs
 titleSuffix: Azure Storage
-description: Azure Storage ofrece diferentes niveles de acceso para que pueda almacenar los datos de blobs de la manera más rentable en función de cómo se usen. Obtenga información sobre los niveles de acceso frecuente, esporádico y de archivo para los datos de blobs.
+description: Azure Storage ofrece diferentes niveles de acceso para que pueda almacenar los datos de blobs de la manera más rentable en función de cómo se usen. Obtenga información sobre los niveles de acceso frecuente, esporádico y de archivo para Blob Storage.
 author: tamram
 ms.author: tamram
-ms.date: 10/25/2021
+ms.date: 11/01/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: fryu
-ms.openlocfilehash: 45f330ad2e40cce5b5fca0b6f6fd99d3271bea76
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 304ca8f96d2b8973bd4f7f394bc0d2fbff541a61
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131063791"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131421995"
 ---
 # <a name="hot-cool-and-archive-access-tiers-for-blob-data"></a>Niveles de acceso frecuente, esporádico y de archivo para los datos de blobs
 
@@ -33,9 +33,9 @@ Cuando los datos se almacenan en un nivel de acceso en línea (frecuente o espor
 Entre los ejemplos de escenarios de uso del nivel de acceso frecuente, se encuentran:
 
 - Datos que están en uso o que se espera leer y escribir con frecuencia.
-- Los datos que se almacenan provisionalmente para el procesamiento y, posteriormente, para la migración al nivel de acceso esporádico.
+- Datos almacenados de manera provisional para su procesamiento y posterior migración al nivel de acceso esporádico.
 
-Entre los ejemplos de escenarios de uso del nivel de acceso esporádico, se encuentran:
+Entre los escenarios de uso del nivel de acceso esporádico, se encuentran:
 
 - Copia de seguridad y recuperación ante desastres de los datos a corto plazo.
 - Conjuntos de datos antiguos que no se usan con frecuencia, pero que se espera que estén disponibles para el acceso inmediato.
@@ -45,23 +45,23 @@ Los datos del nivel de acceso esporádico tienen una disponibilidad ligeramente 
 
 Un blob del nivel de acceso esporádico de una cuenta de uso general v2 está sujeto a una penalización por eliminación anticipada si se elimina o se mueve a otro nivel antes de que transcurran 30 días. Este cargo se prorratea. Por ejemplo, si un blob se mueve al nivel de acceso esporádico y, a continuación, se elimina pasados 21 días, se le cobrará una cuota por eliminación anticipada equivalente a 9 (30 menos 21) días a partir del almacenamiento de ese blob en el nivel de acceso esporádico.
 
-Los niveles de acceso frecuente y esporádico admiten todas las opciones de redundancia. Para más información sobre las opciones de redundancia de datos en Azure Storage, consulte [Redundancia de Azure Storage](../common/storage-redundancy.md).  
+Los niveles de acceso frecuente y esporádico admiten todas las configuraciones de redundancia. Para más información sobre las opciones de redundancia de datos en Azure Storage, consulte [Redundancia de Azure Storage](../common/storage-redundancy.md).  
 
 ## <a name="archive-access-tier"></a>Nivel de acceso de archivo
 
-El nivel de acceso de archivo es un nivel sin conexión para almacenar datos a los que rara vez se accede. El nivel de acceso de archivo tiene el menor costo de almacenamiento, pero mayores costos de recuperación de datos y latencia en comparación con los niveles de acceso frecuente y esporádico. Entre los ejemplos de escenarios de uso del nivel de acceso de archivo se incluyen:
+El nivel de acceso de archivo es un nivel sin conexión para almacenar datos a los que rara vez se accede. El nivel de acceso de archivo tiene el menor costo de almacenamiento, pero mayores costos de recuperación de datos y latencia en comparación con los niveles de acceso frecuente y esporádico. Entre los ejemplos de escenarios de uso del nivel de acceso de archivo, se incluyen:
 
 - Copia de seguridad a largo plazo, copia de seguridad secundaria y conjuntos de datos de archivado
 - Datos originales (sin procesar) que deben conservarse, incluso después de que se hayan procesado en un formato útil final
 - Datos de cumplimiento y archivado que se deben almacenar durante un largo período de tiempo y a los que casi nunca se accede
 
-Los datos deben permanecer en el nivel de archivo durante al menos 180 días o estar sujetos a un cargo por eliminación temprana. Por ejemplo, si un blob se mueve al nivel de acceso de archivo y, a continuación, se elimina o se mueve al nivel de acceso frecuente al cabo de 45 días, se le cobrará una cuota de eliminación temprana equivalente a 135 (180 menos 45) días a partir del almacenamiento de ese blob en el nivel de acceso de archivo.
+Los datos deben permanecer en el nivel de archivo durante al menos 180 días o estar sujetos a un cargo por eliminación temprana. Por ejemplo, si un blob se mueve al nivel de acceso de archivo y, a continuación, se elimina o se mueve al nivel de acceso frecuente al cabo de 45 días, se le cobrará una cuota de eliminación temprana equivalente a 135 (180 menos 45) días a partir del almacenamiento de ese blob en el nivel de acceso de archivo.
 
-Un blob no se puede leer ni modificar mientras se encuentre en el nivel de archivo. Para leer o descargar un blob en el nivel de acceso de archivo, primero debe rehidratarlo en un nivel en línea, ya sea de acceso esporádico o de acceso frecuente. Los datos del nivel de archivo pueden tardar hasta 15 horas en rehidratarse, según la prioridad que especifique para la operación de rehidratación. Para más información sobre la rehidratación de blobs, consulte [Rehidratación de blobs desde el nivel de acceso de archivo](archive-rehydrate-overview.md).
+Un blob no se puede leer ni modificar mientras se encuentre en el nivel de archivo. Para leer o descargar un blob del nivel de acceso de archivo, primero debe rehidratarlo a un nivel en línea, bien sea de acceso esporádico o de acceso frecuente. Los datos del nivel de archivo pueden tardar hasta 15 horas en rehidratarse, dependiendo de la prioridad que especifique para la operación de rehidratación. Para obtener más información sobre la rehidratación de blobs, consulte [Resumen de la rehidratación de blobs desde el nivel de acceso de archivo](archive-rehydrate-overview.md).
 
 Los metadatos de un blob archivado permanecen disponibles para el acceso de lectura, por lo que puede enumerar el blob y sus propiedades, metadatos y etiquetas de índice. Los metadatos de un blob del nivel de acceso de archivo son de solo lectura, mientras que las etiquetas de índice del blob se pueden leer o escribir. No se admiten instantáneas para blobs archivados.
 
-Se admiten las siguientes operaciones para los blobs del nivel de archivo:
+Se admiten las siguientes operaciones para los blobs del nivel de acceso de archivo:
 
 - [Copy Blob](/rest/api/storageservices/copy-blob)
 - [Delete Blob](/rest/api/storageservices/delete-blob)
@@ -74,7 +74,7 @@ Se admiten las siguientes operaciones para los blobs del nivel de archivo:
 - [Set Blob Tier](/rest/api/storageservices/set-blob-tier)
 
 > [!NOTE]
-> El nivel de archivo no se admite en las cuentas de ZRS, GZRS o RA-GZRS. Se admite la migración de LRS a GRS siempre que no se hayan trasladado blobs al nivel de archivo mientras la cuenta estaba establecida en LRS. Una cuenta se puede devolver a GRS si la actualización se realiza en menos de 30 días desde el momento en que la cuenta se convirtió en LRS y no se ha movido ningún blob al nivel de archivo mientras la cuenta estaba establecida en LRS.
+> El nivel de acceso de archivo no se admite en las cuentas ZRS, GZRS ni RA-GZRS. Se admite la migración de LRS a GRS siempre que no se hayan trasladado blobs al nivel de acceso de archivo mientras la cuenta estaba establecida en LRS. Una cuenta se puede devolver a GRS si la actualización se realiza en menos de 30 días desde el momento en que la cuenta se convirtió en LRS y no se ha movido ningún blob al nivel de acceso de archivo mientras la cuenta estaba establecida en LRS.
 
 ## <a name="default-account-access-tier-setting"></a>Configuración predeterminada del nivel de acceso de la cuenta
 
@@ -86,7 +86,7 @@ Un blob que no tiene un nivel asignado explícitamente infiere el nivel de la co
 
 El cambio de la configuración predeterminada del nivel de acceso para una cuenta de almacenamiento se aplica a todos los blobs de la cuenta para la que no se ha establecido explícitamente un nivel de acceso. Si alterna la configuración predeterminada del nivel de acceso de frecuente a esporádico en una cuenta de uso general v2, se le cobrarán las operaciones de escritura (por cada 10 000) para todos los blobs para los que se infiere el nivel de acceso. Si cambia el nivel de acceso de una cuentas de v2 de uso general de esporádico a frecuente, se le cobran tanto las operaciones de lectura (por cada 10 000) como las de recuperación de datos (por GB).
 
-Al crear una cuenta heredada de Blob Storage, debe especificar la configuración de nivel de acceso predeterminada como frecuente o esporádico en el momento de la creación. No hay ningún cargo por cambiar la configuración de nivel de acceso predeterminada de la cuenta de frecuente a esporádico en una cuenta heredada de Blob Storage. Si cambia el nivel de acceso de su cuenta de Blob Storage de esporádico a frecuente, se le cobran tanto las operaciones de lectura (por 10 000) como las de recuperación de datos (por GB). Microsoft recomienda utilizar cuentas de almacenamiento v2 de uso general, en lugar de cuentas de Blob Storage, siempre que sea posible.
+Al crear una cuenta heredada de Blob Storage, debe especificar la configuración del nivel de acceso predeterminado como frecuente o esporádico en el momento de la creación. No hay ningún cargo por cambiar la configuración del nivel de acceso predeterminado de la cuenta de frecuente a esporádico en una cuenta heredada de Blob Storage. Si cambia el nivel de acceso de su cuenta de Blob Storage de esporádico a frecuente, se le cobran tanto las operaciones de lectura (por 10 000) como las de recuperación de datos (por GB). Microsoft recomienda utilizar cuentas de almacenamiento v2 de uso general, en lugar de cuentas de Blob Storage, siempre que sea posible.
 
 > [!NOTE]
 > El nivel de acceso de archivo no se admite como nivel de acceso predeterminado para una cuenta de almacenamiento.
@@ -98,14 +98,14 @@ Para establecer explícitamente el nivel de un blob al crearlo, especifique el n
 Después de crear un blob, puede cambiar su nivel de cualquiera de las maneras siguientes:
 
 - Mediante una llamada a la operación [Set Blob Tier](/rest/api/storageservices/set-blob-tier), ya sea directamente o mediante una directiva de [administración del ciclo de vida](#blob-lifecycle-management). Llamar a [Set Blob Tier](/rest/api/storageservices/set-blob-tier) suele ser la mejor opción para cambiar el nivel de un blob de un nivel más frecuente a uno más esporádico.
-- Mediante una llamada a la operación [Copy Blob](/rest/api/storageservices/copy-blob) para copiar un blob de un nivel a otro. Se recomienda llamar a [Copy Blob](/rest/api/storageservices/copy-blob) en la mayoría de los escenarios en los que se va a rehidratar un blob desde el nivel de archivo a un nivel en línea o al mover un blob de esporádico a frecuente. Al copiar un blob, puede evitar la penalización por eliminación anticipada si aún no ha transcurrido el intervalo de almacenamiento necesario para el blob de origen. Sin embargo, la copia de un blob da como resultado cargos de capacidad para dos blobs, el blob de origen y el blob de destino.
+- Mediante una llamada a la operación [Copy Blob](/rest/api/storageservices/copy-blob) para copiar un blob de un nivel a otro. Se recomienda llamar a [Copy Blob](/rest/api/storageservices/copy-blob) en la mayoría de los escenarios en los que se va a rehidratar un blob desde el nivel de acceso de archivo a un nivel en línea o al mover un blob de esporádico a frecuente. Al copiar un blob, puede evitar la penalización por eliminación anticipada si aún no ha transcurrido el intervalo de almacenamiento necesario para el blob de origen. Sin embargo, la copia de un blob da como resultado cargos de capacidad para dos blobs, el blob de origen y el blob de destino.
 
 El cambio de nivel de un blob de acceso frecuente a esporádico o de archivo es instantáneo, al igual que el cambio de esporádico a frecuente. La rehidratación de un blob desde el nivel de acceso de archivo al nivel de acceso frecuente o esporádico puede tardar hasta 15 horas.
 
 Tenga en cuenta los siguientes puntos al mover un blob entre los niveles de acceso esporádico y de archivo:
 
-- Si se infiere un blob como esporádico en el nivel de acceso predeterminado de la cuenta de almacenamiento y se mueve al nivel de acceso de archivo, no hay ningún cargo de eliminación temprana.
-- Si un blob se mueve explícitamente al nivel de acceso esporádico y luego se mueve al nivel de acceso de archivo, se aplica el cargo de eliminación temprana.
+- Si se infiere un blob como esporádico en el nivel de acceso predeterminado de la cuenta de almacenamiento y se mueve al nivel de acceso de archivo, no hay ningún cargo por eliminación temprana.
+- Si un blob se mueve explícitamente al nivel de acceso esporádico y luego se mueve al nivel de acceso de archivo, se aplica el cargo por eliminación temprana.
 
 En la tabla siguiente se resumen los enfoques que puede seguir para mover blobs entre varios niveles.
 
@@ -137,7 +137,7 @@ En la tabla siguiente, se resumen las características de los niveles de acceso 
 
 <sup>1</sup> Los objetos del nivel de acceso esporádico en cuentas de uso general v2 tienen una duración mínima de la retención de 30 días. Para las cuentas de Blob Storage, no hay ninguna duración mínima de la retención para el nivel de acceso esporádico.
 
-<sup>2</sup> Al rehidratar un blob desde el nivel de acceso de archivo, puede elegir una opción de prioridad de rehidratación estándar o alta. Cada una ofrece diferentes latencias y costos de recuperación. Para más información, consulte [Introducción a la rehidratación de blobs desde el nivel de archivo](archive-rehydrate-overview.md).
+<sup>2</sup> Al rehidratar un blob desde el nivel de acceso de archivo, puede elegir una opción de prioridad de rehidratación estándar o alta. Cada una ofrece diferentes latencias y costos de recuperación. Para más información, consulte [Rehidratación de blobs desde el nivel de archivo](archive-rehydrate-overview.md).
 
 <sup>3</sup> Para más información sobre las configuraciones de redundancia en Azure Storage, consulte [Redundancia de Azure Storage](../common/storage-redundancy.md).
 
@@ -184,7 +184,7 @@ La tabla siguiente resume cómo se facturan los cambios de nivel:
 
 | | **Cargos de escritura (operación + acceso)** | **Cargos de lectura (operación + acceso)** |
 | ---- | ----- | ----- |
-| Operación **Set Blob Tier** | De frecuente a esporádico<br> De frecuente a archivo<br> De esporádico a archivo | De archivo a esporádico<br> De archivo a frecuente<br> De esporádico a frecuente
+| Operación **Set Blob Tier** | De Frecuente a Esporádico<br> De frecuente a archivo<br> De esporádico a archivo | De Archivo a Esporádico<br> De Archivo a Frecuente<br> De esporádico a frecuente
 
 Cambiar el nivel de acceso de un blob cuando el control de versiones está habilitado, o si el blob tiene instantáneas, puede dar lugar a cargos adicionales. Para obtener información sobre los blobs con el control de versiones habilitado, vea [Precios y facturación](versioning-overview.md#pricing-and-billing) en la documentación sobre el control de versiones de blob. Para obtener información sobre los blobs con instantáneas, vea [Precios y facturación](snapshots-overview.md#pricing-and-billing) en la documentación sobre instantáneas de blob.
 

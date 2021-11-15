@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.author: thwimmer
-ms.openlocfilehash: 5a4c3d697926f5b64548ec631761fb7c4e22277f
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.openlocfilehash: 7a31240c6074be759033324a1abb447d98cc2355
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122195527"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131444068"
 ---
 # <a name="tutorial-configure-fortes-change-cloud-for-automatic-user-provisioning"></a>Tutorial: Configuración de Fortes Change Cloud para el aprovisionamiento automático de usuarios
 
@@ -140,6 +140,10 @@ Una vez configurado el aprovisionamiento, use los recursos siguientes para super
 * Use los [registros de aprovisionamiento](../reports-monitoring/concept-provisioning-logs.md) para determinar qué usuarios se han aprovisionado correctamente o sin éxito.
 * Consulte la [barra de progreso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver el estado del ciclo de aprovisionamiento y cuánto falta para que finalice.
 * Si la configuración de aprovisionamiento parece estar en mal estado, la aplicación pasará a estar en cuarentena. Más información sobre los estados de cuarentena [aquí](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## <a name="change-log"></a>Registro de cambios
+
+* 28/10/2021: se ha habilitado la **detección de esquemas**.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

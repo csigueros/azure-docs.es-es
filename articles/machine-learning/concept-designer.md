@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
-ms.date: 08/03/2021
+ms.date: 10/21/2021
 ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 3a38717cec9aed40e3aff96376a9d956eb82a53d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 07132095c3f64aa4df3f6ec728894a625bac2b74
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124792227"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131561714"
 ---
 # <a name="what-is-azure-machine-learning-designer"></a>¿Qué es el diseñador de Azure Machine Learning? 
 
@@ -39,11 +39,11 @@ El diseñador usa el [área de trabajo](concept-workspace.md) de Azure Machine L
 
 Use un lienzo visual para crear un flujo de trabajo de aprendizaje automático completo. Entrene, pruebe e implemente modelos en el diseñador:
 
-1. Arrastrar [conjuntos de datos](#datasets) y [módulos](#module) y colocarlos en el lienzo.
-1. Conectar los módulos para crear un [borrador de canalización](#pipeline-draft).
-1. Enviar una [ejecución de canalización](#pipeline-run) mediante los recursos de proceso del área de trabajo de Azure Machine Learning.
-1. Convertir las **canalizaciones de entrenamiento** en **canalizaciones de inferencia**.
-1. [Publicar](#publish) las canalizaciones en un **punto de conexión de canalización** de REST para enviar una nueva canalización que se ejecute con distintos parámetros y conjuntos de datos.
++ Arrastre y coloque [conjuntos de datos](#datasets) y [componentes](#component) en el lienzo.
++ Conecte los componentes para crear un [borrador de canalización](#pipeline-draft).
++ Enviar una [ejecución de canalización](#pipeline-run) mediante los recursos de proceso del área de trabajo de Azure Machine Learning.
++ Convertir las **canalizaciones de entrenamiento** en **canalizaciones de inferencia**.
++ [Publicar](#publish) las canalizaciones en un **punto de conexión de canalización** de REST para enviar una nueva canalización que se ejecute con distintos parámetros y conjuntos de datos.
     + Publique una **canalización de entrenamiento** para reutilizar una sola canalización para el entrenamiento de varios modelos y, al mismo tiempo, cambiar los parámetros y conjuntos de datos.
     + Publique una **canalización de inferencia por lotes** para hacer predicciones sobre nuevos datos mediante un modelo entrenado previamente.
 1. [Implementar](#deploy) una **canalización de inferencia en tiempo real** en un punto de conexión en tiempo real para realizar predicciones sobre nuevos datos en tiempo real.
@@ -52,18 +52,18 @@ Use un lienzo visual para crear un flujo de trabajo de aprendizaje automático c
 
 ## <a name="pipeline"></a>Canalización
 
-Una [canalización](concept-azure-machine-learning-architecture.md#ml-pipelines) consta de conjuntos de datos y módulos algorítmicos que se conectan. Las canalizaciones tienen muchos usos: puede crear una canalización que entrene a un modelo único o una que entrene a varios modelos. Puede crear una canalización que realice predicciones en tiempo real o por lotes, o crear una canalización que solo limpie los datos. Las canalizaciones le permiten reutilizar el trabajo y organizar los proyectos.
+Una [canalización](concept-azure-machine-learning-architecture.md#ml-pipelines) consta de conjuntos de datos y componentes analíticos que se conectan. Las canalizaciones tienen muchos usos: puede crear una canalización que entrene a un modelo único o una que entrene a varios modelos. Puede crear una canalización que realice predicciones en tiempo real o por lotes, o crear una canalización que solo limpie los datos. Las canalizaciones le permiten reutilizar el trabajo y organizar los proyectos.
 
 ### <a name="pipeline-draft"></a>Borrador de canalización
 
-A medida que edita una canalización en el diseñador, el progreso se guarda como un **borrador de canalización**. Puede editar un borrador de canalización en cualquier momento y agregar o quitar módulos, configurar destinos de proceso, crea parámetros, etc.
+A medida que edita una canalización en el diseñador, el progreso se guarda como un **borrador de canalización**. Puede editar un borrador de canalización en cualquier momento si agrega o quita componentes, configura destinos de proceso, crea parámetros, etc.
 
 Una canalización válida tiene estas características:
 
-* Los conjuntos de datos solo pueden conectarse a módulos.
-* Los módulos solo se pueden conectar a conjuntos de datos o a otros módulos.
-* Todos los puertos de entrada de los módulos deben tener alguna conexión al flujo de datos.
-* Deben establecerse todos los parámetros necesarios para cada módulo.
+* Los conjuntos de datos solo pueden conectarse a componentes.
+* Los componentes solo se pueden conectar a conjuntos de datos o a otros componentes.
+* Todos los puertos de entrada de los componentes deben tener alguna conexión al flujo de datos.
+* Deben establecerse todos los parámetros obligatorios de cada componente.
 
 Cuando esté listo para ejecutar el borrador de la canalización, envíe una ejecución de canalización.
 
@@ -77,16 +77,16 @@ Las ejecuciones de canalización se agrupan en [experimentos](concept-azure-mach
 
 Un conjuntos de datos de aprendizaje automático permite acceder a los datos y trabajar con ellos fácilmente. En el diseñador se incluyen varios [conjuntos de datos de ejemplo](samples-designer.md#datasets) para experimentar con ellos. Puede [registrar](how-to-create-register-datasets.md) más conjuntos de datos a medida que los necesite.
 
-## <a name="module"></a>módulo
+## <a name="component"></a>Componente
 
-Un módulo es un algoritmo que puede aplicar sobre sus datos. El diseñador tiene varios módulos que van desde las funciones de entrada de datos hasta los procesos de entrenamiento, puntuación y validación.
+Un componente es un algoritmo que se puede realizar en los datos. El diseñador tiene varios componentes que van desde funciones de entrada de datos hasta procesos de entrenamiento, puntuación y validación.
 
-Un módulo puede tener un conjunto de parámetros que puede utilizar para configurar los algoritmos internos del módulo. Al seleccionar un módulo en el lienzo, los parámetros del módulo se muestran en el panel Propiedades a la derecha del lienzo. Puede modificar los parámetros en ese panel para ajustar la canalización. Puede establecer los recursos de proceso para módulos individuales del diseñador. 
+Un componente puede tener un conjunto de parámetros que se puede usar para configurar los algoritmos internos del componente. Al seleccionar un componente en el lienzo, los parámetros de este se muestran en el panel Propiedades, a la derecha del lienzo. Puede modificar los parámetros en ese panel para ajustar su modelo. Puede establecer los recursos de proceso de componentes individuales en el diseñador. 
 
-:::image type="content" source="./media/concept-designer/properties.png" alt-text="Propiedades del módulo":::
+:::image type="content" source="./media/concept-designer/properties.png" alt-text="Propiedades de componentes":::
 
 
-Si desea ayuda para desplazarse por la biblioteca de algoritmos de aprendizaje automático disponibles, consulte [Información general sobre la referencia de módulos y algoritmos](algorithm-module-reference/module-reference.md). Para obtener ayuda en la elección de un algoritmo, consulte [Hoja de características de los algoritmos de Machine Learning para el diseñador de Azure Machine Learning](algorithm-cheat-sheet.md).
+Para obtener ayuda para desplazarse por la biblioteca de algoritmos de aprendizaje automático disponibles, vea [Información general de referencia sobre algoritmos y componentes](component-reference/component-reference.md). Para obtener ayuda en la elección de un algoritmo, consulte [Hoja de características de los algoritmos de Machine Learning para el diseñador de Azure Machine Learning](algorithm-cheat-sheet.md).
 
 ## <a name="compute-resources"></a><a name="compute"></a>Recursos de proceso
 
@@ -115,7 +115,7 @@ También puede publicar una canalización en un **punto de conexión de canaliza
 
 Las canalizaciones publicadas son flexibles; se pueden usar para entrenar o volver a entrenar modelos, [realizar la inferencia por lotes](how-to-run-batch-predictions-designer.md), procesar nuevos datos y mucho más. Puede publicar varias canalizaciones en un único punto de conexión de canalización y especificar la versión de canalización que se va a ejecutar.
 
-Una canalización publicada se ejecuta en los recursos de proceso que se definen en el borrador de canalización de cada módulo.
+Una canalización publicada se ejecuta en los recursos de proceso que se definen en el borrador de canalización de cada componente.
 
 El diseñador crea el mismo objeto [PublishedPipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline) como SDK.
 

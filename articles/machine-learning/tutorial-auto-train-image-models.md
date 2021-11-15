@@ -11,12 +11,12 @@ ms.author: swatig
 ms.reviewer: nibaccam
 ms.date: 10/06/2021
 ms.custom: devx-track-python, automl
-ms.openlocfilehash: a8b299a57b5ba3d31d34447ceacded9933c61b55
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: e6906988b47ecdb1ba5e1ca7947666e6371ddd8e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130007686"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131468582"
 ---
 # <a name="tutorial-train-an-object-detection-model-preview-with-automl-and-python"></a>Tutorial: Entrenamiento de un modelo de detección de objetos (versión preliminar) con AutoML y Python
 
@@ -494,4 +494,7 @@ En este tutorial de aprendizaje automático, ha realizado las tareas siguientes:
 
 * [Más información sobre Computer Vision en aprendizaje automático automatizado (versión preliminar)](concept-automated-ml.md#computer-vision-preview).
 * [Aprenda a configurar AutoML para entrenar modelos de Computer Vision con Python (versión preliminar)](how-to-auto-train-image-models.md).
-* Revise los ejemplos de código y los casos de uso detallados en el repositorio del [cuaderno de GitHub para obtener muestras de aprendizaje automático automatizado](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml). Consulte las carpetas con el prefijo "image-" para ver ejemplos específicos de la creación de modelos de Computer Vision.
+* Revise los ejemplos de código y los casos de uso detallados en el repositorio del [cuaderno de GitHub para obtener muestras de aprendizaje automático automatizado](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml). Compruebe las carpetas con el prefijo "image-" para obtener ejemplos específicos de la creación de modelos de Computer Vision.
+
+> [!NOTE]
+> El uso del conjunto de datos Fridge Objects está disponible a través de la [licencia de MIT](https://github.com/microsoft/computervision-recipes/blob/master/LICENSE).

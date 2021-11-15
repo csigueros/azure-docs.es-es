@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.author: keli19
 author: likebupt
-ms.date: 03/06/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: designer
-ms.openlocfilehash: b97837bea9654f713287b5e5263482e8067e22dd
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 6b79b80f666019cb5a8a59901bf12e9277287a12
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129426593"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131557421"
 ---
 # <a name="use-pipeline-parameters-to-retrain-models-in-the-designer"></a>Uso de parámetros de canalización para volver a entrenar modelos en el diseñador
 
@@ -41,24 +41,24 @@ En este artículo se da por hecho que tiene algunos conocimientos sobre la creac
 
 ### <a name="sample-pipeline"></a>Canalización de ejemplo
 
-La canalización usada en este artículo es una versión modificada de la canalización de ejemplo [Predicción de ingresos](samples-designer.md#classification) de la página principal del diseñador. La canalización usa el módulo [Import Data](algorithm-module-reference/import-data.md) (Importación de datos) en lugar del conjunto de datos de ejemplo para mostrarle cómo entrenar un modelo con sus propios datos.
+La canalización usada en este artículo es una versión modificada de la canalización de ejemplo [Predicción de ingresos](samples-designer.md#classification) de la página principal del diseñador. La canalización usa el componente [Importación de datos](algorithm-module-reference/import-data.md) en lugar del conjunto de datos de ejemplo para mostrarle cómo entrenar un modelo con sus propios datos.
 
-![Captura de pantalla que muestra la canalización de ejemplo modificada con un cuadro que resalta el módulo Importación de datos](./media/how-to-retrain-designer/modified-sample-pipeline.png)
+![Captura de pantalla que muestra la canalización de ejemplo modificada con un cuadro que resalta el componente Importación de datos](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 
 ## <a name="create-a-pipeline-parameter"></a>Creación de un parámetro de canalización
 
 Los parámetros de canalización se usan para compilar canalizaciones versátiles que se pueden volver a enviar posteriormente con distintos valores de parámetros. En algunos escenarios comunes, se actualizan conjuntos de valores o algunos hiperparámetros para su reentrenamiento. Cree parámetros de canalización para establecer variables de forma dinámica en tiempo de ejecución. 
 
-Los parámetros de canalización se pueden agregar al origen de datos o a los parámetros de módulo en una canalización. Cuando se vuelve a enviar la canalización, se pueden especificar los valores de esos parámetros.
+Los parámetros de canalización se pueden agregar al origen de datos o a los parámetros del componente en una canalización. Cuando se vuelve a enviar la canalización, se pueden especificar los valores de esos parámetros.
 
-En este ejemplo, cambiará la ruta de acceso a los datos de entrenamiento de un valor fijo a un parámetro, de modo que pueda volver a entrenar el modelo con datos diferentes. Igualmente, también puede agregar otros parámetros de módulo, como los parámetros de canalización, en función de su caso de uso.
+En este ejemplo, cambiará la ruta de acceso a los datos de entrenamiento de un valor fijo a un parámetro, de modo que pueda volver a entrenar el modelo con datos diferentes. Igualmente, también puede agregar otros parámetros de componente, como los parámetros de canalización, en función de su caso de uso.
 
-1. Seleccione el módulo **Importación de datos**.
+1. Seleccione el componente **Importación de datos**.
 
     > [!NOTE]
-    > En este ejemplo se usa el módulo Import Data (Importación de datos) para acceder a los datos de un almacén de datos registrado. Sin embargo, puede seguir pasos similares si usa patrones de acceso a datos alternativos.
+    > En este ejemplo se usa el componente Importación de datos para acceder a los datos de un almacén de datos registrado. Sin embargo, puede seguir pasos similares si usa patrones de acceso a datos alternativos.
 
-1. En el panel de detalles del módulo, situado a la derecha del lienzo, seleccione el origen de datos.
+1. En el panel de detalles del componente, situado a la derecha del lienzo, seleccione el origen de datos.
 
 1. Especifique la ruta de acceso a los datos. También puede seleccionar **Browse path** (Examinar ruta de acceso) para examinar el árbol de archivos. 
 
@@ -73,11 +73,11 @@ En este ejemplo, cambiará la ruta de acceso a los datos de entrenamiento de un 
 1. Seleccione **Guardar**.
 
    > [!NOTE]
-   > También puede desasociar un parámetro de módulo del parámetro de canalización en el panel de detalles del módulo, de forma similar a cuando debe agregar parámetros de canalización.
+   > También puede desasociar un parámetro de componente del parámetro de canalización en el panel de detalles del componente, de forma similar a cuando debe agregar parámetros de canalización.
    >
    > Puede inspeccionar y editar los parámetros de canalización; para ello, seleccione el icono de engranaje de **Configuración** situado junto al título del borrador de la canalización. 
    >    - Después de realizar la desasociación, puede eliminar el parámetro de canalización en el panel **Configuración**.
-   >    - Asimismo, también puede agregar un parámetro de canalización en el panel **Configuración** y, a continuación, aplicarlo en algunos parámetros de módulo.
+   >    - Asimismo, también puede agregar un parámetro de canalización en el panel **Configuración** y, a continuación, aplicarlo en algunos parámetros de componente.
 
 1. Envíe la ejecución de la canalización.
 

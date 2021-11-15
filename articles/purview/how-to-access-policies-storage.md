@@ -8,12 +8,12 @@ ms.subservice: purview-data-policies
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: references_regions, ignite-fall-2021
-ms.openlocfilehash: cbd6214687e23b90d0c289dd5a34d9410b7f092a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ea5285c5fd29bfe34f97c87b2ac0c9bd7a5502a9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131017357"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131425242"
 ---
 # <a name="dataset-provisioning-by-data-owner-for-azure-storage"></a>Aprovisionamiento de conjuntos de datos por propietario de datos para Azure Storage
 
@@ -25,18 +25,23 @@ La creación de directivas de Purview admite las siguientes capacidades:
 > [!IMPORTANT]
 > Actualmente, estas capacidades están en versión preliminar. Esta versión preliminar se proporciona sin un contrato de nivel de servicio y no debe usarse para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+
+
 ## <a name="prerequisites"></a>Prerrequisitos
+
+### <a name="opt-in-to-participate-in-azure-purview-data-use-policy-preview"></a>Optar por participar en la versión preliminar de la directiva de uso de datos de Azure Purview
+Esta funcionalidad está actualmente en versión preliminar, por lo que deberá participar en la [versión preliminar de las directivas de uso de datos de Purview](https://aka.ms/opt-in-data-use-policy).
 
 ### <a name="provision-new-accounts-in-an-isolated-test-subscription"></a>Aprovisionamiento de nuevas cuentas en una suscripción de prueba aislada
 Siga estos pasos para crear una cuenta de Azure Purview y una de Azure Storage en una suscripción de prueba aislada. Después, habilite la función de directiva de acceso en estas cuentas.
 
-## <a name="supported-regions"></a>Regiones admitidas
+### <a name="supported-regions"></a>Regiones admitidas
 
 > [!IMPORTANT]
 > 1. La característica de directiva de acceso solo está disponible en las nuevas cuentas de Azure Purview y Azure Storage.
 > 2. Esta característica solo se puede usar en las regiones enumeradas a continuación, donde se implementa la función de directiva de acceso.
 
-### <a name="azure-purview"></a>Azure Purview 
+#### <a name="azure-purview"></a>Azure Purview 
 
 -   Norte de Europa
 -   Oeste de Europa
@@ -51,7 +56,7 @@ Siga estos pasos para crear una cuenta de Azure Purview y una de Azure Storage e
 -   Centro de Francia
 
 
-### <a name="azure-storage"></a>Azure Storage
+#### <a name="azure-storage"></a>Azure Storage
 
 -   Centro de Francia
 -   Centro de Canadá
@@ -186,7 +191,6 @@ Los pasos necesarios para publicar una directiva son los siguientes:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte estos artículos para comprender los conceptos relacionados con las directivas de acceso:
+Consulte este artículo para comprender los conceptos relacionados con Azure Purview:
 
-* [Conceptos de las directivas de acceso de Azure Purview](concept-data-policies.md)
-* [Conceptos de la detección y el acceso de datos de autoservicio de Azure Purview](concept-self-service.md)
+* [Información general de Azure Purview](overview.md)

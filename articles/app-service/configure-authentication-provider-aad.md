@@ -3,14 +3,14 @@ title: Configuración de la autenticación de Azure AD
 description: Aprenda a configurar la autenticación de Azure Active Directory como proveedor de identidades para una aplicación de App Service o Azure Functions.
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
-ms.date: 04/14/2020
+ms.date: 10/26/2021
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 039a32d1f1ec1327ee032c17af36dc910f363eed
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: cc5761afe295bd9ef71c86cf6ffdafb8c0e847ff
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130045982"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131435840"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configuración de una aplicación de App Service o Azure Functions para usar el inicio de sesión de Azure AD
 
@@ -68,7 +68,7 @@ Para registrar la aplicación, lleve a cabo los siguientes pasos:
 1. En **URI de redirección**, seleccione **Web** y escriba `<app-url>/.auth/login/aad/callback`. Por ejemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 1. Seleccione **Registrar**.
 1. Una vez creado el registro de la aplicación, copie el **Id. de aplicación (cliente)** y el **Id. de directorio (inquilino)** para usarlos más adelante.
-1. Seleccione **Autenticación**. En **Concesión implícita**, habilite **Tokens de id.** para permitir que el usuario de OpenID Connect inicie sesión desde App Service.
+1. Seleccione **Autenticación**. En **Flujos de concesión implícita e híbridos**, habilite **Tokens de id.** para permitir que el usuario de OpenID Connect inicie sesión desde App Service.  Seleccione **Guardar**.
 1. (Opcional) Seleccione **Personalización de marca**. En **URL de página principal**, escriba la dirección URL de la aplicación de App Service y seleccione **Guardar**.
 1. Seleccione **Exponer una API** y haga clic en **Establecer** junto a "URI de id. de aplicación". Este valor identifica de forma única la aplicación cuando se usa como recurso, lo que permite solicitar tokens que concedan acceso. Se usa como prefijo para los ámbitos que cree.
 
@@ -77,10 +77,11 @@ Para registrar la aplicación, lleve a cabo los siguientes pasos:
     Una vez introducido el valor, haga clic en **Guardar**.
 
 1. Seleccione **Agregar un ámbito**.
+   1. En **Agregar un ámbito**, el **URI del identificador de aplicación** es el valor que estableció en un paso anterior.  Selecciona **Guardar y continuar**.
    1. En **Nombre de ámbito**, escriba *user_impersonation*.
    1. En los cuadros de texto, escriba el nombre y la descripción del ámbito de consentimiento que quiere que vean los usuarios en la página de consentimiento. Por ejemplo, escriba *Acceder a &lt;application-name&gt;* .
    1. Seleccione la opción **Agregar un ámbito**.
-1. (Opcional) Para crear un secreto de cliente, seleccione **Certificates & secrets (Certificados y secretos)**  > **New client secret (Nuevo secreto de cliente)**  > **Add (Agregar)** . Copie el valor del secreto del cliente que se muestra en la página. No se volverá a mostrar.
+1. (Opcional) Para crear un secreto de cliente, seleccione **Certificados y secretos** > **Secretos de cliente** > **Nuevo secreto de cliente**.  Escriba una descripción y un tiempo de expiración y seleccione **Agregar**. Copie el valor del secreto del cliente que se muestra en la página. No se volverá a mostrar.
 1. (Opcional) Para agregar varios valores en **Direcciones URL de respuesta**, seleccione **Autenticación**.
 
 ### <a name="enable-azure-active-directory-in-your-app-service-app"></a><a name="secrets"> </a>Habilitación de Azure Active Directory en la aplicación de App Service
@@ -93,7 +94,7 @@ Para registrar la aplicación, lleve a cabo los siguientes pasos:
     |Campo|Descripción|
     |-|-|
     |Id. de aplicación (cliente)| Use el **identificador de la aplicación (cliente)** del registro de aplicaciones. |
-    |Secreto de cliente (opcional)| Use el secreto de cliente que generó en el registro de la aplicación. Con un secreto de cliente, se usa el flujo híbrido y el App Service devolverá el acceso y los tokens de actualización. Cuando no se establece el secreto de cliente, se usa el flujo implícito y solo se devuelve un token de identificador. Estos tokens los envía el proveedor y se almacenan en el almacén de tokens de EasyAuth.|
+    |Secreto del cliente| Use el secreto de cliente que generó en el registro de la aplicación. Con un secreto de cliente, se usa el flujo híbrido y el App Service devolverá el acceso y los tokens de actualización. Cuando no se establece el secreto de cliente, se usa el flujo implícito y solo se devuelve un token de identificador. Estos tokens los envía el proveedor y se almacenan en el almacén de tokens de EasyAuth.|
     |Dirección URL del emisor| Use `<authentication-endpoint>/<tenant-id>/v2.0` y reemplace *\<authentication-endpoint>* por el [punto de conexión de autenticación del entorno de nube](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (por ejemplo, "https://login.microsoftonline.com" para Azure global), y reemplace también *\<tenant-id>* por el **identificador de directorio (inquilino)** en el que se creó el registro de la aplicación. Este valor se usa para redirigir a los usuarios al inquilino de Azure AD correcto, así como para descargar los metadatos adecuados para determinar las claves de firma de tokens y el valor de notificación del emisor del token correspondientes, por ejemplo. En las aplicaciones que usan Azure AD v1 y en las aplicaciones de Azure Functions, debe omitirse `/v2.0` en la dirección URL.|
     |Audiencias de token permitidas| Si se trata de una aplicación en la nube o una aplicación de servidor y quiere permitir tokens de autenticación desde una aplicación web, agregue aquí el valor de **URI de Id. de aplicación** de la aplicación web. De forma implícita, el **Id. de cliente** se considera *siempre* que es un público permitido.|
 

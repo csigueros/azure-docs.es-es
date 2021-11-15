@@ -10,12 +10,12 @@ services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 338798b017bd36be2dd3c717b67515064a245ebb
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f43d48d4ce0f66fbd1663d58eb92728532833783
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093676"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563385"
 ---
 # <a name="what-is-azure-synapse-data-explorer-preview"></a>¿Qué es el Explorador de datos de Azure Synapse? (versión preliminar)
 
@@ -72,7 +72,7 @@ Estas funcionalidades de indexación eficaces permiten al Explorador de datos ha
 
 ### <a name="kusto-query-language"></a>Lenguaje de consulta Kusto
 
-KQL tiene una comunidad grande y creciente gracias a la rápida adopción de Azure Monitor, Azure Application Insights, Azure Sentinel, Azure Data Explorer y otras ofertas de Microsoft. El lenguaje está bien diseñado con una sintaxis fácil de leer y proporciona una transición sin problemas desde consultas simples de una línea, a consultas complejas de procesamiento de datos. Esto permite al Explorador de datos proporcionar una gran compatibilidad con IntelliSense y un amplio conjunto de funciones integradas y de construcción de lenguaje para agregaciones, series temporales y análisis de usuarios que no están disponibles en SQL para la exploración rápida de los datos de telemetría.
+KQL tiene una comunidad grande y creciente gracias a la rápida adopción de Log Analytics de Azure Monitor, Application Insights, Azure Sentinel, Azure Data Explorer y otras ofertas de Microsoft. El lenguaje está bien diseñado con una sintaxis fácil de leer y proporciona una transición sin problemas desde consultas simples de una línea, a consultas complejas de procesamiento de datos. Esto permite al Explorador de datos proporcionar una gran compatibilidad con IntelliSense y un amplio conjunto de funciones integradas y de construcción de lenguaje para agregaciones, series temporales y análisis de usuarios que no están disponibles en SQL para la exploración rápida de los datos de telemetría.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

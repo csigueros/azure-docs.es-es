@@ -8,12 +8,12 @@ ms.date: 09/01/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: b1a9f54febcd2ebf36287590cb0579f8d2dea804
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: f6d54941d01bf6588a330dcf822b38c46ca8eed6
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130166361"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131846546"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -33,7 +33,7 @@ El comando sync difiere del comando copy de varias maneras:
 
 1. De manera predeterminada, la marca recursiva es true y sync copia todos los subdirectorios. Sync solo copia los archivos de nivel superior dentro de un directorio si la marca recursiva es false.
 2. Al sincronizar entre directorios virtuales, agregue una barra diagonal final a la ruta de acceso (consulte los ejemplos) si hay un blob con el mismo nombre que uno de los directorios virtuales.
-3. Si la marca `deleteDestination` está establecida en true o prompt, sync eliminará los archivos y blobs del destino que no estén presentes en el origen.
+3. Si la marca `--delete-destination` está establecida en true o prompt, sync eliminará los archivos y blobs del destino que no estén presentes en el origen.
 
 ## <a name="related-conceptual-articles"></a>Artículos conceptuales relacionados
 
@@ -169,7 +169,7 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--recursive**    `True` de forma predeterminada, busca en los subdirectorios de forma recursiva al sincronizar entre directorios. (El valor predeterminado es `True`).
 
-**--s2s-preserve-access-tier**: conserva el nivel de acceso durante la copia de servicio a servicio. Consulte [Niveles de acceso frecuente, esporádico y de archivo de los datos de blob](../blobs/access-tiers-overview.md) para asegurarse de que la cuenta de almacenamiento de destino admite la configuración del nivel de acceso. En los casos en los que no se admite el establecimiento del nivel de acceso, use `--s2s-preserve-access-tier=false` para omitir la copia del nivel de acceso. (El valor predeterminado es `true`).
+**--s2s-preserve-access-tier**: conserva el nivel de acceso durante la copia de servicio a servicio. Consulte [Niveles de acceso frecuente, esporádico y de archivo para los datos de blobs](../blobs/access-tiers-overview.md) para asegurarse de que la cuenta de almacenamiento de destino admite la configuración del nivel de acceso. En los casos en los que no se admite el establecimiento del nivel de acceso, use `--s2s-preserve-access-tier=false` para omitir la copia del nivel de acceso. (El valor predeterminado es `true`).
 
 **--s2s-preserve-blob-tags** Se conservan las etiquetas de índice durante la sincronización entre servicios de un almacenamiento de blobs a otro.
 

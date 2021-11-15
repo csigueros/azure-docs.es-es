@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: c0449ce5682460e683772b5f33442efa0b979998
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 50954d4fef64ffabddf3ec8898ef81a030a77f95
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131049128"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131577353"
 ---
 # <a name="link-your-domain-to-your-decentralized-identifier-did-preview"></a>Vinculación del dominio al identificador descentralizado (DID) (versión preliminar)
 

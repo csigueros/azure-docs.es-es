@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: d56760b85bfca74cb18481ebf08ece2e4255d389
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: e75fb11379ccbdff90d1acd1a3bce36b62bd8a1d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130178018"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130250870"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Procedimientos recomendados para Azure App Configuration
 
@@ -61,7 +61,7 @@ configBuilder.AddAzureAppConfiguration(options => {
 
 App Configuration está diseñado para almacenar los datos de configuración que normalmente se guardarían en archivos de configuración o variables de entorno. Sin embargo, algunos tipos de datos pueden ser más adecuados para residir en otros orígenes. Por ejemplo, almacene secretos en Key Vault, archivos en Azure Storage, información de pertenencia en grupos Azure AD o listas de clientes en una base de datos.
 
-Aún puede aprovechar App Configuration si guarda una referencia a datos externos en un par clave-valor. Cuando la aplicación lee una referencia, los datos se cargan desde el origen al que se hace referencia. En caso de que cambie la ubicación de los datos externos, solo tendrá que actualizar la referencia en App Configuration en lugar de actualizar y volver a implementar toda la aplicación.
+Aún puede aprovechar App Configuration si guarda una referencia a datos externos en un par clave-valor. Puede [utilizar el tipo de contenido](./concept-key-value.md#use-content-type) a fin de diferenciar cada origen de datos. Cuando la aplicación lee una referencia, los datos se cargan desde el origen al que se hace referencia. En caso de que cambie la ubicación de los datos externos, solo tendrá que actualizar la referencia en App Configuration en lugar de actualizar y volver a implementar toda la aplicación.
 
 La característica de [referencias de Key Vault](use-key-vault-references-dotnet-core.md) de App Configuration es un ejemplo en este caso. Permite que los secretos necesarios para una aplicación se actualicen según sea necesario mientras los propios secretos subyacentes permanecen en Key Vault.
 
@@ -88,7 +88,9 @@ Una cantidad excesiva de solicitudes a App Configuration puede dar lugar a cargo
 
 * Vea una sola *clave de Sentinel*, en lugar de ver claves individuales. Actualice toda la configuración solo si cambia la clave de Sentinel. Consulte [Uso de la configuración dinámica en una aplicación de ASP.NET Core](enable-dynamic-configuration-aspnet-core.md) para obtener un ejemplo.
 
-* Use Azure Event Grid para recibir notificaciones cuando cambie la configuración, en lugar de realizar un sondeo constante de los cambios. Para más información, consulte [Enrutamiento de eventos de Azure App Configuration a un punto de conexión web con la CLI de Azure](./howto-app-configuration-event.md).
+* Use Azure Event Grid para recibir notificaciones cuando cambie la configuración, en lugar de realizar un sondeo constante de los cambios. Para más información, consulte [Uso de Event Grid para las notificaciones de cambios de datos de App Configuration](./howto-app-configuration-event.md).
+
+* Reparta las solicitudes entre varios almacenes de App Configuration. Por ejemplo, utilice un almacén distinto de cada región geográfica para una aplicación implementada globalmente. Cada almacén de App Configuration tiene su propia cuota de solicitudes. Esta configuración proporciona un modelo de escalabilidad y evita el único punto de error.
 
 ## <a name="importing-configuration-data-into-app-configuration"></a>Importación de datos de configuración en App Configuration
 

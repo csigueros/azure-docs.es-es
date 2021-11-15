@@ -18,6 +18,14 @@
   items:
     - name: API REST de Azure
       href: chaos-studio-samples-rest-api.md
+    - name: Plantillas de ARM
+      items:
+        - name: Destinos y capacidades
+          href: sample-template-targets.md
+        - name: Experimentos
+          href: sample-template-experiment.md
+    - name: Definiciones de directivas de Azure
+      href: sample-policy-targets.md
 - name: Conceptos
   items:
     - name: Experimentos del caos

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/28/2021
 zone_pivot_groups: postgres-server-options
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: a14dc7e27c49d9f4e253e3a3a51c0526a56cadf9
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f2a3307cfea56d18cbbe0186cd3c927fafdd4074
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091597"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131853040"
 ---
 # <a name="tutorial-using-service-connector-preview-to-build-a-django-app-with-postgres-on-azure-app-service"></a>Tutorial: Uso de Service Connector (versión preliminar) para compilar una aplicación de Django con Postgres en Azure App Service
 
@@ -58,7 +58,7 @@ En este tutorial, se usa la CLI de Azure para completar las siguientes tareas:
 
 1. Disponga de una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 1. Instale <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 o una versión posterior</a>.
-1. Instale la <a href="/cli/azure/install-azure-cli" target="_blank">CLI de Azure</a> 2.18.0 o posterior, con la que se ejecutan comandos en cualquier shell para aprovisionar y configurar los recursos de Azure.
+1. Instale la <a href="/cli/azure/install-azure-cli" target="_blank">CLI de Azure</a> 2.30.0 o posterior, con la que se ejecutan comandos en cualquier shell para aprovisionar y configurar los recursos de Azure.
 
 Abra una ventana del terminal y compruebe que la versión de Python es la 3.6 o superior:
 
@@ -82,13 +82,13 @@ py -3 --version
 
 ---
 
-Compruebe que la versión de la CLI de Azure es la 2.18.0 o posterior:
+Compruebe que la versión de la CLI de Azure es la 2.30.0 o posterior:
 
 ```azurecli
 az --version
 ```
 
-Si necesita actualizar, pruebe el comando `az upgrade` (requiere la versión 2.11 o superior), o consulte <a href="/cli/azure/install-azure-cli" target="_blank">Instalación de la CLI de Azure</a>.
+Si necesita actualizar, pruebe el comando `az upgrade` (requiere la versión 2.30.0 o posterior), o consulte <a href="/cli/azure/install-azure-cli" target="_blank">Instalación de la CLI de Azure</a>.
 
 Después, inicie sesión en Azure mediante la CLI:
 
@@ -331,6 +331,7 @@ El grupo de recursos, el nombre de la aplicación y el nombre de la base de dato
 - El comando crea los valores denominados "AZURE_POSTGRESQL_HOST", "AZURE_POSTGRESQL_NAME", "AZURE_POSTGRESQL_USER" y "AZURE_POSTGRESQL_PASS", según lo esperado por el código de la aplicación.
 - Si olvidó sus credenciales de administrador, el comando le guiará para restablecerla.
 
+
 ::: zone-end
 
 ::: zone pivot="postgres-flexible-server"
@@ -344,6 +345,9 @@ El grupo de recursos, el nombre de la aplicación y el nombre de la base de dato
 - Si olvidó sus credenciales de administrador, el comando le guiará para restablecerla.
 
 ::: zone-end
+
+> [!NOTE]
+> Si ve el mensaje de error "La suscripción no está registrada para usar Microsoft.ServiceLinker", ejecute `az provider register -n Microsoft.ServiceLinker` para registrar el proveedor de recursos del conector de servicio y vuelva a ejecutar el comando de conexión. 
 
 En el código de Python, tiene acceso a esta configuración como variables de entorno con instrucciones como `os.environ.get('AZURE_POSTGRESQL_HOST')`. Para obtener más información, consulte [Acceso a variables de entorno](../app-service/configure-language-python.md#access-environment-variables).
 

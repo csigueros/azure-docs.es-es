@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7d7eb6bae2a6000f2f117dbe8f38976a13504825
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 18ed79768f1a803c4565426de67f6cde35a0a1fe
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131014811"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131577999"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Búsqueda semántica en Azure Cognitive Search
 
@@ -92,7 +92,7 @@ La búsqueda semántica está disponible a través del [registro de suscripción
 | Búsqueda semántica (clasificación, títulos, resaltados, respuestas) | Nivel estándar (S1, S2, S3) | Centro-norte de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU. 2, Norte de Europa, Oeste de Europa | Obligatorio | [Página de precios de Cognitive Search](https://azure.microsoft.com/pricing/details/search/)  |
 | Corrector ortográfico | Basic<sup>1</sup> y posteriores  | All | None | Ninguno (gratis) |
 
-<sup>1</sup> Debido a los mecanismos de aprovisionamiento y a la vida útil de los servicios de búsqueda compartidos (gratuitos), un pequeño número de servicios tienen corrección ortográfica en el nivel gratuito. Sin embargo, la disponibilidad de la corrección ortográfica en los servicios de nivel gratuito no está garantizada, y no se puede agregar si no figura ya ahí.
+<sup>1</sup> Debido a los mecanismos de aprovisionamiento y a la vida útil de los servicios de búsqueda compartidos (gratuitos), un pequeño número de servicios tienen corrección ortográfica en el nivel gratuito. Sin embargo, la disponibilidad de la corrección ortográfica en los servicios de nivel gratuito no está garantizada y no debe esperarse.
 
 Los cargos de la búsqueda semántica se aplican cuando las solicitudes de consulta incluyen "queryType=semantic" y la cadena de búsqueda no está vacía (por ejemplo, "search=pet friendly hotels in new york"). Si la cadena de búsqueda está vacía ("search=*"), no se cobra, aunque queryType esté establecido en "semantic".
 

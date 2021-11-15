@@ -1,16 +1,16 @@
 ---
-ms.openlocfilehash: fe61b971dbe1a3a82a085228ff8723f3cf47df20
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 71ee3e826eb1219a838a8e075e9f1a55e5f1ec8f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129638701"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131444521"
 ---
-En este documento se describen los pasos que hay que realizar para aprovisionar y desaprovisionar automáticamente usuarios de Azure Active Directory (Azure AD) en una base de datos SQL.  Se explica cómo configurar y usar el conector SQL genérico con el host del conector ECMA de Azure AD. 
+En este documento se describen los pasos que hay que realizar para aprovisionar y desaprovisionar automáticamente usuarios de Azure Active Directory (Azure AD) en una base de datos SQL.  
  
 Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../articles/active-directory/app-provisioning/user-provisioning.md).
 
-## <a name="prerequisites-for-the-azure-ad-ecma-connector-host"></a>Requisitos previos del host del conector ECMA de Azure AD
+## <a name="prerequisites-for-provisioning-to-a-sql-database"></a>Requisitos previos para el aprovisionamiento de una instancia de SQL Database
 
 >[!IMPORTANT]
 > La versión preliminar de aprovisionamiento local se encuentra actualmente en una versión preliminar solo por invitación. Para solicitar acceso a la capacidad, use el [formulario de solicitud de acceso](https://aka.ms/onpremprovisioningpublicpreviewaccess). La versión preliminar estará a disposición de más clientes y conectores durante los próximos meses, cuando se prepare la disponibilidad general.
@@ -19,7 +19,6 @@ Para obtener información importante acerca de lo que hace este servicio, cómo 
 ### <a name="on-premises-prerequisites"></a>Requisitos previos locales
 
  - Un sistema de destino, como una base de datos SQL, en el que se puedan crear, actualizar y eliminar usuarios.
- - Un conector ECMA 2.0 o posterior para ese sistema de destino, que admita operaciones de exportación, recuperación de esquemas y, opcionalmente, importación completa o importación diferencial. Si no tiene un conector ECMA listo durante la configuración, puede validar el flujo de un extremo a otro si tiene una instancia de SQL Server en su entorno y usar el conector SQL genérico.
  - Un equipo con Windows Server 2016 o posterior con una dirección TCP/IP accesible desde Internet, conectividad con el sistema de destino, y conectividad saliente a login.microsoftonline.com. Un ejemplo es una máquina virtual de Windows Server 2016 hospedada en IaaS de Azure o detrás de un proxy. El servidor debe tener al menos 3 GB de RAM.
  - Un equipo con .NET Framework 4.7.1.
 
@@ -83,7 +82,9 @@ El conector SQL genérico es un archivo DSN para conectarse al servidor SQL. Pri
  4. Seleccione la **aplicación ECMA local** que agregó.
  5. En **Introducción**, en **3. Aprovisionar cuentas de usuario**, seleccione **Comenzar**.
  6. En la parte superior, seleccione **Editar aprovisionamiento**.
- 7. En **Conectividad local**, descargue el agente de aprovisionamiento.
+ 7. En **Conectividad local**, descargue el agente de aprovisionamiento.     
+     >[!NOTE]
+     >Use diferentes agentes de aprovisionamiento para el aprovisionamiento de aplicaciones locales y el aprovisionamiento de Azure AD Connect Cloud Sync o el aprovisionamiento controlado por RR.HH. No se deben administrar los tres escenarios en el mismo agente. 
  8. Ejecute el instalador de aprovisionamiento de Azure AD Connect, **AADConnectProvisioningAgentSetup.msi**.
  9. En la pantalla **Paquete del agente de aprovisionamiento de Microsoft Azure AD Connect**, acepte los términos de la licencia y seleccione **Instalar**.
      ![Pantalla del paquete del agente de aprovisionamiento de Microsoft Azure AD Connect.](media/active-directory-app-provisioning-sql/install-1.png)</br>
@@ -121,7 +122,7 @@ El conector SQL genérico es un archivo DSN para conectarse al servidor SQL. Pri
  3. En la página **Propiedades**, rellene los cuadros con los valores especificados en la tabla que sigue a la imagen y seleccione **Siguiente**.
      ![Captura de pantalla que muestra la especificación de propiedades.](.\media\active-directory-app-provisioning-sql\conn-1.png)
 
-     |Propiedad|Valor|
+     |Propiedad|Value|
      |-----|-----|
      |Nombre|SQL|
      |Temporizador de sincronización automática (minutos)|120|
@@ -210,7 +211,7 @@ El conector SQL genérico es un archivo DSN para conectarse al servidor SQL. Pri
      ![Captura de pantalla que muestra la página Desaprovisionando.](.\media\active-directory-app-provisioning-sql\conn-14.png)</br>
 
 
-## <a name="ensure-ecma2host-service-is-running"></a>Comprobación de que el servicio ECMA2Host se está ejecutando
+## <a name="ensure-the-ecma2host-service-is-running"></a>Comprobación de que el servicio ECMA2Host se está ejecutando
  1. En el servidor en el que se ejecuta el host del conector ECMA de Azure AD, seleccione **Iniciar**.
  2. Escriba **run** y luego **services.msc** en el cuadro.
  3. En la lista **Servicios**, asegúrese de que **Microsoft ECMA2Host** esté presente y en ejecución. Si no es así, seleccione **Iniciar**.
@@ -222,11 +223,11 @@ El conector SQL genérico es un archivo DSN para conectarse al servidor SQL. Pri
  1. Inicie sesión en Azure Portal.
  2. Vaya a **Aplicaciones empresariales** y seleccione la **aplicación ECMA local**.
  3. Vaya a **Editar aprovisionamiento**.
- 4. Pasados 10 minutos, en la sección **Credenciales de administración**, escriba la siguiente dirección URL. Reemplace la parte `connectorName` por el nombre del conector en el host ECMA. También puede reemplazar `localhost` por el nombre de host.
+ 4. Pasados 10 minutos, en la sección **Credenciales de administración**, escriba la siguiente dirección URL. Reemplace la parte `{connectorName}` por el nombre del conector en el host ECMA. También puede reemplazar `localhost` por el nombre de host.
 
  |Propiedad|Valor|
  |-----|-----|
- |URL de inquilino|https://localhost:8585/ecma2host_connectorName/scim|
+ |URL de inquilino|https://localhost:8585/ecma2host_{connectorName}/scim|
  
  5. Escriba el valor de **Token secreto** que ha definido al crear el conector.
  6. Seleccione **Probar conexión** y espere un minuto.

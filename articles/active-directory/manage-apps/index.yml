@@ -11,12 +11,12 @@ metadata:
   ms.date: 07/08/2021
   author: CelesteDG
   ms.author: CelesteDG
-  ms.openlocfilehash: d777edbaaa3931d42eb0468d522d55356859b625
-  ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+  ms.openlocfilehash: 4ce23b540b79bfc421a4ee44717bbc47d10cde9f
+  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/13/2021
-  ms.locfileid: "113651749"
+  ms.lasthandoff: 11/11/2021
+  ms.locfileid: "132314983"
 landingContent:
 - title: Aspectos básicos
   linkLists:
@@ -80,7 +80,7 @@ landingContent:
       url: tenant-restrictions.md
     - text: Configuración del cifrado de tokens
       url: howto-saml-token-encryption.md
-    - text: Uso de Cloud App Security
+    - text: Uso de aplicaciones de Defender for Cloud
       url: cloud-app-security.md
     - text: Actuación en una aplicación sospechosa y con demasiados privilegios
       url: manage-application-permissions.md

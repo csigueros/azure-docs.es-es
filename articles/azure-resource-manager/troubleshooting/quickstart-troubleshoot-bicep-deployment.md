@@ -1,15 +1,15 @@
 ---
 title: Solución de problemas de implementaciones de archivos Bicep
 description: Aprenda a supervisar y solucionar problemas de implementaciones de archivos Bicep. Muestra registros de actividad y el historial de implementación.
-ms.date: 10/26/2021
+ms.date: 11/04/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 44c98be9a0553d3e255b2272a3a8797bae61d3da
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 31d212ef608b5fbabb4430b5320ae033ae2be325
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093242"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131849451"
 ---
 # <a name="quickstart-troubleshoot-bicep-file-deployments"></a>Inicio rápido: Solución de problemas de implementaciones de archivos Bicep
 
@@ -17,11 +17,11 @@ En este inicio rápido se describe cómo solucionar errores de implementación d
 
 Hay tres tipos de errores relacionados con una implementación:
 
-- **Errores de validación**, que se producen antes de que comience una implementación y son debidos a errores de sintaxis en el archivo. El editor puede detectar estos errores.
-- **Errores previos**, que se producen después de haber iniciado la implementación, pero antes de que se hayan implementado los recursos. Estos errores se encuentran sin iniciar la implementación. Por ejemplo, si un valor de parámetro es incorrecto, el error se encuentra en la validación previa.
+- Los **errores de validación** se producen antes de que comience una implementación y son debidos a errores de sintaxis en el archivo. El editor puede identificar estos errores.
+- Los **errores de validación previa** se producen cuando se ejecuta un comando de implementación, pero los recursos no están implementados. Estos errores se encuentran sin iniciar la implementación. Por ejemplo, si un valor de parámetro es incorrecto, el error se encuentra en la validación previa.
 - **Errores de implementación**, que se producen durante el proceso de implementación y solo se pueden encontrar evaluando su progreso.
 
-Todos los tipos de errores devuelven un código de error que se usa para solucionar problemas de implementación. Los errores de validación y previos no aparecen en el historial de implementación.
+Todos los tipos de errores devuelven un código de error que se usa para solucionar problemas de implementación. Los errores de validación y de comprobación previa se muestran en el registro de actividad, pero no aparecen en el historial de implementación. Un archivo Bicep con errores de sintaxis no se compila en JSON y no se muestra en el registro de actividad.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -126,7 +126,7 @@ New-AzResourceGroupDeployment `
 
 ---
 
-Azure Resource Manager determina que el nombre de la cuenta de almacenamiento contiene caracteres que no se permiten. No intenta realizar la implementación. 
+Azure Resource Manager determina que el nombre de la cuenta de almacenamiento contiene caracteres que no se permiten. No intenta realizar la implementación.
 
 Verá un mensaje de error que indica que se produjo un error en la validación previa. También recibirá un mensaje que indica que el nombre de la cuenta de almacenamiento debe tener entre 3 y 24 caracteres y usar solo números y letras minúsculas. El prefijo que proporcionó no cumplía ese requisito. Para más información sobre esto código de error, consulte [Resolución de errores de nombres de cuenta de almacenamiento](error-storage-account-name.md).
 
@@ -148,14 +148,20 @@ Implementará el archivo de nuevo y proporcionará un valor permitido para el pa
 
 ```azurecli
 az group create --name troubleshootRG --location westus
-az deployment group create --resource-group troubleshootRG --template-file troubleshoot.bicep --parameters prefixName=stg
+az deployment group create \
+  --resource-group troubleshootRG \
+  --template-file troubleshoot.bicep \
+  --parameters prefixName=stg
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroup -Name troubleshootRG -Location westus
-New-AzResourceGroupDeployment -ResourceGroupName troubleshootRG -TemplateFile troubleshoot.bicep -prefixName stg
+New-AzResourceGroupDeployment `
+  -ResourceGroupName troubleshootRG `
+  -TemplateFile troubleshoot.bicep `
+  -prefixName stg
 ```
 
 ---

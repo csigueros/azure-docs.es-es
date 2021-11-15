@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/15/2021
-ms.openlocfilehash: fd4f7d583df6c949fd549cfdc3020f15468f0e2c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 699906e99adabdd14520eb0b391d7b1d6018ffa5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128661229"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219079"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Paginación en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -47,12 +47,13 @@ Estos son algunos ejemplos del procesamiento de los resultados de las consultas 
 
 ## <a name="continuation-tokens"></a>Tokens de continuación
 
-En el SDK de .NET y el SDK de Java, puede usar opcionalmente los tokens de continuación como un marcador del progreso de la consulta. Las ejecuciones de consultas de Azure Cosmos DB no tienen estado en el lado servidor y se pueden reanudar en cualquier momento con el token de continuación. Los tokens de continuación no se admiten en el SDK para Node.js. En el caso del SDK para Python, se admiten en las consultas de partición única y la clave principal debe especificarse en el objeto de opciones porque no es suficiente para que sea en la propia consulta.
+En el SDK de .NET y el SDK de Java, puede usar opcionalmente tokens de continuación como marcador del progreso de la consulta. Las ejecuciones de consultas de Azure Cosmos DB no tienen estado en el lado servidor y se pueden reanudar en cualquier momento con el token de continuación. En el SDK de Python y el SDK de Node.js, estos tokens se admiten para las consultas de partición única y se debe especificar la PK en el objeto de opciones porque no basta con tenerla en la propia consulta.
 
 Este es un ejemplo de uso de los tokens de continuación:
 
 - [SDK de .NET](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/Queries/Program.cs#L230)
 - [SDK de Java](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java#L216)
+- [SDK de Node.js](https://github.com/Azure/azure-sdk-for-js/blob/2186357a6e6a64b59915d0cf3cba845be4d115c4/sdk/cosmosdb/cosmos/samples/src/BulkUpdateWithSproc.ts#L16-L31)
 - [SDK de Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/test/test_query.py#L533)
 
 Si la consulta devuelve un token de continuación, significa que hay resultados de consulta adicionales.

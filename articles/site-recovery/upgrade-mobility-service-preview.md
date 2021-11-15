@@ -4,12 +4,12 @@ description: 'En este artículo se describen las actualizaciones automáticas de
 ms.service: site-recovery
 ms.topic: article
 ms.date: 09/01/2021
-ms.openlocfilehash: 97cfba3e14268385632a47a5898b21e8d68811cb
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: a683aacc762ce169045ee17891b49624ef1ee991
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123539738"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131437661"
 ---
 # <a name="upgrade-mobility-service-and-appliance-components-preview"></a>Actualización de los componentes del dispositivo y Mobility Service (versión preliminar)
 
@@ -117,6 +117,25 @@ Para comprobar el estado de actualización de cualquiera de los componentes, vay
 Si alguna de estas opciones debe actualizarse, el **estado** lo indicará. Haga clic en el mensaje de estado para actualizar el componente.
 
   ![componentes del dispositivo de replicación](./media/upgrade-mobility-service-preview/appliance-components.png)
+
+### <a name="turn-off-auto-update"></a>Desactivación de la actualización automática
+
+1. En el servidor que ejecuta el dispositivo, abra el Editor del Registro.
+2. Vaya a **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
+3. Para desactivar la actualización automática, cree una clave **AutoUpdate** de clave del Registro con un valor de DWORD de 0.
+
+    ![Definición de clave del Registro](./media/upgrade-mobility-service-preview/registry-key.png)
+
+
+### <a name="turn-on-auto-update"></a>Activación de la actualización automática
+
+Puede activar la actualización automática mediante la eliminación de la clave del Registro AutoUpdate de HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
+
+Para eliminar la clave del Registro:
+
+1. En el servidor que ejecuta el dispositivo, abra el Editor del Registro.
+2. Vaya a **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
+3. Elimine la clave del registro **AutoUpdate** que se creó anteriormente para desactivar la actualización automática.
 
 ### <a name="resolve-issues-with-component-upgrade"></a>Resolución de problemas con la actualización de componentes
 

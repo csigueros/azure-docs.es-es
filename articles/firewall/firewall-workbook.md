@@ -5,14 +5,14 @@ services: firewall
 author: gopimsft
 ms.service: firewall
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/01/2021
 ms.author: victorh
-ms.openlocfilehash: e63336b0e84d303b51eda56f90ca6fb453d8ae0d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 207097258a78d79d77e56052fc254065ca8a293c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99831848"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131457640"
 ---
 # <a name="monitor-logs-using-azure-firewall-workbook"></a>Supervisión de registros mediante el libro de Azure Firewall
 
@@ -36,9 +36,13 @@ La página de información general proporciona una manera de filtrar por las ár
 
 ## <a name="application-rule-log-statistics"></a>Estadísticas de registro de regla de aplicación
 
-En esta página se muestran los orígenes únicos de la dirección IP a lo largo del tiempo, el uso del recuento de reglas de aplicación, el FQDN denegado o permitido con el tiempo y los datos filtrados. Puede filtrar los datos en función de la dirección IP.
+En esta página se muestran los orígenes únicos de la dirección IP a lo largo del tiempo, el uso del recuento de reglas de aplicación, el FQDN denegado o permitido con el tiempo y los datos filtrados. Puede filtrar los datos en función de la dirección IP. 
 
 :::image type="content" source="./media/firewall-workbook/firewall-workbook-application-rule.png" alt-text="Registro de reglas de aplicación del libro de Azure Firewall":::
+
+La vista Categorías web resume todas las acciones de registro de acceso permitido y denegado en función de la gravedad configurada por el administrador del firewall.
+
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-webcategory.png" alt-text="Resumen de la categoría web de Azure Firewall":::
 
 ## <a name="network-rule-log-statistics"></a>Estadísticas de registro de regla de red
 
@@ -50,11 +54,18 @@ También puede filtrar los registros en función de la ventana de tiempo:
 
 :::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule-time.png" alt-text="Ventana de tiempo del registro de reglas de red del libro de Azure Firewall":::
 
+## <a name="idps-log-statistics"></a>Estadísticas del registro de IDPS
+
+En esta página se proporciona información general sobre el número de acciones de IDPS para todo el tráfico que coincide con las reglas de IDPS: Protocolo, Id. de firma, IP de origen.
+
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-idps.png" alt-text="Registro de IDPS del libro de Azure Firewall":::
+
 ## <a name="investigations"></a>Investigaciones
 
 Puede examinar los registros y obtener más información sobre el recurso basada en la dirección IP de origen. Puede obtener información como el nombre de la máquina virtual y el nombre de la interfaz de red. Es fácil filtrar el recurso desde los registros.
 
 :::image type="content" source="./media/firewall-workbook/firewall-workbook-investigation.png" alt-text="Investigación del libro de Azure Firewall":::
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 10/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: eab7c2d8468d3895f70d954ed3b1ef6dfdb25245
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: d52d7bb4134c23192c083a61b2aa1d86d472f6ce
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108288425"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131448583"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Modificación de la configuración de la puerta de enlace de red local mediante Azure Portal
 
@@ -23,6 +23,10 @@ A veces, cambia la configuración de la puerta de enlace de red local AddressPre
 > * [Azure Portal](vpn-gateway-modify-local-network-gateway-portal.md)
 > * [PowerShell](vpn-gateway-modify-local-network-gateway.md)
 > * [CLI de Azure](vpn-gateway-modify-local-network-gateway-cli.md)
+>
+
+>[!NOTE]
+> La realización de cambios en una puerta de enlace de red local que tiene una conexión puede provocar desconexiones de túneles y tiempo de inactividad.
 >
 
 ## <a name="local-network-gateway-configuration"></a><a name="configure-lng"></a>Configuración de la puerta de enlace de red local

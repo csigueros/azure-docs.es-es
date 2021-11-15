@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/29/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 678ff6595f99d634a84b338f9b4b52de09a1d67a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 79c4e91d129a3fb71f9cabb1b8e5dc775e9e4bbd
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131059111"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131477428"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configuración de identidades administradas de recursos de Azure en un conjunto de escalado de máquinas virtuales mediante llamadas a la API REST
 
@@ -28,7 +28,7 @@ ms.locfileid: "131059111"
 
 Las identidades administradas de los recursos de Azure proporcionan a los servicios de Azure una identidad del sistema administrada automáticamente en Azure Active Directory. Puede usar esta identidad para autenticar a cualquier servicio que admita la autenticación de Azure AD, sin necesidad de tener credenciales en el código. 
 
-En este artículo, mediante CURL para llamar al punto de conexión REST de Azure Resource Manager, aprenderá a realizar las siguientes operaciones de identidades administradas de recursos de Azure en un conjunto de escalado de máquinas virtuales:
+En este artículo, usará CURL para llamar al punto de conexión REST de Azure Resource Manager, con lo que aprenderá a realizar las siguientes operaciones de identidades administradas de recursos de Azure en un conjunto de escalado de máquinas virtuales:
 
 - Habilitación y deshabilitación de la identidad administrada asignada por el sistema en un conjunto de escalado de máquinas virtuales de Azure
 - Adición y eliminación de una identidad asignada por el usuario un conjunto de escalado de máquinas virtuales de Azure
@@ -41,7 +41,7 @@ Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](htt
 
 - Para llevar a cabo las operaciones de administración de este artículo, su cuenta debe tener las siguientes asignaciones de roles de Azure:
 
-  - [Colaborador de máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) para crear un conjunto de escalado de máquinas virtuales y habilitar y quitar la identidad administrada asignada por el usuario o el sistema desde un conjunto de escalado de máquinas virtuales.
+  - [Colaborador de máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) para crear un conjunto de escalado de máquinas virtuales y habilitar y quitar la identidad administrada asignada por el usuario o por el sistema desde un conjunto de escalado de máquinas virtuales.
 
   - Rol [Colaborador de identidad administrada](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) para crear una identidad administrada asignada por el usuario.
 

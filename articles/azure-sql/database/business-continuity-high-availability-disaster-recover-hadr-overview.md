@@ -12,13 +12,13 @@ ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
 ms.reviewer: mathoma
-ms.date: 06/25/2019
-ms.openlocfilehash: 55490fdafb1e494492e4768ddacc9f8c451acebe
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.date: 10/18/2021
+ms.openlocfilehash: ac16a952c4697c99d224153fdb3dfb2684c66dc9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130163191"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130260652"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database--azure-sql-managed-instance"></a>Introducción a la continuidad empresarial con Azure SQL Database y Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -42,14 +42,14 @@ Desde la perspectiva de una base de datos, hay cuatro escenarios principales de 
 
 Para mitigar los errores de hardware local y de software, SQL Database incluye una [arquitectura de alta disponibilidad](high-availability-sla.md) que garantiza una recuperación automática de estos errores con un Acuerdo de Nivel de Servicio de disponibilidad del 99,995 %.  
 
-Para proteger la empresa de la pérdida de datos, SQL Database e Instancia administrada de SQL crean automáticamente copias de seguridad completas semanales de la base de datos, copias de seguridad diferenciales de la base de datos cada 12 horas y copias de seguridad del registro de transacciones cada 5-10 minutos. Las copias de seguridad se guardan en almacenamiento con redundancia geográfica con acceso de lectura durante al menos 7 días para todos los niveles de servicio. Todos los niveles de servicio, excepto el soporte técnico Basic, admiten el período de retención de copia de seguridad configurable hasta 35 días para la restauración a un momento dado.
+Para proteger la empresa de la pérdida de datos, SQL Database e Instancia administrada de SQL crean automáticamente copias de seguridad completas semanales de la base de datos, copias de seguridad diferenciales de la base de datos cada 12 horas y copias de seguridad del registro de transacciones cada 5-10 minutos. Las copias de seguridad se almacenan en el almacenamiento RA-GRS durante al menos siete días en todos los niveles de servicio. Todos los niveles de servicio, excepto el soporte técnico Basic, admiten el período de retención de copia de seguridad configurable hasta 35 días para la restauración a un momento dado.
 
 SQL Database e Instancia administrada de SQL también proporcionan varias características de continuidad empresarial que puede usar para mitigar varios escenarios no planeados.
 
 - [Tablas temporales](../temporal-tables.md) que le permiten restaurar versiones de fila desde cualquier momento dado.
 - Las [copias de seguridad automatizadas integradas](automated-backups-overview.md) y la [restauración a un momento dado](recovery-using-backups.md#point-in-time-restore) le permiten restaurar la base de datos completa a un momento dado dentro del período de retención configurado de hasta 35 días.
 - Puede [restaurar una base de datos eliminada](recovery-using-backups.md#deleted-database-restore) al momento en que se ha eliminado si el **servidor no se ha eliminado**.
-- La [retención de copia de seguridad a largo plazo](long-term-retention-overview.md) le permite conservar las copias de seguridad hasta 10 años. Se trata de una versión preliminar pública limitada para Instancia administrada de SQL
+- La [retención de copia de seguridad a largo plazo](long-term-retention-overview.md) le permite conservar las copias de seguridad hasta 10 años. Se trata de una versión preliminar pública limitada para SQL Managed Instance.
 - La [replicación geográfica activa](active-geo-replication-overview.md) permite crear réplicas legibles y realizar una conmutación por error manual a cualquier réplica en el caso de una interrupción en el centro de datos o una actualización de la aplicación.
 - El [grupo de conmutación por error automática](auto-failover-group-overview.md#terminology-and-capabilities) permite que la aplicación se recupere automáticamente en el caso de que se produzca una interrupción en el centro de datos.
 
@@ -84,9 +84,9 @@ Aunque sea poco habitual, en un centro de datos de Azure se pueden producir inte
 
 A medida que desarrolle el plan de continuidad empresarial, tendrá que saber el tiempo máximo aceptable para que la aplicación se recupere por completo tras un evento de interrupción. El tiempo necesario para que la aplicación se recupere totalmente se conoce como objetivo de tiempo de recuperación (RTO). También debe conocer el período máximo de actualizaciones de datos recientes (intervalo de tiempo) que la aplicación puede tolerar perder al recuperarse de un evento de interrupción no planeado. La posible pérdida de datos se conoce como objetivo de punto de recuperación (RPO).
 
-Los diferentes métodos de recuperación ofrecen distintos niveles de RPO y RTO. Puede elegir un método de recuperación específico o usar una combinación de métodos para lograr la total recuperación de la aplicación. En la tabla siguiente se comparan el RPO y el RTO de cada opción de recuperación. Los grupos de conmutación por error automática simplifican la implementación y el uso de la replicación geográfica y agregan las funcionalidades adicionales, como se describe en la tabla siguiente.
+Los diferentes métodos de recuperación ofrecen distintos niveles de RPO y RTO. Puede elegir un método de recuperación específico o usar una combinación de métodos para lograr la total recuperación de la aplicación. En la tabla siguiente se comparan el RPO y el RTO de cada opción de recuperación. Los grupos de conmutación por error automática simplifican la implementación y el uso de la replicación geográfica y agregan funcionalidades adicionales, como se describe en la tabla siguiente:
 
-| Método de recuperación | RTO | RPO |
+| **Método de recuperación** | **RTO** | **RPO** |
 | --- | --- | --- |
 | Restauración geográfica de las copias de seguridad con replicación geográfica | 12 h | 1 h |
 | Grupos de conmutación por error automática | 1 h | 5 s |
@@ -104,9 +104,6 @@ Use grupos de conmutación por error automática si su aplicación cumple alguno
 - Tiene una tasa de cambio de datos elevada y una hora de pérdida de datos es inaceptable.
 - El costo adicional por utilizar la replicación geográfica activa es menor que el de la posible responsabilidad financiera y la pérdida de negocio asociada que habría que asumir.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
->
-
 Puede decidir usar una combinación de copias de seguridad de base de datos y replicación geográfica activa según los requisitos de la aplicación. Para una explicación de las consideraciones de diseño para bases de datos independientes y grupos elásticos con estas características de continuidad empresarial, consulte los artículos sobre [diseño de una aplicación para la recuperación ante desastres](designing-cloud-solutions-for-disaster-recovery.md) y [estrategias de recuperación ante desastres para los grupos elásticos](disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 En las siguientes secciones se ofrece información general de los pasos para realizar tareas de recuperación mediante copias de seguridad de bases de datos o la replicación geográfica activa. Para obtener los pasos detallados, como el planeamiento de los requisitos, los pasos posteriores a la recuperación y los detalles sobre cómo simular una interrupción para llevar a cabo tareas de recuperación ante desastres, vea [Restauración de una base de datos en SQL Database después de una interrupción](disaster-recovery-guidance.md).
@@ -115,7 +112,7 @@ En las siguientes secciones se ofrece información general de los pasos para rea
 
 Con independencia de la característica de continuidad empresarial que use, debe hacer lo siguiente:
 
-- Identificar y preparar el servidor de destino, incluidas las reglas de firewall de IP en el nivel de servidor, los inicios de sesión y los permisos de nivel de base de datos maestra.
+- Identificar y preparar el servidor de destino, incluidas las reglas de firewall de IP a nivel de servidor, los inicios de sesión y los permisos de nivel de base de datos `master`.
 - Determinar cómo se redirigirán los clientes y las aplicaciones cliente al nuevo servidor
 - Documentar otras dependencias, como las alertas y la configuración de auditoría
 

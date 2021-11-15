@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.openlocfilehash: 9814304aed4d7a5f307fb2179491b0fa9635fd68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d4ac6af77344717a9f38a96a28217de35d28d3d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324661"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131454777"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Tutorial: Incorporación de formatos comunes de expresión de plantilla de patrón para mejorar las predicciones
 
@@ -539,4 +539,4 @@ En este tutorial se han agregado patrones para ayudar a LUIS a predecir la inten
 
 
 > [!div class="nextstepaction"]
-> [Información sobre cómo usar roles con un patrón](luis-tutorial-pattern.md)
+> [Más información sobre la sintaxis del patrón](./reference-pattern-syntax.md)

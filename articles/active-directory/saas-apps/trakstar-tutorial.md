@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 23c77e7072755dfb04005c2028358823d669deee
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 1ff1ef66fd8dc4e9d8d52b048da197274bdee89d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124825382"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131451338"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trakstar"></a>Tutorial: integración de Azure Active Directory con Trakstar
 
@@ -61,7 +61,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Trakstar con un 
 Para configurar y probar el inicio de sesión único de Azure AD con Trakstar, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Trakstar](#configure-trakstar-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación del usuario de prueba en Trakstar](#create-trakstar-test-user)** : para tener un homólogo de B.Simon en Trakstar vinculado a la representación del usuario en Azure AD.
@@ -77,15 +77,18 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML**, siga estos pasos:
+4. En la sección **Configuración básica de SAML**, especifique los siguientes valores en los campos de entrada de texto correspondientes:
 
-    a. En el cuadro de texto **Dirección URL de inicio de sesión**, copie el valor de **ACS (Consumer) URL** (Dirección URL de ACS [Consumidor]) en Trakstar (Settings > Authentication & SSO [Configuración > Autenticación e inicio de sesión único]) con el formato: `https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>`
-
-    b. En el cuadro de texto **Identificador (id. de entidad)** , deje el valor predeterminado: `https://app.trakstar.com`
-
+    | Nombre del campo | Value | Nota | 
+    | ---------------------- | ----- | ---- |
+    | **Dirección URL de respuesta (URL del Servicio de consumidor de aserciones)** | `https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>` | Reemplace `<YOUR_NAMESPACE>` por un valor real, que esté visible en el campo **ACS (Consumer) URL** (Dirección URL de ACS [Consumidor]) en Trakstar Perform. Consulte la nota que aparece después de esta tabla. |
+    | **Dirección URL de inicio de sesión** | `https://app.trakstar.com/auth/saml/?namespace=<YOUR_NAMESPACE>` | Esta dirección _URL es similar_ a la dirección URL anterior, pero no tiene la parte `/callback`. |
+    | **Identificador (identificador de entidad)** | `https://app.trakstar.com` | |
+    
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con la dirección URL de inicio de sesión real. Inicie sesión en Trakstar como administrador para obtener estos valores.
-    > Si no ve la pestaña "Autenticación y SSO" en la configuración, puede que no tenga la característica. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores son solo ejemplos. Debe usar los valores específicos del espacio de nombres en Trakstar Perform, que están visibles si inicia sesión en la aplicación y va a **Settings** > **Authentication & SSO** > **SAML 2.0** > **Configure** (Configuración > Autenticación e inicio de sesión único > SAML 2.0 > Configurar).
+    > 
+    > Si no ve la pestaña **Authentication & SSO** (Autenticación e inicio de sesión único) en **Settings** (Configuración), es posible que no tenga la característica y deba ponerse en contacto con el servicio de asistencia al cliente de Trakstar. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 

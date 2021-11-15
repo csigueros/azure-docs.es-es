@@ -7,12 +7,12 @@ ms.service: serviceconnector
 ms.topic: tutorial
 ms.date: 10/28/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 11c04c9a513e454e8a9296c00b716a154b5bc541
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 8768d188ae56896fe1f7272ee18533e95343e69c
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030465"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131846565"
 ---
 # <a name="tutorial-deploy-web-application-connected-to-azure-storage-blob-with-service-connector"></a>Tutorial: Implementación de una aplicación web conectada a Azure Storage Blob con un conector de servicio
 
@@ -26,10 +26,10 @@ Aprenda a establecer el acceso a Azure Storage para una aplicación web (no para
 ## <a name="1-set-up-your-initial-environment"></a>1. Configuración del entorno inicial
 
 1. Disponga de una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-2. Instale la <a href="/cli/azure/install-azure-cli" target="_blank">CLI de Azure</a> 2.18.0 o posterior, con la que se ejecutan comandos en cualquier shell para aprovisionar y configurar los recursos de Azure.
+2. Instale la <a href="/cli/azure/install-azure-cli" target="_blank">CLI de Azure</a> 2.30.0 o posterior, con la que se ejecutan comandos en cualquier shell para aprovisionar y configurar los recursos de Azure.
 
 
-Compruebe que la versión de la CLI de Azure es la 2.18.0 o posterior:
+Compruebe que la versión de la CLI de Azure es la 2.30.0 o posterior:
 
 ```Azure CLI
 az --version
@@ -92,6 +92,8 @@ az webapp connection create storage-blob -g ServiceConnector-tutorial-rg -n <app
 - **Reemplace** *\<app-name>* por el nombre de la aplicación web que usó en el paso 3.
 - **Reemplace** *\<storage-name>* por el nombre de la aplicación de almacenamiento que usó en el paso 4.
 
+> [!NOTE]
+> Si ve el mensaje de error "La suscripción no está registrada para usar Microsoft.ServiceLinker", ejecute `az provider register -n Microsoft.ServiceLinker` para registrar el proveedor de recursos del conector de servicio y vuelva a ejecutar el comando de conexión. 
 
 ## <a name="6-run-sample-code"></a>6. Ejecución del código de ejemplo
 

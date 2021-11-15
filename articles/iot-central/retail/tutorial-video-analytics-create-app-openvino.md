@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 09/01/2021
-ms.openlocfilehash: 52447010cb43cbe088fdaa71e8ee3f0043b64dbc
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: a4ac4425a3eeba6dafcaf11eb4c73f900c8fa04d
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123469948"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131842800"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central-openvinotrade"></a>Tutorial: Creación de una aplicación de análisis de vídeo con detección de objetos y movimiento en Azure IoT Central (OpenVINO&trade;)
 
@@ -116,13 +116,13 @@ En este tutorial se configura la solución para usar el módulo OpenVINO&trade; 
 
 [!INCLUDE [iot-central-video-analytics-part3](../../../includes/iot-central-video-analytics-part3.md)]
 
-### <a name="replace-the-manifest"></a>Reemplazo del manifiesto
+### <a name="edit-the-manifest"></a>Edición del manifiesto
 
-En la página **LVA Edge Gateway v2** (Puerta de enlace LVA Edge v2), seleccione **+ Replace manifest** (+ Reemplazar manifiesto).
+En la página **LVA Edge Gateway v2** (Puerta de enlace LVA Edge v2), seleccione **Editar manifiesto**.
 
 :::image type="content" source="./media/tutorial-video-analytics-create-app-openvino/replace-manifest.png" alt-text="Reemplazar manifiesto":::
 
-Vaya a la carpeta *lva-configuration* y seleccione el archivo de manifiesto *deployment.openvino.amd64.json* que editó previamente. Seleccione **Cargar**. Una vez completada la validación, seleccione **Reemplazar**.
+Seleccione **replace it with a new file** (Reemplazarlo por un nuevo archivo), vaya a la carpeta *lva-configuration*, seleccione el archivo de manifiesto *deployment.openvino.amd64.json* que editó previamente y seleccione **Guardar**.
 
 [!INCLUDE [iot-central-video-analytics-part4](../../../includes/iot-central-video-analytics-part4.md)]
 

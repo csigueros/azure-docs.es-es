@@ -7,12 +7,12 @@ ms.date: 07/14/2021
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 6ddb30832db4e504e57296d00db45125f8514afd
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 3216a8f82bc066cded33f133d9fe8823484d50b0
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122178525"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131463152"
 ---
 # <a name="security-guidelines-for-cross-organizational-apps"></a>Directrices de seguridad para aplicaciones entre organizaciones
 
@@ -56,7 +56,7 @@ Azure Virtual Desktop admite las imágenes de SO x64 siguientes:
 
 - Windows 7
 - Windows 10 Enterprise
-- Windows Server 2012 R2, 2016 y 2019
+- Windows Server 2012 R2, 2016, 2019 y 2022
 - Sesión múltiple de Windows 10 Enterprise
 
 Windows 10 Enterprise para sesiones múltiples es un sistema operativo exclusivo de Azure que funciona como un host de sesión de Escritorio remoto (RDSH) que permite varias sesiones interactivas simultáneas, de forma muy parecida a Windows Server. El entorno de Windows 10 proporciona a los usuarios una experiencia familiar y coherente. Las licencias de Windows por usuario del servicio también reducen los costes de toda la organización, ya que el departamento de TI no tiene que seguir comprando licencias de acceso de cliente (CAL) de RDS. Debido a estas ventajas, Windows 10 Enterprise para sesiones múltiples es el sistema operativo más implementado para hosts de sesión en Azure Virtual Desktop.

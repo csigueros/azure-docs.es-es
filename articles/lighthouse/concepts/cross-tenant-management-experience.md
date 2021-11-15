@@ -1,14 +1,14 @@
 ---
 title: Experiencias de administración entre inquilinos
 description: Azure Lighthouse habilita y mejora las experiencias entre inquilinos en muchos servicios de Azure.
-ms.date: 09/30/2021
+ms.date: 10/21/2021
 ms.topic: conceptual
-ms.openlocfilehash: 90ff0396a467f3137d6501ac34cf707577e43bdf
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 115f71148ddd2d18cd99be883bdef77b1c27ad1b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129714784"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249692"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiencias de administración entre inquilinos
 
@@ -103,6 +103,7 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 - Cree alertas en inquilinos de cliente que desencadenen la automatización, como los runbooks de Azure Automation o Azure Functions, en el inquilino que realiza la administración a través de webhooks
 - Creación de una [configuración de diagnóstico](../..//azure-monitor/essentials/diagnostic-settings.md) en áreas de trabajo creadas en inquilinos de cliente para enviar registros de recursos a áreas de trabajo en el inquilino de administración
 - Para las cargas de trabajo de SAP, [supervise las métricas de soluciones de SAP con una vista agregada a través de los inquilinos del cliente](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293).
+- Para Azure AD B2C, [enrute los registros de auditoría e inicios de sesión](../../active-directory-b2c/azure-monitor.md) a otras soluciones de supervisión.
 
 [Redes de Azure](../../networking/fundamentals/networking-overview.md):
 

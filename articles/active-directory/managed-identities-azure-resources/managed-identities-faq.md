@@ -12,14 +12,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 04/08/2021
+ms.date: 10/20/2021
 ms.author: barclayn
-ms.openlocfilehash: 7d2f09d3990f9e71e55b29b1eac771266627237a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 48d3d5e0e1b6adfb1c0763d1fb7824d604628962
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124791296"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130266147"
 ---
 # <a name="managed-identities-for-azure-resources-frequently-asked-questions---azure-ad"></a>Preguntas más frecuentes sobre identidades administradas para recursos de Azure: Azure AD
 
@@ -38,7 +38,7 @@ Puede encontrar la lista de recursos con una identidad administrada asignada por
 az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table
 ```
 
-### <a name="what-azure-rbac-permissions-are-required-to-work-with-managed-identities"></a>¿Qué permisos RBAC de Azure son necesarios para trabajar con identidades administradas? 
+### <a name="which-azure-rbac-permissions-are-required-to-use-a-managed-identity-on-a-resource"></a>¿Qué permisos de Azure RBAC son necesarios para usar una identidad administrada en un recurso?
 
 - Identidad administrada asignada por el sistema: Se necesitan permisos de escritura sobre el recurso. Por ejemplo, para las máquinas virtuales, necesita `Microsoft.Compute/virtualMachines/write`. Esta acción se incluye en los roles integrados específicos del recurso como, por ejemplo, [Colaborador de máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 - Asignación de identidades administradas asignadas por el usuario a recursos: necesita permisos de escritura sobre el recurso. Por ejemplo, para las máquinas virtuales, necesita `Microsoft.Compute/virtualMachines/write`. También necesitará la acción `Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action` sobre la identidad asignada por el usuario. Esta acción se incluye en el rol integrado [Operador de identidad administrada](../../role-based-access-control/built-in-roles.md#managed-identity-operator).

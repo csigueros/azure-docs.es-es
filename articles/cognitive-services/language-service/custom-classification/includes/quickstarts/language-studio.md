@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
-ms.openlocfilehash: 912aa02fadef0f950f5d89535bfe38133b61137b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: c7018ad879e5877c131af041685722d30b2906b2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093360"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131520816"
 ---
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -57,8 +57,29 @@ El conjunto de datos de ejemplo proporcionado contiene alrededor de 200 resúmen
 
 ## <a name="create-a-custom-classification-project"></a>Creación de un proyecto de clasificación personalizado
 
-[!INCLUDE [Language Studio project creation](../create-project.md)]
+1. Inicio de sesión en [Language Studio](https://aka.ms/languageStudio). Aparecerá una ventana que le permitirá seleccionar la suscripción y el recurso de idioma. Seleccione el recurso que creó en el paso anterior.
 
+2. En la sección **Classify text** (Clasificar texto) de Language Studio, busque la **clasificación de texto personalizado** de los servicios disponibles y selecciónela.
+
+3. Seleccione **Create new project** (Crear proyecto) en el menú superior de la página de proyectos. La creación de un proyecto le permitirá etiquetar datos y entrenar, evaluar, mejorar e implementar los modelos. 
+
+    :::image type="content" source="../../media/create-project.png" alt-text="Captura de pantalla de la página de creación del proyecto." lightbox="../../media/create-project.png":::
+<!--
+4. If you have created your resource using the steps above, the **Connect storage** step will be completed already. You only need to do this step once for each resource you use and it is irreversible. If you connect a storage account to your resource, you cannot disconnect it later.
+
+    :::image type="content" source="../../../custom-named-entity-recognition/media/connect-storage.png" alt-text="A screenshot showing the storage connection screen." lightbox="../../../custom-named-entity-recognition/media/connect-storage.png":::
+-->
+4. Si ha seguido los pasos anteriores para crear el recurso, el paso **Conectar almacenamiento** ya estará completo. De lo contrario, debe asignar [roles para la cuenta de almacenamiento](../../how-to/create-project.md#roles-for-your-storage-account) antes de conectarla al recurso.
+
+5. Escriba la información del proyecto: su nombre, una descripción y el idioma de los archivos del proyecto. El nombre del proyecto no se podrá cambiar posteriormente.
+    >[!TIP]
+    > El conjunto de datos no tiene que estar completamente en el mismo idioma. Puede tener varios archivos, y cada uno de ellos con distintos idiomas admitidos. Si el conjunto de datos contiene archivos de distintos idiomas o si espera idiomas diferentes durante el tiempo de ejecución, seleccione **Enable multi-lingual dataset** (Habilitar conjunto de datos multilingüe) al especificar la información básica del proyecto.
+
+6. Seleccione el tipo de proyecto. Para este inicio rápido, crearemos un proyecto de clasificación con varias etiquetas en el que se pueden asignar varias clases al mismo archivo. A continuación, haga clic en **Siguiente**. Más información sobre los [tipos de proyecto](../../glossary.md#project-types)
+
+7. Seleccione el contenedor en el que ha cargado los datos. En este inicio rápido, se usará el archivo de etiquetas existente disponible en el contenedor. A continuación, haga clic en **Siguiente**.
+
+8. Revise los datos especificados y seleccione **Create Project** (Crear proyecto).
     
 ## <a name="train-your-model"></a>Entrenamiento de un modelo
 

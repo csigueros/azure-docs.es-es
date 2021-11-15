@@ -11,12 +11,12 @@ ms.author: nehsin
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: cfa6865ee7facdc00303f725de78a3e523ff301d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5a405c50c94a16394a92ba7c4830ab3f3aee072f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128596011"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131449723"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Uso del enrutamiento de mensajes de IoT Hub para enviar mensajes del dispositivo a la nube a distintos puntos de conexión
 
@@ -49,7 +49,7 @@ IoT Hub admite actualmente los siguientes puntos de conexión:
 
 ## <a name="built-in-endpoint-as-a-routing-endpoint"></a>Punto de conexión integrado como punto de conexión de enrutamiento
 
-Puede usar la [integración y los SDK de Event Hubs](iot-hub-devguide-messages-read-builtin.md) estándar para recibir mensajes del dispositivo a la nube desde el punto de conexión integrado (**mensajes y eventos**). Una vez que se crea una ruta, los datos dejan de fluir al punto de conexión integrado, a menos que se cree una ruta a ese punto de conexión.
+Puede usar la [integración y los SDK de Event Hubs](iot-hub-devguide-messages-read-builtin.md) estándar para recibir mensajes del dispositivo a la nube desde el punto de conexión integrado (**mensajes y eventos**). Una vez que se crea una ruta, los datos dejan de fluir al punto de conexión integrado, a menos que se cree una ruta a ese punto de conexión. Aunque no se cree ninguna ruta, se debe habilitar una ruta de reserva para enrutar los mensajes al punto de conexión integrado. La reserva está habilitada de forma predeterminada si crea el centro mediante el portal o la CLI.
 
 ## <a name="azure-storage-as-a-routing-endpoint"></a>Azure Storage como punto de conexión de enrutamiento
 

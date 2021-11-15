@@ -2,24 +2,24 @@
 title: Escenarios y casos de uso comunes de computación confidencial de Azure
 description: Descripción de cómo se usa la computación confidencial en un escenario.
 services: virtual-machines
-author: JBCook
+author: stempesta
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.topic: overview
-ms.date: 11/01/2021
-ms.author: jencook
+ms.date: 11/04/2021
+ms.author: stempesta
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 17462eaeacf36c7748c2654841e8ef11614a6c73
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 2fd30934f71df8a84bf718445972ab9d0ff2d469
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131080363"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132347829"
 ---
 # <a name="use-cases-and-scenarios"></a>Casos de uso y escenarios
 La computación confidencial se aplica a diversos casos de uso para proteger los datos en sectores regulados, como la administración pública, los servicios financieros y los institutos sanitarios. Por ejemplo, impedir el acceso a datos confidenciales ayuda a proteger la identidad digital de los ciudadanos de todas las partes implicadas, incluido el proveedor de servicios en la nube que los almacena. Los mismos datos confidenciales pueden contener datos biométricos que se utilizan para buscar y quitar imágenes conocidas de explotación de menores, evitar la trata de personas y ayudar en las investigaciones forenses digitales.
 
-![Casos de uso de la computación confidencial](media/use-cases-scenarios/use_cases.jpg)
+:::image type="content" source="media/use-cases-scenarios/use-cases.png" alt-text="Captura de pantalla de los casos de uso de la computación confidencial de Azure, incluidos los escenarios de administración pública, servicios financieros y atención sanitaria":::.
 
 En este artículo se proporciona información general acerca de varios escenarios comunes de la computación confidencial de Azure. Las recomendaciones de este artículo sirven como punto de partida para desarrollar una aplicación mediante marcos y servicios de computación confidencial.
 
@@ -57,7 +57,7 @@ En este ejemplo de cálculo seguro de varias entidades, varios bancos comparten 
 
 Gracias a la computación confidencial, estas instituciones financieras pueden aumentar los índices de detección de fraudes, abordar escenarios de blanqueo de dinero, reducir falsos positivos y seguir aprendiendo de conjuntos de datos más grandes.
 
-![Uso compartido de datos de varias entidades para bancos](media/use-cases-scenarios/mpc_banks.jpg)
+:::image type="content" source="media/use-cases-scenarios/mpc-banks.png" alt-text="Gráfico del uso compartido de datos entre varias partes para bancos, en el que se representa el movimiento de los datos que permite la computación confidencial":::.
 
 ### <a name="drug-development-in-healthcare"></a>Desarrollo de fármacos en el sector sanitario
 

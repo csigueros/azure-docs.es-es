@@ -175,7 +175,7 @@
                   href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
         - name: Habilitación del cifrado de infraestructura en la cuenta
           href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
-        - name: Configuración de Azure Defender para la protección contra amenazas
+        - name: Habilitación de la protección contra amenazas con Microsoft Defender for Storage
           href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
         - name: Configuración de firewalls y redes virtuales
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json

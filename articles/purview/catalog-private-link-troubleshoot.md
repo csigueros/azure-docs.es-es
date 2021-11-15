@@ -7,17 +7,17 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/15/2021
-ms.openlocfilehash: cb41c6bd06541f414b5cd8f353e59f6094182d13
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 3a41e3e131c4537e21e3844dbf0db360e2b77b28
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130063371"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130214726"
 ---
 # <a name="troubleshooting-private-endpoint-configuration-for-purview-accounts"></a>Solución de problemas de configuración de punto de conexión privado de cuentas de Purview
 
 > [!IMPORTANT]
-> Si creó un punto de conexión privado del _portal_ para su cuenta de Purview **antes del 27 de septiembre de 2021 a las 15:30 UTC**, deberá realizar las acciones necesarias como se detalla en [Reconfiguración de DNS para puntos de conexión privados del portal](./catalog-private-link.md#reconfigure-dns-for-portal-private-endpoints). **Estas acciones deben realizarse antes del 11 de octubre de 2021. Si no lo hace, los puntos de conexión privados del portal existentes dejarán de funcionar**.
+> Si creó un punto de conexión privado del _portal_ para su cuenta de Purview **antes del 27 de septiembre de 2021 a las 15:30 UTC**, deberá realizar las acciones necesarias como se detalla en [Reconfiguración de DNS para puntos de conexión privados del portal](./catalog-private-link.md#reconfigure-dns-for-portal-private-endpoints). **Estas acciones deben completarse antes del 12 de noviembre de 2021. Si no lo hace, los puntos de conexión privados del portal existentes dejarán de funcionar**.
 
 En esta guía se resumen las limitaciones conocidas relacionadas con el uso de puntos de conexión privados para Azure Purview y se proporciona una lista de pasos y soluciones para resolver algunos de los problemas relevantes más comunes. 
 
@@ -29,7 +29,7 @@ En esta guía se resumen las limitaciones conocidas relacionadas con el uso de p
 - Con Azure Portal, los puntos de conexión privados de la ingesta se pueden crear a través de la experiencia del portal de Azure Purview que se describe en los pasos anteriores. No se pueden crear desde Private Link Center.
 - No se permite la creación de registros de DNS A para la ingesta de puntos de conexión privados dentro de las zonas DNS de Azure existentes a través de la experiencia del portal de Azure Purview si las zonas DNS privadas de Azure se encuentran en una suscripción diferente que los puntos de conexión privados. Se pueden agregar registros A manualmente en las zonas DNS de destino de la otra suscripción. 
 - La máquina del entorno de ejecución de integración autohospedado debe implementarse en la misma red virtual donde está implementado el punto de conexión privado de ingesta de Azure Purview.
-- Actualmente no se admite el examen de un inquilino Power BI que tenga un punto de conexión privado configurado con el acceso público bloqueado.
+- Actualmente no se admite el examen de un inquilino de Power BI que tenga un punto de conexión privado configurado con el acceso público bloqueado.
 - Para conocer la limitación en relación con el servicio Private Link, consulte [Límites de Azure Private Link](../azure-resource-manager/management/azure-subscription-service-limits.md#private-link-limits).
 
 ## <a name="recommended-troubleshooting-steps"></a>Pasos recomendados para la solución de problemas  
@@ -86,7 +86,7 @@ En esta guía se resumen las limitaciones conocidas relacionadas con el uso de p
     TcpTestSucceeded : True
     ```
     
-5. Si ha creado la cuenta de Azure Purview después del 18 de agosto de 2021, asegúrese de descargar e instalar la versión más reciente del entorno de ejecución de integración autohospedado desde el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=39717).
+5. Si ha creado su cuenta de Azure Purview después del 18 de agosto de 2021, asegúrese de descargar e instalar la versión más reciente del entorno de ejecución de integración autohospedado desde el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=39717).
    
 6. Desde una VM de entorno de ejecución de integración autohospedado, pruebe la conectividad de red y la resolución de nombres en el punto de conexión de Purview.
 
@@ -164,7 +164,7 @@ Recibe el siguiente mensaje de error al ejecutar un nuevo examen:
   `message: Unable to setup config overrides for this scan. Exception:'Type=Microsoft.WindowsAzure.Storage.StorageException,Message=The remote server returned an error: (404) Not Found.,Source=Microsoft.WindowsAzure.Storage,StackTrace= at Microsoft.WindowsAzure.Storage.Core.Executor.Executor.EndExecuteAsync[T](IAsyncResult result)`
 
 ### <a name="cause"></a>Causa 
-Puede indicar la ejecución de una versión anterior del entorno de ejecución de integración autohospedado. Si ha creado la cuenta de Azure Purview después del 18 de agosto de 2021, debe usar la versión 5.9.7885.3 del entorno de ejecución de integración autohospedado.
+Puede indicar la ejecución de una versión anterior del entorno de ejecución de integración autohospedado. Si ha creado la cuenta de Azure Purview después del 18 de agosto de 2021, debe usar la versión 5.9.7885.3 del entorno de ejecución de integración autohospedado.
 
 ### <a name="resolution"></a>Solución 
 Actualice el entorno de ejecución de integración autohospedado a la versión 5.9.7885.3.

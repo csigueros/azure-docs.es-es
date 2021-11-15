@@ -236,6 +236,8 @@
           href: azure-stack-hci-overview.md
         - name: Preguntas más frecuentes sobre Azure Stack HCI (versión preliminar)
           href: azure-stack-hci-faq.yml
+    - name: Etiquetado de recursos de Azure Virtual Desktop
+      href: tag-virtual-desktop-resources.md
 - name: Solución de problemas
   items:
     - name: 'Información general sobre solución de problemas, comentarios y soporte técnico'

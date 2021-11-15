@@ -7,17 +7,17 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 09/02/2021
-ms.openlocfilehash: f80a4a5961c0506f423da4d4f1578b8cf8999b51
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/28/2021
+ms.openlocfilehash: 6e9c09cb5407747c325b696570cd3eabdeeb4ed7
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124755231"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563727"
 ---
 # <a name="quickstart-create-a-knowledge-store-in-the-azure-portal"></a>Inicio rápido: Creación de un almacén de conocimiento en Azure Portal
 
-El [almacén de conocimiento](knowledge-store-concept-intro.md) es una característica de Azure Cognitive Search que envía la salida de una [canalización de enriquecimiento con IA](cognitive-search-concept-intro.md) a Azure Storage. Los enriquecimientos creados por la canalización, como texto traducido, texto OCR, entidades reconocidas y otros enriquecimientos, se proyectan en tablas o blobs, a los que cualquier aplicación o carga de trabajo que se conecte a Azure Storage puede acceder.
+El [almacén de conocimiento](knowledge-store-concept-intro.md) es una característica de Azure Cognitive Search que acepta la salida de una [canalización de enriquecimiento con IA](cognitive-search-concept-intro.md) y hace que esté disponible en Azure Storage para las aplicaciones y cargas de trabajo de nivel inferior. Los enriquecimientos creados por la canalización, como texto traducido, texto OCR, imágenes etiquetadas y entidades reconocidas, se proyectan en tablas o blobs, a los que cualquier aplicación o carga de trabajo que se conecte a Azure Storage puede acceder.
 
 En este artículo de inicio rápido, configurará los datos y, luego, ejecutará el Asistente para **importar datos** para crear una canalización de enriquecimiento que también genere un almacén de conocimiento. El almacén de conocimiento contendrá contenido de texto original que se extrajo del origen (reseñas de clientes sobre un hotel), además de contenido generado por IA que incluye una etiqueta de opinión, la extracción de frases clave, y la traducción de texto de comentarios de clientes que no están en inglés.
 
@@ -30,35 +30,15 @@ En este artículo de inicio rápido se usan los servicios siguientes:
 
 + Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/).
 
-+ Un servicio de Azure Cognitive Search. [Cree un servicio](search-create-service-portal.md) o [busque uno existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su cuenta. Puede usar un servicio gratuito para este inicio rápido. 
++ Azure Cognitive Search. [Cree un servicio](search-create-service-portal.md) o [busque uno existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su cuenta. Puede usar un servicio gratuito para este inicio rápido. 
 
-+ Una cuenta de Azure Storage con [Blob Storage](../storage/blobs/index.yml).
++ Azure Storage. [Cree una cuenta](../storage/common/storage-account-create.md) o [busque una cuenta ya existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). El tipo de cuenta debe ser **StorageV2 (uso general V2)** .
 
-En este inicio rápido también se usa [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) para la inteligencia artificial. Dado que la carga de trabajo es tan pequeña, Cognitive Services se aprovecha en segundo plano del procesamiento gratuito de hasta 20 transacciones. Esto significa que puede completar este ejercicio sin tener que crear un recurso de Cognitive Services adicional.
++ Datos de ejemplo. En este inicio rápido se usan las reseñas del hotel guardadas en un archivo CSV (procede de Kaggle.com) y contiene 19 fragmentos de comentarios de clientes sobre un solo hotel.
 
-## <a name="set-up-your-data"></a>Configuración de los datos
+  [Descargue HotelReviews_Free.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D) y [cárguelo en un contenedor de blobs](../storage/blobs/storage-quickstart-blobs-portal.md) en Azure Storage.
 
-En los pasos siguientes, configure un contenedor de blobs en Azure Storage para almacenar archivos de contenido heterogéneo.
-
-1. [Descarga de HotelReviews_Free.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D). Estos datos son las reseñas del hotel guardadas en un archivo CSV (procede de Kaggle.com) y contiene 19 fragmentos de comentarios de clientes sobre un solo hotel. 
-
-1. [Cree una cuenta de Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal) o [busque una cuenta existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). Usará Azure Storage tanto para el contenido sin procesar que se va a importar como para el almacén de información que es el resultado final.
-
-   Elija el tipo de cuenta **StorageV2 (uso general V2)** .
-
-1. En el recurso de Azure Storage, use el **Explorador de Storage** para crear un contenedor de blobs denominado **hotel-reviews**.
-
-1. Seleccione **Cargar** en la parte superior de la página para cargar el archivo **HotelReviews-Free.csv** que descargó del paso anterior.
-
-   :::image type="content" source="media/knowledge-store-create-portal/blob-container-storage-explorer.png" alt-text="Captura de pantalla del Explorador de Storage con el archivo cargado y el panel de navegación izquierdo" border="true":::
-
-1. Casi ha terminado con este recurso, pero antes de salir de estas páginas, seleccione **Claves de acceso** en el panel de navegación izquierdo para obtener una cadena de conexión para poder recuperar estos datos mediante el indexador.
-
-1. En **Claves de acceso**, seleccione **Mostrar claves** en la parte superior de la página para mostrar las cadenas de conexión y, luego, copie la cadena de conexión para key1 o key2.
-
-   Una cadena de conexión tiene el formato siguiente: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
-
-Ahora ya está preparado para continuar con el Asistente para la **importación de datos**.
+En este inicio rápido también se usa [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) para el enriquecimiento con IA. Dado que la carga de trabajo es tan pequeña, Cognitive Services se aprovecha en segundo plano del procesamiento gratuito de hasta 20 transacciones. Esto significa que puede completar este ejercicio sin tener que crear un recurso de Cognitive Services adicional.
 
 ## <a name="start-the-wizard"></a>Inicio del asistente
 
@@ -74,13 +54,15 @@ Dado que los datos son varias filas en un archivo CSV, establezca el *modo de an
 
 1. En **Conectarse a los datos propios**, elija **Azure Blob Storage** y seleccione la cuenta y el contenedor que creó. 
 
-1. En **Nombre**, escriba `hotel-reviews-ds`.
+1. En **Nombre**, escriba "hotel-reviews-ds".
 
 1. En **Modo de análisis**, seleccione **Texto delimitado** y, a continuación, active la casilla **La primera línea contiene encabezado**. Asegúrese de que el **Carácter delimitador** es una coma (,).
 
-1. En **Cadena de conexión**, pegue la cadena de conexión que copió de Azure Storage.
+1. En **Cadena de conexión**, pegue la cadena de conexión en la cuenta de Azure Storage. 
 
-1. En **Contenedores**, escriba el nombre del contenedor de blobs que contiene los datos (`hotel-reviews`).
+   Una cadena de conexión tiene el formato siguiente: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
+
+1. En **Contenedores**, escriba el nombre del contenedor de blobs que contiene los datos ("hotel-reviews").
 
     La página debe tener un aspecto similar a la siguiente captura de pantalla.
 
@@ -96,7 +78,7 @@ En este paso del asistente, agregue aptitudes para el enriquecimiento con IA. Lo
 
 1. Expanda **Agregar enriquecimientos**.
 
-1. En **Nombre del conjunto de aptitudes**, escriba `hotel-reviews-ss`.
+1. En **Nombre del conjunto de aptitudes**, escriba "hotel-reviews-ss".
 
 1. En el campo **Datos de origen**, seleccione **reviews_text**.
 
@@ -115,15 +97,17 @@ En este paso del asistente, agregue aptitudes para el enriquecimiento con IA. Lo
 
 1. Desplácese y expanda **Guardar enriquecimientos en el almacén de conocimiento**.
 
-1. Seleccione las **Proyecciones de tabla de Azure** siguientes. El asistente siempre ofrece la proyección **Documentos**. Se ofrecerán otras proyecciones en función de las aptitudes que seleccione (como **Frases clave**) o de la granularidad de enriquecimiento (**Páginas**):
+1. Seleccione **Elegir una conexión existente** y, después, seleccione una cuenta de Azure Storage. Aparecerá la página Contenedores para que pueda crear un contenedor para las proyecciones. Se recomienda adoptar una convención de nomenclatura de prefijos, como "kstore-hotel-reviews" para distinguir entre el contenido de origen y el contenido del almacén de conocimiento.
+
+1. Al volver al Asistente para la importación de datos, seleccione las siguientes **proyecciones de tabla de Azure**. El asistente siempre ofrece la proyección **Documentos**. Se ofrecerán otras proyecciones en función de las aptitudes que seleccione (como **Frases clave**) o de la granularidad de enriquecimiento (**Páginas**):
 
     + **Documentos**
     + **Páginas**
     + **Frases clave**
 
-   :::image type="content" source="media/knowledge-store-create-portal/hotel-reviews-ks.png" alt-text="Captura de pantalla de la definición del almacén de conocimiento" border="true":::
+   En la captura de pantalla siguiente se muestran las selecciones de proyecciones de tablas del asistente.
 
-1. Escriba la **Cadena de conexión de la cuenta de almacenamiento** que guardó en un paso anterior.
+   :::image type="content" source="media/knowledge-store-create-portal/hotel-reviews-ks.png" alt-text="Captura de pantalla de la definición del almacén de conocimiento" border="true":::
 
 1. Continúe en la siguiente página.
 
@@ -131,7 +115,7 @@ En este paso del asistente, agregue aptitudes para el enriquecimiento con IA. Lo
 
 En este paso del asistente, configure un índice para las consultas de búsqueda de texto completo opcionales. El asistente examinará el origen de datos para deducir los campos y los tipos de datos. Solo tiene que seleccionar los atributos para el comportamiento deseado. Por ejemplo, el atributo **Retrievable** permitirá que el servicio de búsqueda devuelva un valor de campo, mientras que **Searchable** habilitará la búsqueda de texto completo en el campo.
 
-1. En **Nombre de índice**, escriba `hotel-reviews-idx`.
+1. En **Nombre del índice**, escriba "hotel-reviews-idx".
 
 1. En el caso de los atributos, acepte las selecciones predeterminadas: **Retrievable** (Recuperable) y **Searchable** (Permite búsquedas) para los nuevos campos que crea la canalización.
 
@@ -145,31 +129,31 @@ En este paso del asistente, configure un índice para las consultas de búsqueda
 
 En este paso del asistente, configure un indexador que reunirá el origen de datos, las aptitudes y el índice que definió en los pasos anteriores del asistente.
 
-1. En **Nombre**, escriba `hotel-reviews-idxr`.
+1. En **Nombre**, escriba "hotel-reviews-idxr".
 
 1. En **Programación**, mantenga el valor predeterminado **Una vez**.
 
 1. Seleccione **Enviar** para ejecutar el indexador. La extracción de datos, la indexación y la aplicación de aptitudes cognitivas se producen en este paso.
 
-## <a name="check-status"></a>Comprobar estado
+### <a name="step-5-check-status"></a>Paso 5: Comprobación del estado
 
-En la página **Información general**, abra la pestaña **Indexadores** en el medio de la página y, luego, seleccione **hotels-reviews-ixr**. En un minuto o dos, el estado debería avanzar de "En curso" a "Correcto" sin errores ni advertencias.
+En la página **Información general**, abra la pestaña **Indexadores** en el medio de la página y, luego, seleccione **hotels-reviews-idxr**. En un minuto o dos, el estado debería avanzar de "En curso" a "Correcto" sin errores ni advertencias.
 
-## <a name="check-tables-in-storage-explorer"></a>Comprobación de las tablas en el Explorador de Storage
+## <a name="check-tables-in-storage-browser"></a>Comprobación de las tablas del explorador de almacenamiento
 
-En Azure Portal, cambie a la cuenta de Azure Storage y use el **Explorador de Storage** para ver las nuevas tablas. Debería ver tres tablas, una para cada proyección que se ofrecía en la sección "Guardar enriquecimientos" de la página "Agregar enriquecimientos".
+En Azure Portal, cambie a la cuenta de Azure Storage y use el **explorador de almacenamiento** para ver las nuevas tablas. Debería ver tres tablas, una para cada proyección que se ofrecía en la sección "Guardar enriquecimientos" de la página "Agregar enriquecimientos".
 
-+ `hotelReviewssDocument` contiene todos los nodos de primer nivel del árbol de enriquecimiento de un documento que no son colecciones.
++ "hotelReviewssDocuments" contiene todos los nodos de primer nivel del árbol de enriquecimiento de un documento que no son colecciones. 
 
-+ `hotelReviewssPages` contiene campos enriquecidos creados en cada página que se ha dividido del documento. Los enriquecimientos en el nivel de página constan de una etiqueta de opinión y texto traducido. Se crea una tabla de páginas (o una tabla de oraciones si especifica ese nivel concreto de granularidad) al elegir la granularidad de "páginas" en la definición del conjunto de aptitudes. La salida de las aptitudes que se ejecutan a nivel de páginas u oraciones se proyectará en esta tabla.
++ "hotelReviewssKeyPhrases" contiene una larga lista con solo las frases clave extraídas de todas las reseñas. La salida de las aptitudes que emiten colecciones (matrices), como frases clave y entidades, se obtendrá en una tabla independiente.
 
-+ `hotelReviewssKeyPhrases` contiene una larga lista con solo las frases clave extraídas de todas las reseñas. La salida de las aptitudes que emiten colecciones (matrices), como frases clave y entidades, se obtendrá en una tabla independiente.
++ "hotelReviewssPages" contiene campos enriquecidos creados en cada página que se ha dividido del documento. En este conjunto de aptitudes y origen de datos, los enriquecimientos en el nivel de página constan de etiquetas de opinión y texto traducido. Se crea una tabla de páginas (o una tabla de oraciones si especifica ese nivel concreto de granularidad) al elegir la granularidad de "páginas" en la definición del conjunto de aptitudes. 
 
 Todas estas tablas contienen columnas de identificador para admitir relaciones de tabla en otras herramientas y aplicaciones. Al abrir una tabla, desplácese más allá de estos campos para ver los campos de contenido que ha agregado la canalización.
 
-En este artículo de inicio rápido, la tabla debe ser similar a la captura de pantalla siguiente:
+En este inicio rápido, la tabla de "hotelReviewssPages" debe ser similar a la captura de pantalla siguiente:
 
-   :::image type="content" source="media/knowledge-store-create-portal/azure-table-hotel-reviews.png" alt-text="Captura de pantalla de las tablas generadas en el Explorador de Storage" border="true":::
+   :::image type="content" source="media/knowledge-store-create-portal/azure-table-hotel-reviews.png" alt-text="Captura de pantalla de las tablas generadas en el explorador de almacenamiento" border="true":::
 
 ## <a name="clean-up"></a>Limpieza
 

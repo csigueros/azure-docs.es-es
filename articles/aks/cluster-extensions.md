@@ -6,12 +6,12 @@ ms.date: 10/13/2021
 ms.topic: article
 author: nickomang
 ms.author: nickoman
-ms.openlocfilehash: d9ef2efbd4b77f70bb43830e59b7dee0ae8ad26a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 80d6eb34e1b1e0bbce6a8a1f1d2de58dbec51b4c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093189"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131447440"
 ---
 # <a name="deploy-and-manage-cluster-extensions-for-azure-kubernetes-service-aks-preview"></a>Implementación y administración de extensiones de clúster para Azure Kubernetes Service (AKS) (versión preliminar)
 
@@ -104,7 +104,7 @@ az provider register --namespace Microsoft.ContainerService
 > [!NOTE]
 > La versión mínima admitida para la extensión CLI de Azure `k8s-extension` es `1.0.0`. Si no está seguro de qué versión ha instalado, ejecute `az extension show --name k8s-extension` y busque el campo `version`.
 
-También necesitará la extensión CLI de Azure `k8s-extension`. Para instalarlo, ejecute los siguientes comandos:
+También necesitará la extensión CLI de Azure `k8s-extension`. Para instalarla, ejecute los siguientes comandos:
   
 ```azurecli-interactive
 az extension add --name k8s-extension
@@ -121,12 +121,10 @@ az extension update --name k8s-extension
 >[!NOTE]
 > Las extensiones de clúster proporcionan una plataforma para que las distintas extensiones se instalen y se administran en un clúster de AKS. Si tiene problemas al usar cualquiera de estas extensiones, abra una incidencia de soporte técnico con el servicio correspondiente.
 
-<!--
-| Extension | Description |
+| Extensión | Descripción |
 | --------- | ----------- |
--->
-
-Actualmente, no hay extensiones disponibles.
+| [Dapr][dapr-overview] | Dapr es un entorno de ejecución portátil controlado por eventos que facilita a cualquier desarrollador la creación de aplicaciones resistentes, sin estado y con estado que se ejecutan en la nube y en el perímetro. |
+| [Aprendizaje automático de Azure][azure-ml-overview] | Use clústeres de Azure Kubernetes Service para entrenar, inferir y administrar modelos de aprendizaje automático en Azure Machine Learning. |
 
 ## <a name="supported-regions-and-kubernetes-versions"></a>Regiones admitidas y versiones de Kubernetes
 
@@ -227,23 +225,14 @@ az k8s-extension update --name azureml --extension-type Microsoft.AzureML.Kubern
 
 ### <a name="delete-extension-instance"></a>Eliminación de una instancia de extensión
 
+>[!NOTE]
+> El recurso de Azure que representa esta extensión se elimina inmediatamente. La versión de Helm del clúster asociado a esta extensión solo se eliminará cuando los agentes que se ejecutan en el clúster de Kubernetes tengan conectividad de red y puedan ponerse en contacto con los servicios de Azure de nuevo para recuperar el estado deseado.
+
 Elimine una instancia de extensión en un clúster con `k8s-extension delete`; para ello, pase los valores de los parámetros obligatorios.
 
 ```azurecli
 az k8s-extension delete --name azureml --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
 ```
-
->[!NOTE]
-> El recurso de Azure que representa esta extensión se elimina inmediatamente. La versión de Helm del clúster asociado a esta extensión solo se eliminará cuando los agentes que se ejecutan en el clúster de Kubernetes tengan conectividad de red y puedan ponerse en contacto con los servicios de Azure de nuevo para recuperar el estado deseado.
-
-<!-- when extensions are available, add this section
-## Next steps
-
-Learn more about the cluster extensions currently available for AKS:
-
-> [!div class="nextstepaction"]
-
--->
 
 <!-- LINKS -->
 <!-- INTERNAL -->
@@ -251,8 +240,8 @@ Learn more about the cluster extensions currently available for AKS:
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
-[azure-ml-overview]:  <!-- need link -->
-[dapr-overview]: <!-- Not yet live -->
+[azure-ml-overview]: ../machine-learning/how-to-attach-arc-kubernetes.md
+[dapr-overview]: ./dapr.md
 [k8s-extension-reference]: /cli/azure/k8s-extension
 
 <!-- EXTERNAL -->

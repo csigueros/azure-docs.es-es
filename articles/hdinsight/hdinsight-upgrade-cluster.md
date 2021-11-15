@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/31/2020
-ms.openlocfilehash: 4aa25368e156ce793e969f866490352e253559fc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6fa655092de1c3e103381ccd58bf840b70a3809e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104871731"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249768"
 ---
 # <a name="migrate-hdinsight-cluster-to-a-newer-version"></a>Migración del clúster de HDInsight a una versión más reciente
 
@@ -50,6 +50,21 @@ En los siguientes documentos se proporcionan instrucciones sobre cómo migrar ca
 ## <a name="backup-and-restore"></a>Copia de seguridad y restauración
 
 Para más información sobre la copia de seguridad y restauración de bases de datos, consulte [Recuperación de una base de datos de Azure SQL Database mediante copias de seguridad de datos automatizadas](../azure-sql/database/recovery-using-backups.md).
+
+## <a name="upgrade-scenarios"></a>Actualización de los escenarios
+
+Como se mencionó anteriormente, Microsoft recomienda que los clústeres de HDInsight se migren periódicamente a la versión más reciente con el fin de aprovechar las características y correcciones nuevas. Consulte esta lista de motivos por los que es posible que solicitemos eliminar un clúster y volver a implementarlo:
+
+* La versión del clúster esta [Retirada](hdinsight-retired-versions.md) o en [Soporte técnico Basic](hdinsight-36-component-versioning.md), y usted tiene un problema de clúster que se resolvería con una versión más reciente.
+* Se determina que la causa principal de un problema de clúster está relacionada con una máquina virtual de tamaño insuficiente. [Consulte la configuración de nodo recomendada de Microsoft](hdinsight-supported-node-configuration.md#all-supported-regions-except-brazil-south-and-japan-west).
+* Un cliente abre un caso de soporte técnico y el equipo de ingeniería de Microsoft determina que el problema ya se corrigió en una versión más reciente del clúster.
+* Una base de datos de metastore predeterminada (Ambari, Hive, Oozie, Ranger) alcanzó su límite de uso. Microsoft le pedirá que vuelva a crear el clúster con una base de datos de [metastore personalizada](hdinsight-use-external-metadata-stores.md#custom-metastore).
+* La causa principal de un problema de clúster se debe a una **operación no admitida**. Entre las operaciones no admitidas comunes se encuentran las siguientes:
+     * **Mover o agregar un servicio en Ambari**. Al ver información en los servicios de clúster en Ambari, una de las acciones disponibles en el menú Acciones del servicio es **Mover [nombre del servicio]** . Otra acción es **Agregar [nombre del servicio]** . No se admite ninguna de estas opciones.
+     * **El paquete de Python está dañado**. Los clústeres de HDInsight dependen de los entornos integrados de Python: Python 2.7 y Python 3.5. La instalación directa de paquetes personalizados en esos entornos integrados predeterminados puede producir cambios inesperados en la versión de la biblioteca e interrumpir el clúster. Aprenda a [instalar de forma segura los paquetes externos personalizados de Python](./spark/apache-spark-python-package-installation.md#safely-install-external-python-packages) para las aplicaciones Spark.
+     * **Software de terceros**. Los clientes tienen la capacidad de instalar software de terceros en los clústeres de HDInsight, pero le recomendamos volver a crear el clúster si interrumpe la funcionalidad existente.
+     * **Varias cargas de trabajo en el mismo clúster**. En HDInsight 4.0, Hive Warehouse Connector necesita clústeres independientes para las cargas de trabajo de Spark y de Interactive Query. [Siga estos pasos para configurar ambos clústeres en Azure HDInsight](interactive-query/apache-hive-warehouse-connector.md). De manera similar, la integración de [Spark con HBASE](hdinsight-using-spark-query-hbase.md) requiere dos clústeres distintos.
+     * **Cambio de la contraseña de la base de datos personalizada de Ambari**. La contraseña de la base de datos de Ambari se establece al crear el clúster y actualmente no hay ningún mecanismo para actualizarla. Si un cliente implementa el clúster con una [base de datos personalizada de Ambari](hdinsight-custom-ambari-db.md), tendrá la capacidad de cambiar la contraseña de la base de datos en la BD de SQL, pero no hay cómo actualizar esta contraseña para un clúster de HDInsight en ejecución.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

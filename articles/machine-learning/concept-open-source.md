@@ -8,33 +8,26 @@ ms.subservice: mlops
 ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 10/21/2021
-ms.openlocfilehash: cf0a7f78de5a79440876630278faab8e581eeb33
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.custom: mktng-kw-nov2021
+ms.date: 11/04/2021
+ms.openlocfilehash: 9809169a8da6965c8d1fdbb741ddd4817f8d2af7
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131559093"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131850192"
 ---
-# <a name="open-source-integration-with-azure-machine-learning-projects"></a>Integración de código abierto con proyectos de Azure Machine Learning
+# <a name="use-open-source-machine-learning-libraries-and-platforms-with-azure-machine-learning"></a>Uso de bibliotecas y plataformas de aprendizaje automático de código abierto con Azure Machine Learning
 
-Puede entrenar, implementar y administrar el proceso de aprendizaje automático de un extremo a otro en Azure Machine Learning mediante plataformas y bibliotecas de aprendizaje automático de Python de código abierto.  Use herramientas de desarrollo, como cuadernos de Jupyter Notebook y Visual Studio Code, para aprovechar sus modelos y scripts existentes en Azure Machine Learning.  
-
-En este artículo, obtendrá más información sobre estas plataformas y bibliotecas de código abierto.
+En este artículo, obtendrá información sobre las plataformas y bibliotecas de aprendizaje automático de Python de código abierto que puede usar con Azure Machine Learning. Entrene, implemente y administre el proceso de aprendizaje automático de un extremo a otro mediante los proyectos de código abierto que prefiera.  Use herramientas de desarrollo, como cuadernos de Jupyter Notebook y Visual Studio Code, para aprovechar sus modelos y scripts existentes en Azure Machine Learning.  
 
 ## <a name="train-open-source-machine-learning-models"></a>Entrenamiento de modelos de Machine Learning de código abierto
 
-El proceso de entrenamiento de aprendizaje automático implica la aplicación de algoritmos a los datos con el fin de lograr una tarea o resolver un problema. En función del problema, puede elegir diferentes algoritmos que se ajusten mejor a la tarea y los datos. Para obtener más información sobre las distintas ramas del aprendizaje automático, consulte el [artículo sobre aprendizaje profundo y aprendizaje automático](./concept-deep-learning-vs-machine-learning.md) y la [hoja de características de los algoritmos de Machine Learning](algorithm-cheat-sheet.md).
-
-### <a name="preserve-data-privacy-using-differential-privacy"></a>Conservación de la privacidad de los datos con privacidad diferencial
-
-Para entrenar un modelo de Machine Learning, necesitará datos. A veces, los datos son confidenciales y es importante asegurarse de que los datos sean seguros y privados. La privacidad diferencial es una técnica para conservar la confidencialidad de la información de un conjunto de datos. Para obtener más información, consulte el artículo sobre [conservación de la privacidad de datos](concept-differential-privacy.md). 
-
-Los kits herramientas de privacidad diferencial de código abierto, como [SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-core-python), ayudan a [conservar la privacidad de los datos](how-to-differential-privacy.md) en las soluciones de Azure Machine Learning.
+El proceso de entrenamiento de aprendizaje automático implica la aplicación de algoritmos a los datos con el fin de lograr una tarea o resolver un problema. En función del problema, puede elegir diferentes algoritmos que se ajusten mejor a la tarea y los datos. Para obtener más información sobre lo que puede resolver con el aprendizaje automático, consulte el [artículo sobre aprendizaje profundo y aprendizaje automático](./concept-deep-learning-vs-machine-learning.md) y la [hoja de características de los algoritmos de Machine Learning](algorithm-cheat-sheet.md).
 
 ### <a name="classical-machine-learning-scikit-learn"></a>Entrenamiento de aprendizaje automático clásico: scikit-learn
 
-En el caso de tareas de entrenamiento que impliquen tareas de algoritmos de aprendizaje automático clásico, como la clasificación, la agrupación en clústeres y la regresión, podría usar algo como Scikit-learn. Para aprender a entrenar un modelo de clasificación de flores, consulte el [artículo sobre cómo entrenar con Scikit-learn](how-to-train-scikit-learn.md).
+En el caso de tareas de entrenamiento que impliquen tareas de algoritmos de aprendizaje automático clásico, como la clasificación, la agrupación en clústeres y la regresión, podría usar algo como Scikit-learn. Para aprender a entrenar un modelo de clasificación de flores, vea el [artículo sobre cómo entrenar con Scikit-learn](how-to-train-scikit-learn.md).
 
 ### <a name="neural-networks-pytorch-tensorflow-keras"></a>Redes neuronales: PyTorch, TensorFlow, Keras
 
@@ -45,6 +38,8 @@ Los marcos de aprendizaje profundo y las guías de procedimientos de código abi
  *  [PyTorch](https://github.com/pytorch/pytorch): [entrenamiento de un modelo de clasificación de imágenes de aprendizaje profundo con aprendizaje por transferencia](how-to-train-pytorch.md) 
  *  [TensorFlow](https://github.com/tensorflow/tensorflow): [reconocimiento de dígitos manuscritos con TensorFlow](how-to-train-tensorflow.md)
  *  [Keras](https://github.com/keras-team/keras): [creación de una red neuronal para analizar imágenes con Keras](how-to-train-keras.md)
+
+### <a name="transfer-learning"></a>Transferencia de aprendizaje
 
 El entrenamiento de un modelo de aprendizaje profundo desde cero a menudo requiere grandes cantidades de tiempo, datos y recursos de proceso. Puede abreviar el proceso de entrenamiento mediante el aprendizaje por transferencia. El aprendizaje por transferencia es una técnica que aplica los conocimientos que se adquieren al resolver un problema en un problema diferente, pero relacionado. Esto significa que puede tomar un modelo existente y reasignarlo. Consulte el artículo [Aprendizaje profundo frente a aprendizaje automático](concept-deep-learning-vs-machine-learning.md#what-is-transfer-learning) para más información sobre el aprendizaje por transferencia.
 
@@ -59,6 +54,14 @@ Para aprender usar Ray RLLib con Azure Machine Learning, consulte el artículo s
 ### <a name="monitor-model-performance-tensorboard"></a>Supervisión del rendimiento del modelo: TensorBoard
 
 El entrenamiento de uno o varios modelos requiere la visualización y la inspección de las métricas deseadas para asegurarse de que el modelo funciona según lo previsto. Puede [usar TensorBoard en Azure Machine Learning para hacer un seguimiento de las métricas del experimento y visualizarlas](./how-to-monitor-tensorboard.md).
+
+## <a name="responsible-ml-privacy-and-fairness"></a>ML responsable: privacidad y equidad
+
+### <a name="preserve-data-privacy-with-differential-privacy"></a>Conservación de la privacidad de los datos con la privacidad diferencial
+
+Para entrenar un modelo de Machine Learning, necesitará datos. A veces, los datos son confidenciales y es importante asegurarse de que los datos sean seguros y privados. La privacidad diferencial es una técnica para conservar la confidencialidad de la información de un conjunto de datos. Para obtener más información, consulte el artículo sobre [conservación de la privacidad de datos](concept-differential-privacy.md). 
+
+Los kits herramientas de privacidad diferencial de código abierto, como [SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-core-python), ayudan a [conservar la privacidad de los datos](how-to-differential-privacy.md) en las soluciones de Azure Machine Learning.
 
 ### <a name="frameworks-for-interpretable-and-fair-models"></a>Marcos para modelos interpretables y equilibrados
 

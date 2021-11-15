@@ -2,20 +2,20 @@
 title: Descripción de los gastos de servicios externos de Azure
 description: Obtenga información sobre la facturación de los servicios externos, anteriormente conocidos como Marketplace, en Azure.
 author: bandersmsft
-ms.reviewer: judupont
+ms.reviewer: sapnakeshari
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 10/20/2021
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee3e5b7b172bc6441e0148c3cbfa4bab02e6949b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c3ac9a13342d6e3fb46c9a1c709a22b67b6eeb9a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128586473"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252029"
 ---
 # <a name="understand-your-azure-external-services-charges"></a>Descripción de los gastos de servicios externos de Azure
 Los servicios externos los publican proveedores de software de terceros en Azure Marketplace. Por ejemplo, SendGrid es un servicio externo que puede adquirir en Azure, pero que no está publicado por Microsoft. Algunos productos de Microsoft también se venden a través de Azure Marketplace.
@@ -49,6 +49,8 @@ You can view a list of the external services that are on each subscription withi
 ## <a name="external-spending-for-ea-customers"></a>Gastos externos para clientes de EA
 
 Los clientes de EA pueden ver los gastos de los servicios externos y descargar los informes en el portal de EA. Lea el artículo sobre [Azure Marketplace para clientes de EA](https://ea.azure.com/helpdocs/azureMarketplace) para empezar a trabajar.
+
+Los clientes directos de EA pueden ver los gastos de servicios externos en [Azure Portal](https://portal.azure.com). Vaya al menú Uso y cargos para ver y descargar los cargos de Azure Marketplace.
 
 ## <a name="view-and-download-invoices-for-external-services"></a>Visualización y descarga de facturas de servicios externos
 

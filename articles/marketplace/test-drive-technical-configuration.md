@@ -4,21 +4,24 @@ description: Más información sobre las versiones de prueba. Las versiones de p
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 08/13/2019
+ms.date: 10/26/2021
 author: trkeya
 ms.author: trkeya
-ms.openlocfilehash: c4d5ccaead616fa53cc10733ad82f0f20b7e1cab
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 04eab06f0ce8aefa675b89613611c0ec9a93f9b6
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112007398"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131847363"
 ---
 # <a name="test-drive-technical-configuration"></a>Configuración técnica de la versión de prueba
 
 La opción Versión de prueba de Marketplace comercial de Microsoft le permite configurar un paseo práctico y autoguiado por las características clave del producto. Con una versión de prueba, los nuevos clientes pueden probar la oferta antes de confirmar la compra. Para más información, consulte [¿Qué es la versión de prueba?](what-is-test-drive.md)
 
 Si ya no quiere ofrecer una versión de prueba de la oferta, vuelva a la página **Configuración de la oferta** y desactive la casilla **Habilitar versión de prueba**. No todos los tipos de oferta tienen una versión de prueba disponible.
+
+> [!TIP]
+> Para ver la vista del cliente de la versión de prueba en el marketplace comercial, consulte [¿Qué es Azure Marketplace?](/marketplace/azure-marketplace-overview#take-action-on-a-listing) y [¿Qué es Microsoft AppSource?](/marketplace/appsource-overview).
 
 ## <a name="azure-resource-manager-test-drive"></a>Versión de prueba de Azure Resource Manager
 

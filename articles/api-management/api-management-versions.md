@@ -6,15 +6,14 @@ documentationcenter: ''
 author: johndowns
 ms.service: api-management
 ms.topic: article
-ms.date: 02/10/2021
+ms.date: 10/31/2021
 ms.author: jodowns
-ms.custom: fasttrack-new
-ms.openlocfilehash: 6b055cb6771dc76557c61220a52120a5fbbd7940
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: a89860216563480de4803cc6e4a7e9f24853190f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129811373"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471105"
 ---
 # <a name="versions-in-azure-api-management"></a>Versiones de Azure API Management
 
@@ -69,6 +68,8 @@ Azure API Management mantiene un recurso denominado *conjunto de versiones*, que
 Cada versión de una API se mantiene como su propio recurso de API, que después se asocia a un conjunto de versiones. Un conjunto de versiones puede contener varias API con distintas operaciones o directivas. Puede realizar cambios significativos entre las versiones de un conjunto.
 
 Azure Portal crea conjuntos de versiones de forma automática, y tanto los nombres como las descripciones de estos conjuntos se pueden modificar también en Azure Portal.
+
+Un conjunto de versiones se elimina automáticamente cuando se elimina la versión final.
 
 Los conjuntos de versiones se puede ver y administrar directamente mediante la [CLI de Azure](/cli/azure/apim/api/versionset), [Azure PowerShell](/powershell/module/az.apimanagement/#api-management), las [plantillas de Resource Manager](/azure/templates/microsoft.apimanagement/service/apiversionsets) o [Azure Resource Manager API](/rest/api/apimanagement/2020-12-01/api-version-set).
 

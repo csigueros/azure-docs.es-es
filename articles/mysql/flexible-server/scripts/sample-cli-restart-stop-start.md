@@ -1,5 +1,5 @@
 ---
-title: 'Script de la CLI: reinicio, inicio o detención de un servidor flexible de Azure Database for MySQL (versión preliminar)'
+title: 'Script de la CLI: reinicio, inicio o detención de un servidor flexible de Azure Database for MySQL'
 description: Este script de ejemplo de la CLI de Azure muestra cómo reiniciar, detener o iniciar un servidor flexible de Azure Database for MySQL.
 author: shreyaaithal
 ms.author: shaithal
@@ -8,14 +8,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 09/15/2021
-ms.openlocfilehash: 2c4d17b0bcbba1c231b06f6112ef8b43e9b4786a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 12a375eb7195af9b95db85723efe7a52b53c5356
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128604702"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131844137"
 ---
-# <a name="restartstopstart-an-azure-database-for-mysql---flexible-server-preview-using-azure-cli"></a>Reinicio, inicio o detención de un servidor flexible de Azure Database for MySQL (versión preliminar) mediante la CLI de Azure
+# <a name="restartstopstart-an-azure-database-for-mysql---flexible-server-using-azure-cli"></a>Reinicio, inicio o detención de un servidor flexible de Azure Database for MySQL mediante la CLI de Azure
 
 Este script de ejemplo de la CLI realiza operaciones de reinicio, inicio y detención en un servidor flexible de Azure Database for MySQL. 
 
@@ -62,5 +62,5 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Pruebe otros scripts en: [Ejemplos de la CLI de Azure para Azure Database for MySQL: servidor flexible (versión preliminar)](../sample-scripts-azure-cli.md).
+- Pruebe otros scripts: [Ejemplos de la CLI de Azure para Azure Database for MySQL: servidor flexible](../sample-scripts-azure-cli.md).
 - Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](/cli/azure).

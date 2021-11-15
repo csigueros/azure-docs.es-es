@@ -10,12 +10,12 @@ ms.service: virtual-machines
 ms.collection: windows
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 046bec93d3a9ae0ffef8b189470f412ab357943d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 503b2663d6de83d982e6f8e9c2538de3765c9294
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131018496"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131466663"
 ---
 # <a name="create-a-azure-virtual-desktop-image-using-azure-vm-image-builder-and-powershell"></a>Creación de una imagen de Azure Virtual Desktop mediante Azure VM Image Builder y PowerShell
 
@@ -29,7 +29,7 @@ En este artículo se muestra cómo crear una imagen de Azure Virtual Desktop con
 * [Restart](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-restart-customizer) (Reiniciar)
 * Ejecución de [Windows Update](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-update-customizer)
 
-Le mostraremos cómo automatizar esto mediante Azure VM Image Builder y distribuir la imagen a una instancia de [Shared Image Gallery](../shared-image-galleries.md), donde puede replicarla en otras regiones, controlar su escala y compartirla dentro y fuera de las organizaciones.
+Le mostraremos cómo automatizar esto mediante Azure VM Image Builder y distribuir la imagen a una instancia de [Azure Compute Gallery](../shared-image-galleries.md) (anteriormente Shared Image Gallery), donde puede replicarla en otras regiones, controlar su escala y compartirla dentro y fuera de las organizaciones.
 
 
 Para simplificar la implementación de una configuración de Image Builder, en este ejemplo se usa una plantilla de Azure Resource Manager con la plantilla de Image Builder anidada dentro. Esto le ofrece otras ventajas, como variables y entradas de parámetros. También puede pasar parámetros desde la línea de comandos.
@@ -167,9 +167,9 @@ New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imag
 > Si ve este error: "New-AzRoleDefinition: se ha superado el límite de definición de roles. No se pueden crear más definiciones de rol", Consulte [Solución de problemas de Azure RBA](../../role-based-access-control/troubleshooting.md).
 
 
-## <a name="create-the-shared-image-gallery"></a>Creación de la instancia de Shared Image Gallery 
+## <a name="create-the-azure-compute-gallery"></a>Creación de la instancia de Azure Compute Gallery 
 
-Si aún no tiene una instancia de Shared Image Gallery, debe crearla.
+Si aún no tiene una instancia de Azure Compute Gallery, debe crearla.
 
 ```azurepowershell-interactive
 $sigGalleryName= "myaibsig01"

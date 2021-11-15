@@ -59,7 +59,7 @@ items:
         items:
           - name: Crear un área de trabajo
             items:
-              - name: Azure portal
+              - name: Azure Portal
                 href: quickstart-create-workspace.md
                 displayName: quickstart
               - name: Azure CLI
@@ -215,6 +215,9 @@ items:
           - name: Introducción a las plantillas de base de datos
             href: database-designer/overview-database-templates.md
             displayName: overview
+          - name: Introducción a la asignación de datos
+            href: database-designer/overview-map-data.md
+            displayName: map data
       - name: Guías de inicio rápido
         items:
           - name: Creación de una base de datos de lago

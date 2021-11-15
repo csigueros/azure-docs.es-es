@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: thwimmer
-ms.openlocfilehash: e4c342025adc46850484535b5270b0889163cbc4
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 50ac8f30f4b0f9ad04b76710958772dfec458c28
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113767558"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131989990"
 ---
 # <a name="tutorial-configure-ipass-smartconnect-for-automatic-user-provisioning"></a>Tutorial: Configuración de iPass SmartConnect para aprovisionar usuarios automáticamente
 
@@ -34,6 +34,10 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 * Un inquilino de Azure AD.
 * [Un inquilino de iPass SmartConnect](https://www.ipass.com/buy-ipass/).
 * Una cuenta de usuario de iPass SmartConnect con permisos de administrador.
+
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
+
 
 ## <a name="assigning-users-to-ipass-smartconnect"></a>Asignación de usuarios a iPass SmartConnect
 

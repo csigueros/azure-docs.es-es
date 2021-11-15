@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: 89890c243fa3fba659c8da3aaf5627ded7d27fb1
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 96fdec13ce028f3cac5f42c7092ca9b189923b9f
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130065586"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131577790"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implementación de Azure Virtual Machines para SAP NetWeaver
 
@@ -835,7 +835,9 @@ Establezca los siguientes parámetros:
    sudo service waagent restart
    ```
 
-La configuración de proxy en \\etc\\waagent.conf también se aplica a las extensiones de máquina virtual requeridas. Si desea usar los repositorios de Azure, asegúrese de que el tráfico a estos repositorios no pase por la intranet local. Si creó rutas definidas por el usuario para habilitar la tunelización forzada, asegúrese de agregar una ruta que enrute el tráfico hacia los repositorios directamente a Internet y no a través de su conexión de sitio a sitio.
+Si desea usar los repositorios de Azure, asegúrese de que el tráfico a estos repositorios no pase por la intranet local. Si creó rutas definidas por el usuario para habilitar la tunelización forzada, asegúrese de agregar una ruta que enrute el tráfico hacia los repositorios directamente a Internet y no a través de su conexión de sitio a sitio.
+
+La extensión de VM para SAP también debe poder acceder a Internet. Asegúrese de instalar la nueva extensión de VM para SAP y siga los pasos descritos en [Configuración de la extensión de VM de Azure para soluciones de SAP con la CLI de Azure](vm-extension-for-sap-new.md#fa4428b9-bed6-459a-9dfb-74cc27454481) en la guía de instalación de la extensión de VM para SAP y así configurar el proxy.
 
 * **SLES**
 

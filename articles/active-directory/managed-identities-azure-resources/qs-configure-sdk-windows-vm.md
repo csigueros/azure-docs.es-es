@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0102ea602cb6e6778940c77aec444d412fa4ed6d
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 555ef4456f0aa77aaeb54981e214666a0f87a19a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114452651"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131440707"
 ---
 # <a name="configure-a-vm-with-managed-identities-for-azure-resources-using-an-azure-sdk"></a>Configuración de una máquina virtual con identidades administradas de recursos de Azure mediante un SDK de Azure
 
@@ -30,7 +30,7 @@ Las identidades administradas de recursos de Azure proporcionan a los servicios 
 
 En este artículo, aprenderá a habilitar y eliminar identidades administradas de recursos de Azure mediante un SDK de Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

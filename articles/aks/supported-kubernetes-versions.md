@@ -7,12 +7,12 @@ ms.date: 08/09/2021
 author: palma21
 ms.author: jpalma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ea1112f614e9c08bde1ff0427af706aae4c14896
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 3c094a40cd0150fe4134bf1352dfbe418346d63b
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131063131"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131577714"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS)
 
@@ -217,7 +217,8 @@ El plano de control debe estar dentro de una ventana de versiones de todos los g
 
 **¿Puedo saltarme varias versiones de AKS durante la actualización del clúster?**
 
-Cuando se actualiza un clúster de AKS compatible, no pueden omitirse las versiones secundarias de Kubernetes. Por ejemplo, las actualizaciones entre las siguientes versiones:
+Cuando se actualiza un clúster de AKS compatible, no pueden omitirse las versiones secundarias de Kubernetes. La [directiva de sesgo de versiones](https://kubernetes.io/releases/version-skew-policy/) de los planos de control de Kubernetes no admite la omisión de versiones secundarias. Por ejemplo, las actualizaciones entre las siguientes versiones:
+
   * *1.12.x* -> *1.13.x*: permitida.
   * *1.13.x* -> *1.14.x*: permitida.
   * *1.12.x* -> *1.14.x*: no permitida.
@@ -226,7 +227,7 @@ Para actualizar de *1.12.x* -> *1.14.x*:
 1. Actualización de *1.12.x* -> *1.14.x*.
 1. Actualización de *1.12.x* -> *1.14.x*.
 
-Solo se pueden omitir varias versiones cuando se actualiza de una versión que no es compatible a otra que sí lo es. Por ejemplo, puede realizar la actualización de la versión *1.10.x*, que no es compatible, a la versión *1.15.x*, que lo es.
+La omisión de varias versiones solo se puede realizar al actualizar desde una versión no admitida a la versión mínima admitida. Por ejemplo, puede actualizar desde la versión *1.10.x* no admitida a la versión *1.15.x* compatible si *1.15* es la versión secundaria mínima admitida.
 
 **¿Puedo crear un nuevo clúster 1.xx.x durante su período de soporte técnico de 30 días?**
 

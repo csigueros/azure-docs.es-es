@@ -6,13 +6,13 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.custom: ''
-ms.date: 6/3/2020
-ms.openlocfilehash: 1dc37ae36703e334ca132b52749edbcdb9b3a602
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.date: 11/4/2021
+ms.openlocfilehash: 466b3706c2814f4cb833e441c7d19f5d7b2895fe
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130164785"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131845900"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versiones admitidas de servidores de Azure Database for MySQL
 
@@ -24,7 +24,7 @@ Azure Database for MySQL se ha desarrollado a partir de [MySQL Community Edition
 
 En la opción de implementación de un solo servidor, se usa una puerta de enlace para redirigir las conexiones a las instancias de servidor. Una vez establecida la conexión, el cliente de MySQL muestra la versión de MySQL establecida en la puerta de enlace, no la versión real que se ejecuta en la instancia del servidor MySQL. Para determinar la versión de la instancia del servidor MySQL, use el comando `SELECT VERSION();` en el símbolo del sistema de MySQL. Revise la [arquitectura de conectividad](./concepts-connectivity-architecture.md#connectivity-architecture) para aprender sobre las puertas de enlace en la arquitectura de servicio de Azure Database for MySQL.
 
-Como Azure Database for MySQL admite las versiones principales 5.7 y 8.0, el puerto predeterminado 3306 para conectarse a dicho servicio ejecuta la versión 5.7 del cliente de MySQL (mínimo denominador común) para permitir conexiones a servidores de las dos versiones principales admitidas. Sin embargo, si la aplicación tiene el requisito de conectarse a una versión principal específica, por ejemplo v5.7 o v8.0, puede hacerlo cambiando el puerto en la cadena de conexión del servidor.
+Como Azure Database for MySQL admite las versiones principales 5.7 y 8.0, el puerto predeterminado 3306 para conectarse a dicho servicio ejecuta la versión 5.6 del cliente de MySQL (mínimo denominador común) para permitir conexiones a servidores de las dos versiones principales admitidas. Sin embargo, si la aplicación tiene el requisito de conectarse a una versión principal específica, por ejemplo v5.7 o v8.0, puede hacerlo cambiando el puerto en la cadena de conexión del servidor.
 
 En el servicio Azure Database for MySQL, los nodos de puerta de enlace escuchan en el puerto 3308 en el caso de los clientes v5.7 y en el puerto 3309 en los clientes v8.0. En otras palabras, si quiere conectar con el cliente de puerta de enlace v5.7, debe usar el nombre de servidor completo y el puerto 3308 para conectarse a su servidor desde la aplicación cliente. Del mismo modo, si quiere conectarse al cliente de puerta de enlace v8.0, puede usar el nombre de servidor completo y el puerto 3309 para conectarse al servidor. Para mayor claridad, consulte el ejemplo siguiente.
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/12/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a31cad4f2828a505eb89782bf28b01049a46cfc
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: f923cafa9e43d965674050e43c2f2c6a14917dea
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129998017"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130266150"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Cómo usar identidades administradas de recursos de Azure en una máquina virtual de Azure para adquirir un token de acceso 
 
@@ -367,6 +367,9 @@ En esta sección se documentan las posibles respuestas de error. Un estado de "2
 |           | unsupported_response_type | El servidor de consentimiento no admite la obtención de un token de acceso con este método. |  |
 |           | invalid_scope | El ámbito solicitado no es válido, es desconocido o tiene un formato incorrecto. |  |
 | 500 Error interno del servidor | unknown | No se pudo recuperar el token de Active Directory. Para más información, vea los registros en *\<file path\>* . | Compruebe que las identidades administradas de recursos de Azure se han habilitado en la máquina virtual. Consulte [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md) (Configuración de identidades administradas de recursos de Azure en una VM mediante Azure Portal) si necesita ayuda con la configuración de la VM.<br><br>Compruebe que el URI de la solicitud HTTP GET tiene el formato correcto, especialmente el del recurso especificado en la cadena de consulta. Consulte "Solicitud de ejemplo" en la sección REST anterior para obtener un ejemplo o [Servicios de Azure que admiten la autenticación de Azure AD](./services-support-managed-identities.md) para obtener una lista de servicios y sus respectivos identificadores de recurso.
+
+> [!IMPORTANT]
+> - IMDS no está diseñado para el uso detrás de un proxy y no se admite. Para ver ejemplos de cómo omitir los servidores proxy, consulte los [ejemplos de metadatos de Instancias de Azure](https://github.com/microsoft/azureimds).  
 
 ## <a name="retry-guidance"></a>Instrucciones de reintento 
 

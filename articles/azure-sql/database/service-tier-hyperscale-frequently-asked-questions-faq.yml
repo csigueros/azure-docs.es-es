@@ -11,13 +11,13 @@ metadata:
   author: dimitri-furman
   ms.author: dfurman
   ms.reviewer: mathoma
-  ms.date: 09/10/2021
-  ms.openlocfilehash: 738d016c3ba341e3fb8e31a7b01847573e7a4178
-  ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+  ms.date: 11/4/2021
+  ms.openlocfilehash: 440cb18b41a37358fc170655783cc2f5c61bc01b
+  ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/26/2021
-  ms.locfileid: "129059556"
+  ms.lasthandoff: 11/05/2021
+  ms.locfileid: "131843202"
 title: Preguntas más frecuentes sobre Hiperescala de Azure SQL Database
 summary: >
   [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -339,6 +339,10 @@ sections:
       ¿Se ve afectado el rendimiento cuando aprovisiono réplicas de proceso adicionales?
     answer: >
       Dado que el almacenamiento se comparte y no hay ninguna replicación física directa que tenga lugar entre la réplica de proceso principal y las secundarias, el rendimiento de la réplica principal no se verá afectado directamente al agregar réplicas secundarias. Sin embargo, podemos limitar las cargas de trabajo de escritura intensivas continuas en la principal para permitir que la aplicación del registro en las réplicas secundarias y en los servidores de páginas se ponga al día y evitar un rendimiento de lectura insuficiente en las réplicas secundarias.
+  - question: >
+      ¿Hiperescala es una solución adecuada para consultas y transacciones de larga duración y con un uso intensivo de recursos?
+    answer: >
+      Sí. Sin embargo, tenga en cuenta que, con muy poca frecuencia, las conexiones podrían terminar por errores transitorios, lo que puede anular consultas de larga duración y revertir transacciones. Una causa de los errores transitorios es cuando el sistema desplaza rápidamente la base de datos a un nodo de ejecución diferente para garantizar la disponibilidad continua de los recursos de proceso y almacenamiento, o para realizar un mantenimiento planeado. La mayoría de estos eventos de reconfiguración se completan en menos de 10 segundos. Las aplicaciones que se conectan a la base de datos deben crearse para esperar y tolerar estos errores transitorios poco frecuentes mediante la implementación de la lógica de reintento. Además, considere la posibilidad de configurar una [ventana de mantenimiento](maintenance-window.md) que coincida con la programación de la carga de trabajo para evitar errores transitorios debidos al mantenimiento planeado.
   - question: >
       ¿Cómo diagnostico y soluciono los problemas de rendimiento en una base de datos de Hiperescala?
     answer: >

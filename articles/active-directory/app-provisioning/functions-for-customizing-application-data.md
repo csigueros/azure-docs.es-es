@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/21/2021
+ms.date: 10/27/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 5922fab330409391ba9857b76595f5834469d966
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 2962c033ee42b91913324f22dbba3ca3cae49fdf
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129991458"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456373"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Referencia para la escritura de expresiones para la asignación de atributos en Azure Active Directory
 
-Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos de asignaciones de atributos que puede especificar es una asignación de expresiones. En estos casos, debe escribir una expresión similar a un script que permita transformar los datos de los usuarios en formatos más aceptables para la aplicación SaaS.
+Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos de asignaciones de atributos que puede especificar es una asignación de expresiones. Para estas asignaciones, debe escribir una expresión similar a un script que permite transformar los datos de los usuarios en formatos más aceptables para la aplicación SaaS.
 
 ## <a name="syntax-overview"></a>Información general sobre la sintaxis
 
@@ -38,7 +38,7 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 
 ## <a name="list-of-functions"></a>Lista de funciones
 
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [AppRoleAssignmentsComplex](#approleassignmentscomplex) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [CDate](#cdate) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateAdd](#dateadd) &nbsp;&nbsp;&nbsp;&nbsp; [DateDiff](#datediff) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IgnoreFlowIfNullOrEmpty](#ignoreflowifnullorempty) &nbsp;&nbsp;&nbsp;&nbsp;[IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) &nbsp;&nbsp; &nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Now](#now) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp; [PCase](#pcase) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [AppRoleAssignmentsComplex](#approleassignmentscomplex) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [CDate](#cdate) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateAdd](#dateadd) &nbsp;&nbsp;&nbsp;&nbsp; [DateDiff](#datediff) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IgnoreFlowIfNullOrEmpty](#ignoreflowifnullorempty) &nbsp;&nbsp;&nbsp;&nbsp;[IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) &nbsp;&nbsp; &nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Now](#now) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp; [PCase](#pcase) &nbsp;&nbsp;&nbsp;&nbsp; [RandomString](#randomstring) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
 
 ---
 ### <a name="append"></a>Append
@@ -56,7 +56,7 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 
 
 #### <a name="append-constant-suffix-to-user-name"></a>Anexar sufijos constantes a nombres de usuario
-Ejemplo: si está utilizando un espacio aislado de Salesforce, deberá anexar un sufijo adicional a todos los nombres de usuario antes de sincronizarlas.
+Ejemplo: si está utilizando un espacio aislado de Salesforce, deberá anexar otro sufijo a todos los nombres de usuario antes de sincronizarlos.
 
 **Expresión:**  
 `Append([userPrincipalName], ".test")`
@@ -94,8 +94,8 @@ En otras palabras, devuelve 0 en todos los casos excepto cuando los bits corresp
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
-| **value1** |Obligatorio |num |Valor numérico que se debe agregar con AND a value2|
-| **value2** |Obligatorio |num |Valor numérico que se debe agregar con AND a value1|
+| **value1** |Obligatorio |N.º |Valor numérico que se debe agregar con AND a value2|
+| **value2** |Obligatorio |N.º |Valor numérico que se debe agregar con AND a value1|
 
 **Ejemplo:** 
 `BitAnd(&HF, &HF7)`
@@ -114,7 +114,7 @@ En otras palabras, devuelve 0 en todos los casos excepto cuando los bits corresp
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
-| **expression** |Obligatorio | expresión | Cualquier expresión válida |
+| **Expression** |Obligatorio | expresión | Cualquier expresión válida |
 
 **Ejemplo:** 
 `CBool([attribute1] = [attribute2])`                                                                    
@@ -132,7 +132,7 @@ Devuelve True si ambos atributos tienen el mismo valor.
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
-| **expression** |Obligatorio | expresión | Cualquier cadena válida que represente una fecha y hora. Para conocer los formatos admitidos, consulte [Cadenas de formato de fecha y hora personalizadas de .NET](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| **Expression** |Requerido | Expression | Cualquier cadena válida que represente una fecha y hora. Para conocer los formatos admitidos, consulte [Cadenas de formato de fecha y hora personalizadas de .NET](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 **Observaciones**:  
 La cadena devuelta siempre está en UTC y sigue el formato **M/d/yyyy h:mm:ss tt**.
@@ -259,9 +259,9 @@ devuelve una cadena de fecha y hora que representa una fecha a la que se ha agre
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
-| **interval** |Obligatorio | String | Intervalo de tiempo que desea agregar. Consulte los valores aceptados se debajo de esta tabla. |
+| **interval** |Requerido | String | Intervalo de tiempo que desea agregar. Consulte los valores aceptados se debajo de esta tabla. |
 | **value** |Obligatorio | Number | el número de unidades que desea agregar. Puede ser positivo (para obtener fechas futuras) o negativo (para obtener fechas del pasado). |
-| **dateTime** |Obligatorio | DateTime | DateTime que representa la fecha a la que se agrega el intervalo. |
+| **dateTime** |Requerido | DateTime | DateTime que representa la fecha a la que se agrega el intervalo. |
 
 La cadena de **intervalo** debe tener uno de los valores siguientes: 
  * yyyy Año 
@@ -277,22 +277,22 @@ La cadena de **intervalo** debe tener uno de los valores siguientes:
 * **INPUT** (StatusHireDate): 2012-03-16-07:00
 * **OUTPUT**: 3/23/2012 7:00:00 AM
 
-**Ejemplo 2: Obtención de una fecha 10 días antes de la fecha de contratación**  
+**Ejemplo 2: Obtención de una fecha 10 días antes de la fecha de contratación**  
 `DateAdd("d", -10, CDate([StatusHireDate]))`
 * **INPUT** (StatusHireDate): 2012-03-16-07:00
 * **OUTPUT**: 3/6/2012 7:00:00 AM
 
-**Ejemplo 3: Adición de 2 semanas a la fecha de contratación**  
+**Ejemplo 3: Adición de 2 semanas a la fecha de contratación**  
 `DateAdd("ww", 2, CDate([StatusHireDate]))`
 * **INPUT** (StatusHireDate): 2012-03-16-07:00
 * **OUTPUT**: 3/30/2012 7:00:00 AM
 
-**Ejemplo 4: Adición de 10 meses a la fecha de contratación**  
+**Ejemplo 4: Adición de 10 meses a la fecha de contratación**  
 `DateAdd("m", 10, CDate([StatusHireDate]))`
 * **INPUT** (StatusHireDate): 2012-03-16-07:00
 * **OUTPUT**: 1/16/2013 7:00:00 AM
 
-**Ejemplo 5: Adición de 2 años a la fecha de contratación**  
+**Ejemplo 5: Adición de 2 años a la fecha de contratación**  
 `DateAdd("yyyy", 2, CDate([StatusHireDate]))`
 * **INPUT** (StatusHireDate): 2012-03-16-07:00
 * **OUTPUT**: 3/16/2014 7:00:00 AM
@@ -311,7 +311,7 @@ Esta función usa el parámetro de *interval* para devolver un número que indiq
 
 | Nombre | Obligatorio/opcional | Tipo | Notas |
 | --- | --- | --- | --- |
-| **interval** |Obligatorio | String | Intervalo de tiempo que se usará para calcular la diferencia. |
+| **interval** |Requerido | String | Intervalo de tiempo que se usará para calcular la diferencia. |
 | **date1** |Requerido | DateTime | Valor de DateTime que representa una fecha válida. |
 | **date2** |Requerido | DateTime | Valor de DateTime que representa una fecha válida. |
 
@@ -418,7 +418,7 @@ Sample output: "1088051a-cd4b-4288-84f8-e02042ca72bc"
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
-| **expression** | Obligatorio | expresión | Expresión que se va a evaluar. |
+| **Expression** | Requerido | Expression | Expresión que se va a evaluar. |
 
 **Ejemplo 1: No pase un atributo si es NULL** <br>
 `IgnoreFlowIfNullOrEmpty([department])` <br>
@@ -480,7 +480,7 @@ Se evalúa en 7.
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
-| **expression** |Obligatorio |expresión |Expresión que se va a evaluar. |
+| **Expression** |Requerido |Expression |Expresión que se va a evaluar. |
 
 **Ejemplo:** 
 `IsNull([displayName])`
@@ -498,7 +498,7 @@ La función contraria a esta es IsPresent.
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
-| **expression** |Obligatorio |expresión |Expresión que se va a evaluar. |
+| **Expression** |Requerido |Expression |Expresión que se va a evaluar. |
 
 **Ejemplo:** 
 `IsNullOrEmpty([displayName])`
@@ -515,7 +515,7 @@ Devuelve True si el atributo no está presente o si es una cadena vacía.
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
-| **expression** |Obligatorio |expresión |Expresión que se va a evaluar. |
+| **Expression** |Requerido |Expression |Expresión que se va a evaluar. |
 
 **Ejemplo:** 
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
@@ -530,7 +530,7 @@ Devuelve True si el atributo no está presente o si es una cadena vacía.
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
-| **expression** |Obligatorio |expresión |Expresión que se va a evaluar. |
+| **Expression** |Requerido |Expression |Expresión que se va a evaluar. |
 
 ---
 ### <a name="item"></a>Elemento
@@ -565,7 +565,7 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 
 ---
 ### <a name="left"></a>Left
-**Función:** Left(String,NumChars)
+**Función:** Left(String, NumChars)
 
 **Descripción:**  la función Left devuelve un número especificado de caracteres desde la izquierda de una cadena. Con numChars = 0, se devuelve una cadena vacía.
 Con numChars < 0, se devuelve una cadena de entrada.
@@ -595,8 +595,8 @@ devuelve “Joh”.
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |String |Normalmente el nombre del atributo. |
-| **start** |Obligatorio |integer |Índice de la cadena de **source** donde debe empezar la subcadena. El primer carácter de la cadena tendrá el índice de 1, el segundo carácter tendrá el índice de 2, y así sucesivamente. |
-| **length** |Obligatorio |integer |Longitud de la subcadena. Si length acaba fuera de la cadena de **source**, la función devolverá una subcadena desde el índice de **start** hasta el final de la cadena de **source**. |
+| **start** |Obligatorio |Entero |Índice de la cadena de **source** donde debe empezar la subcadena. El primer carácter de la cadena tendrá el índice de 1, el segundo carácter tendrá el índice de 2, y así sucesivamente. |
+| **length** |Obligatorio |Entero |Longitud de la subcadena. Si length acaba fuera de la cadena de **source**, la función devolverá una subcadena desde el índice de **start** hasta el final de la cadena de **source**. |
 
 ---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
@@ -634,7 +634,7 @@ devuelve “Joh”.
 
 
 #### <a name="remove-diacritics-from-a-string"></a>Quitar los signos diacríticos de una cadena
-Ejemplo: necesita reemplazar caracteres que contienen acentos por otros equivalentes que no los contengan.
+Ejemplo: reemplazar caracteres que contienen acentos por otros equivalentes que no los contienen.
 
 **Expresión:** NormalizeDiacritics([givenName])
 
@@ -731,6 +731,31 @@ Supongamos que va a obtener los atributos *firstName* y *lastName* de SAP Succes
 
 ---
 
+### <a name="randomstring"></a>RandomString
+**Función:** RandomString(Length, MinimumNumbers, MinimumSpecialCharacters , MinimumCapital, MinimumLowerCase, CharactersToAvoid)
+
+**Descripción:** La función RandomString genera una cadena aleatoria en función de las condiciones especificadas. Los caracteres permitidos pueden identificarse [aquí](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).
+
+**Parámetros:** 
+
+| Nombre | Obligatorio/Repetición | Tipo | Notas |
+| --- | --- | --- | --- |
+| **Duración** |Obligatorio |Number |Longitud total de la cadena aleatoria. Debe ser mayor o igual que la suma de MinimumNumbers, MinimumSpecialCharacters y MinimumCapital. 256 caracteres como máximo.|
+| **MinimumNumbers** |Obligatorio |Number |Números mínimos en la cadena aleatoria.|
+| **MinimumSpecialCharacters** |Obligatorio |Number |Número mínimo de caracteres especiales.|
+| **MinimumCapital** |Obligatorio |Number |Número mínimo de letras mayúsculas en la cadena aleatoria.|
+| **MinimumLowerCase** |Obligatorio |Number |Número mínimo de letras minúsculas en la cadena aleatoria.|
+| **CharactersToAvoid** |Opcional |String |Caracteres que se excluirán al generar la cadena aleatoria.|
+
+
+**Ejemplo 1:** Generación de una cadena aleatoria sin restricciones de caracteres especiales: `RandomString(6,3,0,0,3)`
+Genera una cadena aleatoria con 6 caracteres. La cadena contiene 3 números y 3 caracteres en minúsculas (1a73qt).
+
+**Ejemplo 2:** Generación de una cadena aleatoria con restricciones de caracteres especiales: `RandomString(10,2,2,2,1,"?,")`
+Genera una cadena aleatoria con 10 caracteres. La cadena contiene al menos 2 números, 2 caracteres especiales, 2 letras mayúsculas, 1 letra minúscula y excluye los caracteres "?" y "," (1@!2BaRg53).
+
+---
+
 ### <a name="removeduplicates"></a>RemoveDuplicates
 **Función:** RemoveDuplicates(attribute)
 
@@ -800,10 +825,11 @@ Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
 **Descripción:** Requiere dos argumentos como mínimo, que son las reglas de generación de valor único definidas con expresiones. La función evalúa cada regla y, a continuación, comprueba la unicidad del valor generado en el directorio o la aplicación de destino. Se devolverá el primer valor único encontrado. Si todos los valores ya existen en el destino, la entrada se depositará y el motivo se anota en los registros de auditoría. No hay ningún límite superior para el número de argumentos que se pueden proporcionar.
 
 
- - Esta es una función de nivel superior, no se puede anidar.
+ - Esta función debe estar en el nivel superior y no se puede anidar.
  - Esta función no se puede aplicar a los atributos que tienen una precedencia de coincidencia.     
  - Esta función solo está destinada a usarse para creaciones de entradas. Al usarla con un atributo, establezca la propiedad **Apply Mapping** (Aplicar asignación) en **Solo durante la creación del objeto**.
  - Actualmente, esta función solo se admite en el aprovisionamiento de usuarios de Workday en Active Directory y en el de SuccessFactors en Active Directory. No se puede usar con otras aplicaciones de aprovisionamiento. 
+ - La búsqueda LDAP que realiza la función *SelectUniqueValue* en Active Directory local no aplica el escape a caracteres especiales como signos diacríticos. Si pasa una cadena como "Jéssica Smith" que contiene un carácter especial, se producen errores de procesamiento. Anide la función [NormalizeDiacritics](#normalizediacritics) como se muestra en el siguiente ejemplo para normalizar los caracteres especiales. 
 
 
 **Parámetros:** 
@@ -839,7 +865,7 @@ Ejemplo: según el nombre del usuario, el segundo nombre y los apellidos, deber�
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **Función:** SingleAppRoleAssignment([appRoleAssignments])
 
-**Descripción:** Devuelve una única función appRoleAssignment de la lista de todas las funciones appRoleAssignments asignadas a un usuario para una aplicación determinada. Esta función es necesaria para convertir el objeto appRoleAssignments en una cadena de nombre de rol único. Tenga en cuenta que el procedimiento recomendado consiste en asegurarse de que solo una función appRoleAssignment esté asignada a un usuario a la vez. Si se asignan varios roles, la cadena del rol devuelta podría no ser predecible. 
+**Descripción:** Devuelve una única función appRoleAssignment de la lista de todas las funciones appRoleAssignments asignadas a un usuario para una aplicación determinada. Esta función es necesaria para convertir el objeto appRoleAssignments en una cadena de nombre de rol único. El procedimiento recomendado consiste en asegurarse de que solo una función appRoleAssignment esté asignada a un usuario a la vez. Si se asignan varios roles, la cadena del rol devuelta podría no ser predecible. 
 
 **Parámetros:** 
 
@@ -899,7 +925,7 @@ Ejemplo: debe tomar una lista de cadenas delimitadas con comas y dividir esas ca
 | **value** |Obligatorio |String |Valor de reemplazo para el **source** que coincide con la clave. |
 
 #### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Reemplazar un valor basado en un conjunto predefinido de opciones
-Ejemplo: debe definir la zona horaria del usuario según el código de estado almacenado en Azure AD. Si el código de estado no coincide con ninguna de las opciones predefinidas, use el valor predeterminado de "Australia/Sídney".
+Ejemplo: definir la zona horaria del usuario según el código de estado almacenado en Azure AD. Si el código de estado no coincide con ninguna de las opciones predefinidas, use el valor predeterminado de "Australia/Sídney".
 
 **Expresión:**  
 `Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
@@ -985,7 +1011,7 @@ Devuelve "has".
 En esta sección se proporcionan más ejemplos de uso de las funciones de expresión. 
 
 ### <a name="strip-known-domain-name"></a>Seccionar un nombre de dominio conocido
-Debe seccionar un nombre de dominio conocido del correo electrónico de un usuario para obtener el nombre de usuario. Por ejemplo, si el dominio es "contoso.com", puede usar la expresión siguiente:
+Seccione un nombre de dominio conocido del correo electrónico de un usuario para obtener el nombre de usuario. Por ejemplo, si el dominio es "contoso.com", puede usar la expresión siguiente:
 
 **Expresión:**  
 `Replace([mail], "@contoso.com", , ,"", ,)`
@@ -997,7 +1023,7 @@ Debe seccionar un nombre de dominio conocido del correo electrónico de un usuar
 
 
 ### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>Generar el alias de usuario concatenando partes de nombre y apellidos
-Debe generar un alias de usuario con las tres primeras letras del nombre del usuario y las cinco primeras letras del apellido del usuario.
+Genere un alias de usuario con las tres primeras letras del nombre del usuario y las cinco primeras letras del apellido del usuario.
 
 **Expresión:**  
 `Append(Mid([givenName], 1, 3), Mid([surname], 1, 5))`

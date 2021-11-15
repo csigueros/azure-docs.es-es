@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 2201802ca0f4d10a65522dc45e2ecb9b2aa0ce96
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f06fb86f87cc0eef2832b2c79edc74ef2eaee8b6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131040178"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471314"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Inicio rápido: Adición del inicio de sesión con Microsoft a una aplicación web de Python
 
@@ -113,7 +113,7 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 > Donde:
 >
 > - `Enter_the_Application_Id_here`: es el identificador de aplicación de la aplicación que registró.
-> - `Enter_the_Client_Secret_Here`: es el valor de **Secreto de cliente** que creó en **Certificates & Secrets** (Certificados y secretos) para la aplicación registrada.
+> - `Enter_the_Client_Secret_Here`: es el valor de **Secreto de cliente** que creó en **Certificados y secretos** para la aplicación registrada.
 > - `Enter_the_Tenant_Name_Here`: el valor de **Id. de directorio (inquilino)** de la aplicación que registró.
 
 > [!div class="sxs-lookup" renderon="portal"]

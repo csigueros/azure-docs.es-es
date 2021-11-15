@@ -3,16 +3,16 @@ title: Depurador de instantáneas de Azure Application Insights para aplicacione
 description: Depuración de las instantáneas que se recopilan automáticamente cuando se producen excepciones en aplicaciones de producción de .NET
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-ms.date: 10/23/2019
+ms.date: 10/12/2021
 author: cweining
 ms.author: cweining
 ms.reviewer: cweining
-ms.openlocfilehash: c377f6b1ff84f04506badf581dc7c12d64e68e0d
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
+ms.openlocfilehash: e189967068fc55b61622b54539c1dc478f9ae370
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109839390"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265196"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantáneas cuando se producen excepciones en aplicaciones de .NET
 Cuando se produce una excepción, puede recopilar automáticamente una instantánea de depuración desde la aplicación web activa. La instantánea muestra el estado del código fuente y las variables en el momento en que se produjo la excepción. En [Application Insights](./app-insights-overview.md), Snapshot Debugger supervisa los datos de telemetría de las excepciones de su aplicación web. Recopila instantáneas de las excepciones más importantes con el fin de que tenga la información necesaria para diagnosticar problemas en producción. Incluya el [paquete NuGet del recopilador de instantáneas](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) en la aplicación y, opcionalmente, configure los parámetros de recopilación en [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Las instantáneas aparecen en [excepciones](./asp-net-exceptions.md) en el portal de Application Insights.
@@ -27,7 +27,7 @@ La recopilación de instantáneas está disponible para:
 * Las aplicaciones .NET Core y ASP.NET Core que ejecutan .NET Core 2,1 (LTS) o 3,1 (LTS) en Windows.
 * Aplicaciones .NET 5,0 en Windows.
 
-No se recomienda usar .NET Core 2,0, 2,2 o 3,0, ya que no son compatibles.
+No se recomienda usar .NET Core 2.0, 2.2 o 3.0, ya que no son compatibles.
 
 Se admiten los siguientes entornos:
 
@@ -82,7 +82,7 @@ Las instantáneas pueden incluir información confidencial y, de manera predeter
 ## <a name="view-snapshots-in-visual-studio-2017-enterprise-or-above"></a>Visualización de instantáneas en Visual Studio 2017 Enterprise o versiones posteriores
 1. Haga clic en el botón **Descargar la instantánea** para descargar un archivo `.diagsession`, que puede abrirse en Visual Studio Enterprise.
 
-2. Para abrir el archivo `.diagsession`, debe tener instalado el componente Snapshot Debugger de Visual Studio. El componente Snapshot Debugger es un componente obligatorio de la carga de trabajo de ASP.NET en Visual Studio y se puede seleccionar de la lista de componentes individuales en el instalador de Visual Studio. Si usa una versión de Visual Studio anterior a Visual Studio 2017, versión 15.5, deberá instalar la extensión desde [Visual Studio Marketplace](https://aka.ms/snapshotdebugger).
+2. Para abrir el archivo `.diagsession`, debe tener instalado el componente Snapshot Debugger de Visual Studio. El componente Snapshot Debugger es un componente obligatorio de la carga de trabajo de ASP.NET en Visual Studio y se puede seleccionar de la lista de componentes individuales en el instalador de Visual Studio. Si usa una versión de Visual Studio anterior a Visual Studio 2017, versión 15.5, deberá instalar la extensión desde [Visual Studio Marketplace](https://aka.ms/snapshotdebugger).
 
 3. Después de abrir el archivo de instantánea, aparece la página de depuración de minivolcado de Visual Studio. Haga clic en **Depurar código administrado** para empezar a depurar la instantánea. La instantánea se abre en la línea de código donde se produjo la excepción para que pueda depurar el estado actual del proceso.
 
@@ -111,7 +111,7 @@ El proceso principal sigue ejecutándose y ofrece tráfico a los usuarios con po
 
 ## <a name="limitations"></a>Limitaciones
 
-El período de retención de datos predeterminado es de 15 días. Para cada instancia de Application Insights, se permite un número máximo de 50 instantáneas por día.
+El período de retención de datos predeterminado es de 15 días. Para cada instancia de Application Insights, se permite un número máximo de 50 instantáneas al día.
 
 ### <a name="publish-symbols"></a>Publicación de símbolos
 El Depurador de instantáneas requiere que los archivos de símbolos estén presentes en el servidor de producción para descodificar variables y proporcionar una experiencia de depuración en Visual Studio.
@@ -124,8 +124,7 @@ La versión 15.2 (o superior) de Visual Studio 2017 publica símbolos de compila
 Para Azure Compute y otros tipos, asegúrese de que los archivos de símbolos están en la misma carpeta del archivo .dll principal de la aplicación (normalmente, `wwwroot/bin`), o que están disponibles en la ruta de acceso actual.
 
 > [!NOTE]
-> Para más información acerca de las diferentes opciones de símbolos disponibles, consulte la [, documentación de Visual Studio](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019&preserve-view=true#output
-). Para obtener los mejores resultados, se recomienda usar "Full", "Portable" o "Embedded".
+> Para más información sobre las diferentes opciones de símbolos disponibles, consulte la [documentación de Visual Studio](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019&preserve-view=true#output). Para obtener los mejores resultados, se recomienda usar "Full", "Portable" o "Embedded".
 
 ### <a name="optimized-builds"></a>Compilaciones optimizadas
 En algunos casos, las variables locales no se pueden ver en las compilaciones de versión debido a las optimizaciones que aplica el compilador JIT.

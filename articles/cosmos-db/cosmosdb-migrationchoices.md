@@ -5,13 +5,13 @@ author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/26/2021
-ms.openlocfilehash: 98458a624a9c0d713e518e3fda442b8e45209d25
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.date: 11/03/2021
+ms.openlocfilehash: 412b047896496124b042de82d9841afba9112934
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123036512"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131562796"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Opciones para migrar los datos locales o en la nube a Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -75,7 +75,7 @@ A continuación se proporciona un resumen de las rutas de migración de la soluc
 |En línea|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)| MongoDB|Azure Cosmos DB API para MongoDB |&bull; Hace uso de la biblioteca BulkExecutor de Azure Cosmos DB. <br/>&bull; Adecuada para grandes conjuntos de valores y se encarga de replicar los cambios en directo. <br/>&bull; Solo funciona con otros orígenes de MongoDB.|
 |Sin conexión|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)| MongoDB| Azure Cosmos DB API para MongoDB| &bull; Hace uso de la biblioteca BulkExecutor de Azure Cosmos DB. <br/>&bull; Adecuada para grandes conjuntos de valores y se encarga de replicar los cambios en directo. <br/>&bull; Solo funciona con otros orígenes de MongoDB.|
 |Sin conexión|[Azure Data Factory](../data-factory/connector-azure-cosmos-db-mongodb-api.md)| &bull;Archivos JSON/CSV<br/>&bull;API de SQL de Azure Cosmos DB<br/>&bull;Azure Cosmos DB API para MongoDB <br/>&bull;MongoDB<br/>&bull;SQL Server<br/>&bull;Table Storage<br/>&bull;Azure Blob Storage <br/><br/> Consulte el artículo [Azure Data Factory](../data-factory/connector-overview.md) para ver otros orígenes compatibles. | &bull;API de SQL de Azure Cosmos DB<br/>&bull;Azure Cosmos DB API para MongoDB <br/>&bull;Archivos JSON <br/><br/> Consulte el artículo [Azure Data Factory](../data-factory/connector-overview.md) para ver otros destinos compatibles.| &bull; Fácil de configurar y admite varios orígenes. <br/>&bull; Hace uso de la biblioteca BulkExecutor de Azure Cosmos DB. <br/>&bull; Adecuada para grandes conjuntos de datos. <br/>&bull; Faltan puntos de comprobación: significa que, si se produce un problema durante el transcurso de la migración, es necesario reiniciar todo el proceso de migración.<br/>&bull; Falta una cola de mensajes con problemas de entrega: significa que algunos archivos erróneos pueden detener todo el proceso de migración. <br/>&bull; Necesita código personalizado para aumentar el rendimiento de lectura de determinados orígenes de datos.|
-|Sin conexión|[Herramientas existentes de Mongo (mongodump, mongorestore, Studio3T)](https://azure.microsoft.com/resources/videos/using-mongodb-tools-with-azure-cosmos-db/)|MongoDB | Azure Cosmos DB API para MongoDB| &bull; Fácil de configurar e integrar. <br/>&bull; Necesita un control personalizado para las limitaciones.|
+|Sin conexión|Herramientas existentes de Mongo ([mongodump](mongodb/tutorial-mongotools-cosmos-db.md#mongodumpmongorestore), [mongorestore](mongodb/tutorial-mongotools-cosmos-db.md#mongodumpmongorestore), [Studio3T](mongodb/connect-using-mongochef.md))|MongoDB | Azure Cosmos DB API para MongoDB| &bull; Fácil de configurar e integrar. <br/>&bull; Necesita un control personalizado para las limitaciones.|
 
 ## <a name="azure-cosmos-db-cassandra-api"></a>API Cassandra de Azure Cosmos DB
 
@@ -105,7 +105,7 @@ En el caso de las API que no sean SQL API, Mongo API y Cassandra API, se admi
 ## <a name="next-steps"></a>Pasos siguientes
 
 * ¿Intenta planear la capacidad de una migración a Azure Cosmos DB?
-    * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, obtenga información sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
+    * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
     * Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).
 * Puede aprender más si prueba las aplicaciones de ejemplo que usan la biblioteca BulkExecutor en [.NET](bulk-executor-dot-net.md) y [Java](bulk-executor-java.md). 
 * La biblioteca BulkExecutor está integrada en el conector de Spark a Cosmos DB; para más información, vea el artículo sobre el [conector de Spark a Azure Cosmos DB](./create-sql-api-spark.md).  

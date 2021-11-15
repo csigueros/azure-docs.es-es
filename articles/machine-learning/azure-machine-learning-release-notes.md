@@ -1,23 +1,24 @@
 ---
-title: Novedades de la versión
+title: Notas de la versión del SDK de Python
 titleSuffix: Azure Machine Learning
-description: Conozca las actualizaciones más recientes de Azure Machine Learning y los SDK de Python para el aprendizaje automático y la preparación de datos.
+description: Obtenga información acerca de las actualizaciones más recientes del SDK de Azure Machine Learning para Python.
+services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 10/04/2021
-ms.openlocfilehash: 8807aa11ce8f9d4c96ae27656d9d29a4f5f7e7f1
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.date: 10/21/2021
+ms.openlocfilehash: 5c2594e38db7a57e2861241d37405a8ce03b8494
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129994183"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563176"
 ---
-# <a name="azure-machine-learning-release-notes"></a>Notas de la versión de Azure Machine Learning
+# <a name="azure-machine-learning-python-sdk-release-notes"></a>Notas de la versión del SDK de Azure Machine Learning para Python
 
-En este artículo conocerá las versiones de Azure Machine Learning.  Para obtener el contenido completo de referencia del SDK, visite la página de referencia del [**SDK principal para Python**](/python/api/overview/azure/ml/intro) de Azure Machine Learning.
+En este artículo obtendrá información sobre las versiones del SDK de Azure Machine Learning para Python.  Para obtener el contenido completo de referencia del SDK, visite la página de referencia del [**SDK principal para Python**](/python/api/overview/azure/ml/intro) de Azure Machine Learning.
 
 __Fuente RSS__: reciba notificaciones cuando esta página se actualice copiando y pegando la siguiente dirección URL en su lector de fuentes: `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
@@ -1385,7 +1386,7 @@ Ya puede crear, editar y compartir archivos y cuadernos de aprendizaje automáti
 + Mejoras en la accesibilidad y la localización
 + Paleta de comandos
 + Métodos abreviados de teclado adicionales
-+ Autoguardado
++ Guardar automáticamente
 + Rendimiento y confiabilidad mejorados
 
 Acceda a las siguientes herramientas de creación basadas en web desde Studio:
@@ -1912,7 +1913,7 @@ Acceda a las siguientes herramientas de creación basadas en web desde Studio:
 ### <a name="azure-machine-learning-designer-enhancements"></a>Mejoras del diseñador de Azure Machine Learning
 
 + Anteriormente conocido como la interfaz visual 
-+    11 nuevos [módulos](algorithm-module-reference/module-reference.md) que incluyen utilidades de recomendación, clasificación y entrenamiento, como la ingeniería de características, la validación cruzada y la transformación de datos.
++    11 nuevos [módulos](component-reference/component-reference.md) que incluyen utilidades de recomendación, clasificación y entrenamiento, como la ingeniería de características, la validación cruzada y la transformación de datos.
 
 ### <a name="r-sdk"></a>SDK de R 
  

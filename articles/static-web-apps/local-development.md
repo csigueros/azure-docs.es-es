@@ -5,15 +5,15 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 04/02/2021
+ms.date: 10/21/2021
 ms.author: cshoe
 ms.custom: devx-track-js
-ms.openlocfilehash: a959a7b424a855f47a2e128b5c77727d21a9e0aa
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 7419eea1503d8d0692bd1b112226c8ce626d9776
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114449783"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130261583"
 ---
 # <a name="set-up-local-development-for-azure-static-web-apps"></a>Configuración del desarrollo local para Azure Static Web Apps
 
@@ -63,9 +63,7 @@ En el gráfico siguiente se muestra cómo se administran las solicitudes localme
 - **Sitio existente de Azure Static Web Apps**: si no tiene una, empiece por la aplicación de inicio [vanilla-api](https://github.com/staticwebdev/vanilla-api/generate?return_to=/staticwebdev/vanilla-api/generate).
 - **[Node.js](https://nodejs.org) con npm**: ejecute la versión [LTS de Node.js](https://nodejs.org), que incluye acceso a [npm](https://www.npmjs.com/).
 - **[Visual Studio Code](https://code.visualstudio.com/)** : se usa para depurar la aplicación de API, pero no es necesario para la CLI.
-
-> [!NOTE]
-> Para ejecutar `swa` con una [API de forma local](add-api.md#run-the-frontend-and-api-locally), se requiere Azure Functions Core Tools.
+- **[Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing)** : se requiere para ejecutar la API de manera local.
 
 ## <a name="get-started"></a>Introducción
 
@@ -73,7 +71,9 @@ Abra un terminal en la carpeta raíz del sitio existente de Azure Static Web App
 
 1. Instale la CLI.
 
-    `npm install -g @azure/static-web-apps-cli`
+    ```console
+    npm install -g @azure/static-web-apps-cli
+    ```
 
 1. Compile la aplicación si es necesario.
 
@@ -83,7 +83,9 @@ Abra un terminal en la carpeta raíz del sitio existente de Azure Static Web App
 
 1. Inicie la CLI.
 
-    `swa start`
+    ```console
+    swa start
+    ```
 
 1. Vaya a `http://localhost:4280` para ver la aplicación en el explorador.
 
@@ -93,8 +95,8 @@ Abra un terminal en la carpeta raíz del sitio existente de Azure Static Web App
 |--- | --- |
 | Servir una carpeta específica | `swa start ./output-folder` |
 | Usar un servidor de desarrollo de marco en ejecución | `swa start http://localhost:3000` |
-| Iniciar una aplicación de Functions en una carpeta | `swa start ./output-folder --api ./api` |
-| Usar una aplicación de Functions en ejecución | `swa start ./output-folder --api http://localhost:7071` |
+| Iniciar una aplicación de Functions en una carpeta | `swa start ./output-folder --api-location ./api` |
+| Usar una aplicación de Functions en ejecución | `swa start ./output-folder --api-location http://localhost:7071` |
 
 ## <a name="authorization-and-authentication-emulation"></a>Emulación de autorización y autenticación
 
@@ -131,9 +133,14 @@ En los pasos siguientes se muestra un escenario común en el que se emplean serv
 
 1. Abra la carpeta de la aplicación de API en Visual Studio Code e inicie una sesión de depuración.
 
-1. Pase las direcciones del servidor estático y el servidor de API al comando `swa start` en orden.
+1. Inicie la CLI de Static Web Apps mediante el comando siguiente.
 
-    `swa start http://localhost:<DEV-SERVER-PORT-NUMBER> --api=http://localhost:7071`
+
+    ```console
+    swa start http://localhost:<DEV-SERVER-PORT-NUMBER> --api-location http://localhost:7071
+    ```
+
+    Reemplace `<DEV-SERVER-PORT-NUMBER>` por el número de puerto del servidor de desarrollo.
 
 Las siguientes capturas de pantallas muestran los terminales en un escenario de depuración típico:
 

@@ -10,7 +10,7 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 09/08/2021
+  ms.date: 11/07/2021
   featureFlags:
     - clicktale
 highlightedContent:
@@ -518,6 +518,12 @@ productDirectory:
         - featured
         - compute
       url: ./virtual-machines/index.yml
+    - title: Azure Container Apps (versión preliminar)
+      summary: Compilación e implementación de aplicaciones y microservicios modernos mediante contenedores sin servidor
+      imageSrc: ./media/index/container-apps.svg
+      azureCategories:
+        - containers
+      url: container-apps/index.yml
     - title: Azure Dev Spaces
       summary: "Pruebe e implementar de forma iterativa su aplicación de microservicios en Azure\_AKS"
       imageSrc: ./media/index/AzureDevSpaceController_50x.svg
@@ -734,7 +740,7 @@ productDirectory:
         - hybrid
         - networking
       url: expressroute/index.yml
-    - title: Azure Sentinel
+    - title: Microsoft Sentinel
       summary: Ponga en funcionamiento la Administración de eventos e información de seguridad nativa de la nube y el análisis de seguridad inteligente para que le ayuden a proteger su empresa
       imageSrc: 'https://static.docs.com/ui/media/product/azure/sentinel.svg'
       azureCategories:
@@ -765,13 +771,6 @@ productDirectory:
       azureCategories:
         - hybrid
       url: ./databox-online/index.yml
-    - title: Security Center
-      summary: Unificación de la administración de seguridad y habilitación de la protección contra amenazas avanzada para cargas de trabajo en la nube híbrida
-      imageSrc: 'https://static.docs.com/ui/media/product/azure/security-center.svg'
-      azureCategories:
-        - hybrid
-        - security
-      url: security-center/index.yml
     - title: Azure IoT Edge
       summary: Extienda la inteligencia y el análisis de la nube a dispositivos perimetrales
       imageSrc: 'https://static.docs.com/ui/media/product/azure/iot-edge.svg'
@@ -1077,13 +1076,13 @@ productDirectory:
       azureCategories:
         - networking
       url: bastion/index.yml
-    - title: Azure Defender
-      summary: Protección de las cargas de trabajo de la nube híbrida
+    - title: "Microsoft\_Defender for Cloud"
+      summary: 'Administración de la posición de seguridad y protección avanzada contra amenazas en cargas de trabajo de Azure, híbridas y en varias nubes'
       imageSrc: ./media/index/defender.svg
       azureCategories:
         - security
-      url: security-center/azure-defender.md
-    - title: Azure Defender para IoT
+      url: security-center/index.yml
+    - title: Microsoft Defender para IoT
       summary: Administración de recursos y detección de amenazas continuas para dispositivos IoT/OT tanto administrados como no administrados
       imageSrc: ./media/index/defender-iot.svg
       azureCategories:

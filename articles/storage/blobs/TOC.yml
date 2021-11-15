@@ -432,7 +432,7 @@ items:
                         href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                   - name: Configuración de las preferencias de enrutamiento de red
                     href: ../common/configure-network-routing-preference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-              - name: Configuración de Azure Defender para la protección contra amenazas
+              - name: Habilitación de la protección contra amenazas con Microsoft Defender for Storage
                 href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Protección de datos de blob
             items:

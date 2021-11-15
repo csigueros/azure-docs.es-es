@@ -7,44 +7,49 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/10/2021
-ms.openlocfilehash: e1af69db6f70d5a6a977c6e3fa715e84cbc2673b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 10/19/2021
+ms.openlocfilehash: 9fdff284d3b183ef9a0589d9dee4c568249b854b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121734964"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238011"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Transformaciones y asignaciones de campos mediante indexadores de Azure Cognitive Search
 
 ![Fases del indexador](./media/search-indexer-field-mappings/indexer-stages-field-mappings.png "fases del indexador")
 
-Al usar indexadores de Azure Cognitive Search, habrá ocasiones en que observará que los datos de entrada no coinciden demasiado con el esquema del índice de destino. En esos casos, puede usar **asignaciones de campos** para modificar los datos durante el proceso de indexación.
+Al usar indexadores de Azure Cognitive Search, el indexador asignará automáticamente los campos de un origen de datos a los campos de un índice de destino, suponiendo que los tipos y los nombres de los campos sean compatibles. En algunos casos, los datos de entrada no coinciden exactamente con el esquema del índice de destino. Una solución es usar *asignaciones de campos* para establecer específicamente la ruta de acceso a los datos durante el proceso de indexación.
 
-Algunas situaciones donde las asignaciones de campos son útiles:
+Las asignaciones de campos se pueden usar para abordar los escenarios siguientes:
 
-* El origen de datos tiene un campo llamado `_id`, pero Azure Cognitive Search no permite los nombres de campo que empiezan por un carácter de subrayado. Una asignación de campo permite cambiar el nombre de un campo de forma eficaz.
-* Desea rellenar varios campos en el índice con datos del mismo origen de datos. Por ejemplo, puede querer aplicar diferentes analizadores a esos campos.
-* Desea rellenar un campo de índice con los datos de más de un origen de datos, y cada origen de datos usa nombres de campo diferentes.
-* Necesita codificar o descodificar sus datos con Base64. Las asignaciones de campos admiten varias **funciones de asignación**, incluidas las funciones de codificación y descodificación Base64.
++ Nombres de campo que no coinciden. Supongamos que el origen de datos tiene un campo denominado `_id`. Dado que Azure Cognitive Search no permite nombres de campo que empiecen por un carácter de subrayado, una asignación de campos le permite cambiar el nombre de un campo de manera eficaz.
+
++ De un campo a varios campos. Puede rellenar varios campos en el índice con datos del mismo origen de datos. Por ejemplo, es posible que quiera aplicar analizadores distintos a cada campo.
+
++ Muchos campos a un campo. Desea rellenar un campo de índice con los datos de más de un origen de datos, y cada origen de datos usa nombres de campo diferentes.
+
++ Codificación o descodificación Base64 de datos. Las asignaciones de campos admiten varias [**funciones de asignación**](#mappingFunctions), incluidas las funciones de codificación y descodificación Base64.
+
++ División de cadenas o nueva conversión de una matriz JSON en una colección de cadenas. Las funciones de asignación de campos proporcionan esta funcionalidad.
 
 Las asignaciones de campos en los indexadores son una manera sencilla de asignar campos de datos a campos de índice, con cierta capacidad para la conversión de datos ligeros. Los datos más complejos pueden requerir un procesamiento previo para transformarlos en un formato que favorezca la indexación. Una opción que se puede considerar es [Azure Data Factory](../data-factory/index.yml).
 
 > [!NOTE]
-> Las asignaciones de campos solo se aplican a los índices de búsqueda. En el caso de los indexadores que crean [almacenes de conocimiento](knowledge-store-concept-intro.md), se omiten las asignaciones de campos.
+> Las asignaciones de campos solo se aplican a los índices de búsqueda. En el caso de los indexadores que también crean [almacenes de conocimiento](knowledge-store-concept-intro.md), las proyecciones y las formas de los datos determinan las asociaciones de campos. Además, se omite cualquier asignación de campo y asignación de campo de salida en el indexador.
 
 ## <a name="set-up-field-mappings"></a>Configuración de asignaciones de campos
 
 Una asignación de campos consta de tres partes:
 
-1. `sourceFieldName`, que representa un campo de su origen de datos. Esta propiedad es obligatoria.
-2. `targetFieldName`opcional, que representa un campo de su índice de búsqueda. Si se omite, se usa el mismo nombre que en el origen de datos.
-3. `mappingFunction`opcional, que puede transformar sus datos con una de las diversas funciones predefinidas. Se puede aplicar en las asignaciones de campos de entrada y de salida. La lista completa de funciones se encuentra [a continuación](#mappingFunctions).
++ "sourceFieldName", que representa un campo en su origen de datos. Esta propiedad es obligatoria.
++ Un "targetFieldName" opcional, que representa un campo en su índice de búsqueda. Si se omite, se usa el valor de "sourceFieldName" para el destino.
++ Un "mappingFunction" opcional, que puede transformar los datos mediante una de varias [funciones predefinidas](#mappingFunctions). Se puede aplicar en las asignaciones de campos de entrada y de salida.
 
-Las asignaciones de campos se agregan a la matriz `fieldMappings` de la definición del indexador.
+Las asignaciones de campos se asignan a la matriz "fieldMappings" de la definición del indexador.
 
 > [!NOTE]
-> Si no se agregan asignaciones de campo, los indizadores asumen que los campos de origen de datos deben asignarse a campos de índice con el mismo nombre. Al agregar una asignación de campos, se quitan estas asignaciones de campos predeterminadas para el campo de origen y de destino. Algunos indexadores, como [el indexador de Blob Storage](search-howto-indexing-azure-blob-storage.md), agregan asignaciones de campos predeterminadas para el campo clave del índice.
+> Si no hay asignaciones de campo presentes, los indexadores asumen que los campos de origen de datos se deben asignar a campos de índice con el mismo nombre. Al agregar una asignación de campos, se invalidan estas asignaciones de campos predeterminadas para el campo de origen y de destino. Algunos indexadores, como [el indexador de Blob Storage](search-howto-indexing-azure-blob-storage.md), agregan asignaciones de campos predeterminadas para el campo clave del índice.
 
 ## <a name="map-fields-using-rest"></a>Asignación de campos mediante REST
 
@@ -79,28 +84,26 @@ Se puede hacer referencia a un campo de origen en varias asignaciones de campos.
 
 ## <a name="map-fields-using-net"></a>Asignación de campos mediante .NET
 
-Las asignaciones de campos en el SDK de .NET se definen con la clase [FieldMapping](/dotnet/api/azure.search.documents.indexes.models.fieldmapping), que tiene las propiedades `SourceFieldName` y `TargetFieldName` y una referencia a `MappingFunction` opcional.
+Puede definir asignaciones de campos en el SDK de .NET con la clase [FieldMapping](/dotnet/api/azure.search.documents.indexes.models.fieldmapping), que tiene las propiedades "SourceFieldName" y "TargetFieldName", además de una referencia "MappingFunction" opcional.
 
-Se pueden especificar asignaciones de campos al crear el indexador o posteriormente estableciendo directamente la propiedad `Indexer.FieldMappings`.
+Puede especificar asignaciones de campos al crear el indexador, o bien puede establecer [SearchIndexer.FieldMappings](/dotnet/api/azure.search.documents.indexes.models.searchindexer.fieldmappings) directamente para especificarlas más adelante.
 
 En el siguiente ejemplo de C# se establecen las asignaciones de campo al crear un indexador.
 
 ```csharp
-  List<FieldMapping> map = new List<FieldMapping> {
-    // removes a leading underscore from a field name
-    new FieldMapping("_custId", "custId"),
-    // URL-encodes a field for use as the index key
-    new FieldMapping("docPath", "docId", FieldMappingFunction.Base64Encode() )
-  };
+var indexer = new SearchIndexer("hotels-sql-idxr", dataSource.Name, searchIndex.Name)
+{
+    Description = "SQL data indexer",
+    Schedule = schedule,
+    Parameters = parameters,
+    FieldMappings =
+    {
+        new FieldMapping("_id") {TargetFieldName = "HotelId", FieldMappingFunction.Base64Encode()},
+        new FieldMapping("Amenities") {TargetFieldName = "Tags"}
+    }
+};
 
-  Indexer sqlIndexer = new Indexer(
-    name: "azure-sql-indexer",
-    dataSourceName: sqlDataSource.Name,
-    targetIndexName: index.Name,
-    fieldMappings: map,
-    schedule: new IndexingSchedule(TimeSpan.FromDays(1)));
-
-  await searchService.Indexers.CreateOrUpdateAsync(indexer);
+await indexerClient.CreateOrUpdateIndexerAsync(indexer);
 ```
 
 <a name="mappingFunctions"></a>
@@ -109,12 +112,12 @@ En el siguiente ejemplo de C# se establecen las asignaciones de campo al crear u
 
 Una función de asignación de campo transforma el contenido de un campo antes de almacenarlo en el índice. Actualmente, se admiten las siguientes funciones de asignación:
 
-* [base64Encode](#base64EncodeFunction)
-* [base64Decode](#base64DecodeFunction)
-* [extractTokenAtPosition](#extractTokenAtPositionFunction)
-* [jsonArrayToStringCollection](#jsonArrayToStringCollectionFunction)
-* [urlEncode](#urlEncodeFunction)
-* [urlDecode](#urlDecodeFunction)
++ [base64Encode](#base64EncodeFunction)
++ [base64Decode](#base64DecodeFunction)
++ [extractTokenAtPosition](#extractTokenAtPositionFunction)
++ [jsonArrayToStringCollection](#jsonArrayToStringCollectionFunction)
++ [urlEncode](#urlEncodeFunction)
++ [urlDecode](#urlDecodeFunction)
 
 <a name="base64EncodeFunction"></a>
 
@@ -124,12 +127,11 @@ Realiza una codificación Base64 *segura para direcciones URL* de la cadena de e
 
 #### <a name="example---document-key-lookup"></a>Ejemplo: búsqueda de clave de documento
 
-Solo pueden aparecer caracteres seguros para direcciones URL en una clave de documento de Azure Cognitive Search (porque los clientes deben poder enviar el documento con la [API de búsqueda](/rest/api/searchservice/lookup-document)). Si el campo de origen de la clave contiene caracteres de dirección URL no seguros, puede usar la función `base64Encode` para convertirlo en el momento de la indexación. Sin embargo, una clave de documento (tanto antes como después de la conversión) no puede tener más de 1024 caracteres.
+Solo pueden aparecer caracteres seguros para direcciones URL en una clave de documento de Azure Cognitive Search (para que pueda abordar el documento con la [API de búsqueda](/rest/api/searchservice/lookup-document)). Si el campo de origen de la clave contiene caracteres de dirección URL no seguros, puede usar la función `base64Encode` para convertirlo en el momento de la indexación. Sin embargo, una clave de documento (tanto antes como después de la conversión) no puede tener más de 1024 caracteres.
 
-Al recuperar la clave codificada en el tiempo de búsqueda, puede usar la función `base64Decode` para obtener el valor de clave original y usarlo para recuperar el documento de origen.
+Al recuperar la clave codificada en el tiempo de búsqueda, use la función `base64Decode` para obtener el valor de clave original y usarlo para recuperar el documento de origen.
 
 ```JSON
-
 "fieldMappings" : [
   {
     "sourceFieldName" : "SourceKey",
@@ -146,7 +148,6 @@ Al recuperar la clave codificada en el tiempo de búsqueda, puede usar la funci�
 El [indizador de Blob Storage](search-howto-indexing-azure-blob-storage.md) agrega automáticamente una asignación de campos de `metadata_storage_path`, el URI del blob, al campo clave del índice si no se especifica ninguna asignación de campos. Este valor está codificado en Base64, por lo que es seguro usarlo como una clave de documento de Azure Cognitive Search. En el ejemplo siguiente, se muestra cómo asignar simultáneamente una versión codificada en Base64 con *seguridad de direcciones URL* de un campo `metadata_storage_path` a `index_key` y conservar el valor original en un campo `metadata_storage_path`:
 
 ```JSON
-
 "fieldMappings": [
   {
     "sourceFieldName": "metadata_storage_path",
@@ -177,7 +178,6 @@ Realiza una descodificación Base64 de la cadena de entrada. Se da por hecho que
 El origen de datos podría contener cadenas con codificación Base64, como cadenas de metadatos de blob o direcciones URL web, que quiera incluir en búsquedas como texto sin formato. Puede usar la función `base64Decode` para volver a convertir los datos codificados en cadenas normales al rellenar el índice de búsqueda.
 
 ```JSON
-
 "fieldMappings" : [
   {
     "sourceFieldName" : "Base64EncodedMetadata",
@@ -202,7 +202,7 @@ Azure Cognitive Search admite la codificación Base64 de seguridad de direccione
 Si los parámetros `useHttpServerUtilityUrlTokenEncode` o `useHttpServerUtilityUrlTokenDecode` para codificar y descodificar respectivamente se establecen en `true`, `base64Encode` se comporta como [HttpServerUtility.UrlTokenEncode](/dotnet/api/system.web.httpserverutility.urltokenencode) y `base64Decode` se comporta como [HttpServerUtility.UrlTokenDecode](/dotnet/api/system.web.httpserverutility.urltokendecode).
 
 > [!WARNING]
-> Si se utiliza `base64Encode` para generar valores de clave, `useHttpServerUtilityUrlTokenEncode` debe establecerse en true. Solo se puede usar la codificación Base64 de seguridad de direcciones URL para los valores de clave. Consulte [Reglas de nomenclatura &#40;Azure Cognitive Search&#41;](/rest/api/searchservice/naming-rules) para obtener el conjunto completo de restricciones sobre los caracteres de los valores de clave.
+> Si se utiliza `base64Encode` para generar valores de clave, `useHttpServerUtilityUrlTokenEncode` debe establecerse en true. Solo se puede usar la codificación Base64 de seguridad de direcciones URL para los valores de clave. Consulte [Reglas de nomenclatura](/rest/api/searchservice/naming-rules) para obtener el conjunto completo de restricciones sobre los caracteres de los valores de clave.
 
 Las bibliotecas .NET de Azure Cognitive Search asumen .NET Framework completo, que proporciona codificación integrada. Las opciones `useHttpServerUtilityUrlTokenEncode` y `useHttpServerUtilityUrlTokenDecode` aprovechan esta funcionalidad integrada. Si usa .NET Core u otro marco, se recomienda establecer esas opciones en `false` y llamar directamente a las funciones de codificación y descodificación de su marco de trabajo.
 
@@ -223,8 +223,8 @@ Divide un campo de cadena con el delimitador especificado y elige el token en la
 
 Esta función utiliza los siguientes parámetros:
 
-* `delimiter`: una cadena para su uso como separador al dividir la cadena de entrada.
-* `position`: una posición de base cero entera del token que se va a elegir tras dividirse la cadena de entrada.
++ `delimiter`: una cadena para su uso como separador al dividir la cadena de entrada.
++ `position`: una posición de base cero entera del token que se va a elegir tras dividirse la cadena de entrada.
 
 Por ejemplo, si la entrada es `Jane Doe`, `delimiter` es `" "`(espacio) y `position` es 0, el resultado es `Jane`; si `position` es 1, el resultado es `Doe`. Si la posición hace referencia a un token que no existe, se devolverá un error.
 
@@ -233,7 +233,6 @@ Por ejemplo, si la entrada es `Jane Doe`, `delimiter` es `" "`(espacio) y `posit
 Su origen de datos contiene un campo `PersonName` y desea indexarlo como dos campos `FirstName` y `LastName` independientes. Puede usar esta función para dividir la entrada con el carácter de espacio como delimitador.
 
 ```JSON
-
 "fieldMappings" : [
   {
     "sourceFieldName" : "PersonName",
@@ -260,7 +259,6 @@ Por ejemplo, si la cadena de entrada es `["red", "white", "blue"]`, el campo de 
 Azure SQL Database no tiene un tipo de datos integrado que se asigne de forma natural a los campos `Collection(Edm.String)` de Azure Cognitive Search. Para rellenar los campos de colección de cadenas, puede preprocesar los datos de origen como una matriz de cadenas JSON y, luego, usar la función de asignación `jsonArrayToStringCollection`.
 
 ```JSON
-
 "fieldMappings" : [
   {
     "sourceFieldName" : "tags", 
@@ -283,7 +281,6 @@ Por ejemplo, si la cadena de entrada es `<hello>`, el campo de destino de tipo `
 Al recuperar la clave codificada en el tiempo de búsqueda, puede usar la función `urlDecode` para obtener el valor de clave original y usarlo para recuperar el documento de origen.
 
 ```JSON
-
 "fieldMappings" : [
   {
     "sourceFieldName" : "SourceKey",
@@ -296,16 +293,15 @@ Al recuperar la clave codificada en el tiempo de búsqueda, puede usar la funci�
 
  <a name="urlDecodeFunction"></a>
 
- ### <a name="urldecode-function"></a>Función urlDecode
+### <a name="urldecode-function"></a>Función urlDecode
 
  Esta función convierte una cadena con codificación URL en una cadena descodificada mediante el formato de codificación UTF-8.
 
- ### <a name="example---decode-blob-metadata"></a>Ejemplo: descodificar metadatos de blob
+### <a name="example---decode-blob-metadata"></a>Ejemplo: descodificar metadatos de blob
 
  Algunos clientes de almacenamiento de Azure codifican automáticamente los metadatos de blobs si contienen caracteres que no son ASCII. Sin embargo, si quiere que dichos metadatos se puedan buscar (como texto sin formato), puede usar la función `urlDecode` para volver a convertir los datos codificados en cadenas "normales" al rellenar su índice de búsqueda.
 
  ```JSON
-
 "fieldMappings" : [
   {
     "sourceFieldName" : "UrlEncodedMetadata",
@@ -318,11 +314,11 @@ Al recuperar la clave codificada en el tiempo de búsqueda, puede usar la funci�
  
  <a name="fixedLengthEncodeFunction"></a>
  
- ### <a name="fixedlengthencode-function"></a>Función fixedLengthEncode
+### <a name="fixedlengthencode-function"></a>Función fixedLengthEncode
  
  Esta función convierte una cadena de cualquier longitud en una cadena de longitud fija.
  
- ### <a name="example---map-document-keys-that-are-too-long"></a>Ejemplo: asignar claves de documento demasiado largas
+### <a name="example---map-document-keys-that-are-too-long"></a>Ejemplo: asignar claves de documento demasiado largas
  
 Si se producen errores que indican que la clave del documento tiene más de 1024 caracteres, esta función se puede aplicar para reducir la longitud de la clave del documento.
 

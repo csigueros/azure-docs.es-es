@@ -5,12 +5,12 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
-ms.openlocfilehash: b998f2876e323ad224d4ecb8afddd4c4f7d5f118
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 99f3bb2dc2095e8c9ae89afe78b4522dcdc23a07
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741414"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265369"
 ---
 # <a name="azure-functions-networking-options"></a>Opciones de redes de Azure Functions
 
@@ -41,6 +41,12 @@ Las restricciones de acceso están disponibles para [Premium](functions-premium-
 
 Para obtener más información, consulte [Restricciones de acceso estático de Azure App Service](../app-service/app-service-ip-restrictions.md).
 
+## <a name="private-endpoint-connections"></a>Conexiones de punto de conexión privado
+
+[!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
+
+Para llamar a otros servicios que tienen una conexión de punto de conexión privado, como Storage Bus o Services Bus, asegúrese de configurar la aplicación para que haga [llamadas salientes a puntos de conexión privados](#private-endpoints).
+
 ### <a name="use-service-endpoints"></a>Uso de puntos de conexión de servicio
 
 Con los puntos de conexión de servicio, puede restringir el acceso a las subredes de Azure Virtual Network. Para restringir el acceso a una subred específica, cree una regla de restricción con un tipo **Virtual Network**. Después, puede seleccionar la suscripción, la red virtual y la subred a las que desea permitir o denegar el acceso. 
@@ -55,12 +61,6 @@ No puede usar puntos de conexión de servicio para restringir el acceso a las ap
 
 Para más información sobre cómo configurar los puntos de conexión de servicio, consulte [Establecimiento del acceso a un sitio privado de Azure Functions](functions-create-private-site-access.md).
 
-## <a name="private-endpoint-connections"></a>Conexiones de punto de conexión privado
-
-[!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
-
-Para llamar a otros servicios que tienen una conexión de punto de conexión privado, como Storage Bus o Services Bus, asegúrese de configurar la aplicación para que haga [llamadas salientes a puntos de conexión privados](#private-endpoints).
-
 ## <a name="virtual-network-integration"></a>Integración de la red virtual
 
 La integración de red virtual permite que la aplicación de funciones acceda a recursos dentro de una red virtual.
@@ -70,24 +70,127 @@ Azure Functions admite dos tipos de integración de redes virtuales:
 
 La integración de red virtual de Azure Functions usa una infraestructura compartida con las aplicaciones web de App Service. Para obtener más información sobre los dos tipos de integración de red virtual, vea:
 
-* [Integración de red virtual regional](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
-* [Integración de red virtual con requisito de puerta de enlace](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
+* [Integración de red virtual regional](../app-service/overview-vnet-integration.md#regional-vnet-integration)
+* [Integración de red virtual con requisito de puerta de enlace](../app-service/overview-vnet-integration.md#gateway-required-vnet-integration)
 
-Para aprender a configurar la integración de red virtual, consulte [Tutorial: integración de Functions con una red virtual de Azure](functions-create-vnet.md).
+Para obtener información sobre cómo configurar la integración de red virtual, consulte [Habilitación de la integración con red virtual](#enable-vnet-integration).
+
+## <a name="enable-vnet-integration"></a>Habilitación de Integración con red virtual
+
+1. Vaya a la hoja **Redes** en el portal de aplicación de funciones. En **Integración de red virtual**, seleccione **Haga clic aquí para configurar**.
+
+1. Seleccione **Agregar VNET**.
+
+    :::image type="content" source="./media/functions-networking-options/vnet-int-function-app.png" alt-text="Selección de Integración con red virtual":::
+
+1. La lista desplegable contiene todas las redes virtuales de Azure Resource Manager de la suscripción en la misma región. Seleccione la VNet con la que quiere realizar la integración.
+
+    :::image type="content" source="./media/functions-networking-options/vnet-int-add-vnet-function-app.png" alt-text="Seleccione la red virtual.":::
+
+    * El plan premium de funciones solo admite la integración de red virtual regional. Si la VNet está en la misma región, cree una nueva subred o seleccione una subred vacía existente.
+    * Para seleccionar una VNet de otra región, debe tener una puerta de enlace de VNet aprovisionada con la conectividad de punto a sitio habilitada. La integración de red virtual entre regiones solo se admite para los planes dedicados.
+
+Durante la integración, la aplicación se reinicia. Una vez finalizada la integración, verá los detalles de la VNet con la que está integrada. De forma predeterminada, la opción Enrutar todo estará habilitada y todo el tráfico se enrutará a la red virtual.
+
+Si desea que solo se enrute el tráfico privado (tráfico [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3)), siga los pasos descritos en la [documentación de servicio de aplicaciones](../app-service/overview-vnet-integration.md#application-routing).
 
 ## <a name="regional-virtual-network-integration"></a>Integración de red virtual regional
 
-[!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-regional.md)]
+Cuando se utiliza la versión regional de Integración con red virtual, la aplicación puede acceder a:
 
-## <a name="connect-to-service-endpoint-secured-resources"></a>Conexión a recursos protegidos del punto de conexión de servicio
+* Recursos en una VNet de la misma región que la aplicación.
+* Recursos de las VNet emparejadas con la VNet con la que se integra la aplicación.
+* Servicios protegidos mediante puntos de conexión de servicio.
+* Recursos de diferentes conexiones de Azure ExpressRoute.
+* Recursos de la VNet con la que está integrado.
+* Recursos en conexiones emparejadas, lo que incluye conexiones de Azure ExpressRoute.
+* Puntos de conexión privados 
 
-Con el fin de proporcionar un mayor nivel de seguridad, puede restringir una serie de servicios de Azure a una red virtual mediante puntos de conexión de servicio. Después debe integrar la aplicación de funciones con esa red virtual para acceder al recurso. Esta configuración es compatible con todos los [planes](functions-scale.md#networking-features) que admiten la integración de redes virtuales.
+Si Integración con red virtual se utiliza con redes virtuales de la misma región, se pueden usar las siguientes características de redes de Azure:
+
+* **Grupos de seguridad de red (NSG)** : el tráfico saliente se puede bloquear con un grupo de seguridad de red que se encuentre en la subred de integración. Las reglas de entrada no se aplican, ya que Integración con red virtual no se puede usar para proporcionar acceso de entrada a la aplicación.
+* **Tablas de enrutamiento (UDR)** : puede colocar una tabla de enrutamiento en la subred de integración para enviar el tráfico de salida donde quiera.
+
+> [!NOTE]
+> Si enruta todo el tráfico de salida a la VNet, este estará sujeto a los grupos de seguridad de red y las rutas definidas por los usuarios que se apliquen a la subred de integración. Cuando se integra VNet, el tráfico de salida de aplicación de funciones a las direcciones IP públicas sigue enviándose desde las direcciones que se muestran en las propiedades de la aplicación, a menos que proporcione rutas que dirijan el tráfico a otro lugar.
+> 
+> La integración de red virtual regional no puede usar el puerto 25.
+
+Existen algunas limitaciones cuando se la característica Integración con red virtual se utiliza con redes virtuales que están en la misma región:
+
+* No se puede acceder a los recursos en las conexiones de emparejamiento global.
+* La característica está disponible en todas las unidades de escalado de App Service de nivel Premium V2 y Premium V3. También está disponible en Estándar, pero solo desde las unidades de escalado de App Service más recientes. Si está en una unidad de escalado anterior, solo puede usar la característica desde un plan de App Service Premium V2. Si quiere estar seguro de que puede usar la característica en un plan de App Service Estándar, cree la aplicación en un plan de App Service Premium V3. Estos planes solo se admiten en las unidades de escalado más recientes. Si quiere, después puede reducir verticalmente.
+* La subred de integración solo puede usarla un plan de App Service.
+* Las aplicaciones del plan Aislado que estén en una instancia de App Service Environment no pueden usar la característica.
+* La característica requiere una subred sin usar que sea /28 o mayor en una red virtual de Azure Resource Manager.
+* La aplicación y la VNet deben estar en la misma región.
+* No puede eliminar una VNet con una aplicación integrada. Quite la integración antes de eliminar la VNet.
+* Solo se puede tener una característica Integración con red virtual regional por plan de App Service. Varias aplicaciones en el mismo plan de App Service pueden usar la misma red virtual.
+* No se puede cambiar la suscripción de una aplicación o un plan mientras haya una aplicación que use Integración con red virtual regional.
+* La aplicación no puede resolver direcciones en Azure DNS Private Zones sin que se realicen cambios en la configuración.
+
+## <a name="subnets"></a>Subredes
+
+La integración con red virtual depende de una subred dedicada. Al aprovisionar una subred, la subred de Azure pierde cinco direcciones IP desde el inicio. Se usa una dirección de la subred de integración para cada instancia del plan. Si escala la aplicación a cuatro instancias, se usan cuatro direcciones. 
+
+Al escalar o reducir verticalmente el tamaño, el espacio de direcciones necesario se duplica durante un breve período de tiempo. Esto afecta a las instancias admitidas reales y disponibles para un tamaño de subred determinado. En la tabla siguiente se muestran las direcciones máximas disponibles por bloque CIDR y el impacto que esto tiene en la escala horizontal:
+
+| Tamaño de bloque CIDR | Número máximo de direcciones disponibles | Escala horizontal máxima (instancias)<sup>*</sup> |
+|-----------------|-------------------------|---------------------------------|
+| /28             | 11                      | 5                               |
+| /27             | 27                      | 13                              |
+| /26             | 59                      | 29                              |
+
+<sup>*</sup>Se da por supuesto que tendrá que escalar o reducir verticalmente el tamaño o la SKU en algún momento. 
+
+Puesto que el tamaño de la subred no se puede cambiar después de la asignación, use una subred lo suficientemente grande como para dar cabida a cualquier escala que pueda alcanzar la aplicación. Para evitar problemas con la capacidad de subred de los planes Premium de Functions, debe usar un /24 con 256 direcciones para Windows y un /26 con 64 direcciones para Linux. 
+
+Si quiere que las aplicaciones de otro plan lleguen a una VNet a la que ya están conectadas aplicaciones de otro plan, seleccione una subred distinta a la usada por la característica Integración con VNet ya existente.
+
+La característica es totalmente compatible con aplicaciones para Windows y Linux, incluidos los [contenedores personalizados](../app-service/configure-custom-container.md). Todos los comportamientos actúan del mismo modo entre aplicaciones para Windows y Linux.
+
+### <a name="service-endpoints"></a>Puntos de conexión del servicio
+
+Con el fin de proporcionar un mayor nivel de seguridad, puede restringir una serie de servicios de Azure a una red virtual mediante puntos de conexión de servicio. La integración con red virtual regional permite que la aplicación de funciones llegue a los servicios de Azure protegidos con puntos de conexión de servicio. Esta configuración es compatible con todos los [planes](functions-scale.md#networking-features) que admiten la integración de redes virtuales. Para acceder a un servicio protegido mediante puntos de conexión de servicio, debe hacer lo siguiente:
+
+1. Configure la integración de red virtual regional con la aplicación de funciones para conectarse a una subred específica.
+1. Vaya al servicio de destino y configure los puntos de conexión de servicio en la subred de integración.
 
 Para más información, consulte [Puntos de conexión de servicio de red virtual](../virtual-network/virtual-network-service-endpoints-overview.md).
 
+### <a name="network-security-groups"></a>Grupos de seguridad de red
+
+Puede usar grupos de seguridad de red para bloquear el tráfico de entrada y salida de los recursos de una VNet. Una aplicación que emplee la versión regional de Integración con red virtual puede usar un [grupo de seguridad de red][VNETnsg] para bloquear el tráfico de salida a los recursos de la VNet o Internet. Para bloquear el tráfico a direcciones públicas, debe tener habilitada la integración de red virtual con la opción Enrutar todo habilitada. Las reglas de entrada de un grupo de seguridad de red no se aplican a la aplicación, ya que Integración con red virtual solo afecta al tráfico saliente de la aplicación.
+
+Para controlar el trafico de entrada a la aplicación, use la característica Restricciones de acceso. Un grupo de seguridad de red que se aplique a la subred de integración está en vigor, con independencia de las rutas aplicadas a la subred de integración. Si la aplicación de funciones está integrada con VNet mediante Enrutar todo habilitado, y no tiene ninguna ruta que afecte al tráfico de direcciones públicas en la subred de integración, todo el tráfico de salida sigue estando sujeto a los grupos de seguridad de red asignados a la subred de integración. Cuando Enrutar todo no está habilitado, los NSG solo se aplican al tráfico RFC1918.
+
+### <a name="routes"></a>Rutas
+
+Las tablas de enrutamiento se pueden usar para enrutar el tráfico de salida de la aplicación al lugar que se desee. De forma predeterminada, las tablas de enrutamiento solo afectan al tráfico de destino de RFC 1918. Cuando Enrutar todo está habilitado, todas las llamadas salientes se ven afectadas. Cuando [Enrutar todo](../app-service/overview-vnet-integration.md#application-routing) está deshabilitado, solo el tráfico privado (RFC1918) se ve afectado por sus tablas de enrutamiento. Las rutas que se establecen en la subred de integración no afectan a las respuestas a las solicitudes de entrada de la aplicación. Los destinos más habituales suelen ser puertas de enlace o dispositivos de firewall.
+
+Si desea enrutar todo el tráfico de salida del entorno local, puede utilizar una tabla de rutas para enviar el tráfico de salida a la puerta de enlace de ExpressRoute. Si no enruta el tráfico a una puerta de enlace, asegúrese de establecer las rutas en la red externa para poder enviar de vuelta las respuestas.
+
+Las rutas del Protocolo de puerta de enlace de borde (BGP) también afectan al tráfico de la aplicación. Si tiene rutas de BGP cuyo origen es algo similar a una puerta de enlace de ExpressRoute, el tráfico de salida de la aplicación se verá afectado. De forma predeterminada, las rutas de BGP solo afectan al tráfico de destino de RFC 1918. Cuando la aplicación de funciones está integrada en una red virtual y la opción Enrutar todo está habilitada, todo el tráfico saliente puede verse afectado por las rutas BGP.
+
+### <a name="azure-dns-private-zones"></a>Zonas privadas de Azure DNS 
+
+Una vez que la aplicación se integra con la red virtual, usa el mismo servidor DNS que el configurado para la red virtual. De forma predeterminada, la aplicación no funcionará con zonas privadas de Azure DNS. Para que lo haga es preciso agregar la siguiente configuración de la aplicación:
+
+- `WEBSITE_VNET_ROUTE_ALL` con el valor `1`
+
+Esta configuración envía todas las llamadas salientes desde la aplicación a la red virtual y permite que la aplicación tenga acceso a una zona privada de Azure DNS. Con esta configuración, su aplicación puede usar Azure DNS consultando la zona DNS privada en el nivel de trabajo.  
+
+### <a name="private-endpoints"></a>Puntos de conexión privados
+
+Si quiere realizar llamadas a [Puntos de conexión privados][privateendpoints], debe asegurarse de que las búsquedas de DNS se resuelvan en el punto de conexión privado. Puede aplicar este comportamiento de una de las siguientes formas: 
+
+* Realizar la integración con zonas privadas de Azure DNS. Cuando la red virtual no tiene un servidor DNS personalizado, esto se hace automáticamente.
+* Administrar el punto de conexión privado en el servidor DNS que usa la aplicación. Para ello, debe conocer la dirección del punto de conexión privado y, a continuación, apuntar el punto de conexión al que está intentando acceder a esa dirección con un registro A.
+* Configurar su propio servidor DNS para reenviarlo a [zonas privadas de Azure DNS](#azure-dns-private-zones).
+
 ## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Restricción de la cuenta de almacenamiento a una red virtual 
 
-Al crear una aplicación de funciones, debe crear una cuenta de Azure Storage de uso general compatible con Blob, Queue y Table Storage, o vincular a una. Puede reemplazar esta cuenta de almacenamiento por una que esté protegida con puntos de conexión de servicio o punto de conexión privado. 
+Al crear una aplicación de funciones, debe crear una cuenta de Azure Storage de uso general compatible con Blob, Queue y Table Storage, o vincular a una. Puede reemplazar esta cuenta de almacenamiento por una que esté protegida con puntos de conexión de servicio o puntos de conexión privados. 
 
 Esta característica se admite para todas las SKU compatibles con la red virtual de Windows en el plan dedicado (App Service) y para el plan Premium. También se admite con DNS privado para SKU compatibles con la red virtual Linux. El plan de consumo y el DNS personalizado en los planes Linux no son compatibles. Para obtener información sobre cómo configurar una función con una cuenta de almacenamiento restringida a una red privada, consulte [Restricción de la cuenta de almacenamiento a una red virtual](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
 
@@ -153,7 +256,7 @@ Para obtener más información, vea la [documentación de App Service para Conex
 
 Las restricciones de IP de salida solo están disponibles para el plan Premium, el plan de App Service o App Service Environment. Puede configurar las restricciones de salida de la red virtual en la que está implementado el App Service Environment.
 
-Cuando se integra una aplicación de funciones de un plan Premium o un plan de App Service con una red virtual, la aplicación todavía puede realizar llamadas salientes a Internet de forma predeterminada. Al agregar la configuración de aplicación `WEBSITE_VNET_ROUTE_ALL=1`, se fuerza el envío de todo el tráfico de salida a la red virtual, donde se pueden usar reglas de grupo de seguridad de red para restringir el tráfico.
+Cuando se integra una aplicación de funciones de un plan Premium o un plan de App Service con una red virtual, la aplicación todavía puede realizar llamadas salientes a Internet de forma predeterminada. Al integrar la aplicación de funciones con una red virtual con Enrutar todo habilitado, se fuerza el envío de todo el tráfico saliente a la red virtual, donde se pueden usar reglas de grupo de seguridad de red para restringir el tráfico.
 
 Para obtener información sobre cómo controlar la IP de salida mediante una red virtual, consulte [Tutorial: Control de la IP de salida de Azure Functions mediante un servicio NAT Gateway de Azure Virtual Network](functions-how-to-use-nat-gateway.md). 
 
@@ -173,7 +276,12 @@ Para obtener más información sobre las redes y Azure Functions:
 
 * [Siga el tutorial sobre cómo empezar con la integración de red virtual](./functions-create-vnet.md)
 * [Lea las preguntas más frecuentes de las redes de Functions](./functions-networking-faq.yml)
-* [Obtenga más información sobre la integración de red virtual con App Service o Functions](../app-service/web-sites-integrate-with-vnet.md)
+* [Obtenga más información sobre la integración de red virtual con App Service o Functions](../app-service/overview-vnet-integration.md)
 * [Obtenga más información sobre las redes virtuales en Azure](../virtual-network/virtual-networks-overview.md)
 * [Habilite más características de redes y control con App Service Environment](../app-service/environment/intro.md)
 * [Conéctese a recursos locales individuales mediante Conexiones híbridas sin modificar el firewall](../app-service/app-service-hybrid-connections.md)
+
+
+<!--Links-->
+[VNETnsg]: ../virtual-network/network-security-groups-overview.md
+[privateendpoints]: ../app-service/networking/private-endpoint.md

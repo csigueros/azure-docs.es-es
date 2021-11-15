@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: aa54932a6093c5c1a22285de9449b2faee06fe67
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 4e3b2ab5f775b566a3d820523737200dd3dc5dd3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124818539"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131467081"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuración de máquina virtual de host de sesión
 
@@ -178,7 +178,7 @@ Cuando el agente de Azure Virtual Desktop se instala por primera vez en las VM d
 
 ## <a name="troubleshooting-issues-with-the-azure-virtual-desktop-side-by-side-stack"></a>Solución de problemas con la pila en paralelo de Azure Virtual Desktop
 
-La pila en paralelo de Azure Virtual Desktop se instala automáticamente con Windows Server 2019. Use Microsoft Installer (MSI) para instalar la pila en paralelo en Microsoft Windows Server 2016 o Windows Server 2012 R2. Para Microsoft Windows 10, la pila en paralelo de Azure Virtual Desktop se habilita con **enablesxstackrs.ps1**.
+La pila en paralelo de Azure Virtual Desktop se instala automáticamente con Windows Server 2019 y posterior. Use Microsoft Installer (MSI) para instalar la pila en paralelo en Microsoft Windows Server 2016 o Windows Server 2012 R2. Para Microsoft Windows 10, la pila en paralelo de Azure Virtual Desktop se habilita con **enablesxstackrs.ps1**.
 
 Hay tres maneras principales de instalar la pila en paralelo o habilitarla en VM del grupo de host de sesión:
 

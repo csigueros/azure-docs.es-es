@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 05/13/2021
 ms.author: mjbrown
-ms.openlocfilehash: e8d39f6215e76c4cd9da9458f5e8a7af61622089
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: abe4c084243025cb5570d8913911a45554f067f5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110094841"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131454530"
 ---
 # <a name="move-an-azure-cosmos-db-account-to-another-region"></a>Traslado de una cuenta de Azure Cosmos DB a otra región
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -40,6 +40,9 @@ Azure Cosmos DB admite la replicación de datos de forma nativa, por lo que es 
 1. Quite la región original.
 
     Para quitar una región de una cuenta de Azure Cosmos DB, vea [Incorporación o eliminación de regiones en una cuenta de Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account).
+
+> [!NOTE]
+> Si realiza una operación de conmutación por error o agrega o quita una nueva región mientras hay una [operación asincrónica de escalado del rendimiento](scaling-provisioned-throughput-best-practices.md#background-on-scaling-rus) en curso, la operación de escalado vertical del rendimiento se pausa. Se reanudará automáticamente cuando se complete la operación de conmutación por error o de agregar o quitar región. 
 
 ## <a name="migrate-azure-cosmos-db-account-metadata"></a>Migración de metadatos de una cuenta de Azure Cosmos DB
 

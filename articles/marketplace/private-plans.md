@@ -6,17 +6,20 @@ ms.service: marketplace
 ms.topic: article
 author: navits09
 ms.author: navits
-ms.date: 10/14/2021
-ms.openlocfilehash: d04a031abced1bdc689feb078015737d20f40cfb
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.date: 10/26/2021
+ms.openlocfilehash: 22523b73847b21426eb1fa56af665274fc830b4b
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130047784"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851009"
 ---
 # <a name="private-plans-in-the-microsoft-commercial-marketplace"></a>Ofertas privadas del marketplace comercial de Microsoft
 
 Los anunciantes usan planes privados para que solo puedan verlos los clientes de destino. En este artículo se tratan las opciones y ventajas de los planes privados.
+
+> [!TIP]
+> Para ver la vista del cliente de los planes privados en el marketplace comercial, consulte [Ofertas privadas del marketplace comercial de Microsoft](/marketplace/private-plans) o [Planes privados en Microsoft AppSource](/marketplace/appsource-private-plans).
 
 ## <a name="unlock-enterprise-deals-with-private-plans"></a>Desbloqueo de ofertas empresariales con planes privados
 

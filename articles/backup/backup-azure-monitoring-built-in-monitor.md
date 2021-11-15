@@ -2,14 +2,17 @@
 title: Supervisión de cargas de trabajo protegidas de Azure Backup
 description: En este artículo se obtiene información sobre las funcionalidades de supervisión y notificación de las cargas de trabajo de Azure Backup mediante Azure Portal.
 ms.topic: conceptual
-ms.date: 08/06/2021
+ms.date: 11/02/2021
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: f3d353f7d42baf1f9cc968cb37baac1077a35085
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: afc23090ce15621542ec6035c67d36b85a3414c1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129231679"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131439795"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Supervisión de cargas de trabajo de Azure Backup
 
@@ -19,20 +22,20 @@ Azure Backup proporciona varias soluciones de copia de seguridad según los requ
 
 ## <a name="backup-items-in-recovery-services-vault"></a>Elementos de copia de seguridad en el almacén de Recovery Services
 
-Puede supervisar todos los elementos de copia de seguridad por medio de un almacén de Recovery Services. Al ir a la sección **Elementos de copia de seguridad** del almacén se abre una vista que proporciona el número de elementos de copia de seguridad de cada tipo de carga de trabajo asociado al almacén. Al hacer clic en cualquier fila se abre una vista detallada que enumera todos los elementos de copia de seguridad del tipo de carga de trabajo dado, con información sobre el último estado de copia de seguridad de cada elemento, el último punto de restauración disponible, etc.
+Puede supervisar todos los elementos de copia de seguridad por medio de un almacén de Recovery Services. Al navegar a la sección **Instancias de copia de seguridad** en el **Centro de copia de seguridad** se abre una vista que proporciona una lista detallada de todos los elementos de copia de seguridad del tipo de carga de trabajo dado, con información sobre el último estado de copia de seguridad de cada elemento, el último punto de restauración disponible, etc.
 
-![Captura de pantalla de visualización de los elementos de copia de seguridad del almacén de Recovery Services](media/backup-azure-monitoring-laworkspace/backup-items-view.png)
+:::image type="content" source="./media/backup-azure-monitoring-laworkspace/backup-center-instances-inline.png" alt-text="Captura de pantalla que muestra los elementos de copia de seguridad del almacén de Recovery Services." lightbox="./media/backup-azure-monitoring-laworkspace/backup-center-instances-expanded.png":::
 
-> [!NOTE]
-> En el caso de los elementos cuya copia de seguridad en Azure se ha efectuado mediante DPM, la lista muestra todos los orígenes de datos protegidos (tanto en disco como en línea) mediante el servidor de DPM. Si se detiene la protección del origen de datos con datos de copia de seguridad conservados, el origen de datos sigue apareciendo en el portal. Puede ir a los detalles del origen de datos para ver si los puntos de recuperación están presentes en disco, en línea o ambos. Además, en los orígenes de datos cuya protección en línea se ha detenido pero cuyos datos se conservan, la facturación de los puntos de recuperación en línea continúa hasta que los datos se eliminan por completo.
+>[!NOTE]
+>En el caso de los elementos cuya copia de seguridad en Azure se ha efectuado mediante DPM, la lista muestra todos los orígenes de datos protegidos (tanto en disco como en línea) mediante el servidor de DPM. Si se detiene la protección del origen de datos con datos de copia de seguridad conservados, el origen de datos sigue apareciendo en el portal. Puede ir a los detalles del origen de datos para ver si los puntos de recuperación están presentes en disco, en línea o ambos. Además, en los orígenes de datos cuya protección en línea se ha detenido pero cuyos datos se conservan, la facturación de los puntos de recuperación en línea continúa hasta que los datos se eliminan por completo.
 >
 > La versión de DPM debe ser DPM 1807 (5.1.378.0) o DPM 2019 (versión 10.19.58.0 o superior) para que los elementos de copia de seguridad sean visibles en el portal del almacén de Recovery Services.
 
-## <a name="backup-jobs-in-recovery-services-vault"></a>Trabajos de copia de seguridad en el almacén de Recovery Services
+## <a name="backup-jobs-in-backup-center"></a>Trabajos de copia de seguridad en el Centro de copia de seguridad
 
-Azure Backup proporciona capacidades de supervisión y notificación relativas a las cargas de trabajo bajo protección de Azure Backup. En la sección **Supervisión** de la configuración del almacén de Recovery Services encontrará trabajos y alertas integrados.
+Azure Backup proporciona capacidades de supervisión y notificación relativas a las cargas de trabajo bajo protección de Azure Backup. Si accede al panel **Trabajos de copia de seguridad** del **Centro de copia de seguridad**, podrá ver los trabajos de copia de seguridad y restauración recientes de sus almacenes.
 
-![Captura de pantalla de la supervisión integrada del almacén de Recovery Services](media/backup-azure-monitoring-laworkspace/rs-vault-inbuilt-monitoring-menu.png)
+:::image type="content" source="./media/backup-azure-monitoring-laworkspace/backup-center-jobs-inline.png" alt-text="Captura de pantalla que muestra la supervisión integrada del almacén de Recovery Services." lightbox="./media/backup-azure-monitoring-laworkspace/backup-center-jobs-expanded.png":::
 
 Los trabajos se generan cuando se realizan operaciones como configurar copias de seguridad, hacer copias de seguridad, restaurar copias de seguridad, eliminar copias de seguridad, etc.
 
@@ -141,7 +144,7 @@ En la tabla siguiente se resumen las distintas alertas de copia de seguridad dis
 
 ### <a name="turning-on-azure-monitor-alerts-for-job-failure-scenarios"></a>Activación de alertas de Azure Monitor para escenarios de error de trabajo
 
-Para optar por las alertas de Azure Monitor para escenarios de error de copia de seguridad y de restauración, siga los siguientes pasos:
+Para optar por las alertas de Azure Monitor para escenarios de error de copia de seguridad y de restauración, siga los siguientes pasos:
 
 1. Vaya a Azure Portal y busque **Preview Features** (Características de la versión preliminar).
 
@@ -150,7 +153,7 @@ Para optar por las alertas de Azure Monitor para escenarios de error de copia d
 2. Puede ver una lista con todas las características en vista previa disponibles para elegir.
 
     * Si desea recibir alertas de error de trabajo para las cargas de trabajo de las que se ha hecho una copia de seguridad en almacenes de Recovery Services, seleccione la marca denominada **EnableAzureBackupJobFailureAlertsToAzureMonitor** correspondiente al proveedor Microsoft.RecoveryServices (columna 3).
-    * Si desea recibir alertas de error de trabajo para las cargas de trabajo de las que se ha hecho una copia de seguridad en almacenes de copia de seguridad, seleccione la marca denominada **EnableAzureBackupJobFailureAlertsToAzureMonitor** correspondiente al proveedor Microsoft.DataProtection (columna 3).
+    * Si desea recibir alertas de error de trabajo para las cargas de trabajo de las que se ha hecho una copia de seguridad en almacenes de copia de seguridad, seleccione la marca denominada **EnableAzureBackupJobFailureAlertsToAzureMonitor** correspondiente al proveedor Microsoft.DataProtection (columna 3).
 
     ![Captura de pantalla del registro de la versión preliminar de alertas](media/backup-azure-monitoring-laworkspace/alert-preview-feature-flags.png)
 
@@ -173,7 +176,7 @@ Una vez que se desencadena una alerta para un almacén, puede ver la alerta en A
 * **Datasource Alerts** (Alertas de origen de datos): las alertas asociadas a un origen de datos específico del que se está haciendo una copia de seguridad (por ejemplo, errores de copia de seguridad o restauración de una máquina virtual, eliminación de datos de copia de seguridad de una base de datos, entre otros) aparecen en la sección **Datasource Alerts** (Alertas del origen de datos).
 * **Global Alerts** (Alertas globales): las alertas que no están asociadas a un origen de datos específico (por ejemplo, desactivando la funcionalidad de eliminación temporal para un almacén) aparecen en la sección **Global Alerts** (Alertas globales).
 
-Cada uno de los tipos anteriores de alertas se divide a su vez en alertas del tipo **Seguridad** y **Configured** (Configurada). Actualmente, las alertas de seguridad incluyen los escenarios de eliminación de datos de copia de seguridad o desactivación de la eliminación temporal para el almacén (para las cargas de trabajo aplicables, como se detalla en la sección anterior). Las alertas configuradas incluyen errores de copia de seguridad y de restauración, ya que estas alertas solo se desencadenan después de registrar la característica en el portal de versión preliminar.
+Cada uno de los tipos anteriores de alertas se divide a su vez en alertas del tipo **Seguridad** y **Configurada**. Actualmente, las alertas de seguridad incluyen los escenarios de eliminación de datos de copia de seguridad o desactivación de la eliminación temporal para el almacén (para las cargas de trabajo aplicables, como se detalla en la sección anterior). Las alertas configuradas incluyen errores de copia de seguridad y de restauración, ya que estas alertas solo se desencadenan después de registrar la característica en el portal de versión preliminar.
 
 ![Captura de pantalla de visualización de alertas en el Centro de copias de seguridad](media/backup-azure-monitoring-laworkspace/backup-center-azure-monitor-alerts.png)
 

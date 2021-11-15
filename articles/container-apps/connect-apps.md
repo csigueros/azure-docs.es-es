@@ -5,15 +5,15 @@ services: app-service
 author: craigshoemaker
 ms.service: app-service
 ms.topic: conceptual
-ms.date: 10/18/2021
+ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 10fe890ecd4bb2bc89cea71d1a70f7df9eb38e1e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b39e13aa8cf5953349af14c80317b67f05047919
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131090865"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131576346"
 ---
 # <a name="connect-applications-in-azure-container-apps-preview"></a>Conexión de aplicaciones en Azure Container Apps (versión preliminar)
 
@@ -21,9 +21,14 @@ Azure Container Apps expone cada aplicación de contenedor mediante un nombre de
 
 Una vez que conozca el nombre de dominio de una aplicación de contenedor, puede llamar a la ubicación dentro del código de la aplicación para conectar varias aplicaciones de contenedor.
 
+> [!NOTE]
+> Cuando se llama a otro contenedor en el mismo entorno mediante el FQDN, el tráfico de red nunca sale del entorno.
+
+Puede encontrar una solución de ejemplo que muestra cómo puede llamar entre contenedores mediante la ubicación de FQDN o Dapr en [Ejemplos de Azure](https://github.com/Azure-Samples/container-apps-connect-multiple-apps).
+
 ## <a name="location"></a>Location
 
-La ubicación de una aplicación de contenedor se compone de valores asociados a su entorno, nombre y región. Disponible mediante el dominio de nivel superior `azurecontainerapps.io`, el nombre de dominio completo usa:
+La ubicación de una aplicación de contenedor se compone de valores asociados a su entorno, nombre y región. Disponible mediante el dominio de nivel superior `azurecontainerapps.io`, el nombre de dominio completo (FQDN) usa:
 
 - el nombre de la aplicación de contenedor
 - el identificador único del entorno

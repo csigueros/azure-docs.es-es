@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 9ee623656ee83347d2edc1fe010131913a07ccb4
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 39b6dd297ad0fbb739272db41900e68c799e790d
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131023792"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131853828"
 ---
 # <a name="connect-to-and-manage-a-power-bi-tenant-in-azure-purview"></a>Conectar a un inquilino de Power BI y administrarlo en Azure Purview
 
@@ -172,26 +172,38 @@ Considere la posibilidad de usar esta guía si el inquilino de Azure AD donde s
 
    1. Cree un registro de aplicación en Azure Active Directory inquilino donde se encuentra Power BI. Asegúrese de actualizar el campo `password` con una contraseña segura y de actualizar `app_display_name` con un nombre de aplicación inexistente en el inquilino de Azure AD donde se hospeda el inquilino de Power BI.
 
-       ```powershell   
-       $SecureStringPassword = ConvertTo-SecureString -String <'password'> -AsPlainText -Force
-       $AppName = '<app_display_name>'
-       New-AzADApplication -DisplayName $AppName -Password $SecureStringPassword
-       ```
+      ```powershell   
+      $SecureStringPassword = ConvertTo-SecureString -String <'password'> -AsPlainText -Force
+      $AppName = '<app_display_name>'
+      New-AzADApplication -DisplayName $AppName -Password $SecureStringPassword
+      ```
 
    1. En el panel de Azure Active Directory, seleccione la aplicación recién creada y, a continuación, seleccione **Registro de aplicación**. Asigne a la aplicación los siguientes permisos delegados y otorgue consentimiento de administrador al inquilino:
 
-         - Servicio Power BI: Tenant.Read.All
-         - Microsoft Graph: openid
+      - Servicio Power BI: Tenant.Read.All
+      - Microsoft Graph: openid
 
-   1. En el panel de Azure Active Directory, seleccione la aplicación recién creada y, a continuación, seleccione **Autenticación**. En **Tipos de cuenta admitidos** seleccione **Cuentas en cualquier directorio organizativo (cualquier directorio de Azure AD: multiinquilino)** .
+      :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-delegated-permissions.png" alt-text="Captura de pantalla de permisos delegados para el servicio Power BI y Microsoft Graph":::
+
+   1. En el panel de Azure Active Directory, seleccione la aplicación recién creada y, a continuación, seleccione **Autenticación**. En **Tipos de cuenta admitidos** seleccione **Cuentas en cualquier directorio organizativo (cualquier directorio de Azure AD: multiinquilino)** . 
+
+      :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-multitenant.png" alt-text="Captura de pantalla de un multiinquilino compatible con el tipo de cuenta":::
+
+   1. En **Flujos de concesión implícita e híbridos**, asegúrese de seleccionar **Tokens de id. (usados para flujos híbridos e implícitos)** .
+    
+      :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-id-token-hybrid-flows.png" alt-text="Captura de pantalla de los flujos híbridos del token de identificador":::
 
    1. Para crear una dirección URL de inicio de sesión específica del inquilino para la entidad de servicio, ejecute la siguiente dirección URL en el explorador web:
 
-     https://login.microsoftonline.com/<purview_tenant_id>/oauth2/v2.0/authorize?client_id=<client_id_to_delegate_the_pbi_admin>&scope=openid&response_type=id_token&response_mode=fragment&state=1234&nonce=67890
-
-    Asegúrese de reemplazar los parámetros por la información correcta: <purview_tenant_id> es el identificador de inquilino (GUID) de Azure Active Directory donde se aprovisiona la cuenta de Azure Purview.
-    <client_id_to_delegate_the_pbi_admin> es el identificador de aplicación correspondiente a la entidad de servicio.
-
+      ```
+      https://login.microsoftonline.com/<purview_tenant_id>/oauth2/v2.0/authorize?client_id=<client_id_to_delegate_the_pbi_admin>&scope=openid&response_type=id_token&response_mode=fragment&state=1234&nonce=67890
+      ```
+    
+      Asegúrese de reemplazar los parámetros con la información correcta:
+      
+      - `<purview_tenant_id>` es el identificador de inquilino (GUID) de Azure Active Directory donde se aprovisiona la cuenta de Azure Purview.
+      - `<client_id_to_delegate_the_pbi_admin>` es el identificador de aplicación correspondiente a la entidad de servicio.
+   
    1. Inicie sesión con cualquier cuenta que no sea de administrador. Esto es necesario para aprovisionar la entidad de servicio en el inquilino externo.
 
    1. Cuando se le solicite, acepte el permiso solicitado para _Ver su perfil básico_ y _Mantener el acceso a los datos a los que se le ha concedido acceso_.
@@ -209,7 +221,12 @@ Considere la posibilidad de usar esta guía si el inquilino de Azure AD donde s
     $Password = '<pbi_admin_password>'
     ```
 
-1. En la suscripción de Azure Purview, busque la cuenta de Purview y use los roles de Azure RBAC, asigne _administrador de origen de datos de Purview_ a la entidad de servicio y al usuario de Power BI.
+    > [!Note]
+    > Si crea una cuenta de usuario en Azure Active Directory desde el portal, la opción de flujo de cliente público es **No** de forma predeterminada. Debe cambiarla a **Sí**:
+    > <br>
+    > :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-public-client-flows.png" alt-text="Captura de pantalla de los flujos de cliente públicos":::
+    
+1. En Azure Purview Studio, asigne el _administrador de orígenes de datos_ a la entidad de servicio y al usuario de Power BI en la colección raíz. 
 
 1. Para registrar el inquilino de Power BI entre inquilinos como nuevo origen de datos dentro de la cuenta de Azure Purview, actualice `service_principal_key` y ejecute los siguientes cmdlets en la sesión de PowerShell:
 

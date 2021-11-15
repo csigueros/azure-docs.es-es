@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Creación de imágenes de máquina virtual personalizadas con Azure PowerShell'
-description: En este tutorial, aprenderá a usar Azure PowerShell para crear una imagen de máquina virtual personalizada de Windows almacenada en una instancia de Azure Shared Image Gallery.
+description: En este tutorial, aprenderá a usar Azure PowerShell para crear una imagen de máquina virtual personalizada de Windows almacenada en una instancia de Azure Compute Gallery.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
@@ -9,24 +9,24 @@ ms.workload: infrastructure
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: fe7698a0a2a7c0059db6e5f96e3f86445bc5871f
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 5c7ce289d515892db72b681e1e7ef5337eb7cb9b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123449465"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131421651"
 ---
 # <a name="tutorial-create-windows-vm-images-with-azure-powershell"></a>Tutorial: Creación de imágenes de máquina virtual Windows con Azure PowerShell
 **Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles 
 
-Se pueden usar imágenes personalizadas en el arranque de las implementaciones y para garantizar la coherencia entre varias máquinas virtuales. En este tutorial, creará su propia imagen especializada de una máquina virtual de Azure mediante PowerShell y la almacenará en una instancia de Shared Image Gallery. Aprenderá a:
+Se pueden usar imágenes personalizadas en el arranque de las implementaciones y para garantizar la coherencia entre varias máquinas virtuales. En este tutorial, creará su propia imagen especializada de una máquina virtual de Azure mediante PowerShell y la almacenará en una instancia de Azure Compute Gallery (anteriormente conocido como Shared Image Gallery). Aprenderá a:
 
 > [!div class="checklist"]
-> * Creación de una instancia de Shared Image Gallery
+> * Crear una instancia de Azure Compute Gallery
 > * Creación de la definición de una imagen
 > * Creación de la versión de una imagen
 > * Crear una máquina virtual a partir de una imagen 
-> * Compartir una galería de imágenes
+> * Uso compartido de una galería
 
 
 
@@ -38,11 +38,11 @@ Para completar el ejemplo de este tutorial, debe tener una máquina virtual. Si 
 
 ## <a name="overview"></a>Información general
 
-Una [galería de imágenes compartidas](../shared-image-galleries.md) simplifica el uso compartido de imágenes personalizadas en toda una organización. Las imágenes personalizadas son como las imágenes de Marketplace, pero las puede crear usted mismo. Las imágenes personalizadas pueden usarse para configuraciones de arranque como la carga previa de aplicaciones, configuraciones de aplicaciones y otras configuraciones del sistema operativo. 
+Una instancia de [Azure Compute Gallery](../shared-image-galleries.md) simplifica el uso compartido de imágenes personalizadas en las organizaciones. Las imágenes personalizadas son como las imágenes de Marketplace, pero las puede crear usted mismo. Las imágenes personalizadas pueden usarse para configuraciones de arranque como la carga previa de aplicaciones, configuraciones de aplicaciones y otras configuraciones del sistema operativo. 
 
-Shared Image Gallery le permite compartir sus imágenes de máquina virtual personalizadas con otras personas. Elija las imágenes que desea compartir, qué regiones desea que estén disponibles en ellas y con quién desea compartirlas. 
+Azure Compute Gallery permite compartir sus imágenes de máquina virtual personalizadas con otros usuarios. Elija las imágenes que desea compartir, qué regiones desea que estén disponibles en ellas y con quién desea compartirlas. 
 
-La característica de galería de imágenes compartidas tiene varios tipos de recursos:
+La característica Azure Compute Gallery tiene varios tipos de recursos:
 
 [!INCLUDE [virtual-machines-shared-image-gallery-resources](../includes/virtual-machines-shared-image-gallery-resources.md)]
 
@@ -75,18 +75,18 @@ $resourceGroup = New-AzResourceGroup `
    -Location 'EastUS'
 ```
 
-## <a name="create-an-image-gallery"></a>Creación de una galería de imágenes 
+## <a name="create-a-gallery"></a>Creación de una galería 
 
-Una galería de imágenes es el recurso principal que se usa para habilitar el uso compartido de imágenes. Los caracteres permitidos para el nombre de la galería son letras mayúsculas o minúsculas, números y puntos. El nombre de la galería no puede contener guiones. Los nombres de las galerías deben ser únicos dentro de su suscripción. 
+Una galería es el recurso principal que se usa para habilitar el uso compartido de imágenes. Los caracteres permitidos para el nombre de la galería son letras mayúsculas o minúsculas, números y puntos. El nombre de la galería no puede contener guiones. Los nombres de las galerías deben ser únicos dentro de su suscripción. 
 
-Cree una galería de imágenes con [New-AzGallery](/powershell/module/az.compute/new-azgallery). En el ejemplo siguiente se crea una galería denominada *myGallery* en el grupo de recursos *myGalleryRG*.
+Cree una galería mediante [New-AzGallery](/powershell/module/az.compute/new-azgallery). En el ejemplo siguiente se crea una galería denominada *myGallery* en el grupo de recursos *myGalleryRG*.
 
 ```azurepowershell-interactive
 $gallery = New-AzGallery `
    -GalleryName 'myGallery' `
    -ResourceGroupName $resourceGroup.ResourceGroupName `
    -Location $resourceGroup.Location `
-   -Description 'Shared Image Gallery for my organization'  
+   -Description 'Azure Compute Gallery for my organization' 
 ```
 
 
@@ -180,7 +180,7 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 
 ## <a name="share-the-gallery"></a>Uso compartido de la galería
 
-Se recomienda compartir el acceso en el nivel de la galería de imágenes. Use una dirección de correo electrónico y el cmdlet [Get-AzADUser](/powershell/module/az.resources/get-azaduser) para obtener el identificador de objeto del usuario y, después, utilice [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) para concederle acceso a la galería. Reemplace el correo electrónico alinne_montes@contoso.com de este ejemplo por su propia información.
+Se recomienda compartir el acceso en el nivel de la galería. Use una dirección de correo electrónico y el cmdlet [Get-AzADUser](/powershell/module/az.resources/get-azaduser) para obtener el identificador de objeto del usuario y, después, utilice [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) para concederle acceso a la galería. Reemplace el correo electrónico alinne_montes@contoso.com de este ejemplo por su propia información.
 
 ```azurepowershell-interactive
 # Get the object ID for the user
@@ -215,11 +215,11 @@ Azure también ofrece un servicio, basado en Packer, [Azure VM Image Builder](..
 En este tutorial, ha creado una imagen de máquina virtual especializada. Ha aprendido a:
 
 > [!div class="checklist"]
-> * Creación de una instancia de Shared Image Gallery
+> * Crear una instancia de Azure Compute Gallery
 > * Creación de la definición de una imagen
 > * Creación de la versión de una imagen
 > * Crear una máquina virtual a partir de una imagen 
-> * Compartir una galería de imágenes
+> * Uso compartido de una galería
 
 En al siguiente tutorial aprenderá a crear máquinas virtuales de alta disponibilidad.
 

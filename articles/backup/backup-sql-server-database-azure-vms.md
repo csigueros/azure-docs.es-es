@@ -2,13 +2,16 @@
 title: Copia de seguridad de varias máquinas virtuales con SQL Server desde el almacén
 description: En este artículo, aprenderá a realizar copias de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure con Azure Backup desde el almacén de Recovery Services.
 ms.topic: conceptual
-ms.date: 08/20/2021
-ms.openlocfilehash: 834737c9773b9efead12ef8033852d25ae706062
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.date: 11/02/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: 970c352bcb7f04d04cddaaa24769eb4a26896605
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123099099"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131431900"
 ---
 # <a name="back-up-multiple-sql-server-vms-from-the-recovery-services-vault"></a>Copia de seguridad de varias VM con SQL Server desde el almacén de Recovery Services
 
@@ -121,19 +124,13 @@ Cuando hace copia de seguridad de una base de datos de SQL Server en una máquin
 
 Detección de las bases de datos que se ejecutan en la máquina virtual:
 
-1. En [Azure Portal](https://portal.azure.com), abra el almacén de Recovery Services que usa para la copia de seguridad de la base de datos.
+1. En [Azure Portal](https://portal.azure.com), vaya al **Centro de copia de seguridad** y haga clic en **+Copia de seguridad**.
 
-2. En el panel **Almacén de Recovery Services**, seleccione **Copia de seguridad**.
+1. Seleccione **SAP HANA en Azure VM** como tipo de origen de datos, seleccione un almacén de Recovery Services que ha creado y, después, haga clic en **Continuar**.
 
-   ![Seleccionar Copia de seguridad para abrir el menú Objetivo de Backup](./media/backup-azure-sql-database/open-backup-menu.png)
+   :::image type="content" source="./media/backup-azure-sql-database/configure-sql-backup.png" alt-text="Captura de pantalla que muestra la selección de Copia de seguridad para ver las bases de datos que se ejecutan en una máquina virtual.":::
 
-3. En **Objetivo de Backup**, establezca **¿Dónde se ejecuta su carga de trabajo?** en **Azure**.
-
-4. En **What do you want to backup** (¿De qué quiere realizar una copia de seguridad?), seleccione **SQL Server in Azure VM** (SQL Server en la máquina virtual de Azure).
-
-    ![Seleccionar SQL Server en una máquina virtual de Azure para la copia de seguridad](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
-
-5. En **Backup Goal** > **Discover DBs in VMs** (Objetivo de Backup > Detectar bases de datos en máquinas virtuales), seleccione **Start Discovery** (Iniciar detección) para buscar las máquinas virtuales sin protección en la suscripción. Puede que la búsqueda tarde un rato, según el número de máquinas virtuales sin protección en la suscripción.
+1. En **Backup Goal** > **Discover DBs in VMs** (Objetivo de Backup > Detectar bases de datos en máquinas virtuales), seleccione **Start Discovery** (Iniciar detección) para buscar las máquinas virtuales sin protección en la suscripción. Puede que la búsqueda tarde un rato, según el número de máquinas virtuales sin protección en la suscripción.
 
    * Tras la detección, las máquinas virtuales no protegidas deben aparecer en la lista por nombre y grupo de recursos.
    * Si una máquina virtual no aparece en la lista como cabría esperar, compruebe que no se haya copiado ya en un almacén.
@@ -141,13 +138,13 @@ Detección de las bases de datos que se ejecutan en la máquina virtual:
 
      ![La copia de seguridad queda pendiente durante la búsqueda de bases de datos en máquinas virtuales](./media/backup-azure-sql-database/discovering-sql-databases.png)
 
-6. En la lista de máquinas virtuales, seleccione la que ejecuta la base de datos de SQL Server > **Discover DBs** (Detectar bases de datos).
+1. En la lista de máquinas virtuales, seleccione la que ejecuta la base de datos de SQL Server > **Discover DBs** (Detectar bases de datos).
 
-7. Realice el seguimiento de la detección de las bases de datos en **Notificaciones**. El tiempo necesario para esta acción depende del número de bases de datos de máquina virtual. Cuando se detectan las bases de datos seleccionadas, aparece un mensaje de operación correcta.
+1. Realice el seguimiento de la detección de las bases de datos en **Notificaciones**. El tiempo necesario para esta acción depende del número de bases de datos de máquina virtual. Cuando se detectan las bases de datos seleccionadas, aparece un mensaje de operación correcta.
 
     ![Mensaje de implementación correcta](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-8. Azure Backup detecta todas las bases de datos de SQL Server en la máquina virtual. Durante la detección, los siguientes elementos tienen lugar en segundo plano:
+1. Azure Backup detecta todas las bases de datos de SQL Server en la máquina virtual. Durante la detección, los siguientes elementos tienen lugar en segundo plano:
 
     * Azure Backup registra la máquina virtual en el almacén para la copia de seguridad de la carga de trabajo. Todas las bases de datos de la máquina virtual registrada solo se pueden copiar en este almacén.
     * Azure Backup instala la extensión AzureBackupWindowsWorkload en la máquina virtual. No se instala ningún agente en la base de datos SQL.
@@ -208,21 +205,22 @@ Una directiva de copia de seguridad define cuándo se realizan las copias de seg
 
 Para crear una directiva de copia de seguridad:
 
-1. En el almacén, seleccione **Directivas de copia de seguridad** > **Agregar**.
-1. En **Agregar**, seleccione **SQL Server en una máquina virtual de Azure** para definir el tipo de directiva.
+1. Vaya al **Centro de copia de seguridad** y haga clic en **+Directiva.**
 
-   ![Elección de un tipo de directiva para la nueva directiva de copia de seguridad](./media/backup-azure-sql-database/policy-type-details.png)
+1. Seleccione **SQL Server en Azure VM** como tipo de origen de datos, seleccione el almacén en el que se debe crear la directiva y, a continuación, haga clic en **Continuar**.
+
+   :::image type="content" source="./media/backup-azure-sql-database/create-sql-policy.png" alt-text="Captura de pantalla que muestra cómo elegir un tipo de directiva para la nueva directiva de copia de seguridad.":::
 
 1. En **Nombre de la directiva**, escriba un nombre para la nueva directiva.
 
-    ![Escribir nombre de la directiva](./media/backup-azure-sql-database/policy-name.png)
+   :::image type="content" source="./media/backup-azure-sql-database/sql-policy-summary.png" alt-text="Captura de pantalla en la que se muestra la opción de escribir el nombre de la directiva.":::
 
 1. Seleccione el vínculo **Editar** correspondiente a **Copia de seguridad completa** para modificar la configuración predeterminada.
 
    * Seleccione una **frecuencia de copia de seguridad**. Elija **Diario** o **Semanal**.
    * En **Diariamente**, seleccione la hora y zona horaria en la que comienza el trabajo de copia de seguridad. No puede crear copias de seguridad diferenciales para copias de seguridad completas diarias.
 
-     ![Nuevos campos de directiva de copia de seguridad](./media/backup-azure-sql-database/full-backup-policy.png)  
+   :::image type="content" source="./media/backup-azure-sql-database/sql-backup-schedule-inline.png" alt-text="Captura de pantalla que muestra los nuevos campos de la directiva de copia de seguridad." lightbox="./media/backup-azure-sql-database/sql-backup-schedule-expanded.png":::
 
 1. De forma predeterminada, todas las opciones de **DURACIÓN DE RETENCIÓN** están seleccionadas. Borre cualquier límite de la duración de retención que no desee y, a continuación, establezca los intervalos que se van a usar.
 
@@ -231,7 +229,7 @@ Para crear una directiva de copia de seguridad:
     * La copia de seguridad de un día específico se etiqueta y se retiene según la duración de la retención semanal y la configuración de esta.
     * La duración de retención mensual y anual se comporta de forma similar.
 
-       ![Configuración del intervalo de la duración de retención](./media/backup-azure-sql-database/retention-range-interval.png)
+    :::image type="content" source="./media/backup-azure-sql-database/sql-retention-range-inline.png" alt-text="Captura de pantalla que muestra la configuración del intervalo del período de retención." lightbox="./media/backup-azure-sql-database/sql-retention-range-expanded.png":::
 
 1. Seleccione **Aceptar** para aceptar la configuración de las copias de seguridad completas.
 1. Seleccione el vínculo **Editar** correspondiente a **Copia de seguridad diferencial** para modificar la configuración predeterminada.
@@ -239,9 +237,10 @@ Para crear una directiva de copia de seguridad:
     * En **Differential Backup policy** (Directiva de copia de seguridad diferencial), seleccione **Enable** (Habilitar) para abrir los controles de retención y frecuencia.
     * Puede desencadenar una copia de seguridad diferencial al día. No se puede desencadenar una copia de seguridad diferencial y una copia de seguridad completa en el mismo día.
     * Como máximo, las copias de seguridad diferenciales se pueden retener durante 180 días.
+    * El período de retención de la copia de seguridad diferencial no puede ser mayor que el de la copia de seguridad completa (ya que las copias de seguridad diferenciales dependen de las copias de seguridad completas para la recuperación).
     * No se admite la copia de seguridad diferencial para la base de datos maestra.
 
-      ![Directiva de copia de seguridad diferencial](./media/backup-azure-sql-database/differential-backup-policy.png)
+    :::image type="content" source="./media/backup-azure-sql-database/sql-differential-backup-inline.png" alt-text="Captura de pantalla que muestra la directiva de copia de seguridad diferencial." lightbox="./media/backup-azure-sql-database/sql-differential-backup-expanded.png":::
 
 1. Seleccione el vínculo **Editar** correspondiente a **Copia de seguridad de registros** para modificar la configuración predeterminada.
 
@@ -250,7 +249,7 @@ Para crear una directiva de copia de seguridad:
     * Si la base de datos se encuentra en el [modelo de recuperación simple](/sql/relational-databases/backup-restore/recovery-models-sql-server), se pausará la programación de copias de seguridad de registros de esa base de datos y, por tanto, no se desencadenará ninguna copia de seguridad de registros.
     * Si el modelo de recuperación de la base de datos cambia de **Completa** a **Simple**, las copias de seguridad de registros se pausarán en un plazo de 24 horas después del cambio en el modelo de recuperación. Del mismo modo, si el modelo de recuperación cambia desde **Simple**, lo que implica que puedan admitirse copias de seguridad de registros en la base de datos, las programaciones de copias de seguridad de registros se habilitarán en un plazo de 24 horas después del cambio en el modelo de recuperación.
 
-      ![Directiva de copia de seguridad de registros](./media/backup-azure-sql-database/log-backup-policy.png)
+    :::image type="content" source="./media/backup-azure-sql-database/sql-log-backup-inline.png" alt-text="Captura de pantalla que muestra la directiva de copia de seguridad de registros." lightbox="./media/backup-azure-sql-database/sql-log-backup-expanded.png":::
 
 1. En el menú **Directiva de copia de seguridad**, elija si quiere habilitar la **compresión de copia de seguridad de SQL** o no. Esta opción está deshabilitada de manera predeterminada. Si está habilitada, SQL Server enviará una secuencia de copia de seguridad comprimida a VDI. Azure Backup invalida los valores predeterminados de nivel de instancia con la cláusula COMPRESSION/NO_COMPRESSION según el valor de este control.
 

@@ -8,14 +8,16 @@ ms.date: 10/06/2019
 ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: bacf4f808a7e963c11e8790636dabe1f3f4e4a47
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 702b2fcd2c5cb88adf7c610287dbb9be7089268b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129044196"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130258323"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud-deprecated"></a>Uso del seguimiento distribuido con Azure Spring Cloud (en desuso)
+> [!NOTE]
+> El seguimiento distribuido está en desuso. Para más información, consulte [Agente In-Process de Java de Application Insights en Azure Spring Cloud](./how-to-application-insights.md).
 
 Con las herramientas de seguimiento distribuido de Azure Spring Cloud, puede depurar y supervisar fácilmente problemas complejos. Azure Spring Cloud integra [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) con [Application Insights](../azure-monitor/app/app-insights-overview.md) de Azure. Esta integración proporciona una funcionalidad eficaz de seguimiento distribuido desde Azure Portal.
 
@@ -105,7 +107,7 @@ En este artículo aprenderá a:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para realizar estos procedimientos, necesita un servicio de Azure Spring Cloud que ya esté aprovisionado y en ejecución. Complete el inicio rápido [Implementación de la primera aplicación de Azure Spring Cloud](./quickstart.md) para aprovisionar y ejecutar un servicio de Azure Spring Cloud.
+Para realizar estos procedimientos, necesita un servicio de Azure Spring Cloud que ya esté aprovisionado y en ejecución. Complete el inicio rápido [Implementación de la primera aplicación de Spring Boot en Azure Spring Cloud](./quickstart.md) para aprovisionar y ejecutar un servicio de Azure Spring Cloud.
 
 ## <a name="add-dependencies"></a>Adición de dependencias
 

@@ -7,14 +7,14 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: overview
-ms.openlocfilehash: 6ac96cb0420ecdba934b364c185bedf01f9f4321
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: 9c3c5cd60c7eec5832d8e609e960fd42d38855cc
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822655"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131557820"
 ---
 #  <a name="create-azure-arc-data-controller-from-azure-portal---direct-connectivity-mode"></a>Creación de un controlador de datos de Azure Arc desde Azure Portal: modo de conexión directa
 
@@ -43,12 +43,11 @@ Cualquiera de estas acciones debería llevarle a la página de requisitos previo
   - Seleccione una **Ubicación personalizada** creada previamente o seleccione "Crear nueva" para crear una nueva ubicación personalizada. Si decide crear una ubicación personalizada, escriba un nombre para la nueva ubicación personalizada, seleccione el clúster de Kubernetes habilitado para Azure Arc en la lista desplegable y, a continuación, escriba un espacio de nombres que se asociará a la nueva ubicación personalizada y, por último, seleccione Crear en la ventana Create new custom location (Crear ubicación personalizada). Más información sobre las [ubicaciones personalizadas](../kubernetes/conceptual-custom-locations.md)
   - **Configuración de Kubernetes**: seleccione la plantilla de configuración de Kubernetes que mejor se adapte a la distribución de Kubernetes en la lista desplegable. Si decide usar su propia configuración o tiene un perfil personalizado que desea usar, seleccione la opción Plantilla personalizada en la lista desplegable. En la hoja que se abre en el lado derecho, escriba los detalles para credenciales de Docker, información del repositorio, etiqueta de imagen, directiva de extracción de imágenes, tipo de infraestructura, configuración de almacenamiento para datos, registros y sus tamaños, tipo de servicio y puertos para el proxy de administración y controlador. Seleccione Aplicar cuando se proporcione toda la información necesaria. También puede elegir cargar su propio archivo de plantilla seleccionando "Upload a template (JSON)" [Cargar una plantilla (JSON)] en la parte superior de la hoja. Si usa la configuración personalizada y desea descargar una copia de esa configuración, use "Download this template (JSON)" [Descargar esta plantilla (JSON)] para hacerlo. Obtenga más información sobre los [perfiles de configuración personalizados](create-custom-configuration-template.md).
   - Seleccione el **Tipo de servicio** adecuado para su entorno.
-  - **Cuenta de administrador**: escriba las credenciales para el inicio de sesión y la contraseña del controlador de datos.
-  - **Entidad de servicio**: escriba el identificador de cliente, el identificador de inquilino y la información del secreto de cliente para la cuenta de entidad de servicio que se va a usar.
+  - **Credenciales de los paneles de métricas y registros**: escriba las credenciales de los paneles de Grafana y Kibana.
   - Seleccione el botón "Siguiente: Configuración adicional" para continuar después de proporcionar toda la información necesaria.
 - En la página **Configuración adicional**:
-  - Si decide cargar los registros en Azure Log Analytics automáticamente, escriba el identificador del área de trabajo de Log Analytics y la clave de acceso compartido de Log Analytics.
-  - Si decide NO cargar los registros en Azure Log Analytics automáticamente, desactive la casilla "Enable logs upload" (Habilitar carga de registros).
+  - **Carga de métricas:** seleccione esta opción para cargar automáticamente las métricas en Azure Monitor, con el fin de agregar y analizar métricas, generar alertas, enviar notificaciones o desencadenar acciones automatizadas. Se concederá el rol **Publicador de métricas de supervisión** a la identidad administrada de la extensión. 
+  - **Carga de registros:** seleccione esta opción para cargar automáticamente los registros en un área de trabajo de Log Analytics existente. Escriba el identificador del área de trabajo de Log Analytics y la clave de acceso compartido de Log Analytics. 
   - Seleccione "Siguiente: Etiquetas" para continuar.
 - En la página **Etiquetas**, escriba los nombres y valores de las etiquetas y seleccione "Siguiente: Revisar y crear".
 - En la página **Revisar y crear**, vea el resumen de la implementación. Asegúrese de que toda la configuración sea correcta y seleccione "Crear" para empezar a implementar el controlador de datos de Azure Arc.

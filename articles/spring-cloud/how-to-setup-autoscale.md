@@ -1,25 +1,27 @@
 ---
-title: Configuración de la escalabilidad automática para aplicaciones de microservicios
+title: Configuración de la escalabilidad automática para aplicaciones
 description: En este artículo se describe cómo configurar el escalado automático en las aplicaciones mediante Azure Portal o la CLI de Azure.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 11/03/2021
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: d1e0b9cb6beb48e6f9ae8c8d5d985f4dfd930d2d
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 67b5976e8df650ac8961cdb428338ca8147878d4
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122015507"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131846641"
 ---
-# <a name="set-up-autoscale-for-microservice-applications"></a>Configuración de la escalabilidad automática para aplicaciones de microservicios
+# <a name="set-up-autoscale-for-applications"></a>Configuración de la escalabilidad automática para aplicaciones
 
 **Este artículo se aplica a:** ✔️ Java ✔️ C#
 
-El escalado automático es una característica integrada de Azure Spring Cloud que ayuda a las aplicaciones de microservicios a lograr el máximo rendimiento cuando la demanda cambia. Para ello se pueden modificar el número de CPU virtuales, la memoria y las instancias de las aplicaciones. En este artículo se describe cómo configurar el escalado automático en las aplicaciones mediante Azure Portal o la CLI de Azure.
+En este artículo se describe cómo configurar el escalado automático en las aplicaciones mediante Azure Portal o la CLI de Azure.
 
+La escalabilidad automática es una característica integrada de Azure Spring Cloud que ayuda a las aplicaciones a lograr el máximo rendimiento cuando la demanda cambia. Azure Spring Cloud admite la escalabilidad y reducción horizontales, lo que engloba la modificación del número de instancias de aplicación y el equilibrio de carga.
+ 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para seguir estos procedimientos, necesita:
@@ -44,7 +46,7 @@ Para seguir estos procedimientos, necesita:
 
 Hay dos opciones para la administración de la demanda de escalabilidad automática:
 
-* Escala manual: mantiene un recuento de instancias fijo. en el nivel Estándar, es posible escalar horizontalmente hasta 500 instancias. Este valor cambia el número de instancias independientes en ejecución de la aplicación de microservicios.
+* Escala manual: mantiene un recuento de instancias fijo. en el nivel Estándar, es posible escalar horizontalmente hasta 500 instancias. Este valor cambia el número de instancias independientes en ejecución de la aplicación.
 * Escalabilidad automática personalizada: realiza la escalabilidad en cualquier programación y basada en cualquier métrica.
 
 En Azure Portal, elija cómo desea realizar la escalabilidad.  En la ilustración siguiente se muestran la opción **Escalabilidad automática** y la configuración del modo.

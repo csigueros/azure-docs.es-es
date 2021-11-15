@@ -11,12 +11,13 @@ ms.topic: reference
 ms.date: 06/02/2021
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 3b9fa2ad92756ef06510298bb2b29ac486ca9e57
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.custom: b2c-support
+ms.openlocfilehash: 8e3ceab429f92340a080a6a42afd095375ce51b1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130035217"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130266094"
 ---
 # <a name="azure-active-directory-b2c-service-limits-and-restrictions"></a>Restricciones y límites del servicio Azure Active Directory B2C
 
@@ -46,8 +47,8 @@ En la tabla siguiente se enumeran los límites de configuración administrativa 
 |Límite de cadena por atributo      |250 caracteres          |
 |Número de inquilinos de B2C por suscripción      |20         |
 |Niveles de[herencia](custom-policy-overview.md#inheritance-model) en directivas personalizadas     |10         |
-|Número de directivas por inquilino de Azure AD B2C      |200          |
-|Tamaño máximo de archivo de directiva      |400 KB          |
+|Número de directivas por inquilino de Azure AD B2C (flujos de usuario + directivas personalizadas)     |200          |
+|Tamaño máximo de archivo de directiva      |1024 KB          |
 
 <sup>1</sup> Consulte también [Restricciones y límites del servicio Azure AD](../active-directory/enterprise-users/directory-service-limits-restrictions.md).
 

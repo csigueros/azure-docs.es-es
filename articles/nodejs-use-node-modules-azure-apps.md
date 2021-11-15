@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: routlaw
-ms.openlocfilehash: f61f08f32ebb2b721846d3c3017405af99421104
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0abb7a982cc3be95c92035ffffb7c3a4778ab40
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95542225"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131457324"
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Uso de módulos Node.js con aplicaciones de Azure
 Este documento le proporciona orientación sobre el uso de módulos Node.js con aplicaciones hospedadas en Azure. Mediante este documento podrá asegurarse de que su aplicación use una versión específica de un módulo y de que use módulos nativos con Azure.
@@ -70,7 +70,7 @@ Un posible problema con el archivo **package.json** es que solo especifica la ve
 >
 >
 
-### <a name="using-a-npm-shrinkwrapjson-file"></a>Uso de un archivo npm-shrinkwrap.json
+### <a name="using-an-npm-shrinkwrapjson-file"></a>Uso de un archivo npm-shrinkwrap.json
 El archivo **npm-shrinkwrap.json** es un intento de solucionar las limitaciones de la versión del módulo del archivo **package.json**. Mientras que el archivo **package.json** solo incluye versiones para los módulos de nivel superior, el archivo **npm-shrinkwrap.json** contiene los requisitos de la versión para la cadena de dependencia del módulo completa.
 
 Cuando la aplicación esté preparada para producción, puede bloquear los requisitos de la versión y crear un archivo **npm-shrinkwrap.json** mediante el comando **npm shrinkwrap**. Este comando usará las versiones instaladas actualmente en la carpeta **node\_modules** y registrará las versiones en el archivo **npm-shrinkwrap.json**. Una vez implementada la aplicación en el entorno de hospedaje, se usa el comando **npm install** para analizar el archivo **npm-shrinkwrap.json** e instalar todas las dependencias enumeradas. Para más información, consulte [npm-shrinkwrap](https://docs.npmjs.com/cli/shrinkwrap).

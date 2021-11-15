@@ -1,5 +1,5 @@
 ---
-title: 'Script de la CLI: Restauración de una instancia de Azure Database for MySQL: servidor flexible (versión preliminar)'
+title: 'Script de la CLI: Restauración de una instancia de Azure Database for MySQL: servidor flexible'
 description: 'En este script de la CLI de Azure de ejemplo se muestra cómo restaurar una única instancia de Azure Database for MySQL: servidor flexible a un momento anterior.'
 author: shreyaaithal
 ms.author: shaithal
@@ -8,14 +8,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 09/15/2021
-ms.openlocfilehash: d2e554bfa4d9851687542bbae8d66d51bf270bbd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f109da4924f04cd97fbe9cd816c2da45ce5c0e2d
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128702216"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131844167"
 ---
-# <a name="restore-an-azure-database-for-mysql---flexible-server-preview-using-azure-cli"></a>Restauración de una instancia de Azure Database for MySQL: servidor flexible (versión preliminar) mediante la CLI de Azure
+# <a name="restore-an-azure-database-for-mysql---flexible-server-using-azure-cli"></a>Restauración de una instancia de Azure Database for MySQL con la opción Servidor flexible mediante la CLI de Azure
 
 Azure Database for MySQL: servidor flexible crea automáticamente copias de seguridad del servidor y las almacena de forma segura en almacenamiento con redundancia local en la región.
 
@@ -56,5 +56,5 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Pruebe scripts adicionales en: [Ejemplos de la CLI de Azure para Azure Database for MySQL: servidor flexible (versión preliminar)](../sample-scripts-azure-cli.md).
+- Pruebe otros scripts: [Ejemplos de la CLI de Azure para Azure Database for MySQL: servidor flexible](../sample-scripts-azure-cli.md).
 - Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](/cli/azure).

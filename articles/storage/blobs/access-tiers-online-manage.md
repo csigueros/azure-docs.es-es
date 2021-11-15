@@ -10,12 +10,12 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2e6a5cc63dceff6145f66fd5a23e4ffb89a3817f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 7cd01ff89ffdf01676a9a7c3ef5d41ac1bf138a6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093157"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441502"
 ---
 # <a name="set-a-blobs-access-tier"></a>Establecimiento del nivel de acceso de un blob
 
@@ -28,7 +28,7 @@ Puede establecer el nivel de acceso de un blob de cualquiera de las maneras sigu
 
 En este artículo se describe cómo administrar un blob en un nivel de acceso en línea (frecuente o esporádico). Para obtener más información sobre cómo mover un blob al nivel de archivo, consulte [Archivado de un blob](archive-blob.md). Para más información sobre cómo rehidratar un blob desde el nivel de archivo, consulte [Rehidratación de un blob archivado a un nivel en línea](archive-rehydrate-to-online-tier.md).
 
-Para más información acerca de los niveles de acceso, consulte [Niveles de acceso frecuente, esporádico y de archivo de los datos de blobs](access-tiers-overview.md).
+Para más información acerca de los niveles de acceso para blobs, consulte [Niveles de acceso frecuente, esporádico y de archivo para los datos de blobs](access-tiers-overview.md).
 
 ## <a name="set-the-default-access-tier-for-a-storage-account"></a>Establecimiento del nivel de acceso predeterminado de una cuenta de almacenamiento
 

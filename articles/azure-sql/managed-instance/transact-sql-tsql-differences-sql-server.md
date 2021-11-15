@@ -9,14 +9,14 @@ ms.topic: reference
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma, bonova, danil
-ms.date: 8/18/2021
+ms.date: 10/21/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 1f8d848c87979419b4c2605560c3c371edfa5147
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: dad341c2d4323346619c20da105f7f50f21f67bc
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130045699"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131431035"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferencias de T-SQL entre SQL Server y una Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -145,14 +145,14 @@ Una Instancia administrada de SQL no puede acceder a archivos, por lo que no se 
     La Instancia administrada de SQL admite las entidades de seguridad de la base de datos de Azure AD con la sintaxis `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. Esta característica también se conoce como usuarios de bases de datos independientes de Azure AD.
 
 - No se admiten los inicios de sesión de Windows creados con la sintaxis `CREATE LOGIN ... FROM WINDOWS`. Use los usuarios e inicios de sesión de Azure Active Directory.
-- El usuario de Azure AD que creó la instancia tiene [privilegios de administrador sin restricciones](../database/logins-create-manage.md).
+- El administrador de Azure AD de la instancia tiene [privilegios de administrador sin restricciones](../database/logins-create-manage.md).
 - Los usuarios de nivel de base de datos de Azure AD que no son administradores pueden crearse con la sintaxis `CREATE USER ... FROM EXTERNAL PROVIDER`. Consulte [CREATE USER ... FROM EXTERNAL PROVIDER](../database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities).
 - Las entidades de seguridad (inicios de sesión) del servidor de Azure AD admiten las características SQL en una única Instancia administrada de SQL. No se admiten las características que requieren una interacción entre instancias, con independencia de que se encuentren en el mismo inquilino de Azure AD o en inquilinos diferentes, para los usuarios de Azure AD. Ejemplos de estas características son los siguientes:
 
   - Replicación transaccional de SQL.
   - Servidor de vínculos.
 
-- No se admite el establecimiento de un inicio de sesión de Azure AD asignado a un grupo de Azure AD como propietario de la base de datos.
+- No se admite el establecimiento de un inicio de sesión de Azure AD asignado a un grupo de Azure AD como propietario de la base de datos. Un miembro del grupo de Azure AD puede ser propietario de la base de datos, incluso si el inicio de sesión no se ha creado en la base de datos.
 - Se admite la suplantación de las entidades de seguridad en el nivel de servidor de Azure AD mediante otras entidades de seguridad de Azure AD, como la cláusula [EXECUTE AS](/sql/t-sql/statements/execute-as-transact-sql). Las limitaciones de EXECUTE AS son:
 
   - No se admite la cláusula EXECUTE AS USER para usuarios de Azure AD cuando el nombre es diferente del nombre de inicio de sesión. Por ejemplo, cuando el usuario se crea mediante la sintaxis CREATE USER [myAadUser] FROM LOGIN [john@contoso.com] y se intenta suplantar la identidad mediante EXEC AS USER = _myAadUser_. Cuando cree un usuario en **USER** a partir de una entidad de seguridad (inicio de sesión) de un servidor de Azure AD, especifique un valor de user_name igual que el valor de login_name que se obtiene de **LOGIN**.
@@ -175,15 +175,13 @@ Una Instancia administrada de SQL no puede acceder a archivos, por lo que no se 
 - Si el inicio de sesión es una entidad de seguridad de SQL, solo los inicios de sesión que forman parte del rol `sysadmin` pueden utilizar el comando create para crear inicios de sesión para una cuenta de Azure AD.
 - El inicio de sesión de Azure AD debe ser miembro de una instancia de Azure AD dentro del mismo directorio que se usa para la Instancia administrada de Azure SQL.
 - Las entidades de seguridad (inicio de sesión) del servidor de Azure AD son visibles en el explorador de objetos a partir de la versión preliminar 5 de SQL Server Management Studio 18.0.
-- Se permite la superposición de las entidades de seguridad (inicios de sesión) del servidor de Azure AD con una cuenta de administrador de Azure AD. Las entidades de seguridad (inicios de sesión) del servidor de Azure AD tienen prioridad sobre el administrador de Azure AD cuando se resuelve la entidad de seguridad y se aplican permisos a la Instancia administrada de SQL.
+- Una entidad de seguridad de servidor con el nivel de acceso *sysadmin* se crea automáticamente para la cuenta de administrador de Azure AD una vez habilitada en una instancia.
 - Durante la autenticación, se aplica la siguiente secuencia para resolver la entidad de seguridad de autenticación:
 
     1. Si la cuenta de Azure AD existe como directamente asignada a la entidad de seguridad (inicio de sesión) del servidor de Azure AD que está presente en sys.server_principals como tipo "E", conceda acceso y aplique los permisos de la entidad de seguridad (inicio de sesión) del servidor de Azure AD.
-    2. Si la cuenta de Azure AD es un miembro de un grupo de Azure AD que está asignado a la entidad de seguridad (inicio de sesión) del servidor de Azure AD (presente en sys.server_principals como tipo "X"), conceda acceso y aplique los permisos del inicio de sesión del grupo de Azure AD.
-    3. Si la cuenta de Azure AD es un administrador de Azure AD configurado en un portal especial para la Instancia administrada de SQL, que no existe en las vistas de sistema de la Instancia administrada de SQL, aplique permisos fijos especiales del administrador de Azure AD para la Instancia administrada de SQL (modo heredado).
-    4. Si la cuenta de Azure AD existe como directamente asignada a un usuario de Azure AD de una base de datos, presente en sys.database_principals como tipo "E", conceda acceso y aplique los permisos del usuario de la base de datos de Azure AD.
-    5. Si la cuenta de Azure AD es un miembro de un grupo de Azure AD que está asignado a un usuario de Azure AD de una base de datos, presente en sys.database_principals como tipo "X", conceda acceso y aplique los permisos del inicio de sesión del grupo de Azure AD.
-    6. Si hay un inicio de sesión de Azure AD asignado a una cuenta de usuario de Azure AD o a una cuenta de grupo de Azure AD, la cual resuelve la autenticación del usuario, se aplicarán todos los permisos de este inicio de sesión de Azure AD.
+    1. Si la cuenta de Azure AD es un miembro de un grupo de Azure AD que está asignado a la entidad de seguridad (inicio de sesión) del servidor de Azure AD (presente en sys.server_principals como tipo "X"), conceda acceso y aplique los permisos del inicio de sesión del grupo de Azure AD.
+    1. Si la cuenta de Azure AD existe como directamente asignada a un usuario de Azure AD de una base de datos, presente en sys.database_principals como tipo "E", conceda acceso y aplique los permisos del usuario de la base de datos de Azure AD.
+    1. Si la cuenta de Azure AD es un miembro de un grupo de Azure AD que está asignado a un usuario de Azure AD de una base de datos, presente en sys.database_principals como tipo "X", conceda acceso y aplique los permisos del usuario del grupo de Azure AD.
 
 ### <a name="service-key-and-service-master-key"></a>Clave maestra de servicio y clave de servicio
 
@@ -393,7 +391,7 @@ No se admite la [búsqueda semántica](/sql/relational-databases/search/semantic
 
 ### <a name="linked-servers"></a>Servidores vinculados
 
-Los servidores vinculados en la Instancia administrada de SQL admiten un número limitado de destinos:
+Los [servidores vinculados](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) en SQL Managed Instance admiten un número limitado de destinos:
 
 - Los destinos admitidos son SQL Managed Instance, SQL Database, grupos de Azure Synapse SQL [sin servidor](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) y dedicados e instancias de SQL Server. 
 - Las transacciones de escritura distribuidas solo son posibles entre instancias administradas. Vea [Transacciones distribuidas](../database/elastic-transactions-overview.md) para obtener más información. Sin embargo, no se admite MS DTC.
@@ -405,13 +403,13 @@ Operaciones:
 - Se admite `sp_dropserver` para quitar un servidor vinculado. Consulte [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - La función `OPENROWSET` se puede usar para ejecutar consultas solo en instancias de SQL Server. Se pueden administrar de forma local o en máquinas virtuales. Consulte [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
 - La función `OPENDATASOURCE` se puede usar para ejecutar consultas solo en instancias de SQL Server. Se pueden administrar de forma local o en máquinas virtuales. Solo se admiten los valores `SQLNCLI`, `SQLNCLI11` y `SQLOLEDB` como proveedor. Un ejemplo es `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Consulte [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).
-- Los servidores vinculados no se pueden usar para leer archivos (Excel y CSV) de los recursos compartidos de red. Intente usar [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file), [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) que lee los archivos CSV de Azure Blob Storage o un [servidor vinculado que hace referencia a un grupo de SQL sin servidor en Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/). Realice un seguimiento de estas solicitudes en el [elemento de comentarios de la Instancia administrada de SQL](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|.
+- Los servidores vinculados no se pueden usar para leer archivos (Excel y CSV) de los recursos compartidos de red. Intente usar [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file), [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) que lee los archivos CSV de Azure Blob Storage o un [servidor vinculado que hace referencia a un grupo de SQL sin servidor en Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/). Realice un seguimiento de estas solicitudes en el [elemento de comentarios de la Instancia administrada de SQL](https://feedback.azure.com/d365community/idea/db80cf6e-3425-ec11-b6e6-000d3a4f0f84)|.
 
-Los servidores vinculados en Azure SQL Managed Instance solo admiten la autenticación de SQL. Todavía no se admite la autenticación de AAD.
+Los servidores vinculados de Azure SQL Managed Instance admiten tanto la autenticación de SQL como la [autenticación de AAD](https://docs.microsoft.com/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine#linked-servers-with-azure-sql-managed-instance).
 
 ### <a name="polybase"></a>PolyBase
 
-El trabajo para habilitar la compatibilidad con PolyBase en SQL Managed Instance está [en curso](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35698078-enable-polybase-on-sql-managed-instance). Mientras tanto, como solución alternativa, puede usar servidores vinculados a un [grupo de SQL sin servidor en Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) o a SQL Server para consultar datos de archivos almacenados en Azure Data Lake o Azure Storage.   
+El trabajo para habilitar la compatibilidad con PolyBase en SQL Managed Instance está [en curso](https://feedback.azure.com/d365community/idea/ccc44856-3425-ec11-b6e6-000d3a4f0f84). Mientras tanto, como solución alternativa, puede usar servidores vinculados a un [grupo de SQL sin servidor en Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) o a SQL Server para consultar datos de archivos almacenados en Azure Data Lake o Azure Storage.   
 Para obtener información general acerca de PolyBase, consulte [PolyBase](/sql/relational-databases/polybase/polybase-guide).
 
 ### <a name="replication"></a>Replicación

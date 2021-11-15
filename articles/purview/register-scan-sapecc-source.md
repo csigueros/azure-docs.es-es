@@ -1,19 +1,19 @@
 ---
 title: Conexión y administración de un origen de SAP ECC
 description: En esta guía se describe cómo conectarse a SAP ECC en Azure Purview y cómo usar las características de Purview para examinar y administrar el origen de SAP ECC.
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 11/04/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: f1cd45b16c9569eb5069fa1cfb6a1f09eb97f3fb
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: edc70416671e57624b5e36d90de37f0e9cefd74c
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131023773"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131850648"
 ---
 # <a name="connect-to-and-manage-sap-ecc-in-azure-purview"></a>Conexión y administración de SAP ECC en Azure Purview
 
@@ -23,7 +23,9 @@ En este artículo se describe cómo registrar SAP ECC y cómo autenticarse e int
 
 |**Extracción de metadatos**|  **Examen completo**  |**Examen incremental**|**Examen con ámbito**|**Clasificación**|**Directiva de acceso**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Sí](#register)| [Sí](#scan)| No | No | No | No| [Sí](how-to-lineage-sapecc.md)|
+| [Sí](#register)| [Sí](#scan)| No | No | No | No| [Sí**](how-to-lineage-sapecc.md)|
+
+\** Se admite el linaje si el conjunto de datos se usa como origen o receptor en la [actividad de copia de Data Factory](how-to-link-azure-data-factory.md). 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -38,6 +40,10 @@ En este artículo se describe cómo registrar SAP ECC y cómo autenticarse e int
 * Asegúrese de que [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) esté instalado en la máquina virtual donde también lo esté el entorno de ejecución de integración autohospedado.
 
 * Asegúrese de que Visual C++ Redistributable para Visual Studio 2012 Update 4 esté instalado en la máquina del entorno de ejecución de integración autohospedado. Si no tiene instalada esta actualización, [puede descargarla de aquí](https://www.microsoft.com/download/details.aspx?id=30679).
+
+* Descargue el [conector de SAP para Microsoft .NET 3.0](https://support.sap.com/en/product/connectors/msnet.html) de 64 bits del sitio web de SAP e instálelo en la máquina del entorno de ejecución de integración autohospedado. Al instalarlo, asegúrese de seleccionar la opción **Install Assemblies to GAC** (Instalar ensamblados en GAC) en la ventana **Optional setup steps** (Pasos de configuración opcionales).
+
+    :::image type="content" source="media/register-scan-saps4hana-source/requirement.png" alt-text="Requisito previo" border="true":::
 
 * El conector lee los metadatos de SAP mediante la versión 3.0 de la API del [conector de Java (JCo) para SAP](https://support.sap.com/en/product/connectors/jco.html). Asegúrese de que el conector de Java esté disponible en la máquina virtual donde está instalado el entorno de ejecución de integración autohospedado. Asegúrese de que usa la distribución de JCo correcta para su entorno. Por ejemplo, en una máquina de Microsoft Windows, asegúrese de que los archivos sapjco3.jar y sapjco3.dll estén disponibles.
 

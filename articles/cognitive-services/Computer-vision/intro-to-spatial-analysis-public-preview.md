@@ -11,16 +11,16 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 10/06/2021
 ms.custom: contperf-fy22q2
-ms.openlocfilehash: 9553c7e177bdc78b071d6ed68725879e46c9ef5e
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: fd160aa2ba4a626e12db638694cb6d971b19fbd2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129668454"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469946"
 ---
 # <a name="what-is-spatial-analysis"></a>¿Qué es Spatial Analysis?
 
-Spatial Analysis es un servicio de inteligencia artificial que ayuda a las organizaciones a maximizar el valor de sus espacios físicos mediante el conocimiento de los movimientos y la presencia de personas en un área determinada. Le permite ingerir vídeos de cámaras de CCTV o de vigilancia, extraer información de las secuencias de vídeo y generar eventos para que los usen otros sistemas. Con la entrada de una transmisión de cámara, el servicio puede hacer cosas como contar el número de personas que entran en un sitio o medir el cumplimiento de las directrices de uso de mascarillas y distanciamiento social.
+Puede usar el análisis espacial de Computer Vision para ingerir vídeo de streaming de cámaras, extraer información y generar eventos que puedan usar otros sistemas. El servicio detecta la presencia y los movimientos de las personas del vídeo. Puede hacer cosas como contar el número de personas que entran en un espacio o medir el cumplimiento de las directrices de mascarilla y distancia social. Al procesar secuencias de vídeo de espacios físicos, puede aprender cómo los usan los usuarios y maximizar el valor del espacio para su organización. 
 
 <!--This documentation contains the following types of articles:
 * The [quickstarts](./quickstarts-sdk/analyze-image-client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
@@ -29,18 +29,26 @@ Spatial Analysis es un servicio de inteligencia artificial que ayuda a las organ
 * The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions.-->
 
 ## <a name="what-it-does"></a>Qué hace
+El análisis espacial ingiere vídeo y, luego, detecta personas en él. Cuando esto sucede, el sistema rastrea a la gente a medida que se mueve en el tiempo y, luego, genera eventos cuando interactúa con las regiones de interés. Todas las operaciones proporcionan información detallada desde el campo de visión de una sola cámara. 
 
-Las operaciones principales de Spatial Analysis se basan en un sistema que ingiere vídeo, detecta personas en él, realiza un seguimiento de esas personas cuando aparecen en el vídeo y genera eventos a medida que la gente interactúa con regiones de interés.
+### <a name="people-counting"></a>Recuento de personas
+Esta operación cuenta el número de personas de una zona específica a lo largo del tiempo mediante la operación PersonCount. Se genera un recuento independiente para cada fotograma procesado sin intentar realizar un seguimiento de las personas entre fotogramas. Esta operación se puede usar para calcular el número de personas en un espacio o generar una alerta cuando aparezca una persona.
 
-## <a name="spatial-analysis-features"></a>Características de Spatial Analysis
+![El análisis espacial cuenta el número de personas en el campo de visión de las cámaras](https://user-images.githubusercontent.com/11428131/139924111-58637f2e-f2f6-42d8-8812-ab42fece92b4.gif)
 
-| Característica | Definición |
-|------|------------|
-| **Detección de personas** | Este componente responde a la pregunta, "¿Dónde están las personas en esta imagen?" Busca personas en una imagen y pasa las coordenadas de un rectángulo delimitador que indica la ubicación de cada persona al componente de **seguimiento de personas**. |
-| **Seguimiento de personas** | Este componente conecta las detecciones de personas cuando se mueven delante de una cámara. Usa una lógica temporal relativa a la forma en que suelen moverse las personas, e información básica sobre la apariencia general de la gente. No realiza un seguimiento de las personas a lo largo de varias cámaras. Si una persona sale del campo de visión de una cámara durante más de un minuto aproximadamente y luego vuelve a entrar en él, el sistema la percibirá como una nueva persona. El seguimiento de personas no identifica de forma exclusiva a las personas entre las cámaras. No usa el reconocimiento facial ni el seguimiento de la forma de caminar. |
-| **Detección de máscaras faciales** | Este componente detecta la ubicación de la cara de una persona en el campo de visión de la cámara e identifica la presencia de una máscara facial. La operación de inteligencia artificial examina las imágenes del vídeo y cuando se detecta una cara, el servicio coloca un rectángulo delimitador alrededor de la cara. Con las funcionalidades de detección de objetos, identifica la presencia de máscaras faciales dentro del cuadro de límite. La detección de mascarillas no implica distinguir una cara de otra, predecir ni clasificar atributos faciales ni realizar el reconocimiento facial. |
-| **Región de interés** | Este componente es una zona o línea definidas por el usuario en el fotograma de vídeo de entrada. Cuando una persona interactúa con esta región del vídeo, el sistema genera un evento. Por ejemplo, para la operación **PersonCrossingLine**, se define una línea en el fotograma de vídeo. Cuando una persona cruza esa línea, se genera un evento. |
-| **Evento** | Un evento es la salida principal de Spatial Analysis. Cada operación emite un evento específico de forma periódica (aproximadamente una vez por minuto) o cada vez que se produce un desencadenador concreto. El evento incluye información sobre lo que pasó en el vídeo de entrada, pero no incluye imágenes ni vídeo. Por ejemplo, la operación **PeopleCount** puede emitir un evento que contenga un recuento actualizado cada vez que el número de personas cambia (es decir, el evento se desencadena) o una vez cada minuto (el evento se realiza periódicamente). |
+### <a name="entrance-counting"></a>Recuento de entradas
+Esta característica supervisa cuánto tiempo permanecen las personas en un área o cuándo entran por una puerta. Esta supervisión se puede realizar mediante las operaciones PersonCrossingPolygon o PersonCrossingLine. En escenarios comerciales, estas operaciones se pueden usar para medir los tiempos de espera en una línea de caja o la interacción en una pantalla. Además, estas operaciones podrían medir el tráfico peatonal en un vestíbulo o en una planta determinada en otros escenarios de edificio comercial.
+
+![El análisis espacial mide el tiempo de permanencia en la línea de caja](https://user-images.githubusercontent.com/11428131/137016574-0d180d9b-fb9a-42a9-94b7-fbc0dbc18560.gif)
+
+### <a name="social-distancing-and-facemask-detection"></a>Detección de mascarilla y distancia social 
+Esta característica analiza la manera en que las personas siguen las directrices de distancia social en un espacio. Con la operación PersonDistance, el sistema se calibra automáticamente a medida que las personas se mueven en el espacio. A continuación, identifica cuándo las personas infringen un umbral de distancia determinado (2 o 3 metros).
+
+![El análisis espacial visualiza los eventos de infracción de la distancia social y muestra líneas entre las personas para indicar la distancia](https://user-images.githubusercontent.com/11428131/139924062-b5e10c0f-3cf8-4ff1-bb58-478571c022d7.gif)
+
+El análisis espacial también se puede configurar para detectar si una persona lleva alguna protección para la cara, como una mascarilla. Existe la posibilidad de habilitar un clasificador de mascarillas para las operaciones PersonCount, PersonCrossingLine y PersonCrossingPolygon mediante la configuración del parámetro `ENABLE_FACE_MASK_CLASSIFIER`.
+
+![El análisis espacial clasifica si las personas llevan mascarilla en un ascensor](https://user-images.githubusercontent.com/11428131/137015842-ce524f52-3ac4-4e42-9067-25d19b395803.png)
 
 ## <a name="get-started"></a>Introducción
 
@@ -48,7 +56,7 @@ Siga el [inicio rápido](spatial-analysis-container.md) para configurar el conte
 
 ## <a name="responsible-use-of-spatial-analysis-technology"></a>Uso responsable de la tecnología de análisis espacial
 
-Para aprender a usar la tecnología de análisis espacial de forma responsable, consulte la [nota de transparencia](/legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext). Las notas de transparencia de Microsoft están pensadas para ayudarle a entender cómo funciona nuestra tecnología de inteligencia artificial, las elecciones que los propietarios del sistema pueden hacer que influyan en el rendimiento y el comportamiento del sistema y la importancia de pensar en todo el sistema, incluida la tecnología, las personas y el entorno.
+Para aprender a usar la tecnología de análisis espacial de forma responsable, consulte la [nota de transparencia](/legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext). Las notas de transparencia de Microsoft le ayudan a comprender cómo funciona nuestra tecnología de inteligencia artificial y las elecciones que los propietarios del sistema pueden hacer para influir en el rendimiento y el comportamiento del sistema. Se centran en la importancia de pensar en el sistema en su conjunto, incluida la tecnología, las personas y el entorno.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

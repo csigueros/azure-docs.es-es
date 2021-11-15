@@ -6,13 +6,13 @@ ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 10/04/2021
-ms.openlocfilehash: 58ea7624b32b7730863fe3d29f6d9245c4199d25
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.date: 10/19/2021
+ms.openlocfilehash: 1bc32941ec6ca5c7053b39a7730852568d13fb28
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129535296"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219068"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-net-sdk-v3"></a>Migración de la aplicación para usar el SDK de .NET v3 de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -197,6 +197,17 @@ Algunas opciones de `ConnectionPolicy` han cambiado de nombre o se han reemplaza
 |`EnableEndpointRediscovery`|`LimitToEndpoint`: ahora el valor se ha invertido, si `EnableEndpointRediscovery` estaba establecido en `true`, `LimitToEndpoint` debería estar establecido en `false`. Antes de usar esta configuración, debe comprender [cómo afecta al cliente](troubleshoot-sdk-availability.md).|
 |`ConnectionProtocol`|Quitado. El protocolo está asociado al modo, ya sea puerta de enlace (HTTPS) o directo (TCP). El modo directo con el protocolo HTTPS ya no se admite en el SDK V3; por ello, se recomienda usar el protocolo TCP. |
 |`MediaRequestTimeout`|Quitado. Ya no se admiten datos adjuntos.|
+
+### <a name="indexing-policy"></a>Directiva de indexación
+
+En la directiva de indexación, no es posible configurar estas propiedades. Cuando no se especifican, estas propiedades ahora siempre tendrán los siguientes valores:
+
+| **Nombre de la propiedad**     | **Nuevo valor (no configurable)** |
+| ----------------------- | -------------------------------- |
+| `Kind`   | `range` |
+| `dataType`    | `String` y `Number` |
+
+Consulte [esta sección](how-to-manage-indexing-policy.md#indexing-policy-examples) para obtener ejemplos de directivas de indexación a fin de incluir y excluir rutas de acceso. Debido a las mejoras en el motor de consultas, la configuración de estas propiedades, incluso si se usa una versión anterior del SDK, no tiene ningún impacto en el rendimiento.
 
 ### <a name="session-token"></a>Token de sesión
 

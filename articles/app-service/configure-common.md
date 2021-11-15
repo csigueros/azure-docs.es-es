@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 12/07/2020
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 1f8f8d81af6fb06bba9c48f5ae7d1fbb7f5d2e59
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ed6d0e397a8b0b6b8a3ad69e5dd91b4c60709e35
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730640"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130231845"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar una aplicación de App Service en Azure Portal
 
@@ -19,7 +19,7 @@ En este artículo se explica cómo configurar los parámetros comunes de aplicac
 
 ## <a name="configure-app-settings"></a>Configuración de aplicaciones
 
-En App Service, las configuraciones de aplicaciones son variables que se pasan como variables de entorno al código de la aplicación. En el caso de las aplicaciones Linux y de los contenedores personalizados, App Service pasa la configuración de la aplicación al contenedor mediante la marca `--env` para establecer la variable de entorno en el contenedor. En cualquier caso, se insertan en el entorno de la aplicación al iniciar la aplicación. Al agregar, quitar o editar la configuración de la aplicación, App Service desencadena un reinicio de la aplicación.
+En App Service, las configuraciones de aplicaciones son variables que se pasan como variables de entorno al código de la aplicación. En el caso de las aplicaciones Linux y de los contenedores personalizados, App Service pasa la configuración de la aplicación al contenedor mediante la marca `--env` para establecer la variable de entorno en el contenedor. En cualquier caso, se insertan en el entorno de la aplicación al iniciar la aplicación. Al agregar, quitar o editar la configuración de la aplicación, App Service desencadena un reinicio de la aplicación. Los nombres de configuración de aplicaciones no pueden contener puntos (`.`). Si una configuración de aplicación contiene un punto, este se reemplaza por un carácter de subrayado en el contenedor.
 
 En [Azure Portal], busque y seleccione **App Services** y luego elija la aplicación. 
 

@@ -5,12 +5,12 @@ author: shijatsu
 ms.author: shijain
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: b86e90298bc753cdea5c0fb5f255e88fcc26dc5c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 1c371a155f36574f7a443506c0b9090b6b3bd544
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114440762"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131447082"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-transition-guide"></a>Guía de transición del diseñador de vistas de Azure Monitor en Workbooks
 El [diseñador de vistas](view-designer.md) es una característica de Azure Monitor que permite crear vistas personalizadas para ayudar a visualizar datos en el área de trabajo de Log Analytics, con gráficos, listas y escalas de tiempo. Se ha realizado su transición a Libros para proporcionar un lienzo flexible para el análisis de datos y la creación de informes visuales completos en Azure Portal. Este artículo le ayuda a realizar la transición desde el diseñador de vistas a los libros. 
@@ -49,7 +49,7 @@ Aunque esta guía ofrece pasos sencillos para recrear directamente varias de las
 
 
 ## <a name="how-to-start-using-workbooks"></a>Cómo empezar a usar Workbooks
-Los libros abiertos de Workbooks están habilitados en las áreas de trabajo de Log Analytics como un elemento en la barra de navegación lateral, directamente debajo de la ubicación del diseñador de vistas.
+Abra libros desde el icono Libros en el área de trabajo de Log Analytics.
 
 ![Navegación en Workbooks](media/view-designer-conversion-overview/workbooks-nav.png)
 

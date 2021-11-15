@@ -1,54 +1,67 @@
 ---
-title: Configuración del inicio automático para una máquina virtual
+title: Configuración del inicio automático de una máquina virtual
 description: Aprenda a configurar el inicio automático para las máquinas virtuales de un laboratorio. Esta configuración permite que las máquinas virtuales del laboratorio se inicien automáticamente según una programación.
 ms.topic: how-to
-ms.date: 06/26/2020
-ms.openlocfilehash: 828350cb130e990d6a6ce3f16f084d5629518293
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/21/2021
+ms.openlocfilehash: 8493a5037c01741c11f89ec5df84adac2d2d70c3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128642954"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130255031"
 ---
-# <a name="auto-startup-lab-virtual-machines"></a>Inicio automático de máquinas virtuales del laboratorio  
-Azure DevTest Labs permite configurar las máquinas virtuales del laboratorio para que se inicien y se apaguen automáticamente según una programación. Para información sobre cómo configurar el apagado automático, consulte [Administración de directivas de apagado automático para un laboratorio en Azure DevTest Labs](devtest-lab-auto-shutdown.md). 
+# <a name="auto-startup-lab-virtual-machines"></a>Inicio automático de máquinas virtuales del laboratorio
 
-A diferencia del apagado automático en el que, cuando se activa la directiva, se incluyen todas las máquinas virtuales, la directiva de inicio automático requiere que un usuario del laboratorio seleccione explícitamente una máquina virtual y participe en esta programación. De este modo, no se dará sin querer el caso de que se inicien automáticamente máquinas virtuales no deseadas, causando un gasto inesperado.
+El inicio automático permite iniciar automáticamente máquinas virtuales (VM) en un laboratorio a una hora programada cada día. Primero debe crear una directiva de inicio automático. Luego, debe seleccionar qué máquinas virtuales deben seguir la directiva. El paso adicional de seleccionar de forma afirmativa las máquinas virtuales para el inicio automático está pensado para evitar el inicio involuntario de las máquinas virtuales, que conllevaría un aumento de los costos.
 
-En este artículo se muestra cómo configurar la directiva de inicio automático para un laboratorio.
+En este artículo se muestra cómo configurar una directiva de inicio automático en un laboratorio. Para información sobre cómo configurar el apagado automático, consulte [Administración de directivas de apagado automático para un laboratorio en Azure DevTest Labs](devtest-lab-auto-shutdown.md). 
 
-## <a name="configure-autostart-settings-for-a-lab"></a>Configuración del inicio automático para un laboratorio 
-1. Vaya a la página principal del laboratorio. 
-2. Seleccione **Configuración y directivas** en el menú de la izquierda. 
+## <a name="configure-auto-start-settings-for-a-lab"></a>Configuración del inicio automático en un laboratorio 
 
-    ![Captura de pantalla que muestra el menú "Configuración y directivas" en el laboratorio de DevTest.](./media/devtest-lab-auto-startup-vm/configuration-policies-menu.png)
-3. En la página **Configuración y directivas**, realice los pasos siguientes:
-    
-    1. Seleccione **Activado** en **Permitir programar el inicio automático en las máquinas virtuales**; así habilitar la característica para este laboratorio. 
-    2. Seleccione una hora de inicio (por ejemplo, 8:00:00 a.m.) en el campo **Inicio de la programación**. 
-    3. Seleccione el valor de **Zona horaria** que se va a usar. 
-    4. Seleccione, en **Día de la semana**, los días en los que las máquinas virtuales se deben iniciar automáticamente. 
-    5. A continuación, seleccione **Guardar** en la barra de herramientas para guardar la configuración. 
+La directiva no aplica automáticamente el inicio automático a ninguna máquina virtual del laboratorio. Después de configurar la directiva, siga los pasos que se indican en [Habilitación del inicio automático para una máquina virtual en el laboratorio](#enable-auto-start-for-a-vm-in-the-lab).
 
-        ![Configuración del inicio automático](./media/devtest-lab-auto-startup-vm/auto-start-configuration.png)
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-        > [!IMPORTANT]
-        > Esta directiva no aplica automáticamente el inicio automático a todas las máquinas virtuales del laboratorio. Para que las máquinas virtuales individuales **participen**, vaya a la página de la máquina virtual y habilite la opción de **Inicio automático** para ella.
+1. Vaya a su laboratorio en **DevTest Labs**.
 
-## <a name="enable-autostart-for-a-vm-in-the-lab"></a>Habilitación del inicio automático para una máquina virtual del laboratorio
-En el siguiente procedimiento se indican los pasos necesarios para que una máquina virtual participe en la directiva de inicio automático del laboratorio. 
+1. En **Configuración**, seleccione **Configuración y directivas**. 
 
-1. En la página principal del laboratorio, seleccione la **máquina virtual** en la lista **Mis máquinas virtuales**. 
+   :::image type="content" source="./media/devtest-lab-auto-startup-vm/configuration-policies-menu.png" alt-text="Captura de pantalla que muestra el menú &quot;Configuración y directivas&quot; en DevTest Labs.":::
 
-    ![Menú Configuración y directivas](./media/devtest-lab-auto-startup-vm/select-vm.png)
-2. En la página de la **máquina virtual**, seleccione **Inicio automático** en el menú de la izquierda o en la lista **Programaciones**. 
+1. En la página **Configuración y directivas**, en **Programaciones**, seleccione **Inicio automático**.
 
-    ![Selección del menú de inicio automático](./media/devtest-lab-auto-startup-vm/select-auto-start.png)
-3. En la página **Inicio automático**, seleccione **Activado** en la opción **Permitir que esta máquina virtual se programe para el inicio automático**.
+1. En **Allow auto-start** (Permitir inicio automático) seleccione **Sí**. A continuación, aparecerá la información de programación.
 
-    ![Habilitación del inicio automático para la máquina virtual](./media/devtest-lab-auto-startup-vm/auto-start-vm.png)
-4. A continuación, seleccione **Guardar** en la barra de herramientas para guardar la configuración. 
+    :::image type="content" source="./media/devtest-lab-auto-startup-vm/portal-lab-auto-start.png" alt-text="Captura de pantalla de la opción Inicio automático en Programaciones.":::
+ 
+1. Proporcione la siguiente información de programación:
 
+    |Propiedad | Descripción |
+    |---|---|
+    |Inicio programado| Escriba una hora de inicio.|
+    |Zona horaria| Seleccione una zona horaria en la lista desplegable.|
+    |Días de la semana| Seleccione cada cuadro junto al día en que quiere que se aplique la programación.|
+
+    :::image type="content" source="./media/devtest-lab-auto-startup-vm/auto-start-configuration.png" alt-text="Captura de pantalla de la configuración de programación de inicio automático.":::
+
+1. Seleccione **Guardar**. 
+
+## <a name="enable-auto-start-for-a-vm-in-the-lab"></a>Habilitación del inicio automático en una máquina virtual del laboratorio
+
+Estos pasos continúan desde la sección anterior. Ahora que se ha creado una directiva de inicio automático, seleccione las máquinas virtuales en las que se aplicará.
+
+1. Cierre la página **Configuración y directivas** para volver a la página **DevTest Labs**.
+
+1. En **Mis máquinas virtuales**, seleccione una máquina virtual.
+
+    :::image type="content" source="./media/devtest-lab-auto-startup-vm/select-vm.png" alt-text="Captura de pantalla de selección de una máquina virtual de la lista en Mis máquinas virtuales.":::
+
+1. En la página **Máquina virtual**, en **Operaciones**, seleccione **Inicio automático**. 
+
+1. En la página **Inicio automático**, seleccione **Sí** y, luego, **Guardar**.
+
+    :::image type="content" source="./media/devtest-lab-auto-startup-vm/select-auto-start.png" alt-text="Captura de pantalla del menú de selección del inicio automático.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Para información sobre cómo configurar la directiva de apagado automático para un laboratorio, consulte [Administración de directivas de apagado automático para un laboratorio en Azure DevTest Labs](devtest-lab-auto-shutdown.md).

@@ -2,18 +2,18 @@
 title: Azure Marketplace
 description: Describe de qué forma pueden usar Azure Marketplace los clientes de Contrato Enterprise
 author: bandersmsft
-ms.reviewer: baolcsva
+ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 10/21/2021
 ms.author: banders
-ms.openlocfilehash: d7514f4f3b1280bd65eaf8913e4f97f21b92fa28
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f22dd59be380a7535d8bdc724d48152eeec4041f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128616448"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130244198"
 ---
 # <a name="azure-marketplace"></a>Azure Marketplace
 
@@ -21,7 +21,7 @@ En este artículo de qué forma los clientes y asociados de Contrato Enterprise 
 
 ## <a name="azure-marketplace-for-ea-customers"></a>Azure Marketplace para clientes de EA
 
-Para los clientes directos, los cargos de Azure Marketplace se pueden ver en Azure Enterprise Portal. Las compras y los consumos de Azure Marketplace se facturan fuera del prepago de Azure, en plazos mensuales o trimestrales a pago vencido.
+Para los clientes directos, los cargos de Azure Marketplace se pueden ver en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Las compras y los consumos de Azure Marketplace se facturan fuera del prepago de Azure, en plazos mensuales o trimestrales a pago vencido. Consulte [Administración de Azure Marketplace en Azure Portal](direct-ea-administration.md#enable-azure-marketplace-purchases).
 
 Los clientes indirectos pueden encontrar sus suscripciones a Azure Marketplace en la página **Administrar suscripciones** de Azure Enterprise Portal, pero no se muestran los precios. Los clientes deben ponerse en contacto con su Proveedor de soluciones de licencia (LSP) para obtener información sobre los cargos en Azure Marketplace.
 
@@ -52,12 +52,21 @@ Los administradores de empresa pueden deshabilitar o habilitar las compras de Az
 
 Aunque los clientes pueden convertir sus suscripciones de Azure directas en Azure EA si las asocian a su inscripción en Azure Enterprise Portal, esta acción no convierte automáticamente las suscripciones secundarias.
 
-Para habilitar compras en Azure Marketplace:
+Para habilitar las compras de Azure Marketplace en Azure Enterprise Portal:
 
 1. Inicie sesión en Azure Enterprise Portal como administrador de empresa.
 1. Vaya a **Administrar**.
 1. En **Enrollment Detail** (Detalles de la inscripción), seleccione el icono de lápiz situado junto al elemento de línea **Azure Marketplace**.
 1. Cambie entre **Habilitado/Deshabilitado** o **Solo SKU BYOL o libres**, según corresponda.
+1. Seleccione **Guardar**.
+
+El cliente directo puede habilitar las compras de Azure Marketplace en Azure Portal:
+
+1. Inicie sesión en Azure Portal.
+1. Vaya a **Administración de costos + facturación**.
+1. En el menú de la izquierda, seleccione Ámbitos de facturación y, a continuación, seleccione un ámbito de cuenta de facturación.
+1. En el menú izquierdo, seleccione **Directivas**.
+1. En Azure Marketplace, establezca la directiva en **Activado**.
 1. Seleccione **Guardar**.
 
 > [!NOTE]

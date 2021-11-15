@@ -97,7 +97,7 @@
           items:
             - name: Azure PowerShell
               href: ./ag/tutorial-restrict-web-traffic-powershell.md
-            - name: CLI de Azure
+            - name: Azure CLI
               href: ./ag/tutorial-restrict-web-traffic-cli.md
         - name: Directivas por sitio
           href: ./ag/per-site-policies.md
@@ -109,7 +109,7 @@
               href: ./ag/application-gateway-customize-waf-rules-portal.md
             - name: Azure PowerShell
               href: ./ag/application-gateway-customize-waf-rules-powershell.md
-            - name: CLI de Azure
+            - name: Azure CLI
               href: ./ag/application-gateway-customize-waf-rules-cli.md
         - name: 'Configuración de la regla personalizada de WAF V2: PowerShell'
           href: ./ag/configure-waf-custom-rules.md
@@ -139,7 +139,7 @@
           href: ./afds/waf-front-door-tutorial-geo-filtering.md
         - name: Supervisión y registro
           href: ./afds/waf-front-door-monitor.md
-    - name: Uso de Azure Sentinel con Web Application Firewall
+    - name: Uso de Microsoft Azure Sentinel con Web Application Firewall
       href: waf-sentinel.md
     - name: Solución de problemas
       items:

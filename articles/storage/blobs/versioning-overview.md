@@ -10,12 +10,12 @@ ms.date: 05/10/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2fa724f139881f7647468684f5ad97d80a80baf2
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 6807423e59c5877b67a8faaf3aebe4fd60e671fd
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129274432"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131424938"
 ---
 # <a name="blob-versioning"></a>Control de versiones de blobs
 
@@ -109,7 +109,7 @@ Al escribir nuevos datos en el blob, se crea una versión actual de este. Las ve
 
 ### <a name="access-tiers"></a>Niveles de acceso
 
-Puede trasladar cualquier versión de un blob en bloques, incluida la actual, a otro nivel de acceso de blobs mediante una llamada a la operación [Set Blob Tier](/rest/api/storageservices/set-blob-tier). Para aprovechar los precios de menor capacidad, traslade las versiones anteriores de un blob al nivel de acceso esporádico o de archivo. Para más información, consulte [Niveles de acceso frecuente, esporádico y de archivo de los datos de blob](access-tiers-overview.md).
+Puede trasladar cualquier versión de un blob en bloques, incluida la actual, a otro nivel de acceso de blobs mediante una llamada a la operación [Set Blob Tier](/rest/api/storageservices/set-blob-tier). Para aprovechar los precios de menor capacidad, traslade las versiones anteriores de un blob al nivel de acceso esporádico o de archivo. Para más información, consulte [Niveles de acceso frecuente, esporádico y de archivo para los datos de blobs](access-tiers-overview.md).
 
 Para automatizar el proceso de trasladar blobs en bloques al nivel adecuado, use la administración del ciclo de vida del blob. Para obtener más información sobre la administración del ciclo de vida, consulte [Administración del ciclo de vida de Azure Blob Storage](./lifecycle-management-overview.md).
 
@@ -209,7 +209,7 @@ En la tabla siguiente se muestra el permiso necesario en un SAS para eliminar un
 
 La habilitación del control de versiones de blobs puede dar lugar a cargos de almacenamiento de datos adicionales en su cuenta. Al diseñar una aplicación, es importante tener en cuenta cómo se pueden acumular estos gastos para que pueda de minimizar los costos.
 
-Las versiones de blobs, como las instantáneas de blobs, se facturan con la misma tarifa que los datos activos. La forma en que se facturan las versiones depende de si ha establecido explícitamente el nivel para el blob de base o para cualquiera de sus versiones (o instantáneas). Para más información sobre los niveles de acceso de los blobs, consulte [Niveles de acceso frecuente, esporádico y de archivo de los datos de blob](access-tiers-overview.md).
+Las versiones de blobs, como las instantáneas de blobs, se facturan con la misma tarifa que los datos activos. La forma en que se facturan las versiones depende de si ha establecido explícitamente el nivel para el blob de base o para cualquiera de sus versiones (o instantáneas). Para más información sobre los niveles de los blobs, consulte [Niveles de acceso frecuente, esporádico y de archivo de los datos de blobs](access-tiers-overview.md).
 
 Si no ha cambiado el nivel de un blob o de una versión, se le facturarán los bloques únicos de datos en ese blob, sus versiones y las instantáneas que pueda tener. Para más información, consulte [Facturación cuando el nivel de blob no se ha establecido explícitamente](#billing-when-the-blob-tier-has-not-been-explicitly-set).
 
@@ -300,7 +300,7 @@ En la tabla siguiente se describe el comportamiento de facturación de un blob q
 
 En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades.
 
-| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
 | De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) |
 | Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) |

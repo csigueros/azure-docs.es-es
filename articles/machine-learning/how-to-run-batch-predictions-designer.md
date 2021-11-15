@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.author: keli19
 author: likebupt
-ms.date: 02/05/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: designer
-ms.openlocfilehash: 85562dd33031ae0f392efac6aed6d5e4ecc5c2e5
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: da37ffd719585c5f4d00d2cac1411ee3057a8472
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129428281"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131562150"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Ejecución de predicciones por lotes mediante el diseñador de Azure Machine Learning
 
@@ -67,7 +67,7 @@ Para crear predicciones en los nuevos datos, puede conectarse manualmente a otro
 
 En esta sección, se crea un parámetro de conjunto de datos para especificar otro conjunto de datos en el que realizar predicciones.
 
-1. Seleccione el módulo del conjunto de datos.
+1. Seleccione el componente del conjunto de datos.
 
 1. Aparecerá un panel a la derecha del lienzo, en cuya parte inferior debe seleccionar **Set as pipeline parameter** (Establecer como parámetro de canalización).
    
@@ -153,13 +153,13 @@ Si realiza cualquier modificación en la canalización de entrenamiento, debe vo
 
 Tenga en cuenta que en la canalización de inferencia solo se actualizarán los modelos, la transformación de datos no se actualizará.
 
-Para usar la transformación actualizada en la canalización de inferencia, es preciso registrar la salida de la transformación del módulo de transformación como conjunto de datos.
+Para usar la transformación actualizada en la canalización de inferencia, es preciso registrar la salida de la transformación del componente de transformación como conjunto de datos.
 
 ![Captura de pantalla en la que se muestra cómo registrar un conjunto de datos de transformación](./media/how-to-run-batch-predictions-designer/register-transformation-dataset.png)
 
-Luego, reemplace de forma manual el módulo **TD-** en la canalización de inferencia con el conjunto de datos registrado.
+Luego, reemplace de forma manual el componente **TD-** en la canalización de inferencia con el conjunto de datos registrado.
 
-![Captura de pantalla que muestra cómo reemplazar el módulo de la transformación](./media/how-to-run-batch-predictions-designer/replace-td-module-batch-inference-pipeline.png)
+![Captura de pantalla que muestra cómo reemplazar el componente de la transformación](./media/how-to-run-batch-predictions-designer/replace-td-module-batch-inference-pipeline.png)
 
 A continuación, puede enviar la canalización de inferencia con el modelo y la transformación actualizados y publicarla.
 

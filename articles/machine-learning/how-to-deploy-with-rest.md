@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: how-to
 author: rsethur
 ms.author: seramasu
-ms.date: 08/05/2021
+ms.date: 10/21/2021
 ms.reviewer: laobri
 ms.custom: devplatv2
-ms.openlocfilehash: 9cb3718a0e4ac8ef322fafd16236dfab0fa6f6fc
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 05622e6300dc19e28efaba114aded16fc1a26788
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131087597"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131557364"
 ---
 # <a name="deploy-models-with-rest-preview"></a>Implementación de modelos con REST (versión preliminar)
 
@@ -46,7 +46,7 @@ En este artículo, aprenderá a usar las nuevas API REST para:
 > [!NOTE]
 > Los nombres de los puntos de conexión deben ser únicos en el nivel de región de Azure. Por ejemplo, solo puede haber un punto de conexión con el nombre my-endpoint in westus2.
 
-:::code language="rest" source="~/azureml-examples-main/cli/deploy-rest.sh" id="set_endpoint_name":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="set_endpoint_name":::
 
 ## <a name="azure-machine-learning-managed-online-endpoints"></a>Puntos de conexión en línea administrados de Azure Machine Learning
 Los puntos de conexión en línea administrados (versión preliminar) permiten implementar el modelo sin tener que crear y administrar la infraestructura subyacente. En este artículo, creará un punto de conexión en línea y una implementación, y lo validará invocándolo. Pero primero tendrá que registrar los recursos necesarios para la implementación, incluidos el modelo, el código y el entorno.
@@ -61,15 +61,11 @@ En las siguientes llamadas de API REST, usamos `SUBSCRIPTION_ID`, `RESOURCE_GROU
 
 Las REST administrativa solicita un [token de autenticación de entidad de servicio](how-to-manage-rest.md#retrieve-a-service-principal-authentication-token). Reemplace `TOKEN` por su propio valor. Este token se puede recuperar con el siguiente comando:
 
-```bash
-TOKEN=$(az account get-access-token --query accessToken -o tsv)
-```
+:::code language="rest-api" source="~/azureml-examples-cli-preview/cli/deploy-rest.sh" id="get_access_token":::
 
-El proveedor de servicios utiliza el argumento `api-version` para garantizar la compatibilidad. El argumento `api-version` varía de un servicio a otro. La versión de Azure Machine Learning API actual es `2021-03-01-preview`. Establezca la versión de la API como una variable para dar cabida a versiones futuras:
+El proveedor de servicios utiliza el argumento `api-version` para garantizar la compatibilidad. El argumento `api-version` varía de un servicio a otro. Establezca la versión de la API como una variable para dar cabida a versiones futuras:
 
-```bash
-API_VERSION="2021-03-01-preview"
-```
+:::code language="rest-api" source="~/azureml-examples-cli-preview/cli/deploy-rest.sh" id="api_version":::
 
 ### <a name="get-storage-account-details"></a>Obtención de los detalles de una cuenta de almacenamiento
 
@@ -77,88 +73,82 @@ Para registrar el modelo y el código, primero deben cargarse en una cuenta de a
 
 Puede usar la herramienta [jq](https://stedolan.github.io/jq/) para analizar el resultado de JSON y obtener los valores necesarios. También puede usar Azure Portal para buscar la misma información:
 
-:::code language="rest" source="~/azureml-examples-main/cli/deploy-rest.sh" id="get_storage_details":::
-
-Obtención de la clave de almacenamiento:
-
-```bash
-export AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_ACCOUNT | jq '.[0].value')
-```
+:::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="get_storage_details":::
 
 ### <a name="upload--register-code"></a>Carga y registro del código
 
 Ahora que tiene el almacén de datos, puede cargar el script de puntuación. Use Azure Storage CLI para cargar un blob en el contenedor predeterminado:
 
-:::code language="rest" source="~/azureml-examples-main/cli/deploy-rest.sh" id="upload_code":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="upload_code":::
 
 > [!TIP]
 > Para realizar dicha carga también se pueden usar otros métodos, como Azure Portal o el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/).
 
 Una vez que cargue el código, puede especificarlo con una solicitud PUT y hacer referencia al almacén de datos con `datastoreId`:
 
-:::code language="rest" source="~/azureml-examples-main/cli/deploy-rest.sh" id="create_code":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="create_code":::
 
 ### <a name="upload-and-register-model"></a>Carga y registro del modelo
 
 De forma similar al código, cargue los archivos del modelo:
 
-:::code language="rest" source="~/azureml-examples-main/cli/deploy-rest.sh" id="upload_model":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="upload_model":::
 
 Ahora, registre el modelo:
 
-:::code language="rest" source="~/azureml-examples-main/cli/deploy-rest.sh" id="create_model":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="create_model":::
 
 ### <a name="create-environment"></a>Creación del entorno
 La implementación debe ejecutarse en un entorno que tenga las dependencias necesarias. Cree el entorno con una solicitud PUT. Use una imagen de Docker desde Microsoft Container Registry. La imagen de Docker se puede configurar con `Docker` y agregar dependencias de Conda con `condaFile`.
 
 En el siguiente fragmento de código, el contenido de un entorno de Conda (archivo YAML) se ha leído en una variable de entorno:
 
-:::code language="rest" source="~/azureml-examples-main/cli/deploy-rest.sh" id="create_environment":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="create_environment":::
 
 ### <a name="create-endpoint"></a>Creación de un punto de conexión
 
 Cree el punto de conexión en línea:
 
-:::code language="rest" source="~/azureml-examples-main/cli/deploy-rest.sh" id="create_endpoint":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="create_endpoint":::
 
 ### <a name="create-deployment"></a>Creación de una implementación
 
 Cree una implementación debajo del punto de conexión:
 
-:::code language="rest" source="~/azureml-examples-main/cli/deploy-rest.sh" id="create_deployment":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="create_deployment":::
 
 ### <a name="invoke-the-endpoint-to-score-data-with-your-model"></a>Invocación del punto de conexión para puntuar los datos con el modelo
 
 Se necesitan el identificador URI de la puntuación y el token de acceso para invocar el punto de conexión. En primer lugar, obtenga el identificador URI de la puntuación:
 
-:::code language="rest" source="~/azureml-examples-main/cli/deploy-rest.sh" id="get_endpoint":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="get_endpoint":::
 
 Obtenga el token de acceso del punto de conexión:
 
-:::code language="rest" source="~/azureml-examples-main/cli/deploy-rest.sh" id="get_access_token":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="get_access_token":::
 
 Ahora, utilice curl para invocar el punto de conexión:
 
-:::code language="rest" source="~/azureml-examples-main/cli/deploy-rest.sh" id="score_endpoint":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="score_endpoint":::
 
 ### <a name="check-the-logs"></a>Comprobación de los registros
 
 Compruebe los registros de implementación:
 
-:::code language="rest" source="~/azureml-examples-main/cli/deploy-rest.sh" id="get_deployment_logs":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="get_deployment_logs":::
 
 ### <a name="delete-the-endpoint"></a>Eliminación del punto de conexión
 
 Si no va a usar la implementación, debe eliminarla con el siguiente comando (se elimina el punto de conexión y todas las implementaciones subyacentes):
 
-:::code language="rest" source="~/azureml-examples-main/cli/deploy-rest.sh" id="delete_endpoint":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="delete_endpoint":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Aprenda a implementar el modelo [mediante la CLI de Azure](how-to-deploy-managed-online-endpoints.md).
 * Aprenda a implementar el modelo [mediante Studio](how-to-use-managed-online-endpoint-studio.md).
-* Aprenda sobre la [Solución de problemas de implementación y puntuación de puntos de conexión en línea administrados (versión preliminar)](./how-to-troubleshoot-online-endpoints.md).
-* Aprenda sobre el [Acceso a recursos de Azure con un punto de conexión en línea administrado e identidad administrada por el sistema (versión preliminar)](tutorial-deploy-managed-endpoints-using-system-managed-identity.md).
+* Aprenda sobre la [Solución de problemas de implementación y puntuación de puntos de conexión en línea administrados (versión preliminar)](how-to-troubleshoot-managed-online-endpoints.md).
+* Aprenda sobre el [Acceso a recursos de Azure con un punto de conexión en línea administrado e identidad administrada (versión preliminar)](how-to-access-resources-from-endpoints-managed-identities.md).
 * Aprenda a [supervisar los puntos de conexión en línea](how-to-monitor-online-endpoints.md).
 * Aprenda sobre la [Implementación segura para puntos de conexión en línea (versión preliminar)](how-to-safely-rollout-managed-endpoints.md).
 * [Visualización de los costos de un punto de conexión en línea administrado de Azure Machine Learning (versión preliminar)](how-to-view-online-endpoints-costs.md).

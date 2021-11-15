@@ -8,18 +8,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 04/06/2021
-ms.openlocfilehash: 7524644b34a6fd479c08b9ce6418c547c836add5
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.date: 10/28/2021
+ms.openlocfilehash: 2c80e23335de38929f8ca0fc8cf0b04f835d9e10
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106554032"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446645"
 ---
 # <a name="sentiment-analysis"></a>análisis de opiniones
-Si el análisis de sentimiento está configurado, la respuesta JSON de LUIS incluye el análisis de sentimiento. Obtenga más información sobre el análisis de sentimiento en la documentación de [Text Analytics](../text-analytics/index.yml).
+Si el análisis de sentimiento está configurado, la respuesta JSON de LUIS incluye el análisis de sentimiento. Obtenga más información sobre el análisis de sentimiento en la documentación del [servicio de lenguaje](../language-service/index.yml).
 
-LUIS usa Text Analytics v2. 
+LUIS usa la versión 2 de la API. 
 
 Análisis de sentimiento se configura al publicar la aplicación. Vea [cómo publicar una aplicación](./luis-how-to-publish-app.md) para obtener más información.
 

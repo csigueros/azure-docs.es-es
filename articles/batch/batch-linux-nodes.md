@@ -4,12 +4,12 @@ description: Aprenda a procesar cargas de trabajo de proceso paralelas en grupos
 ms.topic: how-to
 ms.date: 01/21/2021
 ms.custom: H1Hack27Feb2017, devx-track-python, devx-track-csharp
-ms.openlocfilehash: c711ec0d035b9b59ec7628a51fe3cff26de358bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2140fd4f2bfc383743b84f0b635afba3dda9afe
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98683707"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458672"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Aprovisionamiento de nodos de proceso de Linux en grupos de Batch
 
@@ -21,7 +21,7 @@ Cuando crea un grupo de nodos de proceso en el servicio Batch, tiene dos opcione
 
 ### <a name="virtual-machine-image-reference"></a>Referencia de imagen de máquina virtual
 
-El servicio Batch usa [conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/overview.md) para proporcionar nodos de ejecución en la configuración de la máquina virtual. Puede especificar una imagen desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1) o [usar Shared Image Gallery para preparar una imagen personalizada](batch-sig-images.md).
+El servicio Batch usa [conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/overview.md) para proporcionar nodos de ejecución en la configuración de la máquina virtual. Puede especificar una imagen desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1) o [usar Azure Compute Gallery para preparar una imagen personalizada](batch-sig-images.md).
 
 Al crear una referencia de la imagen de la máquina virtual, debe especificar las siguientes propiedades:
 

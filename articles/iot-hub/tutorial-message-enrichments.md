@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: aca884ebbfc10cc847bade34ea1a9bd73ada18c9
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 764f0b8f8e78e41f20558f0a825d37cc8f118f6c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129458404"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446111"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Tutorial: Uso del enriquecimiento de mensajes de Azure IoT Hub
 
@@ -251,7 +251,7 @@ En este momento, se establecen todos los recursos y se configura el enrutamiento
 
 1. Para ir a su centro de IoT, seleccione **Grupos de recursos**. A continuación, seleccione el grupo de recursos configurado para este tutorial (**ContosoResourcesMsgEn**). Busque el centro de IoT Hub en la lista y selecciónelo. Seleccione **Enrutamiento de mensajes** para el centro de IoT.
 
-   ![Selección del enrutamiento de mensajes](./media/tutorial-message-enrichments/select-iot-hub.png)
+   :::image type="content" source="./media/tutorial-message-enrichments/select-iot-hub.png" alt-text="Captura de pantalla que muestra cómo seleccionar un enrutamiento de mensajes." border="true":::
 
    El panel de enrutamiento de mensajes tiene tres pestañas: **Rutas**, **Puntos de conexión personalizados** y **Enriquecer mensajes**. Examine las dos primeras pestañas para ver la configuración establecida por el script. Utilice la tercera pestaña para agregar el enriquecimiento de mensajes. A continuación, vamos a enriquecer mensajes que pasan al punto de conexión para el contenedor de almacenamiento denominado **enriched**. Complete el nombre y el valor y, a continuación, seleccione el punto de conexión **ContosoStorageEndpointEnriched** de la lista desplegable. Aquí se muestra un ejemplo de cómo configurar un enriquecimiento que agrega el nombre del centro de IoT al mensaje:
 

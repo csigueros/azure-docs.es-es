@@ -7,13 +7,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 05/11/2021
-ms.openlocfilehash: 781cce588654ab5babcd74277a3fca97f9f906c1
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.date: 10/21/2021
+ms.openlocfilehash: 3d72b151e73b9adc39f71cd89362027ae2cd9e0f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123252571"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256261"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Entidad de servicio de Azure Active Directory con Azure SQL
 
@@ -51,14 +51,14 @@ La compatibilidad con esta funcionalidad es útil en los procesos de automatizac
 
 Para habilitar la creación de un objeto de Azure AD en SQL Database en nombre de una aplicación de Azure AD, se requiere la siguiente configuración:
 
-1. Asigne la identidad del servidor. La identidad del servidor asignada representa la identidad del servicio administrado (MSI). Actualmente, la identidad del servidor de Azure SQL no admite la identidad administrada por el usuario (UMI).
+1. Asigne la identidad del servidor. La identidad del servidor asignada representa la identidad del servicio administrado (MSI). Actualmente, la identidad de servidor para Azure SQL no admite identidades administradas asignadas por el usuario (UMI).
     - Para un nuevo servidor lógico de Azure SQL, ejecute el siguiente comando de PowerShell:
     
     ```powershell
     New-AzSqlServer -ResourceGroupName <resource group> -Location <Location name> -ServerName <Server name> -ServerVersion "12.0" -SqlAdministratorCredentials (Get-Credential) -AssignIdentity
     ```
 
-    Para obtener más información, consulte el comando [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver).
+    Para más información, consulte el comando [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) o el comando [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) de SQL Managed Instance.
 
     - Para los servidores lógicos existentes de Azure SQL, ejecute el siguiente comando:
     
@@ -66,7 +66,7 @@ Para habilitar la creación de un objeto de Azure AD en SQL Database en nombre 
     Set-AzSqlServer -ResourceGroupName <resource group> -ServerName <Server name> -AssignIdentity
     ```
 
-    Para más información, consulte el comando [Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver).
+    Para más información, consulte el comando [Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver) o el comando [Set-AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance) de SQL Managed Instance.
 
     - Para comprobar si la identidad del servidor está asignada al servidor, ejecute el comando Get-AzSqlServer.
 

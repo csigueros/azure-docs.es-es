@@ -1,25 +1,25 @@
 ---
-title: Tutorial sobre el conector SQL genérico del host del conector ECMA de Azure AD
-description: En este tutorial se explica cómo usar el conector SQL genérico de aprovisionamiento de aplicaciones local.
+title: Aprovisionamiento de Azure AD para aplicaciones SQL
+description: En este tutorial se describe cómo aprovisionar usuarios de Azure AD en una base de datos SQL.
 services: active-directory
 author: billmath
 manager: karenh444
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/13/2021
+ms.date: 10/21/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f12d1c1320cf2d776b18ab403d14ac76955851c
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: c77c2f89347c0968bee4f6b8a8027f5ab9254780
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129990983"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131448887"
 ---
-# <a name="azure-ad-ecma-connector-host-generic-sql-connector-tutorial"></a>Tutorial sobre el conector SQL genérico del host del conector ECMA de Azure AD
+# <a name="configuring-azure-ad-to-provision-users-into-a-sql-database"></a>Configuración de Azure AD para aprovisionar usuarios en una base de datos SQL
 
 [!INCLUDE [active-directory-app-provisioning-sql.md](../../../includes/active-directory-app-provisioning-sql.md)]
 

@@ -6,14 +6,14 @@ author: mhamilton723
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: overview
-ms.date: 07/09/2020
+ms.date: 10/28/2021
 ms.author: marhamil
-ms.openlocfilehash: aaade03edbbb109656fb7371a063cdc2512c5a20
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 71b89cc6b54ff99864bdd0f15ebcee472a36cd70
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461626"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131434491"
 ---
 # <a name="azure-cognitive-services-for-big-data"></a>Azure Cognitive Services para macrodatos
 
@@ -54,7 +54,7 @@ Cognitive Services para macrodatos puede usar servicios de cualquier región del
 
 |Nombre de servicio|Descripción del servicio|
 |:-----------|:------------------|
-|[Text Analytics](../text-analytics/index.yml "Text Analytics")| El servicio Text Analytics ofrece procesamiento de lenguaje natural en texto sin formato para el análisis de opiniones, la extracción de frases clave y la detección del idioma.|
+|[Servicio de lenguaje](../language-service/index.yml "Servicio de lenguaje")| El servicio Language ofrece procesamiento de lenguaje natural en texto sin formato para el análisis de opiniones, la extracción de frases clave y la detección del idioma.|
 
 ### <a name="search"></a>Search
 

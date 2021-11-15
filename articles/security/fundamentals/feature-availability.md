@@ -6,24 +6,26 @@ ms.author: terrylan
 ms.service: security
 ms.topic: reference
 ms.date: 09/13/2021
-ms.openlocfilehash: 76d38f7f5aa2c62010e3c3c6680ff016d3dc518d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 46d7b4d08a7181b56859c5639ccd5a187e526474
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131075569"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131564354"
 ---
 # <a name="cloud-feature-availability-for-us-government-customers"></a>Disponibilidad de las características en la nube para clientes de la Administración Pública de Estados Unidos
 
 En este artículo se describe la disponibilidad de características en las nubes de Microsoft Azure y Azure Government para los siguientes servicios de seguridad:
 
+- [Azure Information Protection](#azure-information-protection)
 - [Azure Security Center](#azure-security-center)
 - [Azure Sentinel](#azure-sentinel)
 - [Azure Defender para IoT](#azure-defender-for-iot)
+- [Azure Attestation](#azure-attestation)
 
 > [!NOTE]
 > Pronto se agregarán servicios de seguridad adicionales a este artículo.
-> 
+>
 
 ## <a name="azure-government"></a>Azure Government
 
@@ -50,6 +52,88 @@ Para obtener más información acerca de los entornos de Office 365 para la Adm
 
 
 En las siguientes secciones se identifica cuándo un servicio tiene una integración con Microsoft 365 y la disponibilidad de características para Office 365 GCC, Office 365 GCC High y Office 365 DoD.
+
+## <a name="azure-information-protection"></a>Azure Information Protection
+
+Azure Information Protection (AIP) es una solución basada en la nube que permite a las organizaciones descubrir, clasificar y proteger documentos y correos electrónicos mediante la aplicación de etiquetas al contenido.
+
+AIP forma parte de la solución Microsoft Information Protection (MIP) y amplía la funcionalidad de [etiquetado](/microsoft-365/compliance/sensitivity-labels) y [clasificación](/microsoft-365/compliance/data-classification-overview) proporcionada por Microsoft 365.
+
+Para obtener más información, consulte la [documentación del producto Azure Information Protection](/azure/information-protection/).
+
+- Office 365 GCC trabaja con Azure Active Directory (Azure AD) en Azure. Office 365 GCC High y Office 365 DoD se trabajan con Azure AD en Azure Government. Asegúrese de prestar atención al entorno de Azure para comprender dónde [es posible la interoperabilidad](#microsoft-365-integration). En la tabla siguiente, la interoperabilidad que *no* es posible está marcada con un guion (-) a fin de indicar que la compatibilidad no es pertinente.
+
+- Se requieren configuraciones adicionales para clientes de GCC High y DoD. Para obtener más información, consulte [Descripción del servicio Azure Information Protection Premium para Administración Pública](/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description).
+
+> [!NOTE]
+> En las notas al pie de la tabla se muestran más detalles sobre el soporte técnico para los clientes de la administración pública. 
+> 
+> Se requieren pasos adicionales para configurar Azure Information Protection para clientes de GCC High y DoD. Para obtener más información, consulte la [Descripción del servicio de Azure Information Protection Premium para la Administración Pública](/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description).
+>
+
+|Característica o servicio  |Azure  |Azure Government  |
+|---------|---------|---------|
+|**[Analizador de Azure Information Protection](/azure/information-protection/deploy-aip-scanner)** <sup>[1](#aipnote1)</sup>       |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+|**Administración**     |         |         |
+|[Portal de Azure Information Protection para la administración del analizador](/azure/information-protection/deploy-aip-scanner-configure-install?tabs=azure-portal-only)     |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+| **Clasificación y etiquetado** <sup>[2](#aipnote2)</sup>   |         |         |
+| [Analizador de AIP para aplicar una *etiqueta predeterminada* a todos los archivos de un repositorio o servidor de archivos local](/azure/information-protection/deploy-aip-scanner-configure-install?tabs=azure-portal-only)    |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+| [Analizador de AIP para la clasificación, el etiquetado y la protección automatizados de archivos locales compatibles](/azure/information-protection/deploy-aip-scanner)    |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+| |  |  |
+
+<sup><a name="aipnote1" /></a>1</sup> El analizador puede funcionar sin Office 365 para examinar archivos únicamente. El analizador no puede aplicar etiquetas a los archivos sin Office 365.
+
+<sup><a name="aipnote2" /></a>2</sup> El complemento de clasificación y etiquetado solo se admite para los clientes de la administración pública con Aplicaciones Microsoft 365 (versión 9126.1001 o posterior), incluidas las versiones Profesional Plus (ProPlus) y Hacer clic y ejecutar (C2R). No se admite Office 2010, Office 2013 ni otras versiones de Office 2016.
+
+### <a name="office-365-features"></a>Características de Office 365
+
+|Característica o servicio  |Office 365 GCC  |Office 365 GCC High |Office 365 DoD  |
+|---------|---------|---------|---------|
+|**Administración**     |         |         | |
+|- [PowerShell para la administración del servicio RMS](/powershell/module/aipservice/)      |  Disponibilidad general       |    GA     |   GA      |
+|- [PowerShell para operaciones masivas de cliente de etiquetado unificado de AIP](/powershell/module/azureinformationprotection/)      |         |         |         |
+|**SDK**     |         |         |         |
+|- [Kit de desarrollo de software (SDK) para MIP y AIP](/information-protection/develop/)     |     GA       |    GA     |   GA  |
+|**Personalizaciones**     |         |         |         |
+|- [Seguimiento y revocación de documentos](/azure/information-protection/rms-client/track-and-revoke-admin)      |   Disponibilidad general      |  No disponible       |     No disponible    |
+|**Administración de claves**      |         |         |         |
+|- [Bring Your Own Key (BYOK)](/azure/information-protection/byok-price-restrictions)      |   GA       |    GA     |   GA   |
+|- [Cifrado de doble clave (DKE)](/azure/information-protection/plan-implement-tenant-key)     |    GA       |    GA     |   GA    |
+|**Archivos de Office** <sup>[3](#aipnote6)</sup>      |         |         |         |
+|- [Protección para Microsoft Exchange Online, Microsoft Office SharePoint Online y Microsoft OneDrive para la Empresa](/azure/information-protection/requirements-applications)      |     Disponibilidad general    |  GA <sup>[4](#aipnote3)</sup>       |   GA <sup>[4](#aipnote3)</sup>      |
+|- [Protección del contenido de Exchange y SharePoint local a través del conector de Rights Management](/azure/information-protection/deploy-rms-connector)     |    GA <sup>[5](#aipnote5)</sup>      |  No disponible       |     No disponible         |
+|- [Cifrado de mensajes de Office 365](/microsoft-365/compliance/set-up-new-message-encryption-capabilities)      |     GA       |    GA     |   GA        |
+|- [Establecer etiquetas para aplicar automáticamente la protección de M/MIME preconfigurado en Outlook](/azure/information-protection/rms-client/clientv2-admin-guide-customizations)      |         GA       |    GA     |   GA        |
+|- [Control del uso compartido excesivo de información al usar Outlook](/azure/information-protection/rms-client/clientv2-admin-guide-customizations)     |      Disponibilidad general   |  GA <sup>[6](#aipnote6)</sup>        |    GA <sup>[6](#aipnote6)</sup>      |
+|**Clasificación y etiquetado** <sup>[2](#aipnote2) / [7](#aipnote7)</sup>      |         |         |         |
+|- Plantillas personalizadas, incluidas las plantillas de departamento     |     GA       |    GA     |   GA         |
+|- Clasificación manual, predeterminada y obligatoria de documentos     |       GA       |    GA     |   GA       |
+|- Configuración de condiciones para la clasificación automática y recomendada       |    GA     |   GA        |
+|- [Protección para formatos de archivo distintos de Microsoft Office, incluidos PTXT, PJPG y PFILE (protección genérica)](/azure/information-protection/rms-client/clientv2-admin-guide-file-types)     |        GA       |    GA     |   GA       |
+|     |         |         |         |
+
+
+<sup><a name="aipnote3" /></a>3</sup> La extensión de dispositivos móviles para AD RMS no está disponible actualmente para los clientes de la administración pública.
+
+<sup><a name="aipnote4" /></a>4</sup> Information Rights Management con SharePoint Online (sitios y bibliotecas protegidos por IRM) no está disponible actualmente.
+
+<sup><a name="aipnote5" /></a>5</sup> Information Rights Management (IRM) solo se admite para Aplicaciones de Microsoft 365 (versión 9126.1001 o posterior), incluidas las versiones Profesional Plus (ProPlus) y Hacer clic y ejecutar (C2R). No se admite Office 2010, Office 2013 ni otras versiones de Office 2016.
+
+<sup><a name="aipnote6" /></a>6</sup> Actualmente no está disponible el uso compartido de documentos y correos electrónicos protegidos desde nubes gubernamentales con los usuarios de la nube comercial. Incluye usuarios de Aplicaciones de Microsoft 365 en la nube comercial, usuarios distintos de Aplicaciones de Microsoft 365 en la nube comercial y usuarios con una licencia de RMS for Individuals.
+
+<sup><a name="aipnote7" /></a>7</sup> El número de [tipos de información confidencial](/microsoft-365/compliance/sensitive-information-type-entity-definitions) del Centro de seguridad y cumplimiento de Microsoft 365 puede variar en función de la región.
 
 ## <a name="azure-security-center"></a>Azure Security Center
 
@@ -83,7 +167,7 @@ En la tabla siguiente se muestra la disponibilidad actual de características de
 | - [Azure Defender para servidores SQL en máquinas](../../security-center/defender-for-sql-introduction.md)                                                                        | GA             | GA                             |
 | - [Azure Defender para bases de datos relacionales de código abierto](../../security-center/defender-for-databases-introduction.md)                                                         | GA             | No disponible                  |
 | - [Azure Defender para Key Vault](../../security-center/defender-for-key-vault-introduction.md)                                                                                | GA             | No disponible                  |
-| - [Azure Defender para Resource Manager](../../security-center/defender-for-resource-manager-introduction.md)                                                                  | GA             | GA                             |
+| - [Azure Defender para Resource Manager](../../security-center/defender-for-resource-manager-introduction.md)                                                                  | Disponibilidad general             | GA                             |
 | - [Azure Defender para Storage](../../security-center/defender-for-storage-introduction.md) <sup>[6](#footnote6)</sup>                                                         | GA             | GA                             |
 | - [Protección contra amenazas para Cosmos DB](../../security-center/other-threat-protections.md#threat-protection-for-azure-cosmos-db-preview)                                          | Vista previa pública | No disponible                  |
 | - [Protección de cargas de trabajo de Kubernetes](../../security-center/kubernetes-workload-protections.md)                                                                                  | GA             | GA                             |
@@ -332,6 +416,26 @@ En la tabla siguiente se muestra la disponibilidad actual de características de
 | [Configuración de Sentinel con Azure Defender para IoT](../../defender-for-iot/how-to-configure-with-sentinel.md) | Vista previa pública | Vista previa pública |
 | **Microagente independiente para Linux** |  |  |
 | [Instalación binaria de agentes independientes](../../defender-for-iot/quickstart-standalone-agent-binary-installation.md) | Vista previa pública | Vista previa pública |
+
+## <a name="azure-attestation"></a>Azure Attestation
+
+Microsoft Azure Attestation es una solución unificada para comprobar de forma remota la confiabilidad de una plataforma y la integridad de los archivos binarios que se ejecutan en ella. El servicio recibe evidencia de la plataforma, la valida según estándares de seguridad, la evalúa con directivas configurables y genera un token de atestación para aplicaciones basadas en notificaciones (por ejemplo, usuarios de confianza o entidades de auditoría). 
+
+Azure Attestation está disponible actualmente en varias regiones en las nubes públicas y de administración pública de Azure. En Azure Government, el servicio está disponible en versión preliminar en US Gov Virginia y US Gov Arizona. 
+
+Para obtener más información, consulte la [documentación pública](/azure/attestation/overview) de Azure Attestation. 
+
+| Característica | Azure | Azure Government |
+|--|--|--|
+| [Experiencia del portal](/azure/attestation/quickstart-portal) para realizar operaciones de plano de control y plano de datos | Disponibilidad general | - |
+| [Experiencia del PowerShell](/azure/attestation/quickstart-powershell) para realizar operaciones de plano de control y plano de datos  | Disponibilidad general | GA |
+| Cumplimiento de TLS 1.2   | GA | GA |
+| Compatibilidad con BCDR   | Disponibilidad general | - |
+| [Integración de etiquetas de servicio](/azure/virtual-network/service-tags-overview) | GA | GA |
+| [Almacenamiento de registros inmutable](/azure/attestation/audit-logs) | GA | GA |
+| Aislamiento de red mediante vínculo privado | Vista previa pública | - |
+| [Certificación FedRAMP High](/azure/azure-government/compliance/azure-services-in-fedramp-auditscope) | GA | - |
+| Caja de seguridad del cliente | Disponibilidad general | - |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/13/2021
 ms.author: mjbrown
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: b6d1a8ddcbf7982c4b8c2a44bbd23c8bb78676df
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: 39f7b829cb3ccff2bae002d47ab320bad1a80b62
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123214180"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131476288"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-using-powershell"></a>Administración de recursos de API de Azure Cosmos DB Core (SQL) mediante PowerShell
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -121,7 +121,7 @@ Este comando permite actualizar las propiedades de la cuenta de base de datos de
 > [!NOTE]
 > Este comando permite agregar y quitar regiones, pero no permite modificar las prioridades de conmutación por error ni desencadenar una conmutación por error manual. Consulte [Modificación de la prioridad de conmutación por error](#modify-failover-priority) y [Desencadenamiento de una conmutación por error manual](#trigger-manual-failover).
 > [!TIP]
-> Cuando se agrega una nueva región, todos los datos deben replicarse por completo y estar confirmados en la nueva región antes de que la región se marque como disponible. La cantidad de tiempo que tarde esta operación dependerá de la cantidad de datos almacenados en la cuenta.
+> Cuando se agrega una nueva región, todos los datos deben replicarse por completo y estar confirmados en la nueva región antes de que la región se marque como disponible. La cantidad de tiempo que tarde esta operación dependerá de la cantidad de datos almacenados en la cuenta. Si hay una [operación asincrónica de escalado del rendimiento](../scaling-provisioned-throughput-best-practices.md#background-on-scaling-rus) en curso, la operación de escalado vertical del rendimiento se pausa y se reanuda automáticamente cuando se completa la operación de agregar o quitar región. 
 
 ```azurepowershell-interactive
 # Create account with two regions
@@ -323,6 +323,9 @@ En el ejemplo siguiente, suponga que la cuenta tiene una prioridad de conmutaci�
 
 > [!CAUTION]
 > Cambiar `locationName` por `failoverPriority=0` desencadenará una conmutación por error manual de una cuenta de Azure cosmos. Los restantes cambios de prioridad no desencadenarán ninguna conmutación por error.
+
+> [!NOTE]
+> Si realiza una operación de conmutación por error manual mientras hay una [operación asincrónica de escalado del rendimiento](../scaling-provisioned-throughput-best-practices.md#background-on-scaling-rus) en curso, la operación de escalado vertical del rendimiento se pausa. Se reanuda automáticamente cuando se completa la operación de conmutación por error.
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"

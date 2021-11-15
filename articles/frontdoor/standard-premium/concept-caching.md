@@ -8,12 +8,12 @@ ms.service: frontdoor
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: duau
-ms.openlocfilehash: a8adfef720d446c3ae2a45d27cee72a8135edb70
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 687a18ff1f66f5bd14a76b620c4fda04e6b7a6f0
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128595054"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234984"
 ---
 # <a name="caching-with-azure-front-door-standardpremium-preview"></a>Almacenamiento en caché con Azure Front Door Estándar/Prémium (versión preliminar)
 
@@ -83,7 +83,7 @@ La duración y el comportamiento de la caché se pueden configurar tanto en la r
 
 > [!NOTE]
 > * La *duración de la caché* establecida en la regla de enrutamiento del diseñador de Front Door es la **duración de la caché mínima**. Esta invalidación no funciona si el encabezado de control de la caché del origen tiene un TTL mayor que el valor de invalidación.
-> * El contenido almacenado en caché se puede expulsar de Azure Front Door antes de que haya expirado si no se solicita con la frecuencia suficiente para acomodar el contenido solicitado con más frecuencia.
+> * Azure Front Door no garantiza la cantidad mínima de tiempo que el objeto se almacenará en la caché. Los contenidos almacenados en caché se pueden expulsar de la caché perimetral antes de que hayan expirado si no se solicitan con tanta frecuencia para dejar espacio a los contenidos solicitados con más frecuencia.
 >
 
 ## <a name="next-steps"></a>Pasos siguientes

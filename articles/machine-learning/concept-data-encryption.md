@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Obtenga información sobre cómo los procesos y almacenes de datos de Azure Machine Learning proporcionan cifrado de datos en reposo y en tránsito.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 08/02/2021
-ms.openlocfilehash: 8f4bb5279442abb10a9b19e5cb3e3666a1319bb2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/21/2021
+ms.openlocfilehash: 1ac26da492c4236d89ed71edf738dbc6cd813563
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128621611"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131552703"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Cifrado de datos con Azure Machine Learning
 
@@ -66,10 +66,13 @@ Para habilitar el aprovisionamiento de una instancia de Cosmos DB en su suscripc
 
 * Use los parámetros que se indican más abajo al crear el área de trabajo de Azure Machine Learning. Ambos parámetros son obligatorios y se admiten en SDK, la CLI de Azure, API REST y las plantillas de Resource Manager.
 
+    * `cmk_keyvault`: Este parámetro es el identificador de recurso del almacén de claves de su suscripción. Este almacén de claves debe estar en la misma región y suscripción que usará para el área de trabajo de Azure Machine Learning. 
+
     * `resource_cmk_uri`: Este parámetro es el URI de recurso completo de la clave administrada por el cliente en el almacén de claves e incluye la [información de versión de la clave](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning). 
 
-    * `cmk_keyvault`: Este parámetro es el identificador de recurso del almacén de claves de su suscripción. Este almacén de claves debe estar en la misma región y suscripción que usará para el área de trabajo de Azure Machine Learning. 
-    
+        > [!NOTE]
+        > Es necesario habilitar la eliminación temporal y la protección de purga en la instancia del almacén de claves de CMK antes de crear un área de trabajo de aprendizaje automático cifrada para protegerse contra la pérdida accidental de datos en caso de eliminación del almacén.
+        
         > [!NOTE]
         > Esta instancia del almacén de claves puede ser diferente a la creada por Azure Machine Learning al aprovisionar el área de trabajo. Si quiere usar la misma instancia del almacén de claves para el área de trabajo, pase el mismo almacén de claves al aprovisionar el área de trabajo mediante el [parámetro key_vault](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 

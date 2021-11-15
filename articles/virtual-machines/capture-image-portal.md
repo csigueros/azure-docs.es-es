@@ -9,18 +9,18 @@ ms.topic: how-to
 ms.date: 06/21/2021
 ms.author: cynthn
 ms.custom: portal
-ms.openlocfilehash: b9218f6eebedd8f94c06a664518fc718f0eb7d19
-ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
+ms.openlocfilehash: bfab2d65de8b15ac72fe3c3b536b76ef14f046b4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112992124"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131437303"
 ---
 # <a name="create-an-image-of-a-vm-in-the-portal"></a>Creación de una imagen de máquina virtual en el portal
 
 Puede crearse una imagen de una máquina virtual y, posteriormente, usarla para crear varias máquinas virtuales.
 
-Para las imágenes almacenadas en una instancia de Shared Image Gallery, puede usar máquinas virtuales que ya tengan cuentas creadas (especializadas) o bien generalizar la máquina virtual antes de crear la imagen para quitar cuentas de máquina y otra información específica de las máquinas. Para generalizar una máquina virtual, consulte [Generalización de una máquina virtual](generalize.md). Para más información, consulte [Imágenes generalizadas y especializadas](shared-image-galleries.md#generalized-and-specialized-images).
+Para las imágenes almacenadas en una instancia de Azure Compute Gallery (anteriormente denominado Shared Image Gallery), puede usar máquinas virtuales que ya tengan cuentas creadas (especializadas) o bien generalizar la máquina virtual antes de crear la imagen para quitar cuentas de máquina y otra información específica de las máquinas. Para generalizar una máquina virtual, consulte [Generalización de una máquina virtual](generalize.md). Para más información, consulte [Imágenes generalizadas y especializadas](shared-image-galleries.md#generalized-and-specialized-images).
 
 
 ## <a name="capture-a-vm-in-the-portal"></a>Captura de una máquina virtual en el portal 
@@ -63,4 +63,4 @@ Para las imágenes almacenadas en una instancia de Shared Image Gallery, puede u
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Información general de Shared Image Galleries](shared-image-galleries.md)  
+- [Información general de Azure Compute Gallery](shared-image-galleries.md) 

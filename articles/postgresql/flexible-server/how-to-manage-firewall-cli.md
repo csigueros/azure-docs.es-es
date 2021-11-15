@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: beed3dac1a2ca5bc6d2a87ba2a9044333e798fa9
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: e571d29dc9bade1069f6c67257bf04552ff894ef
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107778524"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130241617"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql---flexible-server-firewall-rules-using-the-azure-cli"></a>Creación y administración de reglas de firewall de Azure Database for PostgreSQL: servidor flexible mediante la CLI de Azure
 
@@ -97,19 +97,19 @@ Consulte la documentación de referencia de la CLI de Azure <!--FIXME --> para o
 
 ### <a name="create-a-firewall-rule"></a>Creación de una regla de firewall
 Use el comando `az postgres flexible-server firewall-rule create` para crear una regla de firewall en el servidor.
-Para permitir el acceso a un intervalo de direcciones IP, especifique la dirección IP en forma de dirección IP inicial y dirección IP final, como en este ejemplo.
+Para permitir el acceso a un intervalo de direcciones IP, especifique la dirección IP en forma de dirección IP inicial y dirección IP final, como en este ejemplo. Este comando también espera el nombre del grupo de recursos de Azure donde el servidor se encuentra como parámetro. 
 ```azurecli-interactive
-az postgres flexible-server firewall-rule create --name mydemoserver --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
+az postgres flexible-server firewall-rule create --name mydemoserver --resource-group testGroup --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
 ```
 
 Para permitir el acceso a una única dirección IP, especifique una sola dirección IP, como en este ejemplo.
 ```azurecli-interactive
-az postgres flexible-server firewall-rule create --name mydemoserver --start-ip-address 1.1.1.1
+az postgres flexible-server firewall-rule create --name mydemoserver  --resource-group testGroup  --start-ip-address 1.1.1.1
 ```
 
 Para permitir que las aplicaciones de las direcciones IP de Azure se conecten al servidor flexible, especifique la dirección IP 0.0.0.0 como IP inicial, como en este ejemplo.
 ```azurecli-interactive
-az postgres flexible-server firewall-rule create --name mydemoserver --start-ip-address 0.0.0.0
+az postgres flexible-server firewall-rule create --name mydemoserver --resource-group testGroup --start-ip-address 0.0.0.0
 ```
 
 > [!IMPORTANT]
@@ -120,17 +120,17 @@ Si se realiza correctamente, en la salida de cada comando create se mostrarán l
 ### <a name="list-firewall-rules"></a>Enumerar reglas de firewall 
 Use el comando `az postgres flexible-server firewall-rule list` para mostrar las reglas de firewall de servidor existentes en el servidor. Observe que el atributo de nombre del servidor se especifica en el modificador **--name**. 
 ```azurecli-interactive
-az postgres flexible-server firewall-rule list --name mydemoserver
+az postgres flexible-server firewall-rule list --name mydemoserver --resource-group testGroup
 ```
 La salida enumera las reglas existentes, si existen, en formato JSON (de forma predeterminada). Puede usar el modificador --output table** para que los resultados se generen en un formato de tabla más legible.
 ```azurecli-interactive
-az postgres flexible-server firewall-rule list --name mydemoserver --output table
+az postgres flexible-server firewall-rule list --name mydemoserver --resource-group testGroup --output table
 ```
 
 ### <a name="update-a-firewall-rule"></a>Actualización de una regla de firewall
 Use el comando `az postgres flexible-server firewall-rule update` para actualizar una regla de firewall existente en el servidor. Especifique el nombre de una regla de firewall existente como entrada, así como los atributos de dirección IP inicial y dirección IP final que se van a actualizar.
 ```azurecli-interactive
-az postgres flexible-server firewall-rule update --name mydemoserver --rule-name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.1
+az postgres flexible-server firewall-rule update --name mydemoserver --rule-name FirewallRule1 --resource-group testGroup --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.1
 ```
 Cuando se realiza correctamente, la salida del comando muestra los detalles de la regla de firewall que ha actualizado, de forma predeterminada en formato JSON. Si se produce un error, la salida muestra el texto del mensaje de error.
 
@@ -139,14 +139,14 @@ Cuando se realiza correctamente, la salida del comando muestra los detalles de l
 ### <a name="show-firewall-rule-details"></a>Mostrar los detalles de la regla de firewall
 Use el comando `az postgres flexible-server firewall-rule show` para mostrar los detalles de la regla de firewall existente del servidor. Proporcione como entrada el nombre de una regla de firewall existente.
 ```azurecli-interactive
-az postgres flexible-server firewall-rule show --name mydemoserver --rule-name FirewallRule1
+az postgres flexible-server firewall-rule show --name mydemoserver --rule-name FirewallRule1 --resource-group testGroup
 ```
 Cuando se realiza correctamente, la salida del comando muestra los detalles de la regla de firewall que ha especificado, en formato JSON (de forma predeterminada). Si se produce un error, la salida muestra el texto del mensaje de error.
 
 ### <a name="delete-a-firewall-rule"></a>Eliminar una regla de firewall
 Use el comando `az postgres flexible-server firewall-rule delete` para eliminar una regla de firewall existente del servidor. Proporcione el nombre de una regla de firewall existente.
 ```azurecli-interactive
-az postgres flexible-server firewall-rule delete --name mydemoserver --rule-name FirewallRule1
+az postgres flexible-server firewall-rule delete --name mydemoserver --rule-name FirewallRule1 --resource-group testGroup
 ```
 Cuando se realiza correctamente, no hay ninguna salida. En caso de error, se muestra el texto del mensaje de error.
 

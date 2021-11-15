@@ -6,14 +6,14 @@ author: mhamilton723
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: sample
-ms.date: 07/06/2020
+ms.date: 10/28/2021
 ms.author: marhamil
-ms.openlocfilehash: c47aa803774343b39efeabe3452f1b256cc64c0d
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 154317217ce22196ddde1e4a3c04c39d5eafc0ba
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363279"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469813"
 ---
 # <a name="quick-examples"></a>Ejemplos rápidos
 
@@ -21,7 +21,7 @@ Los siguientes fragmentos están listos para ejecutarse y le ayudarán a empezar
 
 En los ejemplos se usan estos servicios de Cognitive Services:
 
-- Text Analytics: para obtener la opinión (o el estado de ánimo) de un conjunto de frases.
+- Language Service: para obtener la opinión (o el estado de ánimo) de un conjunto de frases.
 - Computer Vision: para obtener las etiquetas (descripciones de una sola palabra) asociadas a un conjunto de imágenes.
 - Bing Image Search: para buscar en la Web las imágenes relacionadas con una consulta en lenguaje natural.
 - Speech to Text: transcripción de archivos de audio para extraer transcripciones basadas en texto.
@@ -47,9 +47,9 @@ val serviceKey = "ADD-YOUR-SUBSCRIPTION-KEY"
 val location = "eastus"
 ```
 
-## <a name="text-analytics"></a>Text Analytics
+## <a name="language-service"></a>Servicio de lenguaje
 
-El servicio [Text Analytics](../text-analytics/index.yml) proporciona varios algoritmos para extraer conclusiones inteligentes de un texto. Por ejemplo, podemos encontrar la opinión de un texto de entrada determinado. El servicio devolverá una puntuación entre `0.0` y `1.0`, donde las puntuaciones bajas indican una opinión negativa y una puntuación alta indica una opinión positiva.  El ejemplo siguiente utiliza tres frases simples y devuelve la puntuación de la opinión de cada una.
+El servicio [Language Service](../language-service/index.yml) proporciona varios algoritmos para extraer conclusiones inteligentes de un texto. Por ejemplo, podemos encontrar la opinión de un texto de entrada determinado. El servicio devolverá una puntuación entre `0.0` y `1.0`, donde las puntuaciones bajas indican una opinión negativa y una puntuación alta indica una opinión positiva.  El ejemplo siguiente utiliza tres frases simples y devuelve la puntuación de la opinión de cada una.
 
 ```scala
 import org.apache.spark.sql.functions.col
@@ -246,7 +246,7 @@ display(anamolyDetector.transform(df).select("timestamp", "value", "anomalies.is
 | 1972-05-01T00:00:00Z |     766 | False       |
 | 1972-06-01T00:00:00Z |     805 | False       |
 | 1972-07-01T00:00:00Z |     821 | False       |
-| 1972-08-01T00:00:00Z |   20 000 | True        |
+| 1972-08-01T00:00:00Z |   20000 | True        |
 | 1972-09-01T00:00:00Z |     883 | False       |
 | 1972-10-01T00:00:00Z |     898 | False       |
 | 1972-11-01T00:00:00Z |     957 | False       |

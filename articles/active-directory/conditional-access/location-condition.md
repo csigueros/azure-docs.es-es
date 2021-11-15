@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/21/2021
+ms.date: 10/27/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: calebb, olhuan
+ms.reviewer: calebb, mewal
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 09dbcf3557dd45d005a61f9aed99e29abbc684e6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ef2a7671b1db13e1db9fae8339ae33726a2eb3b1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128626425"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131444293"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Uso la condición de ubicación en una directiva de acceso condicional 
 
@@ -80,7 +80,7 @@ Si selecciona **Determine location by IP address (IPv4 only)** [Determinar ubica
 > [!NOTE]
 > Los inicios de sesión desde direcciones IPv6 no se pueden asignar a países o regiones y se consideran áreas desconocidas. Solo las direcciones IPv4 se pueden asignar a países o regiones.
 
-Si selecciona **Determine location by GPS coordinates (Preview)** [Determinar ubicación por coordenadas de GPS (versión preliminar)], el usuario deberá tener la aplicación Microsoft Authenticator instalada en su dispositivo móvil. Cada hora, el sistema se pondrá en contacto con la aplicación de Microsoft Authenticator del usuario para recopilar la ubicación GPS del dispositivo móvil del usuario.
+Si selecciona **Determine location by GPS coordinates (Preview)** (Determinar ubicación por coordenadas de GPS [versión preliminar]), el usuario deberá tener instalada la aplicación Microsoft Authenticator en su dispositivo móvil. Cada hora, el sistema se pondrá en contacto con la aplicación de Microsoft Authenticator del usuario para recopilar la ubicación GPS del dispositivo móvil del usuario.
 
 La primera vez que se requiera que el usuario comparta su ubicación desde la aplicación Microsoft Authenticator, el usuario recibirá una notificación en la aplicación. El usuario tendrá que abrir la aplicación y conceder permisos de ubicación. 
 

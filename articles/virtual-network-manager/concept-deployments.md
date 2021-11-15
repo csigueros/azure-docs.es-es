@@ -7,12 +7,12 @@ ms.service: virtual-network-manager
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.custom: template-concept, ignite-fall-2021
-ms.openlocfilehash: bbf38eff6ffc5d24ae566ec94167a1c0c6ff9263
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f7e192133bac66d9ec593350a43d0d005bb05933
+ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093405"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131866684"
 ---
 # <a name="configuration-deployments-in-azure-virtual-network-manager-preview"></a>Implementaciones de configuración en Azure Virtual Network Manager (versión preliminar)
 
@@ -29,7 +29,7 @@ La *implementación* es el método que usa Azure Virtual Network Manager para ap
 
 ## <a name="deployment-against-network-group-membership-types"></a><a name="deployment"></a>Implementación en los tipos de pertenencia a grupos de red
 
-Las actualizaciones de implementación son diferentes para los miembros del grupo estáticos y dinámicos de un grupo de red. Cuando tiene miembros del grupo dinámicos, se usa un modelo de estado objetivo. Azure Virtual Network Manager determinará automáticamente si los miembros dinámicos cumplen los requisitos de la configuración y se ajustará sin necesidad de volver a implementar la configuración. Sin embargo, si tiene redes virtuales que se agregan como miembros estáticos, deberá implementar de nuevo la configuración para que se apliquen los cambios. Por ejemplo, si agrega una nueva red virtual como miembro estático, deberá implementar la configuración de nuevo para que surta efecto.
+Cambiar la definición de un grupo de red no tendrá ningún impacto a menos que se implemente la configuración que usa este grupo de red. Por tanto, las actualizaciones de implementación son diferentes para los miembros del grupo estáticos y dinámicos de un grupo de red. Cuando tenga la pertenencia dinámica a grupos definida, como todas las redes virtuales cuyo nombre contiene "producción", Azure Virtual Network Manager determinará automáticamente si los miembros dinámicos cumplen los requisitos de la configuración y se ajustarán sin necesidad de volver a implementar la configuración. Esto se debe a que ya definió la condición de la pertenencia, y la definición no cambió. Sin embargo, si tiene redes virtuales que se agregan como miembros estáticos, deberá implementar de nuevo la configuración para que se apliquen los cambios. Por ejemplo, si agrega una nueva red virtual como miembro estático, deberá implementar la configuración de nuevo para que surta efecto.
 
 ## <a name="deployment-status"></a>Estado de implementación
 

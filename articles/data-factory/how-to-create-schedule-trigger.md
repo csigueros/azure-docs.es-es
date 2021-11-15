@@ -10,12 +10,12 @@ ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 09/09/2021
 ms.custom: devx-track-python, devx-track-azurepowershell, synapse
-ms.openlocfilehash: c21d06a97acd433445ee73e90833684c5cc36dac
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a712fcbd256f80f1402bf29c96bb6e17c7409072
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124815016"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223942"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Creación de un desencadenador que ejecuta una canalización en una programación
 
@@ -27,7 +27,7 @@ Al crear un desencadenador de programación, especifique una programación (fech
 
 En las secciones siguientes se proporcionan los pasos necesarios para crear un desencadenador de programación de diferentes maneras. 
 
-## <a name="ui-experience"></a>Experiencia de UI
+## <a name="azure-data-factory-and-synapse-portal-experience"></a>Azure Data Factory y la experiencia del portal de Synapse
 
 Puede crear un **programador de desencadenador** para programar la ejecución de una canalización periódicamente (cada hora, diariamente, etc.). 
 
@@ -110,6 +110,14 @@ Puede crear un **programador de desencadenador** para programar la ejecución de
 
 En esta sección se muestra cómo usar Azure PowerShell para crear, iniciar y supervisar un desencadenador de la programación. Para ver este ejemplo en funcionamiento, primero debe seguir la [Guía de inicio rápido: Creación de una factoría de datos con Azure PowerShell](quickstart-create-data-factory-powershell.md). A continuación, agregue el código siguiente al método principal, de modo que se crea e inicia un desencadenador de programación que se ejecuta cada 15 minutos. El desencadenador está asociado a una canalización llamada **Adfv2QuickStartPipeline** que se crea como parte de la guía de inicio rápido.
 
+### <a name="prerequisites"></a>Prerrequisitos
+
+- **Suscripción de Azure**. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar. 
+
+- **Azure PowerShell**. Siga las instrucciones de [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-az-ps) (Instalar Azure PowerShell en Windows con PowerShellGet). 
+
+### <a name="sample-code"></a>Código de ejemplo
+
 1. Cree un archivo JSON llamado **MyTrigger.json** en la carpeta C:\ADFv2QuickStartPSH\ con el siguiente contenido:
 
     > [!IMPORTANT]
@@ -158,31 +166,31 @@ En esta sección se muestra cómo usar Azure PowerShell para crear, iniciar y su
     - El desencadenador está asociado con la canalización **Adfv2QuickStartPipeline**. Para asociar varias canalizaciones con un desencadenador, agregue más secciones **pipelineReference**.
     - La canalización de la guía de inicio rápido toma dos valores de **parámetros**: **inputPath** y **outputPath**. Y debe pasar valores para esos parámetros desde el desencadenador.
 
-1. Cree un desencadenador mediante el cmdlet **Set-AzDataFactoryV2Trigger**:
+1. Cree un desencadenador mediante el cmdlet [Set-AzDataFactoryV2Trigger](/powershell/module/az.datafactory/set-azdatafactoryv2trigger):
 
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
 
-1. Confirme que el estado del desencadenador es **Detenido** mediante el cmdlet **Get-AzDataFactoryV2Trigger**:
+1. Confirme que el estado del desencadenador es **Detenido** mediante el cmdlet [Get-AzDataFactoryV2Trigger](/powershell/module/az.datafactory/get-azdatafactoryv2trigger):
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-1. Inicie el desencadenador mediante el cmdlet **Start-AzDataFactoryV2Trigger**:
+1. Inicie el desencadenador mediante el cmdlet [Start-AzDataFactoryV2Trigger](/powershell/module/az.datafactory/start-azdatafactoryv2trigger):
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-1. Confirme que el estado del desencadenador es **Iniciado** mediante el cmdlet **Get-AzDataFactoryV2Trigger**:
+1. Confirme que el estado del desencadenador es **Iniciado** mediante el cmdlet [Get-AzDataFactoryV2Trigger](/powershell/module/az.datafactory/get-azdatafactoryv2trigger):
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-1.  Haga que el desencadenador se ejecute en Azure PowerShell mediante el cmdlet **Get-AzDataFactoryV2TriggerRun**. Para obtener información acerca de cómo se ejecuta el desencadenador, ejecute el siguiente comando periódicamente. Actualice los valores **TriggerRunStartedAfter** y **TriggerRunStartedBefore** para que coincidan con los valores de la definición del desencadenador:
+1.  Haga que el desencadenador se ejecute en Azure PowerShell mediante el cmdlet [Get-AzDataFactoryV2TriggerRun](/powershell/module/az.datafactory/get-azdatafactoryv2triggerrun). Para obtener información acerca de cómo se ejecuta el desencadenador, ejecute el siguiente comando periódicamente. Actualice los valores **TriggerRunStartedAfter** y **TriggerRunStartedBefore** para que coincidan con los valores de la definición del desencadenador:
 
     ```powershell
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
@@ -190,6 +198,97 @@ En esta sección se muestra cómo usar Azure PowerShell para crear, iniciar y su
     
     > [!NOTE]
     > La hora del desencadenador de los desencadenadores de programación se especifica en la marca de tiempo UTC. _TriggerRunStartedAfter_ y _TriggerRunStartedBefore_ esperan también una marca de tiempo UTC.
+
+    Para supervisar las ejecuciones del desencadenador y de la canalización en Azure Portal, consulte la sección acerca de la [supervisión de ejecuciones de canalización](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
+
+## <a name="azure-cli"></a>CLI de Azure
+
+En esta sección se muestra cómo usar la CLI de Azure para crear, iniciar y supervisar un desencadenador de programación. Para ver este ejemplo en funcionamiento, primero debe seguir el [Inicio rápido: Creación de una instancia de Azure Data Factory con la CLI de Azure](./quickstart-create-data-factory-azure-cli.md). A continuación, siga estos pasos para crear e iniciar un desencadenador de programación que se ejecute cada 15 minutos. El desencadenador está asociado a una canalización llamada **Adfv2QuickStartPipeline** que se crea como parte de la guía de inicio rápido.
+
+### <a name="prerequisites"></a>Prerrequisitos
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+### <a name="sample-code"></a>Código de ejemplo
+
+1. En su directorio de trabajo, cree un archivo JSON llamado **MyTrigger.json** con las propiedades del desencadenador. En este ejemplo, use el siguiente contenido:
+
+    > [!IMPORTANT]
+    > Antes de guardar el archivo JSON, establezca el valor del elemento **startTime** en la hora UTC actual. Establezca el valor del elemento **endTime** en una hora anterior a la hora UTC actual.
+
+    ```json
+    {
+        "name": "MyTrigger",
+        "type": "ScheduleTrigger",
+        "typeProperties": {
+            "recurrence": {
+                "frequency": "Minute",
+                "interval": 15,
+                "startTime": "2017-12-08T00:00:00Z",
+                "endTime": "2017-12-08T01:00:00Z",
+                "timeZone": "UTC"
+            }
+        },
+        "pipelines": [{
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "Adfv2QuickStartPipeline"
+                },
+                "parameters": {
+                    "inputPath": "adftutorial/input",
+                    "outputPath": "adftutorial/output"
+                }
+            }
+        ]
+    }
+    ```
+
+    En el fragmento de código de JSON:
+    - El elemento **type** del desencadenador se establece en "ScheduleTrigger".
+    - El elemento **frequency** se establece en "Minute" y el elemento **interval** se establece en 15. Por lo tanto, el desencadenador ejecuta la canalización cada 15 minutos entre las horas de inicio y finalización.
+    - El elemento **timeZone** especifica la zona horaria en la que se crea el desencadenador. Esta configuración afecta a **startTime** y **endTime**.
+    - El elemento **endTime** es una hora después del valor del elemento **startTime**. Por lo tanto, el desencadenador ejecuta la canalización 15 minutos, 30 minutos y 45 minutos después de la hora de inicio. No se olvide de actualizar el valor de start_time a la hora UTC actual y end_time a una hora posterior a la hora de inicio. 
+
+        > [!IMPORTANT]
+        > En el caso de la zona horaria UTC, los valores de startTime y endTime deben seguir el formato "aaaa-MM-ddTHH:mm:SS **Z**", mientras que para otras zonas horarias, startTime y endTime siguen "aaaa-MM-ddTHH:mm:ss". 
+        > 
+        > De acuerdo con la norma ISO 8601, el sufijo _Z_ añadido a la marca de tiempo señala la fecha y hora en la zona horaria UTC y hace innecesario el campo de zona horaria. Si falta el sufijo _Z_ para la zona horaria UTC, se producirá un error en la _activación_ del desencadenador.
+
+    - El desencadenador está asociado con la canalización **Adfv2QuickStartPipeline**. Para asociar varias canalizaciones con un desencadenador, agregue más secciones **pipelineReference**.
+    - La canalización de la guía de inicio rápido toma dos valores de **parámetros**: **inputPath** y **outputPath**. Y debe pasar valores para esos parámetros desde el desencadenador.
+
+1. Cree un desencadenador utilizando el comando [az datafactory trigger create](/cli/azure/datafactory/trigger#az_datafactory_trigger_create):
+
+    ```azurecli
+    az datafactory trigger create --resource-group "ADFQuickStartRG" --factory-name "ADFTutorialFactory"  --name "MyTrigger" --properties @MyTrigger.json  
+    ```
+
+1. Confirme que el estado del desencadenador es **Detenido** utilizando el comando [az datafactory trigger show](/cli/azure/datafactory/trigger#az_datafactory_trigger_show):
+
+    ```azurecli
+    az datafactory trigger show --resource-group "ADFQuickStartRG" --factory-name "ADFTutorialFactory" --name "MyTrigger" 
+    ```
+
+1. Inicie el desencadenador utilizando el comando [az datafactory trigger start](/cli/azure/datafactory/trigger#az_datafactory_trigger_start):
+
+    ```azurecli
+    az datafactory trigger start --resource-group "ADFQuickStartRG" --factory-name "ADFTutorialFactory" --name "MyTrigger" 
+    ```
+
+1. Confirme que el estado del desencadenador es **Iniciado** utilizando el comando [az datafactory trigger show](/cli/azure/datafactory/trigger#az_datafactory_trigger_show):
+
+    ```azurecli
+    az datafactory trigger show --resource-group "ADFQuickStartRG" --factory-name "ADFTutorialFactory" --name "MyTrigger" 
+    ```
+
+1. Obtenga las ejecuciones del desencadenador en la CLI de Azure mediante el comando [az datafactory trigger-run query-by-factory](/cli/azure/datafactory/trigger-run#az_datafactory_trigger_run_query_by_factory). Para obtener información sobre cómo se ejecuta el desencadenador, ejecute el siguiente comando periódicamente. Actualice los valores **last-updated-after** y **last-updated-before** para que coincidan con los valores de la definición del desencadenador:
+
+    ```azurecli
+    az datafactory trigger-run query-by-factory --resource-group "ADFQuickStartRG" --factory-name "ADFTutorialFactory" --filters operand="TriggerName" operator="Equals" values="MyTrigger" --last-updated-after "2017-12-08T00:00:00" --last-updated-before "2017-12-08T01:00:00"
+    ```
+
+    > [!NOTE]
+    > La hora del desencadenador de los desencadenadores de programación se especifica en la marca de tiempo UTC. _last-updated-after_ y _last-updated-before_ también esperan una marca de tiempo UTC.
 
     Para supervisar las ejecuciones del desencadenador y de la canalización en Azure Portal, consulte la sección acerca de la [supervisión de ejecuciones de canalización](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
@@ -415,7 +514,7 @@ Estas son algunas de las zonas horarias que se admiten para los desencadenadores
 | Hora estándar de la India (IST) | +5:30 | `India Standard Time` | No | `'yyyy-MM-ddTHH:mm:ss'` |
 | Hora estándar de China | +8 | `China Standard Time` | No | `'yyyy-MM-ddTHH:mm:ss'` |
 
-Esta lista está incompleta. Para obtener una lista completa de las opciones de zona horaria, vea la [página de creación de desencadenadores](#ui-experience) del portal
+Esta lista está incompleta. Para obtener una lista completa de las opciones de zona horaria, vea la [página de creación de desencadenadores](#azure-data-factory-and-synapse-portal-experience) del portal
 
 ### <a name="starttime-property"></a>Propiedad startTime
 En la tabla siguiente se muestra cómo la propiedad **startTime** controla una ejecución de desencadenador:

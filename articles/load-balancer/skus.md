@@ -11,22 +11,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/21/2021
 ms.author: allensu
-ms.openlocfilehash: 5000ac68cc0e00cdbe9d0ebd430f8cd88fe49e98
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 204de2d0b3ed6e75d8b599e094a58e0b2e1826b0
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131057711"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131576118"
 ---
 # <a name="azure-load-balancer-skus"></a>SKU de Azure Load Balancer
 
 Azure Load Balancer tiene dos SKU.
 
 ## <a name="sku-comparison"></a><a name="skus"></a>Comparación de SKU
+Azure Load Balancer tiene 3 SKU: Básico, Estándar y Puerta de enlace. Cada SKU está diseñada para un escenario específico y tiene diferencias en cuanto a escala, características y precios. 
 
-Load balancer admite SKU estándar y básicas. Estas SKU difieren en la escala, las características y los precios del escenario. Cualquier escenario que sea posible con Basic Load Balancer se puede crear con Standard Load Balancer.
-
-Para comparar y comprender las diferencias, consulte la siguiente tabla. Para más información, consulte [Información general sobre Standard Load Balancer de Azure](./load-balancer-overview.md).
+Para comparar y comprender las diferencias entre las SKU Básico y Estándar, consulte la tabla siguiente. Para más información, consulte [Información general sobre Standard Load Balancer de Azure](./load-balancer-overview.md). Para obtener información sobre la SKU de puerta de enlace, diseñada para aplicaciones virtuales de red (NVA) de terceros y actualmente en versión preliminar, consulte [Gateway Load Balancer (versión preliminar)](gateway-overview.md).
 
 >[!NOTE]
 > Microsoft recomienda Standard Load Balancer.
@@ -34,6 +33,7 @@ Las máquinas virtuales independientes, los conjuntos de disponibilidad y los co
 
 | | Standard Load Balancer | Versión Básico de Load Balancer |
 | --- | --- | --- |
+| **Escenario** |  Equipado para el tráfico de la capa de red de equilibrio de carga cuando se necesitan un alto rendimiento y una latencia muy baja. Enruta el tráfico dentro y entre regiones, y a zonas de disponibilidad para lograr una alta resistencia. | Equipado para aplicaciones a pequeña escala que no necesitan alta disponibilidad ni redundancia. No es compatible con las zonas de disponibilidad. |
 | **Tipo de back-end** | Basado en IP, basado en NIC | Basado en NIC |
 | **[Tamaño de grupo de back-end](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)** | Admite hasta 1000 instancias. | Admite hasta 300 instancias. |
 | **Puntos de conexión del grupo de back-end** | Todas las máquinas virtuales o conjuntos de escalado de máquinas virtuales de una red virtual individual. | Máquinas virtuales en un único conjunto de disponibilidad o conjunto de escalado de máquinas virtuales. |

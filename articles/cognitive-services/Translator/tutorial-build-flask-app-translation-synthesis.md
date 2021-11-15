@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 03/04/2021
+ms.date: 10/28/2021
 ms.author: lajanuar
 ms.custom: devx-track-python, devx-track-js
-ms.openlocfilehash: 6ec951e57b40ae1440f541c02b26e7788b3cf151
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: af09d5044c578b876ef3464caf1ec1bc1b96ab71
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105043740"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446512"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Tutorial: Compilación de una aplicación de Flask con Azure Cognitive Services
 
@@ -29,8 +29,8 @@ Este tutorial abarca lo siguiente:
 > * Configuración del entorno de desarrollo e instalación de las dependencias
 > * Creación de una aplicación de Flask
 > * Uso de Translator para traducir texto
-> * Uso de Text Analytics para analizar opiniones positivas o negativas de texto de entrada y traducciones
-> * Uso de Speech Services para convertir texto traducido en voz sintetizada
+> * Uso de Language Service para analizar opiniones positivas o negativas tanto en el texto de entrada como en las traducciones
+> * Uso del servicio de voz para convertir texto traducido en voz sintetizada
 > * Ejecución local de la aplicación de Flask
 
 > [!TIP]
@@ -45,7 +45,7 @@ Si desea obtener información detallada después de este tutorial, consulte esto
 * [Documentación de Flask](http://flask.pocoo.org/)
 * [Guía de Flask para principiantes](https://codeburst.io/flask-for-dummies-a-beginners-guide-to-flask-part-uno-53aec6afc5b1)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para este tutorial, se necesita el software y las claves de suscripción siguientes.
 
@@ -54,14 +54,14 @@ Para este tutorial, se necesita el software y las claves de suscripción siguien
 * Un editor de texto o IDE, como [Visual Studio Code](https://code.visualstudio.com/) o [Atom](https://atom.io/)  
 * [Chrome](https://www.google.com/chrome/browser/) o [Firefox](https://www.mozilla.org/firefox)
 * Una clave de suscripción de **Translator** (probablemente puede usar la ubicación **global**).
-* Una clave de suscripción de **Text Analytics** en la región **Oeste de EE. UU.**
+* Una clave de suscripción de **Language Service** en la región **Oeste de EE. UU.**
 * Una clave de suscripción de **Speech Services** en la región **Oeste de EE. UU.**
 
 ## <a name="create-an-account-and-subscribe-to-resources"></a>Creación de una cuenta y suscripción a recursos
 
 Como se ha indicado anteriormente, se necesitarán tres claves de suscripción para este tutorial. Esto significa que necesita crear un recurso en su cuenta de Azure para:
 * Traductor
-* Text Analytics
+* Servicio de lenguaje
 * Speech Services
 
 Use [Creación de una cuenta de Cognitive Services en Azure Portal](../cognitive-services-apis-create-account.md) para obtener instrucciones paso a paso para crear recursos.
@@ -475,18 +475,18 @@ Presione **CTRL + C** para terminar la aplicación y, después, vaya a la secci�
 
 ## <a name="analyze-sentiment"></a>Análisis de opinión
 
-[Text Analytics API](../text-analytics/overview.md) puede usarse para realizar análisis de opinión, extraer frases clave del texto o detectar el idioma de origen. En esta aplicación, vamos a usar análisis de opinión para determinar si el texto proporcionado es negativo, neutral o positivo. La API devuelve una puntuación numérica entre 0 y 1. Las puntuaciones próximas a 1 indican una opinión positiva y las puntuaciones próximas a 0 indican una opinión negativa.
+[Language Service API](../language-service/overview.md) se puede usar para realizar análisis de opinión, extraer frases clave del texto o detectar el idioma de origen. En esta aplicación, vamos a usar análisis de opinión para determinar si el texto proporcionado es negativo, neutral o positivo. La API devuelve una puntuación numérica entre 0 y 1. Las puntuaciones próximas a 1 indican una opinión positiva y las puntuaciones próximas a 0 indican una opinión negativa.
 
 En esta sección, realizará lo siguiente:
 
-* Escribir código Python para llamar a Text Analytics API para realizar análisis de opinión y devolver una respuesta
+* Escribir código Python para llamar a Language Service API para realizar análisis de opinión y devolver una respuesta
 * Crear una ruta de Flask para llamar a su código Python
 * Actualizar el código HTML con un área para las puntuaciones de opinión y un botón para realizar el análisis
 * Escribir código JavaScript que permita a los usuarios interactuar con la aplicación de Flask desde el código HTML
 
-### <a name="call-the-text-analytics-api"></a>Llamada a la API de Text Analytics
+### <a name="call-the-language-service-api"></a>Llamada a Language Service API
 
-Ahora escribirá una función para llamar a Text Analytics API. Esta función tendrá cuatro argumentos: `input_text`, `input_language`, `output_text` y `output_language`. Se llama a esta función cada vez que un usuario presiona el botón de ejecución de análisis de opinión de la aplicación. Con cada solicitud se proporcionan los datos especificados por el usuario en el área de texto y el selector de idioma, así como el idioma detectado y la salida de traducción. El objeto de respuesta incluye las puntuaciones de opinión para el origen y la traducción. En las secciones siguientes, escribirá código JavaScript para analizar la respuesta y usarlo en la aplicación. Por ahora, nos centraremos en la llamada a Text Analytics API.
+Vamos a escribir una función para llamar a Language Service API. Esta función tendrá cuatro argumentos: `input_text`, `input_language`, `output_text` y `output_language`. Se llama a esta función cada vez que un usuario presiona el botón de ejecución de análisis de opinión de la aplicación. Con cada solicitud se proporcionan los datos especificados por el usuario en el área de texto y el selector de idioma, así como el idioma detectado y la salida de traducción. El objeto de respuesta incluye las puntuaciones de opinión para el origen y la traducción. En las secciones siguientes, escribirá código JavaScript para analizar la respuesta y usarlo en la aplicación. Por ahora, vamos a centrarnos en llamar a Language Service API.
 
 1. Cree un archivo denominado `sentiment.py` en la raíz de su directorio de trabajo.
 2. A continuación, agregue este código a `sentiment.py`.
@@ -525,7 +525,7 @@ Ahora escribirá una función para llamar a Text Analytics API. Esta función te
        response = requests.post(constructed_url, headers=headers, json=body)
        return response.json()
    ```
-3. Agregue su clave de suscripción de Text Analytics y guarde.
+3. Agregue la clave de suscripción de Language Service y guárdela.
 
 ### <a name="add-a-route-to-apppy"></a>Agregar una ruta a `app.py`
 
@@ -948,5 +948,5 @@ El código fuente de este proyecto está disponible en [GitHub](https://github.c
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Referencia de Translator](./reference/v3-0-reference.md)
-* [Referencia de Text Analytics API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
+* [Referencia de Language Service API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1)
 * [Referencia de Text-to-speech API](../speech-service/rest-text-to-speech.md)

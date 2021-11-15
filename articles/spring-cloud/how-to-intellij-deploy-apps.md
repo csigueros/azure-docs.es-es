@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Uso de IntelliJ para implementar aplicaciones de Azure Spring Cloud'
+title: 'Tutorial: Implementación de aplicaciones Spring Boot mediante IntelliJ'
 description: Use IntelliJ para implementar aplicaciones en Azure Spring Cloud.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.date: 03/26/2020
+ms.date: 11/03/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: c3f1ead5d0c7e9ab7011a1179badc41b40912c83
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: af1932ddaba8416a25b6095d8b6a7cccb16f6796
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122015387"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131576040"
 ---
-# <a name="use-intellij-to-deploy-azure-spring-cloud-applications"></a>Uso de IntelliJ para implementar aplicaciones de Azure Spring Cloud
+# <a name="deploy-spring-boot-applications-using-intellij"></a>Implementación de aplicaciones Spring Boot mediante IntelliJ
 
 **Este artículo se aplica a:** ✔️ Java
 
@@ -42,7 +42,7 @@ Puede agregar Azure Toolkit for IntelliJ IDEA 3.51.0 desde la opción **Plugins
 
 ## <a name="tutorial-procedures"></a>Procedimientos del tutorial
 
-Los procedimientos siguientes implementan una aplicación Hola a todos con IntelliJ IDEA.
+Los procedimientos siguientes implementan una aplicación Hola mundo con IntelliJ IDEA.
 
 * Apertura del proyecto gs-spring-boot
 * Implementación en Azure Spring Cloud
@@ -81,11 +81,11 @@ Para realizar la implementación en Azure, debe iniciar sesión con su cuenta de
 
 1. El complemento ejecutará el comando `mvn package` en el proyecto y, luego, creará la aplicación e implementará el archivo JAR generado por el comando `package`.
 
-1. Si la dirección URL de la aplicación no se muestra en la ventana de salida, puede obtenerla en Azure Portal. Desplácese desde el grupo de recursos hasta la instancia de Azure Spring Cloud.  Luego, seleccione **Aplicaciones**.  Se mostrará la aplicación en ejecución.
+1. Si la dirección URL de la aplicación no se muestra en la ventana de salida, puede obtenerla en Azure Portal. Desplácese desde el grupo de recursos hasta la instancia de Azure Spring Cloud.  Luego, seleccione **Aplicaciones**.  Se mostrará la aplicación en ejecución. Seleccione la aplicación y copie la **Dirección URL** o el **Punto de conexión de prueba**.
 
     ![Obtención de la dirección URL de prueba](media/spring-cloud-intellij-howto/get-test-url.png)
 
-1. Vaya a la dirección URL con el explorador.
+1. Vaya a la dirección URL o al punto de conexión de prueba en el explorador.
 
     ![Navegar en el explorador 2](media/spring-cloud-intellij-howto/navigate-in-browser-2.png)
 

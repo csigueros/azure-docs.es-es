@@ -7,123 +7,64 @@ author: asudbring
 ms.service: virtual-network
 ms.subservice: nat
 ms.topic: conceptual
-ms.date: 06/29/2021
+ms.date: 10/20/2021
 ms.author: allensu
-ms.openlocfilehash: dfd00b0eb924c13cc68dbf0d6d1b1833c3ad7893
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 5e2b9baeef03163e74ad83c97d8e8148d7f6cfaf
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129236622"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130228325"
 ---
 # <a name="what-is-virtual-network-nat"></a>¿Qué es NAT de Virtual Network?
 
-La NAT (traducción de direcciones de red) de Virtual Network simplifica la conectividad a Internet de solo salida para redes virtuales. Cuando se configura en una subred, todas las conexiones salientes usan las direcciones IP públicas estáticas que se hayan especificado.  La conectividad saliente es posible sin que el equilibrador de carga ni las direcciones IP públicas estén conectados directamente a máquinas virtuales. La NAT está totalmente administrada y es muy resistente.
-
-> [!VIDEO https://www.youtube.com/embed/2Ng_uM0ZaB4]
+Virtual Network NAT es un servicio de traducción de direcciones de red (NAT) totalmente administrado y muy resistente. VNet NAT simplifica la conectividad saliente a Internet para redes virtuales. Cuando se configura en una subred, toda la conectividad saliente usa las direcciones IP públicas estáticas de VNet NAT. 
 
 :::image type="content" source="./media/nat-overview/flow-map.png" alt-text="En la ilustración se muestra una NAT que recibe tráfico de subredes internas y lo dirige a una dirección IP pública (PIP) y un prefijo IP.":::
 
 *Ilustración:* Virtual Network NAT
-## <a name="static-ip-addresses-for-outbound-only"></a>Direcciones IP estáticas de solo salida
 
-Se puede definir la conectividad de salida para todas las subredes con NAT.  Distintas subredes dentro de la misma red virtual pueden tener diferentes NAT. Para configurar una subred, es preciso especificar qué recurso de puerta de enlace de NAT se debe usar. Los flujos de salida UDP y TCP de todas las instancias de máquina virtual usarán NAT. 
+## <a name="vnet-nat-benefits"></a>Ventajas de VNet NAT
 
-NAT es compatible con los recursos de dirección IP pública o los recursos de prefijos IP públicos, o una combinación de ambos de una SKU estándar.  Puede usar un prefijo de IP pública directamente o distribuir las direcciones IP públicas del prefijo entre varios recursos de puerta de enlace de NAT. NAT limpiará todo el tráfico hacia el intervalo de direcciones IP del prefijo.  Ahora es fácil realizar el filtrado de las direcciones IP de las implementaciones.
+### <a name="security"></a>Seguridad
+Con NAT, las máquinas virtuales individuales (u otros recursos de proceso) no necesitan direcciones IP públicas y pueden permanecer totalmente privadas. Estos recursos, a pesar de no tener una dirección IP pública, pueden llegar a orígenes externos fuera de la red virtual. También puede asociar un prefijo de IP pública para asegurarse de que se usará un conjunto contiguo de direcciones IP para la salida. Las reglas de firewall de destino se pueden configurar en función de esta lista de direcciones IP predecibles.
 
-Todo el tráfico de salida para la subred lo procesa NAT automáticamente sin que el cliente tenga que configurar nada.  No se necesitan rutas definidas por el usuario. NAT tiene prioridad sobre otros escenarios de salida y reemplaza el destino de Internet predeterminado de una subred.
+### <a name="resiliency"></a>Resistencia 
+NAT es un servicio totalmente administrado y distribuido. No depende de ninguna instancia de proceso individual, como máquinas virtuales o un solo dispositivo de puerta de enlace físico. Aprovecha las redes definidas por software, lo que la hace muy resistente. 
 
-## <a name="on-demand-snat-with-multiple-ip-addresses-for-scale"></a>SNAT a petición con varias direcciones IP para el escalado
+### <a name="scalability"></a>Escalabilidad
+NAT se puede asociar a una subred y se puede usar en todos los recursos de proceso de esa subred. Además, todas las subredes de una red virtual pueden aprovechar el mismo recurso. Cuando se asocie a un prefijo de IP pública, se escalará automáticamente al número de direcciones IP necesarias para la salida.
 
-NAT usa la "traducción de direcciones de red de puertos" (PNAT o PAT) y se recomienda para la mayoría de cargas de trabajo. Las cargas de trabajo divergentes o dinámicas se pueden acomodar fácilmente con la asignación de flujos de salida a petición. Se evita un exceso de planeamiento y asignación previas, y en último término, el sobreaprovisionamiento de recursos de salida. Los recursos de los puertos SNAT se comparten, por lo que están disponibles en todas las subredes que usen algún recurso de puerta de enlace de NAT concreto y se proporcionan cuando se necesitan.
+### <a name="performance"></a>Rendimiento
+NAT no afecta al ancho de banda de red de los recursos de proceso, ya que es un servicio de red definido por software. Descubra más sobre las [métricas de la puerta de enlace NAT](nat-gateway-resource.md#performance).
 
-Una dirección IP pública asociada a NAT proporciona hasta 64 000 flujos simultáneos para UDP y TCP, respectivamente. 
 
-Un recurso de puerta de enlace NAT puede usar lo siguiente:
+## <a name="vnet-nat-basics"></a>Conceptos básicos de VNet NAT
 
-* Dirección IP pública
-* Prefijo de IP pública
-
-Ambos tipos se pueden asociar a una puerta de enlace NAT.
-
-Puede empezar con una sola dirección IP y escalar verticalmente hasta 16 direcciones IP públicas.
-
-Las subredes de una red virtual están asociadas a una puerta de enlace NAT para habilitar las conexiones salientes.  Una puerta de enlace NAT utilizará todas las direcciones IP asociadas al recurso para las conexiones.
-
-La puerta de enlace NAT permite crear flujos desde la red virtual a Internet. El tráfico de retorno de Internet solo se permite en respuesta a un flujo activo.
-
-A diferencia del SNAT de salida del equilibrador de carga, la puerta de enlace NAT no tiene restricciones sobre cuál de las IP privadas de una instancia de máquina virtual puede realizar conexiones de salida.  Las direcciones IP principales y secundarias pueden crear una conexión a Internet de salida con NAT.
-
-## <a name="coexistence-of-inbound-and-outbound"></a>Coexistencia de entrada y salida
-
-NAT es compatible con los siguientes recursos de SKU estándar:
-
-- Equilibrador de carga
-- Dirección IP pública
-- Prefijo de IP pública
-
-Si se usan junto con NAT, estos recursos proporcionan conectividad de Internet entrante a sus subredes. NAT proporciona toda la conectividad de Internet que sale desde sus subredes.
-
-Tanto NAT como las características compatibles de la SKU estándar conocen la dirección en que se inició el flujo. Los escenarios de entrada y salida pueden coexistir. Estos escenarios recibirán las traducciones de direcciones de red correctas porque estas características conocen la dirección del flujo. 
-
-:::image type="content" source="./media/nat-overview/flow-direction4.png" alt-text="En la ilustración se muestra una puerta de enlace NAT que admite el tráfico saliente a Internet desde una red virtual.":::
-
-*Ilustración: Dirección del flujo de Virtual Network NAT*
-## <a name="fully-managed-highly-resilient"></a>Totalmente administrado y muy resistente
+NAT se puede crear en una zona de disponibilidad específica y tiene redundancia integrada dentro de la zona especificada. NAT no es zonal de forma predeterminada. Al crear escenarios de [zonas de disponibilidad](../../availability-zones/az-overview.md), NAT se puede aislar en una zona específica. Esto se conoce como implementación zonal.
 
 NAT se escala de forma horizontal completamente desde el principio. No se precisa ninguna operación de aumento ni de escalabilidad horizontal.  Azure administra automáticamente la operación de NAT.  NAT siempre tiene varios dominios de error y puede soportar varios errores sin que se interrumpa el servicio.
-## <a name="tcp-reset-for-unrecognized-flows"></a>TCP Reset para flujos no reconocidos
 
-El lado privado de NAT envía paquetes de TCP Reset para realizar intentos de comunicación sobre una conexión TCP que no existe. Un ejemplo son las conexiones que han alcanzado el tiempo de espera de inactividad. El siguiente paquete recibido devolverá un TCP Reset a la dirección IP privada para señalar y forzar el cierre de la conexión.
+* Se puede definir la conectividad de salida para todas las subredes con NAT.  Distintas subredes dentro de la misma red virtual pueden tener diferentes NAT. Para configurar una subred, es preciso especificar qué recurso de puerta de enlace de NAT se debe usar.  Todo el tráfico de salida para la subred lo procesa NAT automáticamente sin que el cliente tenga que configurar nada.  No se necesitan rutas definidas por el usuario. NAT tiene prioridad sobre otros escenarios de salida y reemplaza el destino de Internet predeterminado de una subred.
+* NAT solo admite protocolos TCP y UDP. ICMP no se admite.
+* Un recurso de puerta de enlace NAT puede usar lo siguiente:
 
-El lado público de NAT no genera paquetes de TCP Reset ni ningún otro tipo de tráfico.  Solo se emite el tráfico generado por la red virtual del cliente.
-
-## <a name="configurable-tcp-idle-timeout"></a>Tiempo de espera de inactividad de TCP configurable
-
-Se usa un tiempo de espera de inactividad de TCP predeterminado de 4 minutos que se puede aumentar hasta 120. Cualquier actividad de un flujo puede restablecer también el temporizador de actividad, lo que incluye mensajes TCP Keepalive.
-
-## <a name="regional-or-zone-isolation-with-availability-zones"></a>Aislamiento regional o por zona con zonas de disponibilidad
-
-De manera predeterminada, NAT tiene un ámbito regional. Al crear escenarios de [zonas de disponibilidad](../../availability-zones/az-overview.md), se puede aislar en una zona específica (implementación zonal).
-
-:::image type="content" source="./media/nat-overview/az-directions.png" alt-text="En la ilustración se muestran tres pilas zonales, cada una de las cuales contiene una puerta de enlace NAT y una subred.":::
-
-*Ilustración: Virtual Network NAT con zonas de disponibilidad*
-## <a name="multi-dimensional-metrics-for-observability"></a>Métricas multidimensionales que favorecen la observación
-
-La operación de la NAT se puede supervisar a través de métricas multidimensionales que se exponen en Azure Monitor. Estas métricas se pueden usar no solo para observar el uso, sino también para solucionar problemas.  Los recursos de la puerta de enlace de NAT exponen las siguientes métricas:
-
-- Bytes
-- Paquetes
-- Paquetes descartados
-- Total de conexiones SNAT
-- Transiciones de estado de conexiones SNAT por intervalo.
-
-Obtenga más información sobre las [métricas de puerta de enlace NAT](./nat-metrics.md).
-## <a name="sla"></a>Contrato de nivel de servicio
-
-En disponibilidad general, la disponibilidad mínima de la ruta de datos de NAT es del 99,9 %.
-
-## <a name="pricing"></a>Precios
-
-Para obtener información detallada sobre los precios, consulte [Precios de Virtual Network](https://azure.microsoft.com/pricing/details/virtual-network).
-
-## <a name="availability"></a>Disponibilidad
-
-Virtual Network NAT y el recurso de puerta de enlace NAT están disponibles en todas las [regiones](https://azure.microsoft.com/global-infrastructure/regions/) de las nubes de Azure.
-
-## <a name="suggestions"></a>Sugerencias
-
-Queremos saber cómo podemos mejorar el servicio. Proponga lo que debemos crear después (y vote por ello) en [UserVoice para NAT](https://aka.ms/natuservoice).
-## <a name="limitations"></a>Limitaciones
-
-* NAT es compatible con la dirección IP pública de la SKU estándar, el prefijo de IP pública y los recursos del equilibrador de carga. Ni los recursos básicos (por ejemplo, el equilibrador de carga básico) ni los productos derivados de ellos son compatibles con NAT.  Los recursos básicos se deben colocar en una subred que no esté configurada con NAT.
-* Se admite la familia de direcciones IPv4.  NAT no interactúa con la familia de direcciones IPv6.  NAT no se puede implementar en una subred con un prefijo IPv6.
+  * Dirección IP pública
+  * Prefijo de IP pública
+* NAT es compatible con la dirección IP pública de la SKU estándar, los recursos de prefijo de IP pública o una combinación de ambos. Puede usar un prefijo de IP pública directamente o distribuir las direcciones IP públicas del prefijo entre varios recursos de puerta de enlace de NAT. NAT limpiará todo el tráfico hacia el intervalo de direcciones IP del prefijo. Los recursos básicos, como Load Balancer básico o la dirección IP pública básica, no son compatibles con NAT.  Los recursos básicos deben colocarse en una subred no asociada a una instancia de NAT Gateway.
+* NAT no se puede asociar a una dirección IP pública IPv6 ni a un prefijo IP público IPv6. Sin embargo, se puede asociar a una subred de pila dual.
+* NAT permite crear flujos entre la red virtual y los servicios que se encuentran fuera de ella. El tráfico de retorno de Internet solo se permite en respuesta a un flujo activo. Los servicios fuera de la red virtual no pueden iniciar una conexión a las instancias.
 * NAT no puede abarcar varias redes virtuales.
 * NAT no se puede implementar en una [subred de puerta de enlace](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub).
+* El lado privado de NAT (instancias de máquina virtual u otros recursos de proceso) envía paquetes de restablecimiento de TCP durante los intentos de comunicación en una conexión TCP que no existe. Un ejemplo son las conexiones que han alcanzado el tiempo de espera de inactividad. El siguiente paquete recibido devolverá un TCP Reset a la dirección IP privada para señalar y forzar el cierre de la conexión. El lado público de NAT no genera paquetes de TCP Reset ni ningún otro tipo de tráfico.  Solo se emite el tráfico generado por la red virtual del cliente.
+* Se usa un tiempo de espera de inactividad de TCP predeterminado de 4 minutos que se puede aumentar hasta 120. Cualquier actividad de un flujo puede restablecer también el temporizador de actividad, lo que incluye mensajes TCP Keepalive.
+
+## <a name="pricing-and-sla"></a>Precios y contrato de nivel de servicio
+
+Para obtener información detallada sobre los precios, consulte [Precios de Virtual Network](https://azure.microsoft.com/pricing/details/virtual-network). La ruta de acceso a datos de NAT tiene una disponibilidad mínima del 99,9 %.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Aprenda a [obtener una mejor conectividad de salida mediante una instancia de Azure NAT Gateway](https://www.youtube.com/watch?v=2Ng_uM0ZaB4).
 * Obtenga más información sobre [recursos de puerta de enlace de NAT](./nat-gateway-resource.md).
-* [Indíquenos qué crear a continuación para Virtual Network NAT en UserVoice](https://aka.ms/natuservoice).
+* Obtenga más información sobre las [métricas de puerta de enlace NAT](./nat-metrics.md).

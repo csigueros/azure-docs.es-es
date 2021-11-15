@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 07/01/2021
+ms.date: 10/21/2021
 ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: e3664e9a42a502509e74c43643d47f18e153ff6e
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 6c080e89dab3193f373b0a1e194cb18661132bbd
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429972"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131559625"
 ---
 # <a name="tutorial-train-a-classification-model-with-no-code-automl-in-the-azure-machine-learning-studio"></a>Tutorial: Entrenamiento de un modelo de clasificación con aprendizaje automático automatizado sin código en el Estudio de Azure Machine Learning
 
@@ -127,8 +127,10 @@ Una vez cargados y configurados los datos, puede configurar el experimento. Este
 
     1. Seleccione **y** como la columna de destino en la que desea realizar las predicciones. Esta columna indica si el cliente se suscribió a un depósito a plazo o no.
     
-    1. Seleccione **Create a new compute** (Crear un proceso) y configure el destino de proceso. Un destino de proceso es un entorno de recursos locales o en la nube que se usa para ejecutar el script de entrenamiento o para hospedar la implementación de un servicio. En este experimento se usa un proceso en la nube. 
-        1. Rellene el formulario **Máquina virtual** para configurar el proceso.
+    1. Seleccione **clúster de proceso** como tipo de proceso. 
+    
+    1.  **+New** para configurar el destino de proceso. Un destino de proceso es un entorno de recursos locales o en la nube que se usa para ejecutar el script de entrenamiento o para hospedar la implementación de un servicio. En este experimento se usa un proceso en la nube. 
+        1. Rellene el formulario **Seleccionar máquina virtual** para configurar el proceso.
 
             Campo | Descripción | Valor para el tutorial
             ----|---|---

@@ -3,13 +3,13 @@ title: Creación de una solicitud de soporte técnico de Azure
 description: Los clientes que necesiten asistencia pueden usar Azure Portal para buscar soluciones de autoservicio y para crear y administrar solicitudes de soporte técnico.
 ms.topic: how-to
 ms.custom: support-help-page
-ms.date: 09/30/2021
-ms.openlocfilehash: 4598cc16173100749ad3f1bdefd3165020554465
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.date: 10/20/2021
+ms.openlocfilehash: 8c1a9e841c291bc6a7a6139b7aff4217975a0bcd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129358267"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265005"
 ---
 # <a name="create-an-azure-support-request"></a>Creación de una solicitud de soporte técnico de Azure
 
@@ -78,7 +78,7 @@ A continuación, recopilaremos información adicional sobre el problema. Proporc
 
 1. Complete los **detalles del problema** para que podamos tener más información sobre el mismo. Si es posible, indíquenos cuándo se inició el problema y los pasos para reproducirlo. Puede cargar un archivo, como un archivo de registro o una salida de diagnósticos. Para obtener más información sobre las cargas de archivos, consulte [Instrucciones de carga de archivos](how-to-manage-azure-support-request.md#file-upload-guidelines).
 
-1. En la sección **Compartir información de diagnóstico**, seleccione **Sí** o **No**. Si elige **Sí**, el soporte técnico de Azure podrá recopilar [información de diagnóstico](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) de los recursos de Azure. Si prefiere no compartir esta información, seleccione **No**. Consulte la sección [Registros de información de diagnóstico avanzada](#advanced-diagnostic-information-logs) para obtener más detalles sobre los tipos de archivos que se pueden recopilar.
+1. En la sección **Información de diagnóstico avanzada**, seleccione **Sí** o **No**. Si elige **Sí**, el soporte técnico de Azure podrá recopilar [información de diagnóstico avanzada](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) de los recursos de Azure. Si prefiere no compartir esta información, seleccione **No**. Consulte la sección [Registros de información de diagnóstico avanzada](#advanced-diagnostic-information-logs) para obtener más detalles sobre los tipos de archivos que se pueden recopilar.
 
   En algunos casos, habrá opciones adicionales donde elegir. Por ejemplo, para determinados tipos de problemas de máquina virtual, puede elegir si desea [permitir el acceso a la memoria de una máquina virtual](#memory-dump-collection).
 

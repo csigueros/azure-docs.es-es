@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 10/20/2021
 ms.author: jlian
-ms.openlocfilehash: 726e482f64f7d9c1513f5ce362c232e225b9ee27
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: bd5a88bb8fc47e5f4815aea57544d6093281999b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109712863"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130258874"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Compatibilidad de IoT Hub con redes virtuales mediante Private Link e identidad administrada
 
@@ -50,9 +50,9 @@ Antes de continuar, asegúrese de que se cumplen los requisitos previos siguient
 
 El punto de conexión privado funciona para API de dispositivo de IoT Hub (como los mensajes de dispositivo a nube), así como para API de servicio (como la creación y la actualización de dispositivos).
 
-1. En Azure Portal, seleccione **Redes**, **Conexiones de punto de conexión privado** y haga clic en **+ Punto de conexión privado**.
+1. En Azure Portal, seleccione **Redes**, **Acceso privado** y haga clic en la opción **+ Crear un punto de conexión privado**.
 
-    :::image type="content" source="media/virtual-network-support/private-link.png" alt-text="Captura de pantalla que muestra dónde agregar un punto de conexión privado para IoT Hub":::
+    :::image type="content" source="media/virtual-network-support/private-link.png" alt-text="Captura de pantalla que muestra dónde agregar un punto de conexión privado para IoT Hub" border="true":::
 
 1. Indique la suscripción, el grupo de recursos, el nombre y la región donde desea crear el nuevo punto de conexión privado. Lo más adecuado es que el punto de conexión privado se cree en la misma región que el centro de conectividad.
 

@@ -3,22 +3,22 @@ title: Personalización de la interfaz de usuario con plantillas HTML
 titleSuffix: Azure AD B2C
 description: Obtenga información acerca de cómo personalizar la interfaz de usuario con plantillas HTML en las aplicaciones que usan Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 10/14/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0f0ffa8a4a25df07cf212eb3352d3515d8c5267c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f662b1a1a47dba27457c4c5754d600bb920c7b2f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128575564"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130222673"
 ---
 # <a name="customize-the-user-interface-with-html-templates-in-azure-active-directory-b2c"></a>Personalización de la interfaz de usuario con plantillas HTML en Azure Active Directory B2C
 
@@ -208,30 +208,34 @@ Puede crear contenido de la página personalizada con el nombre de la marca del 
 
 En este artículo se usa Azure Blob Storage para hospedar el contenido. Puede elegir hospedar el contenido en un servidor web, pero deberá [habilitar CORS en el servidor web](https://enable-cors.org/server.html).
 
+> [!NOTE]
+> En un inquilino de Azure AD B2C, no se puede aprovisionar Blob Storage. Este recurso se debe crear en el inquilino de Azure AD.
+
 Para hospedar el contenido HTML en Blob Storage, haga lo siguiente:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. En el menú **central**, seleccione **Nuevo** > **Almacenamiento** > **Cuenta de almacenamiento**.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD y que tiene una suscripción: 
+    1. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+    1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD en la lista Nombre de directorio y, después, seleccione **Cambiar**.
+1. En Azure Portal, busque y seleccione **Cuentas de almacenamiento**.
+1. Seleccione **+ Create** (+ Crear).
 1. Seleccione una **Suscripción** para la cuenta de almacenamiento.
 1. Cree un **Grupo de recursos** o seleccione uno existente.
-1. Escriba un **Nombre** único para la cuenta de almacenamiento.
-1. Seleccione la **Ubicación geográfica** de la cuenta de almacenamiento.
-1. El **Modelo de implementación** puede permanecer como **Resource Manager**.
+1. Escriba un **nombre para la cuenta de almacenamiento** que sea único.
+1. Seleccione la **región** geográfica adecuada para la cuenta de almacenamiento.
 1. El **Rendimiento** puede permanecer como **Estándar**.
-1. Cambie **Tipo de cuenta** a **Almacenamiento de blobs**.
-1. La **Replicación** puede permanecer como **RA-GRS**.
-1. El **Nivel de acceso** puede permanecer **Activo**.
-1. Haga clic en **Revisar y crear** para crear la cuenta de almacenamiento.
-    Espere a que termine la implementación y la página de la **cuenta de almacenamiento** se abrirá automáticamente.
-
+1. El valor de **Redundancia** puede permanecer como **Almacenamiento con redundancia geográfica (GRS)**
+1. Seleccione **Revisar y crear** y espere unos segundos a que Azure AD ejecute una validación. 
+1. Seleccione **Crear** para crear la cuenta de almacenamiento. Una vez finalizada la implementación, la página de la cuenta de almacenamiento se abre automáticamente; también puede seleccionar **Ir al recurso**.
 #### <a name="21-create-a-container"></a>2.1 Creación de un contenedor
 
 Para crear un contenedor público en Blob Storage, realice los siguientes pasos:
 
-1. En **Blob service** en el menú izquierdo, seleccione **Blobs**.
+1. En **Almacenamiento de datos** en el menú izquierdo, seleccione **Contenedores**.
 1. Seleccione **+ Contenedor**.
 1. En **Nombre**, escriba *root*. El nombre puede ser el que quiera, por ejemplo *contoso*; sin embargo, usamos *root* en este ejemplo por motivos de simplicidad.
-1. Para **Nivel de acceso público**, seleccione **Blob** y, luego, **Aceptar**.
+1. En **Nivel de acceso público**, seleccione **Blob**.
+1. Seleccione **Crear** para crear el contenedor.
 1. Seleccione **root** para abrir el contenedor nuevo.
 
 #### <a name="22-upload-your-custom-page-content-files"></a>2.2 Carga de los archivos de contenido de la página personalizada
@@ -249,13 +253,14 @@ Para crear un contenedor público en Blob Storage, realice los siguientes pasos
 
 Para configurar Blob Storage para el uso compartido de recursos entre orígenes (CORS), realice los siguientes pasos:
 
-1. En el menú, seleccione **CORS**.
+1. Vaya a la cuenta de almacenamiento. 
+1. En el menú izquierdo, en **Configuración**, seleccione **Resource sharing (CORS)** (Uso compartido de recursos [CORS]).
 1. En **Orígenes permitidos**, escriba `https://your-tenant-name.b2clogin.com`. Reemplace `your-tenant-name` por el nombre del inquilino de Azure AD B2C. Por ejemplo, `https://fabrikam.b2clogin.com`. Al escribir su nombre de inquilino, use solo minúsculas.
 1. En **Métodos permitidos**, seleccione `GET` y `OPTIONS`.
 1. En **Encabezados permitidos**, escriba un asterisco (*).
 1. En **Encabezados expuestos**, escriba un asterisco (*).
 1. Para **Antigüedad máxima**, introduzca 200.
-1. Seleccione **Guardar**.
+1. En la parte superior de la página, seleccione **Guardar**.
 
 #### <a name="31-test-cors"></a>3.1 Prueba de CORS
 
@@ -268,21 +273,26 @@ Para comprobar que está listo, realice los siguientes pasos:
     El resultado debe ser `XHR status: 200`. 
     Si recibe un error, asegúrese de que la configuración de CORS sea correcta. Puede que también deba borrar la caché del explorador o abrir una sesión de navegación privada, para ello, presione Ctrl + Mayús + P.
 
+Descubra [cómo crear y administrar cuentas de almacenamiento de Azure](../storage/common/storage-account-create.md).
+
 ::: zone pivot="b2c-user-flow"
 
 ### <a name="4-update-the-user-flow"></a>4. Actualización del flujo de usuario
 
-1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
-1. Seleccione **Flujos de usuario** y, luego, elija el flujo de usuario *B2C_1_signupsignin1*.
-1. Seleccione **Diseños de página** y, a continuación, en **Página unificada de inicio de sesión o de registro**, haga clic en **Sí** para **Usar contenido de la página personalizada**.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C: 
+    1. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+    1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista de nombres de directorio y seleccione **Cambiar**.
+1. En Azure Portal, busque y seleccione **Azure AD B2C**.
+1. En el menú izquierdo, seleccione **Flujos de usuario** y, luego, elija el flujo de usuario *B2C_1_signupsignin1*.
+1. Seleccione **Diseños de página** y, luego, en **Página unificada de inicio de sesión o de registro**, elija **Sí** en **Usar contenido de la página personalizada**.
 1. En **URI de página personalizado**, escriba el identificador URI del archivo *custom-ui.html* que anotó anteriormente.
 1. En la parte superior de la página, seleccione **Guardar**.
 
 ### <a name="5-test-the-user-flow"></a>5. Prueba del flujo de usuario
 
 1. En el inquilino de Azure AD B2C, seleccione **Flujos de usuario** y seleccione el flujo *B2C_1_signupsignin1*.
-1. En la parte superior de la página, haga clic en **Ejecutar flujo de usuario**.
-1. Haga clic en el botón **Ejecutar flujo de usuario**.
+1. En la parte superior de la página, seleccione **Ejecutar flujo de usuario**.
+1. En el panel de la derecha, seleccione el botón **Ejecutar flujo de usuario**.
 
 Debería ver una página similar al ejemplo siguiente con los elementos centrados basándose en el archivo CSS que ha creado:
 

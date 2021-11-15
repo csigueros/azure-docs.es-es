@@ -1,20 +1,20 @@
 ---
 title: ¿Qué es Azure Lighthouse?
 description: Azure Lighthouse permite a los proveedores de servicios ofrecer servicios administrados para sus clientes con mayor automatización y eficacia a escala.
-ms.date: 07/13/2021
+ms.date: 11/02/2021
 ms.topic: overview
-ms.openlocfilehash: 2da14a65f146a181af39a8c06a8089fee9010467
-ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
+ms.openlocfilehash: 8130a88042678d277fd5fe727f0593e8805bb5b4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113666571"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131445792"
 ---
 # <a name="what-is-azure-lighthouse"></a>¿Qué es Azure Lighthouse?
 
 Azure Lighthouse permite la administración multiinquilino con escalabilidad, mayor automatización y gobernanza mejorada de los recursos.
 
-Con Azure Lighthouse, los proveedores de servicios pueden ofrecer servicios administrados mediante [herramientas completas y potentes integradas en la plataforma Azure](concepts/architecture.md). Los clientes mantienen el control sobre quién tiene acceso a su inquilino, a qué recursos se puede acceder y qué acciones se pueden realizar. Esta oferta también puede ayudar a las [organizaciones de TI empresariales](concepts/enterprise.md) a administrar recursos en varios inquilinos.
+Con Azure Lighthouse, los proveedores de servicios pueden ofrecer servicios administrados mediante [herramientas completas y potentes integradas en la plataforma Azure](concepts/architecture.md). Los clientes mantienen el control sobre quién tiene acceso a su inquilino, a qué recursos se puede acceder y qué acciones se pueden realizar. Las [organizaciones empresariales](concepts/enterprise.md) administran recursos en varios inquilinos también pueden usar Azure Lighthouse para optimizar las tareas de administración.
 
 Las [experiencias de administración entre inquilinos](concepts/cross-tenant-management-experience.md) le permiten trabajar de forma más eficaz con servicios de Azure como [Azure Policy](how-to/policy-at-scale.md), [Azure Sentinel](how-to/manage-sentinel-workspaces.md), [Azure Arc](how-to/manage-hybrid-infrastructure-arc.md), etc. Los usuarios pueden ver qué cambios se han realizado y quién los ha realizado [en el registro de actividad](how-to/view-service-provider-activity.md), el cual se almacena en el inquilino del cliente (y los usuarios del inquilino de administración pueden verlo).
 
@@ -25,7 +25,7 @@ Las [experiencias de administración entre inquilinos](concepts/cross-tenant-man
 Azure Lighthouse ayuda a los proveedores de servicios a compilar y ofrecer servicios administrados de forma eficaz. Dicha integración aporta las siguientes ventajas:
 
 - **Administración a escala**: la involucración del cliente y las operaciones de ciclo de vida para administrar los recursos del cliente son más fáciles y escalables. Las API, las herramientas de administración y los flujos de trabajo existentes se pueden usar con recursos delegados, incluidas las máquinas hospedadas fuera de Azure, con independencia de las regiones en las que se encuentren.
-- **Mayor visibilidad y control para los clientes**: los clientes tienen un control preciso sobre los ámbitos en los que delegan la administración y sobre los permisos admitidos. Pueden [auditar las acciones del proveedor de servicios](how-to/view-service-provider-activity.md) y retirar el acceso por completo si así lo desean.
+- **Mayor visibilidad y control para los clientes**: los clientes tienen un control preciso sobre los ámbitos en los que delegan la administración y sobre los permisos admitidos. Pueden [auditar las acciones del proveedor de servicios](how-to/view-service-provider-activity.md) y retirar el acceso por completo en cualquier momento.
 - [Herramientas de plataforma completas y unificadas](concepts/cloud-solution-provider.md): Azure Lighthouse funciona con herramientas y API existentes, **aplicaciones administradas de Azure** y programas de asociados, como el [programa del proveedor de soluciones en la nube (CSP)](concepts/managed-applications.md). Esta flexibilidad admite escenarios clave del proveedor de servicios, incluidos varios modelos de licencia como EA, CSP y pago por uso. Azure Lighthouse se puede integrar en los flujos de trabajo y aplicaciones existentes, y puede realizar un seguimiento de su efecto sobre las interacciones de los clientes [vinculando su identificador de asociado](how-to/partner-earned-credit.md).
 
 ## <a name="capabilities"></a>Capacidades

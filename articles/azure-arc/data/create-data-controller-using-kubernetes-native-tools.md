@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 0650691e9786ac88184c8354052ea96329e8f933
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2380a10d9a4a054a5d83b2c1096797e41bba7d0f
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128639724"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563613"
 ---
 # <a name="create-azure-arc-data-controller-using-kubernetes-tools"></a>Creación de un controlador de datos de Azure Arc mediante las herramientas de Kubernetes
 
@@ -53,11 +53,13 @@ kubectl delete clusterrole arcdataservices-extension
 kubectl delete clusterrole arc:cr-arc-metricsdc-reader
 kubectl delete clusterrole arc:cr-arc-dc-watch
 kubectl delete clusterrole cr-arc-webhook-job
-
-# Substitute the name of the namespace the data controller was deployed in into {namespace}.  If unsure, get the name of the mutatingwebhookconfiguration using 'kubectl get clusterrolebinding'
+kubectl delete clusterrole {namespace}:cr-upgrade-worker
 kubectl delete clusterrolebinding {namespace}:crb-arc-metricsdc-reader
 kubectl delete clusterrolebinding {namespace}:crb-arc-dc-watch
 kubectl delete clusterrolebinding crb-arc-webhook-job
+kubectl delete clusterrolebinding {namespace}:crb-upgrade-worker
+
+# Substitute the name of the namespace the data controller was deployed in into {namespace}.  If unsure, get the name of the mutatingwebhookconfiguration using 'kubectl get clusterrolebinding'
 
 # API services
 # Up to May 2021 release
@@ -153,13 +155,13 @@ En el ejemplo siguiente se da por hecho que ha creado un nombre de secreto de ex
       - name: arc-private-registry #Create this image pull secret if you are using a private container registry
       containers:
       - name: bootstrapper
-        image: mcr.microsoft.com/arcdata/arc-bootstrapper:v1.0.0_2021-07-30 #Change this registry location if you are using a private container registry.
+        image: mcr.microsoft.com/arcdata/arc-bootstrapper:v1.1.0_2021-11-02 #Change this registry location if you are using a private container registry.
         imagePullPolicy: Always
 ```
 
-## <a name="create-a-secret-for-the-kibanagrafana-dashboards"></a>Creación de un secreto para los paneles de Kibana o Grafana
+## <a name="create-secrets-for-the-metrics-and-logs-dashboards"></a>Creación de secretos para los paneles de métricas y registros
 
-El nombre de usuario y la contraseña se usan para autenticarse en los paneles de Kibana y Grafana como administrador.  Elija una contraseña segura y compártala solo con aquellos usuarios que necesiten tener estos privilegios.
+Puede especificar un nombre de usuario y una contraseña para autenticarse en los paneles de métricas y registros como administrador. Elija una contraseña segura y compártala solo con aquellos usuarios que necesiten tener estos privilegios.
 
 Un secreto de Kubernetes se almacena como una cadena codificada en Base64, una para el nombre de usuario y otra para la contraseña.
 
@@ -184,7 +186,7 @@ echo -n '<your string to encode here>' | base64
 # echo -n 'example' | base64
 ```
 
-Una vez que haya codificado el nombre de usuario y la contraseña, puede crear un archivo basado en el [archivo de plantilla](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/controller-login-secret.yaml) y reemplazar los valores de nombre de usuario y contraseña por los suyos propios.
+Una vez que haya codificado los nombres de usuario y las contraseñas, puede crear un archivo basado en el [archivo de plantilla](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/controller-login-secret.yaml) y reemplazar los nombres de usuario y las contraseña por los suyos.
 
 Después, ejecute el siguiente comando para crear el secreto.
 
@@ -264,7 +266,7 @@ spec:
     serviceAccount: sa-arc-controller
   docker:
     imagePullPolicy: Always
-    imageTag: v1.0.0_2021-07-30
+    imageTag: v1.1.0_2021-11-02
     registry: mcr.microsoft.com
     repository: arcdata
   infrastructure: other #Must be a value in the array [alibaba, aws, azure, gcp, onpremises, other]

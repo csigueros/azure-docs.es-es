@@ -11,12 +11,12 @@ ms.date: 10/07/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4bda35abff8bed8795d9cc6257b45bb22ef961c
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: ff693e9985f0c741a329d5e4bc17398461bb224d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129709876"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131424085"
 ---
 # <a name="what-is-azure-ad-connect-cloud-sync"></a>¿Qué es la sincronización en la nube de Azure AD Connect?
 La sincronización en la nube de Azure AD Connect es una nueva oferta de Microsoft que se ha concebido para cumplir los objetivos de identidad híbrida con fines de sincronización de usuarios, grupos y contactos en Azure AD.  Para ello, se usa el agente de aprovisionamiento de Azure AD en la nube, en lugar de la aplicación Azure AD Connect.  No obstante, se puede usar junto con la sincronización de Azure AD Connect y ofrece las siguientes ventajas:
@@ -68,7 +68,9 @@ En la tabla siguiente se proporciona una comparación entre Azure AD Connect y 
 | Permitir sincronización de un conjunto mínimo de atributos (MinSync) |● |● |
 | Permitir quitar atributos del flujo de AD a Azure AD |● |● |
 | Permitir personalización avanzada para flujos de atributo |● | |
-| Compatibilidad con la escritura diferida (contraseñas, dispositivos, grupos) |● | |
+| Compatibilidad con la escritura diferida de contraseñas |● |● |
+| Compatibilidad con la escritura diferida de dispositivos|● | |
+| Compatibilidad con la escritura diferida de grupos|● | |
 | Compatibilidad con Azure AD Domain Services|● | |
 | [Reescritura híbrida de Exchange](../hybrid/reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) |● | |
 | Número ilimitado de objetos por dominio de AD |● | |

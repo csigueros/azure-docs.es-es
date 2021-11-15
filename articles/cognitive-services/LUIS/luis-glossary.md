@@ -4,13 +4,13 @@ description: En el glosario se explican los términos que puede encontrar cuando
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 05/17/2021
-ms.openlocfilehash: 5d4b5f5264ad38ca3610840e6fd9a72c6bc5e0aa
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 10/28/2021
+ms.openlocfilehash: 25bdf291d7d836523655b131f485721e3a29593b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950971"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131434586"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glosario de Language Understanding de conceptos y vocabulario común
 En el glosario de Language Understanding (LUIS) se explican los términos que pueden aparecer cuando se trabaja con el servicio LUIS.
@@ -270,7 +270,7 @@ La cuota de LUIS es la limitación del nivel de suscripción de Azure. La cuota 
 El esquema incluye las intenciones y entidades junto con las subentidades. Inicialmente, se planea el esquema para iterarse a lo largo del tiempo. El esquema no incluye la configuración, las características o las expresiones de ejemplo de la aplicación.
 
 ## <a name="sentiment-analysis"></a>Análisis de sentimiento
-El análisis de sentimiento proporciona valores positivos o negativos de las expresiones que proporciona [Text Analytics](../text-analytics/overview.md).
+El análisis de sentimiento proporciona valores positivos o negativos de las expresiones que proporciona el [servicio de lenguaje](../language-service/sentiment-opinion-mining/overview.md).
 
 ## <a name="speech-priming"></a>Preparación para la voz
 

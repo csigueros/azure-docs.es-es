@@ -1,27 +1,28 @@
 ---
-title: Capacidad de interpretación de modelos en Azure Machine Learning (versión preliminar)
+title: Interpretación del modelo (versión preliminar)
 titleSuffix: Azure Machine Learning
 description: Obtenga información sobre cómo comprender y explicar cómo el modelo de aprendizaje automático realiza predicciones durante el entrenamiento y la inferencia con el SDK de Azure Machine Learning para Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.custom: responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
-ms.date: 10/21/2021
-ms.openlocfilehash: 37eb558e755860fc2130965fa5faacfe0d4fe804
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.custom: responsible-ml, mktng-kw-nov2021
+ms.date: 11/04/2021
+ms.openlocfilehash: baf146725c01736fde36420779e495ce3906f891
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131564829"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131852605"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Capacidad de interpretación de modelos en Azure Machine Learning (versión preliminar)
 
+En este artículo se describen los métodos que puede usar para la interpretación del modelo en Azure Machine Learning. 
 
-## <a name="model-interpretability-overview"></a>Información general sobre la interpretación de modelos
+## <a name="why-does-model-interpretability-matter"></a>¿Por qué importa la interpretación del modelo?
 
 La interpretación de modelos es fundamental para los científicos de datos, los auditores y los responsables de la toma de decisiones empresariales por igual para garantizar el cumplimiento de las directivas empresariales, los estándares del sector y las normativas gubernamentales:
 
@@ -54,7 +55,7 @@ Mediante las clases y métodos del SDK, puede hacer lo siguiente:
 
 En el aprendizaje automático, las **características** son los campos de datos que se usan para predecir un punto de datos de destino. Por ejemplo, para predecir el riesgo de crédito, se pueden usar los campos de datos de la edad, el tamaño de la cuenta y la antigüedad de la cuenta. En este caso, la edad, el tamaño de la cuenta y la antigüedad de la cuenta son **características**. La importancia de las características le indica la forma en que cada campo de datos ha afectado las predicciones del modelo. Por ejemplo, es posible que la edad se use mucho en la predicción, mientras que la antigüedad y el tamaño de la cuenta no afectan a los valores de la predicción significativamente. Este proceso permite a los científicos de datos explicar las predicciones resultantes, con el fin de que partes interesadas puedan ver qué características son las más importantes del modelo.
 
-## <a name="supported-interpretability-techniques"></a>Técnicas de interpretación admitidas
+## <a name="supported-model-interpretability-techniques"></a>Técnicas admitidas para la interpretación del modelo
 
  `azureml-interpret` usa las técnicas de interpretación desarrolladas en la [Comunidad de Interpret](https://github.com/interpretml/interpret-community/), un paquete Python de código abierto para entrenar modelos que se pueden interpretar y para ayudar a explicar los sistemas de IA de caja negra. [Interpretar-Comunidad ](https://github.com/interpretml/interpret-community/)actúa como el host de los Explicadores admitidos por este SDK y actualmente admite las siguientes técnicas de interpretación:
 

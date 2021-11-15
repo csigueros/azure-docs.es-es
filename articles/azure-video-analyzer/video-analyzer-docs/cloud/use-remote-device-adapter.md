@@ -2,14 +2,14 @@
 title: Conexión de la cámara a la nube mediante un adaptador de dispositivo remoto
 description: En este artículo se explica cómo conectar una cámara al servicio Azure Video Analyzer mediante un adaptador de dispositivo remoto.
 ms.topic: how-to
-ms.date: 11/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 71bcf82420d9777158cbb878c4943b350d51353b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 74734444b33c6963097d4e23e3859aedbc9a91e7
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091066"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563214"
 ---
 # <a name="connect-cameras-to-the-cloud-using-a-remote-device-adapter"></a>Conexión de cámaras a la nube mediante un adaptador de dispositivo remoto
 
@@ -23,16 +23,13 @@ El servicio Azure Video Analyzer permite a los usuarios capturar y grabar vídeo
 ## <a name="pre-reading"></a>Lectura previa
 
 * [Conexión de cámaras a la nube](connect-cameras-to-cloud.md)
+* [Inicio rápido: Introducción a las canalizaciones en directo de Video Analyzer en Azure Portal](get-started-livepipelines-portal.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una cuenta de Azure que tenga una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), en caso de que aún no lo haya hecho.
-* IoT Hub
-* [Cuenta de Video Analyzer](../create-video-analyzer-account.md) con lo siguiente:
-  * Cuenta de almacenamiento
-  * Identidad administrada asignada por el usuario (UAMI)
-  * [IoT Hub debe estar asociado a la cuenta de Video Analyzer](../create-video-analyzer-account.md#post-deployment-steps)
-* [Dispositivo IoT Edge con el módulo perimetral de Video Analyzer instalado y configurado](../edge/deploy-iot-edge-device.md)
+* [Implementación de Azure Video Analyzer en un dispositivo IoT Edge](../edge/deploy-iot-edge-device.md)
+* [IoT Hub debe estar asociado a la cuenta de Video Analyzer](../create-video-analyzer-account.md#post-deployment-steps)
 * [Cámaras RTSP](../quotas-limitations.md#supported-cameras)
   * Asegúrese de que las cámaras están en la misma red que el dispositivo perimetral.
   * Asegúrese de que puede configurar la cámara para enviar vídeo con un ancho de banda máximo o por debajo de él (medido en kBps o kilobits/segundo).
@@ -70,7 +67,7 @@ Para permitir que el módulo perimetral de Video Analyzer actúe como puerta de 
 En Azure Portal:
 
 1. Vaya a la instancia de IoT Hub.
-1. Seleccione el panel **IoT Edge** en **Administración automática de dispositivos**.
+1. Seleccione el panel **IoT Edge** en **Administración de dispositivos**.
 1. Seleccione el dispositivo IoT Edge (por ejemplo, **ava-sample-device**) en el que se ha implementado el módulo perimetral de Video Analyzer.
 1. En los módulos, seleccione el módulo perimetral de Video Analyzer (por ejemplo, **avaedge**).
 1. Seleccione **</>Método directo**. 
@@ -99,14 +96,20 @@ En Azure Portal:
 
 Si se realiza correctamente, recibirá una respuesta con un código de estado 201.
 
+Para enumerar todos los adaptadores de dispositivo remoto que se han establecido, invoque el método directo **remoteDeviceAdapterList** con la carga siguiente:
+```
+ {
+   "@apiVersion" : "1.1"
+ }
+```
+
 
 ## <a name="create-pipeline-topology-in-the-video-analyzer-service"></a>Creación de una topología de canalización en el servicio Video Analyzer
 
 Al crear una topología de canalización en la nube para ingerir desde una cámara detrás de un firewall, la tunelización debe habilitarse en el nodo de origen de RTSP de la topología de canalización. Vea un ejemplo de este tipo de [topología de canalización](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/cloud-record-camera-behind-firewall).  
 
-En este [inicio rápido](get-started-livepipelines-portal.md#deploy-a-live-pipeline) se describen los pasos para crear una topología de canalización y una canalización activa en Azure Portal. Use la topología de ejemplo `Live capture, record, and stream from RTSP camera behind firewall`.
 
-Los valores siguientes, basados en el dispositivo IoT aprovisionado en las instrucciones anteriores, son necesarios para habilitar la tunelización en el nodo de origen de RTSP:
+Los valores siguientes, basados en el dispositivo IoT creado en las instrucciones anteriores, son necesarios para habilitar la tunelización en el nodo de origen de RTSP:
 
 * Nombre de la instancia de IoT Hub
 * Identificador de dispositivo IoT Hub
@@ -138,6 +141,8 @@ Asegúrese de que:
 * `Endpoint` se establezca en `UnsecuredEndpoint`.
 * `Tunnel` se establezca en `SecureIotDeviceRemoteTunnel`.
 
+Este [inicio rápido](get-started-livepipelines-portal.md#deploy-a-live-pipeline) se puede utilizar como referencia, ya que se describen los pasos para crear una topología de canalización y una canalización activa en Azure Portal. Use la topología de ejemplo `Live capture, record, and stream from RTSP camera behind firewall`. 
+
 ## <a name="create-and-activate-a-live-pipeline"></a>Creación y activación de una canalización activa
 
 Al crear la canalización activa, se deben definir la dirección URL de RTSP, el nombre de usuario de RTSP, la contraseña de RTSP y el id. de dispositivo de IoT Hub. A continuación se muestra una carga de ejemplo.
@@ -152,7 +157,7 @@ Al crear la canalización activa, se deben definir la dirección URL de RTSP, el
         "parameters": [
             {
                 "name": "rtspUrlParameter",
-                "value": "rtsp://localhost:554/<camera-specific-suffix>"
+                "value": "<RTSP URL for building404-camera1 such as rtsp://localhost:554/media/video>"
             },
             {
                 "name": "rtspUsernameParameter",

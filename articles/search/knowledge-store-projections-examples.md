@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/15/2021
-ms.openlocfilehash: 3414e3d5b339334bf0762427c99020ff3a3170ad
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 0aa980d2268f6d055f3aa05a8e30d57712c022df
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130134191"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563632"
 ---
 # <a name="define-projections-in-a-knowledge-store"></a>Definición de proyecciones en un almacén de conocimiento
 
@@ -272,7 +272,7 @@ Para procesar proyecciones, siga estos pasos:
 
 1. [Supervise la ejecución del indizador](search-howto-monitor-indexers.md) para comprobar el progreso y detectar los errores.
 
-1. Use el [Explorador de Storage](knowledge-store-view-storage-explorer.md) para verificar la creación de objetos en Azure Storage.
+1. Use el [Explorador de almacenamiento](knowledge-store-view-storage-explorer.md) para verificar la creación de objetos en Azure Storage.
 
 1. Si proyecta tablas, [impórtelas en Power BI](knowledge-store-connect-power-bi.md) para manipular y visualizar tablas. En la mayoría de los casos, Power BI detectará automáticamente las relaciones entre las tablas.
 

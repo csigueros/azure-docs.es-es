@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/26/2021
+ms.date: 10/29/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 055ffcb662b5a12dfefe194b08e293f277ba5005
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 95cce7e79ea8eaf3a542b52ac5c04b954ed56e0e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131005614"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469110"
 ---
 ::: zone target="docs"
 
@@ -75,7 +75,7 @@ Los siguientes pasos vienen determinados por el lugar al que se vaya a devolver 
 
 Asegúrese de que la copia de datos en el dispositivo se ha completado y que la ejecución de **Preparación para el envío** se ha realizado correctamente. 
 
-Según la región a la que envíe el dispositivo, el procedimiento es distinto. En muchos países o regiones, puede usar el envío administrado por Microsoft o el envío autogestionado.
+Según la región a la que envíe el dispositivo, el procedimiento es distinto. En muchos países o regiones, puede usar el envío administrado por Microsoft o el autoadministrado.
 
 ### <a name="microsoft-managed-shipping"></a>Envío administrado por Microsoft
 
@@ -89,7 +89,7 @@ Si usa el envío administrado por Microsoft, siga las instrucciones correspondie
 
 [!INCLUDE [data-box-shipping-in-eu](../../includes/data-box-shipping-in-eu.md)]
 
-**Si el envío es desde Alemania o Suiza,** también puede [usar el envío autoadministrado](#self-managed-shipping).
+**Si va a realizar una devolución a los centros de datos de Alemania o Suiza,** también puede [utilizar el envío autoadministrado](#self-managed-shipping).
 
 ## <a name="uk"></a>[Reino Unido](#tab/in-uk)
 

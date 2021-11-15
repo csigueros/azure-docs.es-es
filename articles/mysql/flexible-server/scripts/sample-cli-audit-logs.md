@@ -1,5 +1,5 @@
 ---
-title: 'Script de la CLI: configuración de registros de auditoría en un servidor flexible de Azure Database for MySQL (versión preliminar)'
+title: 'Script de la CLI: configuración de registros de auditoría en un servidor flexible de Azure Database for MySQL'
 description: Este script de ejemplo de la CLI de Azure muestra cómo configurar registros de auditoría en un servidor flexible de Azure Database for MySQL.
 author: shreyaaithal
 ms.author: shaithal
@@ -8,14 +8,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 09/15/2021
-ms.openlocfilehash: 5f0393ebce70e68024cdd01e5120ec42b17089bc
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 359d505f8d04090c14736be0d448558847e05c80
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128604703"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131844342"
 ---
-# <a name="configure-audit-logs-on-an-azure-database-for-mysql---flexible-server-preview-using-azure-cli"></a>Configuración de registros de auditoría en un servidor flexible de Azure Database for MySQL (versión preliminar) mediante la CLI de Azure
+# <a name="configure-audit-logs-on-an-azure-database-for-mysql---flexible-server-using-azure-cli"></a>Configuración de registros de auditoría en un servidor flexible de Azure Database for MySQL mediante la CLI de Azure
 
 Este script de ejemplo de la CLI habilita los [registros de auditoría](../concepts-audit-logs.md) en un servidor flexible de Azure Database for MySQL. 
 
@@ -55,5 +55,5 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Pruebe otros scripts en: [Ejemplos de la CLI de Azure para Azure Database for MySQL: servidor flexible (versión preliminar)](../sample-scripts-azure-cli.md).
+- Pruebe otros scripts: [Ejemplos de la CLI de Azure para Azure Database for MySQL: servidor flexible](../sample-scripts-azure-cli.md).
 - Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](/cli/azure).

@@ -5,12 +5,12 @@ metadata:
   ms.topic: how-to
   ms.service: lab-services
   ms.date: 06/26/2020
-  ms.openlocfilehash: 50aed3f3b515a2387efcefbfdf19fb9b1f51d905
-  ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+  ms.openlocfilehash: 2558c36e145dd0a2d1ae526bf3cadf5ad06136a2
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/19/2021
-  ms.locfileid: "130181262"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130232705"
 title: 'Laboratorios clase en Azure Lab Services: preguntas más frecuentes (P+F)'
 summary: Obtenga respuestas a algunas de las preguntas más habituales sobre los laboratorios en Azure Lab Services.
 sections:
@@ -20,7 +20,8 @@ sections:
     answer: >
       La cuota que establezca para un laboratorio es para cada alumno por toda la duración del laboratorio. Además, la [hora de ejecución programada de las máquinas virtuales](how-to-create-schedules.md) no cuenta en la cuota asignada a un usuario. La cuota es el tiempo fuera del horario programado que un alumno pasa en las máquinas virtuales.  Para más información sobre las cuotas, vea [Establecimiento de cuotas para los usuarios](how-to-configure-student-usage.md#set-quotas-for-users).
   - question: "¿Si un formador activa la VM de un alumno, afecta a la cuota del alumno? \n"
-    answer: "No. No la afecta. Cuando el formador activa la VM del alumno, no afecta a la cuota asignada al alumno. \n"
+    answer: >
+      No. No la afecta. Cuando el formador activa la VM del alumno, no afecta a la cuota asignada al alumno.
 - name: Programaciones
   questions:
   - question: "¿Se inician automáticamente todas las máquinas virtuales del laboratorio cuando se establece una programación? \n"
@@ -50,8 +51,35 @@ sections:
   - question: >
       ¿Cuántos usuarios pueden estar en un laboratorio educativo?
     answer: "Puede agregar hasta 400 usuarios a un laboratorio educativo.\n\n## <a name=\"blog-post\"></a>Entrada de blog\n\nSuscríbase al [blog de Azure Lab Services](https://aka.ms/azlabs-blog).\n\n## <a name=\"update-notifications\"></a>Notificaciones de actualización\n\nSuscríbase a las [actualizaciones de Lab Services](https://azure.microsoft.com/updates/?product=lab-services) para mantenerse informado sobre las nuevas características de Lab Services.          \n"
+- name: Linux
+  questions:
+  - question: >
+      Al seleccionar la configuración de apagado automático de mi laboratorio, ¿por qué está la página en blanco o por qué no veo la configuración para desconectar automáticamente a los usuarios cuando las máquinas virtuales estén inactivas?
+    answer: >
+      En general, los laboratorios Linux solo admiten el apagado automático cuando los usuarios se desconectan y cuando las máquinas virtuales están iniciadas, pero los usuarios no están conectados.  Sin embargo, la compatibilidad con estas configuraciones también varía en función de las [distribuciones y versiones específicas de Linux](../virtual-machines/extensions/diagnostics-linux.md#supported-linux-distributions).  La configuración de apagado no es compatible con la imagen de [Data Science Virtual Machine imagen de Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804).
+
+      Para más información sobre la configuración de apagado, consulte los siguientes artículos:
+        - [Habilitación de la configuración de apagado](./how-to-enable-shutdown-disconnect.md)
+        - [Configuración de apagado automático para el control de costos](./cost-management-guide.md#automatic-shutdown-settings-for-cost-control)
+  - question: >
+      ¿Cómo puedo usar Ubuntu 18.04 Server LTS e instalar los escritorios gráficos GNOME y MATE?
+    answer: >
+      Hay un [conflicto de redes conocido entre los escritorios gráficos GNOME y MATE](./how-to-enable-remote-desktop-linux.md) y el agente de máquina virtual Linux de Azure cuando se usa Ubuntu 18.04 LTS.  Como resultado, se recomienda lo siguiente:
+        - En lugar de GNOME y MATE, considere la posibilidad de usar el escritorio gráfico XFCE, que no tiene este problema.  Por ejemplo, la [imagen Data Science VM está configurada de manera predeterminada para usar XFCE](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md#x2go).
+        - En lugar de Ubuntu 18.04 LTS, considere la posibilidad de usar Ubuntu 20.04 o 21.04 LTS, que no tienen este conflicto de redes con el agente cuando se instalan GNOME y MATE.
+        - De lo contrario, para usar 18.04 LTS y GNOME y MATE, deberá aplicar una solución alternativa para corregir el conflicto de redes con el agente.
+      Consulte nuestro [archivo Léame y los scripts](https://github.com/Azure/azure-devtestlab/blob/master/samples/ClassroomLabs/Scripts/LinuxGraphicalDesktopSetup/GNOME_MATE/ReadMe.md) que configuran Ubuntu Server 18.04\20.04\21.04 con GNOME y MATE.  Cuando use estos scripts para configurar la versión 18.04 con GNOME y MATE, aplicarán la solución alternativa para el conflicto de redes.
 - name: General
   questions:
   - question: >
+      ¿Cómo puedo evitar las restricciones de capacidad y las limitaciones de capacidad de proceso de Azure en mi suscripción?
+    answer: >
+      Cuando empiece a usar Azure Lab Services por primera vez, deberá enviar una solicitud para aumentar el límite de capacidad de proceso de Azure que existe en la suscripción.  A medida que se incremente el uso del laboratorio y aumente el número de núcleos de máquina virtual que necesita, puede que tenga que repetir este proceso para aumentar aún más el límite de cuota.
+
+      Como parte de la planeación por adelantado cada vez que implemente nuevos laboratorios, también debe asegurarse de que haya una capacidad de núcleos de máquina virtual adecuada en la región en la que planea realizar la implementación.  Esto es especialmente importante para las GPU.
+
+      Para más información sobre cómo planear las limitaciones de capacidad y capacidad de proceso de Azure, consulte el siguiente artículo:
+        - [Límites de capacidad en Azure Lab Services](./capacity-limits.md)
+  - question: >
       Mi pregunta no está respondida aquí. ¿Qué debo hacer?
-    answer: "Si su pregunta no aparece aquí, háganoslo saber para que podamos ayudarlo a encontrar una respuesta.\n\n- Publique una pregunta al final de este documento. \n- Para llegar a un público más amplio, publique una pregunta en [Azure Lab Services: foro de Tech Community](https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices). \n- Para solicitudes de características, envíe sus solicitudes e ideas al sitio [User Voice de Azure Lab Services](https://feedback.azure.com/forums/320373-lab-services?category_id=352774)."
+    answer: "Si su pregunta no aparece aquí, háganoslo saber para que podamos ayudarlo a encontrar una respuesta.\n\n- Publique una pregunta al final de este documento. \n- Para llegar a un público más amplio, publique una pregunta en [Azure Lab Services: foro de Tech Community](https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices)."

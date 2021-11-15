@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Implementación de una aplicación Dapr en Azure Container Apps mediante la CLI de Azure'
 description: Implementación de una aplicación Dapr en Azure Container Apps mediante la CLI de Azure.
-services: app-service
+services: container-apps
 author: asw101
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
-ms.date: 10/25/2021
+ms.date: 11/02/2021
 ms.author: aawislan
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 1fa71d13aa43d9fd681ab3eb6799734ea65c1482
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 178bc7af356f873fb2c12329de9fc9d7a9914a92
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093051"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132026792"
 ---
 # <a name="tutorial-deploy-a-dapr-application-to-azure-container-apps-using-the-azure-cli"></a>Tutorial: Implementación de una aplicación Dapr en Azure Container Apps mediante la CLI de Azure
 
@@ -131,6 +131,22 @@ az extension add \
 ```azurecli
 az extension add `
   --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl 
+```
+
+---
+
+Ahora que la extensión está instalada, registre el espacio de nombres `Microsoft.Web`.
+
+# <a name="bash"></a>[Bash](#tab/bash)
+
+```azurecli
+az provider register --namespace Microsoft.Web
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+```azurecli
+az provider register --namespace Microsoft.Web
 ```
 
 ---
@@ -279,7 +295,9 @@ Obtenga la clave de la cuenta de almacenamiento con el siguiente comando.
 
 ```bash
 STORAGE_ACCOUNT_KEY=`az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query '[0].value' --out tsv`
+```
 
+```bash
 echo $STORAGE_ACCOUNT_KEY
 ```
 
@@ -287,7 +305,9 @@ echo $STORAGE_ACCOUNT_KEY
 
 ```powershell
 $STORAGE_ACCOUNT_KEY=(az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query '[0].value' --out tsv)
+```
 
+```powershell
 echo $STORAGE_ACCOUNT_KEY
 ```
 
@@ -421,11 +441,11 @@ Puede confirmar que los servicios funcionan correctamente mediante la visualizac
 
 1. Haga clic en la pestaña **Editar**.
 
-1. Haga clic en el botón **Actualizar** para ver las actualizaciones.
+1. Haga clic en el botón **Actualizar** para ver cómo se actualizan automáticamente los datos.
 
 ### <a name="view-logs"></a>Visualización de registros
 
-Los datos registrados mediante una aplicación de contenedor se almacenan en la tabla personalizada `ContainerAppConsoleLogs_CL` del área de trabajo de Log Analytics. Puede ver los registros mediante Azure Portal o con la CLI.
+Los datos registrados mediante una aplicación de contenedor se almacenan en la tabla personalizada `ContainerAppConsoleLogs_CL` del área de trabajo de Log Analytics. Puede ver los registros mediante Azure Portal o con la CLI. Es posible que tenga que esperar unos minutos para que el análisis llegue por primera vez antes de poder consultar los datos registrados.
 
 Use el siguiente comando de la CLI para ver los registros en la línea de comandos.
 

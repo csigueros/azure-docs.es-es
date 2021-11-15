@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46a8e61f296d430713812007b93f1b34cea8588a
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 5e2bebe9769d38502a37134326228d41979cad5a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129811559"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131432688"
 ---
-# <a name="conditional-access-resilience-defaults"></a>Acceso condicional: valores predeterminados de resistencia
+# <a name="conditional-access-resilience-defaults-preview"></a>Acceso condicional: valores predeterminados de resistencia (versión preliminar)
 
 Si se ha producido una interrupción del servicio de autenticación principal, el servicio de autenticación de copia de seguridad Azure Active Directory (Azure AD) puede emitir automáticamente tokens de acceso a las aplicaciones para las sesiones existentes. Esta funcionalidad puede aumentar considerablemente la resistencia de Azure AD, ya que las reautenticaciones de las sesiones existentes representan más del 90 % de las autenticaciones para Azure AD. El servicio de autenticación de copia de seguridad no admite nuevas sesiones ni autenticaciones por parte de los usuarios invitados.
 

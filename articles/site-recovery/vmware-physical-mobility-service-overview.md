@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.author: sharrai
 ms.date: 08/19/2021
-ms.openlocfilehash: 356d81e93997922b0ae9b2e82bf7670449f168af
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 1bf251d6aa45aaf0306d3e595a674280214dc64a
+ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123258817"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131867311"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Acerca de Mobility Service para máquinas virtuales VMware y servidores físicos
 
@@ -192,7 +192,7 @@ Sintaxis | `cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<
 ## <a name="azure-virtual-machine-agent"></a>Agente de máquina virtual de Azure
 
 - **Máquinas virtuales Windows**: desde la versión 9.7.0.0 de Mobility Service, el instalador de Mobility Service instala el [agente de máquina virtual de Azure](../virtual-machines/extensions/features-windows.md#azure-vm-agent). De este forma se garantiza que, cuando un equipo conmuta por error a Azure, la máquina virtual de Azure cumple el requisito previo de instalación del agente para usar cualquier extensión de máquina virtual.
-- **Máquinas virtuales Linux**: [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md) debe instalarse manualmente en la máquina virtual Azure después de la conmutación por error.
+- **Máquinas virtuales Linux**: [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md) se instala automáticamente en la máquina virtual de Azure después de la conmutación por error.
 
 ## <a name="locate-installer-files"></a>Búsqueda de archivos del instalador
 

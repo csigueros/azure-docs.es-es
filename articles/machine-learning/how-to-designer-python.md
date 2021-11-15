@@ -7,23 +7,23 @@ ms.service: machine-learning
 ms.subservice: mldata
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: designer, devx-track-python
-ms.openlocfilehash: f1bb8918e270d8e3d2dc1321169743febc3ce6ed
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 7c944ddd07f549a4956d334fea809d80f02db337
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129424317"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131564886"
 ---
 # <a name="run-python-code-in-azure-machine-learning-designer"></a>Ejecutar código de Python en el diseñador de Azure Machine Learning
 
-En este artículo aprenderá a usar el módulo [Execute Python Script ](algorithm-module-reference/execute-python-script.md) (Ejecutar script de Python) para agregar lógica personalizada al diseñador de Azure Machine Learning. En el siguiente procedimiento se usa la biblioteca de Pandas para realizar la ingeniería de una característica simple.
+En este artículo aprenderá a usar el componente [Execute Python Script](algorithm-module-reference/execute-python-script.md) (Ejecutar script de Python) para agregar lógica personalizada al diseñador de Azure Machine Learning. En el siguiente procedimiento se usa la biblioteca de Pandas para realizar la ingeniería de una característica simple.
 
 Puede usar el editor de código integrado para agregar rápidamente lógica sencilla de Python. Si desea agregar código más complejo o cargar más bibliotecas de Python, debe usar el método de archivo ZIP.
 
-El entorno de ejecución predeterminado usa la distribución Anacondas de Python. Para obtener una lista completa de los paquetes preinstalados, consulte la página de [referencia del módulo de ejecución de script de Python](algorithm-module-reference/execute-python-script.md).
+El entorno de ejecución predeterminado usa la distribución Anacondas de Python. Para obtener una lista completa de los paquetes preinstalados, consulte la página de [referencia del componente Execute Python Script](algorithm-module-reference/execute-python-script.md).
 
 ![Ejecución de asignación de entrada de Python](media/how-to-designer-python/execute-python-map.png)
 
@@ -31,11 +31,11 @@ El entorno de ejecución predeterminado usa la distribución Anacondas de Python
 
 ## <a name="execute-python-written-in-the-designer"></a>Ejecución de Python escrita en el diseñador
 
-### <a name="add-the-execute-python-script-module"></a>Incorporación del módulo Execute Python Script (Ejecutar script de Python)
+### <a name="add-the-execute-python-script-component"></a>Incorporación del componente Execute Python Script (Ejecutar script de Python)
 
-1. Busque el módulo **Execute Python Script** (Ejecutar script de Python) en la paleta del diseñador. Se puede encontrar en la sección **Python Language** (Lenguaje Python).
+1. Busque el componente **Execute Python Script** (Ejecutar script de Python) en la paleta del diseñador. Se puede encontrar en la sección **Python Language** (Lenguaje Python).
 
-1. Arrastre y coloque el módulo en el lienzo de la canalización.
+1. Arrastre el componente y colóquelo en el lienzo de la canalización.
 
 ### <a name="connect-input-datasets"></a>Conexión de conjuntos de datos de entrada
 
@@ -43,7 +43,7 @@ En este artículo se utiliza el conjunto de datos de ejemplo **Automobile price 
 
 1. Arrastre y coloque el conjunto de datos en el lienzo de la canalización.
 
-1. Conecte el puerto de salida del conjunto de datos al puerto de entrada superior izquierdo del módulo **Execute Python Script** (Ejecutar script de Python). El diseñador expone la entrada como un parámetro al script del punto de entrada.
+1. Conecte el puerto de salida del conjunto de datos al puerto de entrada superior izquierdo del componente **Execute Python Script** (Ejecutar script de Python). El diseñador expone la entrada como un parámetro al script del punto de entrada.
     
     El puerto de entrada derecho está reservado para las bibliotecas comprimidas de Python.
 
@@ -52,7 +52,7 @@ En este artículo se utiliza el conjunto de datos de ejemplo **Automobile price 
 
 1. Tome nota del puerto de entrada que use. El diseñador asigna el puerto de entrada izquierdo a la variable `dataset1` y el puerto de entrada del medio a `dataset2`. 
 
-Los módulos de entrada son opcionales, ya que puede generar o importar datos directamente en el módulo **Execute Python Script** (Ejecutar script de Python).
+Los componentes de entrada son opcionales, ya que puede generar o importar datos directamente en el componente **Execute Python Script** (Ejecutar script de Python).
 
 ### <a name="write-your-python-code"></a>Escritura del código de Python
 
@@ -60,7 +60,7 @@ El diseñador proporciona un script de punto de entrada inicial para que pueda e
 
 En este ejemplo, se usa Pandas para combinar dos columnas que se encuentran en el conjunto de automóviles, **Price** y **Horsepower**, y crear con ellas una nueva columna, **Dollars per horsepower**. Esta columna representa la cantidad que se paga por cada caballo de potencia; esta información puede resultar una característica útil para decidir si un coche supone una buena oportunidad en términos de costo. 
 
-1. Seleccione el módulo **Execute Python Script** (Ejecutar script de Python).
+1. Seleccione el componente **Execute Python Script** (Ejecutar script de Python).
 
 1. En el panel que aparece a la derecha del lienzo, seleccione el cuadro de texto **Python script**(Script de Python).
 
@@ -77,9 +77,9 @@ En este ejemplo, se usa Pandas para combinar dos columnas que se encuentran en e
     
     ![Ejecución de la canalización de Python](media/how-to-designer-python/execute-python-pipeline.png)
 
-    El script de punto de entrada debe contener la función `azureml_main`. Hay dos parámetros de función que se asignan a los dos puertos de entrada del módulo **Execute Python Script** (Ejecutar script de Python).
+    El script de punto de entrada debe contener la función `azureml_main`. Hay dos parámetros de función que se asignan a los dos puertos de entrada del componente **Execute Python Script** (Ejecutar script de Python).
 
-    El valor devuelto debe ser una trama de datos de Pandas. Puede devolver hasta dos tramas de datos como salidas del módulo.
+    El valor devuelto debe ser una trama de datos de Pandas. Puede devolver hasta dos tramas de datos como salidas del componente.
     
 1. Envíe la canalización.
 

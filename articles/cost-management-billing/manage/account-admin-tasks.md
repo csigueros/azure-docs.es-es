@@ -7,15 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 10/22/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 545f7377e79e7f83182e85aa0f05f62e353051d9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7fb94b8e714c62a92b0fe9411af97f69e0a50423
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128628560"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130229567"
 ---
 # <a name="account-administrator-tasks-in-the-azure-portal"></a>Tareas de administrador de cuenta en Azure Portal
 
@@ -184,6 +184,58 @@ Si tiene una suscripción a Azure bajo licencia Open, puede agregar créditos a 
     - Especifique la cantidad de créditos que desea agregar.
 
 1. Haga clic en **Aplicar**.
+
+## <a name="usage-details-files-comparison"></a>Comparación entre archivos de detalles de uso
+
+Use la siguiente información para buscar la correspondencia entre los campos disponibles en las versiones v1 y v2 de los archivos en el portal de cuentas y la versión más reciente del archivo de detalles de uso en Azure Portal.
+
+| V1 | V2 | Azure Portal |
+| --- | --- | --- |
+| Información adicional | Información adicional | AdditionalInfo |
+| Moneda | Moneda | BillingCurrency |
+| Período de facturación | Período de facturación | BillingPeriodEndDate |
+| Período de facturación | Período de facturación | BillingPeriodStartDate |
+| Servicio | Servicio consumido | ConsumedService |
+| Value | Value | Coste |
+| Fecha de uso | Fecha de uso | Fecha |
+| Nombre | Categoría de medidor | MeterCategory |
+| ResourceGuid | Id. de medidor | MeterId |
+| Region | Medidor de la región | MeterRegion |
+| Recurso | Nombre de medidor | MeterName  |
+| Tipo | Subcategoría de medidor | MeterSubCategory |
+| Consumida | Consumed Quantity | Cantidad |
+| Componente | Grupo de recursos | ResourceGroup |
+|   | Identificador de instancia | ResourceId |
+| Subregión | Ubicación del recurso | ResourceLocation |
+| Información de servicio 1 | Información de servicio 1 | ServiceInfo1 |
+| Información de servicio 2 | Información de servicio 2 | ServiceInfo2 |
+| Id. de suscripción | Id. de suscripción | SubscriptionId |
+| Nombre de suscripción | Nombre de suscripción | SubscriptionName |
+|   | Etiquetas | Etiquetas |
+| Unidad | Unidad | UnitOfMeasure |
+| | Tarifa | UnitPrice |
+
+Para más información sobre los campos disponibles en el archivo de detalles de uso más reciente, consulte [Descripción de los términos en el archivos de uso y cargos de Azure](../understand/understand-usage.md).
+
+Los campos siguientes son de las versiones v1 y v2 de los archivos del portal de cuentas. Ya no están disponibles en el archivo de detalles de uso más reciente.
+
+| V1 | V2 |
+| --- | --- |
+| Identificador del pedido | Identificador del pedido |
+| Descripción | Descripción |
+| Fecha de facturación (aniversario) | Fecha de facturación (aniversario) |
+| Nombre de la oferta | Nombre de la oferta |
+| Nombre de servicio | Nombre de servicio |
+| Estado de suscripción | Estado de suscripción |
+| Estado de suscripción extra | Estado de suscripción extra |
+| Estado de aprovisionamiento | Estado de aprovisionamiento |
+| SKU | SKU |
+| Se incluye | Cantidad incluida |
+| Facturable | Cantidad de superávit |
+| Dentro del compromiso | Dentro del compromiso |
+| Tarifa de compromiso | Tarifa de compromiso |
+| Superávit | Superávit |
+| Componente |  |
 
 ## <a name="troubleshooting"></a>Solución de problemas
 No se admiten tarjetas virtuales ni prepago. Si aparecen errores al agregar o actualizar una tarjeta de crédito válida, pruebe a abrir el explorador en modo privado.

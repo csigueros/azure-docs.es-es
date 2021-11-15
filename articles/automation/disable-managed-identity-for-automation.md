@@ -1,18 +1,18 @@
 ---
-title: Deshabilitación de una identidad administrada asignada por el sistema para una cuenta de Azure Automation (versión preliminar)
+title: Deshabilitación de una identidad administrada asignada por el sistema para una cuenta de Azure Automation
 description: En este artículo, se explica cómo deshabilitar una identidad administrada asignada por el sistema para una cuenta de Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/24/2021
+ms.date: 10/26/2021
 ms.topic: conceptual
-ms.openlocfilehash: 178da223b5d5f14cc27034c39bd4cc3a05f82631
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b3bf648914635e6ea9345a234c49bfb64c757bc1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128606596"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131435422"
 ---
-# <a name="disable-system-assigned-managed-identity-for-azure-automation-account-preview"></a>Deshabilitación de una identidad administrada asignada por el sistema para una cuenta de Azure Automation (versión preliminar)
+# <a name="disable-system-assigned-managed-identity-for-azure-automation-account"></a>Deshabilitación de una identidad administrada asignada por el sistema para una cuenta de Azure Automation
 
 Puede deshabilitar una identidad administrada asignada por el sistema en Azure Automation mediante Azure Portal o mediante la API REST.
 
@@ -126,6 +126,6 @@ Lleve a cabo los siguiente pasos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener más información acerca de cómo habilitar las identidades administradas en Azure Automation, consulte [Habilitación y uso de la identidad administrada para Automation (versión preliminar)](enable-managed-identity-for-automation.md).
+- Para más información acerca de cómo habilitar las identidades administradas en Azure Automation, consulte [Habilitación y uso de la identidad administrada para Automation](enable-managed-identity-for-automation.md).
 
 - Para información general acerca de la seguridad de la cuenta de Automation, consulte [Introducción a la autenticación de cuentas de Automation](automation-security-overview.md).

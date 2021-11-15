@@ -7,12 +7,12 @@ ms.service: virtual-network
 ms.topic: conceptual
 ms.date: 08/17/2021
 ms.author: allensu
-ms.openlocfilehash: 27c4340071e80cdcac806b80c28873e0955cd586
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: d8ca819e7a63c7a0c4d507709c8495b604d19002
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122444714"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130257677"
 ---
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Redes virtuales y máquinas virtuales en Azure
 
@@ -54,7 +54,7 @@ En esta tabla se enumeran los métodos que se pueden usar para crear una interfa
 
 ## <a name="ip-addresses"></a>Direcciones IP
 
-En Azure, estos tipos de [direcciones IP](../virtual-network/public-ip-addresses.md) se pueden asignar a una NIC:
+En Azure, estos tipos de [direcciones IP](./ip-services/public-ip-addresses.md) se pueden asignar a una NIC:
 
 - **Direcciones IP públicas**: se usan para la comunicación entrante y saliente (sin traducción de direcciones de red, o NAT) con Internet y otros recursos de Azure no conectados a una red virtual. La asignación de una dirección IP pública a una NIC es opcional. Las direcciones IP públicas tienen un cargo nominal y se puede usar un número máximo de ellas por suscripción.
 - **Direcciones IP privadas**: se usan para la comunicación dentro de una red virtual, una red local e Internet (con NAT). Una máquina debe tener asignada al menos una dirección IP privada. Para más información acerca de NAT en Azure, lea [Información sobre las conexiones salientes en Azure](../load-balancer/load-balancer-outbound-connections.md).
@@ -79,9 +79,9 @@ En esta tabla se enumeran los métodos que se pueden usar para crear una direcci
 
 | Método | Descripción |
 | ------ | ----------- |
-| [Azure Portal](../virtual-network/virtual-network-deploy-static-pip-arm-portal.md) | Las direcciones IP públicas son dinámicas de forma predeterminada. La dirección IP puede cambiar cuando la máquina virtual se detiene o elimina. Para garantizar que la máquina virtual siempre usa la misma dirección IP pública, cree una dirección IP pública estática. De manera predeterminada, el portal asigna una dirección IP privada dinámica a una NIC al crear una máquina virtual. Una vez creada esta, puede cambiar la dirección IP a estática.|
-| [Azure PowerShell](../virtual-network/virtual-network-deploy-static-pip-arm-ps.md) | Se usa [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) con el parámetro **`-AllocationMethod`** como "Dynamic" o "Static". |
-| [CLI de Azure](../virtual-network/virtual-network-deploy-static-pip-arm-cli.md) | Se usa [az network public-ip create](/cli/azure/network/public-ip) con el parámetro **`--allocation-method`** como "Dynamic" o "Static". |
+| [Azure Portal](./ip-services/virtual-network-deploy-static-pip-arm-portal.md) | Las direcciones IP públicas son dinámicas de forma predeterminada. La dirección IP puede cambiar cuando la máquina virtual se detiene o elimina. Para garantizar que la máquina virtual siempre usa la misma dirección IP pública, cree una dirección IP pública estática. De manera predeterminada, el portal asigna una dirección IP privada dinámica a una NIC al crear una máquina virtual. Una vez creada esta, puede cambiar la dirección IP a estática.|
+| [Azure PowerShell](./ip-services/virtual-network-deploy-static-pip-arm-ps.md) | Se usa [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) con el parámetro **`-AllocationMethod`** como "Dynamic" o "Static". |
+| [CLI de Azure](./ip-services/virtual-network-deploy-static-pip-arm-cli.md) | Se usa [az network public-ip create](/cli/azure/network/public-ip) con el parámetro **`--allocation-method`** como "Dynamic" o "Static". |
 | [Plantilla](../virtual-network/template-samples.md) | Para obtener más información sobre cómo implementar una dirección IP pública usando una plantilla, consulte [Interfaz de red en una red virtual con dirección IP pública](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/nic-publicip-dns-vnet). |
 
 Después de crear una dirección IP pública, se puede asociar a una máquina virtual. Para ello, es preciso asignarla a una NIC.
@@ -174,10 +174,6 @@ En esta tabla se enumeran los métodos que se pueden usar para crear un equilibr
 | [CLI de Azure](../load-balancer/quickstart-load-balancer-standard-internal-cli.md) | Use el comando [az network lb create](/cli/azure/network/lb) para crear la configuración inicial del equilibrador de carga. Para definir la dirección IP privada, use [az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip) con el parámetro **`--private-ip-address`** . Use [az network lb address-pool create](/cli/azure/network/lb/address-pool) para agregar la configuración del grupo de direcciones de back-end. Use [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule) para agregar reglas NAT. Use [az network lb rule create](/cli/azure/network/lb/rule) para agregar las reglas del equilibrador de carga. Use [az network lb probe create](/cli/azure/network/lb/probe) para agregar los sondeos.|
 | [Plantilla](../load-balancer/quickstart-load-balancer-standard-internal-template.md) | Use [dos máquinas virtuales en una instancia de Load Balancer](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/2-vms-internal-load-balancer) como guía para implementar un equilibrador de carga mediante una plantilla. |
 
-## <a name="virtual-machine-scale-sets"></a>Conjuntos de escalado de máquinas virtuales
-
-Para más información sobre el equilibrador de carga y los conjuntos de escalado de máquinas virtuales, consulte [Redes para conjuntos de escalado de máquinas virtuales de Azure](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md).
-
 ## <a name="virtual-machines"></a>Máquinas virtuales
 
 Las máquinas virtuales se pueden crear en la misma red virtual, y se pueden conectar entre sí mediante direcciones IP privadas. También pueden conectarse entre sí si están en subredes diferentes. Se conectan sin que sea necesario configurar una puerta de enlace ni usar direcciones IP públicas. Para colocar máquinas virtuales en una red virtual, hay que crear la red virtual. Al ir creando cada máquina virtual, se asigna a la red virtual y a la subred. Las máquinas virtuales obtienen su configuración de red durante la implementación o el inicio.
@@ -203,6 +199,8 @@ Se puede definir la conectividad de salida para todas las subredes con NAT. Dist
 NAT es compatible con los recursos de dirección IP pública o los recursos de prefijos IP públicos, o una combinación de ambos de una SKU estándar. Puede usar un prefijo de IP pública directamente o distribuir las direcciones IP públicas del prefijo entre varios recursos de puerta de enlace de NAT. NAT limpiará todo el tráfico hacia el intervalo de direcciones IP del prefijo. Ahora, filtrar direcciones IP de las implementaciones es más fácil.
 
 Todo el tráfico de salida para la subred lo procesa NAT automáticamente sin que el cliente tenga que configurar nada. No se necesitan rutas definidas por el usuario. NAT tiene prioridad sobre otros escenarios de salida y reemplaza el destino de Internet predeterminado de una subred.
+
+Las máquinas virtuales creadas por conjuntos de escalado de máquinas virtuales en modo de orquestación flexible no tienen acceso de salida predeterminado. Virtual Network NAT es el método de acceso de salida recomendado para el modo de orquestación flexible de los conjuntos de escalado de máquinas virtuales.
 
 Para obtener más información sobre el recurso NAT Gateway, consulte [¿Qué es Azure Virtual Network NAT?](./nat-gateway/nat-overview.md)
 

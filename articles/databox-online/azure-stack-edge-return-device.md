@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 10/28/2021
 ms.author: alkohli
-ms.openlocfilehash: 3fa49fdab111c60c9f73dad5703c39dbc33e1472
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b17b613c07430ce7d4a86e251a86a96d250f0255
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128554228"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469342"
 ---
 # <a name="return-your-azure-stack-edge-device"></a>Devolución del dispositivo de Azure Stack Edge
 
@@ -49,6 +49,53 @@ Puede restablecer el dispositivo en la interfaz de usuario web local o en PowerS
 ## <a name="initiate-device-return"></a>Inicio de la devolución del dispositivo
 
 Para comenzar el proceso de devolución, siga los pasos siguientes.
+
+---
+
+### <a name="azure-edge-hardware-center-preview"></a>[Azure Edge Hardware Center (versión preliminar)](#tab/azure-edge-hardware-center) 
+
+Si usó Azure Edge Hardware Center para solicitar el dispositivo, siga estos pasos para devolverlo:
+
+1. En Azure Portal, vaya al recurso de elemento de pedido de Azure Edge Hardware Center. En **Información general**, vaya a la barra de comandos superior en el panel derecho y seleccione **Devolver**. La opción de devolución solo se habilita después de haber recibido un dispositivo.
+
+    ![Devolver dispositivo 1](media/azure-stack-edge-return-device/hardware-center-return-device-1.png)  
+
+1. En la hoja **Devolución de hardware**, especifique la siguiente información:
+
+    ![Devolver dispositivo 2](media/azure-stack-edge-return-device/hardware-center-return-device-2.png) 
+
+    1. En la lista desplegable, elija un **motivo para la devolución**.
+
+    1. Indique el número de serie del dispositivo. Para obtener el número de serie del dispositivo, vaya a la interfaz de usuario web local del dispositivo y, a continuación, vaya a **Información general**.  
+    
+       ![Número de serie del dispositivo 1](media/azure-stack-edge-return-device/device-serial-number-1.png) 
+
+    1. (Opcional) Escriba el número de la **etiqueta de servicio**. El número de la etiqueta del servicio es un identificador con cinco o más caracteres, que es único para el dispositivo. La etiqueta de servicio se encuentra en la esquina inferior derecha del dispositivo (cuando se mira de frente). Extraiga la etiqueta de información (es un panel de etiqueta deslizante). Este panel contiene información del sistema, como la etiqueta de servicio, la NIC, la dirección MAC, etc. 
+    
+       ![Número de etiqueta de servicio 1](media/azure-stack-edge-return-device/service-tag-number-1.png)
+
+    1. Para solicitar una caja de envío de devolución, active **Es necesaria una caja de envío para devolver la unidad de hardware**. Responda **Sí** a la pregunta **Necesita una caja vacía para la devolución**.
+    
+    1. Revise los **Términos de privacidad** y active la casilla situada junto a la nota para indicar que los ha revisado y los acepta.
+
+    1. Compruebe los **detalles de la recogida**. De forma predeterminada, se establecen en la dirección de envío. Puede agregar una nueva dirección o seleccionar una diferente de las direcciones guardadas para la recogida de la devolución.
+
+        ![Devolver dispositivo 3](media/azure-stack-edge-return-device/hardware-center-return-device-3.png) 
+
+    1. Seleccione **Initiate return** (Iniciar devolución).
+
+1. Una vez enviada la solicitud de devolución, el recurso del elemento de pedido comienza a reflejar el estado del envío de la devolución. El estado pasa de **Devolución iniciada** a **Recogido** y luego **Devolución completada**. Use el portal para comprobar el estado de la devolución del recurso en cualquier momento.
+
+    ![Devolver dispositivo 5](media/azure-stack-edge-return-device/hardware-center-return-device-4.png) 
+
+1. Una vez iniciada la solicitud, el equipo de operaciones de Azure Stack Edge se pone en contacto con usted para ayudarle a programar la recogida del dispositivo.
+
+El paso siguiente es empaquetar el dispositivo.
+
+
+### <a name="portal-classic"></a>[Portal (clásico)](#tab/azure-portal)
+
+Si usó el portal clásico para solicitar el dispositivo, siga estos pasos para devolverlo:
 
 1. Vaya al recurso de Azure Stack Edge en Azure Portal. En **Información general**, vaya a la barra de comandos en el panel derecho y seleccione **Devolver dispositivo**. 
 
@@ -87,6 +134,8 @@ Para comenzar el proceso de devolución, siga los pasos siguientes.
 
 7. Una vez que el equipo de operaciones de Azure Stack Edge reciba el correo electrónico, le enviará una etiqueta de envío inverso. Cuando reciba esta etiqueta, puede programar la recogida del dispositivo con el transportista. 
 
+---
+
 ## <a name="pack-the-device"></a>Empaquetado del dispositivo
 
 Para empaquetar el dispositivo, realice los pasos siguientes.
@@ -94,14 +143,17 @@ Para empaquetar el dispositivo, realice los pasos siguientes.
 1. Apague el dispositivo. En la interfaz de usuario web local, vaya a **Mantenimiento > Configuración de encendido**.
 2. Seleccione **Apagar**. Cuando se le pida confirmación, haga clic en **Sí** para continuar. Para obtener más información, consulte [Administración de los cables de alimentación](../databox-online/azure-stack-edge-manage-access-power-connectivity-mode.md#manage-power).
 3. Desconecte los cables de alimentación y quite todos los cables de red del dispositivo.
-4. Prepare cuidadosamente el paquete de envío según las instrucciones siguientes:
-    1. Use la caja de envío que solicitó de Azure o la caja de envío original con su empaquetado de espuma. 
+4. Prepare cuidadosamente el paquete de envío según las instrucciones siguientes y como se muestra en el diagrama siguiente:
+
+    ![Empaquetado del dispositivo](media/azure-stack-edge-return-device/device-packaging-1.svg) 
+
+    1. Use la caja de envío que solicitó a Azure o la caja de envío original con su embalaje de espuma. 
     1. Coloque la pieza de espuma inferior en la caja.
     1. Ponga el dispositivo encima de la espuma, teniendo cuidado de que quede colocada perfectamente en ella.
     1. Coloque la pieza de espuma superior en el paquete.
     1. Coloque los cables de alimentación en la bandeja de accesorios y los raíles en la pieza de espuma superior.
     1. Selle la caja y coloque en el paquete la etiqueta de envío que ha recibido de Azure.
-    
+   
     > [!IMPORTANT]
     > Si no se cumplen las directrices adecuadas para preparar el envío de devolución, el dispositivo podría dañarse y es posible que se apliquen honorarios por el dispositivo dañado. Revise los [términos del servicio del producto](https://www.microsoft.com/licensing/product-licensing/products) y los [preguntas más frecuentes sobre dispositivos perdidos o dañados](https://azure.microsoft.com/pricing/details/databox/edge/).
  
@@ -119,7 +171,20 @@ Para programar una recogida, siga los pasos a continuación.
 
     En lugar de programar la recogida, puede devolver Azure Stack Edge en el punto de recogida más cercano.
 
-## <a name="delete-the-resource"></a>Eliminar el recurso
+## <a name="complete-return"></a>Completado de la devolución
+
+En esta sección, puede comprobar cuándo la devolución está completa y, luego, eliminar el pedido. 
+
+---
+
+### <a name="azure-edge-hardware-center-preview"></a>[Azure Edge Hardware Center (versión preliminar)](#tab/azure-edge-hardware-center)
+
+Una vez recibido en el centro de datos de Azure, el dispositivo se inspecciona para detectar daños o signos de manipulación.
+
+- Si el dispositivo llega intacto y en buen estado, el medidor de facturación se detiene para ese recurso. El equipo de operaciones de Azure Stack Edge se pondrá en contacto con usted para confirmar que se ha devuelto el dispositivo. El estado del elemento de pedido reflejará también la devolución como completada.  Ahora puede eliminar el recurso de elemento de pedido en Azure Portal.
+- Si el dispositivo llega significativamente dañado, es posible que se apliquen cargos. Para obtener más información, consulte las [preguntas más frecuentes sobre dispositivos perdidos o dañados](https://azure.microsoft.com/pricing/details/databox/edge/) y los [términos del servicio del producto](https://www.microsoft.com/licensing/product-licensing/products). 
+
+### <a name="portal-classic"></a>[Portal (clásico)](#tab/azure-portal) 
 
 Una vez recibido en el centro de datos de Azure, el dispositivo se inspecciona para detectar daños o signos de manipulación.
 
@@ -147,6 +212,7 @@ Siga estos pasos para eliminar el dispositivo y el recurso en Azure Portal.
 
 Se le notificará una vez el dispositivo y el recurso asociado se hayan eliminado correctamente.
 
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

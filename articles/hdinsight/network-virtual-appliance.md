@@ -4,12 +4,12 @@ description: Aprenda a configurar otras características adicionales para el dis
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 7fe266c3c7b75762133fca4645e0675845c28972
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f92dc402323e8285f9a2c23ba9e4a229d72718a0
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98943972"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130254780"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Configuración de una aplicación virtual de red en Azure HDInsight
 
@@ -18,7 +18,7 @@ ms.locfileid: "98943972"
 
 La etiqueta de FQDN de Azure Firewall está configurada automáticamente para permitir el tráfico para muchos de los FQDN comunes más importantes. Si usa otra aplicación virtual de red, tendrá que configurar algunas características adicionales. Tenga en cuenta los siguientes factores al configurar la aplicación virtual de red:
 
-* Los servicios que admiten puntos de conexión de servicio pueden configurarse con puntos de conexión de servicio, lo que provoca la omisión de NVA, normalmente para consideraciones de costos o rendimiento.
+* Los servicios compatibles con puntos de conexión de servicio se pueden configurar con estos, lo que da lugar a la omisión de la aplicación virtual de red, normalmente por motivos de costo o rendimiento.
 * Si ResourceProviderConnection se establece en *outbound*, puede usar puntos de conexión privados para los servidores de almacenamiento y SQL Server para los metastores y no es necesario agregarlos a NVA.
 * Las dependencias de dirección IP son para tráfico que no sea HTTP/HTTPS (tráfico TCP y UDP).
 * Los puntos de conexión HTTP/HTTPS de FQDN se pueden aprobar en el dispositivo NVA.
@@ -44,7 +44,7 @@ Opcionalmente, puede habilitar uno o varios de los siguientes puntos de conexió
 
 ### <a name="fqdn-httphttps-dependencies"></a>Dependencias HTTP/HTTPS de FQDN
 
-Puede obtener la lista de dependencias de FQDN (principalmente, Azure Storage y Azure Service Bus) para configurar NVA [en este repositorio](https://github.com/Azure-Samples/hdinsight-fqdn-lists/). Para la lista regional, consulte [aquí](https://github.com/Azure-Samples/hdinsight-fqdn-lists/tree/master/Regional). Estas dependencias las usa el proveedor de recursos (RP) de HDInsight para crear y supervisar o administrar clústeres de manera correcta. Estos incluyen registros de telemetría o diagnóstico, aprovisionamiento de metadatos, configuraciones relacionadas con el clúster, scripts, etc. Esta lista de dependencias de FQDN podría cambiar con la publicación de futuras actualizaciones de HDInsight.
+Puede obtener la lista de dependencias de FQDN (principalmente de Azure Storage y Azure Service Bus) para configurar la aplicación virtual de red [en este repositorio](https://github.com/Azure-Samples/hdinsight-fqdn-lists/). Para la lista regional, consulte [aquí](https://github.com/Azure-Samples/hdinsight-fqdn-lists/tree/main/Public). Estas dependencias las usa el proveedor de recursos (RP) de HDInsight para crear y supervisar o administrar clústeres de manera correcta. Incluyen registros de telemetría y diagnóstico, metadatos de aprovisionamiento, configuraciones relacionadas con el clúster, scripts, etc. Esta lista de dependencias de FQDN podría cambiar con la publicación de futuras actualizaciones de HDInsight.
 
 La lista siguiente solo proporciona algunos FQDN que pueden ser necesarios para las actualizaciones de seguridad o las validaciones de certificados del sistema operativo *después* de crear el clúster y durante la vigencia de las operaciones del clúster.
 

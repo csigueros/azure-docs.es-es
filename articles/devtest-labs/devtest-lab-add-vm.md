@@ -1,114 +1,106 @@
 ---
-title: Adición de una máquina virtual a un laboratorio
+title: Creación y adición de una máquina virtual a un laboratorio
 description: Obtenga información sobre cómo usar Azure Portal para agregar una máquina virtual a un laboratorio de Azure DevTest Labs. Puede elegir una base que sea una imagen personalizada o una fórmula.
 ms.topic: how-to
-ms.date: 06/26/2020
-ms.openlocfilehash: 6f03195a0ad1b9ab69a8274181cacf672b18d1dd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/20/2021
+ms.openlocfilehash: 326d8923b27abff2ee480f6b981392a311be4f30
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128675998"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130235355"
 ---
-# <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Incorporación de una máquina virtual a un laboratorio de Azure DevTest Labs
-Si ya ha [creado su primera máquina virtual](tutorial-create-custom-lab.md#add-a-vm-to-the-lab), es probable que lo hiciera desde una [imagen de Marketplace](devtest-lab-configure-marketplace-images.md) precargada. Ahora, si desea agregar máquinas virtuales posteriores al laboratorio, también puede elegir una *base* que sea una [imagen personalizada](devtest-lab-create-template.md) o una [fórmula](devtest-lab-manage-formulas.md). En este tutorial se explica cómo usar Azure Portal para agregar una máquina virtual a un laboratorio de DevTest Labs.
+# <a name="create-and-add-virtual-machines-to-a-lab-in-azure-devtest-labs"></a>Creación y adición de máquinas virtuales a un laboratorio en Azure DevTest Labs
 
-En este artículo se explica cómo administrar los artefactos de una máquina virtual de un laboratorio.
+En este artículo se explica cómo crear y agregar máquinas virtuales (VM) de Azure a un laboratorio de DevTest Labs mediante Azure Portal.
 
-## <a name="steps-to-add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Pasos para agregar una máquina virtual a un laboratorio de Azure DevTest Labs
-1. Inicie sesión en [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la sección **DevOps**. Si selecciona * (asterisco) junto a **DevTest Labs** en la sección **DevOps**. Esta acción agrega **DevTest Labs** al menú de navegación izquierdo para facilitarle el acceso la próxima vez. A continuación, puede seleccionar **DevTest Labs** en el menú de navegación izquierdo.
+## <a name="create-and-add-virtual-machines"></a>Creación y adición de máquinas virtuales
 
-    ![Todos los servicios. Selección de DevTest Labs](./media/devtest-lab-create-lab/all-services-select.png)
-1. En la lista de laboratorios, seleccione aquel en el que desea crear la máquina virtual.
-2. En el panel **Información general** del laboratorio, seleccione **+ Agregar**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-    ![Botón Agregar VM](./media/devtest-lab-add-vm/devtestlab-home-blade-add-vm.png)
-1. En la página **Choose a base** (Elegir una base), seleccione una imagen de Marketplace para la máquina virtual.
-1. En la pestaña **Configuración básica** de la página **Máquina virtual**, realice las acciones siguientes:
-    1. En el cuadro de texto **Nombre de la máquina virtual**, escriba un nombre para la máquina virtual. El cuadro de texto se rellenará automáticamente con un nombre único generado de forma automática. El nombre corresponde al nombre de usuario dentro de la dirección de correo electrónico, seguido por un número único de 3 dígitos. Esta característica permite ahorrarse tiempo de pensar en un nombre de máquina y escribirlo cada vez que cree una máquina. Puede invalidar el nombre automático de este campo con el nombre que elija. Para invalidar el nombre automático de la máquina virtual, escriba un nombre en el cuadro de texto **Nombre de máquina virtual**.
-    2. Escriba un **Nombre de usuario** al que se concederán privilegios de administrador en la máquina virtual. El **nombre de usuario** de la máquina se rellena previamente con un nombre único generado automáticamente. El nombre corresponde al nombre de usuario dentro de la dirección de correo electrónico. Esta característica reduce el tiempo necesario decidir cuál es el nombre de usuario cada vez que se crea una nueva máquina. Puede invalidar el nombre automático de este campo con el nombre que elija. Para invalidar el nombre de usuario automático, escriba un valor en el cuadro de texto **Nombre de usuario**. A este usuario se le conceden privilegios de **administrador** en la máquina virtual.
-    3. Si va a crear la primera máquina virtual en el laboratorio, escriba una **contraseña** para el usuario. Para guardar esta contraseña como contraseña predeterminada en el almacén de claves de Azure asociado al laboratorio, seleccione **Guardar como contraseña predeterminada**. La contraseña predeterminada se guarda en el almacén de claves con el nombre: **VmPassword**. Cuando después se intenta crear máquinas virtuales en el laboratorio, **VmPassword** se selecciona automáticamente como **Contraseña**. Para invalidar el valor, desactive la casilla **Usar un secreto guardado** y escriba una contraseña.
+1. Vaya a su laboratorio en **DevTest Labs**.
 
-        ![Captura de pantalla que muestra la página "Crear recurso de laboratorio" con la opción "Configuración básica" seleccionada y los valores de "Configuración de usuario" especificados.](./media/tutorial-create-custom-lab/new-virtual-machine.png)
+1. En la página **Información general**, seleccione **+ Agregar**.
 
-        Puede también guardar primero los secretos en el almacén de claves y, después, usarlos al crear una máquina virtual en el laboratorio. Para más información, consulte [Almacenamiento de secretos en un almacén de claves](devtest-lab-store-secrets-in-key-vault.md). Para usar una contraseña almacenada en un almacén de claves, seleccione **Usar un secreto guardado** y especifique un valor de clave que corresponda a su secreto (contraseña).
-    4. En la sección **Más opciones** seleccione **Cambiar tamaño**. Seleccione uno de los elementos predefinidos que especifican los núcleos del procesador, el tamaño de RAM y el tamaño de la unidad de disco duro de la máquina virtual que se va a crear.
-    5. Seleccione **Add or Remove Artifacts** (Agregar o quitar artefactos). Seleccione y configure los artefactos que quiere agregar a la imagen base.
-    **Nota:** Si no está familiarizado con DevTest Labs o la configuración de artefactos, vaya a la sección [Incorporación de un artefacto existente a una máquina virtual](./devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) y vuelva aquí cuando haya finalizado.
-2. Cambie a la pestaña **Configuración avanzada** en la parte superior, y realice las acciones siguientes:
-    1. Para cambiar la red virtual en la que se encuentra la máquina virtual, seleccione **Cambiar la red virtual**.
-    2. Para cambiar la subred, seleccione **Cambiar la subred**.
-    3. Especifique si la dirección IP de la máquina virtual es **pública, privada o compartida**.
-    4. Para eliminar automáticamente la máquina virtual, especifique la **fecha y hora de expiración**.
-    5. Para que un usuario de laboratorio pueda reclamar la máquina, seleccione **Sí** para la opción **Make this machine claimable** (Poder reclamar esta máquina).
-    6. Especifique el número de **instancias de máquina virtual** que desea que estén disponibles para los usuarios del laboratorio.
+   :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-add-vm.png" alt-text="Página de información general del laboratorio que muestra el botón Agregar.":::
 
-        ![Elegir base de datos](./media/tutorial-create-custom-lab/new-vm-advanced-settings.png)
-1. Seleccione **Crear** para agregar la máquina virtual especificada al laboratorio.
+1. En la página **Choose a base** (Elegir una base), seleccione una imagen de Marketplace para la máquina virtual. En esta guía se usa **Windows 11 Pro**. Algunas opciones pueden variar si usa una imagen diferente.
 
-   En la página del laboratorio se muestra el estado de creación de la máquina virtual; primero como **Creating** (En creación) y luego como **Running** (En ejecución), una vez que se haya iniciado la máquina virtual.
+1. En la pestaña **Basics Settings** (Configuración básica), proporcione la siguiente información:
 
-    ![Estado de la creación de la máquina virtual](./media/tutorial-create-custom-lab/vm-creation-status.png)
+    |Propiedad |Descripción |
+    |---|---|
+    |Nombre&nbsp;de máquina&nbsp;virtual| El cuadro de texto se rellena previamente con un nombre único generado de forma automática. El nombre corresponde al nombre de usuario de la dirección de correo electrónico, seguido por un número único de tres dígitos. Déjelo así o escriba un nombre único de su elección.|
+    |Nombre de usuario| El cuadro de texto se rellena previamente con un nombre único generado de forma automática. El nombre corresponde al nombre de usuario dentro de la dirección de correo electrónico. Déjelo así o escriba el nombre que prefiera. A este usuario se le conceden privilegios de **administrador** en la máquina virtual.|
+    |Use a saved secret (Usar un secreto guardado)| Para los fines de este tutorial, deje la casilla desactivada. Puede guardar primero los secretos en Azure Key Vault y, luego, usarlos aquí. Para más información, consulte [Almacenamiento de secretos en un almacén de claves](devtest-lab-store-secrets-in-key-vault.md). Si prefiere usar un secreto guardado, active la casilla y, luego, seleccione el secreto en la lista desplegable **Secreto**.|
+    |Contraseña|Escriba una contraseña que tenga entre 8 y 123 caracteres.|
+    |Save as default password (Guardar como contraseña predeterminada)| Active la casilla para guardar la contraseña en la instancia de Azure Key Vault asociada al laboratorio.|
+    |Tamaño de la máquina virtual| Mantenga el valor predeterminado o seleccione **Cambiar tamaño** para seleccionar distintos componentes físicos. En este tutorial se usa **Standard_B2**.|
+    |Tipo de disco del sistema operativo|Mantenga el valor predeterminado o seleccione otra opción en la lista desplegable.|
+    |Artifacts| Seleccione **Add or Remove Artifacts** (Agregar o quitar artefactos). Seleccione y configure los artefactos que quiere agregar a la imagen base. Cada laboratorio incluye artefactos procedentes del repositorio público de artefactos de DevTest Labs, así como los artefactos que ha creado y agregado a su propio repositorio de artefactos. Para instrucciones más detalladas, consulte [Incorporación de artefactos durante la instalación](#add-artifacts-during-installation), más adelante.|
 
-## <a name="add-an-existing-artifact-to-a-vm"></a>Incorporación de un artefacto existente a una máquina virtual
-Al crear una máquina virtual, puede agregar artefactos existentes. Cada laboratorio incluye artefactos procedentes del repositorio de artefactos de DevTest Labs público, así como los artefactos que ha creado y agregado a su propio repositorio de artefactos.
+   :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-vm-basic-settings.png" alt-text="Página de configuración básica de máquinas virtuales.":::
 
-* Los *artefactos* de Azure DevTest Labs permiten especificar las *acciones* que se realizan al aprovisionarse la máquina virtual, como, por ejemplo, la ejecución de scripts de Windows PowerShell, la ejecución de comandos Bash y la instalación de software.
-* Los *parámetros* del artefacto le permiten personalizar el artefacto para su escenario en particular.
+1. Seleccione la pestaña **Configuración avanzada** y proporcione la siguiente información:
 
-Para descubrir cómo crear artefactos, consulte el artículo [Creación de artefactos personalizados para la máquina virtual de DevTest Labs](devtest-lab-artifact-author.md).
+    |Propiedad |Descripción |
+    |---|---|
+    |Virtual network| Déjela así o seleccione otra red en la lista desplegable.|
+    |Selector de&nbsp;subred| Déjela así o seleccione otra subred en la lista desplegable.|
+    |Dirección IP| Para los fines de este tutorial, deje el valor predeterminado **Compartido**.|
+    |Fecha de expiración| Déjela como está, sin fecha de expiración, o seleccione el icono de calendario para establecer una fecha.|
+    |Hacer que esta máquina sea reclamable| Para que un usuario de laboratorio pueda reclamar la máquina virtual, seleccione **Sí**. Marcar la máquina como reclamable significa que no se le asignará la propiedad en el momento de la creación. Para los fines de este tutorial, seleccione **Sí**.|
+    |Número de instancias| Para los fines de este tutorial, escriba **2**. Número de instancias de máquina virtual que se crearán.|
+    |Automation | Opcional. Al seleccionar **Ver plantilla de ARM**, se abrirá la plantilla en una nueva página. Puede copiar y guardar la plantilla para crear la misma máquina virtual más tarde. Una vez guardada, puede utilizar la plantilla de Azure Resource Manager para [implementar nuevas máquinas virtuales con Azure PowerShell](../azure-resource-manager/templates/overview.md).|
 
-1. Inicie sesión en [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista.
-1. En la lista de laboratorios, seleccione el que contiene la máquina virtual con la que desea trabajar.
-1. Seleccione **My virtual machines** (Mis máquinas virtuales).
-1. Seleccione la máquina virtual deseada.
-1. Seleccione **Administrar artefactos**.
-1. Seleccione **Apply artifacts** (Aplicar artefactos).
-1. En el panel **Aplicar artefactos**, seleccione el artefacto que desea agregar a la máquina virtual.
-1. En el panel **Agregar artefacto**, especifique los valores de parámetros necesarios y cualquier otro parámetro opcional que precise.
-1. Seleccione **Agregar** para agregar el artefacto y vuelva al panel **Aplicar artefactos**.
+   :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-vm-advanced-settings.png" alt-text="Página de configuración avanzada de la máquina virtual":::.
+
+1. Vuelva a la pestaña **Basic Settings** (Configuración básica) y, luego, seleccione **Crear**.
+
+1. En la página **DevTest Lab**, en **Mi laboratorio**, seleccione **Máquinas virtuales que se pueden reclamar**.
+
+   :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-vm-creation-status.png" alt-text="Página de estado de creación de máquinas virtuales de laboratorio.":::
+
+1. Después de unos minutos, seleccione **Actualizar** si las máquinas virtuales no aparecen. Los tiempos de instalación variarán en función del hardware, la imagen base y los artefactos seleccionados. La instalación de las configuraciones usadas en este tutorial tardó aproximadamente 25 minutos.
+
+## <a name="add-artifacts-during-installation"></a>Incorporación de artefactos durante la instalación
+
+Estos pasos son instrucciones detalladas de la sección anterior. Los pasos comienzan después de seleccionar **Agregar o quitar artefactos** en la pestaña **Basic Settings** (Configuración básica). Para más información sobre los artefactos, consulte [Creación de artefactos personalizados para la máquina virtual de DevTest Labs](devtest-lab-artifact-author.md).
+
+1. En la página **Agregar artefactos**, identifique un artefacto y, luego, seleccione **>** (símbolo mayor que). Después, seleccione **Aceptar**.
+
+   :::image type="content" source="./media/devtest-lab-add-vm/portal-add-artifact-during.png" alt-text="Incorporación de artefactos a una máquina virtual.":::
+
+1. Seleccione otro artefacto: **Install PowerShell Module** (Instalar módulo de PowerShell). Este artefacto requiere información adicional, en concreto, el nombre de un módulo de PowerShell. Escriba **Az** y seleccione **Aceptar**.
+
 1. Siga agregando los artefactos que necesite para la máquina virtual.
-1. Cuando haya agregado los artefactos, puede [cambiar el orden en que se ejecutan](#change-the-order-in-which-artifacts-are-run). También puede volver atrás para [ver o modificar un artefacto](#view-or-modify-an-artifact).
-1. Cuando haya terminado de agregar artefactos, seleccione **Aplicar**.
 
-## <a name="change-the-order-in-which-artifacts-are-run"></a>Cambio del orden en que se ejecutan los artefactos
-De forma predeterminada, las acciones de los artefactos se ejecutan en el orden en que se agregan a la máquina virtual.
-Los siguientes pasos muestran cómo cambiar el orden en que se ejecutan los artefactos.
+1. Seleccione los puntos suspensivos ( **...** ) en uno de los artefactos seleccionados; observará distintas opciones, como la posibilidad de cambiar el orden de instalación.
 
-1. En la parte superior del panel **Aplicar artefactos**, seleccione el vínculo que indica cuántos artefactos se han agregado a la máquina virtual.
+1. Cuando haya terminado de agregar artefactos, seleccione **Aceptar** para volver a la pestaña **Basic Settings** (Configuración básica).
 
-    ![Número de artefactos que se agregan a la máquina virtual](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
-1. En el panel **Artefactos seleccionados**, arrastre los artefactos y colóquelos en el orden deseado. **Nota:** Si tiene problemas para arrastrar el artefacto, asegúrese de que lo arrastra desde el lado izquierdo del artefacto.
-1. Seleccione **Aceptar** cuando haya terminado.
+## <a name="add-artifacts-after-installation"></a>Incorporación de artefactos después de la instalación
 
-## <a name="view-or-modify-an-artifact"></a>ver o modificar un artefacto
-Los siguientes pasos muestran cómo ver o modificar los parámetros de un artefacto:
+También puede agregar artefactos una vez creada la máquina virtual. 
 
-1. En la parte superior del panel **Aplicar artefactos**, seleccione el vínculo que indica cuántos artefactos se han agregado a la máquina virtual.
+1. En la página **DevTest Lab**, en **Mi laboratorio**, seleccione **Todos los recursos**. En **Todos los recursos** se mostrarán las máquinas virtuales reclamadas y no reclamadas.
 
-    ![Número de artefactos que se agregan a la máquina virtual](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
-1. En el panel **Artefactos seleccionados**, seleccione el artefacto que desea ver o modificar.
-1. En el panel **Agregar artefacto**, realice los cambios necesarios y seleccione **Aceptar** para cerrar el panel **Agregar artefacto**.
-1. Seleccione **Aceptar** para cerrar el panel **Artefactos seleccionados**.
+    :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-vm-all-resources.png" alt-text="Laboratorio que muestra el estado de todos los recursos.":::
 
-## <a name="save-azure-resource-manager-template"></a>Almacenamiento de una plantilla de Azure Resource Manager
-Una plantilla de Azure Resource Manager proporciona una manera declarativa de definir una implementación repetible.
-Los siguientes pasos explican cómo guardar la plantilla de Azure Resource Manager para la máquina virtual que se va a crear.
-Una vez guardada, puede utilizar la plantilla de Azure Resource Manager para [implementar nuevas máquinas virtuales con Azure PowerShell](../azure-resource-manager/templates/overview.md).
+1. Cuando en **Estado** se muestre **Disponible**, seleccione la máquina virtual.
 
-1. En el panel **Máquina virtual**, seleccione **Ver plantilla de Azure Resource Manager**.
-2. En el panel **Ver plantilla de Azure Resource Manager**, seleccione el texto de la plantilla.
-3. Copie el texto seleccionado en el Portapapeles.
-4. Seleccione **Aceptar** para cerrar el panel **Ver plantilla de Azure Resource Manager**.
-5. Abra un editor de texto.
-6. Pegue el texto de la plantilla desde el Portapapeles.
-7. Guarde el archivo para su uso posterior.
+1. En la página de la **máquina virtual**, seleccione **Iniciar** para iniciarla.
 
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+1. Unos instantes después de que la página muestre **En ejecución**, en **Operaciones**, seleccione **Artefactos**.
+
+   :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-vm-overview.png" alt-text="Visión general de la máquina virtual de laboratorio que muestra el botón Iniciar.":::
+
+1. Seleccione **Aplicar artefactos** para abrir la página **Agregar artefactos**.
+
+1. A partir de aquí, los pasos son básicamente los mismos que los de [Incorporación de artefactos durante la instalación](#add-artifacts-during-installation), anteriormente.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * Una vez creada la máquina virtual, puede conectarse a ella seleccionando **Conectar** en el panel de la máquina virtual.
 * Aprenda a [crear artefactos personalizados para la máquina virtual de DevTest Labs](devtest-lab-artifact-author.md).
 * Explore la [galería de plantillas de inicio rápido de Azure Resource Manager de DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

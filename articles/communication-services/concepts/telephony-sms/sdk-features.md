@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: sms
-ms.openlocfilehash: c3564a7c66002241a6b678d7314c4abe92cd3d24
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3be8101834eaa9f023c12b61d37c3b572d7a6ac6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609638"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131434130"
 ---
 # <a name="sms-sdk-overview"></a>Introducción al SDK de SMS
 
@@ -38,7 +38,7 @@ En la lista siguiente se presenta el conjunto de características que están dis
 |                   | Compatibilidad con la idempotencia                                                               | ✔️   | ✔️    | ✔️    | ✔️      |
 |                   | Etiquetas personalizadas para los mensajes.                                                             | ✔️   | ✔️    | ✔️    | ✔️      |
 | Events            | Usar Event Grid para configurar webhooks para recibir mensajes entrantes e informes de entrega | ✔️   | ✔️    | ✔️    | ✔️      |
-| Número de teléfono      | Números de teléfono gratuitos                                                                     | ✔️   | ✔️    | ✔️    | ✔️      |
+| Número de teléfono      | Números gratuitos, códigos cortos (*Próximamente*)                                        | ✔️   | ✔️    | ✔️    | ✔️      |
 | Llamadas RTC      | Agregar funcionalidades de llamadas RTC al número de teléfono gratuito habilitado para SMS                    | ✔️   | ✔️    | ✔️    | ✔️      |
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -1,6 +1,6 @@
 ---
 title: Creación de un conjunto de escalado a partir de una imagen generalizada con la CLI de Azure
-description: Cree un conjunto de escalado con una imagen generalizada en Shared Image Gallery mediante la CLI de Azure.
+description: Cree un conjunto de escalado con una imagen generalizada en una instancia de Azure Compute Gallery mediante la CLI de Azure.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
@@ -9,18 +9,18 @@ ms.topic: how-to
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: mimckitt
-ms.openlocfilehash: a9ac2bd794ee4aa9f531ad9fcd2f07bb744d02c8
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 3512a5e59cfa7f0f0bd9562498b4644454da7390
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691254"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131459945"
 ---
 # <a name="create-a-scale-set-from-a-generalized-image-with-azure-cli"></a>Creación de un conjunto de escalado a partir de una imagen generalizada con la CLI de Azure
 
 **Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado uniformes
 
-Cree un conjunto de escalado a partir de una versión de imagen generalizada almacenada en [Shared Image Gallery](../virtual-machines/shared-image-galleries.md) mediante la CLI de Azure. Si desea crear un conjunto de escalado mediante una versión de imagen especializada, consulte el artículo sobre la [creación de instancias de un conjunto de escalado a partir de una imagen especializada](instance-specialized-image-version-cli.md).
+Cree un conjunto de escalado a partir de una versión de imagen generalizada almacenada en [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md) mediante la CLI de Azure. Si desea crear un conjunto de escalado mediante una versión de imagen especializada, consulte el artículo sobre la [creación de instancias de un conjunto de escalado a partir de una imagen especializada](instance-specialized-image-version-cli.md).
 
 Si decide instalar y usar la CLI de forma local, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.4.0, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
@@ -59,10 +59,10 @@ Se tardan unos minutos en crear y configurar todos los recursos de conjunto de e
 ## <a name="next-steps"></a>Pasos siguientes
 [Azure Image Builder (versión preliminar)](../virtual-machines/image-builder-overview.md) puede ayudar a automatizar la creación de versiones de la imagen, incluso se puede usar para actualizar y [crear una nueva versión de la imagen a partir de una versión de imagen existente](../virtual-machines/linux/image-builder-gallery-update-image-version.md). 
 
-Puede crear también recursos de galería de imágenes compartidas con plantillas. Hay varias plantillas de Inicio rápido de Azure disponibles: 
+También puede crear recursos de Azure Compute Gallery mediante plantillas. Hay varias plantillas de Inicio rápido de Azure disponibles: 
 
-- [Creación de una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-create/)
-- [Creación de una definición de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
-- [Creación de una versión de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
+- [Creación de una instancia de Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
+- [Creación de una definición de imagen en una instancia de Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
+- [Creación de una versión de imagen en una instancia de Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
 
 Para más información sobre las galerías de imágenes compartidas, consulte la [Introducción](../virtual-machines/shared-image-galleries.md). Si encuentra problemas, consulte [Solución de problemas de galerías de imágenes compartidas](../virtual-machines/troubleshooting-shared-images.md).

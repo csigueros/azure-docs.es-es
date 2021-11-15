@@ -1,20 +1,20 @@
 ---
-title: Solución de problemas de identidades administradas de Azure Automation (versión preliminar)
+title: Solución de problemas de identidades administradas de Azure Automation
 description: En este artículo se explica cómo solucionar problemas al usar una identidad administrada con una cuenta de Automation.
 services: automation
 ms.subservice: ''
-ms.date: 06/28/2021
+ms.date: 10/26/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 89d3785ef527eebc822eefbbae2c887dd40108ee
-ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
+ms.openlocfilehash: f26c10468322992a5b3fbc302739ff827e841bba
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113687504"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131443668"
 ---
-# <a name="troubleshoot-azure-automation-managed-identity-issues-preview"></a>Solución de problemas de identidades administradas de Azure Automation (versión preliminar)
+# <a name="troubleshoot-azure-automation-managed-identity-issues"></a>Solución de problemas de identidades administradas de Azure Automation
 
-En este artículo se describen soluciones para los problemas que pueden surgir al usar una identidad administrada con la cuenta de Automation. Para información general sobre el uso de identidades administradas con cuentas de Automation, consulte [Introducción a la autenticación de cuentas de Azure Automation](../automation-security-overview.md#managed-identities-preview).
+En este artículo se describen soluciones para los problemas que pueden surgir al usar una identidad administrada con la cuenta de Automation. Para información general sobre el uso de identidades administradas con cuentas de Automation, consulte [Introducción a la autenticación de cuentas de Azure Automation](../automation-security-overview.md#managed-identities).
 
 ## <a name="scenario-fail-to-get-msi-token-for-account"></a>Escenario: no se puede obtener el token de MSI para la cuenta
 
@@ -73,7 +73,7 @@ Si el problema era ese, debería ver un resultado similar al siguiente:
 
 ### <a name="resolution"></a>Solución
 
-Antes de poder usar el servicio de identidad administrada, debe habilitar una identidad para la cuenta de Automation. Consulte [Habilitación de una identidad administrada para la cuenta de Azure Automation (versión preliminar)](../enable-managed-identity-for-automation.md).
+Antes de poder usar el servicio de identidad administrada, debe habilitar una identidad para la cuenta de Automation. Consulte [Habilitación de una identidad administrada para la cuenta de Azure Automation](../enable-managed-identity-for-automation.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

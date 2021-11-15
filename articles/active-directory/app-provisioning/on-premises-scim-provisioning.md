@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/16/2021
+ms.date: 10/16/2021
 ms.author: billmath
 ms.reviewer: arvinh
-ms.openlocfilehash: b1fb5523f0a487b4076c469e04cc97db01fa36b5
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 232735af49cd0f38ff169c224a48b76b0707c97d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129991116"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130261146"
 ---
 # <a name="azure-ad-on-premises-application-provisioning-to-scim-enabled-apps"></a>Aprovisionamiento de aplicaciones locales de Azure AD para aplicaciones habilitadas para SCIM
 
@@ -61,7 +61,7 @@ Para aprovisionar usuarios en aplicaciones habilitadas para SCIM:
 * Asegúrese de que la implementación de [SCIM](https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010) cumpla los [requisitos de Azure AD](use-scim-to-provision-users-and-groups.md).
   
   Azure AD ofrece [código de referencia](https://github.com/AzureAD/SCIMReferenceCode/wiki) de código abierto que los desarrolladores pueden usar para arrancar su implementación de SCIM. El código es tal y como está.
-* Admita el punto de conexión /schemaDiscovery para reducir la configuración necesaria en Azure Portal. 
+* Admita el punto de conexión /schemas para reducir la configuración necesaria en Azure Portal. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

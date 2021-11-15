@@ -13,12 +13,12 @@ ms.date: 06/09/2021
 ms.author: jmprieur
 ms.reviewer: saeeda, shermanouko
 ms.custom: devx-track-csharp, aaddev, has-adal-ref
-ms.openlocfilehash: 3c9af18a00d4880c34307525b735f8cef4d2685c
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 5dfc0c3c006c42f6e56e9f2f15311a2b99396fe4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129230843"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131424104"
 ---
 # <a name="differences-between-adalnet-and-msalnet-apps"></a>Diferencias entre las aplicaciones de ADAL.NET y MSAL.NET
 
@@ -139,7 +139,7 @@ Mediante MSAL.NET se detecta `MsalUiRequiredException`, como se describe en [Acq
 ```csharp
 catch(MsalUiRequiredException exception)
 {
- try {“try to authenticate interactively”}
+ try {"try to authenticate interactively"}
 }
 ```
 
@@ -159,6 +159,18 @@ catch(AdalException exception)
 ```
 
 Para obtener más detalles, consulte el [patrón recomendado para adquirir un token en aplicaciones cliente públicas](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-a-cached-token#recommended-pattern-to-acquire-a-token) con ADAL.NET.
+
+### <a name="prompt-behavior"></a>Comportamiento de la petición
+
+El comportamiento de la petición en MSAL.NET es equivalente al comportamiento de la petición ADAL.NET:
+
+|  ADAL.NET | MSAL.NET | Descripción |
+| ----------- | ----------- | -------------|
+| `PromptBehavior.Auto`| `NoPrompt`| Azure AD elige el mejor comportamiento (usuarios que inician sesión de manera silenciosa si inician sesión solo con una cuenta, o mostrar el selector de cuentas si inician sesión con varias cuentas). |
+| `PromptBehavior.Always`| `ForceLogin` | Restablece el cuadro de inicio de sesión y obliga al usuario a volver a escribir sus credenciales. |
+| `PromptBehavior.RefreshSession`| `Consent`| Obliga al usuario a dar nuevamente su consentimiento a todos los permisos. |
+| `PromptBehavior.Never`| `Never`| No lo use; en su lugar, utilice el [patrón recomendado para aplicaciones cliente públicas](scenario-desktop-acquire-token.md?tabs=dotnet). |
+| `PromptBehavior.SelectAccount`| `SelectAccount`| Muestra el selector de cuentas y obliga al usuario a seleccionar una cuenta. |
 
 ### <a name="handling-claim-challenge-exceptions"></a>Controlar las excepciones en los desafíos de notificaciones
 

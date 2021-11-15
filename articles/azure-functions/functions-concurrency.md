@@ -5,19 +5,19 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 9/24/2021
 ms.author: cachai
-ms.openlocfilehash: 60d6861fbf0f9c02df78674f85633a962fea09a3
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 21702bf5bdc8eeee014305c106006a18640c001f
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129367853"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131847667"
 ---
 # <a name="concurrency-in-azure-functions"></a>Simultaneidad en Azure Functions
 
 En este artículo se describen los comportamientos de simultaneidad de los desencadenadores controlados por eventos en Azure Functions. También se describe un nuevo modelo dinámico para optimizar los comportamientos de simultaneidad. 
 
 >[!NOTE]
->El modelo de simultaneidad dinámica está actualmente en versión preliminar. La compatibilidad con la simultaneidad dinámica se limita a extensiones de enlace específicas, que también están en versión preliminar.  
+>El modelo de simultaneidad dinámica está actualmente en versión preliminar. La compatibilidad con la simultaneidad dinámica se limita a extensiones de enlace específicas.
 
 El modelo de hospedaje de Functions permite que varias invocaciones de función se ejecuten simultáneamente en una única instancia de proceso. Por ejemplo, considere un caso en el que tiene tres funciones diferentes en la aplicación de funciones, que se escala horizontalmente y se ejecuta en varias instancias. En este escenario, cada función procesa invocaciones en cada instancia de máquina virtual en la que se ejecuta la aplicación de funciones. Las invocaciones de función en una sola instancia comparten los mismos recursos de proceso de máquina virtual, como la memoria, la CPU y las conexiones. Cuando la aplicación se hospeda en un plan dinámico (consumo o Premium), la plataforma escala o reduce verticalmente el número de instancias de la aplicación de funciones según el número de eventos entrantes. Para más información, consulte [Escalado impulsado por eventos](./Event-Driven-Scaling.md). Al hospedar las funciones en un plan dedicado (App Service), configure manualmente las instancias o [configure un esquema de escalabilidad automática](dedicated-plan.md#scaling).
 
@@ -38,7 +38,7 @@ Lo ideal es que el sistema permita que las instancias procesen todo el trabajo q
 Functions ahora proporciona un modelo de simultaneidad dinámica que simplifica la configuración de la simultaneidad para todas las aplicaciones de funciones que se ejecutan en el mismo plan. 
 
 > [!NOTE]
-> Actualmente, la simultaneidad dinámica solo se admite para el desencadenador de Service Bus y requiere que use [ versión 5.0.0-beta.6 (o superior)](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/5.0.0-beta.6) de la extensión **Microsoft.Azure.WebJobs.Extensions.ServiceBus**.
+> Actualmente, la simultaneidad dinámica solo se admite para los desencadenadores de Azure Blob, Azure Queue y Service Bus y requiere que use las versiones enumeradas en la [sección de compatibilidad con extensiones que se encuentra a continuación](#extension-support).
 
 ### <a name="benefits"></a>Ventajas
 
@@ -79,7 +79,20 @@ Cuando la simultaneidad dinámica está habilitada, verá decisiones de simultan
 
 ### <a name="extension-support"></a>Compatibilidad con extensiones 
 
-La simultaneidad dinámica se habilita para una aplicación de funciones en el nivel de host y las extensiones que admiten simultaneidad dinámica se ejecutan en ese modo. La simultaneidad dinámica requiere la colaboración entre el host y las extensiones de desencadenador individuales. Para la versión preliminar, solo las versiones más recientes (versión preliminar) de las siguientes extensiones admiten la simultaneidad dinámica.
+La simultaneidad dinámica se habilita para una aplicación de funciones en el nivel de host y las extensiones que admiten simultaneidad dinámica se ejecutan en ese modo. La simultaneidad dinámica requiere la colaboración entre el host y las extensiones de desencadenador individuales. Para la versión preliminar, solo las versiones enumeradas de las siguientes extensiones admiten la simultaneidad dinámica.
+
+#### <a name="azure-queues"></a>Colas de Azure
+
+El desencadenador de Azure Queue Storage tiene su propio bucle de sondeo de mensajes. Cuando se usa la configuración estática, las opciones de configuración `BatchSize`/`NewBatchThreshold` controlan la simultaneidad. Cuando se usa la simultaneidad dinámica, se ignoran esos valores de configuración. La simultaneidad dinámica se integra en el bucle de mensajes, por lo que el número de mensajes capturados por iteración se ajusta de forma dinámica. Cuando se habilitan los reguladores de carga de trabajo (el host está sobrecargado), el procesamiento de mensajes se pausará hasta que se deshabiliten los reguladores. Cuando se deshabilitan los reguladores de carga de trabajo, la simultaneidad aumentará.
+
+Para usar la simultaneidad dinámica para las colas, debe usar la [versión 5.x](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) de la extensión de almacenamiento.
+
+#### <a name="azure-blobs"></a>Azure Blobs
+
+Internamente, el desencadenador de Azure Blob Storage usa la misma infraestructura que el desencadenador de Azure Queue. Cuando es necesario procesar blobs nuevos o actualizados, los mensajes se escriben en una cola de control administrada por la plataforma, y esa cola se procesa con la misma lógica que se usa para QueueTrigger. Cuando la simultaneidad dinámica está habilitada, la simultaneidad para el procesamiento de esa cola de control se administrará dinámicamente.
+
+Para usar la simultaneidad dinámica para blobs, debe usar la [versión 5.x](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) de la extensión de almacenamiento.
+
 
 #### <a name="service-bus"></a>Service Bus 
 
@@ -89,7 +102,7 @@ El desencadenador de Service Bus admite actualmente tres modelos de ejecución. 
 - **Procesamiento de cola o tema de distribución única basada en sesión**: cada invocación de la función procesa un único mensaje. En función del número de sesiones activas para el tema o la cola, cada instancia concede una o varias sesiones. Los mensajes de cada sesión se procesan en serie, para garantizar el orden en una sesión. Cuando no se usa la simultaneidad dinámica, la simultaneidad se rige por el valor `MaxConcurrentSessions`. Con la simultaneidad dinámica habilitada, `MaxConcurrentSessions` se omite y el número de sesiones que procesa cada instancia se ajusta dinámicamente. 
 - **Procesamiento por lotes**: cada invocación de la función procesa un lote de mensajes, regido por el valor `MaxMessageCount`. Dado que las invocaciones por lotes son en serie, la simultaneidad de la función desencadenada por lotes siempre es uno y no se aplica la simultaneidad dinámica. 
 
-Para habilitar que el desencadenador de Service Bus use la simultaneidad dinámica, debe usar la [ versión 5.0.0-beta.6 (o superior)](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/5.0.0-beta.6) de la extensión **Microsoft.Azure.WebJobs.Extensions.ServiceBus**. 
+Para habilitar el desencadenador de Service Bus para usar la simultaneidad dinámica, debe usar la [versión 5.x](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) de la extensión de Service Bus. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

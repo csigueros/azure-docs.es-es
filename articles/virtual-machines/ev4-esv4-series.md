@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: 0bc3035b934f5b450345449b21e5aedd44642cf4
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: c5ad35114edaae42019e0949cc4ad8aa4b291ec6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130070762"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441198"
 ---
 # <a name="ev4-and-esv4-series"></a>Series Ev4 y Esv4
 
@@ -80,7 +80,7 @@ Los tamaños de la serie Esv4 se ejecutan en Intel&reg; Xeon&reg; Platinum 8272C
 | Standard_E32s_v4 | 32 | 256 | Solo almacenamiento remoto | 32 | 51200/768  | 64 000/1600 | 8|16000 |
 | Standard_E48s_v4 | 48 | 384 | Solo almacenamiento remoto | 32 | 76800/1152 | 80000/2000 | 8|24000 |
 | Standard_E64s_v4 <sup>2</sup> | 64 | 504| Solo almacenamiento remoto | 32 | 80000/1200 | 80000/2000 | 8|30000 |
-| Standard_E80is_v4 <sup>3</sup> | 80 | 504 | Solo almacenamiento remoto | 32 | 80000/1200 | 80000/2000 | 8|30000 |
+| Standard_E80is_v4 <sup>3</sup> | 80 | 504 | Solo almacenamiento remoto | 64 | 80000/1200 | 80000/2000 | 8|30000 |
 
 <sup>1</sup> Las máquinas virtuales de la serie Esv4 pueden [expandir](./disk-bursting.md) su rendimiento de disco y llegar a una expansión máxima de hasta 30 minutos cada vez.<br>
 <sup>2</sup> [Tamaños de núcleo restringidos disponibles](./constrained-vcpu.md).<br>

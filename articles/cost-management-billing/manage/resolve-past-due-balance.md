@@ -1,26 +1,28 @@
 ---
 title: Correo electrónico de saldo vencido de Azure
-description: Describe cómo realizar el pago si la suscripción de Azure tiene un saldo pendiente
-author: genlin
-ms.reviewer: dcscontentpm
+description: Explica cómo realizar el pago si su suscripción de Azure tiene un saldo vencido.
+author: bandersmsft
+ms.reviewer: lishepar
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 10/27/2021
 ms.author: banders
-ms.openlocfilehash: 8bdb31d13f35f2ffbc4713623e5509675433ddd8
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: b29689069c16a59c134939a5b8cbf8b6b0df4c98
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129997183"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131464858"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Saldo de la suscripción de Azure vencido
 
-Este artículo se aplica a los clientes que se hayan suscrito a Azure Online con una tarjeta de crédito y que tengan una cuenta de facturación de Microsoft Online Services Program. Aprenda a [comprobar el tipo de cuenta de facturación](#check-the-type-of-your-account). Si tiene una cuenta de facturación de Contrato de cliente de Microsoft, consulte [Cómo pagar la factura de Microsoft Azure](../understand/pay-bill.md) en su lugar.
+Este artículo se aplica a los clientes que se han suscrito a Azure en línea con una tarjeta de crédito y tienen una cuenta de facturación del programa Microsoft Online Services. Aprenda a [comprobar el tipo de cuenta de facturación](#check-the-type-of-your-account). Si tiene una cuenta de facturación de Contrato de cliente de Microsoft, consulte [Cómo pagar la factura de Microsoft Azure](../understand/pay-bill.md) en su lugar.
 
-Si no se recibe su pago o no puede procesarse, es posible que reciba un correo electrónico o vea una alerta en Azure Portal que indica que la suscripción está vencida. Si el método de pago predeterminado es una tarjeta de crédito, el [administrador de cuenta](add-change-subscription-administrator.md#whoisaa) puede liquidar los cargos pendientes en Azure Portal. Si paga mediante factura (cheque o transferencia bancaria), envíe el pago a la ubicación indicada en la parte inferior de la factura.
+Si no se recibe su pago o no puede procesarse, es posible que reciba un correo electrónico o vea una alerta en Azure Portal que indica que la suscripción está vencida. El correo electrónico contiene un vínculo que lleva a la página Liquidación de saldo.
+
+Si el método de pago predeterminado es una tarjeta de crédito, el [administrador de cuenta](add-change-subscription-administrator.md#whoisaa) puede liquidar los cargos pendientes en Azure Portal. Si paga mediante factura (cheque o transferencia bancaria), envíe el pago a la ubicación indicada en la parte inferior de la factura.
 
 > [!IMPORTANT]
 > * Si tiene varias suscripciones que utilizan la misma tarjeta de crédito y todas están vencidas, deberá pagar todo el saldo pendiente a la vez.
@@ -34,9 +36,10 @@ Si no se recibe su pago o no puede procesarse, es posible que reciba un correo e
 1. En la página de **información general de la suscripción**, haga clic en el banner rojo del vencimiento para liquidar el saldo.
     > [!NOTE]
     > Si no es el administrador de la cuenta, no podrá liquidar el saldo.
+    - Si la cuenta tiene un estado correcto, no verá ningún banner.
+    - Si la cuenta tiene una factura lista para pagarla, verá un banner azul que lleva a la página Liquidación de saldo. También recibirá un correo electrónico con un vínculo a la página Liquidación de saldo.
+    - Si la cuenta ha vencido, verá un banner rojo en el que se indica que la cuenta ha vencido y que lleva a la página Liquidación de saldo. También recibirá un correo electrónico con un vínculo a la página Liquidación de saldo.
 1. En la nueva página **Liquidar saldo**, haga clic en **Seleccionar método de pago**.
-    ![Captura de pantalla que muestra el enlace Seleccionar método de pago](./media/resolve-past-due-balance/settle-balance-screen.png)
-
 1. En la nueva hoja de la derecha, seleccione una tarjeta en la lista desplegable o agregue una nueva haciendo clic en el vínculo azul **Add new payment method** (Agregar nuevo método de pago). Esta tarjeta de crédito se convertirá en el método de pago activo para todas las suscripciones que actualmente usan el método de pago con errores.
      > [!NOTE]
      > * El saldo total pendiente refleja los cargos pendientes de todos los servicios de Microsoft que utilizaban el método de pago que produjo los errores.

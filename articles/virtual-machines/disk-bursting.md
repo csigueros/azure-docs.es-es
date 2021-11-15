@@ -3,17 +3,17 @@ title: Seguridad de disco administrado
 description: Obtenga información sobre la expansión de disco para discos de Azure y para máquinas virtuales de Azure
 author: roygara
 ms.author: rogarana
-ms.date: 06/29/2021
+ms.date: 11/03/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: d6e326bdc08b58d4dc32eb8a3d7592f3fd85b4af
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: bd9cc8e9a9e60655d7d1805c1ceae4168353ec20
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130074418"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131506338"
 ---
 # <a name="managed-disk-bursting"></a>Seguridad de disco administrado
 
@@ -33,7 +33,7 @@ Los siguientes escenarios pueden beneficiarse en gran medida de la expansión:
 
 Actualmente, hay dos tipos de discos administrados que pueden expandirse: los [SSD prémium](disks-types.md#premium-ssds) y los [SSD estándar](disks-types.md#standard-ssds). La expansión no se aplica a otros tipos de disco actualmente. Hay dos modelos de expansión para los discos:
 
-- Un modelo de expansión a petición (versión preliminar), en el que el disco se expande cada vez que sus necesidades superan su capacidad actual. Este modelo incurre en cargos adicionales cada vez que el disco se expande. La expansión bajo demanda solo está disponible para los SSD premium de más de 512 GiB.
+- Un modelo de expansión a petición, en el que el disco se expande cada vez que sus necesidades superan su capacidad actual. Este modelo incurre en cargos adicionales cada vez que el disco se expande. La expansión bajo demanda solo está disponible para los SSD premium de más de 512 GiB.
 - Un modelo basado en el crédito, en el que el disco solo se expandirá si tiene créditos de expansión acumulados en su cubo de crédito. Este modelo no incurrirá en cargos adicionales cuando el disco se expanda. La expansión basada en crédito solo está disponible para los SSD premium y estándar de 512 GiB e inferior.
 
 Los discos [SSD prémium](disks-types.md#premium-ssds) de Azure pueden usar cualquier modelo de expansión, pero los de tipo [SSD estándar](disks-types.md#standard-ssds) solo ofrecen la expansión basada en crédito actualmente.

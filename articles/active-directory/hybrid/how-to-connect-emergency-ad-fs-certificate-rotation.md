@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 03/22/2021
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7153b33b0019600f58ea678079b553a9ad6c6672
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3b03dc507a76254f8568989af27f76aa75ad4e20
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124823023"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130222445"
 ---
 # <a name="emergency-rotation-of-the-ad-fs-certificates"></a>Rotación de emergencia de los certificados de AD FS
 En caso de que necesite rotar los certificados de AD FS inmediatamente, puede seguir los pasos que se describen a continuación en esta sección.
@@ -27,7 +27,7 @@ En caso de que necesite rotar los certificados de AD FS inmediatamente, puede s
 > Para más información, consulte [Módulo de seguridad de hardware](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#hardware-security-module-hsm) en los procedimientos recomendados para proteger AD FS.
 
 ## <a name="determine-your-token-signing-certificate-thumbprint"></a>Determinación de la huella digital del certificado de firma de tokens
-Para revocar el antiguo certificado de firma de tokens que AD FS está usando actualmente, debe determinar la huella digital del certificado de firma de tokens.  Para ello, siga estos pasos:
+Para revocar el antiguo certificado de firma de tokens que AD FS usa actualmente, debe determinar la huella digital del certificado de firma de tokens.  Para ello, siga estos pasos:
 
  1.    Conéctese al servicio `PS C:\>Connect-MsolService` de Microsoft Online Services.
  2.    Documente la huella digital y las fechas de expiración de su certificado de firma de tokens tanto local como en la nube.
@@ -41,7 +41,7 @@ De forma predeterminada, AD FS está configurado para generar certificados de fi
 
 Puede ejecutar el siguiente comando de Windows PowerShell: `PS C:\>Get-AdfsProperties | FL AutoCert*, Certificate*`.
 
-La propiedad AutoCertificateRollover describe si AD FS está configurado para renovar automáticamente los certificados de firma y descifrado de tokens.  Si AutoCertificateRollover está establecido en TRUE, siga las instrucciones que se describen a continuación en [Generación de un nuevo certificado autofirmado si AutoCertificateRollover está establecido en TRUE].  Si AutoCertificateRollover está establecido en FALSE, siga las instrucciones que se describen a continuación en [Generación de nuevos certificados manualmente si AutoCertificateRollover está establecido en FALSE].
+La propiedad AutoCertificateRollover describe si AD FS está configurado para renovar automáticamente los certificados de firma y descifrado de tokens.  Si AutoCertificateRollover está establecido en TRUE, siga las instrucciones que se describen a continuación en [Generación de un nuevo certificado autofirmado si AutoCertificateRollover está establecido en TRUE](#generating-new-self-signed-certificate-if-autocertificaterollover-is-set-to-true).  Si AutoCertificateRollover está establecido en FALSE, siga las instrucciones que se describen a continuación en [Generación de nuevos certificados manualmente si AutoCertificateRollover está establecido en FALSE](#generating-new-certificates-manually-if-autocertificaterollover-is-set-to-false).
 
 
 ## <a name="generating-new-self-signed-certificate-if-autocertificaterollover-is-set-to-true"></a>Generación de un nuevo certificado autofirmado si AutoCertificateRollover está establecido en TRUE

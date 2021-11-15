@@ -6,14 +6,14 @@ author: mhamilton723
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: quickstart
-ms.date: 07/06/2020
+ms.date: 10/28/2021
 ms.author: marhamil
-ms.openlocfilehash: 9c9780a51954978935dad164c9d8c5b5a1535826
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f8d8e0ebbed2acc51c04a5ae83743e1fbf37ae6d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114447338"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446569"
 ---
 # <a name="getting-started"></a>Introducción
 
@@ -106,7 +106,7 @@ Primero, puede crear un cuaderno en Azure Databricks. En el caso de otros provee
 from mmlspark.cognitive import *
 from pyspark.sql.functions import col
 
-# Add your subscription key from Text Analytics (or a general Cognitive Service key)
+# Add your subscription key from the Language service (or a general Cognitive Service key)
 service_key = "ADD-SUBSCRIPTION-KEY-HERE"
 
 df = spark.createDataFrame([
@@ -130,7 +130,7 @@ display(results.select("text", col("sentiment")[0].getItem("score").alias("senti
 
 ```
 
-1. Obtenga la clave de suscripción del menú **Keys and Endpoint** (Claves y puntos de conexión) del panel Text Analytics en Azure Portal.
+1. Obtenga la clave de suscripción del menú **Claves y punto de conexión** del recurso Language en Azure Portal.
 1. Reemplace el marcador de posición de la clave de suscripción que aparece en el código del cuaderno de Databricks por su clave de suscripción.
 1. Seleccione el símbolo de reproducción (triángulo) situado en la esquina superior derecha de la celda del cuaderno para ejecutar el ejemplo. También puede seleccionar **Run All** (Ejecutar todo) en la parte superior del cuaderno para ejecutar todas las celdas. Las respuestas se muestran debajo de la celda de una tabla.
 

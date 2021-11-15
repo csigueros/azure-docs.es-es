@@ -3,13 +3,16 @@ title: Características de seguridad que protegen las copias de seguridad híbri
 description: Aprenda a usar las características de seguridad de Azure Backup para que las copias de seguridad sean más seguras
 ms.reviewer: utraghuv
 ms.topic: conceptual
-ms.date: 04/26/2021
-ms.openlocfilehash: 10a3420003197fc76f9baefbfd4c58c40a6dacfc
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/02/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: eebf21c5b967d08d3f38eef74239dbff0e3d4e7d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131073669"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131443438"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Características de seguridad para proteger copias de seguridad híbridas mediante Azure Backup
 
@@ -20,15 +23,18 @@ Cada vez es mayor la preocupación que generan problemas de seguridad como malwa
 - **Recuperación**. Los datos de copia de seguridad eliminados se conservan durante 14 días a partir de la fecha de la eliminación. Esto garantiza la capacidad de recuperación de los datos en un período dado, con el fin de que no haya pérdida de datos aunque se produzca un ataque. Además, se mantiene un mayor número de puntos de recuperación mínimos para protegerse contra datos dañados.
 
 > [!NOTE]
-> Las características de seguridad no se deben habilitar si usa la copia de seguridad de máquinas virtuales de infraestructura como servicio (IaaS). Estas características no están aún disponibles para la copia de seguridad de máquinas virtuales de IaaS, por lo que habilitarlas no tiene ningún efecto. Las características de seguridad solo se deben habilitar si utiliza los siguientes componentes: <br/>
->
-> - **Agente de Azure Backup**. La versión mínima del agente es la 2.0.9052. Cuando haya habilitado estas características, debe realizar la actualización a esta versión del agente para llevar a cabo operaciones críticas. <br/>
-> - **Azure Backup Server**. La versión mínima del agente de Azure Backup es la 2.0.9052 con Update 1 de Azure Backup Server. <br/>
-> - **System Center Data Protection Manager**. La versión mínima del agente de Azure Backup es la 2.0.9052 con Data Protection Manager 2012 R2 UR12 o Data Protection Manager 2016 UR2. <br/>
+> Estas características solo están disponibles para el almacén de Recovery Services. Todos los almacenes de Recovery Services recién creados tienen las siguientes características habilitadas de forma predeterminada. En el caso de los almacenes de Recovery Services existentes, los usuarios habilitan estas características mediante los pasos mencionados en la sección siguiente. Una vez habilitadas las características, se aplican a todos los equipos agente de Recovery Services, instancias de Azure Backup Server y servidores Data Protection Manager registrados con el almacén.
 
-> [!NOTE]
-> Estas características solo están disponibles para el almacén de Recovery Services. Todos los almacenes de Recovery Services recién creados tienen las siguientes características habilitadas de forma predeterminada. En el caso de los almacenes de Recovery Services existentes, los usuarios habilitan estas características mediante los pasos mencionados en la sección siguiente. Una vez habilitadas las características, se aplican a todos los equipos agente de Recovery Services, instancias de Azure Backup Server y servidores Data Protection Manager registrados con el almacén. Esta configuración se habilita una sola vez, por lo que una vez habilitada no es posible volver atrás.
->
+## <a name="minimum-version-requirements"></a>Requisitos mínimos de versión
+
+Habilite las características de seguridad solo si usa:
+
+- **Agente de Azure Backup**: la versión mínima del agente es la _2.0.9052_. Después de habilitar estas características, actualice la versión del agente para realizar operaciones críticas.
+- **Azure Backup Server**: la versión mínima del agente de Azure Backup es la _2.0.9052_ con la _actualización 1 de Azure Backup Server_.
+- **System Center Data Protection Manager**: la versión mínima del agente de Azure Backup es la _2.0.9052_ con _Data Protection Manager 2012 R2 UR12_/ _Data Protection Manager 2016 UR2_.
+
+>[!Note]
+>Asegúrese de no habilitar las características de seguridad si usa la copia de seguridad de máquinas virtuales de Infraestructura como servicio (IaaS). Actualmente, estas características no están disponibles para la copia de seguridad de máquinas virtuales de IaaS y, por tanto, habilitarlas no tendrá efecto.
 
 ## <a name="enable-security-features"></a>Habilitar características de seguridad
 

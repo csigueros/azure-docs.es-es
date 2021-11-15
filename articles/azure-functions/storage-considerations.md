@@ -3,12 +3,12 @@ title: Consideraciones de almacenamiento de Azure Functions
 description: Conozca los requisitos de almacenamiento de Azure Functions y aprenda a cifrar los datos almacenados.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: dfbaf2947dd3eaacd155a240541a6abae3894b35
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6dc2bad744118e57b9e958658814f5c194f633ad
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128599988"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216625"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Consideraciones de almacenamiento de Azure Functions
 
@@ -71,14 +71,16 @@ Otros datos de clientes administrados por la plataforma solo se almacenan dentro
 
 Azure Files está configurado de forma predeterminada para planes Premium y Consumo para no Linux que sirvan como un sistema de archivos compartido en escenarios de gran escala. La plataforma usa el sistema de archivos para algunas características, como el streaming de registros, pero garantiza principalmente la coherencia de la carga útil de la función implementada. Cuando una aplicación se [implementa mediante una dirección URL de paquete externo](./run-functions-from-deployment-package.md), el contenido de la aplicación se sirve desde un sistema de archivos de solo lectura independiente, por lo que Azure Files se puede omitir si se desea. En tales casos, se proporciona un sistema de archivos que se puede escribir, pero no se garantiza que se comparta con todas las instancias de la aplicación de función.
 
-Si Azure Files no se usa, debe tener en cuenta lo siguiente:
+Cuando Azure Files no se usa, debe tener en cuenta lo siguiente:
 
-* Debe implementar desde una dirección URL del paquete externo.
-* La aplicación no puede basarse en un sistema de archivos que se pueda escribir compartido
-* La aplicación no puede usar el runtime de Functions v1
+* Debe realizar la implementación desde la dirección URL de un paquete externo.
+* La aplicación no puede basarse en un sistema de archivos grabable compartido.
+* La aplicación no puede usar el entorno de ejecución de Functions v1.
 * Las experiencias de streaming de registros en clientes como Azure Portal tienen como valor predeterminado los registros del sistema de archivos. En su lugar, deben basarse en registros de Application Insights.
 
 Si lo anterior se tiene en cuenta correctamente, puede crear la aplicación sin Azure Files. Cree la aplicación de función sin especificar la configuración de la aplicación `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` y `WEBSITE_CONTENTSHARE`. Para ello, genere una plantilla de ARM para realizar una implementación estándar, quite estos dos valores y, a continuación, implemente la plantilla. 
+
+Dado que Functions usa Azure Files durante algunas partes del proceso de escalado horizontal dinámico, el escalado podría limitarse cuando se ejecuta sin Azure Files en los planes de consumo y prémium.
 
 ## <a name="mount-file-shares"></a>Montaje de recursos compartidos de archivos
 

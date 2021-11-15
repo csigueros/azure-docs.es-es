@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 1bdeb481268d8325ebc55413fce1120f66ad66d3
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: fce788e25c967d99e38607e242ba9db12899173e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112083687"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131520544"
 ---
 <a name="HOLTop"></a>
 
@@ -85,7 +85,7 @@ Declare también un contexto en la raíz del script. Necesitará este objeto par
 A continuación, empezará a agregar código para llevar a cabo distintas operaciones de Computer Vision.
 
 > [!div class="nextstepaction"]
-> [Configuro el cliente](?success=set-up-client#object-model) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=set-up-client&product=computer-vision&page=image-analysis-go-sdk)
+> [He configurado las variables](?success=set-up-client#object-model) [Me he encontrado con un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=set-up-client&product=computer-vision&page=image-analysis-go-sdk)
 
 ## <a name="object-model"></a>Modelo de objetos
 

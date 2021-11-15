@@ -9,13 +9,13 @@ ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: mathoma,vanto
-ms.date: 08/20/2021
-ms.openlocfilehash: f9c5df5bf086e5d80c8f506aa8bb718427755d7a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 11/04/2021
+ms.openlocfilehash: e445574d69096605f16a6a097f005e020674f6a2
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128680687"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851712"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Solución de problemas de conectividad y otros errores con Azure SQL Database y Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -105,7 +105,7 @@ Para resolver este problema, póngase en contacto con el administrador de servic
 Normalmente, el administrador de servicio puede usar los siguientes pasos para agregar las credenciales de inicio de sesión:
 
 1. Inicie sesión en el servidor mediante SQL Server Management Studio (SSMS).
-2. Ejecute la siguiente consulta SQL en la base de datos maestra para comprobar si el nombre de inicio de sesión está deshabilitado:
+2. Ejecute la siguiente consulta SQL en la base de datos `master` para comprobar si el nombre de inicio de sesión está deshabilitado:
 
    ```sql
    SELECT name, is_disabled FROM sys.sql_logins;
@@ -303,6 +303,8 @@ Para solucionar este problema, intente optimizar la consulta.
 
 Para un procedimiento de solución de problemas detallado, consulte [¿Se ejecuta correctamente mi consulta en la nube?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud)
 
+Para más información sobre otros errores de memoria insuficiente y consultas de ejemplo, vea [Solución de problemas de errores de memoria insuficiente con Azure SQL Database](troubleshoot-memory-errors-issues.md).
+
 ### <a name="table-of-additional-resource-governance-error-messages"></a>Tabla de mensajes de error adicionales de gobernanza de recursos
 
 | Código de error | severity | Descripción |
@@ -314,7 +316,7 @@ Para un procedimiento de solución de problemas detallado, consulte [¿Se ejecut
 | 40550 |16 |La sesión ha terminado porque ha adquirido demasiados bloqueos. Intente leer o modificar menos filas en una sola transacción. Para más información sobre el procesamiento por lotes, consulte [Uso del procesamiento por lotes para mejorar el rendimiento de las aplicaciones de SQL Database](../performance-improve-use-batching.md).|
 | 40551 |16 |La sesión ha terminado debido al uso excesivo de `TEMPDB` . Intente modificar la consulta para reducir el uso de espacio de la tabla temporal.<br/><br/>Si está usando objetos temporales, puede ahorrar espacio en la base de datos `TEMPDB` quitándolos una vez que la sesión ya no los necesite. Para obtener más información sobre el uso de tempdb en SQL Database, consulte [Base de datos tempdb en SQL Database](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).|
 | 40552 |16 |La sesión ha terminado debido al excesivo uso de espacio del registro de transacciones. Intente modificar menos filas en una sola transacción. Para más información sobre el procesamiento por lotes, consulte [Uso del procesamiento por lotes para mejorar el rendimiento de las aplicaciones de SQL Database](../performance-improve-use-batching.md).<br/><br/>Si realiza inserciones masivas con la utilidad `bcp.exe` o la clase `System.Data.SqlClient.SqlBulkCopy`, intente usar las opciones `-b batchsize` o `BatchSize` para limitar el número de filas copiadas al servidor en cada transacción. Si está volviendo a crear un índice con la instrucción `ALTER INDEX`, intente usar la opción `REBUILD WITH ONLINE = ON`. Para obtener información sobre los tamaños del registro de transacciones para el modelo de compra de núcleos virtuales, consulte: <br/>&bull; &nbsp;[Límites de recursos para bases de datos únicas que usan el modelo de compra en núcleos virtuales](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que usan el modelo de compra de núcleo virtual](resource-limits-vcore-elastic-pools.md)<br/>&bull; &nbsp;[Límites de recursos de Instancia administrada de Azure SQL](../managed-instance/resource-limits.md)|
-| 40553 |16 |La sesión ha terminado debido al uso excesivo de la memoria. Intente modificar la consulta para procesar menos filas.<br/><br/>La reducción del número de operaciones `ORDER BY` y `GROUP BY` en el código Transact-SQL disminuye los requisitos de memoria de la consulta. Para el escalado de la base de datos, consulte [Escalar recursos de base de datos única](single-database-scale.md) y [Escalar recursos de grupos elásticos](elastic-pool-scale.md).|
+| 40553 |16 |La sesión ha terminado debido al uso excesivo de la memoria. Intente modificar la consulta para procesar menos filas.<br/><br/>La reducción del número de operaciones `ORDER BY` y `GROUP BY` en el código Transact-SQL disminuye los requisitos de memoria de la consulta. Para el escalado de la base de datos, consulte [Escalar recursos de base de datos única](single-database-scale.md) y [Escalar recursos de grupos elásticos](elastic-pool-scale.md). Para más información sobre errores de memoria insuficiente y consultas de ejemplo, vea [Solución de problemas de errores de memoria insuficiente con Azure SQL Database](troubleshoot-memory-errors-issues.md).|
 
 ## <a name="elastic-pool-errors"></a>Errores de grupos elásticos
 
@@ -345,7 +347,7 @@ Los errores siguientes están relacionados con la creación y el uso de grupos e
 
 ## <a name="cannot-open-database-master-requested-by-the-login-the-login-failed"></a>No se puede abrir la base de datos maestra solicitada por el inicio de sesión. Error de inicio de sesión
 
-Este problema se produce porque la cuenta no tiene permiso de acceso a la base de datos maestra. Sin embargo, SQL Server Management Studio (SSMS) intenta conectarse a la base de datos maestra.
+Este problema se produce porque la cuenta no tiene permiso de acceso a la base de datos `master`. Sin embargo, SQL Server Management Studio (SSMS) intenta conectarse a la base de datos `master`.
 
 Para resolver el problema, siga estos pasos:
 

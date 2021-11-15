@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/11/2021
 ms.author: jeedes
-ms.openlocfilehash: d0a2a7e86edb4593386befbde7a487a3452cc6cf
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: fad71a2c98f28e9c3ae770e61acc409bd5f341b3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124783679"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131432555"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-datadog"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Datadog
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Datadog con Azure Active Directory (Azur
 * Permitir que los usuarios inicien sesión automáticamente en Datadog con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -57,40 +57,41 @@ Configure y pruebe el inicio de sesión único de Azure AD con Datadog mediante
 Para configurar y probar el inicio de sesión único de Azure AD con Datadog, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Datadog](#configure-datadog-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
-    1. **[Creación de un usuario de prueba de Datadog](#create-datadog-test-user)** : para tener un homólogo de B.Simon en Datadog que esté vinculado a la representación del usuario en Azure AD.
-1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
+    1. Creación de un usuario de prueba de Datadog : para tener un homólogo de B.Simon en Datadog que esté vinculado a la representación del usuario en Azure AD.
+1. **[Prueba del inicio de sesión único](#test-sso)**, para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
 1. En Azure Portal, en la página de integración de aplicaciones de **Datadog**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
-1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+
 1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
-   ![Edición de la configuración básica de SAML](common/edit-urls.png)
-
-1. En la sección **Configuración básica de SAML**, el usuario no tiene que realizar ningún paso porque la aplicación ya se ha integrado previamente con Azure.
+1. En la sección **Configuración básica de SAML**, el usuario no tiene que hacer nada porque la aplicación ya se ha integrado previamente con Azure.
 
 1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://app.datadoghq.com/account/login/id/<CUSTOM_IDENTIFIER>`
 
     > [!NOTE]
-    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico para clientes de Datadog](mailto:support@datadoghq.com) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Este valor no es real. Actualice el valor con la dirección URL de inicio de sesión real en la [configuración de SAML de Datadog](https://app.datadoghq.com/organization-settings/login-methods/saml). También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal. Para usar el inicio de sesión comenzado por IdP y el inicio de sesión comenzado por SP juntos, se necesitan ambas versiones de la dirección URL de ACS configurada en Azure.
 
 1. Haga clic en **Save**(Guardar).
 
+1. En la página **Configuración del inicio de sesión único con SAML**, en **User Attributes & Claims** (Atributos y notificaciones del usuario), haga clic en el icono de lápiz para modificar la configuración.
+
+1. Haga clic en el botón **Agregar una notificación de grupo**. De forma predeterminada en Azure AD, el nombre de la notificación de grupo es una dirección URL. Por ejemplo, `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`. Si quiere cambiarla por un valor de nombre para mostrar, como **grupos**, seleccione **Opciones avanzadas** y, luego, cambie el nombre de la notificación de grupo por **grupos**.
+
+   > [!NOTE]
+   > El atributo de origen se establece en `Group ID`. Este es el UUID del grupo en Azure AD. Esto significa que Azure AD envía el identificador de grupo como valor de atributo de notificación de grupo, no como nombre del grupo. Debe cambiar las asignaciones en Datadog para que la asignación sea al identificador de grupo en lugar de al nombre del grupo. Para más información, consulte [Asignaciones SAML de Datadog](https://docs.datadoghq.com/account_management/saml/#mapping-saml-attributes-to-datadog-roles).
+
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
-    ![Vínculo de descarga del certificado](common/metadataxml.png)
-
 1. En la sección **Configurar Datadog**, copie las direcciones URL adecuadas según sus necesidades.
-
-    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -118,27 +119,23 @@ En esta sección, va a permitir que B.Simon acceda a Datadog mediante el inicio 
 
 ## <a name="configure-datadog-sso"></a>Configuración del inicio de sesión único de Datadog
 
-Para configurar el inicio de sesión único en **Datadog**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Datadog](mailto:support@datadoghq.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
-
-### <a name="create-datadog-test-user"></a>Creación de un usuario de prueba de Datadog
-
-En esta sección creará un usuario llamado B.Simon en Datadog. Trabaje con el [equipo de soporte técnico de Datadog](mailto:support@datadoghq.com) para agregar los usuarios a la plataforma de Datadog.
+Para configurar el inicio de sesión único en **Datadog**, es preciso cargar el **XML de metadatos de federación** descargado en la [configuración de SAML de Datadog](https://app.datadoghq.com/organization-settings/login-methods/saml).
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
+Pruebe la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
 #### <a name="sp-initiated"></a>Iniciado por SP:
 
 * Haga clic en **Probar esta aplicación** en Azure Portal. Esto le redirigirá a la dirección URL de inicio de sesión de Datadog, donde puede iniciar el flujo de inicio de sesión.  
 
-* Vaya directamente a la dirección URL de inicio de sesión de Datadog e inicie el flujo de inicio de sesión desde allí.
+* Vaya directamente a la dirección URL de inicio de sesión de Datadog y comience el flujo de inicio de sesión desde allí.
 
 #### <a name="idp-initiated"></a>Iniciado por IDP:
 
 * Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en Datadog para la que ha configurado el inicio de sesión único. 
 
-También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Datadog en Mis aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de Datadog para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Datadog en el portal de Aplicaciones, si está configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión y, si está configurado en modo IDP, debería iniciar sesión automáticamente en la versión de Datadog para la que configuró el inicio de sesión único. Para más información sobre Aplicaciones, consulte [Introducción al portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ### <a name="enable-all-users-from-your-tenant-to-authenticate-with-the-app"></a>Habilitación de todos los usuarios del inquilino para que se autentiquen con la aplicación
 

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ec39fb3ec368d315d6d9fa4a17d2cb763e49bce6
-ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.openlocfilehash: 8f2581033d0ffefa6d5014478e7eee68f786f49e
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130137596"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132057525"
 ---
 # <a name="create-an-azure-image-builder-template"></a>Creación de una plantilla de Azure Image Builder 
 
@@ -89,7 +89,7 @@ La ubicación es la región donde se creará la imagen personalizada. Se admiten
 El servicio Azure VM Image Builder no almacena ni procesa los datos de los clientes fuera de las regiones que tienen requisitos estrictos de residencia de datos de una sola región cuando un cliente solicita una compilación en esa región. En caso de una interrupción del servicio para las regiones que tienen requisitos de residencia de datos, deberá crear plantillas en una región y una ubicación geográfica diferentes.
 
 ### <a name="zone-redundancy"></a>Redundancia de zona
-La distribución admite redundancia de zona, los discos duros virtuales se distribuyen a una cuenta de almacenamiento con redundancia de zona de forma predeterminada y la versión de Shared Image Gallery admitirá un [tipo de almacenamiento ZRS](../disks-redundancy.md#zone-redundant-storage-for-managed-disks) si se especifica.
+La distribución admite redundancia de zona, los discos duros virtuales se distribuyen de forma predeterminada a una cuenta de almacenamiento con redundancia y la versión de Azure Compute Gallery (anteriormente conocido como Shared Image Gallery) admitirá un [tipo de almacenamiento ZRS](../disks-redundancy.md#zone-redundant-storage-for-managed-disks) si se especifica.
  
 ## <a name="vmprofile"></a>vmProfile
 ## <a name="buildvm"></a>buildVM
@@ -159,12 +159,12 @@ Para obtener más información sobre la implementación de esta característica,
 
 ## <a name="properties-source"></a>Propiedades: origen
 
-La sección `source` contiene información acerca de la imagen de origen que usará Image Builder. Image Builder actualmente solo admite de forma nativa la creación de imágenes de Hyper-V de la generación 1 (Gen1) en el servicio Shared Image Gallery (SIG) de Azure o en una imagen administrada. Si quiere crear imágenes de Gen2, debe usar una imagen de origen de Gen2 y distribuirla a VHD. Después, tendrá que crear una imagen administrada a partir del disco duro virtual e insertarla en SIG como imagen Gen2.
+La sección `source` contiene información acerca de la imagen de origen que usará Image Builder. Actualmente, Image Builder solo admite de forma nativa la creación de imágenes de Hyper-V de la generación 1 (Gen1) en Azure Compute Gallery (SIG) o en una imagen administrada. Si quiere crear imágenes de Gen2, debe usar una imagen de origen de Gen2 y distribuirla a VHD. Después, tendrá que crear una imagen administrada a partir del disco duro virtual e insertarla en SIG como imagen Gen2.
 
 La API requiere un "SourceType" que define el origen de la compilación de imagen. Actualmente hay tres tipos:
 - PlatformImage: indicado para los casos en que la imagen de origen es una imagen de Marketplace.
 - ManagedImage: use esta opción cuando empiece desde una imagen administrada normal.
-- SharedImageVersion: se utiliza cuando se usa como origen una versión de la imagen de una galería de imágenes compartidas.
+- SharedImageVersion: se emplea cuando se usa como origen una versión de la imagen de una instancia de Azure Compute Gallery.
 
 
 > [!NOTE]
@@ -180,7 +180,7 @@ El generador de imágenes de Azure admite Windows Server y el cliente, así com
             "offer": "UbuntuServer",
             "sku": "18.04-LTS",
             "version": "latest"
-        },
+        },  
 ```
 
 
@@ -190,7 +190,7 @@ Aquí, las propiedades son las mismas que se utilizan para crear máquinas virtu
 az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all 
 ```
 
-Puede usar "latest" en la versión; la versión se evalúa cuando se produce la compilación de la imagen, no cuando se envía la plantilla. Si usa esta funcionalidad con el destino de Shared Image Gallery, puede evitar volver a enviar la plantilla y ejecutar de nuevo la compilación de la imagen a intervalos, por lo que las imágenes se volverán a crear a partir de las imágenes más recientes.
+Puede usar "latest" en la versión; la versión se evalúa cuando se produce la compilación de la imagen, no cuando se envía la plantilla. Si usa esta funcionalidad con el destino de Azure Compute Gallery, puede evitar volver a enviar la plantilla y ejecutar de nuevo la compilación de la imagen a intervalos, por lo que las imágenes se vuelven a crear a partir de las imágenes más recientes.
 
 #### <a name="support-for-market-place-plan-information"></a>Compatibilidad con la información de un plan de Marketplace
 También puede especificar la información del plan, por ejemplo:
@@ -225,7 +225,7 @@ Establece la imagen de origen como una imagen administrada existente de una máq
 
 
 ### <a name="sharedimageversion-source"></a>Origen de SharedImageVersion
-Establece la imagen de origen en una versión de la imagen existente de una galería de imágenes compartidas.
+Establece la imagen de origen en una versión de la imagen existente de una instancia de Azure Compute Gallery.
 
 > [!NOTE]
 > La imagen administrada de origen debe ser de un sistema operativo compatible y debe estar en la misma región que la plantilla de Azure Image Builder. Si no es así, replique la versión de la imagen en la región de la plantilla de Image Builder.
@@ -527,7 +527,7 @@ Image Builder leerá estos comandos, que se escriben en los registros de AIB, "c
 Azure Image Builder admite tres destinos de distribución: 
 
 - **managedImage**: imagen administrada.
-- **sharedImage**: galería de imágenes compartidas.
+- **sharedImage**: Azure Compute Gallery.
 - **VHD**: disco duro virtual en una cuenta de almacenamiento.
 
 Puede distribuir una imagen a ambos tipos de destino en la misma configuración.
@@ -535,7 +535,7 @@ Puede distribuir una imagen a ambos tipos de destino en la misma configuración.
 > [!NOTE]
 > El comando sysprep predeterminado de AIB no incluye "/mode:vm"; sin embargo, puede que sea necesario al crear imágenes que vayan a tener instalado el rol de HyperV. Si necesita agregar este argumento de comando, debe invalidar el comando sysprep.
 
-Dado que puede tener más de un destino al que distribuir, Image Builder mantiene un estado para cada destino de distribución al que puede accederse consultando el `runOutputName`.  El `runOutputName` es un objeto que puede consultar después de la distribución para obtener información acerca de esa distribución. Por ejemplo, puede consultar la ubicación del disco duro virtual o las regiones a las que se ha replicado la versión de la imagen o donde se ha creado la versión de la imagen de SIG. Se trata de una propiedad de cada destino de distribución. El `runOutputName` debe ser único para cada destino de distribución. Este es un ejemplo, en el que se consulta una distribución de Shared Image Gallery:
+Dado que puede tener más de un destino al que distribuir, Image Builder mantiene un estado para cada destino de distribución al que puede accederse consultando el `runOutputName`.  El `runOutputName` es un objeto que puede consultar después de la distribución para obtener información acerca de esa distribución. Por ejemplo, puede consultar la ubicación del disco duro virtual o las regiones a las que se ha replicado la versión de la imagen o donde se ha creado la versión de la imagen de SIG. Se trata de una propiedad de cada destino de distribución. El `runOutputName` debe ser único para cada destino de distribución. Este es un ejemplo, en el que se consulta una distribución de Azure Compute Gallery:
 
 ```bash
 subscriptionID=<subcriptionID>
@@ -598,15 +598,15 @@ Propiedades de la distribución:
 > Si quiere que la imagen se distribuya a otra región, aumentará el tiempo de implementación. 
 
 ### <a name="distribute-sharedimage"></a>Distribución: sharedImage 
-La Galería de imágenes compartidas de Azure es un nuevo servicio de administración de imágenes que permite administrar la replicación de las regiones de la imagen, el control de versiones y el uso compartido de imágenes personalizadas. Azure Image Builder admite la distribución con este servicio, por lo que puede distribuir imágenes a las regiones admitidas por las galerías de imágenes compartidas. 
+Azure Compute Gallery es un nuevo servicio de administración de imágenes que permite administrar la replicación de las regiones de la imagen, el control de versiones y el uso compartido de imágenes personalizadas. Azure Image Builder admite la distribución con este servicio, por lo que puede distribuir imágenes a regiones admitidas por las instancias de Azure Compute Gallery. 
  
-Una galería de imágenes compartidas tiene los siguientes componentes: 
+Una instancia de Azure Compute Gallery consta de: 
  
-- Galería: contenedor para varias imágenes compartidas. Una galería se implementa en una región.
+- Galería: contenedor de varias imágenes. Una galería se implementa en una región.
 - Definiciones de imagen: una agrupación conceptual para las imágenes. 
 - Versiones de las imágenes: se trata de un tipo de imagen usado para implementar una máquina virtual o un conjunto de escalado. Las versiones de las imágenes se pueden replicar a otras regiones en las que deban implementarse máquinas virtuales.
  
-Antes de poder distribuir a la Galería de imágenes, debe crear una galería y una definición de imagen; para ello, consulte [Imágenes compartidas](../create-gallery.md). 
+Antes de poder realizar la distribución a la galería, debe crear una galería y una definición de imagen; para ello, consulte [Creación de una galería](../create-gallery.md). 
 
 ```json
 {
@@ -624,17 +624,17 @@ Antes de poder distribuir a la Galería de imágenes, debe crear una galería y 
 }
 ``` 
 
-Propiedades de la distribución para las galerías de imágenes compartidas:
+Propiedades de distribución de las galerías:
 
 - **tipo**: sharedImage  
-- **galleryImageId**: id. de la galería de imágenes compartidas, que puede especificarse en dos formatos:
+- **galleryImageId**: identificador de la instancia de Azure Compute Gallery, que puede especificarse en dos formatos:
     * Control de versiones automático: Image Builder generará un número de versión monotónico de forma automática, que resulta útil cuando quiere seguir compilando imágenes a partir de la misma plantilla: El formato es: `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>`.
     * Control de versiones explícito: puede pasar el número de versión que quiera que Image Builder use. El formato es: `/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>/versions/<version e.g. 1.1.1>`.
 
 - **runOutputName**: nombre único para identificar la distribución.  
 - **artifactTags**: etiquetas de par clave-valor opcionales especificadas por el usuario.
 - **replicationRegions**: matriz de regiones para la replicación. Una de las regiones debe ser la región en la que está implementada la galería. La adición de regiones implicará un aumento en el tiempo de compilación, ya que esta no se completa hasta que la replicación se haya completado.
-- **excludeFromLatest** (opcional). Esto le permite marcar la versión de la imagen que haya creado para que no se use como última versión en la definición de SIG; el valor predeterminado es "false".
+- **excludeFromLatest** (opcional): le permite marcar la versión de la imagen que haya creado para que no se use como última versión en la definición de la galería; el valor predeterminado es "false".
 - **storageAccountType** (opcional). AIB admite la especificación de estos tipos de almacenamiento para la versión de la imagen que se va a crear:
     * "Standard_LRS"
     * "Standard_ZRS"
@@ -651,7 +651,7 @@ Puede generar un disco duro virtual. A continuación, puede copiar el disco duro
 { 
     "type": "VHD",
     "runOutputName": "<VHD name>",
-    "tags": {
+    "artifactTags": {
         "<name>": "<value>",
         "<name>": "<value>"
     }

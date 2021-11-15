@@ -6,21 +6,19 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 426a83836a16fd3d4a403b3cda015dd5f49af22e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fa41da095b196f13c423b56a0411e6b67dab24a2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780390"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131442240"
 ---
-# <a name="create-and-manage-firewall-rules-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Creación y administración de reglas de firewall para un servidor flexible de Azure Database for MySQL mediante Azure Portal
+# <a name="manage-firewall-rules-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Administración de reglas de firewall para un servidor flexible de Azure Database for MySQL mediante Azure Portal
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-> [!IMPORTANT]
-> Actualmente, la opción de implementación Servidor flexible de Azure Database for MySQL se encuentra en versión preliminar pública.
 
-Se admiten dos métodos de conectividad de red mutuamente excluyentes para conectarse a su servidor flexible de Azure Database for MySQL. Las dos opciones son las siguientes:
+Azure Database for MySQL con servidor flexible admite dos tipos de métodos de conectividad de red mutuamente excluyentes para conectarse a su servidor flexible. Las dos opciones son las siguientes:
 
 1. Acceso público (direcciones IP permitidas)
 2. Acceso privado (integración con red virtual)

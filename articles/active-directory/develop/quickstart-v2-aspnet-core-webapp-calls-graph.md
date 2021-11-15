@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/17/2021
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: bc5983ebafe39b7b0595106ec280cc81291163ac
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 244736501dbd9a996ddb89159f0a7289244e51b1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128573798"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131466112"
 ---
 # <a name="quickstart-aspnet-core-web-app-that-signs-in-users-and-calls-microsoft-graph-on-their-behalf"></a>Inicio rápido: aplicación web ASP.NET Core que inicia la sesión de los usuarios y llama a Microsoft Graph en su nombre
 
@@ -45,7 +45,7 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 > 1. En **Administrar**, seleccione **Autenticación**.
 > 1. Especifique un valor para **Front-channel logout URL** (Dirección URL de cierre de sesión del canal frontal) de `https://localhost:44321/signout-oidc`.
 > 1. Seleccione **Guardar**.
-> 1. En **Administrar**, seleccione **Certificados y secretos** > **Nuevo secreto de cliente**.
+> 1. En **Administrar**, seleccione **Certificados y secretos** > **Secretos de los clientes** > **Nuevo secreto de cliente**.
 > 1. Escriba un valor en **Descripción**, por ejemplo`clientsecret1`.
 > 1. Seleccione **En 1 año** como expiración del secreto.
 > 1. Seleccione **Agregar** y registre inmediatamente el **valor** del secreto para usarlo en un paso posterior. Este valor de secreto *no se volverá a mostrar* y no se puede recuperar de ninguna otra manera. Regístrelo en una ubicación segura, tal como haría con cualquier contraseña.

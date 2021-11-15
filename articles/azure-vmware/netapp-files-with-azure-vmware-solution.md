@@ -3,12 +3,12 @@ title: Integración de Azure NetApp Files con Azure VMware Solution
 description: Use Azure NetApp Files con máquinas virtuales de Azure VMware Solution para migrar y sincronizar datos entre servidores locales, máquinas virtuales de Azure VMware Solution e infraestructuras en la nube.
 ms.topic: how-to
 ms.date: 06/08/2021
-ms.openlocfilehash: 4c07765bd54e59109f15f8a0cdfd067f48dd14b4
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 7335434c30b88e54fbfd15b18f3604954cbdef0f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114443822"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226780"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-vmware-solution"></a>Integración de Azure NetApp Files con Azure VMware Solution
 
@@ -99,4 +99,5 @@ Ahora que ha leído sobre la integración de Azure NetApp Files con las cargas d
 - [Limitaciones de recursos para Azure NetApp Files](../azure-netapp-files/azure-netapp-files-resource-limits.md#resource-limits).
 - [Instrucciones para el planeamiento de red de Azure NetApp Files](../azure-netapp-files/azure-netapp-files-network-topologies.md)
 - [Replicación entre regiones de volúmenes de Azure NetApp Files](../azure-netapp-files/cross-region-replication-introduction.md) 
-- [Preguntas más frecuentes acerca de Azure NetApp Files](../azure-netapp-files/azure-netapp-files-faqs.md)
+- [Preguntas frecuentes sobre NFS de Azure NetApp Files](../azure-netapp-files/faq-nfs.md)
+- [Preguntas frecuentes sobre SMB de Azure NetApp Files](../azure-netapp-files/faq-smb.md)

@@ -8,12 +8,12 @@ ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 3016fb18827c0c1323cb151024303a15a2454c5a
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 02c0d31ec07c210197968e514573e372ef24dd59
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130177942"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219117"
 ---
 # <a name="known-issues"></a>Problemas conocidos
 En este artículo se proporciona información sobre las limitaciones y los problemas conocidos relativos a los SDK de llamadas de Azure Communication Services y las API de automatización de llamadas e Azure Communication Services.
@@ -49,15 +49,20 @@ Las aplicaciones no pueden enumerar ni seleccionar dispositivos de micrófono o 
 
 Si usa Safari en macOS, la aplicación no podrá enumerar ni seleccionar altavoces mediante el Administrador de dispositivos de Communication Services. En este escenario, los dispositivos deben seleccionarse mediante el sistema operativo. Si usa Chrome en macOS, la aplicación sí puede enumerar y seleccionar dispositivos mediante el Administrador de dispositivos de Communication Services.
 
-#### <a name="audio-connectivity-is-lost-when-receiving-sms-messages-or-calls-during-an-ongoing-voip-call"></a>Se pierde la conectividad de audio al recibir mensajes SMS o llamadas durante una llamada VoIP en curso
-Este problema puede producirse por varias razones:
+#### <a name="device-will-get-muted-and-incoming-video-will-stop-rendering-when-an-interruption-occurs-that-takes-over-device-access"></a>El dispositivo se silenciará y el vídeo entrante dejará de representarse cuando se produzca una interrupción que se haga cargo del acceso al dispositivo.
+Este problema puede producirse principalmente cuando otra aplicación o sistema operativo se hace cargo del control del micrófono o de la cámara; se pueden ver algunos ejemplos a continuación:
 
-- Algunos exploradores móviles no mantienen la conectividad mientras están en segundo plano. Como consecuencia, la experiencia de llamada puede verse degradada si un evento que envía la aplicación a segundo plano interrumpe la llamada de VoIP. 
-- A veces, una llamada de SMS o RTC captura el sonido de audio y no lo devuelve a la llamada de VoIP. Apple ha corregido este problema en las versiones de iOS 14.4.1 y superiores. 
+- Mientras un usuario está en la llamada, llega una llamada RTC entrante y captura el acceso al dispositivo de micrófono.
+- Mientras el usuario está en la llamada, se dirigirá a otra aplicación nativa que capturará el acceso al micrófono o a la cámara, por ejemplo, para reproducir un vídeo de YouTube o iniciar una llamada de FaceTime.
+- Mientras el usuario está en la llamada, se habilitará Siri, que volverá a capturar el acceso al micrófono.
+
+Para recuperarse de todos estos casos, el usuario tendrá que volver a la aplicación para reactivar el audio e iniciar el vídeo con el fin de que el audio y el vídeo empiecen a fluir después de la interrupción.
+
+En algunas ocasiones, los dispositivos (micrófono o cámara) no se liberarán a tiempo, lo que puede causar problemas con la llamada original, por ejemplo, si el usuario intenta reactivar el audio mientras ve un vídeo de YouTube o una llamada RTC está activa al mismo tiempo. 
 
 <br/>Biblioteca cliente: Calling (JavaScript)
-<br/>Exploradores: Safari, Chrome
-<br/>Sistema operativo: iOS, Android
+<br/>Exploradores: Safari
+<br/>Sistema operativo: iOS
 
 #### <a name="repeatedly-switching-video-devices-may-cause-video-streaming-to-temporarily-stop"></a>El cambio repetido de dispositivos de los dispositivos de vídeo puede provocar la detención temporal del streaming de vídeo
 
@@ -104,8 +109,8 @@ Si los usuarios deciden activar o desactivar rápidamente el vídeo mientras la 
 ##### <a name="possible-causes"></a>Causas posibles
 Bajo investigación.
 
-#### <a name="enumeratingaccessing-devices-for-safari-on-macos-and-ios"></a>Enumeración y acceso de dispositivos para Safari en MacOS e iOS 
-Si se concede acceso a los dispositivos después de un tiempo, se restablecen los permisos de los dispositivos. Safari en MacOS y en iOS no conservan los permisos durante mucho tiempo a menos que haya una secuencia adquirida. La manera más sencilla de solucionar este problema es llamar a la API DeviceManager.askDevicePermission() antes de llamar a las API de enumeración de dispositivos del Administrador de dispositivos [DeviceManager.getCameras(), DeviceManager.getSpeakers() y DeviceManager.getMicrophones()]. Si los permisos están allí, el usuario no verá nada; de lo contrario, se le volverán a solicitar.
+#### <a name="enumeratingaccessing-devices-for-safari-on-macos-and-ios"></a>Enumeración y acceso a dispositivos para Safari en MacOS e iOS 
+Si se concede acceso a los dispositivos después de un tiempo, se restablecen los permisos de los dispositivos. Safari en MacOS y en iOS no conserva los permisos durante mucho tiempo a menos que haya una secuencia adquirida. La manera más sencilla de solucionar este problema es llamar a la API DeviceManager.askDevicePermission() antes de llamar a las API de enumeración de dispositivos del Administrador de dispositivos [DeviceManager.getCameras(), DeviceManager.getSpeakers() y DeviceManager.getMicrophones()]. Si los permisos están allí, el usuario no verá nada; de lo contrario, se le volverán a solicitar.
 
 <br/>Dispositivos afectados: iPhone
 <br/>Biblioteca cliente: Calling (JavaScript)
@@ -118,8 +123,8 @@ Durante una llamada de grupo en curso, el _usuario A_ envía el vídeo y, luego,
 #### <a name="using-3rd-party-libraries-to-access-gum-during-the-call-may-result-in-audio-loss"></a>El uso de bibliotecas de terceros para acceder a GUM durante la llamada puede provocar una pérdida de audio
 El uso de getUserMedia por separado dentro de la aplicación provocará la pérdida de secuencias de audio, ya que una biblioteca de terceros se hace cargo del acceso al dispositivo desde la biblioteca de ACS.
 Se recomienda a los desarrolladores que hagan lo siguiente:
-1. No use bibliotecas de terceros que usen internamente GetUserMedia API durante la llamada.
-2. Si todavía necesita usar la biblioteca de terceros, la única manera de recuperarla es cambiar el dispositivo seleccionado (si el usuario tiene más de uno) o reiniciar la llamada.
+- No use bibliotecas de terceros que usen internamente GetUserMedia API durante la llamada.
+- Si todavía necesita usar la biblioteca de terceros, la única manera de recuperarla es cambiar el dispositivo seleccionado (si el usuario tiene más de uno) o reiniciar la llamada.
 
 <br/>Exploradores: Safari
 <br/>Sistema operativo: iOS

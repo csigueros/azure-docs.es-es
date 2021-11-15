@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 07/30/2021
-ms.openlocfilehash: be7e52cb093eb9920be5b6e8e9971b7f882f7f06
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 0c2f154a0c45dd46a56a4321aa67a75e2263b317
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124793842"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219609"
 ---
 # <a name="conditional-deployment-in-bicep"></a>Implementación condicional en Bicep
 
@@ -46,7 +46,7 @@ module dnsZone 'dnszones.bicep' = if (deployZone) {
 }
 ```
 
-Las condiciones se pueden usar con declaraciones de dependencia. En el caso de las [dependencias explícitas](resource-declaration.md#set-resource-dependencies), Azure Resource Manager lo quita automáticamente de las dependencias necesarias cuando el recurso no se implementa. En el caso de las dependencias implícitas, se permite hacer referencia a una propiedad de un recurso condicional, pero puede producirse un error de implementación.
+Las condiciones se pueden usar con declaraciones de dependencia. En el caso de las [dependencias explícitas](resource-declaration.md#dependencies), Azure Resource Manager lo quita automáticamente de las dependencias necesarias cuando el recurso no se implementa. En el caso de las dependencias implícitas, se permite hacer referencia a una propiedad de un recurso condicional, pero puede producirse un error de implementación.
 
 ## <a name="new-or-existing-resource"></a>Recurso nuevo o existente
 
@@ -113,4 +113,4 @@ output mgmtStatus string = ((!empty(logAnalytics)) ? 'Enabled monitoring for VM!
 
 * Puede encontrar un módulo de Microsoft Learn sobre condiciones y bucles en [Creación de plantillas de Bicep flexibles mediante condiciones y bucles](/learn/modules/build-flexible-bicep-templates-conditions-loops/).
 * Puede encontrar recomendaciones sobre cómo crear archivos de Bicep en [Procedimientos recomendados para Bicep](best-practices.md).
-* Para crear varias instancias de un recurso, consulte [Iteración de recursos en Bicep](loop-resources.md).
+* Para crear varias instancias de un recurso, consulte [Bucles iterativos en Bicep](loops.md).

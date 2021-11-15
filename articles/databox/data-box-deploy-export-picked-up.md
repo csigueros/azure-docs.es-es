@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/26/2021
+ms.date: 10/29/2021
 ms.author: alkohli
-ms.openlocfilehash: ea9a918ee32a3ada83651085290fa7c7b26c6e0e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 544454e4022da67db50fb194d7aea72a6bd716bd
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131024379"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131449986"
 ---
 # <a name="tutorial-return-azure-data-box"></a>Tutorial: Devolución de Azure Data Box
 
@@ -59,7 +59,7 @@ Si usa el envío administrado por Microsoft, siga las instrucciones correspondie
 
 [!INCLUDE [data-box-shipping-in-eu](../../includes/data-box-shipping-in-eu.md)]
 
-**Si el envío es desde Alemania o Suiza,** también puede [usar el envío autoadministrado](#self-managed-shipping).
+**Si va a realizar una devolución a los centros de datos de Alemania o Suiza,** también puede [utilizar el envío autoadministrado](#self-managed-shipping).
 
 ## <a name="uk"></a>[Reino Unido](#tab/in-uk)
 
