@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/12/2021
-ms.openlocfilehash: 6a371d3a9edf537e78f5a889139a053cb925518f
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 21b12da25ae2baf7e31ad12af7b5c346b64bc3ac
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770838"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131577239"
 ---
 # <a name="estimate-and-manage-costs-of-an-azure-cognitive-search-service"></a>Cálculo y administración de los costos de un servicio de Azure Cognitive Search
 
@@ -51,7 +51,7 @@ Una solución basada en Azure Cognitive Search puede incurrir en costos de las s
 + Servicios complementarios necesarios para funcionalidades o características prémium específicas:
 
   + Enriquecimiento con IA mediante aptitudes facturables (requiere [Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/)). La extracción de imágenes también es facturable.
-  + Almacén de conocimiento (requiere [Azure Storage](https://azure.microsoft.com/pricing/details/storage/))
+  + Almacén de conocimiento (requiere [Azure Storage](https://azure.microsoft.com/pricing/details/storage/)). Las operaciones en el almacenamiento por indexador serán facturables.
   + Enriquecimiento incremental (requiere [Azure Storage](https://azure.microsoft.com/pricing/details/storage/); se aplica al enriquecimiento con IA)
   + Claves administradas por el cliente y cifrado doble (requiere [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/))
   + Puntos de conexión privados para un modelo de acceso sin Internet (requiere [Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/))

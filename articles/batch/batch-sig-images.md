@@ -1,23 +1,23 @@
 ---
-title: Uso de Shared Image Gallery para crear un grupo de imágenes personalizadas
+title: Uso de Azure Compute Gallery para crear un grupo de imágenes personalizado
 description: Los grupos de imágenes personalizadas son una manera eficaz de configurar los nodos de proceso para ejecutar las cargas de trabajo de Batch.
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 19a6168c2d6d2a37458dbbe9d8917f6e679da47f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3bd0029978891c3276a357180108d4dad44e3248
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124827495"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131473554"
 ---
-# <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Uso de Shared Image Gallery para crear un grupo de imágenes personalizadas
+# <a name="use-the-azure-compute-gallery-to-create-a-custom-image-pool"></a>Uso de Azure Compute Gallery para crear un grupo de imágenes personalizado
 
-Al crear un grupo en Azure Batch con Configuración de máquina virtual, se especifica una imagen de máquina virtual (VM) que proporciona el sistema operativo para cada nodo de proceso en el grupo. Puede crear un grupo de máquinas virtuales con una imagen de Azure Marketplace compatible o crear una imagen personalizada con una [imagen de Shared Image Gallery](../virtual-machines/shared-image-galleries.md).
+Al crear un grupo en Azure Batch con Configuración de máquina virtual, se especifica una imagen de máquina virtual (VM) que proporciona el sistema operativo para cada nodo de proceso en el grupo. Puede crear un grupo de máquinas virtuales con una imagen de Azure Marketplace compatible o crear una imagen personalizada con una [imagen de Azure Compute Gallery](../virtual-machines/shared-image-galleries.md).
 
-## <a name="benefits-of-the-shared-image-gallery"></a>Ventajas de Shared Image Gallery
+## <a name="benefits-of-the-azure-compute-gallery"></a>Ventajas de Azure Compute Gallery
 
-Al usar Shared Image Gallery para la imagen personalizada, tiene el control sobre la configuración y el tipo del sistema operativo, así como el tipo de discos de datos. La imagen de Shared Image puede incluir los datos de referencia y las aplicaciones que están disponibles en los nodo de grupo de Batch en cuanto se aprovisionan.
+Al usar Azure Compute Gallery para la imagen personalizada, tiene el control sobre la configuración y el tipo del sistema operativo, así como el tipo de discos de datos. La imagen de Shared Image puede incluir los datos de referencia y las aplicaciones que están disponibles en los nodo de grupo de Batch en cuanto se aprovisionan.
 
 También puede tener varias versiones de una imagen según sea necesario para su entorno. Cuando se usa una versión de la imagen para crear una VM, la versión de la imagen se usa para crear nuevos discos para la VM.
 
@@ -29,25 +29,25 @@ El uso de una imagen de Shared Image configurada para su escenario puede proporc
 - **Configuración del sistema operativo (SO).** La configuración del disco de sistema operativo de la imagen se puede personalizar.
 - **Preinstalar las aplicaciones.** Preinstalar las aplicaciones en el disco del sistema operativo es más eficaz y menos propenso a errores que instalar las aplicaciones después de aprovisionar los nodos de ejecución con una tarea de inicio.
 - **Copia de grandes cantidades de datos una vez.** Convierta en estáticos parte de los datos de la imagen de Shared Image administrada copiándolos en los discos de datos de una imagen administrada. Solo debe hacerse una vez y los datos estarán disponibles para cada nodo del grupo.
-- **Aumento de los grupos a tamaños más grandes.** Con Shared Image Gallery puede crear grupos más grandes con sus imágenes personalizadas junto con más réplicas de Shared Image.
+- **Aumento de los grupos a tamaños más grandes.** Con Azure Compute Gallery, puede crear grupos más grandes con las imágenes personalizadas junto con más réplicas de imágenes compartidas.
 - **Mejor rendimiento que el uso de una imagen administrada como imagen personalizada.** Para un grupo de imágenes personalizadas de Shared Image, el tiempo necesario para alcanzar el estado estable es hasta un 25 % más rápido y la latencia de inactividad de la máquina virtual es hasta un 30 % más breve.
 - **Control de versiones y agrupación de imágenes para facilitar su administración.** La definición de la agrupación de imágenes contiene información acerca de por qué se creó la imagen, para qué sistema operativo sirve e información acerca del uso de la imagen. La agrupación de imágenes permite una administración más sencilla de las imágenes. Para más información, consulte [Definiciones de imagen](../virtual-machines/shared-image-galleries.md#image-definitions).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 > [!NOTE]
 > Debe autenticarse mediante Azure AD. Si usa shared-key-auth, obtendrá un error de autenticación.  
 
 - **Una cuenta de Azure Batch** Para crear una cuenta de Batch, consulte las guías de inicio rápido de Batch con [Azure Portal](quick-create-portal.md) o la [CLI de Azure](quick-create-cli.md).
 
-- **Una imagen de Shared Image Gallery**. Para crear una imagen de Shared Image Gallery, debe tener o crear un recurso de imagen administrada. La imagen debe crearse desde instantáneas del disco del sistema operativo de la máquina virtual y, opcionalmente, de sus discos de datos conectados.
+- **una imagen de Azure Compute Gallery** Para crear una imagen de Shared Image Gallery, debe tener o crear un recurso de imagen administrada. La imagen debe crearse desde instantáneas del disco del sistema operativo de la máquina virtual y, opcionalmente, de sus discos de datos conectados.
 
 > [!NOTE]
 > Si la imagen compartida no está en la misma suscripción que la cuenta de Batch, debe [registrar el proveedor de recursos Microsoft.Batch](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) para esa suscripción. Las dos suscripciones deben estar en el mismo inquilino de Azure AD.
 >
 > La imagen puede estar en distintas regiones, siempre que tenga réplicas en la misma región que la cuenta de Batch.
 
-Si usa una aplicación de Azure AD para crear un grupo de imágenes personalizadas con una imagen de Shared Image Gallery, se debe haber concedido a la aplicación un [rol integrado de Azure](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) que le proporcione acceso a Shared Image. Para conceder este acceso en Azure Portal, navegue a la imagen compartida, seleccione **Control de acceso (IAM)** y agregue una asignación de roles para la aplicación.
+Si usa una aplicación de Azure AD para crear un grupo de imágenes personalizadas con una imagen de Azure Compute Gallery, se debe haber concedido a la aplicación un [rol integrado de Azure](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) que le proporcione acceso a Shared Image. Para conceder este acceso en Azure Portal, navegue a la imagen compartida, seleccione **Control de acceso (IAM)** y agregue una asignación de roles para la aplicación.
 
 ## <a name="prepare-a-shared-image"></a>Preparación de una imagen compartida
 
@@ -87,9 +87,9 @@ Una instantánea es una copia completa de solo lectura de un disco duro virtual.
 
 Para crear una imagen administrada a partir de una instantánea, use las herramientas de la línea de comandos de Azure, como el comando [az image create](/cli/azure/image). Cree una imagen mediante la especificación de una instantánea del disco del sistema operativo y, opcionalmente, una o varias instantáneas de disco de datos.
 
-### <a name="create-a-shared-image-gallery"></a>Creación de una instancia de Shared Image Gallery
+### <a name="create-an-azure-compute-gallery"></a>Creación de una instancia de Azure Compute Gallery
 
-Una vez que haya creado correctamente la imagen administrada, debe crear una instancia de Shared Image Gallery para que la imagen personalizada esté disponible. Para aprender a crear una Galería de imágenes compartida para sus imágenes, consulte [Creación de una instancia de Shared Image Gallery](../virtual-machines/create-gallery.md).
+Una vez que haya creado correctamente la imagen administrada, debe crear una instancia de Azure Compute Gallery para que la imagen personalizada esté disponible. Para obtener información sobre cómo crear una instancia de Azure Compute Gallery para las imágenes, consulte [Creación de una instancia de Azure Compute Gallery](../virtual-machines/create-gallery.md).
 
 ## <a name="create-a-pool-from-a-shared-image-using-the-azure-cli"></a>Creación de un grupo a partir de una imagen de Shared Image con la CLI de Azure
 
@@ -179,7 +179,7 @@ start_task = batchmodels.StartTask(
 start_task.run_elevated = True
 
 # Create an ImageReference which specifies the image from
-# Shared Image Gallery to install on the nodes.
+# Azure Compute Gallery to install on the nodes.
 ir = batchmodels.ImageReference(
     virtual_machine_image_id="/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Compute/galleries/{gallery name}/images/{image definition name}/versions/{version id}"
 )
@@ -212,7 +212,7 @@ Use los pasos siguientes para crear un grupo a partir de una imagen compartida e
 1. Abra [Azure Portal](https://portal.azure.com).
 1. Vaya a **Cuentas de Batch** y seleccione su cuenta.
 1. Seleccione **Grupos** y, luego, **Agregar** para crear un grupo.
-1. En la sección **Tipo de imagen**, seleccione **Shared Image Gallery**.
+1. En la sección **Tipo de imagen**, seleccione **Azure Compute Gallery**.
 1. Complete el resto de secciones con información sobre la imagen administrada.
 1. Seleccione **Aceptar**.
 
@@ -222,11 +222,11 @@ Use los pasos siguientes para crear un grupo a partir de una imagen compartida e
 
 Si tiene previsto crear un grupo con cientos o miles de VM o más mediante una imagen de Shared Image, use la siguiente guía.
 
-- **Números de réplicas de Shared Image Gallery.**  Para cada grupo con hasta 300 instancias, se recomienda conservar al menos una réplica. Por ejemplo, si va a crear un grupo con 3000 VM, debe mantener al menos 10 réplicas de la imagen. Siempre se recomienda mantener más réplicas que las indicadas por los requisitos mínimos para un mejor rendimiento.
+- **Números de réplica de Azure Compute Gallery.**  Para cada grupo con hasta 300 instancias, se recomienda conservar al menos una réplica. Por ejemplo, si va a crear un grupo con 3000 VM, debe mantener al menos 10 réplicas de la imagen. Siempre se recomienda mantener más réplicas que las indicadas por los requisitos mínimos para un mejor rendimiento.
 
 - **Tiempo de espera del cambio de tamaño.** Si el grupo contiene un número de nodos fijo (no se escala automáticamente), aumente la propiedad `resizeTimeout` del grupo en función de su tamaño. Por cada 1000 VM, el tiempo de espera del cambio de tamaño recomendado es de al menos 15 minutos. Por ejemplo, el tiempo de espera del cambio de tamaño recomendado para un grupo con 2000 VM es de al menos 30 minutos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información general detallada sobre Batch, consulte [Recursos y flujo de trabajo del servicio de Batch](batch-service-workflow-features.md).
-- Obtenga información sobre [Shared Image Gallery](../virtual-machines/shared-image-galleries.md).
+- Más información sobre [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md).

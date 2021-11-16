@@ -4,12 +4,12 @@ description: Aprenda a crear un clúster privado de Azure Kubernetes Service (AK
 services: container-service
 ms.topic: article
 ms.date: 8/30/2021
-ms.openlocfilehash: 3cb83bd9b3aded2ab167afb39b024266a76163ae
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b0e89a59e9051de255be21103121569e45a2621a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131049090"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131440552"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Creación de un clúster privado de Azure Kubernetes Service
 
@@ -72,7 +72,7 @@ Se pueden aprovechar los siguientes parámetros para configurar la zona DNS priv
 
 - "System", que es también el valor predeterminado. Si se omite el argumento --private-dns-zone, AKS creará una zona DNS privada en el grupo de recursos del nodo.
 - "None" tiene como valor predeterminado un DNS público, lo que significa que AKS no creará una zona de DNS privado.  
-- "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID", para lo que es necesario crear una zona DNS privada en este formato para la nube global de Azure: `privatelink.<region>.azmk8s.io`. A partir de ahora, necesitará el identificador de recurso de esa zona DNS privada.  También necesitará una identidad asignada por el usuario o una entidad de servicio que tenga como mínimo los roles `private dns zone contributor` y `vnet contributor`.
+- "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID", que requiere crear una zona DNS privada en este formato para la nube global de Azure: `privatelink.<region>.azmk8s.io` o `<subzone>.privatelink.<region>.azmk8s.io`. A partir de ahora, necesitará el identificador de recurso de esa zona DNS privada.  También necesitará una identidad asignada por el usuario o una entidad de servicio que tenga como mínimo los roles `private dns zone contributor` y `vnet contributor`.
   - Si la zona de DNS privado está en una suscripción diferente a la del clúster de AKS, debe registrar Microsoft.ContainerServices en ambas suscripciones.
   - "fqdn-subdomain" solo se puede usar con "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" para proporcionar capacidades de subdominio a `privatelink.<region>.azmk8s.io`.
 
@@ -91,7 +91,7 @@ Requisitos previos:
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-Para crear un clúster de AKS que pueda usar el controlador Secrets Store CSI, debe habilitar la marca de características `EnablePrivateClusterSubZone` en la suscripción.
+Para usar un clúster privado de AKS con una subzona, debe habilitar la marca de características `EnablePrivateClusterSubZone` en la suscripción.
 
 Registre la marca de la característica `EnablePrivateClusterSubZone` con el comando [az feature register][az-feature-register], como se muestra en el siguiente ejemplo:
 
@@ -113,8 +113,6 @@ az provider register --namespace Microsoft.ContainerService
 
 ### <a name="install-the-aks-preview-cli-extension"></a>Instalación de la extensión aks-preview de la CLI
 
-También se necesita la versión 0.5.34 o posterior de la extensión *aks-preview* de la CLI de Azure. Instale la extensión de la CLI de Azure *aks-preview* mediante el comando [az extension add][az-extension-add]. Si ya tiene instalada la extensión, actualice a la versión más reciente disponible mediante el comando [az extension update][az-extension-update].
-
 ```azurecli-interactive
 # Install the aks-preview extension
 az extension add --name aks-preview
@@ -123,16 +121,25 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-### <a name="private-aks-cluster-with-byo-private-dns-subzone"></a>Clúster privado de AKS con una subzona DNS privada de BYO
+### <a name="create-a-private-aks-cluster-with-custom-private-dns-zone"></a>Creación de un clúster privado de AKS con una zona DNS privada personalizada
 
 ```azurecli-interactive
-az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <BYO private dns zone ResourceId>
+# Custom Private DNS Zone name should be in format "privatelink.<region>.azmk8s.io"
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone ResourceId>
 ```
 
 ### <a name="create-a-private-aks-cluster-with-custom-private-dns-subzone"></a>Creación de un clúster de AKS privado con una subzona DNS privada personalizada
 
 ```azurecli-interactive
-az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone ResourceId> --fqdn-subdomain <subdomain-name>
+# Custom Private DNS Zone name should be in format "<subzone>.privatelink.<region>.azmk8s.io"
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone ResourceId>
+```
+
+### <a name="create-a-private-aks-cluster-with-custom-private-dns-zone-and-custom-subdomain"></a>Creación de un clúster privado de AKS con una zona DNS privada personalizada y un subdominio personalizado
+
+```azurecli-interactive
+# Custom Private DNS Zone name could be in formats "privatelink.<region>.azmk8s.io&quot; or &quot;<subzone>.privatelink.<region>.azmk8s.io"
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone ResourceId> --fqdn-subdomain <subdomain>
 ```
 
 ### <a name="create-a-private-aks-cluster-with-a-public-fqdn"></a>Creación de un clúster de AKS privado con un nombre de dominio completo público

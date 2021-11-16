@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/29/2021
 ms.topic: how-to
 ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q4,FY21Q4-aml-seo-hack, security
-ms.openlocfilehash: b114077c9af72e9d57d80e783d26f54d0de91410
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 9d47a19e4890ac6e81a86aeb04e6a139be555599
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131429762"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132061199"
 ---
 <!-- # Virtual network isolation and privacy overview -->
 # <a name="secure-azure-machine-learning-workspace-resources-using-virtual-networks-vnets"></a>Protección de los recursos del área de trabajo de Azure Machine Learning con redes virtuales (VNet)
@@ -113,7 +113,6 @@ Para obtener instrucciones detalladas sobre cómo completar estos pasos, consult
 ### <a name="limitations"></a>Limitaciones
 
 La protección del área de trabajo y los recursos asociados en una red virtual presenta las siguientes limitaciones:
-- El uso de un área de trabajo de Azure Machine Learning con un punto de conexión privado no es posible en las regiones de Azure China 21Vianet.
 - Todos los recursos deben estar detrás de la misma red virtual. Sin embargo, se permiten subredes en la misma red virtual.
 
 ## <a name="secure-the-training-environment"></a>Protección del entorno de entrenamiento

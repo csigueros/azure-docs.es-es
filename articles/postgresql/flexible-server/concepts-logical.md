@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/01/2021
-ms.openlocfilehash: 5298b572c24d174842da1c9e29b01a1d98f47a39
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 13326622dae32c0ebd8fa86035967d51ab734c2a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129387361"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130241600"
 ---
 # <a name="logical-replication-and-logical-decoding-in-azure-database-for-postgresql---flexible-server"></a>Replicación lógica y descodificación lógica en Azure Database for PostgreSQL con servidor flexible
 
@@ -24,21 +24,21 @@ Azure Database for PostgreSQL: servidor flexible admite las siguientes metodolog
 2. La **descodificación lógica** que se implementa mediante la [descodificación](https://www.postgresql.org/docs/12/logicaldecoding-explanation.html) del contenido del registro de escritura previa (WAL). 
 
 ## <a name="comparing-logical-replication-and-logical-decoding"></a>Comparación de la replicación lógica y la descodificación lógica
-La replicación lógica y la descodificación lógica tienen varias similitudes. Ambas
-* le permiten replicar datos de Postgres
-* usan el [registro de escritura previa (WAL)](https://www.postgresql.org/docs/current/wal.html) como origen de los cambios
-* usan [ranuras de replicación lógica](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html#LOGICALDECODING-REPLICATION-SLOTS) para enviar datos. Una ranura representa una secuencia de cambios.
-* usan la [propiedad REPLICA IDENTITY](https://www.postgresql.org/docs/current/sql-altertable.html#SQL-CREATETABLE-REPLICA-IDENTITY) de una tabla para determinar qué cambios se pueden enviar
-* no replican cambios de DDL
+La replicación lógica y la descodificación lógica tienen varias similitudes. Ambas funcionalidades:
+* Permiten replicar datos de Postgres.
+* Usan el [registro de escritura previa (WAL)](https://www.postgresql.org/docs/current/wal.html) como origen de los cambios
+* Usan [ranuras de replicación lógica](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html#LOGICALDECODING-REPLICATION-SLOTS) para enviar datos. Una ranura representa una secuencia de cambios.
+* Usan la [propiedad REPLICA IDENTITY](https://www.postgresql.org/docs/current/sql-altertable.html#SQL-CREATETABLE-REPLICA-IDENTITY) de una tabla para determinar qué cambios se pueden enviar.
+* No replican cambios de DDL.
 
 
-Las dos tecnologías tienen sus diferencias: Replicación lógica 
-* permite especificar una tabla o un conjunto de tablas que se van a replicar
-* replica datos entre instancias de PostgreSQL
+Las dos tecnologías tienen sus diferencias. La replicación lógica: 
+* permite especificar una tabla o un conjunto de tablas que se van a replicar;
+* replica datos entre instancias de PostgreSQL.
 
-Descodificación lógica 
-* extrae los cambios en todas las tablas de una base de datos 
-* no se pueden enviar datos directamente entre instancias de PostgreSQL.
+Descodificación lógica:
+* extrae los cambios de todas las tablas de una base de datos;
+* no puede enviar datos directamente entre instancias de PostgreSQL.
 
 >[!NOTE]
 > En este momento, la opción de servidor flexible no admite réplicas de lectura entre regiones. En función del tipo de carga de trabajo, puede optar por usar la característica de replicación lógica para la recuperación ante desastres (DR) entre regiones.
@@ -104,7 +104,7 @@ Visite la documentación de PostgreSQL para comprender mejor la [replicación l�
 
 ### <a name="pglogical-extension"></a>Extensión pglogical
 
-Este es un ejemplo de configuración de pglogical en el servidor de bases de datos de proveedor y suscriptor. Para más información, consulte la [documentación de la extensión pglogical](https://www.2ndquadrant.com/en/resources/pglogical/pglogical-docs). Asegúrese también de que ha realizado las tareas de requisitos previos enumeradas anteriormente.
+Este es un ejemplo de configuración de pglogical en el servidor de bases de datos de proveedor y suscriptor. Para más información, consulte la [documentación de la extensión pglogical](https://github.com/2ndQuadrant/pglogical#usage). Asegúrese también de que ha realizado las tareas de requisitos previos enumeradas anteriormente.
 
 
 1. Instale la extensión pglogical en los servidores de bases de datos del proveedor y el suscriptor.
@@ -112,7 +112,7 @@ Este es un ejemplo de configuración de pglogical en el servidor de bases de dat
    \C myDB
    CREATE EXTENSION pglogical;
    ```
-2. Si el usuario de replicación no es el usuario de administración del servidor (que creó el servidor), asegúrese de asignar los privilegios `azure_pg_admin` y `replication` al usuario. Como alternativa, puede conceder el usuario administrador al usuario de replicación. Consulte la [documentación de pglogical](https://www.2ndquadrant.com/en/resources/pglogical/pglogical-docs/#limitations-and-restrictions) para los detalles.
+2. Si el usuario de replicación no es el usuario de administración del servidor (que creó el servidor), asegúrese de asignar los privilegios `azure_pg_admin` y `replication` al usuario. Como alternativa, puede conceder el usuario administrador al usuario de replicación. Para más información, consulte la [documentación de pglogical](https://github.com/2ndQuadrant/pglogical#limitations-and-restrictions).
    ```SQL
    GRANT azure_pg_admin, replication to myUser;
    ```
@@ -243,10 +243,9 @@ SELECT * FROM pg_replication_slots;
 ## <a name="limitations"></a>Limitaciones
 * Las limitaciones de la **replicación lógica** se aplican como se documenta [aquí](https://www.postgresql.org/docs/12/logical-replication-restrictions.html).
 * **Réplicas de lectura**: las réplicas de lectura de Azure Database for PostgreSQL no se admiten actualmente en los servidores flexibles.
-* **Ranuras y conmutación por error de alta disponibilidad**: las ranuras de replicación de alta disponibilidad del servidor principal no están disponibles en el servidor en espera de la zona de disponibilidad secundaria. Esto se aplica a usted si el servidor usa la opción de alta disponibilidad con redundancia de zona. En el caso de una conmutación por error al servidor en espera, las ranuras de replicación lógica no estarán disponibles en dicho servidor.
+* **Ranuras y conmutación por error de alta disponibilidad**: las ranuras de replicación de alta disponibilidad del servidor principal no están disponibles en el servidor en espera de la zona de disponibilidad secundaria. Esta situación se aplica en su caso si el servidor usa la opción de alta disponibilidad con redundancia de zona. En el caso de una conmutación por error al servidor en espera, las ranuras de replicación lógica no estarán disponibles en dicho servidor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre las [opciones de red](concepts-networking.md)
 * Obtenga más información sobre las [extensiones](concepts-extensions.md) disponibles en el servidor flexible
 * Obtenga más información sobre la [alta disponibilidad](concepts-high-availability.md)
-

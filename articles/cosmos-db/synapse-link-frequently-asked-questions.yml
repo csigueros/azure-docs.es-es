@@ -6,14 +6,14 @@ metadata:
   ms.author: rosouz
   ms.service: cosmos-db
   ms.topic: conceptual
-  ms.date: 11/30/2020
+  ms.date: 11/02/2021
   ms.custom: synapse-cosmos-db
-  ms.openlocfilehash: a03572b75d12535dfd81e1539e2d4d27b1ffc2df
-  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.openlocfilehash: 8dc71afd5e134e1822df027e9b5f51dc33ed3b76
+  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/02/2021
-  ms.locfileid: "131011415"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131425848"
 title: Preguntas frecuentes sobre Azure Synapse Link para Azure Cosmos DB
 summary: >
   [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -108,8 +108,7 @@ sections:
       Si los elementos específicos del contenedor infringen el [esquema bien definido para análisis](analytical-store-introduction.md#analytical-schema), no se incluirán en el almacén analítico. Si tiene escenarios bloqueados por un esquema bien definido para análisis, envíe un correo electrónico al [equipo de Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com) para obtener ayuda.
   - question: >
       ¿Se pueden crear particiones de los datos en el almacén analítico de forma distinta a la del almacén transaccional?
-    answer: >
-      Las particiones de los datos del almacén analítico se crean en función de las particiones horizontales en el almacén transaccional. Actualmente, no se puede elegir una estrategia de creación de particiones diferente para el almacén analítico.
+    answer: "De manera predeterminada, el almacén analítico no tiene particiones. Si las consultas analíticas han usado filtros con frecuencia, tiene la opción de crear particiones en función de estos campos para mejorar el rendimiento de las consultas. Para más información, consulte los artículos de [introducción a la creación de particiones personalizadas](custom-partitioning-analytical-store.md) y sobre [cómo configurar la creación de particiones personalizadas](configure-custom-partitioning.md).  \n"
   - question: >
       ¿Puedo personalizar o invalidar la manera en que los datos transaccionales se transforman al formato de columnas en el almacén analítico?
     answer: >

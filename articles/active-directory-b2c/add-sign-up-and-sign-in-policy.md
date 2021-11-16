@@ -3,22 +3,22 @@ title: Configuración de un flujo de registro e inicio de sesión
 titleSuffix: Azure AD B2C
 description: Aprenda a configurar un flujo de registro e inicio de sesión en Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/24/2021
-ms.author: mimart
+ms.date: 10/21/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 9774eef558b02bef4ef9ec9ecacd6e5a132fd244
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8b1607609bafabc210572717fd84bfcb25da8022
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128570317"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130231996"
 ---
 # <a name="set-up-a-sign-up-and-sign-in-flow-in-azure-active-directory-b2c"></a>Configuración de un flujo de registro e inicio de sesión en Azure Active Directory B2C
 
@@ -70,7 +70,7 @@ Este flujo de usuario de registro y de inicio de sesión controla las experienci
 
    * En **Cuentas locales**, seleccione una de las siguientes: **Registro por correo electrónico**, **Registro de id. de usuario**, **Phone signup** (Registro telefónico), **Phone/Email signup** (Registro telefónico o por correo electrónico) o **Ninguno**. [Más información](sign-in-options.md).
    * En **Proveedores de identidades sociales**, seleccione cualquiera de los proveedores de identidades sociales o empresariales externos que haya configurado. [Más información](add-identity-provider.md).
-1. En **Autenticación multifactor**, si quiere exigir a los usuarios que comprueben su identidad con un segundo método de autenticación, elija el tipo de método y cuándo aplicar la autenticación multifactor (MFA). [Más información](multi-factor-authentication.md).
+1. En **Autenticación multifactor**, si quiere exigir la comprobación de la identidad de los usuarios con un segundo método de autenticación, elija el tipo de método y cuándo aplicar la autenticación multifactor (MFA). [Más información](multi-factor-authentication.md).
 1. En **Acceso condicional**, si ha configurado directivas de acceso condicional para el inquilino de Azure AD B2C y quiere habilitarlas para este flujo de usuario, active la casilla **Aplicar directivas de acceso condicional**. No es necesario especificar un nombre de directiva. [Más información](conditional-access-user-flow.md?pivots=b2c-user-flow).
 1. En **Atributos de usuario y notificaciones de token**, elija los atributos que quiere recopilar del usuario durante el registro y las notificaciones que quiere que se devuelvan en el token. Para obtener la lista completa de valores, seleccione **Mostrar más**, elija los valores y, después, seleccione **Aceptar**.
 
@@ -81,6 +81,10 @@ Este flujo de usuario de registro y de inicio de sesión controla las experienci
 
 1. Seleccione **Crear** para agregar el flujo de usuario. El prefijo *B2C_1* se anexa automáticamente al nombre.
 1. Siga los pasos para [controlar el flujo de la opción "¿Olvidó su contraseña?"](add-password-reset-policy.md?pivots=b2c-user-flow.md#self-service-password-reset-recommended). de la directiva de registro o de inicio de sesión.
+
+
+### <a name="re-order-the-sign-up-form"></a>Volver a ordenar el formulario de registro
+Aprenda a [volver a ordenar los campos de entrada del flujo de usuario de las cuentas locales](customize-ui.md#re-order-input-fields-in-the-sign-up-form).
 
 ### <a name="test-the-user-flow"></a>Prueba del flujo de usuario
 

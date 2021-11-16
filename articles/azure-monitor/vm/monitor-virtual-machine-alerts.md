@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2021
-ms.openlocfilehash: 86160cd24708088a2cc5917a4850ca029023c0ce
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: b06d7c573514e0fe0471e13df3476bf5b13f20e3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322787"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252694"
 ---
 # <a name="monitor-virtual-machines-with-azure-monitor-alerts"></a>Supervisión de máquinas virtuales con Azure Monitor: alertas
 
@@ -48,7 +48,7 @@ Las [alertas de registro](../alerts/alerts-metric.md) pueden realizar dos medida
 ### <a name="target-resource-and-impacted-resource"></a>Recurso de destino y recurso afectado
 
 > [!NOTE]
-> Las reglas de alertas de registro centradas en recursos, actualmente en versión preliminar pública, simplifican las alertas de consulta de registro en las máquinas virtuales y reemplazan la funcionalidad proporcionada actualmente por las consultas de unidades métricas. Puede usar la máquina como destino de la regla, que la identifica mejor como el recurso afectado. También puede aplicar una única regla de alertas a todas las máquinas de un grupo de recursos o descripción determinados. Cuando las alertas de consulta de registro del centro de recursos estén disponibles con carácter general, se actualizarán las instrucciones de este escenario.
+> Las reglas de alertas de registro centradas en recursos, actualmente en versión preliminar pública, simplifican las alertas de consulta de registro en las máquinas virtuales y reemplazan la funcionalidad proporcionada actualmente por las consultas de unidades métricas. Puede usar la máquina como destino de la regla, que la identifica mejor como el recurso afectado. También puede aplicar una única regla de alertas a todas las máquinas de un grupo de recursos o suscripción determinados. Cuando las alertas de consulta de registro del centro de recursos estén disponibles con carácter general, se actualizarán las instrucciones de este escenario.
 > 
 Cada alerta de Azure Monitor tiene una propiedad **Recurso afectado**, que se define mediante el destino de la regla. En el caso de las reglas de alertas de métricas, el recurso afectado es el equipo, lo que permite identificarlo fácilmente en la vista de alertas estándar. Las alertas de consulta de registro están asociadas al recurso del área de trabajo en lugar de a la máquina, incluso cuando se usa una alerta de unidades métricas que crea una alerta para cada equipo. Debe ver los detalles de la alerta para comprobar el equipo afectado.
 
@@ -91,7 +91,7 @@ Use una regla de unidades métricas con la consulta siguiente.
 Heartbeat
 | summarize TimeGenerated=max(TimeGenerated) by Computer
 | extend Duration = datetime_diff('minute',now(),TimeGenerated)
-| summarize AggregatedValue = min(Duration) by Computer, bin(TimeGenerated,1)
+| summarize AggregatedValue = min(Duration) by Computer, bin(TimeGenerated,5m)
 ```
 
 **Alerta única**
@@ -133,7 +133,7 @@ InsightsMetrics
  InsightsMetrics
  | where Origin == "vm.azm.ms"
  | where _ResourceId startswith "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" and (_ResourceId contains "/providers/Microsoft.Compute/virtualMachines/" or _ResourceId contains "/providers/Microsoft.Compute/virtualMachineScaleSets/") 
- | where Namespace == "Processor" and Name == "UtilizationPercentage"<br>\| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), _ResourceId
+ | where Namespace == "Processor" and Name == "UtilizationPercentage" | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), _ResourceId
 ```
 
 **Utilización de la CPU para todos los recursos de proceso en un grupo de recursos** 
@@ -142,7 +142,7 @@ InsightsMetrics
 InsightsMetrics
 | where Origin == "vm.azm.ms"
 | where _ResourceId startswith "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/" or _ResourceId startswith "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachineScaleSets/"
-| where Namespace == "Processor" and Name == "UtilizationPercentage"<br>\| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), _ResourceId 
+| where Namespace == "Processor" and Name == "UtilizationPercentage" | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), _ResourceId 
 ```
 
 ### <a name="memory-alerts"></a>Alertas de memoria
@@ -171,7 +171,7 @@ InsightsMetrics
 InsightsMetrics
 | where Origin == "vm.azm.ms"
 | where Namespace == "Memory" and Name == "AvailableMB"
-| extend TotalMemory = toreal(todynamic(Tags)["vm.azm.ms/memorySizeMB"])<br>\| extend AvailableMemoryPercentage = (toreal(Val) / TotalMemory) * 100.0
+| extend TotalMemory = toreal(todynamic(Tags)["vm.azm.ms/memorySizeMB"]) | extend AvailableMemoryPercentage = (toreal(Val) / TotalMemory) * 100.0
 | summarize AggregatedValue = avg(AvailableMemoryPercentage) by bin(TimeGenerated, 15m), Computer  
 ``` 
 

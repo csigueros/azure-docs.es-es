@@ -2,18 +2,18 @@
 title: Optimización de los costes de Azure Databricks con una compra anticipada
 description: Obtenga información sobre cómo puede pagar por adelantado los cargos de Azure Databricks con la capacidad reservada para ahorrar dinero.
 author: bandersmsft
-ms.reviewer: primittal
+ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 10/19/2021
 ms.author: banders
-ms.openlocfilehash: 8047c57c929deeffcb69943ce17fa5fe81d31af1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 72bb3403a49431d1dbc1cbd9d15ac37348818118
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128645063"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130243835"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>Optimización de los costes de Azure Databricks con una compra anticipada
 
@@ -42,8 +42,8 @@ Antes de comprar, calcule el total de DBU consumido para las diferentes cargas d
 Puede comprar planes de Databricks en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D). Para comprar capacidad reservada, debe tener el rol de propietario al menos en una suscripción Enterprise.
 
 - Debe tener un rol de propietario al menos en una suscripción Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o Contrato de cliente de Microsoft o una suscripción individual con tarifas de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P).
-- En el caso de las suscripciones de EA, la opción Agregar instancias reservadas debe estar habilitada en el portal de EA. O bien, si esa opción está deshabilitada, debe ser un administrador de EA en la suscripción.
-- En el caso de las suscripciones Enterprise, la opción **Agregar instancias reservadas** debe estar habilitada en el [portal de EA](https://ea.azure.com/). O bien, si esa opción está deshabilitada, debe ser un administrador de EA en la suscripción.
+- En el caso de las suscripciones Enterprise, la opción **Agregar instancias reservadas** debe estar habilitada en el [portal de EA](https://ea.azure.com/). O bien, si esa configuración está deshabilitada, debe ser un administrador de EA de la suscripción para habilitarla. Los clientes directos de EA ya pueden actualizar la configuración de **instancias reservadas** en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes). Vaya al menú Directivas para cambiar la configuración.
+
 
 **Para comprar:**
 

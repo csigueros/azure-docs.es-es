@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
 ms.date: 09/01/2021
 ms.author: victorh
-ms.openlocfilehash: 7e7f05516dd380ec6d0c8f44f887981de77942a3
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: bd773dd1a865f50d441ca09760a9ee3130ed3898
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123439333"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226326"
 ---
 # <a name="what-is-azure-firewall"></a>¿Qué es Azure Firewall?
 
@@ -52,7 +52,7 @@ Para obtener información sobre las novedades de Azure Firewall, consulte [Actua
 
 Azure Firewall presenta los siguientes problemas conocidos:
 
-|Problema  |Descripción  |Mitigación  |
+|Incidencia  |Descripción  |Mitigación  |
 |---------|---------|---------|
 |Las reglas de filtrado de red para protocolos que no son TCP/UDP (por ejemplo, ICMP) no funcionan con el tráfico enlazado a Internet|Las reglas de filtrado de red de protocolos que no son TCP/UDP no funcionan con la traducción SNAT a la dirección IP pública. Los protocolos que no son TCP/UDP no se admiten entre subredes de radio y redes virtuales.|Azure Firewall usa Standard Load Balancer, [que actualmente no admite SNAT para los protocolos IP](../load-balancer/load-balancer-overview.md). Se están examinando opciones para admitir este escenario en una versión futura.|
 |Falta de compatibilidad entre PowerShell y CLI con ICMP|Azure PowerShell y la CLI no admiten ICMP como protocolo válido en las reglas de red.|Aun así se puede usar ICMP como protocolo a través del portal y la API REST. Estamos trabajando para agregar pronto ICMP a PowerShell y la CLI.|
@@ -69,6 +69,7 @@ Azure Firewall presenta los siguientes problemas conocidos:
 |DNAT no es compatible con la tunelización forzada habilitada|Los firewalls implementados con la tunelización forzada habilitada no admiten el acceso entrante desde Internet debido al enrutamiento asimétrico.|Esto es así por diseño. La ruta de acceso de retorno de las conexiones entrantes pasa por el firewall local, que no ha visto la conexión establecida.
 |Es posible que el FTP pasivo saliente no funcione en firewalls con varias direcciones IP públicas, en función de la configuración del servidor FTP.|FTP pasivo establece distintas conexiones para los canales de control y datos. Cuando un firewall con varias direcciones IP públicas envía datos de salida, selecciona de manera aleatoria una de sus direcciones IP públicas como dirección IP de origen. FTP puede generar un error cuando los canales de control y de datos usan direcciones IP de origen diferentes, en función de la configuración del servidor FTP.|Está previsto una configuración de SNAT explícita. Entretanto, puede configurar el servidor FTP para que acepte los canales de control y de datos de distintas direcciones IP de origen (vea [un ejemplo de IIS](/iis/configuration/system.applicationhost/sites/sitedefaults/ftpserver/security/datachannelsecurity)). Otra opción es usar una única dirección IP en esta situación.|
 |Es posible que el FTP pasivo entrante no funcione en función de la configuración del servidor FTP |FTP pasivo establece distintas conexiones para los canales de control y datos. En las conexiones entrantes de Azure Firewall se aplica SNAT a una de las direcciones IP privadas del firewall para garantizar el enrutamiento simétrico. FTP puede generar un error cuando los canales de control y de datos usan direcciones IP de origen diferentes, en función de la configuración del servidor FTP.|Se está investigando la conservación de la dirección IP de origen original. Entretanto, puede configurar el servidor FTP para que acepte los canales de control y de datos de distintas direcciones IP de origen.|
+|FTP activo no funcionará cuando el cliente FTP deba acceder a un servidor FTP mediante Internet.|FTP activo usa un comando PORT del cliente FTP que indica al servidor FTP qué dirección IP y puerto usar para el canal de datos. Este comando PORT usa la dirección IP privada del cliente, que no se puede cambiar. El tráfico del lado cliente que recorre Azure Firewall será tráfico con NAT para las comunicaciones basadas en Internet, por lo que el servidor FTP considera el comando PORT como no válido.|Se trata de una limitación general del FTP activo cuando se usa con NAT del lado del cliente.|
 |Falta una dimensión de protocolo en la métrica NetworkRuleHit|La métrica ApplicationRuleHit permite el filtrado basado en el protocolo, pero esta funcionalidad falta en la métrica NetworkRuleHit correspondiente.|Se está investigando una solución.|
 |No se admiten las reglas NAT con puertos entre el 64000 y el 65535|Azure Firewall permite cualquier puerto en el rango 1-65535 en reglas de red y de aplicación; sin embargo, las reglas NAT solo admiten los puertos del rango 1-63999.|Se trata de una limitación actual.
 |Las actualizaciones de configuración pueden tardar cinco minutos por término medio.|Una actualización de la configuración de Azure Firewall puede tardar entre tres y cinco minutos por término medio, y no se admiten actualizaciones en paralelo.|Se está investigando una solución.|

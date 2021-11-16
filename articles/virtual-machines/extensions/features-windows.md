@@ -9,12 +9,12 @@ ms.author: amjads
 ms.collection: windows
 ms.date: 03/30/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8ab6b3d00f748fb5b3935988522191c749fa4fd9
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 4eda8d1891081399c26a864e0976e6eee34a6b64
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129275285"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130258057"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Características y extensiones de las máquinas virtuales para Windows
 
@@ -252,9 +252,9 @@ Estos certificados protegen la comunicación entre la máquina virtual y su host
 
 ### <a name="how-do-agents-and-extensions-get-updated"></a>¿Cómo se actualizan los agentes y las extensiones?
 
-Los agentes y las extensiones comparten el mismo mecanismo de actualización. Algunas actualizaciones no necesitan reglas adicionales de firewall.
+Los agentes y las extensiones comparten el mismo mecanismo de actualización.
 
-Cuando hay disponible una actualización, solo se instala en la máquina virtual cuando se produce un cambio en las extensiones y otros cambios del modelo de máquina virtual, como:
+Cuando hay una actualización disponible y las actualizaciones automáticas están habilitadas, la actualización se instala en la máquina virtual solo después de que se haya realizado un cambio en una extensión o después de otro cambio de modelo de VM, como:
 
 - Discos de datos.
 - Extensiones
@@ -263,7 +263,13 @@ Cuando hay disponible una actualización, solo se instala en la máquina virtual
 - Tamaño de VM
 - Perfil de red
 
+> [!IMPORTANT]
+> La actualización solo se instala después de que un cambio en el modelo de máquina virtual.
+
 Los publicadores hacen que las actualizaciones estén disponibles en distintos momentos en las diferentes regiones, por lo que es posible que tenga máquinas virtuales en distintas regiones con versiones diferentes.
+
+> [!NOTE]
+> Es posible que algunas actualizaciones necesiten reglas de firewall adicionales. Consulte [Acceso de red](#network-access).
 
 #### <a name="listing-extensions-deployed-to-a-vm"></a>Lista de extensiones implementadas en una máquina virtual
 
@@ -288,7 +294,10 @@ Para comprobar qué versión ejecuta, consulte el artículo sobre [cómo detecta
 
 #### <a name="extension-updates"></a>Actualizaciones de extensiones
 
-Cuando hay disponible una actualización de extensión, Windows Guest Agent la descarga y actualiza. Las actualizaciones de extensiones automáticas son *secundarias* o *revisiones*. Puede decidir si desea recibir o no las actualizaciones *secundarias* de las extensiones cuando aprovisiona la extensión. En el ejemplo siguiente se muestra cómo actualizar automáticamente las versiones secundarias en una plantilla de Resource Manager con *autoUpgradeMinorVersion": true,'* :
+
+Cuando hay una actualización de extensión disponible y las actualizaciones automáticas están habilitadas, después de que se produce un [cambio en el modelo de VM](#how-do-agents-and-extensions-get-updated), el agente invitado de Windows descarga y actualiza la extensión.
+
+Las actualizaciones de extensiones automáticas son *secundarias* o *revisiones*. Puede decidir si desea recibir o no las actualizaciones *secundarias* de extensión cuando aprovisiona la extensión. En el ejemplo siguiente se muestra cómo actualizar automáticamente las versiones secundarias en una plantilla de Resource Manager con *"autoUpgradeMinorVersion": true,* :
 
 ```json
     "properties": {
@@ -304,6 +313,8 @@ Cuando hay disponible una actualización de extensión, Windows Guest Agent la d
 ```
 
 Para obtener las correcciones de errores secundarias más recientes, se recomienda encarecidamente que siempre seleccione la actualización automática en las implementaciones de sus extensiones. No es posible optar por no recibir actualizaciones de revisiones que incluyen correcciones de errores clave o revisiones de seguridad.
+
+Si deshabilita las actualizaciones de extensión automáticas o necesita actualizar una versión principal, utilice [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) y especifique la versión de destino.
 
 ### <a name="how-to-identify-extension-updates"></a>Identificación de las actualizaciones de extensiones
 

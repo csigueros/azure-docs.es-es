@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/23/2021
+ms.date: 10/23/2021
 ms.author: davidmu
 ms.reviewer: alamaral
-ms.openlocfilehash: 1bb1d7c65451be88864440d2e5b1327b3688f337
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 4076b4ab582289e6b8de55a827ef834191099f47
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129061359"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131427634"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Asignación de usuarios y grupos en una aplicación de Azure Active Directory
 
@@ -111,12 +111,32 @@ This example assigns the user Britta Simon to the Microsoft Workplace Analytics 
     Remove-AzureADServiceAppRoleAssignment -ObjectId $spo.ObjectId -AppRoleAssignmentId $assignments[assignment #].ObjectId
     ```
 
-## <a name="related-articles"></a>Artículos relacionados
+## <a name="remove-all-users-who-are-assigned-to-the-application"></a>Quite todos los usuarios asignados a la aplicación.
 
-- [Asignación o desasignación de un usuario o grupo mediante Azure Portal](add-application-portal-assign-users.md)
-- [Asignación o desasignación de usuarios y grupos para una aplicación mediante Graph API](/graph/api/resources/approleassignment)
-- [Administración del acceso a aplicaciones](what-is-access-management.md)
+   ```powershell
+
+   #Retrieve the service principal object ID.
+   $app_name = "<Your App's display name>"
+   $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
+   $sp.ObjectId
+
+# Get Service Principal using objectId
+$sp = Get-AzureADServicePrincipal -ObjectId "<ServicePrincipal objectID>"
+
+# Get Azure AD App role assignments using objectId of the Service Principal
+$assignments = Get-AzureADServiceAppRoleAssignment -ObjectId $sp.ObjectId -All $true
+
+# Remove all users and groups assigned to the application
+$assignments | ForEach-Object {
+    if ($_.PrincipalType -eq "User") {
+        Remove-AzureADUserAppRoleAssignment -ObjectId $_.PrincipalId -AppRoleAssignmentId $_.ObjectId
+    } elseif ($_.PrincipalType -eq "Group") {
+        Remove-AzureADGroupAppRoleAssignment -ObjectId $_.PrincipalId -AppRoleAssignmentId $_.ObjectId
+    }
+}
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Ocultamiento de una aplicación a un usuario](hide-application-from-user-portal.md)
+- [Creación y asignación de una cuenta de usuario desde Azure Portal](add-application-portal-assign-users.md)
+- [Administración del acceso a las aplicaciones](what-is-access-management.md)

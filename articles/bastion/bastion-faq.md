@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 09/07/2021
 ms.author: cherylmc
-ms.openlocfilehash: 99cee6b73fb37caf0ccf09170d60ea4ba3effc2a
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: ea55c6d1ca0575ed2f8487b332f3341579bd3a88
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129714173"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131852225"
 ---
 # <a name="azure-bastion-faq"></a>Preguntas más frecuentes sobre Azure Bastion
 
@@ -24,7 +24,7 @@ No. Si va a conectarse a una máquina virtual mediante Azure Bastion, no necesit
 
 ### <a name="is-ipv6-supported"></a>¿Se admite IPv6?
 
-Actualmente, IPv6 no se admite. Azure Bastion solo admite IPv4.
+Actualmente, IPv6 no se admite. Azure Bastion solo admite IPv4. Esto significa que solo puede asignar una dirección IP pública IPv4 al recurso de Bastion y que puede usar la instancia de Bastion para conectarse a las máquinas virtuales de destino IPv4. También puede usar su instancia de Bastion para conectarse a máquinas virtuales de destino de doble pila, pero solo podrá enviar y recibir tráfico IPv4 a través de Azure Bastion. 
 
 ### <a name="can-i-use-azure-bastion-with-azure-private-dns-zones"></a>¿Puedo usar Azure Bastion con zonas de DNS privado de Azure?
 
@@ -46,7 +46,7 @@ No. No es preciso instalar un agente ni ningún otro software en el explorador n
 
 ### <a name="what-features-are-supported-in-an-rdp-session"></a><a name="rdpfeaturesupport"></a>¿Qué características se admiten en una sesión de RDP?
 
-En este momento, solo se admiten las operaciones de copiado y pegado de texto. No se admiten características como la copia de archivos. No dude en compartir sus comentarios sobre nuevas características en la [página de comentarios de Azure Bastion](https://feedback.azure.com/forums/217313-networking?category_id=367303).
+En este momento, solo se admiten las operaciones de copiado y pegado de texto. No se admiten características como la copia de archivos. No dude en compartir sus comentarios sobre nuevas características en la [página de comentarios de Azure Bastion](https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=c109f019-8326-ec11-b6e6-000d3a4f0789).
 
 ### <a name="does-bastion-hardening-work-with-aadj-vm-extension-joined-vms"></a><a name="aadj"></a>¿Funciona la protección de Bastion con las máquinas virtuales unidas mediante extensión a una máquina virtual AADJ?
 
@@ -96,7 +96,7 @@ Actualmente, Azure Bastion admite las siguientes distribuciones de teclado dentr
 * sv-se-qwerty
 * tr-tr-qwerty
 
-La distribución de teclado predeterminada de la máquina virtual de destino coincidirá con su idioma local, que se puede cambiar en la configuración de su equipo local.
+Para establecer las asignaciones de claves correctas para el idioma de destino, debe establecer el idioma del equipo local o el idioma de la máquina virtual de destino en inglés (Estados Unidos). Es decir, el idioma del equipo local debe establecerse en inglés (Estados Unidos) mientras el idioma de la máquina virtual de destino está establecido en el idioma de destino, o viceversa. Puede agregar el idioma inglés (Estados Unidos) a la máquina en la configuración del equipo.
 
 ### <a name="does-azure-bastion-support-timezone-configuration-or-timezone-redirection-for-target-vms"></a><a name="timezone"></a>¿Admite Azure Bastion la configuración o redireccionamiento de zona horaria para las máquinas virtuales de destino?
 

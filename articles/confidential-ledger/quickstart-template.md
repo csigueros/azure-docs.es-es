@@ -1,6 +1,6 @@
 ---
-title: Creación de un Microsoft Azure Confidential Ledger mediante una plantilla de Azure Resource Manager
-description: Aprenda a crear un Microsoft Azure Confidential Ledger mediante una plantilla de Azure Resource Manager.
+title: Creación de una instancia de Microsoft Azure Confidential Ledger mediante una plantilla de Azure Resource Manager
+description: Aprenda a crear una instancia de Microsoft Azure Confidential Ledger mediante una plantilla de Azure Resource Manager.
 services: azure-resource-manager
 author: msmbaldwin
 ms.service: azure-resource-manager
@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.author: mbaldwin
 ms.date: 04/15/2021
-ms.openlocfilehash: dd6dd17db52ea0ecbd2793f62bf319ce36321f98
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 0b393c39940e0912a2497b6efba9ca920ce71fe7
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111752115"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131438842"
 ---
-# <a name="quickstart-create-an-microsoft-azure-confidential-ledger-with-an-arm-template"></a>Inicio rápido: crear un Microsoft Azure Confidential Ledger con una plantilla de ARM
+# <a name="quickstart-create-an-microsoft-azure-confidential-ledger-with-an-arm-template"></a>Inicio rápido: Creación de una instancia de Microsoft Azure Confidential Ledger con una plantilla de ARM
 
-[Microsoft Azure Confidential Ledger](overview.md) es un servicio nuevo y muy seguro para administrar registros de datos confidenciales. En este artículo de inicio rápido se describe cómo usar una plantilla de Azure Resource Manager (plantilla de ARM) para crear un nuevo libro de contabilidad.
+[Microsoft Azure Confidential Ledger](overview.md) es un servicio nuevo y muy seguro para administrar registros de datos confidenciales. En este artículo de inicio rápido se describe cómo usar una plantilla de Azure Resource Manager (plantilla de ARM) para crear un nuevo libro de contabilidad.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -63,13 +63,13 @@ Recursos de Azure definidos en la plantilla:
 
 1. Seleccione o escriba los siguientes valores.
 
-    A menos que se especifique otra cosa, utilice el valor predeterminado para crear el Confidential Ledger.
+    A menos que se especifique otra cosa, utilice el valor predeterminado para crear el libro de contabilidad confidencial.
 
     - **Nombre del libro de contabilidad**: seleccione un nombre para el libro de contabilidad. Los nombres de libros de contabilidad deben ser únicos globalmente.
     - **Ubicación**: Seleccione una ubicación. Por ejemplo **Este de EE. UU.**
     - **PrincipalId**: Proporcione el identificador de la entidad de seguridad que anotó en la sección [Requisitos previos](#obtain-your-principal-id) anterior.
 
-1. Seleccione **Comprar**. Una vez que el recurso Confidential Ledger se haya implementado correctamente, recibirá una notificación.
+1. Seleccione **Comprar**. Una vez que el recurso del libro de contabilidad confidencial se haya implementado correctamente, recibirá una notificación.
 
 Azure Portal se usa para implementar la plantilla. Además de Azure Portal, también puede usar Azure PowerShell, la CLI de Azure y API REST. Para obtener información sobre otros métodos de implementación, consulte [Implementación de plantillas](../azure-resource-manager/templates/deploy-powershell.md).
 
@@ -79,7 +79,7 @@ Puede usar Azure Portal para comprobar el recurso del libro de contabilidad.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Otros artículos Microsoft Azure Confidential Ledger se pueden basar en esta guía de inicio rápido. Si tiene pensado seguir trabajando en otras guías de inicio rápido y tutoriales, considere la posibilidad de dejar estos recursos activos.
+Otros artículos sobre Azure Confidential Ledger se pueden basar en este inicio rápido. Si tiene pensado seguir trabajando en otras guías de inicio rápido y tutoriales, considere la posibilidad de dejar estos recursos activos.
 
 Cuando ya no lo necesite, elimine el grupo de recursos, que elimina el recurso del libro de contabilidad. Para eliminar el grupo de recursos mediante la CLI de Azure o Azure PowerShell:
 
@@ -104,4 +104,4 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha creado un recurso Confidential Ledger mediante una plantilla de ARM y ha validado la implementación. Para obtener más información sobre el servicio, consulte la [Información general de Microsoft Azure Confidential Ledger](overview.md).
+En esta guía de inicio rápido, ha creado un recurso de Confidential Ledger mediante una plantilla de ARM y ha validado la implementación. Para más información sobre el servicio, consulte la [Introducción sobre Microsoft Azure Confidential Ledger](overview.md).

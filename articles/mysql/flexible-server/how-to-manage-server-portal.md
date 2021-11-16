@@ -6,21 +6,18 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 5500a197b7cb2566b3ea78b6c2acba9403a7a8ae
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 677301275beb561a583ffeea92861132a54b3e34
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122651872"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131445485"
 ---
-# <a name="manage-an-azure-database-for-mysql---flexible-server-preview-using-azure-portal"></a>Administración de Azure Database for MySQL: servidor flexible (versión preliminar) mediante Azure Portal
+# <a name="manage-an-azure-database-for-mysql---flexible-server-using-azure-portal"></a>Administración de Azure Database for MySQL: servidor flexible mediante Azure Portal
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-> [!IMPORTANT]
-> Azure Database for MySQL: servidor flexible está actualmente en versión preliminar pública.
-
-En este artículo se muestra cómo administrar los servidores flexibles de Azure Database for MySQL (versión preliminar). Las tareas de administración incluyen el escalado de los procesos y el almacenamiento, el restablecimiento de la contraseña de administrador del servidor y la eliminación del servidor.
+En este artículo se muestra cómo administrar los servidores flexibles de Azure Database for MySQL. Las tareas de administración incluyen el escalado de los procesos y el almacenamiento, el restablecimiento de la contraseña de administrador del servidor y la eliminación del servidor.
 
 ## <a name="sign-in"></a>Iniciar sesión
 
@@ -37,7 +34,7 @@ Tras crear el servidor, puede escalar entre los distintos [planes de tarifa](htt
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/howto-manage-server-portal/scale-server.png" alt-text="Escalado del almacenamiento del servidor flexible":::
 
-   
+
 > [!IMPORTANT]
    > - El almacenamiento no se puede reducir verticalmente.
    > - El escalado de los núcleos virtuales provoca un reinicio del servidor.

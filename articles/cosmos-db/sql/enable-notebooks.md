@@ -8,22 +8,20 @@ ms.topic: how-to
 ms.date: 09/24/2021
 ms.author: dech
 ms.custom: references_regions
-ms.openlocfilehash: 03a493807b0f7eb0f6e1f08794a53b18b3a7dbe4
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 19bb4a91a8612feab4218a16eedb2f961b1d0adb
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129060543"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131434016"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Habilitación de cuadernos para las cuentas de Azure Cosmos DB (versión preliminar)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]
 > Actualmente, la característica de cuaderno está deshabilitada temporalmente. El equipo de Azure Cosmos DB está trabajando para corregirlo.  
->
-> Los cuadernos integrados para Azure Cosmos DB están disponibles actualmente en [29 regiones](#supported-regions). Para usar cuadernos, [cree una cuenta de Cosmos](#create-a-new-cosmos-account) o [habilite los notebooks de una cuenta existente](#enable-notebooks-in-an-existing-cosmos-account) en una de estas regiones. 
 
-Los cuadernos de Jupyter integrados en Azure Cosmos DB permiten analizar y visualizar los datos desde Azure Portal. En este artículo se describe cómo habilitar esta característica para la cuenta de Azure Cosmos DB.
+Los cuadernos de Jupyter integrados en Azure Cosmos DB permiten analizar y visualizar los datos desde Azure Portal. En este artículo se describe cómo habilitar esta característica para la cuenta de Azure Cosmos DB. Los cuadernos para Azure Cosmos DB están disponibles actualmente en [29 regiones](#supported-regions). Para usar cuadernos, [cree una cuenta de Cosmos](#create-a-new-cosmos-account) o [habilite los notebooks de una cuenta existente](#enable-notebooks-in-an-existing-cosmos-account) en una de estas regiones.
 
 ## <a name="create-a-new-cosmos-account"></a>Creación de una cuenta de Cosmos
 A partir del 10 de febrero de 2021, las nuevas cuentas de Azure Cosmos creadas en una de las [regiones admitidas](#supported-regions) tendrán automáticamente los cuadernos habilitados. No se necesita ninguna configuración adicional para habilitar los cuadernos. Use estas instrucciones para crear una cuenta:

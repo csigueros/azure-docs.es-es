@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 60a01c9e3a3e8643ad7d993db34d299fdc5ef145
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 5c7e7cc2434c9c55043ae6e504d868a103da35db
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122014599"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226250"
 ---
 # <a name="collect-and-transport-metrics-preview"></a>Recopilación y transporte de métricas (versión preliminar)
 
@@ -219,7 +219,7 @@ Selectores basados en etiquetas (`{quantile=0.5,otherLabel=~Re[ge]*|x}`).
   * `=`: coincide con etiquetas exactamente iguales a la cadena proporcionada (distingue mayúsculas de minúsculas).
   * `!=`: coincide con etiquetas que no son exactamente iguales a la cadena proporcionada.
   * `=~`: coincide con las etiquetas de una expresión regular proporcionada. Por ejemplo: `label=~CPU|Mem|[0-9]*`.
-  * `!=`: coincide con las etiquetas que no se ajustan a una expresión regular proporcionada.
+  * `!~`: coincide con las etiquetas que no se ajustan a una expresión regular proporcionada.
   * La expresión regular está totalmente delimitada (los valores ^ y $ se agregan automáticamente al inicio y al final de cada expresión regular).
   * Este componente es necesario en un selector de métricas.
 
@@ -228,15 +228,15 @@ Selector de puntos de conexión (`[http://VeryNoisyModule:9001/metrics]`).
 * La dirección URL debe coincidir exactamente con una dirección URL enumerada en `MetricsEndpointsCSV`.
 * Este componente es necesario en un selector de métricas.
 
-Una métrica debe coincidir con todas las partes de un selector determinado para que se seleccione. Igualmente, debe coincidir con el nombre *y* tener las mismas etiquetas con valores que coincidan *y* procedan del punto de conexión especificado. Por ejemplo, `mem{quantile=0.5,otherLabel=foobar}[http://VeryNoisyModule:9001/metrics]` no coincidirá con el selector `mem{quantile=0.5,otherLabel=~foo|bar}[http://VeryNoisyModule:9001/metrics]`. Se deben usar varios selectores para crear un comportamiento de tipo OR, en lugar de un comportamiento parecido a AND.
+Una métrica debe coincidir con todas las partes de un selector determinado para que se seleccione. Debe coincidir con el nombre *y* tener las mismas etiquetas con valores que coincidan *y* procedan del punto de conexión especificado. Por ejemplo, `mem{quantile=0.5,otherLabel=foobar}[http://VeryNoisyModule:9001/metrics]` no coincidirá con el selector `mem{quantile=0.5,otherLabel=~foo|bar}[http://VeryNoisyModule:9001/metrics]`. Se deben usar varios selectores para crear un comportamiento de tipo OR, en lugar de un comportamiento parecido a AND.
 
-Por ejemplo, para permitir la métrica `mem` de un módulo `module1` independientemente de las etiquetas, pero permitir solo la misma métrica de `module2` con la etiqueta `agg=p99`, se puede agregar el siguiente selector a `AllowedMetrics`:
+Por ejemplo, para permitir la métrica personalizada `mem` con cualquier etiqueta de un módulo `module1`, pero permitir solo la misma métrica de `module2` con la etiqueta `agg=p99`, se puede agregar el siguiente selector a `AllowedMetrics`:
 
 ```query
 mem{}[http://module1:9001/metrics] mem{agg="p99"}[http://module2:9001/metrics]
 ```
 
-O bien, para permitir las métricas `mem` y `cpu`, sean cuales sean las etiquetas o el punto de conexión, agregue lo siguiente a `AllowedMetrics`:
+O bien, para permitir las métricas personalizadas `mem` y `cpu` con cualquier etiqueta o punto de conexión, agregue lo siguiente a `AllowedMetrics`:
 
 ```query
 mem cpu

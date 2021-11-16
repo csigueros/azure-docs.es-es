@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c134f657e4037627fc39f321d9e579c8682a6b58
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b5e6813391c8077e44e2bb09b71404242707df5a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131067087"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131459413"
 ---
 # <a name="securing-external-access-with-groups"></a>Protección del acceso externo mediante grupos 
 
@@ -150,7 +150,7 @@ Las organizaciones híbridas tienen una infraestructura local y una infraestruct
 
 ## <a name="microsoft-365-groups"></a>Grupos de Microsoft 365
 
-Los [grupos de Microsoft 365](/microsoft-365/admin/create-groups/office-365-groups) son un servicio de pertenencia básico que regula todo el acceso a través de Microsoft 365. Se pueden crear desde [Azure Portal](https://portal.azure.com/) o el [portal de Microsoft 365](https://admin.microsoft.com/). Al crear un grupo de Microsoft 365, concede acceso a un grupo de recursos que se usan con fines de colaboración. Consulte [Información general de los grupos de Microsoft 365 para administradores](/microsoft-365/admin/create-groups/office-365-groups) y obtenga una lista completa de estos recursos.
+Los [grupos de Microsoft 365](/microsoft-365/admin/create-groups/office-365-groups) son un servicio de pertenencia básico que regula todo el acceso a través de Microsoft 365. Se pueden crear desde [Azure Portal](https://portal.azure.com/) o el [portal de Microsoft 365](https://admin.microsoft.com/). Al crear un grupo de Microsoft 365, concede acceso a un grupo de recursos que se usa con fines de colaboración. Consulte [Información general de los grupos de Microsoft 365 para administradores](/microsoft-365/admin/create-groups/office-365-groups) y obtenga una lista completa de estos recursos.
 
 Los grupos de Microsoft 365 tienen las siguientes características para sus roles:
 

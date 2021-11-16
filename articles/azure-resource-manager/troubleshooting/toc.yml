@@ -22,31 +22,33 @@
       items:
         - name: Errores de implementación frecuentes
           href: common-deployment-errors.md
-        - name: AccountNameInvalid
+        - name: Nombre de cuenta no válido
           href: error-storage-account-name.md
-        - name: DeploymentQuotaExceeded
+        - name: Cuota de implementaciones superada
           href: deployment-quota-exceeded.md
-        - name: InvalidTemplate
+        - name: Plantilla no válida
           href: error-invalid-template.md
-        - name: JobSizeExceeded
+        - name: Se ha superado el tamaño del trabajo
           href: error-job-size-exceeded.md
-        - name: NoRegisteredProviderFound
+        - name: No se encontró el proveedor registrado
           href: error-register-resource-provider.md
-        - name: NotFound
+        - name: No encontrado
           href: error-not-found.md
-        - name: ParentResourceNotFound
+        - name: Recurso primario no encontrado
           href: error-parent-resource.md
         - name: Problemas de aprovisionamiento y asignación de Linux
           href: /troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux
         - name: Problemas de aprovisionamiento y asignación de Windows
           href: /troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows
-        - name: RequestDisallowedByPolicy
+        - name: La directiva no permite la solicitud
           href: error-policy-requestdisallowedbypolicy.md
-        - name: ReservedResourceName
+        - name: Nombre de recurso reservado
           href: error-reserved-resource-name.md
-        - name: ResourceQuotaExceeded
+        - name: Formato de tipo y nombre del recurso
+          href: error-invalid-name-segments.md
+        - name: Cuota de recursos superada
           href: error-resource-quota.md
-        - name: SkuNotAvailable
+        - name: SKU no disponible
           href: error-sku-not-available.md
 - name: Referencia
   items:
@@ -62,7 +64,7 @@
       href: /rest/api/resources/
     - name: Azure PowerShell
       href: /powershell/module/az.resources
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/resource
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.resourcemanager

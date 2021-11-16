@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/17/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 14f8cc665ef1d7335116a2e5b68ea3f58424063a
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 9d7740a1b5840674720bfc8e180b54334256e488
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129274451"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441445"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Optimización de los costos de almacenamiento de blobs con capacidad reservada
 
@@ -44,7 +44,7 @@ Una reserva de Azure Storage solo cubre la cantidad de datos que se almacenan en
 
 La capacidad reservada de Azure Storage está disponible para los recursos de las cuentas de almacenamiento estándar, incluidas las cuentas de uso general v2 (GPv2) y de almacenamiento de blobs.
 
-Todos los niveles de acceso (frecuente, esporádicoy de archivo) se admiten para las reservas. Para más información sobre los niveles de acceso, consulte [Niveles de acceso frecuente, esporádico y de archivo de los blobs](access-tiers-overview.md).
+Todos los niveles de acceso (frecuente, esporádicoy de archivo) se admiten para las reservas. Para más información sobre los niveles de acceso, consulte [Niveles de acceso frecuente, esporádico y de archivo para los datos de blobs](access-tiers-overview.md).
 
 Se admiten todos los tipos de redundancia para las reservas. Para más información sobre las opciones de redundancia, consulte [Redundancia de Azure Storage](../common/storage-redundancy.md).
 
@@ -84,7 +84,7 @@ Siga estos pasos para adquirir la capacidad reservada:
    |**Ámbito**   |  Indica el número de suscripciones que pueden usar la ventaja de facturación asociada con la reserva. También controla cómo se aplica la reserva a suscripciones concretas. <br/><br/> Si selecciona **Compartido**, el descuento de la reserva se aplica a la capacidad de Azure Storage en cualquier suscripción en el contexto de facturación. El contexto de facturación se basa en cómo se haya suscrito a Azure. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de pago por uso, el ámbito compartido incluye todas las suscripciones con tarifas de pago por uso creadas por el administrador de la cuenta.  <br/><br/>  Si selecciona **Suscripción única**, el descuento de reserva se aplica a la capacidad de Azure Storage de la suscripción seleccionada. <br/><br/> Si selecciona **Grupo de recursos único**, el descuento de reserva se aplica a la capacidad de Azure Storage de la suscripción seleccionada y al grupo de recursos seleccionado dentro de esa suscripción. <br/><br/> Puede cambiar el ámbito de reserva después de comprar la reserva.  |
    |**Suscripción**  | La suscripción que se usa para pagar la reserva de Azure Storage. El método de pago en la suscripción seleccionada se usa al cargar los costos. La suscripción debe ser uno de los tipos siguientes: <br/><br/>  Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P): En el caso de una suscripción Enterprise, los cargos se deducirán del saldo de pago por adelantado de la inscripción de Azure (anteriormente llamado compromiso monetario) o se cobrarán como parte del uso por encima del límite. <br/><br/> Suscripción individual con tarifas de pago por uso (números de la oferta: MS-AZR-0003P o MS-AZR-0023P): en una suscripción individual con tarifas de pago por uso, los cargos se cobran en el método de pago de tarjeta de crédito o factura de la suscripción.    |
    | **Región** | La región donde está en vigor la reserva. |
-   | **Nivel de acceso** | El nivel de acceso donde está en vigor la reserva. Entre las opciones se incluyen *Frecuente*, *Esporádico* o *De archivo*. Para más información acerca de los niveles de acceso, consulte [Niveles de acceso frecuente, esporádico y de archivo de los datos de blobs](access-tiers-overview.md). |
+   | **Nivel de acceso** | El nivel de acceso donde está en vigor la reserva. Entre las opciones se incluyen *Frecuente*, *Esporádico* o *De archivo*. Para más información sobre los niveles de acceso, consulte [Niveles de acceso frecuente, esporádico y de archivo de los datos de blobs](access-tiers-overview.md). |
    | **Redundancia** | La opción de redundancia para la reserva. Entre las opciones se incluyen *LRS*, *ZRS*, *GRS*, *GZRS*, *RA-GRS* y *RA-GZRS*. Para más información sobre las opciones de redundancia, consulte [Redundancia de Azure Storage](../common/storage-redundancy.md). |
    | **Frecuencia de facturación** | Indica la frecuencia con la que se factura la cuenta para la reserva. Entre las opciones se incluyen *Mensual* o *Por adelantado*. |
    | **Tamaño** | Cantidad de capacidad que se va a reservar. |
@@ -114,7 +114,7 @@ No hay límite en el número de intercambios que puede hacer. Además, los inter
 
 ### <a name="refund-a-reservation"></a>Reembolso de una reserva
 
-Puede cancelar una reserva de Azure Storage en cualquier momento. Cuando lo haga, recibirá un reembolso prorrateado según el período restante de la reserva, menos una cuota de finalización temprana del 12 %. El reembolso máximo por año es de USD 50 000.
+Puede cancelar una reserva de Azure Storage en cualquier momento. Cuando lo haga, recibirá un reembolso prorrateado según el período restante de la reserva. El reembolso máximo por año es de USD 50 000.
 
 Al cancelar una reserva, esta se finaliza inmediatamente y se devuelven los meses restantes a Microsoft. El saldo prorrateado restante, menos la cuota, se reembolsará en la forma de compra original.
 

@@ -3,12 +3,12 @@ title: Cambios en el comportamiento de la configuración de invitados en PowerSh
 description: En este artículo se proporciona información general sobre la plataforma que se usa para entregar cambios de configuración a las máquinas a través Azure Policy.
 ms.date: 05/31/2021
 ms.topic: how-to
-ms.openlocfilehash: b501305513e99963ec9d00a49e6e7aa1c74b3683
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 6118ec0ce0bb8b0296153d32dbad559a6b53ebb8
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130045339"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130261869"
 ---
 # <a name="changes-to-behavior-in-powershell-desired-state-configuration-for-guest-configuration"></a>Cambios en el comportamiento de la configuración de invitados en PowerShell Desired State Configuration
 
@@ -30,6 +30,30 @@ La configuración de invitado funciona en PowerShell 7.1.3 para Windows y Power
 
 La configuración de invitado admite la asignación de varias configuraciones en la misma máquina. No se requieren pasos especiales en el sistema operativo de la extensión de configuración de invitado. No es necesario establecer [configuraciones parciales](/powershell/scripting/dsc/pull-server/partialConfigs).
 
+## <a name="dependencies-are-managed-per-configuration"></a>Las dependencias se administran por configuración
+
+Cuando una configuración se [empaqueta con las herramientas disponibles](../how-to/guest-configuration-create.md), las dependencias necesarias para la configuración se incluyen en un archivo ZIP.
+Las máquinas extraen el contenido a una carpeta única para cada configuración.
+El agente entregado por la extensión de configuración de invitado crea una sesión de PowerShell dedicada para cada configuración, mediante un `$Env:PSModulePath` que limita la carga automática de módulos solo a la ruta de acceso en la que se extrajo el paquete.
+
+Este cambio tiene varias ventajas.
+
+- Es posible usar versiones de módulos distintas para cada configuración, en la misma máquina.
+- Cuando ya no se elimina una configuración en una máquina, el agente elimina de forma segura toda la carpeta donde se extrajo sin necesidad de administrar las dependencias compartidas entre las configuraciones.
+- No es necesario administrar varias versiones de ningún módulo en un servicio central.
+  
+## <a name="artifacts-are-managed-as-packages"></a>Los artefactos se administran como paquetes
+
+La característica State Configuration de Azure Automation incluye la administración de artefactos para scripts de configuración y módulos. Una vez que ambos se publican en el servicio, el script se puede compilar en formato MOF. Del mismo modo, el servidor de extracción de Windows también requería la administración de configuraciones y módulos en la instancia del servicio web. Por el contrario, la extensión DSC tiene un modelo simplificado en el que todos los artefactos se empaquetan y almacenan en una ubicación accesible desde la máquina de destino mediante una solicitud HTTPS (la opción más popular es Azure Blob Storage).
+
+La configuración de invitado solo usa el modelo simplificado en el que todos los artefactos se empaquetan juntos y se accede a ellos desde la máquina de destino a través de HTTPS.
+No es necesario publicar módulos, scripts ni compilar en el servicio. Un cambio es que el paquete siempre debe incluir un MOF compilado. No es posible incluir un archivo de script en el paquete y compilarlo en la máquina de destino.
+
+## <a name="maximum-size-of-custom-configuration-package"></a>Tamaño máximo del paquete de configuración personalizado
+
+En la configuración del estado de Azure Automation, las configuraciones de DSC tenían [un tamaño limitado](../../../automation/automation-dsc-compile.md#compile-your-dsc-configuration-in-windows-powershell).
+La configuración de invitado admite un tamaño de paquete total de 100 MB (antes de la compresión). No hay ningún límite específico en el tamaño del archivo MOF dentro del paquete.
+
 ## <a name="configuration-mode-is-set-in-the-package-artifact"></a>El modo de configuración se establece en el artefacto del paquete
 
 Al crear el paquete de configuración, el modo se establece mediante las siguientes opciones:
@@ -46,7 +70,11 @@ Los parámetros establecidos por la matriz de propiedades `configurationParamete
 
 Los parámetros de Azure Policy que pasan valores a las asignaciones de configuración de invitado deben ser de tipo _cadena_. No es posible pasar matrices mediante parámetros, aunque el recurso de DSC admita matrices.
 
-## <a name="sequence-of-events"></a>Secuencia de eventos
+## <a name="trigger-set-from-outside-machine"></a>Conjunto de desencadenadores ajeno a la máquina
+
+En las versiones anteriores de DSC, un desafío era corregir el desfase a gran escala sin una gran cantidad de código personalizado y la dependencia de conexiones remotas de WinRM. La configuración de invitado soluciona este problema. Los usuarios de la configuración de invitado controlan la corrección de desfase a través de la [corrección a petición](./guest-configuration-policy-effects.md#remediation-on-demand-applyandmonitor).
+
+## <a name="sequence-includes-get-method"></a>La secuencia incluye el método Get
 
 Cuando la configuración de invitado audita o configura una máquina, se usa la misma secuencia de eventos para Windows y Linux. El cambio de comportamiento importante es que el servicio llama al método `Get` para devolver detalles sobre el estado de la máquina.
 
@@ -55,15 +83,6 @@ Cuando la configuración de invitado audita o configura una máquina, se usa la 
 1. Si el paquete se establece en `AuditandSet`, el valor booleano determina si se debe corregir la máquina aplicando la configuración mediante el método `Set`.
    Si el método `Test` devuelve False, se ejecuta `Set`. Si `Test` devuelve True, no se ejecuta `Set`.
 1. Por último, el proveedor ejecuta `Get` para devolver el estado actual de cada configuración, de modo que haya detalles disponibles tanto sobre el motivo por el que una máquina no es compatible como para confirmar que el estado actual es compatible.
-
-## <a name="trigger-set-from-outside-machine"></a>Conjunto de desencadenadores ajeno a la máquina
-
-Un desafío de versiones anteriores de DSC era corregir el desfase a gran escala sin una gran cantidad de código personalizado y la dependencia de conexiones remotas de WinRM. La configuración de invitado soluciona este problema. Los usuarios de la configuración de invitado controlan la corrección de desfase a través de la [corrección a petición](./guest-configuration-policy-effects.md#remediation-on-demand-applyandmonitor).
-
-## <a name="maximum-size-of-custom-configuration-package"></a>Tamaño máximo del paquete de configuración personalizado
-
-En la configuración del estado de Azure Automation, las configuraciones de DSC tenían [un tamaño limitado](../../../automation/automation-dsc-compile.md#compile-your-dsc-configuration-in-windows-powershell).
-La configuración de invitado admite un tamaño total de paquete de 100 MB (antes de la compresión). No hay ningún límite específico en el tamaño del archivo MOF dentro del paquete.
 
 ## <a name="special-requirements-for-get"></a>Requisitos especiales para Get
 
@@ -95,7 +114,7 @@ return @{
 }
 ```
 
-Al usar herramientas de línea de comandos para obtener información que se devuelva en Get, es posible que la herramienta devuelva una salida no esperada. Aunque capture la salida en PowerShell, también podría escribirse en un error estándar. Para evitar este problema, considere la posibilidad de redirigir la salida a null.
+Al usar herramientas de línea de comandos para obtener información que se devuelva en Get, es posible que la herramienta devuelva una salida no esperada. Aunque capture la salida en PowerShell, también podría haberse escrito en un error estándar. Para evitar este problema, considere la posibilidad de redirigir la salida a null.
 
 ### <a name="the-reasons-property-embedded-class"></a>Clase incrustada de la propiedad Reasons
 
@@ -178,7 +197,7 @@ El módulo `PsDscResources` de la Galería de PowerShell y el módulo `PSDesired
   
 Los recursos "nx" de Linux incluidos en el repositorio de [DSC para Linux](https://github.com/microsoft/PowerShell-DSC-for-Linux/tree/master/Providers) se han escrito en una combinación de los lenguajes C y Python. Dado que el método de DSC en Linux es usar PowerShell, los recursos "nx" existentes no son compatibles con DSCv3. Hasta que haya disponible un nuevo módulo que contenga recursos admitidos para Linux es necesario crear recursos personalizados.
 
-## <a name="coexistance-with-dsc-version-3-and-previous-versions"></a>Coexistencia con la versión 3 y anteriores de DSC
+## <a name="coexistence-with-dsc-version-3-and-previous-versions"></a>Coexistencia con la versión 3 y anteriores de DSC
 
 La versión 3 de DSC de la configuración de invitado puede coexistir con versiones anteriores instaladas en [Windows](/powershell/scripting/dsc/getting-started/wingettingstarted) y [Linux](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
 Las implementaciones son independientes. Sin embargo, no hay ninguna detección de conflictos en las versiones de DSC, por lo que no intente administrar la misma configuración.

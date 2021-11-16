@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.author: thwimmer
-ms.openlocfilehash: b03e173dca962b1758670f37bb9a463d16fcc875
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.openlocfilehash: 60017b92ad9afc007775e205f56d269f8050d918
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122195664"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131424266"
 ---
 # <a name="tutorial-configure-iris-intranet-for-automatic-user-provisioning"></a>Tutorial: Configuración de Iris Intranet para el aprovisionamiento automático de usuarios
 

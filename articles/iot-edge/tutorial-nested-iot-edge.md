@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: dc878b0f1a843d8212cd6541338510f8eff4b56c
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 5c204a07a0457852d2faefacdd77740f147b9d88
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129714941"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225999"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices"></a>Tutorial: Creación de una jerarquía de dispositivos IoT Edge
 
@@ -78,7 +78,7 @@ Para crear una jerarquía de dispositivos IoT Edge, necesitará:
 
    La máquina virtual usa claves SSH para autenticar a los usuarios. Si no está familiarizado con la creación y el uso de claves SSH, puede seguir [las instrucciones relativas a los pares de claves SSH pública y privada para máquinas virtuales Linux en Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
-   IoT Edge versión 1.2 viene preinstalado con esta plantilla de ARM, lo que ahorra la necesidad de instalar manualmente los recursos en las máquinas virtuales. Si va a instalar IoT Edge en sus propios dispositivos, consulte [Instalación de Azure IoT Edge para Linux (versión 1.2)](how-to-install-iot-edge.md) o [Actualización de IoT Edge a la versión 1.2.](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-12)
+   IoT Edge versión 1.2 viene preinstalado con esta plantilla de ARM, lo que ahorra la necesidad de instalar manualmente los recursos en las máquinas virtuales. Si va a instalar IoT Edge en sus propios dispositivos, consulte [Instalación de Azure IoT Edge para Linux (versión 1.2)](how-to-provision-single-device-linux-symmetric.md) o [Actualización de IoT Edge a la versión 1.2.](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-12)
 
    Después de crear correctamente una máquina virtual con esta plantilla de ARM, se generará el identificador `SSH` y el nombre de dominio completo de la máquina virtual (`FQDN`). En pasos posteriores usará el identificador SSH y el nombre de dominio completo o la dirección IP de cada máquina virtual para la configuración, así que no debe perder de vista esta información. A continuación, se muestra una salida de ejemplo.
 
@@ -151,7 +151,7 @@ Para usar la herramienta `iotedge-config` para crear y configurar la jerarquía,
 
    En la sección **edgedevices**, en un escenario de producción, puede editar el árbol de jerarquía para reflejar la estructura deseada. Para los fines de tutorial, acepte el árbol predeterminado. Para cada dispositivo, hay un campo `device_id` en el que puede nombrar a los dispositivos. También está el campo `deployment`, que especifica la ruta de acceso al archivo JSON de implementación de ese dispositivo.
 
-   Además, puede registrar manualmente los dispositivos IoT Edge en su centro de IoT mediante Azure Portal o Azure Cloud Shell. Para saber cómo, consulte [la guía sobre cómo registrar un dispositivo IoT Edge](how-to-register-device.md).
+   También puede registrar manualmente los dispositivos IoT Edge en el centro de IoT mediante Azure Portal, Azure Cloud Shell o Visual Studio Code. Para obtener información sobre cómo hacerlo, consulte [el principio de la guía integral sobre el aprovisionamiento manual de un dispositivo IoT Edge con Linux](how-to-provision-single-device-linux-symmetric.md#register-your-device).
 
    También puede definir las relaciones primario-secundario manualmente. Para más información, consulte la sección [Creación de una jerarquía de puerta de enlace](how-to-connect-downstream-iot-edge-device.md#create-a-gateway-hierarchy) de la guía paso a paso.
 
@@ -296,7 +296,7 @@ También puede ver estos mensajes mediante [Azure Cloud Shell](https://shell.azu
    az iot hub monitor-events -n <iothub_name> -d <lower-layer-device-name>
    ```
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>Solucionar problemas
 
 Ejecute el comando `iotedge check` para comprobar la configuración y solucionar errores.
 

@@ -2,20 +2,20 @@
 title: Planificación para administrar costos de Azure
 description: Obtenga información sobre cómo administrar los costos de Azure y usar las características de administración y seguimiento de costos para su cuenta de Azure.
 author: bandersmsft
-ms.reviewer: amberb
+ms.reviewer: sapnakeshari
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 10/07/2021
+ms.date: 10/20/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: d1a76078db3acd79d1f59ce43852d538edac7964
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 63542b241d26964d1f24fbe6744b4cbd6bccd6c1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129710895"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215733"
 ---
 # <a name="plan-to-manage-azure-costs"></a>Planificación para administrar costos de Azure
 
@@ -35,7 +35,7 @@ Si necesita cancelar su suscripción a Azure, consulte [Cancelación de la suscr
 Use una de las siguientes herramientas para calcular el costo de usar un servicio de Azure:
 - Calculadora de precios de Azure
 - Hoja de precios de Azure
-- Azure Portal
+- Portal de Azure
 
 Las imágenes de las secciones siguientes muestran ejemplos de precios en dólares estadounidenses. Los precios mencionados son solo para este ejemplo. No implican costos reales. 
 
@@ -152,6 +152,7 @@ Actualmente, las vistas de los costos de Enterprise se encuentran en versión pr
     - Es el administrador del departamento y su administrador de inscripción ha deshabilitado la opción para que el **administrador del departamento vea los cargos**.  Póngase en contacto con el administrador de inscripciones para acceder.
     - Compró Azure a través de un asociado de canal y el asociado no publicó la información sobre precios.  
 - Si actualiza la configuración relacionada con el costo en Enterprise Portal, los cambios tardan unos minutos en mostrarse en Azure Portal.
+- Los clientes directos de EA pueden actualizar la configuración relacionada con los costos en [Azure Portal](https://portal.azure.com/). Vaya al menú Directivas para cambiar la configuración.
 - El límite de gasto y la orientación de factura no se aplican a las suscripciones de EA.
 
 ### <a name="check-your-subscription-and-access"></a>Comprobación de la suscripción y el acceso

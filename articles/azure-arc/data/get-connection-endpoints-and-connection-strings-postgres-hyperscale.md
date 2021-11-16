@@ -1,23 +1,23 @@
 ---
-title: Obtención de puntos de conexión y cadenas de conexión de formularios para el grupo de servidores de Hiperescala de PostgreSQL habilitada para Arc
+title: Obtención de puntos de conexión y creación de cadenas de conexión para un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc
 titleSuffix: Azure Arc-enabled data services
-description: Obtención de puntos de conexión y cadenas de conexión de formularios para el grupo de servidores de hiperescala de PostgreSQL habilitado para Arc
+description: Obtenga puntos de conexión y cree cadenas de conexión para un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 964b7fcca00afb91a457203d2ed53b885a254d5e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f340cf95072015a3896291484ef1289a9d34d6ed
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733558"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131564107"
 ---
-# <a name="get-connection-endpoints-and-form-the-connection-strings-for-your-arc-enabled-postgresql-hyperscale-server-group"></a>Obtención de puntos de conexión y cadenas de conexión de formularios para el grupo de servidores de Hiperescala de PostgreSQL habilitada para Arc
+# <a name="get-connection-endpoints--create-the-connection-strings-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Obtención de puntos de conexión y creación de las cadenas de conexión para un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc
 
 En este artículo se explica cómo se pueden recuperar los puntos de conexión del grupo de servidores y cómo se pueden formar las cadenas de conexión que se pueden utilizar con las aplicaciones o herramientas.
 
@@ -32,27 +32,43 @@ az postgres arc-server endpoint list -n <server group name> --k8s-namespace <nam
 ```
 Por ejemplo:
 ```azurecli
-az postgres arc-server endpoint list -n postgres01 --k8s-namespace <namespace> --use-k8s
+az postgres arc-server endpoint list -n postgres01 --k8s-namespace arc --use-k8s
 ```
 
-Muestra la lista de puntos de conexión: el punto de conexión de PostgreSQL que se usa para conectar la aplicación y usar la base de datos, los puntos de conexión Kibana y Grafana para análisis de registros y supervisión. Por ejemplo: 
-```console
-Arc
- ===================================================================================================================
- Postgres01 Instance
- -------------------------------------------------------------------------------------------------------------------
- Description           Endpoint
+Devuelve la lista de puntos de conexión: el punto de conexión de PostgreSQL, el panel de búsqueda de registros (Kibana) y el panel de métricas (Grafana). Por ejemplo: 
 
- PostgreSQL Instance   postgresql://postgres:<replace with password>@12.345.567.89:5432
- Log Search Dashboard  https://89.345.712.81:30777/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:postgres01'))
- Metrics Dashboard     https://89.345.712.81:30777/grafana/d/postgres-metrics?var-Namespace=arc&var-Name=postgres01
-
+```output
+{
+  "instances": [
+    {
+      "endpoints": [
+        {
+          "description": "PostgreSQL Instance",
+          "endpoint": "postgresql://postgres:<replace with password>@12.345.567.89:5432"
+        },
+        {
+          "description": "Log Search Dashboard",
+          "endpoint": "https://23.456.78.99:5601/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:postgres01'))"
+        },
+        {
+          "description": "Metrics Dashboard",
+          "endpoint": "https://34.567.890.12:3000/d/postgres-metrics?var-Namespace=arc&var-Name=postgres01"
+        }
+      ],
+      "engine": "PostgreSql",
+      "name": "postgres01"
+    }
+  ],
+  "namespace": "arc"
+}
 ```
+
 Use estos puntos de conexión para:
+
 - Formar las cadenas de conexión y conectarse con las aplicaciones o herramientas de cliente
 - Acceder a los paneles Grafana y Kibana desde el explorador
 
-Por ejemplo, puede usar el punto final denominado _Instancia de PostgreSQL_ para conectarse con psql al grupo de servidores. Por ejemplo:
+Por ejemplo, puede usar el punto de conexión denominado _Instancia de PostgreSQL_ para conectarse con psql al grupo de servidores:
 ```console
 psql postgresql://postgres:MyPassworkd@12.345.567.89:5432
 psql (10.14 (Ubuntu 10.14-0ubuntu0.18.04.1), server 12.4 (Ubuntu 12.4-1.pgdg16.04+1))
@@ -66,24 +82,27 @@ postgres=#
 > [!NOTE]
 >
 > - La contraseña de usuario _postgres_ indicada en el punto de conexión denominado "_instancia de PostgreSQL_" es la contraseña que eligió al implementar el grupo de servidores.
-> _ERROR: (401)_ 
-> _Motivo: No autorizado_
-> _Encabezados de respuesta HTTP: HTTPHeaderDict({'Date': 'Sun, 06 Sep 2020 16:58:38 GMT', 'Content-Length': '0', 'WWW-Authenticate': '_ 
-> _Dominio básico="Credenciales_ de inicio de sesión requeridas", Error de portador="invalid_token", error_description="El token ha expirado"'})_ Cuando esto ocurre, necesita volver a conectarse a azdata como se ha explicado anteriormente.
+
 
 ## <a name="from-cli-with-kubectl"></a>Desde la CLI con kubectl
 ```console
 kubectl get postgresqls/<server group name> -n <namespace name>
 ```
 
+Por ejemplo:
+```azurecli
+kubectl get postgresqls/postgres01 -n arc
+```
+
 Estos comandos producirán una salida como la siguiente. Puede usar esa información para formar las cadenas de conexión:
 ```console
-NAME         STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
-postgres01   Ready   3/3          123.456.789.4:31066      5d20h
+NAME         STATE   READY-PODS   PRIMARY-ENDPOINT     AGE
+postgres01   Ready   3/3          12.345.567.89:5432   9d
 ``` 
 
-## <a name="form-connection-strings"></a>Cadenas de conexión de formulario:
-Use la siguiente tabla de plantillas de cadenas de conexiones para el grupo de servidores. Después, puede copiarlas, pegarlas y personalizarlas según sea necesario:
+## <a name="form-connection-strings"></a>Formación de cadenas de conexión
+
+Use los ejemplos de cadenas de conexión siguientes para el grupo de servidores. Cópielos, péguelos y personalícelos según sea necesario:
 
 ### <a name="adonet"></a>ADO.NET
 
@@ -136,5 +155,3 @@ host=192.168.1.121; dbname=postgres user=postgres password={your_password_here} 
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga información sobre el [escalado horizontal (adición de nodos de trabajo)](scale-out-in-postgresql-hyperscale-server-group.md) del grupo de servidores.
 - Obtenga información sobre [cómo escalar o reducir verticalmente (aumentar o reducir la memoria o los núcleos virtuales)](scale-up-down-postgresql-hyperscale-server-group-using-cli.md) el grupo de servidores.
-
-

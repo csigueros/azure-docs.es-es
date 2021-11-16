@@ -31,6 +31,8 @@
       href: expressroute-vpn-support.md
     - name: Red de base dual
       href: about-dual-homed-network.md
+    - name: Selección de ruta de acceso
+      href: path-selection.md
 - name: Guías paso a paso
   items:
     - name: Solución de problemas de Azure Route Server

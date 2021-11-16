@@ -5,18 +5,18 @@ ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.topic: article
 ms.date: 09/09/2021
 ms.custom: seodec18
-ms.openlocfilehash: d4242ae2afb79f44452c51a971a64632e0d7f098
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 207d2f12c8603b7533cef588131e4a60e0f0ad36
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124769928"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131427330"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidad del sistema operativo en Azure App Service
 En este artículo se describe la funcionalidad del sistema operativo de línea base común que está disponible para todas las aplicaciones Windows que se ejecutan en el [Azure App Service](./overview.md). Esta funcionalidad incluye archivo, red, acceso de registro, registros de diagnóstico y eventos. 
 
 > [!NOTE] 
-> Las [aplicaciones Linux](overview.md#app-service-on-linux) en App Service se ejecutan en sus propios contenedores. No se permite ningún acceso al sistema operativo host, pero sí tiene acceso a la raíz del contenedor. Del mismo modo, para las [aplicaciones que se ejecutan en contenedores de Windows](quickstart-custom-container.md?pivots=container-windows), tiene acceso administrativo al contenedor, pero no al sistema operativo host. 
+> Las [aplicaciones Linux](overview.md#app-service-on-linux) en App Service se ejecutan en sus propios contenedores. Tiene acceso raíz al contenedor, pero no se permite acceder al sistema operativo host. Del mismo modo, para las [aplicaciones que se ejecutan en contenedores de Windows](quickstart-custom-container.md?pivots=container-windows), tiene acceso administrativo al contenedor, pero no al sistema operativo host. 
 >
 
 <a id="tiers"></a>
@@ -80,7 +80,7 @@ En la unidad del sistema, App Service reserva `%SystemDrive%\local` para el alma
 
 Los dos ejemplos de cómo usa App Service el almacenamiento local temporal son el directorio para archivos temporales ASP.NET y el directorio para archivos comprimidos IIS. El sistema de compilación ASP.NET usa el directorio `%SystemDrive%\local\Temporary ASP.NET Files` como ubicación temporal de la memoria caché de compilación. IIS usa el directorio `%SystemDrive%\local\IIS Temporary Compressed Files` para almacenar los resultados comprimidos de la respuesta. Ambos tipos de uso de archivo (al igual que otros) se reasignan en App Service según el almacenamiento local temporal de la aplicación. Esta reasignación garantiza que la funcionalidad continúa según lo esperado.
 
-Cada aplicación de App Service se ejecuta como una identidad de proceso de trabajo con privilegios reducidos, exclusiva y aleatoria denominada "identidad de grupo de aplicaciones", que se describe a continuación: [https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities). El código de la aplicación usa esta identidad para el acceso básico de solo lectura para la unidad del sistema operativo. Esto significa que el código de aplicación puede enumerar estructuras de directorio comunes y leer archivos comunes en la unidad del sistema operativo. Aunque esto puede parecer ser un tipo de nivel amplio de acceso, puede obtenerse acceso a los mismos directorios y archivos cuando realiza el aprovisionamiento de un rol de trabajo en un servicio hospedado de Azure y lee el contenido de la unidad. 
+Cada aplicación de App Service se ejecuta como una identidad de proceso de trabajo con privilegios reducidos, exclusiva y aleatoria denominada "identidad de grupo de aplicaciones", que se describe más en profundidad en la documentación [Identidades de grupo de aplicaciones](/iis/manage/configuring-security/application-pool-identities) de IIS. El código de la aplicación usa esta identidad para el acceso básico de solo lectura para la unidad del sistema operativo. Esto significa que el código de aplicación puede enumerar estructuras de directorio comunes y leer archivos comunes en la unidad del sistema operativo. Aunque esto puede parecer ser un tipo de nivel amplio de acceso, puede obtenerse acceso a los mismos directorios y archivos cuando realiza el aprovisionamiento de un rol de trabajo en un servicio hospedado de Azure y lee el contenido de la unidad. 
 
 <a name="multipleinstances"></a>
 

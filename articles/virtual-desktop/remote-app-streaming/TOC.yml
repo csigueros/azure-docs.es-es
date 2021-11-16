@@ -36,6 +36,8 @@
           href: total-costs.md
         - name: Cálculo de los costos de streaming de aplicaciones por usuario
           href: streaming-costs.md
+        - name: Etiquetado de recursos de Azure Virtual Desktop
+          href: ../tag-virtual-desktop-resources.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: Implementar aplicaciones con Microsoft Intune
           href: /mem/intune/apps/apps-windows-10-app-deploy?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: Servicio a clientes de puntos de conexión administrados de Intune

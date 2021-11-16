@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 10/18/2021
 ms.author: duau
-ms.openlocfilehash: 448438fd5bde23d3518099715f41a4a9739f4815
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: da3be1f9fbfc2872c31ed4f40d01a1d38ef300ef
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132135842"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131478133"
 ---
 # <a name="configure-custom-bgp-communities-for-azure-expressroute-private-peering-preview"></a>Configuración de las comunidades de BGP personalizadas para el emparejamiento privado de Azure ExpressRoute (versión preliminar)
 
@@ -85,13 +85,13 @@ Las comunidades de BGP son agrupaciones de prefijos IP etiquetados con un valor
         Name = 'myVirtualNetwork'
         ResourceGroupName = 'myERRG'
     } 
-    $vnet = Get-AzVirtualNetwork @virtualnetwork
+    $vnet = Get-AzVirtualNewtork @virtualnetwork
     ```
 
 1. Actualice el valor `VirtualNetworkCommunity` para la red virtual.
 
     ```azurepowershell-interactive
-    $vnet.BgpCommunities = @{VirtualNetworkCommunity = '12076:20002'}
+    $vnet.BgpCommunities.VirtualNetworkCommunity = '12076:20002'
     $vnet | Set-AzVirtualNetwork
     ```
 

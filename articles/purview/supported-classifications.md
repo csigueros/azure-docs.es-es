@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: reference
 ms.date: 09/27/2021
-ms.openlocfilehash: e3018a1b9d94ca1f750bf8d17b1ea6ba028ad07f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: fa92330fcbae0bba9e3f9d18cb3e56d9c16a9ee6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131056155"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131449457"
 ---
 # <a name="supported-classifications-in-azure-purview"></a>Clasificaciones admitidas en Azure Purview
 
@@ -410,7 +410,10 @@ Ocho o nueve caracteres alfanuméricos
 
 ### <a name="pattern"></a>Patrón
 
-- Una letra (N, E, D, F, A, C, U, X) seguida de siete dígitos o
+- Una letra (N, E, D, F, A, C, U, X) seguida de siete dígitos
+
+**or**
+
 - Dos letras (PA, PB, PC, PD, PE, PF, PU, PW, PX, PZ) seguidas de siete dígitos.
 
 ### <a name="checksum"></a>Suma de comprobación
@@ -1566,9 +1569,13 @@ No
 Un número de cuenta bancaria de Canadá tiene entre 7 o 12 dígitos.
 
 Un número de tránsito de cuenta bancaria de Canadá tiene:
+
 - cinco dígitos
 - un guion
-- tres dígitos O
+- tres dígitos
+
+**or**
+
 - un cero "0"
 - ocho dígitos
 
@@ -7170,9 +7177,13 @@ No
 ### <a name="pattern"></a>Patrón
 
 7-12 dígitos:
+
 - cuatro dígitos
 - un guion (opcional)
-- seis dígitos O
+- seis dígitos
+
+*or*
+
 - 7-12 dígitos consecutivos
 
 ### <a name="checksum"></a>Suma de comprobación
@@ -9353,6 +9364,9 @@ Número de 9 o 14 dígitos
 número de nueve o 14 dígitos:
 
 - nueve dígitos
+
+**or**
+
 - nueve dígitos
 - guion
 - cinco dígitos

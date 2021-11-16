@@ -8,12 +8,12 @@ ms.date: 10/21/2021
 ms.author: rarco
 ms.reviewer: cynthn
 ms.custom: references_regions
-ms.openlocfilehash: 31b1d0b7c4bcc498ba8490fd4edd5c6d13e76cfb
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: aa074d5f745f9a427fe3f4c197d0cd09de660a84
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131858462"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132325607"
 ---
 # <a name="cross-region-replication-in-azure-business-continuity-and-disaster-recovery"></a>Replicación entre regiones en Azure: continuidad empresarial y recuperación ante desastres
 
@@ -42,7 +42,7 @@ La arquitectura de la replicación entre regiones para sus servicios y datos se 
 - **Secuencia de recuperación de regiones**: si se produce una interrupción en todas las zonas geográficas, se da prioridad a la recuperación de una región de cada conjunto de regiones habilitado. Se garantiza que las aplicaciones que se implementan en conjuntos de regiones habilitados tengan una de las regiones prioritarias para la recuperación. Si una aplicación se implementa entre regiones que no están habilitadas para la replicación entre regiones, la recuperación se puede retrasar.
 - **Actualización secuencial**: las actualizaciones planeadas del sistema de Azure para las regiones habilitadas se escalonan cronológicamente para minimizar el tiempo de inactividad, el impacto de los errores y los errores lógicos en el extraño caso de que se produzca una actualización defectuosa.
 - **Aislamiento físico**: Azure se esfuerza por garantizar una distancia mínima de 300 millas (483 kilómetros) entre los centros de datos de las regiones habilitadas, aunque no es posible en todas las zonas geográficas. La separación de los centros de datos reduce la probabilidad de que un desastre natural, un conflicto civil, las interrupciones de energía o las interrupciones de la red física puedan afectar a varias regiones. El aislamiento está sujeto a las restricciones de una zona geográfica, como la dimensión, la disponibilidad de la infraestructura de red o eléctrica y la normativa.
-- **Residencia de datos**: una región reside dentro de la misma zona geográfica que su conjunto habilitado (a excepción del Sur de Brasil y Singapur) con el objeto de cumplir los requisitos de residencia de datos para fines de jurisdicción de impuestos y aplicación de la ley.
+- **Residencia de datos**: una región reside dentro de la misma zona geográfica que su conjunto habilitado (a excepción del Sur de Brasil y Singapur) con el objeto de cumplir los requisitos de residencia de datos para fines de jurisdicción de impuestos y aplicación de la ley. 
 
 ## <a name="azure-cross-region-replication-pairings-for-all-geographies"></a>Emparejamientos de la replicación entre regiones de Azure para todas las zonas geográficas
 
@@ -71,6 +71,7 @@ Las regiones se emparejan para la replicación entre regiones en función de la 
 | Norteamérica |Este de EE. UU. 2 |Centro de EE. UU. |
 | Norteamérica |Centro-Norte de EE. UU |Centro-sur de EE. UU. |
 | Norteamérica |Oeste de EE. UU. 2 |Centro-Oeste de EE. UU. |
+| Norteamérica |Oeste de EE. UU. 3 |Este de EE. UU. |
 | Noruega | Este de Noruega | Oeste de Noruega\* |
 | Sudáfrica | Norte de Sudáfrica |Oeste de Sudáfrica\* |
 | Suiza | Norte de Suiza |Oeste de Suiza\* |

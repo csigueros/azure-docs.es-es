@@ -5,26 +5,25 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 08/15/2021
+ms.date: 11/02/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: a1e957b7d7cc285c9f757106a9183573104e849d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 4b6ac3c286302428544977cb725fc1ef1b9a53d4
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091237"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131577771"
 ---
 # <a name="microsoft-defender-for-cloud-troubleshooting-guide"></a>Guía de solución de problemas de Microsoft Defender for Cloud
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Esta guía está destinada a profesionales de tecnologías de la información (TI), analistas de seguridad de la información y administradores de la nube cuyas organizaciones utilizan Microsoft Defender for Cloud y necesitan solucionar problemas relacionados con Microsoft Defender for Cloud.
+Esta guía está destinada a profesionales de tecnologías de la información (TI), analistas de seguridad de la información y administradores de la nube cuyas organizaciones tienen que solucionar problemas relacionados con Defender for Cloud.
 
 Microsoft Defender for Cloud usa el agente de Log Analytics para recopilar y almacenar datos. Consulte [Plataforma de migración de Microsoft Defender for Cloud](./enable-data-collection.md) para obtener más información. La información de este artículo representa la funcionalidad de Microsoft Defender for Cloud después de la transición al agente de Log Analytics.
 
 > [!TIP]
-> Un área dedicada de las páginas de Microsoft Defender for Cloud de Azure Portal proporciona un conjunto recopilado y en constante crecimiento de materiales de autoayuda para resolver los desafíos comunes relacionados con Microsoft Defender for Cloud y Azure Defender.
+> Un área dedicada de las páginas de Defender for Cloud de Azure Portal proporciona un conjunto recopilado y en constante crecimiento de materiales de autoayuda para resolver los desafíos comunes relacionados con Defender for Cloud.
 > 
 > Si se enfrenta a un problema o busca asesoramiento de nuestro equipo de soporte técnico, **Diagnose and solve problems** (Diagnosticar y resolver problemas) es un buen lugar para buscar soluciones:
 > 
@@ -150,6 +149,6 @@ Algunos problemas pueden identificarse mediante las instrucciones proporcionadas
 
 En esta página, ha aprendido a configurar directivas de seguridad en Microsoft Defender for Cloud. Para obtener más información sobre Microsoft Defender for Cloud, consulte los artículos siguientes:
 
-* [Administración y respuesta a las alertas de seguridad en Microsoft Defender for Cloud](managing-and-responding-alerts.md): aprenda a administrar y responder a alertas de seguridad.
-* [Validación de alertas en Microsoft Defender for Cloud](alert-validation.md)
-* [Preguntas más frecuentes sobre Microsoft Defender for Cloud](faq-general.yml): encuentre las preguntas más frecuentes sobre el uso del servicio.
+- [Administración y respuesta a las alertas de seguridad en Microsoft Defender for Cloud](managing-and-responding-alerts.md): aprenda a administrar y responder a alertas de seguridad.
+- [Validación de alertas en Microsoft Defender for Cloud](alert-validation.md)
+- [Preguntas más frecuentes sobre Microsoft Defender for Cloud](faq-general.yml): encuentre las preguntas más frecuentes sobre el uso del servicio.

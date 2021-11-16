@@ -3,23 +3,19 @@ metadata:
   title: 'Preguntas más frecuentes sobre Microsoft Defender for Cloud: recopilación de datos y agentes'
   description: Preguntas más frecuentes sobre la recopilación de datos, los agentes y las áreas de trabajo de Microsoft Defender for Cloud, un producto que le ayuda a evitar, detectar y responder a amenazas
   services: security-center
-  documentationcenter: na
   author: memildin
   manager: rkarlin
   ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
   ms.service: security-center
-  ms.devlang: na
   ms.topic: conceptual
-  ms.tgt_pltfrm: na
-  ms.workload: na
-  ms.date: 11/15/2020
+  ms.date: 11/04/2021
   ms.author: memildin
-  ms.openlocfilehash: 8dfad55fff78e88aadd05f4fda64b37683dbde5d
-  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.openlocfilehash: ea151e241ea99ebbe3642961dc6256a4fa1c8c9d
+  ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/02/2021
-  ms.locfileid: "131084250"
+  ms.lasthandoff: 11/04/2021
+  ms.locfileid: "131561922"
 title: 'Preguntas frecuentes: preguntas sobre recopilación de datos, agentes y áreas de trabajo'
 summary: >
   Defender for Cloud recopila datos de las máquinas virtuales (VM) de Azure, los conjuntos de escalado de máquinas virtuales, los contenedores de IaaS y los equipos que no son de Azure (incluidos los equipos del entorno local) para realizar una supervisión en busca de amenazas y vulnerabilidades de seguridad. Los datos se recopilan con el agente de Log Analytics, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos.
@@ -27,7 +23,7 @@ sections:
 - name: Omitido
   questions:
   - question: >
-      ¿Las áreas de trabajo que crea Defender for Cloud se me facturan como registros de Azure Monitor?
+      ¿Se me facturan los registros de Azure Monitor en las áreas de trabajo que creada Defender for Cloud?
     answer: >
       No. Las áreas de trabajo que crea Defender for Cloud, si bien se configuran para los registros de Azure Monitor por facturación de nodo, no incurren en cargos de registros de Azure Monitor. La facturación de Defender for Cloud siempre se basa en la directiva de seguridad de Defender for Cloud y en las soluciones instaladas en un área de trabajo:
 
@@ -100,7 +96,7 @@ sections:
       Para realizar la recuperación, quite el agente de Log Analytics de las VM conectadas al área de trabajo eliminada. Defender for Cloud vuelve a instalar el agente y crea nuevas áreas de trabajo predeterminadas.
   - question: >
       ¿Cómo puedo usar mi área de trabajo de Log Analytics existente?
-    answer: "Puede seleccionar un área de trabajo de Log Analytics existente para almacenar los datos recopilados por Defender for Cloud. Para usar el área de trabajo de Log Analytics existente:\n\n- El área de trabajo debe estar asociada con la suscripción de Azure seleccionada.\n- Como mínimo, el usuario debe tener permisos de lectura para obtener acceso al área de trabajo.\n\n> [!NOTE]\n> Un agente de Log Analytics y el equipo en el que se ejecuta deberían generar informes en un área de trabajo de Log Analytics del mismo inquilino. Si generan informes en distintos inquilinos, no obtendrá alertas de seguridad de ese agente.\n\nPara seleccionar un área de trabajo de Log Analytics existente:\n\n1. En el menú de Defender for Cloud, seleccione **Parámetros del entorno**.\n1. Seleccione la suscripción correspondiente.\n1. Abra la página **Aprovisionamiento automático**.\n1. Para el agente de Log Analytics, seleccione **Editar configuración**. \n\n    :::image type=\"content\" source=\"./media/enable-data-collection/edit-configuration-auto-deploy-agent.png\" alt-text=\"La configuración del agente de Log Analytics que se va a usar cuando se utilice la implementación automática\" lightbox=\"./media/enable-data-collection/edit-configuration-auto-deploy-agent.png\":::\n\n1. Seleccione **Connect Azure VMs to a different workspace** (Conectar máquinas virtuales de Azure a otra área de trabajo) y elija el área de trabajo existente.\n\n    :::image type=\"content\" source=\"./media/enable-data-collection/choose-workspace.png\" alt-text=\"Selección de un área de trabajo no predeterminada a la enviará notificaciones el agente de Log Analytics\" lightbox=\"./media/enable-data-collection/choose-workspace.png\":::\n\n    > [!TIP]\n    > La lista solo incluye las áreas de trabajo a las que tiene acceso y que se encuentran en su suscripción de Azure.\n\n1. Seleccione **Guardar**. Se le pregunta si quiere volver a configurar las máquinas virtuales supervisadas.\n\n    - Haga clic en **No** si quiere que la nueva configuración del área de trabajo **solo se aplique a las máquinas virtuales nuevas**. La nueva configuración del área de trabajo solo se aplica a las nuevas instalaciones de agente, aquellas máquinas virtuales recién detectadas que no tengan instalado el agente de Log Analytics.\n    - Haga clic en **Sí** si quiere que la nueva configuración del área de trabajo **se aplique a todas las máquinas virtuales**. Además, todas las máquinas virtuales conectadas a un área de trabajo creada de Defender for Cloud se vuelven a conectar a la nueva área de trabajo de destino.\n\n    > [!NOTE]\n    > Si selecciona **Sí**, no elimine las áreas de trabajo creadas por Defender for Cloud hasta que todas las máquinas virtuales se hayan vuelto a conectar a la nueva área de trabajo de destino. Esta operación no se lleva a cabo si se elimina un área de trabajo demasiado pronto.\n"
+    answer: "Puede seleccionar un área de trabajo de Log Analytics existente para almacenar los datos recopilados por Defender for Cloud. Para usar el área de trabajo de Log Analytics existente:\n\n- El área de trabajo debe estar asociada con la suscripción de Azure seleccionada.\n- Como mínimo, el usuario debe tener permisos de lectura para obtener acceso al área de trabajo.\n\n> [!NOTE]\n> Un agente de Log Analytics y el equipo en el que se ejecuta deberían generar informes en un área de trabajo de Log Analytics del mismo inquilino. Si generan informes en distintos inquilinos, no obtendrá alertas de seguridad de ese agente.\n\nPara seleccionar un área de trabajo de Log Analytics existente:\n\n1. En el menú de Defender for Cloud, abra **Parámetros del entorno**.\n1. Seleccione la suscripción correspondiente.\n1. Abra la página **Aprovisionamiento automático**.\n1. Para el agente de Log Analytics, seleccione **Editar configuración**. \n\n    :::image type=\"content\" source=\"./media/enable-data-collection/edit-configuration-auto-deploy-agent.png\" alt-text=\"La configuración del agente de Log Analytics que se va a usar cuando se utilice la implementación automática\" lightbox=\"./media/enable-data-collection/edit-configuration-auto-deploy-agent.png\":::\n\n1. Seleccione **Connect Azure VMs to a different workspace** (Conectar máquinas virtuales de Azure a otra área de trabajo) y elija el área de trabajo existente.\n\n    :::image type=\"content\" source=\"./media/enable-data-collection/choose-workspace.png\" alt-text=\"Selección de un área de trabajo no predeterminada a la enviará notificaciones el agente de Log Analytics\" lightbox=\"./media/enable-data-collection/choose-workspace.png\":::\n\n    > [!TIP]\n    > La lista solo incluye las áreas de trabajo a las que tiene acceso y que se encuentran en su suscripción de Azure.\n\n1. Seleccione **Guardar**. Se le pregunta si quiere volver a configurar las máquinas virtuales supervisadas.\n\n    - Haga clic en **No** si quiere que la nueva configuración del área de trabajo **solo se aplique a las máquinas virtuales nuevas**. La nueva configuración del área de trabajo solo se aplica a las nuevas instalaciones de agente, aquellas máquinas virtuales recién detectadas que no tengan instalado el agente de Log Analytics.\n    - Haga clic en **Sí** si quiere que la nueva configuración del área de trabajo **se aplique a todas las máquinas virtuales**. Además, todas las máquinas virtuales conectadas a un área de trabajo creada de Defender for Cloud se vuelven a conectar a la nueva área de trabajo de destino.\n\n    > [!NOTE]\n    > Si selecciona **Sí**, no elimine las áreas de trabajo creadas por Defender for Cloud hasta que todas las máquinas virtuales se hayan vuelto a conectar a la nueva área de trabajo de destino. Esta operación no se lleva a cabo si se elimina un área de trabajo demasiado pronto.\n"
   - question: >
       ¿Qué ocurre si el agente de Log Analytics ya estaba instalado como una extensión en la VM?
     answer: >
@@ -141,7 +137,7 @@ sections:
       Puede desactivar el aprovisionamiento automático en las suscripciones en la directiva de seguridad, pero no es recomendable. La desactivación del aprovisionamiento automático limita las recomendaciones y alertas de Defender for Cloud. Para deshabilitar el aprovisionamiento automático:
 
 
-      1. En el menú de Defender for Cloud, seleccione **Parámetros del entorno**.
+      1. En el menú de Defender for Cloud, abra **Parámetros del entorno**.
 
       1. Seleccione la suscripción correspondiente.
 
@@ -184,7 +180,7 @@ sections:
       Instale la extensión del agente de Log Analytics de forma manual para que Defender for Cloud pueda recopilar los datos de seguridad de las máquinas virtuales y proporcionar recomendaciones y alertas. Consulte la [instalación del agente de máquina virtual Windows](../virtual-machines/extensions/oms-windows.md) o la [instalación del agente de máquina virtual Linux](../virtual-machines/extensions/oms-linux.md) para obtener instrucciones sobre la instalación.
 
 
-      Puede conectar al agente a cualquier área de trabajo personalizada existente o a la que creara Defender for Cloud. Si el área de trabajo personalizada no tiene las soluciones "Security" o "SecurityCenterFree" habilitadas, será necesario aplicar una solución. Para la aplicación, seleccione el área de trabajo personalizada o la suscripción y aplique un plan de tarifa desde la página **Directiva de seguridad: plan de tarifa**.
+      Puede conectar al agente a cualquier área de trabajo personalizada existente o a la que creara Defender for Cloud. Si el área de trabajo personalizada no tiene las soluciones "Security" o "SecurityCenterFree" habilitadas, será necesario aplicar una solución. Para aplicarla, seleccione el área de trabajo personalizada y aplique un plan de tarifa desde la página **Directiva de seguridad: plan de tarifa**.
 
 
       :::image type="content" source="./media/platform-migration-faq/pricing-tier.png" alt-text="Habilitación o deshabilitación de Azure Defender":::

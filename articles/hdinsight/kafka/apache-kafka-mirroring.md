@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 7327af790eb8a3ddda646f0da208083d4431934a
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 5c62b183d55023b0b8a25dcde03aef21e0364a3e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112280232"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130261907"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Uso de MirrorMaker para replicar temas de Apache Kafka con Kafka en HDInsight
 
@@ -136,11 +136,14 @@ La configuración del anuncio de direcciones IP permite al cliente conectarse me
 
     Para más información, consulte [Uso de SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-1. Use el comando siguiente para crear una variable con los hosts de Apache Zookeeper para el clúster principal. Las cadenas como `ZOOKEEPER_IP_ADDRESS1` deben reemplazarse por las direcciones IP reales que anotó anteriormente; por ejemplo, `10.23.0.11` y `10.23.0.7`. Si utiliza la resolución FQDN con un servidor DNS personalizado, siga [estos pasos](apache-kafka-get-started.md#getkafkainfo) para obtener los nombres de agente y de Zookeeper:
+1. Utilice el comando siguiente para crear dos variables de entorno con los hosts de Apache Zookeeper y los hosts de agente para el clúster principal. Las cadenas como `ZOOKEEPER_IP_ADDRESS1` deben reemplazarse por las direcciones IP reales que anotó anteriormente; por ejemplo, `10.23.0.11` y `10.23.0.7`. Ocurre lo mismo con `BROKER_IP_ADDRESS1`. Si utiliza la resolución FQDN con un servidor DNS personalizado, siga [estos pasos](apache-kafka-get-started.md#getkafkainfo) para obtener los nombres de agente y de Zookeeper:
 
     ```bash
     # get the zookeeper hosts for the primary cluster
     export PRIMARY_ZKHOSTS='ZOOKEEPER_IP_ADDRESS1:2181, ZOOKEEPER_IP_ADDRESS2:2181, ZOOKEEPER_IP_ADDRESS3:2181'
+    
+    # get the broker hosts for the primary cluster
+    export PRIMARY_BROKERHOSTS='BROKER_IP_ADDRESS1:9092,BROKER_IP_ADDRESS2:9092,BROKER_IP_ADDRESS2:9092'
     ```
 
 1. Para crear un tema llamado `testtopic`, use el comando siguiente:
@@ -157,15 +160,15 @@ La configuración del anuncio de direcciones IP permite al cliente conectarse me
 
     La respuesta contiene `testtopic`.
 
-1. Use lo siguiente para ver la información del host de Zookeeper de este clúster (el **principal**):
+1. Use lo siguiente para ver la información del host del agente de este clúster (el **principal**):
 
     ```bash
-    echo $PRIMARY_ZKHOSTS
+    echo $PRIMARY_BROKERHOSTS
     ```
 
     Esto devuelve información similar al texto siguiente:
 
-    `10.23.0.11:2181,10.23.0.7:2181,10.23.0.9:2181`
+    `10.23.0.11:9092,10.23.0.7:9092,10.23.0.9:9092`
 
     Guarde esta información. Se usa en la siguiente sección.
 
@@ -190,11 +193,11 @@ La configuración del anuncio de direcciones IP permite al cliente conectarse me
     Use el texto siguiente como contenido del archivo `consumer.properties`:
 
     ```yaml
-    zookeeper.connect=PRIMARY_ZKHOSTS
+    bootstrap.servers=PRIMARY_BROKERHOSTS
     group.id=mirrorgroup
     ```
 
-    Sustituya **PRIMARY_ZKHOSTS** por las direcciones IP de Zookeeper del clúster **principal**.
+    Sustituya **PRIMARY_BROKERHOSTS** por las direcciones IP del agente del clúster **principal**.
 
     Este archivo contiene la información del consumidor que se va a usar cuando se lea desde el clúster Kafka principal. Para más información sobre la configuración de los consumidores, consulte [Consumer Configs](https://kafka.apache.org/documentation#consumerconfigs) (Configuraciones de consumidor) en kafka.apache.org.
 
@@ -280,8 +283,7 @@ La configuración del anuncio de direcciones IP permite al cliente conectarse me
 2. En la conexión SSH con el clúster **principal**, use el siguiente comando para iniciar un productor y enviar mensajes al tema:
 
     ```bash
-    export PRIMARY_BROKERHOSTS=BROKER_IP_ADDRESS1:9092,BROKER_IP_ADDRESS2:9092,BROKER_IP_ADDRESS2:9092
-    /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $SOURCE_BROKERHOSTS --topic testtopic
+    /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $PRIMARY_BROKERHOSTS --topic testtopic
     ```
 
      Cuando llegue a una línea en blanco con un cursor, escriba algunos mensajes de texto. Los mensajes se envían al tema del clúster **principal**. Cuando haya terminado, use **Ctrl + C** para finalizar el proceso de productor.
@@ -289,7 +291,7 @@ La configuración del anuncio de direcciones IP permite al cliente conectarse me
 3. En la conexión SSH con el clúster **secundario**, use **Ctrl + C** para iniciar el proceso de MirrorMaker. El proceso puede tardar varios segundos en finalizar. Para comprobar que los mensajes se han replicado en el clúster secundario, use el siguiente comando:
 
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $SECONDARY_ZKHOSTS --topic testtopic --from-beginning
+    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $SECONDARY_BROKERHOSTS --topic testtopic --from-beginning
     ```
 
     La lista de temas ahora incluye `testtopic`, que se crea cuando MirrorMaster refleja el tema del clúster principal en el secundario. Los mensajes recuperados del tema son los mismos que los que se especificaron en el clúster principal.

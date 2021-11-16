@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 10/11/2021
+ms.date: 10/19/2021
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ba5d47c33b276b1585ad6200058439be4c4bc02
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 51385ce98da9e163be0d70d0c0662f51094094a3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129993594"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130222521"
 ---
 # <a name="extend-or-renew-azure-ad-role-assignments-in-privileged-identity-management"></a>Ampliación o renovación de asignaciones de roles de Azure AD en Privileged Identity Management
 
@@ -44,11 +44,14 @@ En los pasos siguientes se describe el proceso de la solicitud, resolución o ad
 
 ### <a name="self-extend-expiring-assignments"></a>Ampliación automática de asignaciones que van a expirar
 
-Los usuarios o grupos asignados a un rol pueden ampliar las asignaciones de roles que van a expirar directamente desde la pestaña **Apto** o **Activo** de la página **Mis roles**, en **Roles de Azure AD** o desde la página **Mis roles** de nivel superior del portal de Privileged Identity Management. Los usuarios o grupos pueden solicitar la ampliación de las asignaciones de roles aptas y activas que expiren en los próximos 14 días.
+Los usuarios asignados a un rol pueden ampliar las asignaciones de roles que van a expirar directamente desde la pestaña **Apto** o **Activo** de la página **Mis roles**, en **Roles de Azure AD** o desde la página **Mis roles** de nivel superior del portal de Privileged Identity Management. En el portal, los usuarios pueden solicitar la ampliación de los roles válidos o activos (asignados) que expiren en los próximos 14 días.
 
 ![Roles de Azure AD: página Mis roles que muestra los roles aptos con una columna de acción](./media/pim-how-to-renew-extend/pim-extend-link-in-portal.png)
 
-Cuando la fecha y hora de finalización de la asignación es anterior a 14 días, el botón **Extender** se convierte en un vínculo activo en la interfaz de usuario. En el ejemplo siguiente, se supone que la fecha actual es el 27 de marzo. Para un grupo asignado a un rol, el vínculo **Extender** nunca está disponible para que un solo usuario con una asignación heredada no pueda extender la asignación de grupo.
+Cuando la fecha y hora de finalización de la asignación es anterior a 14 días, el botón **Extender** se convierte en un vínculo activo en la interfaz de usuario. En el ejemplo siguiente, se supone que la fecha actual es el 27 de marzo.
+
+>[!Note]
+>En el caso de un grupo asignado a un rol, el vínculo **Extender** nunca está disponible, de forma que un usuario con una asignación heredada no pueda ampliar la asignación de grupo.
 
 ![Columna de acción con vínculos para activar o extender](./media/pim-how-to-renew-extend/pim-extend-within-fourteen.png)
 

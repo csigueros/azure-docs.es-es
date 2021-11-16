@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 03/24/2021
-ms.openlocfilehash: 1c6f676ba6f4c689a34baf2119a4179e3a5200ad
-ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
+ms.openlocfilehash: e0d430c393637ff11e7315716b3fdd9818a61b8b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113038271"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131467157"
 ---
 # <a name="analyze-with-apache-spark"></a>Análisis con Apache Spark
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá los pasos básicos para cargar y analizar datos con
 
 ## <a name="understanding-serverless-apache-spark-pools"></a>Descripción de los grupos de Apache Spark sin servidor
 
-Un grupo de Spark sin servidor es una forma de indicar cómo un usuario desea trabajar con Spark. Al empezar a usar un grupo, se crea una sesión de Spark si es necesario. El grupo controla el número de recursos de Spark que se usarán en esa sesión y el tiempo que durará la sesión antes de que se pause automáticamente. El usuario paga por los recursos de Spark usados durante esa sesión, no por el grupo en sí. De esta manera, un grupo de Spark le permite trabajar con Spark, sin tener que preocuparse de la administración de clústeres. Esto es similar al funcionamiento de un grupo de SQL sin servidor.
+Un grupo de Spark sin servidor es una forma de indicar cómo un usuario desea trabajar con Spark. Cuando se empieza a usar un grupo, se crea una sesión de Spark, en caso de que sea preciso. El grupo controla el número de recursos de Spark que se usarán en esa sesión y el tiempo que durará la sesión antes de que se pause automáticamente. El usuario paga por los recursos de Spark usados durante esa sesión, no por el grupo en sí. De esta manera, un grupo de Spark le permite trabajar con Spark, sin tener que preocuparse de la administración de clústeres. Esto es similar al funcionamiento de un grupo de SQL sin servidor.
 
 ## <a name="analyze-nyc-taxi-data-with-a-spark-pool"></a>Análisis de datos de taxis de Nueva York con un grupo de Spark
 

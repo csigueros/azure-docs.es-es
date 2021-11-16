@@ -6,17 +6,20 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 09/27/2021
-ms.openlocfilehash: 320d1b309f49b748e48a7a019c43246e8e5ce7c7
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.date: 10/26/2021
+ms.openlocfilehash: 5fde0e1d9dc78c735ae9e889af5fbd889a588540
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129080364"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851028"
 ---
 # <a name="detailed-configuration-for-hosted-test-drives"></a>Configuración detallada de las versiones de prueba hospedadas
 
 En este artículo se describe cómo configurar una versión de prueba hospedada para Dynamics 365 for Customer Engagement y Power Apps o Dynamics 365 for Operations.
+
+> [!TIP]
+> Para ver la vista del cliente de la versión de prueba en el marketplace comercial, consulte [¿Qué es Azure Marketplace?](/marketplace/azure-marketplace-overview#take-action-on-a-listing) y [¿Qué es Microsoft AppSource?](/marketplace/appsource-overview).
 
 ## <a name="configure-for-dynamics-365-customer-engagement--power-apps"></a>Configuración para Dynamics 365 Customer Engagement y Power Apps
 
@@ -29,7 +32,7 @@ En este artículo se describe cómo configurar una versión de prueba hospedada 
 3. Busque una oferta de **Dynamics 365 for Customer Engagement y Power Apps** o cree una nueva oferta de **Dynamics 365 for Customer Engagement y Power Apps**.
 4. En la página **Configuración de la oferta**, active la casilla **Habilitar una versión de prueba**, seleccione un **tipo de versión de prueba** (consulte la viñeta siguiente) y seleccione **Guardar borrador**.
 
-    [ ![Muestra la activación de la casilla "Habilitar una versión de prueba".](./media/test-drive/enable-test-drive-check-box-workspaces.png) ](./media/test-drive/enable-test-drive-check-box-workspaces.png#lightbox)
+    [![Muestra la activación de la casilla "Habilitar una versión de prueba".](./media/test-drive/enable-test-drive-check-box-workspaces.png)](./media/test-drive/enable-test-drive-check-box-workspaces.png#lightbox)
 
     - **Tipo de versión de prueba**: elija la opción **Microsoft Hosted (Dynamics 365 for Customer Engagement & PowerApps)** [Hospedada en Microsoft (Dynamics 365 for Customer Engagement y PowerApps)]. Esto indica que Microsoft hospedará y mantendrá el servicio que realiza el aprovisionamiento y desaprovisionamiento de usuarios de la versión de prueba.
 

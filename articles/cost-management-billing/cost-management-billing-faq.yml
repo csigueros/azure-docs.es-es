@@ -8,14 +8,14 @@ metadata:
   ms.service: cost-management-billing
   ms.subservice: common
   ms.topic: conceptual
-  ms.date: 10/13/2021
+  ms.date: 10/22/2021
   ms.author: banders
-  ms.openlocfilehash: cc2ee1984af35b357f1c67c03fecacbf17444d22
-  ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+  ms.openlocfilehash: c38966a630d61279ab34328bf7a76204fb0079ee
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/14/2021
-  ms.locfileid: "129993062"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130229453"
 title: Preguntas frecuentes sobre Cost Management + Billing
 summary: ''
 sections:
@@ -161,7 +161,7 @@ sections:
       Consulte [Visualización de los cargos de máquinas virtuales de acceso puntual](./costs/cost-analysis-common-uses.md#view-your-spot-vm-charges).
   - question: ¿Cómo se obtiene un informe de los detalles de una reserva?
     answer: >
-      Lea la documentación de la API para [generar un informe de los detalles de una reserva](/rest/api/cost-management/generatereservationdetailsreport).
+      Lea la documentación de la API para [generar un informe de los detalles de una reserva](/azure/cost-management-billing/reservations/reservation-utilization).
 - name: Preguntas sobre Azure Contrato Enterprise (EA) y el portal de EA
   questions:
   - question: ¿Cómo se asignan permisos de SPN a una inscripción?
@@ -176,6 +176,9 @@ sections:
   - question: ¿Cómo se agrega un administrador de EA a una inscripción?
     answer: >
       Los administradores de empresa existentes pueden agregar otro nuevo administrador de empresa. Si es el administrador de EA, inicie sesión en EA Portal > haga clic en **Administrar** > haga clic en **+ Agregar administrador** en la esquina superior derecha para agregar un nuevo administrador de EA. Asegúrese de que tiene su dirección de correo electrónico y un método de inicio de sesión preferido, por ejemplo, mediante la autenticación profesional/educativa o Microsoft Live ID para agregar a los usuarios.
+
+
+      Si es el administrador de EA de una inscripción directa, inicie sesión en Azure Portal, seleccione **Ámbito de facturación**, vaya a **Control de acceso (IAM)**, y seleccione **+ Agregar** en la esquina superior izquierda para agregar un nuevo administrador de EA. Asegúrese de que tiene su dirección de correo electrónico y un método de inicio de sesión preferido disponible, por ejemplo, mediante la autenticación profesional o educativa o Microsoft Live ID.
 
 
       Si no es el administrador de EA, póngase en contacto con los administradores de EA de su empresa para solicitar que le agreguen a la inscripción. Una vez que le hayan agregado a la inscripción, recibirá un correo electrónico de activación.
@@ -220,6 +223,9 @@ sections:
   - question: Mi inscripción aparece en estado pendiente. ¿Cómo activo mi inscripción?
     answer: >
       Las inscripciones estarán en estado pendiente si el administrador de EA inicial no ha iniciado sesión en la inscripción antes. Si es el administrador de EA, inicie sesión en Azure EA Portal. En la página de aterrizaje con todos los números de inscripción, es posible que no vea su inscripción pendiente. Desactive la casilla "activa" en la esquina superior derecha de EA Portal; así se mostraría la inscripción pendiente. Haga clic en la inscripción para acceder a la información y, una vez que haya llegado a la página de administración de la inscripción, el estado se actualizará de pendiente a activo.
+
+
+      Si es un cliente Enterprise directo, inicie sesión en Azure Portal. En la página Ámbito de facturación, seleccione la cuenta de facturación. Cuando se encuentre en la página de información general de la inscripción, el estado se actualiza de **Pendiente** a **Activa**. Vaya al menú **Propiedades** para ver el estado de actualización.
   - question: ¿Por qué mi cuenta está bloqueada en el estado pendiente?
     answer: >
       Cuando se agregan nuevos propietarios de la cuenta a una inscripción por primera vez, su estado aparece como "pendiente". Al recibir el correo electrónico de bienvenida de activación, el propietario de la cuenta puede iniciar sesión para activarla. Al iniciar sesión, se actualizará el estado de la cuenta de "pendiente" a "activo".
@@ -256,7 +262,7 @@ sections:
       - Elimine el suscriptor de Visual Studio del sitio de administración en VLSC y reasigne la suscripción a una cuenta, esta vez, con otras credenciales. A continuación, regístrese para obtener las ventajas individuales de Azure en Visual Studio nuevamente.
   - question: ¿Qué tipo de suscripción debo crear?
     answer: >
-      Azure Enterprise Portal ofrece dos tipos de suscripciones para clientes empresariales:
+      Los clientes Enterprise de Azure tienen dos tipos de ofertas de suscripción:
 
 
       - Microsoft Azure Enterprise, que es ideal para:
@@ -324,6 +330,9 @@ sections:
 
 
       También puede tener acceso a los datos de uso a través de la API de informes. Puede encontrar información detallada y ejemplos de código en [API REST de Azure Enterprise](manage/ea-portal-rest-apis.md).
+
+
+      Los clientes empresariales directos pueden ver el uso y el gasto en distintos niveles de departamento en Azure Portal. Vaya al menú **Departamento** para ver los cargos.
   - question: ¿Puedo establecer una cuota de gastos y recibir alertas a medida que me acerque al límite?
     answer: >
       Puede establecer una cuota de gastos a nivel de departamento, y el sistema le notificará automáticamente a medida que los límites de gastos lleguen al 50 %, 75 %, 90 % y 100 % de la cuota que defina.
@@ -361,6 +370,9 @@ sections:
       1. En Azure Enterprise Portal, seleccione **Administrar** > **Cuenta**.
 
       1. Mantenga el mouse sobre **Cuenta** en el extremo derecho para ver las opciones **Transferir propiedad** (icono de persona) y **Transferir suscripción** (icono de lista). Estas opciones solo son visibles para las cuentas activas.
+
+
+      Los clientes Enterprise directos pueden transferir la propiedad de su suscripción a otra cuenta en Azure Portal. Vaya al menú **Cuenta** o **Suscripción** para transferir la propiedad.
   - question: ¿Puede un propietario de cuenta de Azure aparecer en más de un departamento?
     answer: >
       No, un propietario de una cuenta solo se puede asociar a un único departamento. La directiva ayuda a garantizar una supervisión precisa y un prorrateo de los costos y el gasto asociados al departamento con el que está alineado en la inscripción de Contrato Enterprise en Azure EA Portal.
@@ -393,6 +405,9 @@ sections:
       1. Seleccione el lápiz azul que hay junto a AO View Charges (El propietario de la cuenta ve los cargos).
 
       1. Seleccione **Enabled** (Habilitado) y guarde.
+
+
+      En el caso de los clientes de **inscripción directa**, los administradores de empresa pueden proporcionar a los propietarios de la cuenta y a los administradores de departamento acceso a la información de costos y precios en Azure Portal. Vaya al menú **Directivas** para cambiar la configuración.
 
 
       > [!NOTE]

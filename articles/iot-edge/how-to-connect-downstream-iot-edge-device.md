@@ -11,12 +11,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 08e68fc4a5aa2de2c2b0e0bbd326620fadc11022
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: c0bbc7bb40c292675374a3198fe0514b720adfca
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129455845"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226117"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway"></a>Conexión de un dispositivo IoT Edge de nivel inferior a una puerta de enlace Azure IoT Edge
 
@@ -118,7 +118,7 @@ Para habilitar la detección de puertas de enlace, cada dispositivo de puerta de
 
 Para habilitar las conexiones seguras, cada dispositivo IoT Edge en un escenario de puerta de enlace debe configurarse con un único certificado de CA de dispositivo y una copia del certificado de CA raíz compartido por todos los dispositivos de la jerarquía de puertas de enlace.
 
-Ya tiene que haber instalado IoT Edge en el dispositivo. Si no es así, siga los pasos que se describen en [Registro de un dispositivo IoT Edge en IoT Hub](how-to-register-device.md) y, luego, los de [Instalación del entorno de ejecución de Azure IoT Edge](how-to-install-iot-edge.md).
+Ya tiene que haber instalado IoT Edge en el dispositivo. Si no es así, siga las instrucciones para [aprovisionar manualmente un único dispositivo IoT Edge en Linux](how-to-provision-single-device-linux-symmetric.md).
 
 En los pasos de esta sección se hace referencia al **certificado de CA raíz** y al **certificado de CA de dispositivo y clave privada** que se han descrito anteriormente en este artículo. Si ha creado esos certificados en otro dispositivo, haga que estén disponibles en este dispositivo. Puede transferir los archivos físicamente, como con una unidad USB, con un servicio, como [Azure Key Vault](../key-vault/general/overview.md), o con una función, como [Secure file copy](https://www.ssh.com/ssh/scp/).
 

@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 10/21/2021
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 537fe72423e7ab4052f2a4bad32784a541228296
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 5623567cb35f6222d660b9e02de5d2fa125dd826
+ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131553963"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131867159"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Acceso seguro a datos en Azure Machine Learning
 
@@ -61,13 +61,13 @@ A continuación se indican los servicios de almacenamiento basados en la nube de
 + Recurso compartido de archivos de Azure
 + Azure Data Lake
 + Azure Data Lake Gen2
-+ Azure SQL Database
++ Azure SQL Database
 + Azure Database for PostgreSQL
 + Sistema de archivos de Databricks
 + Azure Database for MySQL
 
 >[!TIP]
-> La funcionalidad disponible con carácter general para crear almacenes de datos requiere la autenticación basada en credenciales para acceder a los servicios de almacenamiento, como una entidad de servicio o un token de firma de acceso compartido (SAS). Los usuarios que tienen acceso de *Lector* en el área de trabajo pueden acceder a estas credenciales. <br><br>Si esto supone un problema, [cree un almacén de datos que use el acceso a datos basado en identidad para los servicios de almacenamiento (versión preliminar)](how-to-identity-based-data-access.md). Esta funcionalidad es una característica [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) en versión preliminar y puede cambiar en cualquier momento.
+> La funcionalidad disponible con carácter general para crear almacenes de datos requiere la autenticación basada en credenciales para acceder a los servicios de almacenamiento, como una entidad de servicio o un token de firma de acceso compartido (SAS). Los usuarios que tienen acceso de *Lector* en el área de trabajo pueden acceder a estas credenciales. <br><br>Si esto supone un problema, [cree un almacén de datos que use el acceso a datos basado en identidad para los servicios de almacenamiento](how-to-identity-based-data-access.md).
 
 <a name="datasets"></a>
 ## <a name="reference-data-in-storage-with-datasets"></a>Datos de referencia en el almacenamiento con conjuntos de datos

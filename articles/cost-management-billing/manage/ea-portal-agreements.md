@@ -3,17 +3,17 @@ title: Acuerdos y enmiendas de Contrato Enterprise de Azure
 description: En este artículo se explica cómo los acuerdos y enmiendas del Contrato Enterprise de Azure afectan al uso del portal del Contrato Enterprise de Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/19/2021
+ms.date: 10/22/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: boalcsva
-ms.openlocfilehash: d03ae5062cc81b3e042ed3b714838e14929dbba2
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.reviewer: sapnakeshari
+ms.openlocfilehash: 200b71b84bd4c09e40b7c19426b9f1e1d09bf943
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104778226"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130247428"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Acuerdos y enmiendas de Contrato Enterprise de Azure
 
@@ -33,7 +33,7 @@ Una inscripción tiene uno de los siguientes valores de estado. Cada valor deter
 
 **Pending** (Pendiente): el administrador de inscripción debe iniciar sesión en el portal del Contrato Enterprise de Azure. Una vez iniciada la sesión, la inscripción cambia a estado **activo**.
 
-**Active** (Activo): la inscripción es accesible y se puede usar. Puede crear cuentas y suscripciones en el portal del Contrato Enterprise de Azure. La inscripción permanece activa hasta la fecha de finalización del Contrato Enterprise.
+**Active** (Activo): la inscripción es accesible y se puede usar. Puede crear cuentas y suscripciones en el portal del Contrato Enterprise de Azure. Los clientes directos pueden crear departamentos, cuentas y suscripciones en [Azure Portal](https://portal.azure.com). La inscripción permanece activa hasta la fecha de finalización del Contrato Enterprise. 
 
 **Indefinite Extended Term** (Período extendido indefinido): este estado tiene lugar después de que se alcanza la fecha de finalización del Contrato Enterprise. Antes de que la inscripción del Contrato Enterprise alcance la fecha de finalización, el administrador de inscripciones debe decidir:
 
@@ -168,6 +168,8 @@ Los administradores de empresa pueden asignar propietarios de la cuenta para apr
 1. Haga clic en el icono "Download" (Descargar) en la esquina superior derecha.
 1. Busque los números de pieza de la SKU de plan correspondiente, con el filtro en la columna "Included Quantity" (Cantidad incluida) y la selección de valores mayores que "0".
 
+El cliente directo puede ver la hoja de precios en Azure Portal. [Vea la hoja de precios en Azure Portal](ea-pricing.md#download-pricing-for-an-enterprise-agreement).
+
 ### <a name="existingnew-account-owners-to-create-new-subscriptions"></a>Propietarios de la cuenta nuevos o existentes para crear nuevas suscripciones
 
 **Paso uno: Iniciar sesión en la cuenta**
@@ -190,6 +192,8 @@ Actualice el nombre de la suscripción y el administrador de servicios y, despu�
 Las nuevas suscripciones pueden tardar hasta 24 horas en propagarse a la lista de suscripciones.
 
 Solo los propietarios de la cuenta pueden ver y administrar las suscripciones.
+
+El cliente directo puede crear y editar una suscripción en Azure Portal. Consulte [Administración de suscripciones en Azure Portal](direct-ea-administration.md#create-a-subscription).
 
 ### <a name="troubleshooting"></a>Solución de problemas
 

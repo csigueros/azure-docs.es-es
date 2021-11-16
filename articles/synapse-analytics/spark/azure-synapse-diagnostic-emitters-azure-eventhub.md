@@ -1,5 +1,5 @@
 ---
-title: Recopilación de los registros de aplicaciones y las métricas de Apache Spark mediante Azure Event Hubs (versión preliminar)
+title: Recopilación de los registros de aplicaciones y las métricas de Apache Spark mediante Azure Event Hubs
 description: En este tutorial aprenderá a usar la extensión de emisión de diagnósticos de Synapse Apache Spark para emitir registros, registros de eventos y métricas de las aplicaciones Apache Spark a Azure Event Hubs.
 services: synapse-analytics
 author: hrasheed-msft
@@ -9,18 +9,18 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 08/31/2021
-ms.openlocfilehash: c3b8fbda0eaaa932f784540cc55d0a4e583927f0
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: da6a02c12c9e24d4091c632fbf73a0cc97255afa
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123544717"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223108"
 ---
-# <a name="collect-your-apache-spark-applications-logs-and-metrics-using-azure-event-hubs-preview"></a>Recopilación de los registros de aplicaciones y las métricas de Apache Spark mediante Azure Event Hubs (versión preliminar)
+# <a name="collect-your-apache-spark-applications-logs-and-metrics-using-azure-event-hubs"></a>Recopilación de los registros de aplicaciones y las métricas de Apache Spark mediante Azure Event Hubs 
 
 La extensión de emisión de diagnósticos de Synapse Apache Spark es una biblioteca que permite a la aplicación Apache Spark emitir registros, registros de eventos y métricas a uno o varios destinos, incluidos Azure Log Analytics, Azure Storage y Azure Event Hubs. 
 
-En este tutorial aprenderá a usar la extensión de emisión de diagnósticos de Synapse Apache Spark para emitir registros, registros de eventos y métricas de las aplicaciones Apache Spark a Azure Event Hubs.
+En este tutorial, aprenderá a usar la extensión de emisión de diagnósticos de Apache Spark de Synapse para emitir registros, registros de eventos y métricas de las aplicaciones de Apache Spark a Azure Event Hubs.
 
 ## <a name="collect-logs-and-metrics-to-azure-event-hubs"></a>Recopilación de registros y métricas en Azure Event Hubs
 
@@ -29,7 +29,7 @@ En este tutorial aprenderá a usar la extensión de emisión de diagnósticos de
 Para recopilar registros de diagnóstico y métricas en Azure Event Hubs, puede usar una instancia de Azure Event Hubs existente.
 Si no tiene, puede [crear un centro de eventos](../../event-hubs/event-hubs-create.md).
 
-### <a name="step-2-create-a-apache-spark-configuration-file"></a>Paso 2: Creación de un archivo de configuración de Apache Spark
+### <a name="step-2-create-an-apache-spark-configuration-file"></a>Paso 2: Creación de un archivo de configuración de Apache Spark
 
 Cree un archivo `diagnostic-emitter-azure-event-hub-conf.txt` y copie el siguiente contenido en él. Como alternativa, descargue un [archivo de plantilla de ejemplo](https://go.microsoft.com/fwlink/?linkid=2169375) para la configuración del grupo de Apache Spark.
 
@@ -41,7 +41,7 @@ spark.synapse.diagnostic.emitter.MyDestination1.secret <connection-string>
 ```
 
 En el archivo de configuración, rellene estos parámetros: `<connection-string>`.
-Para mayor descripción de los parámetros, consulte las [configuraciones de Azure Event Hubs](#available-configurations).
+Para mayor descripción de los parámetros, puede consultar las [configuraciones de Azure Event Hubs](#available-configurations).
 
 ### <a name="step-3-upload-the-apache-spark-configuration-file-to-apache-spark-pool"></a>Paso 3: Carga del archivo de configuración de Apache Spark en el grupo de Apache Spark
 

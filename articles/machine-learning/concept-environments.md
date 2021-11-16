@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/23/2021
-ms.openlocfilehash: a90846df8aa57ee970bdf50a7bb61fabeba03144
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e798893b28eaaa6aabb1d3f3623aea60df7bc2c6
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128665154"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131576156"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>¿Qué son los entornos de Azure Machine Learning?
 
@@ -38,32 +38,31 @@ Los entornos se pueden dividir a grandes rasgos en tres categorías: *mantenidos
 
 Los entornos mantenidos los proporciona Azure Machine Learning y están disponibles en el área de trabajo de forma predeterminada. Están concebidos para usarse tal cual; contienen colecciones de paquetes y configuraciones de Python que le ayudarán a empezar a usar diferentes marcos de aprendizaje automático. Estos entornos creados previamente también permiten un tiempo de implementación más rápido. Para obtener una lista completa, consulte el [artículo sobre los entornos mantenidos](resource-curated-environments.md).
 
-Para los entornos administrados por usuarios, es responsable de configurar el entorno e instalar todos los paquetes que necesita el script de entrenamiento en el destino de proceso. Conda no comprobará el entorno ni instalará nada por usted. Si va a definir un entorno propio, tendrá que enumerar `azureml-defaults` con la versión `>= 1.0.45` como dependencia pip. Este paquete contiene la funcionalidad necesaria para hospedar el modelo como un servicio web.
+Para los entornos administrados por usuarios, es responsable de configurar el entorno e instalar todos los paquetes que necesita el script de entrenamiento en el destino de proceso. Asegúrese también de incluir las dependencias necesarias para realizar la implementación del modelo.
 
-Use entornos administrados por el sistema cuando quiera que [Conda](https://conda.io/docs/) administre el entorno de Python y las dependencias de script. Se crea un entorno de Conda según el objeto de dependencias de Conda. Azure Machine Learning Service da por supuesto el uso de este tipo de entorno de forma predeterminada, debido a su utilidad en destinos de proceso remotos que no se pueden configurar manualmente.
+Use entornos administrados por el sistema cuando quiera que [Conda](https://conda.io/docs/) administre el entorno de Python. Un nuevo entorno de Conda se materializa a partir de la especificación de Conda sobre una imagen base de Docker.
 
 ## <a name="create-and-manage-environments"></a>Creación y administración de entornos
 
-Puede crear entornos mediante los procesos siguientes:
+Puede crear entornos desde clientes como el SDK de Python de AzureML, la CLI de Azure Machine Learning, la página Entornos de Azure Machine Learning Studio y la [extensión de VS Code](how-to-manage-resources-vscode.md#create-environment). Cada cliente permite personalizar la imagen base, Dockerfile y la capa de Python si es necesario.
 
-* La definición de objetos `Environment` nuevos, ya sea mediante un entorno mantenido o la definición de dependencias propias.
-* El uso de objetos `Environment` existentes desde el área de trabajo. Este enfoque permite la coherencia y la posibilidad de reproducir las dependencias.
-* Importación desde una definición de entorno de Anaconda existente.
-* Uso ed la CLI de Azure Machine Learning
-* [Uso de la extensión de VS Code](how-to-manage-resources-vscode.md#create-environment)
+Para ver ejemplos de código específicos, consulte la sección "Creación de un entorno" de [Uso de los entornos](how-to-use-environments.md#create-an-environment). 
 
-Para ver ejemplos de código específicos, consulte la sección "Creación de un entorno" de [Uso de los entornos](how-to-use-environments.md#create-an-environment). Los entornos también se administran fácilmente a través del área de trabajo. Estos incluyen la funcionalidad siguiente:
+Los entornos también se administran fácilmente a través del área de trabajo, lo que le permite:
 
-* Los entornos se registran de forma automática en el área de trabajo cuando se envía un experimento. También se pueden registrar manualmente.
-* Capture entornos del área de trabajo y úselos para el entrenamiento, la implementación o la modificación de la definición del entorno.
-* El control de versiones permite ver los cambios en los entornos en el tiempo y garantiza la reproducibilidad.
-* Puede compilar imágenes de Docker de forma automática desde los entornos.
+* Registrar de entornos.
+* Capturar entornos del área de trabajo que se usarán para el entrenamiento o la implementación.
+* Crear una nueva instancia de un entorno editando una existente.
+* Ver los cambios en los entornos en el tiempo, lo que garantiza la reproducibilidad.
+* Compilar imágenes de Docker de forma automática desde los entornos.
+
+Los entornos "anónimos" se registran de forma automática en el área de trabajo cuando se envía un experimento. No se mostrarán en la lista, pero se pueden recuperar por versión.
 
 Para ver ejemplos de código, consulte la sección "Administración de entornos" de [Uso de entornos](how-to-use-environments.md#manage-environments).
 
 ## <a name="environment-building-caching-and-reuse"></a>Compilación, almacenamiento en caché y reutilización de entornos
 
-Azure Machine Learning Service compila definiciones de entorno en imágenes de Docker y entornos de Conda. También almacena en caché los entornos para que se puedan volver a usar en las ejecuciones de entrenamiento e implementaciones de punto de conexión de servicio posteriores. Para ejecutar un script de entrenamiento de forma remota, es necesario crear una imagen de Docker, mientras que una ejecución local puede usar un entorno de Conda directamente. 
+Azure Machine Learning compila definiciones de entorno en imágenes de Docker y entornos de Conda. También almacena en caché los entornos para que se puedan volver a usar en las ejecuciones de entrenamiento e implementaciones de punto de conexión de servicio posteriores. Para ejecutar un script de entrenamiento de forma remota, es necesario crear una imagen de Docker, mientras que una ejecución local puede usar un entorno de Conda directamente. 
 
 ### <a name="submitting-a-run-using-an-environment"></a>Envío de una ejecución mediante un entorno
 
@@ -73,7 +72,7 @@ En el caso de ejecuciones locales, se crea un entorno de Docker o Conda en funci
 
 ### <a name="building-environments-as-docker-images"></a>Compilación de entornos como imágenes de Docker
 
-Si la definición del entorno todavía no existe en la instancia de ACR del área de trabajo, se creará una imagen. La compilación de la imagen consta de dos pasos:
+Si la imagen de una definición de entorno en particular todavía no existe en la instancia de ACR del área de trabajo, se creará una nueva imagen. La compilación de la imagen consta de dos pasos:
 
  1. Descarga de una imagen base y ejecución de todos los pasos de Docker;
  2. Creación de un entorno de Conda según las dependencias de Conda que se hayan especificado en la definición de entorno.
@@ -82,34 +81,51 @@ El segundo paso se omite si se especifican [dependencias administradas por el us
 
 ### <a name="image-caching-and-reuse"></a>Almacenamiento en caché y reutilización de imágenes
 
-Si usa la misma definición de entorno para otra ejecución, Machine Learning Service vuelve a usar la imagen almacenada en caché de la instancia de ACR del área de trabajo. 
+Si usa la misma definición de entorno para otra ejecución, Machine Learning vuelve a usar la imagen almacenada en caché de la instancia de ACR del área de trabajo para ahorrar tiempo.
 
-Para ver los detalles de una imagen almacenada en caché, use el método [Environment.get_image_details](/python/api/azureml-core/azureml.core.environment.environment#get-image-details-workspace-).
+Para ver los detalles de una imagen almacenada en caché, consulte la página Entornos en el Estudio de Azure Machine Learning o use el método [`Environment.get_image_details`](/python/api/azureml-core/azureml.core.environment.environment#get-image-details-workspace-).
 
-Para determinar si se debe reutilizar una imagen almacenada en caché o se debe crear una nueva, el servicio calcula [un valor hash](https://en.wikipedia.org/wiki/Hash_table) a partir de la definición de entorno y lo compara con los valores hash de los entornos existentes. El hash se basa en lo siguiente:
+Para determinar si se debe reutilizar una imagen almacenada en caché o si debe crear una nueva, AzureML calcula [un valor hash](https://en.wikipedia.org/wiki/Hash_table) a partir de la definición de entorno y lo compara con los valores hash de los entornos existentes. El hash se basa en la definición del entorno:
  
- * Valor de la propiedad de imagen base
- * Valor de la propiedad de pasos de Docker personalizados
- * Lista de los paquetes de Python en la definición de Conda
- * Lista de los paquetes en la definición de Spark 
+ * Base image
+ * Pasos para la personalización de una imagen de Docker
+ * Paquetes de Python
+ * Paquetes de Spark
 
-El valor de hash no depende del nombre o de la versión del entorno; si cambia el nombre del entorno o crea uno con exactamente las mismas propiedades y paquetes de un entorno existente, el valor de hash seguirá siendo el mismo. Sin embargo, los cambios en la definición del entorno, como la adición o eliminación de un paquete de Python o el cambio de versión del paquete, hacen que el valor de hash cambie. Si se cambia el orden de las dependencias o de los canales de un entorno, se generará un nuevo entorno y, por tanto, será necesario volver a compilar la imagen. Es importante tener en cuenta que cualquier cambio en un entorno mantenido invalidará el valor de hash y dará como resultado un nuevo entorno "no mantenido".
+El hash no se ve afectado por el nombre o la versión del entorno. Si cambia el nombre del entorno o crea uno con la misma configuración y paquetes que otro entorno, el valor hash seguirá siendo el mismo. Sin embargo, los cambios en la definición del entorno, como agregar o eliminar un paquete de Python o cambiar la versión de un paquete, harán que cambie el valor hash resultante. Cambiar el orden de las dependencias o los canales en un entorno también cambiará el hash y requerirá una nueva compilación de imagen. De forma similar, cualquier cambio en un entorno mantenido dará lugar a la creación de un nuevo entorno "no mantenido". 
 
-El valor de hash calculado se compara con el de la instancia de ACR global y del área de trabajo (o con el del destino de proceso si se trata de ejecuciones locales). Si se encuentra una coincidencia, se extrae la imagen almacenada en caché; de lo contrario, se desencadena una compilación de la imagen. La duración de la extracción de una imagen almacenada en caché incluye el tiempo de descarga, mientras que la duración de la extracción de una imagen recién compilada incluye el tiempo de compilación y el tiempo de descarga. 
+> [!NOTE]
+> No podrá enviar ningún cambio local a un entorno seleccionado sin cambiar el nombre del entorno. Los prefijos "AzureML-" y "Microsoft" se reservan exclusivamente para entornos seleccionados y se producirá un error en el envío del trabajo si el nombre comienza por cualquiera de ellos.
 
-En el siguiente diagrama se muestran tres definiciones de entorno. Dos de ellas tienen nombres y versiones diferentes, pero la imagen base y los paquetes de Python son idénticos. Como tienen el mismo valor de hash, corresponden a la misma imagen almacenada en caché. El tercer entorno tiene diferentes paquetes y versiones de Python y, por lo tanto, corresponde a una imagen almacenada en caché distinta.
+El valor de hash calculado del entorno se compara con el de la instancia de ACR global y del área de trabajo o con el del destino de proceso si se trata de ejecuciones locales. Si se encuentra una coincidencia, se extrae y se usa la imagen almacenada en caché; de lo contrario, se desencadena una compilación de la imagen.
 
-![Diagrama del almacenamiento en caché del entorno como imágenes de Docker](./media/concept-environments/environment-caching.png)
+En el siguiente diagrama se muestran tres definiciones de entorno. Dos de ellos tienen nombres y versiones diferentes, pero imágenes base idénticas y paquetes de Python, lo que da como resultado el mismo hash y la misma imagen almacenada en caché correspondiente. El tercer entorno tiene diferentes paquetes y versiones de Python y, por lo tanto, corresponde a una imagen almacenada en caché y un hash distintos.
+
+![Diagrama del almacenamiento en caché del entorno e imágenes de Docker](./media/concept-environments/environment-caching.png)
+
+Las imágenes almacenadas en caché en el área de trabajo de ACR tendrán nombres como `azureml/azureml_e9607b2514b066c851012848913ba19f`, y el hash aparecerá al final.
 
 >[!IMPORTANT]
-> * Si se crea un entorno con una dependencia de paquete desanclada (por ejemplo, `numpy`), dicho entorno usa la versión de paquete que hubiera *instalada cuando se creó el entorno*. Además, cualquier entorno futuro que use una definición coincidente usará la versión original. 
+> * Si se crea un entorno con una dependencia de paquete desanclada (por ejemplo, `numpy`), dicho entorno usa la versión de paquete que estuviera *disponible cuando se creó el entorno*. Además, cualquier entorno futuro que use una definición coincidente usará la versión original. 
 >
->   Para actualizar el paquete, especifique un número de versión para forzar la recompilación de la imagen, por ejemplo, `numpy==1.18.1`. Se instalarán nuevas dependencias, incluidas las anidadas, lo que podría estropear un escenario que anteriormente funcionaba.
+>   Para actualizar el paquete, especifique un número de versión para forzar la recompilación de la imagen. Por ejemplo, cambie `numpy` por `numpy==1.18.1`. Se instalarán nuevas dependencias, incluidas las anidadas, lo que podría estropear un escenario que anteriormente funcionaba.
 >
-> * Usar una imagen base desanclada como `mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04` en la definición de entorno tiene como resultado que el entorno vuelve a generarse cada vez que la etiqueta más reciente se actualiza. Se da por hecho que su intención es mantenerse al día con la versión más reciente por diversos motivos, como vulnerabilidades, actualizaciones del sistema y revisiones. 
+> * Usar una imagen base desanclada como `mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04` en la definición de entorno tiene como resultado que la imagen vuelve a generarse cada vez que la etiqueta `latest` se actualiza. Esto permite que la imagen reciba las revisiones y actualizaciones del sistema más recientes.
 
 > [!WARNING]
->  El método [Environment.build](/python/api/azureml-core/azureml.core.environment.environment#build-workspace--image-build-compute-none-) recompilará la imagen almacenada en caché, con el posible efecto secundario de que se actualicen los paquetes sin especificar y que todas las definiciones de entorno correspondientes a esa imagen almacenada en caché ya no puedan reproducirse.
+>  El método [`Environment.build`](/python/api/azureml-core/azureml.core.environment.environment#build-workspace--image-build-compute-none-) recompilará la imagen almacenada en caché, con el posible efecto secundario de que se actualicen los paquetes sin especificar y que todas las definiciones de entorno correspondientes a esa imagen almacenada en caché ya no puedan reproducirse.
+
+### <a name="image-patching"></a>Aplicación de revisiones de imágenes
+
+Microsoft es responsable de aplicar revisiones a las imágenes base en busca de vulnerabilidades de seguridad conocidas. Las actualizaciones de las imágenes admitidas se lanzan cada dos semanas, con el compromiso de que no haya vulnerabilidades sin revisiones anteriores a 30 días en la versión más reciente de la imagen. Las imágenes con revisión se presentan con una nueva etiqueta inmutable y la etiqueta `:latest` se actualiza a la versión más reciente de la imagen con revisión. 
+
+Si proporciona sus propias imágenes, recuerde que es responsable de actualizarlas.
+
+Para obtener más información acerca de las imágenes base, consulte los vínculos siguientes:
+
+* Repositorio de GitHub de [Imágenes base de Azure Machine Learning](https://github.com/Azure/AzureML-Containers).
+* [Entrenamiento de un modelo mediante una imagen personalizada](how-to-train-with-custom-image.md).
+* [Implementación de un modelo de TensorFlow mediante un contenedor personalizado](how-to-deploy-custom-container.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

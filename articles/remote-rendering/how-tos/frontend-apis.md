@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/12/2010
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7149d7ac2625eb60a1d0d22253b93b68a99475de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5f0519b60d3b02c8312e15861441060ca89ab002
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99592099"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234139"
 ---
 # <a name="use-the-azure-frontend-apis-for-authentication"></a>Uso de las API de front-end de Azure para la autenticación
 
@@ -20,6 +20,7 @@ En esta sección, se describirá cómo usar la API # para la autenticación y la
 > [!CAUTION]
 > Las funciones descritas en este capítulo emiten llamadas REST en el servidor de manera interna. En el caso de todas las llamadas REST, enviar estos comandos con demasiada frecuencia hará que el servidor se limite y devuelva un error con el tiempo. En este caso, el valor del miembro `SessionGeneralContext.HttpResponseCode` es 429 ("demasiadas solicitudes"). Como regla general, debería haber un retraso de entre **5 y 10 segundos entre las llamadas subsiguientes**.
 
+Algunas funciones también devuelven información cuando se guardan para intentarse de nuevo. Por ejemplo, `RenderingSessionPropertiesResult.MinimumRetryDelay` especifica cuántos segundos hay que esperar antes de intentar otra comprobación. Cuando está disponible, es mejor usar este valor devuelto, ya que permite realizar comprobaciones con la mayor frecuencia posible, sin limitaciones.
 
 ## <a name="sessionconfiguration"></a>SessionConfiguration
 

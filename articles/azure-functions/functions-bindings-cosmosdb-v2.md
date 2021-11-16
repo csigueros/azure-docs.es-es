@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/01/2021
 ms.author: cshoe
-ms.openlocfilehash: d0b97d65a9c543c6afd4ae8afa9e75bf37b9f7a3
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 87318f887078a07783ec68af4fb6819f227eb38c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130071214"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130248533"
 ---
 # <a name="azure-cosmos-db-trigger-and-bindings-for-azure-functions-2x-and-higher-overview"></a>Información general sobre el desencadenador y los enlaces de Azure Cosmos DB para Azure Functions 2.x y versiones superiores
 
@@ -55,7 +55,7 @@ Para trabajar con el desencadenador y los enlaces, es necesario hacer referencia
 
 ### <a name="cosmos-db-extension-4x-and-higher"></a>Extensión de Cosmos DB 4.x y posteriores
 
-Hay disponible una nueva versión de la extensión de enlaces de Cosmos DB en versión preliminar. Presenta la posibilidad de [conectarse con una identidad en lugar de un secreto](./functions-reference.md#configure-an-identity-based-connection). En el caso de las aplicaciones .NET, también cambian los tipos con los que se puede enlazar; así, los tipos del SDK v2 `Microsoft.Azure.DocumentDB` se reemplazan por otros tipos más recientes del SDK v3 [Microsoft.Azure.Cosmos](../cosmos-db/sql/sql-api-sdk-dotnet-standard.md). Obtenga más información sobre en qué se diferencian estos nuevos tipos y cómo migrarlos en la [guía de migración de SDK](../cosmos-db/sql/migrate-dotnet-v3.md) y en los ejemplos de [desencadenador](./functions-bindings-cosmosdb-v2-trigger.md), [enlace de entrada](./functions-bindings-cosmosdb-v2-input.md) y [enlace de salida](./functions-bindings-cosmosdb-v2-output.md).
+Hay disponible una nueva versión de la extensión de enlaces de Cosmos DB en versión preliminar. Presenta la posibilidad de [conectarse con una identidad en lugar de un secreto](./functions-reference.md#configure-an-identity-based-connection). Para examinar un tutorial sobre cómo configurar las aplicaciones de funciones con identidades administradas, consulte [Creación de una aplicación de funciones con conexiones basadas en identidades](./functions-identity-based-connections-tutorial.md). En el caso de las aplicaciones .NET, la versión de extensión nueva también cambia los tipos con los que se puede enlazar; así, los tipos del SDK v2 `Microsoft.Azure.DocumentDB` se reemplazan por otros tipos más recientes del SDK v3 [Microsoft.Azure.Cosmos](../cosmos-db/sql/sql-api-sdk-dotnet-standard.md). Obtenga más información sobre en qué se diferencian estos nuevos tipos y cómo migrarlos en la [guía de migración de SDK](../cosmos-db/sql/migrate-dotnet-v3.md) y en los ejemplos de [desencadenador](./functions-bindings-cosmosdb-v2-trigger.md), [enlace de entrada](./functions-bindings-cosmosdb-v2-input.md) y [enlace de salida](./functions-bindings-cosmosdb-v2-output.md).
 
 Esta versión de la extensión está disponible como un [paquete NuGet en versión preliminar]. Para obtener más información, consulte [Actualización de las extensiones].
 

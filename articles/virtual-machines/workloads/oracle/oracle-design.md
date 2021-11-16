@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: oracle
 ms.collection: linux
 ms.topic: article
-ms.date: 12/17/2020
+ms.date: 10/15/2021
 ms.author: kegorman
 ms.reviewer: tigorman
-ms.openlocfilehash: f6f7312590b98474d5edab02ea8e73725aded229
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 3a5b7d99c0995ae0e91056520945c0ed1a78d136
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122690082"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223051"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Diseño e implementación de una base de datos de Oracle en Azure
 
@@ -200,12 +200,13 @@ A diferencia de un sistema de archivos o una aplicación, para una base de datos
 
 **Recomendaciones**
 
-Para maximizar el rendimiento, se recomienda comenzar con **solo lectura** para el almacenamiento en caché del host siempre que sea posible. En el caso de Premium Storage, es importante tener en cuenta que debe deshabilitar las "barreras" al montar el sistema de archivos con las opciones de **solo lectura**. Actualice el archivo/etc/fstab con el UUID en los discos.
+Para maximizar el rendimiento, se recomienda comenzar con **solo lectura** para el almacenamiento en caché del host siempre que sea posible. En el caso de Premium Storage, es importante tener en cuenta que debe deshabilitar las "barreras" al montar el sistema de archivos con las opciones de **solo lectura**. Actualice el archivo `/etc/fstab` con el UUID de los discos.
 
 ![Captura de pantalla de la página del disco administrado que muestra las opciones Solo lectura y Ninguno.](./media/oracle-design/premium_disk02.png)
 
-- En el caso de los discos de sistema operativo, use el almacenamiento en caché de **lectura/escritura** predeterminado y SSD prémium para máquinas virtuales de carga de trabajo.  Asegúrese también de que el volumen usado para el intercambio también esté en una SSD prémium.
-- En el caso de todos los archivos DATAFILES, use **solo lectura** para el almacenamiento en caché. El almacenamiento en caché de solo lectura solo está disponible para el disco administrado prémium, P30 y versiones posteriores.  Existe un límite de un volumen de 4095 GiB que se puede usar con el almacenamiento en caché de solo lectura.  Cualquier asignación mayor deshabilitará el almacenamiento en caché de host de forma predeterminada.
+- Para los **discos del sistema operativo**, use **SSD prémium con almacenamiento en caché de host de lectura y escritura**.
+- Para los **discos de datos** que contienen archivos de datos de Oracle, archivos temporales, archivos de control, archivos de seguimiento de cambios en bloques, BFIL, archivos para tablas externas y registros de flashback, use **SSD prémium con almacenamiento en caché de host de solo lectura**.
+- Para los **discos de datos que contienen archivos de registro de fase de puesta al día en línea de Oracle**, use **SSD premium o UltraDisk sin almacenamiento en caché de host (Ninguno)** . Los archivos de registro de la fase de puesta al día de Oracle y los conjuntos de copias de seguridad de RMAN también pueden residir con los archivos de registro de la fase de puesta al día en línea. Tenga en cuenta que el almacenamiento en caché de host está limitado a 4095 GiB, así que no asigne SSD prémium mayor que P50 con este tipo de almacenamiento. Si necesita más de 4 TiB de almacenamiento, RAID-0 secciona varios SSD prémium mediante Linux LVM2 u Oracle ASM.
 
 Si las cargas de trabajo varían considerablemente entre el día y la noche, y la carga de trabajo de E/S puede admitirlo, la SSD prémium P1-P20 con ráfagas puede proporcionar el rendimiento necesario durante las cargas por lotes de la noche o las demandas de E/S limitadas.  
 

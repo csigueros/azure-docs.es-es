@@ -10,12 +10,12 @@ author: lostmygithubaccount
 ms.author: copeters
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: 51db45ecaac8be0679832dde29685a6ba2909f75
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: a9f3ac8ce87c3cec11c7bb5cb17e1004bce9f953
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132055764"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131556890"
 ---
 # <a name="cli-v2-model-yaml-schema"></a>Esquema YAML del modelo de la CLI (v2)
 
@@ -47,10 +47,10 @@ Hay ejemplos disponibles en el [repositorio de GitHub de ejemplos](https://githu
 
 ## <a name="yaml-local-file"></a>YAML: archivo local
 
-:::code language="yaml" source="~/azureml-examples-main/cli/assets/model/local-file.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/model/local-file.yml":::
 
 ## <a name="yaml-local-folder-in-mlflow-format"></a>YAML: carpeta local en formato MLflow
 
-:::code language="yaml" source="~/azureml-examples-main/cli/assets/model/local-mlflow.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/model/local-mlflow.yml":::
 
 - [Instalación y uso de la CLI (v2)](how-to-configure-cli.md)

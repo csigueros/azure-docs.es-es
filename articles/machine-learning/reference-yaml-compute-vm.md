@@ -10,12 +10,12 @@ author: lostmygithubaccount
 ms.author: copeters
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: 25eb702d61b98d9c418e20763e95a948cc2cbf05
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: b639c4193a246ccf7f57520089132f0f49d16ebb
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131565926"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132062441"
 ---
 # <a name="cli-v2-attached-virtual-machine-yaml-schema"></a>Esquema YAML de máquina virtual conectado a la CLI (v2)
 
@@ -38,7 +38,7 @@ El esquema JSON de origen se puede encontrar en https://azuremlschemas.azureedge
 | `ssh_settings.ssh_private_key_file` | string | Ruta de acceso local al archivo de clave privada SSH de la cuenta de usuario de administrador. **Se requiere `admin_password` o `ssh_private_key_file`.** | | |
 | `ssh_settings.ssh_port` | integer | Puerto SSH en la máquina virtual. | | `22` |
 
-## <a name="remarks"></a>Comentarios
+## <a name="remarks"></a>Observaciones
 
 El comando `az ml compute` se puede usar para administrar Virtual Machines (VM) conectadas a un área de trabajo de Azure Machine Learning.
 
@@ -48,7 +48,7 @@ Hay ejemplos disponibles en el [repositorio de GitHub de ejemplos](https://githu
 
 ## <a name="yaml-basic"></a>YAML: básico
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/vm-attach.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/vm-attach.yml":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

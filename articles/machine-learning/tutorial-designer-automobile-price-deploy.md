@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 06/11/2021
+ms.date: 10/21/2021
 ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: a9fe604673ee53aa6772e6f382a4a3e3a53fb903
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: 3348bddec5700ba2a5ddf1112ad20f9319e04d79
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112115002"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131554894"
 ---
 # <a name="tutorial-designer---deploy-a-machine-learning-model"></a>Tutorial: Diseñador: implementación de un modelo de Machine Learning
 
@@ -30,7 +30,7 @@ En la [primera parte de este tutorial](tutorial-designer-automobile-price-train-
 > * Implementación del punto de conexión en tiempo real.
 > * Prueba del punto de conexión en tiempo real.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Complete la [parte uno del tutorial](tutorial-designer-automobile-price-train-score.md) para aprender a entrenar y puntuar un modelo de Machine Learning en el diseñador.
 
@@ -38,7 +38,7 @@ Complete la [parte uno del tutorial](tutorial-designer-automobile-price-train-sc
 
 ## <a name="create-a-real-time-inference-pipeline"></a>Crear una canalización de inferencia en tiempo real
 
-Para implementar la canalización, antes debe convertir la canalización de entrenamiento en una canalización de inferencia en tiempo real. Este proceso quita los módulos de entrenamiento y agrega entradas y salidas de servicios web para administrar las solicitudes.
+Para implementar la canalización, antes debe convertir la canalización de entrenamiento en una canalización de inferencia en tiempo real. Este proceso quita los componentes de entrenamiento y agrega entradas y salidas de servicios web para administrar las solicitudes.
 
 ### <a name="create-a-real-time-inference-pipeline"></a>Crear una canalización de inferencia en tiempo real
 
@@ -52,18 +52,18 @@ Para implementar la canalización, antes debe convertir la canalización de entr
 
     Al seleccionar **Create inference pipeline** (Crear canalización de inferencia), suceden varias cosas:
     
-    * El modelo entrenado se almacena como un módulo **Conjunto de datos** en la paleta de módulos. Puede encontrarlo en **My Datasets** (Mis conjuntos de datos).
-    * Se quitan los módulos de entrenamiento como **Train Model** (Entrenar modelo) y **Split Data** (Dividir datos).
+    * El modelo entrenado se almacena como un componente de **Conjunto de datos** en la paleta de componentes. Puede encontrarlo en **My Datasets** (Mis conjuntos de datos).
+    * Se quitan los componentes de entrenamiento como **Train Model** (Entrenar modelo) y **Split Data** (Dividir datos).
     * El modelo entrenado guardado se vuelve a agregar a la canalización.
-    * Se agregan los módulos **Web Service Input** (Entrada de servicio web) y **Web Service Output** (Salida de servicio web). Estos módulos muestran dónde entran los datos del usuario en la canalización y dónde se devuelven.
+    * Se agregan los componentes **Entrada de servicio web** y **Salida de servicio web**. Estos componentes muestran dónde entran los datos del usuario en la canalización y dónde se devuelven.
 
     > [!NOTE]
-    > De forma predeterminada, la **entrada del servicio web** esperará el mismo esquema de datos que los datos de salida del módulo que se conecta al mismo puerto de bajada que ellos. En este ejemplo, la **entrada del servicio web** y los **datos de precios de automóviles (sin procesar)** se conectan al mismo módulo de bajada, por lo que la **entrada de servicio web** espera el mismo esquema de datos que los **datos de precios de automóviles (sin procesar)** y la columna de variable de destino `price` se incluye en el esquema.
-    > Sin embargo, al puntuar los datos, normalmente no conocerá los valores de las variables de destino. En tal caso, puede quitar la columna de variable de destino de la canalización de inferencia mediante el módulo **Seleccionar columnas de conjunto de datos**. Asegúrese de que la salida de **Seleccionar columnas de conjunto de datos** que quita la columna de variable de destino está conectada al mismo puerto que la salida del módulo **Entrada del servicio web**.
+    > De forma predeterminada, la **entrada del servicio web** esperará el mismo esquema de datos que los datos de salida del componente que se conecta al mismo puerto de bajada que ellos. En este ejemplo, la **entrada del servicio web** y los **datos de precios de automóviles (sin procesar)** se conectan al mismo componente de bajada, por lo que la **entrada de servicio web** espera el mismo esquema de datos que los **datos de precios de automóviles (sin procesar)** y la columna de variable de destino `price` se incluye en el esquema.
+    > Sin embargo, al puntuar los datos, normalmente no conocerá los valores de las variables de destino. En tal caso, puede quitar la columna de variable de destino de la canalización de inferencia mediante el componente **Seleccionar columnas de conjunto de datos**. Asegúrese de que la salida de **Seleccionar columnas de conjunto de datos** que quita la columna de variable de destino está conectada al mismo puerto que la salida del componente **Entrada del servicio web**.
 
 1. Seleccione **Enviar** y use el mismo destino de proceso y el mismo experimento que usó en la parte 1.
 
-    Si esta es la primera ejecución, la canalización puede tardar hasta 20 minutos en finalizar la ejecución. La configuración del proceso predeterminada tiene un tamaño de nodo mínimo de 0, lo que significa que el diseñador debe asignar recursos después de estar inactivo. Las ejecuciones de canalización repetidas tardarán menos en terminar, dado que los recursos del proceso ya están asignados. Además, el diseñador usa resultados almacenados en la caché en cada módulo para mejorar aún más la eficiencia.
+    Si esta es la primera ejecución, la canalización puede tardar hasta 20 minutos en finalizar la ejecución. La configuración del proceso predeterminada tiene un tamaño de nodo mínimo de 0, lo que significa que el diseñador debe asignar recursos después de estar inactivo. Las ejecuciones de canalización repetidas tardarán menos en terminar, dado que los recursos del proceso ya están asignados. Además, el diseñador usa resultados almacenados en la caché de cada componente para mejorar aún más la eficiencia.
 
 1. Seleccione **Implementar**.
 
@@ -148,19 +148,19 @@ Si realiza cualquier modificación en la canalización de entrenamiento, debe vo
 
 Tenga en cuenta que en la canalización de inferencia solo se actualizarán los modelos entrenados, la transformación de datos no se actualizará.
 
-Para usar la transformación actualizada en la canalización de inferencia, es preciso registrar la salida de la transformación del módulo de transformación como conjunto de datos.
+Para usar la transformación actualizada en la canalización de inferencia, es preciso registrar la salida de la transformación del componente de transformación como conjunto de datos.
 
 ![Captura de pantalla en la que se muestra cómo registrar un conjunto de datos de transformación](./media/tutorial-designer-automobile-price-deploy/register-transformation-dataset.png)
 
-Luego, reemplace de forma manual el módulo **TD-** en la canalización de inferencia con el conjunto de datos registrado.
+Luego, reemplace de forma manual el componente **TD-** en la canalización de inferencia con el conjunto de datos registrado.
 
-![Captura de pantalla que muestra cómo reemplazar el módulo de la transformación](./media/tutorial-designer-automobile-price-deploy/replace-td-module.png)
+![Captura de pantalla que muestra cómo reemplazar el componente de la transformación](./media/tutorial-designer-automobile-price-deploy/replace-td-module.png)
 
 A continuación, puede enviar la canalización de inferencia con el modelo y la transformación actualizados e implementarla.
 
 ### <a name="deploy-real-time-endpoint"></a>Implementar un punto de conexión en tiempo real
 
-Debido a la limitación del acceso al almacén de datos, si la canalización de inferencia contiene el módulo **Importar datos** o **Exportar datos**, se quitará automáticamente cuando se implemente en el punto de conexión en tiempo real.
+Debido a la limitación del acceso al almacén de datos, si la canalización de inferencia contiene el componente **Importar datos** o **Exportar datos**, se quitará automáticamente cuando se implemente en el punto de conexión en tiempo real.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

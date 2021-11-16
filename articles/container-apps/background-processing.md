@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Implementación de una aplicación de procesamiento en segundo plano con Azure Container Apps (versión preliminar)'
 description: Aprenda a crear una aplicación que se ejecute continuamente en segundo plano con Azure Container Apps
-services: app-service
+services: container-apps
 author: jorgearteiro
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
-ms.date: 10/21/2021
+ms.date: 11/02/2021
 ms.author: joarteir
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 57d5c01290f59a876a187538c9578b84fab26773
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ca9fa15259222651570c1909f6c4557c79a87298
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091768"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132028009"
 ---
 # <a name="tutorial-deploy-a-background-processing-application-with-azure-container-apps-preview"></a>Tutorial: Implementación de una aplicación de procesamiento en segundo plano con Azure Container Apps (versión preliminar)
 
@@ -88,7 +88,7 @@ az login
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az login
 ```
 
@@ -104,7 +104,7 @@ az upgrade
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az upgrade
 ```
 
@@ -121,9 +121,25 @@ az extension add \
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az extension add `
   --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl
+```
+
+---
+
+Ahora que la extensión está instalada, registre el espacio de nombres `Microsoft.Web`.
+
+# <a name="bash"></a>[Bash](#tab/bash)
+
+```azurecli
+az provider register --namespace Microsoft.Web
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+```azurecli
+az provider register --namespace Microsoft.Web
 ```
 
 ---
@@ -140,7 +156,7 @@ az group create \
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az group create `
   --name $RESOURCE_GROUP `
   --location $LOCATION
@@ -168,7 +184,7 @@ az monitor log-analytics workspace create \
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az monitor log-analytics workspace create `
   --resource-group $RESOURCE_GROUP `
   --workspace-name $LOG_ANALYTICS_WORKSPACE
@@ -215,7 +231,7 @@ az containerapp env create \
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az containerapp env create `
   --name $CONTAINERAPPS_ENVIRONMENT `
   --resource-group $RESOURCE_GROUP `
@@ -243,7 +259,7 @@ az storage account create \
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az storage account create `
   --name $STORAGE_ACCOUNT `
   --resource-group $RESOURCE_GROUP `
@@ -283,7 +299,7 @@ az storage queue create \
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az storage queue create `
   --name "myqueue" `
   --account-name $STORAGE_ACCOUNT `
@@ -305,7 +321,7 @@ az storage message put \
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az storage message put `
   --content "Hello Queue Reader App" `
   --queue-name "myqueue" `
@@ -412,7 +428,7 @@ az deployment group create --resource-group "$RESOURCE_GROUP" \
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az deployment group create --resource-group "$RESOURCE_GROUP" `
   --template-file ./queue.json `
   --parameters `
@@ -429,7 +445,7 @@ La aplicación escala verticalmente hasta 10 réplicas en función de la longit
 
 ## <a name="verify-the-result"></a>Comprobar el resultado
 
-La aplicación de contenedor que se ejecuta como un proceso en segundo plano crea entradas de registros en Log Analytics a medida que llegan mensajes desde Azure Storage Queue.
+La aplicación de contenedor que se ejecuta como un proceso en segundo plano crea entradas de registros en Log Analytics a medida que llegan mensajes desde Azure Storage Queue. Es posible que tenga que esperar unos minutos para que el análisis llegue por primera vez antes de poder consultar los datos registrados.
 
 Ejecute el comando siguiente para ver los mensajes registrados. Este comando necesita la extensión de Log Analytics, así que acepte el mensaje para instalar la extensión cuando se le solicite.
 
@@ -469,7 +485,7 @@ az group delete \
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az group delete `
   --resource-group $RESOURCE_GROUP
 ```

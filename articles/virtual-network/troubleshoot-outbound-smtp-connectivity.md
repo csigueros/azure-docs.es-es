@@ -12,16 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/28/2021
 ms.author: genli
-ms.openlocfilehash: 3cc4cb587a7b2d5d06c249cc8f25bc78cdb86739
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 5c4c129514ccf2fe3b55fc173d3fd4b87fd50715
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108165270"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130248970"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-problems-in-azure"></a>Solución de problemas de conectividad SMTP saliente en Azure
 
 Los mensajes de correo electrónico salientes que se envían directamente a dominios externos (como outlook.com y gmail.com) en el puerto TCP 25 desde una máquina virtual (VM) solo son posibles cuando la VM se ha implementado en determinados tipos de suscripción.
+
+> [!IMPORTANT]
+> En todos los ejemplos que aparecen a continuación, el proceso *solo* se aplica a recursos de VM Scale Sets y Virtual Machines (`Microsoft.Compute/virtualMachines` & `Microsoft.Compute/virtualMachineScaleSets`). No se admite el envío de correo electrónico en el puerto 25 desde todos los recursos de plataforma como servicio (PaaS) de Azure, incluidos [Azure App Service](https://azure.microsoft.com/services/app-service) y [Azure Functions](https://azure.microsoft.com/services/functions).
 
 ## <a name="recommended-method-of-sending-email"></a>Método recomendado para el envío de correo electrónico
 

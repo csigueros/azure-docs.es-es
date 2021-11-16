@@ -3,12 +3,12 @@ title: Creación y administración de máquinas virtuales reclamables
 description: Obtenga información sobre cómo usar Azure Portal para agregar una máquina virtual reclamable en Azure DevTest Labs y ver los procesos que se van a seguir para reclamar una máquina virtual o anular su reclamación.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 8fb89e77308751a1a40a849991740228a6c465f5
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 68c82c359f5fe0a0c146756cd3a9e1f74e33f6b3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128660944"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130218135"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Creación y administración de VM reclamables en Azure DevTest Labs
 Una imagen virtual reclamable se agrega a un laboratorio de forma similar a como se [agrega una máquina virtual estándar](devtest-lab-add-vm.md): desde una *base* que es una [imagen personalizada](devtest-lab-create-template.md), [fórmula](devtest-lab-manage-formulas.md), o [imagen de Marketplace](devtest-lab-configure-marketplace-images.md). Este tutorial le guía por el proceso de utilización de Azure Portal para agregar una máquina virtual reclamable a un laboratorio de DevTest Labs, y muestra los procesos que sigue un usuario para reclamar la VM y anular la reclamación de esta.
@@ -31,7 +31,9 @@ Una imagen virtual reclamable se agrega a un laboratorio de forma similar a como
         Puede también guardar primero los secretos en el almacén de claves y, después, usarlos al crear una máquina virtual en el laboratorio. Para más información, consulte [Almacenamiento de secretos en un almacén de claves](devtest-lab-store-secrets-in-key-vault.md). Para usar una contraseña almacenada en un almacén de claves, seleccione **Usar un secreto guardado** y especifique un valor de clave que corresponda a su secreto (contraseña).
     4. En la sección **Más opciones** seleccione **Cambiar tamaño**. Seleccione uno de los elementos predefinidos que especifican los núcleos del procesador, el tamaño de RAM y el tamaño de la unidad de disco duro de la máquina virtual que se va a crear.
     5. Seleccione **Add or Remove Artifacts** (Agregar o quitar artefactos). Seleccione y configure los artefactos que quiere agregar a la imagen base.
-    **Nota:** Si no está familiarizado con DevTest Labs o la configuración de artefactos, vaya a la sección [Incorporación de un artefacto existente a una máquina virtual](./devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) y vuelva aquí cuando haya finalizado.
+    
+    >[!NOTE] 
+    >Si no está familiarizado con DevTest Labs o con la configuración de artefactos, consulte la sección [Incorporación artefactos después de la instalación](./devtest-lab-add-vm.md#add-artifacts-after-installation) y vuelva aquí cuando haya finalizado.
 2. Cambie a la pestaña **Configuración avanzada** en la parte superior, y realice las acciones siguientes:
     1. Para cambiar la red virtual en la que se encuentra la máquina virtual, seleccione **Cambiar la red virtual**.
     2. Para cambiar la subred, seleccione **Cambiar la subred**.

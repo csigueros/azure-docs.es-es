@@ -11,12 +11,12 @@ ms.author: robinsh
 ms.custom:
 - mvc
 - mqtt
-ms.openlocfilehash: 898cc8dcb634ed9beab26c0a0d5de9a9fdda068c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7d38566db882bdc2094961cb83c9bd117a328589
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121732870"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130258910"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>Tutorial: Realización de una conmutación por error manual de una instancia de IoT Hub
 
@@ -48,11 +48,11 @@ Para obtener más información sobre la conmutación por error manual y la conmu
 > [!NOTE]
 > Hay un límite de dos conmutaciones por error y dos conmutaciones por recuperación al día en un centro de IoT.
 
-1. Haga clic en **Grupos de recursos** y, a continuación, seleccione el grupo de recursos. Este tutorial usa **ManlFailRG**. En la lista de recursos, haga clic en su centro. 
+1. Haga clic en **Grupos de recursos** y, a continuación, seleccione el grupo de recursos. En la lista de recursos, haga clic en su centro.
 
-1. En **Configuración** en el panel de IoT Hub, haga clic en **Conmutación por error**.
+1. En **Configuración del centro** en el panel de IoT Hub, haga clic en **Conmutación por error**.
 
-   ![Captura de pantalla que muestra el panel de propiedades del centro de IoT](./media/tutorial-manual-failover/trigger-failover-01.png)
+:::image type="content" source="./media/tutorial-manual-failover/trigger-failover-01.png" alt-text="Captura de pantalla que muestra el panel de propiedades del centro de IoT":::
 
 1. En el panel de conmutación por error manual, verá la **ubicación actual** y la **ubicación de la conmutación por error**. La ubicación actual siempre indica la ubicación en la que el centro está activo actualmente. La ubicación de conmutación por error es la [región emparejada geográficamente de Azure](../best-practices-availability-paired-regions.md) estándar que está emparejada con la ubicación actual. Los valores de las ubicaciones no se pueden cambiar. En este tutorial, la ubicación actual es `West US 2` y la ubicación de conmutación por error es `West Central US`.
 

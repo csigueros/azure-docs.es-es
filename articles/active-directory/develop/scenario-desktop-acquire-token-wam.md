@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/25/2021
 ms.author: sahmalik
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: a6b57ac40c124b2290642e452ef9c9f294acc9da
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b06c771d14d0257ac69db9d3a9a40d3eadeba3e7
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124837917"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131436267"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token-using-wam"></a>Aplicación de escritorio que llama a las API web: adquisición de un token mediante el Administrador de cuentas web
 

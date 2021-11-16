@@ -3,21 +3,25 @@ title: Control de errores en runbooks gráficos de Azure Automation
 description: En este artículo se indica cómo crear un runbook gráfico sin trabajar con código.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/16/2018
+ms.date: 10/21/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: af5a1a8353435d9f54b28bce46897f55f8b560a7
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 2ce84a91fcb91be0326571a95cfa92fdfa3b33ef
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124812656"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130220271"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Control de errores en runbooks gráficos de Azure Automation
 
 Todos los runbooks de Azure Automation son flujos de trabajo de Windows PowerShell. Los runbooks gráficos y los runbooks gráficos de flujo de trabajo de PowerShell generan código de PowerShell que se ejecuta en los trabajos de Automation, pero que no se puede ver ni modificar. Puede convertir un runbook gráfico en un runbook gráfico de flujo de trabajo de PowerShell y viceversa. Sin embargo, no puede convertir estos runbooks en un runbook textual. Además, el editor gráfico de Automation no puede importar un runbook textual.
 
 La creación gráfica permite crear runbooks para Azure Automation sin las complejidades del código subyacente de Windows PowerShell o del flujo de trabajo de esta herramienta. Puede agregar actividades al lienzo desde una biblioteca de cmdlets y runbooks, vincularlas y configurarlas para conformar un flujo de trabajo. Si alguna vez ha utilizado System Center Orchestrator o Service Management Automation (SMA), la creación gráfica le debería resultar familiar. Este artículo proporciona una introducción a los conceptos que necesita para comenzar a crear un runbook gráfico.
+
+> [!NOTE]
+> No se puede agregar una firma digital a un runbook gráfico. Esta característica no se admite en Azure Automation.
+>
 
 ## <a name="overview-of-graphical-editor"></a>Información general del editor de gráficos
 

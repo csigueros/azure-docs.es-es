@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-ms.custom: how-to, managed online endpoints, devplatv2
+ms.custom: how-to, managed online endpoints, devplatv2, studio
 ms.author: ssambare
 author: shivanissambare
-ms.reviewer: peterlu
-ms.date: 05/25/2021
-ms.openlocfilehash: d195ce6019f200b3cd3b264aacf09a8cbdb30c5f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.reviewer: laobri
+ms.date: 10/21/2021
+ms.openlocfilehash: fee2a8211b90c2b7dbc06a1e64f047e28031eaa6
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131057597"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131560431"
 ---
 # <a name="create-and-use-managed-online-endpoints-preview-in-the-studio"></a>Creación y uso de puntos de conexión en línea administrados (versión preliminar) en Estudio
 
@@ -27,17 +27,15 @@ En este artículo aprenderá a:
 > [!div class="checklist"]
 > * Creación de un punto de conexión en línea administrado
 > * Visualizar puntos de conexión en línea administrados
+> * Incorporación de una implementación a un punto de conexión en línea administrado
 > * Actualizar puntos de conexión en línea administrados
 > * Eliminar implementaciones y puntos de conexión en línea administrados
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
-
 - Un área de trabajo de Azure Machine Learning. Para más información, consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
-- Un modelo [registrado en el área de trabajo](how-to-deploy-and-where.md#registermodel).
-- Un archivo de puntuación para el modelo implementado. Para obtener un ejemplo paso a paso del registro de un modelo y la creación de un archivo de puntuación, consulte [Tutorial: Clasificación de imágenes](tutorial-train-models-with-aml.md).
-- Un entorno personalizado registrado en el área de trabajo **o**, o una imagen del registro de contenedor de Docker con un entorno de Python. Para más información sobre los entornos, consulte [Creación y uso de entornos de software en Azure Machine Learning](how-to-use-environments.md).
+- El repositorio de ejemplos: clone el [repositorio de ejemplo de AzureML](https://github.com/Azure/azureml-examples). En este artículo se usan los recursos de `/cli/endpoints/online`.
 
 ## <a name="create-a-managed-online-endpoint-preview"></a>Creación de un punto de conexión en línea administrado (versión preliminar)
 
@@ -47,18 +45,23 @@ Use Estudio para crear un punto de conexión en línea administrado (versión pr
 1. En la barra de navegación izquierda, seleccione la página **Endpoints** (Puntos de conexión).
 1. Seleccione **+ Create (preview)** (+ Crear [versión preliminar]).
 
-:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/endpoint-create-managed-online-endpoint.png" alt-text="Creación de un punto de conexión en línea administrado desde la pestaña Puntos de conexión":::
+:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/endpoint-create-managed-online-endpoint.png" lightbox="media/how-to-create-managed-online-endpoint-studio/endpoint-create-managed-online-endpoint.png" alt-text="Captura de pantalla para crear un punto de conexión en línea administrado en la pestaña Puntos de conexión.":::
+
+:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/online-endpoint-wizard.png" lightbox="media/how-to-create-managed-online-endpoint-studio/online-endpoint-wizard.png" alt-text="Captura de pantalla del asistente para crear un punto de conexión en línea administrado.":::
+
+### <a name="follow-the-setup-wizard-to-configure-your-managed-online-endpoint"></a>Siga el asistente para configurar el punto de conexión en línea administrado.
+
+1. Puede usar nuestro [modelo](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1/model) de ejemplo y el [script de puntuación](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/model-1/onlinescoring/score.py) en [https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1).
+1. En el paso **Entorno** del asistente, puede seleccionar el entorno mantenido **AzureML-sklearn-0.24.1-ubuntu18.04-py37-cpu-inference**.
 
 También puede crear un punto de conexión en línea administrado desde la página **Models** (Modelos) de Estudio. Esta es una manera sencilla de agregar un modelo a una implementación en línea administrada existente.
 
 1. Vaya a [Azure Machine Learning Studio](https://ml.azure.com).
 1. En la barra de navegación izquierda, seleccione la página **Models** (Modelos).
 1. Seleccione el círculo situado junto al nombre del modelo para elegirlo.
-1. Seleccione **Deploy** > **Deploy to endpoint (preview)** (Implementar > Implementar en el punto de conexión [versión preliminar]).
+1. Seleccione **Implementar** > **Implementación de un punto de conexión en tiempo real (versión preliminar)** .
 
-Siga el asistente para configurar el punto de conexión en línea administrado.
-
-:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/models-page-deployment-latest.png" alt-text="Creación de un punto de conexión en línea administrado desde la pestaña Modelos":::
+:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/deploy-from-models-page.png" lightbox="media/how-to-create-managed-online-endpoint-studio/deploy-from-models-page.png" alt-text="Captura de pantalla de la creación de un punto de conexión en línea administrado desde la interfaz de usuario de modelos.":::
 
 ## <a name="view-managed-online-endpoints-preview"></a>Visualización de puntos de conexión en línea administrados (versión preliminar)
 
@@ -67,6 +70,8 @@ Puede ver los puntos de conexión en línea administrados (versión preliminar) 
 1. En la barra de navegación de la izquierda, seleccione **Puntos de conexión**.
 1. (Opcional) En **Filter** (Filtro) cree un filtro por **Compute type** (Tipo de proceso) para mostrar solo los tipos de proceso **Managed** (Administrado).
 1. Seleccione el nombre de un punto de conexión para ver su página de detalles.
+
+:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/managed-endpoint-details-page.png" lightbox="media/how-to-create-managed-online-endpoint-studio/managed-endpoint-details-page.png" alt-text="Captura de pantalla de la vista de detalles del punto de conexión administrado.":::
 
 ### <a name="test"></a>Prueba
 
@@ -77,7 +82,7 @@ Use la pestaña **Test** (Prueba) de la página de detalles del punto de conexi�
 1. Escriba la entrada de ejemplo.
 1. Seleccione **Probar**.
 
-:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/test-deployment.png" alt-text="Prueba de una implementación proporcionando datos de ejemplo directamente en el explorador":::
+:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/test-deployment.png" lightbox="media/how-to-create-managed-online-endpoint-studio/test-deployment.png" alt-text="Captura de pantalla de una prueba de implementación en la que se proporcionan los datos de ejemplo directamente en el explorador.":::
 
 ### <a name="monitoring"></a>Supervisión
 
@@ -85,32 +90,38 @@ Use la pestaña **Monitoring** (Supervisión) para ver gráficos de supervisión
 
 Para usar la pestaña de supervisión, debe seleccionar "**Enable Application Insight diagnostic and data collection**" (Habilitar la recopilación de datos y el diagnóstico de Application Insights) al crear el punto de conexión.
 
-:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/monitor-endpoint.png" alt-text="Supervisión de métricas de punto de conexión en Estudio":::
+:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/monitor-endpoint.png" lightbox="media/how-to-create-managed-online-endpoint-studio/monitor-endpoint.png" alt-text="Captura de pantalla de la supervisión de métricas en el nivel de punto de conexión en el estudio.":::
 
 Para más información sobre cómo ver monitores y alertas adicionales, consulte [Supervisión de puntos de conexión en línea administrados](how-to-monitor-online-endpoints.md).
 
-## <a name="update-managed-online-endpoints-preview"></a>Actualización de puntos de conexión en línea administrados (versión preliminar)
+## <a name="add-a-deployment-to-a-managed-online-endpoint"></a>Incorporación de una implementación a un punto de conexión en línea administrado
 
-Aprenda a actualizar los puntos de conexión en línea administrados (versión preliminar) para agregar más implementaciones y ajustar la asignación de tráfico.
+Puede agregar una implementación al punto de conexión en línea administrado existente.
 
-### <a name="add-a-managed-online-deployment"></a>Adición de una implementación en línea administrada
-
-Use las instrucciones siguientes para agregar una implementación a un punto de conexión en línea administrado existente:
+En la **página de detalles del punto de conexión**:
 
 1. Seleccione el botón **+ Add Deployment** (+ Agregar implementación) en la [página de detalles del punto de conexión](#view-managed-online-endpoints-preview).
 2. Siga las instrucciones para completar la implementación.
+
+:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/add-deploy-option-from-endpoint-page.png" lightbox="media/how-to-create-managed-online-endpoint-studio/add-deploy-option-from-endpoint-page.png" alt-text="Captura de pantalla de la opción Agregar implementación de la página de detalles del punto de conexión.":::
 
 Como alternativa, puede usar la página **Models** (Modelos) para agregar una implementación:
 
 1. En la barra de navegación izquierda, seleccione la página **Models** (Modelos).
 1. Seleccione el círculo situado junto al nombre del modelo para elegirlo.
-1. Seleccione **Deploy** > **Deploy to endpoint (preview)** (Implementar > Implementar en el punto de conexión [versión preliminar]).
+1. Seleccione **Implementar** > **Implementación de un punto de conexión en tiempo real (versión preliminar)** .
 1. Elija implementar en un punto de conexión en línea administrado existente.
+
+:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/select-existing-managed-endpoints.png" lightbox="media/how-to-create-managed-online-endpoint-studio/select-existing-managed-endpoints.png" alt-text="Captura de pantalla de la opción Agregar implementación de la página Modelos.":::
 
 > [!NOTE]
 > Puede agregar una nueva implementación para ajustar el equilibrio del tráfico entre las implementaciones de un punto de conexión.
 >
-> :::image type="content" source="media/how-to-create-managed-online-endpoint-studio/adjust-deployment-traffic.png" alt-text="Uso de controles deslizantes para controlar la distribución del tráfico entre varias implementaciones":::
+> :::image type="content" source="media/how-to-create-managed-online-endpoint-studio/adjust-deployment-traffic.png" lightbox="media/how-to-create-managed-online-endpoint-studio/adjust-deployment-traffic.png" alt-text="Captura de pantalla del uso de controles deslizantes para controlar la distribución del tráfico entre varias implementaciones.":::
+
+## <a name="update-managed-online-endpoints-preview"></a>Actualización de puntos de conexión en línea administrados (versión preliminar)
+
+Puede actualizar el porcentaje de tráfico de la implementación y el recuento de instancias en el Estudio de Azure Machine Learning.
 
 ### <a name="update-deployment-traffic-allocation"></a>Actualización de la asignación del tráfico a las implementaciones
 
@@ -131,7 +142,6 @@ Use las instrucciones siguientes para ajustar el número de instancias para ampl
 1. Actualice el número de instancias.
 1. Seleccione **Actualizar**.
 
-
 ## <a name="delete-managed-online-endpoints-and-deployments-preview"></a>Eliminación de implementaciones y puntos de conexión en línea administrados (versión preliminar)
 
 Obtenga información sobre cómo eliminar un punto de conexión en línea administrado completo (versión preliminar) y sus implementaciones asociadas (versión preliminar). O bien, elimine una implementación individual de un punto de conexión en línea administrado.
@@ -146,7 +156,6 @@ Al eliminar un punto de conexión en línea administrado también se eliminan la
 1. Seleccione **Eliminar**.
 
 También puede eliminar un punto de conexión en línea administrado directamente en la [página de detalles del punto de conexión](#view-managed-online-endpoints-preview). 
-
 
 ### <a name="delete-an-individual-deployment"></a>Eliminación de una implementación individual
 

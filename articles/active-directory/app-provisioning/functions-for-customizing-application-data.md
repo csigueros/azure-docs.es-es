@@ -1,7 +1,6 @@
 ---
 title: Referencia para la escritura de expresiones para la asignación de atributos en el aprovisionamiento de aplicaciones de Azure Active Directory
 description: Obtenga información sobre cómo usar asignaciones de expresiones para transformar valores de atributos en un formato aceptable durante el aprovisionamiento automático de objetos de aplicaciones SaaS en Azure Active Directory. Incluye una lista de referencias de funciones.
-services: active-directory
 author: kenwith
 manager: karenh444
 ms.service: active-directory
@@ -11,12 +10,12 @@ ms.topic: reference
 ms.date: 10/27/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 2962c033ee42b91913324f22dbba3ca3cae49fdf
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 83b6e19a1e67e2e7e018aaa43ba4cf6149940ed7
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131456373"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132292687"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Referencia para la escritura de expresiones para la asignación de atributos en Azure Active Directory
 
@@ -734,17 +733,17 @@ Supongamos que va a obtener los atributos *firstName* y *lastName* de SAP Succes
 ### <a name="randomstring"></a>RandomString
 **Función:** RandomString(Length, MinimumNumbers, MinimumSpecialCharacters , MinimumCapital, MinimumLowerCase, CharactersToAvoid)
 
-**Descripción:** La función RandomString genera una cadena aleatoria en función de las condiciones especificadas. Los caracteres permitidos pueden identificarse [aquí](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).
+**Descripción:** La función RandomString genera una cadena aleatoria en función de las condiciones especificadas. Los caracteres permitidos pueden identificarse [aquí](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).
 
 **Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
-| **Duración** |Obligatorio |Number |Longitud total de la cadena aleatoria. Debe ser mayor o igual que la suma de MinimumNumbers, MinimumSpecialCharacters y MinimumCapital. 256 caracteres como máximo.|
-| **MinimumNumbers** |Obligatorio |Number |Números mínimos en la cadena aleatoria.|
-| **MinimumSpecialCharacters** |Obligatorio |Number |Número mínimo de caracteres especiales.|
-| **MinimumCapital** |Obligatorio |Number |Número mínimo de letras mayúsculas en la cadena aleatoria.|
-| **MinimumLowerCase** |Obligatorio |Number |Número mínimo de letras minúsculas en la cadena aleatoria.|
+| **Duración** |Obligatorio |Número |Longitud total de la cadena aleatoria. Debe ser mayor o igual que la suma de MinimumNumbers, MinimumSpecialCharacters y MinimumCapital. 256 caracteres como máximo.|
+| **MinimumNumbers** |Obligatorio |Número |Números mínimos en la cadena aleatoria.|
+| **MinimumSpecialCharacters** |Obligatorio |Número |Número mínimo de caracteres especiales.|
+| **MinimumCapital** |Obligatorio |Número |Número mínimo de letras mayúsculas en la cadena aleatoria.|
+| **MinimumLowerCase** |Obligatorio |Número |Número mínimo de letras minúsculas en la cadena aleatoria.|
 | **CharactersToAvoid** |Opcional |String |Caracteres que se excluirán al generar la cadena aleatoria.|
 
 

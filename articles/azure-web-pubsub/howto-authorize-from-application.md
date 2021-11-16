@@ -3,15 +3,15 @@ title: Autorización de solicitudes a recursos de Web PubSub con Azure AD desde
 description: En este artículo se proporciona información sobre la autorización de solicitudes a recursos de Web PubSub con Azure AD desde aplicaciones de Azure.
 author: terencefan
 ms.author: tefa
-ms.date: 09/06/2021
+ms.date: 11/08/2021
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.openlocfilehash: 7bca3e4840cf78b497f5907e780a267221dd1b8b
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 9c6b0c520fbde3f028e933d7eec05d390cb209e8
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131478197"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997654"
 ---
 # <a name="authorize-request-to-web-pubsub-resources-with-azure-ad-from-azure-applications"></a>Autorización de solicitudes a recursos de Web PubSub con Azure AD desde aplicaciones de Azure
 
@@ -21,22 +21,22 @@ En este artículo se muestra cómo configurar el recurso y los códigos de Web P
 
 ## <a name="register-an-application"></a>Registro de una aplicación
 
-El primer paso es registrar una aplicación de Azure.
+El primer paso consiste en registrar una aplicación de Azure.
 
 1. En [Azure Portal](https://portal.azure.com/), busque y seleccione **Azure Active Directory**.
 2. En la sección **Administrar**, seleccione **Registros de aplicaciones**.
 3. Haga clic en **Nuevo registro**.
 
-    ![Captura de pantalla del registro de una aplicación.](./media/aad-authorization/register-an-application.png)
+    ![Captura de pantalla del registro de una aplicación](./media/aad-authorization/register-an-application.png)
 
 4. Escriba un **Nombre** para mostrar para la aplicación.
-5. Haga clic en **Registrar** para confirmar el nuevo registro.
+5. Haga clic en **Registrar** para confirmar el registro.
 
 Cuando haya registrado la aplicación, puede encontrar el **identificador de aplicación (cliente)** y el **identificador de directorio (inquilino)** en su página de información general. Estos GUID pueden ser útiles en los pasos siguientes.
 
-![Captura de pantalla de una aplicación.](./media/aad-authorization/application-overview.png)
+![Captura de pantalla de una aplicación](./media/aad-authorization/application-overview.png)
 
-Para más información sobre el registro de una aplicación, consulte:
+Para más información sobre el registro de una aplicación, vea
 - [Inicio rápido: Registro de una aplicación con la plataforma de identidad de Microsoft](../active-directory/develop/quickstart-register-app.md).
 
 ## <a name="add-credentials"></a>Adición de credenciales
@@ -45,7 +45,7 @@ Puede agregar certificados y secretos de cliente (una cadena) como credenciales 
 
 ### <a name="client-secret"></a>Secreto del cliente
 
-La aplicación necesita un secreto de cliente para demostrar su identidad al solicitar un token. Para agregar un secreto de cliente, siga estos pasos:
+La aplicación necesita un secreto de cliente para demostrar su identidad al solicitar un token. Para agregar un secreto de cliente, siga estos pasos.
 
 1. En la sección **Administrar**, seleccione **Certificados y secretos**.
 1. En la pestaña **Secretos de cliente**, haga clic en **Nuevo secreto de cliente**.
@@ -53,14 +53,14 @@ La aplicación necesita un secreto de cliente para demostrar su identidad al sol
 1. Escriba una **descripción** para el secreto de cliente y elija una **hora de expiración**.
 1. Copie el valor del **secreto de cliente** y péguelo en una ubicación segura. 
     > [!NOTE]
-    > El secreto se mostrará solo una vez.
+    > El secreto solo se mostrará una vez.
 ### <a name="certificate"></a>Certificado
 
 También puede cargar una certificación en lugar de crear un secreto de cliente.
 
-![Captura de pantalla de la carga de una certificación.](./media/aad-authorization/upload-certificate.png)
+![Captura de pantalla de la carga de una certificación](./media/aad-authorization/upload-certificate.png)
 
-Para más información sobre cómo agregar credenciales, consulte:
+Para más información sobre cómo agregar credenciales, vea
 
 - [Adición de credenciales](../active-directory/develop/quickstart-register-app.md#add-credentials)
 
@@ -86,9 +86,9 @@ En este ejemplo se muestra cómo asignar un rol `Web PubSub Service Owner` a una
 
 1. Haga clic en **Siguiente**.
 
-   ![Captura de pantalla de cómo se agrega la asignación de roles.](./media/aad-authorization/add-role-assignment.png)
+   ![Captura de pantalla de la adición de la asignación de roles](./media/aad-authorization/add-role-assignment.png)
 
-1. En la pestaña **Miembros**, en la sección **Asignar acceso a**, seleccione **User, group, or service principal** (Usuario, grupo o entidad de servicio).
+1. En la pestaña **Miembros**, en la sección **Asignar acceso a**, seleccione **Usuario, grupo o entidad de servicio**.
 
 1. Haga clic en **Seleccionar miembros**.
 
@@ -98,13 +98,13 @@ En este ejemplo se muestra cómo asignar un rol `Web PubSub Service Owner` a una
 
 4. Haga clic en **Siguiente**.
 
-   ![Captura de pantalla de cómo asignar un rol a las entidades de servicio.](./media/aad-authorization/assign-role-to-service-principals.png)
+   ![Captura de pantalla de la asignación de un rol a entidades de servicio](./media/aad-authorization/assign-role-to-service-principals.png)
 
-5. Haga clic en **Review + assign** (Revisar y asignar) para confirmar el cambio.
+5. Haga clic en **Revisar y asignar** para confirmar el cambio.
 
 > [!IMPORTANT]
 > Las asignaciones de roles de Azure pueden tardar hasta 30 minutos en propagarse.
-Para más información sobre cómo asignar y administrar asignaciones de roles de Azure, consulte estos artículos:
+Para obtener más información sobre cómo asignar y administrar asignaciones de roles de Azure, consulte estos artículos:
 - [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md)
 - [Asignación de roles de Azure mediante la API REST](../role-based-access-control/role-assignments-rest.md)
 - [Asignación de roles de Azure mediante Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
@@ -120,8 +120,8 @@ Se recomienda configurar la identidad y las credenciales en las variables de ent
 | `AZURE_TENANT_ID` | Identificador de inquilino (directorio) de Azure Active Directory. |
 | `AZURE_CLIENT_ID` | Identificador de cliente (aplicación) de un registro de aplicación en el inquilino. |
 | `AZURE_CLIENT_SECRET` | Secreto de cliente generado para el registro de aplicación. |
-| `AZURE_CLIENT_CERTIFICATE_PATH` | Ruta de acceso al par de certificados y claves privadas en formato PEM o PFX, que puede autenticar el registro de aplicación. |
-| `AZURE_USERNAME`  | El nombre de usuario, también conocido como UPN, de una cuenta de usuario de Azure Active Directory. |
+| `AZURE_CLIENT_CERTIFICATE_PATH` | Ruta al par de certificado y clave privada en formato PEM o PFX, que puede autenticar el registro de aplicación. |
+| `AZURE_USERNAME`  | Nombre de usuario, también conocido como UPN, de una cuenta de usuario de Azure Active Directory. |
 | `AZURE_PASSWORD`  | Contraseña de la cuenta de usuario de Azure Active Directory. Tenga en cuenta que no se admiten cuentas con MFA habilitado. |
 
 Si lo hace, podría usar [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) o [EnvironmentCredential](/dotnet/api/azure.identity.environmentcredential) para configurar los puntos de conexión de Web PubSub.

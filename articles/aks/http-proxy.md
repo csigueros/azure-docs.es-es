@@ -6,12 +6,12 @@ author: nickomang
 ms.topic: article
 ms.date: 09/09/2021
 ms.author: nickoman
-ms.openlocfilehash: 93bcd85c1a0804a6b3335add09d609eac41db98a
-ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
+ms.openlocfilehash: 81631bfea3cc55b52dc95a81cb17c3420cf9638d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131866760"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132346118"
 ---
 # <a name="http-proxy-support-in-azure-kubernetes-service-preview"></a>Compatibilidad del proxy HTTP en Azure Kubernetes Service (versión preliminar)
 
@@ -81,12 +81,14 @@ El uso de AKS con un proxy HTTP se hace durante la creación del clúster, media
 El esquema del archivo de configuración tiene el siguiente aspecto:
 
 ```json
-"httpProxy": "string",
-"httpsProxy": "string",
-"noProxy": [
+{
+  "httpProxy": "string",
+  "httpsProxy": "string",
+  "noProxy": [
     "string"
-],
-"trustedCa&quot;: &quot;string"
+  ],
+  "trustedCa&quot;: &quot;string"
+}
 ```
 
 `httpProxy`: dirección URL de proxy que se usará para crear conexiones HTTP fuera del clúster. El esquema de dirección URL debe ser `http`.
@@ -97,13 +99,15 @@ El esquema del archivo de configuración tiene el siguiente aspecto:
 Entrada de ejemplo: tenga en cuenta que el certificado de entidad de certificación debe ser la cadena codificada en Base64 del contenido del certificado de formato PEM.
 
 ```json
-"httpProxy": "http://myproxy.server.com:8080/", 
-"httpsProxy": "https://myproxy.server.com:8080/", 
-"noProxy": [
-   "localhost",
-   "127.0.0.1"
-],
-"trustedCA": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUgvVENDQmVXZ0F3SUJB...b3Rpbk15RGszaWFyCkYxMFlscWNPbWVYMXVGbUtiZGkvWG9yR2xrQ29NRjNURHg4cm1wOURCaUIvCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0="
+{
+  "httpProxy": "http://myproxy.server.com:8080/", 
+  "httpsProxy": "https://myproxy.server.com:8080/", 
+  "noProxy": [
+    "localhost",
+    "127.0.0.1"
+  ],
+  "trustedCA": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUgvVENDQmVXZ0F3SUJB...b3Rpbk15RGszaWFyCkYxMFlscWNPbWVYMXVGbUtiZGkvWG9yR2xrQ29NRjNURHg4cm1wOURCaUIvCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0="
+}
 ```
 
 Cree un archivo y proporcione valores para *httpProxy*, *httpsProxy* y *noProxy*. Si el entorno lo requiere, proporcione también un valor para *trustedCa*. A continuación, para implementar un clúster, pase el nombre del archivo a través de la marca `http-proxy-config`.

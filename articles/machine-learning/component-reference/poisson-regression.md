@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: 0ab03efd4ca6bf372b90ba04744c929082e85796
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 3c77b0ac501d6829429cde79ca9165a1df450215
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132339587"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131566098"
 ---
 # <a name="poisson-regression"></a>Regresión de Poisson
 
@@ -95,13 +95,13 @@ Dado que la variable de respuesta tiene una distribución de Poisson, el modelo 
     > 
     > - Si selecciona la opción **Parameter Range** (Intervalo de parámetros) y especifica un valor único para algún parámetro, ese valor único que haya especificado se utilizará en todo el barrido, incluso si otros parámetros cambian en un intervalo de valores.
 
-8. Envíe la canalización.
+8.  Envíe la canalización.
 
 ## <a name="results"></a>Results
 
 Una vez completado el entrenamiento:
 
-- Para guardar una instantánea del modelo entrenado, seleccione el componente de entrenamiento y cambie a la pestaña **Resultados y registros** del panel derecho. Haga clic en el icono **Registro de un conjunto de datos**.  Puede encontrar el modelo guardado como componente en el árbol de componentes.
++ Para guardar una instantánea del modelo entrenado, seleccione el componente de entrenamiento y cambie a la pestaña **Resultados y registros** del panel derecho. Haga clic en el icono **Registro de un conjunto de datos**.  Puede encontrar el modelo guardado como componente en el árbol de componentes. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -6,12 +6,12 @@ ms.service: azure-web-pubsub
 ms.topic: conceptual
 ms.date: 10/13/2021
 ms.author: lianwei
-ms.openlocfilehash: f8d5ee649a3e4e8061f264fb1e2e4280659ff7c3
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 3c14294a2a7d2ff2cb2f1f362b0474353c86b7ca
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130007078"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131431016"
 ---
 # <a name="resiliency-and-disaster-recovery-in-azure-web-pubsub-service"></a>Resistencia y recuperación ante desastres en el servicio Azure Web PubSub
 
@@ -27,17 +27,24 @@ Una configuración típica de un escenario interregional es tener dos (o más) p
 
 Dentro de cada par, el servidor de aplicaciones y el servicio Web PubSub se encuentran en la misma región y el servicio Web PubSub establece el controlador de eventos ascendente hacia el servidor de aplicaciones de la misma región.
 
-Para ilustrar mejor la arquitectura, designamos el servicio Web PubSub como servicio "principal" para el servidor de aplicaciones del mismo par. Y designamos los servicios Web PubSub de otros pares como servicios "secundarios" para el servidor de aplicaciones.
+Para ilustrar mejor la arquitectura, designamos el servicio Web PubSub como servicio **principal** para el servidor de aplicaciones del mismo par. Y designamos los servicios Web PubSub de otros pares como servicios **secundarios** para el servidor de aplicaciones.
 
-El servidor de aplicaciones usa la [API de comprobación de estado del servicio](/rest/api/webpubsub/health-api/get-service-status) para detectar si sus servicios "principal" y "secundario" son correctos o no. Por ejemplo, para un servicio Web PubSub denominado `demo`, el punto de conexión `https://demo.webpubsub.azure.com/api/health` devuelve 200 cuando el estado del servicio es correcto. El servidor de aplicaciones puede llamar periódicamente a los puntos de conexión o llamar a los puntos de conexión a petición para comprobar si los puntos de conexión están en buen estado. Los clientes de WebSocket normalmente **negocian** primero con su servidor de aplicaciones para obtener la dirección URL que se conecta al servicio Web PubSub y la aplicación usa este paso de **negociación** para conmutar por error los clientes a otros servicios "secundarios" en buen estado. Los pasos detallados se indican a continuación:
+El servidor de aplicaciones puede usar la [API de comprobación de estado del servicio](/rest/api/webpubsub/health-api/get-service-status) para detectar si sus servicios **principal** y **secundario** son correctos o no. Por ejemplo, para un servicio Web PubSub denominado `demo`, el punto de conexión `https://demo.webpubsub.azure.com/api/health` devuelve 200 cuando el estado del servicio es correcto. El servidor de aplicaciones puede llamar periódicamente a los puntos de conexión o llamar a los puntos de conexión a petición para comprobar si los puntos de conexión están en buen estado. Los clientes de WebSocket normalmente **negocian** primero con su servidor de aplicaciones para obtener la dirección URL que se conecta al servicio Web PubSub y la aplicación usa este paso de **negociación** para conmutar por error los clientes a otros servicios **secundarios** en buen estado. Los pasos detallados se indican a continuación:
 
 1. Cuando un cliente **negocia** con el servidor de aplicaciones, este solo DEBE devolver los puntos de conexión del servicio Web PubSub, por lo que, en caso normal, los clientes solo se conectan a los puntos de conexión principales.
-
-2. Cuando la instancia principal está inactiva, **negotiate** DEBE devolver un punto de conexión secundario en buen estado para que el cliente pueda realizar conexiones, y el cliente se conecta al punto de conexión secundario.
-
-3. Cuando el servidor de aplicaciones quiera "difundir" mensajes a varios clientes, asegúrese de que lo hace a todos los puntos de conexión "correctos", incluidos el "principal" y el "secundario".
+1. Cuando la instancia principal está inactiva, **negotiate** DEBE devolver un punto de conexión secundario en buen estado para que el cliente pueda realizar conexiones, y el cliente se conecta al punto de conexión secundario.
+1. Cuando la instancia principal está activa, la **negociación** DEBE devolver el punto de conexión principal correcto para que los clientes ahora puedan conectarse al punto de conexión principal.
+1. Cuando el servidor de aplicaciones quiera **difundir** mensajes, asegúrese de que **lo hace** a todos los puntos de conexión **correctos**, incluidos el **principal** y el **secundario**.
+1. El servidor de aplicaciones puede cerrar las conexiones conectadas a puntos de conexión **secundarios** para forzar que los clientes se vuelvan a conectar al punto de conexión principal correcto.
 
 Con esta topología, todavía se puede entregar el mensaje de un servidor a todos los clientes, ya que todos los servidores de aplicaciones e instancias del servicio Web PubSub están interconectados.
+
+Todavía no hemos integrado la estrategia en el SDK, por lo que por ahora la aplicación debe implementar esta estrategia por sí misma. 
+
+En resumen, lo que el lado de la aplicación debe implementar es:
+1. Comprobación de estado. La aplicación puede comprobar si el servicio está en buen estado mediante [la API de comprobación de estado del servicio](/rest/api/webpubsub/health-api/get-service-status) periódicamente en segundo plano o a petición para cada llamada de **negociación**.
+1. Lógica de negociación. La aplicación devuelve un punto de conexión **principal** correcto de forma predeterminada. Cuando el punto de conexión **principal** está inactivo, la aplicación devuelve un punto de conexión **secundario** correcto.
+1. Lógica de difusión. Al enviar mensajes a varios clientes, la aplicación debe asegurarse de que difunde mensajes a todos los puntos de conexión **correctos**.
 
 A continuación, un diagrama que ilustra esta topología:
 
@@ -79,7 +86,7 @@ El servicio Web PubSub puede admitir ambos patrones; la principal diferencia es 
 Si son de tipo "activo/pasivo", el servicio Web PubSub también será "activo/pasivo" (ya que el servidor de aplicaciones principal solo devuelve su instancia de servicio Web PubSub principal).
 Si los servidores de aplicaciones son "activo/activo", el servicio Web PubSub también será "activo/activo" (ya que todos los servidores de aplicaciones devolverán sus propias instancias de Web PubSub principales, por lo que todos pueden recibir tráfico).
 
-Tenga en cuenta que, independiente de los patrones que decida usar, deberá conectar cada instancia de servicio Web PubSub a un servidor de aplicaciones como rol "principal".
+Tenga en cuenta que, independiente de los patrones que decida usar, deberá conectar cada instancia de servicio Web PubSub a un servidor de aplicaciones como rol **principal**.
 
 Además, dada la naturaleza de la conexión de Web PubSub (es una conexión larga), los clientes experimentarán interrupciones de conexión cuando haya un desastre y se produzca una conmutación por error.
 Deberá tratar con esos casos desde el cliente para que sea transparente para los clientes finales. Por ejemplo, vuelva a realizar la conexión cuando se cierre.

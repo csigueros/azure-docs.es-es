@@ -10,12 +10,12 @@ author: lostmygithubaccount
 ms.author: copeters
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: ff13936785dc48fc8fb0c4b26a55651f0e7f827c
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 2b4f8ddb82e758899c0de70bf722f1184f2f7aff
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131565927"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132056537"
 ---
 # <a name="cli-v2-compute-instance-yaml-schema"></a>Esquema YAML de la instancia de proceso de la CLI (v2)
 
@@ -42,17 +42,17 @@ El esquema JSON de origen se puede encontrar en https://azuremlschemas.azureedge
 | `network_settings.vnet_name` | string | Nombre de la red virtual (VNet) al crear una nueva o hacer referencia a una existente. | | |
 | `network_settings.subnet` | string | Nombre de la subred al crear una nueva red virtual o hacer referencia a una existente, o bien el identificador de recurso completo de una subred en una red virtual existente. No especifique `network_settings.vnet_name` si se especifica el identificador de subred. El identificador de subred puede hacer referencia a una red virtual o subred en otro grupo de recursos. | | |
 
-## <a name="remarks"></a>Comentarios
+## <a name="remarks"></a>Observaciones
 
 El comando `az ml compute` se puede usar para administrar las instancias de proceso de Azure Machine Learning.
 
 ## <a name="yaml-minimal"></a>YAML: mínimo
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/instance-minimal.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/instance-minimal.yml":::
 
 ## <a name="yaml-basic"></a>YAML: básico
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/instance-basic.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/instance-basic.yml":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

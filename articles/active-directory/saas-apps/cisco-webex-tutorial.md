@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Cisco Webex Meetings | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD con Cisco Webex Meetings'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Cisco Webex Meetings.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/17/2021
+ms.date: 11/01/2021
 ms.author: jeedes
-ms.openlocfilehash: 0682673b6c18d2ac1694814b2b030297db7bf8db
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a4f111ea3d9c32014ea91757255fe9b3567028d2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124826641"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131436604"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex-meetings"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Cisco Webex Meetings
+# <a name="tutorial-azure-ad-sso-integration-with-cisco-webex-meetings"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Cisco Webex Meetings
 
 En este tutorial, aprenderá a integrar Cisco Webex Meetings con Azure Active Directory (Azure AD). Al integrar Cisco Webex Meetings con Azure AD, puede hacer lo siguiente:
 
@@ -27,12 +27,13 @@ En este tutorial, aprenderá a integrar Cisco Webex Meetings con Azure Active 
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
 * Una suscripción habilitada para el inicio de sesión único (SSO) en Cisco Webex Meetings.
+*  Archivo de metadatos del proveedor de servicios de Cisco Webex Meetings.
 
 > [!NOTE]
 > Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
@@ -63,7 +64,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Cisco Webex Meet
 Para configurar y probar el inicio de sesión único de Azure AD con Cisco Webex Meetings, lleve a cabo los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-   1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+   1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
    
 1. **[Configuración del inicio de sesión único de Cisco Webex Meetings](#configure-cisco-webex-meetings-sso)**, para configurar los valores de inicio de sesión único en la aplicación.

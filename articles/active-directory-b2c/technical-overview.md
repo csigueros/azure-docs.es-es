@@ -1,6 +1,6 @@
 ---
 title: Introducción a los aspectos técnicos y las características de Azure Active Directory B2C
-description: Una introducción en profundidad a las características y tecnologías de Azure Active Directory B2C.
+description: Una introducción en profundidad a las características y tecnologías de Azure Active Directory B2C. Azure Active Directory B2C tiene alta disponibilidad globalmente.
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 10/01/2021
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: ca637cec58531de65847d5f1e7d19e81ed45318d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ed269f580a20d614869b95dc8535424407ccd9e4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131036435"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131427900"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Introducción a los aspectos técnicos y las características de Azure Active Directory B2C
 
@@ -161,9 +161,9 @@ Puede personalizar el correo electrónico a los usuarios que registre para usar 
 * [Verificación de correo electrónico personalizado con Mailjet](custom-email-mailjet.md)
 * [Verificación de correo electrónico personalizado con SendGrid](custom-email-sendgrid.md)
 
-## <a name="add-your-own-business-logic"></a>Agregar su propia lógica de negocios
+## <a name="add-your-own-business-logic-and-call-restful-api"></a>Agregue su propia lógica de negocios y llame a la API RESTful.
 
-Si decide usar directivas personalizadas, puede integrarlas con una API de RESTful en un recorrido de usuario para agregar su propia lógica de negocios al recorrido. Por ejemplo, Azure AD B2C puede intercambiar datos con un servicio RESTful con los siguientes fines:
+Puede realizar la integración con una API RESTful tanto en los flujos de usuario como en las directivas personalizadas. La diferencia es que, en los flujos de usuario, realiza llamadas en lugares especificados, mientras que en las directivas personalizadas, agrega su propia lógica de negocios al recorrido. Esta característica permite recuperar y usar datos de orígenes de identidad externos. Azure AD B2C puede intercambiar datos con un servicio RESTful con los siguientes fines:
 
 * Mostrar mensajes de error intuitivos personalizados.
 * Validar los datos proporcionados por el usuario para evitar que aquellos con un formato incorrecto permanezcan en el directorio de usuario. Por ejemplo, puede modificar los datos especificados por el usuario, como poner en mayúscula la primera letra del nombre si se escribe en minúscula.
@@ -301,9 +301,9 @@ Al integrar Azure Application Insights en las directivas personalizadas de Azure
 Para más información, consulte [Seguimiento del comportamiento del usuario en Azure Active Directory B2C mediante Application Insights](analytics-with-application-insights.md).
 
 ## <a name="region-availability-and-data-residency"></a>Disponibilidad de regiones y residencia de datos
-El servicio Azure AD B2C está disponible con carácter general en todo el mundo, con la opción de residencia de datos en las regiones especificadas en [Productos disponibles por región](https://azure.microsoft.com/regions/services/). La residencia de datos viene determinada por el país o la región que seleccione al [crear un inquilino](tutorial-create-tenant.md). 
+El servicio Azure AD B2C está disponible con carácter general en todo el mundo, con la opción de residencia de datos en las regiones especificadas en [Productos disponibles por región](https://azure.microsoft.com/regions/services/). La residencia de datos viene determinada por el país o la región que seleccione al [crear un inquilino](tutorial-create-tenant.md). 
 
-Puede encontrar más información en [Azure Active Directory B2C: Disponibilidad de región y residencia de datos](data-residency.md).
+Más información sobre la [disponibilidad por regiones y la residencia de datos del servicio Azure Active Directory B2C](data-residency.md) y el [Acuerdo de Nivel de Servicio (SLA) de Azure Active Directory B2C](https://azure.microsoft.com/support/legal/sla/active-directory-b2c/v1_1).
 
 ## <a name="automation-using-microsoft-graph-api"></a>Automatización mediante Microsoft Graph API
 

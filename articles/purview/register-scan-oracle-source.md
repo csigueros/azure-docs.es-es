@@ -1,19 +1,19 @@
 ---
 title: Conexión y administración de Oracle
-description: En esta guía se describe cómo conectarse a v en Azure Purview y utilizar las características de Purview para explorar y administrar el origen de Oracle.
-author: chandrakavya
-ms.author: kchandra
+description: En esta guía se describe cómo conectarse a Oracle en Azure Purview y utilizar las características de Purview para explorar y administrar el origen de Oracle.
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 6b04ef7f0ea408f1529346ed7fbc2b4cc45b4b35
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 935fcf05624fd1849ae62109dbc22a97d4987676
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131010942"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131847287"
 ---
 # <a name="connect-to-and-manage-oracle-in-azure-purview"></a>Conexión y administración de Oracle en Azure Purview
 
@@ -23,10 +23,11 @@ En este artículo se describe cómo registrar Oracle y cómo autenticar e intera
 
 |**Extracción de metadatos**|  **Examen completo**  |**Examen incremental**|**Examen con ámbito**|**Clasificación**|**Directiva de acceso**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Sí](#register)| [Sí](#scan)| No | No | No | No| [Sí](how-to-lineage-oracle.md)|
+| [Sí](#register)| [Sí](#scan)| No | No | No | No| [Sí**](how-to-lineage-oracle.md)|
 
-> [!Important]
-> Las versiones de bases de datos de Oracle admitidas abarcan desde la 6i a la 19c.
+\** Se admite el linaje si el conjunto de datos se usa como origen o receptor en la [actividad de copia de Data Factory](how-to-link-azure-data-factory.md). 
+
+Las versiones de bases de datos de Oracle admitidas abarcan desde la 6i a la 19c.
 
 No se admite el servidor proxy al examinar el origen de Oracle.
 
@@ -107,8 +108,8 @@ En la pantalla **Register sources (Oracle)** (Registrar orígenes (Oracle)), hag
 1. Escriba un **Name** (Nombre) con el que se muestre el origen de datos en el catálogo.
 
 1. Escriba el nombre de **Host** para conectarse a un origen de Oracle. Puede ser:
-    * Un nombre de host usado por JDBC para conectarse al servidor de bases de datos. Por ejemplo, MyDatabaseServer.com.
-    * Dirección IP. Por ejemplo: 192.169.1.2.
+    * Un nombre de host usado por JDBC para conectarse al servidor de bases de datos. Por ejemplo: `MyDatabaseServer.com`
+    * Dirección IP. Por ejemplo: `192.169.1.2`
     * Su cadena de conexión de JDBC completa. Por ejemplo:
 
          ```
@@ -152,27 +153,27 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
         * Proporciona el nombre de usuario que usa JDBC para conectarse al servidor de bases de datos en el campo de entrada de nombre de usuario.
         * Almacena la contraseña de usuario que usa JDBC para conectarse al servidor de bases de datos en la clave secreta.
 
-    1. **Schema** (Esquema): indique el subconjunto de esquemas que se va a importar expresado como una lista separada por puntos y coma. Por ejemplo, schema1; schema2. Si esa lista está vacía, se importan todos los esquemas del usuario. De forma predeterminada, se ignoran todos los esquemas del sistema (por ejemplo, SysAdmin) y los objetos. Si la lista está vacía, se importan todos los esquemas disponibles.
-        Los patrones de nombres de esquema aceptables que usan la sintaxis de expresiones SQL LIKE incluyen el uso de %.
-        Por ejemplo, A%; %B; %C%; D
-           - empieza por A o
-           - termina en B o
-           - contiene C o
-           - igual a D
+    1. **Schema** (Esquema): indique el subconjunto de esquemas que se va a importar expresado como una lista separada por puntos y coma. Por ejemplo: `schema1; schema2`. Si esa lista está vacía, se importan todos los esquemas del usuario. De forma predeterminada, se ignoran todos los esquemas del sistema (por ejemplo, SysAdmin) y los objetos. Si la lista está vacía, se importan todos los esquemas disponibles.
+
+        Los patrones de nombres de esquema aceptables que usan la sintaxis de expresiones SQL LIKE incluyen el uso de %. Por ejemplo: `A%; %B; %C%; D`
+        * empieza por A o
+        * termina en B o
+        * contiene C o
+        * es igual a D
 
         No se acepta el empleo de NOT ni de caracteres especiales.
 
-1. **Driver location** (Ubicación del controlador): especifique la ruta de acceso a la ubicación del controlador JDBC en la máquina virtual donde se ejecuta el entorno de ejecución de integración autohospedado. Debe ser la ruta de acceso a la ubicación válida de la carpeta JAR.
+    1. **Driver location** (Ubicación del controlador): especifique la ruta de acceso a la ubicación del controlador JDBC en la máquina virtual donde se ejecuta el entorno de ejecución de integración autohospedado. Debe ser la ruta de acceso a la ubicación válida de la carpeta JAR.
 
-    > [!Note]
-    > Todas las cuentas de la máquina virtual deben poder acceder al controlador. No lo instale en una cuenta de usuario.
+        > [!Note]
+        > Todas las cuentas de la máquina virtual deben poder acceder al controlador. No lo instale en una cuenta de usuario.
 
-1. **Maximum memory available** (Memoria máxima disponible): memoria máxima (en GB) disponible en la máquina virtual del cliente que van a usar los procesos de examen. Depende del tamaño del origen de SAP S/4HANA que se va a examinar.
+    1. **Maximum memory available** (Memoria máxima disponible): memoria máxima (en GB) disponible en la máquina virtual del cliente que van a usar los procesos de examen. Depende del tamaño del origen de Oracle que se va a examinar.
 
-    > [!Note]
-    > Como regla general, especifique 1 GB de memoria por cada 1000 tablas.
+        > [!Note]
+        > Como regla general, especifique 1 GB de memoria por cada 1000 tablas.
 
-    :::image type="content" source="media/register-scan-oracle-source/scan.png" alt-text="Examen de Oracle" border="true":::
+        :::image type="content" source="media/register-scan-oracle-source/scan.png" alt-text="Examen de Oracle" border="true":::
 
 1. Seleccione **Continuar**.
 

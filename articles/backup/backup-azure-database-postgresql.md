@@ -2,13 +2,16 @@
 title: Copia de seguridad de Azure Database for PostgreSQL
 description: Más información sobre la copia de seguridad de Azure Database for PostgreSQL con retención a largo plazo (versión preliminar)
 ms.topic: conceptual
-ms.date: 09/22/2021
-ms.openlocfilehash: a012ef97db27b97039fa7aac7b108ca86afb9314
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 11/02/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: 4121326bf36c71c3f98894bd8413dc1ae5f57a06
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130219628"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458932"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Copia de seguridad de Azure Database for PostgreSQL con retención a largo plazo (versión preliminar)
 
@@ -31,6 +34,9 @@ Puede configurar la copia de seguridad de varias bases de datos en varios servid
    :::image type="content" source="./media/backup-azure-database-postgresql/create-or-add-backup-policy-inline.png" alt-text="Captura de pantalla que muestra la opción para agregar una directiva de copia de seguridad." lightbox="./media/backup-azure-database-postgresql/create-or-add-backup-policy-expanded.png":::
 
 1. **Seleccionar las bases de datos de Azure Database for PostgreSQL de las que se va a hacer una copia de seguridad**: elija uno de los servidores de Azure Database for PostgreSQL entre las suscripciones si se encuentra en la misma región que el almacén. Expanda la flecha para ver la lista de bases de datos dentro de un servidor.
+
+   >[!Note]
+   >No es posible (ni es necesario) realizar una copia de seguridad de las bases de datos *azure_maintenance* y *azure_sys*. Además, no se puede realizar una copia de seguridad de una base de datos de la que ya se haya hecho una copia de seguridad en un almacén de Backup.
 
    :::image type="content" source="./media/backup-azure-database-postgresql/select-azure-postgresql-databases-to-back-up-inline.png" alt-text="Captura de pantalla que muestra la opción para seleccionar una base de datos PostgreSQL de Azure." lightbox="./media/backup-azure-database-postgresql/select-azure-postgresql-databases-to-back-up-expanded.png":::
 
@@ -115,7 +121,7 @@ Puede crear una directiva de copia de seguridad sobre la marcha durante la confi
    - La duración de la retención oscila entre siete días y diez años en el **almacén de datos de copia de seguridad**.
    - La duración de la retención oscila entre seis meses y diez años en el **almacén de datos de archivo**.
 
-   :::image type="content" source="./media/backup-azure-database-postgresql/choose-option-to-move-backup-to-archive-data-store-inline.png" alt-text="Captura de pantalla que muestra el paso 5 para elegir la opción Al expirar para mover la copia de seguridad al almacén de datos de archivo tras su expiración." lightbox="./media/backup-azure-database-postgresql/choose-option-to-move-backup-to-archive-data-store-expanded.png":::
+   :::image type="content" source="./media/backup-azure-database-postgresql/choose-option-to-move-backup-to-archive-data-store-inline.png" alt-text="Captura de pantalla que muestra la elección de On-expiry (Al expirar) para mover la copia de seguridad al almacén de datos de archivo tras su expiración." lightbox="./media/backup-azure-database-postgresql/choose-option-to-move-backup-to-archive-data-store-expanded.png":::
 
 >[!Note]
 >Las reglas de retención se evalúan en un orden de prioridad predeterminado. La prioridad más alta es para la regla anual, seguida de la regla mensual y, luego, la semanal. La configuración de referencia predeterminada se aplica en caso de que no haya ninguna otra regla que cumpla los requisitos. Por ejemplo, el mismo punto de recuperación puede ser la primera copia de seguridad correcta que se realiza cada semana, así como la primera copia de seguridad correcta realizada cada mes. Sin embargo, dado que la prioridad de la regla mensual es mayor que la de la regla semanal, se aplica la retención correspondiente a la primera copia de seguridad correcta realizada cada mes.

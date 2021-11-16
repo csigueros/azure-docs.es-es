@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 03/05/2021
-ms.openlocfilehash: b652087db880cf9bd85d5d3eb00b989bc7be18e4
-ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
+ms.openlocfilehash: ae8311da88ec2598417dd248e12fb044bc9dbf38
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112893535"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223222"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Directiva de soporte técnico de Red Hat OpenShift en Azure
 
@@ -78,3 +78,19 @@ La versión 4 de Red Hat OpenShift en Azure admite instancias de nodo de trabaj
 |Dsv3|Standard_D8s_v3|8|32|
 |Dsv3|Standard_D16s_v3|16|64|
 |Dsv3|Standard_D32s_v3|32|128|
+
+### <a name="day-2-worker-node"></a>Nodo de trabajo del día 2
+Los siguientes tipos de instancia se admiten como una operación de día 2 mediante la configuración de conjuntos de máquinas. Para información sobre cómo crear un conjunto de máquinas, consulte [Creación de un conjunto de máquinas en Azure](https://docs.openshift.com/container-platform/4.8/machine_management/creating_machinesets/creating-machineset-azure.html).
+
+
+|Serie|Size|vCPU|Memoria: GiB|
+|-|-|-|-|
+|L4s|Standard_L4s|4|32|
+|L8s|Standard_L8s|8|64|
+|L16s|Standard_L16s|16|128|
+|L32s|Standard_L32s|32|256|
+|L8s_v2|Standard_L8s_v2|8|64|
+|L16s_v2|Standard_L16s_v2|16|128|
+|L32s_v2|Standard_L32s_v2|32|256|
+|L48s_v2|Standard_L48s_v2|32|384|
+|L64s_v2|Standard_L48s_v2|64|512|

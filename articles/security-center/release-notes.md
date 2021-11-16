@@ -5,15 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 10/17/2021
+ms.date: 11/04/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: a287709d7fb84bece1a0b8777f13297c963f3ace
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0e93c254a28aa62ce84f60daa02f91b247893a5b
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131004690"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131577163"
 ---
 # <a name="whats-new-in-microsoft-defender-for-cloud"></a>Novedades de Microsoft Defender for Cloud
 
@@ -29,6 +28,164 @@ Para obtener información sobre los cambios *planeados* que están próximos a m
 > Si busca elementos de más de 6 meses, puede encontrarlos en el [Archivo de novedades de Microsoft Defender for Cloud](release-notes-archive.md).
 
 
+## <a name="november-2021"></a>Noviembre de 2021
+
+Nuestra versión de Ignite incluye:
+
+- [Azure Security Center y Azure Defender ahora se denominan Microsoft Defender para la nube](#azure-security-center-and-azure-defender-become-microsoft-defender-for-cloud).
+- [CSPM nativo para AWS y protección contra amenazas para Amazon EKS y AWS EC2](#native-cspm-for-aws-and-threat-protection-for-amazon-eks-and-aws-ec2)
+- [Priorización de las acciones de seguridad por confidencialidad de datos (con tecnología de Azure Purview; en versión preliminar)](#prioritize-security-actions-by-data-sensitivity-powered-by-azure-purview-in-preview).
+- [Evaluaciones de control de seguridad ampliadas con Azure Security Benchmark v3](#expanded-security-control-assessments-with-azure-security-benchmark-v3).
+- [Sincronización de alertas bidireccionales opcionales del conector de Microsoft Sentinel; está publicada para disponibilidad general (GA)](#microsoft-sentinel-connectors-optional-bi-directional-alert-synchronization-released-for-general-availability-ga).
+- [Nueva recomendación para insertar registros de Azure Kubernetes Service (AKS) en Sentinel](#new-recommendation-to-push-azure-kubernetes-service-aks-logs-to-sentinel).
+
+Otros cambios de noviembre incluyen:
+
+- [Se agregó la Administración de amenazas y vulnerabilidades de Microsoft como solución de evaluación de vulnerabilidades; versión disponible de forma general (GA)](#microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution---released-for-general-availability-ga).
+- [Microsoft Defender para punto de conexión para Linux es ahora compatible con Microsoft Defender para servidores; versión disponible de forma general (GA)](#microsoft-defender-for-endpoint-for-linux-now-supported-by-microsoft-defender-for-servers---released-for-general-availability-ga).
+- [Exportación de instantáneas para recomendaciones y conclusiones de seguridad (en versión preliminar)](#snapshot-export-for-recommendations-and-security-findings-in-preview).
+- [Aprovisionamiento automático de soluciones de evaluación de vulnerabilidades publicadas para disponibilidad general (GA)](#auto-provisioning-of-vulnerability-assessment-solutions-released-for-general-availability-ga).
+- [Filtros de inventario de software en el inventario de recursos publicados para disponibilidad general (GA)](#software-inventory-filters-in-asset-inventory-released-for-general-availability-ga).
+
+### <a name="azure-security-center-and-azure-defender-become-microsoft-defender-for-cloud"></a>Azure Security Center y Azure Defender ahora se denominan Microsoft Defender para la nube
+
+Según el [Informe de estado de la nube de 2021](https://info.flexera.com/CM-REPORT-State-of-the-Cloud#download), el 92 % de las organizaciones tienen ahora una estrategia de varias nubes. En Microsoft, nuestro objetivo es centralizar la seguridad en estos entornos y ayudar a los equipos de seguridad a trabajar de forma más eficaz.
+
+**Microsoft Defender para la nube** (anteriormente conocido como Azure Security Center y Azure Defender) es una solución de administración de la posición de seguridad en la nube (CSPM) y protección de cargas de trabajo en la nube (CWP) que detecta puntos débiles en la configuración de la nube, le permite reforzar la posición de seguridad general del entorno y protege las cargas de trabajo en entornos híbridos y de varias nubes.
+
+En Ignite 2019, compartimos nuestra visión de crear el enfoque más completo para proteger su patrimonio digital e integrar tecnologías XDR bajo la marca Microsoft Defender. La unificación de Azure Security Center y Azure Defender con el nuevo nombre **Microsoft Defender para la nube** refleja las funcionalidades integradas de nuestra oferta de seguridad y nuestra capacidad para admitir cualquier plataforma en la nube.
+
+
+### <a name="native-cspm-for-aws-and-threat-protection-for-amazon-eks-and-aws-ec2"></a>CSPM nativo para AWS y protección contra amenazas para Amazon EKS y AWS EC2
+
+Una nueva página de **configuración del entorno** le proporciona mayor visibilidad y control sobre los grupos de administración, las suscripciones y las cuentas de AWS. La página está diseñada para incorporar cuentas de AWS a escala: conecte su **cuenta de administración de AWS** e incorporará automáticamente cuentas existentes y futuras. 
+
+:::image type="content" source="media/release-notes/add-aws-account.png" alt-text="Use la nueva página de configuración del entorno para conectar las cuentas de AWS.":::
+
+Cuando haya agregado las cuentas de AWS, Defender para la nube protege los recursos de AWS con cualquiera o todos los planes siguientes:
+
+- Las **características de CSPM de Defender para la nube** se extienden a los recursos de AWS. Este plan sin agente evalúa los recursos de AWS según las recomendaciones de seguridad específicas de AWS, que se incluyen en la puntuación de seguridad. También se evaluará el cumplimiento de los estándares integrados específicos de AWS (AWS CIS, AWS PCI DSS y Procedimientos recomendados de seguridad fundamentales de AWS). La [página de inventario de recursos](asset-inventory.md) de Defender para la nube es una característica habilitada para varias nubes que le permite administrar los recursos de AWS junto con los recursos de Azure.
+- **Microsoft Defender para Kubernetes** amplía la detección de amenazas de contenedor y defensas avanzadas a los **clústeres de Linux de Amazon EKS**.
+- **Microsoft Defender para servidores** proporciona detección de amenazas y defensas avanzadas para instancias de EC2 de Windows y Linux. Este plan incluye la licencia integrada de Microsoft Defender para punto de conexión, líneas de base de seguridad y evaluaciones de nivel de sistema operativo, análisis de evaluación de vulnerabilidades, controles de aplicaciones adaptables (AAC), supervisión de la integridad de archivos (FIM) y mucho más.
+
+Obtenga más información sobre cómo [conectar las cuentas de AWS a Microsoft Defender para la nube](quickstart-onboard-aws.md).
+
+
+### <a name="prioritize-security-actions-by-data-sensitivity-powered-by-azure-purview-in-preview"></a>Priorización de las acciones de seguridad por confidencialidad de datos (con tecnología de Azure Purview; en versión preliminar)
+Los recursos de datos siguen siendo un objetivo popular para los actores de amenazas. Por lo tanto, es fundamental que los equipos de seguridad identifiquen, prioricen y protejan los recursos de datos confidenciales en sus entornos de nube.
+
+Para abordar este desafío, Microsoft Defender para la nube ahora integra la información de confidencialidad de [Azure Purview](../purview/overview.md). Azure Purview es un servicio unificado de gobernanza de datos que proporciona información valiosa sobre la confidencialidad de los datos en cargas de trabajo locales y en varias nubes.
+
+La integración con Azure Purview amplía la visibilidad de seguridad en Defender para la nube desde el nivel de infraestructura hasta los datos, lo que permite una manera completamente nueva de priorizar los recursos y las actividades de seguridad para los equipos de seguridad.
+
+Obtenga más información sobre la [Clasificación de acciones de seguridad según la confidencialidad de los datos](information-protection.md).
+
+
+### <a name="expanded-security-control-assessments-with-azure-security-benchmark-v3"></a>Evaluaciones de control de seguridad ampliadas con Azure Security Benchmark v3
+Las recomendaciones de seguridad de Microsoft Defender para la nube están habilitadas y son compatibles con Azure Security Benchmark. 
+
+[Azure Security Benchmark](../security/benchmarks/introduction.md) es el conjunto de directrices específico de Azure creado por Microsoft para ofrecer los procedimientos recomendados de seguridad y cumplimiento basados en marcos de cumplimiento comunes. Este punto de referencia ampliamente respetado está basado en los controles del [Centro de seguridad de Internet (CIS)](https://www.cisecurity.org/benchmark/azure/) y del [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) y hace hincapié en la seguridad centrada en la nube.
+
+A partir de Ignite 2021, Azure Security Benchmark **v3** está disponible en el [panel de cumplimiento normativo de Defender para la nube](update-regulatory-compliance-packages.md) y se habilita como la nueva iniciativa predeterminada para todas las suscripciones de Azure protegidas con Microsoft Defender para la nube. 
+
+Entre las mejoras de v3 se incluyen: 
+
+- Asignaciones adicionales a marcos del sector [PCI-DSS v3.2.1](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf) y [controles CIS v8](https://www.cisecurity.org/controls/v8/).
+- Instrucciones y prácticas más pormenorizados para los controles con la introducción:
+    - **Principios de seguridad**: permiten proporcionar información sobre los objetivos generales de seguridad que crean la base de nuestras recomendaciones.
+    - **Guía de Azure**: es el "cómo" técnico para cumplir estos objetivos.
+
+Los nuevos controles incluyen la seguridad de DevOps para problemas como el modelado de amenazas y la seguridad de la cadena de suministro de software, así como la administración de claves y certificados para los procedimientos recomendados en Azure.
+
+Puede obtener más información en [Introducción a Azure Security Benchmark](/security/benchmark/azure/introduction).
+
+
+### <a name="microsoft-sentinel-connectors-optional-bi-directional-alert-synchronization-released-for-general-availability-ga"></a>Sincronización de alertas bidireccionales opcionales del conector de Microsoft Sentinel; está publicada para disponibilidad general (GA)
+
+En julio, [anunciamos](#azure-sentinel-connector-now-includes-optional-bi-directional-alert-synchronization-in-preview) una característica en versión preliminar, una **sincronización de alertas bidireccional**, para el conector integrado en [Microsoft Sentinel](../sentinel/index.yml) (solución SIEM y SOAR nativa de la nube de Microsoft). Esta característica se ha publicado con disponibilidad general (GA).
+
+Al conectar Microsoft Defender para la nube a Microsoft Sentinel, el estado de las alertas de seguridad se sincroniza entre los dos servicios. Por ejemplo, cuando se cierra una alerta en Defender for Cloud, esa alerta también se mostrará como cerrada en Microsoft Sentinel. El cambio del estado de una alerta en Defender para la nube no afectará al estado de los **incidentes** de Microsoft Sentinel que contienen la alerta de Microsoft Sentinel sincronizada, sino solo al de la propia alerta sincronizada.
+
+Al habilitar la **sincronización de alertas bidireccional**, se sincronizará automáticamente el estado de las alertas de Defender para la nube originales con los incidentes de Microsoft Sentinel que contienen las copias de esas alertas de Defender para la nube. Por ejemplo, cuando se cierra un incidente de Microsoft Sentinel que contiene una alerta de Defender para la nube, Defender para la nube cerrará automáticamente la alerta original correspondiente.
+
+Obtenga más información sobre cómo [conectar alertas de Azure Defender desde Azure Security Center](../sentinel/connect-azure-security-center.md) y [transmitirlas a Azure Sentinel](export-to-siem.md#stream-alerts-to-microsoft-sentinel).
+
+
+### <a name="new-recommendation-to-push-azure-kubernetes-service-aks-logs-to-sentinel"></a>Nueva recomendación para insertar registros de Azure Kubernetes Service (AKS) en Sentinel
+
+En una mejora adicional del valor combinado de Defender para la nube y Microsoft Sentinel, ahora resaltaremos las instancias de Azure Kubernetes Service que no envían datos de registro a Microsoft Sentinel.
+
+Los equipos de SecOps pueden elegir el área de trabajo de Microsoft Sentinel que les interese directamente de la página de detalles de la recomendación y habilitar inmediatamente el streaming de registros sin procesar. Esta conexión sin problemas entre los dos productos facilita a los equipos de seguridad garantizar una cobertura de registro completa en todas sus cargas de trabajo para mantener actualizado todo el entorno.
+
+La nueva recomendación "Los registros de diagnóstico en los servicios de Kubernetes deben estar habilitados" incluye la opción "Corregir" para realizar una corrección más rápida.
+
+También se ha mejorado la recomendación "La auditoría en el servidor de SQL se debe habilitar" con las mismas funcionalidades de streaming de Sentinel. 
+
+
+### <a name="microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution---released-for-general-availability-ga"></a>Se agregó la Administración de amenazas y vulnerabilidades de Microsoft como solución de evaluación de vulnerabilidades; versión disponible de forma general (GA)
+
+En octubre [anunciamos](#microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution-in-preview) la ampliación de la integración entre [Microsoft Defender para servidores](defender-for-servers-introduction.md) y Microsoft Defender para punto de conexión, para poder admitir un nuevo proveedor de vulnerabilidades para las máquinas: [Administración de amenazas y vulnerabilidades de Microsoft](/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt). Esta característica se ha publicado con disponibilidad general (GA).
+
+Use la **administración de amenazas y vulnerabilidades** para detectar vulnerabilidades y configuraciones incorrectas casi en tiempo real con la [integración con Microsoft Defender para punto de conexión](integration-defender-for-endpoint.md) habilitada y sin necesidad de agentes adicionales ni exámenes periódicos. La administración de amenazas y vulnerabilidades prioriza las vulnerabilidades en función del panorama de amenazas y las detecciones de su organización.
+
+Use la recomendación de seguridad "[Se debe habilitar una solución de evaluación de vulnerabilidades en las máquinas virtuales](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/ffff0522-1e88-47fc-8382-2a80ba848f5d)" para revelar las vulnerabilidades detectadas por la administración de amenazas y vulnerabilidades para sus [máquinas admitidas](/microsoft-365/security/defender-endpoint/tvm-supported-os?view=o365-worldwide&preserve-view=true). 
+
+Para detectar automáticamente las vulnerabilidades en máquinas nuevas y existentes, sin necesidad de corregir manualmente la recomendación, consulte [Las soluciones de evaluación de vulnerabilidades ahora se pueden habilitar automáticamente (en versión preliminar)](#vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview).
+
+Obtenga más información en [Investigación de puntos débiles con la solución de administración de amenazas y vulnerabilidades de Microsoft Defender para punto de conexión](deploy-vulnerability-assessment-tvm.md).
+
+### <a name="microsoft-defender-for-endpoint-for-linux-now-supported-by-microsoft-defender-for-servers---released-for-general-availability-ga"></a>Microsoft Defender para punto de conexión para Linux es ahora compatible con Microsoft Defender para servidores; versión disponible de forma general (GA)
+
+En agosto, [anunciamos](#microsoft-defender-for-endpoint-for-linux-now-supported-by-azure-defender-for-servers-in-preview) la compatibilidad con la versión preliminar para implementar el sensor [Defender para punto de conexión para Linux](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux) en máquinas Linux compatibles. Esta característica se ha publicado con disponibilidad general (GA).
+
+[Microsoft Defender para servidores](defender-for-servers-introduction.md) incluye una licencia integrada para [Microsoft Defender para punto de conexión](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Esta integración ofrece funcionalidades completas de detección y respuesta (EDR) de puntos de conexión.
+
+Cuando Defender for Endpoint detecta una amenaza, desencadena una alerta. La alerta se muestra en Defender for Cloud. En Defender for Cloud, también puede dinamizar hasta la consola de Defender para punto de conexión para realizar una investigación detallada y descubrir el alcance del ataque.
+
+Para más información, consulte [Proteja los puntos de conexión con la solución EDR integrada de Security Center: Microsoft Defender para punto de conexión](integration-defender-for-endpoint.md).
+
+
+### <a name="snapshot-export-for-recommendations-and-security-findings-in-preview"></a>Exportación de instantáneas para recomendaciones y conclusiones de seguridad (en versión preliminar)
+
+Defender para la nube genera recomendaciones y alertas de seguridad detalladas. Puede verlas en el portal o mediante herramientas de programación. También puede que deba exportar parte o la totalidad de esta información para realizar el seguimiento con otras herramientas de supervisión de su entorno.
+
+La **exportación continua** de Defender para la nube le permite personalizar completamente *qué* se exportará y *a dónde* irá. Obtenga más información en [Exportación continua de datos de Defender para la nube](continuous-export.md).
+
+Aunque la característica se denomina *continua*, también hay una opción para exportar instantáneas semanales. Hasta ahora, estas instantáneas semanales se limitaban a la puntuación segura y a los datos de cumplimiento normativo. Hemos agregado la capacidad de exportar recomendaciones y conclusiones de seguridad.
+
+### <a name="auto-provisioning-of-vulnerability-assessment-solutions-released-for-general-availability-ga"></a>Aprovisionamiento automático de soluciones de evaluación de vulnerabilidades publicadas para disponibilidad general (GA)
+
+En octubre, [anunciamos](#vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview) la adición de soluciones de evaluación de vulnerabilidades a la página de aprovisionamiento automático de Defender para la nube. Esto es relevante para las máquinas virtuales de Azure y de Azure Arc que están en suscripciones protegidas por [Azure Defender para servidores](defender-for-servers-introduction.md). Esta característica se ha publicado con disponibilidad general (GA).
+
+Además, si la [integración con Microsoft Defender para punto de conexión](integration-defender-for-endpoint.md) está habilitada, Defender para la nube tendrá una selección de soluciones de evaluación de vulnerabilidades:
+
+- (**NUEVO**) El módulo de administración de amenazas y vulnerabilidades de Microsoft de Microsoft Defender para punto de conexión (consulte [la nota de la versión](#microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution---released-for-general-availability-ga))
+- El agente de Qualys integrado
+
+La solución elegida se habilitará automáticamente en las máquinas admitidas.
+
+Obtenga más información en [Configuración automática de la evaluación de vulnerabilidades para las máquinas](auto-deploy-vulnerability-assessment.md).
+
+### <a name="software-inventory-filters-in-asset-inventory-released-for-general-availability-ga"></a>Filtros de inventario de software en el inventario de recursos publicados para disponibilidad general (GA)
+
+En octubre, [anunciamos](#software-inventory-filters-added-to-asset-inventory-in-preview) nuevos filtros para la página de [inventario de recursos](asset-inventory.md) para seleccionar las máquinas que ejecutan software específico e incluso especificar las versiones de interés. Esta característica se ha publicado con disponibilidad general (GA).
+
+Asimismo, puede consultar los datos del inventario de software en el **Explorador de Azure Resource Graph**.
+
+Para usar estas características, deberá habilitar la [integración con Microsoft Defender para punto de conexión](integration-defender-for-endpoint.md). 
+
+Para obtener detalles completos, incluidas las consultas de Kusto de ejemplo para Azure Resource Graph, consulte [Acceso a un inventario de software](asset-inventory.md#access-a-software-inventory).
+
+### <a name="new-aks-security-policy-added-to-default-initiative--for-use-by-private-preview-customers-only"></a>Se han agregado nuevas directivas de seguridad de AKS a la iniciativa para que oslo las usen clientes de la versión preliminar privada
+
+Para asegurarse de que las cargas de trabajo de Kubernetes son seguras de forma predeterminada, Defender para la nube incluye directivas en el nivel de Kubernetes y recomendaciones de protección, incluidas las opciones de cumplimiento con el control de admisión de Kubernetes.
+
+Como parte de este proyecto, hemos agregado una directiva y una recomendación (deshabilitadas de forma predeterminada) para la implementación de acceso en los clústeres de Kubernetes. La directiva está en la iniciativa predeterminada, pero solo es relevante para las organizaciones que se registran para la versión preliminar privada relacionada.
+
+Puede omitir de forma segura las directivas y la recomendación ("los clústeres de Kubernetes deben realizar la implementación de imágenes vulnerables") y no habrá ningún impacto en el entorno. 
+
+Si quiere participar en la versión preliminar privada, deberá ser miembro del anillo de la versión preliminar privada. Si aún no es miembro, envíe una solicitud [aquí](https://aka.ms/atscale). Los miembros recibirán una notificación cuando comience la versión preliminar.
+
 ## <a name="october-2021"></a>Octubre de 2021
 
 Las actualizaciones de octubre incluyen:
@@ -39,6 +196,7 @@ Las actualizaciones de octubre incluyen:
 - [Cambio del prefijo de algunos tipos de alerta de "ARM_" a "VM_"](#changed-prefix-of-some-alert-types-from-arm_-to-vm_)
 - [Cambios en la lógica de una recomendación de seguridad para clústeres de Kubernetes](#changes-to-the-logic-of-a-security-recommendation-for-kubernetes-clusters)
 - [Las páginas de detalles de recomendaciones ahora muestran recomendaciones relacionadas](#recommendations-details-pages-now-show-related-recommendations)
+- [Nuevas alertas para Azure Defender para Kubernetes (en versión preliminar)](#new-alerts-for-azure-defender-for-kubernetes-in-preview)
 
 
 ### <a name="microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution-in-preview"></a>Se ha agregado Administración de amenazas y vulnerabilidades de Microsoft como solución de evaluación de vulnerabilidades (en versión preliminar)
@@ -57,7 +215,7 @@ Obtenga más información en [Investigación de puntos débiles con la solución
 
 La página de aprovisionamiento automático de Security Center ahora incluye la opción para habilitar automáticamente una solución de evaluación de vulnerabilidades para máquinas virtuales de Azure y máquinas de Azure Arc en suscripciones protegidas por [Azure Defender para servidores](defender-for-servers-introduction.md).
 
-Además, si la [integración con Microsoft Defender para punto de conexión](integration-defender-for-endpoint.md) está habilitada, tendrá una selección de soluciones de evaluación de vulnerabilidades:
+Además, si la [integración con Microsoft Defender para punto de conexión](integration-defender-for-endpoint.md) está habilitada, Defender para la nube tendrá una selección de soluciones de evaluación de vulnerabilidades:
 
 - (**NUEVO**) El módulo de administración de amenazas y vulnerabilidades de Microsoft de Microsoft Defender para punto de conexión (consulte [la nota de la versión](#microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution-in-preview))
 - El agente de Qualys integrado
@@ -156,6 +314,20 @@ Por lo tanto:
 :::image type="content" source="media/release-notes/related-recommendations-vulnerabilities-found.png" alt-text="Captura de pantalla de la recomendación para resolver las vulnerabilidades detectadas.":::
 
 
+
+### <a name="new-alerts-for-azure-defender-for-kubernetes-in-preview"></a>Nuevas alertas para Azure Defender para Kubernetes (en versión preliminar)
+
+Para expandir las protecciones contra amenazas proporcionadas por Azure Defender para Kubernetes, hemos agregado dos alertas de versión preliminar.
+
+Estas alertas se generan en función de un nuevo modelo de aprendizaje automático y análisis avanzado de Kubernetes, ya que miden varios atributos de implementación y asignación de roles con respecto a las actividades anteriores del clúster y en todos los clústeres que supervisa Azure Defender.
+
+| Alerta (tipo de alerta)                                                                 | Descripción                                                                                                                                                                                                                                                                                                                                                      | Táctica MITRE | severity |
+|------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------:|----------|
+| **Implementación de pods anómalos (versión preliminar)**<br>(K8S_AnomalousPodDeployment)             | El análisis del registro de auditoría de Kubernetes detectó una implementación de pods, lo que es anómalo según la actividad de implementación de pods anterior. Esta actividad se considera una anomalía al tener en cuenta cómo las distintas características que se ven en la operación de implementación se relacionan entre sí. Entre las características supervisadas por este análisis se incluye el registro de imágenes de contenedor usado, la cuenta que realiza la implementación, el día de la semana, la frecuencia con la que esta cuenta realiza implementaciones de pods, el agente de usuario utilizado en la operación, si se trata de un espacio de nombres en que la implementación de pods se da a menudo, etc. Las razones que contribuyen a la notificación de esta alerta como actividad anómala se detallan en las propiedades extendidas de la alerta. | Ejecución | Media |
+| **Permisos de rol excesivos asignados en el clúster de Kubernetes (versión preliminar)**<br>(K8S_ServiceAcountPermissionAnomaly) | El análisis de los registros de auditoría de Kubernetes detectó una asignación excesiva de roles de permisos en el clúster. Al examinar las asignaciones de roles, los permisos enumerados no son comunes para la cuenta de servicio específica. Esta detección tiene en cuenta las asignaciones de roles anteriores a la misma cuenta de servicio en los clústeres supervisados por Azure, el volumen por permiso y el impacto del permiso específico. El modelo de detección de anomalías usado para esta alerta tiene en cuenta cómo se usa este permiso en todos los clústeres supervisados por Azure Defender. | Elevación de privilegios | Bajo |
+|||
+
+Para ver una lista completa de las alertas de Kubernetes, consulte [Alertas de clústeres de Kubernetes](alerts-reference.md#alerts-k8scluster).
 
 ## <a name="september-2021"></a>Septiembre de 2021
 
@@ -263,7 +435,7 @@ Como parte de nuestros esfuerzos continuos para admitir más entornos y casos de
 ### <a name="security-center-can-now-auto-provision-the-azure-policys-guest-configuration-extension-in-preview"></a>Ahora, Security Center puede aprovisionar automáticamente la extensión de configuración de invitado de Azure Policy (en versión preliminar)
 Azure Policy puede auditar la configuración dentro de un equipo, tanto para las máquinas que se ejecutan en Azure como para las conectadas a Arc. La validación se realiza mediante el cliente y la extensión Guest Configuration. Puede encontrar más información en [Información sobre Guest Configuration de Azure Policy](../governance/policy/concepts/guest-configuration.md).
 
-Con esta actualización, ahora puede configurar que Security Center aprovisione automáticamente esta extensión en todas las máquinas admitidas. 
+Con esta actualización, ahora puede configurar Security Center para que aprovisione automáticamente esta extensión en todas las máquinas admitidas. 
 
 :::image type="content" source="media/release-notes/auto-provisioning-guest-configuration.png" alt-text="Habilite la implementación automática de la extensión de configuración de invitado.":::
 
@@ -405,7 +577,7 @@ Aprenda a usar las herramientas de automatización del flujo de trabajo en [Auto
 
 ### <a name="assessments-api-field-firstevaluationdate-and-statuschangedate-now-available-in-workspace-schemas-and-logic-apps"></a>Los campos de API de evaluaciones "FirstEvaluationDate" y "StatusChangeDate" ahora están disponibles en los esquemas de área de trabajo y las aplicaciones lógicas
 
-En mayo de 2021, se actualizó Assessment API con dos nuevos campos, **FirstEvaluationDate** y **StatusChangeDate**. Para ver todos los detalles al respecto, consulte [Assessment API se ha ampliado con dos nuevos campos](#assessments-api-expanded-with-two-new-fields).
+En mayo de 2021, se actualizó Assessment API con dos nuevos campos, **FirstEvaluationDate** y **StatusChangeDate**. Para ver todos los detalles al respecto, consulte [Assessment API se ha ampliado con dos nuevos campos](release-notes-archive.md#assessments-api-expanded-with-two-new-fields).
 
 Se puede acceder a esos campos a través de la API REST, Azure Resource Graph, la exportación continua y en las exportaciones de CSV.
 
@@ -499,185 +671,3 @@ Las dos recomendaciones siguientes han entrado en desuso:
 
 - **La versión del sistema operativo debe actualizarse en los roles del servicio en la nube**: de manera predeterminada, Azure actualiza periódicamente el sistema operativo invitado a la imagen compatible más reciente dentro de la familia de sistema operativo que ha especificado en la configuración del servicio (.cscfg), como Windows Server 2016.
 - Los **servicios de Kubernetes deben actualizarse a una versión de Kubernetes no vulnerable**: las evaluaciones de esta recomendación no son tan amplias como nos gustaría. Tenemos previsto reemplazar la recomendación por una versión mejorada que se ajuste mejor a sus necesidades de seguridad.
-
-
-## <a name="may-2021"></a>Mayo de 2021
-
-Las actualizaciones de mayo incluyen:
-
-- [Lanzamiento de Azure Defender para DNS y Azure Defender para Resource Manager para disponibilidad general (GA)](#azure-defender-for-dns-and-azure-defender-for-resource-manager-released-for-general-availability-ga)
-- [Lanzamiento de Azure Defender para bases de datos relacionales de código abierto para disponibilidad general (GA)](#azure-defender-for-open-source-relational-databases-released-for-general-availability-ga)
-- [Nuevas alertas para Azure Defender para Resource Manager](#new-alerts-for-azure-defender-for-resource-manager)
-- [Examen de vulnerabilidades de CI/CD de imágenes de contenedor con flujos de trabajo de GitHub y Azure Defender (versión preliminar)](#cicd-vulnerability-scanning-of-container-images-with-github-workflows-and-azure-defender-preview)
-- [Más consultas de Resource Graph disponibles para algunas recomendaciones](#more-resource-graph-queries-available-for-some-recommendations)
-- [Se ha cambiado la gravedad de la recomendación de clasificación de datos SQL](#sql-data-classification-recommendation-severity-changed)
-- [Nuevas recomendaciones para habilitar las funcionalidades de inicio seguro (en versión preliminar)](#new-recommendations-to-enable-trusted-launch-capabilities-in-preview)
-- [Nuevas recomendaciones para reforzar los clústeres de Kubernetes (en versión preliminar)](#new-recommendations-for-hardening-kubernetes-clusters-in-preview)
-- [La API de evaluaciones se ha ampliado con dos nuevos campos](#assessments-api-expanded-with-two-new-fields)
-- [El inventario de recursos obtiene un filtro de entorno de nube](#asset-inventory-gets-a-cloud-environment-filter)
-
-
-### <a name="azure-defender-for-dns-and-azure-defender-for-resource-manager-released-for-general-availability-ga"></a>Lanzamiento de Azure Defender para DNS y Azure Defender para Resource Manager para disponibilidad general (GA)
-
-Estos dos planes de protección contra amenazas con amplitud nativa de nube ahora están disponibles de forma general.
-
-Estas nuevas protecciones mejoran enormemente la resistencia frente a los ataques de actores de amenazas y aumentan considerablemente el número de recursos de Azure protegidos por Azure Defender.
-
-- **Azure Defender para Resource Manager**: supervisa automáticamente todas las operaciones de administración de recursos realizadas en la organización. Para más información, consulte:
-    - [Introducción a Azure Defender para Resource Manager](defender-for-resource-manager-introduction.md)
-    - [Respuesta a las alertas de Azure Defender para Resource Manager](defender-for-resource-manager-usage.md)
-    - [Lista de alertas proporcionadas por Azure Defender para Resource Manager](alerts-reference.md#alerts-resourcemanager)
-
-- **Azure Defender para DNS**: supervisa continuamente todas las consultas de DNS de los recursos de Azure. Para más información, consulte:
-    - [Introducción a Azure Defender para DNS](defender-for-dns-introduction.md)
-    - [Respuesta a las alertas de Azure Defender para DNS](defender-for-dns-usage.md)
-    - [Lista de alertas proporcionadas por Azure Defender para DNS](alerts-reference.md#alerts-dns)
-
-Para simplificar el proceso de habilitación de estos planes, use las recomendaciones siguientes:
-
-- **Se debe habilitar Azure Defender para Resource Manager**
-- **Se debe habilitar Azure Defender para DNS**
-
-> [!NOTE]
-> La habilitación de los planes de Azure Defender conlleva cargos. Obtenga información sobre los detalles de los precios por región en la página de precios de Security Center: https://aka.ms/pricing-security-center.
-
-
-### <a name="azure-defender-for-open-source-relational-databases-released-for-general-availability-ga"></a>Lanzamiento de Azure Defender para bases de datos relacionales de código abierto para disponibilidad general (GA)
-
-Azure Security Center amplía su oferta de protección de SQL con un nuevo conjunto para cubrir las bases de datos relacionales de código abierto:
-
-- **Azure Defender para servidores de bases de datos Azure SQL**: defiende los servidores SQL Server nativos de Azure.
-- **Azure Defender para servidores SQL Server en máquinas**: amplía las mismas protecciones a los servidores SQL Server en entornos híbridos, multinube y locales.
-- **Azure Defender para bases de datos relacionales de código abierto**: protege los servidores únicos de Azure Database for MySQL, PostgreSQL y MariaDB.
-
-Azure Defender para bases de datos relacionales de código abierto supervisa constantemente las amenazas de seguridad de los servidores y detecta actividades anómalas de base de datos que indican posibles amenazas para Azure Database for MySQL, PostgreSQL y MariaDB. Ejemplos:
-
-- **Detección granular de ataques por fuerza bruta**: Azure Defender para bases de datos relacionales de código abierto proporciona información detallada sobre los ataques por fuerza bruta intentados y cometidos. Esto le permite investigar y responder con una comprensión más completa de la naturaleza y el estado del ataque en su entorno.
-- **Detección de alertas de comportamiento**: Azure Defender para bases de datos relacionales de código abierto le alertan de comportamientos sospechosos e inesperados en los servidores, como cambios en el patrón de acceso a la base de datos.
-- **Detección basada en inteligencia sobre amenazas**: Azure Defender aplica la inteligencia sobre amenazas de Microsoft y la amplia base de conocimientos para que pueda actuar contra ellas.
-
-Obtenga más información en [Introducción a Azure Defender para bases de datos relacionales de código abierto](defender-for-databases-introduction.md).
-
-### <a name="new-alerts-for-azure-defender-for-resource-manager"></a>Nuevas alertas para Azure Defender para Resource Manager
-
-Para expandir las protecciones contra amenazas proporcionadas por Azure Defender para Resource Manager, hemos agregado las siguientes alertas:
-
-| Alerta (tipo de alerta)                                                                                                                                                | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                              | Tácticas MITRE | severity |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------:|----------|
-|**Permisos concedidos para un rol RBAC de forma inusual para el entorno de Azure (versión preliminar)**<br>(ARM_AnomalousRBACRoleAssignment)|Azure Defender para Resource Manager detectó una asignación de roles RBAC inusual en comparación con otras asignaciones realizadas por el mismo asignador o realizadas para el mismo asignado o en el inquilino debido a las siguientes anomalías: hora de asignación, ubicación del asignador, asignador, método de autenticación, entidades asignadas, software cliente usado y extensión de asignación. Es posible que un usuario legítimo de su organización haya realizado esta operación. Como alternativa, podría indicar que se ha vulnerado una cuenta de su organización y que el actor de la amenaza intenta conceder permisos a una cuenta de usuario adicional de su propiedad.|Desplazamiento lateral, evasión de las defensas|Media|
-|**Rol personalizado con privilegios creado para la suscripción de forma sospechosa (versión preliminar)**<br>(ARM_PrivilegedRoleDefinitionCreation)|Azure Defender para Resource Manager detectó una creación sospechosa de la definición de roles personalizados con privilegios en la suscripción. Es posible que un usuario legítimo de su organización haya realizado esta operación. Como alternativa, podría indicar que se ha vulnerado una cuenta de la organización y que el actor de la amenaza intenta crear un rol con privilegios para usarlo en el futuro para eludir la detección.|Desplazamiento lateral, evasión de las defensas|Bajo|
-|**Operación de Azure Resource Manager desde una dirección IP sospechosa (versión preliminar)**<br>(ARM_OperationFromSuspiciousIP)|Azure Defender para Resource Manager detectó una operación desde una dirección IP que se ha marcado como sospechosa en fuentes de inteligencia sobre amenazas.|Ejecución|Media|
-|**Operación de Azure Resource Manager desde una dirección IP de proxy sospechosa (versión preliminar)**<br>(ARM_OperationFromSuspiciousProxyIP)|Azure Defender para Resource Manager ha detectado una operación de administración de recursos desde una dirección IP asociada a servicios de proxy, como TOR. Aunque este comportamiento puede ser legítimo, a menudo se considera como actividades malintencionadas, cuando los actores de las amenazas intentan ocultar su dirección IP de origen.|Evasión defensiva|Media|
-||||
-
-Para más información, consulte:
-- [Introducción a Azure Defender para Resource Manager](defender-for-resource-manager-introduction.md)
-- [Respuesta a las alertas de Azure Defender para Resource Manager](defender-for-resource-manager-usage.md)
-- [Lista de alertas proporcionadas por Azure Defender para Resource Manager](alerts-reference.md#alerts-resourcemanager)
-
-
-### <a name="cicd-vulnerability-scanning-of-container-images-with-github-workflows-and-azure-defender-preview"></a>Examen de vulnerabilidades de CI/CD de imágenes de contenedor con flujos de trabajo de GitHub y Azure Defender (versión preliminar)
-
-Azure Defender para registros de contenedor ahora proporciona a los equipos de DevSecOps observabilidad en los flujos de trabajo de una Acción de GitHub.
-
-La nueva característica de examen de vulnerabilidades para imágenes de contenedor, que utiliza Trivy, ayuda a los desarrolladores a buscar vulnerabilidades comunes en las imágenes de contenedor *antes* de insertar las imágenes en los registros de contenedor.
-
-Los informes del examen de contenedores se resumen en Azure Security Center, lo que proporciona a los equipos de seguridad una mejor información y comprensión sobre el origen de las imágenes de contenedor vulnerables y los flujos de trabajo y repositorios desde donde se originan.
-
-Más información en [Identificación de imágenes de contenedor vulnerables en los flujos de trabajo de CI/CD](defender-for-container-registries-cicd.md).
-
-### <a name="more-resource-graph-queries-available-for-some-recommendations"></a>Más consultas de Resource Graph disponibles para algunas recomendaciones
-
-Todas las recomendaciones de Security Center ofrecen la opción de ver la información sobre el estado de los recursos afectados mediante Azure Resource Graph desde la opción **Abrir consulta**. Para obtener detalles completos sobre esta eficaz característica, consulte [Revisión de los datos de recomendación en Azure Resource Graph Explorer (ARG)](review-security-recommendations.md#review-recommendation-data-in-azure-resource-graph-explorer-arg).
-
-Security Center incluye escáneres de vulnerabilidades integrados para examinar las VM, los servidores SQL Server y sus hosts, y los registros de contenedor en busca de vulnerabilidades de seguridad. Los resultados se devuelven como recomendaciones con todas las conclusiones individuales de cada tipo de recurso recopiladas en una sola vista. Las recomendaciones son:
-
-- Es necesario corregir las vulnerabilidades de las imágenes de Azure Container Registry (con tecnología de Qualys)
-- Es necesario corregir las vulnerabilidades de las máquinas virtuales
-- Las bases de datos SQL deben tener resueltos los hallazgos de vulnerabilidades.
-- Los servidores SQL de las máquinas deben tener resueltos los hallazgos de vulnerabilidades.
-
-Con este cambio, puede usar el botón **Abrir consulta** para abrir también la consulta que muestra los hallazgos de seguridad.
-
-:::image type="content" source="media/release-notes/open-query-menu-security-findings.png" alt-text="El botón Abrir consulta ahora ofrece opciones para una consulta más profunda que muestra las conclusiones sobre seguridad de las recomendaciones relacionadas con el detector de vulnerabilidades.":::
-
-El botón **Abrir consulta** también ofrece opciones adicionales para algunas otras recomendaciones si procede.
-
-Obtenga más información sobre los detectores de vulnerabilidades de Security Center:
-
-- [Detector de vulnerabilidades de Qualys integrado en Azure Defender para Azure y máquinas híbridas](deploy-vulnerability-assessment-vm.md)
-- [Detector de evaluación de vulnerabilidades integrado de Azure Defender para los servidores SQL Server](defender-for-sql-on-machines-vulnerability-assessment.md)
-- [Detector de evaluación de vulnerabilidades integrado de Azure Defender para los registros de contenedor](defender-for-container-registries-usage.md)
-
-### <a name="sql-data-classification-recommendation-severity-changed"></a>Se ha cambiado la gravedad de la recomendación de clasificación de datos SQL
-
-La gravedad de la recomendación **Sensitive data in your SQL databases should be classified** (Se deben clasificar los datos confidenciales de las bases de datos SQL) ha cambiado de **Alta** a **Baja**.
-
-Este cambio forma parte de los cambios en curso de esta recomendación anunciados en [Mejoras en la recomendación de clasificación de datos confidenciales de las bases de datos SQL](upcoming-changes.md#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases).
-
-### <a name="new-recommendations-to-enable-trusted-launch-capabilities-in-preview"></a>Nuevas recomendaciones para habilitar las funcionalidades de inicio seguro (en versión preliminar)
-
-Azure ofrece el inicio seguro como una manera continua de mejorar la seguridad de las máquinas virtuales de [generación 2](../virtual-machines/generation-2.md). El inicio seguro protege frente a técnicas de ataque persistentes y avanzadas. El inicio seguro se compone de varias tecnologías de infraestructura coordinadas que se pueden habilitar de manera independiente. Cada tecnología proporciona otro nivel de defensa contra amenazas sofisticadas. Obtenga más información en [Inicio seguro para máquinas virtuales de Azure](../virtual-machines/trusted-launch.md).
-
-> [!IMPORTANT]
-> El inicio seguro requiere la creación de nuevas máquinas virtuales. No se puede habilitar el inicio seguro en las máquinas virtuales existentes que se crearon inicialmente sin él.
-> 
-> El inicio seguro está actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin acuerdo de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-
-La recomendación de Security Center, **vTPM debe estar habilitado en las máquinas virtuales admitidas**, garantiza que las VM de Azure usen vTPM. Esta versión virtualizada del hardware Módulo de plataforma segura permite la atestación mediante la medición de toda la cadena de arranque de la VM (UEFI, sistema operativo, sistema y controladores).
-
-Con vTPM habilitado, la **extensión de atestación de invitado** puede validar de forma remota el arranque seguro. Las siguientes recomendaciones garantizan la implementación de esta extensión:
-
-- **El arranque seguro debe estar habilitado en las máquinas virtuales Windows admitidas**
-- **La extensión de atestación de invitados debe estar instalada en las máquinas virtuales Windows**
-- **La extensión de atestación de invitados debe estar instalada en conjuntos de escalado de máquinas virtuales Windows admitidos**
-- **La extensión de atestación de invitados debe estar instalada en las máquinas virtuales Linux**
-- **La extensión de atestación de invitados debe estar instalada en conjuntos de escalado de máquinas virtuales Linux admitidos**
-
-Obtenga más información en [Inicio seguro para máquinas virtuales de Azure](../virtual-machines/trusted-launch.md). 
-
-### <a name="new-recommendations-for-hardening-kubernetes-clusters-in-preview"></a>Nuevas recomendaciones para reforzar los clústeres de Kubernetes (en versión preliminar)
-
-Las siguientes recomendaciones le permiten reforzar aún más los clústeres de Kubernetes.
-
-- **Los clústeres de Kubernetes no deben utilizar el espacio de nombres predeterminado**: para proteger del acceso no autorizado los tipos de recurso ConfigMap, Pod, Secret, Service y ServiceAccount, evite utilizar el espacio de nombres predeterminado en los clústeres de Kubernetes.
-- **Los clústeres de Kubernetes deben deshabilitar el montaje automático de credenciales de API**: para evitar que un recurso pod potencialmente comprometido ejecute comandos de API en clústeres de Kubernetes, deshabilite el montaje automático de credenciales de API.
-- **Los clústeres de Kubernetes no deben otorgar funcionalidades de seguridad CAPSYSADMIN**.
-
-Descubra qué puede hacer Security Center para proteger los entornos contenedorizados en [Seguridad de contenedor en Security Center](container-security.md).
-
-### <a name="assessments-api-expanded-with-two-new-fields"></a>La API de evaluaciones se ha ampliado con dos nuevos campos
-
-Se han agregado los dos campos siguientes a la [API REST de evaluaciones](/rest/api/securitycenter/assessments):
-
-- **FirstEvaluationDate**: hora a la que se creó y evaluó por primera vez la recomendación. Se devuelve en horario UTC en formato ISO 8601.
-- **StatusChangeDate**: hora a la que cambió por última vez el estado de la recomendación. Se devuelve en horario UTC en formato ISO 8601.
-
-El valor predeterminado inicial de estos campos (para todas las recomendaciones) es `2021-03-14T00:00:00+0000000Z`.
-
-Para acceder a esta información, puede usar cualquiera de los métodos de la tabla siguiente.
-
-| Herramienta                 | Detalles                                                                                                                                                                |
-|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Llamada a API REST        | GET https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/providers/Microsoft.Security/assessments?api-version=2019-01-01-preview& $expand=statusEvaluationDates |
-| Azure Resource Graph | `securityresources`<br>`where type == "microsoft.security/assessments"`                                                                                                |
-| Exportación continua    | Los dos campos dedicados estarán disponibles para los datos del área de trabajo de Log Analytics.                                                                                            |
-| [Exportación de CSV](continuous-export.md#manual-one-time-export-of-alerts-and-recommendations) | Los dos campos se incluyen en los archivos CSV.                                                        |
-|                      |                                                                                                                                                                        |
-
-
-Más información sobre la [API REST de evaluaciones](/rest/api/securitycenter/assessments).
-
-
-### <a name="asset-inventory-gets-a-cloud-environment-filter"></a>El inventario de recursos obtiene un filtro de entorno de nube
-
-La página del inventario de recursos de Security Center ofrece muchos filtros para refinar rápidamente la lista de recursos que se muestran. Más información en [Exploración y administración de los recursos con Asset Inventory](asset-inventory.md).
-
-Un nuevo filtro ofrece la opción de refinar la lista según las cuentas en la nube conectadas con las características de varias nubes de Security Center:
-
-:::image type="content" source="media/asset-inventory/filter-environment.png" alt-text="Filtro de entorno del inventario":::
-
-Obtenga más información sobre las funcionalidades de varias nubes:
-
-- [Conexión de las cuentas de AWS a Azure Security Center](quickstart-onboard-aws.md)
-- [Conexión de las cuentas de GCP a Azure Security Center](quickstart-onboard-gcp.md)

@@ -10,12 +10,12 @@ author: lostmygithubaccount
 ms.author: copeters
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: ba8cdc3d4c74398f088c19ea80688e308ed4c551
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: eac97f87de7edafc45f0e434188579df19d99c36
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131565929"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132057618"
 ---
 # <a name="cli-v2-compute-cluster-amlcompute-yaml-schema"></a>Esquema YAML de clúster de proceso (AmlCompute) de la CLI (v2)
 
@@ -40,7 +40,7 @@ El esquema JSON de origen se puede encontrar en https://azuremlschemas.azureedge
 | `ssh_public_access_enabled` | boolean | Si se debe habilitar el acceso SSH público en los nodos del clúster. | | `false` |
 | `ssh_settings` | object | Configuración SSH para conectarse al clúster. | | |
 | `ssh_settings.admin_username` | string | Nombre de la cuenta de usuario administrador que se puede usar para SSH en nodos. | | |
-| `ssh_settings.admin_password` | string | Contraseña de la cuenta de usuario administrador. **Uno de estos elementos, `admin_password` o `ssh_key_value`, es obligatorio.** | | |
+| `ssh_settings.admin_password` | string | Contraseña de la cuenta de usuario administrador. **Se requiere `admin_password` o `ssh_key_value`.** | | |
 | `ssh_settings.ssh_key_value` | string | Clave pública SSH de la cuenta de usuario administrador. **Uno de estos elementos, `admin_password` o `ssh_key_value`, es obligatorio.** | | |
 | `network_settings` | object | Configuración de seguridad de red. | | |
 | `network_settings.vnet_name` | string | Nombre de la red virtual (VNet) al crear una nueva o hacer referencia a una existente. | | |
@@ -49,7 +49,7 @@ El esquema JSON de origen se puede encontrar en https://azuremlschemas.azureedge
 | `identity.type` | string | Tipo de identidad administrada que se asignará al proceso. Si el tipo es `user_assigned`, también se debe especificar la propiedad `identity.user_assigned_identities`. | `system_assigned`, `user_assigned` | |
 | `identity.user_assigned_identities` | array | Lista de id. de recursos completos de las identidades asignadas por el usuario. | | |
 
-## <a name="remarks"></a>Comentarios
+## <a name="remarks"></a>Observaciones
 
 Los comandos `az ml compute` se pueden usar para administrar los clústeres de proceso de Azure Machine Learning (AmlCompute).
 
@@ -59,23 +59,23 @@ Hay ejemplos disponibles en el [repositorio de GitHub de ejemplos](https://githu
 
 ## <a name="yaml-minimal"></a>YAML: mínimo
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/cluster-minimal.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-minimal.yml":::
 
 ## <a name="yaml-basic"></a>YAML: básico
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/cluster-basic.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-basic.yml":::
 
 ## <a name="yaml-custom-location"></a>YAML: ubicación personalizada
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/cluster-location.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-location.yml":::
 
 ## <a name="yaml-low-priority"></a>YAML: prioridad baja
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/cluster-low-priority.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-low-priority.yml":::
 
 ## <a name="yaml-ssh-username-and-password"></a>YAML: nombre de usuario y contraseña de SSH
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/cluster-ssh-password.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-ssh-password.yml":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

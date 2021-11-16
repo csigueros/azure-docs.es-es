@@ -4,16 +4,16 @@ ms.topic: include
 author: ecfan
 ms.author: estfan
 ms.date: 03/02/2018
-ms.openlocfilehash: 1aabc1b33722c571c6519b6620fb62211a44c2e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 96d6668a25422824f0e5ddb5f3fea65f7f9daabb
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95999556"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131571049"
 ---
-1. En [Azure Portal](https://portal.azure.com), cree una aplicación lógica en blanco. 
+1. En [Azure Portal](https://portal.azure.com), cree una aplicación lógica en blanco.
 
-2. En el Diseñador de aplicaciones lógicas, escriba "github" como filtro. 
+2. En el Diseñador de aplicaciones lógicas, escriba *github* como filtro.
 
 3. Seleccione el conector y el desencadenador de GitHub que desea usar.
 
@@ -22,7 +22,7 @@ ms.locfileid: "95999556"
    > [!NOTE]
    > Todos los flujos de trabajo de aplicaciones lógicas deben comenzar con un desencadenador. Puede seleccionar acciones solo cuando el flujo de trabajo de lógica ya se inicia con un desencadenador. 
 
-4. Si anteriormente no creó una conexión, elija **Iniciar sesión** para proporcionar sus credenciales de GitHub cuando se le soliciten.  
+4. Si anteriormente no creó una conexión, elija **Iniciar sesión** para proporcionar sus credenciales de GitHub cuando se le soliciten.
 
    ![Inicio de sesión con sus credenciales de GitHub](./media/connectors-create-api-github/github-connector-sign-in-credentials.png)
 
@@ -37,4 +37,3 @@ ms.locfileid: "95999556"
 6. Continúe definiendo el flujo de trabajo de aplicación lógica.
 
    ![Adición de más acciones al flujo de trabajo de la aplicación lógica](./media/connectors-create-api-github/github-connector-logic-app.png)
-

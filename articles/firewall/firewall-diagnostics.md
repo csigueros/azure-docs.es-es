@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 08/03/2021
+ms.date: 10/22/2021
 ms.author: victorh
-ms.openlocfilehash: 62659116599a60d5a9407fea4d2b1f06594ef475
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d421986ebeb308efb0e076b1a80f537d49082ec5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124824438"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130242356"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Supervisión de métricas y registros de Azure Firewall
 
@@ -55,11 +55,15 @@ El registro de actividades se habilita automáticamente para todos los recursos 
 
 Para habilitar el registro de diagnóstico con PowerShell, siga estos pasos:
 
-1. Anote el identificador de recurso del área de trabajo de Log Analytics donde se almacenan los datos de registro. Este valor tiene el formato: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>`.
+1. Anote el identificador de recurso del área de trabajo de Log Analytics donde se almacenan los datos de registro. Este valor tiene el formato:
+
+   `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>`
 
    Puede usar cualquier área de trabajo de la suscripción. Para buscar esta información, se puede usar Azure Portal. La información se encuentra en la página **Propiedades** del recurso.
 
-2. Anote el identificador de recurso para el firewall. Este valor tiene el formato: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`.
+2. Anote el identificador de recurso para el firewall. Este valor tiene el formato:
+
+   `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`
 
    Para buscar esta información, use Azure Portal.
 
@@ -81,11 +85,15 @@ El registro de actividades se habilita automáticamente para todos los recursos 
 
 Para habilitar el registro de diagnóstico con la CLI de Azure, siga estos pasos:
 
-1. Anote el identificador de recurso del área de trabajo de Log Analytics donde se almacenan los datos de registro. Este valor tiene el formato: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`.
+1. Anote el identificador de recurso del área de trabajo de Log Analytics donde se almacenan los datos de registro. Este valor tiene el formato:
+
+   `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>`
 
    Puede usar cualquier área de trabajo de la suscripción. Para buscar esta información, se puede usar Azure Portal. La información se encuentra en la página **Propiedades** del recurso.
 
-2. Anote el identificador de recurso para el firewall. Este valor tiene el formato: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`.
+2. Anote el identificador de recurso para el firewall. Este valor tiene el formato:
+
+   `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`
 
    Para buscar esta información, use Azure Portal.
 

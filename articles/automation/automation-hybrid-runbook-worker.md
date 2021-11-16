@@ -3,15 +3,15 @@ title: Introducción a Hybrid Runbook Worker de Azure Automation
 description: En este artículo se ofrece información general de Hybrid Runbook Worker, que puede usar para ejecutar runbooks en máquinas de su centro de datos local o proveedor de nube.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/28/2021
+ms.date: 10/06/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bcc115e2eb8e380217246b2a401cea93f922aa81
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: e5b6a6036514d1d6391c242563afbf9c185ba71e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129272167"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130253122"
 ---
 # <a name="automation-hybrid-runbook-worker-overview"></a>Introducción a Hybrid Runbook Worker de Automation
 
@@ -26,16 +26,17 @@ Azure Automation proporciona integración nativa del rol Hybrid Runbook Worker m
 
 :::image type="content" source="./media/automation-hybrid-runbook-worker/hybrid-worker-group-platform.png" alt-text="Grupo de Hybrid Worker que muestra el campo de plataforma":::
 
-Esta es una lista de las ventajas disponibles con el rol de Hybrid Runbook Worker basado en extensiones: 
+Esta es una lista de las ventajas disponibles con el rol de Hybrid Runbook Worker basado en extensiones:
 
 | Prestación | Descripción |
 |---|---|
 |Incorporación sin problemas| Elimina la dependencia de una solución de Log Analytics para incorporar Hybrid Runbook Worker, que es un proceso de varios pasos, lento y propenso a errores. |
 |Experiencia de incorporación unificada| Para administrar la instalación se usan los mismos métodos admitidos tanto para máquinas Azure como para las que no tienen Azure. |
-|Facilidad de administración| Integración nativa con la identidad de Azure Resource Manager para Hybrid Worker y proporciona flexibilidad para la gobernanza a escala mediante directivas y plantillas. |
+|Facilidad de administración| Integración nativa con la identidad de Azure Resource Manager para Hybrid Runbook Worker y proporciona flexibilidad para la gobernanza a escala mediante directivas y plantillas. |
 |Autenticación basada en Azure AD| Usa las identidades asignadas por el sistema de máquinas virtuales proporcionadas por Azure AD. Esto centraliza el control y la administración de identidades y credenciales de recursos.|
 
 Para las operaciones de Hybrid Runbook Worker después de la instalación, el proceso de ejecución de runbooks en Hybrid Runbook Worker es el mismo. El propósito del enfoque basado en extensiones es simplificar la instalación y administración del rol Hybrid Runbook Worker y eliminar la complejidad del trabajo con la versión basada en agente. La nueva instalación basada en extensiones no afecta a la instalación o administración de un rol de Hybrid Runbook Worker basado en agente. Ambos tipos pueden coexistir en la misma máquina.
+
 Hybrid Runbook Worker basado en extensiones solo admite el tipo de Hybrid Runbook Worker de usuario y no incluye el sistema Hybrid Runbook Worker necesario para la característica Update Management. En este momento no se admite la compatibilidad con PowerShell para instalar el Hybrid Runbook Worker basado en extensiones.
 
 ## <a name="runbook-worker-types"></a>Tipos de Runbook Worker
@@ -47,7 +48,7 @@ Hay dos tipos de instancias de Runbook Worker: sistema y usuario. En la siguient
 |**Sistema** |Admite un conjunto de runbooks ocultos que usa la característica Update Management y están diseñados para instalar actualizaciones especificadas por el usuario en máquinas Windows y Linux.<br> Este tipo de Hybrid Runbook Worker no es miembro de ningún grupo de instancias de Hybrid Runbook Worker y, por tanto, no ejecuta runbooks que tengan como destino un grupo de instancias de Runbook Worker. |
 |**User** |Admite runbooks definidos por el usuario que se van a ejecutar directamente en la máquina Windows y Linux y son miembros de uno o más grupos de Runbook Worker. |
 
-Las instancias de Hybrid Runbook Worker basada en agente (V1) confían en el [agente de Log Analytics](../azure-monitor/agents/log-analytics-agent.md) que informa a un [área de trabajo de Log Analytics](../azure-monitor/logs/design-logs-deployment.md) de Azure Monitor. El área de trabajo no sirve solo para supervisar el sistema operativo compatible de la máquina, sino también para descargar los componentes necesarios para instalar Hybrid Runbook Worker.
+Las instancias de Hybrid Runbook Worker basada en agente (V1) confían en el [agente de Log Analytics](../azure-monitor/agents/log-analytics-agent.md) que informa a un [área de trabajo de Log Analytics](../azure-monitor/logs/design-logs-deployment.md) de Azure Monitor. El área de trabajo no solo sirve para recopilar datos de supervisión de la máquina, sino también para descargar los componentes necesarios para instalar Hybrid Runbook Worker.
 
 Si habilita [Update Management](./update-management/overview.md) de Azure Automation, las máquinas conectadas al área de trabajo de Log Analytics se configurarán automáticamente como una instancia de Hybrid Runbook Worker del sistema. Para configurarla como una instancia de Hybrid Runbook Worker de usuario, consulte [Implementación de Hybrid Runbook Worker Windows basado en agente en Automation](automation-windows-hrw-install.md) y, en el caso de Linux, [Implementación de Hybrid Runbook Worker Linux basado en agente en Automation](./automation-linux-hrw-install.md).
 
@@ -78,7 +79,7 @@ El proceso para instalar una instancia de Hybrid Runbook Worker de usuario depen
 
 |Sistema operativo  |Tipos de implementación  |
 |---------|---------|
-|Windows | [Automatizado](automation-windows-hrw-install.md#automated-deployment)<br>[Manual](automation-windows-hrw-install.md#manual-deployment) |
+|Windows | [Automatizado](automation-windows-hrw-install.md#automated-deployment)<br>[Manual](automation-windows-hrw-install.md#manual-deployment). |
 |Linux   | [Manual](automation-linux-hrw-install.md#install-a-linux-hybrid-runbook-worker) |
 |Es posible usar el  | En el caso de las instancias de Hybrid Runbook Worker de usuario, consulte [Implementación de una instancia de Hybrid Runbook Worker de usuario Windows o Linux basada en extensiones en Automation](./extension-based-hybrid-runbook-worker-install.md). Éste es el método recomendado. |
 

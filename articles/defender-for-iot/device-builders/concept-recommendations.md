@@ -2,13 +2,13 @@
 title: Recomendaciones de seguridad para IoT Hub
 description: Sepa en qué consiste el concepto de recomendaciones de seguridad y cómo se usan en Defender para IoT Hub.
 ms.topic: conceptual
-ms.date: 11/09/2021
-ms.openlocfilehash: 5a4d93c30a01cc0fa93cbb3e4835bf8a86ccc622
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.date: 10/18/2021
+ms.openlocfilehash: c2fcc071c78838f5575c40288db37f51074c12de
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132331592"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130263712"
 ---
 # <a name="security-recommendations-for-iot-hub"></a>Recomendaciones de seguridad para IoT Hub
 

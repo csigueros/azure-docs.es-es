@@ -11,18 +11,21 @@ ms.date: 12/04/2019
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 18720d99bc8cf0e237e25ea13f686970573d5704
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc2f5f735f20e54baa22eea7ad4d9fd00a3bc426
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98678447"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131850116"
 ---
 # <a name="database-collation-support-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Compatibilidad de la intercalación de base de datos para un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics 
 
 La intercalación de bases de datos predeterminada se puede cambiar desde Azure Portal cuando se crea un grupo de SQL dedicado (anteriormente SQL DW). Esta capacidad facilita aún más la creación de una base de datos mediante una de las 3800 intercalaciones de bases de datos compatibles.
 
 Las intercalaciones proporcionan la configuración regional, la página de códigos, el criterio de ordenación y las reglas de distinción de caracteres para los tipos de datos basados en caracteres. Una vez que se han elegido estas opciones, todas las columnas y expresiones que requieren información de intercalación heredan la intercalación elegida de la configuración de base de datos. La herencia predeterminada se puede reemplazar si se indica explícitamente una intercalación diferente para un tipo de datos basado en caracteres.
+
+> [!NOTE]
+> En Azure Synapse Analytics, el texto de la consulta (incluidas variables, constantes, etc.) siempre se controla mediante la intercalación a nivel de base de datos y no con la intercalación a nivel de servidor como en otras ofertas de SQL Server.
 
 ## <a name="changing-collation"></a>Cambio de la intercalación
 

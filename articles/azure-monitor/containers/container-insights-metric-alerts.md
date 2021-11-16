@@ -3,12 +3,12 @@ title: Alertas de métricas de Container Insights
 description: En este artículo se revisan las alertas de métricas recomendadas disponibles en Container Insights en la versión preliminar pública.
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: 7036bc7a0f161044312687d6b22171df99821e6a
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 49ae1fee1961bf722489309d2d605ca7697ab218
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129714426"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131455138"
 ---
 # <a name="recommended-metric-alerts-preview-from-container-insights"></a>Alertas de métricas recomendadas (versión preliminar) de Container Insights
 
@@ -47,6 +47,7 @@ Para enviar alertas sobre lo que importa, Container Insights incluye las siguien
 |**(Nueva) Porcentaje medio de la CPU del contenedor** |Calcula el promedio de CPU usado por contenedor.|Cuando el uso medio de la CPU por contenedor es superior al 95 %.| 
 |**(Nueva) Porcentaje medio de memoria del espacio de trabajo del contenedor** |Calcula el promedio de memoria del espacio de trabajo usado por contenedor.|Cuando el uso medio de memoria del espacio de trabajo por contenedor es superior al 95 %. |
 |% uso medio de CPU |Calcula el promedio de CPU usado por nodo. |Cuando el uso medio de CPU de nodo es superior al 80 %. |
+| Vulneración del límite de datos diario | Cuando se infringe el límite de datos| Cuando la ingesta total de datos en su área de trabajo de Log Analytics supera la [cuota designada](../logs/manage-cost-storage.md#manage-your-maximum-daily-data-volume). |
 |Average Disk Usage % (% uso medio de disco) |Calcula el uso medio de disco de un nodo.|Cuando el uso de disco de un nodo es superior al 80 %. |
 |**(Nueva) Porcentaje medio de uso de volumen persistente** |Calcula el uso medio de volumen persistente por pod. |Cuando el uso medio de volumen por pod es superior al 80 %.|
 |Average Working set memory % (% medio de memoria del espacio de trabajo) |Calcula el promedio de memoria del espacio de trabajo de un nodo. |Cuando el promedio de memoria del espacio de trabajo de un nodo es superior al 80 %. |
@@ -88,11 +89,11 @@ Las siguientes métricas se habilitan y recopilan, a menos que se especifique lo
 |Espacio de nombres de métricas |Métrica |Descripción |
 |---------|----|------------|
 |Insights.container/nodes |cpuUsageMillicores |Uso de CPU en milinúcleos por host.|
-|Insights.container/nodes |cpuUsagePercentage |Porcentaje de uso de CPU por nodo.|
+|Insights.container/nodes |cpuUsagePercentage, cpuUsageAllocatablePercentage (preview) |Porcentaje de uso de CPU por nodo y asignable respectivamente.|
 |Insights.container/nodes |memoryRssBytes |Uso de RSS de memoria en bytes por host.|
-|Insights.container/nodes |memoryRssPercentage |Porcentaje de uso de RSS de memoria por host.|
+|Insights.container/nodes |memoryRssPercentage, memoryRssAllocatablePercentage (versión preliminar) |Porcentaje de uso de RSS de memoria por host y asignable respectivamente.|
 |Insights.container/nodes |memoryWorkingSetBytes |Uso del espacio de trabajo de memoria en bytes por host.|
-|Insights.container/nodes |memoryWorkingSetPercentage |Porcentaje de uso del espacio de trabajo de memoria por host.|
+|Insights.container/nodes |memoryWorkingSetPercentage, memoryRssAllocatablePercentage (versión preliminar) |Porcentaje de uso del espacio de trabajo de la memoria por host y asignable respectivamente.|
 |Insights.container/nodes |nodesCount |Recuento de nodos por estado.|
 |Insights.container/nodes |diskUsedPercentage |Porcentaje de disco usado en el nodo por dispositivo.|
 |Insights.container/pods |podCount |Recuento de pods por controlador, espacio de nombres, nodo y fase.|

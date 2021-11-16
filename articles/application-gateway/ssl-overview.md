@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 06/03/2021
 ms.author: victorh
-ms.openlocfilehash: 8a757b1825cb1c1e2f471a965077ea5801000dc4
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: be89c299d5b45f54a5d147bf3841384526f54360
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113761447"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131556680"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Introducción a la terminación TLS y a TLS de extremo a extremo con Application Gateway
 
@@ -27,7 +27,7 @@ Application Gateway admite la terminación TLS en la puerta de enlace, tras lo c
 - **Enrutamiento inteligente**: mediante el descifrado del tráfico, la puerta de enlace de aplicaciones tiene acceso al contenido de la solicitud, como encabezados, URI, etc., y puede utilizar estos datos para enrutar las solicitudes.
 - **Administración de certificados**: los certificados solo se deben comprar e instalar en la puerta de enlace de aplicaciones y no en todos los servidores back-end. Esto ahorra tiempo y dinero.
 
-Para configurar la terminación TLS, debe agregar un certificado TLS/SSL al cliente de escucha para permitir a Application Gateway derivar una clave simétrica según la especificación del protocolo TLS/SSL. A continuación, la clave simétrica se usa para cifrar y descifrar el tráfico que se envía a la puerta de enlace. El certificado TLS/SSL debe tener el formato Personal Information Exchange (PFX). Este formato de archivo permite la exportación de la clave privada, lo que es necesario para que la puerta de enlace de aplicaciones pueda realizar el cifrado y descifrado del tráfico.
+Para configurar la terminación TLS, se debe agregar un certificado TLS/SSL al cliente de escucha. Esto permite a Application Gateway descifrar el tráfico entrante y cifrar el tráfico de respuesta al cliente. El certificado proporcionado a Application Gateway debe estar en formato Intercambio de información personal (PFX), que contiene las claves privadas y públicas.
 
 > [!IMPORTANT] 
 > El certificado del cliente de escucha requiere que se cargue toda la cadena de certificados (el certificado raíz de la entidad de certificación, los certificados intermedios y el certificado de hoja) para establecer la cadena de confianza. 
@@ -150,6 +150,7 @@ Escenario | v1 | v2 |
 | --- | --- | --- |
 | Encabezado SNI (server_name) durante el enlace TLS como FQDN | Se establece como FQDN desde el grupo de back-end. Según el estándar [RFC 6066](https://tools.ietf.org/html/rfc6066), no se permiten direcciones IPv4 y IPv6 literales en el nombre de host de SNI. <br> **Nota:** El FQDN del grupo de back-end debe resolver el DNS en la dirección IP del servidor back-end (pública o privada) | El encabezado SNI (server_name) se establece como nombre de host desde la configuración HTTP; de lo contrario, si se selecciona la opción *PickHostnameFromBackendAddress* o si no se menciona ningún nombre de host, se establecerá como el FQDN en la configuración del grupo de back-end.
 | Si la dirección del grupo de back-end es una dirección IP o el nombre de host no está establecido en la configuración HTTP | No se establecerá la SNI de conformidad con el estándar [RFC 6066](https://tools.ietf.org/html/rfc6066) si la entrada del grupo de back-end no es un FQDN | La SNI se establecerá como el nombre de host del FQDN de entrada del cliente y el CN del certificado de back-end debe coincidir con este nombre de host.
+| El nombre de host no se proporciona en Configuración HTTP, pero se especifica un FQDN como destino para un miembro del grupo de back-end. | La SNI se establecerá como el nombre de host del FQDN de entrada del cliente y el CN del certificado de back-end debe coincidir con este nombre de host. | La SNI se establecerá como el nombre de host del FQDN de entrada del cliente y el CN del certificado de back-end debe coincidir con este nombre de host.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

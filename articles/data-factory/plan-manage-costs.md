@@ -7,13 +7,13 @@ ms.service: data-factory
 ms.subservice: pricing
 ms.topic: how-to
 ms.custom: subject-cost-optimization
-ms.date: 04/28/2021
-ms.openlocfilehash: aba57e9ba46faef60f97819fa3de3e89fa94f00e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 11/01/2021
+ms.openlocfilehash: 51f71bcf39f0b54bf0f7fb389fbbb9797fbb2151
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638130"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469471"
 ---
 # <a name="plan-to-manage-costs-for-azure-data-factory"></a>Planeamiento para administrar los costos de Azure Data Factory
 
@@ -73,12 +73,15 @@ Al final del ciclo de facturación, se suman los cargos de cada medidor. La fact
 
 ### <a name="other-costs-that-might-accrue-with-azure-data-factory"></a>Otros costos que pueden generarse con Azure Data Factory
 
-Cuando se crean recursos para Azure Data Factory, también se crean recursos para otros servicios de Azure. Entre ellas, las siguientes:
+Al crear recursos para Azure Data Factory (ADF), también se crean recursos para otros servicios de Azure. Entre ellas, las siguientes:
 
 - Ejecución de la actividad de canalización
 - Ejecución de la actividad de canalización externa
 - Creación, edición, recuperación y supervisión de artefactos de factoría de datos
-- Duración de SSIS Integration Runtime en función del tipo de instancia y la duración
+- Duración de SSIS Integration Runtime (IR) en función del tipo de instancia y la duración
+
+> [!NOTE]
+> Puede asignar la misma etiqueta a ADF y otros recursos de Azure, y colocarlos en la misma categoría para ver su facturación consolidada. Todos los entornos de ejecución de integración de SSIS heredarán la etiqueta de ADF. Si cambia la etiqueta de ADF, debe detener y reiniciar todos los entornos de ejecución de integración de SSIS que contiene para que hereden la nueva etiqueta. Consulte la sección [Reconfiguración de un entorno de ejecución de integración de SSIS](manage-azure-ssis-integration-runtime.md#to-reconfigure-an-azure-ssis-ir).
 
 ### <a name="using-azure-prepayment-with-azure-data-factory"></a>Uso del pago por adelantado de Azure con Azure Data Factory
 

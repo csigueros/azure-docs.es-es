@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/10/2021
 ms.custom: references_regions
-ms.openlocfilehash: dfb4cf341c6014854e219c17d387076f5beab595
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 8010de7d6aa0af0d096a0c7ed23740f23734cda2
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131010733"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131554400"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Enriquecimiento con IA en Azure Cognitive Search
 
@@ -121,7 +121,7 @@ Los índices y los almacenes de conocimiento son totalmente independientes entre
 
 Una vez finalizado el procesamiento, obtendrá un [índice de búsqueda](search-what-is-an-index.md) que consta de documentos enriquecidos y texto totalmente apto para búsquedas en Azure Cognitive Search. Para acceder al contenido enriquecido que la canalización genera, los desarrolladores y usuarios [**consultan el índice**](search-query-overview.md). El índice es similar a cualquier otro que pueda crear para Azure Cognitive Search: puede complementar análisis de texto con analizadores personalizados, invocar consultas de búsqueda aproximada, agregar filtros o experimentar con perfiles de puntuación para ajustar la pertinencia de la búsqueda.
 
-También puede tener un [almacén de conocimiento](knowledge-store-concept-intro.md). El almacén de conocimiento contiene datos que se pueden consumir en escenarios de minería de conocimiento, como análisis o aprendizaje automático. Puede usar [Explorador de Storage](knowledge-store-view-storage-explorer.md), [Power BI](knowledge-store-connect-power-bi.md) o cualquier aplicación que se conecte a Azure Storage.
+También puede tener un [almacén de conocimiento](knowledge-store-concept-intro.md). El almacén de conocimiento contiene datos que se pueden consumir en escenarios de minería de conocimiento, como análisis o aprendizaje automático. Puede usar el [explorador de almacenamiento](knowledge-store-view-storage-explorer.md), [Power BI](knowledge-store-connect-power-bi.md) o cualquier aplicación que se conecte a Azure Storage.
 
 ## <a name="checklist-a-typical-workflow"></a>Lista de comprobación: Un flujo de trabajo típico
 

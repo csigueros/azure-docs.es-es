@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentación de Azure DevTest Labs
-summary: Con el servicio Azure DevTest Labs podrá configurar rápidamente un laboratorio de desarrollo, pruebas, hackatón o educativo para un equipo o grupo de alumnos en la nube.
+summary: Con Azure DevTest Labs puede configurar rápidamente un laboratorio de desarrollo, pruebas, hackatón o educativo para un equipo o grupo de alumnos en la nube.
 metadata:
   title: Documentación de Azure DevTest Labs
-  description: Use Azure DevTest Labs para configurar rápidamente un laboratorio de desarrollo, pruebas, hackatón o educativo para su equipo o grupo de alumnos en la nube.
+  description: Azure DevTest Labs se usa para configurar rápidamente un laboratorio en la nube. Cree un laboratorio de desarrollo, prueba, hackatón o aula para su equipo o para alumnos.
   services: devtest-lab
   ms.service: devtest-lab
   ms.subservice: 
@@ -12,12 +12,12 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 08/26/2021
-  ms.openlocfilehash: d0cccbafdaf0fbe568add69ba17e53d985230652
-  ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+  ms.openlocfilehash: 8639ccea3b6668e452dada75b8f52edcbce09c86
+  ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/21/2021
-  ms.locfileid: "122633990"
+  ms.lasthandoff: 11/12/2021
+  ms.locfileid: "132398694"
 landingContent:
 - title: Introducción
   linkLists:

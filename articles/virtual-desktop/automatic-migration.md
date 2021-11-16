@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/15/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a82d67cf0bb1644e31ff3d87d315cd920a92749a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 6d5fed6547a32382413c1a128b1a9003bf099c88
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131074600"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471770"
 ---
 # <a name="migrate-automatically-from-azure-virtual-desktop-classic-preview"></a>Migración automática desde Azure Virtual Desktop (clásico) (versión preliminar)
 
@@ -146,36 +146,36 @@ Para migrar los recursos de Azure Virtual Desktop (clásico) a Azure Resource Ma
 
 2. A continuación, ejecute el cmdlet **Start-RdsHostPoolMigration** para elegir si quiere migrar un único grupo de hosts o todos los grupos de hosts de un inquilino.
 
-    Por ejemplo:
+   Por ejemplo:
 
-    ```powershell
-    Start-RdsHostPoolMigration -Tenant Contoso -Location WestUS
-    ```
+   ```powershell
+   Start-RdsHostPoolMigration -Tenant Contoso -Location WestUS
+   ```
 
-    Si desea migrar los recursos a un grupo de hosts específico, incluya el nombre del grupo de hosts. Por ejemplo, si desea mover el grupo de hosts llamado "Office", ejecute un comando como este:
+   Si desea migrar los recursos a un grupo de hosts específico, incluya el nombre del grupo de hosts. Por ejemplo, si desea mover el grupo de hosts llamado "Office", ejecute un comando como este:
 
-    ```powershell
-    Start-RdsHostPoolMigration -Tenant Contoso -HostPool Office -CopyUserAssignments $false -Location EastUS
-    ```
+   ```powershell
+   Start-RdsHostPoolMigration -Tenant Contoso -HostPool Office -CopyUserAssignments $false -Location EastUS
+   ```
 
-    Si no asigna un nombre de área de trabajo, el módulo creará automáticamente uno en función del nombre del inquilino. Sin embargo, si prefiere usar un área de trabajo específica, puede escribir su identificador de recurso de la siguiente forma:
+   Si no asigna un nombre de área de trabajo, el módulo creará automáticamente uno en función del nombre del inquilino. Sin embargo, si prefiere usar un área de trabajo específica, puede escribir su identificador de recurso de la siguiente forma:
 
-    ```powershell
-    Start-RdsHostPoolMigration -Tenant Contoso -HostPool Office -CopyUserAssignments -Location EastUS -Workspace <Resource ID of workspacename>
-    ```
+   ```powershell
+   Start-RdsHostPoolMigration -Tenant Contoso -HostPool Office -CopyUserAssignments -Location EastUS -Workspace <Resource ID of workspacename>
+   ```
     
-    Si desea usar un área de trabajo específica, pero no conoce su identificador de recurso, ejecute este cmdlet:
+   Si desea usar un área de trabajo específica, pero no conoce su identificador de recurso, ejecute este cmdlet:
 
-    ```powershell
-    Get-AzWvdWorkspace -WorkspaceName <workspace> -ResourceGroupName <resource group> |fl
-    ```
+   ```powershell
+   Get-AzWvdWorkspace -WorkspaceName <workspace> -ResourceGroupName <resource group> |fl
+   ```
 
-  También deberá especificar un modo de asignación de usuarios para las asignaciones de usuarios existentes:
+   También deberá especificar un modo de asignación de usuarios para las asignaciones de usuarios existentes:
 
-  - Use **Copy** para copiar todas las asignaciones de usuarios de los grupos de aplicaciones antiguos a los grupos de aplicaciones de Azure Resource Manager. Los usuarios podrán ver fuentes de ambas versiones de sus clientes.
-  - Use **None** si no desea cambiar las asignaciones de usuarios. Más adelante, puede asignar usuarios o grupos de usuarios a grupos de aplicaciones con Azure Portal, PowerShell o la API. Los usuarios solo podrán ver fuentes mediante los clientes de Azure Virtual Desktop (clásico).
+      - Use **Copy** para copiar todas las asignaciones de usuarios de los grupos de aplicaciones antiguos a los grupos de aplicaciones de Azure Resource Manager. Los usuarios podrán ver fuentes de ambas versiones de sus clientes.
+      - Use **None** si no desea cambiar las asignaciones de usuarios. Más adelante, puede asignar usuarios o grupos de usuarios a grupos de aplicaciones con Azure Portal, PowerShell o la API. Los usuarios solo podrán ver fuentes mediante los clientes de Azure Virtual Desktop (clásico).
 
-  Solo puede copiar 2000 asignaciones de usuarios por suscripción, por lo que el límite dependerá de cuántas asignaciones existan ya en la suscripción. El módulo calcula el límite en función del número de asignaciones que ya tiene. Si no tiene suficientes asignaciones para copiar, verá un mensaje de error que indica "Cuota de asignación de roles insuficiente para copiar las asignaciones de usuarios. Vuelva a ejecutar el comando sin el modificador -CopyUserAssignments para migrar".
+   Solo puede copiar 2000 asignaciones de usuarios por suscripción, por lo que el límite dependerá de cuántas asignaciones existan ya en la suscripción. El módulo calcula el límite en función del número de asignaciones que ya tiene. Si no tiene suficientes asignaciones para copiar, verá un mensaje de error que indica "Cuota de asignación de roles insuficiente para copiar las asignaciones de usuarios. Vuelva a ejecutar el comando sin el modificador -CopyUserAssignments para migrar".
 
 3. Una vez ejecutados los comandos, el módulo puede tardar hasta 15 minutos en crear los objetos de servicio. Si ha copiado o movido asignaciones de usuarios, se agregará al tiempo que el módulo tarda en terminar de configurar todo.
 

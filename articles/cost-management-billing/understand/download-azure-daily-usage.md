@@ -4,18 +4,19 @@ description: Obtenga información acerca de cómo descargar o ver los cargos y e
 keywords: billing usage, usage charges, usage download, view usage, azure invoice, azure usage
 author: bandersmsft
 ms.author: banders
+ms.reviewer: adwise
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 09/15/2021
-ms.openlocfilehash: 7b5a9f195d2ba8b682dd4458358cb9d85b7f16d0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/22/2021
+ms.openlocfilehash: e7f4a5f12ec9e1be5c7129d12ed519bc4c781d61
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128644531"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130255439"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Visualización y descarga de los datos de uso y los cargos de Azure
 
@@ -48,6 +49,10 @@ Para ver y descargar los datos de uso como cliente de EA, debe ser administrador
 1. Seleccione **Uso + cargos**.
 1. Seleccione **Descargar** para el mes que quiere descargar.  
     ![Captura de pantalla que muestra la página de facturas de Cost Management + Billing para clientes de EA.](./media/download-azure-daily-usage/download-usage-ea.png)
+1. En la página Descargar uso y cargos, en Detalles de uso, seleccione el tipo de cargos que quiere descargar de la lista. En función de la selección, el archivo CSV proporciona todos los cargos (uso y compras), incluidas las compras de RI (reservas). O bien, cargos amortizados (uso y compras), incluidas las compras reservadas. 
+    :::image type="content" source="./media/download-azure-daily-usage/select-usage-detail-charge-type.png" alt-text="Captura de pantalla que muestra la selección del tipo de cargo de Detalles de uso para descargar." :::
+1. Seleccione **Prepare document** (Preparar documento).
+1.  Azure puede tardar un poco en preparar la descarga, en función del uso mensual. Cuando esté listo para la descarga, seleccione **Descargar CSV**.
 
 ## <a name="download-usage-for-your-microsoft-customer-agreement"></a>Descarga del uso para el contrato de cliente de Microsoft
 
@@ -89,16 +94,15 @@ Empiece por preparar el entorno para la CLI de Azure:
 Después de iniciar sesión, use el comando [az costmanagement query](/cli/azure/costmanagement#az_costmanagement_query) para consultar la información de uso mensual hasta la fecha de su suscripción:
 
 ```azurecli
-az costmanagement query --timeframe MonthToDate --type Usage \
+az costmanagement query --timeframe MonthToDate --type Usage --dataset-aggregation '{\"totalCost\":{\"name\":\"PreTaxCost\",\"function\":\"Sum\"}}' --dataset-grouping name="ResourceGroup" type="Dimension"
    --scope "subscriptions/00000000-0000-0000-0000-000000000000"
 ```
 
 También puede restringir la consulta mediante el parámetro **--dataset-filter** u otros parámetros:
 
 ```azurecli
-az costmanagement query --timeframe MonthToDate --type Usage \
-   --scope "subscriptions/00000000-0000-0000-0000-000000000000" \
-   --dataset-filter "{\"and\":[{\"or\":[{\"dimension\":{\"name\":\"ResourceLocation\",\"operator\":\"In\",\"values\":[\"East US\",\"West Europe\"]}},{\"tag\":{\"name\":\"Environment\",\"operator\":\"In\",\"values\":[\"UAT\",\"Prod\"]}}]},{\"dimension\":{\"name\":\"ResourceGroup\",\"operator\":\"In\",\"values\":[\"API\"]}}]}"
+'{\"totalCost\":{\"name\":\"PreTaxCost\",\"function\":\"Sum\"}}' --dataset-grouping name="ResourceGroup" type="Dimension"
+   --scope "subscriptions/00000000-0000-0000-0000-000000000000" --dataset-filter "{\"and\":[{\"or\":[{\"dimension\":{\"name\":\"ResourceLocation\",\"operator\":\"In\",\"values\":[\"East US\",\"West Europe\"]}},{\"tag\":{\"name\":\"Environment\",\"operator\":\"In\",\"values\":[\"UAT\",\"Prod\"]}}]},{\"dimension\":{\"name\":\"ResourceGroup\",\"operator\":\"In\",\"values\":[\"API\"]}}]}"
 ```
 
 El parámetro **--dataset-filter** toma una cadena JSON o `@json-file`.

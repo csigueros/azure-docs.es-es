@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8f2581033d0ffefa6d5014478e7eee68f786f49e
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 47de9f252e70b7281b8499612718cbd4b23365a1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132057525"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131444599"
 ---
 # <a name="create-an-azure-image-builder-template"></a>Creación de una plantilla de Azure Image Builder 
 
@@ -180,7 +180,7 @@ El generador de imágenes de Azure admite Windows Server y el cliente, así com
             "offer": "UbuntuServer",
             "sku": "18.04-LTS",
             "version": "latest"
-        },  
+        },
 ```
 
 
@@ -651,7 +651,7 @@ Puede generar un disco duro virtual. A continuación, puede copiar el disco duro
 { 
     "type": "VHD",
     "runOutputName": "<VHD name>",
-    "artifactTags": {
+    "tags": {
         "<name>": "<value>",
         "<name>": "<value>"
     }

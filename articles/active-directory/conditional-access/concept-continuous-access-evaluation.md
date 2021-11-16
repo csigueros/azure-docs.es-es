@@ -12,12 +12,12 @@ manager: karenhoran
 ms.reviewer: jlu
 ms.custom: has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71a1e5f8ee6bb3641fce243233a654d15363e254
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0a0eaee3c6e265063270d5cb3b2ea43d3c22fbb0
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131012631"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131553083"
 ---
 # <a name="continuous-access-evaluation"></a>Evaluación continua de acceso
 
@@ -172,6 +172,9 @@ Puede encontrar más información sobre la evaluación continua de acceso como c
 ### <a name="strict-enforcement"></a>Cumplimiento estricto 
 
 Con la configuración de CAE más reciente en Acceso condicional, el cumplimiento estricto es una nueva característica que permite mejorar la seguridad en función de dos factores: la variación de la dirección IP y la funcionalidad del cliente. Esta funcionalidad se puede habilitar al personalizar las opciones CAE para una directiva determinada. Al activar el cumplimiento estricto, CAE revocará el acceso al detectar cualquier instancia de [variación de dirección IP](#ip-address-variation) o de falta de [funcionalidad de cliente](#client-capabilities) de CAE.
+
+> [!NOTE] 
+> Solo debe habilitar el cumplimiento estricto después de asegurarse de que todas las aplicaciones cliente admiten CAE y que ha incluido todas las direcciones IP que ven Azure AD y los proveedores de recursos (como Exchange Online y Azure Resource Manager) en la directiva de ubicación bajo Acceso condicional. De lo contrario, podría resultar bloqueado.
 
 ## <a name="limitations"></a>Limitaciones
 

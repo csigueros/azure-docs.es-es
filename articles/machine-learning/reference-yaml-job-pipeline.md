@@ -10,12 +10,12 @@ author: lostmygithubaccount
 ms.author: copeters
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: 73d5c79ac3e425039820101102ac91b3e3362d8e
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 93c8f11fbfab8386e1083985399d8138e2b2b7d6
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131565914"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132057088"
 ---
 # <a name="cli-v2-pipeline-job-yaml-schema"></a>Esquema YAML del trabajo de canalización de la CLI (v2)
 
@@ -66,7 +66,7 @@ El esquema JSON de origen se puede encontrar en https://azuremlschemas.azureedge
 | `dataset` | cadena u objeto | **Obligatorio.** Un conjunto de datos que se usará como entrada. Este valor puede ser una referencia a un conjunto de datos con versiones existente en el área de trabajo o una especificación de conjunto de datos en línea. <br><br> Para hacer referencia a un conjunto de datos existente, use la sintaxis `azureml:<dataset-name>:<dataset-version>`. <br><br> Para definir un conjunto de datos en línea, siga el [Esquema de conjunto de datos](reference-yaml-dataset.md#yaml-syntax). Excluya las propiedades `name` y `version`, ya que no se admiten para conjuntos de datos en línea. | | |
 | `mode` | string | Modo de cómo se debe entregar el conjunto de datos al destino de proceso. Para el montaje de solo lectura, el conjunto de datos se consumirá como una ruta de acceso de montaje. Una carpeta se montará como una carpeta y un archivo se montará como una carpeta primaria. Para el modo de descarga, el conjunto de datos se consumirá como una ruta de acceso descargada. | `ro_mount`, `download` | `ro_mount` |
 
-## <a name="remarks"></a>Comentarios
+## <a name="remarks"></a>Observaciones
 
 Los comandos `az ml job` se pueden usar para administrar los trabajos de canalización de Azure Machine Learning.
 
@@ -76,23 +76,23 @@ Hay ejemplos disponibles en el [repositorio de GitHub de ejemplos](https://githu
 
 ## <a name="yaml-hello-pipeline"></a>YAML: canalización hello
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-pipeline.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline.yml":::
 
 ## <a name="yaml-inputoutput-dependency"></a>YAML: dependencia de entrada/salida
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-pipeline-io.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline-io.yml":::
 
 ## <a name="yaml-common-pipeline-job-settings"></a>YAML: configuración común del trabajo de canalización
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-pipeline-settings.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline-settings.yml":::
 
 ## <a name="yaml-top-level-input-and-overriding-common-pipeline-job-settings"></a>YAML: entrada de nivel superior e invalidación de la configuración común del trabajo de canalización
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-pipeline-abc.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline-abc.yml":::
 
 ## <a name="yaml-model-training-pipeline"></a>YAML: canalización de entrenamiento de modelos
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines/cifar-10/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/cifar-10/job.yml":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

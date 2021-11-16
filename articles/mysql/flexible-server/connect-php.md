@@ -7,20 +7,16 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 9/21/2020
-ms.openlocfilehash: 1b207091a3c38fb2842a53a9c7c4627fd5c0b790
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 3c49bb5c3e272e792d50c5f8fcadbacd9d6ebbe6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122643619"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131460686"
 ---
-# <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server"></a>Inicio rápido: Uso de PHP para conectarse y consultar datos en Azure Database for MySQL con la opción Servidor flexible
+# <a name="use-php-with-azure-database-for-mysql-flexible-server"></a>Uso de PHP con el servidor flexible de Azure Database for MySQL
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Actualmente, Azure Database for MySQL con la opción Servidor flexible se encuentra en versión preliminar pública.
-
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 En este inicio rápido se muestra cómo puede conectarse a una instancia de Azure Database for MySQL con la opción Servidor flexible mediante una aplicación de [PHP](https://secure.php.net/manual/intro-whatis.php). Se indica cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. En este artículo se da por hecho que está familiarizado con el desarrollo mediante PHP, pero que nunca ha usado Azure Database for MySQL con la opción Servidor flexible.
 
 ## <a name="prerequisites"></a>Prerrequisitos

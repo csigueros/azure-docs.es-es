@@ -8,12 +8,12 @@ ms.subservice: purview-insights
 ms.topic: how-to
 ms.date: 09/27/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 1fd89f44552e8a986e4ccffb55836c0d4db3d8d2
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 2c030d419349275204e662d78396543f5517ceca
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131015036"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131847230"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Conclusiones de la etiqueta de confidencialidad sobre los datos de Azure Purview
 
@@ -22,7 +22,7 @@ En esta guía paso a paso se describe cómo acceder a conclusiones de seguridad 
 > [!IMPORTANT]
 > Las conclusiones de la etiqueta de confidencialidad de Azure Purview se encuentran actualmente en VERSIÓN PRELIMINAR. Los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
-Entre los orígenes de datos admitidos se incluyen los siguientes: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, Azure SQL Database, Azure SQL Managed Instance, cubos de Amazon S3, bases de datos de Amazon RDS (versión preliminar pública).
+Entre los orígenes de datos admitidos se incluyen los siguientes: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, Azure SQL Database, Azure SQL Managed Instance, cubos de Amazon S3, bases de datos de Amazon RDS (versión preliminar pública) y Power BI.
 
 En esta guía paso a paso, aprenderá a:
 
@@ -31,11 +31,7 @@ En esta guía paso a paso, aprenderá a:
 > - Ver conclusiones del etiquetado de confidencialidad sobre los datos
 > - Explorar en profundidad para obtener más información sobre cómo el etiquetado de confidencialidad de los datos
 
-> [!NOTE]
-> Las etiquetas de confidencialidad que se encuentran en los [recursos de Power BI](register-scan-power-bi-tenant.md) que Purview examina no se muestran actualmente en el informe de conclusiones de etiquetas de confidencialidad. 
->
-> Para ver las etiquetas de confidencialidad de los recursos de Power BI, consulte el recurso en [Purview Data Catalog](how-to-search-catalog.md).
-> 
+ 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar con las conclusiones de Purview, asegúrese de que ha completado los pasos siguientes:

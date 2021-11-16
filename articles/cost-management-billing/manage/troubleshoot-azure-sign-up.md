@@ -1,23 +1,23 @@
 ---
-title: Solución de problemas al registrar una cuenta nueva en Azure Portal
+title: Solución de problemas al registrarse para obtener una nueva cuenta en Azure Portal
 description: Resolución de problemas al intentar registrar una nueva cuenta en Microsoft Azure Portal.
 services: cost-management-billing
-author: jasonwhowell
-manager: dcscontentpm
+author: bandersmsft
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 10/07/2021
-ms.author: jasonh
-ms.openlocfilehash: c429395fa881725344c5eaa891faa692461bbd49
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.author: banders
+ms.openlocfilehash: ae47b3e96dcb8bd7e7e07297313892dcb24405d0
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131073270"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131464744"
 ---
-# <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal"></a>Solución de problemas al registrar una cuenta nueva en Azure Portal
+# <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-the-azure-portal"></a>Solución de problemas al registrarse para obtener una nueva cuenta en Azure Portal
 
 Puede surgir algún problema al intentar registrar una nueva cuenta en Microsoft Azure Portal. Esta guía breve le ayudará en el proceso de registro y trata algunos problemas comunes en cada paso.
 

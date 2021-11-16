@@ -7,22 +7,22 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/06/2017
+ms.date: 11/02/2021
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: eae21e8f7305f307a343e44145f6ed435c8ffcd1
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: f01a8a51f467d9a090847aeea5da0426fe66e163
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130041393"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131424408"
 ---
-# <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C: Aplicación de extensiones
+# <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C: Aplicación de extensiones 
 
-Al crearse un directorio de Azure AD B2C, se crea automáticamente una aplicación denominada `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` dentro del nuevo directorio. Esta aplicación, llamada **b2c-extensions-app**, se puede ver en *Registros de aplicaciones*. El servicio Azure AD B2C la usa para almacenar información sobre usuarios y atributos personalizados. Si se elimina la aplicación, Azure AD B2C no funcionará correctamente y su entorno de producción se verá afectado.
+Al crearse un directorio de Azure AD B2C, se crea automáticamente una aplicación denominada **b2c-extensions-app** dentro del directorio nuevo. Esta aplicación es visible en *Registros de aplicaciones*. El servicio Azure AD B2C la usa para almacenar información sobre usuarios y atributos personalizados. Si se elimina la aplicación, Azure AD B2C no funcionará correctamente y su entorno de producción se verá afectado.
 
 > [!IMPORTANT]
-> No elimine b2c-extensions-app a menos que tenga previsto eliminar el inquilino inmediatamente. Si la aplicación permanece eliminada durante más de 30 días, la información del usuario se perderá permanentemente.
+> No elimine **b2c-extensions-app** a menos que tenga planeado eliminar el inquilino inmediatamente. Si la aplicación permanece eliminada durante más de 30 días, la información del usuario se perderá permanentemente.
 
 ## <a name="verifying-that-the-extensions-app-is-present"></a>Comprobación de que la aplicación de extensiones está presente
 

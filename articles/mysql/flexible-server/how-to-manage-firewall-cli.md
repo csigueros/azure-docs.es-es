@@ -8,21 +8,19 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 9/21/2020
-ms.openlocfilehash: 268ab28c5f5aa500a110abf7cca650d7b7f14914
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3617546e1319617a2a333a2c358880812d8626b5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780431"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131468088"
 ---
-# <a name="create-and-manage-azure-database-for-mysql---flexible-server-firewall-rules-using-the-azure-cli"></a>Creación y administración de reglas de firewall para un servidor flexible de Azure Database for MySQL mediante la CLI de Azure
+# <a name="manage-firewall-rules-for-azure-database-for-mysql---flexible-server-using-azure-cli"></a>Administración de reglas de firewall del servidor flexible de Azure Database for MySQL con la CLI de Azure
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-> [!IMPORTANT]
-> Azure Database for MySQL: servidor flexible está actualmente en versión preliminar pública.
 
-Se admiten dos métodos de conectividad de red mutuamente excluyentes para conectarse a su servidor flexible de Azure Database for MySQL. Las dos opciones son las siguientes:
+Azure Database for MySQL con servidor flexible admite dos tipos de métodos de conectividad de red mutuamente excluyentes para conectarse a su servidor flexible. Las dos opciones son las siguientes:
 
 - Acceso público (direcciones IP permitidas)
 - Acceso privado (integración con red virtual)
@@ -131,8 +129,8 @@ Para permitir que las aplicaciones de las direcciones IP de Azure se conecten a
 az mysql flexible-server firewall-rule create --name mydemoserver --start-ip-address 0.0.0.0
 ```
 
-   > [!IMPORTANT]
-   > Esta opción configura el firewall para permitir el acceso público desde los servicios y recursos de Azure a este servidor, incluidas las conexiones desde las suscripciones de otros clientes. Al seleccionar esta opción, asegúrese de que los permisos de usuario y el inicio de sesión limiten el acceso solamente a los usuarios autorizados.
+> [!IMPORTANT]
+> Esta opción configura el firewall para permitir el acceso público desde los servicios y recursos de Azure a este servidor, incluidas las conexiones desde las suscripciones de otros clientes. Al seleccionar esta opción, asegúrese de que los permisos de usuario y el inicio de sesión limiten el acceso solamente a los usuarios autorizados.
 
 Si se realiza correctamente, en la salida de cada comando create se mostrarán los detalles de la regla de firewall que ha creado, en formato JSON (de forma predeterminada). Si se produce un error, la salida muestra el texto del mensaje de error.
 

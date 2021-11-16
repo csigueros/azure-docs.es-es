@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 8f22b18b8af42b887397eb10037ad80a67a0d25c
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 31b6f0459f2fb9b04646667abfda039760e5fcc0
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131842641"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131892445"
 ---
 # <a name="quickstart-configure-a-hybrid-cluster-with-azure-managed-instance-for-apache-cassandra"></a>Inicio rápido: Configuración de un clúster híbrido con Azure Managed Instance for Apache Cassandra
 
@@ -22,10 +22,7 @@ En esta guía de inicio rápido se muestra cómo usar los comandos de la CLI de 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-* Este artículo requiere la CLI de Azure 2.12.1 o una versión posterior. Si usa Azure Cloud Shell, la versión más reciente ya está instalada.
-
-  > [!NOTE]
-  > Asegúrese de que tiene la versión **0.9.0** (o superior) del módulo de la CLI `cosmosdb-preview` en ejecución en Cloud Shell. Esto es necesario para que todos los comandos que se enumeran a continuación funcionen correctamente. Puede comprobar las versiones de extensión mediante la ejecución de `az --version`. Si es necesario, actualice mediante `az extension update --name cosmosdb-preview`.
+* Este artículo requiere la CLI de Azure 2.30.0 o una versión posterior. Si usa Azure Cloud Shell, la versión más reciente ya está instalada.
 
 * [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) con conectividad a su entorno autohospedado o local. Para más información sobre cómo conectar entornos locales a Azure, consulte el artículo [Conexión de una red local a Azure](/azure/architecture/reference-architectures/hybrid-networking/).
 

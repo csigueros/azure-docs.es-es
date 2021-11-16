@@ -10,12 +10,12 @@ author: tracychms
 ms.author: tracych
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: 6f09684bcd3441014d0cfabae91c4a7ea455a67d
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 53e83f76e61038bc1fb95bfba653b18f63febede
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131565921"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132054512"
 ---
 # <a name="cli-v2-batch-deployment-yaml-schema"></a>Esquema YAML de la implementación por lotes de la CLI (v2)
 
@@ -50,7 +50,7 @@ El esquema JSON de origen se puede encontrar en https://azuremlschemas.azureedge
 | `output_file_name` | string | Nombre del archivo de salida de puntuación por lotes. | | `predictions.csv` |
 | `environment_variables` | object | Diccionario de pares nombre-valor de variable de entorno que se establecerán para cada trabajo de puntuación por lotes. | | |
 
-## <a name="remarks"></a>Comentarios
+## <a name="remarks"></a>Observaciones
 
 Los comandos `az ml batch-deployment` se pueden usar para administrar las implementaciones de lotes de Azure Machine Learning.
 
@@ -60,11 +60,11 @@ Hay ejemplos disponibles en el [repositorio de GitHub de ejemplos](https://githu
 
 ## <a name="yaml-basic-mlflow"></a>YAML: básico (MLflow)
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/mlflow-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mlflow-deployment.yml":::
 
 ## <a name="yaml-custom-model-and-scoring-code"></a>YAML: modelo personalizado y código de puntuación
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/nonmlflow-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/nonmlflow-deployment.yml":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

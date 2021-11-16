@@ -7,12 +7,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: troubleshooting
 ms.date: 4/28/2021
 ms.custom: support-help-page
-ms.openlocfilehash: 56735c016b5496826b774d2f242ff03117a3a923
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 69d09cb0d2cbdef559670c34dcfb486edb41d0b5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124754797"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249236"
 ---
 # <a name="support-and-troubleshooting-for-azure-virtual-machine-scale-sets"></a>Compatibilidad y solución de problemas de Azure Virtual Machine Scale Sets
 
@@ -25,7 +25,7 @@ Aquí encontrará sugerencias sobre dónde puede obtener ayuda al desarrollar so
 
 En varios artículos se explica cómo determinar, diagnosticar y corregir los problemas que pueden surgir al usar [Azure Virtual Machines](../virtual-machines/index.yml) y [Virtual Machine Scale Sets](overview.md).
 
--  [Documentación de solución de problemas de máquinas virtuales de Azure](/troubleshoot/azure/virtual-machines/welcome-virtual-machines) 
+-  [Documentación de solución de problemas de conjunto de escalado de máquinas virtuales de Azure](/troubleshoot/azure/virtual-machine-scale-sets/welcome-virtual-machine-scale-sets) 
 - [Preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales de Azure](virtual-machine-scale-sets-faq.yml)
 
 
@@ -77,7 +77,7 @@ Si necesita ayuda con el lenguaje y las herramientas que se usan para desarrolla
 | Biblioteca | Dirección URL de incidencias de GitHub|
 | --- | --- |
 | Azure PowerShell | https://github.com/Azure/azure-powershell/issues |
-| Azure CLI | https://github.com/Azure/azure-cli/issues | 
+| CLI de Azure | https://github.com/Azure/azure-cli/issues | 
 | API REST de Azure | https://github.com/Azure/azure-rest-api-specs/issues | 
 | SDK de Azure para Java | https://github.com/Azure/azure-sdk-for-java/issues | 
 | SDK de Azure para Python | https://github.com/Azure/azure-sdk-for-python/issues | 

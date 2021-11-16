@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 09/22/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ee8d8929dc444d72539893a7978b828fc5c3742d
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 2584390610aaef5ddd8364d33f3c065ecf3bd321
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129352546"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131443839"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Uso de una alerta para desencadenar un runbook de Azure Automation
 
@@ -49,7 +49,7 @@ Dado que los datos que cada tipo de alerta proporciona son diferentes, cada tipo
 
 ## <a name="assign-permissions-to-managed-identities"></a>Asignación de permisos a las identidades administradas
 
-Asigne permisos a la [identidad administrada](./automation-security-overview.md#managed-identities-preview) apropiada para permitirle detener una máquina virtual. El runbook puede usar la identidad administrada asignada por el sistema de la cuenta de Automation o una identidad administrada asignada por el usuario. Se proporcionan los pasos necesarios para asignar permisos a cada identidad. En los pasos siguientes se usa PowerShell. Si prefiere utilizar Azure Portal, consulte [Asignación de roles de Azure mediante Azure Portal](./../role-based-access-control/role-assignments-portal.md).
+Asigne permisos a la [identidad administrada](./automation-security-overview.md#managed-identities) apropiada para permitirle detener una máquina virtual. El runbook puede usar la identidad administrada asignada por el sistema de la cuenta de Automation o una identidad administrada asignada por el usuario. Se proporcionan los pasos necesarios para asignar permisos a cada identidad. En los pasos siguientes se usa PowerShell. Si prefiere utilizar Azure Portal, consulte [Asignación de roles de Azure mediante Azure Portal](./../role-based-access-control/role-assignments-portal.md).
 
 1. Inicie sesión en Azure de forma interactiva con el cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) y siga las instrucciones.
 
@@ -107,7 +107,7 @@ Como se ha descrito en la sección anterior, cada tipo de alerta tiene un esquem
 
 En este ejemplo se usa una alerta de una máquina virtual (VM) de Azure. Los datos de la VM se recuperan de la carga y luego se usa esa información para detener dicha VM. La conexión debe estar configurada en la cuenta de Automation donde se ejecuta el runbook. Al usar alertas para desencadenar runbooks, es importante comprobar el estado de la alerta en el runbook que se desencadena. El runbook se desencadena cada vez que la alerta cambia el estado. Las alertas tienen varios estados, y los dos más comunes son Activado y Resuelto. Compruebe el estado de la lógica del runbook para asegurarse de que no se ejecuta más de una vez. En el ejemplo de este artículo se muestra cómo buscar únicamente alertas con el estado Activado.
 
-El runbook usa la [identidad administrada asignada por el sistema](./automation-security-overview.md#managed-identities-preview) de la cuenta de Automation para autenticarse en Azure, con el fin de realizar la acción de administración en la máquina virtual. El runbook se puede modificar fácilmente para que use una identidad administrada asignada por el usuario.
+El runbook usa la [identidad administrada asignada por el sistema](./automation-security-overview.md#managed-identities) de la cuenta de Automation para autenticarse en Azure, con el fin de realizar la acción de administración en la máquina virtual. El runbook se puede modificar fácilmente para que use una identidad administrada asignada por el usuario.
 
 Use este ejemplo para crear un runbook llamado **AzureVmInResponsetoVMAlert Stop**. Puede modificar el script de PowerShell y usarlo con muchos recursos diferentes.
 

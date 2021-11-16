@@ -10,13 +10,13 @@ ms.topic: troubleshooting
 author: NikaKinska
 ms.author: nnikolic
 ms.reviewer: mathoma, wiassaf
-ms.date: 1/14/2021
-ms.openlocfilehash: 5ae1bfde67d2fed9147ffe8a18203f3dc1d80c19
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.date: 11/04/2021
+ms.openlocfilehash: d4b9249ece6117af35466b0984c9dc5ceff2a224
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131431985"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131843645"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Tipos de cuellos de botella en el rendimiento de las consultas que se pueden detectar en Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -197,7 +197,7 @@ Si ha eliminado un plan no óptimo y ha solucionado los problemas *relativos a l
   si la carga de trabajo usa tablas temporales o se producen pérdidas de datos de TempDb en los planes, es posible que las consultas tengan un problema con el rendimiento de TempDb. Consulte cómo usar DMV para [identificar problemas de TempDB](database/monitoring-with-dmvs.md#identify-tempdb-performance-issues).
 - **Problemas relacionados con la memoria**
 
-  si la carga de trabajo no tiene suficiente memoria, la duración prevista de la página podría reducirse o las consultas podrían obtener menos memoria de la que necesitan. En algunos casos, la inteligencia integrada en el optimizador de consultas corregirá estos problemas. Consulte cómo usar DMV para [identificar problemas de concesión de memoria](database/monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues).
+  si la carga de trabajo no tiene suficiente memoria, la duración prevista de la página podría reducirse o las consultas podrían obtener menos memoria de la que necesitan. En algunos casos, la inteligencia integrada en el optimizador de consultas corregirá estos problemas. Consulte cómo usar DMV para [identificar problemas de concesión de memoria](database/monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues). Para más información y consultas de ejemplo, vea [Solución de problemas de errores de memoria insuficiente con Azure SQL Database](database/troubleshoot-memory-errors-issues.md).
 
 ### <a name="methods-to-show-top-wait-categories"></a>Métodos para mostrar las categorías con mayor espera
 

@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 12/03/2020
 ms.author: mbullwin
-ms.openlocfilehash: f1ef5d40ccf6339d909f2cad6388186ddb5a0a04
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: fa2904768023120fb2b08a52a23bb33e71e4d2f6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129355963"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219155"
 ---
 # <a name="deploy-an-anomaly-detector-univariate-module-to-iot-edge"></a>Implementación del módulo univariante de Anomaly Detector en IoT Edge
 
@@ -73,6 +73,8 @@ Para solucionar los problemas de estado de tiempo de ejecución del dispositivo 
 ## <a name="test-anomaly-detector-on-an-iot-edge-device"></a>Prueba de Anomaly Detector en un dispositivo IoT Edge
 
 Haremos una llamada HTTP al dispositivo Azure IoT Edge que tenga el contenedor de Azure Cognitive Services en ejecución. El contenedor proporciona API de punto de conexión basadas en REST. Use el host, `http://<your-edge-device-ipaddress>:5000`, para las API del módulo.
+
+Como alternativa, puede [crear un cliente de módulo mediante la biblioteca cliente de Anomaly Detector](../quickstarts/client-libraries.md?tabs=linux&pivots=programming-language-python) en el dispositivo Azure IoT Edge y, luego, llamar al contenedor de Azure Cognitive Services en ejecución en el perímetro. Use el punto de conexión de host `http://<your-edge-device-ipaddress>:5000` y deje la clave de host vacía. 
 
 Si el dispositivo perimetral no permite ya la comunicación entrante en el puerto 5000, tendrá que crear una nueva **regla de puerto de entrada**. 
 

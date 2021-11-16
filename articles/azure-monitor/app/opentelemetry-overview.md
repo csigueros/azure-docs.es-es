@@ -5,18 +5,18 @@ ms.topic: conceptual
 ms.date: 10/11/2021
 author: mattmccleary
 ms.author: mmcc
-ms.openlocfilehash: 268d7d8372fef1568a369f956e3caa91749f0e8e
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: a839437bd572946a6e6c2f62f2658ff4696db4e9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129859599"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233495"
 ---
 # <a name="opentelemetry-overview"></a>Introducción a OpenTelemetry
 
 Microsoft está encantado de adoptar [OpenTelemetry](https://opentelemetry.io/) como futuro de la instrumentación de telemetría. Nuestros clientes han pedido instrumentación neutral del proveedor y estamos encantados de asociarnos con la comunidad de OpenTelemetry para crear API y SDK coherentes en todos los lenguajes.
 
-Microsoft ha colaborado con las partes interesadas del proyecto procedentes de dos proyectos de telemetría de código abierto anteriormente populares, [OpenCensus](https://opencensus.io/) y [OpenTracing](https://opentracing.io/), para ayudar a crear un único proyecto: OpenTelemetry. OpenTelemetry incluye contribuciones de todos los principales proveedores de administración del rendimiento de aplicaciones y de la nube (APM) y se encuentra en la [base de informática nativa en la nube (CNCF)](https://www.cncf.io/) de la que Microsoft es miembro Platinum.
+Microsoft ha colaborado con las partes interesadas de dos proyecto de telemetría de código abierto ya conocidos, [OpenCensus](https://opencensus.io/) y [OpenTracing](https://opentracing.io/), para ayudar a crear un único proyecto: OpenTelemetry. OpenTelemetry incluye contribuciones de todos los principales proveedores de administración del rendimiento de aplicaciones y de la nube (APM) y reside en la base de software de código abierto [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io/) de la que Microsoft es miembro Platinum.
 
 ## <a name="concepts"></a>Conceptos
 
@@ -42,7 +42,7 @@ Hay dos métodos para instrumentar la aplicación:
 La instrumentación manual consiste en crear código para la API de OpenTelemetry. En el contexto de un usuario final, normalmente hace referencia a la instalación de un SDK específico del lenguaje en una aplicación. Los paquetes de instrumentación manual constan de nuestras [ofertas en **versión preliminar** del exportador basado en OpenTelemetry para .NET, Python y JavaScript](opentelemetry-enable.md).
 
 > [!IMPORTANT]
-> "Manual" **NO** significa que se pida que escriba código complejo para definir intervalos para seguimientos distribuidos (aunque sigue siendo una opción). Un amplio y creciente conjunto de bibliotecas de instrumentación mantenidas por los colaboradores de OpenTelemetry le permitirá capturar sin esfuerzo las señales de telemetría en los marcos y bibliotecas comunes. Un subconjunto de bibliotecas de instrumentación de OpenTelemetry será compatible con Azure Monitor, con la información proporcionada por los clientes. Además, estamos trabajando para instrumentar los SDK de servicio de Azure más populares para emitir el protocolo OpenTelemetry (OTLP) y optimizarlos para Azure Monitor.
+> "Manual" **NO** significa que se pida que escriba código complejo para definir intervalos para seguimientos distribuidos (aunque sigue siendo una opción). Un amplio y creciente conjunto de bibliotecas de instrumentación mantenidas por los colaboradores de OpenTelemetry le permitirá capturar sin esfuerzo las señales de telemetría en los marcos y bibliotecas comunes. Un subconjunto de bibliotecas de instrumentación de OpenTelemetry será compatible con Azure Monitor, con la información proporcionada por los clientes. Además, estamos trabajando para [instrumentar los SDK de servicio de Azure más conocidos mediante OpenTelemetry](https://devblogs.microsoft.com/azure-sdk/introducing-experimental-opentelemetry-support-in-the-azure-sdk-for-net/).
 
 Por el otro lado, la instrumentación automática consiste en habilitar la recopilación de datos de telemetría mediante configuración sin tocar el código de la aplicación. Aunque es más conveniente, tiende a ser menos configurable y no está disponible en todos los lenguajes. La oferta de instrumentación automática basada en OpenTelemetry de Azure Monitor consta de la [oferta disponible con carácter general basada en OpenTelemetry de Java 3.X](java-in-process-agent.md) y seguimos invirtiendo en ella con la información proporcionada por los clientes. La comunidad de OpenTelemetry también experimenta con la instrumentación automática de C# y Python, pero Azure Monitor se centra en crear una historia de instrumentación manual sencilla y eficaz a corto plazo.
 
@@ -56,7 +56,7 @@ Un exportador directo envía datos de telemetría en proceso (desde el código d
 
 **Todas las ofertas basadas en OpenTelemetry actualmente admitidas de Azure Monitor usan un exportador directo**. 
 
-Como alternativa, el envío de telemetría a través de un agente proporcionará una ruta para que cualquier lenguaje compatible con OpenTelemetry la envíe a Azure Monitor a través de [OTLP](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/README.md). Esto permitirá a los clientes observar las aplicaciones escritas en lenguajes más allá de los [lenguajes admitidos](platforms.md). 
+Como alternativa, el envío de telemetría a través de un agente proporcionará una ruta para que cualquier lenguaje compatible con OpenTelemetry la envíe a Azure Monitor a través de [OTLP](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/README.md). La recepción de OTLP permitirá a los clientes observar las aplicaciones escritas en lenguajes distintos de los [lenguajes admitidos](platforms.md). 
 
 > [!NOTE]
 > Algunos clientes han empezado a usar [OpenTelemetry-Collector](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md) como alternativa con agente, aunque Microsoft todavía no admite oficialmente un enfoque basado en agente para la supervisión de aplicaciones. Mientras tanto, la comunidad de código abierto ha contribuido con un exportador de Azure Monitor de OpenTelemetry-Collector que algunos clientes usan para enviar datos a Application Insights de Azure Monitor.
@@ -69,9 +69,11 @@ Algunos términos heredados de Application Insights son confusos dada la converg
 
 Application Insights | OpenTelemetry
 ------ | ------
-Traces   | Registros
-Canal   | Exportador  
-Sin código/basado en agente   | Instrumentación automática
+Recopiladores automáticos | Bibliotecas de instrumentación
+Canal | Exportador  
+Sin código/basado en agente |  Instrumentación automática
+Traces | Registros
+
 
 ## <a name="next-step"></a>Paso siguiente
 

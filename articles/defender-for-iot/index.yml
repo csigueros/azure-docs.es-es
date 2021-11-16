@@ -1,10 +1,10 @@
 ### YamlMime:Hub
-title: Azure Defender para IoT
-summary: 'Azure Defender para IoT proporciona una completa detección de amenazas para entornos de IoT/OT y tiene varias opciones de implementación, entre las que se incluyen la implementación completamente local, la conectada a la nube o una híbrida.'
+title: Microsoft Defender para IoT
+summary: 'Microsoft Defender para IoT proporciona una completa detección de amenazas para entornos de IoT/OT y tiene varias opciones de implementación, entre las que se incluyen la implementación completamente local, la conectada a la nube o una híbrida.'
 brand: azure
 metadata:
-  title: Documentación de Azure Defender para IoT
-  description: 'Obtenga información sobre la forma en que Azure Defender para IoT, un servicio de seguridad en la nube basado en Azure, proporciona una exhaustiva protección contra amenazas de los dispositivos de IoT.'
+  title: Documentación de Microsoft Defender para IoT
+  description: 'Obtenga información sobre la forma en que Microsoft Defender para IoT, un servicio de seguridad en la nube basado en Azure, proporciona una exhaustiva protección contra amenazas de los dispositivos de IoT.'
   services: service
   ms.service: defender-for-iot
   ms.topic: landing-page
@@ -12,10 +12,10 @@ metadata:
   author: elazark
   ms.author: v-ekrieg
   manager: raynew
-  ms.date: 06/16/2021
+  ms.date: 11/09/2021
 highlightedContent:
   items:
-    - title: ¿Qué es Azure Defender para IoT para las organizaciones de usuarios finales?
+    - title: ¿Qué es Microsoft Defender para IoT para las organizaciones de usuarios finales?
       itemType: overview
       url: organizations/overview.md
     - title: Novedades para las organizaciones de usuario final.
@@ -24,7 +24,7 @@ highlightedContent:
     - title: Arquitectura de la solución sin agente para las organizaciones de usuario final
       itemType: architecture
       url: organizations/architecture.md
-    - title: ¿Qué es Azure Defender para IoT para creadores de dispositivos?
+    - title: ¿Qué es Microsoft Defender para IoT para generadores de dispositivos?
       itemType: overview
       url: device-builders/overview.md
     - title: ¿Cuáles son las novedades para los creadores de dispositivos?
@@ -35,7 +35,7 @@ highlightedContent:
       url: device-builders/architecture-agent-based.md
 conceptualContent:
   items:
-    - title: Qué es Azure Defender para IoT para organizaciones de usuarios finales
+    - title: Microsoft Defender para IoT para las organizaciones de usuarios finales
       links:
         - url: organizations/quickstart-system-prerequisites.md
           itemType: quickstart
@@ -48,24 +48,24 @@ conceptualContent:
           text: Conceptos clave
         - url: organizations/how-to-set-up-your-network.md
           itemType: how-to-guide
-          text: Acerca de la configuración de red de Azure Defender para IoT
+          text: Acerca de la configuración de red de Microsoft Defender para IoT
       footerLink:
         url: organizations/index.yml
         text: Ver más
-    - title: Azure Defender para IoT para creadores de dispositivos
+    - title: Microsoft Defender para IoT para generadores de dispositivos
       links:
         - url: device-builders/quickstart-onboard-iot-hub.md
           itemType: quickstart
           text: Incorporación de Defender para IoT a una solución basada en agente
         - url: device-builders/quickstart-configure-your-solution.md
           itemType: quickstart
-          text: Configuración de la solución de Azure Defender para IoT
+          text: Configuración de soluciones de Microsoft Defender para IoT
         - url: device-builders/concept-recommendations.md
           itemType: concept
           text: Recomendaciones de seguridad para IoT Hub
         - url: device-builders/how-to-configure-agent-based-solution.md
           itemType: how-to-guide
-          text: Configuración de Azure Defender para IoT
+          text: Configuración de Microsoft Defender para IoT
       footerLink:
         url: device-builders/index.yml
         text: Ver más

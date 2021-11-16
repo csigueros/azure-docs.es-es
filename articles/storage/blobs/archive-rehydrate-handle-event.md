@@ -1,7 +1,7 @@
 ---
 title: Ejecución de una función de Azure en respuesta a un evento de rehidratación de blobs
 titleSuffix: Azure Storage
-description: Aprenda a desarrollar una función de Azure con .NET y, a continuación, configure Azure Event Grid para ejecutar la función en respuesta a un evento desencadenado cuando un blob se rehidrata desde el nivel de archivo.
+description: Obtenga información sobre cómo desarrollar una función de Azure con .NET y, a continuación, configure Azure Event Grid para ejecutar la función en respuesta a un evento desencadenado cuando se rehidrata un blob desde el nivel de acceso de archivo.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,22 +10,22 @@ ms.date: 10/25/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 2385bfead10efc82e0a1f3c8f0f02f1cd8d9f2f4
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: beaf5e72c74e066a0fc517d12100cb1703928b71
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131019274"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441521"
 ---
 # <a name="run-an-azure-function-in-response-to-a-blob-rehydration-event"></a>Ejecución de una función de Azure en respuesta a un evento de rehidratación de blobs
 
-Para leer un blob que se encuentra en el nivel de archivo, primero debe rehidratarlo al nivel de acceso esporádico o frecuente. El proceso de rehidratación puede tardar varias horas en finalizar. En lugar de sondear repetidamente el estado de la operación de rehidratación, puede configurar [Azure Event Grid](../../event-grid/overview.md) para que se despeje un evento cuando se complete la operación de rehidratación de blobs y controle este evento en la aplicación.
+Para leer un blob que se encuentra en el nivel de acceso de archivo, primero debe rehidratarlo al nivel de acceso esporádico o frecuente. El proceso de rehidratación puede tardar varias horas en finalizar. En lugar de sondear repetidamente el estado de la operación de rehidratación, puede configurar [Azure Event Grid](../../event-grid/overview.md) para que se despeje un evento cuando se complete la operación de rehidratación de blobs y controle este evento en la aplicación.
 
 Cuando se produce un evento, Event Grid envía el evento a un controlador de eventos a través de un punto de conexión. Varios servicios de Azure pueden actuar como controladores de eventos, incluidos [Azure Functions](../../azure-functions/functions-overview.md). Una función de Azure es un bloque de código que se puede ejecutar en respuesta a un evento. Estas instrucciones le guían por el proceso de desarrollo de una función de Azure y, a continuación, la configuración de Event Grid para ejecutar la función en respuesta a un evento que se produce cuando se rehidrata un blob.
 
 En este artículo se muestra cómo crear y probar una función de Azure con .NET desde Visual Studio. Puede crear funciones de Azure desde una variedad de entornos de desarrollo locales y mediante lenguajes de programación diferentes. Para obtener más información sobre los lenguajes admitidos para Azure Functions, vea [Lenguajes admitidos en Azure Functions](../../azure-functions/supported-languages.md). Para obtener más información sobre las opciones de desarrollo para Azure Functions, consulte [Codifique y pruebe Azure Functions localmente](../../azure-functions/functions-develop-local.md).
 
-Para obtener más información sobre la rehidratación de blobs desde el nivel de archivo, consulte [Introducción a la rehidratación de blobs desde el nivel de archivo](archive-rehydrate-overview.md).
+Para más información sobre la rehidratación de blobs desde el nivel de acceso de archivo, consulte [Rehidratación de blobs desde el nivel de archivo](archive-rehydrate-overview.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -253,17 +253,17 @@ Siempre que realice cambios en el código de la función de Azure, debe publicar
 
 Ahora tiene una aplicación de funciones que contiene una función de Azure que se puede ejecutar en respuesta a un evento. El siguiente paso consiste en crear una suscripción a eventos desde la cuenta de almacenamiento. La suscripción a eventos configura la cuenta de almacenamiento para publicar un evento a través de Event Grid en respuesta a una operación en un blob de la cuenta de almacenamiento. Event Grid envía el evento al punto de conexión del controlador de eventos que ha especificado. En este caso, el controlador de eventos es la función de Azure que creó en la sección anterior.
 
-Al crear la suscripción a eventos, puede filtrar qué eventos se envían al controlador de eventos. Los eventos que se van a capturar al rehidratar un blob desde el nivel de archivo son **Microsoft.Storage.BlobTierChanged**, correspondiente a una operación [Establecer nivel de blob](/rest/api/storageservices/set-blob-tier) y a eventos de **Microsoft.Storage.BlobCreated**, correspondientes a una operación [Copiar Blob](/rest/api/storageservices/copy-blob). En función de su escenario, es posible que desee controlar solo uno de estos eventos.
+Al crear la suscripción a eventos, puede filtrar qué eventos se envían al controlador de eventos. Los eventos que se van a capturar al rehidratar un blob desde el nivel de acceso de archivo son **Microsoft.Storage.BlobTierChanged**, correspondiente a una operación [Establecer nivel de blob](/rest/api/storageservices/set-blob-tier) y eventos **Microsoft.Storage.BlobCreated**, correspondientes a una operación [Copiar blob](/rest/api/storageservices/copy-blob). En función de su escenario, es posible que desee controlar solo uno de estos eventos.
 
 Al crear una suscripción a eventos, siga los siguientes pasos:
 
-1. En Azure Portal, vaya a la cuenta de almacenamiento que contiene blobs para rehidratar desde el nivel de archivo.
+1. En Azure Portal, vaya a la cuenta de almacenamiento que contiene los blobs que se van a rehidratar desde el nivel de acceso de archivo.
 1. En el panel de navegación izquierdo, seleccione la opción **Eventos**.
 1. En la página **Eventos**, seleccione **Más opciones**.
 1. Seleccione **Creación de la suscripción a eventos**.
 1. En la página **Creación de la suscripción de eventos**, en la sección **Detalles de la suscripción a eventos**, proporcione un nombre para la suscripción a eventos.
 1. En la sección **Detalles del tema**, proporcione un nombre para el tema del sistema. El tema del sistema representa uno o varios eventos publicados por Azure Storage. Para obtener más información acerca de los temas del sistema, consulte [Temas del sistema en Azure Event Grid](../../event-grid/system-topics.md).
-1. En la sección **Tipos de eventos**, seleccione los eventos **Blobs Creados** y **Nivel de Blob Cambiado**. Dependiendo de cómo decida rehidratar un blob desde el nivel de archivo, uno de estos dos eventos se desencadenará.
+1. En la sección **Tipos de eventos**, seleccione los eventos **Blobs Creados** y **Nivel de Blob Cambiado**. En función de cómo decida rehidratar un blob desde el nivel de acceso de archivo, se desencadenará uno de estos dos eventos.
 
     :::image type="content" source="media/archive-rehydrate-handle-event/select-event-types-portal.png" alt-text="Captura de pantalla que muestra cómo seleccionar tipos de eventos para eventos de rehidratación de blobs en Azure Portal":::
 
@@ -290,11 +290,11 @@ Para obtener información sobre cómo probar la función mediante la rehidració
 - [Rehidratación de un blob con una operación de copia](archive-rehydrate-to-online-tier.md#rehydrate-a-blob-with-a-copy-operation)
 - [Rehidratación de un blob mediante el cambio de su nivel](archive-rehydrate-to-online-tier.md#rehydrate-a-blob-by-changing-its-tier)
 
-Una vez completada la rehidratación, el blob de registro se escribe en el mismo contenedor que el blob rehidratado. Por ejemplo, después de rehidratar un blob con una operación de copia, puede ver en Azure Portal que el blob inicial permanece en el nivel de archivo, el blob de destino totalmente rehidratado aparece en el nivel en línea de destino y el blob de registro creado por la función de Azure también aparece en la lista.
+Una vez completada la rehidratación, el blob de registro se escribe en el mismo contenedor que el blob rehidratado. Por ejemplo, después de rehidratar un blob con una operación de copia, puede ver en Azure Portal que el blob de origen inicial permanece en el nivel de acceso de archivo, el blob de destino totalmente rehidratado aparece en el nivel en línea de destino y el blob de registro creado por la función de Azure también aparece en la lista.
 
-:::image type="content" source="media/archive-rehydrate-handle-event/copy-blob-archive-tier-rehydrated-with-log-blob.png" alt-text="Captura de pantalla que muestra el blob original en el nivel de archivo, el blob rehidratado en el nivel de acceso frecuente y el blob de registro escrito por el controlador de eventos":::
+:::image type="content" source="media/archive-rehydrate-handle-event/copy-blob-archive-tier-rehydrated-with-log-blob.png" alt-text="Captura de pantalla que muestra el blob original en el nivel de acceso de archivo, el blob rehidratado en el nivel de acceso frecuente y el blob de registro escrito por el controlador de eventos":::
 
-Tenga en cuenta que la rehidratación de un blob puede tardar hasta 15 horas, dependiendo de la configuración de prioridad de rehidratación. Si establece la prioridad de rehidratación en **Alta**, la rehidratación puede completarse en menos de una hora si los blobs son de menos de 10 GB de tamaño. Sin embargo, una rehidratación de alta prioridad incurre en un costo mayor. Para más información, consulte [Introducción a la rehidratación de blobs desde el nivel de archivo](archive-rehydrate-overview.md).
+Tenga en cuenta que la rehidratación de un blob puede tardar hasta 15 horas, dependiendo de la configuración de prioridad de rehidratación. Si establece la prioridad de rehidratación en **Alta**, la rehidratación puede completarse en menos de una hora si los blobs son de menos de 10 GB de tamaño. Sin embargo, una rehidratación de alta prioridad incurre en un costo mayor. Para más información, consulte [Rehidratación de blobs desde el nivel de archivo](archive-rehydrate-overview.md).
 
 > [!TIP]
 > Aunque el objetivo de estas instrucciones es gestionar estos eventos en el contexto de la rehidratación de blobs, con fines de prueba también puede ser útil observar estos eventos en respuesta a la carga de un blob o al cambiar el nivel de un blob en línea (*es decir*, de frecuente a esporádico), ya que el evento se desencadena inmediatamente.
@@ -303,7 +303,7 @@ Para obtener más información sobre cómo filtrar eventos en Event Grid, consul
 
 ## <a name="see-also"></a>Vea también
 
-- [Niveles de acceso frecuente, esporádico y de archivo de los datos de blob](access-tiers-overview.md)
+- [Niveles de acceso frecuente, esporádico y de archivo para los datos de blobs](access-tiers-overview.md)
 - [Introducción a la rehidratación de blobs desde el nivel de archivo](archive-rehydrate-overview.md)
 - [Rehidratación de un blob archivado en un nivel en línea](archive-rehydrate-to-online-tier.md)
 - [Reacción a eventos de Blob Storage](storage-blob-event-overview.md)

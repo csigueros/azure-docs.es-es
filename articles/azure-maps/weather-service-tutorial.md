@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Combinación de datos del sensor con datos de previsión meteorológica mediante Azure Notebooks (Python) con Microsoft Azure Maps'
 description: En este tutorial se muestra cómo combinar datos del sensor con datos de previsión meteorológica del servicio Weather de Microsoft Azure Maps mediante Azure Notebooks (Python).
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 12/07/2020
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: d961b7051fa469304b4e8cce3f53e09813a10c02
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 83cc80267e9e3b917e60bb2da5421f67fdfb4c7a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121743798"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131455309"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Tutorial: Combinación de datos de sensores con datos de previsión meteorológica mediante Azure Notebooks (Python)
 
@@ -22,6 +22,7 @@ La energía eólica es una fuente de energía alternativa a los combustibles fó
 En este tutorial, aprenderá lo siguiente:
 
 > [!div class="checklist"]
+>
 > * Trabajar con archivos de datos en [Azure Notebooks](https://notebooks.azure.com) en la nube.
 > * Cargar datos de demostración desde un archivo.
 > * Llamada a las API REST de Azure Maps en Python.
@@ -29,14 +30,12 @@ En este tutorial, aprenderá lo siguiente:
 > * Enriquecer los datos de demostración con datos meteorológicos de la [previsión diaria](/rest/api/maps/weather/getdailyforecast) de Azure Maps.
 > * Trazar datos de previsión en gráficos.
 
-
 ## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, primero debe:
 
 1. Crear una suscripción de cuenta de Azure Maps en el plan de tarifa S0; para ello, siga las instrucciones de [Crear una cuenta](quick-demo-map-app.md#create-an-azure-maps-account).
 2. Obtener la clave de suscripción principal de la cuenta; para ello, siga las instrucciones que se indican en [Obtención de la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account).
-
 
 Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](./how-to-manage-authentication.md).
 
@@ -88,7 +87,7 @@ for i in range(0, len(coords), 2):
     wind_direction.append([])
     
     query = str(coords[i])+', '+str(coords[i+1])
-    forecast_response = await(await session.get("https://atlas.microsoft.com/weather/forecast/daily/json?query={}&api-version=1.0&subscription-key={}&duration=15".format(query, subscription_key))).json()
+    forecast_response = await(await session.get("https://atlas.microsoft.com/weather/forecast/daily/json?query={}&api-version=1.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&duration=15".format(query, subscription_key))).json()
     j+=1
     for day in range(len(forecast_response['forecasts'])):
             date = forecast_response['forecasts'][day]['date'][:10]
@@ -113,7 +112,7 @@ session = aiohttp.ClientSession()
 
 pins="default|la-25+60|ls12|lc003C62|co9B2F15||'Location A'{} {}|'Location B'{} {}|'Location C'{} {}|'Location D'{} {}".format(coords[1],coords[0],coords[3],coords[2],coords[5],coords[4], coords[7],coords[6])
 
-image_response = "https://atlas.microsoft.com/map/static/png?subscription-key={}&api-version=1.0&layer=basic&style=main&zoom=6&center={},{}&pins={}".format(subscription_key,coords[7],coords[6],pins)
+image_response = "https://atlas.microsoft.com/map/static/png?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&layer=basic&style=main&zoom=6&center={},{}&pins={}".format(subscription_key,coords[7],coords[6],pins)
 
 static_map_response = await session.get(image_response)
 
@@ -125,7 +124,6 @@ display(Image(poi_range_map))
 ```
 
 ![Ubicaciones de las turbinas](./media/weather-service-tutorial/location-map.png)
-
 
 Vamos a agrupar los datos de previsión con los de demostración en función del identificador de la estación. El identificador de la estación es para el centro de datos meteorológicos. Esta agrupación aumenta los datos de demostración con los datos de previsión.
 
@@ -149,9 +147,7 @@ En la tabla siguiente se muestran los datos históricos y de previsión combinad
 grouped_weather_data.get_group(station_ids[0]).reset_index()
 ```
 
-<center>
-
-![Datos agrupados](./media/weather-service-tutorial/grouped-data.png)</center>
+<center>![Datos agrupados](./media/weather-service-tutorial/grouped-data.png)</center>
 
 ## <a name="plot-forecast-data"></a>Trazado de los datos de previsión
 

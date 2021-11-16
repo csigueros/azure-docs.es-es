@@ -5,14 +5,18 @@ author: craftyhouse
 ms.topic: conceptual
 ms.date: 10/19/2021
 ms.author: micraft
-ms.openlocfilehash: 11660a3bb10e7004ce78d2788f93ac6fc2fc821d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 17ec57ca04defa61080ebb5a67f879c737ea16fa
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131090957"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131460401"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-node-type-with-managed-data-diskspreview"></a>Implementación de un tipo de nodo de clúster de Azure Service Fabric con discos de datos administrados (versión preliminar)
+
+>[!NOTE]
+> La compatibilidad con discos de datos administrados solo está en versión preliminar en este momento y no se debe usar con cargas de trabajo de producción.
+
 
 Los tipos de nodo de Service Fabric usan de forma predeterminada el disco temporal en cada máquina virtual del conjunto de escalado de máquinas virtuales subyacente para el almacenamiento de datos. Sin embargo, dado que el disco temporal no es persistente y el tamaño del disco temporal está enlazado a una SKU de máquina virtual determinada, esto puede ser demasiado restrictivo para algunos escenarios. Con Azure Managed Disks los clientes tienen un disco de datos persistente en el que pueden especificar el tamaño y el rendimiento que se usarán para un tipo de nodo, independientemente de una SKU de máquina virtual. En el documento siguiente se proporcionan los pasos para usar la compatibilidad nativa de Service Fabric para configurar y usar Azure Managed Disks como ruta de acceso de datos predeterminada. Service Fabric configurará automáticamente Azure Managed Disks en la creación de tipos de nodo y controlará las situaciones en las que se vuelve a crear la imagen inicial de las máquinas virtuales o del conjunto de escalado de máquinas virtuales.
 
@@ -28,7 +32,7 @@ Para usar Azure Managed Disks en un tipo de nodo, configure el recurso del conju
     * Para Linux: **useManagedDataDisk:true** y **dataPath: "\mnt\sfdataroot"** .
 
 >[!NOTE]
-> Actualmente, la compatibilidad con discos de datos administrados para clústeres de Service Fabric de Linux no está disponible para producción, pero los clientes pueden probarlo mediante la extensión Test Service Fabric para Linux.
+> La compatibilidad con discos de datos administrados para clústeres de Service Fabric con Linux no está disponible actualmente.
 
 Plantilla de Azure Resource Manager para la extensión de Service Fabric
 ```json

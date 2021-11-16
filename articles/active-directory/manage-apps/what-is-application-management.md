@@ -1,6 +1,6 @@
 ---
-title: Qué es la administración de aplicaciones en Azure Active Directory
-description: Información general sobre el uso de Azure Active Directory (AD) como sistema de administración de identidades y acceso (IAM) para aplicaciones locales y en la nube.
+title: ¿Qué es la administración de aplicaciones?
+description: Introducción a la administración del ciclo de vida de una aplicación en Azure Active Directory.
 titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
@@ -9,84 +9,132 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
-ms.date: 01/22/2021
+ms.date: 10/22/2021
 ms.author: davidmu
 ms.reviewer: sureshja, napuri
-ms.openlocfilehash: cb5cb0e5d1e2f86abac70826edc8fa3ebbc04ad6
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 3b1e814def005283fb08ab7eeb3c23a8a38e3ee2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129613536"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130257409"
 ---
-# <a name="what-is-application-management"></a>¿Qué es la administración de aplicaciones?
+# <a name="what-is-application-management-in-azure-active-directory"></a>¿Qué es la administración de aplicaciones en Azure Active Directory?
 
-Azure AD es un sistema de administración de identidades y acceso (IAM). Proporciona un lugar centralizado para almacenar la información de las identidades digitales. Puede configurar las aplicaciones de software para que usen Azure AD como el lugar donde se almacena la información del usuario.
+La administración de aplicaciones en Azure Active Directory (Azure AD) es el proceso de creación, configuración, administración y supervisión de aplicaciones en la nube. Cuando se registra una [aplicación](../develop/app-objects-and-service-principals.md) en un inquilino Azure AD, los usuarios que se le han asignado pueden acceder a ella de forma segura. Se pueden registrar muchos tipos de aplicaciones en Azure AD. Para más información, consulte [Tipos de aplicaciones para la Plataforma de identidad de Microsoft](../develop/v2-app-types.md).
 
-Azure AD debe estar configurada para poder integrarse con una aplicación. En otras palabras, debe saber qué aplicaciones lo usan para las identidades. Hacer que Azure AD conozca estas aplicaciones y cómo debe controlarlas, se conoce como administración de aplicaciones.
+En este artículo, aprenderá estos aspectos importantes de la administración del ciclo de vida de una aplicación:
 
-Las aplicaciones se administran en la página **Aplicaciones empresariales**, que se encuentra en la sección Administrar del portal de Azure Active Directory.
+- **Desarrollar, agregar o conectar**: se toman rutas diferentes en función de si está desarrollando su propia aplicación, utilizando una aplicación integrada previamente o conectándose a una aplicación local.
+- **Administrar el acceso**: el acceso se puede administrar mediante el inicio de sesión único (SSO), la asignación de recursos, la definición de la forma en que se concede y da su consentimiento al acceso y el uso del aprovisionamiento automatizado.
+- **Configurar propiedades**: configure los requisitos para iniciar sesión en la aplicación y cómo se representa la aplicación en los portales de usuario.
+- **Proteger la aplicación**: administre la configuración de permisos, la autenticación multifactor (MFA), el acceso condicional, los tokens y los certificados.
+- **Gobernar y supervisar**: administre la interacción y revise la actividad mediante la administración de derechos y los recursos de informes y supervisión.
+- **Limpiar**: cuando la aplicación ya no sea necesaria, elimine el acceso a la misma y elimínela para limpiar el inquilino.
 
-![Opción Aplicaciones empresariales de la sección Administrar del portal de Azure AD.](media/what-is-application-management/enterprise-applications-in-nav.png)
+## <a name="develop-add-or-connect"></a>Desarrollar, agregar o conectar
 
-## <a name="what-is-an-identity-and-access-management-iam-system"></a>¿Qué es un sistema de administración de identidades y acceso (IAM)?
+Hay varias maneras de administrar aplicaciones en Azure AD. La manera más fácil de empezar a administrar una aplicación es usar una aplicación integrada previamente desde la galería de Azure AD. Una opción es desarrollar su propia aplicación y registrarla en Azure AD, o bien puede seguir usando una aplicación local.
 
-Una aplicación es un fragmento de software que se usa para algún propósito. La mayoría de las aplicaciones requieren que los usuarios inicien sesión.
+En la imagen siguiente, se muestra cómo interactúan estas aplicaciones con Azure AD.
 
-Un sistema de identidades centralizado proporciona un único lugar para almacenar la información de los usuario que, después, todas las aplicaciones pueden usar. Estos sistemas se conocen como sistemas de administración de identidades y acceso (IAM). Azure Active Directory es el sistema de IAM para la nube de Microsoft.
+:::image type="content" source="media/what-is-application-management/app-management-overview.png" alt-text="Diagrama que muestra cómo se pueden usar como aplicaciones empresariales sus propios desarrollos de aplicaciones, las aplicaciones integradas previamente y las aplicaciones locales.":::
 
->[!TIP]
->Un sistema de IAM proporciona un lugar centralizado en el que hacer un seguimiento de las identidades de los usuarios. Azure AD es el sistema de IAM de la nube de Microsoft.
+### <a name="pre-integrated-applications"></a>Aplicaciones preintegradas
 
-## <a name="why-manage-applications-with-a-cloud-solution"></a>¿Por qué administrar aplicaciones con una solución en la nube?
+Muchas aplicaciones ya están integradas previamente (se muestran como "aplicaciones en la nube" en la imagen anterior) y se pueden configurar con un mínimo esfuerzo. Cada aplicación de la galería de Azure AD tiene disponible un artículo que muestra los pasos necesarios para [configurar la aplicación](../saas-apps/tutorial-list.md). Para obtener un ejemplo sencillo de cómo se puede agregar una aplicación al inquilino de Azure AD desde la galería, consulte [Inicio rápido: Adición de una aplicación empresarial en Azure Active Directory](add-application-portal.md).
 
-Las organizaciones suelen tener cientos de aplicaciones de las que los usuarios dependen para poder realizar su trabajo. Los usuarios acceden a estas aplicaciones desde muchos dispositivos y ubicaciones. Constantemente se agregan, desarrollan y retiran nuevas aplicaciones. Con tantas aplicaciones y puntos de acceso, es importante usar una solución de identidad que funcione con todos.
+### <a name="your-own-applications"></a>Sus propias aplicaciones
 
->[!TIP]
->La galería de aplicaciones de Azure AD contiene muchas aplicaciones populares que ya están preconfiguradas para trabajar con Azure AD como proveedor de identidades.
+Si desarrolla su propia aplicación empresarial, puede registrarla con Azure AD para aprovechar las ventajas de las características de seguridad que proporciona el inquilino. Puede registrar la aplicación en **Registros de aplicaciones** o puede registrarla mediante el vínculo **Cree su propia aplicación** al agregar una nueva aplicación en **Aplicaciones empresariales**. Tenga en cuenta cómo se ha implementado la [autenticación](../develop/authentication-vs-authorization.md) en la aplicación para la integración con Azure AD. 
 
-## <a name="how-does-azure-ad-work-with-apps"></a>¿Cómo funciona Azure AD con las aplicaciones?
+Si desea que la aplicación esté disponible en la galería, puede [enviar una solicitud para agregarla](../develop/v2-howto-app-gallery-listing.md).
 
-Azure AD se encuentra en el centro y proporciona administración de identidades tanto para las aplicaciones en la nube como para las locales.
 
-![Diagrama que muestra las aplicaciones federadas mediante Azure AD](media/what-is-application-management/app-management-overview.png)
+### <a name="on-premises-applications"></a>Aplicaciones locales
 
->[!TIP]
->Para reducir los costos administrativos, [automatice el aprovisionamiento de usuarios](../app-provisioning/user-provisioning.md), con el fin de que los usuarios se pueden agregar automáticamente a Azure AD al agregarlos al sistema de recursos humanos de la empresa.
+Si desea seguir usando una aplicación local, pero aprovechar las ventajas que ofrece Azure AD, conéctela con Azure AD mediante [Application Proxy de Azure AD](../app-proxy/application-proxy.md). Application Proxy se puede implementar cuando desea publicar aplicaciones locales externamente. Los usuarios remotos que necesitan acceso a las aplicaciones internas pueden acceder a ellas de forma segura.
 
-## <a name="what-types-of-applications-can-i-integrate-with-azure-ad"></a>¿Qué tipos de aplicaciones puedo integrar con Azure AD?
+## <a name="manage-access"></a>Administración del acceso
 
-Puede usar Azure AD como sistema de identidades de casi todas las aplicaciones. Muchas aplicaciones ya están configuradas previamente y pueden configurarse con un esfuerzo mínimo. Estas aplicaciones preconfiguradas se publican en la [Galería de aplicaciones de Azure AD](/azure/active-directory/saas-apps/).
+Para [administrar el acceso](what-is-access-management.md) de una aplicación, será necesario responder a las siguientes preguntas:
 
-La mayoría de las aplicaciones se pueden configurar manualmente para el inicio de sesión único si no están ya en la galería. Azure AD proporciona varias opciones de inicio de sesión único. Algunas de los más populares son SSO basado en SAML y SSO basado en OIDC. Para más información sobre la integración de aplicaciones para habilitar el inicio de sesión único, consulte las [opciones de inicio de sesión único](sso-options.md).
+- ¿Cómo se concede y se da el consentimiento al acceso para la aplicación?
+- ¿La aplicación admite el inicio de sesión único?
+- ¿Qué usuarios, grupos y propietarios se deben asignar a la aplicación? 
+- ¿Hay otros proveedores de identidades que admitan la aplicación?
+- ¿Será útil automatizar el aprovisionamiento de identidades y roles de usuario?
 
-¿Su organización usa aplicaciones locales? Puede integrarlas mediante Proxy de aplicaciones. Para más información, consulte [Acceso remoto a aplicaciones locales mediante Azure Active Directory Application Proxy](../app-proxy/application-proxy.md).
+### <a name="access-and-consent"></a>Acceso y consentimiento
 
->[!TIP]
->Al crear sus propias aplicaciones de línea de negocio, puede integrarlas con Azure AD para admitir el inicio de sesión único. Para más información sobre el desarrollo de aplicaciones para Azure AD, consulte [Plataforma de identidad de Microsoft](..//develop/v2-overview.md).
+Puede administrar la [configuración del consentimiento del usuario](configure-user-consent.md) para elegir si los usuarios pueden permitir que una aplicación o un servicio accedan a los perfiles de usuario y a los datos de la organización. Cuando se concede acceso a las aplicaciones, los usuarios pueden iniciar sesión en las aplicaciones integradas con Azure AD y la aplicación puede acceder a los datos de la organización para ofrecer experiencias enriquecidas controladas por datos.
 
-## <a name="manage-risk-with-conditional-access-policies"></a>Administración de riesgos con directivas de acceso condicional
+A menudo, los usuarios no pueden dar su consentimiento a los permisos que solicita una aplicación. Configure el [flujo de trabajo de consentimiento del administrador](configure-admin-consent-workflow.md) para permitir a los usuarios proporcionar una justificación y solicitar la revisión y aprobación de una aplicación por parte de un administrador.
 
-El acoplamiento del inicio de sesión único (SSO) de Azure AD con [acceso condicional](../conditional-access/concept-conditional-access-cloud-apps.md) ofrece niveles altos de seguridad para acceder a las aplicaciones. Las directivas de acceso condicional proporcionan un control pormenorizado de las aplicaciones en función de las condiciones establecidas.
+Como administrador, puede [conceder el consentimiento del administrador para todo el inquilino](grant-admin-consent.md) a una aplicación. El consentimiento del administrador para todo el inquilino es necesario cuando una aplicación requiere permisos que los usuarios normales no pueden conceder y permite a las organizaciones implementar sus propios procesos de revisión. Antes de conceder el consentimiento, revise siempre con atención los permisos que solicita la aplicación. Cuando a una aplicación se le concede el consentimiento del administrador para todo el inquilino, todos los usuarios pueden iniciar sesión en la aplicación a menos que se haya configurado para requerir la asignación de usuarios.
 
-## <a name="improve-productivity-with-single-sign-on"></a>Mejora de la seguridad con el inicio de sesión único
+### <a name="single-sign-on"></a>Inicio de sesión único
 
-El inicio de sesión único proporciona una experiencia de usuario unificada entre Microsoft 365 y las demás aplicaciones que se usen. No será preciso volver a escribir constantemente el nombre de usuario y la contraseña.
+Considere la posibilidad de implementar el inicio de sesión único en la aplicación. Puede configurar manualmente la mayoría de las aplicaciones para el inicio de sesión único. Las opciones más populares en Azure AD son [SSO basado en SAML y SSO basado en OpenID Connect](../develop/active-directory-v2-protocols.md). Antes de empezar, asegúrese de que comprende los requisitos del inicio de sesión único y cómo [planear la implementación](plan-sso-deployment.md). Para obtener un ejemplo sencillo de cómo configurar el inicio de sesión único basado en SAML para una aplicación empresarial en el inquilino de Azure AD, consulte [Inicio rápido: Habilitación del inicio de sesión único para una aplicación empresarial en Azure Active Directory](add-application-portal-setup-sso.md).
 
-Para más información sobre el inicio de sesión único, vea [¿Qué es el inicio de sesión único?](what-is-single-sign-on.md)
+### <a name="user-group-and-owner-assignment"></a>Asignación de usuarios, grupos y propietarios
 
-## <a name="address-governance-and-compliance"></a>Abordar la gobernanza y el cumplimiento
+De manera predeterminada, los usuarios pueden acceder a las aplicaciones empresariales sin tener que asignarlas. Sin embargo, si desea asignar la aplicación a un conjunto de usuarios, la aplicación requiere la asignación de usuarios. Para obtener un ejemplo sencillo de cómo crear y asignar una cuenta de usuario a una aplicación, consulte [Inicio rápido: Creación y asignación de una cuenta de usuario en Azure Active Directory](add-application-portal-assign-users.md). 
 
-Supervise las aplicaciones a través de informes que usan herramientas de Security Incident and Event Monitoring (SIEM). Puede acceder a los informes desde el portal o con las API. Audite mediante programación quién accede a sus aplicaciones y retire el acceso a usuarios inactivos mediante revisiones de acceso.
+Si se incluye en la suscripción, [asigne grupos a una aplicación](assign-user-or-group-access-portal.md) para que pueda delegar la administración del acceso continuo al propietario del grupo. 
 
-## <a name="manage-costs"></a>Administrar costos
+[Asignar propietarios](assign-app-owners.md) es una manera sencilla de conceder la capacidad de administrar todos los aspectos de la configuración de Azure AD para una aplicación. Como propietario, un usuario puede administrar la configuración específica de la organización de la aplicación.
 
-Al migrar a Azure AD, puede ahorrar costos y las molestias de administrar la infraestructura local. Azure AD también proporciona acceso de autoservicio a las aplicaciones, lo que ahorra tiempo para los administradores y usuarios. El inicio de sesión único elimina las contraseñas específicas de aplicaciones. Esta posibilidad de iniciar sesión solo una vez ahorra costos relacionados con el restablecimiento de contraseñas para las aplicaciones y la pérdida de productividad al recuperar estas.
+### <a name="automate-provisioning"></a>Aprovisionamiento automatizado
 
-En el caso de las aplicaciones que se centran es los recursos humanos u otras aplicaciones con un gran conjunto de usuarios, puede usar el aprovisionamiento de aplicaciones para facilitar el trabajo. El aprovisionamiento de aplicaciones automatiza el proceso de agregar y quitar usuarios. Para más información, consulte [¿Qué es el aprovisionamiento de aplicaciones?](../app-provisioning/user-provisioning.md)
+El [aprovisionamiento de aplicaciones](../app-provisioning/user-provisioning.md) hace referencia a la creación automática de identidades y roles de usuario en las aplicaciones a las que los usuarios necesitan acceder. Además de crear identidades de usuario, el aprovisionamiento automático incluye el mantenimiento y la eliminación de identidades de usuario a medida que el estado o los roles cambian.
+
+### <a name="identity-providers"></a>Proveedores de identidades
+
+¿Tiene un proveedor de identidades con el que quiere que interactúe Azure AD? La [detección del dominio de inicio](home-realm-discovery-policy.md) proporciona una configuración que permite a Azure AD determinar con qué proveedor de identidades se debe autenticar un usuario en el momento del inicio de sesión.
+
+### <a name="user-portals"></a>Portales de usuario
+
+Azure AD proporciona maneras personalizables para implementar aplicaciones para los usuarios de la organización. Por ejemplo, el [portal Aplicaciones o el iniciador de aplicaciones de Microsoft 365](end-user-experiences.md). El portal Aplicaciones proporciona a los usuarios un lugar único desde el que pueden empezar a trabajar y buscar todas las aplicaciones a las que tienen acceso. Como administrador de una aplicación, debe [planear cómo usarán los usuarios de la organización el portal Aplicaciones](my-apps-deployment-plan.md).
+
+## <a name="configure-properties"></a>Configuración de propiedades
+
+Al agregar una aplicación al inquilino de Azure AD, tiene la oportunidad de [configurar propiedades](add-application-portal-configure.md) que afectan a la forma en la que los usuarios pueden iniciar sesión. Puede habilitar o deshabilitar la capacidad de iniciar sesión y puede ser necesaria la asignación de usuarios. También puede determinar la visibilidad de la aplicación, qué logotipo representa a la aplicación y cualquier nota sobre la aplicación.
+
+## <a name="secure-the-application"></a>Protección de la aplicación
+
+Hay varios métodos disponibles para ayudarle a proteger las aplicaciones empresariales. Por ejemplo, puede [restringir el acceso al inquilino](tenant-restrictions.md), [administrar la visibilidad, los datos y el análisis](cloud-app-security.md), y posiblemente proporcionar [acceso híbrido](secure-hybrid-access.md). Mantener las aplicaciones empresariales seguras también implica administrar la configuración de permisos, MFA, acceso condicional, tokens y certificados.
+
+### <a name="permissions"></a>Permisos
+
+Es importante revisar periódicamente y, si es necesario, [administrar los permisos concedidos a una aplicación o un servicio](manage-application-permissions.md). Asegúrese de permitir solo el acceso adecuado a las aplicaciones evaluando periódicamente si existe actividad sospechosa.
+
+Las [clasificaciones de permisos](configure-permission-classifications.md) permiten identificar el efecto de los distintos permisos según las evaluaciones de riesgo y las directivas de la organización. Por ejemplo, puede usar las clasificaciones de permisos en las directivas de consentimiento para identificar el conjunto de permisos a los que los usuarios pueden dar su consentimiento.
+
+### <a name="multifactor-authentication-and-conditional-access"></a>Autenticación multifactor y acceso condicional
+
+Azure Active Directory Multifactor Authentication ayuda a proteger el acceso a datos y aplicaciones, ya que proporciona otra capa de seguridad mediante una segunda forma de autenticación. Hay muchos métodos que se pueden usar para una autenticación de segundo factor. Antes de empezar, [planee la implementación de MFA para la aplicación](../authentication/howto-mfa-getstarted.md) en la organización.
+
+Las organizaciones pueden habilitar MFA con [acceso condicional](../conditional-access/overview.md) para que la solución se ajuste a sus necesidades específicas. Las directivas de acceso condicional permiten que los administradores asignen controles a determinadas [aplicaciones, acciones o contextos de autenticación](../conditional-access/concept-conditional-access-cloud-apps.md).
+
+### <a name="tokens-and-certificates"></a>Tokens y certificados
+
+En un flujo de autenticación de Azure AD, se usan distintos tipos de tokens de seguridad en función del protocolo utilizado. Por ejemplo, los [tokens SAML](../develop/reference-saml-tokens.md) se usan para el protocolo SAML y los [tokens de identificador](../develop/id-tokens.md) y los [tokens de acceso](../develop/access-tokens.md) se usan para el protocolo OpenID Connect. Los tokens se firman con el certificado único que se genera en Azure AD y mediante algoritmos estándar específicos. 
+
+Puede proporcionar más seguridad mediante el [cifrado del token](howto-saml-token-encryption.md). También puede administrar la información de un token, incluidos los [roles permitidos](../develop/howto-add-app-roles-in-azure-ad-apps.md) para la aplicación.
+
+Azure AD utiliza el [algoritmo SHA-256](certificate-signing-options.md) de manera predeterminada para firmar la respuesta SAML. Utilice SHA-256 a menos que la aplicación requiera SHA-1. Establezca un proceso para [administrar la duración del certificado](manage-certificates-for-federated-single-sign-on.md). La duración máxima de un certificado de firma es de tres años. Para evitar o minimizar la interrupción debido a la expiración de un certificado, use las listas de distribución de correo electrónico y roles para asegurarse de que las notificaciones de cambios relacionadas con los certificados se supervisan con atención. 
+
+## <a name="govern-and-monitor"></a>Gobierno y supervisión
+
+La [administración de derechos](../governance/entitlement-management-scenarios.md) de Azure AD permite administrar la interacción entre aplicaciones y administradores, propietarios de catálogos, administradores de paquetes de acceso, aprobadores y solicitantes.
+
+La solución de supervisión e informes de Azure AD depende de sus requisitos legales, de seguridad y operativos, así como del entorno y los procesos existentes. Se mantienen varios registros en Azure AD y debe [planear la implementación de informes y supervisión](../reports-monitoring/plan-monitoring-and-reporting.md) para mantener la mejor experiencia posible para la aplicación.
+
+## <a name="clean-up"></a>Limpieza
+
+Puede limpiar el acceso a las aplicaciones. Por ejemplo, [quitar el acceso de un usuario](methods-for-removing-user-access.md). También puede [deshabilitar el modo en que un usuario inicia sesión](disable-user-sign-in-portal.md). Por último, puede eliminar la aplicación si ya no es necesaria para la organización. Para obtener un ejemplo sencillo de cómo eliminar una aplicación empresarial del inquilino de Azure AD, consulte [Inicio rápido: Eliminación de una aplicación empresarial en Azure Active Directory](delete-application-portal.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Serie de guías de inicio rápido sobre la administración de aplicaciones](view-applications-portal.md)
-- [Introducción a la integración de aplicaciones](plan-an-application-integration.md)
-- [Obtenga información sobre cómo automatizar el aprovisionamiento](../app-provisioning/user-provisioning.md)
+- Para empezar, agregue su primera aplicación empresarial con [Inicio rápido: Adición de una aplicación empresarial en Azure Active Directory](add-application-portal.md).

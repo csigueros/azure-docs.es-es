@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/26/2021
 ms.author: mbaldwin
-ms.openlocfilehash: a939ec6093d6c06e9a7aeb0d7c46bdce2d78223a
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 9ee57c3de5b0e6166e54c79713e789f2211ffed3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132335563"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131445016"
 ---
 # <a name="data-encryption-models"></a>Modelos de cifrado de datos
 
@@ -212,8 +212,8 @@ Los servicios de Azure que admiten cada modelo de cifrado:
 | **Elementos multimedia**                        |                    |                    |                    |
 | Media Services                   | Sí                | Sí                | Sí                |
 | **Seguridad**                     |                    |                    |                    |
-| Microsoft Defender para IoT    | Sí                | Sí                | -                  |
-| Microsoft Sentinel                   | Sí                | Sí                | -                  |
+| Preguntas más frecuentes de Azure Security Center for IoT    | Sí                | Sí                | -                  |
+| Azure Sentinel                   | Sí                | Sí                | -                  |
 | **Storage**                      |                    |                    |                    |
 | Blob Storage                     | Sí                | Sí                | Sí                |
 | Premium Blob Storage             | Sí                | Sí                | Sí                |

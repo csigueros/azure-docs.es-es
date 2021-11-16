@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6ef288e776daaf7aa266d13068647bea1c5a4c27
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 4117926fe8de79a295fa3c0a52c1ca54816496ba
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691892"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131427995"
 ---
 # <a name="troubleshoot-azure-image-builder-service"></a>Solución de problemas del servicio Azure Image Builder
 
@@ -91,8 +91,8 @@ En la mayoría de los casos, el error de implementación de recursos se produce 
 #### <a name="solution"></a>Solución
 
 En función del escenario, Azure Image Builder puede necesitar permisos para:
-- Imagen de origen o grupo de recursos de Shared Image Gallery.
-- Imagen de distribución o recurso de Shared Image Gallery.
+- Imagen de origen o grupo de recursos de Azure Compute Gallery (anteriormente, Shared Image Gallery)
+- Imagen de distribución o recurso de Azure Compute Gallery
 - La cuenta de almacenamiento, el contenedor o el blob a los que accede el personalizador de archivos. 
 
 Para más información sobre la configuración de permisos, vea [Configuración de los permisos del Azure Image Builder la mediante CLI de Azure](image-builder-permissions-cli.md) o [Configuración de los permisos del servicio Azure Image Builder mediante PowerShell](image-builder-permissions-powershell.md).
@@ -113,8 +113,8 @@ Faltan permisos.
 #### <a name="solution"></a>Solución
 
 En función del escenario, Azure Image Builder puede necesitar permisos para:
-* Imagen de origen o grupo de recursos de Shared Image Gallery.
-* Imagen de distribución o recurso de Shared Image Gallery.
+* Imagen de origen o grupo de recursos de Azure Compute Gallery
+* Imagen de distribución o recurso de Azure Compute Gallery
 * La cuenta de almacenamiento, el contenedor o el blob a los que accede el personalizador de archivos. 
 
 Para más información sobre la configuración de permisos, vea [Configuración de los permisos del Azure Image Builder la mediante CLI de Azure](image-builder-permissions-cli.md) o [Configuración de los permisos del servicio Azure Image Builder mediante PowerShell](image-builder-permissions-powershell.md).
@@ -176,7 +176,7 @@ Puede ver el archivo customization.log en la cuenta de almacenamiento del grupo 
 
 ### <a name="understanding-the-customization-log"></a>Descripción del registro de personalización
 
-El registro es detallado. Trata la compilación de la imagen, incluidos los problemas con la distribución de la imagen, como la replicación de Shared Image Gallery. Estos errores aparecen en el mensaje de error del estado de la plantilla de imagen.
+El registro es detallado. Trata la compilación de la imagen, incluidos los problemas con la distribución de la imagen, como la replicación de Azure Compute Gallery. Estos errores aparecen en el mensaje de error del estado de la plantilla de imagen.
 
 El archivo customization.log incluye las siguientes fases:
 
@@ -325,17 +325,17 @@ El personalizador de archivos está descargando un archivo grande.
 
 El personalizador de archivos solo es adecuado para descargas de archivos pequeños, con menos de 20 MB. En el caso de descargas de archivos más grandes, use un script o un comando insertado. Por ejemplo, en Linux, puede usar `wget` o `curl`. En Windows, puede usar `Invoke-WebRequest`.
 
-### <a name="error-waiting-on-shared-image-gallery"></a>Error al esperar en Shared Image Gallery
+### <a name="error-waiting-on-azure-compute-gallery"></a>Error al esperar en Azure Compute Gallery
 
 #### <a name="error"></a>Error
 
 ```text
-Deployment failed. Correlation ID: XXXXXX-XXXX-XXXXXX-XXXX-XXXXXX. Failed in distributing 1 images out of total 1: {[Error 0] [Distribute 0] Error publishing MDI to shared image gallery:/subscriptions/<subId>/resourceGroups/xxxxxx/providers/Microsoft.Compute/galleries/xxxxx/images/xxxxxx, Location:eastus. Error: Error returned from SIG client while publishing MDI to shared image gallery for dstImageLocation: eastus, dstSubscription: <subId>, dstResourceGroupName: XXXXXX, dstGalleryName: XXXXXX, dstGalleryImageName: XXXXXX. Error: Error waiting on shared image gallery future for resource group: XXXXXX, gallery name: XXXXXX, gallery image name: XXXXXX.Error: Future#WaitForCompletion: context has been cancelled: StatusCode=200 -- Original Error: context deadline exceeded}
+Deployment failed. Correlation ID: XXXXXX-XXXX-XXXXXX-XXXX-XXXXXX. Failed in distributing 1 images out of total 1: {[Error 0] [Distribute 0] Error publishing MDI to Azure Compute Gallery:/subscriptions/<subId>/resourceGroups/xxxxxx/providers/Microsoft.Compute/galleries/xxxxx/images/xxxxxx, Location:eastus. Error: Error returned from SIG client while publishing MDI to Azure Compute Gallery for dstImageLocation: eastus, dstSubscription: <subId>, dstResourceGroupName: XXXXXX, dstGalleryName: XXXXXX, dstGalleryImageName: XXXXXX. Error: Error waiting on Azure Compute Gallery future for resource group: XXXXXX, gallery name: XXXXXX, gallery image name: XXXXXX.Error: Future#WaitForCompletion: context has been cancelled: StatusCode=200 -- Original Error: context deadline exceeded}
 ```
 
 #### <a name="cause"></a>Causa
 
-Image Builder agotó el tiempo de espera para que la imagen se agregara y replicara en Shared Image Gallery (SIG). Si la imagen se inserta en SIG, se puede suponer que la imagen se ha creado correctamente. Sin embargo, se produjo un error en el proceso general porque Image Builder estaba esperando en Shared Image Gallery a que se completara la replicación. Aunque se ha producido un error en la compilación, la replicación continúa. Puede obtener las propiedades de la versión de la imagen comprobando la distribución *runOutput*.
+Image Builder agotó el tiempo de espera para que la imagen se agregara y replicara en Azure Compute Gallery. Si la imagen se inserta en SIG, se puede suponer que la imagen se ha creado correctamente. Sin embargo, se produjo un error en el proceso general porque Image Builder estaba esperando en Azure Compute Gallery a que se completara la replicación. Aunque se ha producido un error en la compilación, la replicación continúa. Puede obtener las propiedades de la versión de la imagen comprobando la distribución *runOutput*.
 
 ```bash
 $runOutputName=<distributionRunOutput>
@@ -624,7 +624,7 @@ Para más información sobre las funcionalidades y limitaciones de Azure DevOps,
  
 #### <a name="solution"></a>Solución
 
-Puede hospedar sus propios agentes de DevOps o tratar de reducir el tiempo de la compilación. Por ejemplo, si va a realizar la distribución a Shared Image Gallery, replique en una región. Si desea realizar la replicación de forma asincrónica. 
+Puede hospedar sus propios agentes de DevOps o tratar de reducir el tiempo de la compilación. Por ejemplo, si va a realizar la distribución a Azure Compute Gallery, haga la replicación en una región. Si desea realizar la replicación de forma asincrónica. 
 
 ### <a name="slow-windows-logon-please-wait-for-the-windows-modules-installer"></a>Inicio de sesión lento de Windows: "Espere al Instalador de módulos de Windows"
 

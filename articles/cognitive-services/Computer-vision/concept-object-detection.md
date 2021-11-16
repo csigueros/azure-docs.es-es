@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 10/27/2021
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 68c2cfeec9ef2aaa73c1553c8b50150564986e88
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: d8ef3a319b9701ece0b7a66e3d428c519642767c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110465252"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131454796"
 ---
 # <a name="detect-common-objects-in-images"></a>Detección de objetos comunes en imágenes
 
-La detección de objetos es similar al [etiquetado](concept-tagging-images.md), pero la API devuelve las coordenadas del rectángulo (en píxeles) que delimita cada objeto encontrado. Por ejemplo, si una imagen contiene un perro, un gato y una persona, la operación de detección mostrará estos objetos junto con sus coordenadas en la imagen. Puede usar esta funcionalidad para procesar las relaciones entre los objetos de una imagen. También le permite saber si hay varias instancias de la misma etiqueta en una imagen.
+La detección de objetos es similar al [etiquetado](concept-tagging-images.md), pero la API devuelve las coordenadas del rectángulo (en píxeles) que delimita cada objeto encontrado en la imagen. Por ejemplo, si una imagen contiene un perro, un gato y una persona, la operación de detección mostrará estos objetos con sus coordenadas en la imagen. Puede usar esta funcionalidad para procesar las relaciones entre los objetos de una imagen. También permite determinar si hay varias instancias del mismo objeto en una imagen.
 
 La API de detección aplica etiquetas en función de los objetos o seres vivos que se identifiquen en la imagen. Actualmente no hay ninguna relación formal entre la taxonomía de etiquetado y la taxonomía de detección de objetos. Desde un punto de vista conceptual, la API de detección solo busca objetos y seres vivos, mientras que la API de etiquetado también puede incluir términos contextuales, como "interior", que no pueden localizarse con rectángulos de selección.
 

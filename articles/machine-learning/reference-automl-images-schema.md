@@ -11,12 +11,12 @@ ms.author: rvadthyavath
 author: vadthyavath
 ms.date: 10/13/2021
 ms.custom: ''
-ms.openlocfilehash: 376ba24800b3d547a302d83eef960c58afd73054
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 725e8ae80d29a352bd2146906a782d4c8c2e6e38
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130007062"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131442569"
 ---
 # <a name="data-schemas-to-train-computer-vision-models-with-automated-machine-learning"></a>Esquemas de datos para entrenar modelos de Computer Vision con aprendizaje automático automatizado
 
@@ -44,12 +44,12 @@ El aprendizaje automático automatizado para imágenes de Azure Machine Learning
 
 | Clave       | Descripción  | Ejemplo |
 | -------- |----------|-----|
-| image_url | Ubicación de la imagen en el almacén de datos de AML<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
-| image_details | Detalles de la imagen<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
-| format  | Tipo de imagen (se admiten todos los formatos de imagen disponibles en la biblioteca [Pillow](https://pillow.readthedocs.io/en/stable/releasenotes/8.0.1.html))<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif","bmp", "tif", "tiff"}`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
-| width | Ancho de la imagen<br>`Optional, String or Positive Integer`  | `"400px" or 400`|
-| height | Altura de la imagen<br>`Optional, String or Positive Integer` | `"200px" or 200` |
-| etiqueta | Clase o etiqueta de la imagen<br>`Required, String` | `"cat"` |
+| `image_url` | Ubicación de la imagen en el almacén de datos de AML<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
+| `image_details` | Detalles de la imagen<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
+| `format`  | Tipo de imagen (se admiten todos los formatos de imagen disponibles en la biblioteca [Pillow](https://pillow.readthedocs.io/en/stable/releasenotes/8.0.1.html))<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif","bmp", "tif", "tiff"}`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
+| `width` | Ancho de la imagen<br>`Optional, String or Positive Integer`  | `"400px" or 400`|
+| `height` | Altura de la imagen<br>`Optional, String or Positive Integer` | `"200px" or 200` |
+| `label` | Clase o etiqueta de la imagen<br>`Required, String` | `"cat"` |
 
 
 Ejemplo de un archivo JSONL para la clasificación de imágenes de varias clases:
@@ -61,6 +61,8 @@ Ejemplo de un archivo JSONL para la clasificación de imágenes de varias clases
 .
 {"image_url": "AmlDatastore://image_data/Image_n.jpg", "image_details": {"format": "jpg", "width": "1024px", "height": "768px"}, "label": "water_bottle"}
   ```
+
+![Ejemplo de imagen para la clasificación de imágenes de varias clases.](media/reference-automl-images-schema/multiclass-predictions.jpg)
 
 ### <a name="image-classification-multi-label"></a>Clasificación de imágenes con varias etiquetas
 
@@ -88,12 +90,12 @@ A continuación, se muestra un ejemplo de esquema o formato de datos de entrada 
 
 | Clave       | Descripción  | Ejemplo |
 | -------- |----------|-----|
-| image_url | Ubicación de la imagen en el almacén de datos de AML<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
-| image_details | Detalles de la imagen<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
-| format  | Tipo de imagen (se admiten todos los formatos de imagen disponibles en la biblioteca [Pillow](https://pillow.readthedocs.io/en/stable/releasenotes/8.0.1.html))<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff"}`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
-| width | Ancho de la imagen<br>`Optional, String or Positive Integer`  | `"400px" or 400`|
-| height | Altura de la imagen<br>`Optional, String or Positive Integer` | `"200px" or 200` |
-| etiqueta | Lista de clases o etiquetas de la imagen<br>`Required, List of Strings` | `["cat","dog"]` |
+| `image_url` | Ubicación de la imagen en el almacén de datos de AML<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
+| `image_details` | Detalles de la imagen<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
+| `format`  | Tipo de imagen (se admiten todos los formatos de imagen disponibles en la biblioteca [Pillow](https://pillow.readthedocs.io/en/stable/releasenotes/8.0.1.html))<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff"}`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
+| `width` | Ancho de la imagen<br>`Optional, String or Positive Integer`  | `"400px" or 400`|
+| `height` | Altura de la imagen<br>`Optional, String or Positive Integer` | `"200px" or 200` |
+| `label` | Lista de clases o etiquetas de la imagen<br>`Required, List of Strings` | `["cat","dog"]` |
 
 
 Ejemplo de un archivo JSONL para la clasificación de imágenes con varias etiquetas:
@@ -106,6 +108,8 @@ Ejemplo de un archivo JSONL para la clasificación de imágenes con varias etiqu
 .
 {"image_url": "AmlDatastore://image_data/Image_n.jpg", "image_details": {"format": "jpg", "width": "1024px", "height": "768px"}, "label": ["carton","milk_bottle","water_bottle"]}
   ```
+
+![Ejemplo de imagen para la clasificación de imágenes con varias etiquetas.](media/reference-automl-images-schema/multilabel-predictions.jpg)
 
 ### <a name="object-detection"></a>Detección de objetos
 
@@ -142,27 +146,27 @@ A continuación, se muestra un archivo JSONL de ejemplo para la detección de ob
 ```
 
 Aquí, 
-- xmin = coordenada X de la esquina superior izquierda del rectángulo delimitador
-- ymin = coordenada Y de la esquina superior izquierda del rectángulo delimitador
-- xmax = coordenada X de la esquina inferior derecha del rectángulo delimitador
-- ymax = coordenada Y de la esquina inferior derecha del rectángulo delimitador
+- `xmin` = coordenada X de la esquina superior izquierda del rectángulo delimitador
+- `ymin` = coordenada Y de la esquina superior izquierda del rectángulo delimitador
+- `xmax` = coordenada X de la esquina inferior derecha del rectángulo delimitador
+- `ymax` = coordenada Y de la esquina inferior derecha del rectángulo delimitador
 
 
 
 | Clave       | Descripción  | Ejemplo |
 | -------- |----------|-----|
-| image_url | Ubicación de la imagen en el almacén de datos de AML<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
-| image_details | Detalles de la imagen<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
-| format  | Tipo de imagen (se admiten todos los formatos de imagen disponibles en la biblioteca [Pillow](https://pillow.readthedocs.io/en/stable/releasenotes/8.0.1.html). Sin embargo, para YOLO solo se admiten los formatos de imagen permitidos por [opencv](https://pypi.org/project/opencv-python/4.3.0.36/)).<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff"}`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
-| width | Ancho de la imagen<br>`Optional, String or Positive Integer`  | `"499px" or 499`|
-| height | Altura de la imagen<br>`Optional, String or Positive Integer` | `"665px" or 665` |
-| label (clave externa) | Lista de rectángulos delimitadores, donde cada uno es un diccionario de `label, topX, topY, bottomX, bottomY, isCrowd`, sus coordenadas superior izquierda e inferior derecha<br>`Required, List of dictionaries` | `[{"label": "cat", "topX": 0.260, "topY": 0.406, "bottomX": 0.735, "bottomY": 0.701, "isCrowd": 0}]` |
-| label (clave interna)| Clase o etiqueta del objeto del rectángulo delimitador<br>`Required, String` | `"cat"` |
-| topX | Proporción de la coordenada X de la esquina superior izquierda del rectángulo delimitador y el ancho de la imagen<br>`Required, Float in the range [0,1]` | `0.260` |
-| topY | Proporción de la coordenada Y de la esquina superior izquierda del rectángulo delimitador y la altura de la imagen<br>`Required, Float in the range [0,1]` | `0.406` |
-| bottomX | Proporción de la coordenada X de la esquina inferior derecha del rectángulo delimitador y el ancho de la imagen<br>`Required, Float in the range [0,1]` | `0.735` |
-| bottomY | Proporción de la coordenada Y de la esquina inferior derecha del rectángulo delimitador y la altura de la imagen<br>`Required, Float in the range [0,1]` | `0.701` |
-| isCrowd | Indica si el rectángulo delimitador está alrededor de la multitud de objetos. Si se establece esta marca especial, se omite este rectángulo delimitador específico al calcular la métrica.<br>`Optional, Bool` | `0` |
+| `image_url` | Ubicación de la imagen en el almacén de datos de AML<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
+| `image_details` | Detalles de la imagen<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
+| `format`  | Tipo de imagen (se admiten todos los formatos de imagen disponibles en la biblioteca [Pillow](https://pillow.readthedocs.io/en/stable/releasenotes/8.0.1.html). Sin embargo, para YOLO solo se admiten los formatos de imagen permitidos por [opencv](https://pypi.org/project/opencv-python/4.3.0.36/)).<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff"}`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
+| `width` | Ancho de la imagen<br>`Optional, String or Positive Integer`  | `"499px" or 499`|
+| `height` | Altura de la imagen<br>`Optional, String or Positive Integer` | `"665px" or 665` |
+| `label` (clave externa) | Lista de rectángulos delimitadores, donde cada uno es un diccionario de `label, topX, topY, bottomX, bottomY, isCrowd`, sus coordenadas superior izquierda e inferior derecha<br>`Required, List of dictionaries` | `[{"label": "cat", "topX": 0.260, "topY": 0.406, "bottomX": 0.735, "bottomY": 0.701, "isCrowd": 0}]` |
+| `label` (clave interna)| Clase o etiqueta del objeto del rectángulo delimitador<br>`Required, String` | `"cat"` |
+| `topX` | Proporción de la coordenada X de la esquina superior izquierda del rectángulo delimitador y el ancho de la imagen<br>`Required, Float in the range [0,1]` | `0.260` |
+| `topY` | Proporción de la coordenada Y de la esquina superior izquierda del rectángulo delimitador y la altura de la imagen<br>`Required, Float in the range [0,1]` | `0.406` |
+| `bottomX` | Proporción de la coordenada X de la esquina inferior derecha del rectángulo delimitador y el ancho de la imagen<br>`Required, Float in the range [0,1]` | `0.735` |
+| `bottomY` | Proporción de la coordenada Y de la esquina inferior derecha del rectángulo delimitador y la altura de la imagen<br>`Required, Float in the range [0,1]` | `0.701` |
+| `isCrowd` | Indica si el rectángulo delimitador está alrededor de la multitud de objetos. Si se establece esta marca especial, se omite este rectángulo delimitador específico al calcular la métrica.<br>`Optional, Bool` | `0` |
 
 
 Ejemplo de un archivo JSONL para la detección de objetos:
@@ -174,7 +178,9 @@ Ejemplo de un archivo JSONL para la detección de objetos:
 .
 .
 {"image_url": "AmlDatastore://image_data/Image_n.jpg", "image_details": {"format": "jpg", "width": "499px", "height": "666px"}, "label": [{"label": "carton", "topX": 0.0180, "topY": 0.297, "bottomX": 0.380, "bottomY": 0.836, "isCrowd": 0}, {"label": "milk_bottle", "topX": 0.454, "topY": 0.348, "bottomX": 0.613, "bottomY": 0.683, "isCrowd": 0}, {"label": "water_bottle", "topX": 0.667, "topY": 0.279, "bottomX": 0.841, "bottomY": 0.615, "isCrowd": 0}]}
-  ```
+```
+
+![Ejemplo de imagen para la detección de objetos.](media/reference-automl-images-schema/object-detect-predictions.jpg)
 
 ### <a name="instance-segmentation"></a>Segmentación de instancias
 
@@ -202,15 +208,15 @@ A continuación, se muestra un archivo JSONL de ejemplo para la segmentación de
 
 | Clave       | Descripción  | Ejemplo |
 | -------- |----------|-----|
-| image_url | Ubicación de la imagen en el almacén de datos de AML<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
-| image_details | Detalles de la imagen<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
-| format  | Tipo de imagen<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff" }`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
-| width | Ancho de la imagen<br>`Optional, String or Positive Integer`  | `"499px" or 499`|
-| height | Altura de la imagen<br>`Optional, String or Positive Integer` | `"665px" or 665` |
-| label (clave externa) | Lista de máscaras, donde cada máscara es un diccionario de `label, isCrowd, polygon coordinates` <br>`Required, List of dictionaries` | ` [{"label": "can", "isCrowd": 0, "polygon": [[0.577, 0.689,`<br> ` 0.562, 0.681,`<br> `0.559, 0.686]]}]` |
-| label (clave interna)| Clase o etiqueta del objeto de la máscara<br>`Required, String` | `"cat"` |
-| isCrowd | Indica si la máscara está alrededor de la multitud de objetos.<br>`Optional, Bool` | `0` |
-| polygon | Coordenadas del polígono para el objeto<br>`Required,  List of list for multiple segments of the same instance. Float values in the range [0,1]` | ` [[0.577, 0.689, 0.567, 0.689, 0.559, 0.686]]` |
+| `image_url` | Ubicación de la imagen en el almacén de datos de AML<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
+| `image_details` | Detalles de la imagen<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
+| `format`  | Tipo de imagen<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff" }`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
+| `width` | Ancho de la imagen<br>`Optional, String or Positive Integer`  | `"499px" or 499`|
+| `height` | Altura de la imagen<br>`Optional, String or Positive Integer` | `"665px" or 665` |
+| `label` (clave externa) | Lista de máscaras, donde cada máscara es un diccionario de `label, isCrowd, polygon coordinates` <br>`Required, List of dictionaries` | ` [{"label": "can", "isCrowd": 0, "polygon": [[0.577, 0.689,`<br> ` 0.562, 0.681,`<br> `0.559, 0.686]]}]` |
+| `label` (clave interna)| Clase o etiqueta del objeto de la máscara<br>`Required, String` | `"cat"` |
+| `isCrowd` | Indica si la máscara está alrededor de la multitud de objetos.<br>`Optional, Bool` | `0` |
+| `polygon` | Coordenadas del polígono para el objeto<br>`Required,  List of list for multiple segments of the same instance. Float values in the range [0,1]` | ` [[0.577, 0.689, 0.567, 0.689, 0.559, 0.686]]` |
 
 
 Ejemplo de un archivo JSONL para la segmentación de instancias:
@@ -223,6 +229,8 @@ Ejemplo de un archivo JSONL para la segmentación de instancias:
 .
 {"image_url": "AmlDatastore://image_data/Image_n.jpg", "image_details": {"format": "jpg", "width": "499px", "height": "666px"}, "label": [{"label": "water_bottle", "isCrowd": 0, "polygon": [[0.334, 0.626, 0.304, 0.621, 0.254, 0.603, 0.164, 0.605, 0.158, 0.602, 0.146, 0.602, 0.142, 0.608, 0.094, 0.612, 0.084, 0.599, 0.080, 0.585, 0.080, 0.539, 0.082, 0.536, 0.092, 0.533, 0.126, 0.530, 0.132, 0.533, 0.144, 0.533, 0.162, 0.525, 0.172, 0.525, 0.186, 0.521, 0.196, 0.521 ]]}, {"label": "milk_bottle", "isCrowd": 0, "polygon": [[0.392, 0.773, 0.380, 0.732, 0.379, 0.767, 0.367, 0.755, 0.362, 0.735, 0.362, 0.714, 0.352, 0.644, 0.352, 0.611, 0.362, 0.597, 0.40, 0.593, 0.444,  0.494, 0.588, 0.515, 0.585, 0.621, 0.588, 0.671, 0.582, 0.713, 0.572, 0.753 ]]}]}
 ```
+
+![Ejemplo de imagen para la segmentación de instancias.](media/reference-automl-images-schema/instance-segmentation-predictions.jpg)
 
 ## <a name="data-format-for-inference"></a>Formato de datos para la inferencia
 
@@ -389,6 +397,9 @@ En la segmentación de instancias, la salida consta de varios rectángulos con s
    ]
 }
 ```
+
+> [!NOTE]
+> Las imágenes que se usan en este artículo son del conjunto de datos Fridge Objects, copyright © Microsoft Corporation, y están disponibles en [computervision-recipes/01_training_introduction.ipynb](https://github.com/microsoft/computervision-recipes/blob/master/scenarios/detection/01_training_introduction.ipynb) bajo la [licencia MIT](https://github.com/microsoft/computervision-recipes/blob/master/LICENSE). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

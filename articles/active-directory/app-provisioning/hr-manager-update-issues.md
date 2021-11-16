@@ -1,7 +1,6 @@
 ---
 title: Solución de problemas de actualización del administrador con el aprovisionamiento de RR. HH.
 description: Obtenga información sobre cómo solucionar problemas de actualización del administrador con el aprovisionamiento de recursos humanos.
-services: active-directory
 author: kenwith
 manager: karenh444
 ms.service: active-directory
@@ -11,12 +10,12 @@ ms.workload: identity
 ms.date: 10/27/2021
 ms.author: kenwith
 ms.reviewer: chmutali
-ms.openlocfilehash: 21635b7c7df6639745916aecd207780e6ae5df52
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: d67e528420b9907949202c1f597f933a74f7c801
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131478382"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132324562"
 ---
 # <a name="troubleshoot-hr-manager-update-issues"></a>Solución de problemas de actualización del administrador de RR. HH.
 
@@ -55,14 +54,14 @@ Para que la *resolución de referencias de administrador* funcione correctamente
 * La aplicación de aprovisionamiento debe haber procesado el registro de administrador antes de procesar el registro de usuarios. 
 
 ## <a name="provision-on-demand-does-not-update-manager-attribute"></a>El aprovisionamiento a petición no actualiza el atributo manager
-| | |
+| Solución de problemas | Detalles |
 |--|--|
 | **Problema** | Ha configurado correctamente la aplicación de aprovisionamiento de entrada. Está probando la sincronización con el aprovisionamiento a petición. No actualiza el atributo manager y recibe un mensaje de error *"Valor no válido"* .  |
 | **Causa** | El trabajo de aprovisionamiento no cumple uno de los [requisitos previos para una actualización correcta del administrador](#prerequisites-for-successful-manager-update).  |
 | **Resolución** | * Si ha cambiado la asignación predeterminada del atributo manager, restaure la asignación predeterminada. <br> * Asegúrese de que el registro del administrador está dentro del ámbito y de que la expresión de API del atributo manager se resuelve en un valor válido. <br> * Ejecute primero el aprovisionamiento a petición del registro del administrador y, después, ejecute el aprovisionamiento a petición para el registro de usuarios.  |
 
 ## <a name="full-sync-does-not-update-manager-attribute"></a>La sincronización completa no actualiza el atributo manager
-| | |
+| Solución de problemas | Detalles |
 |--|--|
 | **Problema** | Ha configurado correctamente la aplicación de aprovisionamiento de entrada. Está usando un filtro de ámbito para procesar solo determinados registros de RR. HH. Observa que la resolución del administrador no se está produciendo para algunos usuarios.  |
 | **Causa** | Si usa filtros de ámbito, lo más probable es que el registro del administrador no esté dentro del ámbito.  |

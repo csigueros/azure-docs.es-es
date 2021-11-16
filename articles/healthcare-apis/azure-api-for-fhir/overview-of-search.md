@@ -5,14 +5,14 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 10/25/2021
+ms.date: 11/12/2021
 ms.author: cavoeg
-ms.openlocfilehash: 0a6ca1bd251b65b93baf1a262acc0d22102b1ad1
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a1bb41b9e3272297cb49f42ee3a6e20137a57d46
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131084853"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491722"
 ---
 # <a name="overview-of-search-in-azure-api-for-fhir"></a>Información general de la búsqueda en Azure API for FHIR
 
@@ -36,6 +36,8 @@ Cuando realice una búsqueda, lo hará en función de varios atributos del recur
 
 Cada parámetro de búsqueda tiene un [tipo de datos](https://www.hl7.org/fhir/search.html#ptypes) definido. A continuación se describe la compatibilidad con los distintos tipos de datos:
 
+> [!WARNING]
+> Actualmente hay un problema al usar _sort en la Azure API for FHIR con búsqueda encadenada. Para obtener más información, vea el problema de código abierto [n.º 2344.](https://github.com/microsoft/fhir-server/issues/2344) Esto se resolverá durante una versión en diciembre de 2021. 
 
 | **Tipo de parámetro de búsqueda**  | **Azure API for FHIR** | **Servicio FHIR en Azure Healthcare APIs** | **Comment**|
 | -------------------------  | -------------------- | ------------------------- | ------------|
@@ -136,7 +138,7 @@ Para facilitar la administración de los recursos devueltos, puede usar parámet
 | _revinclude                   | Sí                  | Sí                       |Los elementos incluidos se limitan a 100. _revinclude en PaaS y OSS en Cosmos DB no incluyen compatibilidad con :iterate [(nº 2137)](https://github.com/microsoft/fhir-server/issues/2137).  También hay un código de estado incorrecto para una solicitud incorrecta [nº 1319](https://github.com/microsoft/fhir-server/issues/1319)                            |
 | _summary                      | Sí             | Sí                   |
 | _total                        | Parcial              | Parcial                   | _total=none y _total=accurate                               |
-| _sort                         | Parcial              | Parcial                   | sort=_lastUpdated se admite en Azure API for FHIR y el servicio FHIR. Para el servicio FHIR y los servidores FHIR de OSS SQL DB, se admite la ordenación por cadenas y campos dateTime. Para Azure API for FHIR bases de datos de Azure API for FHIR y OSS Cosmos creadas después del 20 de abril de 2021, la ordenación se admite en el nombre, el apellido y la fecha de la historia.          |
+| _sort                         | Parcial              | Parcial                   | sort=_lastUpdated se admite en Azure API for FHIR y el servicio FHIR. Para las bases de datos de Azure API for FHIR y OSS Cosmos creadas después del 20 de abril de 2021, se admite la ordenación por nombre, apellido, fecha de nacimiento y fecha de nacimiento. Tenga en cuenta que hay un problema abierto al usar _sort búsqueda encadenada, que se documenta en el problema de código abierto [n.º 2344.](https://github.com/microsoft/fhir-server/issues/2344)          |
 | _contained                    | No                   | No                        |
 | _containedType                | No                   | No                        |
 | _score                        | No                   | No                        |

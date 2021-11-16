@@ -3,12 +3,12 @@ title: Procedimientos recomendados para mejorar el rendimiento mediante Azure Se
 description: Describe cómo usar Service Bus para optimizar el rendimiento al intercambiar mensajes asincrónicos.
 ms.topic: article
 ms.date: 08/30/2021
-ms.openlocfilehash: 51b8005f9aa3b53bbcb8d78b83c4449992cf0210
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 246b9deedb9385b671bf89a27d666798c703a93a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128560723"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232146"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Procedimientos recomendados para mejorar el rendimiento mediante la mensajería de Service Bus
 
@@ -26,7 +26,7 @@ Service Bus ofrece varios planes de tarifa. Se recomienda elegir el nivel adecua
 
    * **Nivel Estándar**: adecuado para entornos de desarrollo y pruebas o escenarios de bajo rendimiento en los que las aplicaciones **no son sensibles** a la limitación.
 
-   * **Nivel Premium**: adecuado para entornos de producción con diversos requisitos de rendimiento en los que se requiere una latencia y un rendimiento predecibles. Además, los espacios de nombres prémium de Service Bus se pueden [escalar automáticamente](automate-update-messaging-units.md) para dar cabida a picos de rendimiento.
+   * **Nivel Premium**: adecuado para entornos de producción con diversos requisitos de rendimiento en los que se requiere una latencia y un rendimiento predecibles. Además, los espacios de nombres prémium de Service Bus se pueden [escalar automáticamente](automate-update-messaging-units.md) y se pueden habilitar para dar cabida a picos de rendimiento.
 
 > [!NOTE]
 > Si no se selecciona el nivel correcto, existe el riesgo de desbordar el espacio de nombres de Service Bus, lo que puede dar lugar a la [limitación](service-bus-throttling.md).

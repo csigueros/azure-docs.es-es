@@ -7,17 +7,17 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/18/2021
-ms.openlocfilehash: 95d14afebd6567e18aed6e4585c930a3d46ccb42
-ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.openlocfilehash: e97ed074cd9c0fee7a2fc3b3c7795d205292da28
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130137707"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130254161"
 ---
 # <a name="configure-and-verify-dns-name-resolution-for-azure-purview-private-endpoints"></a>Configuración y comprobación de la resolución de nombres DNS para puntos de conexión privados de Azure Purview
 
 > [!IMPORTANT]
-> Si creó un punto de conexión privado del _portal_ para su cuenta de Purview **antes del 27 de septiembre de 2021 a las 15:30 UTC**, deberá realizar las acciones necesarias que se detallan en [Reconfiguración de DNS para puntos de conexión privados del portal](./catalog-private-link.md#reconfigure-dns-for-portal-private-endpoints). **Estas acciones deben completarse antes del 11 de octubre de 2021. Si no lo hace, los puntos de conexión privados del portal existentes dejarán de funcionar**.
+> Si creó un punto de conexión privado del _portal_ para su cuenta de Purview **antes del 27 de septiembre de 2021 a las 15:30 UTC**, deberá realizar las acciones necesarias que se detallan en [Reconfiguración de DNS para puntos de conexión privados del portal](./catalog-private-link.md#reconfigure-dns-for-portal-private-endpoints). **Estas acciones deben completarse antes del 12 de noviembre de 2021. Si no lo hace, los puntos de conexión privados del portal existentes dejarán de funcionar**.
 
 ## <a name="conceptual-overview"></a>Información general conceptual
 La resolución de nombres precisa es un requisito fundamental al configurar puntos de conexión privados para las cuentas de Azure Purview. 

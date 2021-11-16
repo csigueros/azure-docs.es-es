@@ -10,12 +10,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e940db4a16963b236fa5230893373da935532761
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 0fc4fce280db7a2d4744fc8466ff9297699494a3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129273221"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131460363"
 ---
 # <a name="configure-a-lifecycle-management-policy"></a>Configurar una directiva de administración del ciclo de vida
 

@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 02/23/2021
 ms.author: alkemper
-ms.openlocfilehash: 61b50f8e3c5b32401b4f7339627b9b704a4b94fd
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: 2f5ac3579489637e5adcdfaa40fac90b5ff6e8b4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112122974"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131427159"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Envío de configuraciones a App Configuration con Azure Pipelines
 
@@ -24,6 +24,7 @@ La tarea [Azure App Configuration Push](https://marketplace.visualstudio.com/ite
 - Recurso de App Configuration: cree uno de forma gratuita en [Azure Portal](https://portal.azure.com).
 - Proyecto de Azure DevOps: [cree uno gratis](https://go.microsoft.com/fwlink/?LinkId=2014881).
 - Tarea Azure App Configuration Push: descárguela de manera gratuita de [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push).
+- [Nodo 10](https://nodejs.org/en/blog/release/v10.21.0/): para usuarios que ejecutan la tarea en agentes autohospedados.
 
 ## <a name="create-a-service-connection"></a>Creación de una conexión de servicio
 

@@ -9,12 +9,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5583596e399456461b2fc157a193b83b596180ee
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 4ea9643f14bb020978e05eb8b0a714365c2770b4
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129387399"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131559283"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Acerca de los secretos de Azure Key Vault
 
@@ -28,7 +28,7 @@ Key Vault también admite un campo contentType para secretos. Los clientes puede
 
 ## <a name="encryption"></a>Cifrado
 
-Todos los secretos de Key Vault se almacenan cifrados. Este cifrado es transparente y no requiere ninguna acción por parte del usuario. El servicio Azure Key Vault cifra sus secretos cuando los agrega y los descifra automáticamente cuando los lee. La clave de cifrado es exclusiva de cada almacén de claves.
+Todos los secretos de Key Vault se almacenan cifrados. Key Vault cifra los secretos en reposo con una jerarquía de claves de cifrado en la cual todas las claves de esa jerarquía están protegidas por módulos compatibles con FIPS 140-2. En todas las regiones a excepción de China, la raíz de esa jerarquía de claves está protegida por un módulo que se valida para FIPS 140-2 nivel 2 o superior. En China, la raíz de esa jerarquía está protegida por un módulo que se valida para FIPS 140-2 nivel 1. Este cifrado es transparente y no requiere ninguna acción por parte del usuario. El servicio Azure Key Vault cifra sus secretos cuando los agrega y los descifra automáticamente cuando los lee. La clave de cifrado es exclusiva de cada almacén de claves.
 
 ## <a name="secret-attributes"></a>Atributos del secreto
 

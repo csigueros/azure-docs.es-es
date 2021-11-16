@@ -1,5 +1,5 @@
 ---
-title: 'Referencia del lenguaje de consulta de Azure Digital Twins: cláusulas WHERE'
+title: 'Referencia del lenguaje de consulta de Azure Digital Twins: cláusula WHERE'
 titleSuffix: Azure Digital Twins
 description: Documentación de referencia para la cláusula WHERE del lenguaje de consulta de Azure Digital Twins
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 03/31/2021
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: f9be1425ae614c266f17a95668faf7fb9d21d2f1
-ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
+ms.openlocfilehash: bf70d1aa4b7a8a3cdfd9d8bcd90a9952e83271bc
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113492836"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232837"
 ---
 # <a name="azure-digital-twins-query-language-reference-where-clause"></a>Referencia del lenguaje de consulta de Azure Digital Twins: cláusula WHERE
 

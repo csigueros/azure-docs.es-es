@@ -1,21 +1,30 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 08/17/2021
+ms.date: 10/15/2021
 ms.service: virtual-wan
 ms.topic: include
-ms.openlocfilehash: d2c533105901178e7144f853024039c99371e2eb
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 5cac86b599e7e52cbc6018de6d97392bf28e4608
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122321932"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131520506"
 ---
 1. Abra la red WAN virtual que ha creado.
 
 1. Seleccione un centro de conectividad virtual asociado a la WAN virtual para abrir su página.
 
-1. Haga clic en **Eliminar**. Elimine todas las entidades (conexiones, puertas de enlace, etc.) del centro de conectividad. Esto puede tardar hasta 30 minutos.
+1. Elimine todas las entidades de puerta de enlace siguiendo el orden que se indica a continuación para el tipo de puerta de enlace. Esta operación puede tardar hasta 30 minutos.
+
+    **VPN:**  
+   1. Desconecte los sitios de VPN  
+   1. Elimine las conexiones de VPN  
+   1. Elimine las puertas de enlace de VPN  
+
+    **ExpressRoute:**  
+   1. Elimine las conexiones de ExpressRoute  
+   1. Elimine las puertas de enlace de ExpressRoute  
 
 1. Puede eliminar el centro de conectividad en este momento o más adelante, cuando elimine el grupo de recursos.
 

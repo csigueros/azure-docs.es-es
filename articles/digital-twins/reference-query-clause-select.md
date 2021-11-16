@@ -1,5 +1,5 @@
 ---
-title: 'Referencia del lenguaje de consulta de Azure Digital Twins: cláusulas SELECT'
+title: 'Referencia del lenguaje de consulta de Azure Digital Twins: cláusula SELECT'
 titleSuffix: Azure Digital Twins
 description: Documentación de referencia para la cláusula SELECT del lenguaje de consulta de Azure Digital Twins
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 03/31/2021
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: eeba36b200028d4e90e22cd32c9bab6dbe3799e0
-ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
+ms.openlocfilehash: c911a3ea8607cb83cb3d96a44bfac424042df30a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113492872"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232875"
 ---
 # <a name="azure-digital-twins-query-language-reference-select-clause"></a>Referencia del lenguaje de consulta de Azure Digital Twins: cláusula SELECT
 

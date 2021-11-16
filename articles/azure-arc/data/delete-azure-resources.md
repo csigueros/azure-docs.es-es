@@ -7,29 +7,39 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 5a2b51573e4b639c80fd36b69cef667b9ea6eff5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ad92c16b70fd2d9f2e137558db1e70c387815a8f
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121743853"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131564145"
 ---
 # <a name="delete-resources-from-azure"></a>Eliminación de recursos de Azure
 
-En este artículo se describe cómo eliminar recursos de Azure.
+En este artículo se describe cómo eliminar de Azure recursos del servicio de datos habilitado para Azure Arc.
 
 > [!WARNING]
 > Al eliminar recursos como se describe en este artículo, estas acciones son irreversibles.
 
 ## <a name="before"></a>Antes
 
-Antes de eliminar un recurso como una instancia administrada de SQL de Azure Arc o un controlador de datos de Azure Arc, debe exportar y cargar la información de uso en Azure para realizar un cálculo de facturación preciso siguiendo las instrucciones descritas en [Carga de datos de facturación en Azure](view-billing-data-in-azure.md#upload-billing-data-to-azure).
+Antes de eliminar un recurso como una instancia administrada de SQL de Azure Arc o un controlador de datos de Azure Arc, debe exportar y cargar la información de uso en Azure para realizar un cálculo de facturación preciso siguiendo las instrucciones descritas en [Carga de datos de facturación en Azure: modo conectado indirectamente](view-billing-data-in-azure.md#upload-billing-data-to-azure---indirectly-connected-mode).
 
 ## <a name="direct-connectivity-mode"></a>Modo de conectividad directa
 
 Cuando un clúster esté conectado a Azure con el modo de conectividad directa, use Azure Portal para administrar los recursos. Use el portal para todas las operaciones de creación, lectura, actualización y eliminación (CRUD) para el controlador de datos, Instancia administrada y grupos de PostgreSQL.
+
+Desde Azure Portal:
+1. Vaya al grupo de recursos y elimine el controlador de datos de Azure Arc.
+2. Seleccione el clúster de Kubernetes habilitado para Azure Arc y vaya a la página de información general.
+    - En Configuración, seleccione **Extensiones**.
+    - En la página Extensiones, seleccione la extensión de servicios de datos de Azure Arc (de tipo microsoft.arcdataservices) y haga clic en **Desinstalar**.
+3. De manera opcional, elimine la ubicación personalizada en la que se ha implementado el controlador de datos de Azure Arc.
+4. Como alternativa, también puede eliminar el espacio de nombres en el clúster de Kubernetes si no se ha creado ningún otro recurso en el espacio de nombres.
+
+
 
 Consulte [Administración de recursos de Azure con Azure Portal](../../azure-resource-manager/management/manage-resources-portal.md).
 

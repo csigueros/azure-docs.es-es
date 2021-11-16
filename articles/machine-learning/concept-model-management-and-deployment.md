@@ -1,25 +1,25 @@
 ---
 title: 'MLOps: Administración de modelos de Machine Learning'
 titleSuffix: Azure Machine Learning
-description: 'Más información sobre la administración de modelos con Azure Machine Learning (MLOps) Implemente, administre, rastree el linaje y supervise sus modelos para mejorarlos continuamente. '
+description: 'Más información sobre la administración de modelos (MLOps) con Azure Machine Learning Implemente, administre, rastree el linaje y supervise sus modelos para mejorarlos continuamente. '
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
 author: jpe316
 ms.author: jordane
-ms.date: 10/21/2021
-ms.custom: seodec18
-ms.openlocfilehash: e23150105f2242f5db507cca1be39aca27f26786
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.custom: seodec18, mktng-kw-nov2021
+ms.date: 11/04/2021
+ms.openlocfilehash: 7391f4306207e6b181f994c04022c4393712f30f
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131561012"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131848484"
 ---
 # <a name="mlops-model-management-deployment-lineage-and-monitoring-with-azure-machine-learning"></a>MLOps: administración de modelos, implementación, linaje y supervisión con Azure Machine Learning
 
-En este artículo, obtendrá información sobre cómo usar Azure Machine Learning para administrar el ciclo de vida de los modelos. Azure Machine Learning usa un enfoque de Operaciones de Machine Learning (MLOps). MLOps mejora la calidad y la coherencia de las soluciones de aprendizaje automático. 
+En este artículo, obtenga información sobre cómo realizar operaciones de Machine Learning (MLOps) en Azure Machine Learning para administrar el ciclo de vida de los modelos. MLOps mejora la calidad y la coherencia de las soluciones de aprendizaje automático. 
 
 ## <a name="what-is-mlops"></a>¿Qué es MLOps?
 
@@ -28,6 +28,8 @@ Operaciones de Machine Learning (MLOps) se basa en los principios y prácticas d
 * Conseguir una experimentación y desarrollo de modelos más rápidos
 * Conseguir una implementación más rápida de los modelos en producción
 * Control de calidad y seguimiento de linaje de un extremo a otro
+
+## <a name="mlops-in-azure-machine-learning"></a>MLOps en Azure Machine Learning
 
 Azure Machine Learning ofrece las siguientes funcionalidades de MLOps:
 
@@ -40,6 +42,7 @@ Azure Machine Learning ofrece las siguientes funcionalidades de MLOps:
 - **Automatización del ciclo de vida de un extremo a otro de Machine Learning con Azure Machine Learning y Azure Pipelines**. El uso de canalizaciones le permite actualizar con frecuencia los modelos, probar los modelos nuevos e implementar continuamente nuevos modelos de ML junto con sus otras aplicaciones y servicios.
 
 Para obtener más información sobre MLOps, consulte [Machine Learning DevOps (MLOps)](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops).
+
 ## <a name="create-reproducible-ml-pipelines"></a>Creación de canalizaciones de ML reproducibles
 
 Utilice canalizaciones de ML desde Azure Machine Learning para unir todos los pasos implicados en el proceso de entrenamiento del modelo.
@@ -141,7 +144,7 @@ Para más información, consulte [Lanzamiento controlado de modelos de ML](how-t
 
 Microsoft Power BI admite el uso de modelos de Machine Learning para el análisis de datos. Para obtener más información, consulte la [integración de Azure Machine Learning en Power BI (versión preliminar)](/power-bi/service-machine-learning-integration).
 
-## <a name="capture-the-governance-data-required-for-capturing-the-end-to-end-ml-lifecycle"></a>Captura de los datos de gobernanza necesarios para capturar el ciclo de vida de ML de un extremo a otro
+## <a name="capture-the-governance-data-required-for-mlops"></a>Captura de los datos de gobernanza necesarios para MLOps
 
 Azure Machine Learning ofrece la capacidad de realizar un seguimiento del registro de auditoría de un extremo a otro de todos los recursos de ML mediante metadatos.
 
@@ -195,8 +198,8 @@ La [extensión de Azure Machine Learning](https://marketplace.visualstudio.com/i
 Para obtener más información sobre el uso de Azure Pipelines con Azure Machine Learning, consulte los vínculos siguientes:
 
 * [Integración continua e implementación de modelos de Machine Learning con Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning). 
-* Repositorio de [MLOPs de Azure Machine Learning](https://aka.ms/mlops).
-* Repositorio de [MLOPs de Python en Azure Machine Learning](https://github.com/Microsoft/MLOpspython).
+* Repositorio de [MLOps en Azure Machine Learning](https://aka.ms/mlops)
+* Repositorio de [MLOpsPython en Azure Machine Learning](https://github.com/Microsoft/MLOpspython)
 
 También puede usar Azure Data Factory para crear una canalización de ingesta de datos que prepare los datos para su uso con el entrenamiento. Para más información, consulte [Canalización de ingesta de datos](how-to-cicd-data-ingestion.md).
 

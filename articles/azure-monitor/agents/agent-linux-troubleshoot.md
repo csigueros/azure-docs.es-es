@@ -4,25 +4,17 @@ description: Se describen los síntomas, las causas y las soluciones de los prob
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/21/2019
-ms.openlocfilehash: e3e65bd40bfceb6a48d4ce917c274f6532aa30e7
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.date: 10/21/2021
+ms.openlocfilehash: fce62f3bbe5a3eca29f89cb47c98df6485d1d123
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122178558"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216568"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Cómo solucionar problemas relacionados con el agente de Log Analytics para Linux
 
 En este artículo se proporciona información sobre los errores que es posible que experimente con el agente de Log Analytics para Linux en Azure Monitor y se sugieren posibles soluciones para resolverlos.
-
-Si ninguno de estos pasos funciona, también están disponibles los siguientes canales de soporte técnico:
-
-* Los clientes con ventajas de soporte técnico Premier pueden abrir una solicitud de soporte técnico en [Premier](https://premier.microsoft.com/).
-* Los clientes con contratos de soporte técnico de Azure pueden abrir una solicitud de soporte técnico [en Azure Portal](https://azure.microsoft.com/support/options/).
-* Diagnostique los problemas de OMI con la [Guía de solución de problemas de OMI](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md).
-* Registre un [problema de GitHub](https://github.com/Microsoft/OMS-Agent-for-Linux/issues).
-* Visite la página de comentarios de Log Analytics para revisar los errores e ideas enviadas [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) o registre uno nuevo.
 
 ## <a name="log-analytics-troubleshooting-tool"></a>Herramienta de solución de problemas de Log Analytics
 
@@ -36,9 +28,10 @@ La herramienta de solución de problemas se puede ejecutar pegando el siguiente 
 
 La herramienta de solución de problemas se incluye automáticamente al instalar el agente de Log Analytics. Sin embargo, si se produce algún error en la instalación, también se puede instalar manualmente siguiendo estos pasos.
 
-1. Copie el paquete del solucionador de problemas en el equipo: `wget https://raw.github.com/microsoft/OMS-Agent-for-Linux/master/source/code/troubleshooter/omsagent_tst.tar.gz`
-2. Desempaquete el paquete: `tar -xzvf omsagent_tst.tar.gz`
-3. Ejecute la instalación manual: `sudo ./install_tst`
+1. Asegúrese de que el [depurador de proyectos de GNU (GDB)](https://www.gnu.org/software/gdb/) está instalado en la máquina, ya que el solucionador de problemas depende de él.
+2. Copie el paquete del solucionador de problemas en el equipo: `wget https://raw.github.com/microsoft/OMS-Agent-for-Linux/master/source/code/troubleshooter/omsagent_tst.tar.gz`
+3. Desempaquete el paquete: `tar -xzvf omsagent_tst.tar.gz`
+4. Ejecute la instalación manual: `sudo ./install_tst`
 
 ### <a name="scenarios-covered"></a>Escenarios descritos
 
@@ -59,7 +52,7 @@ Para obtener más información, consulte la [documentación de GitHub](https://g
 
 ## <a name="purge-and-re-install-the-linux-agent"></a>Purga y reinstalación del agente de Linux
 
-Hemos visto que una reinstalación limpia del agente corregirá la mayoría de los problemas. De hecho, puede tratarse de la primera sugerencia de soporte técnico para que el equipo de soporte técnico consiga que el agente funcione correctamente. La ejecución del solucionador de problemas, la recopilación de registros y el intento de una reinstalación limpia ayudarán a resolver los problemas más rápidamente.
+Hemos visto que una reinstalación limpia del agente corregirá la mayoría de los problemas. De hecho, esta puede ser la primera sugerencia del equipo de soporte técnico: que el agente entre en un estado no dañado. La ejecución del solucionador de problemas, la recopilación de registros y el intento de una reinstalación limpia ayudarán a resolver los problemas más rápidamente.
 
 1. Descargue el script de purga:
 - `$ wget https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/tools/purge_omsagent.sh`
@@ -494,3 +487,17 @@ Siga los pasos a continuación para corregir el problema.
     ```
 
 3. Para actualizar los paquetes, ejecute `sudo sh ./omsagent-*.universal.x64.sh --upgrade`.
+
+## <a name="issue-installation-is-failing-saying-python2-cannot-support-ctypes-even-though-python3-is-being-used"></a>Problema: la instalación produce un error que dice que Python2 no admite ctypes, a pesar de que se está utilizando Python3
+
+### <a name="probable-causes"></a>Causas probables
+
+Hay un problema conocido por el que, si el idioma de la máquina virtual no es inglés, se producirá un error al comprobar qué versión de Python se está utilizando. Esto hace que el agente siempre asuma que se usa Python2 y que se produzca un error si no hay Python2.
+
+### <a name="resolution"></a>Resolución
+
+Cambie el idioma del entorno de la máquina virtual a inglés:
+
+```
+export LANG=en_US.UTF-8
+```

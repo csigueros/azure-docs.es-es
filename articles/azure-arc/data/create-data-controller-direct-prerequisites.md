@@ -7,45 +7,42 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 03/31/2021
+ms.date: 11/03/2021
 ms.topic: overview
-ms.openlocfilehash: 143a601f89301d3ed4302efa6e978cba53539e2c
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 0016e3129a755b86acff2dfb1907f0ffcb62b569
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113734077"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131564202"
 ---
 # <a name="prerequisites-to-deploy-the-data-controller-in-direct-connectivity-mode"></a>Requisitos previos para implementar el controlador de datos en modo de conectividad directa
 
-En este artículo se describe cómo prepararse para implementar un controlador de servicios de datos habilitados para Azure Arc en modo de conexión directa. La implementación del controlador de datos de Azure Arc requiere conocimientos y conceptos adicionales, tal como se describe en [Plan de implementación de servicios de datos habilitados para Azure Arc](plan-azure-arc-data-services.md).
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+En este artículo se describe cómo prepararse para implementar un controlador de servicios de datos habilitados para Azure Arc en modo de conexión directa. Antes de implementar un controlador de datos de Azure Arc, comprenda los conceptos descritos en [Planeamiento de la implementación de servicios de datos habilitados para Azure Arc](plan-azure-arc-data-services.md).
 
 En un nivel alto, los requisitos previos para crear un controlador de datos de Azure Arc en el modo de conectividad **directa** incluyen los siguientes:
 
 1. Conexión del clúster de Kubernetes a Azure mediante Kubernetes habilitado para Azure Arc
-2. Creación de la entidad de servicio y configuración de roles para métricas
-3. Creación de un controlador de datos de servicios de datos habilitados para Azure Arc. Este paso implica la creación de
+2. Creación de un controlador de datos de servicios de datos habilitados para Azure Arc. Este paso implica la creación de
     - una extensión de servicios de datos de Azure Arc
-    - una ubicación personalizada
+    - Ubicación personalizada
     - un controlador de datos de Azure Arc
+3. Si se desea la carga automática de registros en Azure Log Analytics, se necesitan el identificador del área de trabajo de Log Analytics y la clave de acceso compartido como parte de la implementación.
 
 ## <a name="1-connect-kubernetes-cluster-to-azure-using-azure-arc-enabled-kubernetes"></a>1. Conexión del clúster de Kubernetes a Azure mediante Kubernetes habilitado para Azure Arc
 
-La conexión del clúster de Kubernetes a Azure se puede llevar a cabo mediante la CLI de ```az```, con las siguientes extensiones, así como Helm.
+Para conectar el clúster de Kubernetes a Azure, use la CLI de Azure `az` con las siguientes extensiones o Helm.
 
-#### <a name="install-tools"></a>Instalación de herramientas
+### <a name="install-tools"></a>Instalación de herramientas
 
-- Helm 3.3+[(instalar](https://helm.sh/docs/intro/install/))
-- Instalar o actualizar a la última versión de la CLI de Azure ([instalar](/sql/azdata/install/deploy-install-azdata))
+- Instalar o actualizar a la última versión de la CLI de Azure ([instalar](/sql/azdata/install/deploy-install-azdata)) 
 
-#### <a name="add-extensions-for-azure-cli"></a>Agregar extensiones para la CLI de Azure
+### <a name="add-extensions-for-azure-cli"></a>Agregar extensiones para la CLI de Azure
 
 Instale las versiones más recientes de las siguientes extensiones az:
-- ```k8s-extension```
-- ```connectedk8s```
-- ```k8s-configuration```
+- `k8s-extension`
+- `connectedk8s`
+- `k8s-configuration`
 - `customlocation`
 
 Ejecute el siguiente comando para instalar las extensiones az de la CLI:
@@ -57,7 +54,7 @@ az extension add --name k8s-configuration
 az extension add --name customlocation
 ```
 
-Si ya instaló previamente las extensiones ```k8s-extension```, ```connectedk8s``` ```k8s-configuration``` y `customlocation`, actualícelas a la versión más reciente con el siguiente comando:
+Si ya instaló previamente las extensiones `k8s-extension`, `connectedk8s` `k8s-configuration` y `customlocation`, actualícelas a la versión más reciente con el siguiente comando:
 
 ```azurecli
 az extension update --name k8s-extension
@@ -65,20 +62,17 @@ az extension update --name connectedk8s
 az extension update --name k8s-configuration
 az extension update --name customlocation
 ```
-#### <a name="connect-your-cluster-to-azure"></a>Conexión del clúster a Azure
+
+### <a name="connect-your-cluster-to-azure"></a>Conexión del clúster a Azure
 
 Para completar esta tarea, siga los pasos descritos en [Conexión de un clúster de Kubernetes existente a Azure Arc](../kubernetes/quickstart-connect-cluster.md).
 
-Después de conectar el clúster a Azure, continúe con la creación de una entidad de servicio. 
+## <a name="2-optionally-keep-the-log-analytics-workspace-id-and-shared-access-key-ready"></a>2. Opcionalmente, tenga el identificador del área de trabajo de Log Analytics y la clave de acceso compartido preparados.
 
-## <a name="2-create-service-principal-and-configure-roles-for-metrics"></a>2. Creación de una entidad de servicio y configuración de roles para métricas
+Al implementar un controlador de datos habilitado para Azure Arc, puede habilitar la carga automática de métricas y registros durante la instalación. La carga de métricas usa la identidad administrada asignada por el sistema. Sin embargo, la carga de registros requiere un identificador de área de trabajo y la clave de acceso para el área de trabajo. 
 
-Siga los pasos detallados en el artículo sobre la [carga de métricas](upload-metrics-and-logs-to-azure-monitor.md), cree una entidad de servicio y conceda los roles tal como se describe en el artículo. 
-
-La información de ClientID, TenantID y secreto de cliente de SPN será necesaria para [implementar el controlador de datos de Azure Arc](create-data-controller-direct-azure-portal.md). 
+También puede habilitar o deshabilitar la carga automática de métricas y registros después de implementar el controlador de datos. 
 
 ## <a name="3-create-azure-arc-data-services"></a>3. Creación de servicios de datos de Azure Arc
 
 Una vez completados estos requisitos previos, puede consultar [Implementación del controlador de datos de Azure Arc | Modo de conexión directa](create-data-controller-direct-azure-portal.md).
-
-

@@ -5,15 +5,15 @@ services: app-service
 author: craigshoemaker
 ms.service: app-service
 ms.topic: conceptual
-ms.date: 09/16/2021
+ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: d33c3d6687179e734f82f0b109bb0fb9b45be205
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b02d4d06b855229f41a0bae0b04d1729a29e4e49
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091273"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131579015"
 ---
 # <a name="set-scaling-rules-in-azure-container-apps"></a>Establecer reglas de escalado en Azure Container Apps
 
@@ -166,7 +166,7 @@ En el ejemplo siguiente se muestra cómo crear una regla de escalado de CPU.
 
 ## <a name="memory"></a>Memoria
 
-El escalado de CPU permite que la aplicación se reduzca o escale horizontalmente en función de la cantidad de CPU que se esté utilizando. El escalado de CPU no permite que la aplicación contenedora se escale a 0. Para obtener más información acerca de esta escala, consulte [escala de memoria KEDA](https://keda.sh/docs/scalers/memory/).
+El escalado de memoria permite que la aplicación se reduzca o escale horizontalmente en función de la cantidad de memoria que se esté utilizando. El escalado de memoria no permite que la aplicación contenedora se escale a 0. Para obtener más información acerca de esta escala, consulte [escala de memoria KEDA](https://keda.sh/docs/scalers/memory/).
 
 En el ejemplo siguiente se muestra cómo crear una regla de escalado de memoria.
 

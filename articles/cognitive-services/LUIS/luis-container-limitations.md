@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 10/28/2021
 ms.author: aahi
-ms.openlocfilehash: 5c76e45f09a0f432d2775eb19d3dcaa668294e6f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cd29ef48f2d1042091a1379570e8ea710c718ff9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96002360"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131426229"
 ---
 # <a name="language-understanding-luis-container-limitations"></a>Limitaciones de los contenedores de Language Understanding (LUIS)
 
@@ -46,7 +46,7 @@ Configuraciones de aplicaciones no admitidas|Detalles|
 
 Los contenedores LUIS admiten un subconjunto de los [idiomas admitidos](luis-language-support.md#languages-supported) por LUIS. Los contenedores LUIS son capaces de comprender expresiones en los siguientes idiomas:
 
-| Idioma | Configuración regional | Dominio creado previamente | Entidad creada previamente | Recomendaciones de la lista de frases | \**[Análisis de texto](../text-analytics/language-support.md)<br>(Las opiniones y<br>palabras clave)|
+| Idioma | Configuración regional | Dominio creado previamente | Entidad creada previamente | Recomendaciones de la lista de frases | **[Análisis de sentimiento](../language-service/sentiment-opinion-mining/language-support.md) y [extracción de frases clave](../language-service/key-phrase-extraction/language-support.md)|
 |--|--|:--:|:--:|:--:|:--:|
 | Spanish (Traditional Sort) - Spain | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
 | Árabe (versión preliminar: Árabe estándar moderno) |`ar-AR`|❌|❌|❌|❌|
@@ -67,4 +67,4 @@ Los contenedores LUIS admiten un subconjunto de los [idiomas admitidos](luis-lan
 
 [!INCLUDE [Chinese language support notes](includes/chinese-language-support-notes.md)]
 
-[!INCLUDE [Text Analytics support notes](includes/text-analytics-support-notes.md)]
+[!INCLUDE [Language service support notes](includes/text-analytics-support-notes.md)]

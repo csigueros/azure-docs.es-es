@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Implementación de una aplicación Dapr en Azure Container Apps mediante una plantilla de ARM'
 description: Implementación de una aplicación Dapr en Azure Container Apps mediante una plantilla de ARM
-services: app-service
+services: container-apps
 author: asw101
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aawislan
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 4f8678dfd6871aa56a649c882b7b8636640bd3d4
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: d38af387910551903d2781863deb3de3fcd36160
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131578280"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132026926"
 ---
 # <a name="tutorial-deploy-a-dapr-application-to-azure-container-apps-using-an-arm-template"></a>Tutorial: Implementación de una aplicación Dapr en Azure Container Apps mediante una plantilla de ARM
 
@@ -145,7 +145,7 @@ az provider register --namespace Microsoft.Web
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az provider register --namespace Microsoft.Web
 ```
 

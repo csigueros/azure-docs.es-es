@@ -6,15 +6,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: feospina
 ms.author: feospina
-ms.date: 7/15/2021
-ms.openlocfilehash: e00b00f493bb68c989d38b017db387ab01183fc3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 10/26/2021
+ms.openlocfilehash: 295e2533957f376dd905e6deb528e9cb9ceffce0
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121736471"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131848844"
 ---
 # <a name="microsoft-preferred-solution-badge"></a>Distintivo de solución preferida de Microsoft
+
+> [!TIP]
+> Para ver la vista del cliente de soluciones favoritas en el marketplace comercial, consulte [¿Qué es Azure Marketplace?](/marketplace/azure-marketplace-overview#microsoft-preferred-solutions) y [¿Qué es Microsoft AppSource?](/marketplace/appsource-overview).
 
 ## <a name="what-is-the-microsoft-preferred-solution-badge"></a>¿Cuál es el distintivo de solución preferida de Microsoft?
 

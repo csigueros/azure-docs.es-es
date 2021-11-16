@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 10/11/2021
 ms.custom: contperf-fy22q2
-ms.openlocfilehash: 69c44e8fe4ff1eeb77ce2efc1cf9ac11158d82ee
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 80a9701fb4d7ac3f93d7ba9c35cba2cc34dc7416
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129811336"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130258551"
 ---
 # <a name="get-started-with-azure-service-bus-queues-net"></a>Introducción a las colas de Azure Service Bus (.NET)
 En este inicio rápido, hará lo siguiente:
@@ -450,7 +450,7 @@ En esta sección agregará código para recuperar mensajes de la cola.
 1. Vuelva a consultar el portal. Espere unos minutos y actualice la página si no ve `0` para los mensajes **Activos**. 
 
     - El recuento de mensajes **Activos** y los valores de **Tamaño actual** ahora son **0**.
-    - En el gráfico **Mensajes** de la sección **Métricas** inferior, puede ver que hay ocho mensajes entrantes y otros ocho salientes para la cola. 
+    - En el gráfico **Mensajes** de la sección **Métricas** inferior, puede ver que hay tres mensajes entrantes y otros tres salientes para la cola. 
     
         :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/queue-messages-size-final.png" alt-text="Mensajes activos y tamaño después de la recepción" lightbox="./media/service-bus-dotnet-get-started-with-queues/queue-messages-size-final.png":::
 

@@ -1,6 +1,6 @@
 ---
 title: 'Enriquecimiento de tokens: Azure Active Directory B2C'
-description: Enriquezca tokens con notificaciones de orígenes externos mediante API.
+description: Enriquezca los tokens con notificaciones de orígenes de datos de identidad externos mediante las API o webhooks de salida.
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
@@ -11,18 +11,18 @@ ms.date: 08/29/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8f5bf34424754106c6d86195c37d23c3c9060c1c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 2b27fcb43d815a6a2567ebb11c0ea768914582eb
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131008358"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131440970"
 ---
 # <a name="enrich-tokens-with-claims-from-external-sources-using-api-connectors"></a>Enriquecimiento de tokens con notificaciones de orígenes externos mediante conectores de API
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-Azure Active Directory B2C (Azure AD B2C) permite a los desarrolladores de identidades integrar una interacción con una API RESTful en su flujo de usuario mediante [conectores de API](api-connectors-overview.md). Al final de este tutorial va a poder crear un flujo de usuario de Azure AD B2C que interactúe con las API para enriquecer los tokens con información de orígenes externos.
+Azure Active Directory B2C (Azure AD B2C) permite a los desarrolladores de identidades integrar una interacción con una API RESTful en su flujo de usuario mediante [conectores de API](api-connectors-overview.md). Permite a los desarrolladores recuperar dinámicamente datos de orígenes de identidad externos. Al final de este tutorial va a poder crear un flujo de usuario de Azure AD B2C que interactúe con las API para enriquecer los tokens con información de orígenes externos.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -144,7 +144,7 @@ Content-type: application/json
 }
 ```
 
-| Parámetro                                          | Tipo              | Obligatorio | Descripción                                                                                                                                                                                                                                                                            |
+| Parámetro                                          | Tipo              | Requerido | Descripción                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version     | String | Sí      | Versión de la API.                                                    |
 | action                                             | String            | Sí      | El valor debe ser `Continue`.                                                                                                                                                                                                                                                              |
