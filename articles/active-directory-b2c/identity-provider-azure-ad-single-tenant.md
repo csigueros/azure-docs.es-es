@@ -13,12 +13,12 @@ ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 81067c8c1b24897d88f3d8da4d21329b030cbd03
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a63c89174103613c722d463e32085600019e9ea0
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131036454"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132026014"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión para una determinada organización de Azure Active Directory en Azure Active Directory B2C
 
@@ -80,7 +80,7 @@ Si quiere obtener las notificaciones `family_name` y `given_name` de Azure AD, 
 1. Seleccione **Agregar notificación opcional**.
 1. En **Tipo de token**, seleccione **ID**.
 1. Seleccione las notificaciones opcionales que va a agregar, `family_name` y `given_name`.
-1. Haga clic en **Agregar**.
+1. Seleccione **Agregar**. Si aparece **Turn on the Microsoft Graph email permission (required for claims to appear in token)** (Activar el permiso de correo electrónico de Microsoft Graph [necesario para que aparezcan las notificaciones]), habilítelo y, luego, seleccione de nuevo **Agregar**.
 
 ## <a name="optional-verify-your-app-authenticity"></a>[Opcional] Comprobación de la autenticidad de la aplicación
 
@@ -101,8 +101,7 @@ La [comprobación del editor](../active-directory/develop/publisher-verification
     https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
     ```
 
-    Por ejemplo, `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`.
-    Por ejemplo, `https://login.microsoftonline.com/contoso.com/v2.0/.well-known/openid-configuration`.
+ Por ejemplo, `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`. Si utiliza un dominio personalizado, reemplace `contoso.com` por el nombre de dominio de `https://login.microsoftonline.com/contoso.com/v2.0/.well-known/openid-configuration`.
 
 1. En **Id. de cliente**, escriba el identificador de aplicación que ha anotado anteriormente.
 1. En **Secreto de cliente**, escriba el secreto de cliente que ha anotado anteriormente.
@@ -125,7 +124,8 @@ En este momento ya está configurado el proveedor de identidades de Azure AD, p
 
 1. En el inquilino de Azure AD B2C, seleccione **Flujos de usuario**.
 1. Haga clic en el flujo de usuario donde quiera agregar el proveedor de identidades de Azure AD.
-1. En **Proveedores de identidades sociales**, seleccione **Contoso Azure AD**.
+1. En **Configuración**, seleccione **Proveedores de identidades**.
+1. En **Proveedores de identidades personalizadas**, seleccione **Contoso Azure AD**.
 1. Seleccione **Guardar**.
 1. Para probar la directiva, seleccione **Ejecutar flujo de usuario**.
 1. En **Aplicación**, seleccione la aplicación web que [registró anteriormente](tutorial-register-applications.md). La **dirección URL de respuesta** debe mostrar `https://jwt.ms`. 

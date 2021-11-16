@@ -3,12 +3,12 @@ title: Notas de la versión para la extensión de Azure Web Apps - Application I
 description: Notas de la versión para la extensión de Azure Web Apps para la instrumentación de entorno de ejecución con Application Insights.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 8b0ddf90f5e6ffbe685c4aea1239323beea6c106
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 84d01a2bcc4e371ca03610f2d002eaaf73159b2a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124828809"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132316040"
 ---
 # <a name="release-notes-for-azure-web-app-extension-for-application-insights"></a>Notas de la versión para la extensión de Azure Web Apps para Application Insights
 
@@ -25,6 +25,26 @@ Obtenga más información sobre la [extensión de Azure Web Apps para Applicatio
     - Desinstale las extensiones de sitio privado, puesto que ya no se admiten.
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="2842"></a>2.8.42
+
+- Extensión de JAVA: se ha actualizado al [agente de Java 3.2.0 (GA)](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0) desde la versión 2.5.1.
+- Extensión de Node.js: se ha actualizado el SDK de IA a [2.1.8](https://github.com/microsoft/ApplicationInsights-node.js/releases/tag/2.1.8) desde la versión 2.1.7. Se ha agregado compatibilidad con las identidades administradas de AAD asignadas por el usuario y el sistema
+- .NET Core: se han agregado implementaciones independientes y compatibilidad con .NET 6.0 mediante el [enlace de inicio de .NET](https://github.com/dotnet/runtime/blob/main/docs/design/features/host-startup-hook.md).
+
+### <a name="2841"></a>2.8.41
+
+- Extensión de Node.js: se ha actualizado el SDK de IA a [2.1.7](https://github.com/microsoft/ApplicationInsights-node.js/releases/tag/2.1.7) desde la versión 2.1.3.
+- .NET Core: se ha quitado la versión incompatible 2.1. Las versiones compatibles son 3.1 y 5.0.
+
+### <a name="2840"></a>2.8.40
+
+- Extensión de JAVA: se ha actualizado al [agente de Java 3.1.1 (disponibilidad general)](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.1) desde la versión 3.0.2.
+- Extensión de Node.js: se ha actualizado el SDK de IA a [2.1.3](https://github.com/microsoft/ApplicationInsights-node.js/releases/tag/2.1.3) desde la versión 1.8.8.
+
+### <a name="2839"></a>2.8.39
+
+- .NET Core: se agregó compatibilidad con .NET Core 5.0.
 
 ### <a name="2838"></a>2.8.38
 

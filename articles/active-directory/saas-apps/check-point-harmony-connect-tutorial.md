@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/04/2021
 ms.author: jeedes
-ms.openlocfilehash: 18a919827ec213f5165d8b7d913f0c489d63ee5c
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: b7ba48cb534ebd0ec2df6038b0b5df49ce2b0e88
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111891849"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132311913"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-harmony-connect"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Check Point Harmony Connect | Microsoft Docs
 
@@ -61,7 +61,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Check Point Harm
 Para configurar y probar el inicio de sesión único de Azure AD con Check Point Harmony Connect, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Check Point Harmony Connect](#configure-check-point-harmony-connect-sso)** , para configurar los valores del inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Check Point Harmony Connect](#create-check-point-harmony-connect-test-user)** , para tener un homólogo de B.Simon en Check Point Identity Awareness que esté vinculado a la representación del usuario en Azure AD.
@@ -171,4 +171,4 @@ Para probar Check Point Harmony Connect, vaya a su servicio de autenticación y 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Check Point Harmony Connect, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado Check Point Harmony Connect, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

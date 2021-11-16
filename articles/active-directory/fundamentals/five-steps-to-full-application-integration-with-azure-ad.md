@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
-ms.openlocfilehash: 7c3e4441289b2b17cf772df73f3c53caa465813e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f2b43fb9b816ff52c3e52bf8c39843c34651aea4
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124732590"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132315006"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>Cinco pasos para la integración de todas las aplicaciones en Azure AD
 
@@ -46,7 +46,7 @@ Por último, también puede integrar las aplicaciones que desarrolla de modo int
 
 A continuación, detecte las aplicaciones que los empleados utilizan con frecuencia y priorice su trabajo para integrarlas con Azure AD.
 
-Puede comenzar con las [herramientas de Cloud Discovery](/cloud-app-security/tutorial-shadow-it) de Microsoft Cloud App Security para detectar y administrar la opción de TI en la sombra en la red (es decir, las aplicaciones no que no administra el departamento de TI). Puede utilizar [Protección contra amenazas avanzada (ATP) de Microsoft Defender](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) para simplificar y ampliar el proceso de detección.
+Puede comenzar con las [herramientas de Cloud Discovery](/cloud-app-security/tutorial-shadow-it) de Microsoft Defender para aplicaciones en la nube para detectar y administrar los casos de shadow IT en la red (es decir, las aplicaciones no que no administra el departamento de TI). Puede utilizar [Protección contra amenazas avanzada (ATP) de Microsoft Defender](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) para simplificar y ampliar el proceso de detección.
 
 Además, puede usar el [informe de actividad de la aplicación AD FS](../manage-apps/migrate-adfs-application-activity.md) en Azure Portal para detectar todas las aplicaciones de AD FS de su organización, el número de usuarios únicos que han iniciado sesión en ellas y la compatibilidad para integrarlas con Azure AD.
 

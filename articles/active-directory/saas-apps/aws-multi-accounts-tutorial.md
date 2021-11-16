@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 6a56116ef50260c451564e571679a28a741584d8
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 90890843c5377f22647634fad158fb7e26df17f5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124831091"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132288372"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services"></a>Tutorial: Integración de Azure Active Directory con Amazon Web Services
 
@@ -366,7 +366,7 @@ Para más información acerca del portal Aplicaciones, consulte [Inicio de sesi�
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado AWS, puede aplicar el control de sesión, que protege la filtración e infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. Para más información, consulte [Cómo aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado AWS, puede aplicar el control de sesión, que protege la filtración e infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. Para obtener más información, consulte [Cómo aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).
 
 <!--Image references-->
 

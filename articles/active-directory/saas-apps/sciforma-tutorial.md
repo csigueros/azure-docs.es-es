@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/16/2021
 ms.author: jeedes
-ms.openlocfilehash: 6f69075e0ea1dd85994976329e0fd0dc6f00ea6f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: dd3ae86c87524ef999486b88748a12df825bd545
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124813053"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132299536"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciforma"></a>Tutorial: Integración de Azure Active Directory con Sciforma
 
@@ -58,7 +58,7 @@ Configure y pruebe el SSO de Azure AD con Sciforma mediante un usuario de prueb
 Para configurar y probar el SSO de Azure AD con Sciforma, lleve a cabo los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Sciforma](#configure-sciforma-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Sciforma](#create-sciforma-test-user)** , para tener un homólogo de B.Simon en Sciforma vinculado a la representación del usuario de Azure AD.
@@ -135,4 +135,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado Sciforma, puede aplicar el control de sesión, que protege su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez que haya configurado Sciforma, puede aplicar el control de sesión, que protege su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

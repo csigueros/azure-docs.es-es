@@ -7,14 +7,14 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: overview
-ms.openlocfilehash: 042d7fd04ca3a41016e67481f81237a56e0dfc8d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fb1952c00b54fd4618d3c4d3a830d862eb50a439
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737177"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132301767"
 ---
 #  <a name="create-azure-arc-data-controller-in-direct-connectivity-mode-using-cli"></a>Creación del controlador de datos de Azure Arc en modo de conexión directa mediante la CLI
 
@@ -50,6 +50,10 @@ export subscription=<Your subscription ID>
 export resourceGroup=<Your resource group>
 export resourceName=<name of your connected kubernetes cluster>
 export location=<Azure location>
+export AZDATA_LOGSUI_USERNAME=<username for Kibana dashboard>
+export AZDATA_LOGSUI_PASSWORD=<password for Kibana dashboard>
+export AZDATA_METRICSUI_USERNAME=<username for Grafana dashboard>
+export AZDATA_METRICSUI_PASSWORD=<password for Grafana dashboard>
 ```
 
 #### <a name="windows-powershell"></a>Windows PowerShell
@@ -59,6 +63,10 @@ $ENV:subscription="<Your subscription ID>"
 $ENV:resourceGroup="<Your resource group>"
 $ENV:resourceName="<name of your connected kubernetes cluster>"
 $ENV:location="<Azure location>"
+$ENV:AZDATA_LOGSUI_USERNAME="<username for Kibana dashboard>"
+$ENV:AZDATA_LOGSUI_PASSWORD="<password for Kibana dashboard>"
+$ENV:AZDATA_METRICSUI_USERNAME="<username for Grafana dashboard>"
+$ENV:AZDATA_METRICSUI_PASSWORD="<password for Grafana dashboard>"
 ```
 
 ### <a name="create-the-arc-data-services-extension"></a>Creación de la extensión de servicios de datos de Arc
@@ -99,13 +107,13 @@ az k8s-extension create -c "my-connected-cluster" -g "my-resource-group" --name 
 
 ### <a name="verify-the-arc-data-services-extension-is-created"></a>Comprobación de la creación de la extensión de servicios de datos de Arc
 
-Puede comprobar si se ha creado la extensión de servicios de datos habilitados para Arc desde el portal o mediante la conexión directa al clúster de Kubernetes habilitado para Arc. 
+Puede comprobar si se ha creado la extensión de servicios de datos habilitados para Azure Arc desde el portal o mediante la conexión directa al clúster de Kubernetes habilitado para Azure Arc. 
 
-#### <a name="azure-portal"></a>Portal de Azure
+#### <a name="azure-portal"></a>Azure portal
 1. Inicie sesión en Azure Portal y vaya al grupo de recursos donde se encuentra el recurso del clúster conectado de Kubernetes.
-1. Seleccione el clúster de Kubernetes habilitado para Arc (tipo = "Kubernetes: Azure Arc") donde se implementó la extensión.
-1. En el panel de navegación de la izquierda, en **Configuración**, seleccione "Extensiones".
-1. Debería ver la extensión que se acaba de crear anteriormente en estado "Instalado".
+1. Seleccione el clúster de Kubernetes habilitado para Azure Arc (Tipo = "Kubernetes: Azure Arc") donde se implementó la extensión.
+1. En el panel de navegación de la izquierda, en **Configuración**, seleccione **Extensiones**.
+1. Debería ver la extensión que se creó anteriormente en un estado instalado.
 
 :::image type="content" source="media/deploy-data-controller-direct-mode-prerequisites/dc-extensions-dashboard.png" alt-text="Panel Extensiones":::
 
@@ -118,11 +126,33 @@ Puede comprobar si se ha creado la extensión de servicios de datos habilitados 
 kubectl get pods -n <name of namespace used in the json template file above>
 ```
 
-Por ejemplo, los comandos siguientes obtienen los pods del espacio de nombres `arc`.
+Por ejemplo, el ejemplo siguiente obtiene los pods del espacio de nombres `arc`.
 
 ```console
 #Example:
 kubectl get pods -n arc
+```
+
+## <a name="retrieve-the-managed-identity-and-grant-roles"></a>Recuperación de la identidad administrada y concesión de roles
+
+La identidad administrada que se crea durante la creación de la extensión de servicios de datos de Arc debe tener asignados determinados roles para que el uso o las métricas se carguen automáticamente.
+
+### <a name="1-retrieve-managed-identity-of-the-arc-data-controller-extension"></a>(1) Recuperación de la identidad administrada de la extensión del controlador de datos de Arc
+
+```powershell
+$Env:MSI_OBJECT_ID = (az k8s-extension show --resource-group <resource group>  --cluster-name <connectedclustername> --cluster-type connectedClusters --name <name of extension> | convertFrom-json).identity.principalId
+#Example
+$Env:MSI_OBJECT_ID = (az k8s-extension show --resource-group myresourcegroup  --cluster-name myconnectedcluster --cluster-type connectedClusters --name ads-extension | convertFrom-json).identity.principalId
+```
+
+### <a name="2-assign-role-to-the-managed-identity"></a>(2) Asignación de un rol a la identidad administrada
+
+Ejecute el siguiente comando para asignar los roles de **Colaborador** y **Publicador de métricas de supervisión**:
+```powershell
+az role assignment create --assignee $Env:MSI_OBJECT_ID --role "Contributor" --scope "/subscriptions/$ENV:subscription/resourceGroups/$ENV:resourceGroup"
+
+az role assignment create --assignee $Env:MSI_OBJECT_ID --role "Monitoring Metrics Publisher" --scope "/subscriptions/$ENV:subscription/resourceGroups/$ENV:resourceGroup"
+
 ```
 
 ## <a name="create-a-custom-location-using-custom-location-cli-extension"></a>Creación de una ubicación personalizada mediante la extensión de la CLI de ubicación personalizada
@@ -148,10 +178,11 @@ az customlocation create -g ${resourceGroup} -n ${clName} --namespace ${clNamesp
 ```PowerShell
 $ENV:clName="mycustomlocation"
 $ENV:clNamespace="arc"
-$ENV:hostClusterId = az connectedk8s show -g "$ENV:resourceGroup" -n "$ENV:resourceName" --query id -o tsv
-$ENV:extensionId = az k8s-extension show -g "$ENV:resourceGroup" -c "$ENV:resourceName" --cluster-type connectedClusters --name "$ENV:ADSExtensionName" --query id -o tsv
 
-az customlocation create -g "$ENV:resourceGroup" -n "$ENV:clName" --namespace "$ENV:clNamespace" --host-resource-id "$ENV:hostClusterId" --cluster-extension-ids "$ENV:extensionId"
+$ENV:hostClusterId=(az connectedk8s show -g $ENV:resourceGroup -n $ENV:resourceName --query id -o tsv)
+$ENV:extensionId=(az k8s-extension show -g $ENV:resourceGroup -c $ENV:resourceName --cluster-type connectedClusters --name $ENV:ADSExtensionName --query id -o tsv)
+
+az customlocation create -g $ENV:resourceGroup -n $ENV:clName --namespace $ENV:clNamespace --host-resource-id $ENV:hostClusterId --cluster-extension-ids $ENV:extensionId
 ```
 
 ## <a name="validate--the-custom-location-is-created"></a>Validación de la creación de la ubicación personalizada
@@ -164,18 +195,22 @@ az customlocation list -o table
 
 ## <a name="create-the-azure-arc-data-controller"></a>Creación del controlador de datos de Azure Arc
 
-Después de crear la extensión y la ubicación personalizada, continúe con Azure Portal para implementar el controlador de datos de Azure Arc.
+Una vez creada la extensión y la ubicación personalizada, continúe con la implementación del controlador de datos de Azure Arc como se muestra a continuación.
 
-1. Inicie sesión en Azure Portal.
-1. Busque "controlador de datos de Azure Arc" en Azure Marketplace e inicie el flujo de creación.
-1. En la sección **Requisitos previos**, asegúrese de que el clúster de Kubernetes habilitado para Azure Arc (modo directo) esté seleccionado, y continúe con el paso siguiente.
-1. En la sección **Detalles del controlador de datos**, elija una suscripción y un grupo de recursos.
-1. Escriba un nombre para el controlador de datos.
-1. Elija un perfil de configuración en función del proveedor de la distribución de Kubernetes en la que va a implementar.
-1. Elija la ubicación personalizada que ha creado en el paso anterior.
-1. Proporcione los detalles del nombre de inicio de sesión y la contraseña del administrador del controlador de datos.
-1. Proporcione los detalles de ClientId, TenantId y secreto de cliente de la entidad de servicio que se usará para crear los objetos de Azure. Consulte [Carga de datos de uso, métricas y registros en Azure Monitor](upload-metrics-and-logs-to-azure-monitor.md) para obtener instrucciones detalladas sobre cómo crear una cuenta de entidad de servicio y los roles que se deben conceder para la cuenta.
-1. Haga clic en **Siguiente**, revise todos los detalles de la página de resumen y haga clic en **Crear**.
+```
+az arcdata dc create --name <name> --resource-group <resourcegroup> --location <location> --connectivity-mode direct --profile-name <profile name>  --auto-upload-logs true --custom-location <name of custom location>
+# Example
+az arcdata dc create -n arc-dc1 --resource-group my-resource-group --location eastasia --connectivity-mode direct --profile-name azure-arc-aks-premium-storage  --auto-upload-logs true --custom-location mycustomlocation
+```
+
+Si desea crear el controlador de datos de Azure Arc mediante una plantilla de configuración personalizada, siga los pasos descritos en [Creación de un perfil de configuración personalizado](create-custom-configuration-template.md) y proporcione la ruta de acceso al archivo de la siguiente manera:
+
+```
+az arcdata dc create --name <name> --resource-group <resourcegroup> --location <location> --connectivity-mode direct --path ./azure-arc-custom  --auto-upload-logs true --custom-location <name of custom location>
+# Example
+az arcdata dc create --name arc-dc1 --resource-group my-resource-group --location eastasia --connectivity-mode direct --path ./azure-arc-custom  --auto-upload-logs true --custom-location mycustomlocation
+```
+
 
 ## <a name="monitor-the-creation"></a>Supervisión de la creación
 

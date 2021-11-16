@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 10/05/2021
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: fa804ee911d8b810de391916f7ae92ff46efe0b1
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 8512df7ba32e7fabee5d666ca119197da7d82d6b
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129613289"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132028408"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Uso de Azure Functions Core Tools
 
@@ -39,13 +39,13 @@ Hay cuatro versiones de Azure Functions Core Tools. La versión que use depende 
 
 Elija una pestaña de versión a continuación para obtener información sobre cada versión específica y para obtener instrucciones de instalación detalladas:
 
+# <a name="version-4x"></a>[Version 4.x](#tab/v4)
+
+Admite la [versión 4.x](functions-versions.md) del runtime de Functions. Esta versión admite Windows, macOS y Linux, y emplea administradores de paquetes específicos de la plataforma o npm para la instalación. Esta es la versión recomendada del entorno de ejecución de Functions y Core Tools.
+
 # <a name="version-3x"></a>[Versión 3.x](#tab/v3)
 
-Es compatible con la [versión 3.x](functions-versions.md) del entorno de ejecución de Azure Functions. Esta versión admite Windows, macOS y Linux, y emplea administradores de paquetes específicos de la plataforma o npm para la instalación. Esta es la versión recomendada del entorno de ejecución de Functions y Core Tools.
-
-# <a name="version-4x-preview"></a>[Versión 4.x (versión preliminar)](#tab/v4)
-
-Admite la [versión 4.x](functions-versions.md) del entorno de ejecución de Functions, que se encuentra en versión preliminar. Esta versión admite Windows, macOS y Linux, y emplea administradores de paquetes específicos de la plataforma o npm para la instalación. A menos que necesite ejecutar las funciones de C# en .NET 6.0, considere la posibilidad de usar la versión 3.x del entorno de ejecución de Functions y Core Tools.
+Es compatible con la [versión 3.x](functions-versions.md) del entorno de ejecución de Azure Functions. Esta versión admite Windows, macOS y Linux, y emplea administradores de paquetes específicos de la plataforma o npm para la instalación. 
 
 # <a name="version-2x"></a>[Versión 2.x](#tab/v2)
 

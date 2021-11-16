@@ -4,7 +4,7 @@ description: Introducción a los registros de actividad de Azure Active Director
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -17,20 +17,20 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7d66bd74263bd23c02cf465b1483ffe610179ee
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b1db2a820ab551130fbd9bba832c329b925a0f6a
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128657925"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997122"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Registros de actividad de Azure AD en Azure Monitor
 
 Puede enrutar los registros de actividad de Azure Active Directory (Azure AD) a varios puntos de conexión para conseguir conclusiones de datos y una retención a largo plazo. Esta característica le permite:
 
 * Archivar los registros de actividad de Azure AD en una cuenta de almacenamiento de Azure para conservar los datos durante mucho tiempo.
-* Hacer streaming de los registros de actividad de Azure AD a un centro de eventos de Azure para analizarlos con herramientas conocidas de Administración de eventos e información de seguridad (SIEM), como Splunk, QRadar y Azure Sentinel.
-* Integrar los registros de actividad de Azure AD con sus propias soluciones de registro personalizadas haciendo streaming a un centro de eventos.
+* Hacer streaming de los registros de actividad de Azure AD a un centro de eventos de Azure para analizarlos mediante conocidas herramientas de Administración de eventos e información de seguridad, como Splunk, QRadar y Azure Sentinel.
+* Integrar los registros de actividad de Azure AD con sus propias soluciones de registro personalizadas haciendo streaming a un centro de eventos.
 * Envíe los registros de actividad de Azure AD a registros de Azure Monitor para permitir visualizaciones enriquecidas, supervisión y alertas sobre los datos conectados.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
@@ -39,7 +39,7 @@ Puede enrutar los registros de actividad de Azure Active Directory (Azure AD) a 
 
 ## <a name="supported-reports"></a>Informes admitidos
 
-Con esta característica, puede enrutar registros de auditoría y de inicios de sesión de Azure AD a la cuenta de almacenamiento de Azure, un centro de eventos, registros de Azure Monitor o una solución personalizada. 
+Esta característica permite enrutar registros tanto de inicio de sesión como de auditoría de Azure AD a la cuenta de almacenamiento de Azure, un centro de eventos, registros de Azure Monitor o una solución personalizada. 
 
 * **Registros de auditoría**: el [informe de actividad de registros de auditoría](concept-audit-logs.md) proporciona acceso a información sobre los cambios aplicados al inquilino, como la administración de usuarios y grupos, o las actualizaciones aplicadas a los recursos del inquilino.
 * **Registros de inicio de sesión**: Con el [informe de actividad de inicios de sesión](concept-sign-ins.md), puede determinar quién ha realizado las tareas notificadas en el informe de registros de auditoría.
@@ -66,7 +66,7 @@ Según de hacia dónde desee enrutar los datos de registro de auditoría, necesi
 
 ## <a name="cost-considerations"></a>Consideraciones sobre el costo
 
-Si ya tiene una licencia de Azure AD, necesita una suscripción a Azure para configurar la cuenta de almacenamiento y el centro de eventos. La suscripción a Azure es gratuita, pero tiene que pagar para utilizar los recursos de Azure, incluida la cuenta de almacenamiento que se usa para archivar y el centro de eventos que se utiliza para el streaming. La cantidad de datos, y por lo tanto el costo incurrido, puede variar significativamente dependiendo del tamaño del inquilino. 
+Si ya tiene una licencia de Azure AD, necesita una suscripción a Azure para configurar la cuenta de almacenamiento y el centro de eventos. La suscripción a Azure es gratuita, pero hay que pagar para utilizar los recursos de Azure, incluida la cuenta de almacenamiento que se usa para archivar y el centro de eventos que se utiliza para el streaming. La cantidad de datos, y por lo tanto el costo incurrido, puede variar significativamente dependiendo del tamaño del inquilino. 
 
 ### <a name="storage-size-for-activity-logs"></a>Tamaño de almacenamiento para registros de actividad
 
@@ -94,11 +94,11 @@ La siguiente tabla contiene una estimación del costo, dependiendo del tamaño d
 
 ### <a name="event-hub-messages-for-activity-logs"></a>Mensajes del centro de eventos para los registros de actividad
 
-Los eventos se agrupan en intervalos de aproximadamente cinco minutos y se envían como un único mensaje que contiene todos los eventos dentro de ese período de tiempo. Un mensaje en el centro de eventos tiene un tamaño máximo de 256 KB y, si el tamaño total de todos los mensajes dentro del período de tiempo excede ese volumen, se envían múltiples mensajes. 
+Los eventos se agrupan en intervalos de aproximadamente cinco minutos y se envían como un único mensaje que contiene todos los eventos dentro de ese período de tiempo. Un mensaje del centro de eventos tiene un tamaño máximo de 256 KB y, si el tamaño total de todos los mensajes durante el período de tiempo supera ese volumen, se envían múltiples mensajes. 
 
-Por ejemplo, unos 18 eventos por segundo se producen normalmente para un inquilino de gran tamaño de más de 100 000 usuarios, una tasa que equivale a 5 400 eventos cada cinco minutos. Dado que los registros de auditoría son de aproximadamente 2 KB por evento, esto equivale a 10,8 MB de datos. Por lo tanto, se envían 43 mensajes al centro de eventos en ese intervalo de cinco minutos. 
+Por ejemplo, unos 18 eventos por segundo se producen normalmente para un inquilino de gran tamaño de más de 100 000 usuarios, una tasa que equivale a 5 400 eventos cada cinco minutos. Dado que los registros de auditoría son de aproximadamente 2 KB por evento, esto equivale a 10,8 MB de datos. Por consiguiente, se envían 43 mensajes al centro de eventos en ese intervalo de 5 minutos. 
 
-En la tabla siguiente se incluyen los costos estimados al mes para un centro de eventos básico en la región Oeste de EE. UU., según el volumen de datos de eventos que pueden variar de un inquilino a otro en función de muchos factores, como el comportamiento de inicio de sesión de usuario, etc. Para calcular una estimación precisa del volumen de datos previstos para la aplicación, use la [calculadora de precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
+La tabla siguiente contiene los costos mensuales estimados de un centro de eventos básico en la región Oeste de EE. UU., en función del volumen de datos de eventos que pueden variar de un inquilino a otro debido a muchos factores, como el comportamiento de inicio de sesión del usuario, etc. Para realizar un cálculo preciso del volumen de datos que prevé para la aplicación, use la [calculadora de precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 | Categoría del registro | Número de usuarios | Eventos por segundo | Eventos por intervalo de cinco minutos | Volumen por intervalo | Mensajes por intervalo | Mensajes al mes | Costo al mes (aprox.) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|

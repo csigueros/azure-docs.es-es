@@ -4,16 +4,18 @@ description: API de referencia para Defender-IoT-micro-agent para Azure RTOS.
 ms.topic: reference
 ms.date: 09/07/2020
 ms.author: mlottner
-ms.openlocfilehash: e7000a7e6d8ba332432f1ececa12bd9543e9e4a7
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 291dfa88ea9be2c17706828ac59a2321fee11ef2
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018306"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131998024"
 ---
 # <a name="defender-iot-micro-agent-for-azure-rtos-api-preview"></a>Defender-IoT-micro-agent para Azure RTOS API (versión preliminar)
 
-Esta API está diseñada para que se use solo con Defender-IoT-micro-agent para Azure RTOS API. Para ver otros recursos, consulte el [recurso de GitHub de Defender-IoT-micro-agent for Azure RTOS](https://github.com/azure-rtos/azure-iot-preview/releases). 
+Las API de Defender para IoT se rigen por la [licencia de API de Microsoft y Términos de uso](/legal/microsoft-apis/terms-of-use).
+
+Esta API está diseñada para que se use solo con Defender-IoT-micro-agent para Azure RTOS API. Para ver otros recursos, consulte el [recurso de GitHub de Defender-IoT-micro-agent for Azure RTOS](https://github.com/azure-rtos/azure-iot-preview/releases).
 
 ## <a name="enable-defender-iot-micro-agent-for-azure-rtos"></a>Habilitación de Defender-IoT-micro-agent para Azure RTOS
 
@@ -51,7 +53,6 @@ Subprocesos
 
 **nx_azure_iot_security_module_disable**
 
-
 ### <a name="prototype"></a>Prototipo
 
 ```c
@@ -79,7 +80,6 @@ Esta rutina deshabilita el subsistema de Azure IoT Defender-IoT-micro-agent.
 ### <a name="allowed-from"></a>Permitido desde
 
 Subprocesos
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 2c20c03e61d7fa7055d1044d69cacc8b234ad8f4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 11fdd1ede686dc5261a277d42c74090531174ee6
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128636655"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132307641"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-liquidfiles"></a>Tutorial: Integración del inicio de sesión único de Azure AD con LiquidFiles
 
@@ -60,7 +60,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con LiquidFiles medi
 Para configurar y probar el inicio de sesión único de Azure AD con LiquidFiles, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en LiquidFiles](#configure-liquidfiles-sso)** : para configurar los valores del inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de LiquidFiles](#create-liquidfiles-test-user)** : para tener un homólogo de B. Simon en LiquidFiles que esté vinculado a la representación del usuario en Azure AD.
@@ -163,4 +163,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Tras configurar LiquidFiles, puede aplicar el control de sesión, que protege su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Tras configurar LiquidFiles, puede aplicar el control de sesión, que protege su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con las aplicaciones de Microsoft Defender para la nube](/cloud-app-security/proxy-deployment-aad).

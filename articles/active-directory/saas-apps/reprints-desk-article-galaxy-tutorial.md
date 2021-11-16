@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: jeedes
-ms.openlocfilehash: eed02e188ec4860e53782f0191061fa006152f96
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 33077902722a32f792c12598f7d555880050a574
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124816466"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132309045"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-reprints-desk---article-galaxy"></a>Integración del inicio de sesión único (SSO) de Azure Active Directory con Reprints Desk - Article Galaxy
 
@@ -43,7 +43,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Reprints Desk - Article Galaxy admite el aprovisionamiento de usuarios **Just-In-Time**.
 
-* [Una vez configurada Reprints Desk - Article Galaxy, puede aplicar controles de sesión, que protegen la filtración e infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* [Una vez que configure Reprints Desk - Article Galaxy, puede aplicar controles de sesión, que protegen la filtración de la información confidencial de la organización en tiempo real. Los controles de sesión se extienden desde el acceso condicional. Obtenga información sobre cómo aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube.](/cloud-app-security/proxy-deployment-any-app)
 
 ## <a name="adding-reprints-desk---article-galaxy-from-the-gallery"></a>Adición de Reprints Desk - Article Galaxy desde la galería
 
@@ -64,7 +64,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Reprints Desk - 
 Para configurar y probar el inicio de sesión único de Azure AD con Reprints Desk - Article Galaxy, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Reprints Desk - Article Galaxy](#configure-reprints-desk-article-galaxy-sso)**: para configurar los valores de inicio de sesión único en la aplicación.
     * **[Creación de un usuario de prueba de Reprints Desk - Article Galaxy](#create-reprints-desk-article-galaxy-test-user)**: para tener un homólogo de B.Simon en Reprints Desk - Article Galaxy que esté vinculado con la representación del usuario en Azure AD.
@@ -156,6 +156,6 @@ Al hacer clic en el icono de Reprints Desk - Article Galaxy en el panel de acces
 
 - [Prueba de Reprints Desk - Article Galaxy con Azure AD](https://aad.portal.azure.com/)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [¿Qué es el control de sesión en Microsoft Defender para aplicaciones en la nube?](/cloud-app-security/proxy-intro-aad)
 
 - [Protección de Reprints Desk - Article Galaxy con visibilidad y controles avanzados](/cloud-app-security/proxy-intro-aad)

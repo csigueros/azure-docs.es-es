@@ -3,12 +3,12 @@ title: Experiencias de administración entre inquilinos
 description: Azure Lighthouse habilita y mejora las experiencias entre inquilinos en muchos servicios de Azure.
 ms.date: 10/21/2021
 ms.topic: conceptual
-ms.openlocfilehash: 115f71148ddd2d18cd99be883bdef77b1c27ad1b
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: a9dbf51a965c1aa73489fdd2990736914b27177c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130249692"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132312464"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiencias de administración entre inquilinos
 
@@ -54,7 +54,7 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
   - [Administre máquinas con Windows Server o Linux fuera de Azure conectadas](../../azure-arc/servers/onboard-portal.md) a suscripciones o grupos de recursos delegados en Azure.
   - Administre las máquinas conectadas mediante construcciones de Azure, como Azure Policy y etiquetado
   - Asegúrese de que se aplica el mismo conjunto de directivas a los entornos híbridos de los clientes
-  - Use Azure Security Center para supervisar el cumplimiento en todos los entornos híbridos de los clientes
+  - Uso de Microsoft Defender for Cloud para supervisar el cumplimiento en entornos híbridos de clientes
 - Administración de clústeres híbridos de Kubernetes a gran escala: [Kubernetes habilitado para Azure Arc (versión preliminar)](../../azure-arc/kubernetes/overview.md):
   - [Administre clústeres de Kubernetes conectados](../../azure-arc/kubernetes/quickstart-connect-cluster.md) a suscripciones o grupos de recursos delegados en Azure.
   - [Use GitOps](../../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md) para los clústeres conectados
@@ -125,7 +125,7 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 
 - Ahora incluye el identificador de inquilino en los resultados de la consulta devueltos, lo que le permite identificar si una suscripción pertenece a un inquilino administrado.
 
-[Azure Security Center](../../security-center/index.yml):
+[Microsoft Defender for Cloud](../../security-center/index.yml):
 
 - Visibilidad entre inquilinos
   - Supervise el cumplimiento de las directivas de seguridad y garantice la cobertura de seguridad en todos los recursos de los inquilinos.
@@ -141,13 +141,13 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
   - Protección de la configuración de grupos de seguridad de red con refuerzo de redes adaptable
   - Comprobación de que los servidores ejecutan solo las aplicaciones y los procesos que deben con controles de aplicaciones adaptables
   - Supervisar los cambios en archivos importantes y entradas del registro con la supervisión de la integridad de los archivos (FIM)
-- Tenga en cuenta que toda la suscripción se debe delegar al inquilino de administración; no se admiten escenarios Azure Security Center con grupos de recursos delegados.
+- Tenga en cuenta que toda la suscripción se debe delegar en el inquilino de administración; no se admiten escenarios de Microsoft Defender for Cloud con grupos de recursos delegados
 
-[Azure Sentinel](../../sentinel/multiple-tenants-service-providers.md):
+[Microsoft Sentinel](../../sentinel/multiple-tenants-service-providers.md):
 
-- Administración de recursos de Azure Sentinel [en inquilinos de clientes](../../sentinel/multiple-tenants-service-providers.md)
+- Administración de recursos de Microsoft Sentinel [en inquilinos del cliente](../../sentinel/multiple-tenants-service-providers.md)
 - [Seguimiento de ataques y visualización de alertas de seguridad en varios inquilinos](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899)
-- [Visualización de incidentes](../../sentinel/multiple-workspace-view.md) entre varias áreas de trabajo de Azure Sentinel distribuidas entre inquilinos
+- [Visualización de incidentes](../../sentinel/multiple-workspace-view.md) en varias áreas de trabajo de Microsoft Sentinel distribuidas entre inquilinos
 
 [Azure Service Health](../../service-health/index.yml):
 

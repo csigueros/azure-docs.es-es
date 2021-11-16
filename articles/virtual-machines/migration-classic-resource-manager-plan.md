@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 4e8ce635f25eccedbd07e3ccaa89a1e2cf418eda
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 701265ced0d7c2c50aee4c4ac4a533e20c9b8898
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124823400"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132318216"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planificación de la migración de recursos de IaaS del modelo clásico a Azure Resource Manager
 
@@ -96,14 +96,14 @@ A continuación se indican problemas detectados en muchas de las migraciones má
 - **VPN y circuitos ExpressRoute**. Actualmente no se pueden migrar las puertas de enlace de ExpressRoute con vínculos de autorización sin tiempos de inactividad. Para consultar una solución alternativa, vea [Migración de circuitos ExpressRoute y las redes virtuales asociadas del modelo de implementación clásica a Resource Manager](../expressroute/expressroute-migration-classic-resource-manager.md).
 
 - **Extensiones de máquina virtual**: las extensiones de máquina virtual posiblemente son uno de los obstáculos más importantes para migrar las máquinas virtuales en ejecución. La corrección de extensiones de máquina virtual puede tardar de 1 a 2 días, por lo que es necesario realizar la planificación teniendo esto en cuenta.  Se precisa de un agente de Azure operativo para informar del estado de las extensiones de las máquinas virtuales en ejecución. Si se notifica un estado incorrecto de una máquina virtual en ejecución, la migración se detendrá. El agente no necesita estar operativo para habilitar la migración, pero, si existen extensiones en la máquina virtual, se necesitará un agente operativo Y una conectividad saliente a Internet con DNS para que la migración progrese.
-  - Si se pierde la conectividad con un servidor DNS durante la migración, hay que eliminar todas las extensiones de máquina virtual , excepto BGInfo v1. \*, de todas las máquinas virtuales antes de preparar la migración y, después, volver a agregarlas a la máquina virtual después de la migración de Azure Resource Manager.  **Esto solo se aplica a las máquinas virtuales en ejecución.**  Si las máquinas virtuales se detienen cuando están desasignadas, no es necesario eliminar las extensiones de máquina virtual. **Nota:** Muchas extensiones, como la supervisión de Azure Diagnósticos y Security Center, se reinstalarán automáticamente después de la migración, por lo que su eliminación no plantea ningún problema.
+  - Si se pierde la conectividad con un servidor DNS durante la migración, hay que eliminar todas las extensiones de máquina virtual , excepto BGInfo v1. \*, de todas las máquinas virtuales antes de preparar la migración y, después, volver a agregarlas a la máquina virtual después de la migración de Azure Resource Manager.  **Esto solo se aplica a las máquinas virtuales en ejecución.**  Si las máquinas virtuales se detienen cuando están desasignadas, no es necesario eliminar las extensiones de máquina virtual. **Nota:** Muchas extensiones, como la supervisión de Defender para la nube y Azure Diagnostics, se reinstalarán automáticamente después de la migración, por lo que su eliminación no plantea ningún problema.
   - Además, asegúrese de que los Grupos de seguridad de red no restringen el acceso saliente a Internet. Esto puede suceder con algunas configuraciones de Grupos de seguridad de red. El acceso saliente a Internet, y DNS, resulta necesario para migrar las extensiones de máquina virtual a Azure Resource Manager.
   - Hay dos versiones de la extensión BGInfo: v1 y v2.  Si la máquina virtual se creó mediante Azure Portal o PowerShell, probablemente tendrá la extensión v1. Esta extensión no deben quitarse, y la API de migración la omitirá, es decir, que no se migrará. No obstante, si la máquina virtual clásica se ha creado con el nuevo Azure Portal, probablemente tenga la versión v2 basada en JSON de BGInfo, que sí se puede migrar a Azure Resource Manager, siempre que el agente esté operativo y que haya acceso saliente a Internet y DNS.
   - **Opción de corrección 1**. Si sabe que las máquinas virtuales no tendrán acceso saliente a Internet, un servicio DSN activo y agentes de Azure operativos en las máquinas virtuales, desinstale las extensiones de máquina virtual como parte de la migración antes de la fase de preparación y luego reinstálelas después de la migración.
   - **Opción de corrección 2**. Si las extensiones de máquina virtual plantean un gran obstáculo, otra opción consiste en apagar o desasignar todas las máquinas virtuales antes de la migración. Migre las máquinas virtuales desasignadas y luego reinícielas en Azure Resource Manager. Aquí la ventaja es que las extensiones de máquina virtual se migrarán. El inconveniente es que todas las IP virtuales públicas se perderán, algo que no tiene sentido, ya que las máquinas virtuales se apagarán con un impacto mucho mayor en las aplicaciones operativas.
 
     > [!NOTE]
-    > Si se configura una directiva de Azure Security Center con respecto a las máquinas virtuales en ejecución que se van a migrar, es necesario detener dicha directiva de seguridad antes de quitar las extensiones, ya que, de lo contrario, la extensión de supervisión de seguridad se reinstalará automáticamente en la máquina virtual después de quitarla.
+    > Si se configura una directiva de Microsoft Defender para la nube con respecto a las VM en ejecución que se van a migrar, es necesario detener dicha directiva de seguridad antes de quitar las extensiones, ya que, de lo contrario, la extensión de supervisión de seguridad se reinstalará automáticamente en la VM después de quitarla.
 
 - **Conjuntos de disponibilidad**: para migrar una red virtual (vNet) a Azure Resource Manager, todas las máquinas virtuales contenidas en la implementación clásica, es decir, el servicio en la nube, deben encontrarse en un conjunto de disponibilidad, o bien ninguna máquina virtual debe pertenecer a ningún conjunto de disponibilidad. Azure Resource Manager no admite que haya más de un conjunto de disponibilidad en el servicio en la nube y, de ser así, la migración se detendrá.  Además, no puede haber algunas máquinas virtuales en un conjunto de disponibilidad, y algunas máquinas virtuales no están en un conjunto de disponibilidad. Para solucionar esta cuestión, será necesario corregir o reorganizar el servicio en la nube.  Tenga esto en cuenta para realizar la planificación, ya que esta operación puede llevar bastante tiempo.
 

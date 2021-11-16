@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 4d28d57a20f1878e32067faa9e68f6f3ac30640b
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: bf444b81f24a2ca45d72d9db23fefcc49673eb59
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130245547"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132317150"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-skydesk-email"></a>Tutorial: Integración del inicio de sesión único de Azure AD con SkyDesk Email
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar SkyDesk Email con Azure Active Directory
 * Permitir que los usuarios inicien sesión automáticamente en SkyDesk Email con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -59,12 +59,12 @@ Configure y pruebe el inicio de sesión único de Azure AD con SkyDesk Email me
 
 Para configurar y probar el inicio de sesión único de Azure AD con SkyDesk Email, siga estos pasos:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)**, para permitir que los usuarios puedan utilizar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
-    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en SkyDesk Email](#configure-skydesk-email-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Skydesk Email](#create-skydesk-email-test-user)** : para tener un homólogo de B.Simon en Skydesk Email que esté vinculado a la representación del usuario en Azure AD.
-1. **[Prueba del inicio de sesión único](#test-sso)**, para comprobar si la configuración funciona.
+1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -183,4 +183,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado SkyDesk Email, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez que haya configurado SkyDesk Email, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

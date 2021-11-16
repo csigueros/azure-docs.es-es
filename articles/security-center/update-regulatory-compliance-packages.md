@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 08/05/2021
 ms.author: memildin
-ms.openlocfilehash: bbbdd3591363e613e4eefb253c96cd8915d8c5cb
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: f4b79d1f575d2cccfd2ea6f50af13e439a3ca968
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131449362"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132053507"
 ---
 # <a name="customize-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalización del conjunto de estándares en el panel de cumplimiento normativo
 
@@ -101,7 +101,7 @@ Para agregar estándares al panel:
 
 ## <a name="remove-a-standard-from-your-dashboard"></a>Eliminación de un estándar del panel
 
-Si alguno de los estándares normativos proporcionados no es relevante para su organización, quitarlo de la interfaz de usuario es un proceso sencillo. Esto le permite personalizar aún más el panel de cumplimiento normativo y centrarse solo en los estándares que se apliquen en su caso.
+Para continuar, personalice el panel de cumplimiento normativo y céntrese solo en los estándares que se le pueden aplicar, para lo que debe quitar todos los estándares normativos suministrados que no sean relevantes para su organización.
 
 Para quitar un estándar:
 

@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: concepts
 ms.topic: overview
 ms.date: 07/14/2021
-ms.openlocfilehash: fdec259dc93e52a8bc1271de8af90f4b864afd49
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 52c59662e1dfa97e779cce0b812bcaf25a8494a1
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131842062"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132301634"
 ---
 # <a name="whats-new-in-azure-data-factory"></a>Novedades de Azure Data Factory
 
@@ -25,6 +25,34 @@ El servicio Azure Data Factory se mejora de forma continua. Para mantenerse al d
 - Planes de cambios
 
 Esta página se actualiza mensualmente, por lo que se recomienda visitarla con frecuencia. 
+
+## <a name="october-2021"></a>Octubre de 2021
+<br>
+<table>
+<tr><td><b>Categoría del servicio</b></td><td><b>Mejoras en el servicio</b></td><td><b>Detalles</b></td></tr>
+  
+<tr><td rowspan=3><b>Flujo de datos</b></td><td>Conectores de Azure Data Explorer y Amazon Web Services S3</td><td>El equipo de Integración de datos de Microsoft acaba de publicar dos nuevos conectores para asignar flujos de datos. Si usa Azure Synapse, ahora puede conectarse directamente a los cubos de AWS S3 para realizar transformaciones de datos. Tanto en Azure Data Factory como Azure Synapse, ahora puede conectarse de forma nativa a los clústeres de Azure Data Explorer en flujos de datos de asignación.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/mapping-data-flow-gets-new-native-connectors/ba-p/2866754">Más información</a></td></tr>
+<tr><td>Actividades de Power Query que dejan la versión preliminar para disponibilidad general (GA)</td><td>Microsoft ha publicado la actividad de canalización de Power Query de Azure Data Factory como "Disponible de forma general". Esta nueva característica proporciona la opción para preparar los datos de escalabilidad horizontal y reorganizarlos para los integradores de ciudadanos dentro de la interfaz de usuario del explorador de ADF para obtener una experiencia integrada para los ingenieros de datos. La característica de limpieza y transformación de datos de Power Query en ADF proporciona una potente capacidad de canalización fácil de usar para resolver sus patrones ETL y de integración de datos más complejos en un solo servicio.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/data-wrangling-at-scale-with-adf-s-power-query-activity-now/ba-p/2824207">Más información</a></td></tr>
+<tr><td>Nueva transformación de datos que se convierten a cadena JSON en flujos de datos de asignación</td><td>La asignación de flujos de datos ha agregado una nueva transformación de datos denominada "Convertir a cadena JSON" para facilitar la conversión de tipos de datos complejos como estructuras y matrices en formato de cadena que se pueden enviar a destinos de salida estructurados.<br><a href="data-flow-stringify.md">Más información</a></td></tr>
+  
+<tr>
+  <td rowspan=2><b>Integration Runtime</b></td>
+  <td>Red virtual administrada de Azure Data Factory pasa a GA</td>
+  <td>Ahora puede aprovisionar Azure Integration Runtime como parte de una red virtual administrada y aprovechar los puntos de conexión privados para conectarse de forma segura a los almacenes de datos admitidos. El tráfico de datos atraviesa los vínculos de Azure Private Link, que proporcionan conectividad segura al origen de datos. Además, evita la filtración de datos a la red pública de Internet.<br><a href="managed-virtual-network-private-endpoint.md">Más información</a></td>
+ </tr>
+ <tr>
+   <td>Inserción de red virtual express para el entorno de ejecución de integración de SSIS (versión preliminar pública)</td>
+   <td>El entorno de ejecución de integración de SSIS ahora admite la inserción de red virtual express.<br>
+Más información:<br>
+     <a href="join-azure-ssis-integration-runtime-virtual-network.md">Introducción a la inserción de red virtual para el entorno de ejecución de integración de SSIS</a><br>
+     <a href="azure-ssis-integration-runtime-virtual-network-configuration.md">Inserción de red virtual estándar contra express para el entorno de ejecución de integración de SSIS</a><br>
+     <a href="azure-ssis-integration-runtime-express-virtual-network-injection.md">Inserción de red virtual express para el entorno de ejecución de integración de SSIS</a>
+   </td>
+ </tr>
+
+<tr><td rowspan=2><b>Seguridad</b></td><td>Mejora de la integración de Azure Key Vault</td><td>Hemos mejorado la integración de Azure Key Vault añadiendo listas desplegables seleccionables por el usuario para elegir los valores secretos en el servicio vinculado, lo que aumenta la productividad y no requiere que los usuarios escriban los secretos, lo que podría provocar un error humano.</td></tr>
+<tr><td>Compatibilidad con la identidad administrada asignada por el usuario en Azure Data Factory</td><td>La seguridad de las credenciales es fundamental para cualquier empresa. Con esto en mente, el equipo de Azure Data Factory (ADF) se compromete a hacer que el proceso de ingeniería de datos sea seguro pero sencillo para los ingenieros de datos. Nos complace anunciar la compatibilidad con la identidad administrada asignada por el usuario (versión preliminar) en todos los conectores o servicios vinculados que admiten la autenticación de Azure Active Directory (Azure AD).<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/support-for-user-assigned-managed-identity-in-azure-data-factory/ba-p/2841013">Más información</a></td></tr>
+</table>
 
 ## <a name="september-2021"></a>Septiembre de 2021
 <br>

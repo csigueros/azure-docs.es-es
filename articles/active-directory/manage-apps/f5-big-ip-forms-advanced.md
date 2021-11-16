@@ -1,5 +1,5 @@
 ---
-title: Integración de Azure Active Directory con F5 BIG-IP para el inicio de sesión único con autenticación basada en formularios
+title: Inicio de sesión único de F5 BIG-IP APM y Azure AD para aplicaciones con autenticación basada en formularios
 description: Obtenga información sobre cómo integrar el administrador de directivas de acceso BIG-IP (APM) de F5 y Azure Active Directory para obtener acceso híbrido seguro a las aplicaciones basadas en formularios.
 author: gargi-sinha
 ms.service: active-directory
@@ -9,12 +9,12 @@ ms.workload: identity
 ms.date: 10/20/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51fb95b6f79bd306a1e936fa99da7a55fe2eea2a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 8306c9f0035eababdcf5feb115786982d78f0d52
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131039937"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132137174"
 ---
 # <a name="tutorial-integrate-azure-active-directory-with-f5-big-ip-for-forms-based-authentication-single-sign-on"></a>Tutorial: Integración de Azure Active Directory con F5 BIG-IP para el inicio de sesión único con autenticación basada en formularios
 
@@ -40,9 +40,13 @@ En su lugar, la implementación de BIG-IP Virtual Edition (VE) entre Internet y 
 
 Tener una instancia de BIG-IP delante de la aplicación nos permite superponer el servicio con la autenticación previa de Azure AD y el inicio de sesión único basado en formularios, lo que mejora significativamente la posición de seguridad general de la aplicación y permite que la empresa siga funcionando a buen ritmo, sin interrupción.
 
+Las credenciales de usuario almacenadas en caché por BIG-IP APM están disponibles para el inicio de sesión único en otras aplicaciones de autenticación basada en formularios.
+
+## <a name="scenario-architecture"></a>Arquitectura del escenario
+
 La solución de acceso híbrido seguro para este escenario está integrada por los componentes siguientes:
 
-**Aplicación**: servicio back-end que se va a proteger con Azure AD y el acceso híbrido seguro de BIG-IP. Esta aplicación concreta valida las credenciales de usuario con un código abierto, pero podría ser cualquier directorio, incluidos Active Directory o LDS, entre otros.
+**Aplicación**: servicio back-end que se va a proteger con Azure AD y el acceso híbrido seguro de BIG-IP. Esta aplicación en particular valida las credenciales de usuario en Active Directory (AD), pero podría ser en cualquier directorio, incluido LDS (AD Lightweight Directory Services), código abierto, etc.
 
 **Azure AD**: proveedor de identidades SAML (IdP), responsable de la comprobación de las credenciales de usuario, el acceso condicional (CA) y el inicio de sesión único en BIG-IP APM.
 
@@ -53,13 +57,13 @@ La solución de acceso híbrido seguro para este escenario está integrada por l
 | Pasos | Descripción|
 |:-------|:----------|
 | 1. | El usuario se conecta al punto de conexión del proveedor de servicios SAML de la aplicación (BIG-IP APM).|
-|2. | La directiva de acceso de APM redirige al usuario al IdP de SAML (Azure AD) para la autenticación previa.|
-| 3. | El IdP de SAML autentica al usuario y aplica las directivas de CA exigidas.|
-| 4. | Azure AD redirige al usuario al proveedor de servicios de SAML con el token y las notificaciones que se han emitido. |
-| 5. | APM solicita la contraseña de la aplicación y la almacena en caché. |
-| 6. |  La solicitud de BIG-IP para la aplicación recibe el formulario de inicio de sesión.|
-| 7. | El scripting de APM responde mediante el relleno del nombre de usuario y la contraseña antes de enviar el formulario.|
-| 8. | El servidor web ofrece la carga útil de la aplicación y se envía al cliente. De manera opcional, APM detecta un inicio de sesión correcto mediante el examen de los encabezados de respuesta, donde busca el URI de redirección o cookie. |
+| 2. | La directiva de acceso de APM redirige al usuario al IdP de SAML (Azure AD) para la autenticación previa.|
+| 3. | Azure AD autentica previamente al usuario y aplica cualquier directiva de acceso condicional impuesta.|
+| 4. | Se redirige al usuario de nuevo al proveedor de servicios de SAML con el token y las notificaciones que se han emitido. |
+| 5. | BIG-IP solicita al usuario la contraseña de la aplicación y la almacena en caché. |
+| 6. | BIG-IP envía la solicitud a la aplicación y recibe un formulario de inicio de sesión.|
+| 7. | El scripting de APM responde automáticamente mediante el relleno del nombre de usuario y la contraseña antes de enviar el formulario.|
+| 8. | El servidor web ofrece la carga útil de la aplicación y se envía al cliente. De manera opcional, APM detecta un inicio de sesión correcto mediante el examen de los encabezados de respuesta, donde busca el URI de redirección o cookie.|
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -89,9 +93,7 @@ No es necesario tener experiencia previa en BIG-IP, pero necesitará lo siguient
 
 ## <a name="deployment-modes"></a>Modos de implementación
 
-Existen varios métodos para configurar una instancia de BIG-IP para este escenario, incluidas varias opciones basadas en asistentes o una configuración avanzada.
-
-En este tutorial se trata el enfoque avanzado, que es un enfoque más flexible para implementar el acceso híbrido seguro mediante la creación manual de todos los objetos de configuración de BIG-IP. Este enfoque también se puede usar para los escenarios que no se describen en la configuración guiada.
+Existen varios métodos para configurar una BIG-IP para este escenario. En este tutorial se trata el enfoque avanzado, que es un enfoque más flexible para implementar el acceso híbrido seguro mediante la creación manual de todos los objetos de configuración de BIG-IP. Este enfoque se puede usar para los escenarios que no se describen en la configuración guiada basada en plantillas.
 
 >[!NOTE]
 >Todas las cadenas o los valores de ejemplo a los que se hace referencia en este artículo deben reemplazarse por los de su entorno real.
@@ -359,7 +361,7 @@ La configuración de administración de sesiones de BIG-IP se usa para definir l
 
 Con respecto a la funcionalidad SLO, al haber definido un único URI de cierre de sesión en Azure AD, se garantizará que un cierre de sesión iniciado por IdP desde el portal MyApps también finaliza la sesión entre el cliente y BIG-IP APM.
 
-Después de haber importado el archivo metadata.xml de federación de la aplicación, se proporciona a APM el punto de conexión del cierre de sesión SAML de Azure AD para los cierres de sesión iniciados por el proveedor de servicios. No obstante, para que esto sea realmente eficaz, el APM debe saber exactamente cuándo cierra sesión un usuario.
+Después de haber importado el archivo metadata.xml de federación de la aplicación, se proporciona a APM el punto de conexión del cierre de sesión único SAML de Azure AD para los cierres de sesión iniciados por el proveedor de servicios. No obstante, para que esto sea realmente eficaz, el APM debe saber exactamente cuándo cierra sesión un usuario.
 
 Considere un escenario en el que no se use un portal web de BIG-IP, donde el usuario no tiene ninguna forma de indicar a APM que cierre la sesión. Incluso si el propio usuario cierra la sesión en la aplicación, BIG-IP es ajeno a esto desde el punto de vista técnico, por lo que la sesión de la aplicación podría restablecerse fácilmente a través del inicio de sesión único. Por esta razón, el inicio de sesión por parte de SP es algo que debe tenerse muy en cuenta para garantizar que las sesiones se terminen de forma segura cuando ya no sean necesarias.
 
@@ -377,14 +379,11 @@ Para aumentar la seguridad, las organizaciones que usan este patrón también po
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Desde un explorador, conéctese a la dirección URL externa de la aplicación o seleccione el icono de la aplicación en el portal MyApps. Después de autenticarse en Azure AD, se le redirigirá al servidor virtual de BIG-IP para la aplicación y se le solicitará una contraseña.
-
->[!Note]
->APM rellena previamente el nombre de usuario con el UPN de Azure AD.
+Desde un explorador, conéctese a la dirección URL externa de la aplicación o seleccione el icono de la aplicación en el portal MyApps. Después de autenticarse en Azure AD, se le redirigirá al punto de conexión de BIG-IP para la aplicación y se le solicitará una contraseña. Observe cómo APM rellena previamente el nombre de usuario con el UPN de Azure AD. El nombre de usuario rellenado previamente por APM es de solo lectura para garantizar la coherencia de la sesión entre Azure AD y la aplicación de back-end. Este campo podría ocultarse con configuración adicional, si es necesario.
 
 ![Captura de pantalla que muestra el inicio de sesión único protegido](./media/f5-big-ip-forms-advanced/secured-sso.png)
 
-Tras el envío, el usuario debería iniciar sesión en la aplicación de forma automática y la contraseña debería almacenarse en caché para reutilizarla en cualquier otra aplicación que se publique con el perfil de acceso de inicio de sesión único con autenticación basada en formularios (FBA SSO).
+Una vez enviado, el usuario debería iniciar sesión automáticamente en la aplicación.
 
 ![Captura de pantalla que muestra el mensaje de bienvenida](./media/f5-big-ip-forms-advanced/welcome-message.png)
 

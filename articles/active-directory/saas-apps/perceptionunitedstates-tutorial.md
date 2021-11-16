@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/05/2021
 ms.author: jeedes
-ms.openlocfilehash: d33c54bae01d6406e32a0a2c97ef7695df48da9a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: da72dc75cd512ad6d907101167d358335f53fceb
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131058864"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132341968"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-perception-united-states-non-ultipro"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Perception United States (Non-UltiPro)
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Perception United States (Non-UltiPro) c
 * Permitir que los usuarios inicien sesión automáticamente en Perception United States (Non-UltiPro) con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -172,4 +172,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Perception United States (Non-UltiPro), puede aplicar controles de sesión, que protegen contra la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado Perception United States (Non-UltiPro), puede aplicar controles de sesión, que protegen contra la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

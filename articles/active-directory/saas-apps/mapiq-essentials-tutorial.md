@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2021
 ms.author: jeedes
-ms.openlocfilehash: fa7903676db508dda692de9f66adba7b94873c7b
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: fcddb8d6b56bc72d90d7e4d8bd18129944f32ca4
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131478165"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132310766"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-mapiq-essentials"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Mapiq Essentials
 
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar Mapiq Essentials con Azure Active Directo
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Mapiq Essentials con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -56,12 +56,12 @@ Configure y pruebe el inicio de sesión único de Azure AD con Mapiq Essentials
 
 Para configurar y probar el inicio de sesión único de Azure AD con Mapiq Essentials, siga estos pasos:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)**, para permitir que los usuarios puedan utilizar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
-    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Mapiq Essentials](#configure-mapiq-essentials-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Mapiq Essentials](#create-mapiq-essentials-test-user)** : para tener un homólogo de B.Simon en Mapiq Essentials vinculado a la representación del usuario en Azure AD.
-1. **[Prueba del inicio de sesión único](#test-sso)**, para comprobar si la configuración funciona.
+1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -142,4 +142,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurada la aplicación Mapiq Essentials, podrá aplicar el control de sesión, que protege a su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurada la aplicación Mapiq Essentials, podrá aplicar el control de sesión, que protege a su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con las aplicaciones de Microsoft Defender para la nube](/cloud-app-security/proxy-deployment-aad).

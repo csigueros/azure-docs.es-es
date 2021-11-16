@@ -10,18 +10,18 @@ ms.date: 11/02/2021
 author: ruixinxu
 ms.author: ruxu
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: cb7e8cabf49b528b1174db004f3d22636a13fdfe
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 9450ef956fc4d849e47fbf742f032359cffeea61
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030590"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132312111"
 ---
 # <a name="tutorial-form-recognizer-with-applied-ai-service"></a>Tutorial: Form Recognizer con Applied AI Services
 
 [Azure Form Recognizer](../../applied-ai-services/form-recognizer/index.yml) es uno de los servicios de [Azure Applied AI Services](../../applied-ai-services/index.yml) y permite crear una aplicación de procesamiento de datos automatizado mediante la tecnología de aprendizaje automático. En este tutorial, aprenderá a enriquecer fácilmente los datos en Azure Synapse Analytics. Utilizará [Form Recognizer](../../applied-ai-services/form-recognizer/index.yml) para analizar los formularios y documentos, extraer texto y datos, y devolver una salida JSON estructurada. Obtendrá rápidamente resultados precisos a la medida de su contenido específico sin necesidad de una intervención manual excesiva o una amplia experiencia en ciencia de datos. 
 
-En este tutorial se muestra cómo usar Form Recognizer con [MMLSpark](https://github.com/Azure/mmlspark) para:
+En este tutorial se muestra cómo usar Form Recognizer con [SynapseML](https://github.com/microsoft/SynapseML) para:
 
 > [!div class="checklist"]
 > - Extraer texto y diseño de un documento determinado
@@ -42,11 +42,11 @@ Si no tiene una suscripción a Azure, [cree una cuenta gratuita antes de empezar
 
 
 ## <a name="get-started"></a>Introducción
-Abra Synapse Studio y cree un cuaderno. Para empezar, importe [MMLSpark](https://github.com/Azure/mmlspark). 
+Abra Synapse Studio y cree un nuevo cuaderno. Para empezar, importe [SynapseML](https://github.com/microsoft/SynapseML). 
 
 ```python
-import mmlspark
-from mmlspark.cognitive import *
+import synapse.ml
+from synapse.ml.cognitive import *
 ```
 
 ## <a name="configure-form-recognizer"></a>Configuración de Form Recognizer 
@@ -203,4 +203,4 @@ Para asegurarse de que se cierra la instancia de Spark, finalice todas las sesio
 
 * [Entrenamiento de un modelo personalizado de Form Recognizer](../../applied-ai-services/form-recognizer/label-tool.md)
 * [Consulte los cuadernos de ejemplo de Synapse](https://github.com/Azure-Samples/Synapse/tree/main/MachineLearning) 
-* [Repositorio de GitHub para MMLSpark](https://github.com/Azure/mmlspark)
+* [Repositorio de GitHub de SynapseML](https://github.com/microsoft/SynapseML)

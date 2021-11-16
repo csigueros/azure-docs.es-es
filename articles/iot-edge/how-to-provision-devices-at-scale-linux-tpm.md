@@ -1,19 +1,19 @@
 ---
-title: 'Aprovisionamiento de dispositivos con un TPM virtual en Linux: Azure IoT Edge'
+title: 'Creación y aprovisionamiento de dispositivos con un TPM virtual en Linux: Azure IoT Edge'
 description: Use un TPM simulado en un dispositivo Linux para probar el servicio de aprovisionamiento de dispositivos de Azure IoT Hub para Azure IoT Edge.
-author: v-tcassi
-manager: philmea
-ms.author: v-tcassi
-ms.date: 07/09/2021
+author: kgremban
+manager: lizross
+ms.author: kgremban
+ms.date: 10/28/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e55d4f2bcb6e8f86a45d22e4a3a16555fefe8f81
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: b353f683a64444a0ad89f062d0b826484260681f
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130246631"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131852054"
 ---
 # <a name="create-and-provision-iot-edge-devices-at-scale-with-a-tpm-on-linux"></a>Creación y aprovisionamiento de dispositivos IoT Edge a gran escala con un TPM en Linux
 
@@ -49,24 +49,18 @@ Las tareas son las siguientes:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
+<!-- Cloud resources prerequisites H3 and content -->
+[!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](../../includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
+
+### <a name="iot-edge-installation"></a>Instalación de IoT Edge
+
 # <a name="physical-device"></a>[Dispositivo físico](#tab/physical-device)
 
-* Un centro de IoT activo.
-* Una instancia del servicio de aprovisionamiento de dispositivos de IoT Hub en Azure que esté vinculada a IoT Hub.
-  * Si no tiene una instancia del servicio de aprovisionamiento de dispositivos, siga las instrucciones que se encuentran en dos secciones del inicio rápido del servicio de aprovisionamiento de dispositivos de IoT Hub:
-     - [Creación de un servicio de aprovisionamiento de dispositivos de IoT Hub](../iot-dps/quick-setup-auto-provision.md#create-a-new-iot-hub-device-provisioning-service)
-     - [Vínculo al centro de IoT y al servicio de aprovisionamiento de dispositivos](../iot-dps/quick-setup-auto-provision.md#link-the-iot-hub-and-your-device-provisioning-service)
-  * Cuando el servicio de aprovisionamiento de dispositivos esté en ejecución, copie el valor de **Ámbito de id.** de la página de información general. Use este valor cuando configure el entorno de ejecución de IoT Edge.
+Un dispositivo Linux físico para que sea el dispositivo IoT Edge físico.
 
 # <a name="virtual-machine"></a>[Máquina virtual](#tab/virtual-machine)
 
-* Un centro de IoT activo.
-* Una instancia del servicio de aprovisionamiento de dispositivos de IoT Hub en Azure que esté vinculada a IoT Hub.
-  * Si no tiene una instancia del servicio de aprovisionamiento de dispositivos, siga las instrucciones de las dos secciones del inicio rápido del servicio de aprovisionamiento de dispositivos de IoT Hub:
-    - [Creación de un servicio de aprovisionamiento de dispositivos de IoT Hub](../iot-dps/quick-setup-auto-provision.md#create-a-new-iot-hub-device-provisioning-service)
-    - [Vínculo al centro de IoT y al servicio de aprovisionamiento de dispositivos](../iot-dps/quick-setup-auto-provision.md#link-the-iot-hub-and-your-device-provisioning-service)
-  * Cuando el servicio de aprovisionamiento de dispositivos esté en ejecución, copie el valor de **Ámbito de id.** de la página de información general. Use este valor cuando configure el entorno de ejecución de IoT Edge.
-* Un equipo de desarrollo de Windows [habilitado para Hyper-V](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). En este artículo se usa Windows 10 que ejecuta una máquina virtual de servidor de Ubuntu.
+Un equipo de desarrollo de Windows [habilitado para Hyper-V](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). En este artículo se usa Windows 10 que ejecuta una máquina virtual de servidor de Ubuntu.
 
 ---
 
@@ -174,164 +168,13 @@ En esta sección, se crea una herramienta que podrá utilizar para recuperar el 
 
 Una vez que tenga el identificador de registro y la clave de aprobación, estará listo para continuar.
 
-## <a name="create-a-device-provisioning-service-enrollment"></a>Creación de una inscripción del servicio de aprovisionamiento de dispositivos
+<!-- Create an enrollment for your device using TPM provisioning information H2 and content -->
+[!INCLUDE [tpm-create-a-device-provision-service-enrollment.md](../../includes/tpm-create-a-device-provision-service-enrollment.md)]
 
-Recupere la información de aprovisionamiento del TPM y úsela para crear una inscripción individual en el servicio de aprovisionamiento de dispositivos.
+<!-- Install IoT Edge on Linux H2 and content -->
+[!INCLUDE [install-iot-edge-linux.md](../../includes/iot-edge-install-linux.md)]
 
-Al crear una inscripción en el servicio de aprovisionamiento de dispositivos, tiene la oportunidad de declarar un **estado inicial de dispositivo gemelo**. En el dispositivo gemelo, puede establecer etiquetas para agrupar dispositivos por cualquier métrica utilizada en la solución, como la región, el entorno, la ubicación o el tipo de dispositivo. Estas etiquetas se usan para crear [implementaciones automáticas](how-to-deploy-at-scale.md).
-
-> [!TIP]
-> Los pasos de este artículo son para Azure Portal, pero también puede crear inscripciones individuales mediante la CLI de Azure. Para más información, consulte [az iot dps enrollment](/cli/azure/iot/dps/enrollment). Como parte del comando de la CLI, use la marca **edge-enabled** para especificar que la inscripción es para un dispositivo de IoT Edge.
-
-1. En [Azure Portal](https://portal.azure.com), vaya a la instancia del servicio de aprovisionamiento de dispositivos de IoT Hub.
-
-1. En **Configuración**, seleccione **Administrar inscripciones**.
-
-1. Seleccione **Agregar inscripción individual** y, después, complete los pasos siguientes para configurar la inscripción:
-
-   1. En **Mecanismo**, seleccione **TPM**.
-
-   1. Proporcione la **clave de aprobación** y el **identificador de registro** que ha copiado de la máquina virtual o el dispositivo físico.
-
-   1. Si quiere, proporcione un identificador para el dispositivo. Si no proporciona un id. de dispositivo, se usará el id. de registro.
-
-   1. Seleccione **Verdadero** para declarar que esta máquina virtual o el dispositivo físico es un dispositivo IoT Edge.
-
-   1. Elija el centro de IoT vinculado al que quiere conectar el dispositivo o seleccione **Link to new IoT Hub** (Vincular a un nuevo centro de IoT). Puede elegir varios centros y el dispositivo se asignará a uno de ellos según la directiva de asignación seleccionada.
-
-   1. Si quiere, agregue un valor de etiqueta a **Estado inicial de dispositivo gemelo**. Puede usar etiquetas para los grupos de dispositivos de destino para la implementación del módulo. Para más información, consulte [Implementación de módulos IoT Edge a escala](how-to-deploy-at-scale.md).
-
-   1. Seleccione **Guardar**.
-
-Ahora que existe una inscripción para este dispositivo, el entorno de ejecución de Azure IoT Edge puede aprovisionar automáticamente el dispositivo durante la instalación.
-
-## <a name="install-the-iot-edge-runtime"></a>Instalación del entorno de ejecución de IoT Edge
-
-En esta sección, preparará la máquina virtual Linux o el dispositivo físico para IoT Edge. Después, instalará IoT Edge.
-
-Tendrá que completar dos pasos en el dispositivo antes de que esté listo para instalar el entorno de ejecución de IoT Edge. El dispositivo necesita acceso a los paquetes de instalación de Microsoft y requiere la instalación de un motor de contenedor.
-
-### <a name="access-the-microsoft-installation-packages"></a>Acceso a los paquetes de instalación de Microsoft
-
-El dispositivo debe tener acceso a los paquetes de instalación de Microsoft.
-
-1. Instale la configuración del repositorio que coincida con el sistema operativo del dispositivo.
-
-   * **Ubuntu Server 18.04**:
-
-      ```bash
-      curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
-      ```
-
-   * **Raspberry Pi OS Stretch**:
-
-      ```bash
-      curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
-      ```
-
-1. Copie la lista generada en el directorio sources.list.d.
-
-   ```bash
-   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-   ```
-
-1. Instale la clave pública de GPG de Microsoft.
-
-   ```bash
-   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-   sudo cp ./microsoft.gpg /etc/apt/trust.gpg.d/
-   ```
-
-> [!NOTE]
-> Los paquetes de software de Azure IoT Edge están sujetos a los términos de licencia que se encuentran cada paquete (`usr/share/doc/{package-name}` o el directorio `LICENSE`). Lea los términos de licencia antes de usar el paquete. La instalación y el uso de un paquete constituyen la aceptación de estos términos. Si no acepta los términos de licencia, no utilice ese paquete.
-
-### <a name="install-a-container-engine"></a>Instalación de un motor del contenedor
-
-IoT Edge se basa en un entorno de ejecución de contenedor compatible con OCI. En los escenarios de producción, se recomienda utilizar el motor de Moby. El motor de Moby es el único motor de contenedor compatible oficialmente con IoT Edge. Las imágenes de contenedor de Docker CE/EE son totalmente compatibles con el entorno de ejecución de Moby.
-
-1. Actualice las listas de paquetes en el dispositivo.
-
-   ```bash
-   sudo apt-get update
-   ```
-
-1. Instale el motor de Moby.
-
-   ```bash
-   sudo apt-get install moby-engine
-   ```
-
-   > [!TIP]
-   > Si se producen errores al instalar el motor del contenedor Moby, compruebe la compatibilidad con Moby del kernel de Linux. Algunos fabricantes de dispositivos incrustados distribuyen imágenes de dispositivos que contienen kernels de Linux personalizados sin las características necesarias para la compatibilidad del motor del contenedor. Ejecute el siguiente comando, que usa el [script check-config](https://github.com/moby/moby/blob/master/contrib/check-config.sh) suministrado por Moby, para comprobar la configuración del kernel:
-   >
-   >   ```bash
-   >   curl -ssl https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh -o check-config.sh
-   >   chmod +x check-config.sh
-   >   ./check-config.sh
-   >   ```
-   >
-   > En la salida del script, compruebe que todos los elementos que figuran en `Generally Necessary` y `Network Drivers` estén habilitados. Si faltan características, puede habilitarlas si vuelve a generar el kernel a partir del origen y selecciona los módulos asociados para incluirlos en el archivo .config de kernel adecuado. Igualmente, si usa un generador de configuración de kernel como `defconfig` o `menuconfig`, busque y habilite las características correspondientes y vuelva a generar el kernel como corresponda. Una vez que implemente el kernel recién modificado, vuelva a ejecutar el script check-config para comprobar que se han habilitado correctamente todas las características necesarias.
-
-### <a name="install-iot-edge"></a>Instalación de IoT Edge
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-El demonio de seguridad de IoT Edge proporciona y mantiene los estándares de seguridad en el dispositivo IoT Edge. El demonio se inicia en cada arranque e inicia el resto del entorno de ejecución de IoT Edge para arrancar el dispositivo.
-
-Los pasos de esta sección representan el proceso habitual para instalar la versión más reciente en un dispositivo que tenga conexión a Internet. Si tiene que instalar una versión específica, como una versión preliminar, o tiene que realizar la instalación sin conexión, siga los pasos de Instalación sin conexión o de una versión específica.
-
-1. Actualice las listas de paquetes en el dispositivo.
-
-   ```bash
-   sudo apt-get update
-   ```
-
-1. Instale IoT Edge versión 1.1* junto con el paquete **libiothsm-std**.
-
-   ```bash
-   sudo apt-get install iotedge
-   ```
-
-   > [!NOTE]
-   > *IoT Edge versión 1.1 es la rama de soporte técnico a largo plazo de IoT Edge. Si ejecuta una versión anterior, se recomienda instalar o actualizar a la revisión más reciente, porque las versiones anteriores ya no se admiten.
-
-:::moniker-end
-<!-- end 1.1 -->
-
-<!-- 1.2 -->
-:::moniker range=">=iotedge-2020-11"
-
-El servicio IoT Edge proporciona y mantiene los estándares de seguridad en el dispositivo IoT Edge. El servicio se inicia en cada arranque e inicia el resto del entorno de ejecución de IoT Edge para arrancar el dispositivo.
-
-El servicio de identidad de IoT se introdujo junto con la versión 1.2 de IoT Edge. Este servicio controla el aprovisionamiento y la administración de identidades para IoT Edge y otros componentes de dispositivo que necesitan comunicarse con IoT Hub.
-
-Los pasos de esta sección representan el proceso habitual para instalar la versión más reciente en un dispositivo que tenga conexión a Internet. Si tiene que instalar una versión específica, como una versión preliminar, o tiene que realizar la instalación sin conexión, siga los pasos de Instalación sin conexión o de una versión específica.
-
-Actualice las listas de paquetes en el dispositivo.
-
-   ```bash
-   sudo apt-get update
-   ```
-
-Compruebe qué versiones de IoT Edge y el servicio de identidad de IoT están disponibles.
-
-   ```bash
-   apt list -a aziot-edge aziot-identity-service
-   ```
-
-Para instalar la versión más reciente de IoT Edge y el paquete de servicio de identidad de IoT, use el comando siguiente:
-
-   ```bash
-   sudo apt-get install aziot-edge
-   ```
-
-O bien, si decide instalar una versión de IoT Edge diferente a la más reciente, asegúrese de instalar la misma versión para los servicios `aziot-edge` y `aziot-identity-service`.
-
-:::moniker-end
-<!-- end 1.2 -->
-
-## <a name="configure-the-device-with-provisioning-information"></a>Configuración del dispositivo con la información de aprovisionamiento
+## <a name="provision-the-device-with-its-cloud-identity"></a>Aprovisionamiento del dispositivo con su identidad de nube
 
 Una vez que el entorno de ejecución está instalado en el dispositivo, configure el dispositivo con la información que usa para conectarse al servicio de aprovisionamiento de dispositivos y a IoT Hub.
 
@@ -355,10 +198,10 @@ Una vez que el entorno de ejecución está instalado en el dispositivo, configur
    provisioning:
      source: "dps"
      global_endpoint: "https://global.azure-devices-provisioning.net"
-     scope_id: "<SCOPE_ID>"
+     scope_id: "SCOPE_ID_HERE"
      attestation:
        method: "tpm"
-       registration_id: "<REGISTRATION_ID>"
+       registration_id: "REGISTRATION_ID_HERE"
    # always_reprovision_on_startup: true
    # dynamic_reprovisioning: false
    ```
@@ -396,11 +239,11 @@ Una vez que el entorno de ejecución está instalado en el dispositivo, configur
    [provisioning]
    source = "dps"
    global_endpoint = "https://global.azure-devices-provisioning.net"
-   id_scope = "<SCOPE_ID>"
+   id_scope = "SCOPE_ID_HERE"
    
    [provisioning.attestation]
    method = "tpm"
-   registration_id = "<REGISTRATION_ID>"
+   registration_id = "REGISTRATION_ID_HERE"
    ```
 
 1. Actualice los valores de `id_scope` y `registration_id` con la información del servicio de aprovisionamiento de dispositivos y del dispositivo. El valor `scope_id` es el **ámbito de identificador** de la página de información general de la instancia del servicio de aprovisionamiento de dispositivos.
@@ -532,7 +375,7 @@ Puede conceder acceso al TPM mediante la invalidación de la configuración de s
 :::moniker-end
 <!-- end 1.2 -->
 
-## <a name="restart-iot-edge-and-verify-successful-installation"></a>Reinicie IoT Edge y compruebe que la instalación se ha realizado correctamente
+## <a name="verify-successful-installation"></a>Comprobación de instalación correcta
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"

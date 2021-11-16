@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/5/2021
 ms.author: jeedes
-ms.openlocfilehash: 6da54dc5b4d2389e25e25d38d8e38e5b7f12ea23
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 9d24046ba1169d3f890b41e95d3ab890a60006af
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124808104"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132332751"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-upshotly"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Upshotly
 
@@ -57,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Upshotly mediant
 Para configurar y probar el inicio de sesión único de Azure AD con Upshotly, es preciso completar los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Upshotly](#configure-upshotly-sso)** , para configurar los valores de Inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Upshotly](#create-upshotly-test-user)** , para tener un homólogo de B.Simon en Upshotly vinculado a la representación del usuario en Azure AD.
@@ -158,4 +158,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado Upshotly, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez que haya configurado Upshotly, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

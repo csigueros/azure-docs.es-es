@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 8e8f39263649582d3c32f14027e75ad9bd3071f4
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a88f928135e7d6169a678fafe291072f336f3d98
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124768068"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132329450"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-rhombus-systems"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Rhombus Systems
 
@@ -61,7 +61,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Rhombus Systems 
 Para configurar y probar el inicio de sesión único de Azure AD con Rhombus Systems, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Rhombus Systems](#configure-rhombus-systems-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba en Rhombus Systems](#create-rhombus-systems-test-user)** : para tener un homólogo de B.Simon en Rhombus Systems vinculado a la representación del usuario en Azure AD.
@@ -174,4 +174,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Rhombus Systems, podrá aplicar el control de sesión, que protege la información confidencial de la organización de la filtración y la infiltración en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado Rhombus Systems, podrá aplicar el control de sesión, que protege la información confidencial de la organización de la filtración y la infiltración en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

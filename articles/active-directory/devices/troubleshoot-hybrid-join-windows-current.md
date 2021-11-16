@@ -12,12 +12,12 @@ manager: karenhoran
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2b7e51bc2837cdb068f0f9d6704e80d3f41c396e
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 6188dcd648b59ba7ff535a7431ff0bb47a6f660e
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129538872"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132136092"
 ---
 # <a name="troubleshoot-hybrid-azure-ad-joined-devices"></a>Solución de problemas de dispositivos unidos a Azure AD híbrido
 
@@ -32,6 +32,10 @@ En este artículo se da por supuesto que [ha configurado dispositivos unidos a A
 - Acceso condicional basado en dispositivos
 - [Enterprise State Roaming](./enterprise-state-roaming-overview.md)
 - [Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-identity-verification)
+
+
+> [!NOTE] 
+> Para solucionar los problemas comunes de registro de dispositivos, use la [herramienta de solución de problemas de registro de dispositivos](https://aka.ms/DSRegTool).
 
 
 ## <a name="troubleshoot-join-failures"></a>Solución de errores de unión

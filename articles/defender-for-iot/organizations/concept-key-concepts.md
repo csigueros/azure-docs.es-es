@@ -3,12 +3,12 @@ title: Ventajas clave
 description: Obtenga información sobre los conceptos básicos de Defender para IoT.
 ms.date: 09/09/2021
 ms.topic: article
-ms.openlocfilehash: be5c7f31cb652bb40f4bae35fa42b76d7a576276
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 284301f7a797f2a161aafe90ec641fc062738933
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124836480"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132026470"
 ---
 # <a name="basic-concepts"></a>Conceptos básicos
 
@@ -114,6 +114,20 @@ Además, el uso de alertas personalizadas de Horizon le permite escribir sus pro
 El uso de la mensajería y activación de alertas personalizadas y basadas en condiciones ayuda a identificar la actividad de red específica y a actualizar de forma eficaz a los equipos operativos, de TI y de seguridad.
 
 Para ver una lista completa de los protocolos admitidos, consulte [Protocolos admitidos](concept-supported-protocols.md#supported-protocols).
+
+## <a name="what-is-an-inventory-device"></a>Qué es un dispositivo de inventario
+
+El inventario de dispositivos de Defender para IoT muestra una amplia gama de atributos de recursos que detectan los sensores que supervisan las redes de las organizaciones y los puntos de conexión administrados.
+
+Defender para IoT identificará y clasificará los dispositivos como un único dispositivo de red único en el inventario para:
+
+1. Dispositivos IT/OT/IoT independientes (con una o varias NIC)
+1. Dispositivos compuestos por varios componentes de backplane (incluidos todos los bastidores, ranuras o módulos)
+1. Dispositivos que actúan como infraestructura de red, como conmutador o enrutador (con varias NIC) 
+
+Las direcciones IP públicas de Internet, los grupos de multidifusión y los grupos de difusión no se consideran dispositivos de inventario.
+Los dispositivos que han estado inactivos durante más de 60 días se clasifican como dispositivos de inventario inactivos.
+
 
 ## <a name="high-availability"></a>Alta disponibilidad
 

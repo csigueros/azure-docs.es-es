@@ -7,18 +7,18 @@ ms.author: brysmith
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: tutorial
-ms.date: 04/30/2020
+ms.date: 10/21/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 1e3659f44811c59033a22e1985856f934cd78bba
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: caaaf01d8b1baa5a36726996f24b244f0d9afb46
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129426517"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131555673"
 ---
 # <a name="tutorial-convert-ml-experiments-to-production-python-code"></a>Tutorial: Conversión de experimentos de ML en código de producción de Python
 
-En este tutorial, aprenderá a convertir cuadernos de Juptyer en scripts de Python para facilitar las pruebas y la automatización mediante la plantilla de código MLOpsPython y Azure Machine Learning. Normalmente, este proceso se usa para tomar código de experimentación o entrenamiento de un cuaderno de Juptyer y convertirlo en scripts de Python. Después, esos scripts se pueden usar para realizar pruebas y automatización de CI/CD en el entorno de producción. 
+En este tutorial, aprenderá a convertir cuadernos de Jupyter Notebook en scripts de Python para facilitar las pruebas y la automatización mediante la plantilla de código MLOpsPython y Azure Machine Learning. Normalmente, este proceso se usa para tomar código de experimentación o entrenamiento de un cuaderno de Jupyter Notebook y convertirlo en scripts de Python. Después, esos scripts se pueden usar para realizar pruebas y automatización de CI/CD en el entorno de producción. 
 
 Un proyecto de aprendizaje automático requiere experimentación al probar hipótesis con herramientas ágiles, como Jupyter Notebook, con conjuntos de datos auténticos. Una vez que el modelo está listo para producción, el código del modelo debe colocarse en un repositorio de código de producción. En algunos casos, el código del modelo se debe convertir en scripts de Python que se colocarán en el repositorio de código de producción. En este tutorial se describe un enfoque recomendado sobre cómo exportar código de experimentación a scripts de Python.
 

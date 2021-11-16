@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/11/2021
+ms.date: 11/09/2021
 ms.author: memildin
-ms.openlocfilehash: f48acfc942e40b4316a72b2626c29900d1a9cd6f
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: c38ff365efb2be164304b67ce5ab083bb0f1b0fe
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131428850"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132057364"
 ---
 # <a name="enable-microsoft-defender-for-sql-servers-on-machines"></a>Habilitación de Microsoft Defender para servidores SQL en máquinas 
 
@@ -29,9 +29,11 @@ Verá alertas cuando haya actividades sospechosas en las bases de datos, posible
 |----|:----|
 |Estado de la versión:|Disponibilidad general (GA)|
 |Precios:|**Microsoft Defender for Cloud para servidores SQL en máquinas** se factura como se indica en la [página de precios](https://azure.microsoft.com/pricing/details/security-center/)|
-|Versiones de SQL protegidas:|Azure SQL Server (todas las versiones cubiertas con el soporte técnico de Microsoft)|
+|Versiones de SQL protegidas:|SQL Server (versiones [compatibles actualmente con Microsoft](/mem/configmgr/core/plan-design/configs/support-for-sql-server-versions))|
 |Nubes:|:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet|
 |||
+
+
 
 ## <a name="set-up-microsoft-defender-for-sql-servers-on-machines"></a>Configuración de Microsoft Defender para servidores SQL en máquinas
 
@@ -48,12 +50,12 @@ Para habilitar este plan:
 
 - **SQL Server en Azure VM**: registre VM con SQL Server con la extensión Agente de IaaS de SQL como se explica en [Registro de VM con SQL Server con la extensión Agente de IaaS de SQL](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md).
 
-- **SQL Server en Azure Arc:** instale el agente Azure Arc siguiendo los métodos de instalación descritos en la [documentación de Azure Arc](../azure-arc/servers/manage-vm-extensions.md).
+- **SQL Server en servidores habilitados para Azure Arc**: instale el agente de Azure Arc siguiendo los métodos de instalación descritos en la [documentación de Azure Arc](../azure-arc/servers/manage-vm-extensions.md).
 
 ### <a name="step-2-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>Paso 2. Aprovisione el agente de Log Analytics en el host de SQL Server:
 
 - **SQL Server en Azure VM**: si la máquina SQL se hospeda en una máquina virtual de Azure, puede [habilitar el aprovisionamiento automático del agente de Log Analytics <a name="auto-provision-mma"></a>](enable-data-collection.md#auto-provision-mma). Como alternativa, puede seguir el procedimiento manual para [incorporar máquinas virtuales a la instancia de Azure Stack Hub](quickstart-onboard-machines.md?pivots=azure-portal#onboard-your-azure-stack-hub-vms).
-- **SQL Server en Azure Arc**: si el servidor SQL Server está administrado por servidores habilitados para [Azure Arc](../azure-arc/index.yml), puede implementar el agente de Log Analytics con la recomendación "El agente de Log Analytics debe estar instalado en las máquinas basadas en Windows de Azure Arc (versión preliminar)" de Defender for Cloud.
+- **SQL Server en servidores habilitados para Azure Arc**: si el servidor SQL Server está administrado por servidores habilitados para [Azure Arc](../azure-arc/index.yml), puede implementar el agente de Log Analytics con la recomendación "El agente de Log Analytics debe estar instalado en las máquinas basadas en Windows de Azure Arc (versión preliminar)" de Defender for Cloud.
 
 - **SQL Server local**: si el servidor SQL Server se hospeda en una máquina local de Windows sin Azure Arc, tiene dos opciones para conectarlo a Azure:
     

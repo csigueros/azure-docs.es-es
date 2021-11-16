@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: jeedes
-ms.openlocfilehash: 8835f32b9a4960587eeb8a15545b3a2062661230
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b3e3a610b7bafe8670c3dbbb4b05c1fde1fff0e5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124765293"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132333701"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Tutorial: Integración de Azure Active Directory con SAML SSO for Confluence by resolution GmbH
 
@@ -57,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con SAML SSO for Con
 Para configurar y probar el inicio de sesión único de Azure AD con SAML SSO for Confluence by resolution GmbH, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 2. **[Configuración del inicio de sesión único de SAML SSO for Confluence by resolution GmbH](#configure-saml-sso-for-confluence-by-resolution-gmbh-sso)** : para configurar el inicio de sesión único en el lado de la aplicación.
     1. **[Creación del usuario de prueba de SAML SSO for Confluence by resolution GmbH](#create-saml-sso-for-confluence-by-resolution-gmbh-test-user)** : para tener un homólogo de Britta Simon en SAML SSO for Confluence by resolution GmbH vinculado a la representación del usuario de Azure AD.
@@ -250,4 +250,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado SAML SSO for Confluence by resolution GmbH, podrá aplicar el control de sesión, que protege la información confidencial de la organización de posibles filtraciones. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez que haya configurado SAML SSO for Confluence by resolution GmbH, podrá aplicar el control de sesión, que protege la información confidencial de la organización de posibles filtraciones. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

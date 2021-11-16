@@ -1,19 +1,19 @@
 ---
-title: Archivo de inclusión
-description: Archivo de inclusión
+title: Incluir archivo
+description: Incluir archivo
 author: lobrien
 ms.service: machine-learning
 services: machine-learning
 ms.topic: include
-ms.date: 08/27/2021
+ms.date: 11/05/2021
 ms.author: larryfr
 ms.custom: include file
-ms.openlocfilehash: e144756e65c0ae4d202333cd2972d9c5a1e3fdc8
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e066c97e12f4b8e34f66235f53857c583e4350a9
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124740726"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132135909"
 ---
 Azure Machine Learning requiere acceso entrante y saliente a la red pública de Internet. En las tablas siguientes se proporciona información general sobre qué acceso es necesario el acceso y para qué lo es. El __protocolo__ de todos los elementos es __TCP__. En el caso de las etiquetas de servicio que terminan en `.region`, reemplace `region` por la región de Azure que contiene el área de trabajo. Por ejemplo, `Storage.westus`:
 
@@ -21,7 +21,7 @@ Azure Machine Learning requiere acceso entrante y saliente a la red pública de 
 | ----- |:-----:| ----- | ----- |
 | Entrada | 29876-29877 | BatchNodeManagement | Crear, actualizar y eliminar una instancia y un clúster de proceso de Azure Machine Learning. |
 | Entrada | 44224 | AzureMachineLearning | Crear, actualizar y eliminar una instancia de proceso de Azure Machine Learning. |
-| Salida | * | AzureActiveDirectory | Efectuar la autenticación mediante Azure AD. |
+| Salida | 80, 443 | AzureActiveDirectory | Efectuar la autenticación mediante Azure AD. |
 | Salida | 443 | AzureMachineLearning | Usar los servicios de Azure Machine Learning. |
 | Salida | 443 | AzureResourceManager | Crear recursos de Azure con Azure Machine Learning. |
 | Salida | 443 | Storage.region | Acceder a los datos almacenados en la cuenta de Azure Storage para el servicio Azure Batch. |

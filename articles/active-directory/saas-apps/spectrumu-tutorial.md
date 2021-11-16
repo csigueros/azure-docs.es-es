@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/11/2021
 ms.author: jeedes
-ms.openlocfilehash: 22b16dc0e06e961542c5474c56914e91df22ffa4
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 357aafe7bedf4c20899501ab9ac84c86e6098ed2
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124785617"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132304136"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-spectrumu"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con SpectrumU
 
@@ -61,7 +61,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con SpectrumU con un
 Para configurar y probar el inicio de sesión único de Azure AD con SpectrumU, haga lo siguiente:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en SpectrumU](#configure-spectrumu-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de SpectrumU](#create-spectrumu-test-user)** : para tener un homólogo de B.Simon en SpectrumU que esté vinculado a la representación del usuario en Azure AD.
@@ -143,4 +143,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado SpectrumU, podrá aplicar el control de sesión, que protege la información confidencial de la organización de la filtración y la infiltración en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado SpectrumU, podrá aplicar el control de sesión, que protege la información confidencial de la organización de la filtración y la infiltración en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

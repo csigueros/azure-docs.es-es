@@ -2,14 +2,17 @@
 title: Creación y uso de puntos de conexión privados para Azure Backup
 description: Comprenda el proceso de creación de puntos de conexión privados para Azure Backup en el que su uso ayuda a preservar la seguridad de los recursos.
 ms.topic: conceptual
-ms.date: 09/24/2021
+ms.date: 11/09/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 246b3fa30b52b654e9210ddbf86ca5ede519f50d
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: e474ae10e1461e834312e4ff52b36ece57bcc30e
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130264681"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132137932"
 ---
 # <a name="create-and-use-private-endpoints-for-azure-backup"></a>Creación y uso de puntos de conexión privados para Azure Backup
 
@@ -544,7 +547,7 @@ Para configurar un servidor proxy para una máquina virtual de Azure o una máqu
    >- [US Gov](../azure-government/documentation-government-developer-guide.md)
    >- [Lista de código geográfico: XML de ejemplo](scripts/geo-code-list.md)
 
-En el diagrama siguiente se muestra una configuración (mientras se utilizan las zonas de DNS privado de Azure) con un servidor proxy cuya red virtual está vinculada a una zona DNS privada con las entradas DNS necesarias. El servidor proxy también puede tener su propio servidor DNS personalizado y los dominios señalados anteriormente se pueden reenviar de forma condicional a 169.63.129.16. Si usa un archivo de host o servidor DNS personalizado para la resolución DNS, consulte las secciones sobre [administración de entradas DNS](#manage-dns-records) y la [configuración de la protección](#configure-backup).
+En el diagrama siguiente se muestra una configuración (mientras se utilizan las zonas de DNS privado de Azure) con un servidor proxy cuya red virtual está vinculada a una zona DNS privada con las entradas DNS necesarias. El servidor proxy también puede tener su propio servidor DNS personalizado y los dominios señalados anteriormente se pueden reenviar de forma condicional a 168.63.129.16. Si usa un archivo de host o servidor DNS personalizado para la resolución DNS, consulte las secciones sobre [administración de entradas DNS](#manage-dns-records) y la [configuración de la protección](#configure-backup).
 
 :::image type="content" source="./media/private-endpoints/setup-with-proxy-server-inline.png" alt-text="Diagrama que muestra una configuración con un servidor proxy." lightbox="./media/private-endpoints/setup-with-proxy-server-expanded.png":::
 

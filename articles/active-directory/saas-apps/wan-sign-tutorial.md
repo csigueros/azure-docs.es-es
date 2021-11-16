@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2021
 ms.author: jeedes
-ms.openlocfilehash: 82438827cc09b4f0fc40f71a514a21884f732c33
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 54163495d8caf31181e51d22f92787402844e450
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131067018"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132320172"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-wan-sign"></a>Tutorial: Integración del inicio de sesión único de Azure AD con WAN-Sign
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar WAN-Sign con Azure Active Directory (Azu
 * Permitir que los usuarios inicien sesión automáticamente en WAN-Sign con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -144,4 +144,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado WAN-Sign, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado WAN-Sign, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

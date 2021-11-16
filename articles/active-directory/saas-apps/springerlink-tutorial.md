@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: jeedes
-ms.openlocfilehash: 72203c953a3dac07696e3c58728dfdcafad06e53
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 488db0e57b70f61ad832e5953f60e6ab143b6ee4
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124800961"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132316914"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-springer-link"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Springer Link
 
@@ -143,7 +143,7 @@ También puede usar el Panel de acceso de Microsoft para probar la aplicación e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Springer Link, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado Springer Link, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).
 
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 6cc5570344033951aacfd1558e7c23091bc74678
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: ab20365a728422caca5f734f460d8763b892e25a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124808190"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132332789"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ultipro"></a>Tutorial: integración de Azure Active Directory con UltiPro
 
@@ -59,7 +59,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con UltiPro mediante
 Para configurar y probar el inicio de sesión único de Azure AD con UltiPro, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 2. **[Configuración del inicio de sesión único en UltiPro](#configure-ultipro-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de UltiPro](#create-ultipro-test-user)** : para tener un homólogo de B.Simon en UltiPro vinculado a la representación del usuario en Azure AD.
@@ -155,7 +155,6 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de UltiPro en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de UltiPro. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado UltiPro, puede aplicar controles de sesión, que protegen contra la filtración y la infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado UltiPro, puede aplicar controles de sesión, que protegen contra la filtración y la infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

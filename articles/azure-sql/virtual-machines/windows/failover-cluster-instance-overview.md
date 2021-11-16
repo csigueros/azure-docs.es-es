@@ -11,14 +11,14 @@ ms.subservice: hadr
 ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/02/2020
+ms.date: 11/10/2021
 ms.author: rsetlem
-ms.openlocfilehash: d86b7b59e05aa923efd3e4d9228d8ac422fc863d
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 2bcf10cf3d5e2036a14372d5dd0bacef7e396857
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130219552"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132157115"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instancias de clúster de conmutación por error con SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -54,7 +54,7 @@ SQL Server en VM de Azure ofrece varias opciones como solución de almacenamient
 |---------|---------|---------|---------|
 |**Versión mínima de sistema operativo**| All |Windows Server 2012|Windows Server 2016|
 |**Versión de SQL Server mínima**|All|SQL Server 2012|SQL Server 2016|
-|**Disponibilidad de VM admitida** |Conjuntos de disponibilidad con grupos de selección de ubicación de proximidad (para SSD Premium) </br> La misma zona de disponibilidad (para SSD Ultra) |Conjuntos y zonas de disponibilidad|Conjuntos de disponibilidad |
+|**Disponibilidad de VM admitida** |[LRS SSD prémium](../../../virtual-machines/disks-redundancy.md#locally-redundant-storage-for-managed-disks): conjuntos de disponibilidad con o sin [grupos con ubicación por proximidad](../../../virtual-machines/windows/proximity-placement-groups-portal.md) </br> [ZRS de SSD prémium](../../../virtual-machines/disks-redundancy.md#zone-redundant-storage-for-managed-disks): zonas de disponibilidad</br> [Discos Ultra](../../../virtual-machines/disks-enable-ultra-ssd.md): la misma zona de disponibilidad|Conjuntos y zonas de disponibilidad|Conjuntos de disponibilidad |
 |**Admite FileStream**|Sí|No|Sí |
 |**Caché de blobs de Azure**|No|No|Sí|
 
@@ -74,16 +74,17 @@ En el resto de esta sección se enumeran las ventajas y las limitaciones de cada
 - Puede usar un único disco compartido o seccionar varios para crear un grupo de almacenamiento compartido. 
 - Admite FileStream.
 - Las SSD Premium admiten conjuntos de disponibilidad. 
+- El almacenamiento con redundancia de zona de los discos SSD prémium (ZRS) admite las zonas de disponibilidad. Las máquinas virtuales que forman parte de FCI se pueden colocar en distintas zonas de disponibilidad. 
 
 > [!NOTE]
 > Aunque los discos compartidos de Azure también admiten [tamaños de SSD Estándar](../../../virtual-machines/disks-shared.md#disk-sizes), no se recomienda usar discos SSD Estándar para cargas de trabajo de SQL Server debido a las limitaciones de rendimiento.
 
 **Limitaciones**: 
-- Se recomienda colocar las máquinas virtuales en el mismo conjunto de disponibilidad y grupo de ubicación de proximidad.
-- Los discos Ultra no admiten conjuntos de disponibilidad. 
-- Las zonas de disponibilidad son compatibles con discos Ultra, pero las máquinas virtuales deben estar en la misma zona de disponibilidad, lo que reduce la disponibilidad de la máquina virtual. 
-- Independientemente de la solución de disponibilidad de hardware elegida, la disponibilidad del clúster de conmutación por error siempre es del 99,9% cuando se usan discos compartidos de Azure. 
+
 - El almacenamiento en caché de disco SSD Premium no se admite.
+- Los discos Ultra no admiten conjuntos de disponibilidad. 
+- Las zonas de disponibilidad son compatibles con Ultra Disks, pero las máquinas virtuales deben estar en la misma zona de disponibilidad, lo que reduce la disponibilidad de la máquina virtual al 99,9 %
+- Los discos Ultra no admiten almacenamiento con redundancia de zona (ZRS).
 
  
 Para empezar, consulte [Creación de una FCI con discos compartidos de Azure (SQL Server en VM de Azure)](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
@@ -97,11 +98,13 @@ Para empezar, consulte [Creación de una FCI con discos compartidos de Azure (SQ
 
 
 **Ventajas:** 
+
 - El ancho de banda de red suficiente permite una solución de almacenamiento compartido sólida y de alto rendimiento. 
 - Admite la memoria caché de blobs de Azure, por lo que las lecturas se pueden atender localmente desde ella. (Las actualizaciones se replican simultáneamente en ambos nodos). 
 - Admite FileStream. 
 
 **Limitaciones:**
+
 - Solo está disponible para Windows Server 2016 y versiones posteriores. 
 - Availability Zones no se admite.
 - Requiere la misma capacidad de disco conectado a ambas máquinas virtuales. 
@@ -118,7 +121,7 @@ Para empezar, consulte [Instancia de clúster de conmutación por error de SQL S
 **Versión de SQL compatible**: SQL Server 2012 y posterior   
 
 **Ventajas:** 
-- Solo una solución de almacenamiento compartido para las máquinas virtuales distribuidas en varias zonas de disponibilidad. 
+- Solución de almacenamiento compartido para máquinas virtuales distribuidas en varias zonas de disponibilidad. 
 - Sistema de archivos totalmente administrado con latencias de un solo dígito y rendimiento de E/S que se puede aumentar. 
 
 **Limitaciones:**
@@ -150,7 +153,9 @@ Para las soluciones de almacenamiento compartido y de replicación de datos de a
 
 ## <a name="connectivity"></a>Conectividad
 
-Puede configurar un nombre de red virtual o un nombre de red distribuida para una instancia de clúster de conmutación por error. [Revise las diferencias entre los dos](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn) y, a continuación, implemente un [nombre de red distribuida](failover-cluster-instance-distributed-network-name-dnn-configure.md) o un [nombre de red virtual](failover-cluster-instance-vnn-azure-load-balancer-configure.md) para la instancia de clúster de conmutación por error.
+Para que coincida con la experiencia local para conectarse a la instancia de clúster de conmutación por error, implemente las máquinas virtuales de SQL Server en [varias subredes](failover-cluster-instance-prepare-vm.md#subnets) dentro de la misma red virtual. Tener varias subredes elimina la necesidad de la dependencia adicional de una instancia de Azure Load Balancer o un nombre de red distribuida (DNN) para enrutar el tráfico al FCI. 
+
+Si implementa las máquinas virtuales de SQL Server en una sola subred, puede configurar un nombre de red virtual (VNN) y una instancia de Azure Load Balancer, o un nombre de red distribuida (DNN) para enrutar el tráfico a la instancia de clúster de conmutación por error. [Revise las diferencias entre los dos](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn) y, a continuación, implemente un [nombre de red distribuida](failover-cluster-instance-distributed-network-name-dnn-configure.md) o un [nombre de red virtual](failover-cluster-instance-vnn-azure-load-balancer-configure.md) para la instancia de clúster de conmutación por error.
 
 Se recomienda el nombre de red distribuida, si es posible, ya que la conmutación por error es más rápida, y se eliminan la sobrecarga y el costo de administrar el equilibrador de carga. 
 
@@ -160,7 +165,7 @@ La mayoría de las características de SQL Server funcionan de manera transparen
 
 Tenga en cuenta las limitaciones siguientes de las instancias de clúster de conmutación por error con SQL Server en Azure Virtual Machines. 
 
-### <a name="lightweight-extension-support"></a>Compatibilidad con extensiones de tareas ligeras   
+### <a name="lightweight-extension-support"></a>Compatibilidad con extensiones de tareas ligeras
 
 Actualmente, las instancias del clúster de conmutación por error de SQL Server en las máquinas virtuales de Azure solo se admiten con el [modo de administración ligera](sql-server-iaas-agent-extension-automate-management.md#management-modes) de la extensión del agente de IaaS de SQL Server. Para cambiar del modo de extensión total a extensión ligera, elimine el recurso **Máquina virtual con SQL** de las máquinas virtuales correspondientes y regístrelas con la extensión del agente de IaaS de SQL en el modo ligero. Cuando elimine el recurso **Máquina virtual con SQL** desde Azure Portal, desactive la casilla de la máquina virtual correcta para evitar la eliminación de la máquina virtual. 
 

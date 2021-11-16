@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 24fe3f80065806b48881e82206bca0dfb833fc80
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a7061e2195de4f77d6e5307907623d899236a4fc
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128661400"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132314390"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-eab-navigate-strategic-care"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con EAB Navigate Strategic Care
 
@@ -60,7 +60,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con EAB Navigate Str
 Para configurar y probar el inicio de sesión único de Azure AD con EAB Navigate Strategic Care, realice los pasos siguientes:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de EAB Navigate Strategic Care](#configure-eab-navigate-strategic-care-sso)** , para configurar los valores de Inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba en EAB Navigate Strategic Care](#create-eab-navigate-strategic-care-test-user)** , para tener un homólogo de B. Simon en EAB Navigate Strategic Care vinculado a la representación del usuario en Azure AD.
@@ -131,4 +131,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado EAB Navigate Strategic Care, podrá aplicar el control de sesión, que protege a la organización de la filtración y la infiltración de información en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado EAB Navigate Strategic Care, podrá aplicar el control de sesión, que protege a la organización de la filtración y la infiltración de información en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con las aplicaciones de Microsoft Defender para la nube](/cloud-app-security/proxy-deployment-aad).

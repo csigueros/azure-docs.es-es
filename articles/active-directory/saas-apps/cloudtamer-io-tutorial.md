@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 4b4b84de819e8b2e64238ef1d3d8d7149473c2b0
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 329121332449316f3582ee38c11ad843b25ab812
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124753896"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132054132"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cloudtamerio"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con cloudtamer.io
 
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar cloudtamer.io con Azure Active Directory 
 * Permitir que los usuarios puedan iniciar sesión automáticamente en cloudtamer.io con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -60,11 +60,12 @@ Configure y pruebe el inicio de sesión único de Azure AD con cloudtamer.io me
 Para configurar y probar el SSO de Azure AD con cloudtamer.io, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en cloudtamer.io](#configure-cloudtamerio-sso)** : para configurar los valores de inicio de sesión único en el lado aplicación.
     1. **[Creación de un usuario de prueba de cloudtamer.io](#create-cloudtamerio-test-user)** : para tener un homólogo de B.Simon en cloudtamer.io que esté vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
+1. **[Aserciones de grupo](#group-assertions)** : para establecer aserciones de grupo para Azure AD y cloudtamer.io.
 
 ### <a name="begin-cloudtamerio-sso-configuration"></a>Inicio de la configuración del inicio de sesión único en cloudtamer.io
 
@@ -179,6 +180,40 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de cloudtamer.io en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, debería iniciar sesión automáticamente en la instancia de cloudtamer.io para la que configuró el SSO. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
+## <a name="group-assertions"></a>Aserciones de grupo
+
+Para administrar fácilmente los permisos de usuario de cloudtamer.io mediante grupos de Azure Active Directory existentes, siga estos pasos:
+
+### <a name="azure-ad-configuration"></a>Configuración de Azure AD
+
+1. En Azure Portal, vaya a **Azure Active Directory** > **Aplicaciones empresariales**.
+1. En la lista, seleccione la aplicación empresarial para cloudtamer.io.
+1. En **Información general**, en el menú de la izquierda, seleccione **Inicio de sesión único**.
+1. En **Inicio de sesión único**, en **Atributos y notificaciones de usuario**, seleccione **Editar**.
+1. Seleccione **Agregar una notificación de grupo**. 
+   > [!NOTE]
+   > Solo puede tener una notificación de grupo. Si esta opción está deshabilitada, es posible que ya tenga definida una notificación de grupo.
+1. En **Notificaciones de grupo**, seleccione los grupos que se deben devolver en la notificación:
+   - Si siempre tiene asignados todos los grupos que va a usar en cloudtamer.io a esta aplicación empresarial, seleccione **Grupos asignados a la aplicación**.
+   - Si desea que aparezcan todos los grupos (esta selección puede provocar un gran número de aserciones de grupo y puede estar sujeta a límites), seleccione **Grupos asignados a la aplicación**.
+1. En **Atributo de origen**, deje el **identificador de grupo** predeterminado.
+1. Seleccione la casilla **Personalizar el nombre de la notificación del grupo**.
+1. En **Nombre**, escriba **memberOf**.
+1. Seleccione **Guardar** para completar la configuración en Azure AD.
+
+### <a name="cloudtamerio-configuration"></a>Configuración de cloudtamer.io
+
+1. En cloudtamer.io, vaya a **Users** > **Identity Management Systems** (Usuarios > Sistemas de administración de identidades).
+1. Seleccione el IDMS que ha creado para Azure AD.
+1. En la página de información general, seleccione la pestaña **User Group Associations** (Asociaciones de grupos de usuarios).
+1. Para cada asignación de grupo de usuarios que desee, complete estos pasos:
+   1. Seleccione **Add** > **Add New** (Agregar > Agregar nuevo).
+   1. En el cuadro de diálogo que aparece:
+      1. En **Name** (Nombre), escriba **memberOf**.
+      1. En **Regex**, escriba el identificador de objeto (de Azure AD) del grupo que desea buscar.
+      1. En **User Group** (Grupo de usuarios), seleccione el grupo interno de cloudtamer.io que desea asignar al grupo en **Regex**.
+      1. Active la casilla **Update on Login** (Actualizar al iniciar sesión).
+   1. Seleccione **Add** (Agregar) para agregar la asociación de grupo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

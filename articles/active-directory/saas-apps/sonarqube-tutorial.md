@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 8d209990a84464aa31d4f32a66c30de9f2047804
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: c13199c9e8fd68d1d34dce26ad6816c6d376960a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131462487"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132329098"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-sonarqube"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Sonarqube
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Sonarqube con Azure Active Directory (
 * Permitir que los usuarios inicien sesión automáticamente en Sonarqube con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -180,4 +180,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Una vez configurado Sonarqube, puede aplicar controles de sesión que protegen la filtración y la infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Una vez configurado Sonarqube, puede aplicar controles de sesión que protegen la filtración y la infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

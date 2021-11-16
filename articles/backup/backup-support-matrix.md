@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones de compatibilidad y limitaciones
 ms.topic: conceptual
 ms.date: 09/21/2021
 ms.custom: references_regions
-ms.openlocfilehash: eee136952f2830e8d204a2d5346c97101be2a7da
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 11ed401ef3a1591bd3dc38ad7b4964033adfa3ac
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129363422"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132059381"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de compatibilidad para Azure Backup
 
@@ -39,7 +39,7 @@ En esta tabla se describen las características de los almacenes de Recovery Ser
 **Move vaults** (Mover almacenes) | Puede [mover almacenes](./backup-azure-move-recovery-services-vault.md) entre suscripciones o entre grupos de recursos de la misma suscripción. Sin embargo, no se admite el traslado de almacenes entre regiones.
 **Move data between vaults** (Movimiento de datos entre almacenes) | No se admite el movimiento de datos con copia de seguridad realizada entre almacenes.
 **Modify vault storage type** (Modificación del tipo de almacenamiento de almacén) | Puede modificar el tipo de replicación de almacenamiento (almacenamiento con redundancia geográfica o almacenamiento con redundancia local) para un almacén antes de que se almacenen las copias de seguridad. Una vez iniciadas las copias de seguridad en el almacén, el tipo de replicación no se puede modificar.
-**Almacenamiento con redundancia de zona (ZRS)** | Se admite en versión preliminar en Sur de Reino Unido, Sudeste de Asia, Este de Australia, Norte de Europa, Centro de EE. UU., Este de EE. UU. 2, Sur de Brasil y Este de Japón.
+**Almacenamiento con redundancia de zona (ZRS)** | Se admite en versión preliminar en Sur de Reino Unido, Sudeste de Asia, Este de Australia, Norte de Europa, Centro de EE. UU., Este de EE. UU. 2, Sur de Brasil, Centro-sur de EE. UU., Centro de Corea del Sur, Este de Noruega, Centro de Francia, Oeste de Europa, Este de Asia, Centro de Suecia y Japón Oriental.
 **Puntos de conexión privados** | Consulte [esta sección](./private-endpoints.md#before-you-start) para conocer los requisitos para crear puntos de conexión privados para un almacén de Recovery Services.  
 
 ## <a name="on-premises-backup-support"></a>Compatibilidad con las copias de seguridad locales

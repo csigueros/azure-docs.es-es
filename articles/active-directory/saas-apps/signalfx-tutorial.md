@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 472bf22c723bbbf08d97ca95fd595e1559879714
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f97f8710df160608fb01e0b9d708c4a9d1b2373d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124808257"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132304657"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-signalfx"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con SignalFx
 
@@ -159,4 +159,4 @@ Revise la siguiente información sobre cómo probar el inicio de sesión único,
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado SignalFx, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado SignalFx, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

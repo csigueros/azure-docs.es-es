@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/08/2021
 ms.author: jeedes
-ms.openlocfilehash: 9699f985d0e18153c224977b39900b67aaf205c5
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7c7650434e6d55125bb4ebc6e53b62b23f280ecf
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124746705"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132300236"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-palo-alto-networks---admin-ui"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Palo Alto Networks - Admin UI
 
@@ -59,7 +59,7 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 Para configurar y probar el inicio de sesión único de Azure AD con Palo Alto Networks - Admin UI, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Palo Alto Networks: Admin UI](#configure-palo-alto-networks---admin-ui-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Palo Alto Networks: Admin UI](#create-palo-alto-networks---admin-ui-test-user)** : para tener un homólogo de B.Simon en Palo Alto Networks: Admin UI que esté vinculado a la representación del usuario en Azure AD.
@@ -246,4 +246,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Palo Alto Networks - Admin UI, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado Palo Alto Networks - Admin UI, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

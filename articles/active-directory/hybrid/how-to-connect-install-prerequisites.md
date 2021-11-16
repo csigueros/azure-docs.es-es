@@ -16,12 +16,12 @@ ms.date: 06/21/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 665ca1dca46dbfcf1cdc5e07b0c4672f79dc586a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d198a444cfb2c37f4bff815561c5a6dcd95d4a4e
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128546821"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132135065"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Requisitos previos de Azure AD Connect
 En este artículo se describen los requisitos previos y los requisitos de hardware de Azure Active Directory (Azure AD) Connect.
@@ -72,6 +72,7 @@ Para más información sobre cómo proteger el entorno de Active Directory, vea 
     - los servidores en los que se instale AD FS o el Proxy de aplicación web deben ser Windows Server 2012 R2 o versiones posteriores. La Administración remota de Windows debe estar habilitada en estos servidores para la instalación remota. 
     - Debe configurar los certificados TLS/SSL. Para más información, vea [Administración de los protocolos SSL/TLS y los conjuntos de cifrado para AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) y [Administrar certificados SSL en AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
     - Debe configurar la resolución de nombres. 
+- No se puede interrumpir y analizar el tráfico entre Azure AD Connect y Azure AD. Si lo hace, el servicio podría interrumpirse.
 - Si los administradores globales tienen MFA habilitado, la dirección URL https://secure.aadcdn.microsoftonline-p.com *debe* estar en la lista de sitios de confianza. Se le solicita que agregue este sitio a la lista de sitios de confianza cuando se le pide un desafío MFA y no se ha agregado antes. Puede utilizar Internet Explorer para agregarla a los sitios de confianza.
 - Si tiene previsto usar Azure AD Connect Health para la sincronización, asegúrese de que también se cumplen los requisitos previos de Azure AD Connect Health. Para más información, consulte [Instalación del agente de Azure AD Connect Health](how-to-connect-health-agent-install.md).
 

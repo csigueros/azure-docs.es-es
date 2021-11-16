@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 8831666015663eedd3ab779cd23b58bb8cf0df24
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 9312c481e8d8196feb593bd5bb817f60e875a361
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124739146"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132294739"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-launchdarkly"></a>Tutorial: Integración de Azure Active Directory con LaunchDarkly
 
@@ -64,7 +64,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con LaunchDarkly med
 Para configurar y probar el inicio de sesión único de Azure AD con LaunchDarkly, haga lo siguiente:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en LaunchDarkly](#configure-launchdarkly-sso)** : para configurar el inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de LaunchDarkly](#create-launchdarkly-test-user)** : para tener un homólogo de B.Simon en LaunchDarkly que esté vinculado a la representación del usuario en Azure AD.
@@ -87,7 +87,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://app.launchdarkly.com/trust/saml2/acs/<customers-unique-id>`
 
     > [!NOTE]
-    > El valor de dirección URL de respuesta no es real. El valor se actualizará con la dirección URL de respuesta real, que se explica más adelante en el tutorial. Si intenta usar la aplicación en el modo **IDP**, debe dejar en blanco el campo **Dirección URL de inicio de sesión**; de lo contrario, no podrá empezar el inicio de sesión desde **IDP**. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > El valor de dirección URL de respuesta no es real. El valor se actualizará con la dirección URL de respuesta real, que se explica más adelante en el tutorial. LaunchDarkly admite actualmente el inicio de sesión único iniciado por **IDP**. Para usar esta aplicación en el modo **IDP**, debe dejar en blanco el campo **Dirección URL de inicio de sesión**; de lo contrario, no podrá empezar el inicio de sesión desde el **IDP**. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 6. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
@@ -163,4 +163,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que se ha configurado LaunchDarkly, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez que se ha configurado LaunchDarkly, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con las aplicaciones de Microsoft Defender for Cloud](/cloud-app-security/proxy-deployment-any-app).

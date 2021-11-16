@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/11/2021
 ms.author: jeedes
-ms.openlocfilehash: 5866994e0d0d9da54db52a0ea1956178f95ce443
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 093be331ec68ff176fbc330d40a4da6b35c2115b
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129996596"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132317294"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-korn-ferry-360"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Korn Ferry 360
 
@@ -57,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Korn Ferry 360 m
 Para configurar y probar el inicio de sesión único de Azure AD con Korn Ferry 360, realice los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Korn Ferry 360](#configure-korn-ferry-360-sso)** , para configurar los valores de inicio de sesión único en el lado de la aplicación.
     1. **[Creación de un usuario de prueba de Korn Ferry 360](#create-korn-ferry-360-test-user)** , para tener un homólogo de B.Simon en Korn Ferry 360 que esté vinculado a la representación del usuario en Azure AD.
@@ -134,4 +134,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Korn Ferry 360, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado Korn Ferry 360, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

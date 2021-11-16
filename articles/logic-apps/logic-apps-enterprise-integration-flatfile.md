@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 11/02/2021
-ms.openlocfilehash: b2dd3b61ae3b612879e92b4c5ef8feb79b71b6fe
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 5956f8fb7a1de3baaac0a69ef9e5b63d445416eb
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131430015"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132327127"
 ---
 # <a name="encode-and-decode-flat-files-in-azure-logic-apps"></a>Codificación y descodificación de archivos planos en Azure Logic Apps
 
@@ -29,7 +29,7 @@ En este artículo, se muestra cómo agregar las acciones de codificación y desc
 * [¿Qué es Azure Logic Apps?](logic-apps-overview.md)
 * [Flujos de trabajo de integración empresarial B2B con Azure Logic Apps y Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una cuenta y una suscripción de Azure. Si aún no tiene suscripción, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -247,7 +247,7 @@ Ahora ya ha terminado de configurar la acción de descodificación de archivos p
    ![Captura de pantalla que muestra el diseñador de flujos de trabajo Estándar y la lista "Nombre" abierta con el esquema seleccionado que se usará para la descodificación.](./media/logic-apps-enterprise-integration-flatfile/select-decoding-schema-standard.png)
 
    > [!NOTE]
-   > Si no aparece ningún esquema en la lista, el recurso de la aplicación lógica Estándar no contiene ningún archivo de esquema que se pueda usar para la descodificación. Obtenga información sobre cómo [cargar el esquema que desea usar en el recurso de la aplicación lógica Estándar](logic-apps-enterprise-integration-schemas.md).
+   > Si no aparece ningún esquema en la lista, el recurso de la aplicación lógica Estándar no contiene ningún archivo de esquema que se pueda usar para la descodificación. Aprenda a [cargar el esquema que quiere usar en el recurso de aplicación lógica estándar](logic-apps-enterprise-integration-schemas.md).
 
 1. Guarde el flujo de trabajo. En la barra de herramientas del diseñador, seleccione **Save** (Guardar).
 

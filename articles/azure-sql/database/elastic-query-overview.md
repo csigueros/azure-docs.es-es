@@ -10,13 +10,13 @@ ms.topic: overview
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: mathoma
-ms.date: 12/05/2019
-ms.openlocfilehash: 21e6fec69b1ac02d1ffb37b0aa0f20f54d3c1a05
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 11/09/2021
+ms.openlocfilehash: fa127df408ce8da080e6e0543f92fbdb001b4547
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121727098"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132136900"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Información general sobre las consultas elásticas de Azure SQL Database (versión preliminar)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,9 +29,9 @@ La característica de consulta elástica (en versión preliminar) le permite eje
 
 Realice consultas entre bases de datos en Azure SQL Database completamente en T-SQL. Esto permite realizar consultas de solo lectura en bases de datos remotas y proporciona una opción para que los clientes actuales de SQL Server migren las aplicaciones que usan nombres de tres y cuatro partes, o bien un servidor vinculado a la base de datos SQL.
 
-### <a name="available-on-standard-tier"></a>Disponible en el nivel Estándar
+### <a name="available-on-all-service-tiers"></a>Disponible en todos los niveles de servicio
 
-La consulta elástica se admite en los niveles de servicio Estándar y Premium. Consulte más adelante la sección Limitaciones de la versión preliminar, que trata sobre las limitaciones del rendimiento para los niveles de servicio inferiores.
+La consulta elástica se admite en todos los niveles de servicio de Azure SQL Database. Consulte más adelante la sección Limitaciones de la versión preliminar, que trata sobre las limitaciones del rendimiento para los niveles de servicio inferiores.
 
 ### <a name="push-parameters-to-remote-databases"></a>Inserción de parámetros en bases de datos remotas
 
@@ -139,7 +139,7 @@ La consulta elástica se incluye en el costo de Azure SQL Database. Tenga en cue
 
 ## <a name="preview-limitations"></a>Limitaciones de vista previa
 
-* Ejecutar una consulta elástica por primera vez puede tardar unos minutos en el nivel de servicio Estándar. Esta vez es necesario cargar la funcionalidad de consulta elástica; el rendimiento de carga mejora con niveles de servicio y tamaños de proceso más altos.
+* La ejecución de la primera consulta elástica puede tardar hasta unos minutos en recursos más pequeños y del nivel de servicio Estándar y De uso general. Esta vez es necesario cargar la funcionalidad de consulta elástica; el rendimiento de carga mejora con niveles de servicio y tamaños de proceso más altos.
 * Aún no se admite el scripting de orígenes de datos externos o tablas externas desde SSMS o SSDT.
 * Import/Export para SQL Database todavía no admite orígenes de datos externos ni tablas externas. Si necesita usar Importación/Exportación, quite estos objetos antes de exportar y después vuelva a crearlos después de importar.
 * Actualmente, la consulta elástica solo es compatible con el acceso de solo lectura a tablas externas. Sin embargo, puede usar toda la funcionalidad de T-SQL en la base de datos donde se define la tabla externa. Esto puede ser útil, por ejemplo, para conservar resultados temporales mediante por ejemplo SELECT <column_list> INTO <local_table>, o para definir procedimientos almacenados en la base de datos de consulta elástica que hacen referencia a tablas externas.

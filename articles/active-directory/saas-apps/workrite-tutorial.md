@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/27/2021
 ms.author: jeedes
-ms.openlocfilehash: e088e436778fe90e141c0b216f5932fd51d71043
-ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
+ms.openlocfilehash: b0d8da1c1135e2831973c4e1d9bc0fe74794ddf2
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129418583"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132298387"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-workrite"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Workrite
 
@@ -60,7 +60,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Workrite mediant
 Para configurar y probar el inicio de sesión único de Azure AD con Workrite, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Workrite](#configure-workrite-sso)** , para configurar los valores de Inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Workrite](#create-workrite-test-user)** : para tener un homólogo de B.Simon en Workrite que esté vinculado a la representación del usuario en Azure AD.
@@ -161,4 +161,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado Workrite, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez que haya configurado Workrite, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

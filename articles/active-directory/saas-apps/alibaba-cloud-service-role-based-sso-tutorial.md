@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/08/2020
 ms.author: jeedes
-ms.openlocfilehash: 25b5d96e80105d9c5052bb578edd5abf914c6de6
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 7917a937074fc4d97a2135548ddc8792f635fc75
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108802115"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132330908"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alibaba-cloud-service-role-based-sso"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Alibaba Cloud Service (Role-based SSO)
 
@@ -244,4 +244,4 @@ Una vez completadas las configuraciones anteriores, pruebe Alibaba Cloud Service
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Alibaba Cloud Service (Role-based SSO), puede aplicar el control de sesión que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado Alibaba Cloud Service (Role-based SSO), puede aplicar el control de sesión que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

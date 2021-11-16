@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/12/2021
 ms.reviewer: sngun
 ms.custom: synapse-cosmos-db
-ms.openlocfilehash: a051b2ebd49155f921ca76a851ef0a684f3f74bd
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 459aedbda8ea42fb0ee0990fb1074373efc38acc
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129545724"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132133934"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db"></a>¿Qué es Azure Synapse Link para Azure Cosmos DB (versión preliminar)?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -117,11 +117,18 @@ No se recomienda el uso de Synapse Link si busca requisitos de almacenamiento de
 
 * Azure Synapse Link para Azure Cosmos DB es compatible con SQL API y Azure Cosmos DB API para MongoDB. No es compatible con Gremlin API, Cassandra API ni Table API.
 
-* El almacén analítico solo se puede habilitar para los contenedores nuevos. Para usar el almacén analítico con contenedores existentes, migre los datos de estos a los nuevos mediante las [herramientas de migración de Azure Cosmos DB](cosmosdb-migrationchoices.md). Synapse Link se puede habilitar en las cuentas de Azure Cosmos DB nuevas y existentes.
+* Se puede habilitar Synapse Link en contenedores nuevos para cuentas de SQL API y MongoDB API, pero los contenedores existentes solo se admiten en SQL API.
 
-* En el caso de los contenedores con el almacén analítico activado, en este momento no se admite la copia de seguridad ni la restauración automáticas de los datos en el almacén analítico. Cuando Synapse Link esté habilitado en una cuenta de base de datos, Azure Cosmos DB seguirá [haciendo copias de seguridad](./online-backup-and-restore.md) automáticamente, de los datos del almacén de transacciones (solo) de contenedores en el intervalo programado de copias de seguridad, como siempre. Es importante tener en cuenta que cuando un contenedor con un almacén analítico activado se restaura en una nueva cuenta, el contenedor se restaurará solo con el almacén transaccional y no se habilitará ningún almacén analítico.
+* En este momento, no se admite la copia de seguridad y restauración de los datos del almacén analítico. Esta limitación se aplica a los modos de copia de seguridad periódica y continua, y no afecta a los datos del almacén transaccional de Cosmos DB.
+
+* Synapse Link y el modo de copia de seguridad periódica pueden coexistir en la misma cuenta de base de datos. En este momento, no se admite la copia de seguridad y restauración de los datos del almacén analítico.
+
+* Synapse Link y el modo de copia de seguridad continua no pueden coexistir en la misma cuenta de base de datos.
 
 * Actualmente no se admite el acceso al almacén de análisis de Azure Cosmos DB con el grupo de SQL dedicado de Azure Synapse.
+
+* Azure Synapse Link y el modo de copia de seguridad periódica pueden coexistir en la misma cuenta de base de datos. Sin embargo, los datos del almacén analítico no se incluyen en las copias de seguridad y restauraciones. Cuando Synapse Link esté habilitado, Azure Cosmos DB seguirá haciendo copias de seguridad automáticamente de los datos del almacén de transacciones en el intervalo programado de copias de seguridad.
+
 
 ## <a name="security"></a>Seguridad
 

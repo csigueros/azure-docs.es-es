@@ -5,16 +5,16 @@ author: normesta
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 11/10/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: subject-monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: bcfd37ff8c030136e37b4289bc37006012891412
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 656877f04c51b151168065c68cdc5016892f2a7f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128617552"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132308172"
 ---
 # <a name="monitoring-azure-blob-storage"></a>Supervisión de Azure Blob Storage
 
@@ -73,7 +73,7 @@ Puede crear una configuración de diagnóstico mediante Azure Portal, PowerShel
 Para obtener instrucciones generales, consulte [Creación de una configuración de diagnóstico para recopilar registros y métricas de la plataforma en Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
 > [!NOTE]
-> Los registros de Azure Storage en Azure Monitor están en versión preliminar pública, además de estar disponibles para pruebas de versión preliminar en todas las regiones de nube pública y del Gobierno de EE. UU. Esta versión preliminar habilita los registros de blobs (que incluye Azure Data Lake Storage Gen2), archivos, colas y tablas. Esta característica está disponible para todas las cuentas de almacenamiento que se crean con el modelo de implementación de Azure Resource Manager. Para más información, consulte [Introducción a las cuentas de almacenamiento](../common/storage-account-overview.md).
+> Los registros de Azure Storage en Azure Monitor están en versión preliminar pública, además de estar disponibles para pruebas de versión preliminar en todas las regiones de nube pública y de US Government. Esta versión preliminar habilita los registros de blobs (que incluye Azure Data Lake Storage Gen2), archivos, colas y tablas. Esta característica está disponible para todas las cuentas de almacenamiento que se crean con el modelo de implementación de Azure Resource Manager. Para más información, consulte [Introducción a las cuentas de almacenamiento](../common/storage-account-overview.md).
 
 ### <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
@@ -208,10 +208,10 @@ Para obtener más información, consulte [Transmisión de registros de recursos 
 
 2. Si su identidad se asocia a más de una suscripción, establezca su suscripción activa en la suscripción de la cuenta de almacenamiento en la quera habilitar los registros.
 
-   ```azurecli-interactive
-   az account set --subscription <subscription-id>
+   ```azurecli
+      az account set --subscription <subscription-id>
    ```
-
+   
    Reemplace el valor de marcador de posición `<subscription-id>` por el identificador de la suscripción.
 
 #### <a name="archive-logs-to-a-storage-account"></a>Archivo de registros en una cuenta de almacenamiento
@@ -463,6 +463,17 @@ Puede leer valores de métricas de nivel de cuenta de la cuenta de almacenamient
    Get-AzMetric -ResourceId $resourceId -MetricNames "UsedCapacity" -TimeGrain 01:00:00
 ```
 
+#### <a name="reading-metric-values-with-dimensions"></a>Lectura de valores de métricas con dimensiones
+
+Cuando una métrica admite dimensiones, puede leer los valores de las métricas y filtrarlos mediante valores de dimensión. Use el cmdlet [Get-AzMetric](/powershell/module/Az.Monitor/Get-AzMetric).
+
+```powershell
+$resourceId = "<resource-ID>"
+$dimFilter = [String](New-AzMetricFilter -Dimension ApiName -Operator eq -Value "GetBlob" 3> $null)
+Get-AzMetric -ResourceId $resourceId -MetricName Transactions -TimeGrain 01:00:00 -MetricFilter $dimFilter -AggregationType "Total"
+```
+
+
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 #### <a name="list-the-account-level-metric-definition"></a>Enumeración de la definición de métricas a nivel de cuenta
@@ -471,7 +482,7 @@ Puede mostrar la definición de la métrica de la cuenta de almacenamiento o el 
 
 En este ejemplo, reemplace el marcador de posición `<resource-ID>` por el identificador de recurso de la cuenta de almacenamiento completa o el identificador de recurso del servicio Blob Storage. Puede encontrar estos identificadores de recursos en las páginas **Puntos de conexión** de la cuenta de almacenamiento en Azure Portal.
 
-```azurecli-interactive
+```azurecli
    az monitor metrics list-definitions --resource <resource-ID>
 ```
 
@@ -479,8 +490,16 @@ En este ejemplo, reemplace el marcador de posición `<resource-ID>` por el ident
 
 Puede leer los valores de métricas de la cuenta de almacenamiento o el servicio Blob Storage. Use el comando [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list).
 
-```azurecli-interactive
+```azurecli
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
+```
+
+#### <a name="reading-metric-values-with-dimensions"></a>Lectura de valores de métricas con dimensiones
+
+Cuando una métrica admite dimensiones, puede leer los valores de las métricas y filtrarlos mediante valores de dimensión. Use el comando [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list).
+
+```azurecli
+az monitor metrics list --resource <resource-ID> --metric "Transactions" --interval PT1H --filter "ApiName eq 'GetBlob' " --aggregation "Total" 
 ```
 
 ### <a name="template"></a>[Plantilla](#tab/template)
@@ -620,14 +639,14 @@ En esta tabla se muestra cómo se admite esta característica en la cuenta y el 
 
 ### <a name="logs-in-azure-monitor"></a>Registros en Azure Monitor
 
-| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
 | De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> |![Sí](../media/icons/yes-icon.png)  <sup>2</sup>              | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> |
 | Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup>|![Sí](../media/icons/yes-icon.png)  <sup>2</sup> | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> |
 
 ### <a name="metrics-in-azure-monitor"></a>Métricas en Azure Monitor
 
-| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
 | De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)              | ![Sí](../media/icons/yes-icon.png) |
 | Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)  <sup>2</sup> | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> |

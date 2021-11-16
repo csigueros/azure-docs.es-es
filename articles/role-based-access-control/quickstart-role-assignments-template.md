@@ -10,12 +10,12 @@ ms.custom: subject-armqs
 ms.workload: identity
 ms.date: 04/28/2021
 ms.author: rolyon
-ms.openlocfilehash: 48be24436e032f044e8f23238059e16b55d9cf5c
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 0fb96bedc12939c130b7fa4c7feee4c7967e0e77
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111886905"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132055688"
 ---
 # <a name="quickstart-assign-an-azure-role-using-an-arm-template"></a>Inicio rápido: Asignación de un rol de Azure mediante una plantilla de Resource Manager
 
@@ -37,7 +37,7 @@ Para asignar roles de Azure y quitar asignaciones de roles, debe tener:
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/rbac-builtinrole-resourcegroup/). La plantilla tiene tres parámetros y una sección de recursos. En la sección de recursos, observe que tiene los tres elementos de una asignación de roles: entidad de seguridad, definición de roles y ámbito.
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/rbac-builtinrole-resourcegroup/). La plantilla tiene dos parámetros y una sección de recursos. En la sección de recursos, observe que tiene los tres elementos de una asignación de roles: entidad de seguridad, definición de roles y ámbito.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.authorization/rbac-builtinrole-resourcegroup/azuredeploy.json":::
 
@@ -66,7 +66,7 @@ El recurso definido en la plantilla es el siguiente:
     $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.authorization/rbac-builtinrole-resourcegroup/azuredeploy.json"
 
     New-AzResourceGroup -Name $resourceGroupName -Location $location
-    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -roleAssignmentName $roleAssignmentName -roleDefinitionID $roleDefinitionId -principalId $principalId
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -roleDefinitionID $roleDefinitionId -principalId $principalId
     ```
 
 1. Escriba un nombre de grupo de recursos, como ExampleGrouprg.
@@ -96,7 +96,6 @@ El recurso definido en la plantilla es el siguiente:
     Parameters              :
                               Name                  Type                       Value
                               ====================  =========================  ==========
-                              roleAssignmentName    String                     {roleAssignmentName}
                               roleDefinitionID      String                     9980e02c-c2be-4d73-94e8-173b1dc7cf3c
                               principalId           String                     {principalId}
 

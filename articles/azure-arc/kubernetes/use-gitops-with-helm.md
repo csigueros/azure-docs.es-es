@@ -1,27 +1,25 @@
 ---
-title: Implementación de gráficos de Helm mediante GitOps en clústeres de Kubernetes habilitado para Arc
+title: Implementación de gráficos de Helm mediante GitOps en un clúster de Kubernetes habilitado para Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.date: 03/03/2021
 ms.topic: article
-author: mlearned
-ms.author: mlearned
-description: Uso de GitOps con Helm para una configuración de clústeres habilitada para Azure Arc
+description: Uso de GitOps con Helm para una configuración de clústeres habilitados para Azure Arc
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: df9b40764ec463553659803749f282bbc4587bde
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: bc0dc3f0583c346ae909bbb877a6e8a9a9d66a72
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449550"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132053300"
 ---
-# <a name="deploy-helm-charts-using-gitops-on-an-arc-enabled-kubernetes-cluster"></a>Implementación de gráficos de Helm mediante GitOps en clústeres de Kubernetes habilitado para Arc
+# <a name="deploy-helm-charts-using-gitops-on-an-azure-arc-enabled-kubernetes-cluster"></a>Implementación de gráficos de Helm mediante GitOps en un clúster de Kubernetes habilitado para Azure Arc
 
 Helm es una herramienta de empaquetado de código abierto que facilita la instalación y administración del ciclo de vida de las aplicaciones de Kubernetes. Al igual que los administradores de paquetes de Linux, como APT y Yum, Helm se usa para administrar los gráficos de Kubernetes, que son paquetes de recursos de Kubernetes preconfigurados.
 
 En este artículo se muestra cómo configurar y usar Helm con Kubernetes habilitado para Azure Arc.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Un clúster conectado de Kubernetes habilitado para Azure Arc.

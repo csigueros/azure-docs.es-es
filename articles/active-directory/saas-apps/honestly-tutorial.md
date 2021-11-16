@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 6e938ab1c87e74eb1c7fa43b0ae0bf4e080bc5df
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 9e183fc32ae7a15be9b8f5e0cceb68dfbfbebf99
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124790859"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132291457"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-honestly"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Honestly
 
@@ -40,7 +40,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Honestly admite el inicio de sesión único iniciado por **SP e IDP**.
-* Una vez configurado Honestly, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Una vez configurado Honestly, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-honestly-from-the-gallery"></a>Adición de Honestly desde la galería
 
@@ -61,7 +61,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Honestly mediant
 Para configurar y probar el inicio de sesión único de Azure AD con Honestly, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Honestly](#configure-honestly-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Honestly](#create-honestly-test-user)** : para tener un homólogo de B.Simon en Honestly que esté vinculado a la representación del usuario en Azure AD.
@@ -151,6 +151,6 @@ Al hacer clic en el icono de Honestly en el Panel de acceso, debería iniciar se
 
 - [Prueba de Honestly con Azure AD](https://aad.portal.azure.com/)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [¿Qué es el control de sesión en Microsoft Defender para aplicaciones en la nube?](/cloud-app-security/proxy-intro-aad)
 
 - [Protección de Honestly con controles y visibilidad avanzados](/cloud-app-security/proxy-intro-aad)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/31/2021
 ms.author: jeedes
-ms.openlocfilehash: b6ea6149a8a66b8c54782153a433160814389379
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 5e85f5d6c16756ccf0ef0b6c50d1af3d69be6d09
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124752691"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132341182"
 ---
 # <a name="tutorial-integrate-mvision-cloud-azure-ad-sso-configuration-with-azure-active-directory"></a>Tutorial: Integración de MVISION Cloud Azure AD SSO Configuration con Azure Active Directory
 
@@ -144,4 +144,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado MVISION Cloud Azure AD SSO Configuration, puede aplicar el control de sesión, que protege su organización, en tiempo real, frente a la filtración y la infiltración de la información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado MVISION Cloud Azure AD SSO Configuration, puede aplicar el control de sesión, que protege su organización, en tiempo real, frente a la filtración y la infiltración de la información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

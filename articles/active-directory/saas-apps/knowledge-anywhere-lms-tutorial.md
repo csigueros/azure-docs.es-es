@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/09/2021
 ms.author: jeedes
-ms.openlocfilehash: 4e97c8253f73ab264d49cfa24403586ca8d573bd
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: ecb309362b1c7171e7f3a2782de75f7ebd88b310
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124802215"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132313667"
 ---
 # <a name="tutorial-integrate-knowledge-anywhere-lms-with-azure-active-directory"></a>Tutorial: Integración de Knowledge Anywhere LMS con Azure Active Directory
 
@@ -57,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Knowledge Anywhe
 Para configurar y probar el inicio de sesión único de Azure AD con Knowledge Anywhere LMS, haga lo siguiente:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Knowledge Anywhere LMS](#configure-knowledge-anywhere-lms-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Knowledge Anywhere LMS](#create-knowledge-anywhere-lms-test-user)** : para tener un homólogo de B.Simon en Knowledge Anywhere LMS que esté vinculado a la representación del usuario en Azure AD.
@@ -183,4 +183,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que ha configurado Knowledge Anywhere LMS, puede aplicar el control de sesión, que protege la información confidencial de la organización en tiempo real de posibles filtraciones e infiltraciones. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez que ha configurado Knowledge Anywhere LMS, puede aplicar el control de sesión, que protege la información confidencial de la organización en tiempo real de posibles filtraciones e infiltraciones. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/22/2020
 ms.author: jeedes
-ms.openlocfilehash: 45e8fbf01727f803aa640c5d55bcb9df76e765ac
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 5dcfb70d5c0e078c30b0c2fcfa59495776b1b40e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124763189"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132307876"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-anyone-home-crm"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Anyone Home CRM
 
@@ -40,7 +40,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Anyone Home CRM admite el inicio de sesión único iniciado por **IDP**.
-* Una vez que se ha configurado Anyone Home CRM, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración y la infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Una vez que se ha configurado Anyone Home CRM, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración y la infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-anyone-home-crm-from-the-gallery"></a>Adición de Anyone Home CRM desde la galería
 
@@ -61,7 +61,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Anyone Home CRM 
 Para configurar y probar el inicio de sesión único de Azure AD con Anyone Home CRM, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Anyone Home CRM](#configure-anyone-home-crm-sso)** , para configurar los valores del inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Anyone Home CRM](#create-anyone-home-crm-test-user)** , para tener un usuario equivalente a B.Simon en Anyone Home CRM que esté vinculado a la representación del usuario en Azure AD.
@@ -144,6 +144,6 @@ Al hacer clic en el icono de Anyone Home CRM en el panel de acceso, debería ini
 
 - [Prueba de Anyone Home CRM con Azure AD](https://aad.portal.azure.com/)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [¿Qué es el control de sesión en Microsoft Defender para aplicaciones en la nube?](/cloud-app-security/proxy-intro-aad)
 
 - [Protección de Anyone Home CRM mediante controles y visibilidad avanzados](/cloud-app-security/proxy-intro-aad)

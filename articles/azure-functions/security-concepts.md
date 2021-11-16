@@ -3,12 +3,12 @@ title: Protección de Azure Functions
 description: Obtenga información sobre cómo hacer que el código de función que se ejecuta en Azure sea más seguro frente a ataques comunes.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 97a58c38f08e3b22f25ca2834a26692452fcff9e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f215e67f3ea27e789ebd10e7baa487528339ee8e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121746722"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132316173"
 ---
 # <a name="securing-azure-functions"></a>Protección de Azure Functions
 
@@ -22,9 +22,9 @@ Para obtener un conjunto de recomendaciones de seguridad que siguen [Azure Secur
 
 Esta sección le guía en la configuración y ejecución de la aplicación de funciones de la manera más segura posible. 
 
-### <a name="security-center"></a>Security Center
+### <a name="defender-for-cloud"></a>Defender para la nube
 
-Security Center se integra con la aplicación de funciones en el portal. Proporciona, de forma gratuita, una evaluación rápida de posibles vulnerabilidades de seguridad relacionadas con la configuración. Las aplicaciones de funciones que se ejecutan en un plan dedicado también pueden usar las características de seguridad en tiempo real de Security Center, a un precio adicional. Para obtener más información, vea [Protección de las aplicaciones web y API de Azure App Service](../security-center/defender-for-app-service-introduction.md). 
+Defender para la nube se integra con la aplicación de funciones en el portal. Proporciona, de forma gratuita, una evaluación rápida de posibles vulnerabilidades de seguridad relacionadas con la configuración. Las aplicaciones de funciones que se ejecutan en un plan dedicado también pueden usar las características de seguridad mejoradas de Defender para la nube con un costo adicional. Para obtener más información, vea [Protección de las aplicaciones web y API de Azure App Service](../security-center/defender-for-app-service-introduction.md). 
 
 ### <a name="log-and-monitor"></a>Registro y supervisión
 
@@ -32,7 +32,7 @@ Una forma de detectar ataques es a través de la supervisión de actividades y e
 
 Functions también se integra con los registros de Azure Monitor para que pueda consolidar los registros de la aplicación de funciones con eventos del sistema para facilitar el análisis. Puede usar la configuración de diagnóstico para configurar la exportación de streaming de registros y métricas de la plataforma para las funciones al destino que elija, como un área de trabajo de Log Analytics. Para obtener más información, vea [Supervisión de Azure Functions con registros de Azure Monitor](functions-monitor-log-analytics.md). 
 
-En el caso de la detección de amenazas de nivel empresarial y la automatización de respuestas, transmita los registros y eventos a un área de trabajo de Logs Analytics. Después, puede conectar Azure Sentinel a esta área de trabajo. Para obtener más información, vea [¿Qué es Azure Sentinel?](../sentinel/overview.md)  
+En el caso de la detección de amenazas de nivel empresarial y la automatización de respuestas, transmita los registros y eventos a un área de trabajo de Logs Analytics. Después, puede conectar Microsoft Sentinel a esta área de trabajo. Para obtener más información, vea [¿Qué es Microsoft Sentinel?](../sentinel/overview.md)  
 
 Para obtener más recomendaciones de seguridad para la observación, vea la [Base de referencia de seguridad de Azure para Azure Functions](security-baseline.md#logging-and-monitoring). 
 
@@ -76,7 +76,7 @@ Para obtener más información sobre las claves de acceso, vea el [artículo sob
 
 De forma predeterminada, las claves se almacenan en un contenedor de Blob Storage en la cuenta proporcionada por el valor `AzureWebJobsStorage`. Puede usar la configuración de la aplicación específica para invalidar este comportamiento y almacenar las claves en una ubicación distinta.
 
-|Location  |Configuración | Valor | Descripción  |
+|Location  |Configuración | Value | Descripción  |
 |---------|---------|---------|---------|
 |Cuenta de almacenamiento distinta     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL>` | Almacena claves en Blob Storage de una segunda cuenta de almacenamiento, según la dirección URL de SAS proporcionada. Las claves se cifran antes de almacenarse con un secreto único para la aplicación de funciones. |
 |Sistema de archivos   | `AzureWebJobsSecretStorageType`   |  `files`       | Las claves se conservan en el sistema de archivos y se cifran antes del almacenamiento con un secreto único para la aplicación de funciones. |

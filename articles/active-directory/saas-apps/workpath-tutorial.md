@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/19/2021
 ms.author: jeedes
-ms.openlocfilehash: fb6c707142809793a4447aed1a680fd39349b528
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: d8a729d9e16aaefb6efb99a9b8cd643e2d0fff8a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131451300"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132323859"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-workpath"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Workpath
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Workpath con Azure Active Directory (Az
 * Permitir que los usuarios inicien sesión automáticamente en Workpath con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -57,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Workpath mediant
 
 Para configurar y probar el inicio de sesión único de Azure AD con Workpath, siga estos pasos:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)**, para permitir que los usuarios puedan utilizar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Workpath](#configure-workpath-sso)**, para configurar los valores de inicio de sesión único en la aplicación.
@@ -156,4 +156,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado Workpath, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez que haya configurado Workpath, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

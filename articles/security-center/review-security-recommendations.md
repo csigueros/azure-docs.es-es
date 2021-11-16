@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 11/07/2021
 ms.author: memildin
-ms.openlocfilehash: 0ff3c4ff330dbb1c2d92fa9f585812de791b3f16
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: eb310e8edfb48c2252ae596aa95225e00329f5d2
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131422172"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131988245"
 ---
 # <a name="review-your-security-recommendations"></a>Examen de las recomendaciones de seguridad
 
@@ -44,7 +44,11 @@ Defender for Cloud analiza el estado de seguridad de los recursos para identific
         - **Abrir consulta**: todas las recomendaciones tienen la opción de ver la información detallada sobre los recursos afectados mediante Azure Resource Graph Explorer.
     1. **Indicador de gravedad**.
     1. **Intervalo de actualización** (si procede).
-    1. **Recuento de recursos exentos**: si existen exenciones para esta recomendación, se muestra el número de recursos exentos.
+    1. **Recuento de recursos exentos**: si existen exenciones para una recomendación, se muestra el número de recursos exentos con un vínculo para ver los recursos específicos.
+    1. **Asignación a tácticas y técnicas de MITRE ATT&CK®** si una recomendación ha definido tácticas y técnicas, seleccione el icono de vínculos a las páginas pertinentes en el sitio de MITRE. 
+
+        :::image type="content" source="media/review-security-recommendations/tactics-window.png" alt-text="Captura de pantalla de la asignación de tácticas de MITRE para una recomendación.":::
+
     1. **Descripción**: breve descripción del problema de seguridad.
     1. Si procede, la página de detalles también incluye una tabla de **recomendaciones relacionadas**:
 
@@ -64,7 +68,6 @@ Defender for Cloud analiza el estado de seguridad de los recursos para identific
     1. **Recursos afectados**: los recursos se agrupan en pestañas:
         - **Recursos con estado correcto**: recursos relevantes que no se ven afectados o en los que ya se ha corregido el problema.
         - **Recursos con estado incorrecto**: recursos que todavía se ven afectados por el problema identificado.
-        - **Quitado**: recursos que se eliminaron entre ciclos de evaluación (tal y como se define en el intervalo de actualización).
         - **Recursos no aplicables**: recursos para los que la recomendación no puede dar una respuesta definitiva. La pestaña no aplicable también incluye las razones de cada recurso. 
 
             :::image type="content" source="./media/review-security-recommendations/recommendations-not-applicable-reasons.png" alt-text="Los recursos no aplicables con motivos":::.

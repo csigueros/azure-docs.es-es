@@ -4,16 +4,16 @@ description: Aprenda a implementar un grupo de discos de Azure.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 11/09/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 7230bf83f5ca203aa40cb043b3ea02d983ba7a4a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: c4c010d1c142a2f2e09c0a60122f446ab7df6530
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131022199"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132135377"
 ---
 # <a name="deploy-an-azure-disk-pool-preview"></a>Implementación de un grupo de discos de Azure (versión preliminar)
 
@@ -33,6 +33,8 @@ Para implementar correctamente un grupo de discos, debe tener:
 
 - Un conjunto de discos administrados que desee agregar a un grupo de discos.
 - Una red virtual con una subred dedicada implementada para el grupo de discos.
+    - Los puertos de salida 53, 443 y 5671 deben estar abiertos.
+    - Asegúrese de que la configuración de red no bloquea ninguna de las dependencias de salida necesarias del grupo de discos. Puede usar el [módulo de Azure PowerShell](/powershell/module/az.diskpool/get-azdiskpooloutboundnetworkdependencyendpoint?view=azps-6.6.0) o la [CLI de Azure](/cli/azure/disk-pool?view=azure-cli-latest#az_disk_pool_list_outbound_network_dependency_endpoint) para obtener la lista completa de todas las dependencias de salida.
 
 Si va a usar el módulo de Azure PowerShell, instale la [versión 6.1.0 u otra más reciente](/powershell/module/az.diskpool/?view=azps-6.1.0&preserve-view=true).
 

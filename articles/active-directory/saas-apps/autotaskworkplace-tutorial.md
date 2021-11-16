@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 19b1708be1bda3f381262a826fa58b0517ffe245
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 75e76d224ac70398471a56c76168f41088074103
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124822849"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132296621"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-workplace"></a>Tutorial: Integración de Azure Active Directory con Autotask Workplace
 
@@ -57,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Autotask Workpla
 Para configurar y probar el inicio de sesión único de Azure AD con Autotask Workplace, lleve a cabo los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Autotask Workplace](#configure-autotask-workplace-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Autotask Workplace](#create-autotask-workplace-test-user)** : para tener un homólogo de B.Simon en Autotask Workplace que esté vinculado a la representación del usuario en Azure AD.
@@ -168,4 +168,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Autotask Workplace, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado Autotask Workplace, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

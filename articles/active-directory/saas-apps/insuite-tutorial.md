@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: jeedes
-ms.openlocfilehash: c0fe47f017181e4cd665aed0a9632598f7d024dc
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e6d1101e98857190d18d46ffafb810bed4456567
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124756724"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132326462"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-insuite"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con insuite
 
@@ -40,7 +40,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * insuite admite el SSO iniciado por **SP**.
-* Una vez que haya configurado insuite, puede aplicar el control de sesión, que protege en tiempo real su organización frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Una vez que haya configurado insuite, puede aplicar el control de sesión, que protege en tiempo real su organización frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-insuite-from-the-gallery"></a>Incorporación de insuite desde la galería
 
@@ -60,7 +60,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con insuite mediante
 Para configurar y probar el inicio de sesión único de Azure AD con insuite, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de insuite](#configure-insuite-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de insuite](#create-insuite-test-user)** , para tener un usuario correspondiente a B.Simon en insuite que esté vinculado a la representación de usuario en Azure AD.
@@ -159,6 +159,6 @@ Al hacer clic en el icono de insuite en el panel de acceso, se debería iniciar 
 
 - [Prueba de insuite con Azure AD](https://aad.portal.azure.com/)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [¿Qué es el control de sesión en Microsoft Defender para aplicaciones en la nube?](/cloud-app-security/proxy-intro-aad)
 
 - [Protección de insuite con controles y visibilidad avanzados](/cloud-app-security/proxy-intro-aad)

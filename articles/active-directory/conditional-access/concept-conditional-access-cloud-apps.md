@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9d56443885c79f6d5aa153695df76156f4f9407
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 6a0bd64f8e3377b78f276b1b3c4bdef6f43d8c76
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131012688"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132308055"
 ---
 # <a name="conditional-access-cloud-apps-actions-and-authentication-context"></a>Acceso condicional: aplicaciones, acciones y contexto de autenticación en la nube
 
@@ -45,7 +45,7 @@ Los administradores pueden asignar una directiva de acceso condicional a las sig
 - [Microsoft Azure Information Protection](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - [Administración de Microsoft Azure](#microsoft-azure-management)
 - Administración de suscripciones de Microsoft Azure
-- Microsoft Cloud App Security
+- Microsoft Defender para aplicaciones en la nube
 - Portal de Control de acceso de las herramientas de Microsoft Commerce
 - Servicio de autenticación de las herramientas de Microsoft Commerce
 - Microsoft Forms
@@ -144,7 +144,7 @@ Las acciones del usuario son tareas que un usuario puede realizar. Actualmente, 
 
 ## <a name="authentication-context-preview"></a>Contexto de autenticación (versión preliminar)
 
-El contexto de autenticación se puede usar para proteger aún más los datos y acciones de las aplicaciones. Estas aplicaciones pueden ser sus propias aplicaciones personalizadas, aplicaciones de línea de negocio (LOB) personalizadas, aplicaciones como SharePoint o aplicaciones protegidas por Microsoft Cloud App Security (MCAS). 
+El contexto de autenticación se puede usar para proteger aún más los datos y acciones de las aplicaciones. Estas aplicaciones pueden ser sus propias aplicaciones personalizadas, aplicaciones de línea de negocio (LOB) personalizadas, aplicaciones como SharePoint o aplicaciones protegidas por Microsoft Defender para aplicaciones en la nube. 
 
 Por ejemplo, una organización puede conservar archivos en sitios de SharePoint como, por ejemplo, el menú de comidas o la receta secreta de su salsa barbacoa. Todos los usuarios pueden acceder al sitio del menú de comidas, pero es posible que para acceder al sitio de la receta secreta de la salsa barbacoa tengan que utilizar un dispositivo administrado y aceptar condiciones de uso específicas.
 
@@ -176,7 +176,7 @@ Los administradores pueden seleccionar contextos de autenticación publicados en
 Para más información sobre el uso del contexto de autenticación en las aplicaciones, consulte los artículos siguientes.
 
 - [Etiquetas de confidencialidad de Microsoft Information Protection para proteger sitios de SharePoint](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#more-information-about-the-dependencies-for-the-authentication-context-option)
-- [Microsoft Cloud App Security](/cloud-app-security/session-policy-aad?branch=pr-en-us-2082#require-step-up-authentication-authentication-context)
+- [Microsoft Defender para aplicaciones en la nube](/cloud-app-security/session-policy-aad?branch=pr-en-us-2082#require-step-up-authentication-authentication-context)
 - [Aplicaciones personalizadas](../develop/developer-guide-conditional-access-authentication-context.md)
 
 ## <a name="next-steps"></a>Pasos siguientes

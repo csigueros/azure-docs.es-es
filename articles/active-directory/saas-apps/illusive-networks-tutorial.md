@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/16/2020
 ms.author: jeedes
-ms.openlocfilehash: fed9f346c99b8b4e7384c10725d1d0c3e0a481c9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 239aeadf6d5b83ed84ba8ebc00e382631acf8c31
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124768446"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132304979"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-illusive-networks"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Illusive Networks
 
@@ -58,7 +58,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Illusive Network
 Para configurar y probar el inicio de sesión único de Azure AD con Illusive Networks, lleve a cabo los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Illusive Networks](#configure-illusive-networks-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Illusive Networks](#create-illusive-networks-test-user)** , para tener un homólogo de B. Simon en Illusive Networks que esté vinculado a su representación en Azure AD.
@@ -146,4 +146,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Illusive Networks, puede aplicar el control de sesión, que protege contra la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado Illusive Networks, puede aplicar el control de sesión, que protege contra la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

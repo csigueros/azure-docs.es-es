@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 929ca0786ab25cbbcd219510970c3ce66709b6f5
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 33e230d79a0c4392cf4fa0d957cd054a71eb5b12
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124780231"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132333682"
 ---
 # <a name="tutorial-integrate-secret-server-on-premises-with-azure-active-directory"></a>Tutorial: Integración de Secret Server (On-Premises) con Azure Active Directory
 
@@ -57,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Secret Server (O
 Para configurar y probar el inicio de sesión único de Azure AD con Secret Server (On-Premises), siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Secret Server (On-Premises)](#configure-secret-server-on-premises-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Secret Server (On-Premises)](#create-secret-server-on-premises-test-user)** , para tener un homólogo de B.Simon en Secret Server (On-Premises) que esté vinculado a la representación del usuario en Azure AD.
@@ -155,4 +155,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado la instancia de Secret Server (On-Premises), puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado la instancia de Secret Server (On-Premises), puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

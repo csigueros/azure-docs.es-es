@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/08/2021
 ms.author: pafarley
-ms.openlocfilehash: 08afa72507bb5689dbd1a003cb776958d6e63f1d
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 34f9948905a51fd020a0942836a37d2c9737f4e3
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746454"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132059835"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetría y solución de problemas
 
@@ -23,19 +23,49 @@ El análisis espacial incluye un conjunto de características para supervisar el
 
 ## <a name="enable-visualizations"></a>Habilitación de visualizaciones
 
-Para habilitar una visualización de eventos de Conclusiones de IA en un fotograma de vídeo, debe usar la versión `.debug` de una [operación de análisis espacial](spatial-analysis-operations.md) en una máquina de escritorio. La visualización no es posible en dispositivos de Azure Stack Edge. Hay cuatro operaciones de depuración disponibles.
+Para habilitar una visualización de eventos de información de inteligencia artificial en un fotograma de vídeo, debe usar la versión `.debug` de una [operación de análisis espacial](spatial-analysis-operations.md) en una máquina de escritorio o una máquina virtual de Azure. La visualización no es posible en dispositivos de Azure Stack Edge. Hay cuatro operaciones de depuración disponibles.
 
-Si el dispositivo no es un dispositivo de Azure Stack Edge, edite el archivo del manifiesto de implementación para [máquinas de escritorio](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) para usar el valor correcto para la variable de entorno `DISPLAY`. Debe coincidir con la variable `$DISPLAY` del equipo host. Después de actualizar el manifiesto de implementación, vuelva a implementar el contenedor.
+Si el dispositivo es una máquina de escritorio local o una máquina virtual de Azure GPU (con el escritorio remoto habilitado), puede cambiar a la versión `.debug` de cualquier operación y visualizar la salida.
 
-Una vez finalizada la implementación, es posible que tenga que copiar el archivo `.Xauthority` del equipo host en el contenedor y reiniciarlo. En el ejemplo siguiente, `peopleanalytics` es el nombre del contenedor del equipo host.
+1.  Abra el escritorio localmente o mediante un cliente de Escritorio remoto en el equipo host que ejecuta el análisis espacial. 
+2.  En el terminal, ejecute `xhost +`
+3.  Actualice el [manifiesto de implementación](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) del módulo `spaceanalytics` con el valor de la variable de entorno `DISPLAY`. Para encontrar su valor, ejecute `echo $DISPLAY` en el terminal del equipo host.
+    ```
+    "env": {        
+        "DISPLAY": {
+            "value": ":11"
+            }
+    }
+    ```
+4. Actualice el grafo en el manifiesto de implementación que desea ejecutar en modo de depuración. En el ejemplo siguiente, se actualiza operationId a cognitiveservices.vision.spatialanalysis-personcrossingpolygon.debug. Se requiere un nuevo parámetro `VISUALIZER_NODE_CONFIG` para habilitar la ventana del visualizador. Todas las operaciones están disponibles en el tipo de depuración. Si usa nodos compartidos, utilice la operación cognitiveservices.vision.spatialanalysis.debug y agregue `VISUALIZER_NODE_CONFIG` a los parámetros de la instancia. 
 
-```bash
-sudo docker cp $XAUTHORITY peopleanalytics:/root/.Xauthority
-sudo docker stop peopleanalytics
-sudo docker start peopleanalytics
-xhost +
-```
+    ```
+    "zonecrossing": {
+        "operationId" : "cognitiveservices.vision.spatialanalysis-personcrossingpolygon.debug",
+        "version": 1,
+        "enabled": true,
+        "parameters": {
+            "VIDEO_URL": "Replace http url here",
+            "VIDEO_SOURCE_ID": "zonecrossingcamera",
+            "VIDEO_IS_LIVE": false,
+            "VIDEO_DECODE_GPU_INDEX": 0,
+            "DETECTOR_NODE_CONFIG": "{ \"gpu_index\": 0 }",
+            "CAMERACALIBRATOR_NODE_CONFIG": "{ \"gpu_index\": 0}",
+            "VISUALIZER_NODE_CONFIG": "{ \"show_debug_video\": true }",
+            "SPACEANALYTICS_CONFIG": "{\"zones\":[{\"name\":\"queue\",\"polygon\":[[0.3,0.3],[0.3,0.9],[0.6,0.9],[0.6,0.3],[0.3,0.3]], \"threshold\":35.0}]}"
+        }
+    }
+    ```
+    
+5. Vuelva a realizar la implementación y verá la ventana del visualizador en el equipo host.
+6. Después de que haya finalizado la implementación, es posible que tenga que copiar el archivo `.Xauthority` del equipo host en el contenedor y reiniciarlo. En el ejemplo siguiente, `peopleanalytics` es el nombre del contenedor del equipo host.
 
+    ```bash
+    sudo docker cp $XAUTHORITY peopleanalytics:/root/.Xauthority
+    sudo docker stop peopleanalytics
+    sudo docker start peopleanalytics
+    xhost +
+    ```
 
 ## <a name="collect-system-health-telemetry"></a>Recopilación de telemetría de mantenimiento del sistema
 

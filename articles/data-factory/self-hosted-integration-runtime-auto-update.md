@@ -8,12 +8,12 @@ author: lrtoyou1223
 ms.author: lle
 ms.custom: seo-lt-2019
 ms.date: 06/16/2021
-ms.openlocfilehash: f59948204af76ce5e2d940c2910601b848bb4605
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5a1cf4366ffd86491cc3e3e09358e364d878cb87
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122637779"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131989344"
 ---
 # <a name="self-hosted-integration-runtime-auto-update-and-expire-notification"></a>Notificación de expiración y actualización automática del entorno de ejecución de integración autohospedado
 
@@ -38,9 +38,11 @@ Para obtener la versión de actualización automática, puede usar este [comando
 > Si tiene varios entornos de ejecución de integración autohospedados, no habrá tiempos de inactividad durante la actualización automática. La actualización automática sucederá primero en un nodo, mientras el resto sigue realizando tareas. Cuando el primer nodo termine de actualizarse, se hará cargo de las tareas pendientes cuando otros nodos se actualicen. Si solo tiene un entorno de ejecución de integración autohospedado, habrá algún tiempo de inactividad durante la actualización automática.
 
 ## <a name="auto-update-version-vs-latest-version"></a>Versión de actualización automática frente a versión más reciente
-Aunque lanzamos dos versiones, a fin de garantizar la estabilidad del entorno de ejecución de integración autohospedado solamente lanzaremos una versión cada mes. Por lo tanto, en ocasiones verá que la versión de actualización automática es la versión anterior a la versión más reciente real. Si quiere obtener la versión más reciente, puede ir al [Centro de descarga](https://www.microsoft.com/download/details.aspx?id=39717).
+Aunque lanzamos dos versiones, a fin de garantizar la estabilidad del entorno de ejecución de integración autohospedado solamente lanzaremos una versión cada mes. Por lo tanto, en ocasiones verá que la versión de actualización automática es la versión anterior a la versión más reciente real. Si quiere obtener la versión más reciente, puede ir al [Centro de descarga](https://www.microsoft.com/download/details.aspx?id=39717). Además, la actualización automática a una versión se administra una. No se puede cambiar. Si desea actualizar a la versión más reciente, debe hacerlo manualmente. 
 
 La página **Actualización automática** del entorno de ejecución de integración autohospedado en el portal de ADF indica cuál es la versión más reciente si la actual es anterior. Cuando el entorno de ejecución de integración autohospedado está en línea, esta versión es la versión de actualización automática, y actualizará automáticamente el entorno de ejecución de integración autohospedado en el tiempo programado. Pero si el entorno de ejecución de integración autohospedado está sin conexión, la página solo reflejará la versión más reciente.
+
+Si tiene varios nodos y, por alguna razón, algunos de ellos no se actualizan automáticamente correctamente. A continuación, estos nodos se revierten a la versión que era la misma en todos los nodos antes de la actualización automática. 
 
 ## <a name="self-hosted-integration-runtime-expire-notification"></a>Notificación de expiración del entorno de ejecución de integración autohospedado
 Si quiere controlar manualmente la versión del entorno de ejecución de integración autohospedado, puede deshabilitar la configuración de actualización automática e instalarla manualmente. Cada versión del entorno de ejecución de integración autohospedado expirará en un año. El mensaje de expiración se muestra en el portal de ADF y el cliente del entorno de ejecución de integración autohospedado durante **90 días** antes de la expiración.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 450eca8a589f6184bcac5e5d986fc7a5f4d49128
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 06152e870539794eef0ac253cdaf5ecc3348502e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124745127"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132332542"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-one"></a>Tutorial: Integración de Azure Active Directory con Zscaler One
 
@@ -192,15 +192,15 @@ En esta sección va a permitir que B.Simon acceda a Zscaler One mediante el inic
 
    b. Haga clic en **Activar**.
 
-## <a name="configuring-proxy-settings&quot;></a>Configuración de los valores de proxy
+## <a name="configuring-proxy-settings"></a>Configuración de los valores de proxy
 
-### <a name=&quot;to-configure-the-proxy-settings-in-internet-explorer&quot;></a>Para definir la configuración de proxy en Internet Explorer
+### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Para definir la configuración de proxy en Internet Explorer
 
 1. Inicie **Internet Explorer**.
 
 2. Seleccione **Opciones de Internet** en el menú **Herramientas** para abrir el diálogo **Opciones de Internet**.
 
-   ![Opciones de Internet](./media/zscaler-one-tutorial/connection.png &quot;Opciones de Internet")
+   ![Opciones de Internet](./media/zscaler-one-tutorial/connection.png "Opciones de Internet")
 
 3. Haga clic en la pestaña **Conexiones** .
 
@@ -246,4 +246,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Zscaler One, puede aplicar el control de sesión, que protege su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado Zscaler One, puede aplicar el control de sesión, que protege su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

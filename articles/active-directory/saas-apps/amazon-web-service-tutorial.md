@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/05/2021
 ms.author: jeedes
-ms.openlocfilehash: ce311ba38ac32c0e6b4d5ba06cbbd64e843b26e5
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 5e3905c9d15d16641cad8a818719d9335cfcd916
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124740192"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132324600"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-single-account-access"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con AWS Single-Account Access
 
@@ -104,7 +104,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con AWS Single-Accou
 Para configurar y probar el inicio de sesión único de Azure AD con AWS Single-Account Access, siga los pasos a continuación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de AWS Single-Account Access](#configure-aws-single-account-access-sso)** , para configurar los valores de Inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de AWS Single-Account Access](#create-aws-single-account-access-test-user)** , para tener un homólogo de B. Simon en AWS Single-Account Access que esté vinculado a la representación del usuario en Azure AD.
@@ -414,12 +414,11 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="change-log"></a>Registro de cambios
 
-* 01/12/2020: mayor límite de longitud de rol, de 119 a 239 caracteres. 
+* 01/12/2020: mayor límite de longitud de rol, de 119 a 239 caracteres.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado AWS Single-Account Access, podrá aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
-
+Una vez que haya configurado AWS Single-Account Access, podrá aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).
 
 [11]: ./media/amazon-web-service-tutorial/ic795031.png
 [12]: ./media/amazon-web-service-tutorial/ic795032.png

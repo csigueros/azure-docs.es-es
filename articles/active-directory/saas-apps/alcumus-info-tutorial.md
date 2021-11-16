@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/03/2021
 ms.author: jeedes
-ms.openlocfilehash: 5bce2c89d39d4a3c3853c1592523da793b467d40
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 8985ec9afccad0aa0903678aaf7d4d07babe8566
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124732535"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132330718"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alcumus-info-exchange"></a>Tutorial: Integración de Azure Active Directory con Alcumus Info Exchange
 
@@ -57,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Alcumus Info Exc
 Para configurar y probar el inicio de sesión único en Azure AD con Alcumus Info Exchange, realice los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Alcumus Info Exchange](#configure-alcumus-info-exchange-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación del usuario de prueba de Alcumus Info Exchange](#create-alcumus-info-exchange-test-user)** : para tener un homólogo de B.Simon en Alcumus Info Exchange vinculado a la representación del usuario en Azure AD.
@@ -132,4 +132,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Alcumus Info Exchange, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado Alcumus Info Exchange, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

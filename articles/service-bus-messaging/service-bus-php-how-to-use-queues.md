@@ -5,12 +5,12 @@ services: service-bus-messaging
 ms.devlang: PHP
 ms.topic: how-to
 ms.date: 07/23/2021
-ms.openlocfilehash: d0909c4e2ea5ef53a1438ce05f5ddad485c80248
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b5f1a3b09594a6f47d285f03ca841f763b759a3c
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725125"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132055933"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>Uso de colas de Service Bus con PHP
 [!INCLUDE [service-bus-selector-queues](./includes/service-bus-selector-queues.md)]
@@ -159,7 +159,7 @@ catch(ServiceException $e){
 
 Los mensajes enviados a las colas de Service Bus y recibidos en ellas son instancias de la clase [BrokeredMessage][BrokeredMessage]. Los objetos [BrokeredMessage][BrokeredMessage] tienen un conjunto de métodos y propiedades estándar que se usan para retener las propiedades personalizadas específicas de la aplicación y un conjunto de datos arbitrarios de la aplicación.
 
-El tamaño máximo de mensaje que admiten las colas de Service Bus es de 256 KB en el [nivel Estándar](service-bus-premium-messaging.md) y de 1 MB en el [nivel Premium](service-bus-premium-messaging.md). El encabezado, que incluye propiedades de la aplicación estándar y personalizadas, puede tener un tamaño máximo de 64 KB. No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. Este límite superior para el tamaño de la cola es de 5 GB.
+El tamaño máximo de mensaje que admiten las colas de Service Bus es de 256 KB en el [nivel Estándar](service-bus-premium-messaging.md) y 100 MB en el [nivel Prémium](service-bus-premium-messaging.md). El encabezado, que incluye propiedades de la aplicación estándar y personalizadas, puede tener un tamaño máximo de 64 KB. No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. Este límite superior para el tamaño de la cola es de 5 GB.
 
 ## <a name="receive-messages-from-a-queue"></a>mensajes de una cola
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 10/11/2021
 author: mattmccleary
 ms.author: mmcc
-ms.openlocfilehash: 3961f7233de1fcd09dc8a2199dfa424b505add27
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ae52a8977247903574b9d23fda795e5fd8b7ea3d
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131058110"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132054436"
 ---
 # <a name="enable-azure-monitor-opentelemetry-exporter-for-net-nodejs-and-python-applications-preview"></a>Habilitación de Azure Monitor OpenTelemetry Exporter para aplicaciones de .NET, Node.js y Python (versión preliminar)
 
@@ -40,7 +40,7 @@ Medite detenidamente si esta versión preliminar es adecuada para usted. **Habil
  - Capacidad de invalidar [Nombre de la operación](correlation.md#data-model-for-telemetry-correlation)
  - Capacidad de establecer manualmente Id. de usuario o Id. de usuario autenticado
  - Propagación de Nombre de la operación a Telemetría de dependencias
- - Propagación del contexto de seguimiento distribuido (bibliotecas de instrumentación) mediante Azure Functions Worker
+ - Compatibilidad de las [bibliotecas de instrumentación](#instrumentation-libraries) con Azure Functions
 
 Aquellos que requieran una experiencia con todas las características deben usar el SDK existente de [ASP.NET](asp-net.md) o [ASP.NET Core](asp-net-core.md) de Application Insights hasta que la oferta basada en OpenTelemetry madure.
 
@@ -81,7 +81,7 @@ Medite detenidamente si esta versión preliminar es adecuada para usted. **Habil
  - Capacidad de invalidar [Nombre de la operación](correlation.md#data-model-for-telemetry-correlation)
  - Capacidad de establecer manualmente Id. de usuario o Id. de usuario autenticado
  - Propagación de Nombre de la operación a Telemetría de dependencias
- - Propagación del contexto de seguimiento distribuido (bibliotecas de instrumentación) mediante Azure Functions Worker
+ - Compatibilidad de las [bibliotecas de instrumentación](#instrumentation-libraries) con Azure Functions
 
 Aquellos que requieran una experiencia con todas las características deben usar el [SDK de Python-OpenCensus de Application Insights](opencensus-python.md) existente hasta que la oferta basada en OpenTelemetry madure.
 
@@ -175,7 +175,7 @@ pip install azure-monitor-opentelemetry-exporter
 
 ##### <a name="net"></a>[.NET](#tab/net)
 
-En el código siguiente se muestra cómo habilitar OpenTelemetry en una aplicación de consola de C# mediante la configuración de OpenTelemetry TracerProvider. Este código debe estar en el inicio de la aplicación. En el caso de ASP.NET Core, suele realizarse en el método `ConfigureServices` de la clase `Startup` de la aplicación. En el caso de las aplicaciones ASP.NET, suele realizarse en `Global.aspx.cs`.
+En el código siguiente se muestra cómo habilitar OpenTelemetry en una aplicación de consola de C# mediante la configuración de OpenTelemetry TracerProvider. Este código debe estar en el inicio de la aplicación. En el caso de ASP.NET Core, suele realizarse en el método `ConfigureServices` de la clase `Startup` de la aplicación. En el caso de las aplicaciones ASP.NET, suele realizarse en `Global.asax.cs`.
 
 ```csharp
 using System.Diagnostics;
@@ -457,7 +457,7 @@ Los atributos de intervalo se pueden agregar de alguna de las dos maneras siguie
 1. Uso de las opciones proporcionadas por las [bibliotecas de instrumentación](#instrumentation-libraries).
 2. Incorporación de un procesador de intervalos personalizado.
 
-Estos atributos pueden incluir la incorporación de una propiedad empresarial personalizada a la telemetría. También puede usar atributos para establecer campos opcionales en el esquema de Application Insights, como Id. de usuario o IP del cliente.
+Estos atributos pueden incluir la incorporación de una propiedad personalizada a la telemetría. También puede usar atributos para establecer campos opcionales en el esquema de Application Insights, como IP del cliente.
 
 > [!TIP]
 > La ventaja de usar "opciones proporcionadas por las bibliotecas de instrumentación" (cuando están disponibles) es que todo el contexto está disponible, lo que significa que los usuarios pueden optar por agregar o filtrar atributos adicionales. Por ejemplo, la opción de enriquecimiento de la biblioteca de instrumentación HttpClient incluye dar a los usuarios acceso al propio httpRequestMessage para seleccionar cualquier elemento de ahí y almacenarlo como un atributo.
@@ -471,7 +471,7 @@ Los [atributos](#add-span-attributes) que se agregan a la actividad o el interva
 1. Muchas bibliotecas de instrumentación proporcionan una opción de enriquecimiento. Vea el Léame de las bibliotecas de instrumentación correspondientes para obtener instrucciones.
     - [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.AspNet/README.md#enrich)
     - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#enrich)
-    - [HttpClient and HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.Http/README.md#enrich)
+    - [HttpClient y HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.Http/README.md#enrich)
 
 2. Uso de procesador personalizado:
 
@@ -586,6 +586,7 @@ Puede rellenar el campo _client_IP_ de las solicitudes si establece el atributo 
 Use el [ejemplo de incorporación de propiedad personalizada](#add-custom-property), pero cambie las siguientes líneas de código de `ActivityEnrichingProcessor.cs`:
 
 ```C#
+// only applicable in case of activity.Kind == Server
 activity.SetTag("http.client_ip", "<IP Address>");
 ```
 
@@ -669,7 +670,7 @@ Puede usar las siguientes maneras de filtrar la telemetría antes de salir de la
 1. Muchas bibliotecas de instrumentación proporcionan una opción de filtrado. Vea el Léame de las bibliotecas de instrumentación correspondientes para obtener instrucciones.
     - [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.AspNet/README.md#filter)
     - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#filter)
-    - [HttpClient y HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.Http/README.md#filter)
+    - [HttpClient and HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.Http/README.md#filter)
 
 2. Uso de procesador personalizado:
     

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 9e542c7d9e78ea73dc96809d7d1fa06d60f15283
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9e8ea2771a67ad0452bb1aa1cc57d1fc457328ff
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128600007"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132291602"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-ae"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con GitHub AE
 
@@ -60,7 +60,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con GitHub AE media
 Para configurar y probar el inicio de sesión único de Azure AD con GitHub AE, complete los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en GitHub AE](#configure-github-ae-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba en GitHub AE](#create-github-ae-test-user)** : para tener un homólogo de B.Simon en GitHub AE vinculado a la representación del usuario en Azure AD.
@@ -173,4 +173,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 * [Configuración del aprovisionamiento de usuarios para la empresa](https://docs.github.com/github-ae@latest/admin/authentication/configuring-user-provisioning-for-your-enterprise).
 
-* Una vez configurada la aplicación GitHub AE, podrá aplicar el control de sesión, que protege a su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Una vez configurada la aplicación GitHub AE, podrá aplicar el control de sesión, que protege a su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

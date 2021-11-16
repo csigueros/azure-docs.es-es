@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2021
 ms.author: jeedes
-ms.openlocfilehash: 5f01332c2ab9ee9ecb3ca79a1883ea1a45ce76e9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: dbfefc71ab35d720300018b357a57eb56b446ae4
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124791197"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132336190"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-box"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Box
 
@@ -65,7 +65,7 @@ Configure y pruebe el inicio de sesión único (SSO) de Azure AD con Box median
 Para configurar y probar el inicio de sesión único de Azure AD con Box, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Box](#configure-box-sso)** , para configurar los valores de Inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Box](#create-box-test-user)** , para tener un homólogo de B. Simon en Box vinculado a la representación del usuario en Azure AD.
@@ -171,4 +171,4 @@ Puede insertar un grupo de Azure en Box y sincronizar ese grupo. Azure inserta g
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Box, puede aplicar el control de sesión, que protege la filtración e infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado Box, puede aplicar el control de sesión, que protege la filtración e infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

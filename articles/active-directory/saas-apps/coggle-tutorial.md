@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/18/2021
 ms.author: jeedes
-ms.openlocfilehash: aa8d0c7c48ba42d920a7a185d90b3e6eeed17446
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 1ced5a644902af52c8420057157331260ccc1228
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131448144"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132305073"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-coggle"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Coggle
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Coggle con Azure Active Directory (Azure
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Coggle con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -57,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Coggle mediante 
 
 Para configurar y probar el inicio de sesión único de Azure AD con Coggle, siga estos pasos:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)**, para permitir que los usuarios puedan utilizar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Coggle](#configure-coggle-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
@@ -177,4 +177,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado Coggle, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez que haya configurado Coggle, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con las aplicaciones de Microsoft Defender para la nube](/cloud-app-security/proxy-deployment-aad).

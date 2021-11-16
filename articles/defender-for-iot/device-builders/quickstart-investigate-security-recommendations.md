@@ -2,13 +2,13 @@
 title: Investigación de recomendaciones de seguridad
 description: Investigue las recomendaciones de seguridad con el servicio de seguridad Defender para IoT.
 ms.topic: quickstart
-ms.date: 05/26/2021
-ms.openlocfilehash: 29da5747afb36eea9e30d7179d06d69e60556e32
-ms.sourcegitcommit: 149815030568fb4d4dd2e2025a18dc64fc190d07
+ms.date: 11/09/2021
+ms.openlocfilehash: 7f4dab5ed0590d0e2658145f17d657beb5af1177
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129062074"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306137"
 ---
 # <a name="quickstart-investigate-security-recommendations"></a>Inicio rápido: Investigación de recomendaciones de seguridad
 
@@ -38,11 +38,11 @@ Abra cada recomendación agregada para mostrar su descripción detallada, los pa
 
 1. Después de revisar los pormenores de las recomendaciones, use las instrucciones del **paso de corrección manual** para solucionar y resolver el problema que provocó la recomendación.
 
-    :::image type="content" source="media/quickstart/remediate-security-recommendations-inline.png" alt-text="Corrección de recomendaciones de seguridad con ASC para IoT" lightbox="media/quickstart/remediate-security-recommendations-expanded.png":::
+    :::image type="content" source="media/quickstart/remediate-security-recommendations-inline.png" alt-text="Corrección de recomendaciones de seguridad con Defender para IoT" lightbox="media/quickstart/remediate-security-recommendations-expanded.png":::
 
 1. Explore los detalles de la recomendación de un dispositivo específico seleccionando el dispositivo deseado en la página de exploración en profundidad.
 
-    :::image type="content" source="media/quickstart/explore-security-recommendation-detail-inline.png" alt-text="Investigación de las recomendaciones de seguridad específicas de un dispositivo con ASC para IoT" lightbox="media/quickstart/explore-security-recommendation-detail-expanded.png":::
+    :::image type="content" source="media/quickstart/explore-security-recommendation-detail-inline.png" alt-text="Investigación de las recomendaciones de seguridad específicas de un dispositivo con Defender para IoT" lightbox="media/quickstart/explore-security-recommendation-detail-expanded.png":::
 
 1. Si se requiere una investigación más a fondo, **investigue la recomendación en Log Analytics** mediante el vínculo. 
 

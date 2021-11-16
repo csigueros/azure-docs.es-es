@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/08/2021
-ms.custom: project-no-code, ignite-fall-2021
+ms.custom: project-no-code, ignite-fall-2021, b2c-support
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 19a13d9c2941d9a98cce4415b9266d67a9bb8e53
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: c7d64e4991a71849f8a0269dcfa8eff32164ef75
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131028108"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132133706"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Administración de Azure AD B2C con Microsoft Graph
 
@@ -35,6 +35,9 @@ Vea este vídeo para obtener información sobre la migración de usuario de Azur
 Para usar MS Graph API e interactuar con los recursos de su inquilino de Azure AD B2C, necesita un registro de aplicación que conceda permisos para hacerlo. Siga los pasos del artículo [Administración de Azure AD B2C con Microsoft Graph](microsoft-graph-get-started.md) para crear un registro de aplicación que pueda usar la aplicación de administración. 
 
 ## <a name="user-management"></a>Administración de usuarios
+> [!NOTE]
+> Azure AD B2C no admite actualmente funcionalidades de consulta avanzadas en objetos de directorio. Esto significa que no hay compatibilidad con los operadores de consulta `$count` y `$search` ni con los operadores No (`not`), No es igual a (`ne`) y Termina con (`endsWith`) en el parámetro de consulta `$filter`. Para más información, consulte [Parámetros de consulta en Microsoft Graph](/graph/query-parameters) y [Funcionalidades de consulta avanzadas en Microsoft Graph](/graph/aad-advanced-queries).
+
 
 - [Enumerar usuarios](/graph/api/user-list)
 - [Crear usuario](/graph/api/user-post-users)

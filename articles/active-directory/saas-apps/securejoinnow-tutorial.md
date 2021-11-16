@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/10/2021
 ms.author: jeedes
-ms.openlocfilehash: a7d7abd904b2948b9da5af5af25a43934c3513e4
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 33b76193d88ba73215b11340570c60f15627acd9
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124741280"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132299542"
 ---
 # <a name="tutorial-integrate-securew2-joinnow-connector-with-azure-active-directory"></a>Tutorial: Integración de SecureW2 JoinNow Connector con Azure Active Directory
 
@@ -57,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con SecureW2 JoinNow
 Para configurar y probar el inicio de sesión único de Azure AD con SecureW2 JoinNow Connector, siga este procedimiento:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de SecureW2 JoinNow Connector](#configure-securew2-joinnow-connector-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de SecureW2 JoinNow Connector](#create-securew2-joinnow-connector-test-user)** , para tener un homólogo de B.Simon en SecureW2 JoinNow Connector que esté vinculado a la representación del usuario en Azure AD.
@@ -134,4 +134,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado SecureW2 JoinNow Connector, puede aplicar el control de sesión, que protege contra la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado SecureW2 JoinNow Connector, puede aplicar el control de sesión, que protege contra la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

@@ -2,14 +2,17 @@
 title: Introducción a los puntos de conexión privados
 description: Comprenda el uso de los puntos de conexión privados para Azure Backup y los escenarios en los que el uso de puntos de conexión privados ayuda a preservar la seguridad de los recursos.
 ms.topic: conceptual
-ms.date: 09/28/2021
+ms.date: 11/09/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3070cb72b6e5949b94972f9dad54d4e57e5bf591
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: c9ff432c1de5ebdb44ae8f5fa0d4889026a32252
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129154971"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132136536"
 ---
 # <a name="overview-and-concepts-of-private-endpoints-for-azure-backup"></a>Introducción y conceptos de puntos de conexión privados para Azure Backup
 
@@ -73,9 +76,9 @@ Los FQDN de almacenamiento alcanzados en ambos escenarios son los mismos. Sin em
 >Los puntos de conexión privados para blobs y colas siguen un patrón de nomenclatura estándar, comienzan con  **\<the name of the private endpoint>_ecs** o **\<the name of the private endpoint>_prot** y tienen el sufijo  **\_blob** y  **\_queue** respectivamente.
 
 Los puntos de conexión del servicio Azure Backup se modifican para los almacenes habilitados para el punto de conexión privado.  
-Si ha configurado un servidor proxy DNS mediante servidores proxy y firewalls de terceros, los nombres de dominio anteriores se deben permitir y redirigir a un DNS personalizado (con asignaciones de direcciones IP privadas) o a 169.63.129.16 con un vínculo de red virtual a una zona DNS privada con estas asignaciones de direcciones IP privadas.
+Si ha configurado un servidor proxy DNS mediante servidores proxy y firewalls de terceros, los nombres de dominio anteriores se deben permitir y redirigir a un DNS personalizado (con asignaciones de direcciones IP privadas) o a 168.63.129.16 con un vínculo de red virtual a una zona DNS privada con estas asignaciones de direcciones IP privadas.
 
-En el ejemplo siguiente se muestra el firewall de Azure usado como proxy DNS para redirigir las consultas de nombre de dominio para el almacén de Recovery Services, el blob, las colas y AAD a 169.63.129.16.
+En el ejemplo siguiente se muestra el firewall de Azure usado como proxy DNS para redirigir las consultas de nombres de dominio realizadas del almacén de Recovery Services, el blob, las colas y AAD a 168.63.129.16.
 
 :::image type="content" source="./media/private-endpoints-overview/azure-firewall-used-as-dns-proxy-inline.png" alt-text="Diagrama que muestra el uso de Azure Firewall como proxy DNS para redirigir las consultas de nombre de dominio." lightbox="./media/private-endpoints-overview/azure-firewall-used-as-dns-proxy-expanded.png":::
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/11/2021
 ms.author: jeedes
-ms.openlocfilehash: a501c12c81da0e2fbacfa6db3a46d590f2501a54
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 444dd939222e402a14940d1934b32044997cf01b
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124746416"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132299501"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-samsung-knox-and-business-services"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Samsung Knox and Business Services
 
@@ -60,7 +60,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Samsung Knox and
 Para configurar y probar el inicio de sesión único de Azure AD con Samsung Knox and Business Services, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Samsung Knox and Business Services](#configure-samsung-knox-and-business-services-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación del usuario de prueba de Samsung Knox and Business Services](#create-samsung-knox-and-business-services-test-user)** , para tener un homólogo de B.Simon en Samsung Knox and Business Services que esté vinculado a la representación de Azure AD del usuario.
@@ -145,4 +145,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado Samsung Knox and Business Services, puede aplicar el control de sesión, que protege a la organización en tiempo real contra la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez que haya configurado Samsung Knox and Business Services, puede aplicar el control de sesión, que protege a la organización en tiempo real contra la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

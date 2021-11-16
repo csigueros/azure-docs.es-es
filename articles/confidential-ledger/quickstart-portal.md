@@ -1,22 +1,22 @@
 ---
 title: 'Inicio rápido: Microsoft Azure Confidential Ledger con Azure Portal'
-description: Uso de Microsoft Azure Confidential Ledger con Azure Portal
+description: Aprenda a usar Microsoft Azure Confidential Ledger desde Azure Portal
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 10/18/2021
 ms.service: confidential-ledger
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: 5db9227303ed6b409dfd1650fc3c3a409ac2ba90
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 265dfc023d0adf384eb483efc16a40380e395fb3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130167825"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458159"
 ---
 # <a name="quickstart-create-a-confidential-ledger-using-the-azure-portal"></a>Inicio rápido: Creación de un libro de contabilidad confidencial con Azure Portal
 
-Azure Confidential Ledger es un servicio en la nube que proporciona un almacén de alta integridad para registros de datos confidenciales y registros que requieren que los datos se mantengan intactos. Para más información sobre Confidential Ledger y para obtener ejemplos de lo que se puede almacenar en un libro de contabilidad confidencial, consulte [Acerca de Microsoft Azure Confidential Ledger](overview.md).
+Azure Confidential Ledger es un servicio en la nube que proporciona un almacén de alta integridad para registros de datos confidenciales y registros que requieren que los datos se mantengan intactos. Para más información sobre Azure Confidential Ledger y para obtener ejemplos de lo que se puede almacenar en un libro de contabilidad confidencial, consulte [Acerca de Microsoft Azure Confidential Ledger](overview.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -34,7 +34,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 1. En la lista de resultados, elija **Confidential Ledger**.
 
-1. En la sección Confidential Ledger, seleccione **Crear**.
+1. En la sección Confidential Ledger, elija **Crear**.
 
 1. En la sección Create confidential ledger (Crear libro de contabilidad confidencial), proporcione la siguiente información:
     - **Nombre**: proporcione un nombre único para el libro de contabilidad confidencial.
@@ -58,16 +58,16 @@ Una vez finalizada la implementación, seleccione **Go to resource** (Ir al recu
 :::image type="content" source="./media/confidential-ledger-portal-quickstart.png" alt-text="Pantalla de creación del portal de ACL":::
 
 Tome nota de las dos propiedades siguientes:
-- **Nombre de Confidential Ledger**: en el ejemplo, es "test-create-ledger-demo". Utilizará este nombre para otros pasos.
+- **Nombre de libro de contabilidad confidencial**: en el ejemplo, es "test-create-ledger-demo". Utilizará este nombre para otros pasos.
 - **Punto de conexión del libro de contabilidad**: en el ejemplo, este punto de conexión es `https://test-create-ledger-demo.confidential-ledger.azure.net/`. 
 
 Necesitará estos nombres de propiedad para realizar transacciones con el libro de contabilidad confidencial desde el plano de datos.
  
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Otros artículos de Confidential Ledger complementan este inicio rápido. Si tiene pensado seguir trabajando con otros artículos, considere la posibilidad de dejar estos recursos activos. 
+Otros artículos sobre Azure Confidential basados en este inicio rápido. Si tiene pensado seguir trabajando con otros artículos, considere la posibilidad de dejar estos recursos activos. 
 
-Cuando ya no lo necesite, elimine el grupo de recursos; de este modo se eliminarán también Confidential Ledger y los recursos relacionados. Para eliminar el grupo de recursos mediante el portal:
+Cuando ya no lo necesite, elimine el grupo de recursos, lo que elimina el libro de contabilidad confidencial y los recursos relacionados. Para eliminar el grupo de recursos mediante el portal:
 
 1.  Escriba el nombre del grupo de recursos en el cuadro de búsqueda de la parte superior del portal. Cuando vea el grupo de recursos que se utiliza en esta guía de inicio rápido en los resultados de búsqueda, selecciónelo.
 
@@ -77,6 +77,6 @@ Cuando ya no lo necesite, elimine el grupo de recursos; de este modo se eliminar
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha creado una instancia de Confidential Ledger mediante Azure Portal. Para más información sobre Confidential Ledger y cómo integrarlo con las aplicaciones, continúe con los artículos siguientes.
+En este inicio rápido, ha creado una instancia de Confidential Ledger desde Azure Portal. Para más información sobre Azure Confidential Ledger y cómo integrarlo con las aplicaciones, continúe con los artículos siguientes.
 
-- [Información general de Microsoft Azure Confidential Ledger](overview.md)
+- [Introducción a Microsoft Azure Confidential Ledger](overview.md)

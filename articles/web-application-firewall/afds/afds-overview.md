@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: conceptual
 ms.date: 06/09/2021
 ms.author: victorh
-ms.openlocfilehash: d7e0cc01d15e33e86f7e9446537fff6d43652256
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 09c184f9f3e62d8f26a2baaaa3fb31f06f4dbfca
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111892861"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132292915"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Firewall de aplicaciones web en Azure en Azure Front Door
 
@@ -102,7 +102,7 @@ Se puede habilitar un conjunto administrado de reglas de protección contra bots
 
 Se admiten tres categorías de bot: Defectuosos, correctos y desconocidos La plataforma WAF administra y actualiza dinámicamente las firmas de bots.
 
-Los bots defectuosos incluyen bots de direcciones IP malintencionadas y bots que han falsificado sus identidades. Las direcciones IP malintencionadas proceden de la fuente de inteligencia sobre amenazas de Microsoft. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) impulsa la Inteligencia sobre amenazas de Microsoft y lo utilizan numerosos servicios, incluido Azure Security Center.
+Los bots defectuosos incluyen bots de direcciones IP malintencionadas y bots que han falsificado sus identidades. Las direcciones IP malintencionadas proceden de la fuente de inteligencia sobre amenazas de Microsoft. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) impulsa la Inteligencia sobre amenazas de Microsoft y lo utilizan numerosos servicios, incluido Microsoft Defender para la nube.
 
 Los bots correctos incluyen motores de búsqueda validados. Entre las categorías desconocidas se incluyen los grupos de bot adicionales que se identificaron a sí mismos como bots. Por ejemplo, analizadores de mercado, recopiladores de fuentes y agentes de recopilación de datos. 
 

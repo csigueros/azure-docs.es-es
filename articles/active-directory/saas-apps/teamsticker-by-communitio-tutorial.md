@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/01/2021
 ms.author: jeedes
-ms.openlocfilehash: 6a8c3c9442698dba24651e27bcef10fd96c0dbdb
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: e4d6c6b2484837a761980c951c96ba022a86a8c8
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129662141"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132328818"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-teamsticker-by-communitio"></a>Tutorial: Integración del inicio de sesión único de Azure AD con TeamSticker by Communitio
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar TeamSticker by Communitio con Azure Acti
 * Permitir que los usuarios inicien sesión automáticamente en TeamSticker by Communitio con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -59,7 +59,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con TeamSticker by C
 Para configurar y probar el inicio de sesión único de Azure AD con TeamSticker by Communitio, lleve a cabo los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de TeamSticker by Communitio](#configure-teamsticker-by-communitio-sso)** : para configurar los valores de Inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de TeamSticker by Communitio](#create-teamsticker-by-communitio-test-user)** , para tener un homólogo de B.Simon en esta aplicación vinculado a la representación del usuario en Azure AD.
@@ -143,4 +143,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado TeamSticker by Communitio, puede aplicar el control de sesión, que protege a su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez que haya configurado TeamSticker by Communitio, puede aplicar el control de sesión, que protege a su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

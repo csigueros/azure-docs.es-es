@@ -12,12 +12,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: mathoma
 ms.date: 02/13/2019
-ms.openlocfilehash: a8b0e2d0183f29ebf9ecdee576abeca6acc1827c
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: c8a8eba07d29ae590a55586819a220a95f026507
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129229741"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132298116"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Nuevo DBA en la nube: administración de Azure SQL Database después de la migración
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -95,7 +95,7 @@ SQL Database se toma la seguridad y la privacidad muy en serio. La seguridad en 
 - Protección de datos reales ([Cifrado de datos transparente [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) y [Always Encrypted [AE]](/sql/relational-databases/security/encryption/always-encrypted-database-engine)).
 - Control del acceso a datos confidenciales y con privilegios ([seguridad de nivel de fila](/sql/relational-databases/security/row-level-security) y [Enmascaramiento dinámico de datos](/sql/relational-databases/security/dynamic-data-masking)).
 
-[Azure Security Center](https://azure.microsoft.com/services/security-center/) ofrece administración de seguridad centralizada de todas las cargas de trabajo que se ejecutan en Azure, de forma local y en otras nubes. Puede ver si se han configurado en todos los recursos elementos de protección esenciales de SQL Database como la [auditoría](../../azure-sql/database/auditing-overview.md) y el [Cifrado de datos transparente [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), y crear directivas basadas en sus propios requisitos.
+[Microsoft Defender para la nube](https://azure.microsoft.com/services/security-center/) ofrece administración de seguridad centralizada de todas las cargas de trabajo que se ejecutan en Azure, de forma local y en otras nubes. Puede ver si se han configurado en todos los recursos elementos de protección esenciales de SQL Database como la [auditoría](../../azure-sql/database/auditing-overview.md) y el [Cifrado de datos transparente [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), y crear directivas basadas en sus propios requisitos.
 
 ### <a name="what-user-authentication-methods-are-offered-in-sql-database"></a>Qué métodos de autenticación de usuario se ofrecen en SQL Database
 
@@ -245,7 +245,7 @@ con la información de rendimiento de consultas, puede obtener recomendaciones a
 
 SQL Database proporciona recomendaciones de seguridad accionables para ayudarle a proteger sus datos, así como detección de amenazas para identificar e investigar actividades sospechosas de la base de datos que puedan suponer una amenaza para la base de datos. [Evaluación de vulnerabilidades](sql-vulnerability-assessment.md) es un servicio de examen e informes de la base de datos que le permite supervisar el estado de seguridad de las bases de datos a escala e identificar los riesgos de seguridad y desfase respecto a una línea de base de seguridad definida por el usuario. Después de cada examen, se proporciona una lista personalizada de pasos procesables y scripts de corrección, así como un informe de evaluación que puede usarse para ayudar a cumplir con los requisitos de cumplimiento.
 
-Con Azure Security Center, debe identificar las recomendaciones de seguridad en todos los ámbitos y aplicarlas con un solo clic.
+Con Microsoft Defender para la nube, debe identificar las recomendaciones de seguridad en todos los ámbitos y aplicarlas con un solo clic.
 
 ### <a name="cost-optimization"></a>Optimización de costos
 

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Creación de aplicaciones de aprendizaje automático con Microsoft Machine Learning para Apache Spark (versión preliminar)'
-description: Aprenda a usar Microsoft Machine Learning para Apache Spark para crear aplicaciones de aprendizaje automático en Azure Synapse Analytics.
+title: 'Tutorial: Compilación de aplicaciones de aprendizaje automático mediante Synapse Machine Learning'
+description: Aprenda a usar Synapse Machine Learning para crear aplicaciones de aprendizaje automático en Azure Synapse Analytics.
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
@@ -9,25 +9,25 @@ ms.reviewer: ''
 ms.date: 03/08/2021
 author: ruixinxu
 ms.author: ruxu
-ms.openlocfilehash: 8a4c5892e5b7b542177376fcd0adae76527957a8
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 03d7aec55e7a6146346ebbcc746ecbbd75b81d3f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110578097"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132318491"
 ---
-# <a name="tutorial-build-machine-learning-applications-using-microsoft-machine-learning-for-apache-spark-preview"></a>Tutorial: Creación de aplicaciones de aprendizaje automático con Microsoft Machine Learning para Apache Spark (versión preliminar)
+# <a name="tutorial-build-machine-learning-applications-using-synapse-machine-learning"></a>Tutorial: Compilación de aplicaciones de aprendizaje automático mediante Synapse Machine Learning
 
-En este artículo aprenderá a usar Microsoft Machine Learning para Apache Spark ([MMLSpark](https://github.com/Azure/mmlspark)) para crear aplicaciones de aprendizaje automático. MMLSpark amplía la solución de aprendizaje automático distribuida de Apache Spark al agregar un gran número de herramientas de ciencia de datos y aprendizaje profundo, como [Azure Cognitive Services](../../cognitive-services/big-data/cognitive-services-for-big-data.md), [OpenCV](https://opencv.org/), [LightGBM](https://github.com/Microsoft/LightGBM), etc.  MMLSpark permite crear modelos analíticos y predictivos eficaces y altamente escalables a partir de diversos orígenes de datos de Spark.
-Synapse Spark proporciona bibliotecas de MMLSpark integradas, entre las que se incluyen:
+En este artículo, aprenderá a utilizar Synapse Machine Learning ([SynapseML](https://github.com/microsoft/SynapseML)) para crear aplicaciones de aprendizaje automático. SynapseML amplía la solución de aprendizaje automático distribuida de Apache Spark al agregar un gran número de herramientas de ciencia de datos y aprendizaje profundo, como [Azure Cognitive Services](../../cognitive-services/big-data/cognitive-services-for-big-data.md), [OpenCV](https://opencv.org/), [LightGBM](https://github.com/Microsoft/LightGBM), etc.  SynapseML permite crear modelos analíticos y predictivos eficaces y altamente escalables a partir de diversos orígenes de datos de Spark.
+Synapse Spark proporciona bibliotecas de SynapseML integradas, entre las que se incluyen:
 
-- [Vowpal Wabbit](https://github.com/Azure/mmlspark/blob/master/docs/vw.md): servicios de biblioteca para habilitar el análisis de texto, como el análisis de sentimiento en los tweets, en el aprendizaje automático.
-- [Cognitive Services en Spark](https://github.com/Azure/mmlspark/blob/master/docs/cogsvc.md): para combinar la característica de Azure Cognitive Services con las canalizaciones de SparkML para ofrecer diseño de soluciones para los servicios de modelado de datos cognitivos, como la detección de anomalías.
-- [LightGBM](https://github.com/Azure/mmlspark/blob/master/docs/lightgbm.md): LightGBM es un marco de potenciación del gradiente que usa algoritmos de aprendizaje basados en árboles. Está diseñado para distribuirse y ofrecer una mayor eficacia.
+- [Vowpal Wabbit](https://github.com/VowpalWabbit/vowpal_wabbit): servicios de biblioteca para habilitar el análisis de texto, como el análisis de sentimiento en los tweets, en el aprendizaje automático.
+- [Cognitive Services en Spark](https://arxiv.org/abs/1810.08744): para combinar la característica de Azure Cognitive Services con las canalizaciones de SparkML para ofrecer diseño de soluciones para los servicios de modelado de datos cognitivos, como la detección de anomalías.
+- [LightGBM](https://github.com/Microsoft/LightGBM): LightGBM es un marco de potenciación del gradiente que usa algoritmos de aprendizaje basados en árboles. Está diseñado para distribuirse y ofrecer una mayor eficacia.
 - KKN condicional: modelos de KNN escalables con consultas condicionales.
-- [HTTP en Spark](https://github.com/Azure/mmlspark/blob/master/docs/http.md): habilita la orquestación de microservicios distribuida al integrar la accesibilidad basada en el protocolo HTTP y en Spark.
+- HTTP en Spark: habilita la orquestación de microservicios distribuida al integrar la accesibilidad basada en el protocolo HTTP y en Spark.
 
-En este tutorial se describen ejemplos de uso de Azure Cognitive Services en MMLSpark para: 
+En este tutorial se describen ejemplos de uso de Azure Cognitive Services en SynapseML para: 
 
 - Text Analytics: para obtener la opinión (o el estado de ánimo) de un conjunto de frases.
 - Computer Vision: para obtener las etiquetas (descripciones de una sola palabra) asociadas a un conjunto de imágenes.
@@ -44,13 +44,12 @@ Si no tiene una suscripción a Azure, [cree una cuenta gratuita antes de empezar
 
 
 ## <a name="get-started"></a>Introducción
-Para empezar, importe mmlspark y configure las claves del servicio. 
+Para empezar, importe SynapseML y configure las claves del servicio. 
 
 ```python
-import mmlspark
-mmlspark.__spark_package_version__ # current version: 1.0.0-rc3-6-a862d6b1-SNAPSHOT
+import synapse.ml
 
-from mmlspark.cognitive import *
+from synapse.ml.cognitive import *
 from notebookutils import mssparkutils
 
 # A general Cognitive Services key for Text Analytics and Computer Vision (or use separate keys that belong to each service)
@@ -277,4 +276,4 @@ Para asegurarse de que se cierra la instancia de Spark, finalice todas las sesio
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Consulte los cuadernos de ejemplo de Synapse](https://github.com/Azure-Samples/Synapse/tree/main/MachineLearning) 
-* [Repositorio de GitHub para MMLSpark](https://github.com/Azure/mmlspark)
+* [Repositorio de GitHub de SynapseML](https://github.com/microsoft/SynapseML)

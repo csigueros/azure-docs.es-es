@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/24/2021
 ms.author: jeedes
-ms.openlocfilehash: e11a0aeff4168b850ae95be7ce26f97e4afa9c81
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: 6917af20d95e4c9fcaa3b1f1e3528bd64e4d0736
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129399610"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132287561"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-perforce-helix-core---helix-authentication-service"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure AD con Perforce Helix Core - Helix Authentication Service
 
@@ -60,7 +60,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Perforce Helix C
 Para configurar y probar el inicio de sesión único de Azure AD con Perforce Helix Core - Helix Authentication Service, realice los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Perforce Helix Core - Helix Authentication Service](#configure-perforce-helix-core---helix-authentication-service-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Perforce Helix Core - Helix Authentication Service](#create-perforce-helix-core---helix-authentication-service-test-user)** , para tener un usuario equivalente a B.Simon en Perforce Helix Core - Helix Authentication Service que esté vinculado a la representación del usuario en Azure AD.
@@ -135,4 +135,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que se ha configurado Perforce Helix Core - Helix Authentication Service, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración y la infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez que se ha configurado Perforce Helix Core - Helix Authentication Service, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración y la infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

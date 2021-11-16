@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 10/21/2021
+ms.date: 11/05/2021
 ms.custom: devx-track-python, ignite-fall-2021
-ms.openlocfilehash: 075c6404acbb4e2d74967873e3a8359076c1a228
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a2b818aaea5bc737d1b68f9e88dd5c0611c297f1
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131056535"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132135897"
 ---
 # <a name="configure-inbound-and-outbound-network-traffic"></a>Configuración del tráfico de red entrante y saliente
 
@@ -34,6 +34,18 @@ En este artículo, obtendrá información sobre los requisitos de comunicación 
 > * [Protección del entorno de inferencia](how-to-secure-inferencing-vnet.md)
 > * [Habilitación de la función de Studio](how-to-enable-studio-virtual-network.md)
 > * [Uso de un DNS personalizado](how-to-custom-dns.md)
+
+## <a name="well-known-ports"></a>Puertos conocidos
+
+Los siguientes son puertos conocidos que usan los servicios enumerados en este artículo. Si en este artículo se usa un intervalo de puertos que no aparece en esta sección, es específico del servicio y es posible que no haya publicada información acerca de para qué se usa:
+
+
+| Port | Descripción |
+| ----- | ----- | 
+| 80 | Tráfico web no seguro (HTTP) |
+| 443 | Tráfico web seguro (HTTPS) |
+| 445 | Tráfico SMB usado para acceder a recursos compartidos en Azure File Storage |
+| 8787 | Se usa al conectarse a RStudio en una instancia de proceso |
 
 ## <a name="required-public-internet-access"></a>Acceso obligatorio a una red de Internet pública
 
@@ -62,7 +74,7 @@ Estas colecciones de reglas se describen con más detalle en [¿Cuáles son algu
 
     | Etiqueta de servicio | Protocolo | Port |
     | ----- |:-----:|:-----:|
-    | AzureActiveDirectory | TCP | * |
+    | AzureActiveDirectory | TCP | 80, 443 |
     | AzureMachineLearning | TCP | 443 |
     | AzureResourceManager | TCP | 443 |
     | Storage.region       | TCP | 443 |
@@ -122,52 +134,143 @@ Si no está configurado correctamente, el firewall puede provocar problemas al u
 
 Los hosts de las siguientes tablas son propiedad de Microsoft y proporcionan servicios necesarios para que el área de trabajo funcione correctamente. Las tablas enumeran los hosts para las regiones de Azure público, Azure Government y Azure China 21Vianet.
 
+> [!IMPORTANT]
+> Azure Machine Learning usa cuentas de Azure Storage en su suscripción y en suscripciones administradas por Microsoft. Cuando corresponda, se usarán los siguientes términos para diferenciarlas en esta sección:
+>
+> * __Su almacenamiento__: las cuentas de Azure Storage de su suscripción, que se usan para almacenar sus datos y artefactos, como modelos, datos de entrenamiento, registros de entrenamiento y scripts de Python.
+> * __Almacenamiento de Microsoft__: la instancia de proceso de Azure Machine Learning y los clústeres de proceso se basan en Azure Batch y deben acceder al almacenamiento ubicado en una suscripción de Microsoft. Este almacenamiento solo se usa para la administración de las instancias de proceso. Ninguno de sus datos se almacena aquí.
+
 **Hosts generales de Azure**
 
-| **Requerido para** | **Azure público** | **Azure Government** | **Azure China 21Vianet** |
+# <a name="azure-public"></a>[Azure público](#tab/public)
+
+| **Requerido para** | **Hosts** | **Protocolo** | **Puertos** |
+| ----- | ----- | ----- | ---- | 
+| Azure Active Directory | login.microsoftonline.com | TCP | 80, 443 |
+| Azure portal | management.azure.com | TCP | 443 |
+| Azure Resource Manager | management.azure.com | TCP | 443 |
+
+# <a name="azure-government"></a>[Azure Government](#tab/gov)
+
+| **Requerido para** | **Hosts** | **Protocolo** | **Puertos** |
+| ----- | ----- | ----- | ---- |
+| Azure Active Directory | login.microsoftonline.us | TCP | 80, 443 |
+| Portal de Azure | management.azure.us | TCP | 443 |
+| Azure Resource Manager | management.usgovcloudapi.net | TCP | 443 |
+
+# <a name="azure-china-21vianet"></a>[Azure China 21Vianet](#tab/china)
+
+| **Requerido para** | **Hosts** | **Protocolo** | **Puertos** |
 | ----- | ----- | ----- | ----- |
-| Azure Active Directory | login.microsoftonline.com | login.microsoftonline.us | login.chinacloudapi.cn |
-| Azure portal | management.azure.com | management.azure.us | management.azure.cn |
-| Azure Resource Manager | management.azure.com | management.usgovcloudapi.net | management.chinacloudapi.cn |
+| Azure Active Directory | login.chinacloudapi.cn | TCP | 80, 443 |
+| Portal de Azure | management.azure.cn | TCP | 443 |
+| Azure Resource Manager | management.chinacloudapi.cn | TCP | 443 |
+
+---
 
 **Hosts de Azure Machine Learning**
 
 > [!IMPORTANT]
 > En la tabla siguiente, reemplace `<storage>` por el nombre de la cuenta de almacenamiento predeterminada para el área de trabajo de Azure Machine Learning.
 
-| **Requerido para** | **Azure público** | **Azure Government** | **Azure China 21Vianet** |
+# <a name="azure-public"></a>[Azure público](#tab/public)
+
+| **Requerido para** | **Hosts** | **Protocolo** | **Puertos** |
 | ----- | ----- | ----- | ----- |
-| Azure Machine Learning Studio | ml.azure.com | ml.azure.us | studio.ml.azure.cn |
-| API |\*.azureml.ms | \*.ml.azure.us | \*.ml.azure.cn |
-| Cuaderno integrado | \*.notebooks.azure.net | \*.notebooks.usgovcloudapi.net |\*.notebooks.chinacloudapi.cn |
-| Cuaderno integrado | \<storage\>.file.core.windows.net | \<storage\>.file.core.usgovcloudapi.net | \<storage\>.file.core.chinacloudapi.cn |
-| Cuaderno integrado | \<storage\>.dfs.core.windows.net | \<storage\>.dfs.core.usgovcloudapi.net | \<storage\>.dfs.core.chinacloudapi.cn |
-| Cuaderno integrado | \<storage\>.blob.core.windows.net | \<storage\>.blob.core.usgovcloudapi.net | \<storage\>.blob.core.chinacloudapi.cn |
-| Cuaderno integrado | graph.microsoft.com | graph.microsoft.us | graph.chinacloudapi.cn |
-| Cuaderno integrado | \*.aznbcontent.net |  | |
+| Azure Machine Learning Studio | ml.azure.com | TCP | 443 |
+| API |\*.azureml.ms | TCP | 443 |
+| Cuaderno integrado | \*.notebooks.azure.net | TCP | 443 |
+| Cuaderno integrado | \<storage\>.file.core.windows.net | TCP | 443, 445 |
+| Cuaderno integrado | \<storage\>.dfs.core.windows.net | TCP | 443 |
+| Cuaderno integrado | \<storage\>.blob.core.windows.net | TCP | 443 |
+| Cuaderno integrado | graph.microsoft.com | TCP | 443 |
+| Cuaderno integrado | \*.aznbcontent.net | TCP | 443 |
+
+# <a name="azure-government"></a>[Azure Government](#tab/gov)
+
+| **Requerido para** | **Hosts** | **Protocolo** | **Puertos** |
+| ----- | ----- | ----- | ----- |
+| Azure Machine Learning Studio | ml.azure.us | TCP | 443 |
+| API | \*.ml.azure.us | TCP | 443 |
+| Cuaderno integrado | \*.notebooks.usgovcloudapi.net | TCP | 443 |
+| Cuaderno integrado | \<storage\>.file.core.usgovcloudapi.net | TCP | 443, 445 |
+| Cuaderno integrado | \<storage\>.dfs.core.usgovcloudapi.net | TCP | 443 |
+| Cuaderno integrado  | \<storage\>.blob.core.usgovcloudapi.net | TCP | 443 |
+| Cuaderno integrado | graph.microsoft.us | TCP | 443 |
+| Cuaderno integrado | \*.aznbcontent.net | TCP | 443 |
+
+# <a name="azure-china-21vianet"></a>[Azure China 21Vianet](#tab/china)
+
+| **Requerido para** | **Hosts** | **Protocolo** | **Puertos** |
+| ----- | ----- | ----- | ----- |
+| Azure Machine Learning Studio | studio.ml.azure.cn | TCP | 443 |
+| API | \*.ml.azure.cn | TCP | 443 |
+| Cuaderno integrado | \*.notebooks.chinacloudapi.cn | TCP | 443 |
+| Cuaderno integrado | \<storage\>.file.core.chinacloudapi.cn | TCP | 443, 445 |
+| Cuaderno integrado | \<storage\>.dfs.core.chinacloudapi.cn | TCP | 443 |
+| Cuaderno integrado | \<storage\>.blob.core.chinacloudapi.cn | TCP | 443 |
+| Cuaderno integrado | graph.chinacloudapi.cn | TCP | 443 |
+| Cuaderno integrado | \*.aznbcontent.net | TCP | 443 |
+
+---
 
 **Hosts de instancia de proceso y clúster de proceso de Azure Machine Learning**
 
-| **Requerido para** | **Azure público** | **Azure Government** | **Azure China 21Vianet** |
-| ----- | ----- | ----- | ----- |
-| Instancia/clúster de proceso | graph.windows.net | graph.windows.net | graph.chinacloudapi.cn |
-| Instancia de proceso | \*.instances.azureml.net | \*.instances.azureml.us | \*.instances.azureml.cn |
-| Instancia de proceso | \*.instances.azureml.ms |  |  |
-| Cuenta de Azure Storage | \*blob.core.windows.net</br>\*.table.core.windows.net</br>\*.queue.core.windows.net | \*.blob.core.usgovcloudapi.net</br>\*.table.core.usgovcloudapi.net</br>\*.queue.core.usgovcloudapi.net | \*blob.core.chinacloudapi.cn</br>\*.table.core.chinacloudapi.cn</br>\*.queue.core.chinacloudapi.cn |
-| Azure Key Vault | \*.vault.azure.net | \*.vault.usgovcloudapi.net | \*.vault.azure.cn |
-
-> [!IMPORTANT]
-> El firewall debe permitir la comunicación con \*.instances.azureml.ms a través de los puertos __TCP__ __18881, 443 y 8787__.
-
 > [!TIP]
-> El nombre de dominio completo de Azure Key Vault solo es necesario si el área de trabajo se creó con la marca [hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) habilitada.
+> * El host de __Azure Key Vault__ solo es necesario si el área de trabajo se creó con la marca [hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) habilitada.
+> * Los puertos 8787 y 18881 para la __instancia de proceso__ solo son necesarios cuando el área de trabajo de Azure Machine Learning tiene un punto de conexión privado.
+> * En la tabla siguiente, reemplace `<storage>` por el nombre de la cuenta de almacenamiento predeterminada para el área de trabajo de Azure Machine Learning.
+
+# <a name="azure-public"></a>[Azure público](#tab/public)
+
+| **Requerido para** | **Hosts** | **Protocolo** | **Puertos** |
+| ----- | ----- | ----- | ----- |
+| Instancia/clúster de proceso | graph.windows.net | TCP | 443 |
+| Instancia de proceso | \*.instances.azureml.net | TCP | 443 |
+| Instancia de proceso | \*.instances.azureml.ms | TCP | 443, 8787, 18881 |
+| Acceso al almacenamiento de Microsoft | \*.blob.core.windows.net | TCP | 443 |
+| Acceso al almacenamiento de Microsoft | \*.table.core.windows.net | TCP | 443 |
+| Acceso al almacenamiento de Microsoft | \*.queue.core.windows.net | TCP | 443 |
+| Cuenta de almacenamiento | \<storage\>.file.core.windows.net | TCP | 443, 445 |
+| Cuenta de almacenamiento | \<storage\>.blob.core.windows.net | TCP | 443 |
+| Azure Key Vault | \*.vault.azure.net | TCP | 443 |
+
+# <a name="azure-government"></a>[Azure Government](#tab/gov)
+
+| **Requerido para** | **Hosts** | **Protocolo** | **Puertos** |
+| ----- | ----- | ----- | ----- |
+| Instancia/clúster de proceso | graph.windows.net | TCP | 443 |
+| Instancia de proceso | \*.instances.azureml.us | TCP | 443 |
+| Instancia de proceso | \*.instances.azureml.ms | TCP | 443, 8787, 18881 |
+| Acceso al almacenamiento de Microsoft | \*.blob.core.usgovcloudapi.net | TCP | 443 |
+| Acceso al almacenamiento de Microsoft | \*.table.core.usgovcloudapi.net | TCP | 443 |
+| Acceso al almacenamiento de Microsoft | \*.queue.core.usgovcloudapi.net | TCP | 443 |
+| Cuenta de almacenamiento | \<storage\>.file.core.usgovcloudapi.net | TCP | 443, 445 |
+| Cuenta de almacenamiento | \<storage\>.blob.core.usgovcloudapi.net | TCP | 443 |
+| Azure Key Vault | \*.vault.usgovcloudapi.net | TCP | 443 |
+
+# <a name="azure-china-21vianet"></a>[Azure China 21Vianet](#tab/china)
+
+| **Requerido para** | **Hosts** | **Protocolo** | **Puertos** |
+| ----- | ----- | ----- | ----- |
+| Instancia/clúster de proceso | graph.chinacloudapi.cn | TCP | 443 |
+| Instancia de proceso |  \*.instances.azureml.cn | TCP | 443 |
+| Instancia de proceso | \*.instances.azureml.ms | TCP | 443, 8787, 18881 |
+| Acceso al almacenamiento de Microsoft | \*blob.core.chinacloudapi.cn | TCP | 443 |
+| Acceso al almacenamiento de Microsoft | \*.table.core.chinacloudapi.cn | TCP | 443 |
+| Acceso al almacenamiento de Microsoft | \*.queue.core.chinacloudapi.cn | TCP | 443 |
+| Cuenta de almacenamiento | \<storage\>.file.core.chinacloudapi.cn | TCP | 443, 445 |
+| Cuenta de almacenamiento | \<storage\>.blob.core.chinacloudapi.cn | TCP | 443 |
+| Azure Key Vault | \*.vault.azure.cn | TCP | 443 |
+
+---
 
 **Imágenes de Docker que mantiene Azure Machine Learning**
 
-| **Requerido para** | **Azure público** | **Azure Government** | **Azure China 21Vianet** |
+| **Requerido para** | **Hosts** | **Protocolo** | **Puertos** |
 | ----- | ----- | ----- | ----- |
-| Registro de contenedor de Microsoft | mcr.microsoft.com | mcr.microsoft.com | mcr.microsoft.com |
-| Imágenes precompiladas de Azure Machine Learning | viennaglobal.azurecr.io | viennaglobal.azurecr.io | viennaglobal.azurecr.io |
+| Registro de contenedor de Microsoft | mcr.microsoft.com | TCP | 443 |
+| Imágenes precompiladas de Azure Machine Learning | viennaglobal.azurecr.io | TCP | 443 |
 
 > [!TIP]
 > * __Azure Container Registry__ es necesario para cualquier imagen personalizada de Docker. Esto incluye pequeñas modificaciones (como paquetes adicionales) en las imágenes base proporcionadas por Microsoft.

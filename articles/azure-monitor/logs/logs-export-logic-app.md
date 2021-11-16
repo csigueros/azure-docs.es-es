@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
-ms.openlocfilehash: fd66aa1f10a32d94d515a1f0aa25c25331796a8d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c5f73bbb960cd5bdce4a55a2c090ad509c1a9106
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102035694"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997825"
 ---
 # <a name="archive-data-from-log-analytics-workspace-to-azure-storage-using-logic-app"></a>Archivado de datos de un área de trabajo de Log Analytics a Azure Storage mediante Logic Apps
 En este artículo se describe un método para usar [Azure Logic Apps](../../logic-apps/index.yml) para consultar datos de un área de trabajo de Log Analytics en Azure Monitor y enviarlos a Azure Storage. Use este proceso cuando necesite exportar los datos de registros de Azure Monitor para escenarios de auditoría y cumplimiento o para permitir que otro servicio recupere estos datos.  
@@ -19,7 +19,7 @@ En este artículo se describe un método para usar [Azure Logic Apps](../../lo
 ## <a name="other-export-methods"></a>Otros métodos de exportación
 El método que se explica en este artículo describe una exportación programada a partir de una consulta de registro mediante una instancia de Logic Apps. Otras opciones de exportación de datos para determinados escenarios son las siguientes:
 
-- Para exportar todos los datos del área de trabajo de Log Analytics a una cuenta de Azure Storage o un centro de eventos, use la característica de exportación de datos del área de trabajo de Log Analytics de Azure Monitor Logs. Consulte [Exportación de datos del área de trabajo de Log Analytics en Azure Monitor (versión preliminar)](logs-data-export.md).
+- Para exportar datos del área de trabajo de Log Analytics a una cuenta de Azure Storage o un centro de eventos, use la característica de exportación de datos del área de trabajo de Log Analytics de Azure Monitor Logs. Consulte [Exportación de datos del área de trabajo de Log Analytics en Azure Monitor (versión preliminar)](logs-data-export.md).
 - Exportación única mediante una instancia de Logic Apps. Consulte [Conector de Azure Monitor Logs para Logic Apps y Power Automate](logicapp-flow-connector.md).
 - Exportación única a una máquina local mediante un script de PowerShell. Consulte [Invoke-AzOperationalInsightsQueryExport]](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 

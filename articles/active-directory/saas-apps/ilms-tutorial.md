@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/08/2021
 ms.author: jeedes
-ms.openlocfilehash: c55a1fd185e9ff730ad55b046d4b843e0d1264da
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 3c50aa60a67fb7f4508f17f782cdd02bff35241b
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131046230"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132317516"
 ---
 # <a name="tutorial-integrate-ilms-with-azure-active-directory"></a>Tutorial: Integración de iLMS con Azure Active Directory
 
@@ -26,7 +26,7 @@ En este tutorial, obtendrá información sobre cómo integrar iLMS con Azure Act
 * Permitir que los usuarios puedan iniciar sesión automáticamente en iLMS con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -238,4 +238,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado iLMS, podrá aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez que haya configurado iLMS, podrá aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

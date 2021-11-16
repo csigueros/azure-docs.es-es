@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/29/2021
 ms.author: jeedes
-ms.openlocfilehash: c459db2d895042d9edfa4bada8b730c96b95ed55
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: 05fa6b97b571bc76e6ad87485e2fb9d0459671b5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129403220"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132311248"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-hiretual-sso"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Hiretual-SSO
 
@@ -60,7 +60,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Hiretual-SSO med
 Para configurar y probar el inicio de sesión único de Azure AD con Hiretual-SSO, complete los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Hiretual-SSO](#configure-hiretual-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Hiretual-SSO](#create-hiretual-sso-test-user)** : para tener un homólogo de B.Simon en Hiretual-SSO que esté vinculado a la representación del usuario en Azure AD.
@@ -174,4 +174,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado el inicio de sesión único de Hiretual-SSO, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado el inicio de sesión único de Hiretual-SSO, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con las aplicaciones de Microsoft Defender para la nube](/cloud-app-security/proxy-deployment-aad).

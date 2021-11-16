@@ -5,22 +5,22 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 10/20/2021
+ms.date: 11/09/2021
 ms.author: memildin
-ms.openlocfilehash: 51e54741de4a8319a6487c99ecff1104017a13a5
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: a159292ed534e8933b18bd206c19b77247f4ea3e
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131449343"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132057596"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>Configuración de notificaciones de alertas de seguridad por correo electrónico 
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Las alertas de seguridad deben llegar a las personas adecuadas de la organización. De manera predeterminada, Defender for Cloud envía correos electrónicos a los propietarios de la suscripción cada vez que se desencadena una alerta de alta gravedad para su suscripción. En esta página se explica cómo personalizar estas notificaciones.
+Las alertas de seguridad deben llegar a las personas adecuadas de la organización. De manera predeterminada, Microsoft Defender for Cloud envía mensajes de correo electrónico a los propietarios de la suscripción cada vez que se desencadena una alerta de gravedad alta para su suscripción. En esta página se explica cómo personalizar estas notificaciones.
 
-Para definir sus propias preferencias para los correos electrónicos de notificación, la página de configuración de **notificaciones de correo electrónico** de Azure Defender for Cloud le permite elegir:
+Use la página de configuración **Notificaciones de correo electrónico** de Defender for Cloud para definir las preferencias de los correos electrónicos de notificación, entre las que se incluyen:
 
 - ***A quién* se debe notificar**: se pueden enviar mensajes de correo electrónico a usuarios individuales o a cualquier persona con un rol de Azure especificado para una suscripción. 
 - ***Qué* se les debe notificar**: modifique los niveles de gravedad para los que Defender for Cloud debe enviar notificaciones.

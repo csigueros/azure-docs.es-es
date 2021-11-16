@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 09/21/2021
 ms.custom: references_regions
-ms.openlocfilehash: 22569277eefafc518f407f06e34a69c061509b96
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: c89625bb1ea7a9b2bee53468a09a48073e5516bf
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131458976"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132308662"
 ---
 # <a name="azure-monitor-agent-overview"></a>Información general del agente de Azure Monitor
 El agente de Azure Monitor (AMA) recopila datos de supervisión del sistema operativo invitado de máquinas virtuales de Azure y los entrega a Azure Monitor. En este artículo se proporciona información general sobre el agente de Azure Monitor, incluido cómo instalarlo y cómo configurar la recopilación de datos.
@@ -33,12 +33,12 @@ Además de consolidar esta funcionalidad en un solo agente, el agente de Azure M
 ### <a name="current-limitations"></a>Limitaciones actuales
 En comparación con los ya existentes, este nuevo agente aún no tiene paridad completa.
 - **Comparación con agentes de Log Analytics (MMA/OMS):**
-    - Actualmente no se admiten todas las soluciones de Log Analytics. Consulte [qué se admite](#supported-services-and-features).
-    - No se admiten instancias de Azure Private Link.
-    - No se admite la recopilación de registros basados en archivos ni registros de IIS.
+  - Actualmente no se admiten todas las soluciones de Log Analytics. Consulte [qué se admite](#supported-services-and-features).
+  - No se admiten instancias de Azure Private Link.
+  - No se admite la recopilación de registros basados en archivos ni registros de IIS.
 - **Comparación con las extensiones de Azure Diagnostics (WAD/LAD):**
-    - No se admiten Event Hubs ni cuentas de Storage como destinos.
-    - No se admite la recopilación de registros basados en archivos, registros de IIS, eventos de ETW, eventos de .NET y volcados de memoria.
+  - No se admiten Event Hubs ni cuentas de Storage como destinos.
+  - No se admite la recopilación de registros basados en archivos, registros de IIS, eventos de ETW, eventos de .NET y volcados de memoria.
 
 ### <a name="changes-in-data-collection"></a>Cambios en la recopilación de datos
 Los métodos para definir la recopilación de datos de los agentes existentes son distintos entre sí. Cada uno de ellos tiene desafíos que se abordan con el agente de Azure Monitor.
@@ -77,8 +77,8 @@ En la siguiente tabla se muestra la compatibilidad actual del agente de Azure Mo
 
 | Servicio de Azure | Compatibilidad actual | Más información |
 |:---|:---|:---|
-| [Azure Security Center](../../security-center/security-center-introduction.md) | Versión preliminar privada | [Vínculo de registro](https://aka.ms/AMAgent) |
-| [Azure Sentinel](../../sentinel/overview.md) | <ul><li>Reenvío de eventos de Windows (WEF): versión preliminar privada</li><li>Eventos de seguridad de Windows: [versión preliminar pública](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li></ul>  | <ul><li>[Vínculo de registro](https://aka.ms/AMAgent) </li><li>No es preciso registrarse</li></ul> |
+| [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) | Versión preliminar privada | [Vínculo de registro](https://aka.ms/AMAgent) |
+| [Microsoft Sentinel](../../sentinel/overview.md) | <ul><li>Reenvío de eventos de Windows (WEF): versión preliminar privada</li><li>Eventos de seguridad de Windows: [versión preliminar pública](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li></ul>  | <ul><li>[Vínculo de registro](https://aka.ms/AMAgent) </li><li>No es preciso registrarse</li></ul> |
 
 En la siguiente tabla se muestra la compatibilidad actual del agente de Azure Monitor con características de Azure Monitor.
 
@@ -93,7 +93,7 @@ En la siguiente tabla se muestra la compatibilidad actual del agente de Azure Mo
 
 | Solución | Compatibilidad actual | Más información |
 |:---|:---|:---|
-| [Seguimiento de cambios](../../automation/change-tracking/overview.md) | Se admite como supervisión de la integridad de archivos en la versión preliminar privada de Azure Security Center.  | [Vínculo de registro](https://aka.ms/AMAgent) |
+| [Seguimiento de cambios](../../automation/change-tracking/overview.md) | Se admite como Supervisión de la integridad de los archivos en la versión preliminar privada de Microsoft Defender for Cloud.  | [Vínculo de registro](https://aka.ms/AMAgent) |
 | [Administración de actualizaciones](../../automation/update-management/overview.md) | Use la versión 2 de Update Management (versión preliminar privada) que no requiere un agente. | [Vínculo de registro](https://www.yammer.com/azureadvisors/threads/1064001355087872) |
 
 ## <a name="coexistence-with-other-agents"></a>Coexistencia con otros agentes
@@ -134,8 +134,7 @@ Las extensiones del agente de Azure Monitor para Windows y Linux pueden comunica
 
 1. Use este diagrama de flujo para determinar primero los valores de los parámetros *setting* y *protectedSetting*.
 
-   ![Diagrama de flujo para determinar los valores de los parámetros setting y protectedSetting al habilitar la extensión.](media/azure-monitor-agent-overview/proxy-flowchart.png)
-
+    ![Diagrama de flujo para determinar los valores de los parámetros setting y protectedSetting al habilitar la extensión.](media/azure-monitor-agent-overview/proxy-flowchart.png)
 
 2. Una vez determinados los valores de los parámetros *setting* y *protectedSetting*, proporcione estos parámetros adicionales al implementar el agente de Azure Monitor usando comandos de PowerShell. Los siguientes ejemplos corresponden a máquinas virtuales de Azure:
 
@@ -144,8 +143,8 @@ Las extensiones del agente de Azure Monitor para Windows y Linux pueden comunica
     | Configuración | Objeto JSON del diagrama de flujo anterior convertido en cadena. Omítase si no es aplicable. Ejemplo: {"proxy":{"mode":"application","address":"http://[address]:[port]","auth": false}}. |
     | ProtectedSetting | Objeto JSON del diagrama de flujo anterior convertido en cadena. Omítase si no es aplicable. Ejemplo: {"proxy":{"username": "[username]","password": "[password]"}}. |
 
-
 # <a name="windows-vm"></a>[Máquina virtual Windows](#tab/PowerShellWindows)
+
 ```powershell
 Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.0 -Setting <settingString> -ProtectedSetting <protectedSettingString>
 ```

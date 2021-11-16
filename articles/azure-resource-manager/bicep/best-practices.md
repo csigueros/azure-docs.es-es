@@ -4,13 +4,13 @@ description: Describe las prácticas que deben seguirse al crear archivos Bicep 
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: cea4adc3ed6843e9d07670cd2959e27311c2f22a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/02/2021
+ms.openlocfilehash: 65f55208f0a2e09db39cedc8e5074b622b232834
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131059725"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132057677"
 ---
 # <a name="best-practices-for-bicep"></a>Procedimientos recomendados para Bicep
 
@@ -42,8 +42,6 @@ Para obtener más información sobre los parámetros de Bicep, consulte [Paráme
 
 ## <a name="variables"></a>Variables
 
-* Use mayúsculas y minúsculas combinadas para los nombres de variables, como `myVariableName`.
-
 * Cuando defina una variable, no es necesario el [tipo de datos](data-types.md). Las variables deducen el tipo del valor de resolución.
 
 * Puede usar las funciones de Bicep para crear una variable.
@@ -52,13 +50,29 @@ Para obtener más información sobre los parámetros de Bicep, consulte [Paráme
 
 Para obtener más información sobre las variables de Bicep, consulte [Variables de Bicep](variables.md).
 
-## <a name="naming"></a>Nomenclatura
+## <a name="names"></a>Nombres
+
+* Use mayúsculas y minúsculas combinadas para los nombres, como `myVariableName` o `myResource`.
 
 * La [función uniqueString()](bicep-functions-string.md#uniquestring) es útil para crear nombres de recursos únicos globalmente. Cuando se proporcionan los mismos parámetros, devuelve siempre la misma cadena. Pasar el identificador del grupo de recursos significa que la cadena es la misma en cada implementación para el mismo grupo de recursos, pero es distinta cuando se implementa en diferentes grupos de recursos o suscripciones.
 
 * A veces, la función `uniqueString()` crea cadenas que comienzan por un número. Algunos recursos de Azure, como las cuentas de almacenamiento, no permiten que sus nombres comiencen por números. Esto significa que es una buena idea usar la interpolación de cadenas para crear nombres de recursos. Puede agregar un prefijo a la cadena única.
 
 * A menudo, es una buena idea usar expresiones de plantilla para crear nombres de recursos. Muchos tipos de recursos de Azure tienen reglas sobre los caracteres permitidos y la longitud de sus nombres. Incorporar la creación de nombres de recursos en la plantilla significa que cualquier persona que use la plantilla no tiene que acordarse de seguir estas reglas.
+
+* Evite usar `name` en un nombre simbólico. El nombre simbólico representa el recurso, no el nombre del recurso. Por ejemplo, en vez de esto:
+
+  ```bicep
+  resource cosmosDBAccountName 'Microsoft.DocumentDB/databaseAccounts@2021-04-15' = {
+  ```
+
+  use esto:
+
+  ```bicep
+  resource cosmosDBAccount 'Microsoft.DocumentDB/databaseAccounts@2021-04-15' = {
+  ```
+
+* Evite distinguir variables y parámetros mediante el uso de sufijos.
 
 ## <a name="resource-definitions"></a>Definiciones de recursos
 
@@ -70,19 +84,21 @@ Para obtener más información sobre las variables de Bicep, consulte [Variables
 
 * Cuando sea posible, evite usar las funciones [reference](./bicep-functions-resource.md#reference) y [resourceId](./bicep-functions-resource.md#resourceid) en el archivo Bicep. Puede acceder a cualquier recurso de Bicep mediante el nombre simbólico. Por ejemplo, si define una cuenta de almacenamiento con el nombre simbólico toyDesignDocumentsStorageAccount, puede acceder a su identificador de recurso mediante la expresión `toyDesignDocumentsStorageAccount.id`. Al usar el nombre simbólico, se crea una dependencia implícita entre los recursos.
 
+* Es preferible usar dependencias implícitas a explícitas. Aunque la propiedad de recurso `dependsOn` le permite declarar una dependencia explícita entre los recursos, normalmente es posible usar las propiedades del otro recurso mediante su nombre simbólico. Esto crea una dependencia implícita entre los dos recursos y permite a Bicep administrar la propia relación.
+
 * Si el recurso no está implementado en el archivo Bicep, todavía puede obtener una referencia simbólica al recurso mediante la palabra clave `existing`.
 
 ## <a name="child-resources"></a>Recursos secundarios
 
 * Evite anidar demasiadas capas. El anidamiento excesivo dificulta la lectura y el uso del código Bicep.
 
-* Es mejor evitar la creación de nombres de recursos para los recursos secundarios. Las ventajas que Bicep proporciona se perderán cuando comprenda las relaciones entre los recursos. Use la propiedad `parent` o el anidamiento en su lugar.
+* Evite la creación de nombres de recursos para los recursos secundarios. Las ventajas que Bicep proporciona se perderán cuando comprenda las relaciones entre los recursos. Use la propiedad `parent` o el anidamiento en su lugar.
 
 ## <a name="outputs"></a>Outputs
 
 * Asegúrese de que no crea salidas para datos confidenciales. Cualquier persona que tenga acceso al historial de implementación puede acceder a los valores de salida. Estas personas no son aptas para la administración de los secretos.
 
-* En lugar de pasar valores de propiedad a través de salidas, use la palabra clave `existing` para buscar propiedades de recursos que ya existen. Es un procedimiento recomendado buscar claves de otros recursos de esta manera en lugar de pasarlas por las salidas. Siempre se obtienen los datos más actualizados.
+* En lugar de pasar valores de propiedad a través de salidas, use la palabra clave `[existing` (resource-declaration.md#existing-resources) para buscar propiedades de recursos que ya existen. Es un procedimiento recomendado buscar claves de otros recursos de esta manera en lugar de pasarlas por las salidas. Siempre se obtienen los datos más actualizados.
 
 Para obtener más información sobre las salidas de Bicep, consulte [Salidas en Bicep](outputs.md).
 

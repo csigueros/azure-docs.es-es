@@ -3,12 +3,12 @@ title: Guía del protocolo AMQP 1.0 en Azure Service Bus y Event Hubs | Microsof
 description: Guía del protocolo para expresiones y la descripción de AMQP 1.0 en Azure Service Bus y Event Hubs
 ms.topic: article
 ms.date: 04/14/2021
-ms.openlocfilehash: d786b3d0e9afbf7ab4e895c6788209644d9f921f
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 1a299843b402d03543adbf9a9efdf86800abd564
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113092762"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132063767"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guía del protocolo AMQP 1.0 Azure Service Bus y Event Hubs
 
@@ -67,7 +67,7 @@ Las sesiones tienen un modelo de control de flujo basado en ventanas; cuando se 
 
 Este modelo basado en ventanas es parecido al concepto de control de flujo basado en ventanas de TCP, pero en el nivel de sesión dentro del socket. El concepto del protocolo de permitir que haya varias sesiones simultáneas existe para que el tráfico de alta prioridad pueda adelantar al tráfico normal limitado, como en un carril rápido de una autopista.
 
-En la actualidad, Azure Service Bus utiliza exactamente una sesión para cada conexión. El tamaño de trama máximo de Service Bus es 262 144 bytes (256 KB) para Service Bus estándar. Para Service Bus Premium y Event Hubs es 1 048 576 (1 MB). Service Bus no impone ninguna ventana específica de limitación en el nivel de sesión, pero restablece la ventana periódicamente como parte del control de flujo en el nivel de vínculo (consulte [la siguiente sección](#links)).
+En la actualidad, Azure Service Bus utiliza exactamente una sesión para cada conexión. El tamaño de trama máximo de Service Bus es 262 144 bytes (256 KB) para Service Bus estándar. Para Service Bus Premium y Event Hubs es 1048576 (100 MB). Service Bus no impone ninguna ventana específica de limitación en el nivel de sesión, pero restablece la ventana periódicamente como parte del control de flujo en el nivel de vínculo (consulte [la siguiente sección](#links)).
 
 Las conexiones, los canales y las sesiones son efímeros. Si la conexión subyacente se contrae, es necesario restablecer las conexiones, el túnel TLS, el contexto de autorización SASL y las sesiones.
 

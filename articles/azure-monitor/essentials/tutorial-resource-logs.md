@@ -1,20 +1,19 @@
 ---
-title: Recopilación de registros de recurso de un recurso de Azure y análisis con Azure Monitor
-description: Tutorial para configurar los valores de diagnóstico para recopilar registros de recurso de un recurso de Azure en un área de trabajo de Log Analytics donde se puedan analizar con una consulta de registro.
+title: 'Tutorial: Recopilación de registros de recursos desde un recurso de Azure'
+description: Tutorial para configurar los valores de diagnóstico para enviar registros de recurso de un recurso de Azure en un área de trabajo de Log Analytics donde se puedan analizar con una consulta de registro.
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 12/15/2019
-ms.openlocfilehash: 43a9c88bc64b688bfd1171e331232bb254b0eebe
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 11/08/2021
+ms.openlocfilehash: 90a1f193bf1f136e4d3501b68bfab8346604fbbe
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102032881"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132297984"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Tutorial: Recopilación y análisis de registros de recurso desde un recurso de Azure
-
-Los registros de recurso proporcionan información minuciosa sobre los detalles de funcionamiento de un recurso de Azure y son útiles para supervisar su estado y disponibilidad. Los recursos de Azure generan registros de recurso automáticamente, pero debe configurar el lugar donde recopilarlos. Este tutorial le guiará por el proceso de creación de una configuración de diagnóstico para recopilar registros de recurso de un recurso en la suscripción de Azure y de análisis con una consulta de registro.
+Los registros de recurso proporcionan información minuciosa sobre los detalles de funcionamiento de un recurso de Azure y son útiles para supervisar su estado y disponibilidad. Los recursos de Azure generan registros de recursos automáticamente, pero debe crear una configuración de diagnóstico para recopilarlos. Este tutorial le guía por el proceso de creación de una configuración de diagnóstico para enviar registros de recursos a un área de trabajo de Log Analytics donde puede analizarlos con consultas de registro.
 
 En este tutorial, aprenderá a:
 
@@ -26,81 +25,59 @@ En este tutorial, aprenderá a:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Para completar este tutorial, necesitará un recurso de Azure para supervisarlo. Puede usar cualquier recurso de la suscripción de Azure que admita la configuración de diagnóstico. Para determinar si un recurso es compatible con la configuración de diagnóstico, vaya a su menú en Azure Portal y busque la opción **Configuración de diagnóstico** en la sección **Supervisión** del menú.
+Para completar este tutorial, necesitará lo siguiente: 
 
+- Un recurso de Azure para supervisar. Puede usar cualquier recurso de la suscripción de Azure que admita la configuración de diagnóstico. Para determinar si un recurso es compatible con la configuración de diagnóstico, vaya a su menú en Azure Portal y busque la opción **Configuración de diagnóstico** en la sección **Supervisión** del menú.
 
-## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
-Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
-
-
-## <a name="create-a-workspace"></a>Crear un área de trabajo
-Un área de trabajo de Log Analytics en Azure Monitor recopila e indexa los datos de registro de una variedad de orígenes y permite el análisis avanzado con un lenguaje de consulta eficaz. El área de trabajo Log Analytics debe existir antes de la configuración de diagnóstico para enviar datos a ella. Puede usar un área de trabajo existente en la suscripción de Azure o crear una con el procedimiento siguiente. 
 
 > [!NOTE]
-> Aunque puede trabajar con datos en el área de trabajo de Log Analytics en el menú de **Azure Monitor**, las áreas de trabajo se crean y se administran en el menú **Áreas de trabajo de Log Analytics**.
+> Este procedimiento no se aplica a las máquinas virtuales de Azure, ya que el menú **Configuración de diagnóstico** se usa para configurar la extensión de diagnóstico.
 
-1. En **Todos los servicios**, seleccione **Áreas de trabajo de Log Analytics**.
-2. Haga clic en **Agregar** en la parte superior de la pantalla y proporcione los detalles siguientes para el área de trabajo:
-   - **Área de trabajo de Log Analytics**: nombre para la nueva área de trabajo. Este nombre debe ser único globalmente en todas las suscripciones de Azure Monitor.
-   - **Suscripción**: donde almacenar el área de trabajo. No es necesario que sea la misma suscripción que la del recurso bajo supervisión.
-   - **Grupo de recursos**: seleccione uno existente o haga clic en **Crear** para crear un grupo de recursos nuevo. No es necesario que sea el mismo grupo de recursos que el del recurso bajo supervisión.
-   - **Ubicación**: seleccione una región de Azure o cree una. No es necesario que sea la misma ubicación que la del recurso bajo supervisión.
-   - **Plan de tarifa**: Seleccione *Pago por uso* como plan de tarifa. Puede cambiar el plan de tarifa más adelante. Haga clic en el vínculo **Precios de Log Analytics** para más información sobre los distintos planes de tarifa.
-
-    ![Nueva área de trabajo](media/tutorial-resource-logs/new-workspace.png)
-
-3. Haga clic en **Aceptar** para crear el área de trabajo.
+## <a name="create-a-log-analytics-workspace"></a>Creación de un área de trabajo de Log Analytics
+[!INCLUDE [Create workspace](../../../includes/azure-monitor-tutorial-workspace.md)]
 
 ## <a name="create-a-diagnostic-setting"></a>Creación de una configuración de diagnóstico
 La [configuración de diagnóstico](../essentials/diagnostic-settings.md) define dónde se deben enviar los registros de recurso y de un recurso determinado. Un solo valor de configuración de diagnóstico puede tener varios [destinos](../essentials/diagnostic-settings.md#destinations), pero en este tutorial solo usaremos un área de trabajo de Log Analytics.
 
-1. En la sección **Supervisión** del menú del recursos, seleccione **Configuración de diagnóstico**.
-2. Debería recibir el mensaje "No se ha definido ninguna configuración de diagnóstico". Haga clic en **Agregar configuración de diagnóstico**.
+En la sección **Supervisión** del menú del recursos, seleccione **Configuración de diagnóstico** y haga clic en **Agregar configuración de diagnóstico**.
 
-    ![Configuración de diagnóstico](media/tutorial-resource-logs/diagnostic-settings.png)
+> [!NOTE]
+> Algunos recursos pueden requerir selecciones adicionales. Por ejemplo, una cuenta de almacenamiento requiere que seleccione un recurso antes de que se muestre la opción **Agregar configuración de diagnóstico**. También puede observar una etiqueta de **versión preliminar** para algunos recursos, ya que su configuración de diagnóstico se encuentra actualmente en versión preliminar pública.
 
-3. Cada configuración de diagnóstico tiene tres partes básicas:
+:::image type="content" source="media/tutorial-resource-logs/diagnostic-settings.png" lightbox="media/tutorial-resource-logs/diagnostic-settings.png"alt-text="Configuración de diagnóstico":::
+
+
+Cada configuración de diagnóstico tiene tres partes básicas:
  
    - **Name**: no afecta en nada y debe ser simplemente descriptivo.
-   - **Destinos**: Uno o más destinos para enviar los registros. Todos los servicios de Azure comparten el mismo conjunto de tres destinos posibles. Cada configuración de diagnóstico puede definir uno o más destinos, pero no más de uno de un tipo determinado. 
    - **Categorías**: categorías de registros que se van a enviar a cada uno de los destinos. Este conjunto de categorías variará para cada servicio de Azure.
+   - **Destinos**: Uno o más destinos para enviar los registros. Todos los servicios de Azure comparten el mismo conjunto de destinos posibles. Cada configuración de diagnóstico puede definir uno o más destinos, pero no más de uno de un tipo determinado. 
 
-4. Seleccione **Enviar a Log Analytics** y el área de trabajo que ha creado.
-5. Seleccione las categorías que desea recopilar. Consulte la documentación de cada servicio para una definición de sus categorías disponibles.
+Escriba un nombre para la configuración de diagnóstico y seleccione las categorías que desea recopilar. Consulte la documentación de cada servicio para una definición de sus categorías disponibles. **AllMetrics** enviará las mismas métricas de plataforma disponibles en las métricas de Azure Monitor del recurso al área de trabajo. Esto le permite analizar estos datos con consultas de registro junto con otros datos de supervisión. Seleccione **Enviar a Log Analytics** y el área de trabajo que ha creado. 
 
-    ![Configuración de diagnóstico](media/tutorial-resource-logs/diagnostic-setting.png)
+:::image type="content" source="media/tutorial-resource-logs/diagnostic-setting-details.png" lightbox="media/tutorial-resource-logs/diagnostic-setting-details.png"alt-text="Detalles de la configuración de diagnóstico":::
 
-6. Haga clic en **Guardar** para guardar la configuración de diagnóstico.
+Haga clic en **Guardar** para guardar la configuración de diagnóstico.
 
     
  
  ## <a name="use-a-log-query-to-retrieve-logs"></a>Uso de una consulta de registro para recuperar registros
-Los datos se recuperan de un área de trabajo de Log Analytics mediante una consulta de registro escrita en el lenguaje de consulta de Kusto (KQL). La información y las soluciones de Azure Monitor proporcionarán consultas de registro para recuperar datos de un servicio determinado, pero puede trabajar directamente con las consultas de registro y sus resultados en Azure Portal con Log Analytics. 
+Los datos se recuperan de un área de trabajo de Log Analytics mediante una consulta de registro escrita en el lenguaje de consulta de Kusto (KQL). Hay disponible un conjunto de consultas creadas previamente para muchos servicios de Azure, y que así no necesite conocimientos de KQL para empezar a trabajar.
 
-1. En la sección **Supervisión** del menú de su recurso, seleccione **Registros**.
-2. Log Analytics se abre con una ventana de consulta vacía con el ámbito establecido en el recurso. Las consultas incluirán solo los registros de ese recurso.
+Seleccione **Registros** en el menú del recurso. Log Analytics se abre con la ventana **Consultas** que incluye consultas creadas previamente para el **tipo de recurso**. 
 
-    > [!NOTE]
-    > Si ha abierto registros desde el menú de Azure Monitor, el ámbito se establecerá como el área de trabajo de Log Analytics. En este caso, las consultas incluirán todos los registros del área de trabajo.
-   
-    ![Captura de pantalla que muestra los registros de una aplicación lógica que muestra una nueva consulta con el nombre de la aplicación lógica resaltado.](media/tutorial-resource-logs/logs.png)
+> [!NOTE]
+> Si la ventana **Consultas** no se abre, haga clic en **Consultas** en la parte superior derecha. 
 
-4. El servicio que se muestra en el ejemplo escribe los registros de recurso en la tabla **AzureDiagnostics**, pero otros servicios pueden escribir en tablas distintas. Consulte [Servicios, esquemas y categorías admitidos en los registros de recursos de Azure](../essentials/resource-logs-schema.md) para conocer las tablas que usan los distintos servicios de Azure.
-
-    > [!NOTE]
-    > Varios servicios escriben registros de recurso en la tabla AzureDiagnostics. Si inicia Log Analytics desde el menú de Azure Monitor, tendrá que agregar una instrucción `where` con la columna `ResourceProvider` para especificar el servicio concreto. Al iniciar Log Analytics desde el menú de un recurso, el ámbito se establece solo en los registros de este recurso, por lo que esta columna no es necesaria. Consulte la documentación del servicio para ver consultas de ejemplo.
+:::image type="content" source="media/tutorial-resource-logs/queries.png" lightbox="media/tutorial-resource-logs/queries.png"alt-text="Captura de pantalla que muestra consultas de ejemplo mediante registros de recursos.":::
 
 
-5. Escriba una consulta y haga clic en **Ejecutar** para inspeccionar los resultados. 
-6. Para un tutorial sobre cómo escribir consultas de registro, consulte [Introducción a las consultas de registro en Azure Monitor](../logs/get-started-queries.md).
+Examine las consultas disponibles. Identifique la que quiera ejecutar y haga clic en **Ejecutar**. La consulta se agrega a la ventana de consultas y los resultados devueltos.
 
-    ![Consulta de registro](media/tutorial-resource-logs/log-query-1.png)
-
-
-
+:::image type="content" source="media/tutorial-resource-logs/query-results.png" lightbox="media/tutorial-resource-logs/query-results.png"alt-text="Captura de pantalla que muestra los resultados de una consulta de registro de ejemplo.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que ha aprendido a recopilar registros de recurso en un área de trabajo Log Analytics, complete un tutorial sobre cómo escribir consultas de registro para analizar estos datos.
+Ahora que está recopilando registros de recursos, cree una alerta de consulta de registro para recibir una notificación proactiva cuando se identifiquen datos interesantes en los datos de registro.
 
 > [!div class="nextstepaction"]
-> [Introducción a las consultas de registro en Azure Monitor](../logs/get-started-queries.md)
+> [Creación de una alerta de consulta de registro para un recurso de Azure](../alerts/tutorial-log-alert.md)

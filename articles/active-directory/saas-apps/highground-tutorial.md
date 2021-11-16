@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 09b8a3d162218df41dc117138a45ec12ac31a3d9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: cdf37ac6caa1d6e7a80c2709bd7c7eb73b88069e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124826173"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132317723"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-highground"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con HighGround
 
@@ -40,7 +40,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * HighGround admite SSO iniciado por **SP e IDP**.
-* Una vez configurado HighGround, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Una vez configurado HighGround, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-highground-from-the-gallery"></a>Incorporación de HighGround desde la galería
 
@@ -61,7 +61,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con HighGround media
 Para configurar y probar el inicio de sesión único de Azure AD con HighGround, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de HighGround](#configure-highground-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de HighGround](#create-highground-test-user)** , para tener un homólogo de B.Simon en HighGround vinculado a la representación del usuario en Azure AD.
@@ -152,6 +152,6 @@ Al hacer clic en el icono de HighGround en el Panel de acceso, debería iniciar 
 
 - [Pruebe HighGround con Azure AD](https://aad.portal.azure.com/)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [¿Qué es el control de sesión en Microsoft Defender para aplicaciones en la nube?](/cloud-app-security/proxy-intro-aad)
 
 - [Protección de HighGround con controles y visibilidad avanzados](/cloud-app-security/proxy-intro-aad)

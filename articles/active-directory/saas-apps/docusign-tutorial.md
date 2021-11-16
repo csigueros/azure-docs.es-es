@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 1cf1da4b583e78ebf9e5cf9e17da4674d9401388
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 475870ec4b3d4735c80156b54aa26624ac81428c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124770251"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132321778"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con DocuSign
 
@@ -238,10 +238,9 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 3. Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de DocuSign en Aplicaciones, se debería iniciar sesión automáticamente en la versión de DocuSign para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado DocuSign, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado DocuSign, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).
 
 <!--Image references-->
 

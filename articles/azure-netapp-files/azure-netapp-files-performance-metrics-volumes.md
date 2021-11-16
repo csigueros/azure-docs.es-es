@@ -6,13 +6,13 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
-ms.date: 09/29/2021
-ms.openlocfilehash: e5d5104e0f2215e81b5539296ff18572375a8a28
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.date: 11/09/2021
+ms.openlocfilehash: 7c53fb0fbbba9c7c0ad40739b754d4b01bbd934b
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129362401"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132136644"
 ---
 # <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Banco de pruebas de rendimiento de recomendaciones de pruebas para Azure NetApp Files
 
@@ -22,8 +22,8 @@ En este artículo se entregan recomendaciones de pruebas comparativas de rendimi
 
 Para entender las características de rendimiento de un volumen de Azure NetApp Files, puede usar la herramienta de código abierto [FIO](https://github.com/axboe/fio) para ejecutar una serie de pruebas comparativas y simular diversas cargas de trabajo. FIO se puede instalar en los sistemas operativos Linux y Windows.  Es una herramienta excelente para obtener una instantánea rápida tanto del IOPS como del rendimiento de un volumen.
 
-Azure NetApp Files *no* recomienda usar la utilidad `dd` como herramienta de pruebas comparativas de línea de base. Debe usar una carga de trabajo de aplicación real, una simulación de carga de trabajo y herramientas de pruebas comparativas y análisis (por ejemplo, Oracle AWR con Oracle o el equivalente de IBM para DB2) para establecer y analizar un rendimiento óptimo de la infraestructura. Herramientas como FIO, vdbench e iometer tienen su lugar en la determinación de las máquinas virtuales de los límites de almacenamiento, haciendo coincidir los parámetros de la prueba con las mezclas reales de cargas de trabajo de la aplicación para obtener resultados más útiles. Sin embargo, siempre es mejor probar con la aplicación del mundo real.  
-
+> [!IMPORTANT]
+> Azure NetApp Files *no* recomienda usar la utilidad `dd` como herramienta de pruebas comparativas de línea de base. Debe usar una carga de trabajo de aplicación real, una simulación de carga de trabajo y herramientas de pruebas comparativas y análisis (por ejemplo, Oracle AWR con Oracle o el equivalente de IBM para DB2) para establecer y analizar un rendimiento óptimo de la infraestructura. Herramientas como FIO, vdbench e iometer tienen su lugar en la determinación de las máquinas virtuales de los límites de almacenamiento, haciendo coincidir los parámetros de la prueba con las mezclas reales de cargas de trabajo de la aplicación para obtener resultados más útiles. Sin embargo, siempre es mejor probar con la aplicación del mundo real.  
 ### <a name="vm-instance-sizing"></a>Tamaño de instancia de la máquina virtual
 
 Para obtener mejores resultados, asegúrese de usar una instancia de máquina virtual (VM) que tiene el tamaño adecuado para realizar las pruebas. En los ejemplos siguientes se usa una instancia Standard_D32s_v3. Para más información sobre los tamaños de las instancias de la máquina virtual, consulte [Tamaños de las máquinas virtuales Windows en Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para las máquinas virtuales basadas en Windows y [Tamaños de las máquinas virtuales Linux en Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para las máquinas virtuales basadas en Linux.
@@ -38,11 +38,31 @@ Debe realizar las pruebas comparativas en la misma red virtual en que se encuent
 
 ![Recomendaciones de red virtual](../media/azure-netapp-files/azure-netapp-files-benchmark-testing-vnet.png)
 
-## <a name="installation-of-fio"></a>Instalación de FIO
+## <a name="performance-benchmarking-tools"></a>Herramientas de pruebas comparativas de rendimiento
 
-FIO está disponible en formato binario para Linux y Windows. Siga las instrucciones que aparecen en la sección sobre paquetes binarios en [FIO](https://github.com/axboe/fio) para instalar la versión para la plataforma que prefiera.
+En esta sección se proporcionan detalles sobre algunas herramientas de pruebas comparativas. 
 
-## <a name="fio-examples-for-iops"></a>Ejemplos de FIO para IOPS 
+### <a name="ssb"></a>SSB
+
+SQL Storage Benchmark (SSB) es una herramienta de pruebas comparativas de código abierto escrita en Python. Está diseñada para generar una carga de trabajo "real" que emula la interacción de la base de datos de tal manera que mide el rendimiento del subsistema de almacenamiento. 
+
+La intención de SSB es permitir que las organizaciones y los usuarios midan el rendimiento de su subsistema de almacenamiento bajo el esfuerzo de una carga de trabajo de base de datos SQL.
+
+#### <a name="installation-of-ssb"></a>Instalación de SSB 
+
+Siga la sección [Introducción](https://github.com/NetApp/SQL_Storage_Benchmark/blob/main/README.md#getting-started) del archivo LÉAME de SSB para instalarla en la plataforma que prefiera.
+
+### <a name="fio"></a>FIO 
+
+Flexible I/O Tester (FIO) es una herramienta de E/S de disco libre y de código abierto que se usa tanto para pruebas comparativas como para comprobación del esfuerzo y el hardware. 
+
+FIO está disponible en formato binario para Linux y Windows. 
+
+#### <a name="installation-of-fio"></a>Instalación de FIO
+
+Siga la sección Paquetes binarios que aparece en el [archivo LÉAME de FIO](https://github.com/axboe/fio#readme) para instalar la versión correspondiente a la plataforma que prefiera.
+
+#### <a name="fio-examples-for-iops"></a>Ejemplos de FIO para IOPS 
 
 Los ejemplos de FIO de esta sección usan la configuración siguiente:
 * Tamaño de instancia de máquina virtual: D32s_v3
@@ -51,42 +71,42 @@ Los ejemplos de FIO de esta sección usan la configuración siguiente:
 
 En los ejemplos siguientes se muestran las lecturas y escrituras aleatorias de FIO.
 
-### <a name="fio-8k-block-size-100-random-reads"></a>FIO: lecturas 100 % aleatorias con tamaño de bloque de 8 k
+##### <a name="fio-8k-block-size-100-random-reads"></a>FIO: lecturas 100 % aleatorias con tamaño de bloque de 8 k
 
 `fio --name=8krandomreads --rw=randread --direct=1 --ioengine=libaio --bs=8k --numjobs=4 --iodepth=128 --size=4G --runtime=600 --group_reporting`
 
-### <a name="output-68k-read-iops-displayed"></a>Salida: se muestra IOPS de lectura de 68 k
+##### <a name="output-68k-read-iops-displayed"></a>Salida: se muestra IOPS de lectura de 68 k
 
 `Starting 4 processes`  
 `Jobs: 4 (f=4): [r(4)][84.4%][r=537MiB/s,w=0KiB/s][r=68.8k,w=0 IOPS][eta 00m:05s]`
 
-### <a name="fio-8k-block-size-100-random-writes"></a>FIO: escrituras 100 % aleatorias con tamaño de bloque de 8 k
+##### <a name="fio-8k-block-size-100-random-writes"></a>FIO: escrituras 100 % aleatorias con tamaño de bloque de 8 k
 
 `fio --name=8krandomwrites --rw=randwrite --direct=1 --ioengine=libaio --bs=8k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting`
 
-### <a name="output-73k-write-iops-displayed"></a>Salida: se muestra IOPS de escritura de 73 k
+##### <a name="output-73k-write-iops-displayed"></a>Salida: se muestra IOPS de escritura de 73 k
 
 `Starting 4 processes`  
 `Jobs: 4 (f=4): [w(4)][26.7%][r=0KiB/s,w=571MiB/s][r=0,w=73.0k IOPS][eta 00m:22s]`
 
-## <a name="fio-examples-for-bandwidth"></a>Ejemplos de FIO para el ancho de banda
+#### <a name="fio-examples-for-bandwidth"></a>Ejemplos de FIO para el ancho de banda
 
 Los ejemplos de esta sección muestran las lecturas y escrituras secuenciales de FIO.
 
-### <a name="fio-64k-block-size-100-sequential-reads"></a>FIO: lecturas 100 % secuenciales con tamaño de bloque de 64 k
+##### <a name="fio-64k-block-size-100-sequential-reads"></a>FIO: lecturas 100 % secuenciales con tamaño de bloque de 64 k
 
 `fio --name=64kseqreads --rw=read --direct=1 --ioengine=libaio --bs=64k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting`
 
-### <a name="output-118-gbits-throughput-displayed"></a>Salida: se muestra un rendimiento de 11,8 Gbit/s
+##### <a name="output-118-gbits-throughput-displayed"></a>Salida: se muestra un rendimiento de 11,8 Gbit/s
 
 `Starting 4 processes`  
 `Jobs: 4 (f=4): [R(4)][40.0%][r=1313MiB/s,w=0KiB/s][r=21.0k,w=0 IOPS][eta 00m:09s]`
 
-### <a name="fio-64k-block-size-100-sequential-writes"></a>FIO: escrituras 100 % secuenciales con tamaño de bloque de 64 k
+##### <a name="fio-64k-block-size-100-sequential-writes"></a>FIO: escrituras 100 % secuenciales con tamaño de bloque de 64 k
 
 `fio --name=64kseqwrites --rw=write --direct=1 --ioengine=libaio --bs=64k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting`
 
-### <a name="output-122-gbits-throughput-displayed"></a>Salida: se muestra un rendimiento de 12,2 Gbit/s
+##### <a name="output-122-gbits-throughput-displayed"></a>Salida: se muestra un rendimiento de 12,2 Gbit/s
 
 `Starting 4 processes`  
 `Jobs: 4 (f=4): [W(4)][85.7%][r=0KiB/s,w=1356MiB/s][r=0,w=21.7k IOPS][eta 00m:02s]`

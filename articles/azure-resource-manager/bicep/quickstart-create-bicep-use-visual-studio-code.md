@@ -1,15 +1,15 @@
 ---
 title: 'Creación de archivos de Bicep: Visual Studio Code'
 description: Uso de Visual Studio Code y la extensión Bicep para archivos de Bicep a fin de implementar recursos de Azure
-ms.date: 10/01/2021
+ms.date: 11/09/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 95e7a601da5c8a9976d2341c2964df0f4d9718d0
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: f5950a143510b85ea6de8f7af4e08c7d4b5ed293
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129354956"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132136236"
 ---
 # <a name="quickstart-create-bicep-files-with-visual-studio-code"></a>Inicio rápido: Creación de plantillas de archivos de Bicep con Visual Studio Code
 
@@ -74,17 +74,15 @@ Puede implementar este archivo Bicep, pero agregaremos un parámetro y una cuent
 
 ## <a name="add-parameter"></a>Agregar parámetro
 
-Ahora, agregaremos un parámetro que se usará para el nombre de la cuenta de almacenamiento. Agregue un par de líneas arriba de la red virtual y escriba:
+Ahora, agregaremos un parámetro que se usará para el nombre de la cuenta de almacenamiento. En la parte superior del archivo, agregue:
 
 ```bicep
 param storageName
 ```
 
-Al agregar un espacio después de **storageName**, observe que IntelliSense muestra los tipos de datos disponibles para el parámetro.
+Al agregar un espacio después de **storageName**, observe que IntelliSense muestra los tipos de datos disponibles para el parámetro. Seleccione **string**.
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/add-param.png" alt-text="Agregar el tipo cadena al parámetro":::
-
-Seleccione **string**.
 
 Ahora tiene el siguiente parámetro:
 
@@ -115,7 +113,7 @@ También puede agregar una descripción para el parámetro. Incluya información
 param storageName string
 ```
 
-Vale, el parámetro está listo para usarse.
+El parámetro está listo para usarse.
 
 ## <a name="add-resource"></a>Agregar recurso
 
@@ -133,11 +131,11 @@ Al agregar un espacio después del nombre simbólico, se muestra una lista de ti
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/select-resource-type.png" alt-text="Seleccionar cuentas de almacenamiento para el tipo de recurso":::
 
-Después de seleccionar **Microsoft.Storage/storageAccounts**, se muestran las versiones de API disponibles. Seleccione la versión más reciente.
+Después de seleccionar **Microsoft.Storage/storageAccounts**, se muestran las versiones de API disponibles. Seleccione **2021-02-01**.
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/select-api-version.png" alt-text="Seleccionar la versión de API para el tipo de recurso":::
 
-Después de la comilla simple del tipo de recurso, agregue **=** y un espacio. Se mostrarán las opciones para agregar propiedades al recurso. Seleccione **required-properties**.
+Después de la comilla simple del tipo de recurso, agregue `=` y un espacio. Se mostrarán las opciones para agregar propiedades al recurso. Seleccione **required-properties**.
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/select-required-properties.png" alt-text="Agregar propiedades obligatorias":::
 
@@ -157,7 +155,7 @@ resource exampleStorage 'Microsoft.Storage/storageAccounts@2021-02-01' = {
 
 Casi ha terminado. Solo tiene que proporcionar valores para esas propiedades.
 
-De nuevo, IntelliSense le puede ayudar. Defina `name` como `storageName`, que es el parámetro que contiene un nombre para la cuenta de almacenamiento. En el caso de `location`, establezca el valor en `eastus`. Al agregar el nombre y el tipo de SKU, IntelliSense presentará las opciones válidas.
+De nuevo, IntelliSense le puede ayudar. Defina `name` como `storageName`, que es el parámetro que contiene un nombre para la cuenta de almacenamiento. En el caso de `location`, establezca el valor en `'eastus'`. Al agregar el nombre y el tipo de SKU, IntelliSense presentará las opciones válidas.
 
 Cuando haya terminado, tendrá lo siguiente:
 
@@ -223,7 +221,7 @@ Para implementar el archivo que creó, abra PowerShell o la CLI de Azure. Si qui
 ```azurecli
 az group create --name exampleRG --location eastus
 
-az deployment group create --resource-group exampleRG --template-file main.bicep --parameters storageName={your-unique-name}
+az deployment group create --resource-group exampleRG --template-file main.bicep --parameters storageName=uniquename
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
@@ -231,15 +229,15 @@ az deployment group create --resource-group exampleRG --template-file main.bicep
 ```azurepowershell
 New-AzResourceGroup -Name exampleRG -Location eastus
 
-New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -storageName "{your-unique-name}"
+New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -storageName "uniquename"
 ```
 
 ---
 
 > [!NOTE]
-> Reemplace **{your-unique-name}** , incluidos los corchetes, por un nombre de cuenta de almacenamiento único.
+> Reemplace **uniquename** por un nombre único de cuenta de almacenamiento. Si recibe un mensaje de error indicando que la cuenta de almacenamiento ya está ocupada, significa que el nombre de almacenamiento proporcionado está en uso. Especifique un nombre con mayores probabilidades de ser único.
 
-Una vez finalizada la implementación, debería mostrarse un mensaje indicando que la implementación se realizó correctamente. Si recibe un mensaje de error indicando que la cuenta de almacenamiento ya está ocupada, significa que el nombre de almacenamiento proporcionado está en uso. Especifique un nombre con mayores probabilidades de ser único.
+Una vez finalizada la implementación, debería mostrarse un mensaje indicando que la implementación se realizó correctamente.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/23/2021
 ms.author: jeedes
-ms.openlocfilehash: 83d4009423abe27200fb0a709c7094a6664019c9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 8c8c4257aa168195b5c8cedfa7660ea923adfec4
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124807798"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132313276"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-webcargo"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Webcargo
 
@@ -60,7 +60,7 @@ Configure y pruebe el SSO de Azure AD con Webcargo con un usuario de prueba de 
 Para configurar y probar el SSO de Azure AD con Webcargo, lleve a cabo los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Webcargo](#configure-webcargo-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Webcargo](#create-webcargo-test-user)** , para tener un homólogo de B.Simon en Webcargo que esté vinculado a la representación de Azure AD del usuario.
@@ -145,4 +145,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Webcargo, puede aplicar el control de sesión, que protege frente a la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado Webcargo, puede aplicar el control de sesión, que protege frente a la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con las aplicaciones de Microsoft Defender para la nube](/cloud-app-security/proxy-deployment-aad).

@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo configurar la recuperación ante d
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.custom: MVC
-ms.openlocfilehash: bc4e9066cb67617b52e9fa00a42ce95e31e0fe39
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 97cd0a103dab9b46205355da223bd65259f93fee
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131456977"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132055895"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configuración de la recuperación ante desastres de las máquinas virtuales de Hyper-V locales en nubes de VMM en Azure
 
@@ -108,7 +108,7 @@ Instale el agente en cada host de Hyper-V principal de Windows que contenga las 
    Invoke-WebRequest -Uri <put the URI here> -OutFile .\ASR\MARSsoftware.exe
    ```
    
-3. Ejecute el instalador:
+3. Para ejecutar el instalador, ejecute el siguiente comando:
 
    ```powershell
    .\MARSsoftware.exe

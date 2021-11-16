@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: ba964b6bc48eaa1a5c0452709d63cf968a14c888
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 3fab06386a6f7030a9c3b6a78b5939883eb5d3e3
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131459717"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132370733"
 ---
 # <a name="ddv4-and-ddsv4-series"></a>Series Ddv4 y Ddsv4
 
@@ -38,6 +38,7 @@ Los nuevos tamaños de máquinas virtuales Ddv4 incluyen almacenamiento SSD loca
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible<br>
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible <br>
+[Virtualización anidada](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization.md): compatible <br>
 <br> 
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal: IOPS/Mbps<sup>*</sup> | Nº máx. NIC|Ancho de banda de red esperado (Mbps) |
@@ -73,6 +74,7 @@ Los nuevos tamaños de máquinas virtuales Ddsv4 incluyen almacenamiento SSD loc
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible<br>
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible <br>
+[Virtualización anidada](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization.md): compatible <br>
 <br> 
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal: IOPS/Mbps<sup>*</sup> | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps |  Rendimiento máximo del disco sin almacenamiento en la caché expandido: IOPS/MBps<sup>1</sup> | Nº máx. NIC|Ancho de banda de red esperado (Mbps) |

@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 11/08/2021
 ms.author: cshoe
-ms.openlocfilehash: 15df9d0bf25739fd1271f0f51f693e1a1d368637
-ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.openlocfilehash: b7ab83ddf6d3f20c28d030d48b50ebb88d6676ae
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130138440"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132027477"
 ---
 # <a name="api-support-in-azure-static-web-apps-with-azure-functions"></a>Compatibilidad de API en Azure Static Web Apps con Azure Functions
 
@@ -33,7 +33,7 @@ En la tabla siguiente se comparan las diferencias entre el uso de funciones admi
 | Característica | Funciones administradas | Traiga sus propias funciones |
 | --- | --- | --- |
 | Acceso a los [desencadenadores](../azure-functions/functions-triggers-bindings.md#supported-bindings) de Azure Functions | Solo HTTP | Todo |
-| [Entornos de ejecución](../azure-functions/supported-languages.md#languages-by-runtime-version) de Azure Functions admitidos | Node.js 12<br>.NET Core 3.1<br>Python 3.8 | Todo |
+| [Entornos de ejecución](../azure-functions/supported-languages.md#languages-by-runtime-version) de Azure Functions admitidos | Node.js 12<br>.NET Core 3.1<br>.NET 6.0<br>Python 3.8 | Todo |
 | [Planes de hospedaje](../azure-functions/functions-scale.md) de Azure Functions admitidos | Consumo | Consumo<br>Premium<br>Dedicado |
 | [Seguridad integrada](user-information.md) con acceso directo a los datos de autenticación y autorización basada en roles del usuario | ✔ | ✔ |
 | [Integración del enrutamiento](./configuration.md?#routes) que hace que la ruta de _api_ esté disponible para la aplicación web de forma segura sin necesidad de reglas de CORS personalizadas. | ✔ | ✔ |
@@ -66,7 +66,7 @@ Los registros solo están disponibles si agrega [Application Insights](monitor.m
 
 | Funciones administradas | Traiga sus propias funciones |
 | --- | --- |
-| <ul><li>Los desencadenadores se limitan a [HTTP](../azure-functions/functions-bindings-http-webhook.md).</li><li>La aplicación de Azure Functions debe estar en Node.js 12, .NET Core 3.1 o Python 3.8.</li><li>El servicio administra algunas configuraciones de la aplicación, por lo que el tiempo de ejecución reserva los siguientes prefijos:<ul><li>*APPSETTING\_, AZUREBLOBSTORAGE\_, AZUREFILESSTORAGE\_, AZURE_FUNCTION\_, CONTAINER\_, DIAGNOSTICS\_, DOCKER\_, FUNCTIONS\_, IDENTITY\_, MACHINEKEY\_, MAINSITE\_, MSDEPLOY\_, SCMSITE\_, SCM\_, WEBSITES\_, WEBSITE\_, WEBSOCKET\_, AzureWeb*</li></ul></li></ul> | <ul><li>Es responsable de administrar la implementación de la aplicación de Azure Functions.</li></ul> |
+| <ul><li>Los desencadenadores se limitan a [HTTP](../azure-functions/functions-bindings-http-webhook.md).</li><li>La aplicación de Azure Functions debe estar en Node.js 12, .NET Core 3.1, .NET 6.0 o Python 3.8.</li><li>El servicio administra algunas configuraciones de la aplicación, por lo que el tiempo de ejecución reserva los siguientes prefijos:<ul><li>*APPSETTING\_, AZUREBLOBSTORAGE\_, AZUREFILESSTORAGE\_, AZURE_FUNCTION\_, CONTAINER\_, DIAGNOSTICS\_, DOCKER\_, FUNCTIONS\_, IDENTITY\_, MACHINEKEY\_, MAINSITE\_, MSDEPLOY\_, SCMSITE\_, SCM\_, WEBSITES\_, WEBSITE\_, WEBSOCKET\_, AzureWeb*</li></ul></li></ul> | <ul><li>Es responsable de administrar la implementación de la aplicación de Azure Functions.</li></ul> |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

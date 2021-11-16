@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 4c6f2e6abec3baa674123adacc0b522c1e0a01f7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d40c4aeee89f4403cf0f69f27677f62d251d4ea4
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128619219"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132336115"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-browserstack-single-sign-on"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con BrowserStack Single Sign-on
 
@@ -58,7 +58,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con BrowserStack med
 Para configurar y probar el inicio de sesión único de Azure AD con BrowserStack Single Sign-on, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de BrowserStack Single Sign-on](#configure-browserstack-single-sign-on-sso)** , para configurar los valores de Inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de BrowserStack Single Sign-on](#create-browserstack-single-sign-on-test-user)** , para tener un homólogo de B.Simon en BrowserStack Single Sign-on que esté vinculado a la representación del usuario en Azure AD.
@@ -149,4 +149,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado BrowserStack Single Sign-on, puede aplicar el control de sesión, que protege de la filtración e infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado BrowserStack Single Sign-on, puede aplicar el control de sesión, que protege de la filtración e infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

@@ -7,12 +7,12 @@ ms.author: karler
 author: karlerickson
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 0de08976f0391c995004265ac1b1a33cf4a5c491
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.openlocfilehash: 00411cf37a6f2728d3f8d1d0565e1d836b839192
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835792"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132135389"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Configuración de una instancia de Config Server en Spring Cloud para su servicio
 
@@ -107,7 +107,7 @@ A continuación se enumeran todas las propiedades configurables que se usan para
 > Muchos servidores de repositorio de `Git` admiten el uso de tokens, en lugar de contraseñas, para la autenticación HTTP básica. Algunos repositorios permiten que los tokens se conserven indefinidamente. Pero algunos servidores de repositorio de Git, incluido Azure DevOps Server, obligan a que los tokens expiren en unas horas. Los repositorios que hacen que los tokens expiren no deben usar la autenticación basada en tokens con Azure Spring Cloud.
 > Github ha eliminado la compatibilidad con la autenticación de contraseña, por lo que debe usar un token de acceso personal en lugar de la autenticación de contraseña en GitHub. Para obtener más información, vea [Autenticación de token](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/).
 
-### <a name="git-repositories-with-pattern"></a>Repositorios de Git con patrón
+### <a name="git-additional-repositories"></a>Repositorios adicionales de Git
 
 A continuación se enumeran todas las propiedades configurables que se usan para configurar los repositorios GIT con patrones.
 
@@ -128,6 +128,16 @@ A continuación se enumeran todas las propiedades configurables que se usan para
 | `repos."host-key"`                 | No             | La clave de host del servidor de repositorio de Git no debe incluir el prefijo del algoritmo, tal y como se describe en `host-key-algorithm`. |
 | `repos."host-key-algorithm"`       | No             | El algoritmo de la clave de host debe ser *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384* o *ecdsa-sha2-nistp521*. *Se requiere* solo si `host-key` existe. |
 | `repos."strict-host-key-checking"` | No             | Indica si la instancia de Config Server no se inicia al utilizar el valor de `host-key` de tipo privado. Debería ser *true* (valor predeterminado) o *false*. |
+
+En la tabla siguiente se muestran algunos ejemplos de la sección **Repositorios adicionales**. Para más información, consulte [Coincidencia de patrones y repositorios múltiples](https://cloud.spring.io/spring-cloud-config/reference/html/#_pattern_matching_and_multiple_repositories) en la documentación de Spring.
+
+| Patrones                        | Descripción |
+| :------------------------------ | ------------------------------------------------------------------------------------------------------------------- |
+| *test-config-server-app-0/\**   | El patrón y el URI del repositorio coincidirán con una aplicación de Spring Boot denominada `test-config-server-app-0` con cualquier perfil.  |
+| *test-config-server-app-1/dev*  | El patrón y el URI del repositorio coincidirán con una aplicación de Spring Boot denominada `test-config-server-app-1` con perfil de desarrollo.  |
+| *test-config-server-app-2/prod* | El patrón y el URI del repositorio coincidirán con una aplicación de Spring Boot denominada `test-config-server-app-2` con perfil de producción. |
+
+:::image type="content" source="media/spring-cloud-tutorial-config-server/additional-repositories.png" lightbox="media/spring-cloud-tutorial-config-server/additional-repositories.png" alt-text="Captura de pantalla de Azure Portal que muestra la página Config Server con la columna Patrones de la tabla &quot;Repositorios adicionales&quot; resaltada":::
 
 ## <a name="attach-your-config-server-repository-to-azure-spring-cloud"></a>Conexión de un repositorio de Config Server a Azure Spring Cloud
 
@@ -175,9 +185,9 @@ Una vez que los archivos de configuración se han guardado en un repositorio, es
 
     ![Autenticación SSH en el panel Editar autenticación](media/spring-cloud-tutorial-config-server/ssh-auth.png)
 
-#### <a name="pattern-repository"></a>Repositorio de patrones
+#### <a name="additional-repositories"></a>Repositorios adicionales
 
-Si quiere usar un **Repositorio de patrones** opcional para configurar el servicio, especifique el **URI** y la **Autenticación** de la misma manera que el **Repositorio predeterminado**. En **Name** (Nombre), asigne un nombre al patrón y, después, seleccione **Apply** (Aplicar) para asociarlo a la instancia.
+Si quiere usar **Repositorios adicionales** de manera opcional para configurar el servicio, especifique el **URI** y la **Autenticación** al igual que el **Repositorio predeterminado**. En **Name** (Nombre), asigne un nombre al patrón y, después, seleccione **Apply** (Aplicar) para asociarlo a la instancia.
 
 ### <a name="enter-repository-information-into-a-yaml-file"></a>Introducción de la información del repositorio en un archivo YAML
 

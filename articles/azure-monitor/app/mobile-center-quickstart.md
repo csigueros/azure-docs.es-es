@@ -1,23 +1,32 @@
 ---
 title: Supervisión de aplicaciones móviles con Azure Monitor Application Insights
 description: Proporciona instrucciones para configurar rápidamente la supervisión de una aplicación móvil con Application Insights y App Center
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: ddc8a10d3f68642a9fa17c02b937a536c150e3b7
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 2a5b33de0095cfe4def9bf766a4838b2869820e2
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130131721"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132327450"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Comience a analizar la aplicación móvil con App Center y Application Insights.
 
-Esta guía de inicio rápido le orienta a través de la conexión de la instancia de App Center de la aplicación a Application Insights. Con Application Insights, puede consultar, segmentar, filtrar y analizar la telemetría con herramientas más eficaces que las disponibles en el servicio [Analytics](/mobile-center/analytics/) de App Center.
+Este tutorial le orientará a través de la conexión de la instancia de App Center de la aplicación a Application Insights. Con Application Insights, puede consultar, segmentar, filtrar y analizar la telemetría con herramientas más eficaces que las disponibles en el servicio [Analytics](/mobile-center/analytics/) de App Center.
+
+
+En este tutorial aprenderá a:
+
+> [!div class="checklist"]
+> * Conecte la instancia de App Center de una aplicación a Application Insights.
+> * Modifique la aplicación para enviar telemetría personalizada a Application Insights.
+> * Consulte la telemetría personalizada en Log Analytics.
+> * Analice los patrones de conversión, retención y navegación de la aplicación.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para completar este inicio rápido necesita instalar:
+Para completar este tutorial, necesita:
 
 - Suscripción a Azure.
 - Una aplicación iOS, Android, Xamarin, Universal Windows o React Native.

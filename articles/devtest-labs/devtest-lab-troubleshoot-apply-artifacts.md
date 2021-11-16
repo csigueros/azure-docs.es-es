@@ -1,20 +1,21 @@
 ---
-title: Solución de problemas con artefactos
+title: Solución de problemas de los artefactos
 description: Obtenga información acerca de cómo solucionar los problemas que se producen al aplicar artefactos en una máquina virtual de Azure DevTest Labs.
-ms.topic: how-to
-ms.date: 06/26/2020
+ms.topic: troubleshooting
+ms.date: 11/04/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0b07ac6191895454c0ffe25b8ff6fb465272a580
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ee5d056a092e6cfb632c65cc0876c9a1ef8988e6
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128673832"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131846660"
 ---
 # <a name="troubleshoot-issues-when-applying-artifacts-in-an-azure-devtest-labs-virtual-machine"></a>Solución de problemas al aplicar artefactos en una máquina virtual de Azure DevTest Labs
+
 Se puede producir un error en la aplicación de artefactos en una máquina virtual por varias razones. Este artículo le guía en algunos de los métodos para ayudar a identificar las posibles causas.
 
-Si necesita más ayuda en cualquier momento con este artículo, puede ponerse en contacto con los expertos de Azure DevTest Labs (DTL) en los [foros de Azure MSDN y Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de Soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione Obtener soporte técnico.   
+Si necesita más ayuda en cualquier momento con este artículo, puede ponerse en contacto con los expertos de Azure DevTest Labs (DTL) en los [foros de Azure MSDN y Stack Overflow](https://azure.microsoft.com/support/forums/). También puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de Soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione Obtener soporte técnico.   
 
 > [!NOTE]
 > Este artículo se aplica tanto a las máquinas virtuales Windows como a las que no son Windows. Aunque hay algunas diferencias, se describirán explícitamente en este artículo.
@@ -55,13 +56,15 @@ Parece que un artefacto deja de responder hasta que expira un período de tiempo
 
 Cuando parece que un artefacto deja de responder, lo primero es determinar dónde está el bloqueo. Un artefacto puede estar bloqueado en cualquiera de los siguientes pasos durante la ejecución:
 
-- **Durante la solicitud inicial**. DevTest Labs crea una plantilla de Azure Resource Manager para solicitar el uso de la Extensión de script personalizado (CSE). Por lo tanto, en segundo plano, se desencadena una implementación de grupo de recursos. Cuando se produce un error en este nivel, se pueden obtener detalles en los **registros de actividad** del grupo de recursos para la máquina virtual en cuestión.  
+- **Durante la solicitud inicial**. DevTest Labs crea una plantilla de Azure Resource Manager para solicitar el uso de la Extensión de script personalizado (CSE). En segundo plano, se desencadena una implementación de grupo de recursos. Cuando se produce un error en este nivel, se pueden obtener detalles en los **registros de actividad** del grupo de recursos para la máquina virtual en cuestión.  
     - Puede acceder al registro de actividad desde la barra de navegación de la página de la máquina virtual del laboratorio. Al seleccionarla, verá una entrada para **Aplicar artefactos a la máquina virtual** (si la operación Aplicar artefactos se desencadenó directamente) o **Agregar o modificar máquinas virtuales** (si la operación de aplicación de artefactos formaba parte del proceso de creación de la máquina virtual).
-    - Busque errores en estas entradas. A veces, el error no estará etiquetado como corresponde y tendrá que investigar cada entrada.
+    - Busque errores en estas entradas. A veces, el error no estará etiquetado, por lo que tendrá que investigar cada entrada.
     - Al investigar los detalles de cada entrada, asegúrese de revisar el contenido de la carga JSON. Es posible que vea un error en la parte inferior de ese documento.
+
 - **Al intentar ejecutar el artefacto**. Podría deberse a problemas de redes o de almacenamiento. Consulte la sección correspondiente más adelante en este artículo para más información. También puede ocurrir debido al modo en el que se crea el script. Por ejemplo:
     - Un script de PowerShell tiene **parámetros obligatorios**, pero a uno no se le ha pasado un valor, ya sea porque se permite que el usuario lo deje en blanco o porque no tiene un valor predeterminado para la propiedad en el archivo de definición artifactfile.json. El script dejará de responder porque está esperando la entrada del usuario.
     - Un script de PowerShell **requiere de entrada del usuario** como parte de la ejecución. Los scripts se deben escribir para que funcionen de forma silenciosa sin necesidad de intervención del usuario.
+
 - **El agente de máquina virtual tarda mucho en estar listo**. Cuando la máquina virtual se inicia por primera vez o cuando la extensión de script personalizado se instala por primera vez para atender la solicitud de aplicación de artefactos, es posible que la máquina virtual requiera actualizar el agente de máquina virtual o esperar a que se inicialice el agente de máquina virtual. Puede haber servicios de los que depende el agente de máquina virtual y que tardan mucho tiempo en inicializarse. En tales casos, consulte [Introducción al agente de máquina virtual de Azure](../virtual-machines/extensions/agent-windows.md) para más información de solución de problemas.
 
 ### <a name="to-verify-if-the-artifact-appears-to-stop-responding-because-of-the-script"></a>Para comprobar si parece que el artefacto deja de responder debido al script
@@ -80,7 +83,7 @@ Cuando parece que un artefacto deja de responder, lo primero es determinar dónd
 1. Inicie sesión en la máquina virtual en cuestión.
 2. Con el Explorador de archivos, vaya a **C:\WindowsAzure\logs**.
 3. Busque y abra el archivo **WaAppAgent.log**.
-4. Busque las entradas que se muestran cuando se inicia el agente de máquina virtual y cuando está finalizando la inicialización (es decir, cuando se envía el primer latido). Concéntrese en las entradas más recientes o especialmente en las que hay alrededor del período de tiempo en el que se experimenta el problema.
+4. Busque las entradas que se muestran cuando se inicia el agente de máquina virtual y cuando está finalizando la inicialización, es decir, cuando se envía el primer latido. Concéntrese en las entradas más recientes o especialmente en las que hay alrededor del período de tiempo en el que se experimenta el problema.
 
     ```
     [00000006] [11/14/2019 05:52:13.44] [INFO]  WindowsAzureGuestAgent starting. Version 2.7.41491.949
@@ -91,7 +94,7 @@ Cuando parece que un artefacto deja de responder, lo primero es determinar dónd
     [00000006] [11/14/2019 06:02:33.43] [INFO]  StateExecutor initialization completed.
     [00000020] [11/14/2019 06:02:33.43] [HEART] WindowsAzureGuestAgent Heartbeat.
     ```
-    En este ejemplo, puede ver que la hora de inicio del agente de máquina virtual tardó 10 minutos y 20 segundos porque se envió un latido. La causa en este caso era que el servicio OOBE tardaba mucho tiempo en iniciarse.
+    En este ejemplo, el tiempo de inicio del agente de máquina virtual fue 10 minutos y 20 segundos porque se envió un latido. La causa en este caso era que el servicio OOBE tardaba mucho tiempo en iniciarse.
 
 > [!TIP]
 > Para una información general sobre las extensiones de Azure, consulte [Características y extensiones de las máquinas virtuales de Azure](../virtual-machines/extensions/overview.md).
@@ -99,7 +102,7 @@ Cuando parece que un artefacto deja de responder, lo primero es determinar dónd
 ## <a name="storage-errors"></a>Errores de almacenamiento
 DevTest Labs requiere acceso a la cuenta de almacenamiento del laboratorio que se crea para almacenar en memoria caché los artefactos. Cuando DevTest Labs aplica un artefacto, leerá la configuración del artefacto y sus archivos de los repositorios configurados. De forma predeterminada, DevTest Labs configura el acceso al **repositorio de artefactos públicos**.
 
-En función de cómo se configure una máquina virtual, es posible que no tenga acceso directo a este repositorio. Por lo tanto, por diseño, DevTest Labs almacena en memoria caché los artefactos en una cuenta de almacenamiento que se crea cuando el laboratorio se inicializa por primera vez.
+En función de cómo se configure una máquina virtual, es posible que no tenga acceso directo a este repositorio. Por diseño, DevTest Labs almacena en memoria caché los artefactos en una cuenta de almacenamiento que se crea cuando el laboratorio se inicializa por primera vez.
 
 Si el acceso a esta cuenta de almacenamiento está bloqueado de cualquier manera y también cuando se bloquea el tráfico de la máquina virtual al servicio Azure Storage, es posible que vea un error similar al siguiente:
 
@@ -111,7 +114,8 @@ El error anterior aparecería en la sección **Mensaje de implementación** de l
 
 ### <a name="to-ensure-communication-to-the-azure-storage-service-isnt-being-blocked"></a>Para asegurarse de que no se bloquea la comunicación con el servicio Azure Storage:
 
-- **Busque los grupos de seguridad de red (NSG) agregados**. Puede ser que se haya agregado una directiva de suscripción en la que los NSG se configuran automáticamente en todas las redes virtuales. También afectaría a la red virtual predeterminada del laboratorio, si se usa o a otra red virtual configurada en el laboratorio utilizada para la creación de máquinas virtuales.
+- **Busque los grupos de seguridad de red (NSG) agregados**. Puede ser que se haya agregado una directiva de suscripción en la que los NSG se configuran automáticamente en todas las redes virtuales. También afectaría a la red virtual predeterminada del laboratorio, si se usa, o a otra red virtual configurada en el laboratorio utilizada para la creación de máquinas virtuales.
+
 - **Compruebe la cuenta de almacenamiento del laboratorio predeterminado** (es decir, la primera cuenta de almacenamiento creada cuando se creó el laboratorio, cuyo nombre normalmente empieza por la letra "a" y termina con un número de varios dígitos, es decir, a\<labname\>#).
     1. Vaya al grupo de recursos del laboratorio.
     2. Busque el recurso del tipo **cuenta de almacenamiento** cuyo nombre coincide con la convención.
@@ -124,9 +128,15 @@ Para solucionar problemas más detallados, consulte [Configuración de firewalls
 > **Compruebe las reglas del grupo de seguridad de red**. Use la [Comprobación del flujo IP](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md#use-ip-flow-verify) para confirmar si una regla de un grupo de seguridad de red bloque el tráfico hacia o desde una máquina virtual. También puede revisar las reglas del grupo de seguridad vigentes para asegurarse de que existe una regla de entrada del grupo de seguridad de red de tipo **Permitir**. Para más información, consulte [Uso de las reglas de seguridad vigentes para solucionar problemas de flujo de tráfico de máquinas virtuales](../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 ## <a name="other-sources-of-error"></a>Otros orígenes del error
-Hay otros posibles orígenes del error menos frecuentes. Asegúrese de evaluar cada uno de ellos para ver si se aplica a su caso. Este es uno de ellos: 
+Hay otros posibles orígenes del error poco frecuentes. Asegúrese de evaluar cada uno de ellos para ver si se aplica a su caso. Aquí se enumeran algunos casos: 
 
-- **Token de acceso personal expirado para el repositorio privado**. Cuando expira, el artefacto no aparecerá en la lista y cualquier script que haga referencia a artefactos de un repositorio con un token de acceso privado expirado producirá un error en consecuencia.
+- **Token de acceso personal expirado para el repositorio privado**. Cuando haya expirado, el artefacto no aparecerá en la lista y se producirá un error en los scripts que hacen referencia a los artefactos del repositorio.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Si no se produjo ninguno de estos errores y sigue sin poder aplicar artefactos, puede abrir una incidencia de Soporte técnico de Azure. Vaya al [sitio de Soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Obtener soporte**.
+
+Si su problema no aparece aquí o no puede resolverlo, intente obtener ayuda mediante uno de los siguientes canales:
+
+* Obtenga respuestas de expertos de Azure en los [foros de Azure](https://azure.microsoft.com/support/forums/).
+* Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente. El Soporte técnico de Azure pone en contacto a la comunidad de Azure con respuestas, soporte técnico y expertos.
+* Registrar un incidente de soporte técnico de Azure. Vaya al [sitio de Soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Obtener soporte técnico**.
+

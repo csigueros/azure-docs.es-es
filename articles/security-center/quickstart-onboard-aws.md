@@ -3,17 +3,17 @@ title: Conexión de una cuenta de AWS a Microsoft Defender for Cloud
 description: Defensa de los recursos de AWS con Microsoft Defender for Cloud
 author: memildin
 ms.author: memildin
-ms.date: 11/02/2021
+ms.date: 11/07/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: connect-aws-accounts
-ms.openlocfilehash: 9877ec3b69829d8210eed18577a3d0738dcef889
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 98636887b213a26baf638e6ebc2813a02f395b73
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131428551"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131990270"
 ---
 #  <a name="connect-your-aws-accounts-to-microsoft-defender-for-cloud"></a>Conexión de cuentas de AWS a Microsoft Defender for Cloud
 
@@ -55,20 +55,12 @@ En esta captura de pantalla se muestran las cuentas de AWS que aparecen en el [p
 - Para conectar una cuenta de AWS a su suscripción de Azure, obviamente necesitará acceso a una cuenta de AWS.
 
 - **Para habilitar el plan Defender para Kubernetes**, necesitará:
-    - Al menos un clúster de Amazon EKS con permiso para acceder al servidor de API de EKS K8s.
+    - Al menos un clúster de Amazon EKS con permiso para acceder al servidor de API de EKS K8s. Si necesita crear un nuevo clúster de EKS, siga las instrucciones de [Introducción a Amazon EKS: eksctl](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html).
     - La capacidad de recursos para crear una nueva cola de SQS, un flujo de entrega de Kinesis Fire Hose y un cubo S3 en la región del clúster.
-    
-    > [!TIP]
-    > Para crear un nuevo clúster de EKS, siga las instrucciones de [Getting started with Amazon EKS – eksctl](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html) (Introducción a Amazon EKS – eksctl).
 
 - **Para habilitar el plan Defender para servidores**, necesitará:
     - Microsoft Defender para servidores habilitado (consulte [Inicio rápido: Habilitación de las características de seguridad mejorada](enable-enhanced-security.md))
-    - Una cuenta de AWS activa con instancias de EC2 administradas por AWS Systems Manager (SSM) y que tenga el agente de SSM
-
-    > [!TIP]
-    > Algunas Amazon Machine Images (AMI) tienen el agente de SSM preinstalado, y sus AMI aparecen enumeradas en el artículo [AMIs with SSM Agent preinstalled](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent) (AMI con el agente de SSM preinstalado). 
-
-    - Si las instancias de EC2 no tienen el agente SSM, siga las instrucciones pertinentes desde Amazon:
+    - Una cuenta de AWS activa con instancias de EC2 administradas por AWS Systems Manager (SSM) y que tenga el agente de SSM Algunas Amazon Machine Images (AMI) tienen el agente de SSM preinstalado, y sus AMI aparecen enumeradas en el artículo [AMIs with SSM Agent preinstalled](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent) (AMI con el agente de SSM preinstalado). Si las instancias de EC2 no tienen el agente SSM, siga las instrucciones pertinentes desde Amazon:
         - [Instalación del agente de SSM para un entorno híbrido (Windows)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html)
         - [Instalación del agente de SSM para un entorno híbrido (Linux)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html)
 
@@ -88,10 +80,13 @@ Siga los pasos que se indican a continuación para crear su conector de nube de 
 
 1. La pestaña Select Plans (Seleccionar planes) es donde puede elegir qué funcionalidades de Defender for Cloud habilitar para esta cuenta de AWS. 
 
-    > [!IMPORTANT]
+    > [!NOTE]
     > Cada funcionalidad tiene sus propios requisitos de permisos y puede incurrir en cargos.
 
     :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-plans-selection.png" alt-text="La pestaña Select Plans (Seleccionar planes) es donde puede elegir qué funcionalidades de Defender for Cloud habilitar para esta cuenta de AWS.":::
+
+    > [!IMPORTANT]
+    > Para presentar el estado actual de las recomendaciones, el plan CSPM consulta las API de recursos de AWS varias veces al día. Estas llamadas API de solo lectura no conllevan ningún cargo, pero se *registran* en CloudTrail si ha habilitado un registro para eventos de lectura. Como se explica en [la documentación de AWS](https://aws.amazon.com/cloudtrail/pricing/), no hay ningún cargo adicional por mantener una pista. Si exporta los datos fuera de AWS (por ejemplo, a un SIEM externo), este mayor volumen de llamadas también podría aumentar los costos de ingesta. En tales casos, se recomienda filtrar las llamadas de solo lectura del ARN de rol o usuario de Defender for Cloud: arn:aws:iam::[accountId]:role/CspmMonitorAws (este es el nombre de rol predeterminado, confirme el nombre de rol configurado en su cuenta).
 
     - Para ampliar la cobertura de Defender para servidores a AWS EC2, establezca el plan **Servidores** en **Activado** y edite la configuración según sea necesario. 
 
@@ -116,7 +111,7 @@ Defender for Cloud comenzará de inmediato a examinar los recursos de AWS, y ver
 |Aspecto|Detalles|
 |----|:----|
 |Estado de la versión:|Disponibilidad general (GA)|
-|Precios:|Requiere [Microsoft Defender para servidores](defender-for-servers-introduction.md).|
+|Precios:|Requiere [Microsoft Defender para servidores](defender-for-servers-introduction.md)|
 |Roles y permisos necesarios:|**Propietario** en la suscripción de Azure en cuestión<br>Un **colaborador** también puede conectar una cuenta de AWS si un propietario proporciona los detalles de la entidad de servicio.|
 |Nubes:|:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/no-icon.png"::: Nacionales o soberanas (Azure Government y Azure China 21Vianet)|
 |||

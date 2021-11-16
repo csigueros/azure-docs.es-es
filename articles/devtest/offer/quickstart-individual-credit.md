@@ -1,18 +1,18 @@
 ---
-title: Cómo comenzar con una suscripción de crédito individual de desarrollo/pruebas de VSS de Azure
-description: Abarca dos opciones para que una persona acceda a una suscripción de crédito de Azure.
+title: Primeros pasos en el uso del crédito individual de Desarrollo/pruebas de Azure
+description: Como suscriptor de Visual Studio, aprenda a acceder a una suscripción de crédito de Azure.
 author: jamestramel
 ms.author: jametra
 ms.date: 10/20/2021
 ms.topic: how-to
 ms.prod: visual-studio-windows
 ms.custom: devtestoffer
-ms.openlocfilehash: 2901d8a7ec602878fb02d4c501efa26465619dc4
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 99dd3bb1f259fff02a46ee9ceb1930dee1327b06
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093041"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132059968"
 ---
 # <a name="how-to-get-started-with-your-individual-azure-credit-subscription"></a>Cómo comenzar con una suscripción de crédito individual de desarrollo/pruebas de Azure  
 

@@ -1,18 +1,18 @@
 ---
-title: Filtros de conexión IP de Azure IoT DPS | Microsoft Docs
-description: Describe cómo usar el filtrado de IP para bloquear las conexiones de direcciones IP específicas de su instancia de Azure IoT DPS. Puede bloquear conexiones de direcciones IP concretas o de intervalos.
-author: wesmc7777
-ms.author: wesmc
+title: Filtros de conexión IP de Microsoft Azure IoT DPS
+description: Describe cómo usar el filtrado de IP para bloquear las conexiones de direcciones IP específicas de su instancia de Azure IoT DPS.
+author: anastasia-ms
+ms.author: v-stharr
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 12/14/2020
-ms.openlocfilehash: e1b175a176255da465433b2db45cb3cb67d360d1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 11/05/2021
+ms.openlocfilehash: 01a3449526166ceb54565e73683a6d3c7dc41603
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98934502"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132133261"
 ---
 # <a name="use-azure-iot-dps-ip-connection-filters"></a>Uso de filtros de conexión IP de Azure IoT DPS
 
@@ -25,6 +25,9 @@ Hay dos casos específicos en los que resulta útil bloquear las conexiones a un
 * La instancia de DPS debe recibir tráfico solo de un intervalo concreto de direcciones IP y rechazar todas las demás. Por ejemplo, cuando se usa DPS con [Azure ExpressRoute](../expressroute/expressroute-faqs.md#supported-services) para crear conexiones privadas entre una instancia de DPS y los dispositivos.
 
 * Cuando necesite rechazar el tráfico de direcciones IP que el administrador de DPS haya identificado como sospechosas.
+
+>[!Note]
+>Si el filtrado de IP está habilitado, ya no podrá usar Azure Portal para realizar operaciones de servicio (es decir, administrar inscripciones). Para realizar estas operaciones mediante el portal, tendrá que desactivar temporalmente el filtrado de IP, completar el trabajo y, luego, volver a habilitar esta característica. Si quiere usar sus propios clientes y evitar la desactivación del filtro de IP, puede optar por agregar la dirección IP de la máquina a `ipFilterRules` y administrar las inscripciones en DPS mediante la CLI.
 
 ## <a name="how-filter-rules-are-applied"></a>Cómo se aplican las reglas de filtro
 

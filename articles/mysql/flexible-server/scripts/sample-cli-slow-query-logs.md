@@ -1,5 +1,5 @@
 ---
-title: 'Script de la CLI: configuración de registros de consultas lentas en Azure Database for MySQL: servidor flexible (versión preliminar)'
+title: 'Script de la CLI: configuración de registros de consultas lentas en Azure Database for MySQL: servidor flexible'
 description: 'En el script de ejemplo de la CLI de Azure se muestra cómo configurar registros de consultas lentas en Azure Database for MySQL: servidor flexible.'
 author: shreyaaithal
 ms.author: shaithal
@@ -8,14 +8,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 09/15/2021
-ms.openlocfilehash: 82fcf0fb06ee1b2823e525b47fb581470dddd1cc
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0e3b6abf1720104b553e300a1a2860ed60e5e5be
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128702115"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131844171"
 ---
-# <a name="configure-slow-query-logs-on-an-azure-database-for-mysql---flexible-server-preview-using-azure-cli"></a>Configuración de registros de consultas lentas en Azure Database for MySQL: servidor flexible (versión preliminar) mediante la CLI de Azure
+# <a name="configure-slow-query-logs-on-an-azure-database-for-mysql---flexible-server-using-azure-cli"></a>Configuración de registros de consultas lentas en Azure Database for MySQL: servidor flexible mediante la CLI de Azure
 
 Este script de ejemplo de la CLI configura [registros de consultas lentas](../concepts-slow-query-logs.md) en Azure Database for MySQL: servidor flexible. 
 
@@ -51,5 +51,5 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Pruebe otros scripts: [Ejemplos de la CLI de Azure para Azure Database for MySQL: servidor flexible (versión preliminar)](../sample-scripts-azure-cli.md).
+- Pruebe otros scripts: [Ejemplos de la CLI de Azure para Azure Database for MySQL: servidor flexible](../sample-scripts-azure-cli.md).
 - Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](/cli/azure).

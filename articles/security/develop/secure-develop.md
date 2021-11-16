@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 2f81cd3e37b6fefea1a76a8a4bb50c756ff1fca4
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: afe4ce82b779a6f8913ed61a44f3cf15992ba7e1
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131463532"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132335525"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desarrollo de aplicaciones seguras en Azure
 
@@ -102,7 +102,7 @@ Si la aplicación permite [cargar archivos](https://owasp.org/www-community/vuln
 
 La protección antimalware ayuda a identificar y eliminar virus, spyware y otro software malintencionado. Puede instalar [Microsoft Antimalware](../fundamentals/antimalware.md) o una solución de protección de puntos de conexión de un asociado de Microsoft ([Trend Micro](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) y [Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
 
-[Microsoft Antimalware](../fundamentals/antimalware.md) incluye características como la protección en tiempo real, los análisis programados, la corrección de malware, las actualizaciones de firmas, las actualizaciones del motor, los ejemplos de informes y la colección de eventos de exclusión. Puede integrar soluciones de asociados y Microsoft Antimalware con [Azure Security Center](../../security-center/security-center-partner-integration.md) para facilitar la implementación y la integración de detecciones (alertas e incidentes).
+[Microsoft Antimalware](../fundamentals/antimalware.md) incluye características como la protección en tiempo real, los análisis programados, la corrección de malware, las actualizaciones de firmas, las actualizaciones del motor, los ejemplos de informes y la colección de eventos de exclusión. Puede integrar soluciones de asociados y Microsoft Antimalware con [Microsoft Defender for Cloud](../../security-center/security-center-partner-integration.md) para facilitar la implementación y las detecciones integradas (alertas e incidentes).
 
 ### <a name="dont-cache-sensitive-content"></a>No almacenar en caché el contenido confidencial
 

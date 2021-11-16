@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: b10f4c221e0fd45ee942785edfa4b6e157a20077
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 67bbd26e4c565a5c7372be81fdf2398afe53c277
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124760929"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132307254"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con New Relic
 
@@ -177,4 +177,4 @@ Una vez hecho esto, para comprobar que los usuarios se hayan agregado a New Reli
 
 A continuación, es probable que desee asignar los usuarios a roles o cuentas específicos de New Relic. Para más información al respecto, consulte [Conceptos de administración de usuarios.](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/add-manage-users-groups-roles/#understand-concepts) 
 
-En la interfaz de usuario del dominio de autenticación de New Relic, puede configurar [otras opciones](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/authentication-domains-saml-sso-scim-more/#session-mgmt), como el control de sesión, que protege frente a la filtración e infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+En la interfaz de usuario del dominio de autenticación de New Relic, puede configurar [otras opciones](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/authentication-domains-saml-sso-scim-more/#session-mgmt), como el control de sesión, que protege frente a la filtración e infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

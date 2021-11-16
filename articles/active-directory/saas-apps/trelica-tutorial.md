@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
-ms.openlocfilehash: 7aead529824f487b73fc728dafd964567743d60d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b107b14b32417ea6f3da8c7e198a7d6b25497460
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131045964"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132298878"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trelica"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Trelica
 
@@ -30,7 +30,7 @@ Con esta integración, puede:
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -43,7 +43,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Trelica admite el inicio de sesión único iniciado por IDP.
 * Trelica admite el aprovisionamiento de usuarios Just-In-Time.
-* Después de configurar Trelica, puede aplicar el control de sesión. Este control protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Después de configurar Trelica, puede aplicar el control de sesión. Este control protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-trelica-from-the-gallery"></a>Adición de Trelica desde la galería
 
@@ -150,6 +150,6 @@ Al seleccionar el icono de Trelica en el portal Aplicaciones, debería iniciar s
 
 - [Pruebe Trelica con Azure AD](https://aad.portal.azure.com/)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [¿Qué es el control de sesión en Microsoft Defender para aplicaciones en la nube?](/cloud-app-security/proxy-intro-aad)
 
 - [Protección de Trelica con controles y visibilidad avanzados](/cloud-app-security/proxy-intro-aad)

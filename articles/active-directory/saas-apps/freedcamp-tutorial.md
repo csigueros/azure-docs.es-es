@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/30/2021
 ms.author: jeedes
-ms.openlocfilehash: 7178d525a1f38083fe732a1e2b7a0183dd16d39e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 847b3ed779777badaa5b6105f561bb2034e9aa0e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131058205"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132334252"
 ---
 # <a name="tutorial-integrate-freedcamp-with-azure-active-directory"></a>Tutorial: Integración de Freedcamp con Azure Active Directory
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Freedcamp con Azure Active Directory (
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Freedcamp con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -191,4 +191,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Freedcamp, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado Freedcamp, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

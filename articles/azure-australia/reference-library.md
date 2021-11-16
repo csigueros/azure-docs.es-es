@@ -7,12 +7,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: yvettep
-ms.openlocfilehash: d13ae772aaef25997365915465ed544ea4002964
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 2b3a27a0f7f051b30a0e6c5fa0471acb4d0c6439
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "117029155"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132310528"
 ---
 # <a name="additional-documentation-and-resources-by-focus-area"></a>Documentación y recursos adicionales por área de enfoque
 
@@ -81,10 +81,10 @@ Esta biblioteca de recursos contiene vínculos y referencias adicionales que son
 
 * [Gobernanza de Azure](../governance/index.yml)
 * [Procedimientos recomendados de seguridad de Azure](../security/fundamentals/best-practices-and-patterns.md)
-* [Características y plataformas compatibles con Azure Security Center](../security-center/security-center-os-coverage.md)
+* [Plataformas y características compatibles con Microsoft Defender for Cloud](../security-center/security-center-os-coverage.md)
 * [Registro de actividad de Azure](../azure-monitor/essentials/platform-logs-overview.md)
 * [Registros de diagnóstico de Azure](../azure-monitor/essentials/platform-logs-overview.md)
-* [Alertas de Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
+* [Alertas de Microsoft Defender para la nube](../security-center/security-center-managing-and-responding-alerts.md)
 * [Integración de registros de Azure](/previous-versions/azure/security/fundamentals/azure-log-integration-overview)
 * [Análisis de datos de registro en Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 * [Transmisión de registros de Azure Monitor a un centro de eventos](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md)

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/23/2021
 ms.author: justinha
-ms.openlocfilehash: 3cbc6d9b0f51b939a03378c45845c50f91c4549f
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: a2cb97ce2ddc8e2d8b5921909346f943d955c87d
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129991990"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132370771"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configuración de LDAP seguro para un dominio administrado de Azure Active Directory Domain Services
 
@@ -34,18 +34,18 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 
 * Una suscripción de Azure activa.
-    * Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+  * Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un inquilino de Azure Active Directory asociado a su suscripción, ya sea sincronizado con un directorio en el entorno local o con un directorio solo en la nube.
-    * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
+  * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
 * Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
-    * Si es necesario, [cree y configure un dominio administrado de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+  * Si es necesario, [cree y configure un dominio administrado de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * La herramienta *LDP.exe* instalada en el equipo.
-    * Si es necesario, [instale las Herramientas de administración remota del servidor (RSAT)][rsat] para *Active Directory Domain Services y LDAP*.
+  * Si es necesario, [instale las Herramientas de administración remota del servidor (RSAT)][rsat] para *Active Directory Domain Services y LDAP*.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
@@ -56,17 +56,17 @@ En este tutorial configurará LDAP seguro para el dominio administrado mediante 
 Cuando se usa LDAP seguro, se utiliza un certificado digital para cifrar la comunicación. Este certificado digital se aplica al dominio administrado y permite que herramientas como *LDP.exe* utilicen una comunicación cifrada segura al consultar los datos. Hay dos maneras de crear un certificado para el acceso de LDAP seguro al dominio administrado:
 
 * Un certificado de una entidad de certificación (CA) pública o de una entidad de certificación empresarial.
-    * Si la organización obtiene los certificados de una entidad de certificación pública, obtenga de ella el certificado de LDAP seguro. Si usa una entidad de certificación empresarial, obténgalo de esta.
-    * Una entidad de certificación pública solo funciona cuando se usa un nombre DNS personalizado con el dominio administrado. Si el nombre de dominio DNS del dominio administrado termina en *.onmicrosoft.com*, no se puede crear un certificado digital para proteger la conexión con este dominio predeterminado. Microsoft es el propietario del dominio *.onmicrosoft.com*, por lo que una entidad de certificación pública no emitirá un certificado. En este escenario, cree un certificado autofirmado y úselo para configurar LDAP seguro.
+  * Si la organización obtiene los certificados de una entidad de certificación pública, obtenga de ella el certificado de LDAP seguro. Si usa una entidad de certificación empresarial, obténgalo de esta.
+  * Una entidad de certificación pública solo funciona cuando se usa un nombre DNS personalizado con el dominio administrado. Si el nombre de dominio DNS del dominio administrado termina en *.onmicrosoft.com*, no se puede crear un certificado digital para proteger la conexión con este dominio predeterminado. Microsoft es el propietario del dominio *.onmicrosoft.com*, por lo que una entidad de certificación pública no emitirá un certificado. En este escenario, cree un certificado autofirmado y úselo para configurar LDAP seguro.
 * Un certificado autofirmado que haya creado usted mismo.
-    * Este enfoque es adecuado para realizar pruebas y es el que se muestra en este tutorial.
+  * Este enfoque es adecuado para realizar pruebas y es el que se muestra en este tutorial.
 
 El certificado que solicite o cree debe cumplir los siguientes requisitos. Si se habilita LDAP seguro sin un certificado válido, se producirán problemas en el dominio administrado:
 
 * **Emisor de confianza**: el certificado debe ser emitido por una autoridad de confianza para los equipos que se conectan al dominio administrado mediante LDAP seguro. Esta entidad puede ser una entidad de certificación pública o empresarial de confianza para estos equipos.
 * **Duración** : el certificado debe ser válido al menos para los próximos 3-6 meses. El acceso LDAP seguro a su dominio administrado se interrumpe cuando expira el certificado.
 * **Nombre del firmante**: el nombre del firmante del certificado debe ser el dominio administrado. Por ejemplo, si el dominio se denomina *aaddscontoso.com*, el nombre del firmante del certificado debe ser * *.aaddscontoso.com*.
-    * El nombre DNS o el nombre alternativo del firmante del certificado debe ser un certificado comodín, para asegurarse de que LDAP seguro funcione correctamente con Azure AD Domain Services. Los controladores de dominio usan nombres aleatorios y se pueden quitar o agregar para asegurarse de que el servicio sigue estando disponible.
+  * El nombre DNS o el nombre alternativo del firmante del certificado debe ser un certificado comodín, para asegurarse de que LDAP seguro funcione correctamente con Azure AD Domain Services. Los controladores de dominio usan nombres aleatorios y se pueden quitar o agregar para asegurarse de que el servicio sigue estando disponible.
 * **Uso de claves**: el certificado debe configurarse para las *firmas digitales* y el *cifrado de claves*.
 * **Propósito del certificado**: el certificado debe ser válido para la autenticación del servidor TLS.
 
@@ -108,12 +108,12 @@ Thumbprint                                Subject
 Para usar LDAP seguro, el tráfico de red se cifra mediante la infraestructura de clave pública (PKI).
 
 * En el dominio administrado se aplica una **clave privada**.
-    * Esta clave privada se usa para *descifrar* el tráfico LDAP seguro. La clave privada solo debe aplicarse al dominio administrado y no debe distribuirse por los equipos cliente.
-    * Un certificado que incluye la clave privada utiliza el formato de archivo *.PFX*.
-    * Al exportar el certificado, debe especificar el algoritmo de cifrado *TripleDES-SHA1*. Esto solo se aplica al archivo. pfx y no afecta al algoritmo utilizado por el propio certificado. Tenga en cuenta que la opción *TripleDES-SHA1* solo está disponible a partir de Windows Server 2016.
+  * Esta clave privada se usa para *descifrar* el tráfico LDAP seguro. La clave privada solo debe aplicarse al dominio administrado y no debe distribuirse por los equipos cliente.
+  * Un certificado que incluye la clave privada utiliza el formato de archivo *.PFX*.
+  * Al exportar el certificado, debe especificar el algoritmo de cifrado *TripleDES-SHA1*. Esto solo se aplica al archivo. pfx y no afecta al algoritmo utilizado por el propio certificado. Tenga en cuenta que la opción *TripleDES-SHA1* solo está disponible a partir de Windows Server 2016.
 * En los equipos cliente se aplica una **clave pública**.
-    * Esta clave pública se utiliza para *cifrar* el tráfico LDAP seguro. La clave pública se puede distribuir a los equipos cliente.
-    * Los certificados sin la clave privada usan el formato de archivo *.CER*.
+  * Esta clave pública se utiliza para *cifrar* el tráfico LDAP seguro. La clave pública se puede distribuir a los equipos cliente.
+  * Los certificados sin la clave privada usan el formato de archivo *.CER*.
 
 Estas dos claves, *privada* y *pública*, garantizan que solo los equipos adecuados pueden comunicarse correctamente entre sí. Si se usa una entidad de certificación pública o empresarial, se emite un certificado que incluye la clave privada y se puede aplicar a un dominio administrado. Los equipos cliente ya deben conocer la clave pública y confiar en ella.
 
@@ -222,7 +222,7 @@ Algunos motivos habituales del error que el nombre de dominio sea incorrecto, qu
 
 1. Cree un certificado LDAP seguro de reemplazo; para ello, siga los pasos y [cree un certificado para LDAP seguro](#create-a-certificate-for-secure-ldap).
 1. Para aplicar el certificado de reemplazo a Azure AD DS, en el menú de la izquierda de Azure AD DS en Azure Portal, seleccione **LDAP seguro** y, a continuación, seleccione **Cambiar certificado**.
-1. Distribuya el certificado a los clientes que se conecten mediante LDAP seguro. 
+1. Distribuya el certificado a los clientes que se conecten mediante LDAP seguro.
 
 ## <a name="lock-down-secure-ldap-access-over-the-internet"></a>Bloqueo del acceso LDAP seguro a través de Internet
 
@@ -304,14 +304,14 @@ Si en este tutorial ha agregado una entrada DNS en el archivo de hosts local del
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
-Si ve un error que indica que LDAP.exe no se puede conectar, intente trabajar con los distintos aspectos de la obtención de la conexión: 
+Si ve un error que indica que LDAP.exe no se puede conectar, intente trabajar con los distintos aspectos de la obtención de la conexión:
 
 1. Configuración del controlador de dominio
 1. Configuración del cliente
 1. Redes
 1. Establecimiento de la sesión de TLS
 
-Para la coincidencia del nombre del firmante del certificado, el controlador de dominio utilizará el nombre de dominio de Azure ADDS (no el nombre de dominio de Azure AD) para buscar el certificado en su almacén de certificados. Los errores ortográficos, por ejemplo, impiden que el controlador de dominio seleccione el certificado adecuado. 
+En cuanto a la coincidencia del nombre del firmante del certificado, el controlador de dominio utilizará el nombre de dominio de Azure AD DS (no el nombre de dominio de Azure AD) para buscar el certificado en su almacén de certificados. Los errores ortográficos, por ejemplo, impiden que el controlador de dominio seleccione el certificado adecuado.
 
 El cliente intenta establecer la conexión TLS con el nombre proporcionado. El tráfico tiene que llegar hasta el final. El controlador de dominio envía la clave pública del certificado de autenticación del servidor. El certificado debe tener el uso correcto en el certificado, el nombre firmado en el asunto debe ser compatible para que el cliente confíe en que el servidor es el nombre DNS al que se está conectando (es decir, un comodín puede servir, sin errores ortográficos) y el cliente debe confiar en el emisor. Puede comprobar si hay algún problema en esa cadena en el registro del sistema en Visor de eventos y filtrar los eventos donde el origen sea igual a Schannel. Cuando estos elementos están en su lugar, forman una clave de sesión.  
 

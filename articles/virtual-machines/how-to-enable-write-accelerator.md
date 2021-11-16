@@ -6,16 +6,16 @@ manager: markkie
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 2/20/2019
+ms.date: 11/10/2021
 ms.author: raiye
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6b6db47d812b13bced9d0e52530ec8c59b58be19
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: c76e19101fbf6c325d66af2f14dbdc6e063ace9e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770802"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132331060"
 ---
 # <a name="enable-write-accelerator"></a>Habilitar el acelerador de escritura
 
@@ -45,7 +45,7 @@ La habilitación del Acelerador de escritura para los discos de sistema operativ
 Estas restricciones se aplican al usar el Acelerador de escritura para un VHD o disco de Azure:
 
 - El almacenamiento en caché de discos Premium debe establecerse en "Ninguno" o "Solo lectura". No se admite ningún otro modo de almacenamiento en caché.
-- Actualmente, los discos con el Acelerador de escritura habilitado no admiten las instantáneas. Durante la copia de seguridad, el servicio Azure Backup excluye automáticamente los discos con el Acelerador de escritura habilitado conectados a la VM.
+- Actualmente, las instantáneas solo se admiten en discos de datos con el acelerador de escritura habilitado y no en el disco del sistema operativo. Durante la copia de seguridad, el servicio Azure Backup hacer una copia de seguridad y protege automáticamente los discos de datos con el acelerador de escritura habilitado conectados a la VM.
 - Solo los tamaños de E/S más pequeños (<=512 KiB) toman la ruta de acceso acelerada. En situaciones de carga de trabajo donde los datos se cargan de forma masiva o donde los búferes de registros de transacción de los diferentes sistemas de administración de bases de datos (DBMS) se llenan hasta un mayor grado antes de conservarse en el almacenamiento, existe la probabilidad de que la E/S escrita en el disco no tome la ruta de acceso acelerada.
 
 Hay límites en los discos duros virtuales de Azure Premium Storage por máquina virtual que el Acelerador de escritura puede admitir. Los límites actuales son:

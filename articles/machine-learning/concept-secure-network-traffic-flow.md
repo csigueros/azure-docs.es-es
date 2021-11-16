@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 10/21/2021
-ms.openlocfilehash: 119405dc4db6d31aaf2ac5b704af7798ce41837a
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.date: 11/09/2021
+ms.openlocfilehash: d71d986ca975b9617af9b966c8795cd30d7db01d
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131564411"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132134939"
 ---
 # <a name="network-traffic-flow-when-using-a-secured-workspace"></a>Flujo de tráfico de red al usar un área de trabajo protegida
 
@@ -61,6 +61,16 @@ En este artículo se da por hecho la siguiente configuración:
 | [Uso de Azure Kubernetes Service](#scenario-use-azure-kubernetes-service) | N/D | Para obtener información sobre la configuración de salida de AKS, consulte [Implementación en Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#understand-connectivity-requirements-for-aks-inferencing-cluster). | Configure el equilibrador de carga interno. Para obtener más información, consulte [Implementación en Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#understand-connectivity-requirements-for-aks-inferencing-cluster). | 
 | [Uso de imágenes de Docker administradas por Azure Machine Learning](#scenario-use-docker-images-managed-by-azure-ml) | N/D | <ul><li>Registro de contenedor de Microsoft</li><li>Registro de contenedor global de `viennaglobal.azurecr.io`</li></ul> | Si la instancia de Azure Container Registry del área de trabajo está detrás de la red virtual, configure el área de trabajo con el fin de que use un clúster de proceso para compilar imágenes. Para obtener más información, consulte [Protección de un área de trabajo en una red virtual](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr). | 
 
+> [!IMPORTANT]
+> Azure Machine Learning usa varias cuentas de almacenamiento. Cada una almacena datos diferentes y tiene un propósito distinto:
+>
+> * __Su almacenamiento__: las cuentas de Azure Storage de su suscripción de Azure, que se usan para almacenar sus datos y artefactos, como modelos, datos de entrenamiento, registros de entrenamiento y scripts de Python. Por ejemplo, la cuenta de almacenamiento _predeterminada_ para su área de trabajo está en su suscripción. La instancia de proceso de Azure Machine Learning y los clústeres de proceso acceden a los datos de __archivos__ y __blobs__ de este almacenamiento a través de los puertos 445 (SMB) y 443 (HTTPS).
+> 
+>    Cuando se usa una instancia de proceso o un clúster de proceso, la cuenta de almacenamiento se monta como un recurso compartido con el protocolo SMB. Así es como la instancia de proceso o el clúster de proceso acceden a los datos.
+>
+> * __Almacenamiento de Microsoft__: la instancia de proceso de Azure Machine Learning y los clústeres de proceso se basan en Azure Batch y acceden al almacenamiento ubicado en una suscripción de Microsoft. Este almacenamiento solo se usa para la administración de las instancias y clústeres de proceso. Ninguno de sus datos se almacena aquí. La instancia de proceso y el clúster de proceso acceden a los datos de __blobs__, __tablas__ y __colas__ de este almacenamiento a través del puerto 443 (HTTPS).
+>
+> Machine Learning también almacena metadatos en una instancia de Azure Cosmos DB. De forma predeterminada, esta instancia se hospeda en una suscripción de Microsoft y la administra Microsoft. Opcionalmente, puede usar una instancia de Azure Cosmos DB en su suscripción de Azure. Para más información, consulte [Cifrado de datos con Azure Machine Learning](concept-data-encryption.md#azure-cosmos-db).
 
 ## <a name="scenario-access-workspace-from-studio"></a>Escenario: Acceso al área de trabajo desde el estudio
 

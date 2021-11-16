@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/24/2021
 ms.author: jeedes
-ms.openlocfilehash: 3f3aaf5f24a08fa2941701005a6c38957ee7a3da
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: 63e812633bd19332fde73d3ebb908d13cb6faf6b
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129402394"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132341034"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-tableau-online"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Tableau Online
 
@@ -62,7 +62,7 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 Para configurar el inicio de sesión único de Azure AD con Tableau Online, realice los pasos siguientes:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Tableau Online](#configure-tableau-online-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba en Tableau Online](#create-tableau-online-test-user)** , para tener un homólogo de B.Simon en Tableau Online que esté vinculado a la representación del usuario en Azure AD.
@@ -199,4 +199,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurada Tableau Online, puede aplicar el control de sesión, que protege la información confidencial de la organización de la filtración y la infiltración en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurada Tableau Online, puede aplicar el control de sesión, que protege la información confidencial de la organización de la filtración y la infiltración en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

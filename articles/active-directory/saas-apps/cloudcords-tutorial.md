@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jeedes
-ms.openlocfilehash: e1ce76df6d2c12210905366441518651b262c0f2
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b7a50bfea228bbea3d6feef1c2bc2e9cac98c174
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124817382"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132311685"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cloudcords"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con CloudCords
 
@@ -41,7 +41,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * CloudCords admite el inicio de sesión único iniciado por **SP e IDP**.
 
-* Una vez configurado CloudCords, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Una vez configurado CloudCords, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-cloudcords-from-the-gallery"></a>Adición de CloudCords desde la galería
 
@@ -62,7 +62,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con CloudCords utili
 Para configurar y probar el inicio de sesión único de Azure AD con CloudCords, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en CloudCords](#configure-cloudcords-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de CloudCords](#create-cloudcords-test-user)** , para tener un homólogo de B.Simon en CloudCords que esté vinculado a la representación del usuario en Azure AD.
@@ -153,6 +153,6 @@ Al hacer clic en el icono de CloudCords en el Panel de acceso, debería iniciar 
 
 - [Pruebe CloudCords con Azure AD](https://aad.portal.azure.com/)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [¿Qué es el control de sesión en Microsoft Defender para aplicaciones en la nube?](/cloud-app-security/proxy-intro-aad)
 
 - [Cómo proteger CloudCords con controles y visibilidad avanzados](/cloud-app-security/proxy-intro-aad)

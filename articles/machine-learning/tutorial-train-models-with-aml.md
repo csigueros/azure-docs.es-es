@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 10/21/2021
 ms.custom: seodec18, devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 0284a6d0fe7eccf42f43ff7cebc33fe4fcb6fe66
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 4f29290c96b5f9603b4d626a8f87ee1c75168abc
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131559568"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132289725"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-an-example-jupyter-notebook"></a>Tutorial: Entrenamiento de un modelo de clasificación de imágenes con un ejemplo de Jupyter Notebook 
 
@@ -35,7 +35,7 @@ En la [segunda parte de este tutorial](tutorial-deploy-models-with-aml.md), apre
 
 Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 
->[!NOTE]
+> [!NOTE]
 > El código de este artículo se probó con la versión 1.13.0 del [SDK de Azure Machine Learning](/python/api/overview/azure/ml/intro).
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -52,6 +52,9 @@ Azure Machine Learning incluye un servidor de cuadernos en la nube del área de 
  Siga este vídeo o use los pasos detallados para clonar y ejecutar el cuaderno del tutorial desde el área de trabajo.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
+
+> [!NOTE]
+> En este vídeo podrá comprender el proceso, pero también muestra la apertura de un archivo diferente.  Para este tutorial, una vez que haya clonado la carpeta de **tutoriales**, abra el archivo **img-classification-part1-training.ipynb** de la carpeta **tutorials/image-classification-mnist-data**.
 
 ### <a name="clone-a-notebook-folder"></a><a name="clone"></a> Clonación de una carpeta de cuaderno
 

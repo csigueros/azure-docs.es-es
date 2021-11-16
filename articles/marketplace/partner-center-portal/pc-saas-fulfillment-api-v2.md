@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 10/27/2021
 author: saasguide
 ms.author: souchak
-ms.openlocfilehash: 4e2dff653564a568905160188fc4be308812c557
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 99735c9e18cb6e278c85254bcebbe514c2fbe0f3
+ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131460724"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131866570"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>API de cumplimiento de SaaS versión 2 en el marketplace comercial
 
@@ -118,7 +118,10 @@ Este estado indica que no se ha recibido el pago de un cliente por el servicio d
 
 El editor podría realizar cambios en el servicio de SaaS en el lado del editor. Se recomienda que el editor ponga esta información a disposición del cliente suspendido y que limite o bloquee el acceso del cliente al servicio de SaaS. Existe la posibilidad de que el pago nunca se reciba.
 
-Microsoft ofrece al cliente un período de gracia de 30 días antes de cancelar automáticamente la suscripción. Cuando una suscripción se encuentra en el estado *Suspendido*:
+> [!NOTE]
+> Microsoft ofrece al cliente un período de gracia de 30 días antes de cancelar automáticamente la suscripción. Una vez transcurrido el período de gracia de 30 días, el webhook recibirá una acción [Cancelar suscripción](#cancel-a-subscription).
+
+Cuando una suscripción se encuentra en el estado *Suspendido*:
 
 * El partner o el ISV deben mantener la cuenta de SaaS en un estado recuperable, de modo que se pueda restaurar toda la funcionalidad sin que se pierdan los datos o la configuración.
 * El partner o el ISV debería recibir una solicitud para restablecer la suscripción si se recibe el pago durante el período de gracia, o bien una solicitud de desaprovisionamiento de la suscripción al final del período de gracia. Ambas solicitudes se enviarán a través del mecanismo de webhook.

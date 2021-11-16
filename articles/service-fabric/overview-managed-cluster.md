@@ -3,12 +3,12 @@ title: Clústeres administrados de Service Fabric
 description: Los clústeres administrados de Service Fabric son una evolución del modelo de recursos de clúster de Azure Service Fabric que agiliza la implementación y la administración de clústeres.
 ms.topic: overview
 ms.date: 10/22/2021
-ms.openlocfilehash: 2b0b0b79899acaf0b4be3b05f52fceadf8acf54d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 5c94254e470e625a844b345c452e252fcd69b626
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131055053"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132308131"
 ---
 # <a name="service-fabric-managed-clusters"></a>Clústeres administrados de Service Fabric
 
@@ -70,17 +70,8 @@ Los clústeres administrados de Service Fabric están disponibles en las SKU de 
 
 ## <a name="feature-support"></a>Compatibilidad de características
 
-Las funcionalidades de los clústeres administrados seguirán expandiéndose. Actualmente es compatible con:
+Las funcionalidades de los clústeres administrados seguirán expandiéndose. Consulte la [documentación de las opciones de configuración del clúster administrado](how-to-managed-cluster-configuration.md) o managedClusters [plantillas de Bicep y ARM](/azure/templates/microsoft.servicefabric/allversions) para obtener más información.
 
-* [Implementación de aplicación con plantillas de Resource Manager](how-to-managed-cluster-app-deployment-template.md)
-* [Secretos de aplicación](how-to-managed-cluster-application-secrets.md)
-* [Actualizaciones automáticas de las imágenes del sistema operativo](how-to-managed-cluster-modify-node-type.md#enable-automatic-os-image-upgrades)
-* [Expansión de zonas de disponibilidad](how-to-managed-cluster-availability-zones.md)
-* [Cifrado de disco](how-to-enable-managed-cluster-disk-encryption.md) y selección de [tipo de disco administrado](how-to-managed-cluster-managed-disk.md)
-* Compatibilidad con identidades administradas para [tipos de nodos](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md) de clúster administrados y [autenticación de aplicaciones](how-to-managed-cluster-application-managed-identity.md)
-* [Reglas de grupo de seguridad de red y otras opciones de red](how-to-managed-cluster-networking.md)
-* [Tipos de nodo solamente sin estado](how-to-managed-cluster-stateless-node-type.md)
-* [Extensiones de conjunto de escalado de máquinas virtuales](how-to-managed-cluster-vmss-extension.md) para tipos de nodo
 
 ## <a name="next-steps"></a>Pasos siguientes
 

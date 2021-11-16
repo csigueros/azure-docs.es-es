@@ -7,12 +7,12 @@ ms.service: serviceconnector
 ms.topic: overview
 ms.date: 10/29/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: ca822d14f225372f40d14165557677dff66f6ff8
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 799385d85e83f42835eb6e70ffb0b5a2b868e1f9
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091224"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132372650"
 ---
 # <a name="what-is-service-connector"></a>¿Qué es el conector de servicio?
 
@@ -55,6 +55,7 @@ Una vez creada una conexión de servicio. Los desarrolladores pueden validar y c
 
 * Azure Database for PostgreSQL
 * Azure Database for MySQL
+* Azure Cosmos DB (SQL, MangoDB, Gremlin, Cassandra, Table)
 * Azure Storage (Blob, Queue, File y Table Storage)
 * Azure Key Vault
 * Servicio Azure SignalR

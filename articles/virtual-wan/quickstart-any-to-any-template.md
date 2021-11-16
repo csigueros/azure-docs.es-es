@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/02/2021
 ms.author: cherylmc
 ms.custom: subject-armqs
-ms.openlocfilehash: ee1814d70395be3c084513d7bf59537ba426471a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 79b78af6e0ff1d23ea47b150dfd6c185e3d9df18
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128559120"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132323127"
 ---
 # <a name="quickstart-create-an-any-to-any-configuration-using-an-arm-template"></a>Inicio rápido: Creación de una configuración universal mediante una plantilla de ARM
 
@@ -67,7 +67,7 @@ Para buscar más plantillas, consulte [Plantillas de inicio rápido de Azure](ht
 
 ## <a name="deploy-the-template"></a><a name="deploy"></a>Implementación de la plantilla
 
-Para implementar esta plantilla correctamente, en lugar de otros métodos debe usar el botón para implementar en Azure y Azure Portal, por las siguientes razones:
+Para implementar esta plantilla correctamente, en lugar de otros métodos debe usar el botón para **implementar en Azure** y Azure Portal, por las siguientes razones:
 
 * Para crear la configuración de punto a sitio, debe cargar los datos del certificado raíz. El campo de datos no acepta los datos de certificado cuando se usa PowerShell o la CLI.
 * Esta plantilla no funciona correctamente con Cloud Shell debido a la carga de datos del certificado.

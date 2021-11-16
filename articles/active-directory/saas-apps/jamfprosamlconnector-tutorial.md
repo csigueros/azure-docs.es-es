@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/24/2020
 ms.author: jeedes
-ms.openlocfilehash: d19bde4afee9c8f4ce87a150863734e8973c44ce
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 1cf0285bc0308e2a88f02b516d048bd02757895b
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124809071"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132295448"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-jamf-pro"></a>Tutorial: Integración del inicio de sesión único de Azure Active Directory con Jamf Pro
 
@@ -227,4 +227,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Jamf Pro puede aplicar el control de sesión que proteja el filtrado externo e interno de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado Jamf Pro puede aplicar el control de sesión que proteja el filtrado externo e interno de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

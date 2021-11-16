@@ -3,23 +3,25 @@ title: Habilitación de la expansión de disco a petición
 description: Habilite la expansión de disco a petición en el disco administrado.
 author: roygara
 ms.author: rogarana
-ms.date: 11/03/2021
+ms.date: 11/09/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: f02bab9dc9a2561aeb605d91388151f41fb9a243
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 27a832f7f02fd10cde7f3c9f603f38d0d5e466b6
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131501502"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132136203"
 ---
 # <a name="enable-on-demand-bursting"></a>Habilitación de la expansión de disco a petición
 
 Las unidades de estado sólido (SSD) Premium tienen dos modelos de expansión de disco disponibles; expansión de disco basada en crédito y expansión de disco a petición. En este artículo se explica cómo cambiar a la expansión de disco a petición. Los discos que usan el modelo a petición se pueden expandir más allá de sus destinos aprovisionados originalmente. La expansión de disco a petición se produce con la frecuencia que necesite la carga de trabajo, hasta el destino de expansión máximo. La expansión de disco a petición conlleva cargos adicionales.
 
-Para más información sobre la expansión de disco, consulte [Expansión de discos administrados](disk-bursting.md).
+Para más información sobre la expansión de disco, consulte [Expansión de discos administrados](disk-bursting.md). 
+
+Para ver el número máximo de destinos de ráfaga en cada disco compatible, consulte [Objetivos de escalabilidad y rendimiento para discos de máquina virtual](disks-scalability-targets.md#premium-ssd-managed-disks-per-disk-limits).
 
 > [!IMPORTANT]
 > No es necesario seguir los pasos descritos en este artículo para usar la expansión de disco basada en crédito. De manera predeterminada, la expansión de disco basada en crédito está habilitada en todos los discos elegibles.

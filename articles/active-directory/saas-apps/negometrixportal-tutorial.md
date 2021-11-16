@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/10/2021
 ms.author: jeedes
-ms.openlocfilehash: 3fdc55289c33482db7384eed51ae3a2e75f7ad99
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 53704c5d132ae2943cc8fd2a0c577e2a58cd0a06
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131051560"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132294500"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-negometrixportal-single-sign-on-sso"></a>Tutorial: Integración del inicio de sesión único de Azure AD con NegometrixPortal Single Sign On (SSO)
 
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar NegometrixPortal Single Sign On (SSO) con
 * Permitir que los usuarios inicien sesión automáticamente en NegometrixPortal Single Sign On (SSO) con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -141,4 +141,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado NegometrixPortal Single Sign On (SSO), puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado NegometrixPortal Single Sign On (SSO), puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

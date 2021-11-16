@@ -6,12 +6,12 @@ author: yossi-y
 ms.author: yossiy
 ms.date: 07/29/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 95830ef00132c7b432b29c033a9d7e7e400b8aad
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 6f798cb4bc1511c0656c697f04e2d1763ca54321
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131458862"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132308605"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Clústeres dedicados de registros de Azure Monitor
 
@@ -47,9 +47,9 @@ Hay dos modos de facturación para el uso en un clúster. Estos pueden especific
 
 1. **Clúster (predeterminado)** : la facturación de los datos ingeridos se realiza en el nivel de clúster. Las cantidades de datos ingeridas desde cada área de trabajo asociada a un clúster se suman para calcular la factura diaria del clúster. 
 
-2. **Áreas de trabajo**: los costos del nivel de compromiso del clúster se atribuyen proporcionalmente a las áreas de trabajo del clúster, según el volumen de ingesta de datos de cada área de trabajo (después de tener en cuenta las asignaciones por nodo de [Azure Security Center](../../security-center/index.yml) para cada área de trabajo). Estos detalles completos de este modelo de precios se explican [aquí](./manage-cost-storage.md#log-analytics-dedicated-clusters). 
+2. **Áreas de trabajo**: los costos del nivel de compromiso del clúster se atribuyen proporcionalmente a las áreas de trabajo del clúster, según el volumen de ingesta de datos de cada área de trabajo (después de tener en cuenta las asignaciones por nodo de [Microsoft Defender for Cloud](../../security-center/index.yml) para cada área de trabajo). Estos detalles completos de este modelo de precios se explican [aquí](./manage-cost-storage.md#log-analytics-dedicated-clusters). 
 
-Si el área de trabajo usa el plan de tarifa heredado por nodo, cuando esté vinculado a un clúster se le facturará en función de los datos ingeridos en relación con el nivel de compromiso en lugar de por nodo. Se seguirán aplicando las asignaciones de datos por nodo de Azure Security Center.
+Si el área de trabajo usa el plan de tarifa heredado por nodo, cuando esté vinculado a un clúster se le facturará en función de los datos ingeridos en relación con el nivel de compromiso en lugar de por nodo. Se seguirán aplicando asignaciones de datos por nodo de Microsoft Defender for Cloud.
 
 Encontrará más detalles sobre la facturación de los clústeres dedicados de Log Analytics [aquí](./manage-cost-storage.md#log-analytics-dedicated-clusters).
 

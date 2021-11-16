@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 82baaef036a3541f46b0136ae3d387adacb144b2
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e29df86f5f4aa9555a859d5c2e0539e2ac068321
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124782843"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132298503"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zengine"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Zengine
 
@@ -41,7 +41,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Zengine admite el inicio de sesión único iniciado por el **proveedor de servicios**.
 
-* Una vez que haya configurado Zengine, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Una vez que haya configurado Zengine, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-zengine-from-the-gallery"></a>Adición de Zengine desde la galería
 
@@ -62,7 +62,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Zengine mediante
 Para configurar y probar el inicio de sesión único de Azure AD con Zengine, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Zengine](#configure-zengine-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Zengine](#create-zengine-test-user)** : para tener un homólogo de B.Simon en Zengine que esté vinculado a la representación del usuario en Azure AD.
@@ -149,4 +149,4 @@ Al hacer clic en el icono de Zengine en el Panel de acceso, debería iniciar ses
 
 - [Pruebe Zengine con Azure AD](https://aad.portal.azure.com/)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [¿Qué es el control de sesión en Microsoft Defender para aplicaciones en la nube?](/cloud-app-security/proxy-intro-aad)

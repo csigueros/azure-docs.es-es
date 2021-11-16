@@ -6,12 +6,12 @@ ms.author: chrhar
 ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 01/25/2021
-ms.openlocfilehash: a048937226f979db58996eb4bf996b9f254d9182
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 4956bf409190b560824f57e2f79e94ae5360e99a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130132466"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130258076"
 ---
 # <a name="tutorial-access-data-in-cosmos-db-using-mongoose-with-azure-static-web-apps"></a>Tutorial: Acceso a datos en Cosmos DB mediante Mongoose con Azure Static Web Apps
 
@@ -44,7 +44,7 @@ Comience por crear una cuenta [sin servidor de Cosmos DB](../cosmos-db/serverle
 3. Escriba **Azure Cosmos DB** en el cuadro de búsqueda.
 4. Haga clic en **Azure Cosmos DB**.
 5. Haga clic en **Crear**
-6. En **Azure Cosmos DB API for MongoDB** (API de Azure Cosmos DB para MongoDB), seleccione **Crear**
+6. Si se le solicita, en **API de Azure Cosmos DB para MongoDB**, seleccione **Crear**.
 7. Configure su cuenta de Azure Cosmos DB con la siguiente información:
     - Suscripción: seleccione la suscripción que desea usar.
     - Recurso: haga clic en **Crear nuevo** y establezca el nombre **aswa-mongoose**.
@@ -53,8 +53,8 @@ Comience por crear una cuenta [sin servidor de Cosmos DB](../cosmos-db/serverle
     - Modo de capacidad: **sin servidor (versión preliminar)** .
     - Versión: **4.0**
 :::image type="content" source="media/add-mongoose/cosmos-db.png" alt-text="Creación de una instancia de Cosmos DB":::
-7. Haga clic en **Revisar y crear**
-8. Haga clic en **Crear**
+8. Haga clic en **Revisar y crear**
+9. Haga clic en **Crear**
 
 El proceso de creación tardará unos minutos. Los pasos posteriores volverán a la base de datos para recopilar la cadena de conexión.
 

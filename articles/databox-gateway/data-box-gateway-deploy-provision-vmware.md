@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/01/2021
+ms.date: 11/10/2021
 ms.author: alkohli
-ms.openlocfilehash: 948005942be193c8b15c363282aa06c006eb244e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1cf0f2f2f970e9082f56a90efb5a6508b0b00e32
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101727624"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132331972"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Tutorial: Aprovisionamiento de Azure Data Box Gateway en VMware
 
@@ -97,7 +97,8 @@ Realice los pasos siguientes para aprovisionar un dispositivo virtual en el hipe
 
 4. En el panel derecho, bajo **Datastores**(Almacenes de datos), seleccione el almacén de datos donde quiere cargar el VMDK. 
 
-    - El almacén de datos debe ser de tipo VMFS5. 
+    - El almacén de datos debe ser de tipo VMFS5. La puerta de enlace de Databox se ha probado con VMWare con el almacén de datos VMFS5. No se admiten versiones posteriores del almacén de datos, incluida la versión VMFS6.
+
     - También debe tener suficiente espacio disponible para los discos del sistema operativo y de datos.
    
 5. Haga clic con el botón derecho y seleccione **Browse Datastore**(Examinar almacén de datos).

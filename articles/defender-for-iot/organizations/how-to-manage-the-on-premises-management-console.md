@@ -1,14 +1,14 @@
 ---
 title: Administración de la consola de administración local
 description: Obtenga información sobre las opciones de la consola de administración local, como la copia de seguridad y la restauración, la definición del nombre de host y la configuración de un proxy en sensores.
-ms.date: 1/12/2021
+ms.date: 11/09/2021
 ms.topic: article
-ms.openlocfilehash: 9b956dbfa640862d10d0e47aef97e5a1727052c7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3604b4674a86d719f2fecf841347c0a55f5b9757
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128625228"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132339713"
 ---
 # <a name="manage-the-on-premises-management-console"></a>Administración de la consola de administración local
 
@@ -24,7 +24,7 @@ Después de la activación inicial, el número de dispositivos supervisados pued
 
 **Para cargar un archivo de activación:**
 
-1. Vaya a la página **Precios** de Azure Defender para IoT.
+1. Vaya a la página **Precios** de Microsoft Defender para IoT.
 1. Seleccione la pestaña **Download the activation file for the management console** (Descargar el archivo de activación de la consola de administración). Se descarga el archivo de activación.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/cloud_download_opm_activation_file.png" alt-text="Descargue el archivo de activación.":::

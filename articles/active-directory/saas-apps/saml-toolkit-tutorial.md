@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 1f56b73c78d7abbfe3fe1f3dce5218c54fcb6fdf
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 04938d787d72e788dd9c59d856f92c6f84939c77
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124830288"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132299565"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-azure-ad-saml-toolkit"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Azure AD SAML Toolkit
 
@@ -60,7 +60,7 @@ Configura y prueba el inicio de sesión único de Azure AD con Azure AD SAML Too
 Para configurar y probar el inicio de sesión único de Azure AD con Azure AD SAML Toolkit, lleve a cabo los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Azure AD SAML Toolkit](#configure-azure-ad-saml-toolkit-sso)** , para configurar los valores del inicio de sesión único en la aplicación.
     * **[Creación de un usuario de prueba de Azure AD SAML Toolkit](#create-azure-ad-saml-toolkit-test-user)** , para tener un homólogo de B.Simon en Azure AD SAML Toolkit que esté vinculado a la representación del usuario en Azure AD.
@@ -160,4 +160,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado Azure AD SAML Toolkit, puede aplicar el control de sesión, que protege a su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez que haya configurado Azure AD SAML Toolkit, puede aplicar el control de sesión, que protege a su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

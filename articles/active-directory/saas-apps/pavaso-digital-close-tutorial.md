@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/05/2021
 ms.author: jeedes
-ms.openlocfilehash: a1e58d4a7b46da34ea4c0ae6325baa3d6e5de39d
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 69a03d57a378b917d217fc2b06208a9cf8fc4d66
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129856398"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132300133"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-pavaso-digital-close"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Pavaso Digital Close
 
@@ -57,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Pavaso Digital C
 Para configurar el inicio de sesión único de Azure AD con Pavaso Digital Close, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Pavaso Digital Close](#configure-pavaso-digital-close-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Pavaso Digital Close](#create-pavaso-digital-close-test-user)** : para tener un homólogo de B.Simon en Pavaso Digital Close que esté vinculado a la representación del usuario en Azure AD.
@@ -144,4 +144,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que se ha configurado Pavaso Digital Close, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez que se ha configurado Pavaso Digital Close, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

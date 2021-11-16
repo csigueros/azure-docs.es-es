@@ -4,16 +4,14 @@ services: azure-arc
 ms.service: azure-arc
 ms.date: 03/03/2021
 ms.topic: article
-author: mlearned
-ms.author: mlearned
 description: 'Creación de una entidad de servicio de incorporación habilitada para Azure Arc '
 keywords: Kubernetes, Arc, Azure, containers
-ms.openlocfilehash: 610b355073473f0e492350753a523b7943666f13
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5c102ce73672528810bbb35b2a74a5de2a3bf81e
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121752"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132056252"
 ---
 # <a name="create-an-onboarding-service-principal-for-azure-arc-enabled-kubernetes"></a>Creación de una entidad de servicio de incorporación para Kubernetes habilitado para Azure Arc
 

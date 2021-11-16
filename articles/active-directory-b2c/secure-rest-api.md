@@ -12,12 +12,12 @@ ms.date: 10/25/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 2166b2c730a6101c59dddc38ad9a09c809f4eab2
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a738459e50ed87dbfbdc97838d70f049d998eca5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131040497"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132326811"
 ---
 # <a name="secure-your-api-used-an-api-connector-in-azure-ad-b2c"></a>Proteja la API que se usa como un conector de API en Azure AD B2C 
 
@@ -256,7 +256,7 @@ En los pasos siguientes se muestra cómo usar las credenciales del cliente para 
 
 Una notificación proporciona un almacenamiento temporal de datos durante la ejecución de una directiva de Azure AD B2C. El [esquema de notificaciones](claimsschema.md) es el lugar en el que se declaran las notificaciones. El token de acceso debe almacenarse en una notificación para usarse más tarde. 
 
-1. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`**</em>.
+1. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Busque el elemento [BuildingBlocks](buildingblocks.md). Si el elemento no existe, agréguelo.
 1. Busque el elemento [ClaimsSchema](claimsschema.md). Si el elemento no existe, agréguelo.
 1. Agregue las notificaciones siguientes al elemento **ClaimsSchema**.  
@@ -340,8 +340,8 @@ Para ServiceUrl, reemplace el nombre del inquilino con el nombre del inquilino d
     <Key Id="BasicAuthenticationPassword" StorageReferenceId="B2C_1A_SecureRESTClientSecret" />
   </CryptographicKeys>
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="grant_type" DefaultValue="client_credentials" />
-    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="https://graph.microsoft.com/.default" />
+    <InputClaim ClaimTypeReferenceId="grant_type" DefaultValue="client_credentials" AlwaysUseDefaultValue="true" />
+    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="https://graph.microsoft.com/.default" AlwaysUseDefaultValue="true" />
   </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="bearerToken" PartnerClaimType="access_token" />
@@ -349,6 +349,9 @@ Para ServiceUrl, reemplace el nombre del inquilino con el nombre del inquilino d
   <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
 </TechnicalProfile>
 ```
+
+> [!NOTE]
+> Si usa las notificaciones `grant_type` o `scope` en otros perfiles técnicos, se recomienda que también especifiquen `DefaultValue` y usen `AlwaysUseDefaultValue="true"` para evitar posibles conflictos al enlazar con el valor incorrecto.
 
 ### <a name="change-the-rest-technical-profile-to-use-bearer-token-authentication"></a>Cambio del perfil técnico de REST para usar la autenticación del token de portador
 

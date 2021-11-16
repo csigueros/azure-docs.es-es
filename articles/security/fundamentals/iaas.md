@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 3099ff7525e07a2361a63382eea0d3dc6e689ee7
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 55e8caee298d8aab2b724b8c4fb5804e2b58f563
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111956831"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132305852"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedimientos de seguridad recomendados para cargas de trabajo de IaaS de Azure
 En este artículo se describen los procedimientos recomendados de seguridad para máquinas virtuales y sistemas operativos.
@@ -50,7 +50,7 @@ Si su organización tiene varias suscripciones, podría necesitar una manera de 
 
 - [Colaborador de la máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor): Puede administrar máquinas virtuales, pero no la cuenta de almacenamiento o la red virtual a la que están conectadas.
 - [Colaborador de la máquina virtual clásica](../../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): Puede administrar máquinas virtuales creadas con el modelo de implementación clásica, pero no la cuenta de almacenamiento ni la red virtual a la que están conectadas.
-- [Administrador de seguridad](../../role-based-access-control/built-in-roles.md#security-admin): Solo en Security Center: puede ver las directivas de seguridad, los estados de seguridad, editar las directivas de seguridad, ver alertas y recomendaciones, y descartar alertas y recomendaciones.
+- [Administrador de seguridad](../../role-based-access-control/built-in-roles.md#security-admin): (solo en Defender para la nube) puede ver las directivas y los estados de seguridad, editar las directivas de seguridad, ver las alertas y recomendaciones y descartarlas.
 - [Usuario de DevTest Labs](../../role-based-access-control/built-in-roles.md#devtest-labs-user): puede ver todo el contenido, así como conectar, iniciar, reiniciar y apagar las máquinas virtuales.
 
 Los administradores y coadministradores de la suscripción pueden cambiar esta configuración, convirtiéndose en administradores de todas las máquinas virtuales de una suscripción. Asegúrese de que confía en todos los administradores y coadministradores de la suscripción para iniciar sesión en cualquiera de las máquinas.
@@ -72,13 +72,13 @@ Debe instalar la protección antimalware para ayudar a identificar y eliminar vi
 
 Microsoft Antimalware incluye características como la protección en tiempo real, los análisis programados, la corrección de malware, las actualizaciones de firmas, las actualizaciones del motor, los ejemplos de informes y la colección de eventos de exclusión. En entornos hospedados por separado del entorno de producción, puede usar una extensión de antimalware para ayudar a proteger las máquinas virtuales y los servicios en la nube.
 
-Puede integrar soluciones de asociados y Microsoft Antimalware con [Azure Security Center](../../security-center/index.yml) para facilitar la implementación y la integración de detecciones (alertas e incidentes).
+Puede integrar soluciones de asociados y Microsoft Antimalware con [Microsoft Defender para la nube](../../security-center/index.yml) para facilitar la implementación y las detecciones integradas (alertas e incidentes).
 
 **Procedimiento recomendado**: Instalación de una solución antimalware para protegerse frente a malware.   
 **Detalles**: [Instale una solución de asociado de Microsoft o Microsoft Antimalware](../../security-center/security-center-services.md#supported-endpoint-protection-solutions-)
 
-**Procedimiento recomendado**: Integración de la solución antimalware con Security Center para supervisar el estado de la protección.   
-**Detalles**: [Administre problemas de Endpoint Protection con Security Center](../../security-center/security-center-partner-integration.md)
+**Procedimiento recomendado**: integración de la solución antimalware con Defender para la nube para supervisar el estado de la protección.   
+**Detalle**: [administrar problemas de Endpoint Protection con Defender para la nube](../../security-center/security-center-partner-integration.md)
 
 ## <a name="manage-your-vm-updates"></a>Administrar las actualizaciones de la máquina virtual
 Las máquinas virtuales de Azure, al igual que todas las máquinas virtuales locales, están diseñadas para que las administre el usuario. Azure no inserta las actualizaciones de Windows en ellas. Debe administrar las actualizaciones de la máquina virtual.
@@ -102,7 +102,7 @@ Si usa Windows Update, deje habilitada la configuración automática de Windows 
 **Detalles**: Defina la máquina virtual con una [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) para poder implementarla fácilmente. El uso de una plantilla le ofrece una máquina virtual segura y revisada cuando la necesite.
 
 **Procedimiento recomendado**: Aplique rápidamente las actualizaciones de seguridad a las máquinas virtuales.   
-**Detalles**: Habilite Azure Security Center (nivel Gratis o Estándar) para [detectar si faltan actualizaciones de seguridad y aplicarlas](../../security-center/asset-inventory.md).
+**Detalle**: habilitar Microsoft Defender para la nube (nivel Gratis o estándar) para [detectar si faltan actualizaciones de seguridad y aplicarlas](../../security-center/asset-inventory.md).
 
 **Procedimiento recomendado**: Instalación de las últimas actualizaciones de seguridad.   
 **Detalles**: Algunas de las primeras cargas de trabajo que los clientes mueven a Azure son laboratorios y sistemas orientados externamente. Si las máquinas virtuales de Azure hospedan aplicaciones o servicios que deben estar accesibles desde Internet, esté atento a la aplicación de revisiones. Aplique revisiones no solo del sistema operativo. Las vulnerabilidades de aplicaciones de asociados a las que no se han aplicado revisiones también pueden provocar problemas que podrían haberse evitado si hubiera una buena administración de revisiones vigente.
@@ -119,7 +119,7 @@ Los procedimientos recomendados de actualización de software para los centros d
 ## <a name="manage-your-vm-security-posture"></a>Administrar la posición de seguridad de la máquina virtual
 Las ciberamenazas están en evolución. Para proteger las máquinas virtuales hace falta una funcionalidad de supervisión que pueda detectar rápidamente las amenazas, evitar el acceso no autorizado a los recursos, desencadenar alertas y reducir los falsos positivos.
 
-Para supervisar la posición de seguridad de sus máquinas virtuales [Windows](../../security-center/security-center-introduction.md) y [Linux VMs](../../security-center/security-center-introduction.md), utilice [Azure Security Center](../../security-center/security-center-introduction.md). En Security Center, proteja las máquinas virtuales aprovechando las ventajas de las funcionalidades siguientes:
+Para supervisar la posición de seguridad de sus VM [Windows](../../security-center/security-center-introduction.md) y [Linux](../../security-center/security-center-introduction.md), use [Microsoft Defender para la nube](../../security-center/security-center-introduction.md). En Defender para la nube, proteja las máquinas virtuales aprovechando las ventajas de las funcionalidades siguientes:
 
 - Aplicar la configuración de seguridad del sistema operativo con las reglas de configuración recomendadas.
 - Identificar y descargar las actualizaciones críticas y de seguridad del sistema que puedan faltar.
@@ -128,9 +128,9 @@ Para supervisar la posición de seguridad de sus máquinas virtuales [Windows](.
 - Evaluar y corregir las vulnerabilidades.
 - Detectar amenazas.
 
-Security Center puede supervisar activamente si hay posibles amenazas, que se mostrarán en alertas de seguridad. Las amenazas correlacionadas se agregan en una única vista denominada incidente de seguridad.
+Defender para la nube puede supervisar activamente si hay posibles amenazas, que se mostrarán en alertas de seguridad. Las amenazas correlacionadas se agregan en una única vista denominada incidente de seguridad.
 
-Security Center almacena datos en loa [registros de Azure Monitor](../../azure-monitor/logs/log-query-overview.md). Los registros de Azure Monitor proporcionan un lenguaje de consulta y un motor de análisis que ofrece información sobre el funcionamiento de las aplicaciones y los recursos. Los datos también se recopilan de [Azure Monitor](../../batch/monitoring-overview.md), de las soluciones de administración y de los agentes instalados en máquinas virtuales locales en la nube o en el entorno local. Esta funcionalidad compartida le ayuda a formarse una imagen completa de su entorno.
+Defender para la nube almacena datos en los [registros de Azure Monitor](../../azure-monitor/logs/log-query-overview.md). Los registros de Azure Monitor proporcionan un lenguaje de consulta y un motor de análisis que ofrece información sobre el funcionamiento de las aplicaciones y los recursos. Los datos también se recopilan de [Azure Monitor](../../batch/monitoring-overview.md), de las soluciones de administración y de los agentes instalados en máquinas virtuales locales en la nube o en el entorno local. Esta funcionalidad compartida le ayuda a formarse una imagen completa de su entorno.
 
 Las organizaciones que no aplican una seguridad sólida a sus máquinas virtuales no están informadas de posibles intentos de eludir los controles de seguridad llevados a cabo por usuarios no autorizados.
 
@@ -175,10 +175,10 @@ Supervise y restrinja la conectividad directa a Internet de las máquinas virtua
 **Detalles**: use Azure RBAC para asegurarse de que solo el grupo de redes central tiene permiso para los recursos de red.
 
 **Procedimiento recomendado**: Identificar y corregir las máquinas virtuales expuestas que permiten el acceso desde "cualquier" dirección IP de origen.   
-**Detalles**: Use Azure Security Center. Security Center le recomendará que restrinja el acceso a través de puntos de conexión accesibles desde Internet si alguno de los grupos de seguridad de red tiene una o varias reglas de entrada que permiten el acceso desde “cualquier” dirección IP de origen. Security Center recomienda editar estas reglas de entrada para [restringir el acceso](../../security-center/security-center-network-recommendations.md) a las direcciones IP de origen que realmente necesiten el acceso.
+**Detalle**: usar Microsoft Defender para la nube. Defender para la nube le recomendará que restrinja el acceso mediante puntos de conexión accesibles desde Internet si alguno de los grupos de seguridad de red tiene una o varias reglas de entrada que permiten el acceso desde “cualquier” dirección IP de origen. Defender para la nube recomienda editar estas reglas de entrada para [restringir el acceso](../../security-center/security-center-network-recommendations.md) a las direcciones IP de origen que realmente necesiten el acceso.
 
 **Procedimiento recomendado**: Restringir los puertos de administración (RDP, SSH).   
-**Detalles**: Puede usar el [acceso a VM Just-In-Time](../../security-center/security-center-just-in-time.md) para bloquear el tráfico entrante a las máquinas virtuales de Azure. Para ello, se reduce la exposición a ataques y se proporciona un acceso sencillo para conectarse a las máquinas virtuales cuando sea necesario. Cuando el acceso a Just-In-Time está habilitado, Security Center bloquea el tráfico entrante a las máquinas virtuales de Azure mediante la creación de una regla de grupo de seguridad de red. Se deben seleccionar los puertos de la máquina virtual para la que se bloqueará el tráfico entrante. Estos puertos los controla la solución Just-In-Time.
+**Detalles**: Puede usar el [acceso a VM Just-In-Time](../../security-center/security-center-just-in-time.md) para bloquear el tráfico entrante a las máquinas virtuales de Azure. Para ello, se reduce la exposición a ataques y se proporciona un acceso sencillo para conectarse a las máquinas virtuales cuando sea necesario. Cuando el acceso a Just-In-Time está habilitado, Defender para la nube bloquea el tráfico entrante a las VM de Azure mediante la creación de una regla de grupo de seguridad de red. Se deben seleccionar los puertos de la máquina virtual para la que se bloqueará el tráfico entrante. Estos puertos los controla la solución Just-In-Time.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea [Patrones y procedimientos recomendados de seguridad en Azure](best-practices-and-patterns.md) para obtener más procedimientos recomendados de seguridad que pueda aplicar cuando diseñe, implemente y administre las soluciones en la nube mediante Azure.

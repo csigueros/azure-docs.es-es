@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 09/13/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 01acde63371fea6a8c3f752caf31fa883e5e617e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: cc8cdfcfeee8c5deefe64799be7c6ee27cb644f6
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128641225"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132135816"
 ---
 # <a name="azure-tls-certificate-changes"></a>Cambios en los certificados TLS de Azure  
 
@@ -30,7 +30,7 @@ Todos los servicios de Azure se ven afectados por este cambio. Estos son algunos
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) y [DPS](../../iot-dps/index.yml) permanecerán en la entidad de certificación raíz Baltimore CyberTrust, pero las entidades de certificación intermedias cambiarán. [Haga clic aquí para más información](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
 - Para [Azure Storage](../../storage/index.yml), [haga clic aquí para más información](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-critical-changes-are-almost-here-and-why-you/ba-p/2741581).
 - [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) permanecerá en la entidad de certificación raíz Baltimore CyberTrust, pero las entidades de certificación intermedias cambiarán. [Haga clic aquí para más información](../../azure-cache-for-redis/cache-whats-new.md).
-- Azure Instance Metadata Service permanecerá en la entidad de certificación raíz Baltimore CyberTrust, pero las entidades de certificación intermedias cambiarán. [Haga clic aquí para más información](/answers/questions/172717/action-required-for-attested-data-tls-with-azure-i.html).
+- Para [Azure Instance Metadata Service](../../virtual-machines/linux/instance-metadata-service.md?tabs=linux), consulte [TLS de datos certificados por Instance Metadata Service de Azure: están a punto de llegar cambios muy importantes](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-instance-metadata-service-attested-data-tls-critical/ba-p/2888953) para obtener más detalles.
 
 > [!IMPORTANT]
 > Es posible que los clientes necesiten actualizar sus aplicaciones después de este cambio, con el fin de evitar errores de conectividad al intentar conectarse a Azure Storage.
@@ -70,7 +70,7 @@ Estas son algunas maneras de detectar si una aplicación se ve afectada:
 
 - Si tiene alguna aplicación que se integra con las API de Azure u otros servicios de Azure y no está seguro de si usa el anclaje de certificados, póngase en contacto con el proveedor de la aplicación.
 
-- Los distintos sistemas operativos y entornos de ejecución de lenguaje que se comunican con los servicios de Azure pueden requerir pasos adicionales para compilar correctamente la cadena de certificados con estas nuevas raíces:
+- Los distintos sistemas operativos y entornos de ejecución de lenguaje que se comunican con los servicios de Azure pueden requerir más pasos para compilar correctamente la cadena de certificados con estas nuevas raíces:
     - **Linux**: muchas distribuciones requieren que se agreguen entidades de certificación a /etc/SSL/certs. Para obtener instrucciones específicas, vea la documentación de la distribución.
     - **Java**: asegúrese de que el almacén de claves de Java contenga las entidades de certificación indicadas anteriormente.
     - **Windows se ejecuta en entornos desconectados**: los sistemas que se ejecuten en entornos desconectados deberán agregar las nuevas raíces al almacén de entidades de certificación raíz de confianza y las intermedias al almacén de entidades de certificación intermedias.

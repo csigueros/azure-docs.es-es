@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 06/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: b2675f6633da27c12e067cf93463f6cba94b473c
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 073fd4918cec0a1ec1dc679285b62fd63fe078d3
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769395"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132325740"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Información general de Change Tracking e Inventario
 
@@ -26,7 +26,7 @@ En este artículo se presenta la solución Change Tracking e Inventario de Azure
 > [!NOTE]
 > Para hacer el seguimiento de los cambios en las propiedades de Azure Resource Manager, consulte [Historial de cambios](../../governance/resource-graph/how-to/get-resource-changes.md) de Azure Resource Graph.
 
-Seguimiento de cambios e inventario hace uso de [Supervisión de la integridad de los archivos (FIM) de Azure Security Center](../../security-center/security-center-file-integrity-monitoring.md) para examinar los archivos de aplicación y del sistema operativo, y el Registro de Windows. Mientras FIM supervisa esas entidades, Seguimiento de cambios e inventario realiza un seguimiento de forma nativa de:
+Seguimiento de cambios e inventario hace uso de [Supervisión de la integridad de los archivos (FIM) de Microsoft Defender for Cloud](../../security-center/security-center-file-integrity-monitoring.md) para examinar los archivos de aplicación y del sistema operativo, y del Registro de Windows. Mientras FIM supervisa esas entidades, Seguimiento de cambios e inventario realiza un seguimiento de forma nativa de:
 
 - Cambios de software
 - Servicios de Windows
@@ -34,7 +34,7 @@ Seguimiento de cambios e inventario hace uso de [Supervisión de la integridad d
 
 La habilitación de todas las características incluidas en Seguimiento de cambios e inventario podría generar cargos adicionales. Antes de continuar, revise la información que aparece en [Precios de Automation](https://azure.microsoft.com/pricing/details/automation/) y [Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
-Seguimiento de cambios e inventario reenvía los datos a los registros de Azure Monitor y estos datos recopilados se almacenan en un área de trabajo de Log Analytics. La característica Supervisión de la integridad de los archivos (FIM) solo está disponible cuando **Azure Defender para servidores** está habilitado. Consulte [Precios de Azure Security Center](../../security-center/security-center-pricing.md) para más información. FIM carga los datos en la misma área de trabajo de Log Analytics que la creada para almacenar datos de Seguimiento de cambios e inventario. Se recomienda supervisar el área de trabajo de Log Analytics vinculada para realizar un seguimiento de su uso exacto. Para obtener más información sobre cómo analizar el uso de los datos de los registros de Azure Monitor, consulte [Administrar el uso y los costos](../../azure-monitor/logs/manage-cost-storage.md).
+Seguimiento de cambios e inventario reenvía los datos a los registros de Azure Monitor y estos datos recopilados se almacenan en un área de trabajo de Log Analytics. La característica Supervisión de la integridad de los archivos (FIM) solo está disponible cuando **Microsoft Defender para servidores** está habilitado. Consulte los [precios](../../security-center/security-center-pricing.md) de Microsoft Defender for Cloud para obtener más información. FIM carga los datos en la misma área de trabajo de Log Analytics que la creada para almacenar datos de Seguimiento de cambios e inventario. Se recomienda supervisar el área de trabajo de Log Analytics vinculada para realizar un seguimiento de su uso exacto. Para obtener más información sobre cómo analizar el uso de los datos de los registros de Azure Monitor, consulte [Administrar el uso y los costos](../../azure-monitor/logs/manage-cost-storage.md).
 
 Las máquinas conectadas al área de trabajo de Log Analytics usan el [agente de Log Analytics](../../azure-monitor/agents/log-analytics-agent.md) para recopilar datos sobre los cambios en el software instalado, los servicios de Windows, los archivos y el registro de Windows y los demonios de Linux de los servidores supervisados. Cuando los datos están disponibles, el agente los envía a Azure Monitor para su procesamiento. Los registros de Azure Monitor aplican la lógica a los datos recibidos, los anotan y hacen que estén disponibles para el análisis.
 

@@ -10,18 +10,18 @@ ms.date: 11/02/2021
 author: ruixinxu
 ms.author: ruxu
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 01967a4e0b6daa3f79d9300047c83bc2ad493f09
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d3fb6edb446c2a034eb6e7c294b1639aa9eb8d5a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030621"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132312130"
 ---
 # <a name="tutorial-computer-vision-with-cognitive-service"></a>Tutorial: Computer Vision con Cognitive Service
 
 [Computer Vision](../../cognitive-services/computer-vision/index.yml) es una instancia de [Azure Cognitive Service](../../cognitive-services/index.yml) que permite procesar imágenes y devolver información basada en las características visuales. En este tutorial, aprenderá a usar [Computer Vision](../../cognitive-services/computer-vision/index.yml) para analizar imágenes en Azure Synapse Analytics.
 
-En este tutorial se muestra cómo usar el análisis de textos con [MMLSpark](https://github.com/Azure/mmlspark) para:
+En este tutorial se muestra cómo usar el análisis de textos con [SynapseML](https://github.com/microsoft/SynapseML) para:
 
 > [!div class="checklist"]
 > - Extraer características visuales del contenido de la imagen
@@ -187,4 +187,4 @@ Para asegurarse de que se cierra la instancia de Spark, finalice todas las sesio
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Consulte los cuadernos de ejemplo de Synapse](https://github.com/Azure-Samples/Synapse/tree/main/MachineLearning) 
-* [Repositorio de GitHub para MMLSpark](https://github.com/Azure/mmlspark)
+* [Repositorio de GitHub de SynapseML](https://github.com/Azure/mmlspark)

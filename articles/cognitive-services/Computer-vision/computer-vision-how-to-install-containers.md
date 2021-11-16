@@ -12,12 +12,12 @@ ms.date: 10/14/2021
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: entorno local, reconocimiento óptico de caracteres, Docker, contenedor
-ms.openlocfilehash: bfe2bbe061f92c4290e63d36e8dcd647b4f7f830
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 8692ebd01c794165fc93e1aaaae912b33a4c1b52
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "131078016"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132062783"
 ---
 # <a name="install-read-ocr-docker-containers"></a>Instalación de contenedores de Docker de OCR de Read
 
@@ -26,6 +26,9 @@ ms.locfileid: "131078016"
 Los contenedores le permiten ejecutar las API de Computer Vision en su propio entorno. Los contenedores son excelentes para requisitos específicos de control de datos y seguridad. En este artículo, aprenderá a descargar, instalar y ejecutar contenedores de Computer Vision.
 
 El contenedor OCR de *Read* permite extraer texto impreso y manuscrito de imágenes y documentos con compatibilidad con los formatos de archivo JPEG, PNG, BMP, PDF y TIFF. Para más información, consulte la [guía de procedimientos de Read API](Vision-API-How-to-Topics/call-read-api.md).
+
+## <a name="whats-new"></a>Novedades
+Para los usuarios existentes de los contenedores de Read, hay disponible una nueva versión, `3.2-model-2021-09-30-preview`, del contenedor de Read con compatibilidad con 122 idiomas y mejoras generales del rendimiento y de la inteligencia artificial. Para comenzar, siga las [instrucciones de descarga](#docker-pull-for-the-read-ocr-container).
 
 ## <a name="read-32-container"></a>Contenedor de Read 3.2
 
@@ -88,12 +91,19 @@ Hay imágenes de contenedor para Leer disponibles.
 
 | Contenedor | Container Registry/Repositorio/Nombre de imagen |
 |-----------|------------|
-| Versión preliminar de Read 2.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
+| Read 3.2 model-2021-09-30-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2021-09-30-preview` |
 | Read 3.2 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2` |
+| Versión preliminar de Read 2.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
 
 Use el comando [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) para descargar una imagen de contenedor.
 
 ### <a name="docker-pull-for-the-read-ocr-container"></a>Docker pull para el contenedor OCR de lectura
+
+Para conocer la versión preliminar más reciente:
+
+```bash
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2021-09-30-preview
+```
 
 # <a name="version-32"></a>[Versión 3.2](#tab/version-3-2)
 
@@ -123,6 +133,12 @@ Una vez que el contenedor esté en el [equipo host](#the-host-computer), utilice
 Utilice el comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) para ejecutar el contenedor. Consulte [Recopilación de los parámetros obligatorios](#gathering-required-parameters) para más información sobre cómo obtener los valores de `{ENDPOINT_URI}` y `{API_KEY}`.
 
 Hay disponibles [ejemplos](computer-vision-resource-container-config.md#example-docker-run-commands) del comando `docker run`.
+
+Para obtener la versión preliminar más reciente, reemplace la ruta de acceso de la versión 3.2 por:
+
+```
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2021-09-30-preview
+```
 
 # <a name="version-32"></a>[Versión 3.2](#tab/version-3-2)
 
@@ -205,6 +221,10 @@ Para buscar la cadena de conexión:
 
 El contenedor proporciona varias API de puntos de conexión de predicción de consultas basadas en REST. 
 
+Para conocer la versión preliminar más reciente:
+
+Use la misma ruta de acceso de Swagger que la 3.2, pero otro puerto, si ya ha implementado la versión 3.2 en el puerto 5000.
+
 # <a name="version-32"></a>[Versión 3.2](#tab/version-3-2)
 
 Utilice el host, `http://localhost:5000`, con las API de contenedor. Puede ver la ruta de acceso de Swagger en `http://localhost:5000/swagger/vision-v3.2-read/swagger.json`.
@@ -217,6 +237,7 @@ Utilice el host, `http://localhost:5000`, con las API de contenedor. Puede ver l
 
 ### <a name="asynchronous-read"></a>Lectura asincrónica
 
+Para obtener la versión preliminar más reciente, todo es igual que en la versión 3.2, excepto el `"modelVersion": "2021-09-30-preview"` adicional.
 
 # <a name="version-32"></a>[Versión 3.2](#tab/version-3-2)
 

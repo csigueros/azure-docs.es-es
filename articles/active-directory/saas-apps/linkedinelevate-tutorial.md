@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/03/2021
 ms.author: jeedes
-ms.openlocfilehash: 2ce3a05d517bf12e9efd130fb4694ac13484817f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: cbf205d925029c4b960bd15775b81c0715af7813
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131057000"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132326107"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-linkedin-elevate"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con LinkedIn Elevate
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar LinkedIn Elevate con Azure Active Dire
 * Permitir que los usuarios inicien sesión automáticamente en LinkedIn Elevate con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -79,7 +79,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     a. En el cuadro de texto **Identificador**, escriba el valor de **Id. de entidad**; este valor lo copiará de Linkedin Portal, que se explica más adelante en este tutorial.
 
-    b. En el cuadro de texto **URL de respuesta**, escriba el valor de **dirección URL del servicio de consumidor de aserciones (ACS)** que se encuentra en el portal de Linkedin, que se explica más adelante en este tutorial.
+    b. En el cuadro de texto **URL de respuesta**, escriba el valor de **Assertion Consumer Access (ACS) Url** (URL de Acceso de consumidor de aserciones [ACS]); este valor lo copiará del portal de Linkedin, que se explica más adelante en este tutorial.
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
@@ -175,4 +175,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado LinkedIn Elevate, puede aplicar el control de sesión, que protege la filtración e infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado LinkedIn Elevate, puede aplicar el control de sesión, que protege la filtración e infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

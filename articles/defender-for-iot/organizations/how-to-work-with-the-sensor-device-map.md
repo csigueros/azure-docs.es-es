@@ -1,14 +1,14 @@
 ---
 title: Uso de la asignación de dispositivos sensores
 description: La asignación de dispositivos ofrece una representación gráfica de los dispositivos de red detectados. Use la asignación para analizar y administrar la información de los dispositivos y los segmentos de red, y generar informes.
-ms.date: 1/7/2021
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: 58ccb69606f41a279424d0faa0241befbe9914bf
-ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.openlocfilehash: 559c3691ac83fa031c71b563bd43dce4fa77c31e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130137805"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132315451"
 ---
 # <a name="investigate-sensor-detections-in-the-device-map"></a>Investigación de las detecciones de sensores en la asignación de dispositivos
 

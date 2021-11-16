@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 3c08b2b8e11aa4086c5861733a4a0d49529c416e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b8aa54369e6da2d70656a0fc11079f6f850c9a9d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131032019"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132304541"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-siteintel"></a>Tutorial: Integración del inicio de sesión único de Azure Active Directory con SiteIntel
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a integrar SiteIntel con Azure Active Directory (
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -40,7 +40,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * SiteIntel admite el inicio de sesión único iniciado por SP e IDP.
-* Una vez configurado SiteIntel, puede aplicar el control de sesión, que protege la filtración e infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Una vez configurado SiteIntel, puede aplicar el control de sesión, que protege la filtración e infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-siteintel-from-the-gallery"></a>Incorporación de SiteIntel desde la galería
 
@@ -154,5 +154,5 @@ Al seleccionar el icono de **SiteIntel** en el panel de acceso, debería iniciar
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 - [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
 - [Pruebe SiteIntel con Azure AD](https://aad.portal.azure.com/)
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [¿Qué es el control de sesión en Microsoft Defender para aplicaciones en la nube?](/cloud-app-security/proxy-intro-aad)
 - [Protección de SiteIntel con controles y visibilidad avanzados](/cloud-app-security/proxy-intro-aad)

@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 07/09/2021
-ms.openlocfilehash: d36d7e91afc4b0bade9f3da08d1324aa7f56cba9
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.openlocfilehash: e658a8ed30b15327a68ce1671c19e55253ad6b06
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113594146"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132026717"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Creación de un clúster de proceso de Azure Machine Learning
 
@@ -46,7 +46,7 @@ En este artículo, aprenderá a:
 
 ## <a name="what-is-a-compute-cluster"></a>¿Qué es un clúster de proceso?
 
-El clúster de Proceso de Azure Machine Learning es una infraestructura de proceso administrado que permite al usuario crear fácilmente un proceso de uno o varios nodos. El clúster de proceso es un recurso que se puede compartir con otros usuarios del área de trabajo. El proceso se escala verticalmente de forma automática cuando se envía un trabajo y se puede colocar en una instancia de Azure Virtual Network. El proceso se ejecuta en un entorno con contenedores y empaqueta las dependencias del modelo en un [contenedor de Docker](https://www.docker.com/why-docker).
+El clúster de Proceso de Azure Machine Learning es una infraestructura de proceso administrado que permite al usuario crear fácilmente un proceso de uno o varios nodos. El clúster de proceso es un recurso que se puede compartir con otros usuarios del área de trabajo. El proceso se escala verticalmente de forma automática cuando se envía un trabajo y se puede colocar en una instancia de Azure Virtual Network. El clúster de proceso no admite ninguna implementación de **IP pública (versión preliminar)** también en la red virtual. El proceso se ejecuta en un entorno con contenedores y empaqueta las dependencias del modelo en un [contenedor de Docker](https://www.docker.com/why-docker).
 
 Los clústeres de proceso pueden ejecutar trabajos de manera segura en un [entorno de red virtual](how-to-secure-training-vnet.md), sin necesidad de que las empresas abran puertos SSH. El trabajo se ejecuta en un entorno en contenedor y empaqueta las dependencias del modelo en un contenedor de Docker. 
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 8d67a1fb04198ec60fc7c7b30fbadc70aa5027bf
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: cd5df1fc446f3f6d416e7df71a0bc39e69382e51
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129996579"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132317256"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-land-gorilla"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Land Gorilla
 
@@ -61,7 +61,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Land Goril
    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Land Gorilla](#configure-land-gorilla-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
    1. **[Creación de un usuario de prueba de Land Gorilla](#create-land-gorilla-test-user)**, para tener un homólogo de B.Simon en Land Gorilla que esté vinculado a la representación del usuario en Azure AD.
-1. **[Prueba del inicio de sesión único](#test-sso)**, para comprobar si la configuración funciona.
+1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -144,4 +144,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que se ha configurado Land Gorilla, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez que se ha configurado Land Gorilla, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

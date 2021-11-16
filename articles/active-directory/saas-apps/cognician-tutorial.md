@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/28/2021
 ms.author: jeedes
-ms.openlocfilehash: 25ac140f21da9d285d5bea92e521a6bd82e2241a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 37b1e5712fc147e99e2a2b537aacc72757419cc0
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124817255"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132334746"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cognician"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Cognician
 
@@ -61,7 +61,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Cognician con un
 Para configurar y probar el inicio de sesión único de Azure AD con Cognician, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Cognician](#configure-cognician-sso)** : para configurar el inicio de sesión único en el lado de la aplicación.
     1. **[Creación de un usuario de prueba de Cognician](#create-cognician-test-user)** , para tener un homólogo de B. Simon en Cognician que esté vinculado a la representación del usuario en Azure AD.
@@ -133,4 +133,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado Cognician, puede aplicar el control de sesión, que protege a su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez que haya configurado Cognician, puede aplicar el control de sesión, que protege a su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

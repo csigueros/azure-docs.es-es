@@ -3,12 +3,12 @@ title: Más información acerca de los dispositivos detectados por todos los sen
 description: Use el inventario de dispositivos de la consola de administración local para obtener una vista completa con la información de dispositivo de los sensores conectados. Use las herramientas de importación, exportación y filtrado para administrar esta información.
 ms.date: 12/02/2020
 ms.topic: how-to
-ms.openlocfilehash: 8016efe809d03cbc00bdb94b67f99caa7f98ac4c
-ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.openlocfilehash: 3a92d1950bd1fab5ea6e94a433aad1d74802fb23
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130137823"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132027268"
 ---
 # <a name="investigate-all-enterprise-sensor-detections-in-the-device-inventory"></a>Análisis de las detecciones de todos los sensores de la empresa del inventario de dispositivos
 
@@ -43,6 +43,17 @@ En la tabla siguiente se describen las columnas de la tabla del inventario de di
 | **Última actividad** | Última actividad realizada por el dispositivo. |
 | **Discovered** | Cuándo apareció por primera vez en la red este dispositivo. |
 | **Modo PLC (versión preliminar)** | El modo de funcionamiento de PLC incluye el estado de clave (físico) y el estado de ejecución (lógico). Entre los posibles estados de **clave** se incluyen los siguientes: ejecución, programa, remoto, detenido, no válido, programación deshabilitada, posible ejecución. Los estados de **ejecución** posibles son: ejecución, programa, detenido, pausado, excepción, parado, atrapado, inactivo, sin conexión. Si ambos estados coinciden, solo se presenta uno. |
+
+## <a name="what-is-an-inventory-device"></a>¿Qué es un dispositivo de inventario?
+
+El inventario de dispositivos de Defender para IoT muestra una amplia gama de atributos de dispositivos que son detectados por los sensores que supervisan las redes de la organización y los puntos de conexión administrados. Defender para IoT identificará y clasificará los dispositivos como un solo dispositivo de red único en el inventario para:
+
+1. Dispositivos IT/OT/IoT independientes (con una o varias NIC)
+1. Dispositivos compuestos por varios componentes de backplane (incluidos todos los bastidores, ranuras o módulos)
+1. Dispositivos que actúan como infraestructura de red, como conmutador o enrutador (con varias NIC). 
+
+Las direcciones IP públicas de Internet, los grupos de multidifusión y los grupos de difusión no se consideran dispositivos de inventario.
+Los dispositivos que han estado inactivos durante más de 60 días se clasifican como dispositivos de inventario inactivos.
 
 ## <a name="integrate-data-into-the-enterprise-device-inventory"></a>Integración de datos en el inventario de dispositivos de la empresa
 

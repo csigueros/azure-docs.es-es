@@ -15,12 +15,12 @@ ms.date: 11/17/2019
 ms.author: zhenlwa
 ms.custom: devx-track-csharp, azure-functions
 ms.tgt_pltfrm: Azure Functions
-ms.openlocfilehash: add4b54adb02db09536f4e56a7f039c46245c182
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ffa2b1a4537093f9a612f0e57b7f416ee7ed0012
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97963571"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132301919"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-azure-functions-app"></a>Tutorial: Uso de la configuración dinámica en una aplicación de Azure Functions
 
@@ -55,7 +55,7 @@ En este tutorial, aprenderá a:
             options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
                    // Load all keys that start with `TestApp:`
                    .Select("TestApp:*")
-                   // Configure to reload configuration if the registered 'Sentinel' key is modified
+                   // Configure to reload configuration if the registered sentinel key is modified
                    .ConfigureRefresh(refreshOptions =>
                       refreshOptions.Register("TestApp:Settings:Sentinel", refreshAll: true));
         });
@@ -63,7 +63,7 @@ En este tutorial, aprenderá a:
     ```
 
    > [!TIP]
-   > Al actualizar varios valores de clave en App Configuration, normalmente no se desea que la aplicación vuelva a cargar la configuración hasta que se hayan realizado los cambios. Puede registrar una clave de **Sentinel** y actualizarla solo cuando se hayan completado los demás cambios de configuración. Esto ayuda a garantizar la coherencia de la configuración en la aplicación.
+   > Al actualizar varios valores de clave en App Configuration, normalmente no se desea que la aplicación vuelva a cargar la configuración hasta que se hayan realizado los cambios. Puede registrar una *clave de Sentinel* y actualizarla solo cuando se hayan completado los demás cambios de configuración. Esto ayuda a garantizar la coherencia de la configuración en la aplicación.
 
 2. Actualice el método `Configure` para que los servicios de Azure App Configuration estén disponibles mediante la inserción de dependencias.
 

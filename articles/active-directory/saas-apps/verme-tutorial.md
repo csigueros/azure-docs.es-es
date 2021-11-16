@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jeedes
-ms.openlocfilehash: 3328efb612c894eae82c8d13a650d00b0302401e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 47632fdba7287869bdc0c49adee1a55b3dada8a0
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124820882"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132332637"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-verme"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Verme
 
@@ -41,7 +41,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Verme admite el inicio de sesión único iniciado por **SP e IDP**.
 
-* Una vez que haya configurado Verme, puede aplicar el control de sesión, que protege en tiempo real la organización frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Una vez que haya configurado Verme, puede aplicar el control de sesión, que protege en tiempo real la organización frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-verme-from-the-gallery"></a>Adición de Verme desde la galería
 
@@ -62,7 +62,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Verme mediante u
 Para configurar y probar el inicio de sesión único de Azure AD con Verme, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Verme](#configure-verme-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Verme](#create-verme-test-user)** , para tener un homólogo de B.Simon en Verme que esté vinculado a la representación del usuario en Azure AD.
@@ -151,6 +151,6 @@ Al hacer clic en el icono de Verme en el panel de acceso, debería iniciar sesi�
 
 - [Pruebe Verme con Azure AD](https://aad.portal.azure.com/)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [¿Qué es el control de sesión en Microsoft Defender para aplicaciones en la nube?](/cloud-app-security/proxy-intro-aad)
 
 - [Protección de Verme con controles y visibilidad avanzados](/cloud-app-security/proxy-intro-aad)

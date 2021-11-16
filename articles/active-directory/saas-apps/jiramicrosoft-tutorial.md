@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 7a1415aa3e1859fe487bab511f623241df3bc839
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 58cf0e45fef054273bf39a9d955da5c0c09a259f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124772797"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132295290"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con JIRA SAML SSO by Microsoft
 
@@ -87,7 +87,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con JIRA SAML SSO by
 Para configurar el inicio de sesión único de Azure AD con JIRA SAML SSO by Microsoft, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de JIRA SAML SSO by Microsoft](#configure-jira-saml-sso-by-microsoft-sso)** , para configurar los valores del inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de JIRA SAML SSO by Microsoft](#create-jira-saml-sso-by-microsoft-test-user)** , para tener un homólogo de B.Simon en JIRA SAML SSO by Microsoft que esté vinculado a la representación del usuario en Azure AD.
@@ -256,7 +256,6 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Puede usar Mis aplicaciones de Microsoft. Si hace clic en el icono de JIRA SAML SSO by Microsoft en Mis aplicaciones, se le redirigirá a la dirección URL de inicio de sesión único de la aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado JIRA SAML SSO by Microsoft, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado JIRA SAML SSO by Microsoft, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

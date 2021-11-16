@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 ms.custom: iot-p0-scenario, iot-devices-deviceOEM
 ms.reviewer: nberdy
-ms.openlocfilehash: dad46e21b35225855d787c367d112362fc95a463
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 140f15f8940f61c14994b8e72a78c1b5b4f360f2
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107010548"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132327108"
 ---
 # <a name="security-practices-for-azure-iot-device-manufacturers"></a>Procedimientos de seguridad para los fabricantes de dispositivos Azure IoT
 A medida que más fabricantes lanzan dispositivos IoT, resulta útil identificar una guía en torno a los procedimientos comunes. En este artículo se resumen los procedimientos de seguridad recomendados que se deben tener en cuenta al fabricar dispositivos para su uso con Azure IoT Device Provisioning Service (DPS).  
@@ -188,6 +188,6 @@ Para más información, vea [Aprovisionamiento](about-iot-dps.md#provisioning-pr
 
 Además de los procedimientos de seguridad recomendados en este artículo, Azure IoT proporciona recursos para ayudarle a seleccionar hardware seguro y crear implementaciones de IoT seguras: 
 - [Recomendaciones de seguridad](../iot-fundamentals/security-recommendations.md) de Azure IoT para guiar el proceso de implementación. 
-- [Azure Security Center](https://azure.microsoft.com/services/security-center/) ofrece un servicio que ayuda a crear implementaciones de IoT seguras. 
+- [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/) ofrece un servicio que ayuda a crear implementaciones de IoT seguras. 
 - Para obtener ayuda con la evaluación del entorno de hardware, consulte el documento de notas del producto [Evaluación de la seguridad de IoT](https://download.microsoft.com/download/D/3/9/D3948E3C-D5DC-474E-B22F-81BA8ED7A446/Evaluating_Your_IOT_Security_whitepaper_EN_US.pdf). 
 - Para obtener ayuda con la selección de hardware seguro, consulte [Hardware seguro adecuado para su implementación de IoT](https://download.microsoft.com/download/C/0/5/C05276D6-E602-4BB1-98A4-C29C88E57566/The_right_secure_hardware_for_your_IoT_deployment_EN_US.pdf). 

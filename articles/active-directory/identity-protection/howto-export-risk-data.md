@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07ea682d65bde9748a4cd55ed066eb8f31eb418a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f723b6bf700b1dc18bea90b4ed0be00356c716a1
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124784097"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132300753"
 ---
 # <a name="how-to-export-risk-data"></a>Procedimiento de exportación de datos de riesgo
 
@@ -73,7 +73,7 @@ Azure Event Hubs puede examinar los datos entrantes provenientes de orígenes 
 
 ## <a name="other-options"></a>Otras opciones
 
-Las organizaciones pueden optar por [conectar datos de Azure AD a Azure Sentinel](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection) también para un procesamiento adicional.
+Las organizaciones pueden optar por [conectar datos de Azure AD a Microsoft Sentinel](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection) también para un procesamiento adicional.
 
 Las organizaciones pueden usar [Microsoft Graph API para interactuar con los eventos de riesgo mediante programación](howto-identity-protection-graph-api.md).
 

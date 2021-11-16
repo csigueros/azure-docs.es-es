@@ -10,12 +10,12 @@ ms.subservice: verifiable-credentials
 ms.date: 07/20/2021
 ms.author: baselden
 ms.custom: references_regions
-ms.openlocfilehash: 984b680c207c8c7e6bf404a7ced08f2fdcfd7b71
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 36eb4676c63a539004aba9c000702ba964f05d3c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129984447"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132332428"
 ---
 # <a name="plan-your-azure-active-directory-verifiable-credentials--verification-solution-preview"></a>Planeación de una solución de comprobación de credenciales verificables de Azure Active Directory (versión preliminar)
 
@@ -332,7 +332,7 @@ Como parte del planeamiento operativo, considere supervisar lo siguiente:
 
    * Habilite el registro para Key Vault para hacer un seguimiento de las operaciones de firma, así como para supervisar y alertar sobre los cambios de configuración. Para más información, consulte [Habilitación del registro de Key Vault](../../key-vault/general/howto-logging.md).
 
-   * Archive los registros en sistemas de Administración de eventos e información de seguridad (SIEM), como [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/), para la retención a largo plazo.
+   * Archive los registros en sistemas de Administración de eventos e información de seguridad (SIEM), como [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel/), para la retención a largo plazo.
 
  
 

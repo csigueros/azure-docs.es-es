@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/24/2020
 ms.author: jeedes
-ms.openlocfilehash: b96acda6ee882f54ea290d5c610d7a7a2fc7496a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 6917b8bfb9c3d62fb2546768c9161a85e4470ece
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124801189"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132304902"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-shiphazmat"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ShipHazmat
 
@@ -41,7 +41,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * ShipHazmat admite el inicio de sesión único iniciado por **IDP**
 * ShipHazmat admite aprovisionamiento de usuarios **Just-In-Time**
-* Una vez configurado ShipHazmat, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Una vez configurado ShipHazmat, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).
 
 
 ## <a name="adding-shiphazmat-from-the-gallery"></a>Incorporación de ShipHazmat desde la galería
@@ -63,7 +63,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con ShipHazmat media
 Para configurar y probar el inicio de sesión único de Azure AD con ShipHazmat, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en ShipHazmat](#configure-shiphazmat-sso)**: para configurar los valores de inicio de sesión único en la aplicación.
     * **[Creación de un usuario de prueba en ShipHazmat](#create-shiphazmat-test-user)**: para tener un homólogo de B.Simon en ShipHazmat vinculado a la representación del usuario en Azure AD.
@@ -157,4 +157,4 @@ Al hacer clic en el icono de ShipHazmat en el panel de acceso, debería iniciar 
 
 - [Pruebe ShipHazmat con Azure AD](https://aad.portal.azure.com/)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [¿Qué es el control de sesión en Microsoft Defender para aplicaciones en la nube?](/cloud-app-security/proxy-intro-aad)

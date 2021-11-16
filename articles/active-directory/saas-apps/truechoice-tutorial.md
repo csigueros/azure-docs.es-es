@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 42bee8e95d21c0cf11112b1fa745b6acef79875c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 0d6cb7f15f7e6f92b32653b3930e395bb4c173cf
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124765053"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132298772"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-truechoice"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con TrueChoice
 
@@ -60,7 +60,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con TrueChoice media
 Para configurar y probar el inicio de sesión único de Azure AD con TrueChoice, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de TrueChoice](#configure-truechoice-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de TrueChoice](#create-truechoice-test-user)** : para tener un homólogo de B.Simon en TrueChoice que esté vinculado a la representación del usuario en Azure AD.
@@ -141,4 +141,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado TrueChoice, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez que haya configurado TrueChoice, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

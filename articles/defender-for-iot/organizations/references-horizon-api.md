@@ -1,28 +1,30 @@
 ---
 title: API de Horizon
 description: En esta guía se describen los métodos de Horizon de uso común.
-ms.date: 1/5/2021
+ms.date: 11/09/2021
 ms.topic: article
-ms.openlocfilehash: b65f7663df29e2c82faa5d1aeec3b820d5fbaf70
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: db3fd241593f2d5c3e43485bcca4790a73f975fd
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018529"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132331326"
 ---
-# <a name="horizon-api"></a>API de Horizon 
+# <a name="horizon-api"></a>API de Horizon
 
 En esta guía se describen los métodos de Horizon de uso común.
 
-### <a name="getting-more-information"></a>Más información
+## <a name="getting-more-information"></a>Más información
+
+Las API de Defender para IoT se rigen por la [licencia de API de Microsoft y Términos de uso](/legal/microsoft-apis/terms-of-use).
 
 Para obtener más información sobre el uso de Horizon y la plataforma Defender para IoT, consulte la siguiente información:
 
 - En el caso del SDK de Horizon Open Development Environment (ODE), póngase en contacto con el representante de Defender para IoT.
+
 - Para obtener información de soporte técnico y solución de problemas, póngase en contacto con <support@cyberx-labs.com>.
 
 - Para acceder a la guía de usuario de Defender para IoT desde la consola de Defender para IoT, seleccione :::image type="icon" source="media/references-horizon-api/profile.png"::: y luego **Download User Guide** (Descargar guía de usuario).
-
 
 ## `horizon::protocol::BaseParser`
 
@@ -35,7 +37,7 @@ Resumen de todos los complementos. Consta de dos métodos:
 
 La primera función a la que se llama en el complemento crea una instancia del analizador para que Horizon la reconozca y la registre.
 
-### <a name="parameters"></a>Parámetros 
+### <a name="parameters"></a>Parámetros
 
 Ninguno.
 
@@ -45,15 +47,15 @@ shared_ptr a la instancia del analizador.
 
 ## `std::vector<uint64_t> horizon::protocol::BaseParser::processDissectAs(const std::map<std::string, std::vector<std::string>> &) const`
 
-Se llama a esta función en cada complemento registrado en un nivel superior. 
+Se llama a esta función en cada complemento registrado en un nivel superior.
 
 En la mayoría de los casos estará vacía. Inicie una excepción para que Horizon sepa que se ha producido un error.
 
-### <a name="parameters"></a>Parámetros 
+### <a name="parameters"></a>Parámetros
 
 - Mapa que contiene la estructura de dissect_as, tal como se ha definido en el archivo config.json de otro complemento que se quiere registrar en un nivel superior.
 
-### <a name="return-value"></a>Valor devuelto 
+### <a name="return-value"></a>Valor devuelto
 
 Matriz de uint64_t, que es el registro procesado en un tipo de uint64_t. Esto significa que, en el mapa, hay una lista de puertos cuyos valores son de uin64_t.
 
@@ -70,7 +72,7 @@ El complemento debe ser seguro para subprocesos, ya que se puede llamar a esta f
 - Unidad de control del SDK responsable del almacenamiento de los datos y la creación de objetos relacionados con el SDK, como ILayer y los campos.
 - Asistente para leer los datos del paquete sin formato. Ya está establecido con el orden de bytes definido en config.json.
 
-### <a name="return-value"></a>Valor devuelto 
+### <a name="return-value"></a>Valor devuelto
 
 Resultado del procesamiento. Puede ser *Success* (correcto), *Malformed* (con formato incorrecto) o *Sanity* (comprobación).
 
@@ -82,7 +84,7 @@ Marca el procesamiento como error de comprobación, lo que significa que el paqu
 
 Constructor
 
-### <a name="parameters"></a>Parámetros 
+### <a name="parameters"></a>Parámetros
 
 - Define el código de error usado por Horizon para el registro, tal como se ha definido en config.json.
 
@@ -94,7 +96,7 @@ Resultado con formato incorrecto, indica que el paquete ya se ha reconocido como
 
 Constructor
 
-### <a name="parameters"></a>Parámetros  
+### <a name="parameters"></a>Parámetros
 
 - Código de error, tal como se ha definido en config.json.
 
@@ -110,7 +112,7 @@ Constructor. Se ha creado un resultado básico correcto. Esto significa que no s
 
 Constructor.
 
-### <a name="parameters"></a>Parámetros 
+### <a name="parameters"></a>Parámetros
 
 - Dirección del paquete, si se ha identificado. Los valores pueden ser *REQUEST* o *RESPONSE*.
 
@@ -127,15 +129,15 @@ Constructor.
 
 Constructor.
 
-### <a name="parameters"></a>Parámetros 
+### <a name="parameters"></a>Parámetros
 
--  Advertencias. No se producen errores en estos eventos, pero se notifica a Horizon.
+- Advertencias. No se producen errores en estos eventos, pero se notifica a Horizon.
 
 ## `HorizonID HORIZON_FIELD(const std::string_view &)`
 
 Convierte una referencia basada en cadena en un nombre de campo (por ejemplo, function_code) para HorizonID.
 
-### <a name="parameters"></a>Parámetros 
+### <a name="parameters"></a>Parámetros
 
 - Cadena que se va a convertir.
 
@@ -163,7 +165,7 @@ Referencia al administrador.
 
 Crea un nuevo campo numérico de 64 bits en la capa con el id. solicitado.
 
-### <a name="parameters"></a>Parámetros 
+### <a name="parameters"></a>Parámetros
 
 - Capa creada anteriormente.
 - HorizonID creado por la macro **HORIZON_FIELD**.
@@ -173,7 +175,7 @@ Crea un nuevo campo numérico de 64 bits en la capa con el id. solicitado.
 
 Crea un nuevo campo de cadena en la capa con el id. solicitado. La memoria se mueve, así que tenga cuidado. No va a poder volver a usar este valor.
 
-### <a name="parameters"></a>Parámetros  
+### <a name="parameters"></a>Parámetros
 
 - Capa creada anteriormente.
 - HorizonID creado por la macro **HORIZON_FIELD**.

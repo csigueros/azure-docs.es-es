@@ -18,12 +18,12 @@ ms.author: markvi
 ms.reviewer: besiler
 ms.custom: has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e171720b3cf36d7ad2b074adadaa0e514779c3b
-ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.openlocfilehash: 5cc4a93d102cd87097fed198f08240da7ec10e36
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131995395"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132336361"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integración de registros de Azure AD con registros de Azure Monitor
 
@@ -31,7 +31,7 @@ Siga los pasos de este artículo para integrar los registros de Azure Active Dir
 
 Use la integración de los registros de actividad de Azure AD en los registros de Azure Monitor para realizar tareas como:
 
- * Comparar los registros de inicio de sesión de Azure AD con los registros de seguridad publicados por Azure Security Center.
+ * Comparar los registros de inicio de sesión de Azure AD con los registros de seguridad publicados por Microsoft Defender for Cloud.
   
  * Solucionar problemas de cuellos de botella de rendimiento en la página de inicio de sesión de la aplicación mediante la correlación de datos de rendimiento de la aplicación de Azure Application Insights.
 

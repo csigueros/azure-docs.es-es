@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 06/15/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: f2aae24d6a3e4fff70443107d769f0e23c82bfbc
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: bf53669dc4c6ca445ea43535a709804d387e855d
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131046990"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131989591"
 ---
 # <a name="azure-sentinel-dns-normalization-schema-reference-public-preview"></a>Referencia del esquema de normalización de DNS de Azure Sentinel (versión preliminar pública)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 62cda5a8fc328d1681a2ccb5a7d196112fd2c157
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a65906e84ac85e8c4e5282eb426d2d700bbf2c66
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124816437"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132333758"
 ---
 # <a name="tutorial-integrate-replicon-with-azure-active-directory"></a>Tutorial: Integración de Replicon con Azure Active Directory
 
@@ -60,7 +60,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Replicon utiliza
 Para configurar y probar el inicio de sesión único de Azure AD con Replicon, realice los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Replicon](#configure-replicon-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Replicon](#create-replicon-test-user)** , para tener un homólogo de B.Simon en Replicon que esté vinculado a la representación del usuario en Azure AD.
@@ -193,4 +193,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado Replicon, puede aplicar el control de sesión, que protege su organización, en tiempo real, frente a la exfiltración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez que haya configurado Replicon, puede aplicar el control de sesión, que protege su organización, en tiempo real, frente a la exfiltración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/31/2021
 ms.author: jeedes
-ms.openlocfilehash: f36b2adf1f1b556dd06b9fa6a2a4d178b3393318
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 0b0f8a7e699cf7d505636ef02615adae99219862
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124813583"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132314271"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ethicspoint-incident-management-epim"></a>Tutorial: Integración de Azure Active Directory con EthicsPoint Incident Management (EPIM)
 
@@ -57,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con EthicsPoint Inci
 Para configurar el inicio de sesión único de Azure AD con EthicsPoint Incident Management (EPIM), haga lo siguiente:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de EthicsPoint Incident Management (EPIM)](#configure-ethicspoint-incident-management-epim-sso)** : para configurar el inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de EthicsPoint Incident Management (EPIM)](#create-ethicspoint-incident-management-epim-test-user)** : para tener un homólogo de B.Simon en EthicsPoint Incident Management (EPIM) que esté vinculado a la representación del usuario en Azure AD.
@@ -142,4 +142,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que ha configurado EthicsPoint Incident Management (EPIM), podrá aplicar el control de sesiones, que protege la información confidencial de la organización en tiempo real de posibles filtraciones e infiltraciones. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez que ha configurado EthicsPoint Incident Management (EPIM), podrá aplicar el control de sesiones, que protege la información confidencial de la organización en tiempo real de posibles filtraciones e infiltraciones. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con las aplicaciones de Microsoft Defender para la nube](/cloud-app-security/proxy-deployment-aad).

@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 author: garyericson
 ms.author: garye
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 108220b63e6562bf56119bb43c1ca27d4460c735
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: e69730f486303fa508fed4cd53f8df3ee76433ba
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131036720"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132318472"
 ---
 # <a name="cognitive-services-in-azure-synapse-analytics"></a>Cognitive Services en Azure Synapse Analytics
 
@@ -25,9 +25,9 @@ Con los modelos previamente entrenados de Azure Cognitive Services, puede enriqu
 
 - El asistente para Cognitive Services de Synapse Analytics genera código PySpark en un cuaderno de Synapse que se conecta a un servicio cognitivo mediante los datos de una tabla de Spark. A continuación, mediante modelos de aprendizaje automático previamente entrenados, el servicio realiza el trabajo para agregar inteligencia artificial a los datos. Consulte el [Asistente para análisis de sentimiento](tutorial-cognitive-services-sentiment.md) y el [Asistente para detección de anomalías](tutorial-cognitive-services-anomaly.md) para más información.
 
-- Microsoft Machine Learning para Apache Spark ([MMLSpark](https://github.com/Azure/mmlspark)) permite crear modelos analíticos y predictivos eficaces y altamente escalables a partir de diversos orígenes de datos de Spark. Synapse Spark proporciona bibliotecas de MMLSpark integradas, entre las que se incluye [Cognitive Services en Spark](https://github.com/microsoft/SynapseML/blob/master/docs/cogsvc.md). Consulte [Tutoriales](#tutorials) para más información.
+- Synapse Machine Learning ([SynapseML](https://github.com/microsoft/SynapseML)) le permite crear modelos predictivos y analíticos eficaces y altamente escalables a partir de varios orígenes de datos de Spark. Synapse Spark proporciona bibliotecas de SynapseML integradas, entre las que se incluye [Cognitive Services en Spark](https://github.com/microsoft/SynapseML/blob/master/docs/cogsvc.md). Consulte [Tutoriales](#tutorials) para más información.
 
-- A partir del código de PySpark generado por el asistente o el código MMLSpark de ejemplo proporcionado en el tutorial, puede escribir su propio código para utilizar otros servicios cognitivos con sus datos. Consulte [¿Qué es Azure Cognitive Services?](../../cognitive-services/what-are-cognitive-services.md) para más información sobre los servicios disponibles.
+- A partir del código de PySpark generado por el asistente o el código SynapseML de ejemplo proporcionado en el tutorial, puede escribir su propio código para utilizar otros servicios cognitivos con sus datos. Consulte [¿Qué es Azure Cognitive Services?](../../cognitive-services/what-are-cognitive-services.md) para más información sobre los servicios disponibles.
 
 
 
@@ -44,7 +44,7 @@ En los tutoriales siguientes se proporcionan ejemplos completos del uso de Cogni
 
 - [Tutorial: Detección de anomalías con Cognitive Services (versión preliminar)](tutorial-cognitive-services-anomaly.md): con un conjunto de datos de ejemplo de datos de serie temporal, cree una tabla de Spark con una columna que indique si los datos de cada fila presentan una anomalía.
 
-- [Tutorial: Creación de aplicaciones de aprendizaje automático con Microsoft Machine Learning para Apache Spark](tutorial-build-applications-use-mmlspark.md): en este tutorial se muestra cómo se utiliza MMLSpark para acceder a varios modelos desde Cognitive Services.
+- [Tutorial: Creación de aplicaciones de aprendizaje automático con Microsoft Machine Learning para Apache Spark](tutorial-build-applications-use-mmlspark.md): en este tutorial se muestra cómo se utiliza SynapseML para acceder a varios modelos desde Cognitive Services.
 
 - En el tutorial [Form Recognizer con Applied AI Services](tutorial-form-recognizer-use-mmlspark.md) se indica cómo usar [Form Recognizer](../../applied-ai-services/form-recognizer/index.yml) para analizar los formularios y documentos, extraer texto y datos en Azure Synapse Analytics. 
 
@@ -57,13 +57,13 @@ En los tutoriales siguientes se proporcionan ejemplos completos del uso de Cogni
 ## <a name="available-cognitive-services-apis"></a>Cognitive Services APIs disponibles
 ### <a name="bing-image-search"></a>Bing Image Search
 
-| Tipo de API                                   | MMLSpark API                  | Cognitive Services APIs (versiones)                                                                                               | DEP VNet Support |
+| Tipo de API                                   | API de SynapseML                  | Cognitive Services APIs (versiones)                                                                                               | DEP VNet Support |
 | ------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
 |Bing Image Search|BingImageSearch|Images - Visual Search V7.0| No compatible|
 
 ### <a name="anomaly-detector"></a>Anomaly Detector
 
-| Tipo de API                                   | MMLSpark API                  | Cognitive Services APIs (versiones)                                                                                               | DEP VNet Support |
+| Tipo de API                                   | API de SynapseML                  | Cognitive Services APIs (versiones)                                                                                               | DEP VNet Support |
 | ------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
 | Detección de la anomalía más reciente                        | DetectLastAnomaly              | Detect Last Point V1.0                                                                                                          | Compatible        |
 | Detección de anomalías                           | DetectAnomalies                | Detect Entire Series V1.0                                                                                                       | Compatible        |
@@ -71,7 +71,7 @@ En los tutoriales siguientes se proporcionan ejemplos completos del uso de Cogni
 
 ### <a name="computer-vision"></a>Visión del equipo
 
-| Tipo de API                                   | MMLSpark API                  | Cognitive Services APIs (versiones)                                                                                               | DEP VNet Support |
+| Tipo de API                                   | API de SynapseML                  | Cognitive Services APIs (versiones)                                                                                               | DEP VNet Support |
 | ------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
 | OCR                                        | OCR                            | Recognize Printed Text V2.0                                                                                                     | Compatible        |
 | Reconocer texto                             | RecognizeText                  | Recognize Text V2.0                                                                                                             | Compatible        |
@@ -85,7 +85,7 @@ En los tutoriales siguientes se proporcionan ejemplos completos del uso de Cogni
 
 ### <a name="translator"></a>Traductor
 
-| Tipo de API                                   | MMLSpark API                  | Cognitive Services APIs (versiones)                                                                                               | DEP VNet Support |
+| Tipo de API                                   | API de SynapseML                  | Cognitive Services APIs (versiones)                                                                                               | DEP VNet Support |
 | ------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
 | Traducción de texto                             | Translate                      | Translate V3.0                                                                                                                  | No compatible    |
 | Transliteración de texto                         | Transliterar                  | Transliterate V3.0                                                                                                              | No compatible    |
@@ -97,7 +97,7 @@ En los tutoriales siguientes se proporcionan ejemplos completos del uso de Cogni
 
 ### <a name="face"></a>Caras
 
-| Tipo de API                                   | MMLSpark API                  | Cognitive Services APIs (versiones)                                                                                               | DEP VNet Support |
+| Tipo de API                                   | API de SynapseML                  | Cognitive Services APIs (versiones)                                                                                               | DEP VNet Support |
 | ------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
 | Detección de caras                                | DetectFace                     | Detect With Url V1.0                                                                                                            | Compatible        |
 | Búsqueda de caras similares                          | FindSimilarFace                | Find Similar V1.0                                                                                                               | Compatible        |
@@ -106,7 +106,7 @@ En los tutoriales siguientes se proporcionan ejemplos completos del uso de Cogni
 | Comprobación de caras                               | VerifyFaces                    | Verify Face To Face V1.0                                                                                                        | Compatible        |
 
 ### <a name="form-recognizer"></a>Form Recognizer
-| Tipo de API                                   | MMLSpark API                  | Cognitive Services APIs (versiones)                                                                                               | DEP VNet Support |
+| Tipo de API                                   | API de SynapseML                  | Cognitive Services APIs (versiones)                                                                                               | DEP VNet Support |
 | ------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
 | Análisis de diseño                             | AnalyzeLayout                  | Analyze Layout Async V2.1                                                                                                       | Compatible        |
 | Análisis de recibos                           | AnalyzeReceipts                | Analyze Receipt Async V2.1                                                                                                      | Compatible        |
@@ -118,7 +118,7 @@ En los tutoriales siguientes se proporcionan ejemplos completos del uso de Cogni
 | Análisis de modelos personalizados                       | AnalyzeCustomModel             | Analyze With Custom Model V2.1                                                                                                  | Compatible        |
 
 ### <a name="speech-to-text"></a>Voz a texto
-| Tipo de API                                   | MMLSpark API                  | Cognitive Services APIs (versiones)                                                                                               | DEP VNet Support |
+| Tipo de API                                   | API de SynapseML                  | Cognitive Services APIs (versiones)                                                                                               | DEP VNet Support |
 | ------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
 | Speech To Text                             | SpeechToText                   | SpeechToText V1.0 |  No compatible    |
 | Voz a texto (SDK)                         | SpeechToTextSDK                | Uso de Speech SDK Version 1.14.0                                                                                                 | No compatible    |
@@ -126,7 +126,7 @@ En los tutoriales siguientes se proporcionan ejemplos completos del uso de Cogni
 
 ### <a name="text-analytics"></a>Text Analytics
 
-| Tipo de API                                   | MMLSpark API                  | Cognitive Services APIs (versiones)                                                                                               | DEP VNet Support |
+| Tipo de API                                   | API de SynapseML                  | Cognitive Services APIs (versiones)                                                                                               | DEP VNet Support |
 | ------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
 | Text Sentiment V2                          | TextSentimentV2                | Sentiment V2.0                                                                                                                  | Compatible        |
 | Language Detector V2                       | LanguageDetectorV2             | Languages V2.0                                                                                                                  | Compatible        |

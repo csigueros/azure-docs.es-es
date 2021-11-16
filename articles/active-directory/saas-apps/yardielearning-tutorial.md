@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 77a7f7df8afa3a9b61043e58c28a27fd15ad960e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b59e07babd096f47f116dc0b57d8d63ad5b51352
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124789358"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132319977"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yardi-elearning"></a>Tutorial: Integración de Azure Active Directory con Yardi eLearning
 
@@ -59,7 +59,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Yardi eLearning 
 Para configurar y probar el inicio de sesión único de Azure AD con Yardi eLearning, haga lo siguiente:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Yardi eLearning](#configure-yardi-elearning-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Yardi eLearning](#create-yardi-elearning-test-user)** : para tener un homólogo de B.Simon en Yardi eLearning que esté vinculado a la representación del usuario en Azure AD.
@@ -139,4 +139,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que ha configurado Yardi eLearning, puede aplicar el control de sesión, que protege la información confidencial de la organización en tiempo real de posibles filtraciones e infiltraciones. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez que ha configurado Yardi eLearning, puede aplicar el control de sesión, que protege la información confidencial de la organización en tiempo real de posibles filtraciones e infiltraciones. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

@@ -3,14 +3,14 @@ metadata:
   title: Preguntas más frecuentes (FAQ) sobre Azure Service Bus | Microsoft Docs
   description: En este artículo se responden algunas de las preguntas más frecuentes (P+F) relativas a Azure Service Bus.
   ms.topic: article
-  ms.service: service-bus
+  ms.service: service-bus-messaging
   ms.date: 01/20/2021
-  ms.openlocfilehash: e364e9719962263e52aa404d8656729b27c72406
-  ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+  ms.openlocfilehash: 53c370c85ae0de819ac10a167d57a8bdbe5fef06
+  ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/01/2021
-  ms.locfileid: "129359429"
+  ms.lasthandoff: 11/09/2021
+  ms.locfileid: "132061858"
 title: Preguntas más frecuentes (FAQ) sobre Azure Service Bus
 summary: >
   En este artículo se tratan algunas preguntas frecuentes sobre Microsoft Azure Service Bus. También puede consultar las [Preguntas más frecuentes de soporte técnico de Microsoft Azure](https://azure.microsoft.com/support/faq/) para obtener información general sobre los precios y el soporte técnico de Azure.
@@ -76,7 +76,7 @@ sections:
   - question: >
       Cómo administrar los mensajes con un tamaño superior a 1 MB
     answer: >
-      Los servicios de mensajería de Service Bus (colas y temas o suscripciones) permiten que la aplicación envíe mensajes de un tamaño de hasta 256 KB (nivel estándar) o 1 MB (nivel prémium). Si trabaja con mensajes de tamaño superior a 1 MB, use el patrón de comprobación de notificaciones que se describe en [esta entrada de blog](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
+      Los servicios de mensajería de Service Bus (colas y temas o suscripciones) permiten que la aplicación envíe mensajes de un tamaño de hasta 256 KB (nivel Estándar) o 100 MB (nivel Premium). Si trabaja con mensajes de tamaño superior al tamaño permitido, use el patrón de comprobación de notificaciones que se describe en [esta entrada de blog](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
 - name: Solución de problemas
   questions:
   - question: "¿Por qué no puedo crear un espacio de nombres después de eliminarlo de otra suscripción? \n"

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 09/09/2021
-ms.openlocfilehash: 99d642a1cd534691e5089ac6956dc023d3a207d0
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: f242521b5ef683a125d86d7109b3e36d4d2e02be
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129388857"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132136991"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guía de referencia para usar las funciones en las expresiones para Azure Logic Apps y Power Automate
 
@@ -62,13 +62,25 @@ O bien, puede obtener valores de cadena de los parámetros. En este ejemplo se u
 
 En cualquier de los casos, ambos ejemplos asignan el resultado a la propiedad `customerName`.
 
-## <a name="considerations-for-using-functions"></a>Consideraciones a la hora de usar funciones
+<a name="function-considerations"></a>
 
-* Los parámetros de función se evalúan de izquierda a derecha.
+## <a name="considerations-for-using-functions"></a>Consideraciones a la hora de usar funciones
 
 * El diseñador no evalúa las expresiones en tiempo de ejecución que se usan como parámetros de función durante el tiempo de diseño. El diseñador requiere que todas las expresiones se puedan evaluar completamente durante el tiempo de diseño.
 
+* Los parámetros de función se evalúan de izquierda a derecha.
+ 
 * En la sintaxis de las definiciones de parámetros, el signo de interrogación (?) que aparece después de un parámetro significa que el parámetro es opcional. Por ejemplo, consulte [getFutureTime()](#getFutureTime).
+
+* Las expresiones de función que aparecen insertadas en texto sin formato requieren llaves ({}) para usar el formato interpolado de la expresión en su lugar. Este formato ayuda a evitar problemas de análisis. Si la expresión de función no aparece insertada en texto sin formato, no se necesita ninguna llave.
+
+  En el ejemplo siguiente se muestra la sintaxis correcta e incorrecta:
+
+  **Correcto**: `"<text>/@{<function-name>('<parameter-name>')}/<text>"`
+ 
+  **Incorrecto**: `"<text>/@<function-name>('<parameter-name>')/<text>"`
+ 
+  **Correcto**: `"@<function-name>('<parameter-name>')"`
 
 Las siguientes secciones organizan las funciones por su uso general, o bien puede examinarlas [por orden alfabético](#alphabetical-list).
 

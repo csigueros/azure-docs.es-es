@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/04/2021
 ms.author: jeedes
-ms.openlocfilehash: a19c0787e272e5717b6e9fbcaa73289c2823e755
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 5d6367cdbd841f7544dde6123939e763b3d03ea9
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124748022"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132288462"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asset-bank"></a>Tutorial: Integración de Azure Active Directory con Asset Bank
 
@@ -58,7 +58,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Asset Bank utili
 Para configurar y probar el inicio de sesión único de Azure AD con Asset Bank, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Asset Bank](#configure-asset-bank-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación del usuario de prueba de Asset Bank](#create-asset-bank-test-user)** : para tener un homólogo de B.Simon en Asset Bank vinculado a la representación del usuario en Azure AD.
@@ -138,4 +138,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurada Asset Bank, puede aplicar el control de sesión, que protege la exfiltración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurada Asset Bank, puede aplicar el control de sesión, que protege la exfiltración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

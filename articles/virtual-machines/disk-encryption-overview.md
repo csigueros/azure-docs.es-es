@@ -8,12 +8,12 @@ ms.author: mbaldwin
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: efc0626c0c5f2c9333e5459d7fb7ce6aa2865cc4
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 989a7fcc058284c1c706cbfc30c97a77200de111
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123105189"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132315319"
 ---
 # <a name="overview-of-managed-disk-encryption-options"></a>Introducción a las opciones de cifrado de discos administrados
 
@@ -29,7 +29,7 @@ Hay varios tipos de cifrado disponibles para los discos administrados, incluidos
 
 A continuación se muestra una comparación de SSE, ADE y el cifrado en el host.
 
-| | Cifrado en reposo (discos de datos y del sistema operativo) | Cifrado de disco temporal | Cifrado de cachés | Flujos de datos cifrados entre el proceso y el almacenamiento | Control de claves por parte del cliente | Estado de cifrado de discos en Azure Security Center |
+| | Cifrado en reposo (discos de datos y del sistema operativo) | Cifrado de disco temporal | Cifrado de cachés | Flujos de datos cifrados entre el proceso y el almacenamiento | Control de claves por parte del cliente | Estado de cifrado de disco de Microsoft Defender para la nube |
 |--|--|--|--|--|--|--|
 | **Cifrado en reposo con clave administrada por la plataforma (SSE+PMK)** | &#x2705; | &#10060; | &#10060; | &#10060; | &#10060; | Incorrecto, no aplicable si está exento |
 | **Cifrado en reposo con clave administrada por el cliente (SSE+CMK)** | &#x2705; | &#10060; | &#10060; | &#10060; | &#x2705; | Incorrecto, no aplicable si está exento |
@@ -37,7 +37,7 @@ A continuación se muestra una comparación de SSE, ADE y el cifrado en el host.
 | **Cifrado en el host**  | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | Incorrecto, no aplicable si está exento |
 
 > [!Important]
-> Para el cifrado en el host, Azure Security Center no detecta el estado de cifrado.
+> Para el cifrado en host, Microsoft Defender para la nube no detecta el estado de cifrado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

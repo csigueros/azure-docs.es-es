@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/26/2021
-ms.openlocfilehash: b87354ca6b7a079f60f8d64e2deae53b65cef167
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 444cbdc14d1d2d7d7237b79398b7d81ea43e8c80
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123543860"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132325588"
 ---
 # <a name="collect-windows-event-log-data-sources-with-log-analytics-agent"></a>Recopilación de orígenes de datos del registro de eventos de Windows con el agente de Log Analytics
 Muchas aplicaciones escriben en el registro de eventos de Windows, por lo que constituye uno de los [orígenes de datos](../agents/agent-data-sources.md) más comunes para los agentes de Log Analytics en máquinas virtuales Windows.  Puede recopilar eventos de registros estándar, como el sistema y la aplicación, además de especificar cualquier registro personalizado creado por las aplicaciones que debe supervisar.
@@ -30,7 +30,7 @@ A medida que escribe el nombre de un registro de eventos, Azure Monitor da suger
 [![Configurar eventos de Windows](media/data-sources-windows-events/configure.png)](media/data-sources-windows-events/configure.png#lightbox)
 
 > [!IMPORTANT]
-> No puede configurar la recopilación de eventos de seguridad en el área de trabajo. Para recopilar eventos de seguridad, es preciso usar [Azure Security Center](../../security-center/security-center-enable-data-collection.md) o [Azure Sentinel](../../sentinel/connect-windows-security-events.md).
+> No puede configurar la recopilación de eventos de seguridad en el área de trabajo. Debe usar [Microsoft Defender for Cloud](../../security-center/security-center-enable-data-collection.md) o [Microsoft Sentinel](../../sentinel/connect-windows-security-events.md) para recopilar eventos de seguridad.
 
 
 > [!NOTE]

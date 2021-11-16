@@ -13,22 +13,22 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30858e9978f7e8857c5f8a2dcdfd7455f6e97b60
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f3874b4be6cd9f84a98a8e218f5faa983499ab5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102553432"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132300934"
 ---
-# <a name="discover-the-current-state-of-external-collaboration-in-your-organization"></a>Detección del estado actual de la colaboración externa en su organización 
+# <a name="discover-the-current-state-of-external-collaboration-in-your-organization"></a>Detección del estado actual de la colaboración externa en su organización
 
-Antes de detectar el estado actual de la colaboración externa, debe [determinar su posición de seguridad deseada](1-secure-access-posture.md). Tendrá en cuenta las necesidades de su organización en cuanto al control centralizado frente al control delegado, así como cualquier objetivo de gobernanza, regulación y cumplimiento pertinente. 
+Antes de detectar el estado actual de la colaboración externa, debe [determinar su posición de seguridad deseada](1-secure-access-posture.md). Tendrá en cuenta las necesidades de su organización en cuanto al control centralizado frente al control delegado, así como cualquier objetivo de gobernanza, regulación y cumplimiento pertinente.
 
-Es probable que las personas de su organización ya estén colaborando con usuarios de otras organizaciones. La colaboración puede realizarse a través de características de aplicaciones de productividad como Microsoft 365, por correo electrónico o compartiendo recursos de otra forma con usuarios externos. Los pilares de su plan de gobernanza se formarán a medida que detecte 
-*   a los usuarios que inician la colaboración externa.
-*   a los usuarios externos y las organizaciones con las que colabora.
-*   el acceso que se concede a los usuarios externos.
+Es probable que las personas de su organización ya estén colaborando con usuarios de otras organizaciones. La colaboración puede realizarse a través de características de aplicaciones de productividad como Microsoft 365, por correo electrónico o compartiendo recursos de otra forma con usuarios externos. Los pilares de su plan de gobernanza se formarán a medida que detecte:
 
+* a los usuarios que inician la colaboración externa;
+* a los usuarios externos y las organizaciones con las que colabora;
+* el acceso que se concede a los usuarios externos.
 
 ## <a name="users-initiating-external-collaboration"></a>Usuarios que inician la colaboración externa
 
@@ -46,17 +46,15 @@ Las organizaciones externas pueden determinarse mediante los nombres de dominio 
 
 ### <a name="use-allow-or-deny-lists"></a>Uso de listas de permitidos o denegados
 
-Considere si su organización desea permitir la colaboración solo con organizaciones específicas. O bien, considere si su organización desea bloquear la colaboración con organizaciones específicas.  En el nivel de inquilino, hay una [lista de permitidos o denegados](../external-identities/allow-deny-list.md), que se puede usar para controlar las invitaciones y los canjes de B2B globales, independientemente del origen (por ejemplo, Teams, SharePoint y Azure Portal).
+Considere si su organización desea permitir la colaboración solo con organizaciones específicas. O bien, considere si su organización desea bloquear la colaboración con organizaciones específicas. En el nivel de inquilino, hay una [lista de permitidos o denegados](../external-identities/allow-deny-list.md), que se puede usar para controlar las invitaciones y los canjes de B2B globales, independientemente del origen (por ejemplo, Microsoft Teams, Microsoft SharePoint o Azure Portal).
+
 Si usa la administración de derechos, también puede limitar el ámbito de los paquetes de acceso a un subconjunto de sus asociados mediante el valor Organizaciones conectadas específicas, tal como se muestra a continuación.
 
-
 ![Captura de pantalla de la lista de permitidos o denegados al crear un nuevo paquete de acceso.](media/secure-external-access/2-new-access-package.png)
-
 
 ## <a name="find-access-being-granted-to-external-users"></a>Búsqueda del acceso que se concede a los usuarios externos
 
 Una vez que tenga un inventario de usuarios externos y organizaciones, puede determinar el acceso concedido a estos usuarios mediante Microsoft Graph API para determinar la [pertenencia a grupos](/graph/api/resources/groups-overview) de Azure AD o la [asignación de aplicaciones directa](/graph/api/resources/approleassignment) en Azure AD.
-
 
 ### <a name="enumerate-application-specific-permissions"></a>Enumeración de permisos específicos de la aplicación
 
@@ -65,7 +63,8 @@ También puede realizar la enumeración de permisos específicos de la aplicaci�
 Investigue específicamente el acceso a todas las aplicaciones empresariales y críticas para la empresa, de modo que sea plenamente consciente de cualquier acceso externo.
 
 ### <a name="detect-ad-hoc-sharing"></a>Detección del uso compartido ad hoc
-Si el correo electrónico y los planes de red lo posibilitan, puede investigar el contenido que se comparte a través del correo electrónico o a través de aplicaciones de software como servicio (SaaS) no autorizadas. La [protección de pérdida de datos de Microsoft 365](/microsoft-365/compliance/data-loss-prevention-policies) ayuda a identificar, prevenir y supervisar el uso compartido accidental de información confidencial en la infraestructura de Microsoft 365. [Microsoft Cloud App Security](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/cloud-app-security) puede ayudarlo a identificar el uso de aplicaciones SaaS no autorizadas en su entorno.
+
+Si el correo electrónico y los planes de red lo posibilitan, puede investigar el contenido que se comparte a través del correo electrónico o a través de aplicaciones de software como servicio (SaaS) no autorizadas. La [protección de pérdida de datos de Microsoft 365](/microsoft-365/compliance/data-loss-prevention-policies) ayuda a identificar, prevenir y supervisar el uso compartido accidental de información confidencial en la infraestructura de Microsoft 365. [Microsoft Defender para aplicaciones en la nube](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/cloud-app-security) puede ayudarlo a identificar el uso de aplicaciones de SaaS no autorizadas en su entorno.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -79,7 +78,7 @@ Consulte los siguientes artículos sobre cómo proteger el acceso externo a los 
 
 4. [Uso de grupos con fines de seguridad](4-secure-access-groups.md)
 
-5. [Transición a B2B de Azure AD](5-secure-access-b2b.md)
+5. [Transición a Azure AD B2B](5-secure-access-b2b.md)
 
 6. [Acceso seguro mediante la administración de derechos](6-secure-access-entitlement-managment.md)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: jeedes
-ms.openlocfilehash: a8c3b6ec5df2e22524238878ea0df207f7594d39
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 2ad97e6c3d28d1ab80960696fa190feadf60cce5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124826139"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132314047"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-humanage"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Humanage
 
@@ -40,7 +40,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Humanage admite el inicio de sesión único iniciado por **SP**.
-* Una vez configurado Humanage, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Una vez configurado Humanage, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-humanage-from-the-gallery"></a>Adición de Humanage desde la galería
 
@@ -60,7 +60,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Humanage mediant
 Para configurar y probar el inicio de sesión único de Azure AD con Humanage, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Humanage](#configure-humanage-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Humanage](#create-humanage-test-user)** : para tener un homólogo de B.Simon en Humanage que esté vinculado a la representación del usuario en Azure AD.
@@ -149,6 +149,6 @@ Al hacer clic en el icono de Humanage en el Panel de acceso, debería iniciar se
 
 - [Prueba de Humanage con Azure AD](https://aad.portal.azure.com/)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [¿Qué es el control de sesión en Microsoft Defender para aplicaciones en la nube?](/cloud-app-security/proxy-intro-aad)
 
 - [Protección de Humanage con controles y visibilidad avanzados](/cloud-app-security/proxy-intro-aad)

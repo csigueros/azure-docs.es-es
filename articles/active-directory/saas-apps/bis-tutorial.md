@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/06/2021
 ms.author: jeedes
-ms.openlocfilehash: 5ea3cb57ac41b7e1c2bf349a1a18d20f4e20c4a8
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 182539e21996272c5fdfbd11744a8842883a60aa
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124830496"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132335164"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bis"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con BIS
 
@@ -62,7 +62,7 @@ Configure y pruebe el inicio de sesión único (SSO) de Azure AD con BIS median
 Para configurar y probar el inicio de sesión único de Azure AD con BIS, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en BIS](#configure-bis-sso)**, para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de BIS](#create-bis-test-user)**, para tener un homólogo de B.Simon en BIS vinculado a la representación del usuario en Azure AD.
@@ -140,4 +140,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Al hacer clic en el icono de BIS en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y, si se ha configurado en modo IDP, iniciará sesión automáticamente en la instancia de BIS para la que configuró el inicio de sesión único. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Al hacer clic en el icono de BIS en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y, si se ha configurado en modo IDP, iniciará sesión automáticamente en la instancia de BIS para la que configuró el inicio de sesión único. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

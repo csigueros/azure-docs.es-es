@@ -6,13 +6,13 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: references_regions, devx-track-azurecli, ignite-fall-2021
-ms.openlocfilehash: 32e21c102bec3c66c066cad9083ab6a561105289
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 8c266f1fc338ca35b05730d9f737a836bdf8949d
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131085001"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131893146"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal"></a>Inicio rápido: Creación de un clúster de Azure Managed Instance for Apache Cassandra desde Azure Portal
 
@@ -42,24 +42,15 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
    * **Grupo de recursos**: especifique si quiere crear un grupo de recursos o utilizar uno ya existente. Un grupo de recursos es un contenedor que almacena los recursos relacionados con una solución de Azure. Para más información, consulte el artículo de introducción [Grupo de recursos de Azure](../azure-resource-manager/management/overview.md).
    * **Nombre del clúster**: escriba un nombre para el clúster.
    * **Ubicación**: lugar donde se implementará el clúster.
-   * **SKU**: el tipo de SKU del clúster.
-   * **Número de nodos**: número de nodos de un cluster. Estos nodos actúan como réplicas de los datos.
    * **Initial Cassandra admin password** (Contraseña inicial de administrador de Cassandra): la contraseña que se usa para crear el clúster.
    * **Confirm Cassandra admin password** (Confirmar contraseña de administrador de Cassandra): vuelva a escribir la contraseña.
-
-   > [!NOTE]
-   > Actualmente, puede crear el clúster de instancia administrada en las regiones *Este de EE. UU., Oeste de EE. UU., Este de EE. UU. 2, Oeste de EE. UU. 2, Centro de EE. UU., Centro-sur de EE. UU., Norte de Europa, Oeste de Europa, Sudeste de Asia, Centro de la India y Este de Australia*.
+   * **Virtual Network** (Red virtual): seleccione una red virtual y una subred existentes o cree una nueva. 
+   * **Assign roles** (Asignar roles): las redes virtuales requieren permisos especiales para permitir la implementación de clústeres de Cassandra administrados. Mantenga activada esta casilla si va a crear una nueva red virtual o si usa una red virtual existente sin permisos aplicados. Si usa una red virtual en la que ya ha implementado clústeres de Instancia administrada de Cassandra, desactive esta opción.
 
    :::image type="content" source="./media/create-cluster-portal/create-cluster-page.png" alt-text="Rellenar el formulario de creación del clúster." lightbox="./media/create-cluster-portal/create-cluster-page.png" border="true":::
 
-1. A continuación, seleccione la pestaña **Redes**.
-
-1. En el panel **Redes**, elija el nombre de **Red virtual** y **Subred**. Puede seleccionar una red virtual existente o crear una.
-
-   :::image type="content" source="./media/create-cluster-portal/networking.png" alt-text="Configuración de los detalles de la red." lightbox="./media/create-cluster-portal/networking.png" border="true":::
-
    > [!NOTE]
-   > La implementación de Azure Managed Instance for Apache Cassandra requiere acceso a Internet. En entornos con acceso limitado a Internet se produce un error de implementación. Asegúrese de no bloquear el acceso a los siguientes servicios de Azure que son esenciales para que las instancias administradas de Cassandra funcionen correctamente:
+   > La implementación de Azure Managed Instance for Apache Cassandra requiere acceso a Internet. En entornos con acceso limitado a Internet se produce un error de implementación. Asegúrese de no bloquear el acceso desde la red virtual a los siguientes servicios de Azure que son esenciales para que las instancias administradas de Cassandra funcionen correctamente. Consulte [Reglas de red de salida necesarias](network-rules.md) para obtener información más detallada.
    > - Azure Storage
    > - Azure KeyVault
    > - Conjuntos de escalado de máquinas virtuales de Azure
@@ -67,16 +58,22 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
    > - Azure Active Directory
    > - Azure Security
 
-1. Si ha creado una red virtual en el último paso, vaya al paso 8. Si seleccionó una red virtual existente, antes de crear el clúster, debe aplicar algunos permisos especiales a la red virtual y a la subred. Para ello, use el comando `az role assignment create` y reemplace `<subscription ID>`, `<resource group name>` y `<VNet name>` con los valores adecuados:
+1. A continuación, seleccione la pestaña **Data center** (Centro de datos).
 
-   ```azurecli-interactive
-   az role assignment create --assignee a232010e-820c-4083-83bb-3ace5fc29d0b --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>
-   ```
+1. Escriba la siguiente información:
 
-   > [!NOTE]
-   > Los valores `assignee` y `role` del comando anterior son valores fijos. Escriba estos valores exactamente como se mencionó en el comando. Si no lo hace, se producirán errores al crear el clúster. Si se producen errores al ejecutar este comando, es posible que no tenga permisos para ejecutarlo. Para obtenerlos, póngase en contacto con el administrador.
+   * **Datacenter name** (Nombre de centro de datos): en la lista desplegable, seleccione su suscripción de Azure.
+   * **Availability zone** (Zona de disponibilidad): active esta casilla si desea habilitar las zonas de disponibilidad.
+   * **SKU Size** (Tamaño de SKU): elija entre los tamaños de SKU de máquina virtual disponibles.
+   * **No. of disks** (Número de discos): elija el número de discos p30 que se conectarán a cada nodo de Cassandra.
+   * **No. of nodes** (Número de nodos): elija el número de nodos de Cassandra que se implementarán en este centro de datos.
 
-1. Ahora que ha terminado con la red, haga clic en **Revisar y crear** > **Crear**.
+   :::image type="content" source="./media/create-cluster-portal/create-datacenter-page.png" alt-text="Revisión del resumen para crear el centro de datos." lightbox="./media/create-cluster-portal/create-datacenter-page.png" border="true":::
+
+   > [!WARNING]
+   > Las zonas de disponibilidad no se admiten en todas las regiones. Se producirá un error en las implementaciones si selecciona una región en la que no se admiten las zonas de disponibilidad. Consulte [aquí](/azure/availability-zones/az-overview#azure-regions-with-availability-zones) las regiones admitidas. La implementación correcta de las zonas de disponibilidad también depende de la disponibilidad de los recursos de proceso en todas las zonas de la región dada. Podría producirse un error en las implementaciones si la SKU que ha seleccionado o la capacidad no están disponibles en todas las zonas. 
+
+1. A continuación, seleccione **Revisar y crear** > **Crear**.
 
    > [!NOTE]
    > El clúster puede tardar hasta 15 minutos en crearse.
@@ -87,9 +84,51 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
    :::image type="content" source="./media/create-cluster-portal/managed-instance.png" alt-text="Página de información general una vez creado el clúster." lightbox="./media/create-cluster-portal/managed-instance.png" border="true":::
 
-1. Para examinar los nodos del clúster, vaya al panel Red virtual que ha usado para crear el clúster y abra el panel **Información general** para verlos:
+1. Para examinar los nodos del clúster, vaya al recurso de clúster y abra el panel **Centro de datos** para verlos:
 
-   :::image type="content" source="./media/create-cluster-portal/resources.png" alt-text="Visualización de los recursos del clúster." lightbox="./media/create-cluster-portal/resources.png" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/datacenter-1.png" alt-text="Consulta de los nodos del centro de datos." lightbox="./media/create-cluster-portal/datacenter-1.png" border="true":::
+
+<!-- ## <a id="create-account"></a>Add a datacenter
+
+1. To add another datacenter, click the add button in the **Data Center** pane:
+
+   :::image type="content" source="./media/create-cluster-portal/add-datacenter.png" alt-text="Click on add datacenter." lightbox="./media/create-cluster-portal/add-datacenter.png" border="true":::
+
+   > [!WARNING]
+   > If you are adding a datacenter in a different region, you will need to select a different virtual network. You will also need to ensure that this virtual network has connectivity to the primary region's virtual network created above (and any other virtual networks that are hosting datacenters within the managed instance cluster). Take a look at [this article](/azure/virtual-network/tutorial-connect-virtual-networks-portal#peer-virtual-networks) to learn how to peer virtual networks using Azure portal. You also need to make sure you have applied the appropriate role to your virtual network before attempting to deploy a managed instance cluster, using the below CLI command.
+   >
+   > ```azurecli-interactive  
+   >     az role assignment create \
+   >     --assignee a232010e-820c-4083-83bb-3ace5fc29d0b \
+   >     --role 4d97b98b-1d4f-4787-a291-c67834d212e7 \
+   >     --scope /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>
+   > ```
+
+1. Fill in the appropriate fields:
+
+   * **Datacenter name** - From the drop-down, select your Azure subscription.
+   * **Availability zone** - Check this box if you want availability zones to be enabled in this datacenter.
+   * **Location** - Location where your datacenter will be deployed to.
+   * **SKU Size** - Choose from the available Virtual Machine SKU sizes.
+   * **No. of disks** - Choose the number of p30 disks to be attached to each Cassandra node.
+   * **SKU Size** - Choose the number of Cassandra nodes that will be deployed to this datacenter.
+   * **Virtual Network** - Select an Exiting Virtual Network and Subnet.  
+
+   :::image type="content" source="./media/create-cluster-portal/add-datacenter-2.png" alt-text="Add Datacenter." lightbox="./media/create-cluster-portal/add-datacenter-2.png" border="true":::
+
+   > [!WARNING]
+   > Notice that we do not allow creation of a new virtual network when adding a datacenter. You need to choose an existing virtual network, and as mentioned above, you need to ensure there is connectivity between the target subnets where datacenters will be deployed. You also need to apply the appropriate role to the VNet to allow deployment (see above).
+
+1. When the datacenter is deployed, you should be able to view all datacenter information in the **Data Center** pane:
+
+   :::image type="content" source="./media/create-cluster-portal/multi-datacenter.png" alt-text="View the cluster resources." lightbox="./media/create-cluster-portal/multi-datacenter.png" border="true":::
+
+## Troubleshooting
+
+If you encounter an error when applying permissions to your Virtual Network using Azure CLI, such as *Cannot find user or service principal in graph database for 'e5007d2c-4b13-4a74-9b6a-605d99f03501'*, you can apply the same permission manually from the Azure portal. Learn how to do this [here](add-service-principal.md).
+
+> [!NOTE] 
+> The Azure Cosmos DB role assignment is used for deployment purposes only. Azure Managed Instanced for Apache Cassandra has no backend dependencies on Azure Cosmos DB.   -->
 
 ## <a name="connecting-to-your-cluster"></a>Conectarse a los clúster
 
@@ -116,14 +155,6 @@ initial_admin_password="Password provided when creating the cluster"
 cqlsh $host 9042 -u cassandra -p $initial_admin_password --ssl
 ```
 
-## <a name="troubleshooting"></a>Solución de problemas
-
-Si se produce un error al aplicar permisos a la red virtual, por ejemplo, se indica que *no se encuentra el usuario o la entidad de servicio en la base de datos de grafos para "e5007d2c-4b13-4a74-9b6a-605d99f03501"* , puede aplicar el mismo permiso manualmente desde Azure Portal. Para aplicar permisos desde el portal, vaya al panel **Control de acceso (IAM)** de la red virtual existente y agregue una asignación de roles para "Azure Cosmos DB" al rol "Administrador de red". Si aparecen dos entradas al buscar "Azure Cosmos DB", agregue las dos entradas, tal como se muestra en la siguiente imagen: 
-
-   :::image type="content" source="./media/create-cluster-cli/apply-permissions.png" alt-text="Permisos de aplicación" lightbox="./media/create-cluster-cli/apply-permissions.png" border="true":::
-
-> [!NOTE] 
-> La asignación de roles de Azure Cosmos DB se usa solo con fines de implementación. Azure Managed Instance for Apache Cassandra no tiene dependencias de back-end en Azure Cosmos DB.   
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

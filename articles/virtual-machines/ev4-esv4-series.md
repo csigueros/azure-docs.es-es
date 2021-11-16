@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: c5ad35114edaae42019e0949cc4ad8aa4b291ec6
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: de77aa1984e58947a9877b4c20720e62a2e277ef
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131441198"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132372082"
 ---
 # <a name="ev4-and-esv4-series"></a>Series Ev4 y Esv4
 
@@ -39,6 +39,7 @@ El almacenamiento en disco de datos remotos se factura de forma independiente a 
 [Compatibilidad con generación de VM](generation-2.md): Generación 1<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible <br>
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): No compatible <br>
+[Virtualización anidada](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization.md): compatible <br>
 <br>
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Nº máx. NIC|Ancho de banda de red esperado (Mbps) |
@@ -67,6 +68,7 @@ Los tamaños de la serie Esv4 se ejecutan en Intel&reg; Xeon&reg; Platinum 8272C
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible <br>
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): No compatible <br>
+[Virtualización anidada](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization.md): compatible <br>
 <br>
 
 

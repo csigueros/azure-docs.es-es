@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 096315d314555478b993151bd1b562010cb24949
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b70fc467fe2a8502f83437c1f9c004033f440993
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124761284"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132324396"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-awarego"></a>Tutorial: Integración del inicio de sesión único de Azure Active Directory con AwareGo
 
@@ -144,4 +144,4 @@ En esta sección, puede probar la configuración del inicio de sesión único de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez haya configurado AwareGo, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del control de aplicaciones de acceso condicional. Para más información, consulte [Cómo aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez haya configurado AwareGo, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del control de aplicaciones de acceso condicional. Para obtener más información, consulte [Cómo aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

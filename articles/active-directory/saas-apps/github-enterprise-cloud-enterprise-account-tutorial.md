@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 3d2df035c32071f84608e36237b119c1e2d9b72a
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 0404c8d137f90f5ead2f2b3bd3c9754ab1a45608
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131459223"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132291600"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-enterprise-cloud---enterprise-account"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con GitHub Enterprise Cloud - Enterprise Account
 
@@ -150,4 +150,4 @@ Para comprobar el acceso a la organización de GitHub en la cuenta de empresa co
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado GitHub Enterprise Cloud - Enterprise Account, puede aplicar el control de sesión, que protege contra la filtración e infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado GitHub Enterprise Cloud - Enterprise Account, puede aplicar el control de sesión, que protege contra la filtración e infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

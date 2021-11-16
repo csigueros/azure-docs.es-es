@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 7b0d5d8e087e9567d26032d36279b1cb3086b28c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 61c4f86db5de72c3d0dab6a4e220af499f09f033
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124739362"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132326348"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-klue"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Klue
 
@@ -58,7 +58,7 @@ Configure y pruebe el inicio de sesión único (SSO) de Azure AD con Klue utili
 Para configurar y probar el inicio de sesión único de Azure AD con Klue, lleve a cabo los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Klue](#configure-klue-sso)**, para configurar el inicio de sesión único en la aplicación.
     * **[Creación de un usuario de prueba en Klue](#create-klue-test-user)**, para tener un homólogo de B.Simon en Klue que esté vinculado a la representación de este usuario en Azure AD.
@@ -157,4 +157,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Klue, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado Klue, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

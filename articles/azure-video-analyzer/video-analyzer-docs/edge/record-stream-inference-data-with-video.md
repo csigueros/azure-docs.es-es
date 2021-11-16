@@ -5,12 +5,12 @@ ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 77b920f52f699cb4492764aaf5ecb8b5f8ee2a7e
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: fa2f6c4ec9a64dacc719f62f6a87c6d9d6e112d2
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131559416"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132319338"
 ---
 # <a name="tutorial-record-and-stream-inference-metadata-with-video"></a>Tutorial: Grabación y transmisión de metadatos de inferencia con vídeo
 

@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 074c203a0a5688855d4f7607a877b25ce6ee6ad7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1f57ae5565e176956cab15586809ad231b776d27
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89660569"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132300871"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Determinación de los requisitos de identidad para la solución de identidad híbrida
 El primer paso para diseñar una solución de identidad híbrida es determinar los requisitos de la organización que aprovechará esta solución.  Un identidad híbrida se inicia como un rol de soporte (admite todas las demás soluciones de nube mediante la autenticación) y avanza proporcionando capacidades nuevas e interesantes que desbloquean nuevas cargas de trabajo para los usuarios.  Estas cargas de trabajo o servicios que se quieran adoptar para los usuarios, determinan los requisitos para el diseño de la identidad híbrida.  Estos servicios y cargas de trabajo tienen que aprovechar la identidad híbrida tanto a nivel local como en la nube.  
@@ -59,7 +59,7 @@ También tiene que tener en cuenta los servicios en la nube que su compañía po
 * ¿Está esta integración actualmente en producción o se trata de una prueba piloto?
 
 > [!NOTE]
-> Cloud Discovery analiza los registros de tráfico frente al catálogo de aplicaciones de nube de Microsoft Cloud App Security de más de 16 000 aplicaciones de nube que se clasifican y puntúan en función de más de 70 factores de riesgo, para proporcionar visibilidad continua del uso de la nube, TI en las sombras y el riesgo que la TI en las sombras plantea a su organización. Para comenzar, consulte [Configurar Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
+> Cloud Discovery analiza los registros de tráfico con el catálogo de aplicaciones de nube de Microsoft Defender para aplicaciones en la nube de más de 16 000 aplicaciones de nube que se clasifican y puntúan en función de más de 70 factores de riesgo para proporcionar visibilidad continua del uso de la nube, shadow IT y el riesgo que shadow IT supone para la organización. Para comenzar, consulte [Configurar Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
 > 
 > 
 
@@ -112,4 +112,3 @@ También es necesario evaluar los requisitos del usuario. Esta evaluación es im
 
 ## <a name="see-also"></a>Consulte también
 [Información general sobre las consideraciones de diseño](plan-hybrid-identity-design-considerations-overview.md)
-

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/18/2021
 ms.author: jeedes
-ms.openlocfilehash: d325fca8b8997aa94dc331f46d001118c7f1371d
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: d8c4f75bd21d1ce5815312bd0e6211a85535e603
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131474218"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132320705"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-smarthr"></a>Tutorial: Integración del inicio de sesión único de Azure AD con SmartHR
 
@@ -26,7 +26,7 @@ En este tutorial, obtendrá información sobre cómo integrar SmartHR con Azure�
 * Permitir que los usuarios inicien sesión automáticamente en SmartHR con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -56,7 +56,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con SmartHR mediante
 
 Para configurar y probar el inicio de sesión único de Azure AD con SmartHR, siga estos pasos:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)**, para permitir que los usuarios puedan utilizar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en SmartHR](#configure-smarthr-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
@@ -136,4 +136,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado SmartHR, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado SmartHR, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

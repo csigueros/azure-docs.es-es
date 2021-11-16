@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/15/2021
-ms.openlocfilehash: 3a41e3e131c4537e21e3844dbf0db360e2b77b28
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 1557b229c4db50dca2115fc9c11123c76c5adc50
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130214726"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851826"
 ---
 # <a name="troubleshooting-private-endpoint-configuration-for-purview-accounts"></a>Solución de problemas de configuración de punto de conexión privado de cuentas de Purview
 
@@ -123,7 +123,7 @@ En esta guía se resumen las limitaciones conocidas relacionadas con el uso de p
     ```powershell
     Test-NetConnection -ComputerName `Atlas-1225cae9-d651-4039-86a0-b43231a17a4b`.servicebus.windows.net -Port 443
     ```
-    Ejemplo de conexión de salida correcta al espacio de nombres de EventHub a través de una dirección IP privada:
+    Ejemplo de conexión saliente correcta al espacio de nombres del centro de eventos mediane una dirección IP privada:
 
     ```
     ComputerName     : Atlas-1225cae9-d651-4039-86a0-b43231a17a4b.servicebus.windows.net
@@ -152,7 +152,7 @@ Recibe el siguiente mensaje de error al ejecutar un examen:
 `Internal system error. Please contact support with correlationId:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx System Error, contact support.`
 
 ### <a name="cause"></a>Causa 
-Puede indicar problemas relacionados con la conectividad o la resolución de nombres entre la VM que ejecuta el entorno de ejecución de integración autohospedado y la cuenta de almacenamiento o el centro de eventos de los recursos administrados de Azure Purview.
+Puede indicar problemas relacionados con la conectividad o la resolución de nombres entre la máquina virtual que ejecuta el entorno de ejecución de integración autohospedado y la cuenta de almacenamiento o el centro de eventos de los recursos administrados de Azure Purview.
 
 ### <a name="resolution"></a>Solución 
 Valide la resolución de nombres entre la VM que ejecuta el entorno de ejecución de integración autohospedado.
@@ -164,7 +164,7 @@ Recibe el siguiente mensaje de error al ejecutar un nuevo examen:
   `message: Unable to setup config overrides for this scan. Exception:'Type=Microsoft.WindowsAzure.Storage.StorageException,Message=The remote server returned an error: (404) Not Found.,Source=Microsoft.WindowsAzure.Storage,StackTrace= at Microsoft.WindowsAzure.Storage.Core.Executor.Executor.EndExecuteAsync[T](IAsyncResult result)`
 
 ### <a name="cause"></a>Causa 
-Puede indicar la ejecución de una versión anterior del entorno de ejecución de integración autohospedado. Si ha creado la cuenta de Azure Purview después del 18 de agosto de 2021, debe usar la versión 5.9.7885.3 del entorno de ejecución de integración autohospedado.
+Puede indicar la ejecución de una versión anterior del entorno de ejecución de integración autohospedado. Deberá usar la versión 5.9.7885.3 o posteriores del entorno de ejecución de integración autohospedado.
 
 ### <a name="resolution"></a>Solución 
 Actualice el entorno de ejecución de integración autohospedado a la versión 5.9.7885.3.

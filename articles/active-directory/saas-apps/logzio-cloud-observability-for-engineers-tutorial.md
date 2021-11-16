@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/16/2021
 ms.author: jeedes
-ms.openlocfilehash: 5bf3a2c743b2065aea975c96a8328556f773a496
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d5127ff9cc9baab6e30fdf685f3a47415f933fda
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124783356"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132313410"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-set-up-for-logzio---azure-ad-integration"></a>Tutorial: Configuración del inicio de sesión único (SSO) de Azure Active Directory para la integración de Logz.io y Azure AD
 
@@ -161,7 +161,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Logz.io - Azure�
 Para configurar y probar el inicio de sesión único de Azure AD con Logz.io - Azure AD Integration, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Logz.io - Azure AD Integration](#configure-logzio-azure-ad-integration-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Logz.io - Azure AD Integration](#create-logzio-azure-ad-integration-test-user)** , para tener un homólogo de B.Simon en Logz.io - Azure AD Integration vinculado a la representación del usuario en Azure AD.
@@ -248,4 +248,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ### <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado Logz.io Azure AD Integration, podrá aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez que haya configurado Logz.io Azure AD Integration, podrá aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con las aplicaciones de Microsoft Defender para la nube](/cloud-app-security/proxy-deployment-aad).

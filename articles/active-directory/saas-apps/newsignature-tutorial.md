@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/30/2021
 ms.author: jeedes
-ms.openlocfilehash: 732c06c044564081a5554510dd65de2b584128cf
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: ebc9949cd1b6494d9641aecf989b6af5e09701e6
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129400655"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132342231"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-cloud-management-portal-for-microsoft-azure"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Cloud Management Portal para Microsoft Azure
 
@@ -57,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Cloud Management
 Para configurar y probar el inicio de sesión único de Azure AD con Cloud Management Portal para Microsoft Azure, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Cloud Management Portal para Microsoft Azure](#configure-cloud-management-portal-for-microsoft-azure-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Cloud Management Portal para Microsoft Azure](#create-cloud-management-portal-for-microsoft-azure-test-user)** : para tener un homólogo de B.Simon en Cloud Management Portal para Microsoft Azure que esté vinculado a la representación del usuario de Azure AD.
@@ -152,4 +152,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Cloud Management Portal para Microsoft Azure, podrá aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado Cloud Management Portal para Microsoft Azure, podrá aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

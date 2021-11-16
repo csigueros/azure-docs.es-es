@@ -1,5 +1,5 @@
 ---
-title: Estados y facturación de Azure Virtual Machines
+title: Estados y estado de facturación de Azure Virtual Machines
 description: Información general de los distintos estados que puede especificar una máquina virtual y cuándo se factura a un usuario.
 services: virtual-machines
 author: mimckitt
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 03/8/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
-ms.openlocfilehash: b671ae2c4c1f67ea8593d7564cb91b6057e96f3c
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 7458a35b6227ca620f08a02aaadc5b95e8528141
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122695413"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132134344"
 ---
-# <a name="states-and-billing-of-azure-virtual-machines"></a>Estados y facturación de Azure Virtual Machines
+# <a name="states-and-billing-status-of-azure-virtual-machines"></a>Estados y estado de facturación de Azure Virtual Machines
 
 **Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
@@ -28,12 +28,12 @@ La API de vista de instancia proporciona información sobre el estado de ejecuci
 
 Azure Resource Explorer proporciona una interfaz de usuario sencilla para ver el estado de ejecución de una máquina virtual: [Resource Explorer](https://resources.azure.com/).
 
-Los estados de aprovisionamiento son visibles en las propiedades y la vista de instancia de la máquina virtual. Los estados de energía están disponibles en la vista de instancia de la máquina virtual.
+El estado de aprovisionamiento de la máquina virtual está disponible (en formas ligeramente diferentes) en las propiedades de la máquina virtual `provisioningState` e InstanceView. En la propiedad InstanceView de la máquina virtual, habrá un elemento dentro de la matriz `status` en forma de `ProvisioningState/<state>[/<errorCode>]`.
 
 Para recuperar el estado de energía de todas las máquinas virtuales de la suscripción, use [Virtual Machines - List All API](/rest/api/compute/virtualmachines/listall) con el parámetro **statusOnly** establecido en *true*.
 
 > [!NOTE]
-> [Virtual Machines - List All API](/rest/api/compute/virtualmachines/listall) con el parámetro **statusOnly** establecido en true recuperará los estados de energía de todas las máquinas virtuales de una suscripción. Sin embargo, en algunas situaciones poco comunes, es posible que el estado de energía no esté disponible debido a problemas intermitentes en el proceso de recuperación. En estas situaciones, se recomienda volver a intentar usar la misma API o [Azure Resource Health](../service-health/resource-health-overview.md) o [Azure Resource Graph](..//governance/resource-graph/overview.md) para comprobar el estado de energía de las máquinas virtuales.
+> [Virtual Machines - List All API](/rest/api/compute/virtualmachines/listall) con el parámetro **statusOnly** establecido en true recuperará los estados de energía de todas las máquinas virtuales de una suscripción. Sin embargo, en algunas situaciones poco comunes, es posible que el estado de energía no esté disponible debido a problemas intermitentes en el proceso de recuperación. En estas situaciones, se recomienda volver a intentar usar la misma API o bien [Azure Resource Health](../service-health/resource-health-overview.md) para comprobar el estado de energía de las máquinas virtuales.
  
 ## <a name="power-states-and-billing"></a>Estados de energía y facturación
 
@@ -52,35 +52,50 @@ La tabla siguiente proporciona una descripción del estado de cada instancia e i
 | Desasignando | Este es el estado de transición entre la ejecución y la desasignación. | No facturado* | 
 | Desasignado | La máquina virtual ha liberado la concesión en el hardware subyacente y está completamente apagada. Este estado también se conoce como *Detenido (desasignado)* . | No facturado* | 
 
+
+**Ejemplo de PowerState en JSON**
+
+```json
+        {
+          "code": "PowerState/running",
+          "level": "Info",
+          "displayStatus": "VM running"
+        }
+```
+
 &#42; Algunos recursos de Azure, como los [discos](https://azure.microsoft.com/pricing/details/managed-disks) y las [redes](https://azure.microsoft.com/pricing/details/bandwidth/), seguirán generando gastos.
 
 
 ## <a name="provisioning-states"></a>Estados de aprovisionamiento
 
-Un estado de aprovisionamiento es el estado de una operación de plano de control iniciada por el usuario en la máquina virtual. Estos estados son independientes del estado de energía de una máquina virtual.
+El estado de aprovisionamiento es el estado de una operación de plano de control iniciada por el usuario en la máquina virtual. Estos estados son independientes del estado de energía de una máquina virtual.
 
-:::image type="content" source="./media/virtual-machines-common-states-lifecycle/vm-provisioning-states.png" alt-text="En la imagen se muestran los estados de aprovisionamiento por los que puede pasar una máquina virtual.":::
-
-| Estado de aprovisionamiento | Description | Estado de energía | Facturación | 
-|---|---|---|---|
-| Crear | Creación de máquinas virtuales. | Iniciando | No facturado* | 
-| Actualizar | Actualiza el modelo de una máquina virtual existente. Algunos cambios en una máquina virtual que no son del modelo, como iniciar y reiniciar, entran en el estado de actualización. | En ejecución | Facturado | 
-| Eliminar | Eliminación de la máquina virtual. | Desasignando | No facturado* |
-| desasignar | La máquina virtual se detiene y se quita completamente del host subyacente. Desasignar una máquina virtual se considera una actualización y mostrará estados de aprovisionamiento similares a la actualización. | Desasignando | No facturado* | 
-
-&#42; Algunos recursos de Azure, como los [discos](https://azure.microsoft.com/pricing/details/managed-disks) y las [redes](https://azure.microsoft.com/pricing/details/bandwidth/), seguirán generando gastos.
+| Estado de aprovisionamiento | Descripción |
+|---|---|
+| Creating | Se está creando la máquina virtual. |
+| Actualizando | La máquina virtual se está actualizando al modelo más reciente. Algunos cambios que no tienen que ver con el modelo en una máquina virtual, como el inicio y el reinicio, entran dentro del estado de actualización. |
+| Con error | La última operación en el recurso de máquina virtual no se realizó correctamente. | 
+| Correcto | La última operación en el recurso de máquina virtual se realizó correctamente. | 
+| Eliminando | Se está eliminando la máquina virtual. | 
+| Migración | Aparece cuando se migra de Azure Service Manager a Azure Resource Manager. | 
 
 ## <a name="os-provisioning-states"></a>Estados de aprovisionamiento del sistema operativo
-Los estados de aprovisionamiento del sistema operativo solo se aplican a máquinas virtuales creadas con una imagen del sistema operativo. En las imágenes especializadas no se mostrarán estos estados. 
+Los estados de aprovisionamiento del sistema operativo solo se aplican a las máquinas virtuales creadas con una imagen del sistema operativo [generalizada](./linux/imaging.md#generalized-images). Las imágenes [especializadas](./linux/imaging.md#specialized-images) y los discos conectados como discos del sistema operativo no mostrarán estos estados. El estado de aprovisionamiento del sistema operativo no se muestra aparte. Es un subestado del estado de aprovisionamiento en la propiedad InstanceView de la máquina virtual. Por ejemplo, `ProvisioningState/creating/osProvisioningComplete`.
 
 :::image type="content" source="./media/virtual-machines-common-states-lifecycle/os-provisioning-states.png" alt-text="En la imagen se muestran los estados de aprovisionamiento del sistema operativo por los que puede pasar una máquina virtual.":::
 
-| Estado de aprovisionamiento del sistema operativo | Description | Estado de energía | Facturación | 
-|---|---|---|---|
-| OSProvisioningInProgress | La máquina virtual está en ejecución y la instalación del sistema operativo invitado está en curso. | En ejecución | Facturado | 
-| OSProvisioningComplete | Se trata de un estado de corta duración. La máquina virtual pasa rápidamente de este estado a **Correcto**. Si todavía se están instalando las extensiones, seguirá viendo este estado hasta que se completen. | En ejecución | Facturado | 
-| Correcto | Se han completado las acciones iniciadas por el usuario. | En ejecución | Facturado | 
-| Con error | Representa una operación con errores. Consulte el código de error para obtener más información y posibles soluciones. | En ejecución  | Facturado | 
+| Estado de aprovisionamiento del sistema operativo | Description | 
+|---|---|
+| OSProvisioningInProgress | La máquina virtual se está ejecutando y la inicialización (instalación) del sistema operativo invitado está en curso. |
+| OSProvisioningComplete | Se trata de un estado de corta duración. La máquina virtual pasa rápidamente de este estado a **Correcto**. Si todavía se están instalando las extensiones, seguirá viendo este estado hasta que se completen. |
+| Correcto | Se han completado las acciones iniciadas por el usuario. | 
+| Con error | Representa una operación con errores. Consulte el código de error para obtener más información y posibles soluciones. | 
+
+## <a name="troubleshooting-vm-states"></a>Solución de problemas de estados de la máquina virtual
+
+Para solucionar problemas específicos de los estados de la máquina virtual, consulte [Solución de problemas de implementación de máquinas virtuales Windows](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows) y [Solución de problemas de implementación de máquinas virtuales Linux](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux).
+
+Si necesita más ayuda de solución de problemas, visite [Documentación de solución de problemas de máquinas virtuales de Azure](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/welcome-virtual-machines).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

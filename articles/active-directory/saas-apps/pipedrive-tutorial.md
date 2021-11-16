@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 7713a1a502697a52ed811b8ed41b13485f454877
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 145d7e0f7b9ba1419b47fde3d8a3526f45315c98
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124768180"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132300101"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pipedrive"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Pipedrive
 
@@ -57,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Pipedrive median
 Para configurar y probar el inicio de sesión único de Azure AD con Pipedrive, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Pipedrive](#configure-pipedrive-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     * **[Creación de un usuario de prueba de Pipedrive](#create-pipedrive-test-user)** : para tener un homólogo de B.Simon en Pipedrive que esté vinculado a la representación del usuario en Azure AD.
@@ -128,6 +128,8 @@ En esta sección, va a permitir que B.Simon acceda a Pipedrive mediante el inici
 1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
+<!-- docutune:ignore "Security Center" -->
+
 ## <a name="configure-pipedrive-sso"></a>Configuración del inicio de sesión único de Pipedrive
 
 1. En otra ventana del explorador, inicie sesión en el sitio web de Pipedrive como administrador.
@@ -136,9 +138,9 @@ En esta sección, va a permitir que B.Simon acceda a Pipedrive mediante el inici
 
     ![Captura de pantalla que muestra "Settings" (Configuración) seleccionado en el menú "User Profile" (Perfil de usuario).](./media/pipedrive-tutorial/configure-1.png)
 
-1. Desplácese hacia abajo hasta Security Center y seleccione **Single sign-on** (Inicio de sesión único).
+1. Desplácese hacia abajo hasta Defender para la nube y seleccione **Inicio de sesión único**.
 
-    ![Captura de pantalla que muestra "Single sign-on" (Inicio de sesión único) seleccionado en "Security Center".](./media/pipedrive-tutorial/configure-2.png)
+    ![Captura de pantalla que muestra la opción "Inicio de sesión único" seleccionada en "Defender para la nube".](./media/pipedrive-tutorial/configure-2.png)
 
 1. En la sección **SAML configuration for Pipedrive** (Configuración de SAML para Pipedrive), siga estos pasos:
 
@@ -195,4 +197,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Pipedrive, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado Pipedrive, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

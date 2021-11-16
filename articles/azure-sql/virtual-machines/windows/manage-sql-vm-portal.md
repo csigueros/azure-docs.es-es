@@ -14,12 +14,12 @@ ms.date: 05/30/2021
 ms.author: pamela
 ms.reviewer: mathoma
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 16b2a041dc384e8c04df077638a51db1a7823da2
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 602cb3affc441c92dfa29ac41de893c96a617ff7
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131072127"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132301881"
 ---
 # <a name="manage-sql-server-vms-by-using-the-azure-portal"></a>Administración de máquinas virtuales con SQL Server mediante Azure Portal
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -118,12 +118,13 @@ Use la página **Configuración de seguridad** del recurso Máquinas virtuales S
 
 Para más información, consulte [Procedimientos recomendados de seguridad](security-considerations-best-practices.md).
 
+<a name="security-center"></a>
 
-## <a name="security-center"></a>Security Center 
+## <a name="defender-for-cloud"></a>Defender para la nube 
 
-Use la página **Security Center** del recurso Máquinas virtuales SQL para ver recomendaciones de Security Center directamente en la hoja Máquina virtual SQL. Habilite [Azure Defender para SQL](../../../security-center/defender-for-sql-usage.md) para usar esta característica. 
+Use la página **Defender para SQL** del recurso de la máquina virtual de SQL para ver las recomendaciones de Defender para la nube directamente en la hoja de la máquina virtual SQL. Habilite [Microsoft Defender para SQL](../../../security-center/defender-for-sql-usage.md) para usar esta característica. 
 
-![Configuración de Security Center de SQL Server en Azure Portal mediante el recurso Máquinas virtuales SQL](./media/manage-sql-vm-portal/sql-vm-security-center.png)
+![Configuración de Defender para la nube de SQL Server en Azure Portal mediante el recurso Máquinas virtuales SQL](./media/manage-sql-vm-portal/sql-vm-security-center.png)
 
 ## <a name="sql-assessment-preview"></a>SQL Assessment (versión preliminar)
 

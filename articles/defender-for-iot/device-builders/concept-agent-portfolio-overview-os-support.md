@@ -1,18 +1,18 @@
 ---
 title: Compatibilidad del sistema operativo e información general de la cartera de agentes (versión preliminar)
-description: Azure Defender para IoT proporciona una amplia cartera de agentes en función del tipo de dispositivo.
-ms.date: 10/03/2021
+description: Microsoft Defender para IoT proporciona una amplia cartera de agentes en función del tipo de dispositivo.
+ms.date: 11/09/2021
 ms.topic: conceptual
-ms.openlocfilehash: 9cd87f9d332ca56da57a823886fa0ebdb93011fa
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: fbad1c486a9bf553b7f7effffe8dcf5e12b5d03a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129399572"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132319023"
 ---
 # <a name="agent-portfolio-overview-and-os-support-preview"></a>Compatibilidad del sistema operativo e información general de la cartera de agentes (versión preliminar)
 
-Azure Defender para IoT proporciona una amplia cartera de agentes en función del tipo de dispositivo.
+Microsoft Defender para IoT proporciona una amplia cartera de agentes en función del tipo de dispositivo.
 
 ## <a name="standalone-agent"></a>Agente independiente
 
@@ -30,9 +30,9 @@ Para obtener más información, sistemas operativos admitidos o solicitar acceso
 
 ## <a name="azure-rtos-micro-agent"></a>Microagente de Azure RTOS
 
-El microagente de Azure Defender para IoT proporciona una solución de seguridad completa y ligera para los dispositivos que usan Azure RTOS. Proporciona cobertura para amenazas comunes y posibles actividades malintencionadas en dispositivos del sistema operativo en tiempo real (RTOS). El microagente viene integrado como parte del componente de Azure RTOS NetX Duo y supervisa la actividad de red del dispositivo.
+El microagente de Microsoft Defender para IoT proporciona una solución de seguridad completa y ligera para los dispositivos que usan Azure RTOS. Proporciona cobertura para amenazas comunes y posibles actividades malintencionadas en dispositivos del sistema operativo en tiempo real (RTOS). El microagente viene integrado como parte del componente de Azure RTOS NetX Duo y supervisa la actividad de red del dispositivo.
 
-El microagente de Azure Defender para IoT viene integrado como parte del componente de Azure RTOS NetX Duo y supervisa la actividad de red del dispositivo. El microagente se compone de una solución de seguridad completa y ligera que proporciona cobertura para las amenazas comunes y las posibles actividades malintencionadas en los dispositivos del sistema operativo en tiempo real (RTOS).
+El microagente de Microsoft Defender para IoT viene integrado como parte del componente de Azure RTOS NetX Duo y supervisa la actividad de red del dispositivo. El microagente se compone de una solución de seguridad completa y ligera que proporciona cobertura para las amenazas comunes y las posibles actividades malintencionadas en los dispositivos del sistema operativo en tiempo real (RTOS).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

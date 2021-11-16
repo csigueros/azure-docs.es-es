@@ -4,13 +4,13 @@ description: Habilitación de SQL Insights en Azure Monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/15/2021
-ms.openlocfilehash: bbef6233a82e85ea849d3b637b5c0b83caddcd04
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.date: 11/5/2021
+ms.openlocfilehash: 35d6547b9351a86ac400ad441ad0dfec953257f2
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131447101"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131989550"
 ---
 # <a name="enable-sql-insights-preview"></a>Habilitación de SQL Insights (versión preliminar)
 En este artículo se describe cómo habilitar [SQL Insights](sql-insights-overview.md) para supervisar las implementaciones de SQL. La supervisión se realiza desde una máquina virtual de Azure que establece una conexión con las implementaciones de SQL y usa vistas de administración dinámica para recopilar datos de supervisión. Puede controlar qué conjuntos de datos se recopilan y la frecuencia de recopilación mediante un perfil de supervisión.
@@ -22,13 +22,12 @@ Para obtener más información sobre cómo habilitar SQL Insights, también pued
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/How-to-Set-up-Azure-Monitor-for-SQL-Insights/player?format=ny]
 
 ## <a name="create-log-analytics-workspace"></a>Creación de un área de trabajo de Log Analytics
-SQL Insights almacena sus datos en una o varias [áreas de trabajo de Log Analytics](../logs/data-platform-logs.md#log-analytics-and-workspaces).  Antes de poder habilitar SQL Insights, debe [crear un área de trabajo](../logs/quick-create-workspace.md) o seleccionar una existente. Se puede usar una sola área de trabajo con varios perfiles de supervisión, pero el área de trabajo y los perfiles deben estar ubicados en la misma región de Azure. Para habilitar las características de SQL Insights y acceder a estas, debe tener el rol de [Colaborador de Log Analytics](../logs/manage-access.md) en el área de trabajo. 
+SQL Insights almacena sus datos en una o varias [áreas de trabajo de Log Analytics](../logs/data-platform-logs.md#log-analytics-and-workspaces). Antes de poder habilitar SQL Insights, debe [crear un área de trabajo](../logs/quick-create-workspace.md) o seleccionar una existente. Se puede usar una sola área de trabajo con varios perfiles de supervisión, pero el área de trabajo y los perfiles deben estar ubicados en la misma región de Azure. Para habilitar las características de SQL Insights y acceder a estas, debe tener el rol de [Colaborador de Log Analytics](../logs/manage-access.md) en el área de trabajo. 
 
 ## <a name="create-monitoring-user"></a>Creación de un usuario de supervisión 
-Necesita un usuario en las implementaciones de SQL que desea supervisar. Siga los procedimientos que se indican a continuación para los diferentes tipos de implementaciones de SQL.
+Necesita un usuario (inicio de sesión) en las implementaciones de SQL que desea supervisar. Siga los procedimientos que se indican a continuación para los diferentes tipos de implementaciones de SQL.
 
-Las instrucciones siguientes cubren el proceso por tipo de implementación de SQL que puede supervisar.  Para lograr esto con un script en varios recursos de SQL a la vez, vea el [archivo LÉAME](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/SQL%20Insights%20Onboarding%20Scripts/Permissions_LoginUser_Account_Creation-README.txt) y el [script de ejemplo](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/SQL%20Insights%20Onboarding%20Scripts/Permissions_LoginUser_Account_Creation.ps1) siguientes.
-
+Las instrucciones siguientes cubren el proceso por tipo de implementación de SQL que puede supervisar. Para lograr esto con un script en varios recursos de SQL a la vez, consulte el [archivo LÉAME](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/SQL%20Insights%20Onboarding%20Scripts/Permissions_LoginUser_Account_Creation-README.txt) y el [script de ejemplo](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/SQL%20Insights%20Onboarding%20Scripts/Permissions_LoginUser_Account_Creation.ps1) siguientes.
 
 ### <a name="azure-sql-database"></a>Azure SQL Database
 
@@ -40,9 +39,9 @@ Las instrucciones siguientes cubren el proceso por tipo de implementación de SQ
 > SQL Insights tiene compatibilidad limitada con los siguientes escenarios de Azure SQL Database:
 > - **Nivel sin servidor**: se pueden recopilar métricas para base de datos que usan el [nivel de proceso sin servidor](../../azure-sql/database/serverless-tier-overview.md). Sin embargo, el proceso de recopilación de métricas restablecerá el temporizador de retraso de pausa automática, lo que impide que la base de datos entre en un estado de pausa automática.
 
-Abra Azure SQL Database con [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) o el [Editor de Power Query (versión preliminar)](../../azure-sql/database/connect-query-portal.md) en Azure Portal.
+Conéctese a una base de datos de Azure SQL con [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md), [Editor de Power Query (versión preliminar)](../../azure-sql/database/connect-query-portal.md) en Azure Portal o cualquier otra herramienta cliente SQL.
 
-Ejecute el siguiente script para crear un usuario con los permisos necesarios. Reemplace *user* por un nombre de usuario y *mystrongpassword* por una contraseña.
+Ejecute el siguiente script para crear un usuario con los permisos necesarios. Reemplace *user* por un nombre de usuario y *mystrongpassword* por una contraseña segura.
 
 ```sql
 CREATE USER [user] WITH PASSWORD = N'mystrongpassword'; 
@@ -70,7 +69,7 @@ order by username
 ```
 
 ### <a name="azure-sql-managed-instance"></a>Instancia administrada de Azure SQL
-Inicie sesión en Azure SQL Managed Instance y use [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) o una herramienta similar para ejecutar el siguiente script con el fin de crear el usuario de supervisión con los permisos necesarios. Reemplace *user* por un nombre de usuario y *mystrongpassword* por una contraseña.
+Conéctese a su instancia de Azure SQL Managed Instance mediante [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) o una herramienta similar y ejecute el siguiente script con el fin de crear el usuario de supervisión con los permisos necesarios. Reemplace *user* por un nombre de usuario y *mystrongpassword* por una contraseña segura.
 
  
 ```sql
@@ -85,8 +84,7 @@ GO
 ```
 
 ### <a name="sql-server"></a>SQL Server
-Inicie sesión en la máquina virtual de Azure que ejecuta SQL Server y use [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) o una herramienta similar para ejecutar el siguiente script con el fin de crear el usuario de supervisión con los permisos necesarios. Reemplace *user* por un nombre de usuario y *mystrongpassword* por una contraseña.
-
+Conéctese a SQL Server en la máquina virtual de Azure y use [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) o una herramienta similar para ejecutar el siguiente script con el fin de crear el usuario de supervisión con los permisos necesarios. Reemplace *user* por un nombre de usuario y *mystrongpassword* por una contraseña segura.
  
 ```sql
 USE master; 
@@ -128,40 +126,40 @@ Las máquinas virtuales de Azure tienen los siguientes requisitos.
 > [!NOTE]
 > El tamaño de la máquina virtual Standard_B2s (2 CPU, 4 GiB) admitirá hasta 100 cadenas de conexión. No debe asignar más de 100 conexiones a una sola máquina virtual.
 
-Según la configuración de red de los recursos de SQL, es posible que las máquinas virtuales deban colocarse en la misma red virtual que los recursos de SQL. De este modo, podrán establecer conexiones de red para recopilar datos de supervisión.  
+Según la configuración de red de los recursos de SQL, es posible que las máquinas virtuales deban colocarse en la misma red virtual que los recursos de SQL. De este modo, podrán establecer conexiones de red para recopilar datos de supervisión.
 
 ## <a name="configure-network-settings"></a>Configuración de la red
-Cada tipo de SQL ofrece métodos para que la máquina virtual de supervisión tenga acceso de forma segura a SQL.  En las secciones siguientes se tratan las opciones basadas en el tipo de SQL.
+Cada tipo de SQL ofrece métodos para que la máquina virtual de supervisión tenga acceso de forma segura a SQL. En las secciones siguientes se tratan las opciones basadas en el tipo de implementación de SQL.
 
 ### <a name="azure-sql-database"></a>Azure SQL Database
 
 SQL Insights admite el acceso a su instancia de Azure SQL Database a través de su punto de conexión público, así como de su red virtual.
 
-Para el acceso a través del punto de conexión público, debe agregar una regla en la página **Configuración de firewall** y en la sección de [configuración del firewall de IP](../../azure-sql/database/network-access-controls-overview.md#ip-firewall-rules).  Para especificar el acceso desde una red virtual, puede establecer [reglas de firewall de red virtual](../../azure-sql/database/network-access-controls-overview.md#virtual-network-firewall-rules) y establecer las [etiquetas de servicio que necesita el agente de Azure Monitor](../agents/azure-monitor-agent-overview.md#networking).  [En este artículo](../../azure-sql/database/network-access-controls-overview.md#ip-vs-virtual-network-firewall-rules) se describen las diferencias entre estos dos tipos de reglas de firewall.
+Para el acceso a través del punto de conexión público, debe agregar una regla en la página **Configuración de firewall** y en la sección de [configuración del firewall de IP](../../azure-sql/database/network-access-controls-overview.md#ip-firewall-rules). Para especificar el acceso desde una red virtual, puede establecer [reglas de firewall de red virtual](../../azure-sql/database/network-access-controls-overview.md#virtual-network-firewall-rules) y establecer las [etiquetas de servicio que necesita el agente de Azure Monitor](../agents/azure-monitor-agent-overview.md#networking). [En este artículo](../../azure-sql/database/network-access-controls-overview.md#ip-vs-virtual-network-firewall-rules) se describen las diferencias entre estos dos tipos de reglas de firewall.
 
 :::image type="content" source="media/sql-insights-enable/set-server-firewall.png" alt-text="Establecer el firewall del servidor" lightbox="media/sql-insights-enable/set-server-firewall.png":::
 
 :::image type="content" source="media/sql-insights-enable/firewall-settings.png" alt-text="Configuración del firewall." lightbox="media/sql-insights-enable/firewall-settings.png":::
 
-
 ### <a name="azure-sql-managed-instance"></a>Instancia administrada de Azure SQL
 
 Si la máquina virtual de supervisión va a estar en la misma red virtual que los recursos de Instancia administrada de SQL Database, consulte [Conexión dentro de la misma red virtual](../../azure-sql/managed-instance/connect-application-instance.md#connect-inside-the-same-vnet). Si la máquina virtual de supervisión va a estar en una red virtual diferente a la de los recursos de Instancia administrada de SQL Database, consulte [Conexión dentro de una red virtual diferente](../../azure-sql/managed-instance/connect-application-instance.md#connect-inside-a-different-vnet).
-
 
 ### <a name="sql-server"></a>SQL Server 
 Si la máquina virtual de supervisión está en la misma red virtual que los recursos de máquina virtual de SQL, consulte [Conexión a SQL Server en una red virtual](../../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md#connect-to-sql-server-within-a-virtual-network). Si la máquina virtual de supervisión va a estar en una red virtual diferente de la de los recursos de máquina virtual de SQL, consulte [Conexión a SQL Server a través de Internet](../../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md#connect-to-sql-server-over-the-internet).
 
 ## <a name="store-monitoring-password-in-key-vault"></a>Almacenamiento de la contraseña de supervisión en Key Vault
-Debe almacenar las contraseñas de conexión del usuario de SQL en un almacén de claves en lugar de escribirlas directamente en las cadenas de conexión del perfil de supervisión.
+Como procedimiento recomendado de seguridad, se aconseja almacenar las contraseñas de usuario (inicio de sesión) de SQL en una instancia de Key Vault, en lugar de escribirlas directamente en las cadenas de conexión del perfil de supervisión.
 
 Cuando configure el perfil para la supervisión de SQL, necesitará uno de los siguientes permisos en el recurso de Key Vault que va a usar:
 
 - Microsoft.Authorization/roleAssignments/write 
-- Permisos de Microsoft.Authorization/roleAssignments/delete como Administrador de acceso de usuario o Propietario 
+- Microsoft.Authorization/roleAssignments/delete
 
-Se creará automáticamente una nueva directiva de acceso como parte de la creación del perfil de SQL Monitoring que usa el almacén de claves especificado. Use *Allow access from All networks* (Permitir el acceso desde todas las redes) en la configuración de redes de Key Vault.
+Si tiene estos permisos, se creará automáticamente una nueva directiva de acceso de Key Vault como parte de la creación del perfil de SQL Monitoring que usa el almacén de claves especificado. 
 
+> [!IMPORTANT]
+> Debe asegurarse de que la configuración de red y seguridad permite que la máquina virtual de supervisión acceda a Key Vault. Para más información, consulte [Acceso de Azure Key Vault desde detrás de un firewall](/key-vault/general/access-behind-firewall.md) y [Configuración de las redes de Azure Key Vault](/key-vault/general/how-to-azure-key-vault-network-security.md).
 
 ## <a name="create-sql-monitoring-profile"></a>Creación de un perfil de SQL Monitoring
 Para iniciar SQL Insights, seleccione **SQL (preview)** SQL (versión preliminar), en la sección **Insights** del menú de **Azure Monitor** en Azure Portal. Haga clic en **Crear nuevo perfil**. 
@@ -186,7 +184,6 @@ El perfil se almacena como un recurso de la [regla de recopilación de datos](..
 > [!NOTE]
 > La ubicación del perfil debe ser la misma ubicación que la del área de trabajo de Log Analytics a la que se van a enviar los datos de supervisión.
 
-
 :::image type="content" source="media/sql-insights-enable/profile-details.png" alt-text="Detalles de perfil." lightbox="media/sql-insights-enable/profile-details.png":::
 
 Haga clic en **Crear perfil de supervisión** una vez que haya especificado los detalles del perfil de supervisión. Puede que el perfil tarde hasta un minuto en implementarse.  Si no ve el nuevo perfil que aparece en el cuadro combinado **Perfil de supervisión**, haga clic en el botón actualizar y debería aparecer una vez completada la implementación.  Una vez que haya seleccionado el nuevo perfil, seleccione la pestaña **Administrar perfil** para agregar una máquina de supervisión que se asociará con el perfil.
@@ -194,14 +191,12 @@ Haga clic en **Crear perfil de supervisión** una vez que haya especificado los 
 ### <a name="add-monitoring-machine"></a>Incorporación de máquina de supervisión
 Seleccione **Add monitoring machine** (Agregar máquina de supervisión) para abrir un panel de contexto con el fin de elegir la máquina virtual que desea configurar para supervisar las instancias de SQL y proporcionar las cadenas de conexión.
 
-Seleccione la suscripción y el nombre de la máquina virtual de supervisión. Si usa Key Vault para almacenar la contraseña del usuario de supervisión, seleccione los recursos del almacén de claves con estos secretos y escriba la dirección URL y el nombre de secreto que se usarán en las cadenas de conexión. Consulte la sección siguiente para más información sobre cómo identificar la cadena de conexión para las diferentes implementaciones de SQL.
-
+Seleccione la suscripción y el nombre de la máquina virtual de supervisión. Si usa Key Vault para almacenar la contraseña del usuario de supervisión, seleccione los recursos del almacén de claves con estos secretos y escriba la dirección URI y el nombre de secreto que se usarán en las cadenas de conexión. Consulte la sección siguiente para más información sobre cómo identificar la cadena de conexión para las diferentes implementaciones de SQL.
 
 :::image type="content" source="media/sql-insights-enable/add-monitoring-machine.png" alt-text="Incorporación de máquina de supervisión." lightbox="media/sql-insights-enable/add-monitoring-machine.png":::
 
-
 ### <a name="add-connection-strings"></a>Incorporación de cadenas de conexión 
-La cadena de conexión especifica el nombre de usuario que SQL Insights debe usar al iniciar sesión en SQL para ejecutar las vistas de administración dinámica. Si utiliza un almacén de claves para almacenar la contraseña del usuario de supervisión, proporcione la dirección URL y el nombre del secreto que se va a usar. 
+La cadena de conexión especifica el nombre de inicio de sesión que SQL Insights debe usar al iniciar sesión en SQL para recopilar datos de supervisión. Si utiliza una instancia de Key Vault para almacenar la contraseña del usuario de supervisión, proporcione el URI de Key Vault y el nombre del secreto que se va a usar.
 
 Las cadenas de conexión varían según el tipo de recurso de SQL:
 
@@ -233,7 +228,7 @@ Obtenga los detalles del elemento de menú **Cadenas de conexión** para la inst
 
 :::image type="content" source="media/sql-insights-enable/connection-string-sql-managed-instance.png" alt-text="Cadena de conexión de SQL Managed Instance" lightbox="media/sql-insights-enable/connection-string-sql-managed-instance.png":::
 
-Para supervisar una réplica secundaria legible, incluya el par clave-valor `ApplicationIntent=ReadOnly` en la cadena de conexión. SQL Insights admite la supervisión de una única réplica secundaria, y los datos recopilados se etiquetarán para reflejar la réplica principal o secundaria. 
+Para supervisar una réplica secundaria legible, incluya el par clave-valor `ApplicationIntent=ReadOnly` en la cadena de conexión. SQL Insights admite la supervisión de una única réplica secundaria. Los datos recopilados se etiquetarán para reflejar la réplica principal o secundaria. 
 
 #### <a name="sql-server"></a>SQL Server 
 Especifique la cadena de conexión de esta forma:

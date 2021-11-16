@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/28/2021
+ms.date: 11/05/2021
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb41fbaf1b1430cddb1ce5c44748edf35801405e
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: c8a0ab89e8437edec176e7033665b627df6cd493
+ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131427653"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131866499"
 ---
 # <a name="change-subdomain-authentication-type-in-azure-active-directory"></a>Cambio del tipo de autenticación de subdominio en Azure Active Directory
 
@@ -39,7 +39,7 @@ Dado que los subdominios heredan el tipo de autenticación del dominio raíz de 
    New-MsolDomain -Name "child.mydomain.com" -Authentication Federated
    ```
 
-1. Use [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net) para obtener el dominio. Dado que el dominio no es un dominio raíz, hereda el tipo de autenticación del dominio raíz. El comando y los resultados podrían tener el aspecto siguiente, con su propio identificador de inquilino:
+1. Use el ejemplo siguiente para obtener mediante GET el dominio. Dado que el dominio no es un dominio raíz, hereda el tipo de autenticación del dominio raíz. El comando y los resultados podrían tener el aspecto siguiente, con su propio identificador de inquilino:
 
    ```http
    GET https://graph.windows.net/{tenant_id}/domains?api-version=1.6
@@ -63,7 +63,7 @@ Dado que los subdominios heredan el tipo de autenticación del dominio raíz de 
      },
    ```
 
-### <a name="use-azure-ad-graph-explorer-api-to-make-this-a-root-domain"></a>Uso de la API de Azure AD Graph Explorer para convertirlo en un dominio raíz
+### <a name="use-microsoft-graph-api-to-make-this-a-root-domain"></a>Uso de Microsoft Graph API para convertir esto en un dominio raíz
 
 Use el siguiente comando para promover el subdominio:
 
@@ -79,7 +79,7 @@ POST https://graph.windows.net/{tenant_id}/domains/child.mydomain.com/promote?ap
    Set-MsolDomainAuthentication -DomainName child.mydomain.com -Authentication Managed
    ```
 
-1. Compruebe mediante GET en Azure AD Graph Explorer que el tipo de autenticación del subdominio ahora es administrado:
+1. Compruebe a través de GET en Microsoft Graph API que el tipo de autenticación del subdominio ya está administrado:
 
    ```http
    GET https://graph.windows.net/{{tenant_id} }/domains?api-version=1.6

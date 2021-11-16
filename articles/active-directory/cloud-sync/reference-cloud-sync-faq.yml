@@ -8,16 +8,16 @@ metadata:
   ms.service: active-directory
   ms.workload: identity
   ms.topic: reference
-  ms.date: 09/10/2021
+  ms.date: 10/18/2021
   ms.subservice: hybrid
   ms.author: billmath
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 45a4273ccdfa76eb158ca8fd2ce51161fc3993b1
-  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+  ms.openlocfilehash: 6fec249a2bbd45c478fec4b35abcdc780ee9bdab
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/13/2021
-  ms.locfileid: "124771353"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130240801"
 title: Preguntas frecuentes de sincronización en la nube de Azure Active Directory Connect
 summary: >
   Lea las preguntas más frecuentes sobre la sincronización en la nube de Azure Active Directory (Azure AD) Connect.
@@ -93,4 +93,7 @@ sections:
   - question: >
       ¿Admite la sincronización en la nube de Azure AD Connect grupos grandes?
     answer: "Sí. En la actualidad, se admiten hasta 50 000 miembros del grupo sincronizados con el filtrado del ámbito de unidad organizativa. \n"
+  - question: >
+      ¿El agente de aprovisionamiento en la nube equilibra la carga si tengo varios agentes instalados?
+    answer: "No. Solo puede haber un agente activo. \n"
 additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes \n\n- [¿Qué es el aprovisionamiento?](what-is-provisioning.md)\n- [¿Qué es la sincronización en la nube de Azure AD Connect?](what-is-cloud-sync.md)\n        \n"

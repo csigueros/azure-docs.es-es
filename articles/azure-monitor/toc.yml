@@ -132,7 +132,7 @@
           href: app/data-retention-privacy.md
     - name: Alertas
       items:
-        - name: Información general
+        - name: Introducción
           href: alerts/alerts-overview.md
         - name: Alertas de métricas
           href: alerts/alerts-metric-overview.md
@@ -165,8 +165,6 @@
               href: best-practices-analysis.md
             - name: Alertas y acciones automatizadas
               href: best-practices-alerts.md
-        - name: Supervisión de un recurso de Azure
-          href: essentials/monitor-azure-resource.md
         - name: Supervisión de máquinas virtuales
           items:
             - name: Información general
@@ -423,7 +421,7 @@
               href: insights/solution-agenthealth.md
         - name: Extensión de Diagnósticos de Azure
           items:
-            - name: Información general
+            - name: Introducción
               href: agents/diagnostics-extension-overview.md
             - name: Windows
               displayname: diagnostics extension

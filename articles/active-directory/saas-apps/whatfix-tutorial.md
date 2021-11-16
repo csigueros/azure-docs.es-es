@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/11/2021
 ms.author: jeedes
-ms.openlocfilehash: cdcc73a0f49157cc48c886fc6e74928dd6c1d042
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: fba75a450ac0130e78aa9a2a470142085b17b498
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124746019"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132316537"
 ---
 # <a name="tutorial-integrate-whatfix-with-azure-active-directory"></a>Tutorial: Integración de Whatfix con Azure Active Directory
 
@@ -60,7 +60,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Whatfix utilizan
 Para configurar y probar el inicio de sesión único de Azure AD con Whatfix, haga lo siguiente:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Whatfix](#configure-whatfix-sso)** : para configurar los valores de Inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Whatfix](#create-whatfix-test-user)** : para tener un homólogo de B.Simon en Whatfix que esté vinculado a la representación del usuario en Azure AD.
@@ -142,4 +142,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Whatfix, puede aplicar el control de sesión, que protege frente a la filtración e infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado Whatfix, puede aplicar el control de sesión, que protege frente a la filtración e infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con las aplicaciones de Microsoft Defender para la nube](/cloud-app-security/proxy-deployment-aad).

@@ -3,18 +3,18 @@ title: 'Tutorial: Creación y administración de datos exportados desde Azure Co
 description: En este artículo se muestra cómo crear y administrar datos exportados de Cost Management para que pueda utilizarlos en los sistemas externos.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2021
+ms.date: 11/03/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: a08c6a6b00273e21c517162260f54ed3e6fc65ff
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: fdefbf1de5e61d05379dd0cfce07a30038dea4f0
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129711343"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131502813"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Creación y administración de datos exportados
 
@@ -45,6 +45,7 @@ La exportación de datos está disponible para varios tipos de cuenta de Azure, 
 Para las cuentas de Azure Storage:
 - Se necesitan permisos de escritura para cambiar la cuenta de Storage configurada, independientemente de los permisos sobre la exportación.
 - La cuenta de Azure Storage debe configurarse para el almacenamiento de blobs o archivos.
+- La cuenta de almacenamiento no debe tener configurado un firewall.
 
 Si su suscripción es nueva, no podrá usar inmediatamente las características de Cost Management. Para poder hacerlo deberán transcurrir un máximo de 48 horas.
 

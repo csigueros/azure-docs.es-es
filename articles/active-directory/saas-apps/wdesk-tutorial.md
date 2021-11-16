@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/08/2021
 ms.author: jeedes
-ms.openlocfilehash: 4d5c472e144fff28c6cc02c99cbfe4e34ff5aafa
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 84fffb80a95bb98b01f636924e7bc7c510e7b616
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124731572"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132313392"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wdesk"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Wdesk
 
@@ -58,7 +58,7 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 Para configurar y probar el inicio de sesión único de Azure AD con Wdesk, haga lo siguiente:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Wdesk](#configure-wdesk-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Wdesk](#create-wdesk-test-user)** , para tener un homólogo de B.Simon en Wdesk que esté vinculado a la representación del usuario en Azure AD.
@@ -214,4 +214,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Wdesk, puede aplicar el control de sesión, que protege a la organización frente a la filtración y la infiltración de información confidencial en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado Wdesk, puede aplicar el control de sesión, que protege a la organización frente a la filtración y la infiltración de información confidencial en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

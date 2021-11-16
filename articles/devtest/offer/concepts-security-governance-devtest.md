@@ -7,16 +7,16 @@ ms.prod: visual-studio-windows
 ms.topic: how-to
 ms.date: 10/20/2021
 ms.custom: devtestoffer
-ms.openlocfilehash: 70f4ea05d0fffe1046ac45246933db9ae34b8a9a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 6f3d9bae37e49c23dacc9a44ed4e0006df95ec29
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091476"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132305890"
 ---
 # <a name="security-within-azure-devtest-subscription"></a>Seguridad dentro de la suscripción de desarrollo/pruebas de Azure
 
-Proteger los recursos es un esfuerzo conjunto entre el proveedor de nube, Azure y usted. Las suscripciones de desarrollo/pruebas de Azure y [Azure Security Center](../../security-center/security-center-introduction.md) proporcionan las herramientas necesarias para proteger la red, proteger los servicios y asegurarse de que está al tanto de su posición de seguridad.  
+Proteger los recursos es un esfuerzo conjunto entre el proveedor de nube, Azure y usted. Las suscripciones de desarrollo/pruebas de Azure y [Microsoft Defender para la nube](../../security-center/security-center-introduction.md) proporcionan las herramientas necesarias para proteger la red y los servicios y asegurarse de que está al corriente de su posición de seguridad.  
 
 Las herramientas importantes de las suscripciones de desarrollo/pruebas de Azure le ayudan a crear un acceso seguro a los recursos:  
 

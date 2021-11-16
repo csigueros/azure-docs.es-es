@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 07/30/2021
 ms.custom: monitoring
-ms.openlocfilehash: 98c077ff578cfbe70bfe3a871e5a1eb4d5fbd755
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 54155f2bacd9a593a1288c8d1f95a5843dca2602
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128584263"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132134784"
 ---
 # <a name="best-practices-for-monitoring-azure-blob-storage"></a>Procedimientos recomendados para supervisar Azure Blob Storage
 
@@ -132,6 +132,8 @@ Para la parte "cómo" de la auditoría, el campo `OperationName` muestra qué op
 
 Para la parte "quién" de la auditoría, `AuthenticationType` muestra qué tipo de autenticación se usó para realizar una solicitud. Este campo puede mostrar cualquiera de los tipos de autenticación que admite Azure Storage, incluido el uso de una clave de cuenta, un token de SAS o Azure Active Directory (Azure AD).
 
+#### <a name="identifying-the-security-principal-used-to-authorize-a-request"></a>Identificación de la entidad de seguridad usada para autorizar una solicitud
+
 Si una solicitud se autenticó mediante Azure AD, el campo `RequesterObjectId` proporciona la manera más confiable de identificar la entidad de seguridad. Puede encontrar el nombre descriptivo de esa entidad de seguridad tomando el valor el valor del id. del campo `RequesterObjectId` y buscando la entidad de seguridad en la página Azure AD de Azure Portal. En la captura de pantalla siguiente se muestra un resultado de búsqueda en Azure AD.
 
 > [!div class="mx-imgBorder"]
@@ -150,6 +152,32 @@ StorageBlobLogs
 ```
 
 La clave compartida y la autenticación sas no proporcionan ningún medio para auditar identidades individuales. Por lo tanto, si desea mejorar la capacidad de realizar auditorías en función de la identidad, se recomienda realizar la transición a Azure AD y evitar la autenticación de clave compartida y SAS. Para obtener información sobre cómo evitar la autenticación de clave compartida y SAS, consulte [Prevent Shared Key authorization for an Azure Storage account](../common/shared-key-authorization-prevent.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=portal) (Impedir la autorización de clave compartida para una Azure Storage compartido). Para empezar con Azure AD, consulte [Autenticación del acceso a blobs mediante Azure Active Directory](authorize-access-azure-active-directory.md).
+
+#### <a name="identifying-the-sas-token-used-to-authorize-a-request"></a>Identificación del token de SAS usado para autorizar una solicitud
+
+Puede consultar las operaciones que se autorizaron mediante un token de SAS. Por ejemplo, esta consulta devuelve todas las operaciones de escritura que se autorizaron mediante un token de SAS.
+
+```kusto
+StorageBlobLogs
+| where TimeGenerated > ago(3d)
+  and OperationName == "PutBlob"
+  and AuthenticationType == "SAS"
+| project TimeGenerated, AuthenticationType, AuthenticationHash, OperationName, Uri
+```
+
+Por motivos de seguridad, los tokens de SAS no aparecen en los registros. Sin embargo, el hash SHA-256 del token de SAS aparecerá en el campo `AuthenticationHash` que devolvió esta consulta. 
+
+Si ha distribuido varios tokens de SAS y desea saber cuáles se usan, tendrá que convertir cada uno de los tokens de SAS en un hash SHA-256 y, después, comparar ese hash con el valor hash que aparece en los registros.
+
+En primer lugar, descodifique cada cadena de token de SAS. En el ejemplo siguiente se descodifica una cadena de token de SAS mediante PowerShell.
+
+```powershell
+[uri]::UnescapeDataString("<SAS token goes here>")
+```
+
+A continuación, puede pasar esa cadena al cmdlet [Get-FileHash](/powershell/module/microsoft.powershell.utility/get-filehash) de PowerShell. Para obtener un ejemplo, consulte [Ejemplo 4: Cálculo del hash de una cadena](/powershell/module/microsoft.powershell.utility/get-filehash#example-4--compute-the-hash-of-a-string).
+
+Como alternativa, puede pasar la cadena descodificada a la función [hash_sha256()](/data-explorer/kusto/query/sha256hashfunction) como parte de una consulta Kusto.
 
 ## <a name="optimize-cost-for-infrequent-queries"></a>Optimización del coste de las consultas poco frecuentes
 

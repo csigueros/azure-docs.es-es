@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 63cf40d5d7fcea55cd5de27d2b4d65691d9d0311
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 17e50b602bcab7dd3a40e6823bea44eb63603b9d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128652004"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132313097"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Escalabilidad automática y Application Gateway con redundancia de zona v2 
 
@@ -107,7 +107,7 @@ En esta sección se describen las características y limitaciones de la SKU v2 q
 |Modo FIPS|Actualmente no se admiten.|
 |Solo modo ILB|Actualmente no se admite. Se admiten los modos público e ILB juntos.|
 |Integración de Net Watcher|No compatible.|
-|Integración en Azure Security Center|No disponible todavía.
+|Integración de Microsoft Defender para la nube|No disponible todavía.
 
 ## <a name="migrate-from-v1-to-v2"></a>Migración de v1 a v2
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/12/2021
 ms.author: jeedes
-ms.openlocfilehash: 7e6fc17510186ebae3ec736f2385baf39c22eda0
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 79c3252155f1821d8927134a723ed62aa09df00f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124802120"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132307486"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netdocuments"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con NetDocuments
 
@@ -57,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con NetDocuments uti
 Para configurar y probar el inicio de sesión único de Azure AD con NetDocuments, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en NetDocuments](#configure-netdocuments-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de NetDocuments](#create-netdocuments-test-user)** , para tener un homólogo de B. Simon en NetDocuments que esté vinculado a la representación del usuario en Azure AD.
@@ -144,29 +144,31 @@ En esta sección, va a permitir que B. Simon acceda a NetDocuments mediante el 
 1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
+<!-- docutune:ignore "Security Center" -->
+
 ## <a name="configure-netdocuments-sso"></a>Configuración del inicio de sesión único de NetDocuments
 
 1. En otra ventana del explorador web, inicie sesión en como administrador en el sitio de la compañía de NetDocuments.
 
-2. En la esquina superior derecha, seleccione su nombre>**Admin**.
+2. En la esquina superior derecha, seleccione su nombre > **Administrador**.
 
 3. Seleccione **Centro de seguridad**.
-   
-    ![Repositorio](./media/netdocuments-tutorial/security-center.png "Security Center")
+
+    ![Centro de seguridad](./media/netdocuments-tutorial/security-center.png "Security Center")
 
 4. Seleccione **Autenticación avanzada**.
-    
+
     ![Configurar opciones de autenticación avanzadas](./media/netdocuments-tutorial/advance-authentication.png "Configurar opciones de autenticación avanzadas")
 
-5.  En la pestaña **Id. federado**, realice los pasos siguientes:   
-   
-    [ ![Identidad federada](./media/netdocuments-tutorial/federated-id.png "Identidad federada")](./media/netdocuments-tutorial/federated-id.png#lightbox)
-   
-    a. En **Tipo de servidor de identidad federada**, seleccione **Windows Azure Active Directory**.
-    
-    b.  Seleccione **Choose file** (Elegir archivo) para cargar el archivo de metadatos que descargó de Azure Portal.
-    
-    c.  Seleccione **SAVE** (GUARDAR).
+5. En la pestaña **Id. federado**, realice los pasos siguientes:  
+
+    [![Federated Identity](./media/netdocuments-tutorial/federated-id.png "Identidad federada")](./media/netdocuments-tutorial/federated-id.png#lightbox)
+
+    1. En **Tipo de servidor de identidad federada**, seleccione **Windows Azure Active Directory**.
+
+    1. Seleccione **Choose file** (Elegir archivo) para cargar el archivo de metadatos que descargó de Azure Portal.
+
+    1. Seleccione **SAVE** (GUARDAR).
 
 ### <a name="create-netdocuments-test-user"></a>Creación de un usuario de prueba de NetDocuments
 
@@ -176,18 +178,18 @@ Para permitir que los usuarios de Azure AD inicien sesión en NetDocuments, deb
 
 1. Inicie sesión como administrador en el sitio de la compañía **NetDocuments**.
 
-2. En la esquina superior derecha, seleccione su nombre>**Admin**.
-   
+2. En la esquina superior derecha, seleccione su nombre > **Administrador**.
+
     ![Administrador](./media/netdocuments-tutorial/user-admin.png "Administración")
 
 3. Seleccione **Usuarios y grupos**.
-   
-    ![Usuarios y grupos](./media/netdocuments-tutorial/users-groups.png "Repositorio")
+
+    ![Usuarios y grupos](./media/netdocuments-tutorial/users-groups.png "Usuarios y grupos")
 
 4. En el cuadro de texto **Dirección de correo electrónico**, escriba la dirección de correo electrónico de la cuenta válida de Azure Active Directory que quiera aprovisionar y haga clic en **Agregar usuario**.
-   
+
     ![Dirección de correo electrónico](./media/netdocuments-tutorial/user-mail.png "Dirección de correo electrónico")
-   
+
     > [!NOTE]
     > El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo electrónico con un vínculo para confirmar la cuenta antes de que se active. Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de NetDocuments ofrecida por NetDocuments para aprovisionar cuentas de usuario de Azure Active Directory.
 
@@ -201,7 +203,6 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de NetDocuments en Mis aplicaciones, debería iniciar sesión automáticamente en la instancia de NetDocuments para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que se ha configurado NetDocuments, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez que se ha configurado NetDocuments, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

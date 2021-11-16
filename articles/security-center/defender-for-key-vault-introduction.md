@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: cf3aa4510c29ecc45fe5217e727fa0efc15a1809
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 1f1c6e9a50879159a73528ca21592ce01b29beeb
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131425090"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132063427"
 ---
 # <a name="introduction-to-microsoft-defender-for-key-vault"></a>Introducción a Microsoft Defender para Key Vault
 

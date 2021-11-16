@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 30d2101bb59856c30e0cb9042cd8ec8d9e95affc
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f1d0a03d2e1ff906a139a394f54dbb4336e4f8a3
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128675674"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132326071"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-n2f---expense-reports"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Informes de gastos de N2F
 
@@ -57,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Informes de gast
 Para configurar y probar el inicio de sesión único de Azure AD con Informes de gastos de N2F, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Informes de gastos de N2F](#configure-n2f---expense-reports-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Informes de gastos de N2F](#create-n2f---expense-reports-test-user)** : para tener un homólogo de B. Simon en Informes de gastos de N2F que esté vinculado a la representación del usuario en Azure AD.
@@ -196,4 +196,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Informes de gastos de N2F, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado Informes de gastos de N2F, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

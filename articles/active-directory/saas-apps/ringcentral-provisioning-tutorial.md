@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: thwimmer
-ms.openlocfilehash: 9e8385faadc4c3c9d34471741cc238e964ed67a2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4999669aee35b9e0d7303ae1156f10318c775562
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128589176"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131989781"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>Tutorial: Configuración de RingCentral para el aprovisionamiento automático de usuarios
 
@@ -38,6 +38,10 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 * Una cuenta de usuario en Azure AD con [permiso](../roles/permissions-reference.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
 * [Un inquilino de RingCentral](https://www.ringcentral.com/office/plansandpricing.html)
 * Una cuenta de usuario de RingCentral con permisos de administrador.
+
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
+
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Paso 1. Planeación de la implementación de aprovisionamiento
 1. Obtenga información sobre [cómo funciona el servicio de aprovisionamiento](../app-provisioning/user-provisioning.md).
@@ -152,6 +156,8 @@ Una vez configurado el aprovisionamiento, use los recursos siguientes para super
 
 * 10/09/2020: se ha eliminado la compatibilidad con los atributos "displayName" y "manager".
 * 03/15/2021: se ha actualizado el método de autorización de usar un token de portador permanente a un flujo de concesión de código de OAuth.
+* 28/10/2021: se ha actualizado la asignación predeterminada a **mail-> emails[type eq “work”].value**.
+* 28/10/2021: limitación de velocidad actualizada a 300/min para lectura, 1000/min para escritura.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

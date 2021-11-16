@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 08/24/2021
+ms.date: 11/09/2021
 ms.author: alexeyo
-ms.openlocfilehash: 2ebd9d6946996535f68b52f0093c2b3199c2e256
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: ae288de8ae05efc22534cfaf87c42261a5e6d59a
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131509521"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132135789"
 ---
 # <a name="speech-services-in-sovereign-clouds"></a>Servicios de Voz en nubes soberanas
 
@@ -68,12 +68,33 @@ Reemplace `<REGION_IDENTIFIER>` por el identificador que coincida con la región
 
 #### <a name="speech-sdk"></a>SDK de voz
 
-Para el SDK de Voz en nubes independientes, debe usar la creación de instancias "desde el host" de la clase `SpeechConfig` o la opción `--host` de la [CLI de Voz](spx-overview.md). (También puede usar la creación de instancias "desde el punto de conexión" y la opción `--endpoint` de la CLI de Voz).
+Para el [SDK de Voz](speech-sdk.md) en nubes soberanas, debe usar la creación de instancias "desde o con el host" de la `SpeechConfig` o la opción `--host` de la [CLI de Voz](spx-overview.md). (También puede usar la creación de instancias "desde y con el punto de conexión" y la opción de la CLI de Voz `--endpoint`).
 
 Se debe crear una instancia de la clase `SpeechConfig` de la siguiente manera:
+
+# <a name="c"></a>[C#](#tab/c-sharp)
 ```csharp
 var config = SpeechConfig.FromHost(usGovHost, subscriptionKey);
 ```
+# <a name="c"></a>[C++](#tab/cpp)
+```cpp
+auto config = SpeechConfig::FromHost(usGovHost, subscriptionKey);
+```
+# <a name="java"></a>[Java](#tab/java)
+```java
+SpeechConfig config = SpeechConfig.fromHost(usGovHost, subscriptionKey);
+```
+# <a name="python"></a>[Python](#tab/python)
+```python
+import azure.cognitiveservices.speech as speechsdk
+speech_config = speechsdk.SpeechConfig(host=usGovHost, subscription=subscriptionKey)
+```
+# <a name="objective-c"></a>[Objective-C](#tab/objective-c)
+```objectivec
+SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithHost:usGovHost subscription:subscriptionKey];
+```
+***
+
 Se debe usar la CLI de Voz de la siguiente manera (tenga en cuenta la opción `--host`):
 ```dos
 spx recognize --host "usGovHost" --file myaudio.wav
@@ -139,12 +160,33 @@ Reemplace `<REGION_IDENTIFIER>` por el identificador que coincida con la región
 
 #### <a name="speech-sdk"></a>SDK de voz
 
-Para el SDK de Voz en nubes independientes, debe usar la creación de instancias "desde el host" de la clase `SpeechConfig` o la opción `--host` de la [CLI de Voz](spx-overview.md). (También puede usar la creación de instancias "desde el punto de conexión" y la opción `--endpoint` de la CLI de Voz).
+Para el [SDK de Voz](speech-sdk.md) en nubes soberanas, debe usar la creación de instancias "desde o con el host" de la `SpeechConfig` o la opción `--host` de la [CLI de Voz](spx-overview.md). (También puede usar la creación de instancias "desde y con el punto de conexión" y la opción de la CLI de Voz `--endpoint`).
 
 Se debe crear una instancia de la clase `SpeechConfig` de la siguiente manera:
+
+# <a name="c"></a>[C#](#tab/c-sharp)
 ```csharp
 var config = SpeechConfig.FromHost(azCnHost, subscriptionKey);
 ```
+# <a name="c"></a>[C++](#tab/cpp)
+```cpp
+auto config = SpeechConfig::FromHost(azCnHost, subscriptionKey);
+```
+# <a name="java"></a>[Java](#tab/java)
+```java
+SpeechConfig config = SpeechConfig.fromHost(azCnHost, subscriptionKey);
+```
+# <a name="python"></a>[Python](#tab/python)
+```python
+import azure.cognitiveservices.speech as speechsdk
+speech_config = speechsdk.SpeechConfig(host=azCnHost, subscription=subscriptionKey)
+```
+# <a name="objective-c"></a>[Objective-C](#tab/objective-c)
+```objectivec
+SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithHost:azCnHost subscription:subscriptionKey];
+```
+***
+
 Se debe usar la CLI de Voz de la siguiente manera (tenga en cuenta la opción `--host`):
 ```dos
 spx recognize --host "azCnHost" --file myaudio.wav

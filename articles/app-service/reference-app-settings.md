@@ -3,12 +3,12 @@ title: Referencia de variables de entorno y configuración de la aplicación
 description: Describe las variables de entorno que se usan habitualmente y cuáles se pueden modificar con la configuración de la aplicación.
 ms.topic: article
 ms.date: 06/14/2021
-ms.openlocfilehash: ae0f67ae935d31fc242350761e80e5d073a7273a
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: e315a51e7d160bcc2d8864cfa954924f0fe4c094
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131892066"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132025766"
 ---
 # <a name="environment-variables-and-app-settings-in-azure-app-service"></a>Variables de entorno y configuración de la aplicación en Azure App Service
 
@@ -298,7 +298,7 @@ Para más información sobre las ranuras de implementación, consulte [Configura
 |`WEBSITE_SLOT_NAME`| Solo lectura. Nombre de la ranura de implementación actual. El nombre de la ranura de producción es `Production`. ||
 |`WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS`| De manera predeterminada, las versiones de las extensiones de sitio son específicas de cada ranura. Esto evita el comportamiento imprevisto de la aplicación debido al cambio de las versiones de las extensiones después de un intercambio. Si también quiere intercambiar las versiones de extensión, establezca el valor en `1` en *todas las ranuras*. ||
 |`WEBSITE_OVERRIDE_PRESERVE_DEFAULT_STICKY_SLOT_SETTINGS`| Designa determinadas opciones como [permanentes o no intercambiables de manera predeterminada](deploy-staging-slots.md#which-settings-are-swapped). El valor predeterminado es `true`. O bien, establezca esta configuración en `false` o `0` para *todas las ranuras de implementación* para que sean intercambiables. No hay ningún control detallado para tipos de configuración específicos. ||
-|`WEBSITE_SWAP_WARMUP_PING_PATH`| Ruta de acceso para hacer ping para activar la ranura de destino en un intercambio; comienza por una barra diagonal. El valor predeterminado es `/`, que hace ping a la ruta de acceso raíz. | `/statuscheck` |
+|`WEBSITE_SWAP_WARMUP_PING_PATH`| Ruta de acceso para hacer ping para activar la ranura de destino en un intercambio; comienza por una barra diagonal. El valor predeterminado es `/`, que hace ping a la ruta de acceso raíz sobre HTTP. | `/statuscheck` |
 |`WEBSITE_SWAP_WARMUP_PING_STATUSES`| Códigos de respuesta HTTP válidos para la operación de activación durante un intercambio. Si el código de estado devuelto no está en la lista, las operaciones de preparación e intercambio se detienen. Por defecto, todos los códigos de respuesta son válidos. | `200,202` |
 | `WEBSITE_SLOT_NUMBER_OF_TIMEOUTS_BEFORE_RESTART` | Durante un intercambio de ranura, el número máximo de tiempos de espera expirados tras los cuales se fuerza el reinicio del sitio en una instancia de máquina virtual específica. El valor predeterminado es `3`. ||
 | `WEBSITE_SLOT_MAX_NUMBER_OF_TIMEOUTS` | Durante un intercambio de ranura, número máximo de solicitudes de tiempo de espera para una única dirección URL que se debe realizar antes de desistir. El valor predeterminado es `5`. ||

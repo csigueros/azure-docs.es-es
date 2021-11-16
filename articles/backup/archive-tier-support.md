@@ -1,5 +1,5 @@
 ---
-title: Introducción a la compatibilidad del nivel de acceso de archivo
+title: 'Azure Backup: introducción al nivel de acceso de archivo'
 description: Conozca más sobre la compatibilidad del nivel de acceso de archivo con Azure Backup.
 ms.topic: overview
 ms.date: 10/23/2021
@@ -7,14 +7,14 @@ ms.custom: references_regions
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
-ms.openlocfilehash: 3c28d99c066bf71ea3970ce8a01eb68989e11123
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 9712b198e8be9a7a90699cc6ce544a627bfdea63
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131080904"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131510349"
 ---
-# <a name="about-archive-tier-support"></a>Compatibilidad del nivel de acceso de archivo
+# <a name="overview-of-archive-tier-in-azure-backup"></a>Introducción al nivel de acceso de archivo en Azure Backup
 
 Los clientes confían en Azure Backup para almacenar los datos de copia de seguridad, incluidos los de retención a largo plazo (LTR), donde las necesidades de retención están definidas por las reglas de cumplimiento de la organización. En la mayoría de los casos, pocas veces se accede a los datos de copia de seguridad antiguos, que solo se almacenan para satisfacer las necesidades de cumplimiento.
 

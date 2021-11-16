@@ -1,15 +1,15 @@
 ---
 title: Solución de problemas de las implementaciones de plantillas de Resource Manager
 description: Aprenda a solucionar errores de las implementaciones de plantillas de Azure Resource Manager (ARM).
-ms.date: 11/04/2021
+ms.date: 11/08/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 561fab9d7a94bb4eb97d59fcae835dd8cc72a778
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: ce9bf9ee097a41b3e3ecbc0cd515dd58cf30ea82
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131849538"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132062065"
 ---
 # <a name="quickstart-troubleshoot-arm-template-deployments"></a>Inicio rápido: Solución de problemas de las implementaciones de plantillas de ARM
 
@@ -17,7 +17,7 @@ En este inicio rápido se explica cómo solucionar errores de implementación de
 
 Hay tres tipos de errores relacionados con una implementación:
 
-- Los **errores de validación** se producen antes de que comience una implementación y son debidos a errores de sintaxis en el archivo. El editor puede identificar estos errores.
+- **Errores de validación**, que se producen antes de que comience una implementación y son debidos a errores de sintaxis en el archivo. El editor puede identificar estos errores.
 - Los **errores de validación previa** se producen cuando se ejecuta un comando de implementación, pero los recursos no están implementados. Estos errores se encuentran sin iniciar la implementación. Por ejemplo, si un valor de parámetro es incorrecto, el error se encuentra en la validación previa.
 - **Errores de implementación**, que se producen durante el proceso de implementación y solo se pueden encontrar evaluando su progreso.
 
@@ -89,11 +89,11 @@ Copie la plantilla siguiente y guárdela localmente. Lo usará para solucionar p
 
 ## <a name="fix-validation-error"></a>Corrección del error de validación
 
-Abra el archivo en Visual Studio Code. Las líneas onduladas bajo `parameterss:` indican un error. Para ver el error de validación, mantenga el puntero encima.
+Abra el archivo en Visual Studio Code. Las líneas onduladas bajo `parameterss:` indican un error. Para ver el error de validación, mantenga el puntero sobre el error.
 
 :::image type="content" source="media/quickstart-troubleshoot-arm-deployment/validation-error.png" alt-text="Captura de pantalla de un error de validación de plantilla en Visual Studio Code.":::
 
-Observará que `variables` y `resources` tienen errores de _referencia de parámetros no definidos_.
+Observará que `variables` y `resources` tienen errores de _referencia de parámetros no definidos_. Para mostrar los errores de validación de la plantilla, seleccione **Ver** > **Problemas**.
 
 :::image type="content" source="media/quickstart-troubleshoot-arm-deployment/validation-undefined-parameter.png" alt-text="Captura de pantalla Visual Studio Code que muestra errores de referencia de parámetros no definidos.":::
 

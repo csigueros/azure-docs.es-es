@@ -7,12 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 10/18/2021
-ms.openlocfilehash: 50070c59c99e40e0d4d40577119f7f1d9805ecf9
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 07c253efdb5f029d6df5e508cd690d2b47d40934
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131445319"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132056007"
 ---
 # <a name="create-rich-interactive-reports-of-defender-for-cloud-data"></a>Creación de informes completos e interactivos de datos de Defender for Cloud
 
@@ -119,7 +119,7 @@ Este libro recopila estas conclusiones y las organiza por gravedad, tipo de recu
 
 Microsoft Defender for Cloud compara continuamente la configuración de los recursos con los requisitos de los estándares del sector, las regulaciones y los bancos de pruebas. Los estándares integrados incluyen NIST SP 800-53, SWIFT CSP CSCF v2020, Canada Federal PBMM, HIPAA HITRUST, etc. Puede seleccionar los estándares específicos pertinentes para su organización mediante el panel de cumplimiento normativo. Obtenga más información en [Personalización del conjunto de estándares en el panel de cumplimiento normativo](update-regulatory-compliance-packages.md).
 
-Este libro le permite realizar un seguimiento del estado de cumplimiento a lo largo del tiempo con los distintos estándares que ha agregado al panel.
+Este libro realiza un seguimiento del estado de cumplimiento a lo largo del tiempo con los distintos estándares que ha agregado al panel.
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/compliance-over-time-select-standards.png" alt-text="Seleccione los estándares para el informe de cumplimiento a lo largo del tiempo.":::
 

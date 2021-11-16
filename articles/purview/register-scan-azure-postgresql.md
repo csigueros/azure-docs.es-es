@@ -1,25 +1,27 @@
 ---
 title: Conexión y administración de una instancia de Azure Database for PostgreSQL
-description: En esta guía, se describe cómo conectarse a una instancia de Azure Database for PostgreSQL en Azure Purview y usar las características de Purview para examinar y administrar el origen de Azure Database for PostgreSQL.
-author: evwhite
+description: En esta guía se describe cómo conectarse a un servidor único de Azure Database for PostgreSQL en Azure Purview y usar las características de Purview para examinar y administrar el origen de Azure Database for PostgreSQL.
+author: evangelinew
 ms.author: evwhite
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 1f5fa328a7a7a2f61647274eba0ba0282a820ec8
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: a4205f768e004613231961a43f7ec9fa5461f078
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131841911"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132179629"
 ---
 # <a name="connect-to-and-manage-an-azure-database-for-postgresql-in-azure-purview"></a>Conexión y administración de una instancia de Azure Database for PostgreSQL en Azure Purview
 
-En este artículo, se describe cómo registrar una instancia de Azure Database for PostgreSQL y cómo autenticarse e interactuar con una instancia de Azure Database for PostgreSQL en Azure Purview. Para obtener más información sobre Azure Purview, consulte el [artículo de introducción](overview.md).
+En este artículo, se describe cómo registrar una instancia de Azure Database for PostgreSQL con la opción de implementación de servidor único, así como autenticarse e interactuar con una instancia de Azure Database for PostgreSQL en Azure Purview. Para más información sobre Azure Purview, lea el [artículo de introducción](overview.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
+
+Purview solo admite la opción de implementación de servidor único para Azure Database for PostgreSQL.
 
 |**Extracción de metadatos**|  **Examen completo**  |**Examen incremental**|**Examen con ámbito**|**Clasificación**|**Directiva de acceso**|**Lineage**|
 |---|---|---|---|---|---|---|
@@ -33,7 +35,7 @@ En este artículo, se describe cómo registrar una instancia de Azure Database f
 
 * Un [recurso de Purview](create-catalog-portal.md) activo.
 
-* Tendrá que ser administrador de orígenes de datos y lector de datos para poder registrar un origen y administrarlo en Purview Studio. Para obtener más información, consulte la [página Permisos de Azure Purview](catalog-permissions.md).
+* Tendrá que ser administrador de orígenes de datos y lector de datos para poder registrar un origen y administrarlo en Purview Studio. Para más información, vea la [página Permisos de Azure Purview](catalog-permissions.md).
 
 ## <a name="register"></a>Register
 
@@ -41,7 +43,7 @@ En esta sección, se describe cómo registrar una instancia de Azure Database fo
 
 ### <a name="authentication-for-registration"></a>Autenticación para registro
 
-Actualmente, para poder administrar una instancia de Azure Database for PostgreSQL e interactuar con ella, solo se admite la autenticación de SQL.
+Actualmente, para poder administrar e interactuar con un servidor único de Azure Database for PostgreSQL, solo se admite la autenticación de SQL.
 
 #### <a name="sql-authentication"></a>Autenticación de SQL
 
@@ -113,8 +115,8 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha registrado el origen, siga las guías a continuación para obtener más información sobre Purview y sus datos.
+Ahora que ha registrado el origen, siga las guías mostradas a continuación para obtener más información sobre Purview y los datos.
 
-- [Información sobre datos en Azure Purview](concept-insights.md)
+- [Conclusiones sobre los datos en Azure Purview](concept-insights.md)
 - [Linaje en Azure Purview](catalog-lineage-user-guide.md)
 - [Búsqueda en Data Catalog](how-to-search-catalog.md)

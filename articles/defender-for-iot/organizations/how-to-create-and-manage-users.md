@@ -1,18 +1,18 @@
 ---
 title: Creación y administración de usuarios
 description: Cree y administre usuarios de los sensores y de la consola de administración local. A los usuarios se les puede asignar el rol Administrador, Analista de seguridad o Usuario de solo lectura.
-ms.date: 05/20/2021
+ms.date: 11/09/2021
 ms.topic: article
-ms.openlocfilehash: fa10961218d536faf09a1f7062c8a8c77dc99ce4
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 73e08c7cdca6e57445566a99cb779a322306f944
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123434041"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132318947"
 ---
 # <a name="about-defender-for-iot-console-users"></a>Acerca de los usuarios de la consola de Defender para IoT
 
-En este artículo se describe cómo crear y administrar usuarios de los sensores y de la consola de administración local. Los roles de usuario incluyen Administrador, Analista de seguridad o Usuario de solo lectura. Cada rol está asociado a un intervalo de permisos para las herramientas del sensor o la consola de administración local. Los roles están diseñados para facilitar un acceso detallado y seguro a Azure Defender para IoT.
+En este artículo se describe cómo crear y administrar usuarios de los sensores y de la consola de administración local. Los roles de usuario incluyen Administrador, Analista de seguridad o Usuario de solo lectura. Cada rol está asociado a un intervalo de permisos para las herramientas del sensor o la consola de administración local. Los roles están diseñados para facilitar un acceso detallado y seguro a Microsoft Defender para IoT.
 
 También hay características disponibles para realizar un seguimiento de la actividad del usuario y habilitar el inicio de sesión de Active Directory.
 

@@ -3,12 +3,12 @@ title: Obtener información sobre los dispositivos detectados por un sensor espe
 description: El inventario de dispositivos muestra una amplia gama de atributos de dispositivo que detecta un sensor.
 ms.date: 12/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 10df10a64059e5f5673a9e4ae6f18a09e4c41838
-ms.sourcegitcommit: 555ea0d06da38dea1de6ecbe0ed746cddd4566f5
+ms.openlocfilehash: 423ddcb9b50be6aa758e28f20291f8d66e58e3f4
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113515280"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132028199"
 ---
 # <a name="investigate-sensor-detections-in-a-device-inventory"></a>Investigación de la detección de todos los sensores de la empresa en un inventario de dispositivos
 
@@ -45,7 +45,20 @@ Los siguientes atributos aparecen en la tabla de inventario de dispositivos.
 | Última actividad | Última actividad realizada por el dispositivo. |
 | Discovered | Cuándo apareció por primera vez en la red este dispositivo. |
 
-Para ver el inventario de dispositivos:
+## <a name="what-is-an-inventory-device"></a>¿Qué es un dispositivo de inventario?
+
+El inventario de dispositivos de Defender para IoT muestra una amplia gama de atributos de recursos que detectan los sensores que supervisan las redes de las organizaciones y los puntos de conexión administrados.
+
+Defender para IoT identificará y clasificará los dispositivos como un solo dispositivo de red único en el inventario para:
+
+1. Dispositivos IT/OT/IoT independientes (con una o varias NIC)
+1. Dispositivos compuestos por varios componentes de backplane (incluidos todos los bastidores, ranuras o módulos)
+1. Dispositivos que actúan como infraestructura de red, como conmutador o enrutador (con varias NIC). 
+
+Las direcciones IP públicas de Internet, los grupos de multidifusión y los grupos de difusión no se consideran dispositivos de inventario.
+Los dispositivos que han estado inactivos durante más de 60 días se clasifican como dispositivos de inventario inactivos.
+
+**Para ver el inventario de dispositivos:**
 
 1. En el panel izquierdo, seleccione **Dispositivos**. El panel **Dispositivos** se abre a la derecha.
 

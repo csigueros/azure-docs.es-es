@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 4793216a12b17c4e4ea03f62d5a0ba512febc232
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5969c015a360d7f1c859070b1fc05df5bd469bbe
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735733"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132327089"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Procedimientos recomendados de seguridad de la red de Azure
 En este artículo se aborda un conjunto de procedimientos recomendados de Azure que sirven para mejorar la seguridad de la red. Estos procedimientos recomendados se derivan de nuestra experiencia con las redes en Azure, y las experiencias de clientes como usted.
@@ -77,7 +77,7 @@ Los procedimientos recomendados son:
 **Detalles**: el [acceso condicional de Azure AD](../../active-directory/conditional-access/overview.md) permite aplicar los controles de acceso adecuados poniendo en marcha decisiones de control de acceso automatizado según las condiciones necesarias. Para más información, vea [Administración el acceso a la administración de Azure con acceso condicional](../../active-directory/conditional-access/howto-conditional-access-policy-azure-management.md).
 
 **Procedimiento recomendado**: habilitar el acceso a los puertos solo tras la aprobación del flujo de trabajo.  
-**Detalles**: puede usar el [acceso a VM Just-In-Time en Azure Security Center](../../security-center/security-center-just-in-time.md) para bloquear el tráfico entrante a las VM de Azure, lo que reduce la exposición a ataques al mismo tiempo que proporciona un acceso sencillo para conectarse a las máquinas virtuales cuando sea necesario.
+**Detalles**: puede usar el [acceso a VM Just-In-Time en Microsoft Defender for Cloud](../../security-center/security-center-just-in-time.md) para bloquear el tráfico entrante a las VM de Azure, lo que reduce la exposición a ataques al mismo tiempo que proporciona un acceso sencillo para conectarse a las máquinas virtuales cuando sea necesario.
 
 **Procedimiento recomendado**: conceder permisos temporales para realizar tareas con privilegios, lo que impide que usuarios malintencionados o sin autorización obtengan acceso después de que el permiso haya expirado. El acceso se concede solo cuando los usuarios lo necesitan.  
 **Detalles**: use el acceso Just-In-Time en Azure AD Privileged Identity Management o en una solución de terceros para conceder permisos para realizar tareas con privilegios.

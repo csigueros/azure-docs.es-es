@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 9a83c33dbb41a3e33d84bc5e637409e4a70c8ce5
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d0e9289227857cc84caa03a91f3e9ae797bbec3a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124741314"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132341319"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-serraview-space-utilization-software-solutions"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Serraview Space Utilization Software Solutions
 
@@ -57,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Serraview Space 
 Para configurar y probar el inicio de sesión único de Azure AD con Serraview Space Utilization Software Solutions, es preciso realizar los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Serraview Space Utilization Software Solutions](#configure-serraview-space-utilization-software-solutions-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación del usuario de prueba de Serraview Space Utilization Software Solutions](#create-serraview-space-utilization-software-solutions-test-user)** : para tener un homólogo de B.Simon en Serraview Space Utilization Software Solutions que esté vinculado a la representación de Azure AD de usuario.
@@ -144,4 +144,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Serraview Space Utilization Software Solutions, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado Serraview Space Utilization Software Solutions, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

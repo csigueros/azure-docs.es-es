@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/12/2021
 ms.author: jeedes
-ms.openlocfilehash: cec4d18b0db1869a56c8b6e63e8a75f6418611fb
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a782eeef34ae1ae858d45d9eb588695e02c454fb
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124773386"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132330528"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bugsnag"></a>Tutorial: Integración de Azure Active Directory con Bugsnag
 
@@ -61,7 +61,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Bugsnag mediante
 Para configurar y probar el inicio de sesión único de Azure AD con Bugsnag, haga lo siguiente:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Bugsnag:](#configure-bugsnag-sso)** para configurar los valores de Inicio de sesión único en la aplicación.
     1. **[Creación del usuario de prueba de Bugsnag:](#create-bugsnag-test-user)** para tener un homólogo de B.Simon en Bugsnag vinculado a la representación del usuario en Azure AD.
@@ -142,4 +142,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado Bugsnag, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez que haya configurado Bugsnag, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
 ms.reviewer: mathoma
-ms.date: 09/23/2021
-ms.openlocfilehash: f5acdf621c04ba48664004bbb1f28ae1c0914fcb
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.date: 11/5/2021
+ms.openlocfilehash: ce039347c2fe06f061aecc4a01cd05e92c43ae74
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131447044"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131893279"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Uso de réplicas de solo lectura para descargar cargas de trabajo de consulta de solo lectura
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,7 +25,7 @@ Como parte de la [arquitectura de alta disponibilidad](high-availability-sla.md#
 
 La característica *Escalado horizontal de lectura* también está disponible en el nivel de servicio Hiperescala cuando se añade al menos una [réplica secundaria](service-tier-hyperscale-replicas.md). Las [réplicas con nombre](service-tier-hyperscale-replicas.md#named-replica-in-preview) secundarias de Hiperescala proporcionan escalado independiente, aislamiento de acceso, aislamiento de carga de trabajo, escalado horizontal de lectura masivo y otras ventajas. Se pueden usar varias [réplicas de alta disponibilidad](service-tier-hyperscale-replicas.md#high-availability-replica) secundarias para el equilibrio de carga de las cargas de trabajo de solo lectura que requieren más recursos de los disponibles en una réplica de alta disponibilidad secundaria. 
 
-La arquitectura de alta disponibilidad de los niveles de servicio Básico, Estándar y De uso general no incluye réplicas. La característica *Escalado horizontal de lectura* no está disponible en estos niveles de servicio.
+La arquitectura de alta disponibilidad de los niveles de servicio Básico, Estándar y De uso general no incluye réplicas. La característica *Escalado horizontal de lectura* no está disponible en estos niveles de servicio. Sin embargo, las [réplicas geográficas](active-geo-replication-overview.md) pueden proporcionar una funcionalidad similar en estos niveles de servicio.
 
 En el diagrama siguiente se muestra la característica de las instancias administradas y las bases de datos de nivel Premium y Crítico para la empresa.
 

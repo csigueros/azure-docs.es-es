@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2020
 ms.author: jeedes
-ms.openlocfilehash: 38d64cc11889e3279d4e81ed2ab760ea50755f40
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 412380b71057580d13d7b41c6153ba1b6d08e290
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124761045"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132342098"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ns1-sso-for-azure"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con NS1 SSO for Azure
 
@@ -40,7 +40,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * NS1 SSO for Azure admite el inicio de sesión único iniciado por SP e IDP.
-* Después de configurar NS1 SSO for Azure, puede aplicar el control de sesión. Esto protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Después de configurar NS1 SSO for Azure, puede aplicar el control de sesión. Esto protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).
 
 
 ## <a name="add-ns1-sso-for-azure-from-the-gallery"></a>Adición de NS1 SSO for Azure desde la galería
@@ -177,4 +177,4 @@ Al seleccionar el icono de NS1 SSO for Azure en el Panel de acceso, debería ini
 
 - [Pruebe NS1 SSO for Azure con Azure AD](https://aad.portal.azure.com/)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [¿Qué es el control de sesión en Microsoft Defender para aplicaciones en la nube?](/cloud-app-security/proxy-intro-aad)

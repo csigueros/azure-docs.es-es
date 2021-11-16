@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0553d15eccb7e3fee4422b17a545caf5cfc9378b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9b521427b5fc3fd0eb3f0e91e8122d3da543296f
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728743"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132027667"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Instrucciones sobre arquitectura de inserción empresarial
 
@@ -72,48 +72,46 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
 
 1. **EnterprisePushBackendSystem**
 
-    a. Este proyecto usa el paquete de NuGet **WindowsAzure.ServiceBus** y se basa en la [programación Pub/Sub de Service Bus].
+    a. Este proyecto usa el paquete NuGet **Azure.Messaging.ServiceBus** y se basa en la [programación Pub/Sub de Service Bus].
 
     b. Se trata de una aplicación de consola C# sencilla para simular un sistema LoB que inicia el mensaje que se entrega a la aplicación móvil.
 
     ```csharp
-    static void Main(string[] args)
+    static async Task Main(string[] args)
     {
         string connectionString =
-            CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
+            ConfigurationManager.AppSettings.Get("Azure.ServiceBus.ConnectionString");
 
         // Create the topic
-        CreateTopic(connectionString);
+        await CreateTopicAsync(connectionString);
 
         // Send message
-        SendMessage(connectionString);
+        await SendMessageAsync(connectionString);
     }
     ```
 
-    c. `CreateTopic` se usa para crear un tema de Service Bus.
+    c. `CreateTopicAsync` se usa para crear un tema de Service Bus.
 
     ```csharp
-    public static void CreateTopic(string connectionString)
+    public static async Task CreateTopicAsync(string connectionString)
     {
         // Create the topic if it does not exist already
+        ServiceBusAdministrationClient client = new ServiceBusAdministrationClient(connectionString);
 
-        var namespaceManager =
-            NamespaceManager.CreateFromConnectionString(connectionString);
-
-        if (!namespaceManager.TopicExists(sampleTopic))
+        if (!await client.TopicExistsAsync(topicName))
         {
-            namespaceManager.CreateTopic(sampleTopic);
+            await client.CreateTopicAsync(topicName);
         }
     }
     ```
 
-    d. `SendMessage` se usa para enviar los mensajes a este tema de Service Bus. En el ejemplo, este código simplemente envía un conjunto de mensajes aleatorios al tema de manera periódica. Normalmente, hay un sistema back-end que envía los mensajes cuando se produce un evento.
+    d. `SendMessageAsync` se usa para enviar los mensajes a este tema de Service Bus. En el ejemplo, este código simplemente envía un conjunto de mensajes aleatorios al tema de manera periódica. Normalmente, hay un sistema back-end que envía los mensajes cuando se produce un evento.
 
     ```csharp
-    public static void SendMessage(string connectionString)
+    public static sync Task SendMessageAsync(string connectionString)
     {
-        TopicClient client =
-            TopicClient.CreateFromConnectionString(connectionString, sampleTopic);
+        await using var client = new ServiceBusClient(connectionString);
+        ServiceBusSender sender = client.CreateSender(topicName);
 
         // Sends random messages every 10 seconds to the topic
         string[] messages =
@@ -130,8 +128,8 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
             string notification = String.Format(messages[rnd.Next(0,messages.Length)], employeeId);
 
             // Send Notification
-            BrokeredMessage message = new BrokeredMessage(notification);
-            client.Send(message);
+            ServiceBusMessage message = new ServiceBusMessage(notification);
+            await sender.SendMessageAsync(message);
 
             Console.WriteLine("{0} Message sent - '{1}'", DateTime.Now, notification);
 
@@ -139,63 +137,60 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
         }
     }
     ```
+
 2. **ReceiveAndSendNotification**
 
-    a. Este proyecto usa los paquetes de NuGet *WindowsAzure.ServiceBus* y **Microsoft.Web.WebJobs.Publish** y se basa en la [programación Pub/Sub de Service Bus].
+    a. Este proyecto usa los paquetes NuGet *Azure.Messaging.ServiceBus* y **Microsoft.Web.WebJobs.Publish** y se basa en la [programación Pub/Sub de Service Bus].
 
     b. La siguiente aplicación de consola se ejecuta como un [trabajo web de Azure] dado que se tiene que ejecutar continuamente para escuchar mensajes de los sistemas LoB/back-end. Esta aplicación forma parte de su back-end móvil.
 
     ```csharp
-    static void Main(string[] args)
+    static async Task Main(string[] args)
     {
         string connectionString =
-                 CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
+                 ConfigurationManager.AppSettings.Get("Azure.ServiceBus.ConnectionString");
 
         // Create the subscription that receives messages
-        CreateSubscription(connectionString);
+        await CreateSubscriptionAsync(connectionString);
 
         // Receive message
-        ReceiveMessageAndSendNotification(connectionString);
+        await ReceiveMessageAndSendNotificationAsync(connectionString);
     }
     ```
 
-    c. `CreateSubscription` se usa para crear una suscripción de Service Bus para el tema donde el sistema back-end envía mensajes. Según el escenario empresarial, este componente crea una o varias suscripciones a temas correspondientes (por ejemplo, puede que algunos reciban mensajes del sistema de RR. PP., otros del sistema de Finanzas, etc.)
+    c. `CreateSubscriptionAsync` se usa para crear una suscripción de Service Bus para el tema donde el sistema back-end envía mensajes. Según el escenario empresarial, este componente crea una o varias suscripciones a temas correspondientes (por ejemplo, puede que algunos reciban mensajes del sistema de RR. PP., otros del sistema de Finanzas, etc.)
 
     ```csharp
-    static void CreateSubscription(string connectionString)
+    static async Task CreateSubscriptionAsync(string connectionString)
     {
         // Create the subscription if it does not exist already
-        var namespaceManager =
-            NamespaceManager.CreateFromConnectionString(connectionString);
+        ServiceBusAdministrationClient client = new ServiceBusAdministrationClient(connectionString);
 
-        if (!namespaceManager.SubscriptionExists(sampleTopic, sampleSubscription))
+        if (!await client.SubscriptionExistsAsync(topicName, subscriptionName))
         {
-            namespaceManager.CreateSubscription(sampleTopic, sampleSubscription);
+            await client.CreateSubscriptionAsync(topicName, subscriptionName);
         }
     }
     ```
 
-    d. `ReceiveMessageAndSendNotification` se usa para leer el mensaje del tema mediante su suscripción y, si la lectura se realiza correctamente, entonces se crea una notificación (en el escenario de ejemplo, una notificación del sistema nativa de Windows) para su envío a la aplicación móvil mediante Azure Notification Hubs.
+    d. `ReceiveMessageAndSendNotificationAsync` se usa para leer el mensaje del tema mediante su suscripción y, si la lectura se realiza correctamente, entonces se crea una notificación (en el escenario de ejemplo, una notificación del sistema nativa de Windows) para su envío a la aplicación móvil mediante Azure Notification Hubs.
 
     ```csharp
-    static void ReceiveMessageAndSendNotification(string connectionString)
+    static async Task ReceiveMessageAndSendNotificationAsync(string connectionString)
     {
         // Initialize the Notification Hub
-        string hubConnectionString = CloudConfigurationManager.GetSetting
+        string hubConnectionString = ConfigurationManager.AppSettings.Get
                 ("Microsoft.NotificationHub.ConnectionString");
         hub = NotificationHubClient.CreateClientFromConnectionString
                 (hubConnectionString, "enterprisepushservicehub");
 
-        SubscriptionClient Client =
-            SubscriptionClient.CreateFromConnectionString
-                    (connectionString, sampleTopic, sampleSubscription);
-
-        Client.Receive();
+        ServiceBusClient Client = new ServiceBusClient(connectionString);
+        ServiceBusReceiver receiver = Client.CreateReceiver(topicName, subscriptionName);
 
         // Continuously process messages received from the subscription
         while (true)
         {
-            BrokeredMessage message = Client.Receive();
+            ServiceBusReceivedMessage message = await receiver.ReceiveMessageAsync();
             var toastMessage = @"<toast><visual><binding template=""ToastText01""><text id=""1"">{messagepayload}</text></binding></visual></toast>";
 
             if (message != null)
@@ -204,19 +199,19 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
                 {
                     Console.WriteLine(message.MessageId);
                     Console.WriteLine(message.SequenceNumber);
-                    string messageBody = message.GetBody<string>();
+                    string messageBody = message.Body.ToString();
                     Console.WriteLine("Body: " + messageBody + "\n");
 
                     toastMessage = toastMessage.Replace("{messagepayload}", messageBody);
                     SendNotificationAsync(toastMessage);
 
                     // Remove message from subscription
-                    message.Complete();
+                    await receiver.CompleteMessageAsync(message);
                 }
                 catch (Exception)
                 {
                     // Indicate a problem, unlock message in subscription
-                    message.Abandon();
+                    await receiver.AbandonMessageAsync(message);
                 }
             }
         }

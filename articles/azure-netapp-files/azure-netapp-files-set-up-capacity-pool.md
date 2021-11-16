@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 06/14/2021
+ms.date: 11/4/2021
 ms.author: b-juche
-ms.openlocfilehash: 3488b6807982f97cd5feef9b07a6dc7cbe180dcd
-ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.openlocfilehash: 90867546e0866d0d899bc990a9eb5225fbaf4c1e
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129407558"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132027724"
 ---
 # <a name="create-a-capacity-pool-for-azure-netapp-files"></a>Creación de un grupo de capacidad de Azure NetApp Files
 
@@ -51,7 +51,7 @@ Debe haber creado ya una cuenta de NetApp.
 
     * **Tamaño**     
      Especifique el tamaño del grupo de capacidad que va a adquirir.        
-     El tamaño mínimo del grupo de capacidad es de 4 TiB. Puede crear un grupo con un tamaño que sea múltiplo de 4 TiB.   
+     El tamaño mínimo del grupo de capacidad es de 4 TiB. Puede cambiar el tamaño de un grupo de capacidad en incrementos de 1 TiB.
 
    * **QoS**   
      Especifique si el grupo de capacidad debe usar el tipo de QoS **manual** o **automático**.  

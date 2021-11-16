@@ -5,12 +5,12 @@ ms.date: 04/13/2021
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 8404078943f9398df6604c78413bc3750f13d655
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 0555bf71402230cf8264a271ce3ac6cf59357c12
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129729090"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132134047"
 ---
 # <a name="service-fabric-releases"></a>Versiones de Service Fabric
 
@@ -22,6 +22,19 @@ Los recursos siguientes también están disponibles:
 - <a href="/azure/service-fabric/service-fabric-support" target="blank">Opciones de soporte técnico</a> 
 - <a href="/azure/service-fabric/service-fabric-versions" target="blank">Versiones compatibles</a> 
 - <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">Ejemplos de código</a>
+
+
+## <a name="service-fabric-82"></a>Service Fabric 8.2
+
+Nos complace anunciar que la versión 8.2 del entorno de ejecución de Service Fabric ha empezado a implementarse en las diversas regiones de Azure junto con las herramientas y las actualizaciones del SDK. Las actualizaciones del SDK de .NET, el SDK de Java y el entorno de ejecución de Service Fabric están disponibles mediante el Instalador de plataforma web, los paquetes de NuGet y los repositorios de Maven.
+
+### <a name="key-announcements"></a>Anuncios clave
+- Exposición de una API en el Administrador de clústeres para advertir si la actualización tiene efecto
+
+### <a name="service-fabric-82-releases"></a>Versiones de Service Fabric 8.2
+| Fecha de la versión | Release | Más información |
+|---|---|---|
+| 29 de octubre de 2021 | [Azure Service Fabric 8.2](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-2-release/ba-p/2895108)  | [Notas de la versión](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_82.md)|
 
 
 ## <a name="service-fabric-81"></a>Service Fabric 8.1

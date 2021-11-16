@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2021
 ms.author: jeedes
-ms.openlocfilehash: ef52547bb8ec27bd759a238d742173f6b8fc3994
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e958f8b13c01e895aa4d6485aedd64dd155e69b5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128592002"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132334993"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-remote-secure-access-vpn"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Check Point Remote Secure Access VPN
 
@@ -57,7 +57,7 @@ Configure y pruebe el SSO de Azure AD con Check Point Remote Secure Access VPN 
 Para configurar y probar el SSO de Azure AD con Check Point Remote Secure Access VPN, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración de SSO de Check Point Secure Remote Access VPN](#configure-check-point-remote-secure-access-vpn-sso)** : para permitir que los usuarios usen esta característica.
 
@@ -76,11 +76,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
-    a. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<GATEWAY_IP>/saml-vpn/spPortal/ACS/ID/<IDENTIFIER_UID>`
+    1. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<GATEWAY_IP>/saml-vpn/spPortal/ACS/ID/<IDENTIFIER_UID>`
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<GATEWAY_IP>/saml-vpn/spPortal/ACS/Login/<IDENTIFIER_UID>`
+    1. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<GATEWAY_IP>/saml-vpn/spPortal/ACS/Login/<IDENTIFIER_UID>`
 
-    c. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<GATEWAY_IP>/saml-vpn/`
+    1. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<GATEWAY_IP>/saml-vpn/`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con el identificador y las direcciones URL de inicio de sesión y de respuesta reales. Póngase en contacto con el [equipo de soporte técnico para clientes de Check Point Remote Secure Access VPN](mailto:support@checkpoint.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -180,7 +180,6 @@ Por ejemplo: `https://gateway1.company.com/saml-vpn`
 
 1. Haga clic en **OK**.
 
-
 ### <a name="configure-an-identity-provider-object"></a>Configuración de un objeto de proveedor de identidades
 
 1. Realice los pasos siguientes para cada puerta de enlace de seguridad que participa en Remote Access VPN.
@@ -220,7 +219,7 @@ Por ejemplo: `https://gateway1.company.com/saml-vpn`
 
     ![Captura de pantalla para agregar un nuevo objeto](./media/check-point-remote-access-vpn-tutorial/add-new-object.png)
 
-1. Escriba un nombre y un nombre para mostrar y agregue o edite un método de autenticación. En caso de que la opción de inicio de sesión se use en las GW que participan en MEP, para permitir una experiencia fluida del usuario, el nombre debe comenzar con el prefijo "SAMLVPN_". 
+1. Escriba un nombre y un nombre para mostrar y agregue o edite un método de autenticación. En caso de que la opción de inicio de sesión se use en las GW que participan en MEP, para permitir una experiencia fluida del usuario, el nombre debe comenzar con el prefijo "SAMLVPN_".
 
     ![Captura de pantalla sobre la opción de inicio de sesión](./media/check-point-remote-access-vpn-tutorial/login-option.png)
 
@@ -237,21 +236,21 @@ Hay dos opciones:
 
 1. Configure los valores necesarios en la base de datos de administración:
 
-    1.  Cierre SmartConsole.
+    1. Cierre SmartConsole.
 
-    2.  Conéctese con la herramienta GuiDBEdit al servidor de administración (consulte [sk13009](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails&solutionid=sk13009)).
+    2. Conéctese con la herramienta GuiDBEdit al servidor de administración (consulte [sk13009](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails&solutionid=sk13009)).
 
-    3.  En el panel superior izquierdo, vaya a **Edit > Network Objects** (Editar > Objetos de red).
+    3. En el panel superior izquierdo, vaya a **Edit > Network Objects** (Editar > Objetos de red).
 
-    4.  En el panel superior derecho, seleccione el objeto **Security Gateway** (Puerta de enlace de seguridad).
+    4. En el panel superior derecho, seleccione el objeto **Security Gateway** (Puerta de enlace de seguridad).
 
-    5.  En el panel inferior, vaya a **realms_for_blades > vpn**.
+    5. En el panel inferior, vaya a **realms_for_blades > vpn**.
 
-    6.  Si no desea usar una instancia de Active Directory local (LDAP), establezca **do_ldap_fetch** en **false** y **do_generic_fetch** en **true**. A continuación, haga clic en **Aceptar**. Si desea usar una instancia de Active Directory local (LDAP), establezca do_ **ldap_fetch** en **true** y **do_generic_fetch** en **false**. A continuación, haga clic en **Aceptar**.
+    6. Si no desea usar una instancia de Active Directory local (LDAP), establezca **do_ldap_fetch** en **false** y **do_generic_fetch** en **true**. A continuación, haga clic en **Aceptar**. Si desea usar una instancia de Active Directory local (LDAP), establezca do_ **ldap_fetch** en **true** y **do_generic_fetch** en **false**. A continuación, haga clic en **Aceptar**.
 
-    7.  Repita los pasos iv-vi para todas las puertas de enlace de seguridad aplicables.
+    7. Repita los pasos del 4 al 6 para todas las puertas de enlace de seguridad aplicables.
 
-    8.  Guarde todos los cambios (haga clic en el menú **File** > **Save All** [Archivo > Guardar todo]).
+    8. Guarde los cambios. Para ello, seleccione **Archivo** > **Guardar todo**.
 
 1. Cierre la herramienta GuiDBEdit.
 
@@ -267,20 +266,21 @@ Hay dos opciones:
 
 1. Instale el cliente de VPN.
 
-1. Establezca el modo de explorador del proveedor de identidades (opcional). De forma predeterminada, el cliente de Windows usa su explorador insertado y el cliente macOS usa Safari para autenticarse en el portal del proveedor de identidades.
-Para que el cliente de Windows cambie este comportamiento y use Internet Explorer en su lugar:
+1. Establezca el modo de exploración de proveedor de identidades (opcional).
 
-   1. En la máquina cliente, abra un editor de texto sin formato como administrador.
+    De manera predeterminada, el cliente Windows usa su explorador insertado y el cliente macOS usa Safari para autenticarse en el portal del proveedor de identidades. Para clientes Windows, cambie este comportamiento para usar Internet Explorer en su lugar:
 
-   2. Abra el archivo `trac.defaults` en el editor de texto.
+    1. En la máquina cliente, abra un editor de texto sin formato como administrador.
 
-      - En Windows de 32 bits: 
+    2. Abra el archivo `trac.defaults` en el editor de texto.
 
-        `%ProgramFiles%\CheckPoint\Endpoint Connect\trac.defaults`
+       * En Windows de 32 bits: 
 
-      - En Windows de 64 bits: 
+         `%ProgramFiles%\CheckPoint\Endpoint Connect\trac.defaults`
 
-        `%ProgramFiles(x86)%\CheckPoint\Endpoint Connect\trac.defaults`
+       * En Windows de 64 bits: 
+
+         `%ProgramFiles(x86)%\CheckPoint\Endpoint Connect\trac.defaults`
 
     3. Cambie el valor del atributo `idp_browser_mode` de `embedded` a `IE`.
 
@@ -296,34 +296,35 @@ Para que el cliente de Windows cambie este comportamiento y use Internet Explore
 
 1. Inicie la autenticación con el explorador ejecutándose en segundo plano:
 
-   1. En la máquina cliente, abra un editor de texto sin formato como administrador.
+    1. En la máquina cliente, abra un editor de texto sin formato como administrador.
 
-   2. Abra el archivo `trac.defaults` en el editor de texto.
+    2. Abra el archivo `trac.defaults` en el editor de texto.
 
-      - En Windows de 32 bits: 
+        * En Windows de 32 bits: 
 
-        `%ProgramFiles%\CheckPoint\Endpoint Connect\trac.defaults`
+          `%ProgramFiles%\CheckPoint\Endpoint Connect\trac.defaults`
 
-      - En Windows de 64 bits: 
+        * En Windows de 64 bits: 
 
-        `%ProgramFiles(x86)%\CheckPoint\Endpoint Connect\trac.defaults`
+          `%ProgramFiles(x86)%\CheckPoint\Endpoint Connect\trac.defaults`
 
-      - En macOS:
-      
-        `/Library/Application Support/Checkpoint/Endpoint Security/Endpoint Connect/trac.defaults`
+        * En macOS:
+
+          `/Library/Application Support/Checkpoint/Endpoint Security/Endpoint Connect/trac.defaults`
 
     3. Cambie el valor de `idp_show_browser_primary_auth_flow` a `false`.
 
     4. Guarde el archivo.
 
     5. Reinicie el servicio cliente de Check Point Endpoint Security VPN.
-       - En los clientes de Windows, abra el símbolo del sistema como administrador y ejecute estos comandos:
+
+       * En los clientes de Windows, abra el símbolo del sistema como administrador y ejecute estos comandos:
 
          `# net stop TracSrvWrapper`
-        
+
          `# net start TracSrvWrapper`
 
-       - En los clientes macOS, ejecute:
+       * En los clientes macOS, ejecute:
 
          `sudo launchctl stop com.checkpoint.epc.service`
 
@@ -333,7 +334,7 @@ Para que el cliente de Windows cambie este comportamiento y use Internet Explore
 
 En esta sección, creará un usuario llamado Britta Simon en Check Point Remote Secure Access VPN. Trabaje con el [equipo de soporte técnico de Check Point Remote Secure Access VPN](mailto:support@checkpoint.com) para agregar los usuarios a la plataforma Check Point Remote Secure Access VPN. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
-## <a name="test-sso"></a>Prueba de SSO 
+## <a name="test-sso"></a>Prueba de SSO
 
 1. Abra el cliente VPN y haga clic en **Connect to…** (Conectar a...).
 
@@ -347,4 +348,4 @@ En esta sección, creará un usuario llamado Britta Simon en Check Point Remote 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Check Point Remote Secure Access VPN, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado Check Point Remote Secure Access VPN, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con las aplicaciones de Microsoft Defender for Cloud](/cloud-app-security/proxy-deployment-any-app).

@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
-ms.openlocfilehash: 32d39c956121881da0073b53fe5b4196dbc179de
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 11/08/2021
+ms.openlocfilehash: 7b8343c06dd0815f8c0fb44fa00f85c2c0195b13
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124828491"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132058532"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Uso de patrones de columnas en el flujo de datos de asignación
 
@@ -86,6 +86,7 @@ En el ejemplo anterior se hace coincidir con todas las subcolumnas de la columna
 ## <a name="pattern-matching-expression-values"></a>Valores de expresión de coincidencia de patrones.
 
 * `$$` se traduce al nombre o valor de cada coincidencia en tiempo de ejecución. Piense en `$$` como equivalente a `this`.
+* `$0` se traduce en la coincidencia del nombre de columna actual en tiempo de ejecución para los tipos escalares. Para los tipos jerárquicos, `$0` representa la ruta de acceso de la jerarquía de columnas coincidentes actual.
 * `name` representa el nombre de cada columna de entrada
 * `type` representa el tipo de datos de cada columna de entrada. La lista de tipos de datos del sistema de tipos de flujo de datos se puede encontrar [aquí.](concepts-data-flow-overview.md#data-flow-data-types)
 * `stream` representa el nombre asociado a cada secuencia o transformación del flujo

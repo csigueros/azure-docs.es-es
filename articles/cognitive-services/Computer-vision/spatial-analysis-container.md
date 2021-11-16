@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/14/2021
 ms.author: pafarley
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 31e712daa27a6fba0bdb834f57e6d6573cfba325
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: beda19bd951cf2750d071286ba066bb3a79c0e94
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132137320"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132319290"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instalación y ejecución del contenedor de análisis espacial (versión preliminar)
 

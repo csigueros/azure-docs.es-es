@@ -2,18 +2,17 @@
 title: Consideraciones de almacenamiento de Azure Functions
 description: Conozca los requisitos de almacenamiento de Azure Functions y aprenda a cifrar los datos almacenados.
 ms.topic: conceptual
-ms.date: 07/27/2020
-ms.openlocfilehash: 6dc2bad744118e57b9e958658814f5c194f633ad
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 11/09/2021
+ms.openlocfilehash: 0e53d2919d8af3f0e8162d4aca9f55f2ec0ab740
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130216625"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132335886"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Consideraciones de almacenamiento de Azure Functions
 
 Azure Functions necesita una cuenta de Azure Storage para crear una instancia de la aplicación de funciones. Esta aplicación de funciones puede utilizar los siguientes servicios de almacenamiento:
-
 
 |Servicio de Storage  | Uso de Functions  |
 |---------|---------|
@@ -52,6 +51,10 @@ Cuando se generan las claves de almacenamiento, debe actualizarse la cadena de c
 ### <a name="shared-storage-accounts"></a>Cuentas de almacenamiento compartidas
 
 Una misma cuenta de almacenamiento puede estar compartida entre varias aplicaciones de funciones sin que se produzcan problemas. Por ejemplo, en Visual Studio, puede desarrollar varias aplicaciones con el Emulador de Azure Storage. En este caso, el emulador actúa como una cuenta de almacenamiento única. La cuenta de almacenamiento que se utiliza en la aplicación de funciones puede usarse también para almacenar los datos de la aplicación. Sin embargo, este enfoque no siempre resulta conveniente en los entornos de producción.
+
+### <a name="lifecycle-management-policy-considerations"></a>Consideraciones sobre la directiva de administración del ciclo de vida
+
+Functions usa Blob Storage para conservar información importante, como [claves de acceso de función](functions-bindings-http-webhook-trigger.md#authorization-keys). Al aplicar una [directiva de administración del ciclo de vida](../storage/blobs/lifecycle-management-overview.md) a la cuenta de Blob Storage, la directiva puede quitar los blobs que necesita el host de Functions. Por eso, no debe aplicar estas directivas a la cuenta de almacenamiento que usa Functions. Si necesita aplicar este tipo de directiva, no olvide excluir los contenedores usados por Functions, que normalmente tienen el prefijo `azure-webjobs` o `scm`.
 
 ### <a name="optimize-storage-performance"></a>Optimización del rendimiento de almacenamiento
 

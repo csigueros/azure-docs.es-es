@@ -7,12 +7,12 @@ ms.service: purview
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: c2ed5a0a65bd4d10620b0c72dbb5efb2aac4152f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: cba37228902600852963068ba4d46e75adf21c57
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131062005"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131853897"
 ---
 # <a name="connect-to-azure-sql-database-in-azure-purview"></a>Conexión a Azure SQL Database en Azure Purview
 
@@ -22,7 +22,9 @@ En este artículo se describe el proceso para registrar un origen de datos de Az
 
 |**Extracción de metadatos**|  **Examen completo**  |**Examen incremental**|**Examen con ámbito**|**Clasificación**|**Directiva de acceso**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Sí](#register) | [Sí](#scan)|[Sí](#scan) | [Sí](#scan)|[Sí](#scan)| No |[Linaje de Data Factory](how-to-link-azure-data-factory.md)|
+| [Sí](#register) | [Sí](#scan)|[Sí](#scan) | [Sí](#scan)|[Sí](#scan)| No | No** |
+
+\** Se admite el linaje si el conjunto de datos se usa como origen o receptor en la [actividad de copia de Data Factory](how-to-link-azure-data-factory.md). 
 
 ### <a name="known-limitations"></a>Restricciones conocidas
 
@@ -115,7 +117,7 @@ Puede seguir las instrucciones de [CREAR INICIO DE SESIÓN](/sql/t-sql/statement
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-key-vault.png" alt-text="Captura de pantalla que muestra el almacén de claves":::
 
-1. Seleccione **Configuración > Secretos** y, después, **+ Generar/Importar**.
+1. Seleccione **Configuración > Secretos** y, después, **+ Generar/Importar**
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-secret.png" alt-text="Captura de pantalla que muestra la opción del almacén de claves para generar un secreto":::
 
@@ -142,7 +144,7 @@ Es importante conceder a la cuenta de Purview el permiso para examinar la instan
 
 1. En [Azure Portal](https://portal.azure.com), busque la suscripción, el grupo de recursos o el recurso (por ejemplo, una instancia de Azure SQL Database) que desea permitir que el catálogo examine.
 
-1. Seleccione **Control de acceso (IAM)** en el panel de navegación izquierdo y, después, seleccione **+ Agregar** --> **Agregar asignación de roles**.
+1. Seleccione **Control de acceso (IAM)** en el panel de navegación izquierdo y, después, seleccione **+ Agregar** --> **Adición de la asignación de roles**.
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-sql-ds.png" alt-text="Captura de pantalla que muestra la base de datos de Azure SQL":::
 
@@ -168,7 +170,7 @@ Si tiene que [crear una nueva entidad de servicio](./create-service-principal-az
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-key-vault.png" alt-text="Captura de pantalla que muestra el almacén de claves para el que agregar un secreto para la entidad de servicio":::
 
-1. Seleccione **Configuración > Secretos** y, después, **+ Generar/Importar**.
+1. Seleccione **Configuración > Secretos** y, después, **+ Generar/Importar**
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-secret.png" alt-text="Captura de pantalla que muestra la opción del almacén de claves para generar un secreto para la entidad de servicio":::
 
@@ -213,7 +215,7 @@ Se puede instalar un entorno de ejecución de integración autohospedado (SHIR) 
 
 ### <a name="creating-the-scan"></a>Creación del examen
 
-1. Abra la **cuenta de Purview** y seleccione **Abrir Purview Studio**.
+1. Abra la **cuenta de Purview** y seleccione **Apertura de Purview Studio**.
 1. Vaya a **Mapa de datos** --> **Orígenes** para ver la jerarquía de colecciones.
 1. Seleccione el icono **Nuevo examen** en la instancia de **Azure SQL DB** registrada anteriormente.
 
@@ -231,7 +233,7 @@ Se puede instalar un entorno de ejecución de integración autohospedado (SHIR) 
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-managed-id.png" alt-text="Captura de pantalla que muestra la opción de identidad administrada para ejecutar el examen":::
 
-1. Seleccione **Test connection** (Probar conexión). Tras una conexión correcta, seleccione **Continuar**.
+1. Seleccione **Test connection** (Probar conexión). Tras una conexión correcta, haga clic en **Continuar**.
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-test.png" alt-text="Captura de pantalla que permite que la opción de identidad administrada ejecute el examen":::
 
@@ -241,7 +243,7 @@ Se puede instalar un entorno de ejecución de integración autohospedado (SHIR) 
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-sp.png" alt-text="Captura de pantalla que muestra la opción para que la entidad de servicio habilite el examen":::
 
-1. Seleccione **Test connection** (Probar conexión). Tras una conexión correcta, seleccione **Continuar**.
+1. Seleccione **Test connection** (Probar conexión). Tras una conexión correcta, haga clic en **Continuar**.
 
 ### <a name="scoping-and-running-the-scan"></a>Ámbito y ejecución del examen
 
@@ -279,7 +281,7 @@ Se puede instalar un entorno de ejecución de integración autohospedado (SHIR) 
 
 1. Los detalles del examen indican el progreso del examen en el **Estado de la última ejecución** y el número de recursos _examinados_ y _clasificados_.
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-view-scan-details.png" alt-text="Visualización de los detalles del examen":::
+    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-view-scan-details.png" alt-text="Ver detalles del examen":::
 
 1. El **Estado de la última ejecución** se actualizará a **En curso** y, posteriormente, a **Completado** una vez que todo el examen se haya ejecutado correctamente.
 

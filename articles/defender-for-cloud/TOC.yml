@@ -6,6 +6,7 @@
     - name: ¿Qué es Microsoft Defender for Cloud?
       href: defender-for-cloud-introduction.md
     - name: ¿Qué son las características de seguridad mejoradas?
+      displayName: azure defender
       href: enhanced-security-features-overview.md
     - name: Novedades
       displayName: 'changelog, news, release notes'
@@ -96,7 +97,7 @@
     - name: Acceso y seguimiento de la puntuación segura
       href: secure-score-access-and-track.md
     - name: Clasificación de acciones de seguridad por confidencialidad de datos
-      displayName: 'sensitivity, data, purview, inventory'
+      displayName: 'sensitivity, data, purview, inventory, information protection'
       href: information-protection.md
     - name: Administración de los recursos con el inventario de recursos
       href: asset-inventory.md
@@ -220,9 +221,6 @@
         - name: Búsqueda de imágenes en los flujos de trabajo de integración continua y entrega continua
           displayName: 'ACR, registry, images, trevi, vulnerabilities, scanner'
           href: defender-for-container-registries-cicd.md
-        - name: Deshabilitación de resultados sobre las vulnerabilidades de imágenes concretas
-          displayName: 'ACR, registry, images, qualys'
-          href: defender-for-container-registries-usage.md#disable-specific-findings-preview
         - name: Protección de clústeres de Kubernetes habilitados para Azure Arc
           displayName: 'k8s, containers, aks, hybrid, arc, azure arc, multicloud'
           href: defender-for-kubernetes-azure-arc.md
@@ -263,6 +261,7 @@
     - name: Integración con soluciones de seguridad y orígenes de datos
       href: partner-integration.md
     - name: Protección de recursos de red
+      displayName: 'map, network map'
       href: protect-network-resources.md
     - name: Aplicación y administración de autenticación multifactor
       displayName: 'identity, access, AAD, active directory, multi-factor, authentication, multifactor, users, passwords'
@@ -320,7 +319,7 @@
     - name: Documentación de las API REST
       href: /rest/api/securitycenter/
     - name: Línea de base de seguridad
-      href: /security/benchmark/azure/baselines/security-center-security-baseline?toc=/azure/security-center/TOC.json
+      href: /security/benchmark/azure/baselines/security-center-security-baseline?toc=/azure/defender-for-cloud/TOC.json
     - name: Preguntas frecuentes sobre Microsoft Defender for Cloud
       items:
         - name: Preguntas generales

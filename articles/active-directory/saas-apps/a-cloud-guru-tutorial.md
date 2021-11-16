@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/03/2021
 ms.author: jeedes
-ms.openlocfilehash: ac5e48eb09d372bc9f158575275f15a605b24707
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: bd4a2736983740fc543677749bddda933ae13748
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124771068"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132305397"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-a-cloud-guru"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con A Cloud Guru
 
@@ -59,7 +59,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con A Cloud Guru med
 Para configurar y probar el inicio de sesión único de Azure AD con A Cloud Guru, lleve a cabo los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en A Cloud Guru](#configure-a-cloud-guru-sso)** , para configurar los valores de Inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba en A Cloud Guru](#create-a-cloud-guru-test-user)** : para tener un homólogo de B.Simon en A Cloud Guru vinculado a la representación del usuario en Azure AD.
@@ -158,4 +158,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que configure A Cloud Guru, puede aplicar el control de sesión, que protege la filtración e infiltración de datos confidenciales en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez que configure A Cloud Guru, puede aplicar el control de sesión, que protege la filtración e infiltración de datos confidenciales en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).
