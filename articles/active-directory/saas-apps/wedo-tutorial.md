@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 4cf995376ad9b7b46acc85d0aa03c4079bf8ae3d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 49bccfa7a5a3cc90038c5068841c75c972616fe2
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131067047"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132316692"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wedo"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con WEDO
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar WEDO con Azure Active Directory (Azure
 * Permitir que los usuarios inicien sesión automáticamente en WEDO con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -194,4 +194,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que configure WEDO, puede aplicar el control de sesión, que protege la filtración y la infiltración de los datos confidenciales de su organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez que configure WEDO, puede aplicar el control de sesión, que protege la filtración y la infiltración de los datos confidenciales de su organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con las aplicaciones de Microsoft Defender para la nube](/cloud-app-security/proxy-deployment-aad).

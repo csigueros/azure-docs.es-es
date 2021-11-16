@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 0b131601dd45c16088dff14cea589db5f1992525
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 024687e693b82ed3f8053fcdceefe876a5cad9e1
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129995539"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132313819"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-kantega-sso-for-confluence"></a>Tutorial: Integración del inicio de sesión único de Azure Active Directory con Kantega SSO para Confluence
 
@@ -57,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Kantega SSO para
 Para configurar y probar el inicio de sesión único de Azure AD con Kantega SSO para Confluence, complete los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Kantega SSO para Confluence](#configure-kantega-sso-for-confluence-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Kantega SSO para Confluence](#create-kantega-sso-for-confluence-test-user)** : para tener un homólogo de B.Simon en Kantega SSO para Confluence que esté vinculado a la representación del usuario en Azure AD.
@@ -258,4 +258,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado Kantega SSO para Confluence, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez que haya configurado Kantega SSO para Confluence, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con las aplicaciones de Microsoft Defender para la nube](/cloud-app-security/proxy-deployment-aad).

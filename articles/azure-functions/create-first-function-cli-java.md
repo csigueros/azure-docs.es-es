@@ -11,12 +11,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-java-uiex
-ms.openlocfilehash: f9b4d079b359524faac8b594c653b7aebcac2676
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c28d2d2fbdbe48b2f07ed85f8cc08b93d70e1edb
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730531"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132026970"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Inicio rápido: Creación de una función de Java en Azure desde la línea de comandos
 
@@ -37,7 +37,7 @@ Antes de empezar, debe disponer de lo siguiente:
 
 + Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ [Azure Functions Core Tools](functions-run-local.md#v2), versión 3.x.
++ [Azure Functions Core Tools](functions-run-local.md#v2), versión 4.x.
 
 + La [CLI de Azure](/cli/azure/install-azure-cli), versión 2.4 o cualquier versión posterior.
 
@@ -47,7 +47,7 @@ Antes de empezar, debe disponer de lo siguiente:
 
 ### <a name="prerequisite-check"></a>Comprobación de requisitos previos
 
-+ En una ventana de terminal o de comandos, ejecute `func --version` para comprobar que la versión de Azure Functions Core Tools es la 3.x.
++ En una ventana de terminal o de comandos, ejecute `func --version` para comprobar que la versión de Azure Functions Core Tools sea la 4.x.
 
 + Ejecute `az --version` para comprobar que la versión de la CLI de Azure es la 2.4 o posterior.
 

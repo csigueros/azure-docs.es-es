@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/15/2020
 ms.author: jeedes
-ms.openlocfilehash: 45770f06ce6ab92d39a927c26e5464c1f9871c71
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 9abed0b59b29e58b56a774b9079b99bde010a783
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124825652"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132298938"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-textline"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Textline
 
@@ -43,7 +43,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Textline admite el aprovisionamiento de usuarios **Just-In-Time**.
 
-* Una vez que configure Textline, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Una vez que configure Textline, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-textline-from-the-gallery"></a>Incorporación de Textline desde la galería
 
@@ -64,7 +64,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Textline utiliza
 Para configurar y probar el inicio de sesión único de Azure AD con Textline, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Textline](#configure-textline-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Textline](#create-textline-test-user)** , para tener un homólogo de B.Simon en Textline que esté vinculado a la representación del usuario en Azure AD.
@@ -144,6 +144,6 @@ Al hacer clic en el icono de Textline en el Panel de acceso, debería iniciar se
 
 - [Prueba de Textline con Azure AD](https://aad.portal.azure.com/)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [¿Qué es el control de sesión en Microsoft Defender para aplicaciones en la nube?](/cloud-app-security/proxy-intro-aad)
 
 - [Protección de Textline con controles y visibilidad avanzados](/cloud-app-security/proxy-intro-aad)

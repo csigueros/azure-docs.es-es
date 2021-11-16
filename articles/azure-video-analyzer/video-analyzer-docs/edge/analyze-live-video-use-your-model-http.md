@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 11/04/2021
 zone_pivot_groups: video-analyzer-programming-languages
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 42845d87a8c1679a9b186cf71a9b82a9413fb005
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: c7770c61ce6d768f3fdd3216da94c87466310e74
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131563594"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484238"
 ---
 # <a name="quickstart-analyze-live-video-with-your-own-model---http"></a>Inicio rápido: Análisis de vídeo en directo con su propio modelo - HTTP
 
@@ -35,7 +35,7 @@ Este inicio rápido usa una máquina virtual de Azure como dispositivo IoT Edge 
 
 Cuando configura los recursos de Azure, se copia un vídeo corto del tráfico en la autopista en la máquina virtual Linux en Azure que usa como dispositivo IoT Edge. En este inicio rápido se usa el archivo de vídeo para simular una secuencia en directo.
 
-Abra una aplicación como [VLC Media Player](https://www.videolan.org/vlc/). Seleccione Ctrl+N y, a continuación, pegue un vínculo al [vídeo de ejemplo de cruce de autopista](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) para iniciar la reproducción. Verá las imágenes de muchos vehículos moviéndose en el tráfico de una autopista.
+Abra una aplicación como [VLC Media Player](https://www.videolan.org/vlc/). Seleccione Ctrl+N y, a continuación, pegue un vínculo al [vídeo de ejemplo de cruce de autopista](https://avamedia.blob.core.windows.net/public/camera-300s.mkv) para iniciar la reproducción. Verá las imágenes de muchos vehículos moviéndose en el tráfico de una autopista.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LTY4]
 

@@ -3,12 +3,12 @@ title: Optimización de cargas de trabajo de Azure mediante Advisor Score
 description: Use Azure Advisor Score para sacar el máximo partido a Azure.
 ms.topic: article
 ms.date: 09/09/2020
-ms.openlocfilehash: e439e5283f2d311d9efb3b30fe157750d589664e
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: fc9bcee7d19d9e8ed7b550e7298d615d397c6f8b
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787930"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484707"
 ---
 # <a name="optimize-azure-workloads-by-using-advisor-score"></a>Optimización de cargas de trabajo de Azure mediante Advisor Score
 
@@ -72,7 +72,7 @@ El cálculo de la puntuación de Advisor se puede resumir en cuatro pasos:
    * Los recursos con recomendaciones duraderas contarán más en la puntuación.
    * Los recursos que se posponen o descartan en Advisor se quitan completamente del cálculo de la puntuación.
 
-Advisor aplica este modelo en un nivel de categoría para proporcionar una puntuación para cada categoría. **Seguridad** usa un modelo de [puntuación de seguridad](../security-center/secure-score-security-controls.md#introduction-to-secure-score). Una media simple genera la puntuación final de Advisor.
+Advisor aplica este modelo en un nivel de categoría para proporcionar una puntuación para cada categoría. **Seguridad** usa un modelo de [puntuación de seguridad](../defender-for-cloud/secure-score-security-controls.md#introduction-to-secure-score). Una media simple genera la puntuación final de Advisor.
 
 ## <a name="advisor-score-faqs"></a>Preguntas frecuentes sobre la puntuación de Advisor
 

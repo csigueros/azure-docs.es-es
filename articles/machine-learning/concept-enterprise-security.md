@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 10/21/2021
-ms.openlocfilehash: cc403561784deea26e238063f585873c24cd39d3
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: d5034f59cc71352518c0570e525f952f0f657c71
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131562739"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132343142"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Seguridad de empresa y gobernanza para Azure Machine Learning
 
@@ -107,7 +107,7 @@ Al implementar modelos como servicios web, puede habilitar la seguridad de la ca
 
 ## <a name="vulnerability-scanning"></a>Examen de vulnerabilidades
 
-[Azure Security Center](../security-center/security-center-introduction.md) proporciona administración unificada de la seguridad y protección avanzada contra amenazas para cargas de trabajo en la nube híbrida. Para Azure Machine Learning, debe habilitar el examen del recurso de [Azure Container Registry](../container-registry/container-registry-intro.md) y los recursos de Azure Kubernetes Service. Para obtener más información, consulte [Examen de imágenes de Azure Container Registry mediante Security Center](../security-center/defender-for-container-registries-introduction.md) e [Integración de Azure Kubernetes Service en Security Center](../security-center/defender-for-kubernetes-introduction.md).
+[Microsoft Defender for Cloud](../security-center/security-center-introduction.md) proporciona características unificadas de administración para la seguridad y protección contra amenazas en todas las cargas de trabajo en la nube híbrida. Para Azure Machine Learning, debe habilitar el examen del recurso de [Azure Container Registry](../container-registry/container-registry-intro.md) y los recursos de Azure Kubernetes Service. Para obtener más información, consulte [Examen de imágenes de Azure Container Registry mediante Defender for Cloud](../security-center/defender-for-container-registries-introduction.md) e [Integración de Azure Kubernetes Service en Defender for Cloud](../security-center/defender-for-kubernetes-introduction.md).
 
 ## <a name="audit-and-manage-compliance"></a>Auditoría y administración del cumplimiento
 

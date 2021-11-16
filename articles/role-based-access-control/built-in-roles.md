@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 10/23/2021
 ms.custom: generated
-ms.openlocfilehash: b8e3fe1f29650feebe5a666a60d37c4a09a4e363
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 9278c0467213e9f3880958eb53365396b628f4b2
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131023754"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132343010"
 ---
 # <a name="azure-built-in-roles"></a>Roles integrados de Azure
 
@@ -27,7 +27,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 ## <a name="all"></a>All
 
 > [!div class="mx-tableFixed"]
-> | Rol integrado | Descripción | id |
+> | Rol integrado | Descripción | ID |
 > | --- | --- | --- |
 > | **General** |  |  |
 > | [Colaborador](#contributor) | Concede acceso completo para administrar todos los recursos, pero no le permite asignar roles en Azure RBAC, administrar asignaciones en Azure Blueprints ni compartir galerías de imágenes. | b24988ac-6180-42a0-ab88-20f7382dd24c |
@@ -206,10 +206,10 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **Seguridad** |  |  |
 > | [Colaborador de atestación](#attestation-contributor) | Puede leer, escribir o eliminar la instancia del proveedor de atestación | bbf86eb8-f7b4-4cce-96e4-18cddf81d86e |
 > | [Lector de atestación](#attestation-reader) | No se pueden leer las propiedades del proveedor de atestación | fd1bd22b-8476-40bc-a0bc-69b95687b9f3 |
-> | [Colaborador de automatización de Azure Sentinel](#azure-sentinel-automation-contributor) | Colaborador de automatización de Azure Sentinel | f4c81013-99ee-4d62-a7ee-b3f1f648599a |
-> | [Colaborador de Azure Sentinel](#azure-sentinel-contributor) | Colaborador de Azure Sentinel | ab8e14d6-4a74-4a29-9ba8-549422addade |
-> | [Lector de Azure Sentinel](#azure-sentinel-reader) | Lector de Azure Sentinel | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
-> | [Respondedor de Azure Sentinel](#azure-sentinel-responder) | Respondedor de Azure Sentinel | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
+> | [Colaborador de automatización de Microsoft Sentinel](#microsoft-sentinel-automation-contributor) | Colaborador de automatización de Microsoft Sentinel | f4c81013-99ee-4d62-a7ee-b3f1f648599a |
+> | [Colaborador de Microsoft Sentinel](#microsoft-sentinel-contributor) | Colaborador de Microsoft Sentinel | ab8e14d6-4a74-4a29-9ba8-549422addade |
+> | [Lector de Microsoft Sentinel](#microsoft-sentinel-reader) | Lector de Microsoft Sentinel | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
+> | [Respondedor de Microsoft Sentinel](#microsoft-sentinel-responder) | Respondedor de Microsoft Sentinel | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
 > | [Administrador de Key Vault](#key-vault-administrator) | Permite realizar todas las operaciones de plano de datos en un almacén de claves y en todos los objetos que contiene, incluidos los certificados, las claves y los secretos. No permite administrar los recursos del almacén de claves ni administrar las asignaciones de roles. Solo funciona para almacenes de claves que usan el modelo de permisos "Control de acceso basado en rol de Azure". | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
 > | [Agente de certificados de Key Vault](#key-vault-certificates-officer) | Permite realizar cualquier acción en los certificados de un almacén de claves, excepto administrar permisos. Solo funciona para almacenes de claves que usan el modelo de permisos "Control de acceso basado en rol de Azure". | a4417e6f-fecd-4de8-b567-7b0420556985 |
 > | [Colaborador de almacén de claves](#key-vault-contributor) | Permite administrar almacenes de claves, per no asignar roles en Azure RBAC ni acceder a secretos, claves o certificados. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
@@ -9159,9 +9159,9 @@ No se pueden leer las propiedades del proveedor de atestación [Más informació
 }
 ```
 
-### <a name="azure-sentinel-automation-contributor"></a>Colaborador de automatización de Azure Sentinel
+### <a name="microsoft-sentinel-automation-contributor"></a>Colaborador de automatización de Microsoft Sentinel
 
-Colaborador de automatización de Azure Sentinel [Más información](../sentinel/roles.md)
+Colaborador de automatización de Microsoft Sentinel [Más información](../sentinel/roles.md)
 
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |
@@ -9182,7 +9182,7 @@ Colaborador de automatización de Azure Sentinel [Más información](../sentinel
   "assignableScopes": [
     "/"
   ],
-  "description": "Azure Sentinel Automation Contributor",
+  "description": "Microsoft Sentinel Automation Contributor",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/f4c81013-99ee-4d62-a7ee-b3f1f648599a",
   "name": "f4c81013-99ee-4d62-a7ee-b3f1f648599a",
   "permissions": [
@@ -9198,15 +9198,15 @@ Colaborador de automatización de Azure Sentinel [Más información](../sentinel
       "notDataActions": []
     }
   ],
-  "roleName": "Azure Sentinel Automation Contributor",
+  "roleName": "Microsoft Sentinel Automation Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### <a name="azure-sentinel-contributor"></a>Colaborador de Azure Sentinel
+### <a name="microsoft-sentinel-contributor"></a>Colaborador de Microsoft Sentinel
 
-Colaborador de Azure Sentinel. [Más información](../sentinel/roles.md)
+Colaborador de Microsoft Sentinel [Más información](../sentinel/roles.md)
 
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |
@@ -9239,7 +9239,7 @@ Colaborador de Azure Sentinel. [Más información](../sentinel/roles.md)
   "assignableScopes": [
     "/"
   ],
-  "description": "Azure Sentinel Contributor",
+  "description": "Microsoft Sentinel Contributor",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/ab8e14d6-4a74-4a29-9ba8-549422addade",
   "name": "ab8e14d6-4a74-4a29-9ba8-549422addade",
   "permissions": [
@@ -9267,15 +9267,15 @@ Colaborador de Azure Sentinel. [Más información](../sentinel/roles.md)
       "notDataActions": []
     }
   ],
-  "roleName": "Azure Sentinel Contributor",
+  "roleName": "Microsoft Sentinel Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### <a name="azure-sentinel-reader"></a>Lector de Azure Sentinel
+### <a name="microsoft-sentinel-reader"></a>Lector de Microsoft Sentinel
 
-Lector de Azure Sentinel. [Más información](../sentinel/roles.md)
+Lector de Microsoft Sentinel [Más información](../sentinel/roles.md)
 
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |
@@ -9312,7 +9312,7 @@ Lector de Azure Sentinel. [Más información](../sentinel/roles.md)
   "assignableScopes": [
     "/"
   ],
-  "description": "Azure Sentinel Reader",
+  "description": "Microsoft Sentinel Reader",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/8d289c81-5878-46d4-8554-54e1e3d8b5cb",
   "name": "8d289c81-5878-46d4-8554-54e1e3d8b5cb",
   "permissions": [
@@ -9344,15 +9344,15 @@ Lector de Azure Sentinel. [Más información](../sentinel/roles.md)
       "notDataActions": []
     }
   ],
-  "roleName": "Azure Sentinel Reader",
+  "roleName": "Microsoft Sentinel Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### <a name="azure-sentinel-responder"></a>Respondedor de Azure Sentinel
+### <a name="microsoft-sentinel-responder"></a>Respondedor de Microsoft Sentinel
 
-Respondedor de Azure Sentinel. [Más información](../sentinel/roles.md)
+Respondedor de Microsoft Sentinel [Más información](../sentinel/roles.md)
 
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |
@@ -9397,7 +9397,7 @@ Respondedor de Azure Sentinel. [Más información](../sentinel/roles.md)
   "assignableScopes": [
     "/"
   ],
-  "description": "Azure Sentinel Responder",
+  "description": "Microsoft Sentinel Responder",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/3e150937-b8fe-4cfb-8069-0eaf05ecd056",
   "name": "3e150937-b8fe-4cfb-8069-0eaf05ecd056",
   "permissions": [
@@ -9439,7 +9439,7 @@ Respondedor de Azure Sentinel. [Más información](../sentinel/roles.md)
       "notDataActions": []
     }
   ],
-  "roleName": "Azure Sentinel Responder",
+  "roleName": "Microsoft Sentinel Responder",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

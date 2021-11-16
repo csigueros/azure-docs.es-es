@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/17/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 85110db5b3f9e11105fa27a9ed8767d3d7e9e2bd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3f21a2d4eb0742bc5e91298816f9648e325b1955
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128592249"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132335335"
 ---
 # <a name="start-virtual-machine-on-connect"></a>Iniciar máquina virtual al establecer la conexión
 
@@ -38,20 +38,25 @@ Los siguientes clientes de Escritorio remoto admiten la característica Iniciar 
 
 Antes de poder configurar la característica Iniciar VM al establecer la conexión, deberá asignar a la VM un rol de RBAC (control de acceso basado en roles) personalizado. Este rol permitirá que Azure Virtual Desktop administre las VM de su suscripción. También puede usar este rol para activar VM, comprobar su estado y notificar información de diagnóstico. Si quiere saber más sobre lo que hace cada rol, eche un vistazo a [Roles personalizados de Azure](../role-based-access-control/custom-roles.md).
 
+>[!NOTE]
+>Si las máquinas virtuales y el grupo de hosts están en suscripciones diferentes, el rol RBAC debe asignarse a la suscripción en la que se encuentran las máquinas virtuales.
+
 ### <a name="use-the-azure-portal"></a>Uso de Azure Portal
 
 Para usar Azure Portal para asignar un rol personalizado para Iniciar VM al establecer la conexión:
 
 1. Abra Azure Portal y vaya a **Suscripciones**.
 
-2. Vaya al **Control de acceso (IAM)** y seleccione **Agregar rol personalizado**.
+2. Seleccione la suscripción en la que se encuentran las máquinas virtuales.
+ 
+3. Vaya al **Control de acceso (IAM)** y seleccione **Agregar rol personalizado**.
 
     > [!div class="mx-imgBorder"]
     > ![Captura de pantalla de un menú desplegable del botón Agregar en Control de acceso (IAM). "Agregar rol personalizado" está resaltado en rojo.](media/add-custom-role.png)
 
-3. A continuación, asigne un nombre al rol personalizado y agregue una descripción. Le recomendamos que le asigne el nombre "start VM on connect".
+4. A continuación, asigne un nombre al rol personalizado y agregue una descripción. Le recomendamos que le asigne el nombre "start VM on connect".
 
-4. En la pestaña **Permisos**, agregue uno de los dos siguientes conjuntos de permisos a la suscripción a la que vaya a asignar el rol: 
+5. En la pestaña **Permisos**, agregue uno de los dos siguientes conjuntos de permisos a la suscripción a la que vaya a asignar el rol: 
  
    - Microsoft.Compute/virtualMachines/start/action
    - Microsoft.Compute/virtualMachines/read 
@@ -62,7 +67,7 @@ Para usar Azure Portal para asignar un rol personalizado para Iniciar VM al esta
    - Microsoft.Compute/virtualMachines/start/action
    - Microsoft.Compute/virtualMachines/*/read 
 
-5. Cuando haya finalizado, seleccione **Aceptar**.
+6. Cuando haya finalizado, seleccione **Aceptar**.
 
 Después de esto, deberá asignar el rol para conceder acceso a Azure Virtual Desktop.
 

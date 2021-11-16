@@ -2,13 +2,13 @@
 title: 'Inicio rápido: Investigación de alertas de seguridad'
 description: Conozca, explore en profundidad e investigue las alertas de seguridad de Defender para IoT en sus dispositivos de IoT.
 ms.topic: quickstart
-ms.date: 06/21/2021
-ms.openlocfilehash: 02005680ca1c5d140ffdb101ede359594b28a840
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.date: 11/09/2021
+ms.openlocfilehash: c55392650edf85c753bcde32a03e8ad313ebd148
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113011500"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132331516"
 ---
 # <a name="quickstart-investigate-security-alerts"></a>Inicio rápido: Investigación de alertas de seguridad
 
@@ -48,7 +48,7 @@ Al abrir cada alerta agregada, se muestra su descripción detallada, los pasos d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Continúe con el siguiente artículo para más información sobre los tipos de alertas de Defender y las posibles personalizaciones.
+Continúe con el siguiente artículo para obtener más información sobre los tipos de alertas de seguridad y las posibles personalizaciones.
 
 > [!div class="nextstepaction"]
 > [Descripción de las alertas de seguridad de IoT](concept-security-alerts.md)

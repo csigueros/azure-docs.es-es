@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 09/10/2021
-ms.openlocfilehash: 7dcf326ea0834bdf644e2b717517f67d41d330e0
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 83da2d9c1c242e49aac28067d1c315e1e382f2ef
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124743280"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132063653"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Uso compartido y recepción de datos de Azure SQL Database y Azure Synapse Analytics
 
@@ -364,9 +364,13 @@ En el caso de las tablas SQL de origen con enmascaramiento dinámico de datos, l
 ## <a name="sql-snapshot-performance"></a>Rendimiento de la instantánea de SQL
 El rendimiento de la instantánea de SQL se ve afectado por una serie de factores. Siempre se recomienda llevar a cabo sus propias pruebas de rendimiento. A continuación, se muestran algunos factores de ejemplo que afectan al rendimiento.
 
+* Operaciones de entrada/salida por segundo (IOPS) y ancho de banda del almacén de datos de origen o destino.
 * Configuración del hardware (por ejemplo, núcleos virtuales, memoria, DWU) del almacén de datos de SQL de origen y de destino. 
-* Acceso simultáneo a los almacenes de datos de origen y de destino. Si comparte varias tablas y vistas desde el mismo almacén de datos de SQL, o recibe varias tablas y vistas en el mismo almacén de datos de SQL, el rendimiento se verá afectado.   
-* Ubicación de los almacenes de datos de origen y de destino. 
+* Acceso simultáneo a los almacenes de datos de origen y de destino. Si comparte varias tablas y vistas desde el mismo almacén de datos de SQL, o recibe varias tablas y vistas en el mismo almacén de datos de SQL, el rendimiento se verá afectado.
+* Ancho de banda de red entre los almacenes de datos de origen y destino, y la ubicación de estos.
+* Tamaño de las tablas y vistas que se comparten. El uso compartido de instantáneas de SQL realiza una copia completa de toda la tabla. Si el tamaño de la tabla crece con el tiempo, la instantánea tardará más. 
+
+Para tablas de gran tamaño donde son preferibles las actualizaciones incrementales, puede exportar las actualizaciones a la cuenta de almacenamiento y aprovechar la funcionalidad de uso compartido incremental de la cuenta de almacenamiento para conseguir un rendimiento más rápido.
 
 ## <a name="troubleshoot-sql-snapshot-failure"></a>Solución de problemas de error de la instantánea de SQL
 La causa más común de error de la instantánea es que Data Share no tiene permiso para el almacén de datos de origen o de destino. Para conceder a Data Share permiso para la instancia de Azure SQL Database o Azure Synapse Analytics (anteriormente Azure SQL DW) de origen o de destino, debe ejecutar el script de SQL proporcionado al conectarse a la base de datos de SQL mediante la autenticación de Azure Active Directory. Para solucionar otro error de instantánea de SQL, consulte [Solucionar problemas de error de instantánea](data-share-troubleshoot.md#snapshots).

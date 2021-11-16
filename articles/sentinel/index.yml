@@ -6,18 +6,18 @@ metadata:
   description: En este artículo se presentan diversos casos de uso y escenarios para empezar a usar Microsoft Azure Sentinel. Detecte y detenga las amenazas antes de que causen daños gracias a la tecnología SIEM, que se ha reinventada para el mundo actual. Microsoft Azure Sentinel proporciona una vista general de la empresa.# Se requiere; una descripción del artículo que se muestra en los resultados de la búsqueda. Menos de 160 caracteres.
   services: sentinel
   ms.service: sentinel
-  ms.subservice: azure-sentinel
+  ms.subservice: microsoft-sentinel
   ms.topic: landing-page
   ms.collection: collection
   author: yelevin
   ms.author: yelevin
   ms.date: 11/09/2021
-  ms.openlocfilehash: 646e4d8401da416a1113d7c42eb7e9198053efc6
-  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+  ms.openlocfilehash: d6a4d50dfeceb4769e377b46b35b949d7a890653
+  ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/11/2021
-  ms.locfileid: "132277683"
+  ms.lasthandoff: 11/16/2021
+  ms.locfileid: "132518477"
 landingContent:
 - title: Acerca de Microsoft Azure Sentinel
   linkLists:

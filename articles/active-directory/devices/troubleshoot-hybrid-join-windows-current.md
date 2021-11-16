@@ -12,12 +12,12 @@ manager: karenhoran
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 6188dcd648b59ba7ff535a7431ff0bb47a6f660e
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: f5320812be623437099ed0ab587dbbe3d4abe6ef
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2021
-ms.locfileid: "132136092"
+ms.locfileid: "132158752"
 ---
 # <a name="troubleshoot-hybrid-azure-ad-joined-devices"></a>Solución de problemas de dispositivos unidos a Azure AD híbrido
 
@@ -478,7 +478,7 @@ Use el Visor de eventos para buscar las entradas de registro registradas por el 
 
 | Código de error | Motivo | Solución |
 | --- | --- | --- |
-| **AADSTS50155: Error de autenticación del dispositivo** | <li>Azure AD no puede autenticar el dispositivo para emitir un PRT.<li>Confirme que el dispositivo no se ha eliminado o deshabilitado en Azure Portal. Para obtener más información sobre este problema, vea [Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory](faq.yml#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-devices). | Siga las instrucciones para este problema en [Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory](faq.yml#i-disabled-or-deleted-my-device-in-the-azure-portal-or-by-using-windows-powershell--but-the-local-state-on-the-device-says-it-s-still-registered--what-should-i-do) a fin de volver a registrar el dispositivo según su tipo de unión. |
+| **AADSTS50155: Error de autenticación del dispositivo** | <li>Azure AD no puede autenticar el dispositivo para emitir un PRT.<li>Confirme que el dispositivo no se ha eliminado o deshabilitado en Azure Portal. Para obtener más información sobre este problema, vea [Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory](faq.yml#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-11-devices). | Siga las instrucciones para este problema en [Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory](faq.yml#i-disabled-or-deleted-my-device-in-the-azure-portal-or-by-using-windows-powershell--but-the-local-state-on-the-device-says-it-s-still-registered--what-should-i-do) a fin de volver a registrar el dispositivo según su tipo de unión. |
 | **AADSTS50034: La cuenta de usuario `Account` no existe en el `tenant id` directorio** | Azure AD no puede encontrar la cuenta de usuario en el inquilino. | <li>Asegúrese de que el usuario escribe el UPN correcto.<li>Asegúrese de que la cuenta de usuario local se sincroniza con Azure AD.<li>El evento 1144 (registros de análisis de Azure AD) contendrá el UPN proporcionado. |
 | **AADSTS50126: se ha producido un error al validar las credenciales debido a un nombre de usuario o contraseña no válidos.** | <li>El nombre de usuario y la contraseña escritos por el usuario en LoginUI de Windows son incorrectos.<li>Si el inquilino tiene habilitada la sincronización de hash de contraseñas, el dispositivo es de unión híbrida y el usuario acaba de cambiar la contraseña, es probable que la nueva contraseña no se haya sincronizado con Azure AD. | Para adquirir un PRT nuevo con las nuevas credenciales, espere a que finalice la sincronización de contraseñas de Azure AD. |
 | | |

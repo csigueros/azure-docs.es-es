@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/25/2021
 ms.author: davidmu
 ms.reviewer: phsignor
-ms.openlocfilehash: de4553fae64801ae029a01e218658e847d5acb03
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a69a880453ffffcb55fd257b8f1b65de75d2f80d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131066945"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132289155"
 ---
 # <a name="manage-consent-to-applications-and-evaluate-consent-requests-in-azure-active-directory"></a>Administración del consentimiento en las aplicaciones y evaluación de las solicitudes de consentimiento en Azure Active Directory
 
@@ -42,7 +42,7 @@ Después de deshabilitar o restringir el consentimiento del usuario final, hay v
 
 3. Si la organización tiene la licencia correspondiente:
 
-    * Use otras [características de auditoría de aplicaciones de OAuth en Microsoft Cloud App Security](/cloud-app-security/investigate-risky-oauth).
+    * Use otras [características de auditoría de aplicaciones de OAuth en Microsoft Defender for Cloud Apps](/cloud-app-security/investigate-risky-oauth).
     * Utilice [libros de Azure Monitor para supervisar la actividad relacionada con los permisos y el consentimiento](../reports-monitoring/howto-use-azure-monitor-workbooks.md). El libro *Consent Insights* proporciona una vista de las aplicaciones por número de solicitudes de consentimiento con error. Esta información puede resultar útil para clasificar las aplicaciones por orden de prioridad y que los administradores las revisen y decidan si se les concede el consentimiento del administrador.
 
 ### <a name="additional-considerations-for-reducing-friction"></a>Consideraciones adicionales para reducir la fricción
@@ -127,7 +127,7 @@ Cuando un usuario concede consentimiento en nombre propio, ocurre lo siguiente:
 
 1. Se crea una entidad de servicio para la aplicación cliente, si aún no existe. Una entidad de servicio es la instancia de una aplicación o un servicio, en el inquilino de Azure AD. El acceso concedido a la aplicación o servicio está asociado a este objeto de entidad de servicio.
 1. Para cada API a la que la aplicación requiere acceso, se crea una concesión de permisos delegados para los permisos que necesita la aplicación para esa API, para el acceso en nombre del usuario. Una concesión de permisos delegados autoriza a una aplicación a acceder a una API en nombre de un usuario, cuando ese usuario ha iniciado sesión.
-1. Al usuario se le asigna la aplicación cliente. La asignación de la aplicación al usuario garantiza que la aplicación aparezca en el portal de [Mis aplicaciones](my-apps-deployment-plan.md) de ese usuario, lo que le permite revisar y revocar el acceso concedido en su nombre.
+1. Al usuario se le asigna la aplicación cliente. La asignación de la aplicación al usuario garantiza que la aplicación aparezca en el portal [Aplicaciones](my-apps-deployment-plan.md) de ese usuario, lo que le permite revisar y revocar el acceso concedido en su nombre.
 
 Para realizar manualmente los pasos equivalentes a la concesión de consentimiento a una aplicación en nombre de un usuario, necesitará los siguientes detalles:
 

@@ -4,12 +4,12 @@ description: En este inicio rápido se muestra cómo usar Azure Video Analyzer p
 ms.topic: tutorial
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: faa8053ed2d6dbc2b1df0917fcb08dd308fb1910
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 163dcc488de80a81b8ab9defdbdb7b84dfdbd302
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131552608"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132494603"
 ---
 # <a name="tutorial-detect-when-objects-cross-a-virtual-line-in-a-live-video"></a>Tutorial: Detectar si los objetos cruzan una línea virtual en un vídeo en directo
 
@@ -82,7 +82,7 @@ En este tutorial, aprenderá lo siguiente:
 
 Cuando configura los recursos de Azure, se copia un vídeo corto del tráfico en la autopista en la máquina virtual Linux en Azure que usa como dispositivo IoT Edge. En este tutorial se usa un archivo de vídeo para simular una secuencia en directo.
 
-Abra una aplicación como [VLC Media Player](https://www.videolan.org/vlc/). Seleccione Ctrl+N y, a continuación, pegue un vínculo al [vídeo de ejemplo de cruce de autopista](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) para iniciar la reproducción. Verá las imágenes de muchos vehículos moviéndose en el tráfico de una autopista.
+Abra una aplicación como [VLC Media Player](https://www.videolan.org/vlc/). Seleccione Ctrl+N y, a continuación, pegue un vínculo al [vídeo de ejemplo de cruce de autopista](https://avamedia.blob.core.windows.net/public/camera-300s.mkv) para iniciar la reproducción. Verá las imágenes de muchos vehículos moviéndose en el tráfico de una autopista.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LTY4]
 

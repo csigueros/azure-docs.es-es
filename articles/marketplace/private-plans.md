@@ -6,13 +6,14 @@ ms.service: marketplace
 ms.topic: article
 author: navits09
 ms.author: navits
-ms.date: 10/26/2021
-ms.openlocfilehash: 22523b73847b21426eb1fa56af665274fc830b4b
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.reviewer: amhindma
+ms.date: 11/10/2021
+ms.openlocfilehash: d8f2435fe78465ee40e3cf6011db14d6daf7c04f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131851009"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132324657"
 ---
 # <a name="private-plans-in-the-microsoft-commercial-marketplace"></a>Ofertas privadas del marketplace comercial de Microsoft
 
@@ -57,7 +58,7 @@ En el caso de las *ofertas nuevas que solo incluyen planes privados*, los editor
 
 Tanto en el caso de los planes privados nuevos como existentes, los anunciantes pueden dirigirse a clientes específicos mediante identificadores de suscripción. En el caso de las ofertas de Aplicación de Azure y Servicio administrado, los editores pueden restringir la disponibilidad de un plan privado a identificadores de suscripción de Azure individuales. En el caso de las ofertas de SaaS, los editores pueden asociar identificadores de inquilino de Azure Active Directory para restringir la disponibilidad de un plan privado. En el caso de las ofertas de máquina virtual, los publicadores pueden asignar a la audiencia que tendrá acceso a un plan privado mediante identificadores de inquilino de Azure, identificadores de suscripción o ambos. Para cualquiera de estos tipos de oferta, se pueden agregar hasta 10 identificadores manualmente o se puede importar una hoja de cálculo CSV si se requieren más de 10.
 
-Una vez que se certifica o publica una oferta, los clientes se pueden actualizar o quitar del plan mediante la característica de sincronización de suscripciones privadas. Esta funcionalidad permite que los editores actualicen rápida y sencillamente la lista de clientes a los que se presenta el plan privado sin que sea necesario volver a certificar ni a publicar la oferta.
+Una vez que se certifica y publica una oferta, los clientes se pueden actualizar en el plan o quitar de él mediante la característica de sincronización de audiencias privadas. Esta funcionalidad permite que los editores actualicen rápida y sencillamente la lista de clientes a los que se presenta el plan privado sin que sea necesario volver a certificar ni a publicar la oferta.
 
 ## <a name="deploying-a-private-plan"></a>Implementación de un plan privado
 

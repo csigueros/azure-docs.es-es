@@ -9,12 +9,12 @@ ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 09/24/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 22c64b5489cbcf0206624e613fb9d3449fa4a4d1
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 6584120a0a66fd1d913fdee86a24ce3d91b2555f
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129219351"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132519674"
 ---
 # <a name="use-custom-parameters-with-the-resource-manager-template"></a>Usar parámetros personalizados con la plantilla de Resource Manager
 
@@ -124,6 +124,13 @@ Este es un ejemplo del aspecto que podría tener una configuración de parámetr
         "properties": {
             "typeProperties": {
                 "*": "="
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/credentials" : {
+        "properties": {
+            "typeProperties": {
+                "resourceId": "="
             }
         }
     }
@@ -430,4 +437,4 @@ En el ejemplo siguiente se muestra cómo agregar un único valor a la plantilla 
 - [Promoción manual de una plantilla de Resource Manager para cada entorno](continuous-integration-delivery-manual-promotion.md)
 - [Plantillas vinculadas de Resource Manager](continuous-integration-delivery-linked-templates.md)
 - [Uso de un entorno de producción de revisión](continuous-integration-delivery-hotfix-environment.md)
-- [Script de ejemplo anterior y posterior a la implementación](continuous-integration-delivery-sample-script.md)
+- [Script anterior y posterior a la implementación](continuous-integration-delivery-sample-script.md)

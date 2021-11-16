@@ -6,17 +6,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 10/19/2020
-ms.openlocfilehash: adfa3446a99997ee4ab82fb7c7fca41508efac88
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+msreviewer: amhindma
+ms.date: 11/10/2021
+ms.openlocfilehash: 44f500f59169398910b7ede32ebb1c96ecf6fdbc
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114601037"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132134879"
 ---
 # <a name="configure-virtual-machine-offer-properties"></a>Configuración de las propiedades de la oferta de máquinas virtuales
 
-En la página **Propiedades** (selecciónela en el menú de navegación de la izquierda), se definen las categorías que se usan para agrupar la oferta de máquinas virtuales (VM) en Azure Marketplace, la versión de la aplicación y los contratos legales que respaldan la oferta.
+En la página **Propiedades** (selecciónela en el menú de navegación de la izquierda del Centro de partners), se definen las categorías que se usan para agrupar la oferta de máquinas virtuales (VM) en Azure Marketplace y los contratos legales que respaldan la oferta.
 
 ## <a name="select-a-category"></a>Seleccionar una categoría
 
@@ -24,9 +25,9 @@ Seleccione las categorías y subcategorías para colocar la oferta en las áreas
 
 - Seleccione una categoría principal.
 - Para agregar una segunda categoría opcional (Secundaria), seleccione el vínculo **+Categorías**.
-- Seleccione hasta dos subcategorías para la categoría principal o secundaria. Si no hay ninguna subcategoría aplicable a la oferta, seleccione **No aplicable**. Use Ctrl + clic para seleccionar una segunda subcategoría.
+- Seleccione hasta dos subcategorías para la categoría principal o secundaria. Use Ctrl + clic para seleccionar una segunda subcategoría. Si no hay ninguna subcategoría aplicable a la oferta, se selecciona automáticamente **No aplicable**.
 
-Vea la lista completa de categorías y subcategorías en [Procedimientos recomendados para la publicación de ofertas](gtm-offer-listing-best-practices.md). Las ofertas de máquina virtual siempre aparecen en la categoría **Proceso** de Azure Marketplace.
+Consulte la lista completa de categorías y subcategorías en [Categorías y subcategorías en Marketplace comercial](categories.md). Las ofertas de máquina virtual siempre aparecen en la categoría **Proceso** de Azure Marketplace.
 
 ## <a name="provide-terms-and-conditions"></a>Adición de términos y condiciones
 
@@ -39,11 +40,9 @@ Para más información sobre el Contrato estándar y las modificaciones opcional
 
 ### <a name="use-the-standard-contract"></a>Uso del Contrato estándar
 
-Para simplificar el proceso de adquisición para los clientes y reducir la complejidad legal para los proveedores de software, Microsoft ofrece un Contrato estándar que se puede usar con las ofertas del marketplace comercial. Al ofrecer el software bajo el Contrato estándar, los clientes solo tienen que leerlo y aceptarlo una vez y no tiene que crear términos y condiciones personalizados.
+Para simplificar el proceso de adquisición para los clientes y reducir la complejidad legal para los proveedores de software, Microsoft ofrece un Contrato estándar que se puede usar con las ofertas del marketplace comercial. Al ofrecer el software bajo el contrato estándar, los clientes solo tienen que leerlo y aceptarlo, sin necesidad de crear términos y condiciones personalizados. Para más información sobre la experiencia del cliente durante el proceso de detección y compra, consulte [Contrato estándar para el Marketplace comercial de Microsoft](standard-contract.md#customer-experience).
 
 1. Active la casilla **Use the Standard Contract for Microsoft's commercial marketplace** (¿Quiere usar el Contrato estándar para el marketplace comercial de Microsoft?).
-
-   ![Muestra la casilla Use the Standard Contract for Microsoft's commercial marketplace (¿Quiere usar el Contrato estándar para el marketplace comercial de Microsoft?).](partner-center-portal/media/use-standard-contract.png)
 
 1. En el cuadro de diálogo **Confirmación**, seleccione **Aceptar**. En función del tamaño de la pantalla, es posible que tenga que desplazarse hacia arriba para verlo.
 1. Seleccione **Guardar borrador** antes de continuar.
@@ -61,16 +60,21 @@ En la casilla **Universal amendment terms to the standard contract for Microsoft
 
 ##### <a name="add-one-or-more-custom-amendments"></a>Adición de una o varias modificaciones personalizadas
 
+Estas modificaciones personalizadas son modificaciones especiales del Contrato estándar que están dirigidas a clientes específicos con los identificadores de inquilino de Azure. Solo los clientes del inquilino recibirán los términos con modificaciones personalizadas cuando compren la oferta.
+
+> [!NOTE]
+> Los clientes específicos con modificaciones personalizadas también obtendrán la modificación universal (si la hubiera) del Contrato estándar durante la compra.
+
 1. En **Custom amendments terms to the Standard Contract for Microsoft's commercial marketplace** (Términos de modificación personalizados del Contrato estándar de Marketplace comercial de Microsoft), seleccione **Agregar término de modificación personalizado (máximo 10)** .
 2. En el cuadro, escriba los **términos de modificación personalizados**.
-3. En el cuadro, escriba el **identificador de inquilino**. Solo los clientes asociados a los identificadores de inquilino que se especifiquen para estos términos personalizados los verán en el flujo de compra de la oferta en Azure Portal.
+3. En el cuadro, escriba el **identificador de inquilino**.
 
    > [!TIP]
    > El identificador de inquilino identifica al cliente en Azure. Puede pedir a su cliente este identificador y encontrarlo; para ello, vaya a [ **https://portal.azure.com**](https://portal.azure.com) > **Azure Active Directory** > **Propiedades**. El valor del identificador de directorio es el identificador de inquilino (por ejemplo, `50c464d3-4930-494c-963c-1e951d15360e`). También puede buscar el identificador de inquilino de la organización de su cliente mediante su dirección URL de nombre de dominio en [What is my Microsoft Azure and Office 365 tenant ID?](https://www.whatismytenantid.com/) (¿Cuál es mi identificador de inquilino de Microsoft Azure y Office 365?).
 
 4. También puede escribir una **descripción** detallada del identificador de inquilino. Esta descripción le ayudará a identificar al cliente al que está destinada la modificación.
-5. Para agregar otro identificador de inquilino, seleccione el vínculo **Agregar un identificador de inquilino del cliente (máx. 10)** y repita los pasos 3 y 4. Puede agregar hasta 20 identificadores de inquilino.
-6. Para agregar otro término de modificación, repita los pasos 1 a 5. Puede proporcionar hasta diez términos de modificación personalizados por oferta.
+5. Para agregar otro identificador de inquilino, seleccione el vínculo **Agregar un identificador de inquilino del cliente (máx. 10)** y repita los pasos 3 y 4. Puede agregar hasta 10 identificadores de inquilino.
+6. Para agregar otro término de modificación, repita los pasos 1 a 5. Puede proporcionar hasta 10 términos de modificación personalizados por oferta.
 7. Seleccione **Guardar borrador** antes de continuar.
 
 ### <a name="use-your-own-terms-and-conditions"></a>Uso de términos y condiciones propios

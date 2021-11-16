@@ -1,25 +1,22 @@
 ---
 title: azureiotsecurity de Defender para IoT para IoT Edge
-description: Conozca la arquitectura y las funcionalidades de azureiotsecurity de Azure Defender para IoT para IoT Edge.
+description: Conozca la arquitectura y las capacidades de azureiotsecurity de Microsoft Defender para IoT para IoT Edge.
 ms.topic: conceptual
-ms.date: 09/23/2021
-ms.openlocfilehash: dddd45c857537cbb1af8032c6e53590e9a8ff4cd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 11/09/2021
+ms.openlocfilehash: 55681d731193e0f73a9fb21b415b03d4411ee6fe
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128604899"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132318966"
 ---
-# <a name="azure-defender-for-iot-edge-azureiotsecurity"></a>azureiotsecurity de Azure Defender para IoT Edge
+# <a name="microsoft-defender-for-iot-edge-azureiotsecurity"></a>azureiotsecurity de Microsoft Defender para IoT Edge
 
-[Azure IoT Edge](../../iot-edge/index.yml) proporciona capacidades de enorme eficacia para administrar y procesar flujos de trabajo empresariales en el perímetro.
-El papel esencial que IoT Edge desempeña en entornos de IoT lo hace especialmente atrayente para atacantes malintencionados.
+[Azure IoT Edge](../../iot-edge/index.yml) proporciona capacidades de enorme eficacia para administrar y procesar flujos de trabajo empresariales en el perímetro. El papel esencial que IoT Edge desempeña en entornos de IoT lo hace especialmente atrayente para atacantes malintencionados.
 
-azureiotsecurity de Defender para IoT proporciona una solución de seguridad completa para dispositivos IoT Edge.
-El módulo de Defender para IoT recopila, agrega y analiza los datos de seguridad sin procesar del sistema operativo y del sistema de contenedores para generar alertas y recomendaciones de seguridad que requieren acción.
+azureiotsecurity de Defender para IoT proporciona una solución de seguridad completa para dispositivos IoT Edge. El módulo de Defender para IoT recopila, agrega y analiza los datos de seguridad sin procesar del sistema operativo y del sistema de contenedores para generar alertas y recomendaciones de seguridad que requieren acción.
 
-Al igual que los agentes de seguridad de Defender para IoT de los dispositivos IoT, el módulo de Defender para IoT Edge se puede personalizar profundamente a través de su módulo gemelo.
-Vea [Configurar agentes de seguridad](how-to-agent-configuration.md) para obtener más información.
+Al igual que los agentes de seguridad de Defender para IoT de los dispositivos IoT, el módulo de Defender para IoT Edge se puede personalizar profundamente a través de su módulo gemelo. Vea [Configurar agentes de seguridad](how-to-agent-configuration.md) para obtener más información.
 
 azureiotsecurity de Defender para IoT para IoT Edge ofrece las siguientes características:
 
@@ -35,8 +32,7 @@ azureiotsecurity de Defender para IoT para IoT Edge ofrece las siguientes caract
 
   Consulte [Configuración de un agente de Defender para IoT](how-to-agent-configuration.md) para obtener más información.
 
-azureiotsecurity de Defender para IoT para IoT Edge se ejecuta en un modo con privilegios en IoT Edge.
-El modo con privilegios es necesario para permitir que el módulo supervise el sistema operativo y otros módulos de IoT Edge.
+azureiotsecurity de Defender para IoT para IoT Edge se ejecuta en un modo con privilegios en IoT Edge. El modo con privilegios es necesario para permitir que el módulo supervise el sistema operativo y otros módulos de IoT Edge.
 
 ## <a name="module-supported-platforms"></a>Plataformas admitidas por el módulo
 

@@ -1,14 +1,14 @@
 ---
 title: Glosario de Defender para IoT para el creador de dispositivos
 description: El glosario proporciona una breve descripción de los términos y conceptos más importantes de la plataforma de Defender para IoT.
-ms.date: 05/27/2021
+ms.date: 11/09/2021
 ms.topic: article
-ms.openlocfilehash: 362e1838d4c37f0ba9d109e51ce9f654e0ee2796
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 34b1bf4f1c49588326c38915c35132219f34e1b3
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018786"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132056499"
 ---
 # <a name="defender-for-iot-glossary-for-device-builder"></a>Glosario de Defender para IoT para el creador de dispositivos
 
@@ -28,6 +28,7 @@ En este glosario se proporciona una breve descripción de los términos y concep
 |--|--|--|
 | **Dispositivos gemelos** | Los dispositivos gemelos son documentos JSON que almacenan información acerca del estado del dispositivo, incluidos metadatos, configuraciones y condiciones. | [Módulo gemelo](#m) <br /> <br />[Módulo gemelo de Defender-IoT-micro-agent](#s) |
 | **Módulo gemelo de Defender-IoT-micro-agent** `(DB)` | Este módulo gemelo contiene toda la información pertinente para la seguridad de cada dispositivo específico de la solución. | [Dispositivo gemelo](#d) <br /> <br />[Módulo gemelo](#m) |
+| **Inventario de dispositivos** | Defender para IoT identifica y clasifica los dispositivos como un único dispositivo de red en el inventario para: <br><br> - Dispositivos IT, OT e IoT independientes con una o varias NIC. <br><br> - Dispositivos compuestos de varios componentes de backplane. Esto incluye todos los bastidores, ranuras y módulos. <br><br> - Dispositivos que actúan como infraestructura de red. Por ejemplo, conmutadores y enrutadores con varias NIC. <br><br> - Las direcciones IP públicas de Internet, los grupos de multidifusión y los grupos de difusión no se consideran dispositivos de inventario. <br><br>Los dispositivos que han estado inactivos durante más de 60 días se clasifican como dispositivos de inventario inactivos.|
 
 ## <a name="e"></a>E
 

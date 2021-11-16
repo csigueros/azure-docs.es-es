@@ -7,12 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: overview
 ms.date: 10/21/2021
-ms.openlocfilehash: 7cd13ebef2e548d9596823f829041e48c99e532e
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 76cc49932cf469a994c64956f0589beff81c332f
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131441844"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132063334"
 ---
 # <a name="microsoft-defender-for-clouds-enhanced-security-features"></a>Características de seguridad mejoradas de Microsoft Defender for Cloud
 
@@ -74,7 +74,7 @@ La oferta gratuita de Microsoft Defender for Cloud ofrece la puntuación segura
 ### <a name="how-do-i-enable-defender-for-clouds-enhanced-security-for-my-subscription"></a>¿Cómo puedo habilitar la seguridad mejorada de Defender for Cloud en la suscripción? 
 Puede usar cualquiera de los siguientes métodos para habilitar la seguridad mejorada en la suscripción: 
 
-| Método                                          | Instrucciones                                                                                                                                       |
+| Método                                          | Instructions                                                                                                                                       |
 |-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 | Páginas de Defender for Cloud de Azure Portal    | [Habilitación de protecciones mejoradas](enable-enhanced-security.md)                                                                                         |
 | API DE REST                                        | [API de precios](/rest/api/securitycenter/pricings)                                                                                                  |
@@ -144,4 +144,4 @@ En este artículo se explican las opciones de precios de Defender for Cloud. Par
 
 - [Optimización de los costos de la carga de trabajo de Azure](https://azure.microsoft.com/blog/how-to-optimize-your-azure-workload-costs/)
 - [Detalles de precios en la moneda de su elección y según su región](https://azure.microsoft.com/pricing/details/security-center/)
-- Quizá quiera administrar los costos y limitar la cantidad de datos recopilados para una solución mediante la limitación a un conjunto determinado de agentes. La [selección de destino de solución](../azure-monitor/insights/solution-targeting.md) permite aplicar un ámbito a la solución y tener como destino un subconjunto de equipos en el área de trabajo. Si usa la selección de destino de la solución, Defender for Cloud muestra el área de trabajo como si no tuviera una solución.
+- Quizá quiera administrar los costos y limitar la cantidad de datos recopilados para una solución mediante la limitación a un conjunto determinado de agentes. Utilice la [selección de destino de la solución](../azure-monitor/insights/solution-targeting.md) para aplicar un ámbito a la solución y tener como destino un subconjunto de equipos del área de trabajo. Si usa la selección de destino de la solución, Defender for Cloud muestra el área de trabajo como si no tuviera una solución.

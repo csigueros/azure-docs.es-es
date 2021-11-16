@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 9ca27f4500b47ccf8b6ae71cd2c504bdeb4fc888
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: d7dad85345a1c96a4bbda6a00d9112b2df4dc4cc
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131462696"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132304180"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-smartkargo"></a>Tutorial: Integración del inicio de sesión único de Azure AD con SmartKargo
 
@@ -26,7 +26,7 @@ En este tutorial, obtendrá información sobre cómo integrar SmartKargo con Azu
 * Permitir a los usuarios iniciar sesión automáticamente en SmartKargo con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -56,7 +56,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con SmartKargo con u
 
 Para configurar y probar el inicio de sesión único de Azure AD con SmartKargo, siga estos pasos:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)**, para permitir que los usuarios puedan utilizar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en SmartKargo](#configure-smartkargo-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
@@ -136,4 +136,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado SmartKargo, puede aplicar el control de sesión que proteja el filtrado externo e interno de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado SmartKargo, puede aplicar el control de sesión que proteja el filtrado externo e interno de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

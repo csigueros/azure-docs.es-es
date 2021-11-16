@@ -12,12 +12,12 @@ ms.date: 07/15/2021
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12e86dc602e52fb96b7f9cea3a52079fc80c201b
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: c96362b522100d27757618e330f45514e4d442df
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130041697"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132349250"
 ---
 # <a name="security-operations-for-infrastructure"></a>Operaciones de seguridad para infraestructura
 
@@ -51,13 +51,13 @@ Los archivos de registro que usa para la investigación y supervisión son:
 
 En Azure Portal, puede ver los registros de auditoría de Azure AD y descargarlos como archivos de valores separados por comas (CSV) o notación de objetos JavaScript (JSON). Azure Portal tiene varias maneras de integrar los registros de Azure AD con otras herramientas que permiten una mayor automatización de la supervisión y las alertas:
 
-* [Azure Sentinel](../../sentinel/overview.md): Permite el análisis de seguridad inteligente en el nivel empresarial proporcionando funcionalidades de Administración de eventos e información de seguridad (SIEM). 
+* [Microsoft Sentinel](../../sentinel/overview.md): permite el análisis de seguridad inteligente en el nivel empresarial proporcionando capacidades de Administración de eventos e información de seguridad (SIEM). 
 
 * [Azure Monitor](../../azure-monitor/overview.md): Permite la supervisión automatizada y las alertas de diversas condiciones. Puede crear o usar libros para combinar datos de orígenes diferentes.
 
 * [Azure Event Hubs](../../event-hubs/event-hubs-about.md) (integrado con SIEM): Los [registros de Azure AD se pueden integrar con otras instancias de SIEM](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md), como Splunk, ArcSight, QRadar y Sumo Logic, a través de la integración de Azure Event Hubs.
 
-* [Microsoft Cloud App Security (MCAS)](/cloud-app-security/what-is-cloud-app-security): le permite detectar y administrar aplicaciones, controlar las aplicaciones y los recursos y comprobar el cumplimiento de las aplicaciones en la nube. 
+* [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security): permite descubrir y administrar aplicaciones, controlar aplicaciones y recursos, y comprobar el cumplimiento de las aplicaciones en la nube. 
 
 En el resto de este artículo se describe lo que debe supervisar y alertar, y se organiza por el tipo de amenaza. Si hay soluciones creadas previamente específicas, encontrará vínculos a ellas después de la tabla. De lo contrario, puede crear alertas mediante las herramientas anteriores.
 
@@ -137,7 +137,7 @@ Para configurar la supervisión de Application Proxy, consulte [Solución de pro
 
 Para que la autenticación multifactor (MFA) sea efectiva, también es necesario bloquear la autenticación heredada. Luego tiene que supervisar el entorno y alertar sobre cualquier uso de la autenticación heredada. Esto se debe a que los protocolos de autenticación heredados, como POP, SMTP, IMAP y MAPI, no pueden aplicar MFA. Esto convierte estos protocolos en los puntos de entrada preferidos de los atacantes de su organización Para más información sobre las herramientas que puede usar para bloquear la autenticación heredada, consulte [Nuevas herramientas para bloquear la autenticación heredada en su organización](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/new-tools-to-block-legacy-authentication-in-your-organization/ba-p/1225302). 
 
-La autenticación heredada se captura en el registro de inicios de sesión de Azure AD como parte de los detalles del evento. Puede usar el libro de Azure Monitor para ayudar a detectar el uso de la autenticación heredada. Para más información, consulte [Inicios de sesión que utilizan una autenticación heredada](../reports-monitoring/howto-use-azure-monitor-workbooks.md), que forma parte de [Uso de los libros de Azure Monitor en informes de Azure Active Directory](../reports-monitoring/howto-use-azure-monitor-workbooks.md). También puede usar el libro Protocolos no seguros para Azure Sentinel. Para más información, consulte [Guía de implementación del libro de protocolos no seguros de Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-insecure-protocols-workbook-implementation-guide/ba-p/1197564). Entre las actividades específicas que se deben supervisar se incluyen:
+La autenticación heredada se captura en el registro de inicios de sesión de Azure AD como parte de los detalles del evento. Puede usar el libro de Azure Monitor para ayudar a detectar el uso de la autenticación heredada. Para más información, consulte [Inicios de sesión que utilizan una autenticación heredada](../reports-monitoring/howto-use-azure-monitor-workbooks.md), que forma parte de [Uso de los libros de Azure Monitor en informes de Azure Active Directory](../reports-monitoring/howto-use-azure-monitor-workbooks.md). También puede usar el libro Protocolos no seguros para Microsoft Sentinel. Para obtener más información, vea [Guía de implementación del libro de protocolos no seguros de Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-insecure-protocols-workbook-implementation-guide/ba-p/1197564). Entre las actividades específicas que se deben supervisar se incluyen:
 
 | Elementos para supervisar| Nivel de riesgo| Where| Filtro o subfiltro| Notas |
 | - | - | - | - | - |
@@ -185,7 +185,7 @@ Para obtener información sobre qué y cómo supervisar la información de confi
 
 * Para SQL Server, consulte [Registros de SQL Server Audit](/sql/relational-databases/security/auditing/sql-server-audit-records).
 
-* Para Azure Sentinel, consulte [Conexión a servidores Windows para recopilar eventos de seguridad](/sql/relational-databases/security/auditing/sql-server-audit-records). 
+* Para Microsoft Sentinel, vea [Conexión a servidores Windows para recopilar eventos de seguridad](/sql/relational-databases/security/auditing/sql-server-audit-records). 
 
 * Para obtener información sobre cómo configurar y usar Azure AD Connect, consulte [¿Qué es Azure AD Connect?](../hybrid/whatis-azure-ad-connect.md)
 

@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.openlocfilehash: a94afc1ab970c2cd3f509c86efba4e455d46fd13
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c47f91d9aed9af4c4fbb1a16c27d59b5a5da5d94
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96012568"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132136278"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Optimización del vaciado automático en Azure Database for PostgreSQL con un único servidor
 
@@ -96,7 +96,7 @@ La ejecución del vaciado automático es "costosa" y hay parámetros para contro
 
 El proceso de vaciado lee las páginas físicas y busca tuplas desactivadas. Se considera que cada página en shared_buffers tiene un costo de 1 (vacuum_cost_page_hit); todas las demás páginas tienen un costo de 20 (vacuum_cost_page_dirty) si existen tuplas inactivas, o de 10 (vacuum_cost_page_miss) si no existen tuplas inactivas. La operación de vaciado se detiene cuando el proceso excede el valor de autovacuum_vacuum_cost_limit.
 
-Una vez que se alcanza el límite, el proceso se detiene durante el tiempo que especificó el parámetro autovacuum_vacuum_cost_delay antes de volver a iniciarlo. Si no se alcanza el límite, el vaciado automático comienza después del valor que especificó el parámetro autovacuum_nap_time.
+Una vez que se alcanza el límite, el proceso se detiene durante el tiempo que especificó el parámetro autovacuum_vacuum_cost_delay antes de volver a iniciarlo. Si no se alcanza el límite, comienza el vaciado automático después del valor especificado por el parámetro autovacuum_naptime.
 
 En resumen, los parámetros autovacuum_vacuum_cost_delay y autovacuum_vacuum_cost_limit controlan cuántos datos se pueden limpiar por unidad de tiempo. Tenga en cuenta que los valores predeterminados son demasiado bajos para la mayoría de los planes de tarifa. Los valores óptimos para estos parámetros dependen de esos planes de tarifa y deben configurarse en consecuencia.
 

@@ -1,26 +1,26 @@
 ---
-title: Integración de Forescout con Azure Defender para IoT
-description: En este tutorial, aprenderá a integrar Azure Defender para IoT con Forescout.
+title: Integración de Forescout con Microsoft Defender para IoT
+description: En este tutorial, aprenderá a integrar Microsoft Defender para IoT con Forescout.
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 09/23/2021
+ms.date: 11/09/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 6a930671e501940ce7f6d0d22036225e7539eb7f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c395c799b8f6dca602b20cb330f89630f9fb591e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128702197"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132325243"
 ---
-# <a name="tutorial-integrate-forescout-with-azure-defender-for-iot"></a>Tutorial: Integración de Forescout con Azure Defender para IoT
+# <a name="tutorial-integrate-forescout-with-microsoft-defender-for-iot"></a>Tutorial: Integración de Forescout con Microsoft Defender para IoT
 
 > [!Note]
-> Las referencias a CyberX se refieren a Azure Defender para IoT.
+> Las referencias a CyberX se refieren a Microsoft Defender para IoT.
 
-Este tutorial le ayudará a aprender a integrar Forescout con Azure Defender para IoT.
+Este tutorial le ayudará a aprender a integrar Forescout con Microsoft Defender para IoT.
 
-Azure Defender para IoT ofrece un ICS y una plataforma de ciberseguridad IoT. Defender para IoT es la única plataforma con tecnología de análisis de amenazas y aprendizaje automático compatible con ICS. Defender para IoT ofrece:
+Microsoft Defender para IoT ofrece un ICS y una plataforma de ciberseguridad IoT. Defender para IoT es la única plataforma con tecnología de análisis de amenazas y aprendizaje automático compatible con ICS. Defender para IoT ofrece:
 
 - Información inmediata sobre el panorama de los dispositivos ICS con una amplia variedad de detalles sobre los atributos.
 
@@ -32,11 +32,11 @@ Azure Defender para IoT ofrece un ICS y una plataforma de ciberseguridad IoT. De
 
 La integración con Forescout ayuda a reducir el tiempo necesario para que las organizaciones industriales y de infraestructura crítica detecten, investiguen y actúen sobre las ciberamenazas.
 
-- Use la inteligencia de los dispositivos TO de Azure Defender para IoT para desencadenar acciones de directiva de Forescout y así cerrar el ciclo de seguridad. Por ejemplo, puede enviar automáticamente un correo electrónico de alerta a los administradores de SOC cuando se detecten determinados protocolos o cuando cambien los detalles del firmware.
+- Use la inteligencia de los dispositivos TO de Microsoft Defender para IoT para desencadenar acciones de directiva de Forescout y así cerrar el ciclo de seguridad. Por ejemplo, puede enviar automáticamente un correo electrónico de alerta a los administradores de SOC cuando se detecten determinados protocolos o cuando cambien los detalles del firmware.
 
 - Correlacione la información de Defender para IoT con la de otros módulos de *Forescout eyeExtend* que vigilan la supervisión, la administración de incidentes y el control de dispositivos.
 
-La integración de Defender para IoT con la plataforma Forescout proporciona visibilidad, supervisión y control centralizados del entorno de IoT y TO. Estas plataformas puente permiten visibilidad automatizada, y administración de dispositivos ICS y de flujos de trabajo aislados. La integración proporciona a los analistas de SOC visibilidad multinivel sobre los protocolos de TO implementados en entornos industriales. Hay más información disponible sobre elementos como el firmware, los tipos de dispositivos, los sistemas operativos y las puntuaciones de análisis de riesgos basados en tecnologías propietarias de Azure Defender para IoT.
+La integración de Defender para IoT con la plataforma Forescout proporciona visibilidad, supervisión y control centralizados del entorno de IoT y TO. Estas plataformas puente permiten visibilidad automatizada, y administración de dispositivos ICS y de flujos de trabajo aislados. La integración proporciona a los analistas de SOC visibilidad multinivel sobre los protocolos de TO implementados en entornos industriales. Hay más información disponible sobre elementos como el firmware, los tipos de dispositivos, los sistemas operativos y las puntuaciones de análisis de riesgos basados en tecnologías propietarias de Microsoft Defender para IoT.
 
 En este tutorial, aprenderá a:
 
@@ -45,21 +45,21 @@ En este tutorial, aprenderá a:
 > - Configuración de la plataforma Forescout
 > - Comprobación de la comunicación
 > - Visualización de atributos de dispositivo en Forescout
-> - Creación de directivas de Azure Defender para IoT en Forescout
+> - Creación de directivas de Microsoft Defender para IoT en Forescout
 
 Si aún no tiene una cuenta de Azure, puede [crear una cuenta gratuita de Azure ahora](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Azure Defender para IoT, versión 2.4 o superior.
+- Microsoft Defender para IoT, versión 2.4 o superior.
 
 - Forescout, versión 8.0 o superior
 
-- Una licencia para el módulo Forescout eyeExtend para la plataforma Azure Defender para IoT.
+- Una licencia para el módulo Forescout eyeExtend para la plataforma Microsoft Defender para IoT.
 
 ## <a name="generate-an-access-token"></a>Generar token de acceso
 
-Los tokens de acceso permiten que los sistemas externos accedan a los datos descubiertos por Defender para IoT. Los tokens de acceso permiten que los datos se utilicen para las API de REST externas y a través de conexiones SSL. Puede generar tokens de acceso a la API REST de Azure Defender para IoT.
+Los tokens de acceso permiten que los sistemas externos accedan a los datos descubiertos por Defender para IoT. Los tokens de acceso permiten que los datos se utilicen para las API de REST externas y a través de conexiones SSL. Puede generar tokens de acceso a la API de REST de Microsoft Defender para IoT.
 
 Para garantizar la comunicación entre Defender para IoT y Forescout, debe generar un token de acceso en Defender para IoT.
 
@@ -100,7 +100,7 @@ Ahora, puede configurar la plataforma Forescout para que se comunique con un sen
 
 1. Vaya a **Módulos** >  **Plataforma de CyberX**.
 
-   :::image type="content" source="media/tutorial-forescout/settings-for-module.png" alt-text="Configuración del módulo de Azure Defender para IoT":::
+   :::image type="content" source="media/tutorial-forescout/settings-for-module.png" alt-text="Configuración del módulo de Microsoft Defender para IoT":::
 
 1. En el campo de Dirección del servidor, escriba la dirección IP del sensor de Defender para IoT que se consultará mediante el dispositivo de Forescout.
 
@@ -150,7 +150,7 @@ En la tabla siguiente se enumeran todos los atributos que están visibles a trav
 
 | Elemento | Descripción |
 |--|--|
-| **Autorizado por Azure Defender para IoT** | Un dispositivo detectado en la red por Defender para IoT durante el período de aprendizaje de la red. |
+| **Autorizado por Microsoft Defender para IoT** | Un dispositivo detectado en la red por Defender para IoT durante el período de aprendizaje de la red. |
 | **Firmware** | Detalles del firmware del dispositivo. Por ejemplo, el modelo y la versión. |
 | **Nombre** | Nombre del dispositivo. |
 | **Sistema operativo** | El sistema operativo del dispositivo. |
@@ -181,7 +181,7 @@ Después de ver los atributos de un dispositivo, puede ver más detalles de cada
 
 1. En la sección Hosts de inventario de dispositivos, haga clic con el botón derecho en un dispositivo. Se abre el cuadro de diálogo de detalles del host con información adicional.
 
-## <a name="create-azure-defender-for-iot-policies-in-forescout"></a>Creación de directivas de Azure Defender para IoT en Forescout
+## <a name="create-microsoft-defender-for-iot-policies-in-forescout"></a>Creación de directivas de Microsoft Defender para IoT en Forescout
 
 Las directivas de Forescout se pueden usar para automatizar el control y la administración de los dispositivos detectados por Defender para IoT. Por ejemplo,
 

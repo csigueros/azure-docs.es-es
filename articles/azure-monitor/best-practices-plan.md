@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/18/2021
-ms.openlocfilehash: 5cc266b61c00a27199e77e6e464fc6fc24cab818
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: b04b73cfd7cd2482e14485556df5a477e47a9334
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130181583"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132347981"
 ---
 # <a name="azure-monitor-best-practices---planning-your-monitoring-strategy-and-configuration"></a>Procedimientos recomendados de Azure Monitor: planeamiento de la estrategia y la configuración de supervisión
 Este artículo forma parte del escenario [Recomendaciones para configurar Azure Monitor](best-practices.md). En él se describe el planeamiento que se debe tener en cuenta antes de iniciar la implementación. Esto garantiza que las opciones de configuración que se seleccionen cumplan requisitos empresariales concretos.
@@ -47,13 +47,13 @@ Azure Monitor está diseñado para abordar la supervisión de estado. Una soluci
 En las secciones siguientes se describen otros servicios y productos que se pueden usar junto con Azure Monitor. Actualmente, este escenario no incluye instrucciones sobre la implementación de estas soluciones, por lo que debe consultar su documentación correspondiente.
 
 ### <a name="security-monitoring"></a>Supervisión de la seguridad
-Aunque los datos operativos almacenados en Azure Monitor pueden ser útiles para investigar incidentes de seguridad, se han diseñado otros servicios de Azure para supervisar la seguridad. La supervisión de la seguridad en Azure se realiza mediante Azure Security Center y Azure Sentinel.
+Aunque los datos operativos almacenados en Azure Monitor pueden ser útiles para investigar incidentes de seguridad, se han diseñado otros servicios de Azure para supervisar la seguridad. Microsoft Defender for Cloud y Microsoft Sentinel realizan la supervisión de seguridad en Azure.
 
-- [Azure Security Center](../security-center/security-center-introduction.md) recopila información sobre los recursos de Azure y los servidores híbridos. Aunque Security Center puede recopilar eventos de seguridad, se centra en la recopilación de datos de inventario, resultados de exámenes de evaluación y auditorías de directivas para resaltar las vulnerabilidades y recomendar acciones correctivas. Entre las características destacadas se incluyen un mapa de red interactivo, el acceso a máquinas virtuales Just-In-Time, la seguridad de red adaptable y controles de aplicación adaptables para bloquear archivos ejecutables sospechosos.
+- [Microsoft Defender for Cloud](../security-center/security-center-introduction.md) recopila información sobre los recursos de Azure y los servidores híbridos. Aunque puede recopilar eventos de seguridad, Microsoft Defender for Cloud se centra en la recopilación de datos de inventario, resultados de exámenes de evaluación y auditorías de directivas para resaltar las vulnerabilidades y recomendar acciones correctivas. Entre las características destacadas se incluyen un mapa de red interactivo, el acceso a máquinas virtuales Just-In-Time, la seguridad de red adaptable y controles de aplicación adaptables para bloquear archivos ejecutables sospechosos.
 
-- [Azure Defender para servidores](../security-center/azure-defender.md) es la solución de evaluación de servidores proporcionada por Security Center. Defender para servidores puede enviar eventos de seguridad de Windows a Log Analytics. Security Center no se basa en eventos de seguridad de Windows para las alertas ni el análisis. El uso de esta característica permite el archivado centralizado de eventos con fines de investigación u otros fines.
+- [Microsoft Defender para servidores](../security-center/azure-defender.md) es la solución de evaluación de servidores proporcionada por Microsoft Defender for Cloud. Microsoft Defender para servidores puede enviar eventos de seguridad de Windows a Log Analytics. Microsoft Defender for Cloud no se basa en eventos de seguridad de Windows para las alertas ni el análisis. El uso de esta característica permite el archivado centralizado de eventos con fines de investigación u otros fines.
 
-- [Azure Sentinel](../sentinel/overview.md) es una solución de administración de eventos e información de seguridad (SIEM) de y respuesta automatizada de orquestación de seguridad (SOAR). Sentinel recopila datos de seguridad de una amplia gama de orígenes de Microsoft y de terceros para proporcionar alertas, visualización y automatización. Esta solución se centra en consolidar tantos registros de seguridad como sea posible, incluidos los eventos de seguridad de Windows. Azure Sentinel también puede recopilar registros de eventos de seguridad de Windows y normalmente comparte un área de trabajo de Log Analytics con Security Center. Los eventos de seguridad solo se pueden recopilar desde Azure Sentinel o Security Center cuando comparten la misma área de trabajo. A diferencia de Security Center, los eventos de seguridad son un componente clave de las alertas y el análisis en Azure Sentinel.
+- [Microsoft Sentinel](../sentinel/overview.md) es una solución de administración de eventos e información de seguridad (SIEM) de y respuesta automatizada de orquestación de seguridad (SOAR). Sentinel recopila datos de seguridad de una amplia gama de orígenes de Microsoft y de terceros para proporcionar alertas, visualización y automatización. Esta solución se centra en consolidar tantos registros de seguridad como sea posible, incluidos los eventos de seguridad de Windows. Microsoft Sentinel también puede recopilar registros de eventos de seguridad de Windows y normalmente comparte un área de trabajo de Log Analytics con Microsoft Defender for Cloud. Los eventos de seguridad solo se pueden recopilar desde Microsoft Sentinel o Microsoft Defender for Cloud cuando comparten la misma área de trabajo. A diferencia de Microsoft Defender for Cloud, los eventos de seguridad son un componente clave de las alertas y el análisis en Microsoft Sentinel.
 
 - [Defender para punto de conexión](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint) es una plataforma de seguridad empresarial para puntos de conexión diseñada para evitar, detectar, investigar y responder a amenazas avanzadas. Se ha diseñado con un enfoque principal en la protección de dispositivos de usuario para Windows. Defender para punto de conexión supervisa estaciones de trabajo, servidores, tabletas y teléfonos móviles con varios sistemas operativos en busca de problemas de seguridad y vulnerabilidades. Defender para punto de conexión está estrechamente alineado con Microsoft Endpoint Manager para recopilar datos y proporcionar evaluaciones de seguridad. La recopilación de datos se basa principalmente en los registros de seguimiento ETW y se almacena en un área de trabajo aislada.
 

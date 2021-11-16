@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/28/2021
 ms.topic: how-to
-ms.openlocfilehash: 9dcd0f6ec8935a0c5951421e64f747f3543df846
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 48f83cd92f682b6fb66a1d7b5bebd49cd5053b62
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132346161"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132400782"
 ---
 # <a name="deploy-an-extension-based-windows-or-linux-user-hybrid-runbook-worker-in-automation-preview"></a>Implementación de una instancia de Hybrid Runbook Worker de usuario de Windows o Linux basada en una extensión en Automation (versión preliminar)
 
@@ -43,7 +43,7 @@ Después de implementar correctamente un trabajo de runbook, revise la [ejecuci�
 
 ### <a name="package-requirements-for-linux"></a>Requisitos de paquetes para Linux
 
-| Paquete necesario | Descripción |Versión mínima|
+| Paquete necesario | Description |Versión mínima|
 |--------------------- | --------------------- | -------------------|
 |Glibc |Biblioteca GNU C| 2.5-12 |
 |Openssl| Bibliotecas OpenSSL | 1.0 (se admiten TLS 1.1 y TLS 1.2)|
@@ -440,8 +440,8 @@ Puede usar una plantilla de Azure Resource Manager (ARM) para crear una nueva m�
 
 Recursos de Azure definidos en la plantilla:
 
-- hybridRunbookWorkerGroups/hybridRunbookWorkers
-- [Microsoft.Compute/virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions): 
+- [hybridRunbookWorkerGroups/hybridRunbookWorkers](/azure/templates/microsoft.automation/automationaccounts/hybridrunbookworkergroups/hybridrunbookworkers)
+- [Microsoft.Compute/virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions)
 
 ### <a name="review-parameters"></a>Revisión de parámetros
 

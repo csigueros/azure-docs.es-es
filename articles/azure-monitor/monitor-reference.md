@@ -4,13 +4,13 @@ description: Referencia de todos los servicios y otros recursos supervisados por
 ms.topic: conceptual
 author: rboucher
 ms.author: robb
-ms.date: 10/15/2021
-ms.openlocfilehash: 3d61e6d91409963f0f1578a03bfdeb83b7c54960
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/02/2021
+ms.openlocfilehash: b5ae25c2421d4c572a3ce2bd40ccec5a6cb959f7
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131078947"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132310483"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>¿Qué supervisa Azure Monitor?
 
@@ -34,7 +34,7 @@ En la tabla siguiente se enumeran las visualizaciones mantenidas disponibles e i
 | [Información sobre Azure Backup](/azure/backup/backup-azure-monitoring-use-azuremonitor) | GA | [Sí](https://ms.portal.azure.com/#blade/Microsoft_Azure_DataProtection/BackupCenterMenuBlade/backupReportsConfigure/menuId/backupReportsConfigure) | Proporciona funcionalidades de supervisión y alerta integradas en un almacén de Recovery Services. | 
 | [Azure Monitor para Azure Cache for Redis (versión preliminar)](/azure/azure-monitor/insights/redis-cache-insights-overview) | Disponibilidad general | [Sí](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/redisCacheInsights) | Proporciona una vista unificada e interactiva del rendimiento general, los errores, la capacidad y el estado operativo. | 
 | [Información sobre Azure Cosmos DB](/azure/azure-monitor/insights/cosmosdb-insights-overview) | GA | [Sí](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/cosmosDBInsights) | Proporciona una vista del rendimiento general, los errores, la capacidad y el estado operativo de todos los recursos de Azure Cosmos DB en una experiencia interactiva unificada. | 
-| [Clúster de Azure Data Explorer](/azure/azure-monitor/insights/data-explorer) | GA | [Sí](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/adxClusterInsights) | Azure Data Explorer Insights proporciona una supervisión completa de los clústeres, ya que ofrece una vista unificada de su rendimiento, operaciones, uso y errores. | 
+| [Azure Data Explorer Insights](/azure/azure-monitor/insights/data-explorer) | Disponibilidad general | [Sí](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/adxClusterInsights) | Azure Data Explorer Insights proporciona una supervisión completa de los clústeres, ya que ofrece una vista unificada de su rendimiento, operaciones, uso y errores. | 
 | [Azure HDInsight (versión preliminar)](/azure/hdinsight/log-analytics-migration#insights) | Vista previa | No | Un libro de Azure Monitor que recopila importantes métricas de rendimiento del clúster de HDInsight y proporciona visualizaciones y paneles para los escenarios más comunes. Proporciona una vista completa de un único clúster de HDInsight, lo que incluye el uso de recursos y el estado de la aplicación.|
  | [Información sobre Azure IoT Edge](/azure/iot-edge/how-to-explore-curated-visualizations/) | Disponibilidad general | No | Puede visualizar y explorar las métricas recopiladas desde un dispositivo de IoT Edge directamente en Azure Portal mediante plantillas públicas basadas en los libros de Azure Monitor. Los libros seleccionados usan métricas integradas del entorno de ejecución de IoT Edge. Estas vistas no necesitan la instrumentación de métricas de los módulos de carga de trabajo. | 
  | [Información sobre Azure Key Vault (versión preliminar)](/azure/azure-monitor/insights/key-vault-insights-overview) | Disponibilidad general | [Sí](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/keyvaultsInsights) | Proporciona una supervisión completa de los almacenes de claves proporcionando una vista unificada del rendimiento, los errores, la latencia y las solicitudes de Key Vault. | 
@@ -48,7 +48,7 @@ En la tabla siguiente se enumeran las visualizaciones mantenidas disponibles e i
  | [Información sobre Azure Container](/azure/azure-monitor/insights/container-insights-overview) | GA | [Sí](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/containerInsights) | Supervisa el rendimiento de las cargas de trabajo de contenedor implementadas en clústeres de Kubernetes administrados y hospedados en Azure Kubernetes Service (AKS). Proporciona información sobre el rendimiento recopilando métricas de los controladores, los nodos y los contenedores disponibles en Kubernetes mediante Metrics API. También se recopilan registros del contenedor.  Una vez habilitada la supervisión de clústeres de Kubernetes, estas métricas y registros se recopilan automáticamente mediante una versión en contenedor del agente de Log Analytics para Linux. | 
  | [Azure Monitor para grupos de recursos](/azure/azure-monitor/insights/resource-group-insights) | GA | No | Clasifica y diagnostica cualquier problema que encuentren sus recursos individuales, a la vez que ofrece un contexto en cuanto al estado y el rendimiento del grupo de recursos como un todo. | 
  | [SAP de Azure Monitor](/azure/virtual-machines/workloads/sap/monitor-sap-on-azure) | Disponibilidad general | No | Un producto de supervisión nativo de Azure para cualquier persona que ejecuta entornos de SAP en la plataforma. Funciona con SAP en Azure Virtual Machines y con SAP en Azure (instancias grandes). Recopila datos de telemetría de la infraestructura y las bases de datos de Azure en una ubicación central y pone en correlación visualmente los datos para acelerar la solución de problemas. Puede supervisar distintos componentes de un entorno de SAP, como máquinas virtuales de Azure, un clúster de alta disponibilidad, una base de datos de SAP HANA, SAP NetWeaver, etc., con solo agregar el proveedor correspondiente al componente. |
- | [Información sobre Azure Stack HCI](/azure-stack/hci/manage/azure-stack-hci-insights) | Versión preliminar | [Sí](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/azureStackHCIInsights) | Se basa en el libro de Azure Monitor. Proporciona información sobre el estado, el rendimiento y el uso de los clústeres de Azure Stack HCI registrados, versión 21H2, que están conectados a Azure e inscritos en la supervisión. Almacena sus datos en un área de trabajo de Log Analytics, lo que facilita funciones eficaces de agregación y filtrado, y el análisis de las tendencias de datos a lo largo del tiempo.  | 
+ | [Conclusiones de Azure Stack HCI](/azure-stack/hci/manage/azure-stack-hci-insights) | Versión preliminar | [Sí](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/azureStackHCIInsights) | Se basa en el libro de Azure Monitor. Proporciona información sobre el estado, el rendimiento y el uso de los clústeres de Azure Stack HCI registrados, versión 21H2, que están conectados a Azure e inscritos en la supervisión. Almacena sus datos en un área de trabajo de Log Analytics, lo que facilita funciones eficaces de agregación y filtrado, y el análisis de las tendencias de datos a lo largo del tiempo.  | 
  | [Información de Windows Virtual Desktop](/azure/virtual-desktop/azure-monitor) | GA | [Sí](https://ms.portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/insights/menuId/insights) | Azure Monitor para Windows Virtual Desktop (versión preliminar) es un panel basado en libros de Azure Monitor que ayuda a que los profesionales de TI entiendan sus entornos de Windows Virtual Desktop. Este tema lo guiará a través del proceso de configuración de Azure Monitor para Windows Virtual Desktop con el objetivo de supervisar los entornos de Windows Virtual Desktop. | 
 
 ## <a name="product-integrations"></a>Integraciones de productos
@@ -61,7 +61,7 @@ Los otros servicios y las soluciones de supervisión más antiguas de la tabla s
 | [Azure Information Protection](/azure/information-protection/) | Clasifique y, opcionalmente, proteja documentos y correos electrónicos. Consulte [Informes centrales para Azure Information Protection](/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
 | [Azure Security Center](../security-center/index.yml) | Recopile y analice eventos de seguridad y complete análisis de amenazas. Consulte [Recopilación de datos en Azure Security Center](../security-center/security-center-enable-data-collection.md). |
 | [Azure Sentinel](../sentinel/index.yml) | Se conecta a orígenes diferentes, incluido Office 365 y Amazon Web Services CloudTrail. Consulte [Conexión con orígenes de datos](../sentinel/connect-data-sources.md). |
-| [Microsoft Intune](/intune/) | Cree una configuración de diagnóstico para enviar registros a Azure Monitor. Consulte [Envío de datos de registro al almacenamiento, a Event Hubs o a Log Analytics en Intune (versión preliminar)](/intune/fundamentals/review-logs-using-azure-monitor).  |
+| [Microsoft Intune](/intune/) | Cree una configuración de diagnóstico para enviar registros a Azure Monitor. Vea [Envío de datos de registro al almacenamiento, a Event Hubs o a Log Analytics en Intune (versión preliminar)](/intune/fundamentals/review-logs-using-azure-monitor).  |
 | [Análisis del tráfico](../network-watcher/traffic-analytics.md) de red | Analiza los registros de flujo del grupo de seguridad de red (NSG) de Network Watcher para proporcionar conclusiones sobre el flujo de tráfico en la nube de Azure. |
 | [System Center Operations Manager](/system-center/scom) | Recopile datos de agentes de Operations Manager mediante la conexión de su grupo de administración a Azure Monitor. Consulte [Conexión de Operations Manager con Azure Monitor](agents/om-agents.md).<br> Evalúe el riesgo y el estado del grupo de administración de System Center Operations Manager con la solución [Operations Manager Assessment](insights/scom-assessment.md). |
 | [Salas de Microsoft Teams](/microsoftteams/room-systems/azure-monitor-deploy) | Administración integrada de un extremo a otro de los dispositivos de Salas de Microsoft Teams. |
@@ -70,17 +70,38 @@ Los otros servicios y las soluciones de supervisión más antiguas de la tabla s
 | **Las siguientes soluciones también se integran con partes de Azure Monitor. Tenga en cuenta que las soluciones ya no están en desarrollo activo. Use la [información](#insights-and-curated-visualizations) en su lugar.**  | | 
 | Red: [solución Network Performance Monitor](insights/network-performance-monitor.md) | 
 | Red: [solución de Azure Application Gateway](insights/azure-networking-analytics.md#azure-application-gateway-analytics) | .
-| [Solución de Office 365](insights/solution-office-365.md) | Supervise su entorno de Office 365. Versión actualizada con incorporación mejorada disponible a través de Azure Sentinel. |
+| [Solución de Office 365](insights/solution-office-365.md) | Supervise su entorno de Office 365. Versión actualizada con incorporación mejorada disponible por medio de Microsoft Sentinel. |
 | [Solución de SQL Analytics](insights/azure-sql.md) | Use Información sobre SQL en su lugar |
 | [Solución Surface Hub](insights/surface-hubs.md) |  |
 
-## <a name="list-of-azure-monitor-supported-services"></a>Lista de servicios compatibles con Azure Monitor
+
+## <a name="third-party-integration"></a>Integración de terceros.
+
+| Integración | Descripción |
+|:---|:---|
+| [ITSM](alerts/itsmc-overview.md) | El Conector de Administración de servicios de TI (ITSMC) le permite conectar Azure y un producto o servicio de Administración de servicios de TI (ITSM) compatibles.  |
+| [Asociados de Azure Monitor](/azure/azure-monitor/partners/) | Una lista de asociados que se integran con Azure Monitor de alguna forma | 
+| [Integraciones de asociados de Azure Monitor](/azure/partner-solutions/overview/)| Integraciones especializadas entre Azure Monitor y otras plataformas de supervisión que no son de Microsoft si ya las ha creado.  Algunos ejemplos son Datadog y Elastic.|
+
+
+## <a name="resources-outside-of-azure"></a>Recursos fuera de Azure
+
+Azure Monitor puede recopilar datos de recursos fuera de Azure mediante los métodos que se enumeran en la tabla siguiente.
+
+| Recurso | Método |
+|:---|:---|
+| APLICACIONES | Supervise las aplicaciones web fuera de Azure mediante Application Insights. Vea [¿Qué es Application Insights?](./app/app-insights-overview.md). |
+| Máquinas virtuales | Use los agentes para recopilar datos del sistema operativo invitado de máquinas virtuales en otros entornos en la nube o locales. Consulte [Información general sobre los agentes de Azure Monitor](agents/agents-overview.md). |
+| Cliente de API de REST | Hay API independientes disponibles para escribir datos en Registros y Métricas de Azure Monitor desde cualquier cliente de API de REST. Consulte [Envío de datos de registro a Azure Monitor con HTTP Data Collector API (versión preliminar pública)](logs/data-collector-api.md) para Registros y [Envío de métricas personalizadas de un recurso de Azure al almacén de métricas de Azure Monitor mediante la API REST](essentials/metrics-store-custom-rest-api.md) para Métricas. |
+
+
+## <a name="azure-supported-services"></a>Servicios de Azure admitidos
  
 En la tabla siguiente se enumeran los servicios de Azure y los datos que estos recopilan en Azure Monitor. 
 
 - Métricas: El servicio recopila automáticamente métricas en Métricas de Azure Monitor. 
-- Registros: El servicio admite la configuración de diagnóstico que puede recopilar registros y métricas de la plataforma para Registros de Azure Monitor.
-- Insight: Hay una conclusión disponible para el servicio, que proporciona una experiencia de supervisión personalizada para el servicio.
+- Registros: el servicio admite la configuración de diagnóstico que puede enviar métricas y registros de plataforma a los registros de Azure Monitor para su análisis en Log Analytics.
+- Insight: Hay una información disponible para el servicio, que proporciona una experiencia de supervisión personalizada para el servicio.
 
 | Servicio | Espacio de nombres del proveedor de recursos | Tiene métricas | Tiene registros | Conclusión | Notas
 |---------|---------------------------------------|----------------|-----------|----------|--------|
@@ -117,8 +138,8 @@ En la tabla siguiente se enumeran los servicios de Azure y los datos que estos r
  | [Cray ClusterStor en Azure](https://azure.microsoft.com/blog/supercomputing-in-the-cloud-announcing-three-new-cray-in-azure-offers/) | Microsoft.ClusterStor/nodes | [**Sí**](/azure/azure-monitor/essentials/metrics-supported#microsoftclusterstornodes) | No |   | |
  | [Azure Cognitive Services](/azure/cognitive-services/)   | Microsoft.CognitiveServices/accounts | [**Sí**](/azure/azure-monitor/essentials/metrics-supported#microsoftcognitiveservicesaccounts) | [**Sí**](/azure/azure-monitor/essentials/resource-log-categories#microsoftcognitiveservicesaccounts) |   | |
  | [Azure Communication Services](/azure/communication-services/) | Microsoft.Communication/CommunicationServices | [**Sí**](/azure/azure-monitor/essentials/metrics-supported#microsoftcommunicationcommunicationservices) | [**Sí**](/azure/azure-monitor/essentials/resource-log-categories#microsoftcommunicationcommunicationservices) |   | |
- | [Azure Virtual Machines](/azure/virtual-machines/)<br />[Conjuntos de escalado de máquina virtual](/azure/virtual-machine-scale-sets/)   | Microsoft.Compute/cloudServices | [**Sí**](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputecloudservices) | No | [VM Insights](/azure/azure-monitor/insights/vminsights-overview) | Agente necesario para supervisar los flujos de trabajo y el sistema operativo invitado.|
- | [Azure Virtual Machines](/azure/virtual-machines/)<br />[Conjuntos de escalado de máquina virtual](/azure/virtual-machine-scale-sets/)   | Microsoft.Compute/cloudServices/roles | [**Sí**](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputecloudservicesroles) | No | [VM Insights](/azure/azure-monitor/insights/vminsights-overview) | Agente necesario para supervisar los flujos de trabajo y el sistema operativo invitado.|
+ | [Azure Cloud Services](/azure/cloud-services-extended-support/)   | Microsoft.Compute/cloudServices | [**Sí**](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputecloudservices) | No |  | Agente necesario para supervisar los flujos de trabajo y el sistema operativo invitado.|
+ | [Azure Cloud Services](/azure/cloud-services-extended-support/) | Microsoft.Compute/cloudServices/roles | [**Sí**](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputecloudservicesroles) | No | | Agente necesario para supervisar los flujos de trabajo y el sistema operativo invitado.|
  | [Azure Virtual Machines](/azure/virtual-machines/)<br />[Conjuntos de escalado de máquina virtual](/azure/virtual-machine-scale-sets/)   | Microsoft.Compute/disks | [**Sí**](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputedisks) | No | [VM Insights](/azure/azure-monitor/insights/vminsights-overview) | |
  | [Azure Virtual Machines](/azure/virtual-machines/)<br />[Conjuntos de escalado de máquina virtual](/azure/virtual-machine-scale-sets/)   | Microsoft.Compute/virtualMachines | [**Sí**](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachines) | No | [VM Insights](/azure/azure-monitor/insights/vminsights-overview) | Agente necesario para supervisar los flujos de trabajo y el sistema operativo invitado.|
  | [Azure Virtual Machines](/azure/virtual-machines/)<br />[Conjuntos de escalado de máquina virtual](/azure/virtual-machine-scale-sets/)   | Microsoft.Compute/virtualMachineScaleSets | [**Sí**](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesets) | No | [VM Insights](/azure/azure-monitor/insights/vminsights-overview) | Agente necesario para supervisar los flujos de trabajo y el sistema operativo invitado.|
@@ -256,29 +277,10 @@ En la tabla siguiente se enumeran los servicios de Azure y los datos que estos r
  | [Azure App Service](/azure/app-service/)<br />[Funciones de Azure](/azure/azure-functions/)   | Microsoft.Web/staticSites | [**Sí**](/azure/azure-monitor/essentials/metrics-supported#microsoftwebstaticsites) | No | [Azure Monitor Application Insights](/azure/azure-monitor/app/app-insights-overview) | |
 
 
-
-## <a name="third-party-integration"></a>Integración de terceros.
-
-| Solución | Descripción |
-|:---|:---|
-| [ITSM](alerts/itsmc-overview.md) | El Conector de Administración de servicios de TI (ITSMC) le permite conectar Azure y un producto o servicio de Administración de servicios de TI (ITSM) compatibles.  |
-
-
-## <a name="resources-outside-of-azure"></a>Recursos fuera de Azure
-
-Azure Monitor puede recopilar datos de recursos fuera de Azure mediante los métodos que se enumeran en la tabla siguiente.
-
-| Recurso | Método |
-|:---|:---|
-| APLICACIONES | Supervise las aplicaciones web fuera de Azure mediante Application Insights. Vea [¿Qué es Application Insights?](./app/app-insights-overview.md). |
-| Máquinas virtuales | Use los agentes para recopilar datos del sistema operativo invitado de máquinas virtuales en otros entornos en la nube o locales. Consulte [Información general sobre los agentes de Azure Monitor](agents/agents-overview.md). |
-| Cliente de API de REST | Hay API independientes disponibles para escribir datos en Registros y Métricas de Azure Monitor desde cualquier cliente de API de REST. Consulte [Envío de datos de registro a Azure Monitor con HTTP Data Collector API (versión preliminar pública)](logs/data-collector-api.md) para Registros y [Envío de métricas personalizadas de un recurso de Azure al almacén de métricas de Azure Monitor mediante la API REST](essentials/metrics-store-custom-rest-api.md) para Métricas. |
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga más información sobre la [plataforma de datos de Azure Monitor, que almacena los registros y las métricas recopilados por conclusiones y soluciones](data-platform.md).
 - Complete un [tutorial sobre la supervisión de un recurso de Azure](essentials/tutorial-resource-logs.md).
 - Complete un [tutorial sobre la escritura de una consulta de registro para analizar datos en Registros de Azure Monitor](essentials/tutorial-resource-logs.md).
-- Complete un [tutorial sobre la creación de un gráfico de métricas para analizar datos en Métricas de Azure Monitor](essentials/tutorial-metrics-explorer.md).
+- Complete un [tutorial sobre la creación de un gráfico de métricas para analizar datos en Métricas de Azure Monitor](essentials/tutorial-metrics.md).
  
-

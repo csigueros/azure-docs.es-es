@@ -3,12 +3,12 @@ title: ¿Qué es Azure Lighthouse?
 description: Azure Lighthouse permite a los proveedores de servicios ofrecer servicios administrados para sus clientes con mayor automatización y eficacia a escala.
 ms.date: 11/02/2021
 ms.topic: overview
-ms.openlocfilehash: 8130a88042678d277fd5fe727f0593e8805bb5b4
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 6279ef69c60c7a6d76fe0dfbea68934394c23c06
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131445792"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132343123"
 ---
 # <a name="what-is-azure-lighthouse"></a>¿Qué es Azure Lighthouse?
 
@@ -16,7 +16,7 @@ Azure Lighthouse permite la administración multiinquilino con escalabilidad, ma
 
 Con Azure Lighthouse, los proveedores de servicios pueden ofrecer servicios administrados mediante [herramientas completas y potentes integradas en la plataforma Azure](concepts/architecture.md). Los clientes mantienen el control sobre quién tiene acceso a su inquilino, a qué recursos se puede acceder y qué acciones se pueden realizar. Las [organizaciones empresariales](concepts/enterprise.md) administran recursos en varios inquilinos también pueden usar Azure Lighthouse para optimizar las tareas de administración.
 
-Las [experiencias de administración entre inquilinos](concepts/cross-tenant-management-experience.md) le permiten trabajar de forma más eficaz con servicios de Azure como [Azure Policy](how-to/policy-at-scale.md), [Azure Sentinel](how-to/manage-sentinel-workspaces.md), [Azure Arc](how-to/manage-hybrid-infrastructure-arc.md), etc. Los usuarios pueden ver qué cambios se han realizado y quién los ha realizado [en el registro de actividad](how-to/view-service-provider-activity.md), el cual se almacena en el inquilino del cliente (y los usuarios del inquilino de administración pueden verlo).
+Las [experiencias de administración entre inquilinos](concepts/cross-tenant-management-experience.md) le permiten trabajar de forma más eficaz con servicios de Azure como [Azure Policy](how-to/policy-at-scale.md), [Microsoft Sentinel](how-to/manage-sentinel-workspaces.md), [Azure Arc](how-to/manage-hybrid-infrastructure-arc.md), etc. Los usuarios pueden ver qué cambios se han realizado y quién los ha realizado [en el registro de actividad](how-to/view-service-provider-activity.md), el cual se almacena en el inquilino del cliente (y los usuarios del inquilino de administración pueden verlo).
 
 ![Diagrama de información general de Azure Lighthouse](media/azure-lighthouse-overview.jpg)
 

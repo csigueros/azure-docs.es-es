@@ -1,5 +1,5 @@
 ---
-title: Supervisión de las aplicaciones de Apache Spark con Azure Log Analytics (versión preliminar)
+title: Supervisión de las aplicaciones de Apache Spark con Azure Log Analytics
 description: Aprenda a habilitar el conector Synapse Studio para recopilar y enviar los registros y las métricas de aplicación de Apache Spark al área de trabajo de Log Analytics.
 services: synapse-analytics
 author: jejiang
@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.subservice: spark
 ms.date: 03/25/2021
 ms.custom: references_regions
-ms.openlocfilehash: a455eb81a804c9eff9dcd84142eccbdfc3ac376c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: edb86a4c264b291516b3cc52d3d5dbfa159ace32
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124804193"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132312179"
 ---
-# <a name="monitor-apache-spark-applications-with-azure-log-analytics-preview"></a>Supervisión de las aplicaciones de Apache Spark con Azure Log Analytics (versión preliminar)
+# <a name="monitor-apache-spark-applications-with-azure-log-analytics"></a>Supervisión de las aplicaciones de Apache Spark con Azure Log Analytics
 
 En este tutorial, aprenderá a habilitar el conector Synapse Studio integrado en Log Analytics. Luego, puede recopilar y enviar los registros y las métricas de aplicación de Apache Spark al [área de trabajo de Log Analytics](../../azure-monitor/logs/quick-create-workspace.md). Finalmente, puede aprovechar los libros de Azure Monitor para visualizar las métricas y los registros.
 
@@ -32,7 +32,7 @@ Consulte uno de los siguientes recursos para crear este área de trabajo:
 - [Creación de un área de trabajo con la CLI de Azure](../../azure-monitor/logs/resource-manager-workspace.md)
 - [Creación y configuración de un área de trabajo en Azure Monitor con PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md)
 
-### <a name="step-2-prepare-a-apache-spark-configuration-file"></a>Paso 2: Preparación de un archivo de configuración de Apache Spark
+### <a name="step-2-prepare-an-apache-spark-configuration-file"></a>Paso 2: Preparación de un archivo de configuración de Apache Spark
 
 Use cualquiera de las siguientes opciones para preparar el archivo.
 
@@ -52,7 +52,7 @@ spark.synapse.logAnalytics.secret <LOG_ANALYTICS_WORKSPACE_KEY>
 #### <a name="option-2-configure-with-azure-key-vault"></a>Opción 2: Configuración con Azure Key Vault
 
 > [!NOTE]
-> Debe conceder permiso de lectura de secretos a los usuarios que vayan a enviar aplicaciones Apache Spark. Para más información, consulte [Acceso a las claves, los certificados y los secretos de Key Vault con un control de acceso basado en rol de Azure](../../key-vault/general/rbac-guide.md).
+> Debe conceder permiso de lectura de secretos a los usuarios que vayan a enviar aplicaciones Apache Spark. Para más información, consulte [Acceso a las claves, los certificados y los secretos de Key Vault con un control de acceso basado en rol de Azure](../../key-vault/general/rbac-guide.md). Al habilitar esta característica en una canalización de Synapse, debe usar la **opción 3**. Esto es necesario para obtener el secreto de Azure Key Vault con la identidad administrada del área de trabajo.
 
 Para configurar Azure Key Vault para almacenar la clave del área de trabajo, siga estos pasos:
 
@@ -67,7 +67,7 @@ Para configurar Azure Key Vault para almacenar la clave del área de trabajo, si
 
    - `<LOG_ANALYTICS_WORKSPACE_ID>`: identificador del área de trabajo de Log Analytics.
    - `<AZURE_KEY_VAULT_NAME>`: el nombre del almacén de claves que configuró.
-   - `<AZURE_KEY_VAULT_SECRET_KEY_NAME>` (opcional): el nombre del secreto en el almacén de claves para la clave del área de trabajo. El valor predeterminado es `SparkLogAnalyticsSecret`.
+   - `<AZURE_KEY_VAULT_SECRET_KEY_NAME>` (opcional): el nombre del secreto en el almacén de claves para la clave del área de trabajo. De manera predeterminada, es `SparkLogAnalyticsSecret`.
 
 ```properties
 spark.synapse.logAnalytics.enabled true
@@ -82,7 +82,7 @@ spark.synapse.logAnalytics.keyVault.key.secret <AZURE_KEY_VAULT_SECRET_KEY_NAME>
 #### <a name="option-3-configure-with-a-linked-service"></a>Opción 3. Configuración con un servicio vinculado
 
 > [!NOTE]
-> Debe conceder permiso de lectura de secretos a los usuarios que vayan a enviar aplicaciones Apache Spark. Para más información, consulte [Acceso a las claves, los certificados y los secretos de Key Vault con un control de acceso basado en rol de Azure](../../key-vault/general/rbac-guide.md).
+> En esta opción, debe conceder permiso de secreto de lectura a la identidad administrada del área de trabajo. Para más información, consulte [Acceso a las claves, los certificados y los secretos de Key Vault con un control de acceso basado en rol de Azure](../../key-vault/general/rbac-guide.md).
 
 Para configurar un servicio vinculado de Key Vault en Synapse Studio para almacenar la clave del área de trabajo, siga estos pasos:
 
@@ -130,7 +130,7 @@ spark.synapse.logAnalytics.keyVault.linkedServiceName <LINKED_SERVICE_NAME>
 [uri_suffix]: ../../azure-monitor/logs/data-collector-api.md#request-uri
 
 
-### <a name="step-3-upload-your-apache-spark-configuration-to-a-apache-spark-pool"></a>Paso 3: Carga de la configuración de Apache Spark en un grupo de Apache Spark
+### <a name="step-3-upload-your-apache-spark-configuration-to-an-apache-spark-pool"></a>Paso 3: Carga de la configuración de Apache Spark en un grupo de Apache Spark
 Puede cargar el archivo de configuración en el grupo de Apache Spark de Azure Synapse Analytics. En Synapse Studio:
 
    1. Seleccione **Administrar** > **Grupos de Apache Spark**.
@@ -146,7 +146,7 @@ Puede cargar el archivo de configuración en el grupo de Apache Spark de Azure S
 >
 > Todas las aplicaciones Apache Spark que se envíen al grupo de Apache Spark usarán los valores de configuración para insertar las métricas y los registros de las aplicaciones Apache Spark en el área de trabajo especificada.
 
-## <a name="submit-a-apache-spark-application-and-view-the-logs-and-metrics&quot;></a>Envío de una aplicación Apache Spark y visualización de los registros y métricas
+## <a name="submit-an-apache-spark-application-and-view-the-logs-and-metrics"></a>Envío de una aplicación Apache Spark y visualización de los registros y métricas
 
 A continuación se muestra cómo hacerlo:
 
@@ -157,7 +157,7 @@ A continuación se muestra cómo hacerlo:
 
 1. Vaya al área de trabajo de Log Analytics especificada y, luego, vea las métricas y los registros de la aplicación cuando la aplicación Apache Spark empiece a ejecutarse.
 
-## <a name=&quot;write-custom-application-logs&quot;></a>Escritura de registros de aplicaciones personalizados
+## <a name="write-custom-application-logs"></a>Escritura de registros de aplicaciones personalizados
 
 Puede usar la biblioteca Log4j de Apache para escribir registros personalizados.
 
@@ -165,7 +165,7 @@ Ejemplo de Scala:
 
 ```scala
 %%spark
-val logger = org.apache.log4j.LogManager.getLogger(&quot;com.contoso.LoggerExample")
+val logger = org.apache.log4j.LogManager.getLogger("com.contoso.LoggerExample")
 logger.info("info message")
 logger.warn("warn message")
 logger.error("error message")
@@ -252,14 +252,14 @@ Puede seguir los pasos a continuación para crear una conexión de punto de cone
 
 1. Si no existe ningún AMPLS, siga la [Configuración de una conexión de Private Link de Azure Monitor](../../azure-monitor/logs/private-link-security.md) para crear uno.
 2. Vaya a su AMPLS en Azure Portal, en la página **Recursos de Azure Monitor**, haga clic en **Agregar** para agregar la conexión al área de trabajo de Azure Log Analytics.
-3. Vaya a **Synapse Studio > Administrar > Managed private endpoints** (Puntos de conexión privados administrados), haga clic en el botón **Nuevo**, seleccione **Azure Monitor Private Link Scopes** (Ámbitos de Private Link de Azure Monitor) y **Continuar**.
+3. Vaya a **Synapse Studio > Administrar > Puntos de conexión privados administrados**, haga clic en el botón **Nuevo**, seleccione **Ámbitos de Private Link de Azure Monitor** y **Continuar**.
    > [!div class="mx-imgBorder"]
    > ![Creación de un punto de conexión privado administrado de AMPLS 1](./media/apache-spark-azure-log-analytics/create-ampls-private-endpoint-1.png)
-4. Elija el ámbito de Private Link de Azure Monitor que acaba de crear y haga clic en el botón **Crear**.
+4. Elija el ámbito de Private Link de Azure Monitor que ha creado y haga clic en el botón **Crear**.
    > [!div class="mx-imgBorder"]
    > ![Creación de un punto de conexión privado administrado de AMPLS 2](./media/apache-spark-azure-log-analytics/create-ampls-private-endpoint-2.png)
 5. Espere unos minutos durante el aprovisionamiento del punto de conexión privado.
-6. Vuelva a su AMPLS en Azure Portal; en la página **Conexiones de punto de conexión privado**, seleccione la conexión que acaba de aprovisionar y seleccione **Aprobar**.
+6. Vuelva a su AMPLS en Azure Portal; en la página **Conexiones de punto de conexión privado**, seleccione la conexión que ha aprovisionado y haga clic en **Aprobar**.
 
 > [!NOTE] 
 >  - El objeto de AMPLS tiene una serie de límites que se deben tener en cuenta al planear la configuración de Private Link. Consulte [Límites de AMPLS](../../azure-monitor/logs/private-link-security.md) para un análisis más detallado de estos límites. 

@@ -7,23 +7,16 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-vs-code-java-uiex
-ms.openlocfilehash: 0f429c6feda62c6572c25e4f8e2513123ff6ef03
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.openlocfilehash: 273b4a0c8396ae2cc9034ea9b634005ba397f08a
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113287787"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132371911"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-using-visual-studio-code"></a>Inicio rápido: Creación de una función de Java con Visual Studio Code
 
-> [!div class="op_single_selector" title1="Seleccione el lenguaje de la función: "]
-> - [Java](create-first-function-vs-code-java.md)
-> - [Python](create-first-function-vs-code-python.md)
-> - [C#](create-first-function-vs-code-csharp.md)
-> - [JavaScript](create-first-function-vs-code-node.md)
-> - [PowerShell](create-first-function-vs-code-powershell.md)
-> - [TypeScript](create-first-function-vs-code-typescript.md)
-> - [Otro (Go/Rust)](create-first-function-vs-code-other.md)
+[!INCLUDE [functions-language-selector-quickstart-vs-code](../../includes/functions-language-selector-quickstart-vs-code.md)]
 
 En este artículo se usa Visual Studio Code para crear una función de Java que responda a solicitudes HTTP. Después de probar el código localmente, se implementa en el entorno sin servidor de Azure Functions.
 
@@ -40,7 +33,7 @@ Antes de empezar, asegúrese de que cumple los siguientes requisitos:
 
 + Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ [Kit para desarrolladores de Java](/azure/developer/java/fundamentals/java-support-on-azure), versión 8 u 11.
++ [Kit de desarrollo de Java](/azure/developer/java/fundamentals/java-support-on-azure), versión 11 u 8.
 
 + [Apache Maven](https://maven.apache.org), versión 3.0 o posterior.
 
@@ -67,7 +60,7 @@ En esta sección se usa Visual Studio Code para crear un proyecto local de Azur
 
     + **Seleccione un lenguaje para el proyecto de funciones**: Elija `Java`.
 
-    + **Seleccione una versión de Java**: Elija `Java 8` o `Java 11`, la versión de Java en la que se ejecutan las funciones en Azure. Elija una versión de Java que haya comprobado localmente.
+    + **Seleccione una versión de Java**: Elija `Java 11` o `Java 8`, la versión de Java en la que se ejecutan las funciones en Azure. Elija una versión de Java que haya comprobado localmente.
 
     + **Proporcione un identificador de grupo**: Elija `com.function`.
 

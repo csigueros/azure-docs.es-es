@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2021
-ms.openlocfilehash: 06a37bc77d5eda453740881af9ca45ad4b8746e8
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 9eb84e0b685a41cd0ead7aae1feb38c475465f83
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129715163"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132325683"
 ---
 # <a name="monitor-virtual-machines-with-azure-monitor-analyze-monitoring-data"></a>Supervisión de máquinas virtuales con Azure Monitor: análisis de datos de supervisión
 Este artículo forma parte del escenario [Supervisión de máquinas virtuales y sus cargas de trabajo en Azure Monitor](monitor-virtual-machine.md). Describe cómo analizar los datos de supervisión de las máquinas virtuales después de completar su configuración.
@@ -96,7 +96,7 @@ Las máquinas virtuales usan tres espacios de nombres.
 | Máquina virtual invitada | Datos de rendimiento del sistema operativo invitado y de la aplicación disponibles para todas las características de Azure Monitor mediante métricas. | [Agente de Azure Monitor](../agents/azure-monitor-agent-overview.md) instalado con una [Regla de recopilación de datos](../agents/data-collection-rule-overview.md). |
 
 ## <a name="analyze-log-data-with-log-analytics"></a>Análisis de datos de registro con Log Analytics
-Con Log Analytics puede realizar análisis personalizados de sus datos de registro. Use Log Analytics cuando quiera profundizar en los datos que se usan para crear las vistas en VM Insights. Puede que quiera analizar las diferentes lógicas y agregaciones de los datos, correlacionar los datos de seguridad recopilados por Azure Security Center y Azure Sentinel con los datos de estado y disponibilidad, o trabajar con los datos recopilados para las [cargas de trabajo](monitor-virtual-machine-workloads.md).
+Con Log Analytics puede realizar análisis personalizados de sus datos de registro. Use Log Analytics cuando quiera profundizar en los datos que se usan para crear las vistas en VM Insights. Puede que quiera analizar las diferentes lógicas y agregaciones de los datos, correlacionar los datos de seguridad que recopilan Microsoft Defender for Cloud y Microsoft Sentinel con los datos de estado y disponibilidad, o trabajar con los datos recopilados para las [cargas de trabajo](monitor-virtual-machine-workloads.md).
 
 No es necesario que sepa escribir una consulta de registro para usar Log Analytics. Hay varias consultas compiladas previamente que puede seleccionar y ejecutar sin modificaciones o usar como inicio de una consulta personalizada. Seleccione **Consultas** en la parte superior de la pantalla de Log Analytics y vea las consultas con un **Tipo de recurso** de **Máquinas virtuales** o **Conjuntos de escalas de máquina virtual**. Para información sobre cómo usar estas consultas, consulte [Uso de consultas en Log Analytics de Azure Monitor](../logs/queries.md). Para ver un tutorial sobre cómo usar Log Analytics para ejecutar consultas y trabajar con sus resultados, consulte [Tutorial de Log Analytics](../logs/log-analytics-tutorial.md).
 

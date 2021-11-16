@@ -4,20 +4,22 @@ description: Conozca Azure Chaos Studio, un servicio de Azure que le ayuda a med
 services: chaos-studio
 author: johnkemnetz
 ms.topic: overview
-ms.date: 11/01/2021
+ms.date: 11/11/2021
 ms.author: johnkem
 ms.service: chaos-studio
 ms.custom: template-overview,ignite-fall-2021
-ms.openlocfilehash: 7375457b539fc24fad8dce34e416c341ce4abf68
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: 4df530e20733e5f24db930e88bb30894293416a7
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/12/2021
-ms.locfileid: "132371512"
+ms.locfileid: "132399340"
 ---
 # <a name="what-is-azure-chaos-studio-preview"></a>¿Qué es la versión preliminar de Azure Chaos Studio?
 
 Azure Chaos Studio es un servicio administrado para mejorar la resistencia mediante la inserción de errores en las aplicaciones de Azure. La ejecución de experimentos de inserción de errores controlados en las aplicaciones, una práctica conocida como ingeniería del caos, le ayuda a medir, comprender y mejorar la resistencia frente a incidentes reales, como interrupciones de una región o errores de la aplicación que provocan un uso elevado de la CPU en una máquina virtual.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Videos/Azure-Chaos-Studio-Curious-to-control-chaos/player]
 
 ## <a name="why-should-i-use-chaos-studio"></a>¿Por qué debo usar Chaos Studio?
 

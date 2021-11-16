@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 1ab0fc883b33a815a2da1681d0b65714e02147e9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: ee5aa2d2d11c5d02a315a74432689b8b9825549e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124813563"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132330411"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aventri"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Aventri
 
@@ -40,7 +40,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Aventri admite el inicio de sesión único iniciado por **SP**.
-* Una vez configurado Aventri, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+* Una vez configurado Aventri, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Obtenga información sobre cómo aplicar el control de sesión con Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
 
 
 ## <a name="adding-aventri-from-the-gallery"></a>Adición de Aventri desde la galería
@@ -62,7 +62,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Aventri mediante
 Para configurar y probar el inicio de sesión único de Azure AD con Aventri, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Aventri](#configure-aventri-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba en Aventri](#create-aventri-test-user)** : para tener un homólogo de B.Simon en Aventri vinculado a la representación del usuario en Azure AD.
@@ -179,4 +179,4 @@ Al hacer clic en el icono de Aventri en el panel de acceso, debería iniciar ses
 
 - [Prueba de Aventri con Azure AD](https://aad.portal.azure.com/)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [¿Qué es el control de sesión en Microsoft Defender para aplicaciones en la nube?](/cloud-app-security/proxy-intro-aad)

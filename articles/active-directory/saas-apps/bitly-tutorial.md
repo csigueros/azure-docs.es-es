@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/07/2021
 ms.author: jeedes
-ms.openlocfilehash: 3a73610bc91e6acf33f730656237a45dd7f21163
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 1959120531fd5656e65a15cedc20f2620fb2b64c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129808336"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132349098"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-bitly"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Bitly
 
@@ -58,7 +58,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Bitly mediante u
 Para configurar y probar el inicio de sesión único de Azure AD con Bitly, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Bitly](#configure-bitly-sso)**: para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba en Bitly](#create-bitly-test-user)**: para tener un homólogo de B.Simon en Bitly vinculado a la representación del usuario en Azure AD.
@@ -141,4 +141,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Al hacer clic en el icono de Bitly en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y, si se ha configurado en modo IDP, iniciará sesión automáticamente en la instancia de BIS para la que configuró el inicio de sesión único. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Al hacer clic en el icono de Bitly en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y, si se ha configurado en modo IDP, iniciará sesión automáticamente en la instancia de BIS para la que configuró el inicio de sesión único. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

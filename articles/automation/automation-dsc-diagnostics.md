@@ -2,20 +2,16 @@
 title: Integración de Azure Automation State Configuration con los registros de Azure Monitor
 description: En este artículo se indica cómo enviar datos de los informes de Desired State Configuration desde Azure Automation State Configuration a registros de Azure Monitor.
 services: automation
-ms.service: automation
 ms.subservice: dsc
-author: mgoedtel
-ms.author: magoedte
 ms.date: 08/16/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-manager: carmonm
-ms.openlocfilehash: fb968d527bea4b9daeed4e12f0fdea16158d90c4
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 51404418080176792fc7dfce6cbc6b144dcdde41
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323106"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132494199"
 ---
 # <a name="integrate-azure-automation-state-configuration-with-azure-monitor-logs"></a>Integración de Azure Automation State Configuration con los registros de Azure Monitor
 

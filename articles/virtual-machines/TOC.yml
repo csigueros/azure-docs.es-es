@@ -1493,6 +1493,7 @@
       href: ../security/fundamentals/virtual-machines-overview.md?context=/azure/virtual-machines/context/context
     - name: "Microsoft\_Defender for Cloud"
       href: ../security-center/security-center-introduction.md
+      maintainContext: true
     - name: Líneas base de seguridad
       items:
         - name: Linux
@@ -1717,7 +1718,7 @@
           href: ../azure-monitor/faq.yml
         - name: Extensión de Diagnósticos de Azure
           items:
-            - name: Información general
+            - name: Introducción
               displayName: Azure Diagnostics extension
               href: ../azure-monitor/agents/diagnostics-extension-overview.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
             - name: Extensión de Diagnósticos de Linux

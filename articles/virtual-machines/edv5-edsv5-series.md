@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 10/20/2021
-ms.openlocfilehash: 8a2fac1ded1cd17d9e47500eda06e58ca21fc6e7
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 496dc7271b3468a106bd6c1dbe25e00bc147c26a
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131850059"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132401979"
 ---
 # <a name="edv5-and-edsv5-series"></a>Series Edv5 y Edsv5
 
@@ -35,19 +35,20 @@ Las máquinas virtuales de la serie Edv5 admiten los tipos de discos SSD estánd
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): obligatorio <br>
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): No compatible <br>
+[Virtualización anidada](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): compatible <br>
 <br>
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS/MBps<sup>*</sup>  | Nº máx. NIC|Ancho de banda de red máx. (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_E2d_v5<sup>1,2</sup>  | 2   | 16  | 75   | 4  | 9000/125    | 2 | 12500 |
-| Standard_E4d_v5                | 4   | 32  | 150  | 8  | 19000/250   | 2 | 12500 |
-| Standard_E8d_v5                | 8   | 64  | 300  | 16 | 38000/500   | 4 | 12500 |
-| Standard_E16d_v5               | 16  | 128 | 600  | 32 | 75000/1000  | 8 | 12500 |
+| Standard_E4d_v5                | 4   | 32  | 150  | 8  | 19 000/250   | 2 | 12500 |
+| Standard_E8d_v5                | 8   | 64  | 300  | 16 | 38 000/500   | 4 | 12500 |
+| Standard_E16d_v5               | 16  | 128 | 600  | 32 | 75 000/1000  | 8 | 12500 |
 | Standard_E20d_v5               | 20  | 160 | 750  | 32 | 94000/1250  | 8 | 12500  |
-| Standard_E32d_v5               | 32  | 256 | 1200 | 32 | 150000/2000 | 8 | 16000  |
-| Standard_E48d_v5               | 48  | 384 | 1800 | 32 | 225000/3000 | 8 | 24000  |
-| Standard_E64d_v5               | 64  | 512 | 2400 | 32 | 300000/4000 | 8 | 30000  |
-| Standard_E96d_v5               | 96  | 672 | 3600 | 32 | 450000/4000 | 8 | 35000  |
+| Standard_E32d_v5               | 32  | 256 | 1200 | 32 | 150 000/2000 | 8 | 16000  |
+| Standard_E48d_v5               | 48  | 384 | 1800 | 32 | 225 000/3000 | 8 | 24000  |
+| Standard_E64d_v5               | 64  | 512 | 2400 | 32 | 300 000/4000 | 8 | 30000  |
+| Standard_E96d_v5               | 96  | 672 | 3600 | 32 | 450 000/4000 | 8 | 35000  |
 | Standard_E104id_v5<sup>3</sup> | 104 | 672 | 3800 | 64 | 450000/4000 | 8 | 100000 |
 
 <sup>*</sup> Estos valores de IOPS se pueden garantizar mediante las [VM Gen2](generation-2.md)<br>
@@ -69,19 +70,20 @@ Las máquinas virtuales de la serie Edsv5 admiten los tipos de discos SSD están
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): obligatorio <br>
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible <br>
+[Virtualización anidada](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): compatible <br>
 <br>
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS/MBps<sup>*</sup> | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps | Rendimiento máx. de disco de expansión sin caché: IOPS/MBps<sup>5</sup> | Nº máx. NIC | Ancho de banda de red máx. (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_E2ds_v5<sup>1,2</sup>  | 2   | 16  | 75   | 4  | 9000/125    | 3750/85      | 10000/1200 | 2 | 12500 |
-| Standard_E4ds_v5                | 4   | 32  | 150  | 8  | 19000/250   | 6400/145     | 20000/1200 | 2 | 12500 |
-| Standard_E8ds_v5                | 8   | 64  | 300  | 16 | 38000/500   | 12800/290    | 20000/1200 | 4 | 12500 |
-| Standard_E16ds_v5               | 16  | 128 | 600  | 32 | 75000/1000  | 25600/600    | 40000/1200 | 8 | 12500 |
+| Standard_E2ds_v5<sup>1,2</sup>  | 2   | 16  | 75   | 4  | 9000/125    | 3750/85      | 10 000/1200 | 2 | 12500 |
+| Standard_E4ds_v5                | 4   | 32  | 150  | 8  | 19 000/250   | 6400/145     | 20 000/1200 | 2 | 12500 |
+| Standard_E8ds_v5                | 8   | 64  | 300  | 16 | 38 000/500   | 12 800/290    | 20 000/1200 | 4 | 12500 |
+| Standard_E16ds_v5               | 16  | 128 | 600  | 32 | 75 000/1000  | 25 600/600    | 40 000/1200 | 8 | 12500 |
 | Standard_E20ds_v5               | 20  | 160 | 750  | 32 | 94000/1250  | 32000/750    | 64 000/1600 | 8 | 12500  |
-| Standard_E32ds_v5               | 32  | 256 | 1200 | 32 | 150000/2000 | 51200/865    | 80000/2000 | 8 | 16000  |
-| Standard_E48ds_v5               | 48  | 384 | 1800 | 32 | 225000/3000 | 76800/1315   | 80000/3000 | 8 | 24000  |
-| Standard_E64ds_v5               | 64  | 512 | 2400 | 32 | 375000/4000 | 80000/1735   | 80000/3000 | 8 | 30000  |
-| Standard_E96ds_v5<sup>3</sup>   | 96  | 672 | 3600 | 32 | 450000/4000 | 80000/2600   | 80000/4000 | 8 | 35000  |
+| Standard_E32ds_v5               | 32  | 256 | 1200 | 32 | 150 000/2000 | 51 200/865    | 80000/2000 | 8 | 16000  |
+| Standard_E48ds_v5               | 48  | 384 | 1800 | 32 | 225 000/3000 | 76 800/1315   | 80 000/3000 | 8 | 24000  |
+| Standard_E64ds_v5               | 64  | 512 | 2400 | 32 | 375 000/4000 | 80 000/1735   | 80 000/3000 | 8 | 30000  |
+| Standard_E96ds_v5<sup>3</sup>   | 96  | 672 | 3600 | 32 | 450 000/4000 | 80 000/2600   | 80 000/4000 | 8 | 35000  |
 | Standard_E104ids_v5<sup>4</sup> | 104 | 672 | 3800 | 64 | 450000/4000 | 120000/4000  | 120000/4000 | 8 | 100000 |
 
 <sup>*</sup> Estos valores de IOPS se pueden garantizar mediante las [VM Gen2](generation-2.md)<br>

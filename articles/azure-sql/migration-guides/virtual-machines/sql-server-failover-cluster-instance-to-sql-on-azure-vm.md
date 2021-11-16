@@ -8,12 +8,12 @@ manager: bsiva
 ms.topic: how-to
 ms.date: 4/25/2021
 ms.author: rahugup
-ms.openlocfilehash: 27b0841e601fb7d2eaa7712495b7440a0b886d7c
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: a1ae8cd56d705df0234425488029ca7073c6dfea
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113769262"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132347715"
 ---
 # <a name="migrate-failover-cluster-instance-to-sql-server-on-azure-vms"></a>Migración de una instancia de clúster de conmutación por error a SQL Server en máquinas virtuales de Azure
 
@@ -325,7 +325,7 @@ Una vez que las máquinas virtuales se hayan migrado, vuelva a configurar el cl�
    NumberofNodes | Opcional | Especifique el número de nodos de la instancia de clúster de conmutación por error. Este parámetro se usa para identificar la SKU adecuada para los discos compartidos que se crearán. De manera predeterminada, el script supone que el número de nodos del clúster es 2.   
    DiskNamePrefix | Opcional | Especifique el prefijo que desea agregar a los nombres de los discos compartidos. 
    
-   ```powershell 
+   ```powershell
    ./Create-SharedDisks.ps1 -ResourceGroupName $resoucegroupname -NumberofNodes $nodesincluster -DiskNamePrefix $disknameprefix 
    ```
 
@@ -336,7 +336,7 @@ Una vez que las máquinas virtuales se hayan migrado, vuelva a configurar el cl�
    ResourceGroupName | Mandatory | Especifique el nombre del grupo de recursos que contiene los servidores migrados.
    StartingLunNumber | Opcional |Especifique el número de LUN inicial que está disponible para los discos compartidos a los que se va a asociar. De manera predeterminada, el script intenta asociar discos compartidos a LUN a partir de 0.  
    
-   ```powershell 
+   ```powershell
    ./Attach-ShareDisks.ps1 -ResourceGroupName $resoucegroupname 
    ```
 
@@ -374,10 +374,10 @@ La instancia de clúster de conmutación por error de SQL Server está lista.
     - Proteja los datos mediante la copia de seguridad de máquinas virtuales de Azure mediante el [servicio Azure Backup](../../../backup/quick-backup-vm-portal.md). 
     - Mantenga las cargas de trabajo en ejecución y disponibles continuamente mediante la replicación de máquinas virtuales de Azure en una región secundaria con [Site Recovery](../../../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - Para aumentar la seguridad:
-    - Bloquee y limite el acceso de tráfico de entrada con la [administración Just-In-Time de Azure Security Center](../../../security-center/security-center-just-in-time.md).
+    - Bloquee y limite el acceso del tráfico entrante con [Microsoft Defender for Cloud: administración Just-In-Time](../../../security-center/security-center-just-in-time.md).
     - Restrinja el tráfico de red a los puntos de conexión de administración con [grupos de seguridad de red](../../../virtual-network/network-security-groups-overview.md).
     - Implemente [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) para ayudar a proteger discos y datos frente al robo y acceso no autorizado.
-    - Obtenga más información sobre la [protección de recursos IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) y visite [Azure Security Center](https://azure.microsoft.com/services/security-center/).
+    - Obtenga más información sobre la [protección de recursos IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) y visite [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/).
 - Para supervisión y administración:
     - Considere la posibilidad de implementar [Azure Cost Management](../../../cost-management-billing/cost-management-billing-overview.md) para supervisar el gasto y el uso de recursos.
 

@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 05/17/2021
 ms.author: banders
-ms.openlocfilehash: b98e9af17b20482a1c5c3178aa183198e936bef7
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c3e37fa2d4a24344c2d417bd54544bd786fc8e75
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110069209"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132054264"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Visualización y descarga de la factura de Microsoft Azure
 
@@ -247,7 +247,7 @@ Pueden existir varias razones por las que no ve una factura:
 
            ![Captura de pantalla que muestra la selección de Cambiar directorio en el portal](./media/download-azure-invoice/select-switch-directory.png)
 
-        3. Seleccione un directorio en la sección **Todos los directorios**.
+        3. Seleccione **Cambiar** en un directorio en la sección **Todos los directorios**.
 
            ![Captura de pantalla que muestra la selección de un directorio en el portal](./media/download-azure-invoice/select-directory.png)
 

@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 03/31/2020
-ms.openlocfilehash: f34bcfa8b743fbee6ee3b78fc1a042d1df0abfde
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 102b6e24c0d945cfd8e9bef8b7ae3a9c1992087e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93313644"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132335373"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Escalabilidad automática de grupos de Apache Spark de Azure Synapse Analytics
 
@@ -26,8 +26,8 @@ La escalabilidad automática supervisa continuamente la instancia de Spark y rec
 
 |Métrica|Descripción|
 |---|---|
-|Total de CPU pendiente|El número total de núcleos necesarios para iniciar la ejecución de todos los nodos pendientes.|
-|Total de memoria pendiente|La memoria total (en MB) necesaria para iniciar la ejecución de todos los nodos pendientes.|
+|Total de CPU pendiente|Número total de núcleos necesarios para iniciar la ejecución de todos los trabajos pendientes.|
+|Total de memoria pendiente|Memoria total (en MB) necesaria para iniciar la ejecución de todos los nodos pendientes.|
 |Total de CPU libre|La suma de todos los núcleos sin usar en los nodos activos.|
 |Total de memoria libre|La suma de la memoria sin usar (en MB) en los nodos activos.|
 |Memoria usada por nodo|Carga en un nodo. Un nodo donde se usan 10 GB de memoria se considera bajo más carga que un trabajo con 2 GB de memoria usada.|
@@ -45,7 +45,7 @@ Cuando se detectan las condiciones siguientes, Escalabilidad automática emite u
 
 Para la escalabilidad vertical, el servicio de escalabilidad automática de Azure Synapse calcula cuántos nodos nuevos se necesitan para cumplir con los requisitos actuales de CPU y memoria y, luego, emite una solicitud de escalabilidad vertical para agregar el número de nodos necesario.
 
-Para la reducción vertical, en función del número de ejecutores, de patrones de aplicación por nodo y de los requisitos actuales de CPU y memoria, la escalabilidad automática emite una solicitud para quitar un número determinado de nodos. El servicio detecta también qué nodos son candidatos para la eliminación en función de la ejecución del trabajo actual. En primer lugar, la operación de reducción vertical retira los nodos y, luego, los quita del clúster.
+Para la reducción vertical, en función del número de ejecutores, los patrones de aplicación por nodo, la CPU actual y los requisitos de memoria, la escalabilidad automática emite una solicitud para quitar un número determinado de nodos. El servicio detecta también qué nodos son candidatos para la eliminación en función de la ejecución del trabajo actual. En primer lugar, la operación de reducción vertical retira los nodos y, luego, los quita del clúster.
 
 ## <a name="get-started"></a>Introducción
 

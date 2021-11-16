@@ -2,14 +2,14 @@
 title: Incorporación de un repositorio de artefactos al laboratorio
 description: Obtenga información sobre cómo especificar su propio repositorio de artefactos para el laboratorio en Azure DevTest Labs, a fin de almacenar herramientas que no están disponibles en el repositorio de artefactos públicos.
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 10/19/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 83a1cbb6c25c76d23977219d8e3b46491bbb363b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 16c555e73639ee9c34ac353b43e828c1a6afbbe4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128644455"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130229301"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Agregar un repositorio de artefactos a un laboratorio en Azure DevTest Labs
 DevTest Labs permite especificar que se agregue un artefacto a una máquina virtual en el mismo momento de crear la máquina virtual o después de que se haya creado. Este artefacto puede ser una herramienta o una aplicación que desee instalar en la máquina virtual. Los artefactos se definen en un archivo JSON que se carga desde un repositorio GitHub o un repositorio GIT de Azure DevOps.
@@ -46,9 +46,9 @@ Para agregar un repositorio al laboratorio, obtenga cierta información clave de
 7. En la pestaña **Seguridad > Tokens de acceso personal**, seleccione **+ Nuevo Token**.
 8. En la página **Crear un token de acceso personal**:
    1. Rellene el campo **Nombre** con un nombre para el token.
-   2. En la lista **Organización**, seleccione **Todas las organizaciones accesibles**.
+   2. En la lista **Organización**, seleccione la organización a la que pertenece el repositorio.
    3. En la lista **Expiración (UTC)** , seleccione **90 días** o un período de expiración definido personalizado.
-   4. Seleccione la opción **Acceso Completo** para los ámbitos.
+   4. En Ámbitos, seleccione la opción **Definido por el usuario** y elija **Code - Read** (Código: Lectura).
    5. Seleccione **Crear**.
 9. El nuevo token aparece en la lista **Tokens de acceso personal** . Seleccione **token** y luego guarde el valor del token para usarlo más adelante.
 10. Vaya a la sección Conexión de un laboratorio con el repositorio.
@@ -80,7 +80,7 @@ Las plantillas de Azure Resource Management (Azure Resource Manager) son archivo
 En esta sección se proporcionan los pasos necesarios para agregar un repositorio de artefactos a un laboratorio mediante una plantilla de Azure Resource Manager.  La plantilla crea el laboratorio, en caso de que no exista.
 
 ### <a name="template"></a>Plantilla
-La plantilla de ejemplo que se usa en este artículo, recopila la siguiente información a través de parámetros. La mayoría de los parámetros tienen valores predeterminados inteligentes, pero hay algunos valores que deben especificarse. Es preciso especificar el nombre del laboratorio, el identificador URI del repositorio de artefactos y el token de seguridad del repositorio.
+La plantilla de ejemplo que se usa en este artículo, recopila la siguiente información a través de parámetros. La mayoría de los parámetros tienen valores predeterminados inteligentes, pero hay algunos valores que deben especificarse. Especifique el nombre del laboratorio, el URI del repositorio de artefactos y el token de seguridad del repositorio.
 
 - Nombre de laboratorio.
 - Nombre para mostrar del repositorio de artefactos en la interfaz de usuario (UI) de DevTest Labs. El valor predeterminado es: `Team Repository`.
@@ -171,7 +171,7 @@ En primer lugar, cree un grupo de recursos mediante [New-AzResourceGroup](/power
 New-AzResourceGroup -Name MyLabResourceGroup1 -Location westus
 ```
 
-Luego, cree una implementación para el grupo de recursos mediante [New AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). Este cmdlet aplica los cambios de recursos en Azure. Se pueden realizar varias implementaciones de recursos en cualquier grupo de recursos determinado. Si va a realizar la implementación varias veces en el mismo grupo de recursos, asegúrese de que el nombre de cada implementación es único.
+Luego, cree una implementación para el grupo de recursos mediante [New AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). Este cmdlet aplica los cambios de recursos en Azure. Se pueden realizar varias implementaciones de recursos en cualquier grupo de recursos determinado. Si va a realizar la implementación varias veces en el mismo grupo de recursos, asegúrese de que el nombre de cada implementación sea único.
 
 ```powershell
 New-AzResourceGroupDeployment `
@@ -342,15 +342,15 @@ El script de PowerShell de ejemplo de este artículo usa los parámetros siguien
 | Parámetro | Descripción |
 | --------- | ----------- |
 | LabName | El nombre del laboratorio. |
-| ArtifactRepositoryName | Nombre del nuevo repositorio de artefactos. El script crea un nombre aleatorio para el repositorio si no se especifica. |
+| ArtifactRepositoryName | Nombre del nuevo repositorio de artefactos. Si no se especifica, el script crea un nombre aleatorio para el repositorio. |
 | ArtifactRepositoryDisplayName | Nombre para mostrar del nuevo repositorio de artefactos. Es el nombre que se muestra en Azure Portal (https://portal.azure.com) cuando se ven todos los repositorios de artefactos de un laboratorio. |
 | RepositoryUri | Identificador URI del repositorio. Ejemplos: `https://github.com/<myteam>/<nameofrepo>.git` o `"https://MyProject1.visualstudio.com/DefaultCollection/_git/TeamArtifacts"`.|
-| RepositoryBranch | Rama en que se pueden encontrar archivos de artefacto. El valor predeterminado es "master". |
+| RepositoryBranch | Rama en que se pueden encontrar archivos de artefacto. Su valor predeterminado es `master`. |
 | FolderPath | Carpeta en la que se pueden encontrar los artefactos. El valor predeterminado es "/Artifacts" |
 | PersonalAccessToken | Token de seguridad para acceder al repositorio de GitHub o de VSOGit. Consulte la sección de requisitos previos para obtener las instrucciones necesarias para obtener un token de acceso personal |
-| SourceType | Si el artefacto es repositorio de VSOGit o de GitHub. |
+| SourceType | Si el artefacto es un repositorio de VSOGit o GitHub. |
 
-El repositorio en sí necesita un interno de identificación nombre, que no es el mismo que el nombre para mostrar que se ve en Azure Portal. Desde Azure Portal no se ve el nombre interno, pero se ve cuando se usan las API REST de Azure o Azure PowerShell. El script proporciona un nombre, siempre que no lo haya especificado el usuario del script.
+El propio repositorio necesita un nombre interno para la identificación, que es diferente del nombre para mostrar que se ve en Azure Portal. El nombre interno no se ve mediante Azure Portal, pero sí al usar las API REST de Azure o Azure PowerShell. El script proporciona un nombre, siempre que no lo haya especificado el usuario del script.
 
 ```powershell
 #Set artifact repository name, if not set by user
@@ -374,7 +374,7 @@ La mejor manera de detectar la información de nombre de recurso y tipo de recur
 "/subscriptions/$SubscriptionId/resourceGroups/$($LabResource.ResourceGroupName)/providers/Microsoft.DevTestLab/labs/$LabName/artifactSources/$ArtifactRepositoryName"
 ```
 
-El tipo de recurso es todo lo que aparece después de "providers" en el identificador URI, excepto los elementos que aparecen entre corchetes. El nombre del recurso es todo lo que ve entre corchetes. Si se espera que más de un elemento para el nombre de recurso, separe cada elemento con una barra diagonal, tal como hemos hecho.
+El tipo de recurso es todo lo que aparece después de "providers" en el identificador URI, excepto los elementos que aparecen entre corchetes. El nombre del recurso es todo lo que ve entre corchetes. Si prevé más de un elemento para el nombre del recurso, separe cada uno con una barra diagonal como hemos hecho.
 
 ```powershell
 $resourcetype = 'Microsoft.DevTestLab/labs/artifactSources'

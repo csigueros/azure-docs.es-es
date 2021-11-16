@@ -12,12 +12,12 @@ ms.date: 11/12/2020
 ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.reviewer: miccohen
-ms.openlocfilehash: 0faa0d97c1e1bb73e2a97aa3715efee58a589cd8
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 3d3556315e95ad72dd0c0e754f8762bfa585c245
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131432631"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132342440"
 ---
 # <a name="integrate-f5-big-ip-with-azure-active-directory"></a>Integración de F5 BIG-IP con Azure Active Directory
 
@@ -42,9 +42,9 @@ Hacer que Azure AD realice una autenticación previa para el acceso a los servi
 
 - [Colaboración de asociados](../governance/entitlement-management-external-users.md): administración de derechos para el acceso controlado de invitados.
 
-- [Cloud App Security (CASB)](/cloud-app-security/what-is-cloud-app-security): para un control y detección de aplicaciones completo.
+- [Defender for Cloud Apps (CASB)](/cloud-app-security/what-is-cloud-app-security): para una detección y control de aplicaciones completos.
 
-- Supervisión de amenazas: [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) para el análisis avanzado de amenazas.
+- Supervisión de amenazas: [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel/) para el análisis avanzado de amenazas.
 
 - El [portal de Azure AD](https://azure.microsoft.com/features/azure-portal/): un plano de control único para gobernar la identidad y el acceso.
 
@@ -93,7 +93,7 @@ Las capturas de pantallas que se proporcionan proceden del portal de aplicacione
 
 El rol de BIG-IP es fundamental para cualquier empresa, por lo que se deben supervisar las instancias de BIG-IP implementadas para garantizar que los servicios publicados tengan una alta disponibilidad, tanto en un nivel de acceso híbrido seguro como también en el nivel operativo.
 
-Existen varias opciones para registrar eventos, ya sea de forma local o remota, mediante una solución de administración de eventos e información de seguridad (SIEM) que permite el almacenamiento y el procesamiento de datos de telemetría. Una solución muy eficaz para la supervisión de Azure AD y de actividades específicas del acceso híbrido seguro es usar [Azure Monitor](../../azure-monitor/overview.md) y [Azure Sentinel](../../sentinel/overview.md) que ofrecen lo siguiente:
+Existen varias opciones para registrar eventos, ya sea de forma local o remota, mediante una solución de administración de eventos e información de seguridad (SIEM) que permite el almacenamiento y el procesamiento de datos de telemetría. Una solución muy eficaz para la supervisión de Azure AD y de actividades específicas del acceso híbrido seguro es usar [Azure Monitor](../../azure-monitor/overview.md) y [Microsoft Sentinel](../../sentinel/overview.md) que ofrecen lo siguiente:
 
 - Información general detallada de su organización, posiblemente en varias nubes, y en ubicaciones locales, como la infraestructura de BIG-IP.
 
@@ -147,7 +147,9 @@ En los siguientes tutoriales se proporcionan instrucciones detalladas sobre la i
 
 - [Configuración de Azure AD B2C con F5 BIG-IP](../../active-directory-b2c/partner-f5.md)
 
-- [Integración de Azure Active Directory con F5 BIG-IP para el inicio de sesión único con autenticación basada en formularios](f5-big-ip-forms-advanced.md)
+- [Inicio de sesión único de F5 BIG-IP APM y Azure AD para aplicaciones basadas en formularios](f5-big-ip-forms-advanced.md)
+
+- [Integración de SSO de Azure Active Directory con F5 BIG-IP para la autenticación basada en encabezados](f5-big-ip-header-advanced.md)
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
@@ -157,7 +159,7 @@ En los siguientes tutoriales se proporcionan instrucciones detalladas sobre la i
 
 - [Marco de confianza cero de Microsoft para habilitar el trabajo remoto](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)
 
-- [Introducción a Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/?&OCID=AID2100131_SEM_XfknpgAAAHoVMTvh:20200922160358:s&msclkid=5e0e022409fc1c94dab85d4e6f4710e3&ef_id=XfknpgAAAHoVMTvh:20200922160358:s&dclid=CJnX6vHU_esCFUq-ZAod1iQF6A)
+- [Introducción a Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel/?&OCID=AID2100131_SEM_XfknpgAAAHoVMTvh:20200922160358:s&msclkid=5e0e022409fc1c94dab85d4e6f4710e3&ef_id=XfknpgAAAHoVMTvh:20200922160358:s&dclid=CJnX6vHU_esCFUq-ZAod1iQF6A)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 10/20/2021
-ms.openlocfilehash: 33ae24df3a378fb005d6fbc7c3f0b19011f0b6d5
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: f2f4cb3a9d0af5bdf5dd873151b7adc899a24295
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131850591"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132401998"
 ---
 # <a name="ddv5-and-ddsv5-series"></a>Series Ddv5 y Ddsv5
 
@@ -36,6 +36,7 @@ Las máquinas virtuales de la serie Ddv5 admiten los tipos de discos SSD están
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): obligatorio <br>
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible <br>
+[Virtualización anidada](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): compatible <br>
 <br> 
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS/MBps<sup>*</sup> | Nº máx. NIC|Ancho de banda de red máx. (Mbps) |
@@ -66,6 +67,7 @@ Las máquinas virtuales de la serie Ddsv5 admiten los tipos de disco SSD están
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): obligatorio <br>
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible <br>
+[Virtualización anidada](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): compatible <br>
 <br> 
 
 

@@ -10,18 +10,18 @@ ms.date: 11/02/2021
 author: ruixinxu
 ms.author: ruxu
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: bbbcad29737b46226c48ac9924e60e400327a518
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f15dfc216b664daf41a090189c29bd8772adc707
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030901"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132292953"
 ---
 # <a name="tutorial-text-analytics-with-cognitive-service"></a>Tutorial: Text Analytics con Cognitive Service
 
 [Text Analytics](../../cognitive-services/text-analytics/index.yml) es un componente de [Azure Cognitive Service](../../cognitive-services/index.yml) que permite efectuar tareas de minería y análisis de texto mediante características de procesamiento de lenguaje natural (NLP). En este tutorial, aprenderá a usar [Text Analytics](../../cognitive-services/text-analytics/index.yml) para analizar texto no estructurado en Azure Synapse Analytics.
 
-En este tutorial se muestra cómo usar el análisis de textos con [MMLSpark](https://github.com/Azure/mmlspark) para:
+En este tutorial se muestra cómo usar el análisis de textos con [SynapseML](https://github.com/microsoft/SynapseML) para:
 
 > [!div class="checklist"]
 > - Detectar etiquetas de opinión en el nivel de oración o documento
@@ -41,10 +41,11 @@ Si no tiene una suscripción a Azure, [cree una cuenta gratuita antes de empezar
 
 
 ## <a name="get-started"></a>Introducción
-Abra Synapse Studio y cree un nuevo cuaderno. Para empezar, importe [MMLSpark](https://github.com/Azure/mmlspark). 
+Abra Synapse Studio y cree un nuevo cuaderno. Para empezar, importe [SynapseML](https://github.com/microsoft/SynapseML). 
 
 ```python
-from mmlspark.cognitive import *
+import synapse.ml
+from synapse.ml.cognitive import *
 from pyspark.sql.functions import col
 ```
 
@@ -356,4 +357,4 @@ Para asegurarse de que se cierra la instancia de Spark, finalice todas las sesio
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Consulte los cuadernos de ejemplo de Synapse](https://github.com/Azure-Samples/Synapse/tree/main/MachineLearning) 
-* [Repositorio de GitHub para MMLSpark](https://github.com/Azure/mmlspark)
+* [Repositorio de GitHub de SynapseML](https://github.com/microsoft/SynapseML)

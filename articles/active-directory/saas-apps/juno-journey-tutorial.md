@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/01/2021
 ms.author: jeedes
-ms.openlocfilehash: 27a5f313150ff859f46eb6abdf11ff3b1436663d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ae1c69cdc637a53b869b00277cb410a476bca31c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128566942"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132295205"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-juno-journey"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Juno Journey
 
@@ -60,7 +60,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Juno Journey med
 Para configurar y probar el inicio de sesión único de Azure AD con Juno Journey, haga lo siguiente:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Juno Journey](#configure-juno-journey-sso)**, para configurar los valores de Inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba en Juno Journey](#create-juno-journey-test-user)**, para tener un homólogo de B.Simon en Juno Journey que esté vinculado a su representación en Azure AD.
@@ -150,4 +150,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Juno Journey, puede aplicar el control de sesión, que protege la información confidencial de su organización en tiempo real de la filtración y la infiltración. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado Juno Journey, puede aplicar el control de sesión, que protege la información confidencial de su organización en tiempo real de la filtración y la infiltración. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

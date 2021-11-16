@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 678090d4c4de0dfd306bd5b91a26787f9ff15db2
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 504ae03ecff532fff5a8343d02fd8bba21524cfd
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129455861"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132397326"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-by-using-the-azure-cli"></a>Implementación y supervisión de módulos de IoT Edge a gran escala mediante la CLI de Azure
 
@@ -162,7 +162,7 @@ Este es un manifiesto de implementación superpuesta básico con un módulo como
 En el ejemplo anterior se mostraba la implementación superpuesta que establecía `properties.desired` para un módulo. Si esta implementación superpuesta se dirigiera a un dispositivo en el que ya se aplicó el mismo módulo, se sobrescribirían las propiedades deseadas existentes. Para actualizar las propiedades deseadas en lugar de sobrescribirlas, puede definir una subsección nueva. Por ejemplo:
 
 ```json
-"SimulatedTEmperatureSensor": {
+"SimulatedTemperatureSensor": {
   "properties.desired.layeredProperties": {
     "SendData": true,
     "SendInterval": 5
@@ -173,7 +173,7 @@ En el ejemplo anterior se mostraba la implementación superpuesta que establecí
 También se puede expresar lo mismo con:
 
 ```json
-"SimulatedTEmperatureSensor": {
+"SimulatedTemperatureSensor": {
   "properties.desired.layeredProperties.SendData" : true,
   "properties.desired.layeredProperties.SendInterval": 5
 }

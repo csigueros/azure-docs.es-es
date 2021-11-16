@@ -1,28 +1,28 @@
 ---
-title: Conjuntos de eventos de seguridad de Windows que se pueden enviar a Azure Sentinel | Microsoft Docs
-description: Obtenga información sobre los conjuntos de eventos de seguridad de Windows creados previamente que puede recopilar y transmitir desde los sistemas de Windows al área de trabajo de Azure Sentinel.
+title: Conjuntos de eventos de seguridad de Windows que pueden enviarse a Microsoft Sentinel
+description: Obtenga información sobre los conjuntos precompilados de eventos de seguridad de Windows que puede recopilar y transmitir desde los sistemas de Windows al área de trabajo de Microsoft Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: d51d2e09-a073-41c8-b396-91d60b057e6a
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2021
+ms.date: 11/09/2021
 ms.author: yelevin
-ms.openlocfilehash: 58503ee618666d990c8d23b7c42df5b277f53af4
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 82be0e0e42690c23157511a16e404b4cd0048a36
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131478122"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132520282"
 ---
-# <a name="windows-security-event-sets-that-can-be-sent-to-azure-sentinel"></a>Conjuntos de eventos de seguridad de Windows que pueden enviarse a Azure Sentinel
+# <a name="windows-security-event-sets-that-can-be-sent-to-microsoft-sentinel"></a>Conjuntos de eventos de seguridad de Windows que pueden enviarse a Microsoft Sentinel
 
 Al ingerir eventos de seguridad desde dispositivos Windows mediante el [conector de datos de eventos de seguridad de Windows](data-connectors-reference.md#windows-security-events-via-ama) (incluida la [versión heredada](data-connectors-reference.md#security-events-via-legacy-agent-windows)), puede elegir qué eventos recopilar entre los siguientes conjuntos:
 
@@ -48,8 +48,7 @@ En la lista siguiente se muestra un desglose completo de los identificadores de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este documento, ha aprendido a filtrar la colección de eventos de Windows en Azure Sentinel.
+En este documento ha aprendido a filtrar la colección de eventos de Windows en Microsoft Sentinel.
 
 - Obtenga más información sobre [la recopilación de eventos de seguridad de Windows](connect-windows-security-events.md).
-- Empiece a detectar amenazas con Azure Sentinel mediante las reglas [integradas](detect-threats-built-in.md) o [personalizadas](detect-threats-custom.md).
-
+- Empiece a detectar amenazas con Microsoft Sentinel mediante reglas [integradas](detect-threats-built-in.md) o [personalizadas](detect-threats-custom.md).

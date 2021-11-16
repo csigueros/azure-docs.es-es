@@ -4,13 +4,13 @@ description: Introducción a los servicios y funcionalidades de Microsoft que co
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 10/14/2021
-ms.openlocfilehash: a47c26f2b600d7ed2ffd67877ab7202a763a4054
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/01/2021
+ms.openlocfilehash: 18019dbf4f6c3a6494b105362790dd41d4132595
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131036321"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132055857"
 ---
 # <a name="azure-monitor-overview"></a>Introducción a Azure Monitor
 
@@ -55,7 +55,7 @@ Azure Monitor puede recopilar datos de [diversos orígenes](monitor-reference.md
 
 - **Datos de supervisión de aplicaciones:** datos sobre el rendimiento y la funcionalidad del código que ha escrito, independientemente de la plataforma.
 - **Datos de supervisión del sistema operativo invitado:** datos sobre el sistema operativo en el que se ejecuta la aplicación. La aplicación se puede ejecutar en Azure, en otra nube o en el entorno local. 
-- **Datos de supervisión de recursos de Azure:** datos acerca del funcionamiento de un recurso de Azure. Para obtener una lista completa de los recursos que tienen métricas o registros, consulte [What can you monitor with Azure Monitor?](monitor-reference.md#list-of-azure monitor-supported-services) (¿Qué se puede supervisar con Azure Monitor?).
+- **Datos de supervisión de recursos de Azure:** datos acerca del funcionamiento de un recurso de Azure. Para obtener una lista completa de los recursos que tienen métricas o registros, consulte [What can you monitor with Azure Monitor?](monitor-reference.md#azure-supported-services) (¿Qué se puede supervisar con Azure Monitor?).
 - **Datos de supervisión de la suscripción de Azure:** datos sobre el funcionamiento y la administración de una suscripción de Azure, así como sobre el estado y el funcionamiento del propio Azure. 
 - **Datos de supervisión del inquilino de Azure:** datos sobre el funcionamiento de los servicios de Azure en el nivel del inquilino, como Azure Active Directory.
 
@@ -69,7 +69,7 @@ Habilite la supervisión de la aplicación con [Application Insights](app/app-in
 Azure Monitor puede recopilar datos de registro de cualquier cliente de REST mediante [Data Collector API](logs/data-collector-api.md). Esto permite crear escenarios de supervisión personalizados y ampliar la supervisión a los recursos que no exponen datos de telemetría en otros orígenes.
 
 ## <a name="insights-and-curated-visualizations"></a>Insights y visualizaciones seleccionadas
-Los datos de supervisión solo resultan útiles si aportan una mayor visibilidad sobre el funcionamiento del entorno informático. Algunos proveedores de recursos de Azure tienen una "visualización seleccionada" que proporciona una experiencia de supervisión personalizada para ese servicio o conjunto de servicios concretos. Por lo general, requieren una configuración mínima. Las visualizaciones más grandes y escalables se conocen como "insights" y se marcan con ese nombre en la documentación y en Azure Portal.  
+Los datos de supervisión solo resultan útiles si aportan una mayor visibilidad sobre el funcionamiento del entorno informático. Algunos proveedores de recursos de Azure tienen una "visualización seleccionada" que proporciona una experiencia de supervisión personalizada para ese servicio o conjunto de servicios concretos. Por lo general, requieren una configuración mínima. Las visualizaciones más grandes y seleccionadas se conocen como "conclusiones" y se marcan con ese nombre en la documentación y en Azure Portal.  
 
 Para obtener más información, consulte [List of insights and curated visualizations using Azure Monitor](monitor-reference.md#insights-and-curated-visualizations) (Lista de insights y visualizaciones seleccionadas mediante Azure Monitor). Algunos de los insights más grandes se describen a continuación.
 

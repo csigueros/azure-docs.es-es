@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 76c203339744e73d9239d44dfe984834b333cf93
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 0d5f60ec140ac40fa01be1e27d48455c481b708e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124753541"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132321595"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-bamboo"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con EasySSO for Bamboo
 
@@ -58,7 +58,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con EasySSO for Bamb
 Para configurar y probar el inicio de sesión único de Azure AD con EasySSO for Bamboo, complete los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en EasySSO for Bamboo](#configure-easysso-for-bamboo-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de EasySSO for Bamboo](#create-easysso-for-bamboo-test-user)** , para tener un homólogo de B.Simon en EasySSO for Bamboo vinculado a la representación del usuario en Azure AD.
@@ -216,4 +216,4 @@ Si tiene algún problema con la síntesis de los mensajes de registro, póngase 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado EasySSO for Bamboo, puede aplicar el control de sesión, que protege la información confidencial de la organización de la filtración y la infiltración en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado EasySSO for Bamboo, puede aplicar el control de sesión, que protege la información confidencial de la organización de la filtración y la infiltración en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

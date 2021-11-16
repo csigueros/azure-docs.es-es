@@ -10,12 +10,12 @@ author: rsethur
 ms.reviewer: laobri
 ms.custom: devplatv2
 ms.date: 11/03/2021
-ms.openlocfilehash: 94a1d171fb2bdf16f8229aa9a9bc9fd4a7ab3458
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: f979651909a2484f6bcdf7b0953c91874bea7cc5
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132062916"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132520662"
 ---
 # <a name="autoscale-a-managed-online-endpoint-preview"></a>Escalabilidad automática de un punto de conexión administrado en línea (versión preliminar)
 
@@ -187,7 +187,7 @@ Si no va a usar las implementaciones, elimínelas:
 
 Para obtener más información sobre la escalabilidad automática con Azure Monitor, vea los siguientes artículos:
 
-- [Información acerca de la configuración de escalado automático](/autoscale/autoscale-understand-settings)
-- [Información general sobre patrones comunes de escalabilidad automática](/autoscale/autoscale-common-scale-patterns)
-- [Procedimientos recomendados de escalado automático](/autoscale/autoscale-best-practices)
-- [Solución de problemas de escalabilidad automática de Azure](/autoscale/autoscale-troubleshoot)
+- [Información acerca de la configuración de escalado automático](/azure-monitor/autoscale/autoscale-understand-settings)
+- [Información general sobre patrones comunes de escalabilidad automática](/azure-monitor/autoscale/autoscale-common-scale-patterns)
+- [Procedimientos recomendados de escalado automático](/azure-monitor/autoscale/autoscale-best-practices)
+- [Solución de problemas de escalabilidad automática de Azure](/azure-monitor/autoscale/autoscale-troubleshoot)

@@ -10,12 +10,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 07/30/2021
 ms.topic: overview
-ms.openlocfilehash: 5a2bd61c2e59e5933361cc5d64462ba50a12d836
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 642448cab1fa6511d9d12eb4a3de894f3e5c1251
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737114"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132056765"
 ---
 # <a name="what-are-azure-arc-enabled-data-services"></a>¿Qué son los servicios de datos habilitados para Azure Arc?
 
@@ -26,7 +26,7 @@ Actualmente están disponibles los siguientes servicios de datos habilitados par
 - Instancia administrada de SQL
 - Hiperescala de PostgreSQL (versión preliminar)
 
-Para ver una introducción a cómo Servicios de datos habilitados para Azure Arc admiten entornos de trabajo híbridos, consulte este vídeo:
+Para ver una introducción sobre cómo admiten entornos de trabajo híbridos los servicios de datos habilitados para Azure Arc, consulte este vídeo:
 
 > [!VIDEO https://channel9.msdn.com/Shows//Inside-Azure-for-IT/Choose-the-right-data-solution-for-your-hybrid-environment/player?format=ny]
 
@@ -54,13 +54,16 @@ Muchos de los servicios, como el aprovisionamiento de autoservicio, las copias d
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
-En la tabla siguiente se describen los escenarios compatibles actualmente con los servicios de datos habilitados para Arc.
+En la tabla siguiente, se describen los escenarios compatibles actualmente con los servicios de datos habilitados para Azure Arc.
 
 |Regiones de Azure  |Modo de conexión directa  |Modo conectado indirecto  |
 |---------|---------|---------|
 |Este de EE. UU.|Disponible|Disponible
 |Este de EE. UU. 2|Disponible|Disponible
+|Oeste de EE. UU.|Disponible|Disponible
 |Oeste de EE. UU. 2|Disponible|Disponible
+|Oeste de EE. UU. 3|Disponible|Disponible
+|Centro-Norte de EE. UU | Disponible | Disponible
 |Centro de EE. UU.|No disponible|Disponible
 |Centro-sur de EE. UU.|Disponible|Disponible
 |Sur de Reino Unido 2|Disponible|Disponible

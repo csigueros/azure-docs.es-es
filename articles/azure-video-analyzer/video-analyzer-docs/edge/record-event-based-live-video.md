@@ -2,14 +2,14 @@
 title: 'Tutorial de grabación de vídeo basada en eventos en la nube y reproducción desde la nube: Azure'
 description: En este tutorial, obtendrá información sobre cómo usar Azure Video Analyzer para realizar una grabación de vídeo basada en eventos en la nube y reproducirla desde la nube.
 ms.topic: tutorial
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 4f5c7bfe4c56eaa5730a408b549723331c969c29
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 1edec79cd7baa20819e0599b039fbdfe20f35d92
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093300"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484800"
 ---
 # <a name="tutorial-event-based-video-recording-and-playback"></a>Tutorial: Grabación de vídeo basada en eventos y reproducción
 
@@ -70,7 +70,7 @@ Como se muestra en el diagrama, se usará un nodo de [origen RTSP](../pipeline.m
 
 * La primera ruta de acceso es a un nodo de extensión HTTP. El nodo muestrea los fotogramas de vídeo en un valor que se ha establecido mediante el campo `samplingOptions` y, después, retransmite los fotogramas, en forma de imágenes, al módulo de inteligencia artificial YOLOv3, que es un detector de objetos. El nodo recibe los resultados, que son los objetos (vehículos en tráfico) detectados por el modelo. A continuación, el nodo de extensión HTTP publica los resultados mediante el nodo receptor de mensajes de IoT Hub en el centro de IoT Edge.
 
-* El módulo objectCounter está configurado para recibir mensajes desde el centro de IoT Edge, que incluye los resultados de la detección de objetos (vehículos en tráfico). El módulo comprueba estos mensajes en busca de objetos de un tipo determinado, que se configuraron mediante un valor. Cuando se encuentra un objeto de este tipo, este módulo envía un mensaje al centro de IoT Edge. A continuación, los mensajes de "objeto encontrado" se enrutan al nodo de origen de IoT Hub de la canalización. Tras recibir este tipo de mensaje, el nodo de origen de IoT Hub de la canalización desencadena el nodo del [procesador de la puerta de señales](../pipeline.md#signal-gate-processor). A continuación, el nodo del procesador de la puerta de señales se abre durante un período de tiempo configurado. El vídeo fluye a través de la puerta al nodo receptor del vídeo durante esa duración. Después, esa parte del streaming en vivo se graba mediante el nodo [receptor del vídeo](../pipeline.md#video-sink) en un [vídeo](../terminology.md#video) de la cuenta de Video Analyzer. En este tutorial se va a usar un [vídeo de ejemplo de un ](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv)de vídeo de ejemplo de un cruce de autopistas.
+* El módulo objectCounter está configurado para recibir mensajes desde el centro de IoT Edge, que incluye los resultados de la detección de objetos (vehículos en tráfico). El módulo comprueba estos mensajes en busca de objetos de un tipo determinado, que se configuraron mediante un valor. Cuando se encuentra un objeto de este tipo, este módulo envía un mensaje al centro de IoT Edge. A continuación, los mensajes de "objeto encontrado" se enrutan al nodo de origen de IoT Hub de la canalización. Tras recibir este tipo de mensaje, el nodo de origen de IoT Hub de la canalización desencadena el nodo del [procesador de la puerta de señales](../pipeline.md#signal-gate-processor). A continuación, el nodo del procesador de la puerta de señales se abre durante un período de tiempo configurado. El vídeo fluye a través de la puerta al nodo receptor del vídeo durante esa duración. Después, esa parte del streaming en vivo se graba mediante el nodo [receptor del vídeo](../pipeline.md#video-sink) en un [vídeo](../terminology.md#video) de la cuenta de Video Analyzer. En este tutorial se va a usar un [vídeo de ejemplo de un ](https://avamedia.blob.core.windows.net/public/camera-300s.mkv)de vídeo de ejemplo de un cruce de autopistas.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
 

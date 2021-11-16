@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 371a9138921e165d1c811a2ec88fbe4450a22a15
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 1892d6a4ffbbf42827b9763dc3d63b51a7c539e6
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124821522"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306707"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sendsafely"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con SendSafely
 
@@ -42,7 +42,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 * SendSafely admite el inicio de sesión único iniciado por **SP e IDP**.
 * SendSafely admite el aprovisionamiento de usuarios **Just-In-Time**
 
-* Una vez configurado SendSafely, puede aplicar el control de sesión, que protege de la filtración e infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Una vez configurado SendSafely, puede aplicar el control de sesión, que protege de la filtración e infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-sendsafely-from-the-gallery"></a>Adición de SendSafely desde la galería
 
@@ -63,7 +63,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con SendSafely media
 Para configurar y probar el inicio de sesión único de Azure AD con SendSafely, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en SendSafely](#configure-sendsafely-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de SendSafely](#create-sendsafely-test-user)** , para tener un homólogo de B.Simon en SendSafely que esté vinculado a la representación del usuario en Azure AD.
@@ -156,6 +156,6 @@ Al hacer clic en el icono de SendSafely en el Panel de acceso, iniciará sesión
 
 - [Pruebe SendSafely con Azure AD](https://aad.portal.azure.com/)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [¿Qué es el control de sesión en Microsoft Defender para aplicaciones en la nube?](/cloud-app-security/proxy-intro-aad)
 
 - [Protección de SendSafely con controles y visibilidad avanzados](/cloud-app-security/proxy-intro-aad)

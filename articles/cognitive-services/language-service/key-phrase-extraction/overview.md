@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-key-phrase, ignite-fall-2021
-ms.openlocfilehash: efa3506540a769c691d8a6d86a4bf2adbfe52dbc
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ae7ac89fd1607d49c61421b97586a85d9d7ec945
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091029"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132488251"
 ---
 # <a name="what-is-key-phrase-extraction-in-azure-cognitive-service-for-language"></a>¿Qué es la extracción de frases clave en Azure Cognitive Service for Language?
 
@@ -35,7 +35,7 @@ Use el contenedor de Docker disponible para [implementar esta característica en
 
 ## <a name="responsible-ai"></a>Inteligencia artificial responsable 
 
-Los sistemas de inteligencia artificial incluyen no solo la tecnología, sino también las personas que la usarán, las personas que se verán afectadas por ella y el entorno en el que se implementa. Lea la [nota de transparencia de la extracción de frases clave](/legal/cognitive-services/language-service/transparency-note-key-phrase-detection?context=/azure/cognitive-services/language-service/context/context) para obtener información sobre el uso responsable de la inteligencia artificial y la implementación en los sistemas. Para más información, también puede ver los siguientes artículos:
+Los sistemas de inteligencia artificial incluyen no solo la tecnología, sino también las personas que la usarán, las personas que se verán afectadas por ella y el entorno en el que se implementa. Lea la [nota de transparencia de la extracción de frases clave](/legal/cognitive-services/language-service/transparency-note-key-phrase-extraction?context=/azure/cognitive-services/language-service/context/context) para obtener información sobre el uso responsable de la inteligencia artificial y la implementación en los sistemas. Para más información, también puede ver los siguientes artículos:
 
 [!INCLUDE [Responsible AI links](../includes/overview-responsible-ai-links.md)]
 

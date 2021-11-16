@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: ''
 ms.date: 07/27/2020
-ms.openlocfilehash: b8f55a720583713fad59fc07495dcab070d19fa7
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+ms.openlocfilehash: 2360b32a63ad5473f8dfa1f08a6d2df3e0e85fd4
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112378102"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132136574"
 ---
 # <a name="what-is-azure-sql"></a>¿Qué es Azure SQL? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -34,9 +34,6 @@ Obtenga información acerca de qué producto se ajusta a la plataforma de datos 
 
 Si no está familiarizado con Azure SQL, consulte el vídeo *¿Qué es Azure SQL?* en la detallada [serie de vídeos sobre Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/What-is-Azure-SQL-3-of-61/player]
-
-> [!TIP]
-> ¿Cómo podemos mejorar Azure SQL? [Realice la encuesta](https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456).
 
 ## <a name="overview"></a>Información general
 
@@ -116,7 +113,7 @@ Habitualmente, SQL Database e Instancia administrada de SQL pueden aumentar cons
 | :--- | :--- | :--- |
 |Admite la mayoría de las funcionalidades de nivel de base de datos locales. Las características de SQL Server más utilizadas están disponibles.<br/>99,995 % de disponibilidad garantizada.<br/>Copias de seguridad, revisiones y acciones de recuperación integradas.<br/>Versión más reciente y estable del motor de base de datos.<br/>Capacidad para asignar los recursos necesarios (CPU y almacenamiento) a bases de datos individuales.<br/>Seguridad e inteligencia avanzadas e integradas.<br/>Cambio en línea de recursos (CPU y almacenamiento).| Admite casi todas las funcionalidades de nivel de instancia y nivel de base de datos locales. Alta compatibilidad con SQL Server.<br/>99,99 % de disponibilidad garantizada.<br/>Copias de seguridad, revisiones y acciones de recuperación integradas.<br/>Versión más reciente y estable del motor de base de datos.<br/>Migración sencilla desde SQL Server.<br/>Dirección IP privada dentro de Azure Virtual Network.<br/>Seguridad e inteligencia avanzadas e integradas.<br/>Cambio en línea de recursos (CPU y almacenamiento).| Tiene control total sobre el motor de SQL Server. Admite todas las funcionalidades locales.<br/>Disponibilidad de hasta el 99,99 %.<br/>Paridad completa con la versión correspondiente de una instancia local de SQL Server.<br/>Versión del motor de base de datos corregida y conocida.<br/>Migración sencilla desde SQL Server.<br/>Dirección IP privada dentro de Azure Virtual Network.<br/>Tiene la posibilidad de implementar aplicaciones o servicios en el host donde se sitúa la instancia de SQL Server.|
 |La migración desde SQL Server puede ser un desafío.<br/>Algunas características de SQL Server no están disponibles.<br/>El tiempo exacto de mantenimiento no se garantiza (pero es casi transparente).<br/>La compatibilidad con la versión de SQL Server se puede lograr solo con los niveles de compatibilidad de la base de datos.<br/>Compatibilidad de direcciones IP privadas con [Azure Private Link](database/private-endpoint-overview.md).|Sigue habiendo un número mínimo de características de SQL Server que no están disponibles.<br/>El tiempo exacto de mantenimiento no se garantiza (pero es casi transparente).<br/>La compatibilidad con la versión de SQL Server se puede lograr solo con los niveles de compatibilidad de la base de datos.|Deberá administrar usted mismo las copias de seguridad y revisiones.<br>Deberá implementar su propia solución de alta disponibilidad.<br/>Existe un tiempo de inactividad mientras se cambian los recursos (CPU y almacenamiento)|
-| Bases de datos de hasta 100 TB. | Hasta 8 TB. | Instancias de SQL Server con hasta 256 TB de almacenamiento. La instancia puede admitir tantas bases de datos como sea necesario. |
+| Bases de datos de hasta 100 TB. | Hasta 16 TB. | Instancias de SQL Server con hasta 256 TB de almacenamiento. La instancia puede admitir tantas bases de datos como sea necesario. |
 | La aplicación local puede obtener acceso a datos de Azure SQL Database. | [Implementación nativa de redes virtuales](managed-instance/vnet-existing-add-subnet.md) y conectividad al entorno local mediante Azure ExpressRoute o VPN Gateway. | Con las máquinas virtuales con SQL se pueden tener aplicaciones que se ejecuten parcialmente en la nube y parcialmente en la instalación local. Por ejemplo, se puede ampliar la red local y el Dominio de Active Directory a la nube mediante [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Para obtener más información sobre las soluciones de la nube híbrida, consulte [Ampliación de las soluciones de datos locales a la nube](/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud). |
 
 
@@ -177,5 +174,6 @@ Para **SQL en máquinas virtuales de Azure**, Microsoft proporciona un contrato 
 - Consulte [cómo comenzar por primera vez con Azure SQL Database](database/single-database-create-quickstart.md).
 - Consulte [Primera Instancia administrada de Azure SQL](managed-instance/instance-create-quickstart.md) para empezar a trabajar con Instancia administrada de SQL. 
 - Consulte [Precio de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
+- Consulte [Precios de Azure SQL Managed Instance](https://azure.microsoft.com/pricing/details/azure-sql-managed-instance/single/).
 - Consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure](virtual-machines/windows/create-sql-vm-portal.md) para una introducción a SQL Server en máquinas virtuales de Azure.
 - [Identificación de la SKU de instancia administrada de SQL o SQL Database adecuada para la base de datos local](/sql/dma/dma-sku-recommend-sql-db/).

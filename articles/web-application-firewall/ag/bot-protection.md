@@ -7,18 +7,18 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 07/30/2021
 ms.author: victorh
-ms.openlocfilehash: 12c9466a4bee6adb77a0e46e63767c2b22fcc01d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a13784f722648f3639bcca7eece46d5128a689de
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121729425"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132344890"
 ---
 # <a name="configure-bot-protection-for-web-application-firewall-on-azure-application-gateway"></a>Configuración de la protección contra bots para Web Application Firewall en Azure Application Gateway
 
 En este artículo se muestra cómo configurar una regla de protección contra bots en el Firewall de aplicaciones web (WAF) para Application Gateway Azure Portal. 
 
-Puede habilitar un conjunto de reglas de protección contra bots administrado para que WAF bloquee o registre las solicitudes de direcciones IP malintencionadas conocidas. Las direcciones IP proceden de la fuente Inteligencia sobre amenazas de Microsoft. Intelligent Security Graph impulsa la inteligencia sobre amenazas de Microsoft y lo utilizan numerosos servicios, incluido Azure Security Center.
+Puede habilitar un conjunto de reglas de protección contra bots administrado para que WAF bloquee o registre las solicitudes de direcciones IP malintencionadas conocidas. Las direcciones IP proceden de la fuente Inteligencia sobre amenazas de Microsoft. Intelligent Security Graph impulsa la Inteligencia sobre amenazas de Microsoft y lo utilizan numerosos servicios, incluido Microsoft Defender for Cloud.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

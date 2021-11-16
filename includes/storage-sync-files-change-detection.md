@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: rogarana
-ms.openlocfilehash: a741a3bcace98aa4e153f2dc4aaf1b9c900c2003
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 70fa104ef285ecffe11940d04deb451a9cdf39ee
+ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129080577"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131866738"
 ---
 Los cambios realizados en el recurso compartido de archivos de Azure mediante Azure Portal o SMB no se detectan y replican de forma inmediata como cambios en el punto de conexión del servidor. Azure Files aún no dispone de registros en diario o notificaciones, por lo que no hay manera de iniciar automáticamente una sesión de sincronización cuando se cambian los archivos. En Windows Server, Azure File Sync usa el [registro en diario de USN de Windows](/windows/win32/fileio/change-journals) para iniciar automáticamente una sesión de sincronización cuando cambian los archivos.
 
@@ -23,4 +23,4 @@ Para sincronizar inmediatamente los archivos que se modifican en el recurso comp
 >[!NOTE]
 >Tenga en cuenta que los cambios realizados en un recurso compartido de archivos de Azure con REST no actualizan la hora de la última modificación y no se verán como un cambio por la sincronización.
 
-Estamos considerando agregar la detección de cambios para un recurso compartido de archivos de Azure similar al USN para volúmenes en Windows Server.
+Estamos considerando agregar la detección de cambios para un recurso compartido de archivos de Azure similar al USN para volúmenes en Windows Server. Ayúdenos a priorizar el futuro desarrollo de esta característica votándola en [Comentarios de la comunidad de Azure](https://feedback.azure.com/d365community/idea/26f8aa9d-3725-ec11-b6e6-000d3a4f0f84).

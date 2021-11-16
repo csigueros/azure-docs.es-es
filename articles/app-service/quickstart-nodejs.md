@@ -4,18 +4,14 @@ description: Implementación de su primera aplicación Hola mundo de Node.js en 
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 09/14/2021
-ms.custom: mvc, devcenter, seodec18
-zone_pivot_groups: app-service-ide-oss
-adobe-target: true
-adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
-adobe-target-experience: Experience B
-adobe-target-content: ./quickstart-nodejs-uiex
-ms.openlocfilehash: 6368e186e280262b7901fa3b2c259b44c40c460d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: mvc, devcenter, seodec18, mode-portal
+zone_pivot_groups: app-service-vscode-cli-portal
+ms.openlocfilehash: 70d98c6aed2e8f561aeb40e4e60fdeab603f58c6
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128657888"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132524063"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Creación de una aplicación web de Node.js en Azure
 
@@ -43,6 +39,14 @@ En este inicio rápido se configura una aplicación de App Service en el nivel *
 
 ::: zone-end
 
+
+:::zone target="docs" pivot="development-environment-azure-portal"
+
+- Disponga de una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
+- Instale [Node.js y npm](https://nodejs.org). Ejecute el comando `node --version` para comprobar que Node.js está instalado.
+- Use un cliente FTP (por ejemplo, [FileZilla](https://filezilla-project.org)) para conectarse a la aplicación.
+
+::: zone-end
 ## <a name="create-your-nodejs-application"></a>Creación de una aplicación de Node.js
 
 En este paso, creará una aplicación de inicio de Node.js y se asegurará de que se ejecute en el equipo.
@@ -220,6 +224,65 @@ You can launch the app at http://&lt;app-name>.azurewebsites.net
 
 ::: zone-end
 
+:::zone target="docs" pivot="development-environment-azure-portal"
+### <a name="sign-in-to-azure-portal"></a>Inicio de sesión en Azure Portal
+
+Inicie sesión en Azure Portal en https://portal.azure.com.
+
+### <a name="create-azure-resources"></a>Creación de recursos de Azure
+
+1. Escriba **app services** en la búsqueda. En **Servicios**, seleccione **App Services**.
+
+     :::image type="content" source="./media/quickstart-nodejs/portal-search.png?text=Azure portal search details" alt-text="Captura de pantalla de la búsqueda en el portal":::
+
+1. En la página **App Services**, seleccione **Crear**.
+1. En la pestaña **Aspectos básicos**, en **Detalles del proyecto**, asegúrese de que esté seleccionada la suscripción correcta y luego elija **Crear nuevo** grupo de recursos. Escriba *myResourceGroup* para el nombre.
+
+    :::image type="content" source="./media/quickstart-nodejs/project-details.png" alt-text="Captura de pantalla de la sección Detalles del proyecto en la que se muestra dónde se selecciona la suscripción de Azure y el grupo de recursos de la aplicación web.":::
+
+1. En **Detalles de la instancia**, escriba un nombre único global para la aplicación web y seleccione **Código**. Elija *Pila del entorno en tiempo de ejecución* **Node 14 LTS**, un **sistema operativo** y una **región** desde la que quiera atender la aplicación.
+
+    :::image type="content" source="./media/quickstart-nodejs/instance-details.png" alt-text="Captura de pantalla de la sección Detalles de la instancia, en la que se proporciona un nombre para la máquina virtual y se selecciona su región, imagen y tamaño":::
+
+1. En **Plan de servicio de aplicaciones**, elija **Crear nuevo** plan de App Service. Escriba *myAppServicePlan* como nombre. Para cambiar al nivel Gratis, haga clic en **Cambiar tamaño**, elija la pestaña **Desarrollo y pruebas**, seleccione **F1** y seleccione el botón **Aplicar** situado en la parte inferior de la página.
+
+    :::image type="content" source="./media/quickstart-nodejs/app-service-plan-details.png" alt-text="Captura de pantalla de la sección Cuenta de administrador, en la que se especifican el nombre de usuario y la contraseña del administrador":::
+
+1. Seleccione el botón **Revisar y crear** de la parte inferior de la página.
+
+    :::image type="content" source="./media/quickstart-nodejs/review-create.png" alt-text="Captura de pantalla en que se muestra el botón Revisar y crear de la parte inferior de la página":::
+
+1. Después de que se ejecute la validación, seleccione el botón **Crear** en la parte inferior de la página.
+
+1. Una vez finalizada la implementación, seleccione **Ir al recurso**.
+
+    :::image type="content" source="./media/quickstart-nodejs/next-steps.png" alt-text="Captura de pantalla que muestra el siguiente paso de ir al recurso":::
+
+### <a name="get-ftp-credentials"></a>Obtención de credenciales de FTP
+
+Azure App Service admite [**dos tipos de credenciales**](deploy-configure-credentials.md) para la implementación de FTP/S. Estas credenciales no son las mismas que las de su suscripción a Azure. En esta sección, obtendrá las *credenciales del ámbito de la aplicación* que se usarán con FileZilla.
+
+1. En la página de la aplicación App Service, haga clic en **Centro de implementación** en el menú de la izquierda y seleccione la pestaña **Credenciales de FTPS**.
+
+    :::image type="content" source="./media/quickstart-nodejs/ftps-deployment-credentials.png" alt-text="Credenciales de implementación de FTPS":::
+
+1. Abra **FileZilla** y cree un nuevo sitio.
+
+1. En la pestaña **Credenciales de FTPS**, copie el **punto de conexión de FTPS**, el **nombre de usuario** y la **contraseña** en FileZilla.
+
+    :::image type="content" source="./media/quickstart-nodejs/filezilla-ftps-connection.png" alt-text="Detalles de la conexión FTPS":::
+
+1. Haga clic en **Conectar** en FileZilla.
+ 
+### <a name="deploy-files-with-ftp"></a>Implementación de archivos con FTP
+
+1. Copie todos los archivos y archivos de directorio en el [directorio **/site/wwwroot**](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) de Azure.
+    
+    :::image type="content" source="./media/quickstart-nodejs/filezilla-deploy-files.png" alt-text="Archivos de implementación de FileZilla":::
+
+1. Vaya a la dirección URL de la aplicación para comprobar que la aplicación se está ejecutando correctamente.
+
+::: zone-end
 ## <a name="redeploy-updates"></a>Reimplementación de actualizaciones
 
 Para implementar cambios en esta aplicación, realice modificaciones en Visual Studio Code, guarde los archivos y, a continuación, vuelva a implementar en la aplicación de Azure. Por ejemplo:
@@ -258,6 +321,14 @@ Para implementar cambios en esta aplicación, realice modificaciones en Visual 
 
 ::: zone-end
 
+:::zone target="docs" pivot="development-environment-azure-portal"
+
+2. Guarde los cambios y vuelva a implementar la aplicación con el cliente FTP.
+    
+1. Una vez terminada la implementación, actualice la página web `http://<app-name>.azurewebsites.net`. Debería ver que el mensaje `Welcome to Express` se ha cambiado a `Welcome to Azure!`.
+
+::: zone-end
+
 ## <a name="stream-logs"></a>Transmitir registros
 
 :::zone target="docs" pivot="development-environment-vscode"
@@ -266,9 +337,9 @@ Puede transmitir la salida del registro (llamadas a `console.log()`) desde la ap
 
 1. En el explorador de **App Service**, haga clic con el botón derecho en el nodo de la aplicación y elija **Start Streaming Logs** (Iniciar transmisión de registros).
 
-    ![Inicio de transmisión de registros](media/quickstart-nodejs/view-logs.png)
+    ![Inicio de transmisión de registros](./media/quickstart-nodejs/view-logs.png)
 
-1. Si se le pide que reinicie la aplicación, haga clic en **Sí**. Después de reiniciar la aplicación, se abrirá la ventana de salida de Visual Studio Code con una conexión a la transmisión de registros. 
+1. Si se le pide que reinicie la aplicación, haga clic en **Sí**. Después de reiniciar la aplicación, se abrirá la ventana de salida de Visual Studio Code con una conexión a la transmisión de registros.
 
 1. Después de unos segundos, la ventana de salida muestra un mensaje donde se indica que está conectado al servicio de transmisión de registros. Puede generar más actividad de salida actualizando la página en el explorador.
 
@@ -300,6 +371,36 @@ También puede incluir el parámetro `--logs` con el comando `az webapp up` para
 Actualice la aplicación en el explorador para que se generen registros de la consola, que incluyen mensajes que describen las solicitudes HTTP a la aplicación. Si no aparece la salida inmediatamente, inténtelo de nuevo en 30 segundos.
 
 Para detener el streaming de registros en cualquier momento, presione **Ctrl**+**C** en el terminal.
+
+::: zone-end
+
+:::zone target="docs" pivot="development-environment-azure-portal"
+
+Puede acceder a los registros de consola generados desde dentro de la aplicación y del contenedor en que esta se ejecuta. Puede transmitir la salida del registro (llamadas a `console.log()`) desde la aplicación Node.js directamente en Azure Portal.
+
+1. En la misma página **App Service** de la aplicación, use el menú izquierdo para desplazarse a la sección *Supervisión* y haga clic en **Secuencia de registro**.
+
+    :::image type="content" source="./media/quickstart-nodejs/log-stream.png" alt-text="Captura de pantalla de la secuencia de registro en Azure App Service.":::
+
+1. Después de unos segundos, la ventana de salida muestra un mensaje donde se indica que está conectado al servicio de transmisión de registros. Puede generar más actividad de salida actualizando la página en el explorador.
+
+    <pre>
+    Connecting...
+    2021-10-26T21:04:14  Welcome, you are now connected to log-streaming service.
+    Starting Log Tail -n 10 of existing logs ----
+    /appsvctmp/volatile/logs/runtime/81b1b83b27ea1c3d598a1cdec28c71c4074ce66c735d0be57f15a8d07cb3178e.log
+    2021-10-26T21:04:08.614384810Z: [INFO]
+    2021-10-26T21:04:08.614393710Z: [INFO]  # Enter the source directory to make sure the script runs where the user expects
+    2021-10-26T21:04:08.614399010Z: [INFO]  cd "/home/site/wwwroot"
+    2021-10-26T21:04:08.614403210Z: [INFO]
+    2021-10-26T21:04:08.614407110Z: [INFO]  export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
+    2021-10-26T21:04:08.614411210Z: [INFO]  if [ -z "$PORT" ]; then
+    2021-10-26T21:04:08.614415310Z: [INFO]          export PORT=8080
+    2021-10-26T21:04:08.614419610Z: [INFO]  fi
+    2021-10-26T21:04:08.614423411Z: [INFO]
+    2021-10-26T21:04:08.614427211Z: [INFO]  node /opt/startup/default-static-site.js
+    Ending Log Tail of existing logs ---
+    </pre>
 
 ::: zone-end
 
@@ -336,6 +437,20 @@ az group delete --no-wait
 Este comando usa el nombre del grupo de recursos almacenado en la memoria caché del archivo *.azure/config*.
 
 El argumento `--no-wait` permite la devolución del comando antes de que se complete la operación.
+
+::: zone-end
+
+:::zone target="docs" pivot="development-environment-azure-portal"
+
+Cuando ya no los necesite, puede eliminar el grupo de recursos, App Service y todos los recursos relacionados.
+
+1. En la página *Información general* de App Service, haga clic en el *grupo de recursos* que creó en el paso [Creación de recursos de Azure](#create-azure-resources).
+
+    :::image type="content" source="./media/quickstart-nodejs/resource-group.png" alt-text="Grupo de recursos en la página de información general de App Service":::
+
+1. En la página del *grupo de recursos*, seleccione **Eliminar grupo de recursos**. Confirme el nombre del grupo de recursos para terminar de eliminar los recursos.
+
+    Eliminación de un grupo de recursos
 
 ::: zone-end
 

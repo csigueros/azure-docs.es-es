@@ -7,12 +7,12 @@ ms.service: virtual-network-manager
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.custom: template-concept, ignite-fall-2021
-ms.openlocfilehash: e21cfe528c3cba9c190ba667552deb7070884aa3
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 9a5a78fc77a2b0f0891bfdd2922ad1cd771aba42
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093105"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132322907"
 ---
 # <a name="understand-and-work-with-azure-virtual-network-manager-preview-scopes"></a>Comprender y trabajar con ámbitos de Azure Virtual Network Manager (versión preliminar)
 
@@ -42,7 +42,7 @@ En este artículo, aprenderá cómo usa Azure Virtual Network Manager el concept
 Un *ámbito* de Azure Virtual Network Manager es un conjunto de recursos a los que se pueden aplicar características. Al especificar un ámbito, está limitando el acceso según el cual Network Manager puede administrar los recursos. El valor del ámbito puede estar en el nivel del grupo de administración o en el nivel de suscripción. Consulte [Grupos de administración de Azure](../governance/management-groups/overview.md) para obtener información sobre cómo administrar la jerarquía de recursos. Al seleccionar un grupo de administración como ámbito, todos los recursos secundarios se incluyen dentro del ámbito. 
 
 > [!NOTE]
-> No se admite la creación de varios administradores de red con un ámbito superpuesto de la misma jerarquía.
+> No puede crear varias instancias de Azure Virtual Network Manager con un ámbito superpuesto de la misma jerarquía y las mismas características seleccionadas.
 > 
 
 ## <a name="features"></a>Características

@@ -8,17 +8,17 @@ ms.date: 07/02/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 1d3688e4051f2883c5316a13e59f5629481799e2
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 407d3c8d14cec2a55a9a33d58dfa1af77b8266b7
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864565"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522847"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 [Azure Files](storage-files-introduction.md) se puede implementar de dos formas principales: montando directamente los recursos compartidos de archivos de Azure sin servidor o almacenando en caché recursos compartidos de archivos de Azure localmente mediante Azure File Sync. La opción de implementación que elija cambiará todo aquello que debe tener en cuenta a la hora de planear la implementación. 
 
-- **Montaje directo de un recurso compartido de archivos de Azure**: dado que Azure Files proporciona acceso mediante Bloque de mensajes del servidor (SMB) o Network File System (NFS), puede montar recursos compartidos de archivos de Azure en el entorno local o en la nube mediante los clientes SMB o NFS estándar (versión preliminar) disponibles en el sistema operativo. Dado que los recursos compartidos de archivos de Azure no tienen servidor, la implementación en escenarios de producción no requiere la administración de un servidor de archivos o un dispositivo NAS, lo que significa que no tiene que aplicar revisiones de software ni intercambiar discos físicos. 
+- **Montaje directo de un recurso compartido de archivos de Azure**: Dado que Azure Files proporciona acceso mediante Bloque de mensajes del servidor (SMB) o Network File System (NFS), puede montar recursos compartidos de archivos de Azure en el entorno local o en la nube mediante los clientes SMB o NFS estándar disponibles en el sistema operativo. Dado que los recursos compartidos de archivos de Azure no tienen servidor, la implementación en escenarios de producción no requiere la administración de un servidor de archivos o un dispositivo NAS, lo que significa que no tiene que aplicar revisiones de software ni intercambiar discos físicos. 
 
 - **Almacenamiento en caché de recursos compartidos de archivos de Azure localmente con Azure File Sync**: Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma una instancia de Windows Server local (o en la nube) en una caché rápida de su recurso compartido de archivos SMB de Azure. 
 
@@ -29,7 +29,7 @@ Azure Files ofrece dos protocolos estándar del sector para el montaje de recurs
 
 Con los recursos compartidos de archivos SMB y NFS, Azure Files ofrece recursos compartidos de archivos de nivel empresarial que se pueden escalar verticalmente para satisfacer sus necesidades de almacenamiento y a los que pueden acceder simultáneamente miles de clientes.
 
-| Característica | SMB | NFS (versión preliminar) |
+| Característica | SMB | NFS |
 |---------|-----|---------------|
 | Versiones de protocolo admitidas | SMB 3.1.1, SMB 3.0, SMB 2.1 | NFS 4.1 |
 | SO recomendado | <ul><li>Windows 10, versión 21H1 o posterior</li><li>Windows Server 2019 o posterior</li><li>Versión 5.3 o posterior del kernel de Linux</li></ul> | Versión posterior a la 4.3 del kernel de Linux |
@@ -126,10 +126,10 @@ Puede realizar restauraciones de nivel de elemento y de nivel de recurso compart
 
 Para obtener más información sobre Azure Backup, vea [Acerca de la copia de seguridad de recursos compartidos de archivos de Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-### <a name="azure-defender-for-azure-files"></a>Azure Defender para Azure Files 
-Azure Defender para Azure Storage (antes Protección contra amenazas avanzada para Azure Storage) ofrece una capa adicional de inteligencia de seguridad que proporciona alertas cuando detecta actividades anómalas en la cuenta de almacenamiento; por ejemplo, intentos no habituales de acceso. También ejecuta análisis de reputación de hash de malware y generará una alerta sobre malware conocido. Puede configurar Azure Defender en un nivel de suscripción o de cuenta de almacenamiento a través de Azure Security Center. 
+### <a name="protect-azure-files-with-microsoft-defender-for-storage"></a>Protección de Azure Files con Microsoft Defender para Storage
+Microsoft Defender para Storage proporciona una capa adicional de inteligencia de seguridad que genera alertas cuando detecta actividad anómala en la cuenta de almacenamiento; por ejemplo, intentos de acceso inusuales. También ejecuta análisis de reputación de hash de malware y generará una alerta sobre malware conocido. Puede configurar Microsoft Defender para Storage en el nivel de suscripción o de cuenta de almacenamiento mediante Microsoft Defender para la nube.
 
-Para más información, consulte [Introducción a Azure Defender para Storage](../../security-center/defender-for-storage-introduction.md).
+Para obtener más información, consulte [Introducción a Microsoft Defender para Storage](../../security-center/defender-for-storage-introduction.md).
 
 ## <a name="storage-tiers"></a>Niveles de almacenamiento
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]

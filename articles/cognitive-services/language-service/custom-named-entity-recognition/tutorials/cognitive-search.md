@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
-ms.openlocfilehash: cc7a7c478ada34aeea5815ec937b8442aa2bd98c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 555269beeb5e8b36597998a8941e2b64120691b4
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093078"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484158"
 ---
 # <a name="tutorial-enrich-a-cognitive-search-index-with-custom-entities-from-your-data"></a>Tutorial: Enriquecimiento de un índice de Cognitive Search con entidades personalizadas a partir de los datos
 
@@ -115,7 +115,7 @@ En las secciones siguientes, usará la [herramienta de integración de Cognitive
 
 ### <a name="prepare-configuration-file"></a>Preparación del archivo de configuración
 
-1. En la carpeta que acaba de descargar, busque el [archivo de configuración de ejemplo](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/dev/CustomTextAnalytics.CognitiveSearch/Docs/Assets/configs.json). Ábralo en un editor de texto. 
+1. En la carpeta que acaba de descargar, busque el [archivo de configuración de ejemplo](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/dev/CustomTextAnalytics.CognitiveSearch/Samples/configs.json). Ábralo en un editor de texto. 
 
 2. Obtenga la cadena de conexión de la cuenta de almacenamiento siguiendo estos pasos:
     1. Vaya a la página de información general de su cuenta de almacenamiento en [Azure Portal](https://ms.portal.azure.com/#home).
@@ -137,7 +137,7 @@ En las secciones siguientes, usará la [herramienta de integración de Cognitive
 
 ### <a name="prepare-schema-file"></a>Preparación del archivo de esquema
 
-En la carpeta que descargó anteriormente, busque el [archivo de esquema de ejemplo](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/dev/CustomTextAnalytics.CognitiveSearch/Docs/Assets/app-schema.json). Ábralo en un editor de texto. 
+En la carpeta que descargó anteriormente, busque el [archivo de esquema de ejemplo](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/dev/CustomTextAnalytics.CognitiveSearch/Samples/app-schema.json). Ábralo en un editor de texto. 
 
 Las entradas de la matriz `entityNames` serán los nombres de entidad que haya asignado al crear el proyecto. Puede copiarlas y pegarlas desde el proyecto en [Language Studio](https://aka.ms/custom-extraction), o 
 

@@ -10,12 +10,12 @@ ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1b69aed711100eead6e7669c7d57e2f8faac25ad
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: c696105fee677e8e8dca71d5515e0dd2374960b0
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122429185"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130228456"
 ---
 # <a name="manage-python-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Administración de bibliotecas de Python para Apache Spark en Azure Synapse Analytics
 
@@ -61,7 +61,7 @@ absl-py==0.7.0
 adal==1.2.1
 alabaster==0.7.10
 ```
-##### <a name="yml-format-preview"></a>Formato YML (versión preliminar)
+##### <a name="yml-format"></a>Formato YML
 También puede proporcionar un archivo *environment.yml* para actualizar el entorno del grupo. Los paquetes que se enumeran en este archivo se descargan de los canales predeterminados de Conda, de Conda-Forge y de PyPI. Puede especificar otros canales o quitar los canales predeterminados mediante las opciones de configuración.
 
 En este ejemplo se especifican los canales y las dependencias de Conda y PyPI. 
@@ -116,7 +116,7 @@ Para actualizar o agregar bibliotecas a un grupo de Spark:
 > Si esta opción no está seleccionada, tendrá que esperar a que la sesión de Spark actual finalice o detenerla manualmente. Una vez finalizada la sesión, deberá dejar que el grupo se reinicie.
 
 
-##### <a name="track-installation-progress-preview"></a>Seguimiento del progreso de la instalación (versión preliminar)
+##### <a name="track-installation-progress"></a>Seguimiento del progreso de la instalación  
 Cada vez que se actualiza un grupo con un nuevo conjunto de bibliotecas, se inicia un trabajo de Spark reservado para el sistema. Este trabajo de Spark ayuda a supervisar el estado de la instalación de las bibliotecas. Si se produce un error en la instalación debido a conflictos de la biblioteca u otros problemas, el grupo de Spark volverá a su estado anterior o predeterminado. 
 
 Además, los usuarios pueden inspeccionar los registros de instalación para identificar conflictos de dependencia o ver qué bibliotecas se instalaron durante la actualización del grupo.
@@ -132,7 +132,7 @@ Para consultar estos registros:
 ## <a name="install-wheel-files"></a>Instalación de archivos wheel
 Los archivos wheel de Python son una forma habitual de empaquetar bibliotecas de Python. En Azure Synapse Analytics, los usuarios pueden cargar sus archivos wheel en una ubicación conocida de la cuenta de Azure Data Lake Storage, o bien pueden cargarlos mediante la interfaz de paquetes de área de trabajo de Azure Synapse.
 
-### <a name="workspace-packages-preview"></a>Paquetes de área de trabajo (versión preliminar)
+### <a name="workspace-packages"></a>Paquetes de área de trabajo 
 Los paquetes de área de trabajo pueden ser archivos wheel personalizados o privados. Puede cargar estos paquetes en su área de trabajo y después asignarlos a un grupo de Spark específico.
 
 Para agregar paquetes de área de trabajo:
@@ -145,7 +145,7 @@ Para agregar paquetes de área de trabajo:
 >[!WARNING]
 >- En Azure Synapse, un grupo de Apache Spark puede aprovechar las bibliotecas personalizadas que se cargan como paquetes de área de trabajo o que se cargan en una ruta de acceso conocida de Azure Data Lake Storage. Sin embargo, estas dos opciones no se pueden usar simultáneamente en el mismo grupo de Apache Spark. Si se proporcionan paquetes usando ambos métodos, solo se instalarán los archivos wheel especificados en la lista de paquetes de área de trabajo. 
 >
->- Cuando se usan paquetes de área de trabajo (versión preliminar) para instalar paquetes en un determinado grupo de Apache Spark, existe una limitación que impide seguir especificando paquetes mediante la ruta de acceso de la cuenta de almacenamiento en el mismo grupo.  
+>- Cuando se usan paquetes de área de trabajo para instalar paquetes en un grupo de Apache Spark determinado, existe la limitación de que ya no se pueden especificar paquetes mediante la ruta de acceso a la cuenta de almacenamiento en el mismo grupo.  
 
 ### <a name="storage-account"></a>Cuenta de almacenamiento
 Los paquetes wheel de compilación personalizada se pueden instalar en el grupo de Apache Spark mediante la carga de todos los archivos wheel en la cuenta de Azure Data Lake Storage (Gen2) que está vinculada al área de trabajo de Synapse. 
@@ -164,7 +164,7 @@ abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<wo
 > Para instalar bibliotecas personalizadas mediante el método de Azure Data Lake Storage, debe tener los permisos **Colaborador de datos de Storage Blob** o **Propietario de datos de Storage Blob** en la cuenta principal de Storage Gen2 que está vinculada con el área de trabajo de Azure Synapse Analytics.
 
 
-## <a name="session-scoped-packages-preview"></a>Paquetes de ámbito de sesión (versión preliminar)
+## <a name="session-scoped-packages"></a>Paquetes de ámbito de sesión
 Además de los paquetes de nivel de grupo, también puede especificar bibliotecas de ámbito de sesión al comienzo de una sesión del cuaderno.  Las bibliotecas de ámbito de sesión permiten especificar y usar entornos de Python personalizados en una sesión de cuaderno. 
 
 Cuando se usan bibliotecas de ámbito de sesión, es importante tener en cuenta lo siguiente:

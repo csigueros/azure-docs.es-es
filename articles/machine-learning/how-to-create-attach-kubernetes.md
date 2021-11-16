@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Obtenga información sobre cómo crear un nuevo clúster de Azure Kubernetes Service a través de Azure Machine Learning, o cómo conectar un clúster de AKS existente al área de trabajo.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: core
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 11/05/2021
-ms.openlocfilehash: a01d1e0da99da4b662b85e1774c201e9adc56cf1
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: 4f72252bf375f9341b08f99b57e540784b47429a
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131893071"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132486308"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Creación y conexión de un clúster de Azure Kubernetes Service
 

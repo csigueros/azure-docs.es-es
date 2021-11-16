@@ -571,9 +571,9 @@ items:
       - name: Tutoriales
         items:
           - name: Análisis de sentimiento sobre los datos de streaming con Azure Databricks
-            href: /databricks/scenarios/databricks-sentiment-analysis-cognitive-services?context=/azure/cognitive-services/language-service/context/context
+            href: /azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services?context=/azure/cognitive-services/language-service/context/context
           - name: 'Uso de Flask para traducir texto, analizar opiniones y sintetizar voz'
-            href: /translator/tutorial-build-flask-app-translation-synthesis?context=/azure/cognitive-services/language-service/context/context
+            href: /azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?context=/azure/cognitive-services/language-service/context/context
       - name: Referencia
         items:
           - name: API DE REST

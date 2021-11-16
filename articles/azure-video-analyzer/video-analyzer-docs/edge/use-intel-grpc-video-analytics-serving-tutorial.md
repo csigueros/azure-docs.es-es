@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.service: azure-video-analyzer
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: ebdbc116e106ab03a9b4ca7b2a56eb4ce19444f9
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 0a3436dced8129aa984d30a0f2b4d6bcfecb5913
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131554305"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484227"
 ---
 # <a name="tutorial-analyze-live-video-with-intel-openvino-dl-streamer--edge-ai-extension"></a>Tutorial: análisis de vídeo en directo con la extensión de inteligencia artificial de Edge Intel OpenVINO™ DL Streamer 
 
@@ -18,7 +18,7 @@ ms.locfileid: "131554305"
 
 En este tutorial se muestra cómo usar la extensión de inteligencia artificial de Edge OpenVINO™ DL Streamer de Intel para analizar una fuente de vídeo en directo desde una cámara IP (simulada). Verá la forma en que este servidor de inferencia le proporciona acceso a diferentes modelos de detección de objetos (una persona, un vehículo o una bicicleta), clasificación de objetos (atribuciones de los vehículos) y un modelo para hacer un seguimiento de objetos (persona, vehículo y bicicleta). La integración con el módulo gRPC permite enviar fotogramas de vídeo al servidor de inferencia de inteligencia artificial. Luego, los resultados se envían al centro de IoT Edge. Si este servicio de inferencia se ejecuta en el mismo nodo de proceso que Azure Video Analyzer, puede aprovechar el envío de datos de vídeo a través de la memoria compartida. Esto le permite ejecutar la inferencia a la velocidad de fotogramas de la fuente de vídeo en directo (es decir, 30 fotogramas/s.). 
 
-En este tutorial se usa una máquina virtual de Azure como dispositivo IoT Edge simulado y se emplea una secuencia de vídeo en directo simulada. Se basa en el código de ejemplo escrito en C# y se basa en [Inicio rápido: Detección de movimiento y emisión de eventos](detect-motion-emit-events-quickstart.md).
+En este tutorial se usa una VM de Azure como dispositivo de IoT Edge simulado y se emplea una secuencia de vídeo en directo simulada. Se basa en el código de ejemplo escrito en C# y se basa en [Inicio rápido: Detección de movimiento y emisión de eventos](detect-motion-emit-events-quickstart.md).
 
 [!INCLUDE [use-x86-64](./includes/common-includes/use-x86-64.md)]
 
@@ -36,7 +36,7 @@ En este tutorial se usa una máquina virtual de Azure como dispositivo IoT Edge 
 
 Cuando se configuran los recursos de Azure, se copia un vídeo corto de un aparcamiento en la máquina virtual Linux en Azure que se va a usar como dispositivo IoT Edge. En este tutorial se usa un archivo de vídeo para simular una secuencia en directo.
 
-Abra una aplicación como [VLC Media Player](https://www.videolan.org/vlc/). Seleccione Ctrl + N y, después, pegue un vínculo al [vídeo](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) para iniciar la reproducción. Se verá el metraje de los vehículos de un aparcamiento, la mayoría de ellos estacionados, y uno en movimiento.
+Abra una aplicación como [VLC Media Player](https://www.videolan.org/vlc/). Seleccione Ctrl + N y, después, pegue un vínculo al [vídeo](https://avamedia.blob.core.windows.net/public/lots_015.mkv) para iniciar la reproducción. Se verá el metraje de los vehículos de un aparcamiento, la mayoría de ellos estacionados, y uno en movimiento.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LUbN]
 

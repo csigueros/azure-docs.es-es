@@ -9,20 +9,20 @@ ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: jairoc
+ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c12dea04fe603be370947ef0bae3c9db28335a01
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4b76ade4b47417cb6c3d4f65daa335553c7a4b83
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128624014"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132179188"
 ---
 # <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Tutorial: Unión de un nuevo dispositivo Windows 10 con Azure AD durante la primera vista de Windows
 
 Con la administración de dispositivos en Azure Active Directory (Azure AD), puede asegurarse de que los usuarios tienen acceso a los recursos desde dispositivos que cumplen los estándares de seguridad y cumplimiento. Para más información, consulte [Introducción a la administración de dispositivos en Azure Active Directory](overview.md).
 
-Con Windows 10, puede unir un dispositivo nuevo a Azure AD durante la primera vista de Windows (FRX).  
+Con Windows 10, puede unir un dispositivo nuevo a Azure AD durante la primera ejecución de la experiencia integrada (OOBE).  
 Esto le permite distribuir los dispositivos empaquetados a los empleados o alumnos.
 
 Si tiene Windows 10 Professional o Windows 10 Enterprise instalado en un dispositivo, la experiencia predeterminada es el proceso de configuración de los dispositivos de la empresa.
@@ -48,16 +48,16 @@ Además, si el inquilino es federado, el proveedor de identidad DEBE admitir pun
 1. Al activar el nuevo dispositivo e iniciar el proceso de configuración, debería ver el mensaje **Preparación** . Siga las indicaciones para configurar el dispositivo.
 1. Para comenzar, personalice su región e idioma. A continuación, acepte los términos de licencia del software de Microsoft.
  
-    ![Personalizar para la región](./media/azuread-joined-devices-frx/01.png)
+    <!--![Customize for your region](./media/azuread-joined-devices-frx/01.png)-->
 
 1. Seleccione la red que desea usar para conectarse a Internet.
 1. Haga clic en **Este dispositivo pertenece a mi organización**. 
 
-    ![Pantalla ¿A quién pertenece el equipo?](./media/azuread-joined-devices-frx/02.png)
+    <!--![Who owns this PC screen](./media/azuread-joined-devices-frx/02.png)-->
 
 1. Escriba las credenciales que le ha proporcionado la organización y después haga clic en **Iniciar sesión**.
 
-    ![Pantalla de inicio de sesión](./media/azuread-joined-devices-frx/03.png)
+    <!--![Sign-in screen](./media/azuread-joined-devices-frx/03.png)-->
 
 1. El dispositivo busca un inquilino que coincida en Azure AD. Si se encuentra en un dominio federado, se le redirige al servidor del servicio de token seguro (STS) local; por ejemplo, Servicios de federación de Active Directory (AD FS).
 1. Si es un usuario en un dominio no federado, deberá escribir las credenciales directamente en la página hospedada en Azure AD. 

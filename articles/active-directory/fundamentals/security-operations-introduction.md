@@ -12,12 +12,12 @@ ms.date: 07/15/2021
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0e35c11a94e1c0c6e86964d68c784c5cb3e7741
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 2e9921204a60f4364b2365139e2a8b07b4b8e7f0
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131060200"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132300831"
 ---
 # <a name="azure-active-directory-security-operations-guide"></a>Guía de operaciones de seguridad de Azure Active Directory
 
@@ -96,7 +96,7 @@ Microsoft tiene muchos productos y servicios que le permiten personalizar su ent
 
    * [Investigación de riesgos en Azure Active Directory Identity Protection](../identity-protection/howto-identity-protection-investigate-risk.md) 
 
-   * [Conexión de datos de Azure AD Identity Protection a Azure Sentinel.](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection)
+   * [Conexión de datos de Azure AD Identity Protection a Microsoft Sentinel](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection)
 
 * Active Directory Domain Services (AD DS)
 
@@ -120,13 +120,13 @@ Los archivos de registro que usa para la investigación y supervisión son:
 
 En Azure Portal, puede ver los registros de auditoría de Azure AD y descargarlos como archivos de valores separados por comas (CSV) o notación de objetos JavaScript (JSON). Azure Portal tiene varias maneras de integrar los registros de Azure AD con otras herramientas que permiten una mayor automatización de la supervisión y las alertas:
 
-* **[Azure Sentinel](../../sentinel/overview.md)** : permite el análisis de seguridad inteligente en el nivel empresarial al ofrecer funcionalidades de administración de eventos e información de seguridad (SIEM). 
+* **[Microsoft Sentinel](../../sentinel/overview.md)** : permite el análisis de seguridad inteligente en el nivel empresarial al proporcionar funcionalidades de administración de eventos e información de seguridad (SIEM). 
 
 * **[Azure Monitor](../../azure-monitor/overview.md)** : permite la supervisión y la generación de alertas automatizadas de diversas condiciones. Puede crear o usar libros para combinar datos de orígenes diferentes.
 
 * **[Azure Event Hubs](../../event-hubs/event-hubs-about.md) (integrado con SIEM)** - [: los registros de Azure AD se pueden integrar con otras instancias de SIEM](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md), como Splunk, ArcSight, QRadar y Sumo Logic a través de la integración de Azure Event Hubs.
 
-* **[Microsoft Cloud App Security (MCAS)](/cloud-app-security/what-is-cloud-app-security)** : permite detectar y administrar aplicaciones, controlar aplicaciones y recursos, y comprobar el cumplimiento de las aplicaciones en la nube.
+* **[Microsoft Defender para aplicaciones en la nube](/cloud-app-security/what-is-cloud-app-security)** : permite detectar y administrar aplicaciones, controlar aplicaciones y recursos, y comprobar el cumplimiento de las aplicaciones en la nube.
 
 Gran parte de lo que supervisará y alertará son los efectos de las directivas de acceso condicional. Puede usar el [libro Información detallada e informes del acceso condicional](../conditional-access/howto-conditional-access-insights-reporting.md) para examinar los efectos de una o varias directivas de acceso condicional en los inicios de sesión, así como los resultados de las directivas, incluido el estado del dispositivo. Este libro le permite ver un resumen de impacto e identificar el impacto durante un período de tiempo específico. También puede usar el libro para investigar los inicios de sesión de un usuario específico. 
 
@@ -214,7 +214,7 @@ Como parte de un entorno basado en la nube de Azure, lo siguiente se debe tomar 
 
 * **Administración de grupos de autoservicio**: puede permitir que los usuarios creen y administren sus propios grupos de seguridad o grupos de Microsoft 365 en Azure Active Directory (Azure AD). El propietario del grupo puede aprobar o rechazar solicitudes de pertenencia y puede delegar el control de la pertenencia a grupos. Las características de administración de grupos de autoservicio no están disponibles para grupos de seguridad habilitados para correo electrónico o listas de distribución. Para más información, consulte [Configuración de la administración de grupos de autoservicio en Azure Active Directory](../enterprise-users/groups-self-service-management.md).
 
-* **Detecciones de riesgo**: contiene información sobre otros riesgos desencadenados cuando se detecta un riesgo y otra información pertinente, como la ubicación de inicio de sesión y los detalles de Microsoft Cloud App Security (MCAS).
+* **Detecciones de riesgo**: contiene información sobre otros riesgos desencadenados cuando se detecta un riesgo y otra información pertinente, como la ubicación de inicio de sesión y los detalles de Microsoft Defender para aplicaciones en la nube.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

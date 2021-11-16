@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/21/2021
 ms.author: jeedes
-ms.openlocfilehash: a2c33808be505209ff5eca58480b9fd5f03d9d4f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 5c628e67b258d3d51b5f7b05b08c0ac0b2accb9a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124785541"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132304100"
 ---
 # <a name="tutorial-integrate-azure-active-directory-single-sign-on-sso-with-splan-visitor"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Splan Visitor
 
@@ -127,4 +127,4 @@ Pruebe la configuración de inicio de sesión único de Azure AD con alguna de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de configurar Splan Visitor, puede [aprender a aplicar controles de sesión en Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app). Los controles de sesión protegen la filtración e infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional.
+Después de configurar Splan Visitor, puede [aprender a aplicar controles de sesión en Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app). Los controles de sesión protegen la filtración e infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional.

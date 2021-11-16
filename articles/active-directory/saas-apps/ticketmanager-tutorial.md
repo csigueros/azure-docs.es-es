@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/30/2020
 ms.author: jeedes
-ms.openlocfilehash: 395866cd2796400a5c357007c7e1081f748cc332
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 8c9555ba2f9bff491b18490147fda265c54c2386
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124789567"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132320435"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ticketmanager"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con TicketManager
 
@@ -41,7 +41,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * TicketManager admite el inicio de sesión único iniciado por **SP e IDP**.
 * TicketManager admite aprovisionamiento de usuarios **Just-In-Time**.
-* Una vez configurado TicketManager, puede aplicar controles de sesión, que protegen la filtración y la infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Una vez configurado TicketManager, puede aplicar controles de sesión, que protegen la filtración y la infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-ticketmanager-from-the-gallery"></a>Incorporación de TicketManager desde la galería
 
@@ -62,7 +62,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con TicketManager me
 Para configurar y probar el inicio de sesión único de Azure AD con TicketManager, complete los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de TicketManager](#configure-ticketmanager-sso)**, para configurar los valores de inicio de sesión único en la aplicación.
     * **[Creación de un usuario de prueba en TicketManager](#create-ticketmanager-test-user)**, para tener un homólogo de B.Simon en TicketManager que esté vinculado a la representación del usuario en Azure AD.
@@ -165,6 +165,6 @@ Al hacer clic en el icono de TicketManager en el Panel de acceso y debería inic
 
 - [Pruebe TicketManager con Azure AD](https://aad.portal.azure.com/)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [¿Qué es el control de sesión en Microsoft Defender para aplicaciones en la nube?](/cloud-app-security/proxy-intro-aad)
 
 - [Protección de TicketManager con controles y visibilidad avanzados](/cloud-app-security/proxy-intro-aad)

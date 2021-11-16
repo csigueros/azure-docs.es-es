@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: srijangupta
-ms.openlocfilehash: 8ccf7f7761da56cc25fb63b4995c993ed1a11591
-ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.openlocfilehash: 26eb625604d1947b5e246c27f766af63777b6239
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132156991"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132309555"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Preparación de una máquina virtual Oracle Linux para Azure
 
@@ -297,10 +297,10 @@ La preparación de una máquina virtual Oracle Linux 7 para Azure es muy similar
 
 15. Ejecute los comandos siguientes para desaprovisionar la máquina virtual y prepararla para aprovisionarse en Azure:
 
+    **Nota:** Si va a migrar una máquina virtual concreta y no quiere crear una imagen generalizada, omita el paso de desaprovisionamiento.
+    
     ```console
-    # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
-    # skip the deprovision step
-    # sudo rm -rf /var/lib/waagent/
+    # sudo cloud-init clean
     # sudo rm -f /var/log/waagent.log
 
     # waagent -force -deprovision+user

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: duau
-ms.openlocfilehash: b18e0329aeb4e95e021c3326b6b428c10edc0c6e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eaa1ef35432a0e31376bcff8f50bc8bdffbfaf58
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100586428"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132054680"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Métricas y alertas de Traffic Manager
 
@@ -62,6 +62,17 @@ Puede consumir estas métricas a través del portal del [servicio Azure Monitor]
 
 ## <a name="alerts-on-traffic-manager-metrics"></a>Alertas relativas a métricas de Traffic Manager
 Además de procesar y mostrar las métricas de Traffic Manager, Azure Monitor permite a los clientes configurar y recibir alertas asociadas a estas métricas. Puede elegir qué condiciones deben cumplirse en estas métricas para que se produzca una alerta, con qué frecuencia deben supervisarse esas condiciones y cómo se le deberían enviar las alertas. Para obtener más información, consulte la [documentación sobre alertas de Azure Monitor](../azure-monitor/alerts/alerts-metric.md).
+
+La supervisión de alertas es importante para asegurarse de que el sistema envía notificaciones cuando los sondeos están fuera de servicio. La supervisión extremadamente confidencial puede ser una distracción. Traffic Manager implementa varios sondeos para aumentar la resistencia. El umbral de los estados de sondeo debe ser inferior a 0,5. Si el promedio del estado **en servicio** es inferior a 0,5 (lo que significa que menos del 50 % de los sondeos están en servicio), debe haber una alerta para un error de punto de conexión.
+
+> [!NOTE]
+> Se implementan varios sondeos para aumentar la resistencia. Si uno de los muchos sondeos que se envían está fuera de servicio, no refleja necesariamente que el punto de conexión está fuera de servicio. El punto de conexión solo se clasifica como fuera de servicio si la mayoría de los sondeos devueltos están fuera de servicio.
+
+La siguiente es un ejemplo de una configuración de alerta.
+
+:::image type="content" source="./media/traffic-manager-metrics-alerts/alert-example.png" alt-text="Captura de pantalla del ejemplo de alerta de umbral de sondeo.":::
+
+Para más información acerca de los sondeos y la supervisión, consulte [Supervisión de los puntos de conexión de Traffic Manager](traffic-manager-monitoring.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información sobre el [servicio Azure Monitor](../azure-monitor/essentials/metrics-supported.md)

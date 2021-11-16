@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.date: 07/08/2021
-ms.openlocfilehash: 0f5b2c2d94a2b0e106bf0541e080cfa9d05b45ac
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 82dc8aaa14aeae63549a872d887f40d16eebec96
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131441141"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132315338"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-by-using-the-azure-portal"></a>Implementación de Azure Monitor para soluciones de SAP con Azure Portal
 
@@ -87,71 +87,71 @@ $sapcntrluri = "https://&quot; + $SAPHostName + &quot;:5&quot; + $InstanceNumber
 $sapcntrl = New-WebServiceProxy -uri $sapcntrluri -namespace WebServiceProxy -class sapcntrl
 $FunctionObject = New-Object ($sapcntrl.GetType().NameSpace + ".$Function")
 $sapcntrl.$Function($FunctionObject)
-
-11. **Repeat Steps 3-10 for each instance profile **.
+```
+11. **Repita los pasos 3 a 10 para cada perfil de la instancia **.
 
 >[!Important] 
->It is critical that the sapstartsrv service is restarted on each instance of the SAP system for the SAPControl web methods to be unprotected.  These read-only SOAP API are required for the NetWeaver provider to fetch metric data from the SAP System and failure to unprotect these methods will lead to empty or missing visualizations on the NetWeaver metric workbook.
+>Es fundamental que el servicio sapstartsrv se reinicie en cada instancia del sistema SAP para que los métodos web de SAPControl se desprotejan.  Estas API SOAP de solo lectura son necesarias para que el proveedor de NetWeaver obtenga datos de métricas del sistema SAP y, si no se desprotegen estos métodos, se provocarán visualizaciones vacías o no se generará ninguna visualización en el libro de métricas de NetWeaver.
    
 >[!Tip]
-> Use an access control list (ACL) to filter the access to a server port. For more information, see [this SAP note](https://launchpad.support.sap.com/#/notes/1495075).
+> Use una lista de control de acceso (ACL) para filtrar el acceso a un puerto de servidor. Para más información, consulte [esta nota de SAP](https://launchpad.support.sap.com/#/notes/1495075).
 
-To install the NetWeaver provider on the Azure portal:
+Para instalar el proveedor de NetWeaver en Azure Portal:
 
-1. Make sure you've completed the earlier prerequisite steps and that the server has been restarted.
-1. On the Azure portal, under **Azure Monitor for SAP Solutions**, select **Add provider**, and then:
+1. Asegúrese de que ha completado los pasos de requisitos previos anteriores y de que se ha reiniciado el servidor.
+1. En Azure Portal, en **Azure Monitor para soluciones de SAP**, seleccione **Agregar proveedor** y, después:
 
-   1. For **Type**, select **SAP NetWeaver**.
+   1. En **Tipo**, seleccione **SAP NetWeaver**.
 
-   1. For **Hostname**, enter the host name of the SAP system.
+   1. En **Nombre de host**, escriba el nombre de host del sistema SAP.
 
-   1. For **Subdomain**, enter a subdomain if one applies.
+   1. En **Subdominio** escriba un subdominio si se aplica uno.
 
-   1. For **Instance No**, enter the instance number that corresponds to the host name you entered. 
+   1. En **Instance No** (Número de instancia), escriba el número de instancia que corresponde al nombre de host especificado. 
 
-   1. For **SID**, enter the system ID.
+   1. En **SID**, escriba el identificador del sistema.
    
-   ![Screenshot showing the configuration options for adding a SAP NetWeaver provider.](https://user-images.githubusercontent.com/75772258/114583569-5c777d80-9c9f-11eb-99a2-8c60987700c2.png)
+   ![Captura de pantalla que muestra las opciones de configuración para agregar un proveedor de SAP NetWeaver.](https://user-images.githubusercontent.com/75772258/114583569-5c777d80-9c9f-11eb-99a2-8c60987700c2.png)
 
-1.    When you're finished, select **Add provider**. Continue to add providers as needed, or select **Review + create** to complete the deployment.
+1.    Cuando termine, seleccione **Agregar proveedor**. Siga agregando proveedores según sea necesario o seleccione **Revisar y crear** para completar la implementación.
 
 >[!Important]
->If the SAP application servers (ie. virtual machines) are part of a network domain, such as one managed by Azure Active Directory, then it is critical that the corresponding subdomain is provided in the Subdomain text box.  The Azure Monitor for SAP collector VM that exists inside the Virtual Network is not joined to the domain and as such will not be able to resolve the hostname of instances inside the SAP system unless the hostname is a fully qualified domain name.  Failure to provide this will result in missing / incomplete visualizations in the NetWeaver workbook.
+>Si los servidores de aplicaciones SAP (es decir, las máquinas virtuales) forman parte de un dominio de red, como uno administrado por Azure Active Directory, es fundamental que el subdominio correspondiente se proporcione en el cuadro de texto Subdominio.  La máquina virtual del recopilador de Azure Monitor para SAP que existe dentro de la red virtual no está unido al dominio y, por tanto, no podrá resolver el nombre de host de las instancias dentro del sistema SAP, a menos que el nombre de host sea un nombre de dominio completo.  Si no se proporciona esto, no habrá visualizaciones o estarán incompletas en el libro de NetWeaver.
  
->For example, if the hostname of the SAP system has a fully qualified domain name of "myhost.mycompany.global.corp" then please enter a Hostname of "myhost" and provide a Subdomain of "mycompany.global.corp".  When the NetWeaver provider invokes the GetSystemInstanceList API on the SAP system, SAP returns the hostnames of all instances in the system.  The collector VM will use this list to make additional API calls to fetch metrics specific to each instance's features (e.g.  ABAP, J2EE, MESSAGESERVER, ENQUE, ENQREP, etc…). If specified, the collector VM will then use the subdomain  "mycompany.global.corp" to build the fully qualified domain name of each instance in the SAP system.  
+>Por ejemplo, si el nombre de host del sistema SAP tiene el nombre de dominio completo "myhost.mycompany.global.corp", escriba el nombre de host "myhost" y especifique el subdominio "mycompany.global.corp".  Cuando el proveedor de NetWeaver invoca la API GetSystemInstanceList en el sistema SAP, SAP devuelve los nombres de host de todas las instancias del sistema.  La máquina virtual del recopilador usará esta lista para realizar llamadas API adicionales para capturar métricas específicas de las características de cada instancia (por ejemplo, ABAP, J2EE, MESSAGESERVER, ENQUE, ENQREP, etc.). Si se especifica, la máquina virtual del recopilador usará el subdominio "mycompany.global.corp" para compilar el nombre de dominio completo de cada instancia del sistema SAP.  
  
->Please DO NOT specify an IP Address for the hostname field if the SAP system is a part of network domain.
+>NO especifique una dirección IP para el campo de nombre de host si el sistema SAP forma parte del dominio de red.
 
    
-### SAP HANA provider 
+### <a name="sap-hana-provider"></a>Proveedor de SAP HANA 
 
-1. Select the **Providers** tab to add the providers you want to configure. You can add multiple providers one after another, or add them after you deploy the monitoring resource. 
+1. Seleccione la pestaña **Proveedores** para agregar los proveedores que quiere configurar. Puede agregar varios proveedores uno tras otro o agregarlos después de implementar el recurso de supervisión. 
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-3.png" alt-text="Screenshot showing the tab where you add providers." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-3.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-3.png" alt-text="Captura de pantalla que muestra la pestaña donde agrega proveedores" lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-3.png":::.
 
-1. Select **Add provider**, and then:
+1. Seleccione **Agregar proveedor** y, después:
 
-   1. For **Type**, select **SAP HANA**. 
+   1. En **Tipo**, seleccione **SAP HANA**. 
 
       > [!IMPORTANT]
-      > Ensure that a SAP HANA provider is configured for the SAP HANA `master` node.
+      > Asegúrese de que un proveedor de SAP HANA esté configurado para el nodo `master` de SAP HANA.
 
-   1. For **IP address**, enter the private IP address for the HANA server.
+   1. Para la **Dirección IP**, escriba la dirección IP privada para el servidor HANA.
 
-   1. For **Database tenant**, enter the name of the tenant you want to use. You can choose any tenant, but we recommend using **SYSTEMDB** because it enables a wider array of monitoring areas. 
+   1. Para **Inquilino de la base de datos**, escriba el nombre del inquilino que quiere usar. Puede elegir cualquier inquilino, pero se recomienda usar **SYSTEMDB** porque permite una matriz más amplia de áreas de supervisión. 
 
-   1. For **SQL port**, enter the port number associated with your HANA database. It should be in the format of *[3]* + *[instance#]* + *[13]*. An example is **30013**. 
+   1. Para **Puerto de SQL**, escriba el número de puerto de asociado con la base de datos HANA. Debe tener el formato *[3]*  +  *[instance#]*  +  *[13]* . Por ejemplo, **30013**. 
 
-   1. For **Database username**, enter the username you want to use. Ensure the database user has the *monitoring* and *catalog read* roles assigned.
+   1. Para **Nombre de usuario de la base de datos**, escriba el nombre de usuario que quiere usar. Asegúrese de que el usuario de la base de datos tiene asignados los roles de *supervisión* y *lectura de catálogo*.
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="Screenshot showing configuration options for adding an SAP HANA provider." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="Captura de pantalla que muestra las opciones de configuración para agregar un proveedor de SAP HANA" lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::.
 
-1. When you're finished, select **Add provider**. Continue to add providers as needed, or select **Review + create** to complete the deployment.
+1. Cuando termine, seleccione **Agregar proveedor**. Siga agregando proveedores según sea necesario o seleccione **Revisar y crear** para completar la implementación.
 
    
-### Microsoft SQL Server provider
+### <a name="microsoft-sql-server-provider"></a>Proveedor de Microsoft SQL Server
 
-1. Before you add the Microsoft SQL Server provider, run the following script in SQL Server Management Studio to create a user with the appropriate permissions for configuring the provider.
+1. Antes de agregar el proveedor de Microsoft SQL Server, ejecute el script siguiente en SQL Server Management Studio para crear un usuario con los permisos adecuados necesarios para configurar el proveedor.
 
    ```sql
    USE [<Database to monitor>]
@@ -176,7 +176,7 @@ To install the NetWeaver provider on the Azure portal:
    ALTER ROLE [db_datareader] ADD MEMBER [AMS]
    ALTER ROLE [db_denydatawriter] ADD MEMBER [AMS]
    GO
-   ``` 
+   ```
 
 1. Seleccione **Agregar proveedor** y, después:
 

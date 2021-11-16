@@ -4,17 +4,17 @@ description: En este artículo se proporciona información general sobre la comp
 ms.topic: overview
 ms.date: 11/02/2021
 ms.custom: references_regions, ignite-fall-2021
-ms.openlocfilehash: 95db225c83bb760b0f5de12a39b20d24c1613d62
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: f9e405a82b73530cc53ec98f22b2c1f4473b2550
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131449866"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132398518"
 ---
 # <a name="azure-schema-registry-in-azure-event-hubs"></a>Registro de esquema de Azure en Azure Event Hubs
 En muchos escenarios de streaming de eventos y mensajería, la carga de eventos o mensajes contiene datos estructurados. El formato controlado por esquemas, como [Apache Avro](https://avro.apache.org/), se suele usar para serializar o deserializar estos datos estructurados. 
 
-:::image type="content" source="./media/schema-registry-overview/schema-driven-ser-de.png" alt-text="Serialización o deserialización basada en esquemas":::
+:::image type="content" source="./media/schema-registry-overview/schema-driven-ser-de.svg" alt-text="Serialización o deserialización basada en esquemas":::
 
 Las aplicaciones de productor usan documentos de esquema para serializar la carga del evento y publicarla en un agente de eventos como Event Hubs. De forma similar, las aplicaciones de consumidor leen la carga del evento del agente y la deserializan con el mismo documento de esquema. Por lo tanto, tanto los productores como los consumidores pueden validar la integridad de los datos con un documento de esquema. 
 
@@ -26,7 +26,7 @@ Cuando se usan formatos basados en esquemas, las aplicaciones de productor quier
 ## <a name="azure-schema-registry"></a>Registro de esquema de Azure
 El **registro de esquema de Azure** es una característica de Event Hubs, que proporciona un repositorio central para los documentos de esquema de aplicaciones controladas por eventos y basadas en mensajería. Ofrece la flexibilidad para que las aplicaciones de productor y consumidor intercambien datos sin tener que administrar y compartir el esquema. El registro de esquema también proporciona un marco de gobierno sencillo para los esquemas reutilizables y define la relación entre los esquemas a través de una construcción de agrupación (grupos de esquemas).
 
-:::image type="content" source="./media/schema-registry-overview/schema-registry.png" alt-text="Registro de esquema":::
+:::image type="content" source="./media/schema-registry-overview/schema-registry.svg" alt-text="Registro de esquema":::
 
 Con marcos de serialización orientados a esquemas, como Apache Avro, la externalización de los metadatos de serialización en esquemas compartidos también puede ayudar a reducir drásticamente la sobrecarga por mensaje de información de tipo y nombres de campo incluidos con cada conjunto de datos, como es el caso de los formatos etiquetados como JSON. Al almacenar los esquemas junto con los eventos y dentro de la infraestructura de eventos se garantiza que los metadatos necesarios para la serialización o la deserialización estén siempre al alcance y los esquemas no se puedan perder. 
 
@@ -36,7 +36,7 @@ Con marcos de serialización orientados a esquemas, como Apache Avro, la externa
 ## <a name="schema-registry-information-flow"></a>Flujo de información del registro de esquema 
 El flujo de información cuando se usa el registro de esquema es el mismo para todo el protocolo que se emplea para publicar o consumir eventos de Azure Event Hubs. En el diagrama siguiente se muestra el flujo de información de un escenario de consumidor y productor de eventos de Kafka que usa el registro de esquema. 
 
-:::image type="content" source="./media/schema-registry-overview/information-flow.png" lightbox="./media/schema-registry-overview/information-flow.png" alt-text="Imagen que muestra el flujo de información del registro de esquemas.":::
+:::image type="content" source="./media/schema-registry-overview/information-flow.svg" lightbox="./media/schema-registry-overview/information-flow.svg" alt-text="Imagen que muestra el flujo de información del registro de esquemas.":::
 
 
 El flujo de información comienza desde el productor, donde los productores de Kafka serializan los datos mediante el documento de esquema. 

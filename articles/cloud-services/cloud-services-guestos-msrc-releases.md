@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/01/2021
 ms.author: ibthampy
-ms.openlocfilehash: 77f6eaf0cbd9478df6659310c61fa4616c17c749
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 244708b6603351ce7b01a6f69f2f19887cc63ea9
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131458501"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132344016"
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se realizan para la [familia][family-explain] determinada en la que se introdujeron.
@@ -581,7 +581,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 |  Versión 20-12 |  4580325  |  Actualización de Flash | [3.92], [4.85], [5.50], [6.26] | 13 de octubre de 2020 |
 |  Versión 20-12 |  [4586768]  |  Actualizaciones acumulativas de IE | [2.105], [3.92], [4.85] | 10 de noviembre de 2020 |
 |  Versión 20-12 |  [4593226]  |  Actualización acumulativa más reciente | [5.50] | 8 de diciembre de 2020 |
-|  Versión 20-12 |  [4052623]  |  Defender | [5.50], [6.26] | 13 de diciembre de 2020 |
+|  Versión 20-12 |  [4052623]  |  Defender for Cloud | [5.50], [6.26] | 13 de diciembre de 2020 |
 |  Versión 20-12 |  [4578952]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | [2.105] | 10 de noviembre de 2020 |
 |  Versión 20-12 |  [4578955]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | [2.105] | 10 de noviembre de 2020 |
 |  Versión 20-12 |  [4578953]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | [4.85] | 10 de noviembre de 2020 |

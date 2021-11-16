@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b15ccb564fe2c3551103e71b8c1ca2a901ec03e0
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 776e98d414a62e63b6d472df45f52a66b52b0e62
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131440764"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132349269"
 ---
 # <a name="how-to-investigate-risk"></a>Instrucciones: Investigación de riesgos
 
@@ -87,7 +87,7 @@ Con la información que proporciona el informe de detecciones de riesgo, los adm
 - Información sobre cada detección de riesgo, incluido el tipo.
 - Otros riesgos desencadenados al mismo tiempo.
 - Ubicación del intento de inicio de sesión.
-- Vinculación para obtener más detalles de Microsoft Cloud App Security (MCAS).
+- Vínculo para obtener más detalles desde Microsoft Defender for Cloud Apps.
 
 Los administradores pueden elegir volver al informe de riesgo del usuario o de inicios de sesión para realizar acciones en función de la información recopilada.
 

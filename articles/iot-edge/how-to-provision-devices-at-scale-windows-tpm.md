@@ -1,25 +1,32 @@
 ---
-title: 'Aprovisionamiento de dispositivos con un TPM virtual en Windows: Azure IoT Edge | Microsoft Docs'
+title: 'Creación y aprovisionamiento de dispositivos con un TPM virtual en Windows: Azure IoT Edge | Microsoft Docs'
 description: Uso de un TPM simulado en un dispositivo Windows para probar el servicio de aprovisionamiento de dispositivos de Azure en Azure IoT Edge
 author: kgremban
 ms.author: kgremban
-ms.date: 10/06/2021
+ms.date: 10/28/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 0b3d6bba1e99131b5a03b8ba5acfb760566437b1
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 4211cd69cddfea77ccd3f6e2a095ced6ce5effc3
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130234762"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131853878"
 ---
 # <a name="create-and-provision-iot-edge-devices-at-scale-with-a-tpm-on-windows"></a>Creación y aprovisionamiento de dispositivos IoT Edge a gran escala con un TPM en Windows
 
 [!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 En este artículo se proporcionan instrucciones para aprovisionar automáticamente Azure IoT Edge para dispositivos Windows mediante un módulo de plataforma segura (TPM). Puede aprovisionar dispositivos IoT Edge de forma automática con el [Azure IoT Hub Device Provisioning Service](../iot-dps/index.yml). Si no está familiarizado con el proceso de aprovisionamiento automático, revise la [información general sobre el aprovisionamiento](../iot-dps/about-iot-dps.md#provisioning-process) antes de continuar.
+
+>[!NOTE]
+>Azure IoT Edge con contenedores Windows no se admitirá a partir de la versión 1.2 de Azure IoT Edge.
+>
+>Considere la posibilidad de usar el nuevo método para ejecutar IoT Edge en dispositivos Windows, [Azure IoT Edge para Linux en Windows](iot-edge-for-linux-on-windows.md).
+>
+>Si desea usar Azure IoT Edge para Linux en Windows, puede seguir los pasos de la [guía de procedimientos equivalente](how-to-provision-devices-at-scale-linux-on-windows-tpm.md).
 
 En este artículo, se describen dos metodologías. Seleccione sus preferencias en función de la arquitectura de la solución:
 
@@ -44,17 +51,16 @@ Las tareas son las siguientes:
 
 ---
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Los requisitos previos son los mismos para las soluciones de TPM físico y TPM virtual.
 
-* Una máquina de desarrollo Windows. En este artículo se usa Windows 10.
-* Un centro de IoT activo.
-* Una instancia de IoT Hub Device Provisioning Service en Azure que esté vinculada a su centro de IoT.
-  * Si no tiene dicha instancia, siga las instrucciones de dos secciones del inicio rápido sobre IoT Hub Device Provisioning Service:
-    - [Creación de una instancia de IoT Hub Device Provisioning Service](../iot-dps/quick-setup-auto-provision.md#create-a-new-iot-hub-device-provisioning-service)
-    - [Vínculo al centro de IoT y a Device Provisioning Service](../iot-dps/quick-setup-auto-provision.md#link-the-iot-hub-and-your-device-provisioning-service)
-  * Cuando tenga la instancia del servicio de aprovisionamiento de dispositivo en ejecución, copie el valor de **Ámbito de id.** de la página de información general. Use este valor cuando configure el entorno de ejecución de IoT Edge.
+<!-- Cloud resources prerequisites H3 and content -->
+[!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](../../includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
+
+### <a name="iot-edge-installation"></a>Instalación de IoT Edge
+
+Una máquina de desarrollo Windows. En este artículo se usa Windows 10.
 
 > [!NOTE]
 > TPM 2.0 es necesario cuando se usa la atestación de TPM con el servicio de aprovisionamiento de dispositivos.
@@ -107,78 +113,13 @@ Ejemplos de TPM simulado:
 
 ---
 
-## <a name="create-a-device-provisioning-service-enrollment"></a>Creación de una inscripción del servicio de aprovisionamiento de dispositivos
+<!-- Create an enrollment for your device using TPM provisioning information H2 and content -->
+[!INCLUDE [tpm-create-a-device-provision-service-enrollment.md](../../includes/tpm-create-a-device-provision-service-enrollment.md)]
 
-Use la información de aprovisionamiento del TPM para crear una inscripción individual en servicio de aprovisionamiento de dispositivos.
+<!-- Install IoT Edge on Windows H2 and content -->
+[!INCLUDE [install-iot-edge-windows.md](../../includes/iot-edge-install-windows.md)]
 
-Cuando hace esto, tiene la oportunidad de declarar un **estado inicial de dispositivo gemelo**. En el dispositivo gemelo, puede establecer etiquetas para agrupar dispositivos por cualquier métrica que necesite en su solución, como la región, el entorno, la ubicación o el tipo de dispositivo. Estas etiquetas se usan para crear [implementaciones automáticas](how-to-deploy-at-scale.md).
-
-> [!TIP]
-> Los pasos de este artículo son para Azure Portal, pero también puede crear inscripciones individuales mediante la CLI de Azure. Para más información, consulte [az iot dps enrollment](/cli/azure/iot/dps/enrollment). Como parte del comando de la CLI, use la marca **edge-enabled** para especificar que la inscripción es para un dispositivo de IoT Edge.
-
-1. En [Azure Portal](https://portal.azure.com), vaya a la instancia de IoT Hub Device Provisioning Service.
-
-1. En **Configuración**, seleccione **Administrar inscripciones**.
-
-1. Seleccione **Agregar inscripción individual** y, luego, complete los pasos siguientes para configurar la inscripción:
-
-   1. En **Mecanismo**, seleccione **TPM**.
-
-   1. Proporcione la **clave de aprobación** y el **identificador de registro** que ha copiado de la máquina virtual o del dispositivo físico.
-
-   1. Proporcione un identificador para el dispositivo, si así lo desea. Si no proporciona un identificador de dispositivo, se usará el **identificador de registro**.
-
-   1. Seleccione **Verdadero** para declarar que esta máquina virtual o el dispositivo físico es un dispositivo IoT Edge.
-
-   1. Elija el centro de IoT vinculado al que quiere conectar el dispositivo o seleccione **Link to new IoT Hub** (Vincular a un nuevo centro de IoT). Puede elegir varios centros y el dispositivo se asignará a uno de ellos según la directiva de asignación seleccionada.
-
-   1. Agregue un valor de etiqueta a **Estado inicial de dispositivo gemelo**, si así lo desea. Puede usar etiquetas para los grupos de dispositivos de destino para la implementación del módulo. Para más información, consulte [Implementación de módulos IoT Edge a escala](how-to-deploy-at-scale.md).
-
-   1. Seleccione **Guardar**.
-
-Ahora que existe una inscripción para este dispositivo, el entorno de ejecución de Azure IoT Edge puede aprovisionar automáticamente el dispositivo durante la instalación.
-
-## <a name="install-the-iot-edge-runtime"></a>Instalación del entorno de ejecución de IoT Edge
-
-En esta sección, preparará la máquina virtual o el dispositivo físico Windows para IoT Edge. Luego, instalará IoT Edge.
-
-Hay un paso que debe completar en el dispositivo antes de que esté listo para instalar el entorno de ejecución de IoT Edge. El dispositivo necesita un motor de contenedor instalado.
-
-### <a name="install-iot-edge"></a>Instalación de IoT Edge
-
-El demonio de seguridad de IoT Edge proporciona y mantiene los estándares de seguridad en el dispositivo IoT Edge. El demonio se inicia en cada arranque e inicia el resto del entorno de ejecución de IoT Edge para arrancar el dispositivo.
-
-Los pasos de esta sección representan el proceso habitual para instalar la versión más reciente en un dispositivo que tenga conexión a Internet. Si necesita instalar una versión específica, como una versión preliminar, o si necesita realizar la instalación sin conexión, siga los pasos correspondientes en cada caso.
-
-1. Ejecute PowerShell como administrador.
-
-   Use una sesión AMD64 de PowerShell, no PowerShell (x86). Si no está seguro del tipo de sesión que usa, ejecute el comando siguiente:
-
-   ```powershell
-   (Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
-   ```
-
-2. Ejecute el comando [Deploy-IoTEdge](reference-windows-scripts.md#deploy-iotedge), que realiza las tareas siguientes:
-
-   * Comprueba que la máquina con Windows se encuentra en una versión compatible.
-   * Activa la característica de los contenedores.
-   * Descarga el motor de Moby y el entorno de ejecución de Azure IoT Edge.
-
-   ```powershell
-   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Deploy-IoTEdge
-   ```
-
-3. Si se le solicita, reinicie el dispositivo.
-
-Al instalar IoT Edge en un dispositivo, puede usar otros parámetros para modificar el proceso con el fin de:
-
-* Dirigir el tráfico hacia un servidor proxy.
-* Haga que el instalador apunte a un directorio local, en el caso de una instalación sin conexión.
-
-Para más información sobre estos otros parámetros, consulte [Scripts de PowerShell para IoT Edge con contenedores Windows](reference-windows-scripts.md).
-
-## <a name="configure-the-device-with-provisioning-information"></a>Configuración del dispositivo con la información de aprovisionamiento
+## <a name="provision-the-device-with-its-cloud-identity"></a>Aprovisionamiento del dispositivo con su identidad de nube
 
 Una vez instalado el entorno de ejecución en el dispositivo, configure este con la información que se usa para conectarse al servicio de aprovisionamiento de dispositivos e IoT Hub.
 
@@ -188,11 +129,11 @@ Una vez instalado el entorno de ejecución en el dispositivo, configure este con
 
 1. El comando `Initialize-IoTEdge` configura el entorno de ejecución de IoT Edge en la máquina. El comportamiento predeterminado del comando es el aprovisionamiento manual con contenedores de Windows. Use la marca `-Dps` para utilizar el servicio de aprovisionamiento de dispositivos, en lugar del aprovisionamiento manual.
 
-   Reemplace los valores de marcador de posición para `{scope_id}` y `{registration_id}` con los datos que ha recopilado antes.
+   Reemplace los valores de marcador de posición para `paste_scope_id_here` y `paste_registration_id_here` con los datos que ha recopilado antes.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID}
+   Initialize-IoTEdge -Dps -ScopeId paste_scope_id_here -RegistrationId paste_registration_id_here
    ```
 
 ## <a name="verify-successful-installation"></a>Comprobación de instalación correcta

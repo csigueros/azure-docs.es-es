@@ -3,16 +3,16 @@ title: Supervisión y protección de máquinas virtuales con servicios nativos d
 description: Obtenga información sobre cómo integrar e implementar herramienta nativas de Microsoft Azure para supervisar y administrar las cargas de trabajo de Azure VMware Solution.
 ms.topic: how-to
 ms.date: 08/15/2021
-ms.openlocfilehash: fa3a30ce3908494e1fdf0470781f4057279fe001
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 8c95a74df7608aafbec09da9af94b0f82eb2ced3
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129714957"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132315831"
 ---
 # <a name="monitor-and-protect-vms-with-azure-native-services"></a>Supervisión y protección de máquinas virtuales con servicios nativos de Azure
 
-Los servicios nativos de Microsoft Azure permiten supervisar, administrar y proteger las máquinas virtuales (VM) en un entorno híbrido (Azure, Azure VMware Solution y local). En este artículo, integrará los servicios nativos de Azure en la nube privada de Azure VMware Solution. También aprenderá a usar las herramientas para administrar las máquinas virtuales a lo largo de su ciclo de vida. 
+Los servicios nativos de Microsoft Azure permiten supervisar, administrar y proteger las máquinas virtuales (VM) en un entorno híbrido (Azure, Azure VMware Solution y local). En este artículo, integrará los servicios nativos de Azure en la nube privada de Azure VMware Solution. También aprenderá a usar las herramientas para administrar las máquinas virtuales a lo largo de su ciclo de vida.
 
 Los servicios nativos de Azure que puede integrar con Azure VMware Solution incluyen:
 
@@ -22,34 +22,31 @@ Los servicios nativos de Azure que puede integrar con Azure VMware Solution incl
 
    Con Azure Monitor, puede recopilar datos de distintos [orígenes para supervisarlos y analizarlos](../azure-monitor/agents/data-sources.md) y diferentes tipos de [datos para analizarlos, visualizarlos y generar alertas sobre ellos](../azure-monitor/data-platform.md). También puede crear reglas de alertas para identificar problemas en su entorno, como, por ejemplo, uso elevado de recursos, revisiones que faltan, espacio en disco bajo y latido de las máquinas virtuales. Puede establecer una respuesta automatizada a eventos detectados enviando una alerta a las herramientas de Administración de servicios de TI (ITSM). La notificación de detección de alertas también se puede enviar por correo electrónico.
 
-- **Azure Security Center** fortalece la seguridad de los centros de datos y proporciona protección contra amenazas avanzada en las cargas de trabajo híbridas tanto en la nube como a nivel local. Además, valora la vulnerabilidad de las máquinas virtuales de Azure VMware Solution, genera alertas cuando es necesario y las reenvía a Azure Monitor para que las resuelva. Por ejemplo, se evalúan las revisiones del sistema operativo que faltan, los errores de configuración de seguridad y [Endpoint Protection](../security-center/security-center-services.md). También puede definir directivas de seguridad en [Azure Security Center](azure-security-integration.md).
+- **Microsoft Defender for Cloud** fortalece la seguridad de los centros de datos y proporciona protección contra amenazas avanzada en las cargas de trabajo híbridas tanto en la nube como a nivel local. Además, valora la vulnerabilidad de las máquinas virtuales de Azure VMware Solution, genera alertas cuando es necesario y las reenvía a Azure Monitor para que las resuelva. Por ejemplo, se evalúan las revisiones del sistema operativo que faltan, los errores de configuración de seguridad y [Endpoint Protection](../security-center/security-center-services.md). También puede definir directivas de seguridad en [Microsoft Defender for Cloud](azure-security-integration.md).
 
 - **Azure Update Management** administra las actualizaciones del sistema operativo de las máquinas Windows y Linux en un entorno híbrido en Azure Automation. Supervisa el cumplimiento de la aplicación de revisiones y reenvía alertas de desviación de la aplicación de revisiones a Azure Monitor para su corrección. Azure Update Management debe conectarse al área de trabajo de Log Analytics para usar datos almacenados con el fin de evaluar el estado de las actualizaciones en las máquinas virtuales.
 
-- El **áreas de trabajo de Log Analytics** almacena datos de registro. Cada área de trabajo tiene su propio repositorio de datos y configuración para almacenar datos. Puede supervisar las máquinas virtuales de Azure VMware Solution mediante el agente de Log Analytics. Las máquinas conectadas al área de trabajo de Log Analytics usan el [agente de Log Analytics](../azure-monitor/agents/log-analytics-agent.md) para recopilar datos sobre los cambios en el software instalado, los servicios de Microsoft, los archivos y el Registro de Windows y los demonios de Linux de los servidores supervisados. Cuando los datos están disponibles, el agente los envía a Azure Monitor para su procesamiento. Los registros de Azure Monitor aplican la lógica a los datos recibidos, los anotan y hacen que estén disponibles para el análisis. Use la [compatibilidad con las extensiones de máquina virtual ](../azure-arc/servers/manage-vm-extensions.md) de los servidores habilitados para Azure Arc para implementar agentes de Log Analytics en máquinas virtuales. 
-
-
+- El **áreas de trabajo de Log Analytics** almacena datos de registro. Cada área de trabajo tiene su propio repositorio de datos y configuración para almacenar datos. Puede supervisar las máquinas virtuales de Azure VMware Solution mediante el agente de Log Analytics. Las máquinas conectadas al área de trabajo de Log Analytics usan el [agente de Log Analytics](../azure-monitor/agents/log-analytics-agent.md) para recopilar datos sobre los cambios en el software instalado, los servicios de Microsoft, los archivos y el Registro de Windows y los demonios de Linux de los servidores supervisados. Cuando los datos están disponibles, el agente los envía a Azure Monitor para su procesamiento. Los registros de Azure Monitor aplican la lógica a los datos recibidos, los anotan y hacen que estén disponibles para el análisis. Use la [compatibilidad con las extensiones de máquina virtual ](../azure-arc/servers/manage-vm-extensions.md) de los servidores habilitados para Azure Arc para implementar agentes de Log Analytics en máquinas virtuales.
 
 ## <a name="benefits"></a>Ventajas
 
 - Los servicios nativos de Azure se pueden usar para administrar las máquinas virtuales en un entorno híbrido (Azure, Azure VMware Solution y local).
 - Supervisión y visibilidad integradas de las máquinas virtuales de Azure, Azure VMware Solution y locales.
-- Con Azure Update Management en Azure Automation, puede administrar las actualizaciones del sistema operativo de las máquinas Windows y Linux. 
-- Azure Security Center proporciona Advanced Threat Protection, incluyendo lo siguiente:
-    - Supervisión de la integridad de los archivos
-    - Alertas de seguridad sin archivos
-    - Evaluación de revisiones del sistema operativo
-    - Evaluación de configuraciones de seguridad incorrectas
-    - Evaluación de EndPoint Protection 
-- Implemente con facilidad el agente de Log Analytics mediante la compatibilidad con la extensión de máquina virtual de servidores habilitados para Azure Arc para máquinas virtuales nuevas y existentes. 
-- El área de trabajo de Log Analytics en Azure Monitor habilita la recopilación de registros y contadores de rendimiento mediante el agente de Log Analytics o extensiones. Recopile datos y registros en un único punto y presente dichos datos en diferentes servicios nativos de Azure. 
-- Entre las ventajas agregadas de Azure Monitor se incluyen: 
-    - Supervisión fluida 
-    - Mejor visibilidad de la infraestructura 
-    - Notificaciones instantáneas 
-    - Resolución automática 
-    - Rentabilidad 
-
+- Con Azure Update Management en Azure Automation, puede administrar las actualizaciones del sistema operativo de las máquinas Windows y Linux.
+- Microsoft Defender for Cloud proporciona protección contra amenazas avanzada, lo que incluye:
+  - Supervisión de la integridad de los archivos
+  - Alertas de seguridad sin archivos
+  - Evaluación de revisiones del sistema operativo
+  - Evaluación de configuraciones de seguridad incorrectas
+  - Evaluación de EndPoint Protection
+- Implemente con facilidad el agente de Log Analytics mediante la compatibilidad con la extensión de máquina virtual de servidores habilitados para Azure Arc para máquinas virtuales nuevas y existentes.
+- El área de trabajo de Log Analytics en Azure Monitor habilita la recopilación de registros y contadores de rendimiento mediante el agente de Log Analytics o extensiones. Recopile datos y registros en un único punto y presente dichos datos en diferentes servicios nativos de Azure.
+- Entre las ventajas agregadas de Azure Monitor se incluyen:
+  - Supervisión fluida
+  - Mejor visibilidad de la infraestructura
+  - Notificaciones instantáneas
+  - Resolución automática
+  - Rentabilidad
 
 ## <a name="topology"></a>Topología
 
@@ -57,12 +54,11 @@ En el diagrama se muestra la arquitectura de supervisión integrada de las máqu
 
 :::image type="content" source="media/concepts/integrated-azure-monitoring-architecture.png" alt-text="Diagrama que muestra la arquitectura de supervisión integrada de Azure." border="false":::
 
-El agente de Log Analytics habilita la recopilación de datos de registro de Azure, Azure VMware Solution y las máquinas virtuales locales. Los datos de registro se envían a los registros de Azure Monitor y se almacenan en un área de trabajo de Log Analytics. Puede implementar el agente de Log Analytics mediante la [compatibilidad con la extensión de máquina virtual](../azure-arc/servers/manage-vm-extensions.md) de servidores habilitados para Arc para máquinas virtuales nuevas y existentes. 
+El agente de Log Analytics habilita la recopilación de datos de registro de Azure, Azure VMware Solution y las máquinas virtuales locales. Los datos de registro se envían a los registros de Azure Monitor y se almacenan en un área de trabajo de Log Analytics. Puede implementar el agente de Log Analytics mediante la [compatibilidad con la extensión de máquina virtual](../azure-arc/servers/manage-vm-extensions.md) de servidores habilitados para Arc para máquinas virtuales nuevas y existentes.
 
-Una vez que el área de trabajo de Log Analytics recopila los registros, puede configurarla con Azure Security Center para valorar el estado de vulnerabilidad de las máquinas virtuales de las máquinas virtuales de Azure VMware Solution y generar una alerta en caso de que exista alguna vulnerabilidad crítica.  Por ejemplo, se evalúan las revisiones del sistema operativo que faltan, los errores de configuración de seguridad y [Endpoint Protection](../security-center/security-center-services.md).
+Una vez que el área de trabajo de Log Analytics recopile los registros, podrá configurarla con Defender for Cloud para valorar el estado de vulnerabilidad de las máquinas virtuales de las máquinas virtuales de Azure VMware Solution y generar una alerta en caso de que exista alguna vulnerabilidad crítica.  Por ejemplo, se evalúan las revisiones del sistema operativo que faltan, los errores de configuración de seguridad y [Endpoint Protection](../security-center/security-center-services.md).
 
-Puede configurar el área de trabajo de Log Analytics con Azure Sentinel para detección de alertas, visibilidad de amenazas, búsqueda y respuesta a amenazas. En el diagrama anterior, Azure Security Center se conecta a Azure Sentinel mediante el conector de Azure Security Center. Azure Security Center reenvía la vulnerabilidad del entorno a Azure Sentinel para crear un incidente y asignarlo junto con otras amenazas. También puede crear la consulta de reglas programadas para detectar la actividad no deseada y convertirla en incidentes.
-
+Puede configurar el área de trabajo de Log Analytics con Microsoft Sentinel para detección de alertas, visibilidad de amenazas, búsqueda y respuesta a amenazas. En el diagrama anterior, Defender for Cloud se conecta a Microsoft Sentinel mediante el conector de Defender for Cloud. Defender for Cloud reenvía la vulnerabilidad del entorno a Microsoft Sentinel para crear un incidente y asignarlo junto con otras amenazas. También puede crear la consulta de reglas programadas para detectar la actividad no deseada y convertirla en incidentes.
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
@@ -70,7 +66,7 @@ Si no está familiarizado con Azure o con ninguno de los servicios mencionados a
 
 - [Introducción a la autenticación de cuentas de Automation](../automation/automation-security-overview.md)
 - [Diseño de la implementación de registros de Azure Monitor](../azure-monitor/logs/design-logs-deployment.md) y [Azure Monitor](../azure-monitor/overview.md)
-- [Planeamiento](../security-center/security-center-planning-and-operations-guide.md) y [Plataformas compatibles](../security-center/security-center-os-coverage.md) para Azure Security Center
+- [Planeamiento](../security-center/security-center-planning-and-operations-guide.md) y [Plataformas compatibles](../security-center/security-center-os-coverage.md) con Microsoft Defender for Cloud
 - [Información general sobre la habilitación de Azure Monitor para VM](../azure-monitor/vm/vminsights-enable-overview.md)
 - [¿Qué son los servidores habilitados para Azure Arc?](../azure-arc/servers/overview.md) y [¿Qué es Kubernetes habilitado para Azure Arc?](../azure-arc/kubernetes/overview.md)
 - [Introducción a Update Management](../automation/update-management/overview.md)
@@ -92,30 +88,28 @@ Si no está familiarizado con Azure o con ninguno de los servicios mencionados a
  
 1. Una vez que haya habilitado Update Management, puede [implementar actualizaciones en máquinas virtuales y revisar los resultados](../automation/update-management/deploy-updates.md). 
 
-## <a name="enable-azure-security-center"></a>Habilitación de Azure Security Center
+## <a name="enable-microsoft-defender-for-cloud"></a>Habilitación de Microsoft Defender for Cloud
 
 Valorará la vulnerabilidad de las máquinas virtuales de Azure VMware Solution y generará alertas en caso necesario. Estas alertas de seguridad se pueden reenviar a Azure Monitor para su resolución. Para más información, vea [Características admitidas de VM](../security-center/security-center-services.md).
 
-Azure Security Center ofrece muchas características, entre las que se incluyen:
+Defender for Cloud ofrece muchas características, entre las que se incluyen:
+
 - Supervisión de la integridad de los archivos
 - Detección de ataques sin archivos
-- Evaluación de revisiones del sistema operativo 
+- Evaluación de revisiones del sistema operativo
 - Evaluación de configuraciones de seguridad incorrectas
 - Evaluación de EndPoint Protection
 
 >[!NOTE]
->Azure Security Center es una herramienta preconfigurada que no requiere implementación, pero deberá habilitarla en Azure Portal. 
+>Microsoft Defender for Cloud es una herramienta preconfigurada que no requiere implementación, pero deberá habilitarla en Azure Portal.
 
+1. [Agregue máquinas virtuales de Azure VMware Solution a Defender for Cloud](azure-security-integration.md#add-azure-vmware-solution-vms-to-defender-for-cloud).
 
-1. [Agregue máquinas virtuales de Azure VMware Solution a Security Center](azure-security-integration.md#add-azure-vmware-solution-vms-to-security-center). 
+2. [Habilite Microsoft Defender for Cloud](../security-center/enable-azure-defender.md). Defender for Cloud evalúa las máquinas virtuales en busca de posibles problemas de seguridad. También proporciona [recomendaciones de seguridad](../security-center/security-center-recommendations.md) en la pestaña Información general.
 
-2. [Habilite Azure Defender en Security Center](../security-center/enable-azure-defender.md). Security Center evalúa las máquinas virtuales en busca de posibles problemas de seguridad. También proporciona [recomendaciones de seguridad](../security-center/security-center-recommendations.md) en la pestaña Información general. 
+3. [Defina directivas de seguridad](../security-center/tutorial-security-policy.md) en Defender for Cloud.
 
-3. [Defina directivas de seguridad](../security-center/tutorial-security-policy.md) en Azure Security Center. 
-
-Para más información, consulte [Integración de Azure Security Center con Azure VMware Solution](azure-security-integration.md).
-
-
+Para obtener más información, consulte [Integración de Microsoft Defender for Cloud con Azure VMware Solution](azure-security-integration.md).
 
 ## <a name="onboard-vms-to-azure-arc-enabled-servers"></a>Incorporación de máquinas virtuales a servidores habilitados para Azure Arc
 
@@ -163,4 +157,4 @@ Supervise el rendimiento del sistema operativo invitado para detectar y asignar 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ya conoce los conceptos sobre red e interconectividad de Azure VMware Solution, puede que le interese aprender sobre la [integración de Azure Security Center con Azure VMware Solution](azure-security-integration.md).
+Ahora que ya conoce los conceptos de red e interconectividad de Azure VMware Solution, puede que le interese obtener información sobre la [integración de Microsoft Defender for Cloud con Azure VMware Solution](azure-security-integration.md).

@@ -5,12 +5,12 @@ author: yossiy
 ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: yossiy
-ms.openlocfilehash: 13633eefff454cc6f2352264d76ea91367442166
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 01d7852e514931a1546a9ab66c3b582bea115f2b
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131062233"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132319631"
 ---
 # <a name="move-a-log-analytics-workspace-to-another-region-by-using-the-azure-portal"></a>Traslado de un área de trabajo de Log Analytics a otra región mediante Azure Portal
 
@@ -77,7 +77,7 @@ En los siguientes procedimientos se muestra cómo preparar el área de trabajo y
 1. Seleccione el área de trabajo, las soluciones, las consultas guardadas, las alertas, los paquetes de consultas y otros recursos relacionados con el área de trabajo que tiene (como una cuenta de Automation). Después, seleccione **Exportar plantilla** en la barra de herramientas.
     
     > [!NOTE]
-    > Azure Sentinel no se puede exportar con una plantilla. Debe [incorporar Sentinel](../../sentinel/quickstart-onboard.md) a un área de trabajo de destino.
+    > Microsoft Sentinel no se puede exportar con una plantilla. Debe [incorporar Sentinel](../../sentinel/quickstart-onboard.md) a un área de trabajo de destino.
    
 1. Seleccione **Implementar** en la barra de herramientas para editar y preparar la plantilla para la implementación.
 1. Seleccione **Editar parámetros** en la barra de herramientas para abrir el archivo *parameters.json* en el editor en línea.
@@ -286,7 +286,7 @@ En los siguientes procedimientos se muestra cómo preparar el área de trabajo y
 1. El área de trabajo, incluidos los recursos seleccionados, ahora se implementa en la región de destino. Puede completar el resto de la configuración en el área de trabajo para emparejar la funcionalidad con el área de trabajo original.
    - *Conectar agentes*: use cualquiera de las opciones disponibles, como Reglas de recopilación de datos, para configurar los agentes necesarios en las máquinas virtuales y los conjuntos de escalado de máquinas virtuales y especifique la nueva área de trabajo de destino como destino.
    - *Configuración de diagnóstico*: actualice la configuración de diagnóstico en los recursos identificados, con el área de trabajo de destino como destino.
-   - *Instalación de soluciones*: algunas soluciones, como [Azure Sentinel](../../sentinel/quickstart-onboard.md), requieren cierto procedimiento de incorporación y no se incluyeron en la plantilla. Debe incorporarlas por separado a la nueva área de trabajo.
+   - *Instalación de soluciones*: algunas soluciones, como [Microsoft Sentinel](../../sentinel/quickstart-onboard.md), requieren ciertos procedimientos de incorporación y no se incluyeron en la plantilla. Debe incorporarlas por separado a la nueva área de trabajo.
    - *Configurar Data Collector API*: configure instancias de Data Collector API para enviar datos al área de trabajo de destino.
    - *Configurar reglas de alertas*: cuando las alertas no se exportan a la plantilla, debe configurarlas manualmente en el área de trabajo de destino.
 1. Compruebe que los datos nuevos no se ingieren en el área de trabajo original. Ejecute la siguiente consulta en el área de trabajo original y observe que no hay ninguna ingesta después de la migración:

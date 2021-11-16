@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.date: 10/18/2021
-ms.openlocfilehash: 01839f2a6f16584148d4cab86e07f3da0eefee43
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a8eded57142bf4682a0b555136c30462e9cf08ad
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131076554"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132060517"
 ---
 # <a name="make-predictions-with-onnx-on-computer-vision-models-from-automl"></a>Obtención de predicciones con ONNX en modelos de Computer Vision desde AutoML 
 
@@ -227,6 +227,9 @@ La salida es una lista de rectángulos, etiquetas y puntuaciones. Para YOLO, nec
 # <a name="instance-segmentation"></a>[Segmentación de instancias](#tab/instance-segmentation)
 
 En este ejemplo de la segmentación de instancias, se usa el modelo Mask R-CNN que se ha entrenado en el [conjunto de datos fridgeObjects](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjectsMask.zip) con 128 imágenes y 4 clases o etiquetas para explicar la inferencia del modelo de ONNX. Para obtener más información sobre el entrenamiento del modelo de la segmentación de instancias, consulte el [cuaderno de segmentación de instancias](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-instance-segmentation).
+
+>[!IMPORTANT]
+> La red Mask R-CNN es la única que se admite para las tareas de segmentación de instancias. Los formatos de entrada y salida se basan solo en Mask R-CNN.
 
 ### <a name="input-format"></a>Formato de entrada
 
@@ -488,7 +491,7 @@ img_data = preprocess(img, resize_size, crop_size_onnx)
 
 # <a name="object-detection-with-faster-r-cnn"></a>[Detección de objetos con Faster R-CNN](#tab/object-detect-cnn)
 
-Para la detección de objetos con el algoritmo de Faster R-CNN, siga los mismos pasos de preprocesamiento que la clasificación de imágenes, excepto el recorte de imágenes. Puede cambiar el tamaño de la imagen con un alto de `600` y un ancho de `800`, y obtener el alto y el ancho de entrada esperados con el código siguiente.
+Para la detección de objetos con el algoritmo de Faster R-CNN, siga los mismos pasos de preprocesamiento que la clasificación de imágenes, excepto el recorte de imágenes. Puede cambiar el tamaño de la imagen cuyo alto es `600` y cuyo ancho es `800`. Puede obtener el alto y ancho de entrada esperados con el código siguiente.
 
 ```python
 batch, channel, height_onnx, width_onnx = session.get_inputs()[0].shape
@@ -556,6 +559,8 @@ img_data, pad = preprocess(test_image_path)
 ```
 
 # <a name="instance-segmentation"></a>[Segmentación de instancias](#tab/instance-segmentation)
+>[!IMPORTANT]
+> La red Mask R-CNN es la única que se admite para las tareas de segmentación de instancias. Los pasos de preprocesamiento se basan solo en Mask R-CNN.
 
 Siga los siguientes pasos de preprocesamiento para la inferencia del modelo de ONNX:
 
@@ -613,6 +618,9 @@ img_data = preprocess(img, resize_height, resize_width)
 ## <a name="inference-with-onnx-runtime"></a>Inferencia con ONNX Runtime
 
 La inferencia con ONNX Runtime difiere para cada tarea de Computer Vision.
+
+>[!WARNING]
+> La puntuación por lotes no se admite actualmente para todas las tareas de Computer Vision. 
 
 # <a name="multi-class-image-classification"></a>[Clasificación de imágenes de varias clases](#tab/multi-class)
 

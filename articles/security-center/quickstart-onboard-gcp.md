@@ -7,12 +7,12 @@ ms.date: 02/08/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: b2f5d680fda34d181264a72a0d745a36093c472a
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 5d51a9495f2b05af6697147df20db01f0f14d083
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131472184"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132059987"
 ---
 #  <a name="connect-your-gcp-accounts-to-microsoft-defender-for-cloud"></a>Conexión de cuentas de GCP a Microsoft Defender for Cloud
 
@@ -22,7 +22,7 @@ Las cargas de trabajo de nube abarcan normalmente varias plataformas de nube, po
 
 Microsoft Defender for Cloud protege las cargas de trabajo de Azure, Amazon Web Services (AWS) y Google Cloud Platform (GCP).
 
-Agregar una cuenta de GCP a una suscripción de Azure permite que Defender for Cloud se conecte con el comando de seguridad de GCP. Defender for Cloud puede proteger los recursos en ambos entornos de nube y proporcionar:
+La adición de una cuenta de GCP a una suscripción de Azure conecta Defender for Cloud con el comando de seguridad de GCP. Defender for Cloud puede proteger los recursos en ambos entornos de nube y proporcionar:
 
 - Detección de errores de configuración de seguridad
 - Una sola vista que muestra recomendaciones de Defender for Cloud y resultados del centro de comandos de seguridad de GCP
@@ -39,7 +39,7 @@ Agregar una cuenta de GCP a una suscripción de Azure permite que Defender for C
 |Aspecto|Detalles|
 |----|:----|
 |Estado de la versión:|Disponibilidad general (GA)|
-|Precios:|Requiere [Microsoft Defender para servidores](defender-for-servers-introduction.md).|
+|Precios:|Requiere [Microsoft Defender para servidores](defender-for-servers-introduction.md)|
 |Roles y permisos necesarios:|**propietario** o **colaborador** en la suscripción de Azure en cuestión|
 |Nubes:|:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/no-icon.png"::: Nacionales o soberanas (Azure Government y Azure China 21Vianet)|
 |||

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 02/15/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: dd027f94edad580836f0afb8c7293c81ca77605a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 21699d306742c2a732155ac8df78608f5c3dd7ae
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101723833"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132346029"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory-issues"></a>Solución de problemas de Change Tracking e Inventario
 
@@ -20,7 +20,7 @@ En este artículo se describe cómo diagnosticar y solucionar problemas de Chang
 
 ### <a name="scenario-machine-is-already-registered-to-a-different-account"></a><a name="machine-already-registered"></a>Escenario: La máquina ya está registrada en otra cuenta
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Aparece el siguiente mensaje de error:
 
@@ -65,7 +65,7 @@ Si el problema no se resuelve, siga los pasos descritos en [Implementación de H
 
 ### <a name="scenario-change-tracking-and-inventory-records-arent-showing-for-windows-machines"></a><a name="records-not-showing-windows"></a>Escenario: no se muestran los registros de Change Tracking e Inventario para máquinas Windows
 
-#### <a name="issue"></a>Problema
+#### <a name="issue"></a>Incidencia
 
 No aparecen los resultados de Change Tracking e Inventario para las máquinas Windows donde se ha habilitado la característica.
 
@@ -78,7 +78,7 @@ Este error puede tener las causas siguientes:
 * No se han descargado los módulos de administración de Change Tracking e Inventario.
 * La VM que se quiere habilitar puede provenir de una máquina clonada que no se haya preparado mediante la preparación del sistema (sysprep) con el agente de Log Analytics para Windows instalado.
 
-#### <a name="resolution"></a>Solución
+#### <a name="resolution"></a>Resolución
 
 En la máquina del agente de Log Analytics, vaya a **C:\Archivos de programa\Microsoft Monitoring Agent\Agent\Tools** y ejecute los siguientes comandos:
 
@@ -120,7 +120,7 @@ Si utiliza una imagen clonada, primero prepare con sysprep la imagen y, a contin
 
 ### <a name="scenario-no-change-tracking-and-inventory-results-on-linux-machines"></a>Escenario: No hay resultados de Change Tracking e Inventario en las máquinas Linux
 
-#### <a name="issue"></a>Problema
+#### <a name="issue"></a>Incidencia
 
 No ve los resultados de Change Tracking e Inventario de las máquinas Linux que tienen habilitada la característica. 
 
@@ -130,13 +130,14 @@ Estas son algunas causas posibles específicas de este problema:
 * El agente de Log Analytics para Linux no está configurado correctamente.
 * Hay conflictos de supervisión de la integridad de los archivos (FIM).
 
-#### <a name="resolution"></a>Solución 
+#### <a name="resolution"></a>Resolución 
 
 ##### <a name="log-analytics-agent-for-linux-not-running"></a>El agente de Log Analytics para Linux no está en ejecución
 
 Compruebe que el demonio del agente de Log Analytics para Linux (**omsagent**) está en ejecución en la máquina. Ejecute la siguiente consulta en el área de trabajo de Log Analytics que está vinculada a la cuenta de Automation.
 
-```loganalytics Copy
+```loganalytics
+Copy
 Heartbeat
 | summarize by Computer, Solutions
 ```
@@ -153,7 +154,7 @@ Es posible que el agente de Log Analytics para Linux no esté correctamente conf
 
 ##### <a name="fim-conflicts"></a>Conflictos de FIM
 
-La característica FIM de Azure Security Center podría estar validando incorrectamente la integridad de los archivos de Linux. Compruebe que FIM está operativo y configurado correctamente para la supervisión de archivos de Linux. Consulte [Información general de Change Tracking e Inventario](../change-tracking/overview.md).
+La característica FIM de Defender for Cloud podría estar validando incorrectamente la integridad de los archivos de Linux. Compruebe que FIM está operativo y configurado correctamente para la supervisión de archivos de Linux. Consulte [Información general de Change Tracking e Inventario](../change-tracking/overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

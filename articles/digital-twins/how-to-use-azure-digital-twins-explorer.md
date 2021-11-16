@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/19/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 087af92ce70ccb8db37073b6aadb8cf9b83bc57c
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: f77efc7ab6880db771ea7f53fe9cfb2858c6ecc0
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131454312"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132328172"
 ---
 # <a name="use-azure-digital-twins-explorer-preview"></a>Uso de Azure Digital Twins Explorer (versión preliminar)
 
@@ -304,9 +304,9 @@ También puede ver la definición completa de un modelo al seleccionarlo en el p
 
 Para reorganizar los modelos en distintas configuraciones, haga clic en ellos y arrástrelos por la pantalla Model Graph (Grafo de modelos).
 
-También puede aplicar uno de varios algoritmos de diseño al grafo de modelos con las opciones del menú **Run Layout** (Ejecutar diseño). 
+También puede aplicar uno de varios algoritmos de diseño al grafo de modelos con las opciones del menú **Elegir diseño**. 
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-layout.png" alt-text="Captura de pantalla del panel Model Graph (Grafo de modelos) de Azure Digital Twins Explorer. El botón Run Layout (Ejecutar diseño) está resaltado y muestra un menú con las opciones de diseño Cola, Dagre, fCoSE, Klay y d3Force." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-layout.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-layout.png" alt-text="Captura de pantalla del panel Grafo de modelos de Azure Digital Twins Explorer. El botón Elegir diseño está resaltado y muestra un menú con las opciones de diseño Cola, Dagre, fCoSE, Klay y d3Force." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-layout.png":::
 
 ### <a name="filter-and-highlight-model-graph-elements"></a>Filtrado y resaltado de elementos del grafo de modelos
 
@@ -554,7 +554,7 @@ Puede usar el icono **Métodos abreviados de teclado** de la barra de herramient
 
 Hay varias características avanzadas a las que se puede acceder en el engranaje de Configuración de la barra de herramientas superior derecha:
 * **Carga diligente**: cuando una consulta devuelve gemelos que tienen relaciones con otros gemelos que **no** están incluidos en los resultados de la consulta, esta característica cargará los gemelos "ausentes" antes de representar el grafo.
-* **Almacenamiento en caché**: cuando esta característica está habilitada, Azure Digital Twins Explorer mantiene una caché local de relaciones y modelos en la memoria para mejorar el rendimiento de las consultas. Estas memorias caché se borran con cualquier operación de escritura en los elementos correspondientes, así como con la actualización del explorador.
+* **Almacenamiento en caché**: cuando esta característica está habilitada, Azure Digital Twins Explorer mantiene una caché local de relaciones y modelos en la memoria para mejorar el rendimiento de las consultas. Estas memorias caché se borran con cualquier operación de escritura en los elementos correspondientes, así como con la actualización del explorador. Esta característica está desactivada de manera predeterminada.
 * **Consola**: esta característica permite mostrar una ventana de consola, donde se pueden usar funciones de shell sencillas para trabajar con el grafo.
 * **Salida**: esta característica permite mostrar una ventana de salida, que incluye un seguimiento de diagnóstico de las operaciones.
 * **Contraste alto**: esta característica cambia los colores de Azure Digital Twins Explorer, para que aparezcan con mayor contraste.

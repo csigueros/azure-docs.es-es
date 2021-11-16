@@ -6,12 +6,12 @@ title: Arquitectura de referencia de Azure Spring Cloud
 ms.author: akaleshian
 ms.service: spring-cloud
 description: Esta arquitectura de referencia es una base que usa un diseño empresarial típico de concentrador y radio (hub-and-spoke) para el uso de Azure Spring Cloud.
-ms.openlocfilehash: d3124f9e9eac913a333e4ab186c871297e955d1e
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 5d8886453a3047d9ce48b875ce4841d640d0f2b1
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123469093"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132323072"
 ---
 # <a name="azure-spring-cloud-reference-architecture"></a>Arquitectura de referencia de Azure Spring Cloud
 
@@ -82,7 +82,7 @@ En la lista siguiente se describen los servicios de Azure en esta arquitectura d
 
 * [Azure Pipelines][5]: Servicio completo de integración continua y desarrollo continuo (CI/CD) que puede implementar automáticamente aplicaciones de Spring Boot actualizadas en Azure Spring Cloud.
 
-* [Azure Security Center][4]: Sistema unificado de protección contra amenazas y administración de seguridad para cargas de trabajo en entornos locales, varias nubes y Azure.
+* [Microsoft Defender for Cloud][4]: sistema unificado de protección contra amenazas y administración de seguridad para cargas de trabajo en entornos locales, varias nubes y Azure.
 
 * [Azure Spring Cloud][1]: Servicio administrado diseñado y optimizado específicamente para aplicaciones de Spring Boot basadas en Java y aplicaciones de [Steeltoe][9] basadas en .NET.
 
@@ -136,7 +136,7 @@ En la lista siguiente se describen los servicios de Azure en esta arquitectura d
 
 * [Azure Pipelines][5]: Servicio completo de integración continua y desarrollo continuo (CI/CD) que puede implementar automáticamente aplicaciones de Spring Boot actualizadas en Azure Spring Cloud.
 
-* [Azure Security Center][4]: Sistema unificado de protección contra amenazas y administración de seguridad para cargas de trabajo en entornos locales, varias nubes y Azure.
+* [Microsoft Defender for Cloud][4]: sistema unificado de protección contra amenazas y administración de seguridad para cargas de trabajo en entornos locales, varias nubes y Azure.
 
 * [Azure Spring Cloud][1]: Servicio administrado diseñado y optimizado específicamente para aplicaciones de Spring Boot basadas en Java y aplicaciones de [Steeltoe][9] basadas en .NET.
 
@@ -167,7 +167,7 @@ Azure Spring Cloud aborda varios aspectos de la excelencia operativa. Puede comb
 * Puede usar Azure Pipelines para asegurarse de que las implementaciones sean confiables y coherentes, al tiempo que le ayuda a evitar errores humanos.
 * Puede usar Azure Monitor y Application Insights para almacenar datos de registro y de telemetría.
   Puede evaluar los datos recopilados de registros y de métricas para garantizar el mantenimiento y el rendimiento de las aplicaciones. La Supervisión de rendimiento de aplicaciones (APM) se encuentra totalmente integrada en el servicio a través de un agente de Java. Este agente proporciona visibilidad en todas las aplicaciones y dependencias implementadas sin necesidad de código adicional. Para obtener más información, consulte la entrada de blog sobre [Supervisión sencilla de aplicaciones y dependencias en Azure Spring Cloud][15].
-* Puede usar Azure Security Center para asegurarse de que las aplicaciones mantengan la seguridad; para ello puede brindar una plataforma para analizar y evaluar los datos proporcionados.
+* Puede usar Microsoft Defender for Cloud para asegurarse de que las aplicaciones mantengan la seguridad; para ello puede brindar una plataforma para analizar y evaluar los datos proporcionados.
 * El servicio admite varios patrones de implementación. Para más información, consulte [Configuración de un entorno de ensayo en Azure Spring Cloud][14].
 
 ### <a name="reliability"></a>Confiabilidad

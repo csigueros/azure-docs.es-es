@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 2010347f2b796a7cac181d0b574401ad34b6f859
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: a0f292a3ea3df213c1e9be76da0c2d35ce8554ce
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122697263"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132345175"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Protección y uso de directivas en máquinas virtuales en Azure
 
@@ -25,11 +25,11 @@ Es importante proteger la máquina virtual (VM) para las aplicaciones que se eje
 
 El panorama moderno de amenazas para los entornos de nube es dinámico, lo que aumenta la presión para mantener una protección eficaz a fin de satisfacer los requisitos de cumplimiento y seguridad. [Microsoft Antimalware para Azure](../security/fundamentals/antimalware.md) es una funcionalidad gratuita de protección en tiempo real que ayuda a identificar y eliminar virus, spyware y otro software malintencionado. Las alertas se pueden configurar para avisarle cuando software no deseado o malintencionado intenta instalarse o ejecutarse en una máquina virtual. No se admite en las máquinas virtuales que ejecutan Linux o Windows Server 2008.
 
-## <a name="azure-security-center"></a>Azure Security Center
+## <a name="microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud
 
-[Azure Security Center](../security-center/security-center-introduction.md) ayuda a evita y a detectar las amenazas para las máquinas virtuales, además de a responder a ellas. Security Center proporciona funcionalidades de administración de directivas y supervisión de la seguridad integradas en las suscripciones de Azure, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
+[Microsoft Defender for Cloud](../security-center/security-center-introduction.md) ayuda a evitar y a detectar las amenazas para las máquinas virtuales, además de a responder a ellas. Microsoft Defender for Cloud proporciona administración de directivas y supervisión de la seguridad integradas en las suscripciones de Azure, ayuda a detectar amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
 
-El acceso Just-In-Time de Security Center se puede aplicar en toda la implementación de la máquina virtual para bloquear el tráfico entrante a las máquinas virtuales de Azure, lo que reduce la exposición a ataques y, al mismo tiempo, proporciona acceso sencillo para conectarse a las máquinas virtuales cuando sea necesario. Cuando Just-In-Time está habilitado y un usuario solicita acceso a una máquina virtual, Security Center comprueba qué permisos tiene el usuario para la máquina virtual. Si tiene los permisos correctos, se aprueba la solicitud y Security Center configura automáticamente los grupos de seguridad de red (NSG) para permitir el tráfico entrante a los puertos seleccionados durante un período de tiempo limitado. Una vez transcurrido ese tiempo, Security Center restaura los NSG a su estado anterior. 
+El acceso Just-In-Time de Microsoft Defender for Cloud se puede aplicar en toda la implementación de la máquina virtual para bloquear el tráfico entrante a las máquinas virtuales de Azure, lo que reduce la exposición a ataques y, al mismo tiempo, proporciona acceso sencillo para conectarse a las máquinas virtuales cuando sea necesario. Cuando Just-In-Time está habilitado y un usuario solicita acceso a una máquina virtual, Microsoft Defender for Cloud comprueba qué permisos tiene el usuario para la máquina virtual. Si tiene los permisos correctos, se aprueba la solicitud y Microsoft Defender for Cloud configura automáticamente los grupos de seguridad de red (NSG) para permitir el tráfico entrante a los puertos seleccionados durante un período de tiempo limitado. Una vez transcurrido ese tiempo, Defender for Cloud restaura los NSG a su estado anterior. 
 
 ## <a name="encryption"></a>Cifrado
 
@@ -75,4 +75,4 @@ Mediante el [control de acceso basado en roles de Azure (RBAC de Azure)](../role
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Siga los pasos para supervisar la seguridad de la máquina virtual mediante Azure Security Center para [Linux](../security/fundamentals/overview.md) o [Windows](/previous-versions/azure/virtual-machines/tutorial-azure-security).
+- Siga los pasos para supervisar la seguridad de la máquina virtual mediante Microsoft Defender for Cloud para [Linux](../security/fundamentals/overview.md) o [Windows](/previous-versions/azure/virtual-machines/tutorial-azure-security).

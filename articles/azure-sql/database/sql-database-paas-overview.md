@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: 4c5f2be821e43eda1ae611f3300538c7c41d04f4
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: a9253cbb39bc58d74f6c8dd25b2251b9d2a606ef
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110707688"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132290521"
 ---
 # <a name="what-is-azure-sql-database"></a>¿Qué es Azure SQL Database?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -168,7 +168,7 @@ SQL Database proporciona varias [características integradas de seguridad y cump
 
 ### <a name="advance-threat-protection"></a>Protección contra amenazas avanzada
 
-Azure Defender para SQL es un paquete unificado de funcionalidades avanzadas de seguridad de SQL. Incluye funcionalidad para administrar los puntos vulnerables de una base de datos y detectar actividades anómalas que puedan indicar una amenaza para dicha base de datos. Proporciona una ubicación única para habilitar y administrar estas funcionalidades.
+Microsoft Defender para SQL es un paquete unificado de funcionalidades avanzadas de seguridad de SQL. Incluye funcionalidad para administrar los puntos vulnerables de una base de datos y detectar actividades anómalas que puedan indicar una amenaza para dicha base de datos. Proporciona una ubicación única para habilitar y administrar estas funcionalidades.
 
 - [Evaluación de vulnerabilidades](sql-vulnerability-assessment.md):
 

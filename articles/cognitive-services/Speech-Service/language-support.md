@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: eur
 ms.custom: references_regions, ignite-fall-2021
-ms.openlocfilehash: 67ac8e5cc3f7d555086ad6f643b82e8615168fa3
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.openlocfilehash: 379d842f465b6e199f86137057dc037b903613a4
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132028123"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132490617"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Compatibilidad con idiomas y voces en el servicio de voz
 
@@ -255,7 +255,6 @@ Las voces neuronales se pueden usar para que las interacciones con los bots de c
 | Inglés (Tanzania) | `en-TZ` | Female | `en-TZ-ImaniNeural` <sup>Nuevo</sup>  | General |
 | Inglés (Tanzania) | `en-TZ` | Male | `en-TZ-ElimuNeural` <sup>Nuevo</sup>  | General |
 | Inglés (Reino Unido) | `en-GB` | Female | `en-GB-LibbyNeural` | General |
-| Inglés (Reino Unido) | `en-GB` | Female | `en-GB-MiaNeural`<sup>Se retirará el 30 de octubre; consulte la información que tiene a continuación.</sup> | General |
 | Inglés (Reino Unido) | `en-GB` | Female | `en-GB-SoniaNeural` | General |
 | Inglés (Reino Unido) | `en-GB` | Male | `en-GB-RyanNeural` | General |
 | Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-AmberNeural` | General |
@@ -436,10 +435,6 @@ Las voces neuronales se pueden usar para que las interacciones con los bots de c
 | Galés (Reino Unido) | `cy-GB` | Male | `cy-GB-AledNeural` | General | 
 | Zulú (Sudáfrica) | `zu-ZA` | Female | `zu-ZA-ThandoNeural` <sup>Nuevo</sup>  | General |
 | Zulú (Sudáfrica) | `zu-ZA` | Male | `zu-ZA-ThembaNeural` <sup>Nuevo</sup>  | General |
-
-> [!IMPORTANT]
-> La voz `en-GB-MiaNeural` en inglés (Reino Unido) se retirará el **30 de octubre de 2021**. Todas las solicitudes de servicio a `en-GB-MiaNeural` se volverán a dirigir automáticamente a `en-GB-SoniaNeural` después del **30 de octubre de 2021**.
-> Si usa el contenedor TTS neuronal, [descargue](speech-container-howto.md#get-the-container-image-with-docker-pull) e implemente la versión más reciente antes del **30 de octubre de 2021**. Después del **30 de octubre de 2021**, se rechazarán todas las solicitudes con versiones anteriores.
 
 #### <a name="neural-voices-in-preview"></a>Voces neuronales en versión preliminar
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/03/2021
 ms.author: jeedes
-ms.openlocfilehash: 1ab33f1905b69c0a90fbd0584982d693dcfa86d5
-ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.openlocfilehash: 6faeb92b62892b29ee4fc27fc8b075f6a22a40b2
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132000585"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132338523"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-coverity-static-application-security-testing"></a>Tutorial: Integración del inicio de sesión único (SSO ) de Azure AD con Coverity Static Application Security Testing
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Coverity Static Application Security Tes
 * Permitir que los usuarios inicien sesión automáticamente en Coverity Static Application Security Testing con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -140,4 +140,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado Coverity Static Application Security Testing, podrá aplicar el control de sesión, que protege la información confidencial de la organización en tiempo real de posibles filtraciones. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez que haya configurado Coverity Static Application Security Testing, podrá aplicar el control de sesión, que protege la información confidencial de la organización en tiempo real de posibles filtraciones. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con las aplicaciones de Microsoft Defender for Cloud](/cloud-app-security/proxy-deployment-aad).

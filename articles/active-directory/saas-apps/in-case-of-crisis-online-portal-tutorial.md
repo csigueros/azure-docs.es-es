@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2020
 ms.author: jeedes
-ms.openlocfilehash: 2d8925079abfda716755179d5ed8d38e0ab33f8e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 4918129021af62354214b5d9915dd133fd7d2b17
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124757294"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132346922"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-in-case-of-crisis---online-portal"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con In Case of Crisis - Online Portal
 
@@ -40,7 +40,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * In Case of Crisis - Online Portal admite el inicio de sesión único iniciado por **IDP**.
-* Una vez configurado In Case of Crisis - Online Portal, puede aplicar controles de sesión, que protegen la filtración e infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Una vez configurado In Case of Crisis - Online Portal, puede aplicar controles de sesión, que protegen la filtración e infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-in-case-of-crisis---online-portal-from-the-gallery"></a>Incorporación de In Case of Crisis - Online Portal desde la galería
 
@@ -61,7 +61,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con In Case of Crisi
 Para configurar y probar el inicio de sesión único de Azure AD con In Case of Crisis - Online Portal, complete los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de In Case of Crisis - Online Portal](#configure-in-case-of-crisis-online-portal-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     * **[Creación de un usuario de prueba de In Case of Crisis - Online Portal](#create-in-case-of-crisis-online-portal-test-user)** , para tener un homólogo de B.Simon en In Case of Crisis - Online Portal que esté vinculado a la representación del usuario en Azure AD.
@@ -142,4 +142,4 @@ Al hacer clic en el icono de In Case of Crisis - Online Portal en el Panel de ac
 
 - [Pruebe In Case of Crisis - Online Portal con Azure AD](https://aad.portal.azure.com/)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [¿Qué es el control de sesión en Microsoft Defender para aplicaciones en la nube?](/cloud-app-security/proxy-intro-aad)

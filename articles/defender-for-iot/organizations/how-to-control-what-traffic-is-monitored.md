@@ -1,14 +1,14 @@
 ---
 title: Control del tráfico que se supervisa
 description: Los sensores realizan automáticamente una detección profunda de paquetes en el tráfico de TI y OT y resuelven la información sobre los dispositivos de red, como los atributos del dispositivo y el comportamiento de la red. Hay varias herramientas disponibles para controlar el tipo de tráfico que detecta cada sensor.
-ms.date: 12/07/2020
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: b80ef4a4a1fca7383da80fda6fdf42831913f2bd
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 76923afc40469ba30e4a2ce8ead6696f056a7580
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113020802"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132305947"
 ---
 # <a name="control-what-traffic-is-monitored"></a>Control del tráfico que se supervisa
 
@@ -230,7 +230,7 @@ Mediante un dispositivo de prueba, compruebe que la configuración definida func
 
 ## <a name="configure-windows-endpoint-monitoring"></a>Configuración de la supervisión de puntos de conexión de Windows
 
-Con la funcionalidad de supervisión de puntos de conexión de Windows, puede configurar Azure Defender para IoT para sondear de forma selectiva los sistemas Windows. Esta actividad le proporciona información más precisa y específica sobre los dispositivos, por ejemplo, los niveles de Service Pack.
+Con la funcionalidad de supervisión de puntos de conexión de Windows, puede configurar Microsoft Defender para IoT para sondear de forma selectiva los sistemas Windows. Esta actividad le proporciona información más precisa y específica sobre los dispositivos, por ejemplo, los niveles de Service Pack.
 
 Puede configurar el sondeo con intervalos y hosts específicos, y que se realice solo con la frecuencia que se desee. El sondeo selectivo se realiza mediante el Instrumental de administración de Windows (WMI), que es el lenguaje de scripting estándar de Microsoft para administrar sistemas Windows.
 

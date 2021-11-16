@@ -11,12 +11,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.custom: azure-synapse
-ms.openlocfilehash: 4829489cbb3229cdbe4c3d95c0eb44cc2047c585
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: df8bb8b6e15a442c932147d61cd61c2b7727e480
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131504063"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132521099"
 ---
 # <a name="troubleshoot-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Solución de problemas del grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ En este artículo se enumeran los problemas comunes de un grupo de SQL dedicado 
 
 ## <a name="connect"></a>Conectar
 
-| Problema                                                        | Resolución                                                   |
+| Problema                                                        | Solución                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Error de inicio de sesión del usuario 'NT AUTHORITY\ANONYMOUS LOGON'. (Microsoft SQL Server, Error: 18456) | Este error se produce cuando un usuario de Azure AD intenta conectarse a la base de datos `master`, pero no tiene un usuario en `master`.  Para corregir este problema, especifique el grupo de SQL dedicado (anteriormente SQL DW) al que quiera conectarse en el momento de la conexión o agregue el usuario a la base de datos `master`.  Consulte el artículo [Información general sobre seguridad](sql-data-warehouse-overview-manage-security.md) para más detalles. |
 | La entidad de seguridad del servidor "MyUserName" no puede obtener acceso a la base de datos `master` en el contexto de seguridad actual. No se puede abrir la base de datos predeterminada del usuario. Error de inicio de sesión. Error de inicio de sesión del usuario 'MyUserName'. (Microsoft SQL Server, Error: 916) | Este error se produce cuando un usuario de Azure AD intenta conectarse a la base de datos `master`, pero no tiene un usuario en `master`.  Para corregir este problema, especifique el grupo de SQL dedicado (anteriormente SQL DW) al que quiera conectarse en el momento de la conexión o agregue el usuario a la base de datos `master`.  Consulte el artículo [Información general sobre seguridad](sql-data-warehouse-overview-manage-security.md) para más detalles. |
@@ -34,7 +34,7 @@ En este artículo se enumeran los problemas comunes de un grupo de SQL dedicado 
 
 ## <a name="tools"></a>Herramientas
 
-| Problema                                                        | Resolución                                                   |
+| Incidencia                                                        | Solución                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | El Explorador de objetos de Visual Studio no muestra usuarios de Azure AD           | Este es un problema conocido.  Como solución alternativa, vea los usuarios de [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  Para obtener más información sobre el uso de Azure Active Directory con el grupo de SQL dedicado (anteriormente SQL DW), consulte [Autenticación en Azure Synapse](sql-data-warehouse-authentication.md). |
 | El scripting manual, mediante el Asistente para scripting, o la conexión a través de SSMS es lenta, no responde o genera errores | Asegúrese de que se han creado usuarios en la base de datos `master`. En las opciones de scripting, asegúrese también de que la edición del motor se ha establecido como "Microsoft Azure Synapse Analytics Edition" y que el tipo de motor es "Microsoft Azure SQL Database". |
@@ -49,7 +49,7 @@ En este artículo se enumeran los problemas comunes de un grupo de SQL dedicado 
 
 ## <a name="performance"></a>Rendimiento
 
-| Problema                                                        | Resolución                                                   |
+| Incidencia                                                        | Solución                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Solución de problemas de rendimiento de consultas                            | Si está intentando solucionar los problemas de una consulta determinada, comience por [aprender a supervisar las consultas](sql-data-warehouse-manage-monitor.md#monitor-query-execution). |
 | Problemas de espacio de TempDB | [Supervise el uso del espacio de TempDB](sql-data-warehouse-manage-monitor.md#monitor-tempdb).  Las causas comunes para quedarse sin espacio de TempDB son:<br>- No hay suficientes recursos asignados a la consulta, lo que provoca que los datos se derramen en TempDB.  Consulte [Administración de cargas de trabajos](resource-classes-for-workload-management.md) <br>- Las estadísticas faltan o no están actualizadas, lo que provoca un movimiento de datos excesivo.  Para más información sobre cómo crear estadísticas, vea [Mantenimiento de estadísticas de tablas](sql-data-warehouse-tables-statistics.md).<br>- El espacio de TempDB se asigna por nivel de servicio.  El [escalado del grupo de SQL dedicado (anteriormente SQL DW)](sql-data-warehouse-manage-compute-overview.md#scaling-compute) a una configuración de DWU superior asigna más espacio de TempDB.|
@@ -61,7 +61,7 @@ En este artículo se enumeran los problemas comunes de un grupo de SQL dedicado 
 
 ## <a name="system-management"></a>Administración del sistema
 
-| Problema                                                        | Resolución                                                   |
+| Incidencia                                                        | Solución                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Mens. 40847: No se pudo realizar la operación porque el servidor superaría la cuota de la unidad de transacción de la base de datos permitida de 45000. | Reduzca la unidad [DWU](what-is-a-data-warehouse-unit-dwu-cdwu.md) de la base de datos que intenta crear o [ solicite un aumento de la cuota](sql-data-warehouse-get-started-create-support-ticket.md). |
 | Investigación del uso del espacio                              | Consulte los [tamaños de tabla](sql-data-warehouse-tables-overview.md#table-size-queries) para comprender el uso del espacio del sistema. |
@@ -70,13 +70,12 @@ En este artículo se enumeran los problemas comunes de un grupo de SQL dedicado 
 
 ## <a name="differences-from-sql-database"></a>Diferencias con respecto a SQL Database
 
-| Problema                                 | Resolución                                                   |
+| Incidencia                                 | Solución                                                   |
 | :------------------------------------ | :----------------------------------------------------------- |
 | Características de SQL Database no admitidas     | Consulte [Características no compatibles de las tablas](sql-data-warehouse-tables-overview.md#unsupported-table-features). |
 | Tipos de datos de SQL Database no admitidos   | Consulte [Tipos de datos no admitidos](sql-data-warehouse-tables-data-types.md#identify-unsupported-data-types).        |
 | Limitaciones de procedimientos almacenados          | Consulte [Limitaciones de procedimientos almacenados](sql-data-warehouse-develop-stored-procedures.md#limitations) para conocer algunas de las limitaciones de los procedimientos almacenados. |
 | Los UDF no admiten instrucciones SELECT | Se trata de una limitación actual de nuestros UDF.  Consulte [CREATE FUNCTION](/sql/t-sql/statements/create-function-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para comprobar la sintaxis que se admite. |
-| `sp_rename` (versión preliminar) para las columnas no funciona en esquemas fuera de `dbo` | Se trata de una limitación actual de [sp_rename (versión preliminar) para columnas](/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) de Synapse.  Se puede cambiar el nombre de las columnas de los objetos que no forman parte del esquema `dbo` a través de CTAS a una nueva tabla. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

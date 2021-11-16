@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 10/21/2021
 ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 15edab4bc16067b866912e1fca899e844ff6e7e0
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: e3430ded70d8bba018e2bb28ad48decde82c46c4
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131554935"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132339732"
 ---
 # <a name="tutorial-designer---train-a-no-code-regression-model"></a>Tutorial: Diseñador (entrenamiento de un modelo de regresión sin código)
 
@@ -221,7 +221,7 @@ Para entrenar el modelo, proporciónele un conjunto de datos que incluya el prec
 1. Conecte la salida del componente **Linear Regression** (Regresión lineal) a la entrada izquierda del componente **Train Model** (Entrenar modelo).
 
 1. Conecte la salida de datos de entrenamiento (puerto izquierdo) del componente **Dividir datos** a la entrada derecha del componente **Entrenar modelo**.
-    
+
     > [!IMPORTANT]
     > Asegúrese de que el puerto de salida izquierdo de **Split Data** (Dividir datos) se conecta a **Train Model** (Entrenar modelo). El puerto izquierdo contiene el conjunto de entrenamiento. El puerto derecho contiene el conjunto de prueba.
 

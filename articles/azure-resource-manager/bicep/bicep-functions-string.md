@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 10/29/2021
-ms.openlocfilehash: a59be71415197242d636c577cff1c80b9f5fc639
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: a73df839ff7dcaad992b8930c8fb2545e854951c
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131439887"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132028085"
 ---
 # <a name="string-functions-for-bicep"></a>Funciones de cadena para Bicep
 
@@ -500,6 +500,9 @@ guid(resourceGroup().id, deployment().name)
 
 Una cadena que contiene 36 caracteres en el formato de un identificador único global.
 
+> [!NOTE]
+> Importancia del orden: no solo es preciso que sean los mismos parámetros, sino que también deben estar en el mismo orden. Por ejemplo: `guid('hello', 'world') != guid('world', 'hello')`
+
 ### <a name="examples"></a>Ejemplos
 
 El ejemplo siguiente devuelve los resultados de guid:
@@ -706,7 +709,7 @@ Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 Solo puede usar esta función dentro de una expresión para el valor predeterminado de un parámetro. El uso de esta función en cualquier otro lugar de un archivo de Bicep genera un error. La función no se permite en otras partes del archivo de Bicep porque devuelve un valor diferente cada vez que se le llama. La implementación del mismo archivo de Bicep con los mismos parámetros no produciría de forma confiable los mismos resultados.
 
-La función newGuid difiere de la función [guid](#guid) en que no toma ningún parámetro. Cuando se llama a guid con el mismo parámetro, devuelve el mismo identificador cada vez. Use guid cuando necesite generar de forma confiable el mismo GUID para un entorno específico. Use newGuid cuando necesite un identificador diferente cada vez, como en la implementación de recursos en un entorno de prueba.
+La función newGuid difiere de la función [guid](#guid) en que no toma ningún parámetro. Cuando se llama a guid con el mismo parámetro, devuelve siempre el mismo identificador. Use guid cuando necesite generar de forma confiable el mismo GUID para un entorno específico. Use newGuid cuando necesite un identificador diferente cada vez, como en la implementación de recursos en un entorno de prueba.
 
 La función newGuid usa la [estructura de GUID](/dotnet/api/system.guid) en .NET Framework para generar el identificador único global.
 
@@ -1423,5 +1426,5 @@ La salida del ejemplo anterior con el valor predeterminado es:
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Puede encontrar una descripción de las secciones de un archivo de Bicep en [Nociones sobre la estructura y la sintaxis de los archivos de Bicep](./file.md).
-* Para iterar un número especificado de veces al crear un tipo de recurso, vea [Bucles iterativos en Bicep](loops.md).
+* Para iterar un número especificado de veces al crear un tipo de recurso, consulte [Bucles iterativos en Bicep](loops.md).
 * Para ver cómo implementar el archivo de Bicep que ha creado, consulte [Implementación de recursos con Bicep y Azure PowerShell](./deploy-powershell.md).

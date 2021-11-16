@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/27/2021
+ms.date: 11/03/2021
 ms.author: jeedes
-ms.openlocfilehash: f66c2019e85640f1eaaeded5040fb925d070044a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7cbc5a5bc6cdacc6828d8609b409cfa9674fc331
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128655797"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132370058"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-cloud-academy---sso"></a>Tutorial: Integración del inicio de sesión único de Azure Active Directory con Cloud Academy - SSO
 
@@ -37,7 +37,7 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Cloud Academy - SSO admite el inicio de sesión único iniciado por **SP**
+* Cloud Academy - SSO admite el inicio de sesión único iniciado por **SP**.
 * Cloud Academy - SSO admite el aprovisionamiento de usuarios **Just-In-Time**.
 * Cloud Academy - SSO admite el [Aprovisionamiento automatizado de usuarios](cloud-academy-sso-provisioning-tutorial.md).
 
@@ -125,30 +125,40 @@ En esta sección, va a permitir que B.Simon acceda a Cloud Academy - SSO mediant
 
 1. En otra ventana del explorador, inicie sesión en el sitio de la compañía de Cloud Academy - SSO como administrador.
 
-1. Seleccione el nombre de la compañía y, a continuación, seleccione **Settings & Integrations** (Configuración e integraciones) en el menú que aparece:
+1. En la página principal, haga clic en el icono del **Equipo de integración de Azure** y, a continuación, seleccione **Configuración** en el menú izquierdo.
 
-    ![Captura de pantalla que muestra la opción Configuración e integraciones.](./media/cloud-academy-sso-tutorial/config-1.PNG)
+1. En la pestaña **INTEGRACIONES**, seleccione la tarjeta **SSO**.
 
-1. En la página **Settings & integraciones** (Configuración e integraciones), en la pestaña **Integrations** (Integraciones), seleccione la tarjeta **SSO**:
+    ![Captura de pantalla que muestra la opción Configuración e integraciones.](./media/cloud-academy-sso-tutorial/integrations.png)
 
-    ![Captura de pantalla que muestra la tarjeta SSO en la pestaña de integraciones.](./media/cloud-academy-sso-tutorial/config-2.PNG)
+1. Haga clic en **Comenzar a configurar** para configurar el SSO.
 
-1. Realice los pasos siguientes en esta página:
+    ![Captura de pantalla que muestra la página Integraciones > SSO.](./media/cloud-academy-sso-tutorial/start-configuring.png)
 
-    ![Captura de pantalla que muestra la página SSO en Integraciones.](./media/cloud-academy-sso-tutorial/config-3.PNG)
+1. Complete los siguientes pasos en la página Configuración general:
 
-    a. En el cuadro **Entity ID URL** (Dirección URL del identificador de entidad), escriba el valor del identificador de entidad que copió de Azure Portal.
+    ![Captura de pantalla que muestra las integraciones en la configuración general.](./media/cloud-academy-sso-tutorial/general-settings.png)
 
-    b. En el cuadro **SSO URL** (Dirección URL de inicio de sesión único), pegue la dirección URL de inicio de sesión que copió de Azure Portal.
+    a. En el cuadro **SSO URL (ubicación)** , pegue la dirección URL de inicio de sesión que copió de Azure Portal.
 
     c. Abra el certificado Base 64 descargado desde Azure Portal en el Bloc de notas. Pegue su contenido en el cuadro **Certificate** (Certificado).
 
-    d. En el cuadro de texto **Name ID Format** (Formato del identificador de nombre), mantenga el valor predeterminado: `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
+    d. En el cuadro **Dominios de correo electrónico**, escriba todos los valores de dominio que usa la empresa para los correos electrónicos de usuario.
 
-1. Seleccione **Guardar**.
+1. Realice en la página siguiente los pasos que se indican a continuación:
 
-    > [!NOTE]
-    > Para más información sobre cómo configurar Cloud Academy - SSO, consulte [Configuración del inicio de sesión único](https://support.cloudacademy.com/hc/articles/360043908452-Setting-Up-Single-Sign-On).
+    ![Captura de pantalla que muestra las integraciones en configuraciones adicionales.](./media/cloud-academy-sso-tutorial/additional-settings.png)
+
+    a. En la sección **Asignación de atributos de SAML**, rellene los campos obligatorios con los valores de atributo de origen.
+
+    b. En la sección **Configuración de seguridad**, active la casilla **¿Están las solicitudes de autenticación firmadas?** para establecer este valor en **True**.
+
+    c. En la sección **Configuración adicional (opcional)** , complete el cuadro **Dirección URL de cierre de sesión** con el valor de URL de cierre de sesión que copió de Azure Portal.
+
+1. Haga clic en **Guardar y probar**.
+
+> [!NOTE]
+> Para más información sobre cómo configurar Cloud Academy - SSO, consulte [Configuración del inicio de sesión único](https://support.cloudacademy.com/hc/articles/360043908452-Setting-Up-Single-Sign-On).
 
 ### <a name="create-a-cloud-academy-test-user"></a>Creación de un usuario de prueba de Cloud Academy
 

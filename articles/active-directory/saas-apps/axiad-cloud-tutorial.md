@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/07/2021
 ms.author: jeedes
-ms.openlocfilehash: 1a39761a021929d8670646dbdf1dcdf435e047f6
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 6a36436353b3398a5ed6186e504acc5d20d31b63
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129811162"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132288300"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-axiad-cloud"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Axiad Cloud
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Axiad Cloud con Azure Active Directory 
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Axiad Cloud con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -57,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Axiad Cloud medi
 Para configurar y probar el inicio de sesión único de Azure AD con Axiad Cloud, lleve a cabo los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Axiad Cloud](#configure-axiad-cloud-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Axiad Cloud](#create-axiad-cloud-test-user)** : para tener un homólogo de B.Simon en Axiad Cloud que esté vinculado a la representación del usuario en Azure AD.
@@ -136,4 +136,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Axiad Cloud, puede aplicar el control de sesión, que protege a la organización en tiempo real contra la filtración y la infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado Axiad Cloud, puede aplicar el control de sesión, que protege a la organización en tiempo real contra la filtración y la infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

@@ -1,28 +1,43 @@
 ---
 title: Sondeos de Azure Service Fabric
-description: Aprenda a modelar sondeos de ejecución en Azure Service Fabric mediante archivos de manifiesto de servicio y aplicación.
+description: Aprenda a modelar sondeos de ejecución y preparación en Azure Service Fabric mediante archivos de manifiesto de servicio y aplicación.
 ms.topic: conceptual
 author: tugup
 ms.author: tugup
 ms.date: 3/12/2020
-ms.openlocfilehash: 07a1b836ca7ea79244e303f54654dfcaa6e5fcb9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1f78499d6be8ee68011540abfba00a404b8c6ec5
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "82137593"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132059721"
 ---
-# <a name="liveness-probe"></a>Sondeo de ejecución
-A partir de la versión 7.1, Azure Service Fabric admite un mecanismo de sondeo de ejecución para aplicaciones en [contenedores][containers-introduction-link]. Un sondeo de ejecución ayuda a notificar la ejecución de una aplicación en contenedores, que se reiniciará si no responde rápidamente.
-En este artículo se proporciona información general sobre cómo definir un sondeo de ejecución mediante archivos de manifiesto.
+# <a name="service-fabric-probes"></a>Sondeos de Service Fabric
+Antes de continuar con este artículo, familiarícese con el [modelo de aplicación de Service Fabric][application-model-link] y con el [modelo de hospedaje de Service Fabric][hosting-model-link]. En este artículo se proporciona información general sobre cómo definir un sondeo de ejecución y preparación mediante archivos de manifiesto.
 
-Antes de continuar con este artículo, familiarícese con el [modelo de aplicación de Service Fabric][application-model-link] y con el [modelo de hospedaje de Service Fabric][hosting-model-link].
+## <a name="liveness-probe"></a>Sondeo de ejecución
+A partir de la versión 7.1, Azure Service Fabric admite un mecanismo de sondeo de ejecución para aplicaciones contenedorizadas y no contenedorizadas. Un sondeo de ejecución ayuda a notificar la ejecución de un paquete de código, que se reiniciará si no responde rápidamente.
 
-> [!NOTE]
-> El sondeo de ejecución solo se admite para contenedores en el modo de red NAT.
+## <a name="readiness-probe"></a>Sondeo de preparación
+A partir de la versión 8.2, también se admite el sondeo de preparación. Un sondeo de preparación se usa para decidir si un paquete de código está listo para aceptar tráfico. Por ejemplo, si el contenedor tarda mucho tiempo en procesar la solicitud o si la cola de solicitudes está llena, el paquete de código no puede aceptar más tráfico y, por tanto, se eliminarán los puntos de conexión para llegar al paquete de código. 
+
+El comportamiento del sondeo de preparación es:
+1.  Se inicia la instancia del paquete de código o contenedor.
+2.  Los puntos de conexión se publican inmediatamente.
+3.  El sondeo de preparación comienza a ejecutarse.
+4.  El sondeo de preparación finalmente alcanza el umbral de error y se elimina el punto de conexión, lo que hace que no esté disponible.
+5.  La instancia finalmente está lista.
+6.  El sondeo de preparación detecta que la instancia está lista y vuelve a publicar el punto de conexión.
+7.  Las solicitudes se enrutan de nuevo correctamente, ya que estaba lista para atender las solicitudes.
+
+> [!NOTE] 
+> Para el sondeo de preparación, el paquete de código no se reinicia, solo los puntos de conexión no se publican, por lo que las réplicas o particiones establecidas no se verán afectadas.
+>
 
 ## <a name="semantics"></a>Semántica
-Solo puede especificar un sondeo de ejecución por contenedor y puede controlar su comportamiento con los campos siguientes:
+Solo puede especificar un sondeo de ejecución y uno de preparación por paquete de código y puede controlar su comportamiento con los campos siguientes:
+
+* `type`: se usa para especificar si el tipo de sondeo es de ejecución o de preparación. Los valores admitidos son **Ejecución** o **Preparación**
 
 * `initialDelaySeconds`: Retraso inicial en segundos para comenzar la ejecución del sondeo una vez que se ha iniciado el contenedor. El valor admitido es **int**. El valor predeterminado es 0 y el mínimo, 0.
 
@@ -46,7 +61,7 @@ Además, Service Fabric generará los siguientes [informes de mantenimiento][hea
     * Se produce un error en el sondeo y **failureCount** < **failureThreshold**. Este informe de mantenimiento se conserva hasta que **failureCount** alcanza el valor definido en **failureThreshold** o **successThreshold**.
     * Si se ejecuta correctamente después de un error, la advertencia se conserva, pero con los éxitos consecutivos actualizados.
 
-## <a name="specifying-a-liveness-probe"></a>Especificación del sondeo de ejecución
+## <a name="specifying-a-probe"></a>Especificar un sondeo
 
 Puede especificar un sondeo en el archivo ApplicationManifest.xml en **ServiceManifestImport**.
 
@@ -60,7 +75,7 @@ El sondeo se puede realizar para cualquiera de estas opciones:
 
 En el caso de un sondeo HTTP, Service Fabric enviará una solicitud HTTP al puerto y la ruta de acceso que especifique. Un código de retorno mayor o igual que 200 y menor que 400 indica que se ha completado correctamente.
 
-Este es un ejemplo de cómo especificar un sondeo HTTP:
+Este es un ejemplo de cómo especificar un sondeo de ejecución de HTTP:
 
 ```xml
   <ServiceManifestImport>

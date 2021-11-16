@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/15/2021
+ms.date: 11/09/2021
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 13ee73160eb2efe4cce9a76d7f7ee611a8fbcd0e
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 1eb877215137338e2522ae9e8b215cceb469f49b
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "131036188"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132055481"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -70,6 +70,7 @@ El elemento **TrustFrameworkPolicy** contiene los elementos siguientes:
 | [BuildingBlocks](buildingblocks.md) | 0:1 | Bloques de creación de la directiva. |
 | [ClaimsProviders](claimsproviders.md) | 0:1 | Colección de proveedores de notificaciones. |
 | [UserJourneys](userjourneys.md) | 0:1 | Colección de recorridos del usuario. |
+| [SubJourneys](subjourneys.md) | 0:1 | Colección de recorridos secundarios. |
 | [RelyingParty](relyingparty.md) | 0:1 | Definición de una directiva del usuario de confianza. |
 
 Para heredar una directiva de otra directiva, es necesario declarar un elemento **BasePolicy** dentro del elemento **TrustFrameworkPolicy** del archivo de directiva. El elemento **BasePolicy** es una referencia a la directiva de base en las que se basa esta directiva.

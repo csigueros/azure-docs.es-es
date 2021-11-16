@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 03/06/2020
 ms.author: mimckitt
-ms.openlocfilehash: bf81d49bbbfaae2b96dfb712ae69568695ba6f23
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 729c988bcf64cab30cf7644c85a5749ff9c592b7
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122687520"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132137005"
 ---
 # <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>Datos personalizados y Cloud-Init en Azure Virtual Machines
 
@@ -84,7 +84,7 @@ Para solucionar problemas de ejecución de datos personalizados, revise la [docu
 
 ## <a name="faq"></a>Preguntas más frecuentes
 ### <a name="can-i-update-custom-data-after-the-vm-has-been-created"></a>¿Se pueden actualizar los datos personalizados una vez creada la máquina virtual?
-En el caso de VM únicas, los datos personalizados del modelo de VM no se pueden actualizar, pero, en el caso de VMSS, puede actualizar los datos personalizados de VMSS a través de la [API de REST](/rest/api/compute/virtualmachinescalesets/update) (esto no es aplicable a los clientes de la CLI de AZ o PS). Al actualizar los datos personalizados en el modelo de VMSS:
+En el caso de máquinas virtuales únicas, los datos personalizados del modelo de máquina virtual no se pueden actualizar, pero, en el caso de VMSS, puede actualizar los datos personalizados de VMSS mediante la [API REST](/rest/api/compute/virtualmachinescalesets/update), la [CLI de Azure](/cli/azure/vmss?view=azure-cli-latest#az_vmss_update) o [Azure PowerShell](/powershell/module/az.compute/update-azvmss?view=azps-6.6.0). Al actualizar los datos personalizados en el modelo de VMSS:
 * Las instancias existentes en VMSS no obtendrán los datos personalizados actualizados, solo hasta que se restablezcan.
 * Las instancias existentes en VMSS actualizadas no obtendrán los datos personalizados actualizados.
 * Las nuevas instancias recibirán los nuevos datos personalizados.

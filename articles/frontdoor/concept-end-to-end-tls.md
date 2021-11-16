@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 11/02/2021
 ms.author: duau
-ms.openlocfilehash: 0e62c64aa5e1aa3f29c58510bb53f092b9417bb6
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 5e0cac6f9ba6a245ec201666adb2c5cfeed79c38
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131478091"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132343104"
 ---
 # <a name="end-to-end-tls-with-azure-front-door"></a>TLS de un extremo a otro con Azure Front Door
 
@@ -54,6 +54,8 @@ En el caso de las conexiones HTTPS, Azure Front Door espera que el back-end pres
 
 Desde el punto de vista de la seguridad, Microsoft no recomienda deshabilitar la comprobación del nombre del firmante del certificado. En determinados casos de uso, como para las pruebas, por ejemplo, su origen debe utilizar un certificado autofirmado. Como solución para resolver errores de conexión HTTPS, puede deshabilitar la comprobación del nombre del firmante del certificado para Azure Front Door. La opción para deshabilitar está presente en la configuración de Azure Front Door en Azure Portal y en BackendPoolsSettings en la API de Azure Front Door. 
 
+## <a name="frontend-tls-connection-client-to-front-door"></a>Conexión de TLS de front-end (cliente a Front Door)
+
 Para habilitar el protocolo HTTPS para distribuir de forma segura el contenido en un dominio personalizado de Azure Front Door, puede optar por usar un certificado administrado por Azure Front Door o usar su propio certificado.  
 
 * El certificado administrado por Azure Front Door proporciona un certificado TLS/SSL estándar a través de DigiCert y se almacena en la instancia de Key Vault de Azure Front Door.   
@@ -62,11 +64,13 @@ Para habilitar el protocolo HTTPS para distribuir de forma segura el contenido e
 
 * No se admiten certificados autofirmados. Aprenda a  [habilitar HTTPS para un dominio personalizado](front-door-custom-domain-https.md).
 
-En el caso de los certificados administrados por Azure Front Door, los certificados se administran y se rotan automáticamente dentro de los 90 días posteriores al tiempo de expiración por parte de Azure Front Door. Si usa un certificado administrado por Azure Front Door y nota que la fecha de expiración del certificado es inferior a 60 días, cree una incidencia de soporte técnico. 
+### <a name="certificate-autorotation"></a>Rotación automática de certificados
+
+En el caso de la opción de certificado administrado de Azure Front Door, este administra y rota automáticamente los certificados en los 90 días posteriores al tiempo de expiración. En el caso de la opción de certificado administrado estándar o premium de Azure Front Door, este administra y rota automáticamente los certificados en los 45 días posteriores al tiempo de expiración. Si usa un certificado administrado de Azure Front Door y observa que la fecha de expiración del certificado es inferior a 60 días, o 30 en el caso de la SKU estándar o premium, cree una incidencia de soporte técnico. 
 
 Para su propio certificado TLS/SSL personalizado:
 
-1. Establezca la versión del secreto en "Más reciente" para que el certificado se rote automáticamente a la versión más reciente cuando haya disponible una versión más reciente del certificado en el almacén de claves. En el caso de los certificados personalizados, el certificado se rota de forma automática en un plazo de 1 a 2 días con una versión más reciente del certificado, independientemente del tiempo de expiración del certificado.
+1. Establezca la versión del secreto en "Más reciente" para que el certificado se rote automáticamente a la versión más reciente cuando haya disponible una versión más reciente del certificado en el almacén de claves. En el caso de los certificados personalizados, el certificado rota automáticamente en un plazo de 1 a 2 días con una versión más reciente, independientemente del tiempo de expiración del certificado.
 
 1. Si se selecciona una versión específica, no se admite la rotación automática. Tendrá que volver a seleccionar la nueva versión manualmente para rotar el certificado. La nueva versión del certificado o el secreto tarda hasta 24 horas en implementarse.
 
@@ -74,7 +78,7 @@ Para su propio certificado TLS/SSL personalizado:
 
 ## <a name="supported-cipher-suites"></a>Conjuntos de cifrado admitidos
 
-### <a name="for-tls12-the-following-cipher-suites-are-supported"></a>Para TLS 1.2, se admiten los siguientes conjuntos de cifrado:
+Para TLS 1.2, se admiten los siguientes conjuntos de cifrado:
 
 * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
@@ -84,7 +88,7 @@ Para su propio certificado TLS/SSL personalizado:
 > [!NOTE]
 > Para Windows 10 y versiones posteriores, se recomienda habilitar uno o ambos conjuntos de cifrado ECDHE para mejorar la seguridad. Windows 8.1, 8 y 7 no son compatibles con estos conjuntos de cifrado ECDHE. Los conjuntos de cifrado DHE proporcionan compatibilidad con esos sistemas operativos.
 
-### <a name="using-custom-domains-with-tls1011-enabled-the-following-cipher-suites-are-supported"></a>Al usar dominios personalizados con TLS 1.0/1.1 habilitado, se admiten los siguientes conjuntos de cifrado:
+Al usar dominios personalizados con TLS 1.0/1.1 habilitado, se admiten los siguientes conjuntos de cifrado:
 
 * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
@@ -106,6 +110,8 @@ Para su propio certificado TLS/SSL personalizado:
 * TLS_RSA_WITH_AES_128_CBC_SHA
 * TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 * TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+
+Azure Front Door no permite la configuración de conjuntos de cifrado específicos. Puede obtener un certificado TLS/SSL propio personalizado de la entidad de certificación (por ejemplo, Verisign, Entrust, o Digicert). Después, tenga los conjuntos de cifrado específicos marcados en el certificado al generarlo. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

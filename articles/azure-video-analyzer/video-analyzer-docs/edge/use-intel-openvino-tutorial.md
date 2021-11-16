@@ -3,15 +3,15 @@ title: Análisis de vídeo en directo mediante la extensión OpenVINO™ Model S
 description: En este tutorial, usará un servidor de modelos de IA con modelos preentrenados proporcionado por Intel para analizar la fuente de vídeo en directo desde una cámara IP (simulada).
 ms.service: azure-video-analyzer
 ms.topic: tutorial
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 titleSuffix: Azure
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 29c6771921ca7e37d5825a24e812234fff9e294b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f2e6e14849bfa00862b2fd87a0e42d88b315ab14
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091164"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132490712"
 ---
 # <a name="tutorial-analyze-live-video-using-openvino-model-server--ai-extension-from-intel"></a>Tutorial: Análisis de vídeo en directo mediante la extensión OpenVINO™ Model Server – AI de Intel 
 
@@ -72,7 +72,7 @@ En este tutorial, aprenderá lo siguiente:
 
 ### <a name="review-the-sample-video"></a>Revisión del vídeo de ejemplo
 
-Cuando se configuran los recursos de Azure, se copia un [vídeo corto de un aparcamiento](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) en la máquina virtual Linux en Azure que se va a usar como dispositivo IoT Edge. En este inicio rápido se usa el archivo de vídeo para simular una secuencia en directo.
+Cuando se configuran los recursos de Azure, se copia un [vídeo corto de un aparcamiento](https://avamedia.blob.core.windows.net/public/lots_015.mkv) en la máquina virtual Linux en Azure que se va a usar como dispositivo IoT Edge. En este inicio rápido se usa el archivo de vídeo para simular una secuencia en directo.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LUbN]
 

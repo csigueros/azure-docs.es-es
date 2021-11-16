@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-develop
 services: iot-develop
-ms.openlocfilehash: a4deb82ad3d9029483813e6aa1fd9813c7d815fa
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: eec6c2e70ff11d9da162db79867279abb10d4506
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114406548"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132399283"
 ---
 # <a name="understand-the-digital-twins-model-parser"></a>Uso del analizador de modelos de Digital Twins
 
@@ -28,7 +28,7 @@ dotnet add package Microsoft.Azure.DigitalTwins.Parser
 ```
 
 > [!NOTE]
-> En el momento de escribir este documento, la versión del analizador es la `3.12.5`.
+> En el momento de escribir este documento, la versión del analizador es la `3.12.7`.
 
 ## <a name="use-the-parser-to-validate-a-model"></a>Uso del analizador para validar un modelo
 

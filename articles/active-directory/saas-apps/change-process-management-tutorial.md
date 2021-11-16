@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 97445fd55288539620a5a506a714a2ee095cf77f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 357080a6349c97bfd517a29cc30ba0c4e0702f9d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124734406"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132349041"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-change-process-management"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Change Process Management
 
@@ -41,7 +41,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 Change Process Management admite el SSO iniciado por IDP.
 
-Una vez configurado Change Process Management, puede aplicar el control de sesión, que protege la filtración e infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado Change Process Management, puede aplicar el control de sesión, que protege la filtración e infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-change-process-management-from-the-gallery"></a>Incorporación de Change Process Management desde la galería
 
@@ -147,6 +147,6 @@ Al seleccionar el icono de Change Process Management en el Panel de acceso, debe
 
 - [Pruebe Change Process Management con Azure AD](https://aad.portal.azure.com/)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [¿Qué es el control de sesión en Microsoft Defender para aplicaciones en la nube?](/cloud-app-security/proxy-intro-aad)
 
 - [Cómo proteger Change Process Management con controles y visibilidad avanzados](/cloud-app-security/proxy-intro-aad)

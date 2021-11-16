@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: cauribeg
 ms.custom: include file
-ms.openlocfilehash: 63c9c98f7b85c18cde58d65a8d1fd94eff2b1985
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 74b23eb8560a830e7e07a86fe745b94619eeeaf0
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128560173"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131440340"
 ---
 1. Para crear una instancia de caché, inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione **Crear un recurso**.
 
@@ -39,11 +39,11 @@ ms.locfileid: "128560173"
 
 1. Seleccione la pestaña **Siguiente: Opciones avanzadas** o seleccione el botón **Siguiente: Opciones avanzadas** en la parte inferior de la página.
 
-1. En la pestaña **Opciones avanzadas** de una instancia de caché básica o estándar, seleccione el botón de alternancia de habilitación si desea habilitar un puerto que no sea TLS. También puede seleccionar la versión de Redis que quiere usar, la 4 o (VERSIÓN PRELIMINAR) la 6.
+1. En la pestaña **Opciones avanzadas** de una instancia de caché básica o estándar, seleccione el botón de alternancia de habilitación si desea habilitar un puerto que no sea TLS. También puede seleccionar la versión de Redis que quiere usar, 4 o 6.
 
-    :::image type="content" source="media/redis-cache-create/redis-version.png" alt-text="Versiones 4 o 6 de Redis.":::
+    :::image type="content" source="media/redis-cache-create/cache-redis-version.png" alt-text="Versiones 4 o 6 de Redis.":::
 
-1. En la pestaña **Opciones avanzadas** de la instancia de caché Premium, configure el puerto no TLS, la agrupación en clústeres y la persistencia de datos. También puede seleccionar la versión de Redis que quiere usar, la 4 o (VERSIÓN PRELIMINAR) la 6.
+1. En la pestaña **Opciones avanzadas** de la instancia de caché Premium, configure el puerto no TLS, la agrupación en clústeres y la persistencia de datos. También puede seleccionar la versión de Redis que quiere usar, 4 o 6.
 
 1. Seleccione el botón **Siguiente: Opciones avanzadas** o elija el botón **Siguiente: Etiquetas** situado en la parte inferior de la página.
 
@@ -54,3 +54,5 @@ ms.locfileid: "128560173"
 1. Tras aparecer el mensaje verde Validación superada, seleccione **Crear**.
 
 La caché tarda un tiempo en crearse. Puede supervisar el progreso en la página **Información general** de Azure Cache for Redis. Cuando **Estado** se muestra como **En ejecución**, la memoria caché está lista para su uso.
+
+<!-- Comment to dirty file. -->

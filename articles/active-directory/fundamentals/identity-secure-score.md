@@ -1,6 +1,6 @@
 ---
 title: ¿Qué es una puntuación segura de identidad? - Azure Active Directory
-description: Uso de la puntuación segura de identidad para mejorar el nivel de seguridad del directorio
+description: Aprenda a usar la puntuación de seguridad de la identidad para mejorar el nivel de seguridad del directorio.
 services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: guptashi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d5c1a1493a7ea2aac0945dae14fc4c547ad86c9
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 322643d443aac7cb0ec1aac06b46535114c8d340
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111409926"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132309517"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>¿Qué es la puntuación segura de identidad en Azure Active Directory?
 
@@ -95,7 +95,7 @@ La puntuación se calcula una vez al día (aproximadamente a las 1:00 A.M., hora
 
 ### <a name="my-score-changed-how-do-i-figure-out-why"></a>Mi puntuación ha cambiado. ¿Cómo averiguo por qué?
 
-Vaya al [Centro de seguridad de Microsoft 365](https://security.microsoft.com/), donde encontrará su puntuación segura de Microsoft completa. Puede ver fácilmente todos los cambios de la puntuación segura mediante la revisión de los cambios detallados en la pestaña Historial.
+Vaya al [portal de Microsoft 365 Defender](https://security.microsoft.com/), donde encontrará su puntuación de seguridad de Microsoft completa. Puede ver fácilmente todos los cambios de la puntuación segura mediante la revisión de los cambios detallados en la pestaña Historial.
 
 ### <a name="does-the-secure-score-measure-my-risk-of-getting-breached"></a>¿Mide la puntuación segura el riesgo de vulneración de la seguridad?
 
@@ -105,7 +105,7 @@ En pocas palabras, no. La puntuación segura no expresa una medida absoluta de l
 
 La puntuación mejora por configurar las características de seguridad recomendadas o por realizar tareas relacionadas con la seguridad (como la lectura de informes). Se puntúan algunas acciones por la finalización parcial, como por ejemplo, habilitar la autenticación multifactor (MFA) para los usuarios. Su puntuación segura representa directamente los servicios de seguridad de Microsoft que usa. Recuerde que debe existir un equilibrio entre seguridad y facilidad de uso. Todos los controles de seguridad tienen un componente de impacto en el usuario. Los controles que tienen un impacto bajo en el usuario deben tener poco o ningún efecto en las operaciones diarias de los usuarios.
 
-Para ver el historial de puntuación, diríjase al [Centro de seguridad de Microsoft 365](https://security.microsoft.com/) y revise su puntuación segura de Microsoft. Puede revisar los cambios de su puntuación segura general haciendo clic en Vista de historial. Elija una fecha concreta para ver los controles que se han habilitado para ese día y los puntos que ha logrado por cada uno de ellos.
+Para ver el historial de puntuación, diríjase al [portal de Microsoft 365 Defender](https://security.microsoft.com/) y revise la puntuación de seguridad de Microsoft general. Puede revisar los cambios de su puntuación segura general haciendo clic en Vista de historial. Elija una fecha concreta para ver los controles que se han habilitado para ese día y los puntos que ha logrado por cada uno de ellos.
 
 ### <a name="how-does-the-identity-secure-score-relate-to-the-microsoft-365-secure-score"></a>¿Cómo se relaciona la puntuación de seguridad de la identidad con la puntuación de seguridad de Microsoft 365?
 

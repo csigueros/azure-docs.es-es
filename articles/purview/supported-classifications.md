@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: reference
 ms.date: 09/27/2021
-ms.openlocfilehash: fa92330fcbae0bba9e3f9d18cb3e56d9c16a9ee6
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: bc4d71f3e7b696bf46a1aa580e4a2ba254ba9d13
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131449457"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132343029"
 ---
 # <a name="supported-classifications-in-azure-purview"></a>Clasificaciones admitidas en Azure Purview
 
@@ -164,7 +164,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 
 ### <a name="format"></a>Formato
@@ -205,7 +205,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -628,7 +628,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -799,7 +799,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -809,7 +809,7 @@ Patrón alfanumérico de 11 caracteres
 
 Patrón alfanumérico de 11 caracteres:
 
-- A o a
+- O bien,
 - T o t
 - Espacio opcional
 - U o u
@@ -1130,7 +1130,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -1451,7 +1451,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -2752,7 +2752,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -2833,7 +2833,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -3604,7 +3604,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -4341,7 +4341,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -4647,7 +4647,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -4868,7 +4868,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -5227,7 +5227,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -5489,7 +5489,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -5525,7 +5525,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -5785,7 +5785,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -5901,7 +5901,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -5954,7 +5954,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -6727,7 +6727,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -6840,7 +6840,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -7001,7 +7001,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -7040,7 +7040,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -7651,7 +7651,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -7897,7 +7897,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -8327,7 +8327,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -8700,7 +8700,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -8761,7 +8761,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -8801,7 +8801,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -8841,7 +8841,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -8934,7 +8934,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -9005,7 +9005,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -9353,7 +9353,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -9401,7 +9401,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -9901,7 +9901,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -10019,7 +10019,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -10065,7 +10065,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -10311,7 +10311,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -10572,7 +10572,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -10675,7 +10675,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -10937,7 +10937,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -11072,7 +11072,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -11404,7 +11404,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -11518,7 +11518,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -11986,7 +11986,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -12314,7 +12314,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 
@@ -12346,7 +12346,7 @@ Este tipo de información confidencial solo está disponible para su uso en:
 - directivas de cumplimiento de la comunicación
 - gobernanza de la información
 - administración de registros
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 
 ### <a name="format"></a>Formato
 

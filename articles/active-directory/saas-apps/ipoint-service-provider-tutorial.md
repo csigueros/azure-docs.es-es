@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: jeedes
-ms.openlocfilehash: fa864229529e0302b8968ed5219e700642b63c3e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 000349d0d1b089cfaf84fdec6a82f7f14c1e6df5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124809308"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132317371"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ipoint-service-provider"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con iPoint Service Provider
 
@@ -40,7 +40,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * iPoint Service Provider admite el inicio de sesión único iniciado por **SP e IDP**
-* Una vez configurado iPoint Service Provider, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Una vez configurado iPoint Service Provider, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-ipoint-service-provider-from-the-gallery"></a>Incorporación de iPoint Service Provider desde la galería
 
@@ -60,7 +60,7 @@ Configure y pruebe el inicio de sesión único (SSO) de Azure AD con iPoint Ser
 Para configurar y probar el inicio de sesión único de Azure AD con iPoint Service Provider, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en iPoint Service Provider](#configure-ipoint-service-provider-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     * **[Creación de usuarios de prueba de iPoint Service Provider](#create-ipoint-service-provider-test-user)** , para tener un homólogo de B.Simon en iPoint Service Provider que esté vinculado a la representación de usuario en Azure AD.
@@ -162,6 +162,6 @@ Al hacer clic en el icono de iPoint Service Provider en el panel de acceso, debe
 
 - [Prueba de iPoint Service Provider con Azure AD](https://aad.portal.azure.com/)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [¿Qué es el control de sesión en Microsoft Defender para aplicaciones en la nube?](/cloud-app-security/proxy-intro-aad)
 
 - [Protección de iPoint Service Provider con controles y visibilidad avanzados](/cloud-app-security/proxy-intro-aad)

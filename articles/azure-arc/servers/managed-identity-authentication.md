@@ -1,18 +1,18 @@
 ---
-title: Autenticación en recursos de Azure con servidores habilitados para Arc
-description: En este artículo se describe la compatibilidad de Azure Instance Metadata Service con los servidores habilitados para Arc y cómo puede autenticarse en recursos de Azure y locales mediante un secreto.
+title: Autenticación en recursos de Azure con servidores habilitados para Azure Arc
+description: En este artículo se describe la compatibilidad de Azure Instance Metadata Service con servidores habilitados para Azure Arc y cómo puede autenticarse en los recursos de Azure y locales mediante un secreto.
 ms.topic: conceptual
-ms.date: 07/16/2021
-ms.openlocfilehash: 76f7174792f751322545b1d30bb51476c5339e26
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.date: 11/08/2021
+ms.openlocfilehash: 7fc08c304a7a3b13e639ebf1e6bd1ce92922f712
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114389916"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132134750"
 ---
-# <a name="authenticate-against-azure-resources-with-arc-enabled-servers"></a>Autenticación en recursos de Azure con servidores habilitados para Arc
+# <a name="authenticate-against-azure-resources-with-azure-arc-enabled-servers"></a>Autenticación en recursos de Azure con servidores habilitados para Azure Arc
 
-Las aplicaciones o procesos que se ejecutan directamente en servidores habilitados para Azure Arc pueden sacar partido de las identidades administradas para acceder a otros recursos de Azure que admiten la autenticación basada en Azure Active Directory. Una aplicación puede obtener un [token de acceso](../../active-directory/develop/developer-glossary.md#access-token) que represente su identidad (y que puede la asigna el sistema para servidores habilitados para Arc) y usarlo como token de "portador" para autenticarse en otro servicio.
+Las aplicaciones o procesos que se ejecutan directamente en servidores habilitados para Azure Arc pueden sacar partido de las identidades administradas para acceder a otros recursos de Azure que admiten la autenticación basada en Azure Active Directory. Una aplicación puede obtener un [token de acceso](../../active-directory/develop/developer-glossary.md#access-token), que representa su identidad asignada por el sistema en servidores habilitados para Azure Arc, y usarlo como token de "portador" para autenticarse en otro servicio.
 
 Vea la documentación de [información general sobre las identidades administradas](../../active-directory/managed-identities-azure-resources/overview.md) para obtener una descripción detallada de las identidades administradas, así como saber distinguir las identidades asignadas por el sistema y las asignadas por el usuario.
 
@@ -22,15 +22,15 @@ En este artículo se muestra cómo un servidor puede usar una identidad administ
 
 Mientras el servidor se incorpora a los servidores habilitados para Azure Arc, se realizan varias acciones para configurar con mediante identidad administrada, similar a lo que se realiza para una máquina virtual de Azure:
 
-- Azure Resource Manager recibe una solicitud para habilitar la identidad administrada asignada por el sistema en el servidor habilitado para Arc.
+- Azure Resource Manager recibe una solicitud para habilitar la identidad administrada asignada por el sistema en el servidor habilitado para Azure Arc.
 
 - Azure Resource Manager crea una entidad de servicio en Azure AD para la identidad del servidor. La entidad de servicio se crea en el inquilino de Azure AD que sea de confianza para la suscripción.
 
-- Azure Resource Manager configura la identidad en el servidor mediante la actualización del punto de conexión de identidad de Azure Instance Metadata Service (IMDS) para [Windows](../../virtual-machines/windows/instance-metadata-service.md) o [Linux](../../virtual-machines/linux/instance-metadata-service.md) con el identificador de cliente y el certificado de la entidad de servicio. El punto de conexión es un punto de conexión de REST solamente accesible desde dentro del servidor mediante una dirección IP no enrutable conocida. Este servicio proporciona un subconjunto de información de metadatos sobre el servidor habilitado para Arc que ayuda a administrarlo y configurarlo.
+- Azure Resource Manager configura la identidad en el servidor mediante la actualización del punto de conexión de identidad de Azure Instance Metadata Service (IMDS) para [Windows](../../virtual-machines/windows/instance-metadata-service.md) o [Linux](../../virtual-machines/linux/instance-metadata-service.md) con el identificador de cliente y el certificado de la entidad de servicio. El punto de conexión es un punto de conexión de REST solamente accesible desde dentro del servidor mediante una dirección IP no enrutable conocida. Este servicio proporciona un subconjunto de información de metadatos sobre el servidor habilitado para Azure Arc que ayuda a administrarlo y configurarlo.
 
-El entorno de un servidor habilitado para identidades administradas se configurará con las siguientes variables en un servidor habilitado para Windows Arc:
+El entorno de un servidor habilitado para identidades administradas se configurará con las siguientes variables en un servidor habilitado para Azure Arc de Windows:
 
-- **IMDS_ENDPOINT**: la dirección IP del punto de conexión de IMDS `http://localhost:40342` para los servidores habilitados para Arc.
+- **IMDS_ENDPOINT**: la dirección IP del punto de conexión de IMDS `http://localhost:40342` de los servidores habilitados para Azure Arc.
 
 - **IDENTITY_ENDPOINT**: el punto de conexión de localhost correspondiente a la identidad administrada del servicio `http://localhost:40342/metadata/identity/oauth2/token`.
 
@@ -41,18 +41,20 @@ La variable de entorno del sistema **IDENTITY_ENDPOINT** se usa para detectar el
 ## <a name="prerequisites"></a>Prerrequisitos
 
 - Conocimientos sobre identidades administradas.
-- Un servidor conectado y registrado con servidores habilitados para Arc.
-- Debe ser miembro del [grupo Propietario](../../role-based-access-control/built-in-roles.md#owner)** en la suscripción o el grupo de recursos para realizar la creación de los recursos necesarios y los pasos de administración de roles.
+- En Windows, debe ser miembro del grupo local **Administradores** o del grupo **Aplicaciones de la extensión de agente híbrido**.
+- En Linux, debe ser miembro del grupo **himds**.
+- Un servidor conectado y registrado con servidores habilitados para Azure Arc.
+- Debe ser miembro del [grupo Propietario](../../role-based-access-control/built-in-roles.md#owner) en la suscripción o el grupo de recursos para crear los recursos necesarios y realizar los pasos de administración de roles.
 - Una instancia de Azure Key Vault para almacenar y recuperar la credencial. y asignar el acceso de identidad de Azure Arc a KeyVault.
 
     - Si no tiene una instancia de Key Vault creada, consulte [Creación de un almacén de claves](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md#create-a-key-vault-).
-    - Para configurar el acceso mediante la identidad administrada usada por el servidor, consulte [Conceder acceso para Linux](../../active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-nonaad.md#grant-access) o [Conceder acceso para Windows](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md#grant-access). En el paso 5, va a escribir el nombre del servidor habilitado para Arc. Para completar esto con PowerShell, consulte [Asignación de una directiva de acceso de Key Vault mediante Azure PowerShell](../../key-vault/general/assign-access-policy-powershell.md).
+    - Para configurar el acceso mediante la identidad administrada usada por el servidor, consulte [Conceder acceso para Linux](../../active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-nonaad.md#grant-access) o [Conceder acceso para Windows](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md#grant-access). En el paso 5, va a escribir el nombre del servidor habilitado para Azure Arc. Para completar esto con PowerShell, consulte [Asignación de una directiva de acceso de Key Vault mediante Azure PowerShell](../../key-vault/general/assign-access-policy-powershell.md).
 
 ## <a name="acquiring-an-access-token-using-rest-api"></a>Adquisición de un token de acceso mediante la API de REST
 
 El método para obtener y usar una identidad administrada asignada por el sistema para autenticarse con recursos de Azure es similar a cómo se realiza con una máquina virtual de Azure.
 
-En el caso de un servidor Windows habilitado para Arc, mediante PowerShell, se invoca la solicitud web para obtener el token del host local en el puerto específico. Especifique la solicitud mediante la dirección IP o la variable de entorno **IDENTITY_ENDPOINT**.
+En el caso de un servidor Windows habilitado para Azure Arc, use PowerShell para invocar la solicitud web y obtener el token del host local en el puerto específico. Especifique la solicitud mediante la dirección IP o la variable de entorno **IDENTITY_ENDPOINT**.
 
 ```powershell
 $apiVersion = "2020-06-01"
@@ -85,7 +87,7 @@ La respuesta siguiente es un ejemplo que se devuelve:
 
 :::image type="content" source="media/managed-identity-authentication/powershell-token-output-example.png" alt-text="Una recuperación correcta del token de acceso mediante PowerShell.":::
 
-En el caso de un servidor Linux habilitado para Arc, mediante Bash, se invoca la solicitud web para obtener el token del host local en el puerto específico. Especifique la siguiente solicitud mediante la dirección IP o la variable de entorno **IDENTITY_ENDPOINT**. Para completar ese paso, necesita un cliente SSH.
+En el caso de un servidor Linux habilitado para Azure Arc, use Bash para invocar la solicitud web y obtener el token del host local en el puerto específico. Especifique la siguiente solicitud mediante la dirección IP o la variable de entorno **IDENTITY_ENDPOINT**. Para completar ese paso, necesita un cliente SSH.
 
 ```bash
 ChallengeTokenPath=$(curl -s -D - -H Metadata:true "http://127.0.0.1:40342/metadata/identity/oauth2/token?api-version=2019-11-01&resource=https%3A%2F%2Fmanagement.azure.com" | grep Www-Authenticate | cut -d "=" -f 2 | tr -d "[:cntrl:]")

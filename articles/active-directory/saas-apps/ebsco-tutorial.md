@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 075bcffd7cb2beb3e64b54536934953c49df9b76
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 16757fdab3062ec0fd4b0b685f510e31dabd1824
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124813599"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132348889"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ebsco"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con EBSCO
 
@@ -61,7 +61,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con EBSCO utilizando
 Para configurar y probar el inicio de sesión único de Azure AD con EBSCO, lleve a cabo los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de EBSCO](#configure-ebsco-sso)**, para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación del usuario de prueba en EBSCO](#create-ebsco-test-user)**, para tener un homólogo de B.Simon en EBSCO que esté vinculado a su representación en Azure AD.
@@ -175,4 +175,4 @@ Para obtener más información sobre Aplicaciones, consulte [Inicio de sesión e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado EBSCO, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado EBSCO, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

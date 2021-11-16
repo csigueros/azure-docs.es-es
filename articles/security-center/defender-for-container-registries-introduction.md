@@ -3,16 +3,16 @@ title: 'Microsoft Defender para registros de contenedor: ventajas y característ
 description: Obtenga información sobre las ventajas y características de Microsoft Defender para registros de contenedor.
 author: memildin
 ms.author: memildin
-ms.date: 10/04/2021
+ms.date: 11/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 627ac6bacbd9d6f1c3649229bd29bbcd27d3e93b
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 666b7f68e353586b9cfa866e2c63b65579bd5be5
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131463836"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131989772"
 ---
 # <a name="introduction-to-microsoft-defender-for-container-registries"></a>Introducción a Microsoft Defender para registros de contenedor
 
@@ -42,7 +42,7 @@ Defender para nube identifica registros de ACR basados en Azure Resource Manager
 
 Cuando se encuentran problemas (por Qualys o Defender para la nube), se le notificará en el panel de protección de cargas de trabajo. Por cada vulnerabilidad, Defender para nube proporciona recomendaciones útiles, junto con una clasificación de gravedad e información sobre cómo corregir el problema. Para más información sobre las recomendaciones de Defender para la nube para los contenedores, consulte la [lista de recomendaciones de referencia](recommendations-reference.md#recs-container).
 
-Defender para la nube filtra y clasifica los resultados del análisis. Cuando una imagen es correcta, Defender para la nube la marca como tal. Defender para nube solo genera recomendaciones de seguridad para las imágenes que tienen incidencias sin resolver. Defender para nube proporciona detalles de cada vulnerabilidad detectada y una clasificación de gravedad. Asimismo, ofrece instrucciones sobre cómo corregir las vulnerabilidades específicas encontradas en cada imagen.
+Defender para nube filtra y clasifica los resultados del análisis. Cuando una imagen es correcta, Defender para la nube la marca como tal. Defender para nube solo genera recomendaciones de seguridad para las imágenes que tienen incidencias sin resolver. Defender para nube proporciona detalles de cada vulnerabilidad detectada y una clasificación de gravedad. Asimismo, ofrece instrucciones sobre cómo corregir las vulnerabilidades específicas encontradas en cada imagen.
 
 Al enviar notificaciones solo cuando hay problemas, Defender para nube reduce las alertas informativas no deseadas.
 
@@ -63,7 +63,7 @@ Hay tres desencadenadores para un examen de imagen:
 
 - **Al importar**: Azure Container Registry tiene herramientas de importación para incorporar imágenes al registro desde Docker Hub, Microsoft Container Registry u otro registro de contenedor de Azure. **Microsoft Defender para registros de contenedor** examina las imágenes admitidas que importe. Obtenga más información en [Importación de imágenes de contenedor en un registro de contenedor](../container-registry/container-registry-import-images.md).
  
-El análisis se completa normalmente en 2 minutos, pero puede tardar hasta 15 minutos. Los resultados se publican como recomendaciones de seguridad, como en este caso:
+El examen se completa normalmente en 2 minutos, pero puede tardar hasta 40 minutos. Los resultados se publican como recomendaciones de seguridad, como en este caso:
 
 [![Ejemplo de recomendación de Microsoft Defender para nube sobre vulnerabilidades detectadas en una imagen hospedada en Azure Container Registry (ACR).](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 

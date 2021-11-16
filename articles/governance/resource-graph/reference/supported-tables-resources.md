@@ -1,15 +1,15 @@
 ---
 title: Tipos de recurso de Azure Resource Manager admitidos
 description: Proporcione una lista de los tipos de recurso de Azure Resource Manager admitidos en Azure Resource Graph y el Historial de cambios.
-ms.date: 09/03/2021
+ms.date: 10/12/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 9dfdd77d400dfa91ec26df23d323f8290dc97da0
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 9b3ce54d9554164b375ed1a08fdbcce8429dbb21
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123536074"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132054816"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Referencia de tipo de recurso y tabla de Azure Resource Graph
 
@@ -32,6 +32,9 @@ En [Consultas de ejemplo de Resource Graph para advisorresources](../samples/sam
 
 ## <a name="desktopvirtualizationresources"></a>desktopvirtualizationresources
 
+- microsoft.chaos/experiments/statuses
+- microsoft.chaos/targets
+- microsoft.chaos/targets/capabilities
 - microsoft.desktopvirtualization/hostpools/sessionhosts
 
 ## <a name="extendedlocationresources"></a>extendedlocationresources
@@ -64,11 +67,16 @@ En [Consultas de ejemplo de Resource Graph para healthresources](../samples/samp
 ## <a name="iotsecurityresources"></a>iotsecurityresources
 
 - microsoft.iotsecurity/locations/devicegroups/alerts
+  - Consulta de ejemplo: [Obtención de todas las alertas nuevas de los últimos 30 días](../samples/samples-by-category.md#get-all-new-alerts-from-the-past-30-days)
 - microsoft.iotsecurity/locations/devicegroups/devices
+  - Consulta de ejemplo: [Recuento del número de dispositivos IoT que hay en la red, por sistema operativo](../samples/samples-by-category.md#count-how-many-iot-devices-there-are-in-your-network-by-operation-system)
 - microsoft.iotsecurity/locations/devicegroups/recommendations
+  - Consulta de ejemplo: [Obtención de todas las recomendaciones de gravedad alta](../samples/samples-by-category.md#get-all-high-severity-recommendations)
 - microsoft.iotsecurity/onpremisesensors
 - microsoft.iotsecurity/sensors
+  - Consulta de ejemplo: [Recuento de todos los sensores por tipo](../samples/samples-by-category.md#count-all-sensors-by-type)
 - microsoft.iotsecurity/sites
+  - Consulta de ejemplo: [Enumeración de los sitios con un valor de etiqueta específico](../samples/samples-by-category.md#list-sites-with-a-specific-tag-value)
 
 ## <a name="kubernetesconfigurationresources"></a>kubernetesconfigurationresources
 
@@ -77,6 +85,7 @@ En [Consultas de ejemplo de Resource Graph para kubernetesconfigurationresources
 - microsoft.kubernetesconfiguration/extensions
   - Consulta de ejemplo: [enumeración de todos los clústeres de Kubernetes compatibles con Azure Arc con la extensión de Azure Monitor](../samples/samples-by-category.md#list-all-azure-arc-enabled-kubernetes-clusters-with-azure-monitor-extension)
   - Consulta de ejemplo: [enumeración de todos los clústeres de Kubernetes compatibles con Azure Arc sin la extensión de Azure Monitor](../samples/samples-by-category.md#list-all-azure-arc-enabled-kubernetes-clusters-without-azure-monitor-extension)
+- microsoft.kubernetesconfiguration/fluxconfigurations
 - microsoft.kubernetesconfiguration/sourcecontrolconfigurations
 
 ## <a name="maintenanceresources"></a>maintenanceresources
@@ -129,14 +138,8 @@ En [Consultas de ejemplo de Resource Graph para resourcecontainers](../samples/s
 - microsoft.management/managementgroups
   - Consulta de ejemplo: [recuento de suscripciones por grupo de administración](../samples/samples-by-category.md#count-of-subscriptions-per-management-group)
   - Consulta de ejemplo: [enumeración de todos los antecesores de grupo de administración para un grupo de administración especificado](../samples/samples-by-category.md#list-all-management-group-ancestors-for-a-specified-management-group)
-- microsoft.resources/subscriptions (suscripciones)
-  - Consulta de ejemplo: [recuento de suscripciones por grupo de administración](../samples/samples-by-category.md#count-of-subscriptions-per-management-group)
-  - Consulta de ejemplo: [almacenes de claves con el nombre de la suscripción](../samples/samples-by-category.md#key-vaults-with-subscription-name)
-  - Consulta de ejemplo: [enumeración de todos los antecesores de grupo de administración para una suscripción especificada](../samples/samples-by-category.md#list-all-management-group-ancestors-for-a-specified-subscription)
-  - Consulta de ejemplo: [enumeración de todas las suscripciones en un grupo de administración especificado](../samples/samples-by-category.md#list-all-subscriptions-under-a-specified-management-group)
-  - Consulta de ejemplo: [eliminación de columnas de resultados](../samples/samples-by-category.md#remove-columns-from-results)
-  - Consulta de ejemplo: [puntuación segura por grupo de administración](../samples/samples-by-category.md#secure-score-per-management-group)
 - Microsoft.Resources/subscriptions/resourceGroups (grupos de recursos)
+  - Consulta de ejemplo: [Combinación de los resultados de dos consultas para formar un solo resultado](../samples/samples-by-category.md)
   - Consulta de ejemplo: [búsqueda de cuentas de almacenamiento con una etiqueta concreta que no distingue mayúsculas de minúsculas en el grupo de recursos](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-insensitive-tag-on-the-resource-group)
   - Consulta de ejemplo: [búsqueda de cuentas de almacenamiento con una etiqueta concreta que distingue mayúsculas de minúsculas en el grupo de recursos](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-sensitive-tag-on-the-resource-group)
 
@@ -149,7 +152,7 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - Citrix.Services/XenDesktopEssentials (Citrix Virtual Desktops Essentials)
 - conexlink.mycloudit/accounts
 - crypteron.datasecurity/apps
-- dynatrace.observability/monitors
+- Dynatrace.Observability/monitors (Dynatrace)
 - GitHub.Enterprise/accounts (GitHub AE)
 - gridpro.evops/accounts
 - gridpro.evops/accounts/eventrules
@@ -159,6 +162,7 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - incapsula.waf/accounts
 - LiveArena.Broadcast/services (LiveArena Broadcast)
 - Mailjet.Email/services (Mailjet Email Service)
+- micorosft.web/kubeenvironments
 - Microsoft. AAD/domainServices (Azure AD Domain Services)
 - microsoft.aadiam/azureadmetrics
 - microsoft.aadiam/privateLinkForAzureAD (Private Link para Azure AD)
@@ -178,6 +182,7 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - Microsoft.AppPlatform/Spring (Azure Spring Cloud)
 - microsoft.archive/collections
 - Microsoft.Attestation/attestationProviders (proveedores de atestación)
+- microsoft.authorization/elevateaccessroleassignment
 - Microsoft.Authorization/resourceManagementPrivateLinks (vínculos privados de administración de recursos)
 - microsoft.automanage/accounts
 - microsoft.automanage/configurationprofilepreferences
@@ -196,6 +201,8 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - Microsoft.AzureArcData/sqlManagedInstances (instancias de SQL Managed Instance - Azure Arc)
 - Microsoft.AzureArcData/sqlServerInstances (SQL Server - Azure Arc)
 - microsoft.azurecis/autopilotenvironments
+- microsoft.azurecis/dstsserviceaccounts
+- microsoft.azurecis/dstsserviceclientidentities
 - microsoft.azuredata/datacontrollers
 - microsoft.azuredata/hybriddatamanagers
 - microsoft.azuredata/postgresinstances
@@ -216,6 +223,7 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - microsoft.azurestackhci/networkinterfaces
 - microsoft.azurestackhci/virtualharddisks
 - Microsoft.AzureStackHci/virtualMachines (máquina virtual de Azure Stack HCI: Azure Arc)
+- microsoft.azurestackhci/virtualmachines/extensions
 - microsoft.azurestackhci/virtualnetworks
 - microsoft.backupsolutions/vmwareapplications
 - microsoft.baremetal/consoleconnections
@@ -242,8 +250,8 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - Microsoft.Cdn/Profiles/AfdEndpoints (puntos de conexión)
 - microsoft.cdn/profiles/endpoints (puntos de conexión)
 - Microsoft.CertificateRegistration/certificateOrders (instancias de App Service Certificate)
-- microsoft.chaos/chaosexperiments (experimentos de Chaos)
-- microsoft.chaos/experiments
+- microsoft.chaos/chaosexperiments (experimentos de Chaos (clásicos))
+- microsoft.chaos/experiments (experimentos de Chaos)
 - microsoft.classicCompute/domainNames (servicios en la nube (clásicos))
 - Microsoft.ClassicCompute/VirtualMachines (máquinas virtuales (clásicas))
 - Microsoft.ClassicNetwork/networkSecurityGroups (grupos de seguridad de red (clásicos))
@@ -270,8 +278,8 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - Microsoft.Compute/diskEncryptionSets (conjuntos de cifrado de disco)
 - Microsoft.Compute/disks (discos)
 - Microsoft.Compute/galleries (galerías de imágenes compartidas)
-- Microsoft.Compute/galleries/applications (aplicaciones de la galería)
-- Microsoft.Compute/galleries/applications/versions (versiones de aplicaciones de la galería)
+- Microsoft.Compute/galleries/applications (aplicaciones de máquina virtual)
+- Microsoft.Compute/galleries/applications/versions (versiones de aplicaciones de máquina virtual)
 - Microsoft.Compute/galleries/images (definiciones de imágenes)
 - Microsoft.Compute/galleries/images/versions (versiones de imágenes)
 - Microsoft.Compute/hostgroups (grupos host)
@@ -309,6 +317,7 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - Microsoft.ConnectedVehicle/platformAccounts (plataformas de vehículos conectados)
 - microsoft.connectedvmwarevsphere/clusters
 - microsoft.connectedvmwarevsphere/datastores
+- microsoft.connectedvmwarevsphere/hosts
 - microsoft.connectedvmwarevsphere/resourcepools
 - Microsoft.connectedVMwareVSphere/vCenters (instancias de VMware vCenter)
 - Microsoft.ConnectedVMwarevSphere/VirtualMachines (máquinas virtuales de VMware y AVS)
@@ -356,7 +365,7 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - Microsoft.DataProtection/resourceGuards (restricciones de recursos, versión preliminar)
 - microsoft.dataprotection/resourceoperationgatekeepers
 - microsoft.datareplication/replicationfabrics
-- microsoft.datareplication/replicationvaults
+- Microsoft.DataReplication/replicationVaults (Almacenes de Site Recovery)
 - Microsoft.DataShare/accounts (instancias de Data Share)
 - Microsoft.DBforMariaDB/servers (servidores de Azure Database for MariaDB)
 - Microsoft.DBforMySQL/flexibleServers (servidores flexibles de Azure Database for MySQL)
@@ -450,6 +459,7 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - microsoft.hybridcompute/machines/extensions
   - Consulta de ejemplo: [enumeración de todas las extensiones instaladas en un servidor habilitado para Azure Arc](../samples/samples-by-category.md#list-all-extensions-installed-on-an-azure-arc-enabled-server)
 - Microsoft.HybridCompute/privateLinkScopes (ámbitos de Private Link de Azure Arc)
+- microsoft.hybridcontainerservice/provisionedclusters
 - Microsoft.HybridData/dataManagers (instancias de StorSimple Data Manager)
 - Microsoft.HybridNetwork/devices (administrador de funciones de red de Azure: dispositivos [versión preliminar])
 - Microsoft.HybridNetwork/networkFunctions (administración de funciones de red de Azure: funciones de red [versión preliminar])
@@ -539,7 +549,7 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - Microsoft.MarketplaceApps/classicDevServices (servicios para desarrolladores clásicos)
 - microsoft.media/mediaservices (Media Services)
 - microsoft.media/mediaservices/liveevents (eventos en directo)
-- microsoft.media/mediaservices/streamingEndpoints (puntos de conexión de streaming)
+- microsoft.media/mediaservices/streamingendpoints (puntos de conexión de streaming)
 - microsoft.media/mediaservices/transforms
 - microsoft.media/videoanalyzers (instancias de Video Analyzer)
 - microsoft.microservices4spring/appclusters
@@ -566,12 +576,14 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - microsoft.mobilenetwork/packetcorecontrolplanes/packetcoredataplanes/attacheddatanetworks
 - Microsoft.MobileNetwork/sims (Sims)
 - microsoft.mobilenetwork/sims/simprofiles
+- microsoft.monitor/accounts
 - Microsoft.NetApp/netAppAccounts (cuentas de NetApp)
 - microsoft.netapp/netappaccounts/backuppolicies
 - Microsoft.NetApp/netAppAccounts/capacityPools (grupos de capacidad)
 - Microsoft.NetApp/netAppAccounts/capacityPools/Volumes (volúmenes)
 - microsoft.netapp/netappaccounts/capacitypools/volumes/mounttargets
 - Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots (instantáneas)
+- microsoft.netapp/netappaccounts/capacitypools/volumes/subvolumes
 - Microsoft.NetApp/netAppAccounts/snapshotPolicies (directivas de instantánea)
 - Microsoft.Network/applicationGateways (puertas de enlace de aplicación)
 - Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies (directivas de firewall de aplicaciones web [WAF])
@@ -660,7 +672,7 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - Microsoft.OperationsManagement/solutions (soluciones)
 - microsoft.operationsmanagement/views
 - Microsoft.Orbital/contactProfiles (perfiles de contacto)
-- microsoft.orbital/groundstations
+- Microsoft.Orbital/GroundStations (GroundStations)
 - microsoft.orbital/orbitalendpoints
 - microsoft.orbital/orbitalgateways
 - microsoft.orbital/orbitalgateways/orbitall2connections
@@ -678,6 +690,7 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - microsoft.powerplatform/accounts
 - microsoft.powerplatform/enterprisepolicies
 - microsoft.projectbabylon/accounts
+- microsoft.providerhubdevtest/regionalstresstests
 - Microsoft.Purview/Accounts (cuentas de Purview)
 - Microsoft.Quantum/Workspaces (áreas de trabajo de Quantum)
 - Microsoft.RecommendationsService/accounts (cuentas de Intelligent Recommendations)
@@ -696,14 +709,16 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - Microsoft.SaaS/applications (software como servicio [clásico])
 - Microsoft.SaaS/resources (SaaS)
 - Microsoft.Scheduler/jobCollections (colecciones de trabajos de Scheduler)
-- Microsoft.Scom/managedInstances (recursos de Aquila)
+- Microsoft.Scom/managedInstances (instancias de Aquila)
 - microsoft.scvmm/clouds
 - Microsoft.scvmm/virtualMachines (máquina virtual de SCVMM - Azure Arc)
 - microsoft.scvmm/virtualmachinetemplates
 - microsoft.scvmm/virtualnetworks
 - microsoft.scvmm/vmmservers
 - Microsoft.Search/searchServices (servicios Search)
+- microsoft.security/assignments
 - microsoft.security/automations
+- microsoft.security/customentitystoreassignments
 - microsoft.security/iotsecuritysolutions
 - microsoft.security/securityconnectors
 - Microsoft.SecurityDetonation/chambers (cámaras de detonación de seguridad)
@@ -797,6 +812,7 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - microsoft.web/certificates
 - Microsoft.Web/connectionGateways (puertas de enlace de datos locales)
 - Microsoft.Web/connections (conexiones de API)
+- microsoft.web/containerapps
 - Microsoft.Web/customApis (conector personalizado de Logic Apps)
 - Microsoft.Web/HostingEnvironments (instancias de App Service Environment)
 - Microsoft.Web/KubeEnvironments (entornos de Kubernetes de App Service)
@@ -814,7 +830,8 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - NGINX.NGINXPLUS/nginxDeployments (implementación de NGINX)
 - <<<Paraleap.CloudMonix/services (CloudMonix)
 - Pokitdok.Platform/services (plataforma PokitDok)
-- Providers.Test/statefulIbizaEngines (evaluaciones de aplicación)
+- private.contoso/employees
+- Providers.Test/statefulIbizaEngines (mis recursos)
 - RavenHq.Db/databases (RavenHQ)
 - Raygun.CrashReporting/apps (Raygun)
 - Sendgrid.Email/accounts (cuentas de SendGrid)

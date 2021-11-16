@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive, references_regions
 ms.date: 07/27/2021
-ms.openlocfilehash: 732d7ee085fdb7ff91ffe4e90ce8d996b9299b6c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b6c80fca815523cdf4ec61d7e66417999fed5d91
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131073042"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484141"
 ---
 # <a name="archived-release-notes"></a>Archivado de notas de la versión
 
@@ -438,7 +438,7 @@ Esta versión se aplica a HDInsight 3.6 y 4.0. La versión de HDInsight se pone 
 Ahora, HDInsight usa máquinas virtuales de Azure para aprovisionar el clúster. A partir de esta versión, los nuevos clústeres de HDInsight comienzan a usar el conjunto de escalado de máquinas virtuales de Azure. El cambio se implementa gradualmente, y no se producirá ningún cambio importante. Consulte más información sobre los [conjuntos de escalado de máquinas virtuales de Azure](../virtual-machine-scale-sets/overview.md).
  
 #### <a name="reboot-vms-in-hdinsight-cluster"></a>Reinicio de máquinas virtuales en un clúster de HDInsight
-En esta versión, se admite el reinicio de máquinas virtuales en el clúster de HDInsight para reiniciar los nodos que no responden. Actualmente solo puede hacerlo a través de la API, pero en un futuro se admitirán PowerShell y la CLI. Para obtener más información sobre la API, vea [este documento](https://github.com/Azure/azure-rest-api-specs/codeowners/master/specification/hdinsight/resource-manager/Microsoft.HDInsight/stable/2018-06-01-preview/virtualMachines.json).
+En esta versión, se admite el reinicio de máquinas virtuales en el clúster de HDInsight para reiniciar los nodos que no responden. Actualmente solo puede hacerlo a través de la API, pero en un futuro se admitirán PowerShell y la CLI. Para obtener más información sobre la API, vea [este documento](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/hdinsight/resource-manager/Microsoft.HDInsight/stable/2021-06-01/virtualMachines.json).
  
 ### <a name="deprecation"></a>Desuso
 #### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>Desuso de Spark 2.1 y 2.2 para el clúster de Spark de HDInsight 3.6

@@ -2,15 +2,14 @@
 title: Solución de problemas de cuentas de Azure Automation
 description: En este artículo se describe cómo solucionar problemas con una cuenta de Azure.
 services: automation
-ms.subservice: ''
 ms.date: 03/24/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 06c15136e9d2fabdf50031c8b4be455cf2f7bbca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 33c4f3bab041356a1ad91e7ab9f12891f0d9c99d
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98896586"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132488571"
 ---
 # <a name="troubleshoot-azure-automation-account-issues"></a>Solución de problemas de cuentas de Azure Automation
 

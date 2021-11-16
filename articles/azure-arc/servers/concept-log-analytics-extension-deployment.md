@@ -3,12 +3,12 @@ title: Implementación del agente de Log Analytics en servidores habilitados par
 description: En este artículo se revisan los distintos métodos para implementar el agente de Log Analytics en máquinas basadas en Windows y Linux que están registradas con servidores habilitados para Azure Arc en el centro de datos local u otro entorno de nube.
 ms.date: 10/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 150b0c032108cd6d0aad84b6bcadf1b7101c7ef1
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 5ba1ccc8407903ca40677938b19846a7e6c205a0
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130269873"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132369463"
 ---
 # <a name="understand-deployment-options-for-the-log-analytics-agent-on-azure-arc-enabled-servers"></a>Información sobre las opciones de implementación del agente de Log Analytics en servidores habilitados para Azure Arc
 
@@ -17,7 +17,7 @@ Azure Monitor admite varios métodos para instalar el agente de Log Analytics y 
 El agente de Log Analytics es necesario si desea:
 
 * Supervisar el sistema operativo, las cargas de trabajo que se ejecutan en la máquina o el servidor mediante [VM Insights](../../azure-monitor/vm/vminsights-overview.md). Analizar más en profundidad y crear alertas con otras características de [Azure Monitor](../../azure-monitor/overview.md).
-* Supervisar la seguridad en Azure mediante el uso de [Azure Security Center](../../security-center/security-center-introduction.md) o [Azure Sentinel](../../sentinel/overview.md).
+* Realizar la supervisión de seguridad de Azure mediante [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md) o [Microsoft Sentinel](../../sentinel/overview.md).
 * Administrar las actualizaciones del sistema operativo con [Update Management en Azure Automation](../../automation/update-management/overview.md).
 * Recopilar el inventario y llevar un seguimiento de los cambios mediante [Seguimiento de cambios e inventario en Azure Automation](../../automation/change-tracking/overview.md).
 * Ejecutar runbooks de Automation directamente en la máquina y en los recursos del inventario mediante una instancia de [Hybrid Runbook Worker en Azure Automation](../../automation/automation-hybrid-runbook-worker.md).
@@ -85,6 +85,6 @@ El entorno operativo de automatización de procesos de Azure Automation y su com
 
 * Puede usar la característica Hybrid Runbook Worker de Azure Automation para ejecutar runbooks directamente en máquinas o servidores registrados con servidores habilitados para Arc. Consulte el artículo [Implementación de una extensión de VM de Hybrid Runbook Worker](../../automation/extension-based-hybrid-runbook-worker-install.md).
 
-* Para empezar a recopilar eventos relacionados con la seguridad con Azure Sentinel, consulte[Incorporación a Azure Sentinel](scenario-onboard-azure-sentinel.md), o bien, si desea realizar la recopilación con Azure Security Center, consulte[Incorporación a Azure Security Center](../../security-center/quickstart-onboard-machines.md).
+* Para empezar a recopilar eventos relacionados con la seguridad con Microsoft Sentinel, vea [Incorporación a Microsoft Sentinel](scenario-onboard-azure-sentinel.md), o para recopilar con Microsoft Defender for Cloud, vea [Incorporación a Microsoft Defender for Cloud](../../security-center/quickstart-onboard-machines.md).
 
 * Consulte los artículos [Supervisión del rendimiento](../../azure-monitor/vm/vminsights-performance.md) y [Asignación de dependencias](../../azure-monitor/vm/vminsights-maps.md) para ver el rendimiento de la máquina y ver componentes de aplicación detectados.

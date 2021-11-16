@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Optimización de Ventaja híbrida de Azure de nivel de ámbito para SQL Server'
+title: 'Tutorial: Optimización de la administración centralizada de Ventaja híbrida de Azure para SQL Server'
 description: Este tutorial le guía a través de la asignación proactiva de licencias de SQL Server en Azure para administrar y optimizar Ventaja híbrida de Azure.
 author: bandersmsft
 ms.author: banders
@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: ahb
 ms.reviewer: chrisrin
-ms.openlocfilehash: fa928181b20a5975f4c6e42079695aede223ddac
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 6031bd83a5a32ffc5e76a4a967e305324f8d7ee8
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129547485"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130218870"
 ---
-# <a name="tutorial-optimize-scope-level-azure-hybrid-benefit-for-sql-server"></a>Tutorial: Optimización de Ventaja híbrida de Azure de nivel de ámbito para SQL Server
+# <a name="tutorial-optimize-centrally-managed-azure-hybrid-benefit-for-sql-server"></a>Tutorial: Optimización de la administración centralizada de Ventaja híbrida de Azure para SQL Server
 
-Este tutorial le guía a través de la asignación proactiva de licencias de SQL Server en Azure para administrar y optimizar [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/). La optimización de las ventajas reduce los costos de ejecución de Azure SQL.
+Este tutorial le guía en la asignación proactiva de licencias de SQL Server en Azure para administrar y optimizar [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) de forma centralizada. La optimización de las ventajas reduce los costos de ejecución de Azure SQL.
 
 En este tutorial, aprenderá a:
 
@@ -32,10 +32,10 @@ En este tutorial, aprenderá a:
 
 Antes de comenzar, asegúrese de lo siguiente:
 
-Ha leído y comprendido el artículo [¿Qué es la administración de nivel de ámbito de Ventaja híbrida de Azure?](overview-azure-hybrid-benefit-scope.md) En el artículo se explican los tipos de licencias de SQL Server que tienen calidad para Ventaja híbrida de Azure. También se explica cómo habilitar y usar Ventaja híbrida de Azure en el ámbito seleccionado en el nivel de suscripción o cuenta de facturación general.
+Ha leído y comprendido el artículo [¿Qué es la administración del nivel de ámbito de Ventaja híbrida de Azure?](overview-azure-hybrid-benefit-scope.md) En el artículo se explican los tipos de licencias de SQL Server que tienen calidad para Ventaja híbrida de Azure. También se explica cómo habilitar y usar Ventaja híbrida de Azure en el ámbito seleccionado en el nivel de suscripción o cuenta de facturación general.
 
 > [!NOTE]
-> El uso de Ventaja híbrida de Azure con un ámbito está actualmente en versión preliminar pública y se limita a los clientes empresariales.
+> La administración de Ventaja híbrida de Azure de forma centralizada en el nivel de ámbito está actualmente en versión preliminar pública y se limita a los clientes Enterprise.
 
 Compruebe que las máquinas virtuales instaladas automáticamente que ejecutan SQL Server en Azure están registradas antes de empezar a usar la nueva experiencia. De este modo, se garantiza que los recursos de Azure que ejecutan SQL Server sean visibles para los usuarios y Azure. Para más información sobre el registro de máquinas virtuales SQL en Azure, consulte [Registro de VM con SQL Server con la extensión Agente de IaaS de SQL](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) y [Registro de varias máquinas virtuales con SQL en Azure con la extensión Agente de IaaS de SQL](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk.md).
 
@@ -94,7 +94,7 @@ En la sección anterior se describe la supervisión en curso. También se recomi
 
 En el ejemplo siguiente, suponga que es el administrador de facturación de la compañía de seguros de Contoso. Puede administrar Ventaja híbrida de Azure de Contoso para SQL Server.
 
-El departamento de adquisiciones le informa de que puede administrar Ventaja híbrida de Azure para SQL Server en un nivel de cuenta general. El departamento de adquisiciones recibió esta información del equipo de cuentas de Microsoft. Le interesa porque ha sido difícil administrar Ventaja híbrida de Azure últimamente. En parte, porque los desarrolladores han estado habilitando la ventaja (o no) arbitrariamente en los recursos a medida que comparten scripts entre sí.
+El departamento de adquisiciones le informa de que puede administrar Ventaja híbrida de Azure para SQL Server en el nivel de cuenta general. El departamento de adquisiciones recibió esta información del equipo de cuentas de Microsoft. Le interesa porque ha sido difícil administrar Ventaja híbrida de Azure últimamente. En parte, porque los desarrolladores han estado habilitando la ventaja (o no) arbitrariamente en los recursos a medida que comparten scripts entre sí.
 
 Busque la nueva experiencia de Ventaja híbrida de Azure en el área Cost Management + Billing de Azure Portal.
 
@@ -124,5 +124,5 @@ Por último, adopte una programación de revisión de licencias anual. En el pro
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre cómo [realizar la transición a la administración de nivel de ámbito de Ventaja híbrida de Azure](transition-existing.md).
-- Revise [Preguntas más frecuentes sobre la administración del nivel de ámbito de Ventaja híbrida de Azure](faq-azure-hybrid-benefit-scope.yml).
+- Obtenga información sobre la [Transición de la administración del nivel de ámbito de la Ventaja híbrida de Azure](transition-existing.md).
+- Consulte las [Preguntas frecuentes sobre la administración centralizada de Ventaja híbrida de Azure](faq-azure-hybrid-benefit-scope.yml).

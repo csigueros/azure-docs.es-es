@@ -6,36 +6,49 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 09/01/2021
+ms.date: 11/10/2021
 ms.author: victorh
-ms.openlocfilehash: bd773dd1a865f50d441ca09760a9ee3130ed3898
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 54f5de052c6fed4729a41e9f54c614480efc1e7e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130226326"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132309930"
 ---
 # <a name="what-is-azure-firewall"></a>¿Qué es Azure Firewall?
 
 <!--- ![ICSA certification](media/overview/icsa-cert-firewall-small.png) --->
 
-Azure Firewall es un servicio de seguridad de red administrado y basado en la nube que protege los recursos de Azure Virtual Network. Se trata de un firewall como servicio con estado completo que incorpora alta disponibilidad y escalabilidad a la nube sin restricciones.
+Azure Firewall es un servicio de seguridad de firewall de red inteligente y nativo de la nube que le proporciona la mejor protección contra amenazas para las cargas de trabajo en la nube que se ejecutan en Azure. Se trata de un firewall como servicio con estado completo que incorpora alta disponibilidad y escalabilidad en la nube sin restricciones. Asimismo, proporciona la opción de realizar la inspección del tráfico de este a oeste y de norte a sur.
 
-![Información general de firewalls](media/overview/firewall-threat.png)
+Azure Firewall se ofrece en dos SKU: Estándar y Premium.
 
-Puede crear, aplicar y registrar directivas de aplicaciones y de conectividad de red a nivel central en suscripciones y redes virtuales. Azure Firewall usa una dirección IP pública estática para los recursos de red virtual, que permite que los firewall externos identifiquen el tráfico procedente de la red virtual.  El servicio está totalmente integrado con Azure Monitor para los registros y análisis.
+## <a name="azure-firewall-standard"></a>Azure Firewall Estándar
 
-Para obtener información sobre las características de Azure Firewall, consulte [Características de Azure Firewall](features.md).
+   Azure Firewall Estándar proporciona fuentes de inteligencia sobre amenazas y filtrado L3-L7 directamente desde Microsoft Cyber Security. El filtrado basado en la inteligencia sobre amenazas puede enviar alertas y denegar el tráfico desde o hacia dominios y direcciones IP malintencionados, que sean conocidos y que se actualicen en tiempo real para protegerle frente a ataques nuevos y emergentes.
+
+   ![Introducción al estándar de firewall](media/overview/firewall-standard.png)
+
+Para obtener información sobre las características estándar del firewall, consulte las [características estándar de Azure Firewall](features.md).
+
 
 ## <a name="azure-firewall-premium"></a>Azure Firewall Prémium
 
-Azure Firewall Prémium es un firewall de próxima generación con funcionalidades que son necesarias en entornos de alta confidencialidad y regulados. Estas funcionalidades incluyen la inspección de TLS, IDPS, filtrado de direcciones URL y categorías web.
+   Azure Firewall Premium proporciona funcionalidades avanzadas que incluyen IDPS basados en firmas para permitir la detección rápida de ataques mediante la búsqueda de patrones específicos. Estos patrones pueden incluir secuencias de bytes en el tráfico de red o secuencias de instrucciones maliciosas conocidas y que use el malware. Existen más de 58 000 firmas en más de 50 categorías que se actualizan en tiempo real para protegerle contra vulnerabilidades nuevas y emergentes. Las categorías de vulnerabilidades de seguridad incluyen malware, suplantación de identidad, minería de monedas y ataques de troyanos.
 
-Para obtener más información sobre las características de Azure Firewall Prémium, vea [Características de Azure Firewall Prémium](premium-features.md).
+   ![Información general del firewall Premium](media/overview/firewall-premium.png)
 
 
-Para ver cómo se configura Firewall Prémium en Azure Portal, vea [Azure Firewall Prémium en Azure Portal](premium-portal.md).
+Para obtener más información sobre las características del firewall Premium, consulte [Características de Azure Firewall Premium](premium-features.md).
 
+
+## <a name="azure-firewall-manager"></a>Azure Firewall Manager
+
+Puede usar Azure Firewall Manager para administrar de forma centralizada las instancias de Azure Firewall en varias suscripciones. Firewall Manager aprovecha la directiva de firewall para aplicar un conjunto común de reglas de red o aplicaciones y la configuración a los firewalls del inquilino.
+ 
+Firewall Manager admite firewalls en entornos de redes virtuales y redes de Virtual WAN (Centro virtual seguro). Los centros virtuales usan la solución de automatización de rutas de Virtual WAN para simplificar el enrutamiento del tráfico al firewall con unos pocos clics.
+
+Para obtener más información sobre Azure Firewall Manager, consulte [Azure Firewall Manager](../firewall-manager/overview.md).
 
 ## <a name="pricing-and-sla"></a>Precios y contrato de nivel de servicio
 
@@ -85,6 +98,7 @@ ReasonPhrase: solicitud incorrecta).|Bajo investigación.<br><br>Como solución 
 |La regla DNAT para permitir *cualquiera* (*) permitirá el tráfico SNAT.|Si una regla DNAT permite *cualquiera* (*) como dirección IP de origen, una regla de red implícita coincidirá con el tráfico de red virtual a red virtual, y siempre transmitirá el tráfico mediante SNAT.|Se trata de una limitación actual.|
 |No se admite la adición de una regla DNAT a un centro virtual protegido con un proveedor de seguridad.|Esto da como resultado una ruta asincrónica para el tráfico DNAT de vuelta, que va al proveedor de seguridad.|No compatible.|
 | Error al crear más de 2000 colecciones de reglas. | El número máximo de colecciones de reglas de NAT/aplicación o red es 2000 (límite de Resource Manager). | Se trata de una limitación actual. |
+|No se puede ver el nombre de la regla de red en los registros de Azure Firewall|Los datos de registro de reglas de red de Azure Firewall no muestran el nombre de la regla para el tráfico de red.|Se está investigando una característica para admitir esta opción.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

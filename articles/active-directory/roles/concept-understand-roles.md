@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
-ms.date: 11/20/2020
+ms.date: 11/11/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19d15ea184603587eb3477216bb5a93d6d07f905
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 5632c1bcd4acca150b7992b14535951f3d0eba50
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111440527"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132370654"
 ---
 # <a name="understand-roles-in-azure-active-directory"></a>Descripción de los roles en Azure Active Directory
 
@@ -28,17 +28,19 @@ En este artículo se explica qué son los roles de Azure AD y cómo se pueden u
 
 ## <a name="how-azure-ad-roles-are-different-from-other-microsoft-365-roles"></a>Diferencias entre los roles de Azure AD y los de Microsoft 365
 
-Hay muchos servicios diferentes en Microsoft 365, como Azure AD e Intune. Algunos de estos servicios tienen sus propios sistemas de control de acceso basado en rol, como:
+Hay muchos servicios diferentes en Microsoft 365, como Azure AD e Intune. Algunos de estos servicios tienen sus propios sistemas de control de acceso basado en roles, como:
 
 - Azure AD
 - Exchange
 - Intune
-- Security Center
+- Defender para la nube
 - Centro de cumplimiento
-- Microsoft Cloud App Security
+- Microsoft Defender para aplicaciones en la nube
 - Operaciones comerciales
 
 Otros servicios como Teams, SharePoint y Managed Desktop, no tienen sistemas de control de acceso basados en rol independientes. Usan los roles de Azure AD para el acceso administrativo. Azure tiene su propio sistema de control de acceso basado en rol para los recursos de Azure, como las máquinas virtuales, que no es el mismo que los roles de Azure AD.
+
+![Los roles de Azure RBAC frente a los de Azure AD](./media/concept-understand-roles/azure-roles-azure-ad-roles.png)
 
 Cuando decimos "un sistema de control de acceso basado en rol independiente", significa que hay un almacén de datos diferente en el que se almacenan las definiciones y las asignaciones de roles. Del mismo modo, se realizan controles de acceso en puntos definidos por distintas directivas. Para más información, consulte [Roles de los servicios de Microsoft 365 en Azure AD](m365-workload-docs.md) y [Roles de administrador de la suscripción clásica, roles de Azure y roles de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
@@ -52,7 +54,7 @@ Los roles integrados de Azure AD se diferencian según el lugar en el que se us
 
 - **Roles específicos de Azure AD**: estos roles conceden permisos para administrar recursos solo en Azure AD. Por ejemplo, Administrador de usuarios, Administrador de aplicaciones, Administrador de grupos, todos conceden permisos para administrar recursos que residen en Azure AD.
 - **Roles de servicio específico:** en el caso de los principales servicios de Microsoft 365 (distintos de Azure AD), hemos creado roles de servicio específico que conceden permisos para administrar todas las características de ese servicio.  Por ejemplo, los roles Administrador de Exchange, Administrador de Intune, Administrador de SharePoint y Administrador de Teams pueden administrar características de sus servicios respectivos. El Administrador de Exchange administra los buzones de correo, el Administrador de Intune administra las directivas de dispositivo, el Administrador de SharePoint administra las colecciones de sitios, el Administrador de Teams administra la calidad de las llamadas, etc.
-- **Roles multiservicios**: hay algunos roles que abarcan varios servicios. Tenemos dos roles globales: Administrador global y Lector global. Estos dos roles abarcan todos los servicios de Microsoft 365. Además, hay algunos roles relacionados con la seguridad, como el Administrador de seguridad y el Lector de seguridad, que conceden acceso a varios servicios de seguridad en Microsoft 365. Por ejemplo, con los roles de Administrador de seguridad en Azure AD puede administrar Security Center de Microsoft 365, Microsoft Defender para punto de conexión y Microsoft Cloud App Security. Del mismo modo, en el rol Administrador de cumplimiento puede administrar la configuración relacionada con el cumplimiento en el Centro de cumplimiento de Microsoft 365, Exchange, etc.
+- **Roles multiservicios**: hay algunos roles que abarcan varios servicios. Tenemos dos roles globales: Administrador global y Lector global. Estos dos roles abarcan todos los servicios de Microsoft 365. Además, hay algunos roles relacionados con la seguridad, como el Administrador de seguridad y el Lector de seguridad, que conceden acceso a varios servicios de seguridad en Microsoft 365. Por ejemplo, con los roles de Administrador de seguridad en Azure AD puede administrar el portal de Microsoft 365 Defender, la Protección contra amenazas avanzada de Microsoft Defender y Microsoft Defender para aplicaciones en la nube. Del mismo modo, en el rol Administrador de cumplimiento puede administrar la configuración relacionada con el cumplimiento en el Centro de cumplimiento de Microsoft 365, Exchange, etc.
 
 ![Las tres categorías de roles integrados de Azure AD](./media/concept-understand-roles/role-overlap-diagram.png)
 

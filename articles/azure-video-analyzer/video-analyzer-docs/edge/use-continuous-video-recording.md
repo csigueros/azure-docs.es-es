@@ -4,12 +4,12 @@ description: En este tutorial aprenderá a usar Azure Video Analyzer para grabar
 ms.topic: tutorial
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 6a86dac6b242139d406dd6513a70846c57fa1c05
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 4b01a1a02e6e9c7901f6b366ff79b1e84891e44d
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131559359"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132493312"
 ---
 # <a name="tutorial-continuous-video-recording-and-playback"></a>Tutorial: Grabación continua de vídeo y reproducción
 
@@ -59,7 +59,7 @@ Como se explica en [este](../pipeline.md) artículo, una canalización del anali
 > :::image type="content" source="../media/continuous-video-recording/continuous-video-recording-overview.svg" alt-text="Canalización de Azure Video Analyzer para CVR":::
 <!-- ./media/continuous-video-recording-tutorial/continuous-video-recording-overview.svg -->
 
-En este tutorial, usará un módulo perimetral creado con [Live555 Media Server](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) para simular una cámara RTSP. Dentro de la canalización, usará un nodo de [origen RTSP](../pipeline.md#rtsp-source) para obtener la fuente en directo y enviar ese vídeo al [nodo receptor del vídeo](../pipeline.md#video-sink), que graba el vídeo en la cuenta de Video Analyzer. En este tutorial se va a usar un [vídeo de ejemplo de un ](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv)de vídeo de ejemplo de un cruce de autopistas.
+En este tutorial, usará un módulo perimetral creado con [Live555 Media Server](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) para simular una cámara RTSP. Dentro de la canalización, usará un nodo de [origen RTSP](../pipeline.md#rtsp-source) para obtener la fuente en directo y enviar ese vídeo al [nodo receptor del vídeo](../pipeline.md#video-sink), que graba el vídeo en la cuenta de Video Analyzer. En este tutorial se va a usar un [vídeo de ejemplo de un ](https://avamedia.blob.core.windows.net/public/camera-300s.mkv)de vídeo de ejemplo de un cruce de autopistas.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
 

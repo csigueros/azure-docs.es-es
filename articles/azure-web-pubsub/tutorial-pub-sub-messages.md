@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 11/01/2021
-ms.openlocfilehash: 00ff941ccf008b84ac72191035cc9322d4d08c8c
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 13e3ee8db088db794c538e6da7af1a117c5ebd11
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131579110"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132345914"
 ---
 # <a name="tutorial-publish-and-subscribe-messages-using-websocket-api-and-azure-web-pubsub-service-sdk"></a>Tutorial: Publicación y suscripción de mensajes mediante la API de WebSocket y el SDK del servicio Azure Web PubSub
 
@@ -108,8 +108,8 @@ Los clientes se conectan al servicio Azure Web PubSub mediante el protocolo WebS
                 var hub = args[1];
 
                 // Either generate the URL or fetch it from server or fetch a temp one from the portal
-                var serviceClient = new WebPubSubServiceClient(connectionString, hub);
-                var url = serviceClient.GenerateClientAccessUri();
+                var service = new WebPubSubServiceClient(connectionString, hub);
+                var url = service.GenerateClientAccessUri();
 
                 using (var client = new WebsocketClient(url))
                 {
@@ -157,8 +157,8 @@ Los clientes se conectan al servicio Azure Web PubSub mediante el protocolo WebS
 
     async function main() {
       const hub = "pubsub";
-      let serviceClient = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hub);
-      let token = await serviceClient.getClientAccessToken();
+      let service = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hub);
+      let token = await service.getClientAccessToken();
       let ws = new WebSocket(token.url);
       ws.on('open', () => console.log('connected'));
       ws.on('message', data => console.log('Message received: %s', data));
@@ -189,13 +189,10 @@ Los clientes se conectan al servicio Azure Web PubSub mediante el protocolo WebS
     cd subscriber
     # Create venv
     python -m venv env
+    # Activate venv
+    source ./env/bin/activate
 
-    # Active venv
-    ./env/Scripts/activate
-
-    # Or call .\env\Scripts\activate when you are using CMD under Windows
-
-    pip install azure-messaging-webpubsubservice==1.0.0b1
+    pip install azure-messaging-webpubsubservice
     pip install websockets
 
     ```
@@ -206,35 +203,38 @@ Los clientes se conectan al servicio Azure Web PubSub mediante el protocolo WebS
     import asyncio
     import sys
     import websockets
-    from azure.messaging.webpubsubservice import (
-        build_authentication_token
-    )
-
+    
+    from azure.messaging.webpubsubservice import WebPubSubServiceClient
+    
+    
     async def connect(url):
         async with websockets.connect(url) as ws:
             print('connected')
             while True:
-                print('Message received: ' + await ws.recv())
-
-    if len(sys.argv) != 3:
-        print('Usage: python subscribe.py <connection-string> <hub-name>')
-        exit(1)
-
-    connection_string = sys.argv[1]
-    hub_name = sys.argv[2]
-
-    token = build_authentication_token(connection_string, hub_name)
-
-    try:
-        asyncio.get_event_loop().run_until_complete(connect(token['url']))
-    except KeyboardInterrupt:
-        pass
-
+                print('Received message: ' + await ws.recv())
+    
+    if __name__ == '__main__':
+    
+        if len(sys.argv) != 3:
+            print('Usage: python subscribe.py <connection-string> <hub-name>')
+            exit(1)
+    
+        connection_string = sys.argv[1]
+        hub_name = sys.argv[2]
+    
+        service = WebPubSubServiceClient.from_connection_string(connection_string, hub=hub_name)
+        token = service.get_client_access_token()
+    
+        try:
+            asyncio.get_event_loop().run_until_complete(connect(token['url']))
+        except KeyboardInterrupt:
+            pass
+    
     ```
 
     El código anterior crea una conexión de WebSocket para conectarse a un centro en Azure Web PubSub. El centro es una unidad lógica de Azure Web PubSub donde puede publicar mensajes a un grupo de clientes. [Los conceptos clave](./key-concepts.md) contienen la explicación detallada sobre los términos usados en Azure Web PubSub.
     
-    El servicio Azure Web PubSub usa la autenticación [JSON Web Token (JWT)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) por lo que en el ejemplo de código se usa `build_authentication_token()` en el SDK de Web PubSub para generar una dirección URL al servicio que contiene la dirección URL completa con un token de acceso válido.
+    El servicio Azure Web PubSub usa la autenticación [JSON Web Token (JWT)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) por lo que en el ejemplo de código se usa `service.get_client_access_token()` del SDK para generar una dirección URL al servicio que contiene la dirección URL completa con un token de acceso válido.
     
     Una vez establecida la conexión, recibirá mensajes a través de la conexión de WebSocket. Por lo tanto, usamos `await ws.recv()` para escuchar los mensajes entrantes.
 
@@ -307,12 +307,12 @@ Los clientes se conectan al servicio Azure Web PubSub mediante el protocolo WebS
                 return;
             }
 
-            WebPubSubServiceClient client = new WebPubSubClientBuilder()
+            WebPubSubServiceClient service = new WebPubSubClientBuilder()
                 .connectionString(args[0])
                 .hub(args[1])
                 .buildClient();
 
-            WebPubSubAuthenticationToken token = client.getAuthenticationToken(new GetAuthenticationTokenOptions());
+            WebPubSubAuthenticationToken token = service.getAuthenticationToken(new GetAuthenticationTokenOptions());
 
             WebSocketClient webSocketClient = new WebSocketClient(new URI(token.getUrl())) {
                 @Override
@@ -394,11 +394,11 @@ Ahora vamos a usar el SDK de Azure Web PubSub para publicar un mensaje para el c
                 var hub = args[1];
                 var message = args[2];
 
-                var serviceClient = new WebPubSubServiceClient(connectionString, hub);
+                var service = new WebPubSubServiceClient(connectionString, hub);
                 
                 // Send messages to all the connected clients
                 // You can also try SendToConnectionAsync to send messages to the specific connection
-                await serviceClient.SendToAllAsync(message);
+                await service.SendToAllAsync(message);
             }
         }
     }
@@ -435,13 +435,13 @@ Ahora vamos a usar el SDK de Azure Web PubSub para publicar un mensaje para el c
     const { WebPubSubServiceClient } = require('@azure/web-pubsub');
 
     const hub = "pubsub";
-    let serviceClient = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hub);
+    let service = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hub);
 
     // by default it uses `application/json`, specify contentType as `text/plain` if you want plain-text
-    serviceClient.sendToAll(process.argv[2], { contentType: "text/plain" });
+    service.sendToAll(process.argv[2], { contentType: "text/plain" });
     ```
 
-    La llamada `sendToAll()` simplemente envía un mensaje a todos los clientes conectados en un centro.
+    La llamada `service.sendToAll()` simplemente envía un mensaje a todos los clientes conectados en un centro.
 
 3. Ejecute el siguiente comando y reemplace `<connection_string>` por el elemento **ConnectionString** capturado en el [paso anterior](#get-the-connectionstring-for-future-use):
 
@@ -459,46 +459,39 @@ Ahora vamos a usar el SDK de Azure Web PubSub para publicar un mensaje para el c
 # <a name="python"></a>[Python](#tab/python)
 
 1. En primer lugar, vamos a crear la carpeta `publisher` para este proyecto e instalar las dependencias necesarias:
-    * Al usar bash
-        ```bash
-        mkdir publisher
-        cd publisher
-        # Create venv
-        python -m venv env
+    ```bash
+    mkdir publisher
+    cd publisher
+    # Create venv
+    python -m venv env
+    # Active venv
+    source ./env/bin/activate
 
-        # Active venv
-        ./env/Scripts/activate
+    pip install azure-messaging-webpubsubservice
 
-        # Or call .\env\Scripts\activate when you are using CMD under windows
-
-        pip install azure-messaging-webpubsubservice==1.0.0b1
-
-        ```
+    ```
 2. Ahora vamos a usar el SDK de Azure Web PubSub para publicar un mensaje para el servicio. Cree un archivo `publish.py` con el código siguiente:
 
     ```python
     import sys
-    from azure.messaging.webpubsubservice import (
-        WebPubSubServiceClient
-    )
-    from azure.messaging.webpubsubservice.rest import *
-
-    if len(sys.argv) != 4:
-        print('Usage: python publish.py <connection-string> <hub-name> <message>')
-        exit(1)
-
-    connection_string = sys.argv[1]
-    hub_name = sys.argv[2]
-    message = sys.argv[3]
-
-    service_client = WebPubSubServiceClient.from_connection_string(connection_string)
-    res = service_client.send_request(build_send_to_all_request(hub_name, content=message, content_type='text/plain'))
-    # res should be <HttpResponse: 202 Accepted>
-    print(res)
-
+    from azure.messaging.webpubsubservice import WebPubSubServiceClient
+    
+    if __name__ == '__main__':
+    
+        if len(sys.argv) != 4:
+            print('Usage: python publish.py <connection-string> <hub-name> <message>')
+            exit(1)
+    
+        connection_string = sys.argv[1]
+        hub_name = sys.argv[2]
+        message = sys.argv[3]
+    
+        service = WebPubSubServiceClient.from_connection_string(connection_string, hub=hub_name)
+        res = service.send_to_all(message, content_type='text/plain')
+        print(res)
     ```
 
-    `build_send_to_all_request()` compiló un mensaje y `send_request()` lo envió a todos los clientes conectados de un centro.
+    `send_to_all()` envía un mensaje a todos los clientes conectados en un centro de conectividad.
 
 3. Ejecute el siguiente comando y reemplace `<connection_string>` por el elemento **ConnectionString** capturado en el [paso anterior](#get-the-connectionstring-for-future-use):
 
@@ -551,11 +544,11 @@ Ahora vamos a usar el SDK de Azure Web PubSub para publicar un mensaje para el c
                 return;
             }
 
-            WebPubSubServiceClient client = new WebPubSubClientBuilder()
+            WebPubSubServiceClient service = new WebPubSubClientBuilder()
                 .connectionString(args[0])
                 .hub(args[1])
                 .buildClient();
-            client.sendToAll(args[2], WebPubSubContentType.TEXT_PLAIN);
+            service.sendToAll(args[2], WebPubSubContentType.TEXT_PLAIN);
         }
     }
 

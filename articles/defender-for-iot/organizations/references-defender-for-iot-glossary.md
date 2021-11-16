@@ -3,12 +3,12 @@ title: Glosario de Defender para IoT para organizaciones
 description: En este glosario se proporciona una breve descripción de los términos y conceptos más importantes de la plataforma de Defender para IoT.
 ms.date: 05/27/2021
 ms.topic: article
-ms.openlocfilehash: 21f3404b40ac1b203531079c2e6ecf64697c8d43
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 4d3467d6e3a2a4efacd6ed5671e9f2d7614ea143
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018521"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132027772"
 ---
 # <a name="defender-for-iot-glossary-for-organizations"></a>Glosario de Defender para IoT para organizaciones
 
@@ -49,10 +49,10 @@ En este glosario se proporciona una breve descripción de los términos y concep
 |--|--|--|
 | **Minería de datos** | Generar informes completos y pormenorizados sobre los dispositivos de red:<br /><br />- **respuesta a los incidentes SOC**: informes en tiempo real para ayudar a gestionar la respuesta inmediata a los incidentes. Por ejemplo, un informe puede mostrar los dispositivos que pueden necesitar la aplicación de revisiones.<br /><br />- **Análisis forense**: informes basados en datos históricos de informes de investigación.<br /><br />- **integridad de la red de TI**: informes que ayudan a mejorar la seguridad general de la red. Por ejemplo, un informe puede enumerar los dispositivos con credenciales de autenticación poco seguras.<br /><br />- **visibilidad**: informes que abarcan todos los elementos de consulta para ver todos los parámetros de línea de base de la red.<br /><br />Guarde los informes de minería de datos para que los usuarios de solo lectura puedan verlos. | **[Línea de base](#b)<br /><br />[Informes](#r)** |
 | **plataforma de Defender para IoT** | La solución de Defender para IoT instalada en los sensores de Defender para IoT y la consola de administración local. | **[Sensor](#s)<br /><br />[Consola de administración local](#o)** |
-| **Mapa de dispositivos** | Representación gráfica de los dispositivos de red que detecta Defender para IoT. Muestra las conexiones entre los dispositivos e información sobre cada dispositivo. Use el mapa para:<br /><br />- recuperar y controlar la información crítica del dispositivo.<br /><br />- analizar segmentos de red.<br /><br />- exportar detalles y resúmenes del dispositivo. | **[grupo de capa de Purdue](#p)** |
-| **Inventario de dispositivos: sensor** | El inventario de dispositivos muestra una amplia gama de atributos de dispositivo detectados por Defender para IoT. Hay opciones disponibles para:<br /><br />- filtrar la información mostrada.<br /><br />- exportar esta información a un archivo CSV.<br /><br />- importar los detalles del registro de Windows. | **[Group (Grupo)](#g)** <br /><br />**[Inventario de dispositivos: consola de administración local](#d)** |
-| **Inventario de dispositivos: consola de administración local** | La información del dispositivo de los sensores conectados se puede ver desde la consola de administración local en el inventario de dispositivos. Esto proporciona a los usuarios de la consola de administración local una vista completa de toda la información de la red. | **[Inventario de dispositivos: sensor](#d)<br /><br />[Inventario de dispositivos: integrador de datos](#d)** |
-| **Inventario de dispositivos: integrador de datos** | Las funcionalidades de integración de datos de la consola de administración local permiten mejorar los datos del inventario de dispositivos con información de otros recursos de la empresa. Algunos recursos de ejemplo son las CMDB, DNS, los firewalls y las API web. | **[Inventario de dispositivos: consola de administración local](#d)** |
+| **Dispositivo de inventario** | Defender para IoT identificará y clasificará los dispositivos como un único dispositivo de red único en el inventario para:
+1. Dispositivos IT/OT/IoT independientes (con una o varias NIC)
+1. Dispositivos compuestos por varios componentes de backplane (incluidos todos los bastidores, ranuras o módulos)
+1. Dispositivos que actúan como infraestructura de red, como conmutador o enrutador (con varias NIC) Las direcciones IP públicas de Internet, los grupos de multidifusión y los grupos de difusión no se consideran dispositivos de inventario. Los dispositivos que han estado inactivos durante más de 60 días se clasifican como dispositivos de inventario inactivos.| | **Asignación de dispositivos** | Representación gráfica de los dispositivos de red que Detecta Defender para IoT. Muestra las conexiones entre los dispositivos e información sobre cada dispositivo. Use el mapa para:<br /><br />- recuperar y controlar la información crítica del dispositivo.<br /><br />- analizar segmentos de red.<br /><br />- exportar detalles y resúmenes del dispositivo. |  **[Grupo de capas de Purdue](#p)** | | **Inventario de dispositivos: sensor** | El inventario de dispositivos muestra una amplia gama de atributos de dispositivo detectados por Defender para IoT. Hay opciones disponibles para:<br /><br />- filtrar la información mostrada.<br /><br />- exportar esta información a un archivo CSV.<br /><br />- importar los detalles del registro de Windows. |  **[Grupo](#g)** <br /><br />**[Inventario de dispositivos: consola de administración local](#d)** | | **Inventario de dispositivos: consola de administración local** | La información del dispositivo de los sensores conectados se puede ver desde la consola de administración local en el inventario de dispositivos. Esto proporciona a los usuarios de la consola de administración local una vista completa de toda la información de la red. |  **[Inventario de dispositivos: sensor](#d)<br /><br />[Inventario de dispositivos: integrador de datos](#d)** | | **Inventario de dispositivos: integrador de datos** | Las funcionalidades de integración de datos de la consola de administración local permiten mejorar los datos del inventario de dispositivos con información de otros recursos de la empresa. Algunos recursos de ejemplo son las CMDB, DNS, los firewalls y las API web. |  **[Inventario de dispositivos: consola de administración local](#d)**  |
 
 ## <a name="e"></a>E
 

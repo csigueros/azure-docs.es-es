@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 1b4a23b3c59050b99db2938b33091d359f3c34ea
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: b0eb1b3a1248e4bccf8f726724b57cacb352b88e
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131502946"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132485357"
 ---
 # <a name="what-is-azure-cognitive-service-for-language"></a>¿Qué es Azure Cognitive Service for Language?
 
@@ -56,7 +56,7 @@ Una vez que haya tenido la oportunidad de usar el servicio de lenguaje, pruebe n
 
 * [Extracción de frases clave del texto almacenado en Power BI](key-phrase-extraction/tutorials/integrate-power-bi.md)
 * [Uso de Power Automate para ordenar la información en Microsoft Excel](named-entity-recognition/tutorials/extract-excel-information.md) 
-* [Uso de Flask para traducir texto, analizar opiniones y sintetizar voz](/translator/tutorial-build-flask-app-translation-synthesis?context=/azure/cognitive-services/language-service/context/context)
+* [Uso de Flask para traducir texto, analizar opiniones y sintetizar voz](/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?context=/azure/cognitive-services/language-service/context/context)
 * [Uso de Cognitive Services en aplicaciones de lienzo](/powerapps/maker/canvas-apps/cognitive-services-api?context=/azure/cognitive-services/language-service/context/context)
 * [Creación de un bot de preguntas frecuentes](question-answering/tutorials/bot-service.md)
 

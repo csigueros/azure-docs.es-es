@@ -9,14 +9,14 @@ ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: spunukol
+ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad62e355fc54f08e6c21967c2359740f22323db9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ade33d37584595bcc5c4e9ce1d1fda6edadd67a4
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128616771"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132158078"
 ---
 # <a name="troubleshoot-devices-by-using-the-dsregcmd-command"></a>Solución de problemas de dispositivos con el comando dsregcmd
 
@@ -67,7 +67,7 @@ El estado solo se muestra cuando el dispositivo está unido a Azure AD o a Azur
 - **TpmProtected**:el estado se establece en *YES* (Sí) si la clave privada del dispositivo está almacenada en un Módulo de plataforma segura (TPM) de hardware.
 - **DeviceAuthStatus**: realiza una comprobación para determinar el mantenimiento del dispositivo en Azure AD. Los estados de mantenimiento incluidos son:  
   * *SUCCESS* si el dispositivo está presente y habilitado en Azure AD.  
-  * *FAILED* si el dispositivo está deshabilitado o eliminado. Para obtener más información sobre este problema, vea [Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory](faq.yml#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-devices).  
+  * *FAILED* si el dispositivo está deshabilitado o eliminado. Para obtener más información sobre este problema, vea [Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory](faq.yml#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-11-devices). 
   * *FAILED. ERROR* si la prueba no se pudo ejecutar. Esta prueba requiere conectividad de red a Azure AD.
     > [!NOTE]
     > El campo **DeviceAuthStatus** se agregó en la actualización de mayo de 2021 de Windows 10 (versión 21H1).  
@@ -252,7 +252,7 @@ En esta sección se realizan una serie de pruebas para ayudar a diagnosticar err
 
 - **Client Time**: hora del sistema, en UTC.
 - **AD Connectivity Test**: se realiza una prueba de conectividad con el controlador de dominio. Si se produce un error en esta prueba, es probable que se produzcan errores de unión en la fase previa a la comprobación.
-- **Prueba de configuración de AD**: esta prueba lee y comprueba si el objeto Procedimientos de contención especiales (SCP) está configurado correctamente en el bosque Active Directory local. Los errores de esta prueba podrían producir errores de unión en la fase de detección con el código 0x801c001d.
+- **Prueba de configuración de AD**: esta prueba lee y comprueba si el objeto Punto de conexión de servicio (SCP) está configurado correctamente en el bosque Active Directory local. Los errores de esta prueba podrían producir errores de unión en la fase de detección con el código 0x801c001d.
 - **Prueba de detección de DRS**: esta prueba obtiene los puntos de conexión de DRS del punto de conexión de los metadatos de detección y realiza una solicitud del dominio Kerberos del usuario. Los errores de esta prueba podrían producir errores de unión en la fase de detección.
 - **Prueba de conectividad de DRS**: se realiza una prueba de conectividad básica del punto de conexión DRS.
 - **Token acquisition Test**: esta prueba intenta obtener un token de autenticación de Azure AD si el inquilino del usuario está federado. Los errores de esta prueba podrían producir errores de unión en la fase de autenticación. Si la autenticación no puede realizarse, se intentará la unión de sincronización como reserva, a menos que la reserva se deshabilite explícitamente con la siguiente configuración de clave del Registro:

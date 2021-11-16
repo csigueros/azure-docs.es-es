@@ -4,15 +4,15 @@ description: En este artículo se ofrece información general sobre la autentica
 keywords: seguridad de automatización, automatización segura; autenticación de automatización
 services: automation
 ms.subservice: process-automation
-ms.date: 10/26/2021
+ms.date: 11/05/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 08f265d4e2af8fe985db3ceab78b535db2f73924
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 7d6a509e4d99b95e2113aceb00ff1dab9a98fd91
+ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131470877"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131866665"
 ---
 # <a name="azure-automation-account-authentication-overview"></a>Introducción a la autenticación de cuentas de Azure Automation
 
@@ -37,6 +37,9 @@ Todas las tareas que se crean en los recursos con Azure Resource Manager y los c
 Una identidad administrada de Azure Active Directory (Azure AD) permite al runbook acceder fácilmente a otros recursos protegidos por Azure AD. La plataforma Azure administra la identidad y no es necesario que lleve a cabo el aprovisionamiento ni la rotación de los secretos. Para más información acerca de las identidades administradas en Azure AD, consulte [Identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 Las identidades administradas son la manera recomendada de autenticarse en los runbooks y es el método de autenticación predeterminado para la cuenta de Automation.
+
+> [!NOTE]
+> Al crear una cuenta de Automation, la opción para crear una cuenta de ejecución ya no está disponible. Sin embargo, seguimos admitiendo una cuenta de ejecución para las cuentas de Automation nuevas y existentes. Puede [crear una cuenta de ejecución](create-run-as-account.md) en la cuenta de Automation desde Azure Portal o mediante PowerShell.
 
 Estas son algunas de las ventajas de usar las identidades administradas:
 
@@ -68,7 +71,7 @@ Para crear o renovar una cuenta de ejecución, se necesitan permisos en tres niv
 - Cuenta de Automation
 
 > [!NOTE]
-> Azure Automation no crea automáticamente la cuenta de ejecución. Se ha reemplazado por el uso de identidades administradas.
+> Azure Automation no crea automáticamente la cuenta de ejecución, se ha reemplazado por el uso de identidades administradas. Sin embargo, seguimos admitiendo una cuenta de ejecución para las cuentas de Automation nuevas y existentes. Puede [crear una cuenta de ejecución](create-run-as-account.md) en la cuenta de Automation desde Azure Portal o mediante PowerShell.
 
 ### <a name="subscription-permissions"></a>Permisos de suscripción
 

@@ -7,12 +7,12 @@ ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/13/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 08690347f9a0dae5237ad74bfda9ad3eb6c8ef84
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b4859103c90e7f54b70be23d49bad0a59a79a3c8
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131072868"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132347434"
 ---
 # <a name="create-an-integration-workflow-with-single-tenant-azure-logic-apps-standard-in-visual-studio-code"></a>Creación de un flujo de trabajo de integración con Azure Logic Apps (estándar) de inquilino único en Visual Studio Code
 
@@ -306,7 +306,7 @@ Después de abrir el diseñador, aparece la solicitud **Elija una operación** e
 
 El flujo de trabajo de este ejemplo usa este desencadenador y estas acciones:
 
-* El [desencadenar Solicitud](../connectors/connectors-native-reqres.md) integrado, **Cuando se recibe una solicitud HTTP**, que recibe llamadas o solicitudes entrantes y crea un punto de conexión al que pueden llamar otros servicios o aplicaciones lógicas.
+* El [desencadenador de solicitud](../connectors/connectors-native-reqres.md) integrado, **Cuando se recibe una solicitud HTTP**, que recibe llamadas o solicitudes entrantes y crea un punto de conexión al que pueden llamar otros servicios o aplicaciones lógicas.
 
 * La [acción de Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), **Enviar correo electrónico**.
 
@@ -316,7 +316,7 @@ El flujo de trabajo de este ejemplo usa este desencadenador y estas acciones:
 
 1. Junto al diseñador, en el panel **Agregar un desencadenador**, en el cuadro de búsqueda **Elegir una operación**, asegúrese de que **Integrado** esté seleccionado para que pueda seleccionar un desencadenador que se ejecute de forma nativa.
 
-1. En el cuadro de búsqueda **Elegir una operación**, escriba `when a http request` y seleccione el desencadenador Solicitud integrado denominado **Cuando se recibe una solicitud HTTP**.
+1. En el cuadro de búsqueda **Elegir una operación**, escriba `when a http request` y seleccione el desencadenador de solicitud integrado denominado **Cuando se recibe una solicitud HTTP**.
 
    ![Captura de pantalla que muestra el diseñador de flujos de trabajo y el panel **Agregar un desencadenador** con el desencadenador "Cuando se recibe una solicitud HTTP" seleccionado.](./media/create-single-tenant-workflows-visual-studio-code/add-request-trigger.png)
 

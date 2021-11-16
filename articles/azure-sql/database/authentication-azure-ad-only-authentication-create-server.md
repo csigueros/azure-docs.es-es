@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/02/2021
-ms.openlocfilehash: 1a1c93a47d85b13c1f2a8267539da4c72f166756
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 845ecacf97887ef3488d1fd80b40f9424234e257
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131423762"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132290509"
 ---
 # <a name="create-server-with-azure-ad-only-authentication-enabled-in-azure-sql"></a>Creación de un servidor con autenticación solo de Azure AD habilitada en Azure SQL
 
@@ -79,7 +79,7 @@ Para cambiar las propiedades existentes después de crear el servidor o la insta
 
 1. Deje los valores predeterminados de **Directiva de conexión** y **Versión de TLS mínima**.
 
-1. Seleccione **Siguiente: Seguridad** en la parte inferior de la página. Configure cualquiera de los valores de **Azure Defender para SQL**, **Libro de contabilidad**, **Identidad** y **Cifrado de datos transparente** para el entorno. También puede omitirlos.
+1. Seleccione **Siguiente: Seguridad** en la parte inferior de la página. Configure cualquiera de los valores de **Microsoft Defender para SQL**, **Libro de contabilidad**, **Identidad** y **Cifrado de datos transparente** para el entorno. También puede omitirlos.
 
    > [!NOTE]
    > No se permite el uso de una identidad administrada asignada por el usuario (UMI) con la autenticación solo de Azure AD. No establezca la identidad del servidor de la sección **Identidad** como UMI.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 9a71a0c90dab995374a8b28db8d814e718d732de
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 627094acdcfb554df3011237ef7ee34f9a2b28c5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124822619"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132334442"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-edx-for-business-saml-integration"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con edX for Business SAML Integration
 
@@ -60,7 +60,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con edX for Business
 Para configurar y probar el inicio de sesión único de Azure AD con edX for Business SAML Integration, complete los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de edX for Business SAML Integration](#configure-edx-for-business-saml-integration-sso)** : para configurar los valores de Inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de edX for Business SAML Integration](#create-edx-for-business-saml-integration-test-user)** , para tener un homólogo de B.Simon en edX for Business SAML Integration vinculado a la representación del usuario en Azure AD.
@@ -141,4 +141,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado edX for Business SAML Integration, puede aplicar el control de sesión, que protege su organización en tiempo real frente la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez que haya configurado edX for Business SAML Integration, puede aplicar el control de sesión, que protege su organización en tiempo real frente la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

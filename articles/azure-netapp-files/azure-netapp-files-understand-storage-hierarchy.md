@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 06/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 41ccd31a5e42b2765ffa778dc347cc848090ffee
-ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.openlocfilehash: 49ad214c8851546cb2340d7ad413f9369e9b8a01
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129407520"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219951"
 ---
 # <a name="storage-hierarchy-of-azure-netapp-files"></a>Jerarquía de almacenamiento de Azure NetApp Files
 
@@ -52,30 +52,33 @@ Comprender cómo funcionan los grupos de capacidad ayuda a seleccionar los tipos
 
 ### <a name="quality-of-service-qos-types-for-capacity-pools"></a><a name="qos_types"></a>Tipos de calidad de servicio (QoS) de los grupos de capacidad
 
-El tipo de QoS es un atributo de un grupo de capacidad. Azure NetApp Files proporciona dos tipos de QoS de grupos de capacidad. 
+El tipo de QoS es un atributo de un grupo de capacidad. Azure NetApp Files proporciona dos tipos de QoS de grupos de capacidad: *automático (predeterminado)* y *manual*. 
 
-- Tipo de QoS *automático* (o auto)  
+#### <a name="automatic-or-auto-qos-type"></a>Tipo de QoS *automático* (o auto)  
 
-    Cuando se crea un grupo de capacidad, el tipo de QoS predeterminado es automático.
+Cuando se crea un grupo de capacidad, el tipo de QoS predeterminado es automático.
 
-    En un grupo de capacidad de QoS automático, el rendimiento se asigna automáticamente a los volúmenes del grupo, de forma proporcional a la cuota de tamaño asignada a los volúmenes. 
+En un grupo de capacidad de QoS automático, el rendimiento se asigna automáticamente a los volúmenes del grupo, de forma proporcional a la cuota de tamaño asignada a los volúmenes. 
 
-    El rendimiento máximo asignado a un volumen depende del nivel de servicio del grupo de capacidad y de la cuota de tamaño del volumen. Para ver un ejemplo de cálculo, consulte [Niveles de servicio para Azure NetApp Files](azure-netapp-files-service-levels.md).
+El rendimiento máximo asignado a un volumen depende del nivel de servicio del grupo de capacidad y de la cuota de tamaño del volumen. Para ver un ejemplo de cálculo, consulte [Niveles de servicio para Azure NetApp Files](azure-netapp-files-service-levels.md).
 
-- Tipo de QoS <a name="manual_qos_type"></a>*manual*  
+Para conocer las consideraciones de rendimiento sobre los tipos de QoS, consulte [Consideraciones de rendimiento para Azure NetApp Files](azure-netapp-files-performance-considerations.md).
 
-    Tiene la opción de usar el tipo de QoS manual para un grupo de capacidad.
+#### <a name="manual-qos-type"></a>Tipo de QoS *manual*  
 
-    En un grupo de capacidad de QoS manual, puede asignar la capacidad y el rendimiento de un volumen de forma independiente. El rendimiento total de todos los volúmenes creados con un grupo de capacidad de QoS manual está limitado por el rendimiento total del grupo.  Viene determinado por la combinación del tamaño del grupo y el rendimiento del nivel de servicio. 
+Al [crear un grupo de capacidad](azure-netapp-files-set-up-capacity-pool.md), puede especificar que el grupo de capacidad use el tipo de QoS manual. También puede [cambiar un grupo de capacidad existente](manage-manual-qos-capacity-pool.md#change-to-qos) para que use el tipo de QoS manual. *Establecer el tipo de capacidad en QoS manual es un cambio permanente.* No se puede convertir un grupo de capacidad de QoS manual en uno automático. 
 
-    Por ejemplo, un grupo de capacidad de 4 TiB con el nivel de servicio Ultra tiene una capacidad de rendimiento total de 512 MiB/s (4 TiB x 128 MiB/s/TiB) disponible para los volúmenes.
+En un grupo de capacidad de QoS manual, puede asignar la capacidad y el rendimiento de un volumen de forma independiente. Para conocer los niveles de rendimiento mínimo y máximo, consulte [Límites de recursos de Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits). El rendimiento total de todos los volúmenes creados con un grupo de capacidad de QoS manual está limitado por el rendimiento total del grupo.  Viene determinado por la combinación del tamaño del grupo y el rendimiento del nivel de servicio.  Por ejemplo, un grupo de capacidad de 4 TiB con el nivel de servicio Ultra tiene una capacidad de rendimiento total de 512 MiB/s (4 TiB x 128 MiB/s/TiB) disponible para los volúmenes.
 
+##### <a name="example-of-using-manual-qos"></a>Ejemplo de usar QoS manual
+
+Cuando se usa un grupo de capacidad de QoS manual con, por ejemplo, un sistema SAP HANA, una base de datos de Oracle u otras cargas de trabajo que requieren varios volúmenes, se puede usar el grupo de capacidad para crear estos volúmenes de aplicaciones.  Cada volumen puede proporcionar el tamaño y rendimiento individuales para satisfacer los requisitos de la aplicación.  Para obtener información detallada sobre las ventajas, vea [Ejemplos de límite de rendimiento de los volúmenes en un grupo de capacidad de QoS manual](azure-netapp-files-service-levels.md#throughput-limit-examples-of-volumes-in-a-manual-qos-capacity-pool).  
 
 ## <a name="volumes"></a><a name="volumes"></a>Volúmenes
 
 - Un volumen se mide según el consumo de capacidad lógica y es escalable. 
 - El consumo de la capacidad de un volumen se descuenta de la capacidad aprovisionada de su grupo.
-- El consumo de rendimiento de un volumen se calcula contra el rendimiento disponible de su grupo. Consulte [Tipo de QoS manual](#manual_qos_type).
+- El consumo de rendimiento de un volumen se calcula contra el rendimiento disponible de su grupo. Consulte [Tipo de QoS manual](#manual-qos-type).
 - Cada volumen pertenece a un solo grupo, pero un grupo puede contener varios volúmenes. 
 
 ## <a name="conceptual-diagram-of-storage-hierarchy"></a><a name="conceptual_diagram_of_storage_hierarchy"></a>Diagrama conceptual de la jerarquía de almacenamiento 

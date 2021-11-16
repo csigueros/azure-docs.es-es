@@ -9,12 +9,12 @@ ms.date: 08/24/2021
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-js
-ms.openlocfilehash: c65cd9e9e6d80222f60a3ee060ba697743713738
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 28f8abd8c70f826493d3636d422919c066ed8971
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129362726"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132492272"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Uso de Visual Studio Code para desarrollar y depurar módulos para Azure IoT Edge
 
@@ -119,7 +119,7 @@ Para ver cómo funciona el módulo de temperatura simulada, vea el [código fuen
 
 ### <a name="set-iot-edge-runtime-version"></a>Establecimiento de la versión del entorno de ejecución de IoT Edge
 
-La extensión de IoT Edge adopta como predeterminada la versión estable más reciente del entorno de ejecución de IoT Edge cuando crea los recursos de implementación. Actualmente, la versión estable más reciente es la versión 1.2. Si va a desarrollar módulos para dispositivos que ejecutan la versión de compatibilidad a largo plazo 1.1 o la versión 1.0 anterior, actualice la versión del entorno de ejecución de IoT Edge en Visual Studio Code para que coincidan.
+La extensión de IoT Edge adopta como predeterminada la versión estable más reciente del entorno de ejecución de IoT Edge cuando crea los recursos de implementación. Actualmente, esta versión es la 1.2. Si va a desarrollar módulos para dispositivos que ejecutan la versión de compatibilidad a largo plazo 1.1 o la versión 1.0 anterior, actualice la versión del entorno de ejecución de IoT Edge en Visual Studio Code para que coincidan.
 
 1. Seleccione **Ver** > **Paleta de comandos**.
 
@@ -296,22 +296,22 @@ Al depurar los módulos con este método, los módulos se ejecutan sobre el ento
       ptvsd.break_into_debugger()
       ```
 
-     Por ejemplo, si quiere depurar la función `receive_message_listener`, insertaría esa línea de código tal como se muestra a continuación:
+     Por ejemplo, si quiere depurar la función `receive_message_handler`, insertaría esa línea de código tal como se muestra a continuación:
 
-      ```python
-      def receive_message_listener(client):
-          ptvsd.break_into_debugger()
-          global RECEIVED_MESSAGES
-          while True:
-              message = client.receive_message_on_input("input1")   # blocking call
-              RECEIVED_MESSAGES += 1
-              print("Message received on input1")
-              print( "    Data: <<{}>>".format(message.data) )
-              print( "    Properties: {}".format(message.custom_properties))
-              print( "    Total calls received: {}".format(RECEIVED_MESSAGES))
-              print("Forwarding message to output1")
-              client.send_message_to_output(message, "output1")
-              print("Message successfully forwarded")
+    ```python
+    def receive_message_handler(message):
+        ptvsd.break_into_debugger()
+        global RECEIVED_MESSAGES
+        RECEIVED_MESSAGES += 1
+        if message.input_name == "input1":
+            print("Message received on input1")
+            print( "    Data: <<{}>>".format(message.data) )
+            print( "    Properties: {}".format(message.custom_properties))
+            print( "    Total calls received: {}".format(RECEIVED_MESSAGES))
+            print("Forwarding message to output1")
+            client.send_message_to_output(message, "output1")
+            print("Message successfully forwarded")
+
       ```
 
 1. En la paleta de comandos de Visual Studio Code:

@@ -4,25 +4,24 @@ description: Uso del filtro para dispositivos en el acceso condicional para mejo
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/26/2021
+ms.date: 11/08/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dc7b4630d26c0f1b78df5a29a3210fd68f3d734
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: da1ecbbc9f4d6b318c7829b946da5495104e4632
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131012669"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132135462"
 ---
 # <a name="conditional-access-filter-for-devices"></a>Acceso condicional: filtro para dispositivos
 
 Al crear directivas de acceso condicional, los administradores han solicitado la capacidad de dirigirse a dispositivos específicos en su entorno o de excluirlos. La condición de filtro para dispositivos proporciona esta funcionalidad a los administradores. Ahora puede dirigirse a dispositivos específicos mediante [operadores admitidos y propiedades para filtros del dispositivo](#supported-operators-and-device-properties-for-filters) y otras condiciones de asignación disponibles en las directivas de acceso condicional.
 
 :::image type="content" source="media/concept-condition-filters-for-devices/create-filter-for-devices-condition.png" alt-text="Creación de un filtro para dispositivo en las condiciones de directiva de acceso condicional":::
-
 
 ## <a name="common-scenarios"></a>Escenarios frecuentes
 
@@ -88,6 +87,10 @@ Directiva 2: todos los usuarios con el rol de directorio Administrador global y
 1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
 1. Seleccione **Crear** para crear la directiva.
 
+### <a name="setting-attribute-values"></a>Definición de valores de atributo
+
+La definición de atributos de extensión es posible mediante Graph API. Para más información sobre cómo definir atributos del dispositivo, consulte el artículo [Actualizar dispositivo](/graph/api/device-update?view=graph-rest-1.0&tabs=http#example-2--write-extensionattributes-on-a-device).
+
 ### <a name="filter-for-devices-graph-api"></a>Graph API del filtro para dispositivos
 
 La API de filtros para dispositivos está disponible en el punto de conexión de Microsoft Graph v1.0 y es accesible mediante https://graph.microsoft.com/v1.0/identity/conditionalaccess/policies/. Puede configurar un filtro para dispositivos al crear una nueva directiva de acceso condicional, o puede actualizar una directiva existente para configurar la condición del filtro para dispositivos. Para actualizar una directiva existente, puede realizar una llamada de revisión en el punto de conexión de Microsoft Graph v1.0 mencionado anteriormente. Para ello, anexe el identificador de directiva de una directiva existente y ejecute el siguiente cuerpo de solicitud. En el ejemplo siguiente se muestra cómo configurar una condición de filtro para dispositivos, excepto dispositivos que no estén marcados como SAW. La sintaxis de la regla puede constar de más de una expresión única. Para más información, consulte [Reglas de pertenencia dinámica a grupos de Azure Active Directory](../enterprise-users/groups-dynamic-membership.md). 
@@ -119,7 +122,7 @@ Los siguientes atributos de dispositivo se pueden usar con la condición de filt
 | mdmAppId | Equals, NotEquals, In, NotIn | Un identificador de aplicación MDM válido | (device.mdmAppId -in [“0000000a-0000-0000-c000-000000000000”] |
 | model | Equals, NotEquals, StartsWith, NotStartsWith, EndsWith, NotEndsWith, Contains, NotContains, In, NotIn | Cualquier cadena | (device.model -notContains “Surface”) |
 | operatingSystem | Equals, NotEquals, StartsWith, NotStartsWith, EndsWith, NotEndsWith, Contains, NotContains, In, NotIn | Un sistema operativo válido (como Windows, iOS o Android) | (device.operatingSystem -eq “Windows”) |
-| operatingSystemVersion | Equals, NotEquals, StartsWith, NotStartsWith, EndsWith, NotEndsWith, Contains, NotContains, In, NotIn | Una versión de sistema operativo válida (como 6.1 para Windows 7, 6.2 para Windows 8 o 10.0 para Windows 10) | (device.operatingSystemVersion -in [“10.0.18363”, “10.0.19041”, “10.0.19042”]) |
+| operatingSystemVersion | Equals, NotEquals, StartsWith, NotStartsWith, EndsWith, NotEndsWith, Contains, NotContains, In, NotIn | Una versión del sistema operativo válida (como 6.1 para Windows 7, 6.2 para Windows 8 o 10.0 para Windows 10 y Windows 11) | (device.operatingSystemVersion -in [“10.0.18363”, “10.0.19041”, “10.0.19042”, “10.0.22000”]) |
 | physicalIds | Contains, NotContains | Por ejemplo, todos los dispositivos Windows Autopilot almacenan ZTDId (un valor único asignado a todos los dispositivos Windows Autopilot importados) en la propiedad physicalIds del dispositivo. | (device.devicePhysicalIDs -contains "[ZTDId]:value") |
 | profileType | Equals, NotEquals | Un tipo de perfil válido establecido para un dispositivo. Los valores admitidos son: RegisteredDevice (valor predeterminado), SecureVM (se usa para máquinas virtuales Windows en Azure habilitadas con el inicio de sesión de Azure AD), Printer (se usa para impresoras), Shared (se usa para dispositivos compartidos) y IoT (se usa para dispositivos IoT). | (device.profileType -notIn [“Printer”, “Shared”, “IoT”] |
 | systemLabels | Contains, NotContains | Lista de etiquetas que el sistema aplica al dispositivo. Algunos de los valores admitidos son: AzureResource (se usa para máquinas virtuales Windows en Azure habilitadas con el inicio de sesión de Azure AD), M365Managed (se usa para dispositivos administrados mediante Escritorio administrado de Microsoft) y MultiUser (se usa para dispositivos compartidos). | (device.systemLabels -contains "M365Managed") |
@@ -143,6 +146,7 @@ La condición de filtro para dispositivos del acceso condicional evalúa la dire
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- [Actualización del dispositivo con Graph API](/graph/api/device-update?view=graph-rest-1.0&tabs=http)
 - [Acceso condicional: Condiciones](concept-conditional-access-conditions.md)
 - [Directivas de acceso condicional habituales](concept-conditional-access-policy-common.md)
 - [Protección de dispositivos como parte de la historia de acceso con privilegios](/security/compass/privileged-access-devices)

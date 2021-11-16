@@ -4,12 +4,12 @@ ms.author: memildin
 manager: rkarlin
 ms.date: 10/18/2021
 ms.topic: include
-ms.openlocfilehash: 29b61cddc9fba4475b06d53303bf46145b17412b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 74209403f26404435a58e76efffd69e54435d221
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131010129"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132354065"
 ---
 Defender for Cloud proporciona protección contra amenazas en tiempo real para los entornos en contenedores y genera alertas de actividades sospechosas. Puede usar esta información para corregir problemas de seguridad y mejorar la seguridad de los contenedores rápidamente.
 
@@ -25,7 +25,7 @@ Defender for Cloud proporciona protección contra amenazas en diferentes niveles
     Para obtener una lista de las alertas de nivel de host, consulte la [Tabla de referencia de alertas](../articles/security-center/alerts-reference.md#alerts-containerhost).
 
 
-* **Nivel de clúster (proporcionado por Microsoft Defender para Kubernetes)** : en el nivel de clúster, la protección contra amenazas consiste en analizar los registros de auditoría de Kubernetes. Para habilitar esta supervisión **sin agente**, habilite las características de seguridad mejoradas. Si su clúster es local o reside en otro proveedor de nube, utilice [Kubernetes habilitado para Azure Arc y la extensión de Microsoft Defender](../articles/security-center/defender-for-kubernetes-azure-arc.md).
+* **Nivel de clúster (proporcionado por Microsoft Defender para Kubernetes)** : en el nivel de clúster, la protección contra amenazas consiste en analizar los registros de auditoría de Kubernetes. Para habilitar esta supervisión **sin agente**, habilite las características de seguridad mejoradas. Si su clúster es local o reside en otro proveedor de nube, utilice [Kubernetes habilitado para Azure Arc y la extensión de Defender](../articles/security-center/defender-for-kubernetes-azure-arc.md).
 
     Para generar alertas en este nivel, Defender for Cloud supervisa los registros de los clústeres. Entre los ejemplos de eventos en este nivel se incluyen los paneles de Kubernetes expuestos y la creación de roles con privilegios elevados y de montajes confidenciales.
 

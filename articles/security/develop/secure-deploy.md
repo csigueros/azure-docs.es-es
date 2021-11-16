@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: f8094fc0eaf646a026371db3726706f92c763f6d
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: ab2188e0a59216ab01b54f430506003529129bb7
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131460553"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132342991"
 ---
 # <a name="deploy-secure-applications-on-azure"></a>Implementación de aplicaciones seguras en Azure
 En esta serie de artículos se presentan las actividades y controles de seguridad que hay que tener en cuenta al implementar aplicaciones para la nube. Se tratan los conceptos y preguntas de seguridad que se deben tener en cuenta durante las fases de versión y de respuesta del [Ciclo de vida de desarrollo de seguridad (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) de Microsoft. El objetivo es ayudarle a definir actividades y servicios de Azure que pueden usarse para implementar una aplicación más segura.
@@ -68,18 +68,18 @@ La supervisión continua de la aplicación una vez implementada puede ayudarle a
 Los servicios de Azure que ayudan con la supervisión de aplicaciones son los siguientes:
 
   - Azure Application Insights
-  - Azure Security Center
+  - Microsoft Defender for Cloud
 
 #### <a name="application-insights"></a>Application Insights
 
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) es un servicio de Application Performance Management (APM) extensible para desarrolladores web en varias plataformas. Úselo para supervisar la aplicación web en directo. Application Insights detecta automáticamente anomalías en el rendimiento. Incluye herramientas de análisis eficaces que le ayudan a diagnosticar problemas y comprender lo que hacen realmente los usuarios con la aplicación. Está diseñado para ayudarle a mejorar continuamente el rendimiento y la facilidad de uso.
 
-#### <a name="azure-security-center"></a>Azure Security Center
+#### <a name="microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud
 
-[Azure Security Center](../../security-center/security-center-introduction.md) ayuda a evitar, detectar y responder a amenazas con más visibilidad y control sobre la seguridad de sus recursos de Azure, incluidas las aplicaciones web. Azure Security Center ayuda a detectar amenazas que de otro modo podrían pasar desapercibidas. Funciona con varias soluciones de seguridad.
+[Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) ayuda a evitar, detectar y responder a amenazas con más visibilidad y control sobre la seguridad de sus recursos de Azure, incluidas las aplicaciones web. Microsoft Defender for Cloud ayuda a detectar amenazas que podrían pasar desapercibidas. Funciona con varias soluciones de seguridad.
 
-El nivel Gratis de Security Center ofrece seguridad limitada solo para los recursos de Azure. El [nivel Estándar de Security Center](../../security-center/security-center-get-started.md) amplía estas funcionalidades a los recursos locales y otras nubes.
-El nivel Estándar de Security Center le ayuda a:
+El nivel Gratis de Defender for Cloud ofrece seguridad limitada solo para los recursos de Azure. El [nivel estándar de Defender for Cloud](../../security-center/security-center-get-started.md) amplía estas funcionalidades a los recursos locales y otras nubes.
+El plan estándar de Defender for Cloud le ayuda a:
 
   - Buscar y corregir vulnerabilidades de seguridad
   - Aplicar controles de acceso y de aplicación para bloquear actividad malintencionada

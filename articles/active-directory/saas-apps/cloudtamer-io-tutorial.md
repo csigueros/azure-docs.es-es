@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 329121332449316f3582ee38c11ad843b25ab812
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: b39616ea0270615db618b8097a28b67f2cff45e5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132054132"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132311586"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cloudtamerio"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con cloudtamer.io
 
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar cloudtamer.io con Azure Active Directory 
 * Permitir que los usuarios puedan iniciar sesión automáticamente en cloudtamer.io con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -217,4 +217,4 @@ Para administrar fácilmente los permisos de usuario de cloudtamer.io mediante g
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado cloudtamer.io, puede aplicar el control de sesión, que protege tanto la filtración como la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado cloudtamer.io, puede aplicar el control de sesión, que protege tanto la filtración como la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con las aplicaciones de Microsoft Defender for Cloud](/cloud-app-security/proxy-deployment-any-app).

@@ -8,12 +8,12 @@ ms.date: 10/15/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.openlocfilehash: 6b6444ef42e0ada42f374ed5d1e69aefd332a983
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 74a39ff953c1ef8e549dbace0c7fc495976fae2a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131438880"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132325531"
 ---
 # <a name="join-a-teams-meeting"></a>Unión a una reunión de Teams
 
@@ -36,7 +36,7 @@ Las aplicaciones personalizadas compiladas con Azure Communication Services para
 
 ## <a name="meeting-experience"></a>Experiencia de reunión
 
-Al igual que con la unión a una reunión anónima de Teams, la aplicación debe tener el vínculo de reunión para unirse, que se puede recuperar a través de Graph API o del calendario de Microsoft Teams. El nombre de los usuarios BYOI que se muestra en Teams se puede configurar a través de Calling SDK de Communication Services y se etiquetan como "externos" para permitir que los usuarios de Teams sepan que no se han autenticado mediante Azure Active Directory.
+Al igual que con la unión a una reunión anónima de Teams, la aplicación debe tener el vínculo de reunión para unirse, que se puede recuperar a través de Graph API o del calendario de Microsoft Teams. El nombre de los usuarios BYOI que se muestra en Teams se puede configurar a través de Calling SDK de Communication Services y se etiquetan como "externos" para permitir que los usuarios de Teams sepan que no se han autenticado mediante Azure Active Directory. Cuando el primer usuario de ACS se une a una reunión de Teams, el cliente de Teams muestra un mensaje que indica que es posible que algunas características no estén disponibles porque uno de los participantes emplea un cliente personalizado.
 
 Durante una reunión, los usuarios de Communication Services podrán usar la funcionalidad principal de audio, vídeo, uso compartido de pantalla y chat mediante los SDK de Azure Communication Services. Cuando un usuario de Communication Services deja la reunión o esta finaliza, ya no puede enviar ni recibir nuevos mensajes de chat, pero tendrá acceso a los mensajes enviados y recibidos durante la reunión. Los usuarios anónimos de Communication Services no pueden agregar participantes adicionales a la reunión, ni eliminarlos, y no pueden iniciar la grabación ni la transcripción de esta.
 

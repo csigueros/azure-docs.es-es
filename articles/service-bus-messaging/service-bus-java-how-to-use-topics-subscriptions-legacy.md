@@ -5,12 +5,12 @@ ms.date: 07/27/2021
 ms.topic: how-to
 ms.devlang: Java
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
-ms.openlocfilehash: b0f62a9e2953fd7d088a2bed1d3cfa52f6a3b26a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 4cc0321c8d54e0ce354cc49406e4c35484f7f97a
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131083600"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132058513"
 ---
 # <a name="use-service-bus-topics-and-subscriptions-with-java-old-package"></a>Uso de temas y suscripciones de Service Bus con Java (paquete anterior)
 En este artículo, puede escribir código de Java para enviar mensajes a un tema de Azure Service Bus y, luego, recibir mensajes provenientes de suscripciones a ese tema. 
@@ -114,7 +114,7 @@ public class MyServiceBusTopicClient {
 }
 ```
 
-El tamaño máximo de mensaje que admiten los temas de Service Bus es de 256 KB en el [nivel Estándar](service-bus-premium-messaging.md) y de 1 MB en el [nivel Premium](service-bus-premium-messaging.md). El encabezado, que incluye propiedades de la aplicación estándar y personalizadas, puede tener un tamaño máximo de 64 KB. No hay límite para el número de mensajes que puede contener un tema, pero sí lo hay para el tamaño total de los mensajes de un tema. El tamaño de los temas se define en el momento de la creación (el límite máximo es de 5 GB).
+El tamaño máximo de mensaje que admiten los temas de Service Bus es de 256 KB en el [nivel Estándar](service-bus-premium-messaging.md) y de 100 MB en el [nivel Premium](service-bus-premium-messaging.md). El encabezado, que incluye propiedades de la aplicación estándar y personalizadas, puede tener un tamaño máximo de 64 KB. No hay límite para el número de mensajes que puede contener un tema, pero sí lo hay para el tamaño total de los mensajes de un tema. El tamaño de los temas se define en el momento de la creación (el límite máximo es de 5 GB).
 
 ## <a name="receive-messages-from-a-subscription"></a>Recepción de mensajes de una suscripción
 Actualice el método **main** para crear tres objetos **SubscriptionClient** para tres suscripciones e invoque un método auxiliar que reciba asincrónicamente los mensajes del tema de Service Bus. El código de ejemplo asume que ha creado un tema llamado **BasicTopic** y tres suscripciones denominadas **Subscription1**, **Subscription2** y **Suscripción3**. Si ha usado nombres diferentes para ellos, actualice el código antes de probarlos. 

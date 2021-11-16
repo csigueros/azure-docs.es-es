@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: hasshah
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 09322cb8d5497b2f6ea639955ebd7338e39f2418
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: a6b7a9c072951a7010403c9e54dff844eb910d95
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110116651"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132490677"
 ---
 # <a name="recommendations-and-guidelines-for-keyword-recognition"></a>Recomendaciones e instrucciones para el reconocimiento de palabras clave
 
@@ -42,13 +42,13 @@ Crear una palabra clave eficaz es fundamental para garantizar que el producto re
 
 En un escenario de reconocimiento de palabras clave de varias fases en el que se usa la [comprobación de palabras clave](keyword-recognition-overview.md#keyword-verification), las aplicaciones pueden elegir cuándo se notifica al usuario final que se ha detectado una palabra clave. La recomendación para representar cualquier indicador visual o auditivo es confiar en las respuestas del servicio de comprobación de palabras clave:
 
-![Guía de la experiencia del usuario para optimizar la precisión.](media/custom-keyword/keyword-verification-ux-accuracy.png)
+![Guía de la experiencia del usuario para optimizar la precisión.](media/custom-keyword/kw-verification-ux-accuracy.png)
 
 Esto garantiza una experiencia óptima en términos de precisión para minimizar el impacto percibido por el usuario de las aceptaciones falsas, pero acarrea una latencia adicional.
 
 En el caso de las aplicaciones que requieran optimización de la latencia, las aplicaciones pueden proporcionar indicadores claros y discretos al usuario final basados en el reconocimiento de palabras clave en el dispositivo. Por ejemplo, la iluminación de un patrón LED o la pulsación de un icono. Los indicadores pueden seguir mostrándose si la comprobación de palabras clave responde con una aceptación de palabra clave, o pueden descartarse si la respuesta es un rechazo de palabra clave:
 
-![Guía de la experiencia del usuario para optimizar la latencia.](media/custom-keyword/keyword-verification-ux-latency.png)
+![Guía de la experiencia del usuario para optimizar la latencia.](media/custom-keyword/kw-verification-ux-latency.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

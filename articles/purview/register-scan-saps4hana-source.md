@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: df8794f0b22fa5ae1cc457bd8dfebc12032a7961
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: abc98ed4df5da533dc7f6a8483a917150babf0ad
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131848882"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132488038"
 ---
 # <a name="connect-to-and-manage-sap-s4hana-in-azure-purview"></a>Conexión y administración de SAP S/4HANA en Azure Purview
 
@@ -33,9 +33,12 @@ En este artículo se describe cómo registrar SAP S/4HANA y cómo autenticarse e
 
 * Un [recurso de Purview](create-catalog-portal.md) activo.
 
-* Tendrá que ser administrador de orígenes de datos y lector de datos para poder registrar un origen y administrarlo en Purview Studio. Para obtener más información, consulte la [página Permisos de Azure Purview](catalog-permissions.md).
+* Tendrá que ser administrador de orígenes de datos y lector de datos para poder registrar un origen y administrarlo en Purview Studio. Para obtener más información, consulte la [página Permisos de Azure Purview](catalog-permissions.md).
 
 * Configure la versión más reciente del [entorno de ejecución de integración autohospedado](https://www.microsoft.com/download/details.aspx?id=39717). Para obtener más información, consulte la [guía de creación y configuración de un entorno de ejecución de integración autohospedado](../data-factory/create-self-hosted-integration-runtime.md).
+
+    >[!NOTE]
+    >El examen de SAP S/4HANA es una operación que consume mucha memoria, por lo que se recomienda instalar IR autohospedado en una máquina con memoria grande, por ejemplo, 128 GB.
 
 * Asegúrese de que [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) esté instalado en la máquina virtual donde también lo esté el entorno de ejecución de integración autohospedado.
 
@@ -115,10 +118,7 @@ Siga los pasos que tiene a continuación para examinar SAP S/4HANA para identifi
 
     1. **JCo library path** (Ruta de acceso de la biblioteca de JCo): especifique la ruta de acceso a la carpeta donde se encuentran las bibliotecas de JCo.
 
-    1. **Maximum memory available** (Memoria máxima disponible): memoria máxima (en GB) disponible en la máquina virtual del cliente que van a usar los procesos de examen. Depende del tamaño del origen de SAP S/4HANA que se va a examinar.
-
-        > [!Note]
-        > Como regla general, especifique 1 GB de memoria por cada 1000 tablas.
+    1. **Maximum memory available** (Memoria máxima disponible): memoria máxima (en GB) disponible en la máquina virtual del cliente que van a usar los procesos de examen. Depende del tamaño del origen de SAP S/4HANA que se va a examinar. Se recomienda proporcionar una gran cantidad de memoria disponible, por ejemplo, 100 GB.
 
     :::image type="content" source="media/register-scan-saps4hana-source/scan-saps-4-hana.png" alt-text="Examen de SAP S/4HANA" border="true":::
 
@@ -132,8 +132,8 @@ Siga los pasos que tiene a continuación para examinar SAP S/4HANA para identifi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha registrado el origen, siga las guías a continuación para obtener más información sobre Purview y sus datos.
+Ahora que ha registrado el origen, siga las guías mostradas a continuación para obtener más información sobre Purview y los datos.
 
-- [Información sobre datos en Azure Purview](concept-insights.md)
+- [Conclusiones sobre los datos en Azure Purview](concept-insights.md)
 - [Linaje en Azure Purview](catalog-lineage-user-guide.md)
 - [Búsqueda en Data Catalog](how-to-search-catalog.md)

@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/04/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: edc70416671e57624b5e36d90de37f0e9cefd74c
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 853509bbf2148fc4d34463b61c3dfb4a330b79ad
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131850648"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132486331"
 ---
 # <a name="connect-to-and-manage-sap-ecc-in-azure-purview"></a>Conexión y administración de SAP ECC en Azure Purview
 
@@ -25,7 +25,7 @@ En este artículo se describe cómo registrar SAP ECC y cómo autenticarse e int
 |---|---|---|---|---|---|---|
 | [Sí](#register)| [Sí](#scan)| No | No | No | No| [Sí**](how-to-lineage-sapecc.md)|
 
-\** Se admite el linaje si el conjunto de datos se usa como origen o receptor en la [actividad de copia de Data Factory](how-to-link-azure-data-factory.md). 
+\** Se admite el linaje si el conjunto de datos se usa como origen o receptor en la [actividad de copia de Data Factory](how-to-link-azure-data-factory.md) 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -33,9 +33,12 @@ En este artículo se describe cómo registrar SAP ECC y cómo autenticarse e int
 
 * Un [recurso de Purview](create-catalog-portal.md) activo.
 
-* Tendrá que ser administrador de orígenes de datos y lector de datos para poder registrar un origen y administrarlo en Purview Studio. Para obtener más información, consulte la [página Permisos de Azure Purview](catalog-permissions.md).
+* Tendrá que ser administrador de orígenes de datos y lector de datos para poder registrar un origen y administrarlo en Purview Studio. Para obtener más información, consulte la [página Permisos de Azure Purview](catalog-permissions.md).
 
 * Configure la versión más reciente del [entorno de ejecución de integración autohospedado](https://www.microsoft.com/download/details.aspx?id=39717). Para obtener más información, consulte la [guía de creación y configuración de un entorno de ejecución de integración autohospedado](../data-factory/create-self-hosted-integration-runtime.md).
+
+    >[!NOTE]
+    >El examen de SAP ECC es una operación que consume mucha memoria, por lo que se recomienda instalar Integration Runtime autohospedado en una máquina con memoria grande, por ejemplo, 128 GB.
 
 * Asegúrese de que [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) esté instalado en la máquina virtual donde también lo esté el entorno de ejecución de integración autohospedado.
 
@@ -129,8 +132,8 @@ Siga los pasos que tiene a continuación para examinar SAP ECC para identificar 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha registrado el origen, siga las guías a continuación para obtener más información sobre Purview y sus datos.
+Ahora que ha registrado el origen, siga las guías mostradas a continuación para obtener más información sobre Purview y los datos.
 
-- [Información sobre datos en Azure Purview](concept-insights.md)
+- [Conclusiones sobre los datos en Azure Purview](concept-insights.md)
 - [Linaje en Azure Purview](catalog-lineage-user-guide.md)
 - [Búsqueda en Data Catalog](how-to-search-catalog.md)

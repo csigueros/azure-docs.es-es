@@ -3,12 +3,12 @@ title: Protección de Azure Functions
 description: Obtenga información sobre cómo hacer que el código de función que se ejecuta en Azure sea más seguro frente a ataques comunes.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: f215e67f3ea27e789ebd10e7baa487528339ee8e
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: d1901c9f471901c086c99d1c1fff66ab1258bd54
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132316173"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484459"
 ---
 # <a name="securing-azure-functions"></a>Protección de Azure Functions
 
@@ -24,7 +24,7 @@ Esta sección le guía en la configuración y ejecución de la aplicación de fu
 
 ### <a name="defender-for-cloud"></a>Defender para la nube
 
-Defender para la nube se integra con la aplicación de funciones en el portal. Proporciona, de forma gratuita, una evaluación rápida de posibles vulnerabilidades de seguridad relacionadas con la configuración. Las aplicaciones de funciones que se ejecutan en un plan dedicado también pueden usar las características de seguridad mejoradas de Defender para la nube con un costo adicional. Para obtener más información, vea [Protección de las aplicaciones web y API de Azure App Service](../security-center/defender-for-app-service-introduction.md). 
+Defender para la nube se integra con la aplicación de funciones en el portal. Proporciona, de forma gratuita, una evaluación rápida de posibles vulnerabilidades de seguridad relacionadas con la configuración. Las aplicaciones de funciones que se ejecutan en un plan dedicado también pueden usar las características de seguridad mejoradas de Defender para la nube con un costo adicional. Para obtener más información, vea [Protección de las aplicaciones web y API de Azure App Service](../defender-for-cloud/defender-for-app-service-introduction.md). 
 
 ### <a name="log-and-monitor"></a>Registro y supervisión
 
@@ -76,7 +76,7 @@ Para obtener más información sobre las claves de acceso, vea el [artículo sob
 
 De forma predeterminada, las claves se almacenan en un contenedor de Blob Storage en la cuenta proporcionada por el valor `AzureWebJobsStorage`. Puede usar la configuración de la aplicación específica para invalidar este comportamiento y almacenar las claves en una ubicación distinta.
 
-|Location  |Configuración | Value | Descripción  |
+|Location  |Configuración | Valor | Descripción  |
 |---------|---------|---------|---------|
 |Cuenta de almacenamiento distinta     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL>` | Almacena claves en Blob Storage de una segunda cuenta de almacenamiento, según la dirección URL de SAS proporcionada. Las claves se cifran antes de almacenarse con un secreto único para la aplicación de funciones. |
 |Sistema de archivos   | `AzureWebJobsSecretStorageType`   |  `files`       | Las claves se conservan en el sistema de archivos y se cifran antes del almacenamiento con un secreto único para la aplicación de funciones. |

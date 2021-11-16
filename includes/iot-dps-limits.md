@@ -4,12 +4,12 @@ ms.service: iot-dps
 ms.topic: include
 ms.date: 10/10/2021
 ms.author: v-stharr
-ms.openlocfilehash: fa416ff3e3ef5b502b65ac414558692ccd7071b5
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: ac1d2554df675dc055530ab4b721a0510f2fddfb
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129866128"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132399413"
 ---
 > [!NOTE]
 > Los límites de algunas áreas de este servicio son ajustables. Esto se representa en las tablas siguientes con la columna *¿Ajustable?* . Cuando se puede ajustar el límite, el valor de *¿Ajustable?* es *Sí*.
@@ -42,4 +42,3 @@ El servicio de aprovisionamiento de dispositivos tiene los siguientes límites d
 | Registros de dispositivos | 200/min/servicio | Sí |
 | Operación de sondeo de dispositivos | 5/10 s/dispositivo | No |
 
-Cada llamada API en DPS se puede facturar como una *operación*. Esto incluye todas las API de servicio y la API de registro de dispositivos. La operación de sondeo de registro de dispositivos no se factura.

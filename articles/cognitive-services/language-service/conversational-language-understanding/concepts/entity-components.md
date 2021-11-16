@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021
-ms.openlocfilehash: 5a5c76ed125a600458b87b3c5f4c451a62b13e8c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: c42028b10a71a039a208f82cfacb58e5ba8e07cc
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091524"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132347734"
 ---
 # <a name="entity-components"></a>Componentes de la entidad
 

@@ -5,12 +5,12 @@ ms.custom: hdinsightactive, devx-track-azurepowershell
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/22/2020
-ms.openlocfilehash: f2bb1ebd6e8db80a071dc3f82e1eedded26f6116
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: 8e49d85ed4646f337a492ac92be4e31edfa3b9c4
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634490"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132487070"
 ---
 # <a name="reboot-vms-for-hdinsight-clusters"></a>Reinicio de máquinas virtuales para los clústeres de HDInsight
 
@@ -51,13 +51,13 @@ Para la operación de reinicio del nodo se requieren dos pasos: enumerar los nod
 
 Puede usar la característica **Probar** en el documento de la API para enviar solicitudes a HDInsight. Para la operación de reinicio del nodo se requieren dos pasos: enumerar los nodos y reiniciarlos.
 
-1. Enumerar los nodos. Puede obtener la lista de nodos de clúster en la API REST o en Ambari. Para más información, consulte [Operación de enumeración de host HDInsight de la API de REST](/rest/api/hdinsight/virtualmachines/listhosts).
+1. Enumerar los nodos. Puede obtener la lista de nodos de clúster en la API REST o en Ambari. Para más información, consulte [Operación de enumeración de host HDInsight de la API de REST](/rest/api/hdinsight/2021-06-01/virtual-machines/list-hosts).
 
     ```
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/listHosts?api-version=2018-06-01-preview
     ```
 
-1. Reiniciar los hosts. Después de obtener los nombres de los nodos que desea reiniciar, reinicie los nodos mediante la API de REST. El nombre del nodo sigue el patrón *NodeType (wn/hn/zk)*  + *x* + *primeros seis caracteres del nombre del clúster*. Para más información, consulte [Operación de reinicio de hosts HDInsight de la API REST](/rest/api/hdinsight/virtualmachines/restarthosts).
+1. Reiniciar los hosts. Después de obtener los nombres de los nodos que desea reiniciar, reinicie los nodos mediante la API de REST. El nombre del nodo sigue el patrón *NodeType (wn/hn/zk)*  + *x* + *primeros seis caracteres del nombre del clúster*. Para más información, consulte [Operación de reinicio de hosts HDInsight de la API REST](/rest/api/hdinsight/2021-06-01/virtual-machines/restart-hosts).
 
     ```
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/restartHosts?api-version=2018-06-01-preview
@@ -75,5 +75,5 @@ Los nombres reales de los nodos que desea reiniciar se especifican en una matriz
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Restart-AzHDInsightHost](/powershell/module/az.hdinsight/restart-azhdinsighthost)
-* [API de REST de máquinas virtuales de HDInsight](/rest/api/hdinsight/virtualmachines)
+* [API de REST de máquinas virtuales de HDInsight](/rest/api/hdinsight/2021-06-01/virtual-machines)
 * [API REST de HDInsight](/rest/api/hdinsight/)

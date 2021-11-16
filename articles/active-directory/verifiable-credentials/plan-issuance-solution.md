@@ -10,12 +10,12 @@ ms.subservice: verifiable-credentials
 ms.date: 07/20/2021
 ms.author: baselden
 ms.custom: references_regions
-ms.openlocfilehash: d724c41fd16ea762fc96c36e67fe4a00a5b5e72d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fdf6ef5910e31dc21929cf484b2b1ad580badef7
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728166"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132319727"
 ---
 # <a name="plan-your-azure-active-directory-verifiable-credentials-issuance-solution-preview"></a>Planeación de una solución de emisión de credenciales verificables de Azure Active Directory (versión preliminar)
 
@@ -286,7 +286,7 @@ Para el registro y la supervisión de seguridad, se recomienda lo siguiente:
 
 * Habilite el registro de la cuenta de Azure Storage para supervisar y enviar alertas de los cambios de configuración. Encontrará más información en [Supervisión de Azure Blob Storage](../../storage/blobs/monitor-blob-storage.md).
 
-* Archive los registros en sistemas de Administración de eventos e información de seguridad (SIEM), como [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel) para la retención a largo plazo.
+* Archive los registros en sistemas de Administración de eventos e información de seguridad (SIEM), como [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel), para la retención a largo plazo.
 
 * Para mitigar los riesgos de suplantación de identidad, use lo siguiente:
 

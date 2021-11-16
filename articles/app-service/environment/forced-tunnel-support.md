@@ -1,18 +1,18 @@
 ---
 title: Configuración de la tunelización forzada
 description: Aprenda a habilitar App Service Environment para que funcione cuando se realiza la tunelización forzada del tráfico saliente en una red virtual.
-author: ccompy
+author: madsd
 ms.assetid: 384cf393-5c63-4ffb-9eb2-bfd990bc7af1
 ms.topic: quickstart
 ms.date: 05/29/2018
-ms.author: ccompy
+ms.author: madsd
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 8d05b4f8e69023e1ecec7002f394141fff008f0d
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: e0d43424e038328f82d3639891aa85397f68d3ad
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113432975"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132519617"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configuración de App Service Environment con tunelización forzada
 > [!NOTE]

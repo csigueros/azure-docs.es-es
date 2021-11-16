@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de inicio de sesión único (SSO) de Azure Active Directory con Software AG Cloud'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD con Software AG Cloud'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Software AG Cloud.
 author: jeevansd
 manager: CelesteDG
@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/09/2020
+ms.date: 10/28/2021
 ms.author: jeedes
-ms.openlocfilehash: 900cb7892331db3e78314a5de6bfb432f40990c6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 25806847c677eaa3751eef55bf4859d65bf6da2c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128558488"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132329109"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-software-ag-cloud"></a>Tutorial: Integración de inicio de sesión único (SSO) de Azure Active Directory con Software AG Cloud
+# <a name="tutorial-azure-ad-sso-integration-with-software-ag-cloud"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Software AG Cloud
 
 En este tutorial, aprenderá a integrar Software AG Cloud con Azure Active Directory (Azure AD). Al integrar Software AG Cloud con Azure AD, puede hacer lo siguiente:
 
@@ -32,6 +32,9 @@ Para empezar, necesita los siguientes elementos:
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
 * Una suscripción habilitada para el inicio de sesión único (SSO) en Software AG Cloud.
 
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
+
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
@@ -39,7 +42,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 * Software AG Cloud admite el inicio de sesión único iniciado por **SP**.
 * Software AG Cloud admite el aprovisionamiento de usuarios **Just-In-Time**.
 
-## <a name="adding-software-ag-cloud-from-the-gallery"></a>Incorporación de Software AG Cloud desde la galería
+## <a name="add-software-ag-cloud-from-the-gallery"></a>Incorporación de Software AG Cloud desde la galería
 
 Para configurar la integración de Software AG Cloud en Azure AD, deberá agregar Software AG Cloud desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -50,7 +53,6 @@ Para configurar la integración de Software AG Cloud en Azure AD, deberá agreg
 1. En la sección **Agregar desde la galería**, escriba **Software AG Cloud** en el cuadro de búsqueda.
 1. Seleccione **Software AG Cloud** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-
 ## <a name="configure-and-test-azure-ad-sso-for-software-ag-cloud"></a>Configuración y prueba de inicio de sesión único de Azure AD para Software AG Cloud
 
 Configure y pruebe el inicio de sesión único de Azure AD con Software AG Cloud mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Software AG Cloud.
@@ -58,7 +60,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Software AG Clou
 Para configurar y probar el inicio de sesión único de Azure AD con Software AG Cloud, complete los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración de inicio de sesión único de Software AG Cloud](#configure-software-ag-cloud-sso)** , para configurar los valores de inicio de sesión único en el lado de la aplicación.
     1. **[Creación de un usuario de prueba de Software AG Cloud](#create-software-ag-cloud-test-user)** , para tener un homólogo de B.Simon en Software AG Cloud que esté vinculado a la representación del usuario en Azure AD.
@@ -70,19 +72,19 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En Azure Portal en la página de integración de aplicaciones de **Software AG Cloud**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
-
-    1. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: 
-
-        `https://*.softwareag.cloud/auth/realms/TENANT-NAME/broker/IDENTITY-PROVIDER-NAME/endpoint`
+1. En la sección **Configuración básica de SAML**, siga estos pasos:
 
     1. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón:
 
-        `https://*.softwareag.cloud/auth/realms/TENANT-NAME`
+        `https://<SUBDOMAIN>.softwareag.cloud/auth/realms/TENANT-NAME`
+    
+    1. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: 
+
+        `https://<SUBDOMAIN>.softwareag.cloud/auth/realms/TENANT-NAME/broker/IDENTITY-PROVIDER-NAME/endpoint`    
 
         > [!NOTE]
         > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Software AG Cloud](mailto:support@softwareag.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -94,6 +96,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 1. En la sección **Configurar Software AG Cloud**, copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
@@ -132,7 +135,7 @@ En esta sección, va a permitir que B.Simon acceda a Software AG Cloud mediante 
 
 1. En la página siguiente, realice estos pasos.
 
-    ![Pasos de configuración de Software AG Cloud](./media/software-ag-cloud-tutorial/saml-1.png)
+    ![Pasos de configuración de Software AG Cloud](./media/software-ag-cloud-tutorial/configuration.png)
 
     a. En el cuadro **Identity provider display name** (Nombre para mostrar del proveedor de identidades), proporcione un nombre válido como `azure ad`.
 
@@ -154,4 +157,4 @@ Suponiendo que Microsoft Azure esté configurado como un proveedor en Software A
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Software AG Cloud, puede aplicar el control de sesión que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado Software AG Cloud, puede aplicar el control de sesión que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

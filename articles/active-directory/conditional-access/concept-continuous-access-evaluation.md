@@ -12,12 +12,12 @@ manager: karenhoran
 ms.reviewer: jlu
 ms.custom: has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a0eaee3c6e265063270d5cb3b2ea43d3c22fbb0
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 4de2ed185b3a4421a06ac9b3c88df68821b61adf
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131553083"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132307998"
 ---
 # <a name="continuous-access-evaluation"></a>Evaluación continua de acceso
 
@@ -77,7 +77,7 @@ Este proceso habilita el escenario en el que los usuarios pierden el acceso a lo
 
 | | OneDrive web | OneDrive Win32 | OneDrive iOS | OneDrive Android | OneDrive Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | Compatible | Compatible | Compatible | Compatible | Compatible |
+| **SharePoint Online** | Compatible | No compatible | Compatible | Compatible | No compatible |
 
 | | Teams web | Teams Win32 | Teams iOS | Teams Android | Teams Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
@@ -136,29 +136,11 @@ En el ejemplo siguiente, un administrador de acceso condicional ha configurado u
 
 ## <a name="enable-or-disable-cae-preview"></a>Habilitación o deshabilitación de CAE (versión preliminar)
 
-1. Inicie sesión en **Azure Portal** como administrador de acceso condicional, administrador de seguridad o administrador global.
-1. Vaya a **Azure Active Directory** > **Seguridad** > **Evaluación continua de acceso**.
-1. Elija **Habilitar versión preliminar**.
-1. Seleccione **Guardar**.
-
-En esta página, puede limitar opcionalmente los usuarios y grupos que estarán sujetos a la versión preliminar.
-
-> [!NOTE]
-> Puede consultar Microsoft Graph mediante [**continuousAccessEvaluationPolicy**](/graph/api/continuousaccessevaluationpolicy-get?view=graph-rest-beta&preserve-view=true&tabs=http#request-body) para comprobar la configuración de CAE en el inquilino. Una respuesta HTTP 200 y el cuerpo de respuesta asociado indican si CAE está habilitado o deshabilitado en el inquilino. CAE no está configurado si Microsoft Graph devuelve una respuesta HTTP 404.
-
-![Habilitar la versión preliminar de CAE en Azure Portal](./media/concept-continuous-access-evaluation/enable-cae-preview.png)
-
-### <a name="available-options"></a>Opciones disponibles
-
-Las organizaciones tienen opciones a la hora de habilitar CAE.
-
-1. Si deja el valor predeterminado **Auto Enable after general availability** (Habilitado automáticamente después de la disponibilidad general) seleccionado, se habilitará la funcionalidad cuando CAE esté disponible con carácter general.
-1. Los clientes que seleccionen **Enable preview** (Habilitar versión preliminar) se benefician inmediatamente de la nueva funcionalidad y no tendrán que realizar ningún cambio en el momento de la disponibilidad general. 
-1. Los clientes que seleccionen **Disable preview** (Deshabilitar versión preliminar) tienen tiempo para adoptar CAE al ritmo de su organización. Esta configuración se conservará como **Deshabilitado** en el momento de la disponibilidad general.
+La configuración de CAE se ha movido a la hoja Acceso condicional. Los nuevos clientes de CAE pueden acceder a CAE y alternar directamente mientras crean directivas de acceso condicional. Pero algunos clientes existentes tienen que realizar la migración para poder empezar a acceder a CAE mediante Acceso condicional.
 
 #### <a name="migration"></a>Migración
 
-La configuración de CAE se ha movido en el acceso condicional. Los clientes que han configurado los valores de CAE en Seguridad antes tienen que migrar este valor a una directiva de acceso condicional. Siga los pasos que se indican a continuación para migrar la configuración a una directiva de acceso condicional.
+Los clientes que han configurado los valores de CAE en Seguridad tienen que migrar esta configuración a una directiva de acceso condicional. Use los pasos siguientes para migrar la configuración de CAE a una directiva de acceso condicional.
 
 :::image type="content" source="media/concept-continuous-access-evaluation/migrate-continuous-access-evaluation.png" alt-text="Vista del portal que muestra la opción de migrar la evaluación continua de acceso a una directiva de acceso condicional." lightbox="media/concept-continuous-access-evaluation/migrate-continuous-access-evaluation.png":::
 

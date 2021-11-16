@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: cawrites
 ms.date: 11/06/2020
-ms.openlocfilehash: 04bd20e233bac44194c66e772db19f022458383d
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: c147dfb2dbb16e350214dedff39a36625735834d
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129615531"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132062954"
 ---
 # <a name="migration-overview-sql-server-to-azure-sql-database"></a>Información general sobre la migración: de SQL Server a Azure SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -25,6 +25,8 @@ Obtenga información sobre las opciones y consideraciones para migrar las bases 
 Puede migrar las bases de datos de SQL Server que se ejecutan de forma local o en: 
 
 - SQL Server en Azure Virtual Machines.  
+- Azure SQL Database (PaaS).
+- Azure SQL Managed Instance (PaaS).
 - Elastic Compute Cloud (EC2) de Amazon Web Services (AWS).
 - Servicio de base de datos relacional (RDS) de AWS.
 - Compute Engine en Google Cloud Platform (GCP).  

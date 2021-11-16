@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/03/2020
-ms.openlocfilehash: 8df379fe175db6a70d44ab23acf808379d8720bb
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0e2b1711ed8f5a5bcf7059242116ece3e70f1235
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131044292"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132332200"
 ---
 # <a name="install-log-analytics-agent-on-windows-computers"></a>Instalación del agente de Log Analytics en equipos Windows
 En este artículo se proporcionan detalles sobre cómo instalar el agente de Log Analytics en equipos Windows mediante los siguientes métodos:
@@ -32,7 +32,7 @@ En este artículo se proporcionan detalles sobre cómo instalar el agente de Log
 Consulte [Información general de los agentes de Azure Monitor](agents-overview.md#supported-operating-systems) para obtener una lista de las versiones de Windows admitidas por el agente de Log Analytics.
 
 ### <a name="sha-2-code-signing-support-requirement"></a>Requisito de compatibilidad con la firma de código SHA-2 para Windows 
-El agente de Windows empezará a usar exclusivamente la firma SHA-2 el 17 de agosto de 2020. Este cambio afectará a los clientes que usan el agente de Log Analytics en un sistema operativo heredado como parte de cualquier servicio de Azure (Azure Monitor, Azure Automation, Azure Update Management, Azure Change Tracking, Azure Security Center, Azure Sentinel, ATP de Windows Defender). El cambio no requiere ninguna acción del cliente a menos que esté ejecutando el agente en una versión de sistema operativo heredada (Windows 7, Windows Server 2008 R2 y Windows Server 2008). Los clientes que ejecutan una versión de sistema operativo heredada deben realizar las siguientes acciones en sus máquinas antes del 17 de agosto de 2020 o los agentes dejarán de enviar datos a las áreas de trabajo de Log Analytics:
+El agente de Windows empezará a usar exclusivamente la firma SHA-2 el 17 de agosto de 2020. Este cambio afectará a los clientes que usan el agente de Log Analytics en un sistema operativo heredado como parte de cualquier servicio de Azure (Azure Monitor, Azure Automation, Azure Update Management, Azure Change Tracking, Microsoft Defender for Cloud, Microsoft Sentinel y ATP de Windows Defender). El cambio no requiere ninguna acción del cliente a menos que esté ejecutando el agente en una versión de sistema operativo heredada (Windows 7, Windows Server 2008 R2 y Windows Server 2008). Los clientes que ejecutan una versión de sistema operativo heredada deben realizar las siguientes acciones en sus máquinas antes del 17 de agosto de 2020 o los agentes dejarán de enviar datos a las áreas de trabajo de Log Analytics:
 
 1. Instale el Service Pack más reciente para su sistema operativo. Las versiones de Service Pack necesarias son:
     - Windows 7 SP1

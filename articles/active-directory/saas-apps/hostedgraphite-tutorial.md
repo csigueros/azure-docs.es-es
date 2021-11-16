@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/11/2021
 ms.author: jeedes
-ms.openlocfilehash: b9230da3c27f17c6f8f2c6b5bb7d0e88b4ec0e84
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 185838b45f656e1b28b25749b215ab992d039131
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124772968"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132291376"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Tutorial: Integración de Azure Active Directory con Hosted Graphite
 
@@ -58,7 +58,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Hosted Graphite 
 Para configurar y probar el inicio de sesión único de Azure AD con Hosted Graphite, realice los pasos siguientes:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Hosted Graphite](#configure-hosted-graphite-sso)** : para configurar los valores de Inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Hosted Graphite](#create-hosted-graphite-test-user)** : para tener un homólogo de B.Simon en Hosted Graphite que esté vinculado a la representación del usuario en Azure AD.
@@ -150,7 +150,7 @@ En esta sección, va a conceder a B.Simon acceso a Hosted Graphite mediante el i
 En esta sección se creará un usuario llamado Britta Simon en Hosted Graphite. Hosted Graphite admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario no existe aún en Hosted Graphite, se crea uno nuevo después de la autenticación.
 
 > [!NOTE]
-> Si necesita crear un usuario manualmente, es preciso que se ponga contacto con el [equipo de soporte técnico de Hosted Graphite](<mailto:help@hostedgraphite.com>).
+> Si necesita crear un usuario manualmente, es preciso que se ponga contacto con el [equipo de soporte técnico de Hosted Graphite](mailto:help@hostedgraphite.com).
 
 ## <a name="test-sso"></a>Prueba de SSO
 
@@ -170,4 +170,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que se ha configurado Hosted Graphite, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez que se ha configurado Hosted Graphite, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

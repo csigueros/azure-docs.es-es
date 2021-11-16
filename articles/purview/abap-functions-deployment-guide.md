@@ -6,13 +6,13 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 09/27/2021
-ms.openlocfilehash: b8d67c3c5b596627fc1795cf97d807d7f582e326
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.date: 11/07/2021
+ms.openlocfilehash: 7894e187efedf91e3c586dd0d8caaf35e753be3c
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131442167"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132028594"
 ---
 # <a name="deploy-the-metadata-extraction-abap-function-module-for-the-sap-r3-family-of-bridges"></a>Implementación del módulo de función de ABAP de extracción de metadatos para la familia de puentes de SAP R3
 
@@ -32,6 +32,12 @@ En este documento se detallan los pasos necesarios para implementar este módulo
 
 > [!Note]
 > Las siguientes instrucciones se compilaron en función de la GUI de SAP v.7.2
+
+## <a name="prerequisites"></a>Prerrequisitos
+
+Descargue el código fuente del módulo de funciones ABAP de Purview Studio. Al registrar un origen y, a continuación, un nuevo examen para [SAP ECC](register-scan-sapecc-source.md) o [SAP S/4HANA](register-scan-saps4hana-source.md), puede encontrar un vínculo de descarga en la parte superior como se muestra a continuación. 
+
+:::image type="content" source="media/abap-functions-deployment-guide/download-abap-code.png" alt-text="Descarga del código fuente del módulo de funciones de ABAP desde Purview Studio" border="true":::
 
 ## <a name="deployment-of-the-module"></a>Implementación del módulo
 
@@ -79,7 +85,7 @@ Cuando se haya creado el módulo, especifique la información siguiente:
 
 3. Vaya a la pestaña **Source code** (Código fuente). Hay dos maneras de implementar código para la función:
 
-   a. En el menú principal, cargue el archivo de texto [Z\_MITI\_DOWNLOAD](https://github.com/Azure/Purview-Samples/tree/master/connectors/sap). Para ello, seleccione **Utilities**, **More Utilities**, **Upload/Download** y **Upload** (Utilidades > Más utilidades > Cargar/Descargar > Cargar).
+   a. En el menú principal, cargue el archivo de texto que descargó de Purview Studio, tal como se describe en [Requisitos previos](#prerequisites). Para ello, seleccione **Utilities**, **More Utilities**, **Upload/Download** y **Upload** (Utilidades > Más utilidades > Cargar/Descargar > Cargar).
 
    b. También puede abrir el archivo, copiar su contenido y pegarlo en el área **Source code** (Código fuente).
 
