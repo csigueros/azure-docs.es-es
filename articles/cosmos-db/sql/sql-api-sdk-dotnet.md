@@ -57,7 +57,6 @@ ms.locfileid: "124806459"
 
 Las versiones secundarias siguientes de los SDK de .NET están disponibles en la versión 2.x.x:
 
-[!INCLUDE[Release notes](~/samples-cosmosdb-dotnet-v2/changelog.md)]
 
 ## <a name="faq"></a>Preguntas más frecuentes
 
